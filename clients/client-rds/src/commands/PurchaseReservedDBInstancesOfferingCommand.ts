@@ -9,7 +9,7 @@ import type {
   PurchaseReservedDBInstancesOfferingResult,
 } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { PurchaseReservedDBInstancesOffering } from "../schemas/schemas_0";
+import { PurchaseReservedDBInstancesOffering$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -154,7 +154,7 @@ export class PurchaseReservedDBInstancesOfferingCommand extends $Command
   })
   .s("AmazonRDSv19", "PurchaseReservedDBInstancesOffering", {})
   .n("RDSClient", "PurchaseReservedDBInstancesOfferingCommand")
-  .sc(PurchaseReservedDBInstancesOffering)
+  .sc(PurchaseReservedDBInstancesOffering$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

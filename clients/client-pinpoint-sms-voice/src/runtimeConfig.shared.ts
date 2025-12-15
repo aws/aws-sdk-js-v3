@@ -31,7 +31,7 @@ export const getRuntimeConfig = (config: PinpointSMSVoiceClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.pinpointsmsvoice" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
     serviceId: config?.serviceId ?? "Pinpoint SMS Voice",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

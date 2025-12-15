@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
 import type { ListDatastoresRequest, ListDatastoresResponse } from "../models/models_0";
-import { ListDatastores } from "../schemas/schemas_0";
+import { ListDatastores$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,7 +123,7 @@ export class ListDatastoresCommand extends $Command
   })
   .s("AWSIoTAnalytics", "ListDatastores", {})
   .n("IoTAnalyticsClient", "ListDatastoresCommand")
-  .sc(ListDatastores)
+  .sc(ListDatastores$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

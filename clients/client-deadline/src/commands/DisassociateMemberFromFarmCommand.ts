@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateMemberFromFarmRequest, DisassociateMemberFromFarmResponse } from "../models/models_0";
-import { DisassociateMemberFromFarm } from "../schemas/schemas_0";
+import { DisassociateMemberFromFarm$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class DisassociateMemberFromFarmCommand extends $Command
   })
   .s("Deadline", "DisassociateMemberFromFarm", {})
   .n("DeadlineClient", "DisassociateMemberFromFarmCommand")
-  .sc(DisassociateMemberFromFarm)
+  .sc(DisassociateMemberFromFarm$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

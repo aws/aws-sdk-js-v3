@@ -9,7 +9,7 @@ import type {
   DetachVerifiedAccessTrustProviderRequest,
   DetachVerifiedAccessTrustProviderResult,
 } from "../models/models_5";
-import { DetachVerifiedAccessTrustProvider } from "../schemas/schemas_0";
+import { DetachVerifiedAccessTrustProvider$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -150,7 +150,7 @@ export class DetachVerifiedAccessTrustProviderCommand extends $Command
   })
   .s("AmazonEC2", "DetachVerifiedAccessTrustProvider", {})
   .n("EC2Client", "DetachVerifiedAccessTrustProviderCommand")
-  .sc(DetachVerifiedAccessTrustProvider)
+  .sc(DetachVerifiedAccessTrustProvider$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { TagResourceRequest, TagResourceResponse } from "../models/models_0";
-import { TagResource } from "../schemas/schemas_0";
+import { TagResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class TagResourceCommand extends $Command
   })
   .s("OvertureService", "TagResource", {})
   .n("DirectConnectClient", "TagResourceCommand")
-  .sc(TagResource)
+  .sc(TagResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

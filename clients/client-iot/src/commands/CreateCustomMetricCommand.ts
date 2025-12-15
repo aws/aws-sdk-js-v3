@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import type { CreateCustomMetricRequest, CreateCustomMetricResponse } from "../models/models_0";
-import { CreateCustomMetric } from "../schemas/schemas_0";
+import { CreateCustomMetric$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class CreateCustomMetricCommand extends $Command
   })
   .s("AWSIotService", "CreateCustomMetric", {})
   .n("IoTClient", "CreateCustomMetricCommand")
-  .sc(CreateCustomMetric)
+  .sc(CreateCustomMetric$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

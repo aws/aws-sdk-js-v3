@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateKnowledgeBaseTemplateUriRequest, UpdateKnowledgeBaseTemplateUriResponse } from "../models/models_0";
-import { UpdateKnowledgeBaseTemplateUri } from "../schemas/schemas_0";
+import { UpdateKnowledgeBaseTemplateUri$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -115,7 +115,7 @@ export class UpdateKnowledgeBaseTemplateUriCommand extends $Command
   })
   .s("WisdomService", "UpdateKnowledgeBaseTemplateUri", {})
   .n("WisdomClient", "UpdateKnowledgeBaseTemplateUriCommand")
-  .sc(UpdateKnowledgeBaseTemplateUri)
+  .sc(UpdateKnowledgeBaseTemplateUri$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

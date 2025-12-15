@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetLifecyclePolicyRequest, GetLifecyclePolicyResponse } from "../models/models_0";
-import { GetLifecyclePolicy } from "../schemas/schemas_0";
+import { GetLifecyclePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class GetLifecyclePolicyCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "GetLifecyclePolicy", {})
   .n("ECRClient", "GetLifecyclePolicyCommand")
-  .sc(GetLifecyclePolicy)
+  .sc(GetLifecyclePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

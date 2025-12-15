@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetBucketPolicyOutput, GetBucketPolicyRequest } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { GetBucketPolicy } from "../schemas/schemas_0";
+import { GetBucketPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -163,7 +163,7 @@ export class GetBucketPolicyCommand extends $Command
   })
   .s("AmazonS3", "GetBucketPolicy", {})
   .n("S3Client", "GetBucketPolicyCommand")
-  .sc(GetBucketPolicy)
+  .sc(GetBucketPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

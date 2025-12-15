@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListCostCategoryDefinitionsRequest, ListCostCategoryDefinitionsResponse } from "../models/models_0";
-import { ListCostCategoryDefinitions } from "../schemas/schemas_0";
+import { ListCostCategoryDefinitions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class ListCostCategoryDefinitionsCommand extends $Command
   })
   .s("AWSInsightsIndexService", "ListCostCategoryDefinitions", {})
   .n("CostExplorerClient", "ListCostCategoryDefinitionsCommand")
-  .sc(ListCostCategoryDefinitions)
+  .sc(ListCostCategoryDefinitions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

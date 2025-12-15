@@ -13,7 +13,7 @@ import type {
   DescribeReplicationTaskAssessmentResultsMessage,
   DescribeReplicationTaskAssessmentResultsResponse,
 } from "../models/models_0";
-import { DescribeReplicationTaskAssessmentResults } from "../schemas/schemas_0";
+import { DescribeReplicationTaskAssessmentResults$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class DescribeReplicationTaskAssessmentResultsCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribeReplicationTaskAssessmentResults", {})
   .n("DatabaseMigrationServiceClient", "DescribeReplicationTaskAssessmentResultsCommand")
-  .sc(DescribeReplicationTaskAssessmentResults)
+  .sc(DescribeReplicationTaskAssessmentResults$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

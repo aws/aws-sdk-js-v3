@@ -9,7 +9,7 @@ import type {
   UpdateQueryLoggingConfigurationRequest,
   UpdateQueryLoggingConfigurationResponse,
 } from "../models/models_0";
-import { UpdateQueryLoggingConfiguration } from "../schemas/schemas_0";
+import { UpdateQueryLoggingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class UpdateQueryLoggingConfigurationCommand extends $Command
   })
   .s("AmazonPrometheusService", "UpdateQueryLoggingConfiguration", {})
   .n("AmpClient", "UpdateQueryLoggingConfigurationCommand")
-  .sc(UpdateQueryLoggingConfiguration)
+  .sc(UpdateQueryLoggingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

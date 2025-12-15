@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAccountAliasRequest, DeleteAccountAliasResult } from "../models/models_0";
-import { DeleteAccountAlias } from "../schemas/schemas_0";
+import { DeleteAccountAlias$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
@@ -80,7 +80,7 @@ export class DeleteAccountAliasCommand extends $Command
   })
   .s("SupportApp", "DeleteAccountAlias", {})
   .n("SupportAppClient", "DeleteAccountAliasCommand")
-  .sc(DeleteAccountAlias)
+  .sc(DeleteAccountAlias$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

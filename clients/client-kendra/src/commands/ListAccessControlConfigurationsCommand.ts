@@ -9,7 +9,7 @@ import type {
   ListAccessControlConfigurationsRequest,
   ListAccessControlConfigurationsResponse,
 } from "../models/models_0";
-import { ListAccessControlConfigurations } from "../schemas/schemas_0";
+import { ListAccessControlConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class ListAccessControlConfigurationsCommand extends $Command
   })
   .s("AWSKendraFrontendService", "ListAccessControlConfigurations", {})
   .n("KendraClient", "ListAccessControlConfigurationsCommand")
-  .sc(ListAccessControlConfigurations)
+  .sc(ListAccessControlConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   GetGraphqlApiEnvironmentVariablesRequest,
   GetGraphqlApiEnvironmentVariablesResponse,
 } from "../models/models_0";
-import { GetGraphqlApiEnvironmentVariables } from "../schemas/schemas_0";
+import { GetGraphqlApiEnvironmentVariables$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class GetGraphqlApiEnvironmentVariablesCommand extends $Command
   })
   .s("AWSDeepdishControlPlaneService", "GetGraphqlApiEnvironmentVariables", {})
   .n("AppSyncClient", "GetGraphqlApiEnvironmentVariablesCommand")
-  .sc(GetGraphqlApiEnvironmentVariables)
+  .sc(GetGraphqlApiEnvironmentVariables$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

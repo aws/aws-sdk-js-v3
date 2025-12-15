@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { CreateCertificateRequest, CreateCertificateResult } from "../models/models_0";
-import { CreateCertificate } from "../schemas/schemas_0";
+import { CreateCertificate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -214,7 +214,7 @@ export class CreateCertificateCommand extends $Command
   })
   .s("Lightsail_20161128", "CreateCertificate", {})
   .n("LightsailClient", "CreateCertificateCommand")
-  .sc(CreateCertificate)
+  .sc(CreateCertificate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

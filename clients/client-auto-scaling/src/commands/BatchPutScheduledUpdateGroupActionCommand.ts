@@ -9,7 +9,7 @@ import type {
   BatchPutScheduledUpdateGroupActionAnswer,
   BatchPutScheduledUpdateGroupActionType,
 } from "../models/models_0";
-import { BatchPutScheduledUpdateGroupAction } from "../schemas/schemas_0";
+import { BatchPutScheduledUpdateGroupAction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class BatchPutScheduledUpdateGroupActionCommand extends $Command
   })
   .s("AutoScaling_2011_01_01", "BatchPutScheduledUpdateGroupAction", {})
   .n("AutoScalingClient", "BatchPutScheduledUpdateGroupActionCommand")
-  .sc(BatchPutScheduledUpdateGroupAction)
+  .sc(BatchPutScheduledUpdateGroupAction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

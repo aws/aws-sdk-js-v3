@@ -7,7 +7,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 import type { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateHostedConfigurationVersionRequest, HostedConfigurationVersion } from "../models/models_0";
-import { CreateHostedConfigurationVersion } from "../schemas/schemas_0";
+import { CreateHostedConfigurationVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -159,7 +159,7 @@ export class CreateHostedConfigurationVersionCommand extends $Command
   })
   .s("AmazonAppConfig", "CreateHostedConfigurationVersion", {})
   .n("AppConfigClient", "CreateHostedConfigurationVersionCommand")
-  .sc(CreateHostedConfigurationVersion)
+  .sc(CreateHostedConfigurationVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

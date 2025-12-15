@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
 import type { BatchGetStreamKeyRequest, BatchGetStreamKeyResponse } from "../models/models_0";
-import { BatchGetStreamKey } from "../schemas/schemas_0";
+import { BatchGetStreamKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class BatchGetStreamKeyCommand extends $Command
   })
   .s("AmazonInteractiveVideoService", "BatchGetStreamKey", {})
   .n("IvsClient", "BatchGetStreamKeyCommand")
-  .sc(BatchGetStreamKey)
+  .sc(BatchGetStreamKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

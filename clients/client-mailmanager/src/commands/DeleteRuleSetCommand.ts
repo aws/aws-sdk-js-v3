@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
 import type { DeleteRuleSetRequest, DeleteRuleSetResponse } from "../models/models_0";
-import { DeleteRuleSet } from "../schemas/schemas_0";
+import { DeleteRuleSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,7 +77,7 @@ export class DeleteRuleSetCommand extends $Command
   })
   .s("MailManagerSvc", "DeleteRuleSet", {})
   .n("MailManagerClient", "DeleteRuleSetCommand")
-  .sc(DeleteRuleSet)
+  .sc(DeleteRuleSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient";
 import { type GetMediaForFragmentListInput, GetMediaForFragmentListOutput } from "../models/models_0";
-import { GetMediaForFragmentList } from "../schemas/schemas_0";
+import { GetMediaForFragmentList$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -147,7 +147,7 @@ export class GetMediaForFragmentListCommand extends $Command
   })
   .s("AWSAcuityReader", "GetMediaForFragmentList", {})
   .n("KinesisVideoArchivedMediaClient", "GetMediaForFragmentListCommand")
-  .sc(GetMediaForFragmentList)
+  .sc(GetMediaForFragmentList$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

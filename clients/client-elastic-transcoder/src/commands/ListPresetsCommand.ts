@@ -10,7 +10,7 @@ import type {
 } from "../ElasticTranscoderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListPresetsRequest, ListPresetsResponse } from "../models/models_0";
-import { ListPresets } from "../schemas/schemas_0";
+import { ListPresets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -155,7 +155,7 @@ export class ListPresetsCommand extends $Command
   })
   .s("EtsCustomerService", "ListPresets", {})
   .n("ElasticTranscoderClient", "ListPresetsCommand")
-  .sc(ListPresets)
+  .sc(ListPresets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

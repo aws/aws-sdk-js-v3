@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
 import type { UpdateSafetyLeverStateRequest, UpdateSafetyLeverStateResponse } from "../models/models_0";
-import { UpdateSafetyLeverState } from "../schemas/schemas_0";
+import { UpdateSafetyLeverState$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class UpdateSafetyLeverStateCommand extends $Command
   })
   .s("FaultInjectionSimulator", "UpdateSafetyLeverState", {})
   .n("FisClient", "UpdateSafetyLeverStateCommand")
-  .sc(UpdateSafetyLeverState)
+  .sc(UpdateSafetyLeverState$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

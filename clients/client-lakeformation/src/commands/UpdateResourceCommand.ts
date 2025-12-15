@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import type { UpdateResourceRequest, UpdateResourceResponse } from "../models/models_0";
-import { UpdateResource } from "../schemas/schemas_0";
+import { UpdateResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class UpdateResourceCommand extends $Command
   })
   .s("AWSLakeFormation", "UpdateResource", {})
   .n("LakeFormationClient", "UpdateResourceCommand")
-  .sc(UpdateResource)
+  .sc(UpdateResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

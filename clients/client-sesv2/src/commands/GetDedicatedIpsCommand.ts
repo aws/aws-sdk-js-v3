@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDedicatedIpsRequest, GetDedicatedIpsResponse } from "../models/models_0";
-import { GetDedicatedIps } from "../schemas/schemas_0";
+import { GetDedicatedIps$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -93,7 +93,7 @@ export class GetDedicatedIpsCommand extends $Command
   })
   .s("SimpleEmailService_v2", "GetDedicatedIps", {})
   .n("SESv2Client", "GetDedicatedIpsCommand")
-  .sc(GetDedicatedIps)
+  .sc(GetDedicatedIps$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

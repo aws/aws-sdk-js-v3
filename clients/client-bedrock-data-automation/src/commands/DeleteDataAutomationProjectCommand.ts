@@ -10,7 +10,7 @@ import type {
 } from "../BedrockDataAutomationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteDataAutomationProjectRequest, DeleteDataAutomationProjectResponse } from "../models/models_0";
-import { DeleteDataAutomationProject } from "../schemas/schemas_0";
+import { DeleteDataAutomationProject$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DeleteDataAutomationProjectCommand extends $Command
   })
   .s("AmazonBedrockKeystoneBuildTimeService", "DeleteDataAutomationProject", {})
   .n("BedrockDataAutomationClient", "DeleteDataAutomationProjectCommand")
-  .sc(DeleteDataAutomationProject)
+  .sc(DeleteDataAutomationProject$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetInventoryResult } from "../models/models_0";
 import type { GetInventoryRequest } from "../models/models_1";
-import { GetInventory } from "../schemas/schemas_0";
+import { GetInventory$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -161,7 +161,7 @@ export class GetInventoryCommand extends $Command
   })
   .s("AmazonSSM", "GetInventory", {})
   .n("SSMClient", "GetInventoryCommand")
-  .sc(GetInventory)
+  .sc(GetInventory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
 import type { EndpointWithHostLabelOperationInput } from "../models/models_0";
-import { EndpointWithHostLabelOperation } from "../schemas/schemas_0";
+import { EndpointWithHostLabelOperation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -71,7 +71,7 @@ export class EndpointWithHostLabelOperationCommand extends $Command
   })
   .s("JsonRpc10", "EndpointWithHostLabelOperation", {})
   .n("JSONRPC10Client", "EndpointWithHostLabelOperationCommand")
-  .sc(EndpointWithHostLabelOperation)
+  .sc(EndpointWithHostLabelOperation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

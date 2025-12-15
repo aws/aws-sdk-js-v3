@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes
 import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type PublishPackageVersionResult, PublishPackageVersionRequest } from "../models/models_0";
-import { PublishPackageVersion } from "../schemas/schemas_0";
+import { PublishPackageVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -140,7 +140,7 @@ export class PublishPackageVersionCommand extends $Command
   })
   .s("CodeArtifactControlPlaneService", "PublishPackageVersion", {})
   .n("CodeartifactClient", "PublishPackageVersionCommand")
-  .sc(PublishPackageVersion)
+  .sc(PublishPackageVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

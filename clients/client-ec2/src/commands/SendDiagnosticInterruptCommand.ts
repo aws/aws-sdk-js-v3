@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SendDiagnosticInterruptRequest } from "../models/models_7";
-import { SendDiagnosticInterrupt } from "../schemas/schemas_0";
+import { SendDiagnosticInterrupt$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class SendDiagnosticInterruptCommand extends $Command
   })
   .s("AmazonEC2", "SendDiagnosticInterrupt", {})
   .n("EC2Client", "SendDiagnosticInterruptCommand")
-  .sc(SendDiagnosticInterrupt)
+  .sc(SendDiagnosticInterrupt$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

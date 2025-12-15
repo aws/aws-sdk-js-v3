@@ -106,19 +106,19 @@ import type {
 } from "@smithy/types";
 
 import {
-  ConflictException as __ConflictException,
-  InternalServiceFault as __InternalServiceFault,
-  InvalidParameterException as __InvalidParameterException,
-  MissingRequiredParameterException as __MissingRequiredParameterException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  TooManyTagsException as __TooManyTagsException,
-  ValidationException as __ValidationException,
+  ConflictException,
+  InternalServiceFault,
+  InvalidParameterException,
+  MissingRequiredParameterException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  TooManyTagsException,
+  ValidationException,
 } from "../models/errors";
-import { OAMServiceException as __OAMServiceException } from "../models/OAMServiceException";
+import { OAMServiceException } from "../models/OAMServiceException";
 
 /* eslint no-var: 0 */
-export var ConflictException: StaticErrorSchema = [
+export var ConflictException$: StaticErrorSchema = [
   -3,
   n0,
   _CE,
@@ -126,43 +126,43 @@ export var ConflictException: StaticErrorSchema = [
   [_M, _aET],
   [0, [0, { [_hH]: _xaE }]],
 ];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateLinkInput: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateLinkInput$: StaticStructureSchema = [
   3,
   n0,
   _CLI,
   0,
   [_LT, _RT, _SI, _T, _LC],
-  [0, 64 | 0, 0, 128 | 0, () => LinkConfiguration],
+  [0, 64 | 0, 0, 128 | 0, () => LinkConfiguration$],
 ];
-export var CreateLinkOutput: StaticStructureSchema = [
+export var CreateLinkOutput$: StaticStructureSchema = [
   3,
   n0,
   _CLO,
   0,
   [_A, _I, _L, _LT, _RT, _SA, _T, _LC],
-  [0, 0, 0, 0, 64 | 0, 0, 128 | 0, () => LinkConfiguration],
+  [0, 0, 0, 0, 64 | 0, 0, 128 | 0, () => LinkConfiguration$],
 ];
-export var CreateSinkInput: StaticStructureSchema = [3, n0, _CSI, 0, [_N, _T], [0, 128 | 0]];
-export var CreateSinkOutput: StaticStructureSchema = [3, n0, _CSO, 0, [_A, _I, _N, _T], [0, 0, 0, 128 | 0]];
-export var DeleteLinkInput: StaticStructureSchema = [3, n0, _DLI, 0, [_Id], [0]];
-export var DeleteLinkOutput: StaticStructureSchema = [3, n0, _DLO, 0, [], []];
-export var DeleteSinkInput: StaticStructureSchema = [3, n0, _DSI, 0, [_Id], [0]];
-export var DeleteSinkOutput: StaticStructureSchema = [3, n0, _DSO, 0, [], []];
-export var GetLinkInput: StaticStructureSchema = [3, n0, _GLI, 0, [_Id, _IT], [0, 2]];
-export var GetLinkOutput: StaticStructureSchema = [
+export var CreateSinkInput$: StaticStructureSchema = [3, n0, _CSI, 0, [_N, _T], [0, 128 | 0]];
+export var CreateSinkOutput$: StaticStructureSchema = [3, n0, _CSO, 0, [_A, _I, _N, _T], [0, 0, 0, 128 | 0]];
+export var DeleteLinkInput$: StaticStructureSchema = [3, n0, _DLI, 0, [_Id], [0]];
+export var DeleteLinkOutput$: StaticStructureSchema = [3, n0, _DLO, 0, [], []];
+export var DeleteSinkInput$: StaticStructureSchema = [3, n0, _DSI, 0, [_Id], [0]];
+export var DeleteSinkOutput$: StaticStructureSchema = [3, n0, _DSO, 0, [], []];
+export var GetLinkInput$: StaticStructureSchema = [3, n0, _GLI, 0, [_Id, _IT], [0, 2]];
+export var GetLinkOutput$: StaticStructureSchema = [
   3,
   n0,
   _GLO,
   0,
   [_A, _I, _L, _LT, _RT, _SA, _T, _LC],
-  [0, 0, 0, 0, 64 | 0, 0, 128 | 0, () => LinkConfiguration],
+  [0, 0, 0, 0, 64 | 0, 0, 128 | 0, () => LinkConfiguration$],
 ];
-export var GetSinkInput: StaticStructureSchema = [3, n0, _GSI, 0, [_Id, _IT], [0, 2]];
-export var GetSinkOutput: StaticStructureSchema = [3, n0, _GSO, 0, [_A, _I, _N, _T], [0, 0, 0, 128 | 0]];
-export var GetSinkPolicyInput: StaticStructureSchema = [3, n0, _GSPI, 0, [_SI], [0]];
-export var GetSinkPolicyOutput: StaticStructureSchema = [3, n0, _GSPO, 0, [_SA, _SIi, _P], [0, 0, 0]];
-export var InternalServiceFault: StaticErrorSchema = [
+export var GetSinkInput$: StaticStructureSchema = [3, n0, _GSI, 0, [_Id, _IT], [0, 2]];
+export var GetSinkOutput$: StaticStructureSchema = [3, n0, _GSO, 0, [_A, _I, _N, _T], [0, 0, 0, 128 | 0]];
+export var GetSinkPolicyInput$: StaticStructureSchema = [3, n0, _GSPI, 0, [_SI], [0]];
+export var GetSinkPolicyOutput$: StaticStructureSchema = [3, n0, _GSPO, 0, [_SA, _SIi, _P], [0, 0, 0]];
+export var InternalServiceFault$: StaticErrorSchema = [
   -3,
   n0,
   _ISF,
@@ -170,8 +170,8 @@ export var InternalServiceFault: StaticErrorSchema = [
   [_M, _aET],
   [0, [0, { [_hH]: _xaE }]],
 ];
-TypeRegistry.for(n0).registerError(InternalServiceFault, __InternalServiceFault);
-export var InvalidParameterException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(InternalServiceFault$, InternalServiceFault);
+export var InvalidParameterException$: StaticErrorSchema = [
   -3,
   n0,
   _IPE,
@@ -179,18 +179,18 @@ export var InvalidParameterException: StaticErrorSchema = [
   [_m, _aET],
   [0, [0, { [_hH]: _xaE }]],
 ];
-TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-export var LinkConfiguration: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
+export var LinkConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _LC,
   0,
   [_LGC, _MC],
-  [() => LogGroupConfiguration, () => MetricConfiguration],
+  [() => LogGroupConfiguration$, () => MetricConfiguration$],
 ];
-export var ListAttachedLinksInput: StaticStructureSchema = [3, n0, _LALI, 0, [_MR, _NT, _SI], [1, 0, 0]];
-export var ListAttachedLinksItem: StaticStructureSchema = [3, n0, _LALIi, 0, [_L, _LA, _RT], [0, 0, 64 | 0]];
-export var ListAttachedLinksOutput: StaticStructureSchema = [
+export var ListAttachedLinksInput$: StaticStructureSchema = [3, n0, _LALI, 0, [_MR, _NT, _SI], [1, 0, 0]];
+export var ListAttachedLinksItem$: StaticStructureSchema = [3, n0, _LALIi, 0, [_L, _LA, _RT], [0, 0, 64 | 0]];
+export var ListAttachedLinksOutput$: StaticStructureSchema = [
   3,
   n0,
   _LALO,
@@ -198,17 +198,17 @@ export var ListAttachedLinksOutput: StaticStructureSchema = [
   [_It, _NT],
   [() => ListAttachedLinksItems, 0],
 ];
-export var ListLinksInput: StaticStructureSchema = [3, n0, _LLI, 0, [_MR, _NT], [1, 0]];
-export var ListLinksItem: StaticStructureSchema = [3, n0, _LLIi, 0, [_A, _I, _L, _RT, _SA], [0, 0, 0, 64 | 0, 0]];
-export var ListLinksOutput: StaticStructureSchema = [3, n0, _LLO, 0, [_It, _NT], [() => ListLinksItems, 0]];
-export var ListSinksInput: StaticStructureSchema = [3, n0, _LSI, 0, [_MR, _NT], [1, 0]];
-export var ListSinksItem: StaticStructureSchema = [3, n0, _LSIi, 0, [_A, _I, _N], [0, 0, 0]];
-export var ListSinksOutput: StaticStructureSchema = [3, n0, _LSO, 0, [_It, _NT], [() => ListSinksItems, 0]];
-export var ListTagsForResourceInput: StaticStructureSchema = [3, n0, _LTFRI, 0, [_RA], [[0, 1]]];
-export var ListTagsForResourceOutput: StaticStructureSchema = [3, n0, _LTFRO, 0, [_T], [128 | 0]];
-export var LogGroupConfiguration: StaticStructureSchema = [3, n0, _LGC, 0, [_F], [0]];
-export var MetricConfiguration: StaticStructureSchema = [3, n0, _MC, 0, [_F], [0]];
-export var MissingRequiredParameterException: StaticErrorSchema = [
+export var ListLinksInput$: StaticStructureSchema = [3, n0, _LLI, 0, [_MR, _NT], [1, 0]];
+export var ListLinksItem$: StaticStructureSchema = [3, n0, _LLIi, 0, [_A, _I, _L, _RT, _SA], [0, 0, 0, 64 | 0, 0]];
+export var ListLinksOutput$: StaticStructureSchema = [3, n0, _LLO, 0, [_It, _NT], [() => ListLinksItems, 0]];
+export var ListSinksInput$: StaticStructureSchema = [3, n0, _LSI, 0, [_MR, _NT], [1, 0]];
+export var ListSinksItem$: StaticStructureSchema = [3, n0, _LSIi, 0, [_A, _I, _N], [0, 0, 0]];
+export var ListSinksOutput$: StaticStructureSchema = [3, n0, _LSO, 0, [_It, _NT], [() => ListSinksItems, 0]];
+export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI, 0, [_RA], [[0, 1]]];
+export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO, 0, [_T], [128 | 0]];
+export var LogGroupConfiguration$: StaticStructureSchema = [3, n0, _LGC, 0, [_F], [0]];
+export var MetricConfiguration$: StaticStructureSchema = [3, n0, _MC, 0, [_F], [0]];
+export var MissingRequiredParameterException$: StaticErrorSchema = [
   -3,
   n0,
   _MRPE,
@@ -216,10 +216,10 @@ export var MissingRequiredParameterException: StaticErrorSchema = [
   [_m, _aET],
   [0, [0, { [_hH]: _xaE }]],
 ];
-TypeRegistry.for(n0).registerError(MissingRequiredParameterException, __MissingRequiredParameterException);
-export var PutSinkPolicyInput: StaticStructureSchema = [3, n0, _PSPI, 0, [_SI, _P], [0, 0]];
-export var PutSinkPolicyOutput: StaticStructureSchema = [3, n0, _PSPO, 0, [_SA, _SIi, _P], [0, 0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(MissingRequiredParameterException$, MissingRequiredParameterException);
+export var PutSinkPolicyInput$: StaticStructureSchema = [3, n0, _PSPI, 0, [_SI, _P], [0, 0]];
+export var PutSinkPolicyOutput$: StaticStructureSchema = [3, n0, _PSPO, 0, [_SA, _SIi, _P], [0, 0, 0]];
+export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
@@ -227,8 +227,8 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   [_M, _aET],
   [0, [0, { [_hH]: _xaE }]],
 ];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ServiceQuotaExceededException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
@@ -236,12 +236,12 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   [_M, _aET],
   [0, [0, { [_hH]: _xaE }]],
 ];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var TagResourceInput: StaticStructureSchema = [3, n0, _TRI, 0, [_RA, _T], [[0, 1], 128 | 0]];
-export var TagResourceOutput: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
-export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-export var UntagResourceInput: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI, 0, [_RA, _T], [[0, 1], 128 | 0]];
+export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
+export var UntagResourceInput$: StaticStructureSchema = [
   3,
   n0,
   _URI,
@@ -252,152 +252,152 @@ export var UntagResourceInput: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceOutput: StaticStructureSchema = [3, n0, _URO, 0, [], []];
-export var UpdateLinkInput: StaticStructureSchema = [
+export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO, 0, [], []];
+export var UpdateLinkInput$: StaticStructureSchema = [
   3,
   n0,
   _ULI,
   0,
   [_Id, _RT, _LC, _IT],
-  [0, 64 | 0, () => LinkConfiguration, 2],
+  [0, 64 | 0, () => LinkConfiguration$, 2],
 ];
-export var UpdateLinkOutput: StaticStructureSchema = [
+export var UpdateLinkOutput$: StaticStructureSchema = [
   3,
   n0,
   _ULO,
   0,
   [_A, _I, _L, _LT, _RT, _SA, _T, _LC],
-  [0, 0, 0, 0, 64 | 0, 0, 128 | 0, () => LinkConfiguration],
+  [0, 0, 0, 0, 64 | 0, 0, 128 | 0, () => LinkConfiguration$],
 ];
-export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var OAMServiceException: StaticErrorSchema = [-3, _sm, "OAMServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(OAMServiceException, __OAMServiceException);
-export var ListAttachedLinksItems: StaticListSchema = [1, n0, _LALIis, 0, () => ListAttachedLinksItem];
-export var ListLinksItems: StaticListSchema = [1, n0, _LLIis, 0, () => ListLinksItem];
-export var ListSinksItems: StaticListSchema = [1, n0, _LSIis, 0, () => ListSinksItem];
-export var ResourceTypesInput = 64 | 0;
-export var ResourceTypesOutput = 64 | 0;
-export var TagKeys = 64 | 0;
-export var TagMapInput = 128 | 0;
-export var TagMapOutput = 128 | 0;
-export var CreateLink: StaticOperationSchema = [
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var OAMServiceException$: StaticErrorSchema = [-3, _sm, "OAMServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(OAMServiceException$, OAMServiceException);
+var ListAttachedLinksItems: StaticListSchema = [1, n0, _LALIis, 0, () => ListAttachedLinksItem$];
+var ListLinksItems: StaticListSchema = [1, n0, _LLIis, 0, () => ListLinksItem$];
+var ListSinksItems: StaticListSchema = [1, n0, _LSIis, 0, () => ListSinksItem$];
+var ResourceTypesInput = 64 | 0;
+var ResourceTypesOutput = 64 | 0;
+var TagKeys = 64 | 0;
+var TagMapInput = 128 | 0;
+var TagMapOutput = 128 | 0;
+export var CreateLink$: StaticOperationSchema = [
   9,
   n0,
   _CL,
   { [_h]: ["POST", "/CreateLink", 200] },
-  () => CreateLinkInput,
-  () => CreateLinkOutput,
+  () => CreateLinkInput$,
+  () => CreateLinkOutput$,
 ];
-export var CreateSink: StaticOperationSchema = [
+export var CreateSink$: StaticOperationSchema = [
   9,
   n0,
   _CS,
   { [_h]: ["POST", "/CreateSink", 200] },
-  () => CreateSinkInput,
-  () => CreateSinkOutput,
+  () => CreateSinkInput$,
+  () => CreateSinkOutput$,
 ];
-export var DeleteLink: StaticOperationSchema = [
+export var DeleteLink$: StaticOperationSchema = [
   9,
   n0,
   _DL,
   { [_h]: ["POST", "/DeleteLink", 200] },
-  () => DeleteLinkInput,
-  () => DeleteLinkOutput,
+  () => DeleteLinkInput$,
+  () => DeleteLinkOutput$,
 ];
-export var DeleteSink: StaticOperationSchema = [
+export var DeleteSink$: StaticOperationSchema = [
   9,
   n0,
   _DS,
   { [_h]: ["POST", "/DeleteSink", 200] },
-  () => DeleteSinkInput,
-  () => DeleteSinkOutput,
+  () => DeleteSinkInput$,
+  () => DeleteSinkOutput$,
 ];
-export var GetLink: StaticOperationSchema = [
+export var GetLink$: StaticOperationSchema = [
   9,
   n0,
   _GL,
   { [_h]: ["POST", "/GetLink", 200] },
-  () => GetLinkInput,
-  () => GetLinkOutput,
+  () => GetLinkInput$,
+  () => GetLinkOutput$,
 ];
-export var GetSink: StaticOperationSchema = [
+export var GetSink$: StaticOperationSchema = [
   9,
   n0,
   _GS,
   { [_h]: ["POST", "/GetSink", 200] },
-  () => GetSinkInput,
-  () => GetSinkOutput,
+  () => GetSinkInput$,
+  () => GetSinkOutput$,
 ];
-export var GetSinkPolicy: StaticOperationSchema = [
+export var GetSinkPolicy$: StaticOperationSchema = [
   9,
   n0,
   _GSP,
   { [_h]: ["POST", "/GetSinkPolicy", 200] },
-  () => GetSinkPolicyInput,
-  () => GetSinkPolicyOutput,
+  () => GetSinkPolicyInput$,
+  () => GetSinkPolicyOutput$,
 ];
-export var ListAttachedLinks: StaticOperationSchema = [
+export var ListAttachedLinks$: StaticOperationSchema = [
   9,
   n0,
   _LAL,
   { [_h]: ["POST", "/ListAttachedLinks", 200] },
-  () => ListAttachedLinksInput,
-  () => ListAttachedLinksOutput,
+  () => ListAttachedLinksInput$,
+  () => ListAttachedLinksOutput$,
 ];
-export var ListLinks: StaticOperationSchema = [
+export var ListLinks$: StaticOperationSchema = [
   9,
   n0,
   _LL,
   { [_h]: ["POST", "/ListLinks", 200] },
-  () => ListLinksInput,
-  () => ListLinksOutput,
+  () => ListLinksInput$,
+  () => ListLinksOutput$,
 ];
-export var ListSinks: StaticOperationSchema = [
+export var ListSinks$: StaticOperationSchema = [
   9,
   n0,
   _LS,
   { [_h]: ["POST", "/ListSinks", 200] },
-  () => ListSinksInput,
-  () => ListSinksOutput,
+  () => ListSinksInput$,
+  () => ListSinksOutput$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
-  () => ListTagsForResourceInput,
-  () => ListTagsForResourceOutput,
+  () => ListTagsForResourceInput$,
+  () => ListTagsForResourceOutput$,
 ];
-export var PutSinkPolicy: StaticOperationSchema = [
+export var PutSinkPolicy$: StaticOperationSchema = [
   9,
   n0,
   _PSP,
   { [_h]: ["POST", "/PutSinkPolicy", 200] },
-  () => PutSinkPolicyInput,
-  () => PutSinkPolicyOutput,
+  () => PutSinkPolicyInput$,
+  () => PutSinkPolicyOutput$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["PUT", "/tags/{ResourceArn}", 200] },
-  () => TagResourceInput,
-  () => TagResourceOutput,
+  () => TagResourceInput$,
+  () => TagResourceOutput$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tags/{ResourceArn}", 200] },
-  () => UntagResourceInput,
-  () => UntagResourceOutput,
+  () => UntagResourceInput$,
+  () => UntagResourceOutput$,
 ];
-export var UpdateLink: StaticOperationSchema = [
+export var UpdateLink$: StaticOperationSchema = [
   9,
   n0,
   _UL,
   { [_h]: ["POST", "/UpdateLink", 200] },
-  () => UpdateLinkInput,
-  () => UpdateLinkOutput,
+  () => UpdateLinkInput$,
+  () => UpdateLinkOutput$,
 ];

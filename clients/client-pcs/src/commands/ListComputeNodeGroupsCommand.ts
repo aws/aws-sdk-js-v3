@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListComputeNodeGroupsRequest, ListComputeNodeGroupsResponse } from "../models/models_0";
 import type { PCSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PCSClient";
-import { ListComputeNodeGroups } from "../schemas/schemas_0";
+import { ListComputeNodeGroups$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class ListComputeNodeGroupsCommand extends $Command
   })
   .s("AWSParallelComputingService", "ListComputeNodeGroups", {})
   .n("PCSClient", "ListComputeNodeGroupsCommand")
-  .sc(ListComputeNodeGroups)
+  .sc(ListComputeNodeGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

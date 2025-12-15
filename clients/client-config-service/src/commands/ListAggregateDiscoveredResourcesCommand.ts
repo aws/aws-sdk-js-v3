@@ -9,7 +9,7 @@ import type {
   ListAggregateDiscoveredResourcesRequest,
   ListAggregateDiscoveredResourcesResponse,
 } from "../models/models_0";
-import { ListAggregateDiscoveredResources } from "../schemas/schemas_0";
+import { ListAggregateDiscoveredResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -146,7 +146,7 @@ export class ListAggregateDiscoveredResourcesCommand extends $Command
   })
   .s("StarlingDoveService", "ListAggregateDiscoveredResources", {})
   .n("ConfigServiceClient", "ListAggregateDiscoveredResourcesCommand")
-  .sc(ListAggregateDiscoveredResources)
+  .sc(ListAggregateDiscoveredResources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

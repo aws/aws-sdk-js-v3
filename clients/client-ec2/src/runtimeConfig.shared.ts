@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: EC2ClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsEc2QueryProtocol({
-        defaultNamespace: "com.amazonaws.ec2",
-        xmlNamespace: "http://ec2.amazonaws.com/doc/2016-11-15",
-        version: "2016-11-15",
-      }),
+    protocol: config?.protocol ?? AwsEc2QueryProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.ec2",
+      xmlNamespace: "http://ec2.amazonaws.com/doc/2016-11-15",
+      version: "2016-11-15",
+      serviceTarget: "AmazonEC2",
+    },
     serviceId: config?.serviceId ?? "EC2",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -9,7 +9,7 @@ import type {
   PromotePermissionCreatedFromPolicyResponse,
 } from "../models/models_0";
 import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
-import { PromotePermissionCreatedFromPolicy } from "../schemas/schemas_0";
+import { PromotePermissionCreatedFromPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -153,7 +153,7 @@ export class PromotePermissionCreatedFromPolicyCommand extends $Command
   })
   .s("AmazonResourceSharing", "PromotePermissionCreatedFromPolicy", {})
   .n("RAMClient", "PromotePermissionCreatedFromPolicyCommand")
-  .sc(PromotePermissionCreatedFromPolicy)
+  .sc(PromotePermissionCreatedFromPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

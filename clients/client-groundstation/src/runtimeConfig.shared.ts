@@ -31,7 +31,7 @@ export const getRuntimeConfig = (config: GroundStationClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.groundstation" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
     serviceId: config?.serviceId ?? "GroundStation",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

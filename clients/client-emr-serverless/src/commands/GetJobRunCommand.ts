@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetJobRunRequest, GetJobRunResponse } from "../models/models_0";
-import { GetJobRun } from "../schemas/schemas_0";
+import { GetJobRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -193,7 +193,7 @@ export class GetJobRunCommand extends $Command
   })
   .s("AwsToledoWebService", "GetJobRun", {})
   .n("EMRServerlessClient", "GetJobRunCommand")
-  .sc(GetJobRun)
+  .sc(GetJobRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateStorediSCSIVolumeInput, CreateStorediSCSIVolumeOutput } from "../models/models_0";
-import { CreateStorediSCSIVolume } from "../schemas/schemas_0";
+import { CreateStorediSCSIVolume$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -131,7 +131,7 @@ export class CreateStorediSCSIVolumeCommand extends $Command
   })
   .s("StorageGateway_20130630", "CreateStorediSCSIVolume", {})
   .n("StorageGatewayClient", "CreateStorediSCSIVolumeCommand")
-  .sc(CreateStorediSCSIVolume)
+  .sc(CreateStorediSCSIVolume$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

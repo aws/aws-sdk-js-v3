@@ -9,7 +9,7 @@ import type {
   DisassociateEnclaveCertificateIamRoleRequest,
   DisassociateEnclaveCertificateIamRoleResult,
 } from "../models/models_5";
-import { DisassociateEnclaveCertificateIamRole } from "../schemas/schemas_0";
+import { DisassociateEnclaveCertificateIamRole$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class DisassociateEnclaveCertificateIamRoleCommand extends $Command
   })
   .s("AmazonEC2", "DisassociateEnclaveCertificateIamRole", {})
   .n("EC2Client", "DisassociateEnclaveCertificateIamRoleCommand")
-  .sc(DisassociateEnclaveCertificateIamRole)
+  .sc(DisassociateEnclaveCertificateIamRole$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

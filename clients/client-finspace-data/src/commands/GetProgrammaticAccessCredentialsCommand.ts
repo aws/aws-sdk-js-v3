@@ -9,7 +9,7 @@ import type {
   GetProgrammaticAccessCredentialsRequest,
   GetProgrammaticAccessCredentialsResponse,
 } from "../models/models_0";
-import { GetProgrammaticAccessCredentials } from "../schemas/schemas_0";
+import { GetProgrammaticAccessCredentials$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class GetProgrammaticAccessCredentialsCommand extends $Command
   })
   .s("AWSHabaneroPublicAPI", "GetProgrammaticAccessCredentials", {})
   .n("FinspaceDataClient", "GetProgrammaticAccessCredentialsCommand")
-  .sc(GetProgrammaticAccessCredentials)
+  .sc(GetProgrammaticAccessCredentials$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

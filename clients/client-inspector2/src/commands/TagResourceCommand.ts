@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import type { TagResourceRequest, TagResourceResponse } from "../models/models_1";
-import { TagResource } from "../schemas/schemas_0";
+import { TagResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class TagResourceCommand extends $Command
   })
   .s("Inspector2", "TagResource", {})
   .n("Inspector2Client", "TagResourceCommand")
-  .sc(TagResource)
+  .sc(TagResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../InternetMonitorClient";
 import type { UntagResourceInput, UntagResourceOutput } from "../models/models_0";
-import { UntagResource } from "../schemas/schemas_0";
+import { UntagResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class UntagResourceCommand extends $Command
   })
   .s("InternetMonitor20210603", "UntagResource", {})
   .n("InternetMonitorClient", "UntagResourceCommand")
-  .sc(UntagResource)
+  .sc(UntagResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

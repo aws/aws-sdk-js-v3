@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteFraudsterRequest } from "../models/models_0";
-import { DeleteFraudster } from "../schemas/schemas_0";
+import { DeleteFraudster$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
@@ -97,7 +97,7 @@ export class DeleteFraudsterCommand extends $Command
   })
   .s("VoiceID", "DeleteFraudster", {})
   .n("VoiceIDClient", "DeleteFraudsterCommand")
-  .sc(DeleteFraudster)
+  .sc(DeleteFraudster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

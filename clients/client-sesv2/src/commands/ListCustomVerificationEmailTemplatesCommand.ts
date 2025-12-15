@@ -8,7 +8,7 @@ import type {
   ListCustomVerificationEmailTemplatesRequest,
   ListCustomVerificationEmailTemplatesResponse,
 } from "../models/models_0";
-import { ListCustomVerificationEmailTemplates } from "../schemas/schemas_0";
+import { ListCustomVerificationEmailTemplates$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -99,7 +99,7 @@ export class ListCustomVerificationEmailTemplatesCommand extends $Command
   })
   .s("SimpleEmailService_v2", "ListCustomVerificationEmailTemplates", {})
   .n("SESv2Client", "ListCustomVerificationEmailTemplatesCommand")
-  .sc(ListCustomVerificationEmailTemplates)
+  .sc(ListCustomVerificationEmailTemplates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

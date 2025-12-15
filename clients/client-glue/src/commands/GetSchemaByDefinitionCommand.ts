@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { GetSchemaByDefinitionInput, GetSchemaByDefinitionResponse } from "../models/models_2";
-import { GetSchemaByDefinition } from "../schemas/schemas_0";
+import { GetSchemaByDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class GetSchemaByDefinitionCommand extends $Command
   })
   .s("AWSGlue", "GetSchemaByDefinition", {})
   .n("GlueClient", "GetSchemaByDefinitionCommand")
-  .sc(GetSchemaByDefinition)
+  .sc(GetSchemaByDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

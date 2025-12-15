@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteNotificationRequest, DeleteNotificationResponse } from "../models/models_0";
-import { DeleteNotification } from "../schemas/schemas_0";
+import { DeleteNotification$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class DeleteNotificationCommand extends $Command
   })
   .s("AWSBudgetServiceGateway", "DeleteNotification", {})
   .n("BudgetsClient", "DeleteNotificationCommand")
-  .sc(DeleteNotification)
+  .sc(DeleteNotification$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

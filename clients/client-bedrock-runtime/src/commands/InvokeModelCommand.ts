@@ -11,7 +11,7 @@ import type {
 } from "../BedrockRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { InvokeModelRequest, InvokeModelResponse } from "../models/models_0";
-import { InvokeModel } from "../schemas/schemas_0";
+import { InvokeModel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -133,7 +133,7 @@ export class InvokeModelCommand extends $Command
   })
   .s("AmazonBedrockFrontendService", "InvokeModel", {})
   .n("BedrockRuntimeClient", "InvokeModelCommand")
-  .sc(InvokeModel)
+  .sc(InvokeModel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

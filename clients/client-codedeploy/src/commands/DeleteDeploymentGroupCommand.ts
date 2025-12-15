@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteDeploymentGroupInput, DeleteDeploymentGroupOutput } from "../models/models_0";
-import { DeleteDeploymentGroup } from "../schemas/schemas_0";
+import { DeleteDeploymentGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class DeleteDeploymentGroupCommand extends $Command
   })
   .s("CodeDeploy_20141006", "DeleteDeploymentGroup", {})
   .n("CodeDeployClient", "DeleteDeploymentGroupCommand")
-  .sc(DeleteDeploymentGroup)
+  .sc(DeleteDeploymentGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

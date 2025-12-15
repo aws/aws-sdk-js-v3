@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { ListPoolOriginationIdentities } from "../schemas/schemas_0";
+import { ListPoolOriginationIdentities$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class ListPoolOriginationIdentitiesCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "ListPoolOriginationIdentities", {})
   .n("PinpointSMSVoiceV2Client", "ListPoolOriginationIdentitiesCommand")
-  .sc(ListPoolOriginationIdentities)
+  .sc(ListPoolOriginationIdentities$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

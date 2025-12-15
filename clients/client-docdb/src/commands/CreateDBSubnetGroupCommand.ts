@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateDBSubnetGroupMessage, CreateDBSubnetGroupResult } from "../models/models_0";
-import { CreateDBSubnetGroup } from "../schemas/schemas_0";
+import { CreateDBSubnetGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class CreateDBSubnetGroupCommand extends $Command
   })
   .s("AmazonRDSv19", "CreateDBSubnetGroup", {})
   .n("DocDBClient", "CreateDBSubnetGroupCommand")
-  .sc(CreateDBSubnetGroup)
+  .sc(CreateDBSubnetGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

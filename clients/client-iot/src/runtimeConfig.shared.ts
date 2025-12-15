@@ -31,7 +31,7 @@ export const getRuntimeConfig = (config: IoTClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.iot" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
     serviceId: config?.serviceId ?? "IoT",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

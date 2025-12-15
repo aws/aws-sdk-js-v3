@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetRDFGraphSummaryInput, GetRDFGraphSummaryOutput } from "../models/models_0";
 import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
-import { GetRDFGraphSummary } from "../schemas/schemas_0";
+import { GetRDFGraphSummary$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -138,7 +138,7 @@ export class GetRDFGraphSummaryCommand extends $Command
   })
   .s("AmazonNeptuneDataplane", "GetRDFGraphSummary", {})
   .n("NeptunedataClient", "GetRDFGraphSummaryCommand")
-  .sc(GetRDFGraphSummary)
+  .sc(GetRDFGraphSummary$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAggregatorV2Request, DeleteAggregatorV2Response } from "../models/models_2";
-import { DeleteAggregatorV2 } from "../schemas/schemas_0";
+import { DeleteAggregatorV2$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -93,7 +93,7 @@ export class DeleteAggregatorV2Command extends $Command
   })
   .s("SecurityHubAPIService", "DeleteAggregatorV2", {})
   .n("SecurityHubClient", "DeleteAggregatorV2Command")
-  .sc(DeleteAggregatorV2)
+  .sc(DeleteAggregatorV2$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

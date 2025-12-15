@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListResourceScanRelatedResourcesInput, ListResourceScanRelatedResourcesOutput } from "../models/models_0";
-import { ListResourceScanRelatedResources } from "../schemas/schemas_0";
+import { ListResourceScanRelatedResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -165,7 +165,7 @@ export class ListResourceScanRelatedResourcesCommand extends $Command
   })
   .s("CloudFormation", "ListResourceScanRelatedResources", {})
   .n("CloudFormationClient", "ListResourceScanRelatedResourcesCommand")
-  .sc(ListResourceScanRelatedResources)
+  .sc(ListResourceScanRelatedResources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

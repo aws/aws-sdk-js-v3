@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeDeliveryChannelsRequest, DescribeDeliveryChannelsResponse } from "../models/models_0";
-import { DescribeDeliveryChannels } from "../schemas/schemas_0";
+import { DescribeDeliveryChannels$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class DescribeDeliveryChannelsCommand extends $Command
   })
   .s("StarlingDoveService", "DescribeDeliveryChannels", {})
   .n("ConfigServiceClient", "DescribeDeliveryChannelsCommand")
-  .sc(DescribeDeliveryChannels)
+  .sc(DescribeDeliveryChannels$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

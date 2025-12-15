@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopTextTranslationJobRequest, StopTextTranslationJobResponse } from "../models/models_0";
-import { StopTextTranslationJob } from "../schemas/schemas_0";
+import { StopTextTranslationJob$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
@@ -92,7 +92,7 @@ export class StopTextTranslationJobCommand extends $Command
   })
   .s("AWSShineFrontendService_20170701", "StopTextTranslationJob", {})
   .n("TranslateClient", "StopTextTranslationJobCommand")
-  .sc(StopTextTranslationJob)
+  .sc(StopTextTranslationJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

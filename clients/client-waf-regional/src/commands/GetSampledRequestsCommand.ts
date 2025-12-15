@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetSampledRequestsRequest, GetSampledRequestsResponse } from "../models/models_0";
-import { GetSampledRequests } from "../schemas/schemas_0";
+import { GetSampledRequests$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -122,7 +122,7 @@ export class GetSampledRequestsCommand extends $Command
   })
   .s("AWSWAF_Regional_20161128", "GetSampledRequests", {})
   .n("WAFRegionalClient", "GetSampledRequestsCommand")
-  .sc(GetSampledRequests)
+  .sc(GetSampledRequests$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

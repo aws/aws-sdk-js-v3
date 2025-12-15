@@ -8,7 +8,7 @@ import type {
   GetPlatformApplicationAttributesInput,
   GetPlatformApplicationAttributesResponse,
 } from "../models/models_0";
-import { GetPlatformApplicationAttributes } from "../schemas/schemas_0";
+import { GetPlatformApplicationAttributes$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -95,7 +95,7 @@ export class GetPlatformApplicationAttributesCommand extends $Command
   })
   .s("AmazonSimpleNotificationService", "GetPlatformApplicationAttributes", {})
   .n("SNSClient", "GetPlatformApplicationAttributesCommand")
-  .sc(GetPlatformApplicationAttributes)
+  .sc(GetPlatformApplicationAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

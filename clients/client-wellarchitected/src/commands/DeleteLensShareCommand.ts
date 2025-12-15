@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteLensShareInput } from "../models/models_0";
-import { DeleteLensShare } from "../schemas/schemas_0";
+import { DeleteLensShare$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -109,7 +109,7 @@ export class DeleteLensShareCommand extends $Command
   })
   .s("WellArchitectedApiServiceLambda", "DeleteLensShare", {})
   .n("WellArchitectedClient", "DeleteLensShareCommand")
-  .sc(DeleteLensShare)
+  .sc(DeleteLensShare$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

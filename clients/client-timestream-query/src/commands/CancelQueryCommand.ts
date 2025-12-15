@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CancelQueryRequest, CancelQueryResponse } from "../models/models_0";
-import { CancelQuery } from "../schemas/schemas_0";
+import { CancelQuery$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -105,7 +105,7 @@ export class CancelQueryCommand extends $Command
   })
   .s("Timestream_20181101", "CancelQuery", {})
   .n("TimestreamQueryClient", "CancelQueryCommand")
-  .sc(CancelQuery)
+  .sc(CancelQuery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

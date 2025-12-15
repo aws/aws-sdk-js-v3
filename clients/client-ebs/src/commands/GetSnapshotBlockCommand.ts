@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputType
 import type { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type GetSnapshotBlockRequest, GetSnapshotBlockResponse } from "../models/models_0";
-import { GetSnapshotBlock } from "../schemas/schemas_0";
+import { GetSnapshotBlock$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class GetSnapshotBlockCommand extends $Command
   })
   .s("Ebs", "GetSnapshotBlock", {})
   .n("EBSClient", "GetSnapshotBlockCommand")
-  .sc(GetSnapshotBlock)
+  .sc(GetSnapshotBlock$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

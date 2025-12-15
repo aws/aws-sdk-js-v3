@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteStudioInput } from "../models/models_0";
-import { DeleteStudio } from "../schemas/schemas_0";
+import { DeleteStudio$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -78,7 +78,7 @@ export class DeleteStudioCommand extends $Command
   })
   .s("ElasticMapReduce", "DeleteStudio", {})
   .n("EMRClient", "DeleteStudioCommand")
-  .sc(DeleteStudio)
+  .sc(DeleteStudio$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

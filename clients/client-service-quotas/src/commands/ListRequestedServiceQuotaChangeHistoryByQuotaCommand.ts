@@ -8,7 +8,7 @@ import type {
   ListRequestedServiceQuotaChangeHistoryByQuotaRequest,
   ListRequestedServiceQuotaChangeHistoryByQuotaResponse,
 } from "../models/models_0";
-import { ListRequestedServiceQuotaChangeHistoryByQuota } from "../schemas/schemas_0";
+import { ListRequestedServiceQuotaChangeHistoryByQuota$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
@@ -129,7 +129,7 @@ export class ListRequestedServiceQuotaChangeHistoryByQuotaCommand extends $Comma
   })
   .s("ServiceQuotasV20190624", "ListRequestedServiceQuotaChangeHistoryByQuota", {})
   .n("ServiceQuotasClient", "ListRequestedServiceQuotaChangeHistoryByQuotaCommand")
-  .sc(ListRequestedServiceQuotaChangeHistoryByQuota)
+  .sc(ListRequestedServiceQuotaChangeHistoryByQuota$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

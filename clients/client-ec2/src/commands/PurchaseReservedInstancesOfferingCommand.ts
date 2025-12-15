@@ -9,7 +9,7 @@ import type {
   PurchaseReservedInstancesOfferingRequest,
   PurchaseReservedInstancesOfferingResult,
 } from "../models/models_7";
-import { PurchaseReservedInstancesOffering } from "../schemas/schemas_0";
+import { PurchaseReservedInstancesOffering$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class PurchaseReservedInstancesOfferingCommand extends $Command
   })
   .s("AmazonEC2", "PurchaseReservedInstancesOffering", {})
   .n("EC2Client", "PurchaseReservedInstancesOfferingCommand")
-  .sc(PurchaseReservedInstancesOffering)
+  .sc(PurchaseReservedInstancesOffering$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

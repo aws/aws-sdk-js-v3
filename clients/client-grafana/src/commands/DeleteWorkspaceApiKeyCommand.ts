@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
 import type { DeleteWorkspaceApiKeyRequest, DeleteWorkspaceApiKeyResponse } from "../models/models_0";
-import { DeleteWorkspaceApiKey } from "../schemas/schemas_0";
+import { DeleteWorkspaceApiKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class DeleteWorkspaceApiKeyCommand extends $Command
   })
   .s("AWSGrafanaControlPlane", "DeleteWorkspaceApiKey", {})
   .n("GrafanaClient", "DeleteWorkspaceApiKeyCommand")
-  .sc(DeleteWorkspaceApiKey)
+  .sc(DeleteWorkspaceApiKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

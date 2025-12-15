@@ -10,7 +10,7 @@ import type {
 } from "../AmplifyBackendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListS3BucketsRequest, ListS3BucketsResponse } from "../models/models_0";
-import { ListS3Buckets } from "../schemas/schemas_0";
+import { ListS3Buckets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class ListS3BucketsCommand extends $Command
   })
   .s("AmplifyBackend", "ListS3Buckets", {})
   .n("AmplifyBackendClient", "ListS3BucketsCommand")
-  .sc(ListS3Buckets)
+  .sc(ListS3Buckets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

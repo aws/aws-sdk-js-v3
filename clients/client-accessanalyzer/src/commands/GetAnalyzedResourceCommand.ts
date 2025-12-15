@@ -10,7 +10,7 @@ import type {
 } from "../AccessAnalyzerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAnalyzedResourceRequest, GetAnalyzedResourceResponse } from "../models/models_0";
-import { GetAnalyzedResource } from "../schemas/schemas_0";
+import { GetAnalyzedResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class GetAnalyzedResourceCommand extends $Command
   })
   .s("AccessAnalyzer", "GetAnalyzedResource", {})
   .n("AccessAnalyzerClient", "GetAnalyzedResourceCommand")
-  .sc(GetAnalyzedResource)
+  .sc(GetAnalyzedResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

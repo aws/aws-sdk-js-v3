@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
 import type { UpdateWorkspaceAuthenticationRequest, UpdateWorkspaceAuthenticationResponse } from "../models/models_0";
-import { UpdateWorkspaceAuthentication } from "../schemas/schemas_0";
+import { UpdateWorkspaceAuthentication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -165,7 +165,7 @@ export class UpdateWorkspaceAuthenticationCommand extends $Command
   })
   .s("AWSGrafanaControlPlane", "UpdateWorkspaceAuthentication", {})
   .n("GrafanaClient", "UpdateWorkspaceAuthenticationCommand")
-  .sc(UpdateWorkspaceAuthentication)
+  .sc(UpdateWorkspaceAuthentication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

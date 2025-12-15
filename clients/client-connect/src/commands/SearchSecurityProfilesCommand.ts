@@ -7,7 +7,7 @@ import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SearchSecurityProfilesResponse } from "../models/models_2";
 import type { SearchSecurityProfilesRequest } from "../models/models_3";
-import { SearchSecurityProfiles } from "../schemas/schemas_0";
+import { SearchSecurityProfiles$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -151,7 +151,7 @@ export class SearchSecurityProfilesCommand extends $Command
   })
   .s("AmazonConnectService", "SearchSecurityProfiles", {})
   .n("ConnectClient", "SearchSecurityProfilesCommand")
-  .sc(SearchSecurityProfiles)
+  .sc(SearchSecurityProfiles$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

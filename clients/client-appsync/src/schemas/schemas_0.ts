@@ -532,44 +532,44 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { AppSyncServiceException as __AppSyncServiceException } from "../models/AppSyncServiceException";
+import { AppSyncServiceException } from "../models/AppSyncServiceException";
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ApiKeyLimitExceededException as __ApiKeyLimitExceededException,
-  ApiKeyValidityOutOfBoundsException as __ApiKeyValidityOutOfBoundsException,
-  ApiLimitExceededException as __ApiLimitExceededException,
-  BadRequestException as __BadRequestException,
-  ConcurrentModificationException as __ConcurrentModificationException,
-  ConflictException as __ConflictException,
-  GraphQLSchemaException as __GraphQLSchemaException,
-  InternalFailureException as __InternalFailureException,
-  LimitExceededException as __LimitExceededException,
-  NotFoundException as __NotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  UnauthorizedException as __UnauthorizedException,
+  AccessDeniedException,
+  ApiKeyLimitExceededException,
+  ApiKeyValidityOutOfBoundsException,
+  ApiLimitExceededException,
+  BadRequestException,
+  ConcurrentModificationException,
+  ConflictException,
+  GraphQLSchemaException,
+  InternalFailureException,
+  LimitExceededException,
+  NotFoundException,
+  ServiceQuotaExceededException,
+  UnauthorizedException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var AdditionalAuthenticationProvider: StaticStructureSchema = [
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var AdditionalAuthenticationProvider$: StaticStructureSchema = [
   3,
   n0,
   _AAP,
   0,
   [_aT, _oIDCC, _uPC, _lAC],
-  [0, () => OpenIDConnectConfig, () => CognitoUserPoolConfig, () => LambdaAuthorizerConfig],
+  [0, () => OpenIDConnectConfig$, () => CognitoUserPoolConfig$, () => LambdaAuthorizerConfig$],
 ];
-export var Api: StaticStructureSchema = [
+export var Api$: StaticStructureSchema = [
   3,
   n0,
   _A,
   0,
   [_aI, _n, _oC, _t, _d, _aA, _cr, _xE, _wWAA, _eC],
-  [0, 0, 0, 128 | 0, 128 | 0, 0, 4, 2, 0, () => EventConfig],
+  [0, 0, 0, 128 | 0, 128 | 0, 0, 4, 2, 0, () => EventConfig$],
 ];
-export var ApiAssociation: StaticStructureSchema = [3, n0, _AA, 0, [_dN, _aI, _aS, _dD], [0, 0, 0, 0]];
-export var ApiCache: StaticStructureSchema = [
+export var ApiAssociation$: StaticStructureSchema = [3, n0, _AA, 0, [_dN, _aI, _aS, _dD], [0, 0, 0, 0]];
+export var ApiCache$: StaticStructureSchema = [
   3,
   n0,
   _AC,
@@ -577,10 +577,10 @@ export var ApiCache: StaticStructureSchema = [
   [_tt, _aCB, _tEE, _aREE, _ty, _s, _hMC],
   [1, 0, 2, 2, 0, 0, 0],
 ];
-export var ApiKey: StaticStructureSchema = [3, n0, _AK, 0, [_i, _de, _ex, _del], [0, 0, 1, 1]];
-export var ApiKeyLimitExceededException: StaticErrorSchema = [-3, n0, _AKLEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ApiKeyLimitExceededException, __ApiKeyLimitExceededException);
-export var ApiKeyValidityOutOfBoundsException: StaticErrorSchema = [
+export var ApiKey$: StaticStructureSchema = [3, n0, _AK, 0, [_i, _de, _ex, _del], [0, 0, 1, 1]];
+export var ApiKeyLimitExceededException$: StaticErrorSchema = [-3, n0, _AKLEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ApiKeyLimitExceededException$, ApiKeyLimitExceededException);
+export var ApiKeyValidityOutOfBoundsException$: StaticErrorSchema = [
   -3,
   n0,
   _AKVOOBE,
@@ -588,83 +588,83 @@ export var ApiKeyValidityOutOfBoundsException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(ApiKeyValidityOutOfBoundsException, __ApiKeyValidityOutOfBoundsException);
-export var ApiLimitExceededException: StaticErrorSchema = [-3, n0, _ALEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ApiLimitExceededException, __ApiLimitExceededException);
-export var AppSyncRuntime: StaticStructureSchema = [3, n0, _ASR, 0, [_n, _rV], [0, 0]];
-export var AssociateApiRequest: StaticStructureSchema = [3, n0, _AAR, 0, [_dN, _aI], [[0, 1], 0]];
-export var AssociateApiResponse: StaticStructureSchema = [3, n0, _AARs, 0, [_aAp], [() => ApiAssociation]];
-export var AssociateMergedGraphqlApiRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ApiKeyValidityOutOfBoundsException$, ApiKeyValidityOutOfBoundsException);
+export var ApiLimitExceededException$: StaticErrorSchema = [-3, n0, _ALEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ApiLimitExceededException$, ApiLimitExceededException);
+export var AppSyncRuntime$: StaticStructureSchema = [3, n0, _ASR, 0, [_n, _rV], [0, 0]];
+export var AssociateApiRequest$: StaticStructureSchema = [3, n0, _AAR, 0, [_dN, _aI], [[0, 1], 0]];
+export var AssociateApiResponse$: StaticStructureSchema = [3, n0, _AARs, 0, [_aAp], [() => ApiAssociation$]];
+export var AssociateMergedGraphqlApiRequest$: StaticStructureSchema = [
   3,
   n0,
   _AMGAR,
   0,
   [_sAI, _mAI, _de, _sAAC],
-  [[0, 1], 0, 0, () => SourceApiAssociationConfig],
+  [[0, 1], 0, 0, () => SourceApiAssociationConfig$],
 ];
-export var AssociateMergedGraphqlApiResponse: StaticStructureSchema = [
+export var AssociateMergedGraphqlApiResponse$: StaticStructureSchema = [
   3,
   n0,
   _AMGARs,
   0,
   [_sAA],
-  [() => SourceApiAssociation],
+  [() => SourceApiAssociation$],
 ];
-export var AssociateSourceGraphqlApiRequest: StaticStructureSchema = [
+export var AssociateSourceGraphqlApiRequest$: StaticStructureSchema = [
   3,
   n0,
   _ASGAR,
   0,
   [_mAI, _sAI, _de, _sAAC],
-  [[0, 1], 0, 0, () => SourceApiAssociationConfig],
+  [[0, 1], 0, 0, () => SourceApiAssociationConfig$],
 ];
-export var AssociateSourceGraphqlApiResponse: StaticStructureSchema = [
+export var AssociateSourceGraphqlApiResponse$: StaticStructureSchema = [
   3,
   n0,
   _ASGARs,
   0,
   [_sAA],
-  [() => SourceApiAssociation],
+  [() => SourceApiAssociation$],
 ];
-export var AuthMode: StaticStructureSchema = [3, n0, _AM, 0, [_aTu], [0]];
-export var AuthorizationConfig: StaticStructureSchema = [3, n0, _ACu, 0, [_aTut, _aIC], [0, () => AwsIamConfig]];
-export var AuthProvider: StaticStructureSchema = [
+export var AuthMode$: StaticStructureSchema = [3, n0, _AM, 0, [_aTu], [0]];
+export var AuthorizationConfig$: StaticStructureSchema = [3, n0, _ACu, 0, [_aTut, _aIC], [0, () => AwsIamConfig$]];
+export var AuthProvider$: StaticStructureSchema = [
   3,
   n0,
   _AP,
   0,
   [_aTu, _cC, _oIDCC, _lAC],
-  [0, () => CognitoConfig, () => OpenIDConnectConfig, () => LambdaAuthorizerConfig],
+  [0, () => CognitoConfig$, () => OpenIDConnectConfig$, () => LambdaAuthorizerConfig$],
 ];
-export var AwsIamConfig: StaticStructureSchema = [3, n0, _AIC, 0, [_sR, _sSN], [0, 0]];
-export var BadRequestDetail: StaticStructureSchema = [3, n0, _BRD, 0, [_cE], [() => CodeErrors]];
-export var BadRequestException: StaticErrorSchema = [
+export var AwsIamConfig$: StaticStructureSchema = [3, n0, _AIC, 0, [_sR, _sSN], [0, 0]];
+export var BadRequestDetail$: StaticStructureSchema = [3, n0, _BRD, 0, [_cE], [() => CodeErrors]];
+export var BadRequestException$: StaticErrorSchema = [
   -3,
   n0,
   _BRE,
   { [_e]: _c, [_hE]: 400 },
   [_m, _r, _det],
-  [0, 0, () => BadRequestDetail],
+  [0, 0, () => BadRequestDetail$],
 ];
-TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-export var CachingConfig: StaticStructureSchema = [3, n0, _CC, 0, [_tt, _cK], [1, 64 | 0]];
-export var ChannelNamespace: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
+export var CachingConfig$: StaticStructureSchema = [3, n0, _CC, 0, [_tt, _cK], [1, 64 | 0]];
+export var ChannelNamespace$: StaticStructureSchema = [
   3,
   n0,
   _CN,
   0,
   [_aI, _n, _sAM, _pAM, _cH, _t, _cNA, _cr, _lM, _hC],
-  [0, 0, () => AuthModes, () => AuthModes, 0, 128 | 0, 0, 4, 4, () => HandlerConfigs],
+  [0, 0, () => AuthModes, () => AuthModes, 0, 128 | 0, 0, 4, 4, () => HandlerConfigs$],
 ];
-export var CodeError: StaticStructureSchema = [3, n0, _CE, 0, [_eT, _v, _l], [0, 0, () => CodeErrorLocation]];
-export var CodeErrorLocation: StaticStructureSchema = [3, n0, _CEL, 0, [_li, _co, _sp], [1, 1, 1]];
-export var CognitoConfig: StaticStructureSchema = [3, n0, _CCo, 0, [_uPI, _aR, _aICR], [0, 0, 0]];
-export var CognitoUserPoolConfig: StaticStructureSchema = [3, n0, _CUPC, 0, [_uPI, _aR, _aICR], [0, 0, 0]];
-export var ConcurrentModificationException: StaticErrorSchema = [-3, n0, _CME, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException, __ConcurrentModificationException);
-export var ConflictException: StaticErrorSchema = [-3, n0, _CEo, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateApiCacheRequest: StaticStructureSchema = [
+export var CodeError$: StaticStructureSchema = [3, n0, _CE, 0, [_eT, _v, _l], [0, 0, () => CodeErrorLocation$]];
+export var CodeErrorLocation$: StaticStructureSchema = [3, n0, _CEL, 0, [_li, _co, _sp], [1, 1, 1]];
+export var CognitoConfig$: StaticStructureSchema = [3, n0, _CCo, 0, [_uPI, _aR, _aICR], [0, 0, 0]];
+export var CognitoUserPoolConfig$: StaticStructureSchema = [3, n0, _CUPC, 0, [_uPI, _aR, _aICR], [0, 0, 0]];
+export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateApiCacheRequest$: StaticStructureSchema = [
   3,
   n0,
   _CACR,
@@ -672,28 +672,35 @@ export var CreateApiCacheRequest: StaticStructureSchema = [
   [_aI, _tt, _tEE, _aREE, _aCB, _ty, _hMC],
   [[0, 1], 1, 2, 2, 0, 0, 0],
 ];
-export var CreateApiCacheResponse: StaticStructureSchema = [3, n0, _CACRr, 0, [_aC], [() => ApiCache]];
-export var CreateApiKeyRequest: StaticStructureSchema = [3, n0, _CAKR, 0, [_aI, _de, _ex], [[0, 1], 0, 1]];
-export var CreateApiKeyResponse: StaticStructureSchema = [3, n0, _CAKRr, 0, [_aK], [() => ApiKey]];
-export var CreateApiRequest: StaticStructureSchema = [
+export var CreateApiCacheResponse$: StaticStructureSchema = [3, n0, _CACRr, 0, [_aC], [() => ApiCache$]];
+export var CreateApiKeyRequest$: StaticStructureSchema = [3, n0, _CAKR, 0, [_aI, _de, _ex], [[0, 1], 0, 1]];
+export var CreateApiKeyResponse$: StaticStructureSchema = [3, n0, _CAKRr, 0, [_aK], [() => ApiKey$]];
+export var CreateApiRequest$: StaticStructureSchema = [
   3,
   n0,
   _CAR,
   0,
   [_n, _oC, _t, _eC],
-  [0, 0, 128 | 0, () => EventConfig],
+  [0, 0, 128 | 0, () => EventConfig$],
 ];
-export var CreateApiResponse: StaticStructureSchema = [3, n0, _CARr, 0, [_a], [() => Api]];
-export var CreateChannelNamespaceRequest: StaticStructureSchema = [
+export var CreateApiResponse$: StaticStructureSchema = [3, n0, _CARr, 0, [_a], [() => Api$]];
+export var CreateChannelNamespaceRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCNR,
   0,
   [_aI, _n, _sAM, _pAM, _cH, _t, _hC],
-  [[0, 1], 0, () => AuthModes, () => AuthModes, 0, 128 | 0, () => HandlerConfigs],
+  [[0, 1], 0, () => AuthModes, () => AuthModes, 0, 128 | 0, () => HandlerConfigs$],
 ];
-export var CreateChannelNamespaceResponse: StaticStructureSchema = [3, n0, _CCNRr, 0, [_cN], [() => ChannelNamespace]];
-export var CreateDataSourceRequest: StaticStructureSchema = [
+export var CreateChannelNamespaceResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _CCNRr,
+  0,
+  [_cN],
+  [() => ChannelNamespace$],
+];
+export var CreateDataSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDSR,
@@ -705,29 +712,29 @@ export var CreateDataSourceRequest: StaticStructureSchema = [
     0,
     0,
     0,
-    () => DynamodbDataSourceConfig,
-    () => LambdaDataSourceConfig,
-    () => ElasticsearchDataSourceConfig,
-    () => OpenSearchServiceDataSourceConfig,
-    () => HttpDataSourceConfig,
-    () => RelationalDatabaseDataSourceConfig,
-    () => EventBridgeDataSourceConfig,
+    () => DynamodbDataSourceConfig$,
+    () => LambdaDataSourceConfig$,
+    () => ElasticsearchDataSourceConfig$,
+    () => OpenSearchServiceDataSourceConfig$,
+    () => HttpDataSourceConfig$,
+    () => RelationalDatabaseDataSourceConfig$,
+    () => EventBridgeDataSourceConfig$,
     0,
   ],
 ];
-export var CreateDataSourceResponse: StaticStructureSchema = [3, n0, _CDSRr, 0, [_dS], [() => DataSource]];
-export var CreateDomainNameRequest: StaticStructureSchema = [3, n0, _CDNR, 0, [_dN, _cA, _de, _t], [0, 0, 0, 128 | 0]];
-export var CreateDomainNameResponse: StaticStructureSchema = [3, n0, _CDNRr, 0, [_dNC], [() => DomainNameConfig]];
-export var CreateFunctionRequest: StaticStructureSchema = [
+export var CreateDataSourceResponse$: StaticStructureSchema = [3, n0, _CDSRr, 0, [_dS], [() => DataSource$]];
+export var CreateDomainNameRequest$: StaticStructureSchema = [3, n0, _CDNR, 0, [_dN, _cA, _de, _t], [0, 0, 0, 128 | 0]];
+export var CreateDomainNameResponse$: StaticStructureSchema = [3, n0, _CDNRr, 0, [_dNC], [() => DomainNameConfig$]];
+export var CreateFunctionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CFR,
   0,
   [_aI, _n, _de, _dSN, _rMT, _rMTe, _fV, _sC, _mBS, _ru, _cod],
-  [[0, 1], 0, 0, 0, 0, 0, 0, () => SyncConfig, 1, () => AppSyncRuntime, 0],
+  [[0, 1], 0, 0, 0, 0, 0, 0, () => SyncConfig$, 1, () => AppSyncRuntime$, 0],
 ];
-export var CreateFunctionResponse: StaticStructureSchema = [3, n0, _CFRr, 0, [_fC], [() => FunctionConfiguration]];
-export var CreateGraphqlApiRequest: StaticStructureSchema = [
+export var CreateFunctionResponse$: StaticStructureSchema = [3, n0, _CFRr, 0, [_fC], [() => FunctionConfiguration$]];
+export var CreateGraphqlApiRequest$: StaticStructureSchema = [
   3,
   n0,
   _CGAR,
@@ -735,14 +742,14 @@ export var CreateGraphqlApiRequest: StaticStructureSchema = [
   [_n, _lCo, _aT, _uPC, _oIDCC, _t, _aAP, _xE, _lAC, _aTp, _mAERA, _vi, _oC, _iC, _qDL, _rCL, _eMC],
   [
     0,
-    () => LogConfig,
+    () => LogConfig$,
     0,
-    () => UserPoolConfig,
-    () => OpenIDConnectConfig,
+    () => UserPoolConfig$,
+    () => OpenIDConnectConfig$,
     128 | 0,
     () => AdditionalAuthenticationProviders,
     2,
-    () => LambdaAuthorizerConfig,
+    () => LambdaAuthorizerConfig$,
     0,
     0,
     0,
@@ -750,11 +757,11 @@ export var CreateGraphqlApiRequest: StaticStructureSchema = [
     0,
     1,
     1,
-    () => EnhancedMetricsConfig,
+    () => EnhancedMetricsConfig$,
   ],
 ];
-export var CreateGraphqlApiResponse: StaticStructureSchema = [3, n0, _CGARr, 0, [_gA], [() => GraphqlApi]];
-export var CreateResolverRequest: StaticStructureSchema = [
+export var CreateGraphqlApiResponse$: StaticStructureSchema = [3, n0, _CGARr, 0, [_gA], [() => GraphqlApi$]];
+export var CreateResolverRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRR,
@@ -768,19 +775,19 @@ export var CreateResolverRequest: StaticStructureSchema = [
     0,
     0,
     0,
-    () => PipelineConfig,
-    () => SyncConfig,
-    () => CachingConfig,
+    () => PipelineConfig$,
+    () => SyncConfig$,
+    () => CachingConfig$,
     1,
-    () => AppSyncRuntime,
+    () => AppSyncRuntime$,
     0,
     0,
   ],
 ];
-export var CreateResolverResponse: StaticStructureSchema = [3, n0, _CRRr, 0, [_re], [() => Resolver]];
-export var CreateTypeRequest: StaticStructureSchema = [3, n0, _CTR, 0, [_aI, _def, _f], [[0, 1], 0, 0]];
-export var CreateTypeResponse: StaticStructureSchema = [3, n0, _CTRr, 0, [_ty], [() => Type]];
-export var DataSource: StaticStructureSchema = [
+export var CreateResolverResponse$: StaticStructureSchema = [3, n0, _CRRr, 0, [_re], [() => Resolver$]];
+export var CreateTypeRequest$: StaticStructureSchema = [3, n0, _CTR, 0, [_aI, _def, _f], [[0, 1], 0, 0]];
+export var CreateTypeResponse$: StaticStructureSchema = [3, n0, _CTRr, 0, [_ty], [() => Type$]];
+export var DataSource$: StaticStructureSchema = [
   3,
   n0,
   _DS,
@@ -792,17 +799,17 @@ export var DataSource: StaticStructureSchema = [
     0,
     0,
     0,
-    () => DynamodbDataSourceConfig,
-    () => LambdaDataSourceConfig,
-    () => ElasticsearchDataSourceConfig,
-    () => OpenSearchServiceDataSourceConfig,
-    () => HttpDataSourceConfig,
-    () => RelationalDatabaseDataSourceConfig,
-    () => EventBridgeDataSourceConfig,
+    () => DynamodbDataSourceConfig$,
+    () => LambdaDataSourceConfig$,
+    () => ElasticsearchDataSourceConfig$,
+    () => OpenSearchServiceDataSourceConfig$,
+    () => HttpDataSourceConfig$,
+    () => RelationalDatabaseDataSourceConfig$,
+    () => EventBridgeDataSourceConfig$,
     0,
   ],
 ];
-export var DataSourceIntrospectionModel: StaticStructureSchema = [
+export var DataSourceIntrospectionModel$: StaticStructureSchema = [
   3,
   n0,
   _DSIM,
@@ -811,29 +818,29 @@ export var DataSourceIntrospectionModel: StaticStructureSchema = [
   [
     0,
     () => DataSourceIntrospectionModelFields,
-    () => DataSourceIntrospectionModelIndex,
+    () => DataSourceIntrospectionModelIndex$,
     () => DataSourceIntrospectionModelIndexes,
     0,
   ],
 ];
-export var DataSourceIntrospectionModelField: StaticStructureSchema = [
+export var DataSourceIntrospectionModelField$: StaticStructureSchema = [
   3,
   n0,
   _DSIMF,
   0,
   [_n, _ty, _le],
-  [0, () => DataSourceIntrospectionModelFieldType, 1],
+  [0, () => DataSourceIntrospectionModelFieldType$, 1],
 ];
-export var DataSourceIntrospectionModelFieldType: StaticStructureSchema = [
+export var DataSourceIntrospectionModelFieldType$: StaticStructureSchema = [
   3,
   n0,
   _DSIMFT,
   0,
   [_k, _n, _ty, _va],
-  [0, 0, () => DataSourceIntrospectionModelFieldType, 64 | 0],
+  [0, 0, () => DataSourceIntrospectionModelFieldType$, 64 | 0],
 ];
-export var DataSourceIntrospectionModelIndex: StaticStructureSchema = [3, n0, _DSIMI, 0, [_n, _fi], [0, 64 | 0]];
-export var DataSourceIntrospectionResult: StaticStructureSchema = [
+export var DataSourceIntrospectionModelIndex$: StaticStructureSchema = [3, n0, _DSIMI, 0, [_n, _fi], [0, 64 | 0]];
+export var DataSourceIntrospectionResult$: StaticStructureSchema = [
   3,
   n0,
   _DSIR,
@@ -841,9 +848,9 @@ export var DataSourceIntrospectionResult: StaticStructureSchema = [
   [_mo, _nT],
   [() => DataSourceIntrospectionModels, 0],
 ];
-export var DeleteApiCacheRequest: StaticStructureSchema = [3, n0, _DACR, 0, [_aI], [[0, 1]]];
-export var DeleteApiCacheResponse: StaticStructureSchema = [3, n0, _DACRe, 0, [], []];
-export var DeleteApiKeyRequest: StaticStructureSchema = [
+export var DeleteApiCacheRequest$: StaticStructureSchema = [3, n0, _DACR, 0, [_aI], [[0, 1]]];
+export var DeleteApiCacheResponse$: StaticStructureSchema = [3, n0, _DACRe, 0, [], []];
+export var DeleteApiKeyRequest$: StaticStructureSchema = [
   3,
   n0,
   _DAKR,
@@ -854,10 +861,10 @@ export var DeleteApiKeyRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteApiKeyResponse: StaticStructureSchema = [3, n0, _DAKRe, 0, [], []];
-export var DeleteApiRequest: StaticStructureSchema = [3, n0, _DAR, 0, [_aI], [[0, 1]]];
-export var DeleteApiResponse: StaticStructureSchema = [3, n0, _DARe, 0, [], []];
-export var DeleteChannelNamespaceRequest: StaticStructureSchema = [
+export var DeleteApiKeyResponse$: StaticStructureSchema = [3, n0, _DAKRe, 0, [], []];
+export var DeleteApiRequest$: StaticStructureSchema = [3, n0, _DAR, 0, [_aI], [[0, 1]]];
+export var DeleteApiResponse$: StaticStructureSchema = [3, n0, _DARe, 0, [], []];
+export var DeleteChannelNamespaceRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCNR,
@@ -868,8 +875,8 @@ export var DeleteChannelNamespaceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteChannelNamespaceResponse: StaticStructureSchema = [3, n0, _DCNRe, 0, [], []];
-export var DeleteDataSourceRequest: StaticStructureSchema = [
+export var DeleteChannelNamespaceResponse$: StaticStructureSchema = [3, n0, _DCNRe, 0, [], []];
+export var DeleteDataSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDSR,
@@ -880,10 +887,10 @@ export var DeleteDataSourceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteDataSourceResponse: StaticStructureSchema = [3, n0, _DDSRe, 0, [], []];
-export var DeleteDomainNameRequest: StaticStructureSchema = [3, n0, _DDNR, 0, [_dN], [[0, 1]]];
-export var DeleteDomainNameResponse: StaticStructureSchema = [3, n0, _DDNRe, 0, [], []];
-export var DeleteFunctionRequest: StaticStructureSchema = [
+export var DeleteDataSourceResponse$: StaticStructureSchema = [3, n0, _DDSRe, 0, [], []];
+export var DeleteDomainNameRequest$: StaticStructureSchema = [3, n0, _DDNR, 0, [_dN], [[0, 1]]];
+export var DeleteDomainNameResponse$: StaticStructureSchema = [3, n0, _DDNRe, 0, [], []];
+export var DeleteFunctionRequest$: StaticStructureSchema = [
   3,
   n0,
   _DFR,
@@ -894,10 +901,10 @@ export var DeleteFunctionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteFunctionResponse: StaticStructureSchema = [3, n0, _DFRe, 0, [], []];
-export var DeleteGraphqlApiRequest: StaticStructureSchema = [3, n0, _DGAR, 0, [_aI], [[0, 1]]];
-export var DeleteGraphqlApiResponse: StaticStructureSchema = [3, n0, _DGARe, 0, [], []];
-export var DeleteResolverRequest: StaticStructureSchema = [
+export var DeleteFunctionResponse$: StaticStructureSchema = [3, n0, _DFRe, 0, [], []];
+export var DeleteGraphqlApiRequest$: StaticStructureSchema = [3, n0, _DGAR, 0, [_aI], [[0, 1]]];
+export var DeleteGraphqlApiResponse$: StaticStructureSchema = [3, n0, _DGARe, 0, [], []];
+export var DeleteResolverRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRR,
@@ -909,8 +916,8 @@ export var DeleteResolverRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteResolverResponse: StaticStructureSchema = [3, n0, _DRRe, 0, [], []];
-export var DeleteTypeRequest: StaticStructureSchema = [
+export var DeleteResolverResponse$: StaticStructureSchema = [3, n0, _DRRe, 0, [], []];
+export var DeleteTypeRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTR,
@@ -921,11 +928,11 @@ export var DeleteTypeRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteTypeResponse: StaticStructureSchema = [3, n0, _DTRe, 0, [], []];
-export var DeltaSyncConfig: StaticStructureSchema = [3, n0, _DSC, 0, [_bTTTL, _dSTN, _dSTTTL], [1, 0, 1]];
-export var DisassociateApiRequest: StaticStructureSchema = [3, n0, _DARi, 0, [_dN], [[0, 1]]];
-export var DisassociateApiResponse: StaticStructureSchema = [3, n0, _DARis, 0, [], []];
-export var DisassociateMergedGraphqlApiRequest: StaticStructureSchema = [
+export var DeleteTypeResponse$: StaticStructureSchema = [3, n0, _DTRe, 0, [], []];
+export var DeltaSyncConfig$: StaticStructureSchema = [3, n0, _DSC, 0, [_bTTTL, _dSTN, _dSTTTL], [1, 0, 1]];
+export var DisassociateApiRequest$: StaticStructureSchema = [3, n0, _DARi, 0, [_dN], [[0, 1]]];
+export var DisassociateApiResponse$: StaticStructureSchema = [3, n0, _DARis, 0, [], []];
+export var DisassociateMergedGraphqlApiRequest$: StaticStructureSchema = [
   3,
   n0,
   _DMGAR,
@@ -936,8 +943,8 @@ export var DisassociateMergedGraphqlApiRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DisassociateMergedGraphqlApiResponse: StaticStructureSchema = [3, n0, _DMGARi, 0, [_sAAS], [0]];
-export var DisassociateSourceGraphqlApiRequest: StaticStructureSchema = [
+export var DisassociateMergedGraphqlApiResponse$: StaticStructureSchema = [3, n0, _DMGARi, 0, [_sAAS], [0]];
+export var DisassociateSourceGraphqlApiRequest$: StaticStructureSchema = [
   3,
   n0,
   _DSGAR,
@@ -948,8 +955,8 @@ export var DisassociateSourceGraphqlApiRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DisassociateSourceGraphqlApiResponse: StaticStructureSchema = [3, n0, _DSGARi, 0, [_sAAS], [0]];
-export var DomainNameConfig: StaticStructureSchema = [
+export var DisassociateSourceGraphqlApiResponse$: StaticStructureSchema = [3, n0, _DSGARi, 0, [_sAAS], [0]];
+export var DomainNameConfig$: StaticStructureSchema = [
   3,
   n0,
   _DNC,
@@ -957,70 +964,70 @@ export var DomainNameConfig: StaticStructureSchema = [
   [_dN, _de, _cA, _aDN, _hZI, _t, _dNA],
   [0, 0, 0, 0, 0, 128 | 0, 0],
 ];
-export var DynamodbDataSourceConfig: StaticStructureSchema = [
+export var DynamodbDataSourceConfig$: StaticStructureSchema = [
   3,
   n0,
   _DDSC,
   0,
   [_tNa, _aR, _uCC, _dSC, _ve],
-  [0, 0, 2, () => DeltaSyncConfig, 2],
+  [0, 0, 2, () => DeltaSyncConfig$, 2],
 ];
-export var ElasticsearchDataSourceConfig: StaticStructureSchema = [3, n0, _EDSC, 0, [_en, _aR], [0, 0]];
-export var EnhancedMetricsConfig: StaticStructureSchema = [3, n0, _EMC, 0, [_rLMB, _dSLMB, _oLMC], [0, 0, 0]];
-export var ErrorDetail: StaticStructureSchema = [3, n0, _ED, 0, [_m], [0]];
-export var EvaluateCodeErrorDetail: StaticStructureSchema = [3, n0, _ECED, 0, [_m, _cE], [0, () => CodeErrors]];
-export var EvaluateCodeRequest: StaticStructureSchema = [
+export var ElasticsearchDataSourceConfig$: StaticStructureSchema = [3, n0, _EDSC, 0, [_en, _aR], [0, 0]];
+export var EnhancedMetricsConfig$: StaticStructureSchema = [3, n0, _EMC, 0, [_rLMB, _dSLMB, _oLMC], [0, 0, 0]];
+export var ErrorDetail$: StaticStructureSchema = [3, n0, _ED, 0, [_m], [0]];
+export var EvaluateCodeErrorDetail$: StaticStructureSchema = [3, n0, _ECED, 0, [_m, _cE], [0, () => CodeErrors]];
+export var EvaluateCodeRequest$: StaticStructureSchema = [
   3,
   n0,
   _ECR,
   0,
   [_ru, _cod, _con, _fu],
-  [() => AppSyncRuntime, 0, 0, 0],
+  [() => AppSyncRuntime$, 0, 0, 0],
 ];
-export var EvaluateCodeResponse: StaticStructureSchema = [
+export var EvaluateCodeResponse$: StaticStructureSchema = [
   3,
   n0,
   _ECRv,
   0,
   [_eR, _e, _lo, _st, _oE],
-  [0, () => EvaluateCodeErrorDetail, 64 | 0, 0, 0],
+  [0, () => EvaluateCodeErrorDetail$, 64 | 0, 0, 0],
 ];
-export var EvaluateMappingTemplateRequest: StaticStructureSchema = [3, n0, _EMTR, 0, [_te, _con], [0, 0]];
-export var EvaluateMappingTemplateResponse: StaticStructureSchema = [
+export var EvaluateMappingTemplateRequest$: StaticStructureSchema = [3, n0, _EMTR, 0, [_te, _con], [0, 0]];
+export var EvaluateMappingTemplateResponse$: StaticStructureSchema = [
   3,
   n0,
   _EMTRv,
   0,
   [_eR, _e, _lo, _st, _oE],
-  [0, () => ErrorDetail, 64 | 0, 0, 0],
+  [0, () => ErrorDetail$, 64 | 0, 0, 0],
 ];
-export var EventBridgeDataSourceConfig: StaticStructureSchema = [3, n0, _EBDSC, 0, [_eBA], [0]];
-export var EventConfig: StaticStructureSchema = [
+export var EventBridgeDataSourceConfig$: StaticStructureSchema = [3, n0, _EBDSC, 0, [_eBA], [0]];
+export var EventConfig$: StaticStructureSchema = [
   3,
   n0,
   _EC,
   0,
   [_aP, _cAM, _dPAM, _dSAM, _lCo],
-  [() => AuthProviders, () => AuthModes, () => AuthModes, () => AuthModes, () => EventLogConfig],
+  [() => AuthProviders, () => AuthModes, () => AuthModes, () => AuthModes, () => EventLogConfig$],
 ];
-export var EventLogConfig: StaticStructureSchema = [3, n0, _ELC, 0, [_lL, _cWLRA], [0, 0]];
-export var FlushApiCacheRequest: StaticStructureSchema = [3, n0, _FACR, 0, [_aI], [[0, 1]]];
-export var FlushApiCacheResponse: StaticStructureSchema = [3, n0, _FACRl, 0, [], []];
-export var FunctionConfiguration: StaticStructureSchema = [
+export var EventLogConfig$: StaticStructureSchema = [3, n0, _ELC, 0, [_lL, _cWLRA], [0, 0]];
+export var FlushApiCacheRequest$: StaticStructureSchema = [3, n0, _FACR, 0, [_aI], [[0, 1]]];
+export var FlushApiCacheResponse$: StaticStructureSchema = [3, n0, _FACRl, 0, [], []];
+export var FunctionConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _FC,
   0,
   [_fI, _fA, _n, _de, _dSN, _rMT, _rMTe, _fV, _sC, _mBS, _ru, _cod],
-  [0, 0, 0, 0, 0, 0, 0, 0, () => SyncConfig, 1, () => AppSyncRuntime, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, () => SyncConfig$, 1, () => AppSyncRuntime$, 0],
 ];
-export var GetApiAssociationRequest: StaticStructureSchema = [3, n0, _GAAR, 0, [_dN], [[0, 1]]];
-export var GetApiAssociationResponse: StaticStructureSchema = [3, n0, _GAARe, 0, [_aAp], [() => ApiAssociation]];
-export var GetApiCacheRequest: StaticStructureSchema = [3, n0, _GACR, 0, [_aI], [[0, 1]]];
-export var GetApiCacheResponse: StaticStructureSchema = [3, n0, _GACRe, 0, [_aC], [() => ApiCache]];
-export var GetApiRequest: StaticStructureSchema = [3, n0, _GAR, 0, [_aI], [[0, 1]]];
-export var GetApiResponse: StaticStructureSchema = [3, n0, _GARe, 0, [_a], [() => Api]];
-export var GetChannelNamespaceRequest: StaticStructureSchema = [
+export var GetApiAssociationRequest$: StaticStructureSchema = [3, n0, _GAAR, 0, [_dN], [[0, 1]]];
+export var GetApiAssociationResponse$: StaticStructureSchema = [3, n0, _GAARe, 0, [_aAp], [() => ApiAssociation$]];
+export var GetApiCacheRequest$: StaticStructureSchema = [3, n0, _GACR, 0, [_aI], [[0, 1]]];
+export var GetApiCacheResponse$: StaticStructureSchema = [3, n0, _GACRe, 0, [_aC], [() => ApiCache$]];
+export var GetApiRequest$: StaticStructureSchema = [3, n0, _GAR, 0, [_aI], [[0, 1]]];
+export var GetApiResponse$: StaticStructureSchema = [3, n0, _GARe, 0, [_a], [() => Api$]];
+export var GetChannelNamespaceRequest$: StaticStructureSchema = [
   3,
   n0,
   _GCNR,
@@ -1031,8 +1038,8 @@ export var GetChannelNamespaceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetChannelNamespaceResponse: StaticStructureSchema = [3, n0, _GCNRe, 0, [_cN], [() => ChannelNamespace]];
-export var GetDataSourceIntrospectionRequest: StaticStructureSchema = [
+export var GetChannelNamespaceResponse$: StaticStructureSchema = [3, n0, _GCNRe, 0, [_cN], [() => ChannelNamespace$]];
+export var GetDataSourceIntrospectionRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDSIR,
@@ -1045,15 +1052,15 @@ export var GetDataSourceIntrospectionRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var GetDataSourceIntrospectionResponse: StaticStructureSchema = [
+export var GetDataSourceIntrospectionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GDSIRe,
   0,
   [_iI, _iS, _iSD, _iR],
-  [0, 0, 0, () => DataSourceIntrospectionResult],
+  [0, 0, 0, () => DataSourceIntrospectionResult$],
 ];
-export var GetDataSourceRequest: StaticStructureSchema = [
+export var GetDataSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDSR,
@@ -1064,10 +1071,10 @@ export var GetDataSourceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetDataSourceResponse: StaticStructureSchema = [3, n0, _GDSRe, 0, [_dS], [() => DataSource]];
-export var GetDomainNameRequest: StaticStructureSchema = [3, n0, _GDNR, 0, [_dN], [[0, 1]]];
-export var GetDomainNameResponse: StaticStructureSchema = [3, n0, _GDNRe, 0, [_dNC], [() => DomainNameConfig]];
-export var GetFunctionRequest: StaticStructureSchema = [
+export var GetDataSourceResponse$: StaticStructureSchema = [3, n0, _GDSRe, 0, [_dS], [() => DataSource$]];
+export var GetDomainNameRequest$: StaticStructureSchema = [3, n0, _GDNR, 0, [_dN], [[0, 1]]];
+export var GetDomainNameResponse$: StaticStructureSchema = [3, n0, _GDNRe, 0, [_dNC], [() => DomainNameConfig$]];
+export var GetFunctionRequest$: StaticStructureSchema = [
   3,
   n0,
   _GFR,
@@ -1078,12 +1085,12 @@ export var GetFunctionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetFunctionResponse: StaticStructureSchema = [3, n0, _GFRe, 0, [_fC], [() => FunctionConfiguration]];
-export var GetGraphqlApiEnvironmentVariablesRequest: StaticStructureSchema = [3, n0, _GGAEVR, 0, [_aI], [[0, 1]]];
-export var GetGraphqlApiEnvironmentVariablesResponse: StaticStructureSchema = [3, n0, _GGAEVRe, 0, [_eV], [128 | 0]];
-export var GetGraphqlApiRequest: StaticStructureSchema = [3, n0, _GGAR, 0, [_aI], [[0, 1]]];
-export var GetGraphqlApiResponse: StaticStructureSchema = [3, n0, _GGARe, 0, [_gA], [() => GraphqlApi]];
-export var GetIntrospectionSchemaRequest: StaticStructureSchema = [
+export var GetFunctionResponse$: StaticStructureSchema = [3, n0, _GFRe, 0, [_fC], [() => FunctionConfiguration$]];
+export var GetGraphqlApiEnvironmentVariablesRequest$: StaticStructureSchema = [3, n0, _GGAEVR, 0, [_aI], [[0, 1]]];
+export var GetGraphqlApiEnvironmentVariablesResponse$: StaticStructureSchema = [3, n0, _GGAEVRe, 0, [_eV], [128 | 0]];
+export var GetGraphqlApiRequest$: StaticStructureSchema = [3, n0, _GGAR, 0, [_aI], [[0, 1]]];
+export var GetGraphqlApiResponse$: StaticStructureSchema = [3, n0, _GGARe, 0, [_gA], [() => GraphqlApi$]];
+export var GetIntrospectionSchemaRequest$: StaticStructureSchema = [
   3,
   n0,
   _GISR,
@@ -1095,8 +1102,8 @@ export var GetIntrospectionSchemaRequest: StaticStructureSchema = [
     [2, { [_hQ]: _iD }],
   ],
 ];
-export var GetIntrospectionSchemaResponse: StaticStructureSchema = [3, n0, _GISRe, 0, [_sc], [[21, 16]]];
-export var GetResolverRequest: StaticStructureSchema = [
+export var GetIntrospectionSchemaResponse$: StaticStructureSchema = [3, n0, _GISRe, 0, [_sc], [[21, 16]]];
+export var GetResolverRequest$: StaticStructureSchema = [
   3,
   n0,
   _GRR,
@@ -1108,10 +1115,10 @@ export var GetResolverRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetResolverResponse: StaticStructureSchema = [3, n0, _GRRe, 0, [_re], [() => Resolver]];
-export var GetSchemaCreationStatusRequest: StaticStructureSchema = [3, n0, _GSCSR, 0, [_aI], [[0, 1]]];
-export var GetSchemaCreationStatusResponse: StaticStructureSchema = [3, n0, _GSCSRe, 0, [_s, _deta], [0, 0]];
-export var GetSourceApiAssociationRequest: StaticStructureSchema = [
+export var GetResolverResponse$: StaticStructureSchema = [3, n0, _GRRe, 0, [_re], [() => Resolver$]];
+export var GetSchemaCreationStatusRequest$: StaticStructureSchema = [3, n0, _GSCSR, 0, [_aI], [[0, 1]]];
+export var GetSchemaCreationStatusResponse$: StaticStructureSchema = [3, n0, _GSCSRe, 0, [_s, _deta], [0, 0]];
+export var GetSourceApiAssociationRequest$: StaticStructureSchema = [
   3,
   n0,
   _GSAAR,
@@ -1122,15 +1129,15 @@ export var GetSourceApiAssociationRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetSourceApiAssociationResponse: StaticStructureSchema = [
+export var GetSourceApiAssociationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GSAARe,
   0,
   [_sAA],
-  [() => SourceApiAssociation],
+  [() => SourceApiAssociation$],
 ];
-export var GetTypeRequest: StaticStructureSchema = [
+export var GetTypeRequest$: StaticStructureSchema = [
   3,
   n0,
   _GTR,
@@ -1142,8 +1149,8 @@ export var GetTypeRequest: StaticStructureSchema = [
     [0, { [_hQ]: _f }],
   ],
 ];
-export var GetTypeResponse: StaticStructureSchema = [3, n0, _GTRe, 0, [_ty], [() => Type]];
-export var GraphqlApi: StaticStructureSchema = [
+export var GetTypeResponse$: StaticStructureSchema = [3, n0, _GTRe, 0, [_ty], [() => Type$]];
+export var GraphqlApi$: StaticStructureSchema = [
   3,
   n0,
   _GA,
@@ -1177,16 +1184,16 @@ export var GraphqlApi: StaticStructureSchema = [
     0,
     0,
     0,
-    () => LogConfig,
-    () => UserPoolConfig,
-    () => OpenIDConnectConfig,
+    () => LogConfig$,
+    () => UserPoolConfig$,
+    () => OpenIDConnectConfig$,
     0,
     128 | 0,
     128 | 0,
     () => AdditionalAuthenticationProviders,
     2,
     0,
-    () => LambdaAuthorizerConfig,
+    () => LambdaAuthorizerConfig$,
     128 | 0,
     0,
     0,
@@ -1196,31 +1203,38 @@ export var GraphqlApi: StaticStructureSchema = [
     0,
     1,
     1,
-    () => EnhancedMetricsConfig,
+    () => EnhancedMetricsConfig$,
   ],
 ];
-export var GraphQLSchemaException: StaticErrorSchema = [-3, n0, _GQLSE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(GraphQLSchemaException, __GraphQLSchemaException);
-export var HandlerConfig: StaticStructureSchema = [3, n0, _HC, 0, [_b, _int], [0, () => Integration]];
-export var HandlerConfigs: StaticStructureSchema = [
+export var GraphQLSchemaException$: StaticErrorSchema = [-3, n0, _GQLSE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(GraphQLSchemaException$, GraphQLSchemaException);
+export var HandlerConfig$: StaticStructureSchema = [3, n0, _HC, 0, [_b, _int], [0, () => Integration$]];
+export var HandlerConfigs$: StaticStructureSchema = [
   3,
   n0,
   _HCa,
   0,
   [_oP, _oS],
-  [() => HandlerConfig, () => HandlerConfig],
+  [() => HandlerConfig$, () => HandlerConfig$],
 ];
-export var HttpDataSourceConfig: StaticStructureSchema = [3, n0, _HDSC, 0, [_en, _aCu], [0, () => AuthorizationConfig]];
-export var Integration: StaticStructureSchema = [3, n0, _I, 0, [_dSN, _lC], [0, () => LambdaConfig]];
-export var InternalFailureException: StaticErrorSchema = [-3, n0, _IFE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InternalFailureException, __InternalFailureException);
-export var LambdaAuthorizerConfig: StaticStructureSchema = [3, n0, _LAC, 0, [_aRTIS, _aU, _iVE], [1, 0, 0]];
-export var LambdaConfig: StaticStructureSchema = [3, n0, _LC, 0, [_iT], [0]];
-export var LambdaConflictHandlerConfig: StaticStructureSchema = [3, n0, _LCHC, 0, [_lCHA], [0]];
-export var LambdaDataSourceConfig: StaticStructureSchema = [3, n0, _LDSC, 0, [_lFA], [0]];
-export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-export var ListApiKeysRequest: StaticStructureSchema = [
+export var HttpDataSourceConfig$: StaticStructureSchema = [
+  3,
+  n0,
+  _HDSC,
+  0,
+  [_en, _aCu],
+  [0, () => AuthorizationConfig$],
+];
+export var Integration$: StaticStructureSchema = [3, n0, _I, 0, [_dSN, _lC], [0, () => LambdaConfig$]];
+export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InternalFailureException$, InternalFailureException);
+export var LambdaAuthorizerConfig$: StaticStructureSchema = [3, n0, _LAC, 0, [_aRTIS, _aU, _iVE], [1, 0, 0]];
+export var LambdaConfig$: StaticStructureSchema = [3, n0, _LC, 0, [_iT], [0]];
+export var LambdaConflictHandlerConfig$: StaticStructureSchema = [3, n0, _LCHC, 0, [_lCHA], [0]];
+export var LambdaDataSourceConfig$: StaticStructureSchema = [3, n0, _LDSC, 0, [_lFA], [0]];
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
+export var ListApiKeysRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAKR,
@@ -1232,8 +1246,8 @@ export var ListApiKeysRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListApiKeysResponse: StaticStructureSchema = [3, n0, _LAKRi, 0, [_aKp, _nT], [() => ApiKeys, 0]];
-export var ListApisRequest: StaticStructureSchema = [
+export var ListApiKeysResponse$: StaticStructureSchema = [3, n0, _LAKRi, 0, [_aKp, _nT], [() => ApiKeys, 0]];
+export var ListApisRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAR,
@@ -1244,8 +1258,8 @@ export var ListApisRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListApisResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_ap, _nT], [() => Apis, 0]];
-export var ListChannelNamespacesRequest: StaticStructureSchema = [
+export var ListApisResponse$: StaticStructureSchema = [3, n0, _LARi, 0, [_ap, _nT], [() => Apis, 0]];
+export var ListChannelNamespacesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCNR,
@@ -1257,7 +1271,7 @@ export var ListChannelNamespacesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListChannelNamespacesResponse: StaticStructureSchema = [
+export var ListChannelNamespacesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCNRi,
@@ -1265,7 +1279,7 @@ export var ListChannelNamespacesResponse: StaticStructureSchema = [
   [_cNh, _nT],
   [() => ChannelNamespaces, 0],
 ];
-export var ListDataSourcesRequest: StaticStructureSchema = [
+export var ListDataSourcesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDSR,
@@ -1277,8 +1291,8 @@ export var ListDataSourcesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListDataSourcesResponse: StaticStructureSchema = [3, n0, _LDSRi, 0, [_dSa, _nT], [() => DataSources, 0]];
-export var ListDomainNamesRequest: StaticStructureSchema = [
+export var ListDataSourcesResponse$: StaticStructureSchema = [3, n0, _LDSRi, 0, [_dSa, _nT], [() => DataSources, 0]];
+export var ListDomainNamesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDNR,
@@ -1289,7 +1303,7 @@ export var ListDomainNamesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListDomainNamesResponse: StaticStructureSchema = [
+export var ListDomainNamesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LDNRi,
@@ -1297,7 +1311,7 @@ export var ListDomainNamesResponse: StaticStructureSchema = [
   [_dNCo, _nT],
   [() => DomainNameConfigs, 0],
 ];
-export var ListFunctionsRequest: StaticStructureSchema = [
+export var ListFunctionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LFR,
@@ -1309,8 +1323,8 @@ export var ListFunctionsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListFunctionsResponse: StaticStructureSchema = [3, n0, _LFRi, 0, [_fun, _nT], [() => Functions, 0]];
-export var ListGraphqlApisRequest: StaticStructureSchema = [
+export var ListFunctionsResponse$: StaticStructureSchema = [3, n0, _LFRi, 0, [_fun, _nT], [() => Functions, 0]];
+export var ListGraphqlApisRequest$: StaticStructureSchema = [
   3,
   n0,
   _LGAR,
@@ -1323,8 +1337,8 @@ export var ListGraphqlApisRequest: StaticStructureSchema = [
     [0, { [_hQ]: _o }],
   ],
 ];
-export var ListGraphqlApisResponse: StaticStructureSchema = [3, n0, _LGARi, 0, [_gAr, _nT], [() => GraphqlApis, 0]];
-export var ListResolversByFunctionRequest: StaticStructureSchema = [
+export var ListGraphqlApisResponse$: StaticStructureSchema = [3, n0, _LGARi, 0, [_gAr, _nT], [() => GraphqlApis, 0]];
+export var ListResolversByFunctionRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRBFR,
@@ -1337,7 +1351,7 @@ export var ListResolversByFunctionRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListResolversByFunctionResponse: StaticStructureSchema = [
+export var ListResolversByFunctionResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRBFRi,
@@ -1345,7 +1359,7 @@ export var ListResolversByFunctionResponse: StaticStructureSchema = [
   [_res, _nT],
   [() => Resolvers, 0],
 ];
-export var ListResolversRequest: StaticStructureSchema = [
+export var ListResolversRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRR,
@@ -1358,8 +1372,8 @@ export var ListResolversRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListResolversResponse: StaticStructureSchema = [3, n0, _LRRi, 0, [_res, _nT], [() => Resolvers, 0]];
-export var ListSourceApiAssociationsRequest: StaticStructureSchema = [
+export var ListResolversResponse$: StaticStructureSchema = [3, n0, _LRRi, 0, [_res, _nT], [() => Resolvers, 0]];
+export var ListSourceApiAssociationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LSAAR,
@@ -1371,7 +1385,7 @@ export var ListSourceApiAssociationsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListSourceApiAssociationsResponse: StaticStructureSchema = [
+export var ListSourceApiAssociationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LSAARi,
@@ -1379,9 +1393,9 @@ export var ListSourceApiAssociationsResponse: StaticStructureSchema = [
   [_sAASo, _nT],
   [() => SourceApiAssociationSummaryList, 0],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
-export var ListTypesByAssociationRequest: StaticStructureSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
+export var ListTypesByAssociationRequest$: StaticStructureSchema = [
   3,
   n0,
   _LTBAR,
@@ -1395,7 +1409,7 @@ export var ListTypesByAssociationRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListTypesByAssociationResponse: StaticStructureSchema = [
+export var ListTypesByAssociationResponse$: StaticStructureSchema = [
   3,
   n0,
   _LTBARi,
@@ -1403,7 +1417,7 @@ export var ListTypesByAssociationResponse: StaticStructureSchema = [
   [_typ, _nT],
   [() => TypeList, 0],
 ];
-export var ListTypesRequest: StaticStructureSchema = [
+export var ListTypesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LTR,
@@ -1416,14 +1430,14 @@ export var ListTypesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListTypesResponse: StaticStructureSchema = [3, n0, _LTRi, 0, [_typ, _nT], [() => TypeList, 0]];
-export var LogConfig: StaticStructureSchema = [3, n0, _LCo, 0, [_fLL, _cWLRA, _eVC], [0, 0, 2]];
-export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-export var OpenIDConnectConfig: StaticStructureSchema = [3, n0, _OIDCC, 0, [_is, _cI, _iTTL, _aTTL], [0, 0, 1, 1]];
-export var OpenSearchServiceDataSourceConfig: StaticStructureSchema = [3, n0, _OSSDSC, 0, [_en, _aR], [0, 0]];
-export var PipelineConfig: StaticStructureSchema = [3, n0, _PC, 0, [_fun], [64 | 0]];
-export var PutGraphqlApiEnvironmentVariablesRequest: StaticStructureSchema = [
+export var ListTypesResponse$: StaticStructureSchema = [3, n0, _LTRi, 0, [_typ, _nT], [() => TypeList, 0]];
+export var LogConfig$: StaticStructureSchema = [3, n0, _LCo, 0, [_fLL, _cWLRA, _eVC], [0, 0, 2]];
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
+export var OpenIDConnectConfig$: StaticStructureSchema = [3, n0, _OIDCC, 0, [_is, _cI, _iTTL, _aTTL], [0, 0, 1, 1]];
+export var OpenSearchServiceDataSourceConfig$: StaticStructureSchema = [3, n0, _OSSDSC, 0, [_en, _aR], [0, 0]];
+export var PipelineConfig$: StaticStructureSchema = [3, n0, _PC, 0, [_fun], [64 | 0]];
+export var PutGraphqlApiEnvironmentVariablesRequest$: StaticStructureSchema = [
   3,
   n0,
   _PGAEVR,
@@ -1431,9 +1445,9 @@ export var PutGraphqlApiEnvironmentVariablesRequest: StaticStructureSchema = [
   [_aI, _eV],
   [[0, 1], 128 | 0],
 ];
-export var PutGraphqlApiEnvironmentVariablesResponse: StaticStructureSchema = [3, n0, _PGAEVRu, 0, [_eV], [128 | 0]];
-export var RdsDataApiConfig: StaticStructureSchema = [3, n0, _RDAC, 0, [_rA, _sA, _dNa], [0, 0, 0]];
-export var RdsHttpEndpointConfig: StaticStructureSchema = [
+export var PutGraphqlApiEnvironmentVariablesResponse$: StaticStructureSchema = [3, n0, _PGAEVRu, 0, [_eV], [128 | 0]];
+export var RdsDataApiConfig$: StaticStructureSchema = [3, n0, _RDAC, 0, [_rA, _sA, _dNa], [0, 0, 0]];
+export var RdsHttpEndpointConfig$: StaticStructureSchema = [
   3,
   n0,
   _RHEC,
@@ -1441,34 +1455,34 @@ export var RdsHttpEndpointConfig: StaticStructureSchema = [
   [_aR, _dCI, _dNa, _sc, _aSSA],
   [0, 0, 0, 0, 0],
 ];
-export var RelationalDatabaseDataSourceConfig: StaticStructureSchema = [
+export var RelationalDatabaseDataSourceConfig$: StaticStructureSchema = [
   3,
   n0,
   _RDDSC,
   0,
   [_rDST, _rHEC],
-  [0, () => RdsHttpEndpointConfig],
+  [0, () => RdsHttpEndpointConfig$],
 ];
-export var Resolver: StaticStructureSchema = [
+export var Resolver$: StaticStructureSchema = [
   3,
   n0,
   _R,
   0,
   [_tN, _fN, _dSN, _rAe, _rMT, _rMTe, _k, _pC, _sC, _cCa, _mBS, _ru, _cod, _mC],
-  [0, 0, 0, 0, 0, 0, 0, () => PipelineConfig, () => SyncConfig, () => CachingConfig, 1, () => AppSyncRuntime, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, () => PipelineConfig$, () => SyncConfig$, () => CachingConfig$, 1, () => AppSyncRuntime$, 0, 0],
 ];
-export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var SourceApiAssociation: StaticStructureSchema = [
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var SourceApiAssociation$: StaticStructureSchema = [
   3,
   n0,
   _SAA,
   0,
   [_aIs, _aAs, _sAIo, _sAAo, _mAA, _mAIe, _de, _sAAC, _sAAS, _sAASD, _lSMD],
-  [0, 0, 0, 0, 0, 0, 0, () => SourceApiAssociationConfig, 0, 0, 4],
+  [0, 0, 0, 0, 0, 0, 0, () => SourceApiAssociationConfig$, 0, 0, 4],
 ];
-export var SourceApiAssociationConfig: StaticStructureSchema = [3, n0, _SAAC, 0, [_mT], [0]];
-export var SourceApiAssociationSummary: StaticStructureSchema = [
+export var SourceApiAssociationConfig$: StaticStructureSchema = [3, n0, _SAAC, 0, [_mT], [0]];
+export var SourceApiAssociationSummary$: StaticStructureSchema = [
   3,
   n0,
   _SAAS,
@@ -1476,15 +1490,15 @@ export var SourceApiAssociationSummary: StaticStructureSchema = [
   [_aIs, _aAs, _sAIo, _sAAo, _mAIe, _mAA, _de],
   [0, 0, 0, 0, 0, 0, 0],
 ];
-export var StartDataSourceIntrospectionRequest: StaticStructureSchema = [
+export var StartDataSourceIntrospectionRequest$: StaticStructureSchema = [
   3,
   n0,
   _SDSIR,
   0,
   [_rDAC],
-  [() => RdsDataApiConfig],
+  [() => RdsDataApiConfig$],
 ];
-export var StartDataSourceIntrospectionResponse: StaticStructureSchema = [
+export var StartDataSourceIntrospectionResponse$: StaticStructureSchema = [
   3,
   n0,
   _SDSIRt,
@@ -1492,9 +1506,9 @@ export var StartDataSourceIntrospectionResponse: StaticStructureSchema = [
   [_iI, _iS, _iSD],
   [0, 0, 0],
 ];
-export var StartSchemaCreationRequest: StaticStructureSchema = [3, n0, _SSCR, 0, [_aI, _def], [[0, 1], 21]];
-export var StartSchemaCreationResponse: StaticStructureSchema = [3, n0, _SSCRt, 0, [_s], [0]];
-export var StartSchemaMergeRequest: StaticStructureSchema = [
+export var StartSchemaCreationRequest$: StaticStructureSchema = [3, n0, _SSCR, 0, [_aI, _def], [[0, 1], 21]];
+export var StartSchemaCreationResponse$: StaticStructureSchema = [3, n0, _SSCRt, 0, [_s], [0]];
+export var StartSchemaMergeRequest$: StaticStructureSchema = [
   3,
   n0,
   _SSMR,
@@ -1505,21 +1519,21 @@ export var StartSchemaMergeRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var StartSchemaMergeResponse: StaticStructureSchema = [3, n0, _SSMRt, 0, [_sAAS], [0]];
-export var SyncConfig: StaticStructureSchema = [
+export var StartSchemaMergeResponse$: StaticStructureSchema = [3, n0, _SSMRt, 0, [_sAAS], [0]];
+export var SyncConfig$: StaticStructureSchema = [
   3,
   n0,
   _SC,
   0,
   [_cHo, _cD, _lCHC],
-  [0, 0, () => LambdaConflictHandlerConfig],
+  [0, 0, () => LambdaConflictHandlerConfig$],
 ];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [[0, 1], 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var Type: StaticStructureSchema = [3, n0, _T, 0, [_n, _de, _ar, _def, _f], [0, 0, 0, 0, 0]];
-export var UnauthorizedException: StaticErrorSchema = [-3, n0, _UE, { [_e]: _c, [_hE]: 401 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
-export var UntagResourceRequest: StaticStructureSchema = [
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [[0, 1], 128 | 0]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var Type$: StaticStructureSchema = [3, n0, _T, 0, [_n, _de, _ar, _def, _f], [0, 0, 0, 0, 0]];
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE, { [_e]: _c, [_hE]: 401 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -1530,8 +1544,8 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateApiCacheRequest: StaticStructureSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateApiCacheRequest$: StaticStructureSchema = [
   3,
   n0,
   _UACR,
@@ -1539,28 +1553,35 @@ export var UpdateApiCacheRequest: StaticStructureSchema = [
   [_aI, _tt, _aCB, _ty, _hMC],
   [[0, 1], 1, 0, 0, 0],
 ];
-export var UpdateApiCacheResponse: StaticStructureSchema = [3, n0, _UACRp, 0, [_aC], [() => ApiCache]];
-export var UpdateApiKeyRequest: StaticStructureSchema = [3, n0, _UAKR, 0, [_aI, _i, _de, _ex], [[0, 1], [0, 1], 0, 1]];
-export var UpdateApiKeyResponse: StaticStructureSchema = [3, n0, _UAKRp, 0, [_aK], [() => ApiKey]];
-export var UpdateApiRequest: StaticStructureSchema = [
+export var UpdateApiCacheResponse$: StaticStructureSchema = [3, n0, _UACRp, 0, [_aC], [() => ApiCache$]];
+export var UpdateApiKeyRequest$: StaticStructureSchema = [3, n0, _UAKR, 0, [_aI, _i, _de, _ex], [[0, 1], [0, 1], 0, 1]];
+export var UpdateApiKeyResponse$: StaticStructureSchema = [3, n0, _UAKRp, 0, [_aK], [() => ApiKey$]];
+export var UpdateApiRequest$: StaticStructureSchema = [
   3,
   n0,
   _UAR,
   0,
   [_aI, _n, _oC, _eC],
-  [[0, 1], 0, 0, () => EventConfig],
+  [[0, 1], 0, 0, () => EventConfig$],
 ];
-export var UpdateApiResponse: StaticStructureSchema = [3, n0, _UARp, 0, [_a], [() => Api]];
-export var UpdateChannelNamespaceRequest: StaticStructureSchema = [
+export var UpdateApiResponse$: StaticStructureSchema = [3, n0, _UARp, 0, [_a], [() => Api$]];
+export var UpdateChannelNamespaceRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCNR,
   0,
   [_aI, _n, _sAM, _pAM, _cH, _hC],
-  [[0, 1], [0, 1], () => AuthModes, () => AuthModes, 0, () => HandlerConfigs],
+  [[0, 1], [0, 1], () => AuthModes, () => AuthModes, 0, () => HandlerConfigs$],
 ];
-export var UpdateChannelNamespaceResponse: StaticStructureSchema = [3, n0, _UCNRp, 0, [_cN], [() => ChannelNamespace]];
-export var UpdateDataSourceRequest: StaticStructureSchema = [
+export var UpdateChannelNamespaceResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _UCNRp,
+  0,
+  [_cN],
+  [() => ChannelNamespace$],
+];
+export var UpdateDataSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _UDSR,
@@ -1572,29 +1593,29 @@ export var UpdateDataSourceRequest: StaticStructureSchema = [
     0,
     0,
     0,
-    () => DynamodbDataSourceConfig,
-    () => LambdaDataSourceConfig,
-    () => ElasticsearchDataSourceConfig,
-    () => OpenSearchServiceDataSourceConfig,
-    () => HttpDataSourceConfig,
-    () => RelationalDatabaseDataSourceConfig,
-    () => EventBridgeDataSourceConfig,
+    () => DynamodbDataSourceConfig$,
+    () => LambdaDataSourceConfig$,
+    () => ElasticsearchDataSourceConfig$,
+    () => OpenSearchServiceDataSourceConfig$,
+    () => HttpDataSourceConfig$,
+    () => RelationalDatabaseDataSourceConfig$,
+    () => EventBridgeDataSourceConfig$,
     0,
   ],
 ];
-export var UpdateDataSourceResponse: StaticStructureSchema = [3, n0, _UDSRp, 0, [_dS], [() => DataSource]];
-export var UpdateDomainNameRequest: StaticStructureSchema = [3, n0, _UDNR, 0, [_dN, _de], [[0, 1], 0]];
-export var UpdateDomainNameResponse: StaticStructureSchema = [3, n0, _UDNRp, 0, [_dNC], [() => DomainNameConfig]];
-export var UpdateFunctionRequest: StaticStructureSchema = [
+export var UpdateDataSourceResponse$: StaticStructureSchema = [3, n0, _UDSRp, 0, [_dS], [() => DataSource$]];
+export var UpdateDomainNameRequest$: StaticStructureSchema = [3, n0, _UDNR, 0, [_dN, _de], [[0, 1], 0]];
+export var UpdateDomainNameResponse$: StaticStructureSchema = [3, n0, _UDNRp, 0, [_dNC], [() => DomainNameConfig$]];
+export var UpdateFunctionRequest$: StaticStructureSchema = [
   3,
   n0,
   _UFR,
   0,
   [_aI, _n, _de, _fI, _dSN, _rMT, _rMTe, _fV, _sC, _mBS, _ru, _cod],
-  [[0, 1], 0, 0, [0, 1], 0, 0, 0, 0, () => SyncConfig, 1, () => AppSyncRuntime, 0],
+  [[0, 1], 0, 0, [0, 1], 0, 0, 0, 0, () => SyncConfig$, 1, () => AppSyncRuntime$, 0],
 ];
-export var UpdateFunctionResponse: StaticStructureSchema = [3, n0, _UFRp, 0, [_fC], [() => FunctionConfiguration]];
-export var UpdateGraphqlApiRequest: StaticStructureSchema = [
+export var UpdateFunctionResponse$: StaticStructureSchema = [3, n0, _UFRp, 0, [_fC], [() => FunctionConfiguration$]];
+export var UpdateGraphqlApiRequest$: StaticStructureSchema = [
   3,
   n0,
   _UGAR,
@@ -1603,23 +1624,23 @@ export var UpdateGraphqlApiRequest: StaticStructureSchema = [
   [
     [0, 1],
     0,
-    () => LogConfig,
+    () => LogConfig$,
     0,
-    () => UserPoolConfig,
-    () => OpenIDConnectConfig,
+    () => UserPoolConfig$,
+    () => OpenIDConnectConfig$,
     () => AdditionalAuthenticationProviders,
     2,
-    () => LambdaAuthorizerConfig,
+    () => LambdaAuthorizerConfig$,
     0,
     0,
     0,
     1,
     1,
-    () => EnhancedMetricsConfig,
+    () => EnhancedMetricsConfig$,
   ],
 ];
-export var UpdateGraphqlApiResponse: StaticStructureSchema = [3, n0, _UGARp, 0, [_gA], [() => GraphqlApi]];
-export var UpdateResolverRequest: StaticStructureSchema = [
+export var UpdateGraphqlApiResponse$: StaticStructureSchema = [3, n0, _UGARp, 0, [_gA], [() => GraphqlApi$]];
+export var UpdateResolverRequest$: StaticStructureSchema = [
   3,
   n0,
   _URRp,
@@ -1633,670 +1654,664 @@ export var UpdateResolverRequest: StaticStructureSchema = [
     0,
     0,
     0,
-    () => PipelineConfig,
-    () => SyncConfig,
-    () => CachingConfig,
+    () => PipelineConfig$,
+    () => SyncConfig$,
+    () => CachingConfig$,
     1,
-    () => AppSyncRuntime,
+    () => AppSyncRuntime$,
     0,
     0,
   ],
 ];
-export var UpdateResolverResponse: StaticStructureSchema = [3, n0, _URRpd, 0, [_re], [() => Resolver]];
-export var UpdateSourceApiAssociationRequest: StaticStructureSchema = [
+export var UpdateResolverResponse$: StaticStructureSchema = [3, n0, _URRpd, 0, [_re], [() => Resolver$]];
+export var UpdateSourceApiAssociationRequest$: StaticStructureSchema = [
   3,
   n0,
   _USAAR,
   0,
   [_aIs, _mAI, _de, _sAAC],
-  [[0, 1], [0, 1], 0, () => SourceApiAssociationConfig],
+  [[0, 1], [0, 1], 0, () => SourceApiAssociationConfig$],
 ];
-export var UpdateSourceApiAssociationResponse: StaticStructureSchema = [
+export var UpdateSourceApiAssociationResponse$: StaticStructureSchema = [
   3,
   n0,
   _USAARp,
   0,
   [_sAA],
-  [() => SourceApiAssociation],
+  [() => SourceApiAssociation$],
 ];
-export var UpdateTypeRequest: StaticStructureSchema = [3, n0, _UTR, 0, [_aI, _tN, _def, _f], [[0, 1], [0, 1], 0, 0]];
-export var UpdateTypeResponse: StaticStructureSchema = [3, n0, _UTRp, 0, [_ty], [() => Type]];
-export var UserPoolConfig: StaticStructureSchema = [3, n0, _UPC, 0, [_uPI, _aR, _dA, _aICR], [0, 0, 0, 0]];
-export var AppSyncServiceException: StaticErrorSchema = [-3, _sm, "AppSyncServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(AppSyncServiceException, __AppSyncServiceException);
-export var AdditionalAuthenticationProviders: StaticListSchema = [
-  1,
-  n0,
-  _AAPd,
-  0,
-  () => AdditionalAuthenticationProvider,
-];
-export var ApiKeys: StaticListSchema = [1, n0, _AKp, 0, () => ApiKey];
-export var Apis: StaticListSchema = [1, n0, _Ap, 0, () => Api];
-export var AuthModes: StaticListSchema = [1, n0, _AMu, 0, () => AuthMode];
-export var AuthProviders: StaticListSchema = [1, n0, _APu, 0, () => AuthProvider];
-export var CachingKeys = 64 | 0;
-export var ChannelNamespaces: StaticListSchema = [1, n0, _CNh, 0, () => ChannelNamespace];
-export var CodeErrors: StaticListSchema = [1, n0, _CEod, 0, () => CodeError];
-export var DataSourceIntrospectionModelFields: StaticListSchema = [
+export var UpdateTypeRequest$: StaticStructureSchema = [3, n0, _UTR, 0, [_aI, _tN, _def, _f], [[0, 1], [0, 1], 0, 0]];
+export var UpdateTypeResponse$: StaticStructureSchema = [3, n0, _UTRp, 0, [_ty], [() => Type$]];
+export var UserPoolConfig$: StaticStructureSchema = [3, n0, _UPC, 0, [_uPI, _aR, _dA, _aICR], [0, 0, 0, 0]];
+export var AppSyncServiceException$: StaticErrorSchema = [-3, _sm, "AppSyncServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(AppSyncServiceException$, AppSyncServiceException);
+var AdditionalAuthenticationProviders: StaticListSchema = [1, n0, _AAPd, 0, () => AdditionalAuthenticationProvider$];
+var ApiKeys: StaticListSchema = [1, n0, _AKp, 0, () => ApiKey$];
+var Apis: StaticListSchema = [1, n0, _Ap, 0, () => Api$];
+var AuthModes: StaticListSchema = [1, n0, _AMu, 0, () => AuthMode$];
+var AuthProviders: StaticListSchema = [1, n0, _APu, 0, () => AuthProvider$];
+var CachingKeys = 64 | 0;
+var ChannelNamespaces: StaticListSchema = [1, n0, _CNh, 0, () => ChannelNamespace$];
+var CodeErrors: StaticListSchema = [1, n0, _CEod, 0, () => CodeError$];
+var DataSourceIntrospectionModelFields: StaticListSchema = [
   1,
   n0,
   _DSIMFa,
   0,
-  () => DataSourceIntrospectionModelField,
+  () => DataSourceIntrospectionModelField$,
 ];
-export var DataSourceIntrospectionModelFieldTypeValues = 64 | 0;
-export var DataSourceIntrospectionModelIndexes: StaticListSchema = [
+var DataSourceIntrospectionModelFieldTypeValues = 64 | 0;
+var DataSourceIntrospectionModelIndexes: StaticListSchema = [
   1,
   n0,
   _DSIMIa,
   0,
-  () => DataSourceIntrospectionModelIndex,
+  () => DataSourceIntrospectionModelIndex$,
 ];
-export var DataSourceIntrospectionModelIndexFields = 64 | 0;
-export var DataSourceIntrospectionModels: StaticListSchema = [1, n0, _DSIMa, 0, () => DataSourceIntrospectionModel];
-export var DataSources: StaticListSchema = [1, n0, _DSa, 0, () => DataSource];
-export var DomainNameConfigs: StaticListSchema = [1, n0, _DNCo, 0, () => DomainNameConfig];
-export var Functions: StaticListSchema = [1, n0, _F, 0, () => FunctionConfiguration];
-export var FunctionsIds = 64 | 0;
-export var GraphqlApis: StaticListSchema = [1, n0, _GAr, 0, () => GraphqlApi];
-export var Logs = 64 | 0;
-export var Resolvers: StaticListSchema = [1, n0, _Re, 0, () => Resolver];
-export var SourceApiAssociationSummaryList: StaticListSchema = [1, n0, _SAASL, 0, () => SourceApiAssociationSummary];
-export var TagKeyList = 64 | 0;
-export var TypeList: StaticListSchema = [1, n0, _TL, 0, () => Type];
-export var EnvironmentVariableMap = 128 | 0;
-export var MapOfStringToString = 128 | 0;
-export var TagMap = 128 | 0;
-export var AssociateApi: StaticOperationSchema = [
+var DataSourceIntrospectionModelIndexFields = 64 | 0;
+var DataSourceIntrospectionModels: StaticListSchema = [1, n0, _DSIMa, 0, () => DataSourceIntrospectionModel$];
+var DataSources: StaticListSchema = [1, n0, _DSa, 0, () => DataSource$];
+var DomainNameConfigs: StaticListSchema = [1, n0, _DNCo, 0, () => DomainNameConfig$];
+var Functions: StaticListSchema = [1, n0, _F, 0, () => FunctionConfiguration$];
+var FunctionsIds = 64 | 0;
+var GraphqlApis: StaticListSchema = [1, n0, _GAr, 0, () => GraphqlApi$];
+var Logs = 64 | 0;
+var Resolvers: StaticListSchema = [1, n0, _Re, 0, () => Resolver$];
+var SourceApiAssociationSummaryList: StaticListSchema = [1, n0, _SAASL, 0, () => SourceApiAssociationSummary$];
+var TagKeyList = 64 | 0;
+var TypeList: StaticListSchema = [1, n0, _TL, 0, () => Type$];
+var EnvironmentVariableMap = 128 | 0;
+var MapOfStringToString = 128 | 0;
+var TagMap = 128 | 0;
+export var AssociateApi$: StaticOperationSchema = [
   9,
   n0,
   _AAs,
   { [_h]: ["POST", "/v1/domainnames/{domainName}/apiassociation", 200] },
-  () => AssociateApiRequest,
-  () => AssociateApiResponse,
+  () => AssociateApiRequest$,
+  () => AssociateApiResponse$,
 ];
-export var AssociateMergedGraphqlApi: StaticOperationSchema = [
+export var AssociateMergedGraphqlApi$: StaticOperationSchema = [
   9,
   n0,
   _AMGA,
   { [_h]: ["POST", "/v1/sourceApis/{sourceApiIdentifier}/mergedApiAssociations", 200] },
-  () => AssociateMergedGraphqlApiRequest,
-  () => AssociateMergedGraphqlApiResponse,
+  () => AssociateMergedGraphqlApiRequest$,
+  () => AssociateMergedGraphqlApiResponse$,
 ];
-export var AssociateSourceGraphqlApi: StaticOperationSchema = [
+export var AssociateSourceGraphqlApi$: StaticOperationSchema = [
   9,
   n0,
   _ASGA,
   { [_h]: ["POST", "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations", 200] },
-  () => AssociateSourceGraphqlApiRequest,
-  () => AssociateSourceGraphqlApiResponse,
+  () => AssociateSourceGraphqlApiRequest$,
+  () => AssociateSourceGraphqlApiResponse$,
 ];
-export var CreateApi: StaticOperationSchema = [
+export var CreateApi$: StaticOperationSchema = [
   9,
   n0,
   _CA,
   { [_h]: ["POST", "/v2/apis", 200] },
-  () => CreateApiRequest,
-  () => CreateApiResponse,
+  () => CreateApiRequest$,
+  () => CreateApiResponse$,
 ];
-export var CreateApiCache: StaticOperationSchema = [
+export var CreateApiCache$: StaticOperationSchema = [
   9,
   n0,
   _CAC,
   { [_h]: ["POST", "/v1/apis/{apiId}/ApiCaches", 200] },
-  () => CreateApiCacheRequest,
-  () => CreateApiCacheResponse,
+  () => CreateApiCacheRequest$,
+  () => CreateApiCacheResponse$,
 ];
-export var CreateApiKey: StaticOperationSchema = [
+export var CreateApiKey$: StaticOperationSchema = [
   9,
   n0,
   _CAK,
   { [_h]: ["POST", "/v1/apis/{apiId}/apikeys", 200] },
-  () => CreateApiKeyRequest,
-  () => CreateApiKeyResponse,
+  () => CreateApiKeyRequest$,
+  () => CreateApiKeyResponse$,
 ];
-export var CreateChannelNamespace: StaticOperationSchema = [
+export var CreateChannelNamespace$: StaticOperationSchema = [
   9,
   n0,
   _CCN,
   { [_h]: ["POST", "/v2/apis/{apiId}/channelNamespaces", 200] },
-  () => CreateChannelNamespaceRequest,
-  () => CreateChannelNamespaceResponse,
+  () => CreateChannelNamespaceRequest$,
+  () => CreateChannelNamespaceResponse$,
 ];
-export var CreateDataSource: StaticOperationSchema = [
+export var CreateDataSource$: StaticOperationSchema = [
   9,
   n0,
   _CDS,
   { [_h]: ["POST", "/v1/apis/{apiId}/datasources", 200] },
-  () => CreateDataSourceRequest,
-  () => CreateDataSourceResponse,
+  () => CreateDataSourceRequest$,
+  () => CreateDataSourceResponse$,
 ];
-export var CreateDomainName: StaticOperationSchema = [
+export var CreateDomainName$: StaticOperationSchema = [
   9,
   n0,
   _CDN,
   { [_h]: ["POST", "/v1/domainnames", 200] },
-  () => CreateDomainNameRequest,
-  () => CreateDomainNameResponse,
+  () => CreateDomainNameRequest$,
+  () => CreateDomainNameResponse$,
 ];
-export var CreateFunction: StaticOperationSchema = [
+export var CreateFunction$: StaticOperationSchema = [
   9,
   n0,
   _CF,
   { [_h]: ["POST", "/v1/apis/{apiId}/functions", 200] },
-  () => CreateFunctionRequest,
-  () => CreateFunctionResponse,
+  () => CreateFunctionRequest$,
+  () => CreateFunctionResponse$,
 ];
-export var CreateGraphqlApi: StaticOperationSchema = [
+export var CreateGraphqlApi$: StaticOperationSchema = [
   9,
   n0,
   _CGA,
   { [_h]: ["POST", "/v1/apis", 200] },
-  () => CreateGraphqlApiRequest,
-  () => CreateGraphqlApiResponse,
+  () => CreateGraphqlApiRequest$,
+  () => CreateGraphqlApiResponse$,
 ];
-export var CreateResolver: StaticOperationSchema = [
+export var CreateResolver$: StaticOperationSchema = [
   9,
   n0,
   _CR,
   { [_h]: ["POST", "/v1/apis/{apiId}/types/{typeName}/resolvers", 200] },
-  () => CreateResolverRequest,
-  () => CreateResolverResponse,
+  () => CreateResolverRequest$,
+  () => CreateResolverResponse$,
 ];
-export var CreateType: StaticOperationSchema = [
+export var CreateType$: StaticOperationSchema = [
   9,
   n0,
   _CT,
   { [_h]: ["POST", "/v1/apis/{apiId}/types", 200] },
-  () => CreateTypeRequest,
-  () => CreateTypeResponse,
+  () => CreateTypeRequest$,
+  () => CreateTypeResponse$,
 ];
-export var DeleteApi: StaticOperationSchema = [
+export var DeleteApi$: StaticOperationSchema = [
   9,
   n0,
   _DA,
   { [_h]: ["DELETE", "/v2/apis/{apiId}", 200] },
-  () => DeleteApiRequest,
-  () => DeleteApiResponse,
+  () => DeleteApiRequest$,
+  () => DeleteApiResponse$,
 ];
-export var DeleteApiCache: StaticOperationSchema = [
+export var DeleteApiCache$: StaticOperationSchema = [
   9,
   n0,
   _DAC,
   { [_h]: ["DELETE", "/v1/apis/{apiId}/ApiCaches", 200] },
-  () => DeleteApiCacheRequest,
-  () => DeleteApiCacheResponse,
+  () => DeleteApiCacheRequest$,
+  () => DeleteApiCacheResponse$,
 ];
-export var DeleteApiKey: StaticOperationSchema = [
+export var DeleteApiKey$: StaticOperationSchema = [
   9,
   n0,
   _DAK,
   { [_h]: ["DELETE", "/v1/apis/{apiId}/apikeys/{id}", 200] },
-  () => DeleteApiKeyRequest,
-  () => DeleteApiKeyResponse,
+  () => DeleteApiKeyRequest$,
+  () => DeleteApiKeyResponse$,
 ];
-export var DeleteChannelNamespace: StaticOperationSchema = [
+export var DeleteChannelNamespace$: StaticOperationSchema = [
   9,
   n0,
   _DCN,
   { [_h]: ["DELETE", "/v2/apis/{apiId}/channelNamespaces/{name}", 200] },
-  () => DeleteChannelNamespaceRequest,
-  () => DeleteChannelNamespaceResponse,
+  () => DeleteChannelNamespaceRequest$,
+  () => DeleteChannelNamespaceResponse$,
 ];
-export var DeleteDataSource: StaticOperationSchema = [
+export var DeleteDataSource$: StaticOperationSchema = [
   9,
   n0,
   _DDS,
   { [_h]: ["DELETE", "/v1/apis/{apiId}/datasources/{name}", 200] },
-  () => DeleteDataSourceRequest,
-  () => DeleteDataSourceResponse,
+  () => DeleteDataSourceRequest$,
+  () => DeleteDataSourceResponse$,
 ];
-export var DeleteDomainName: StaticOperationSchema = [
+export var DeleteDomainName$: StaticOperationSchema = [
   9,
   n0,
   _DDN,
   { [_h]: ["DELETE", "/v1/domainnames/{domainName}", 200] },
-  () => DeleteDomainNameRequest,
-  () => DeleteDomainNameResponse,
+  () => DeleteDomainNameRequest$,
+  () => DeleteDomainNameResponse$,
 ];
-export var DeleteFunction: StaticOperationSchema = [
+export var DeleteFunction$: StaticOperationSchema = [
   9,
   n0,
   _DF,
   { [_h]: ["DELETE", "/v1/apis/{apiId}/functions/{functionId}", 200] },
-  () => DeleteFunctionRequest,
-  () => DeleteFunctionResponse,
+  () => DeleteFunctionRequest$,
+  () => DeleteFunctionResponse$,
 ];
-export var DeleteGraphqlApi: StaticOperationSchema = [
+export var DeleteGraphqlApi$: StaticOperationSchema = [
   9,
   n0,
   _DGA,
   { [_h]: ["DELETE", "/v1/apis/{apiId}", 200] },
-  () => DeleteGraphqlApiRequest,
-  () => DeleteGraphqlApiResponse,
+  () => DeleteGraphqlApiRequest$,
+  () => DeleteGraphqlApiResponse$,
 ];
-export var DeleteResolver: StaticOperationSchema = [
+export var DeleteResolver$: StaticOperationSchema = [
   9,
   n0,
   _DR,
   { [_h]: ["DELETE", "/v1/apis/{apiId}/types/{typeName}/resolvers/{fieldName}", 200] },
-  () => DeleteResolverRequest,
-  () => DeleteResolverResponse,
+  () => DeleteResolverRequest$,
+  () => DeleteResolverResponse$,
 ];
-export var DeleteType: StaticOperationSchema = [
+export var DeleteType$: StaticOperationSchema = [
   9,
   n0,
   _DT,
   { [_h]: ["DELETE", "/v1/apis/{apiId}/types/{typeName}", 200] },
-  () => DeleteTypeRequest,
-  () => DeleteTypeResponse,
+  () => DeleteTypeRequest$,
+  () => DeleteTypeResponse$,
 ];
-export var DisassociateApi: StaticOperationSchema = [
+export var DisassociateApi$: StaticOperationSchema = [
   9,
   n0,
   _DAi,
   { [_h]: ["DELETE", "/v1/domainnames/{domainName}/apiassociation", 200] },
-  () => DisassociateApiRequest,
-  () => DisassociateApiResponse,
+  () => DisassociateApiRequest$,
+  () => DisassociateApiResponse$,
 ];
-export var DisassociateMergedGraphqlApi: StaticOperationSchema = [
+export var DisassociateMergedGraphqlApi$: StaticOperationSchema = [
   9,
   n0,
   _DMGA,
   { [_h]: ["DELETE", "/v1/sourceApis/{sourceApiIdentifier}/mergedApiAssociations/{associationId}", 200] },
-  () => DisassociateMergedGraphqlApiRequest,
-  () => DisassociateMergedGraphqlApiResponse,
+  () => DisassociateMergedGraphqlApiRequest$,
+  () => DisassociateMergedGraphqlApiResponse$,
 ];
-export var DisassociateSourceGraphqlApi: StaticOperationSchema = [
+export var DisassociateSourceGraphqlApi$: StaticOperationSchema = [
   9,
   n0,
   _DSGA,
   { [_h]: ["DELETE", "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}", 200] },
-  () => DisassociateSourceGraphqlApiRequest,
-  () => DisassociateSourceGraphqlApiResponse,
+  () => DisassociateSourceGraphqlApiRequest$,
+  () => DisassociateSourceGraphqlApiResponse$,
 ];
-export var EvaluateCode: StaticOperationSchema = [
+export var EvaluateCode$: StaticOperationSchema = [
   9,
   n0,
   _ECv,
   { [_h]: ["POST", "/v1/dataplane-evaluatecode", 200] },
-  () => EvaluateCodeRequest,
-  () => EvaluateCodeResponse,
+  () => EvaluateCodeRequest$,
+  () => EvaluateCodeResponse$,
 ];
-export var EvaluateMappingTemplate: StaticOperationSchema = [
+export var EvaluateMappingTemplate$: StaticOperationSchema = [
   9,
   n0,
   _EMT,
   { [_h]: ["POST", "/v1/dataplane-evaluatetemplate", 200] },
-  () => EvaluateMappingTemplateRequest,
-  () => EvaluateMappingTemplateResponse,
+  () => EvaluateMappingTemplateRequest$,
+  () => EvaluateMappingTemplateResponse$,
 ];
-export var FlushApiCache: StaticOperationSchema = [
+export var FlushApiCache$: StaticOperationSchema = [
   9,
   n0,
   _FAC,
   { [_h]: ["DELETE", "/v1/apis/{apiId}/FlushCache", 200] },
-  () => FlushApiCacheRequest,
-  () => FlushApiCacheResponse,
+  () => FlushApiCacheRequest$,
+  () => FlushApiCacheResponse$,
 ];
-export var GetApi: StaticOperationSchema = [
+export var GetApi$: StaticOperationSchema = [
   9,
   n0,
   _GAe,
   { [_h]: ["GET", "/v2/apis/{apiId}", 200] },
-  () => GetApiRequest,
-  () => GetApiResponse,
+  () => GetApiRequest$,
+  () => GetApiResponse$,
 ];
-export var GetApiAssociation: StaticOperationSchema = [
+export var GetApiAssociation$: StaticOperationSchema = [
   9,
   n0,
   _GAA,
   { [_h]: ["GET", "/v1/domainnames/{domainName}/apiassociation", 200] },
-  () => GetApiAssociationRequest,
-  () => GetApiAssociationResponse,
+  () => GetApiAssociationRequest$,
+  () => GetApiAssociationResponse$,
 ];
-export var GetApiCache: StaticOperationSchema = [
+export var GetApiCache$: StaticOperationSchema = [
   9,
   n0,
   _GAC,
   { [_h]: ["GET", "/v1/apis/{apiId}/ApiCaches", 200] },
-  () => GetApiCacheRequest,
-  () => GetApiCacheResponse,
+  () => GetApiCacheRequest$,
+  () => GetApiCacheResponse$,
 ];
-export var GetChannelNamespace: StaticOperationSchema = [
+export var GetChannelNamespace$: StaticOperationSchema = [
   9,
   n0,
   _GCN,
   { [_h]: ["GET", "/v2/apis/{apiId}/channelNamespaces/{name}", 200] },
-  () => GetChannelNamespaceRequest,
-  () => GetChannelNamespaceResponse,
+  () => GetChannelNamespaceRequest$,
+  () => GetChannelNamespaceResponse$,
 ];
-export var GetDataSource: StaticOperationSchema = [
+export var GetDataSource$: StaticOperationSchema = [
   9,
   n0,
   _GDS,
   { [_h]: ["GET", "/v1/apis/{apiId}/datasources/{name}", 200] },
-  () => GetDataSourceRequest,
-  () => GetDataSourceResponse,
+  () => GetDataSourceRequest$,
+  () => GetDataSourceResponse$,
 ];
-export var GetDataSourceIntrospection: StaticOperationSchema = [
+export var GetDataSourceIntrospection$: StaticOperationSchema = [
   9,
   n0,
   _GDSI,
   { [_h]: ["GET", "/v1/datasources/introspections/{introspectionId}", 200] },
-  () => GetDataSourceIntrospectionRequest,
-  () => GetDataSourceIntrospectionResponse,
+  () => GetDataSourceIntrospectionRequest$,
+  () => GetDataSourceIntrospectionResponse$,
 ];
-export var GetDomainName: StaticOperationSchema = [
+export var GetDomainName$: StaticOperationSchema = [
   9,
   n0,
   _GDN,
   { [_h]: ["GET", "/v1/domainnames/{domainName}", 200] },
-  () => GetDomainNameRequest,
-  () => GetDomainNameResponse,
+  () => GetDomainNameRequest$,
+  () => GetDomainNameResponse$,
 ];
-export var GetFunction: StaticOperationSchema = [
+export var GetFunction$: StaticOperationSchema = [
   9,
   n0,
   _GF,
   { [_h]: ["GET", "/v1/apis/{apiId}/functions/{functionId}", 200] },
-  () => GetFunctionRequest,
-  () => GetFunctionResponse,
+  () => GetFunctionRequest$,
+  () => GetFunctionResponse$,
 ];
-export var GetGraphqlApi: StaticOperationSchema = [
+export var GetGraphqlApi$: StaticOperationSchema = [
   9,
   n0,
   _GGA,
   { [_h]: ["GET", "/v1/apis/{apiId}", 200] },
-  () => GetGraphqlApiRequest,
-  () => GetGraphqlApiResponse,
+  () => GetGraphqlApiRequest$,
+  () => GetGraphqlApiResponse$,
 ];
-export var GetGraphqlApiEnvironmentVariables: StaticOperationSchema = [
+export var GetGraphqlApiEnvironmentVariables$: StaticOperationSchema = [
   9,
   n0,
   _GGAEV,
   { [_h]: ["GET", "/v1/apis/{apiId}/environmentVariables", 200] },
-  () => GetGraphqlApiEnvironmentVariablesRequest,
-  () => GetGraphqlApiEnvironmentVariablesResponse,
+  () => GetGraphqlApiEnvironmentVariablesRequest$,
+  () => GetGraphqlApiEnvironmentVariablesResponse$,
 ];
-export var GetIntrospectionSchema: StaticOperationSchema = [
+export var GetIntrospectionSchema$: StaticOperationSchema = [
   9,
   n0,
   _GIS,
   { [_h]: ["GET", "/v1/apis/{apiId}/schema", 200] },
-  () => GetIntrospectionSchemaRequest,
-  () => GetIntrospectionSchemaResponse,
+  () => GetIntrospectionSchemaRequest$,
+  () => GetIntrospectionSchemaResponse$,
 ];
-export var GetResolver: StaticOperationSchema = [
+export var GetResolver$: StaticOperationSchema = [
   9,
   n0,
   _GR,
   { [_h]: ["GET", "/v1/apis/{apiId}/types/{typeName}/resolvers/{fieldName}", 200] },
-  () => GetResolverRequest,
-  () => GetResolverResponse,
+  () => GetResolverRequest$,
+  () => GetResolverResponse$,
 ];
-export var GetSchemaCreationStatus: StaticOperationSchema = [
+export var GetSchemaCreationStatus$: StaticOperationSchema = [
   9,
   n0,
   _GSCS,
   { [_h]: ["GET", "/v1/apis/{apiId}/schemacreation", 200] },
-  () => GetSchemaCreationStatusRequest,
-  () => GetSchemaCreationStatusResponse,
+  () => GetSchemaCreationStatusRequest$,
+  () => GetSchemaCreationStatusResponse$,
 ];
-export var GetSourceApiAssociation: StaticOperationSchema = [
+export var GetSourceApiAssociation$: StaticOperationSchema = [
   9,
   n0,
   _GSAA,
   { [_h]: ["GET", "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}", 200] },
-  () => GetSourceApiAssociationRequest,
-  () => GetSourceApiAssociationResponse,
+  () => GetSourceApiAssociationRequest$,
+  () => GetSourceApiAssociationResponse$,
 ];
-export var GetType: StaticOperationSchema = [
+export var GetType$: StaticOperationSchema = [
   9,
   n0,
   _GT,
   { [_h]: ["GET", "/v1/apis/{apiId}/types/{typeName}", 200] },
-  () => GetTypeRequest,
-  () => GetTypeResponse,
+  () => GetTypeRequest$,
+  () => GetTypeResponse$,
 ];
-export var ListApiKeys: StaticOperationSchema = [
+export var ListApiKeys$: StaticOperationSchema = [
   9,
   n0,
   _LAK,
   { [_h]: ["GET", "/v1/apis/{apiId}/apikeys", 200] },
-  () => ListApiKeysRequest,
-  () => ListApiKeysResponse,
+  () => ListApiKeysRequest$,
+  () => ListApiKeysResponse$,
 ];
-export var ListApis: StaticOperationSchema = [
+export var ListApis$: StaticOperationSchema = [
   9,
   n0,
   _LA,
   { [_h]: ["GET", "/v2/apis", 200] },
-  () => ListApisRequest,
-  () => ListApisResponse,
+  () => ListApisRequest$,
+  () => ListApisResponse$,
 ];
-export var ListChannelNamespaces: StaticOperationSchema = [
+export var ListChannelNamespaces$: StaticOperationSchema = [
   9,
   n0,
   _LCN,
   { [_h]: ["GET", "/v2/apis/{apiId}/channelNamespaces", 200] },
-  () => ListChannelNamespacesRequest,
-  () => ListChannelNamespacesResponse,
+  () => ListChannelNamespacesRequest$,
+  () => ListChannelNamespacesResponse$,
 ];
-export var ListDataSources: StaticOperationSchema = [
+export var ListDataSources$: StaticOperationSchema = [
   9,
   n0,
   _LDS,
   { [_h]: ["GET", "/v1/apis/{apiId}/datasources", 200] },
-  () => ListDataSourcesRequest,
-  () => ListDataSourcesResponse,
+  () => ListDataSourcesRequest$,
+  () => ListDataSourcesResponse$,
 ];
-export var ListDomainNames: StaticOperationSchema = [
+export var ListDomainNames$: StaticOperationSchema = [
   9,
   n0,
   _LDN,
   { [_h]: ["GET", "/v1/domainnames", 200] },
-  () => ListDomainNamesRequest,
-  () => ListDomainNamesResponse,
+  () => ListDomainNamesRequest$,
+  () => ListDomainNamesResponse$,
 ];
-export var ListFunctions: StaticOperationSchema = [
+export var ListFunctions$: StaticOperationSchema = [
   9,
   n0,
   _LF,
   { [_h]: ["GET", "/v1/apis/{apiId}/functions", 200] },
-  () => ListFunctionsRequest,
-  () => ListFunctionsResponse,
+  () => ListFunctionsRequest$,
+  () => ListFunctionsResponse$,
 ];
-export var ListGraphqlApis: StaticOperationSchema = [
+export var ListGraphqlApis$: StaticOperationSchema = [
   9,
   n0,
   _LGA,
   { [_h]: ["GET", "/v1/apis", 200] },
-  () => ListGraphqlApisRequest,
-  () => ListGraphqlApisResponse,
+  () => ListGraphqlApisRequest$,
+  () => ListGraphqlApisResponse$,
 ];
-export var ListResolvers: StaticOperationSchema = [
+export var ListResolvers$: StaticOperationSchema = [
   9,
   n0,
   _LR,
   { [_h]: ["GET", "/v1/apis/{apiId}/types/{typeName}/resolvers", 200] },
-  () => ListResolversRequest,
-  () => ListResolversResponse,
+  () => ListResolversRequest$,
+  () => ListResolversResponse$,
 ];
-export var ListResolversByFunction: StaticOperationSchema = [
+export var ListResolversByFunction$: StaticOperationSchema = [
   9,
   n0,
   _LRBF,
   { [_h]: ["GET", "/v1/apis/{apiId}/functions/{functionId}/resolvers", 200] },
-  () => ListResolversByFunctionRequest,
-  () => ListResolversByFunctionResponse,
+  () => ListResolversByFunctionRequest$,
+  () => ListResolversByFunctionResponse$,
 ];
-export var ListSourceApiAssociations: StaticOperationSchema = [
+export var ListSourceApiAssociations$: StaticOperationSchema = [
   9,
   n0,
   _LSAA,
   { [_h]: ["GET", "/v1/apis/{apiId}/sourceApiAssociations", 200] },
-  () => ListSourceApiAssociationsRequest,
-  () => ListSourceApiAssociationsResponse,
+  () => ListSourceApiAssociationsRequest$,
+  () => ListSourceApiAssociationsResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/v1/tags/{resourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var ListTypes: StaticOperationSchema = [
+export var ListTypes$: StaticOperationSchema = [
   9,
   n0,
   _LT,
   { [_h]: ["GET", "/v1/apis/{apiId}/types", 200] },
-  () => ListTypesRequest,
-  () => ListTypesResponse,
+  () => ListTypesRequest$,
+  () => ListTypesResponse$,
 ];
-export var ListTypesByAssociation: StaticOperationSchema = [
+export var ListTypesByAssociation$: StaticOperationSchema = [
   9,
   n0,
   _LTBA,
   { [_h]: ["GET", "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}/types", 200] },
-  () => ListTypesByAssociationRequest,
-  () => ListTypesByAssociationResponse,
+  () => ListTypesByAssociationRequest$,
+  () => ListTypesByAssociationResponse$,
 ];
-export var PutGraphqlApiEnvironmentVariables: StaticOperationSchema = [
+export var PutGraphqlApiEnvironmentVariables$: StaticOperationSchema = [
   9,
   n0,
   _PGAEV,
   { [_h]: ["PUT", "/v1/apis/{apiId}/environmentVariables", 200] },
-  () => PutGraphqlApiEnvironmentVariablesRequest,
-  () => PutGraphqlApiEnvironmentVariablesResponse,
+  () => PutGraphqlApiEnvironmentVariablesRequest$,
+  () => PutGraphqlApiEnvironmentVariablesResponse$,
 ];
-export var StartDataSourceIntrospection: StaticOperationSchema = [
+export var StartDataSourceIntrospection$: StaticOperationSchema = [
   9,
   n0,
   _SDSI,
   { [_h]: ["POST", "/v1/datasources/introspections", 200] },
-  () => StartDataSourceIntrospectionRequest,
-  () => StartDataSourceIntrospectionResponse,
+  () => StartDataSourceIntrospectionRequest$,
+  () => StartDataSourceIntrospectionResponse$,
 ];
-export var StartSchemaCreation: StaticOperationSchema = [
+export var StartSchemaCreation$: StaticOperationSchema = [
   9,
   n0,
   _SSC,
   { [_h]: ["POST", "/v1/apis/{apiId}/schemacreation", 200] },
-  () => StartSchemaCreationRequest,
-  () => StartSchemaCreationResponse,
+  () => StartSchemaCreationRequest$,
+  () => StartSchemaCreationResponse$,
 ];
-export var StartSchemaMerge: StaticOperationSchema = [
+export var StartSchemaMerge$: StaticOperationSchema = [
   9,
   n0,
   _SSM,
   { [_h]: ["POST", "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}/merge", 200] },
-  () => StartSchemaMergeRequest,
-  () => StartSchemaMergeResponse,
+  () => StartSchemaMergeRequest$,
+  () => StartSchemaMergeResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/v1/tags/{resourceArn}", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/v1/tags/{resourceArn}", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateApi: StaticOperationSchema = [
+export var UpdateApi$: StaticOperationSchema = [
   9,
   n0,
   _UA,
   { [_h]: ["POST", "/v2/apis/{apiId}", 200] },
-  () => UpdateApiRequest,
-  () => UpdateApiResponse,
+  () => UpdateApiRequest$,
+  () => UpdateApiResponse$,
 ];
-export var UpdateApiCache: StaticOperationSchema = [
+export var UpdateApiCache$: StaticOperationSchema = [
   9,
   n0,
   _UAC,
   { [_h]: ["POST", "/v1/apis/{apiId}/ApiCaches/update", 200] },
-  () => UpdateApiCacheRequest,
-  () => UpdateApiCacheResponse,
+  () => UpdateApiCacheRequest$,
+  () => UpdateApiCacheResponse$,
 ];
-export var UpdateApiKey: StaticOperationSchema = [
+export var UpdateApiKey$: StaticOperationSchema = [
   9,
   n0,
   _UAK,
   { [_h]: ["POST", "/v1/apis/{apiId}/apikeys/{id}", 200] },
-  () => UpdateApiKeyRequest,
-  () => UpdateApiKeyResponse,
+  () => UpdateApiKeyRequest$,
+  () => UpdateApiKeyResponse$,
 ];
-export var UpdateChannelNamespace: StaticOperationSchema = [
+export var UpdateChannelNamespace$: StaticOperationSchema = [
   9,
   n0,
   _UCN,
   { [_h]: ["POST", "/v2/apis/{apiId}/channelNamespaces/{name}", 200] },
-  () => UpdateChannelNamespaceRequest,
-  () => UpdateChannelNamespaceResponse,
+  () => UpdateChannelNamespaceRequest$,
+  () => UpdateChannelNamespaceResponse$,
 ];
-export var UpdateDataSource: StaticOperationSchema = [
+export var UpdateDataSource$: StaticOperationSchema = [
   9,
   n0,
   _UDS,
   { [_h]: ["POST", "/v1/apis/{apiId}/datasources/{name}", 200] },
-  () => UpdateDataSourceRequest,
-  () => UpdateDataSourceResponse,
+  () => UpdateDataSourceRequest$,
+  () => UpdateDataSourceResponse$,
 ];
-export var UpdateDomainName: StaticOperationSchema = [
+export var UpdateDomainName$: StaticOperationSchema = [
   9,
   n0,
   _UDN,
   { [_h]: ["POST", "/v1/domainnames/{domainName}", 200] },
-  () => UpdateDomainNameRequest,
-  () => UpdateDomainNameResponse,
+  () => UpdateDomainNameRequest$,
+  () => UpdateDomainNameResponse$,
 ];
-export var UpdateFunction: StaticOperationSchema = [
+export var UpdateFunction$: StaticOperationSchema = [
   9,
   n0,
   _UF,
   { [_h]: ["POST", "/v1/apis/{apiId}/functions/{functionId}", 200] },
-  () => UpdateFunctionRequest,
-  () => UpdateFunctionResponse,
+  () => UpdateFunctionRequest$,
+  () => UpdateFunctionResponse$,
 ];
-export var UpdateGraphqlApi: StaticOperationSchema = [
+export var UpdateGraphqlApi$: StaticOperationSchema = [
   9,
   n0,
   _UGA,
   { [_h]: ["POST", "/v1/apis/{apiId}", 200] },
-  () => UpdateGraphqlApiRequest,
-  () => UpdateGraphqlApiResponse,
+  () => UpdateGraphqlApiRequest$,
+  () => UpdateGraphqlApiResponse$,
 ];
-export var UpdateResolver: StaticOperationSchema = [
+export var UpdateResolver$: StaticOperationSchema = [
   9,
   n0,
   _URp,
   { [_h]: ["POST", "/v1/apis/{apiId}/types/{typeName}/resolvers/{fieldName}", 200] },
-  () => UpdateResolverRequest,
-  () => UpdateResolverResponse,
+  () => UpdateResolverRequest$,
+  () => UpdateResolverResponse$,
 ];
-export var UpdateSourceApiAssociation: StaticOperationSchema = [
+export var UpdateSourceApiAssociation$: StaticOperationSchema = [
   9,
   n0,
   _USAA,
   { [_h]: ["POST", "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}", 200] },
-  () => UpdateSourceApiAssociationRequest,
-  () => UpdateSourceApiAssociationResponse,
+  () => UpdateSourceApiAssociationRequest$,
+  () => UpdateSourceApiAssociationResponse$,
 ];
-export var UpdateType: StaticOperationSchema = [
+export var UpdateType$: StaticOperationSchema = [
   9,
   n0,
   _UT,
   { [_h]: ["POST", "/v1/apis/{apiId}/types/{typeName}", 200] },
-  () => UpdateTypeRequest,
-  () => UpdateTypeResponse,
+  () => UpdateTypeRequest$,
+  () => UpdateTypeResponse$,
 ];

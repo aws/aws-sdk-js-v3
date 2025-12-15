@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateGlobalSettingsInput } from "../models/models_0";
-import { UpdateGlobalSettings } from "../schemas/schemas_0";
+import { UpdateGlobalSettings$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -97,7 +97,7 @@ export class UpdateGlobalSettingsCommand extends $Command
   })
   .s("WellArchitectedApiServiceLambda", "UpdateGlobalSettings", {})
   .n("WellArchitectedClient", "UpdateGlobalSettingsCommand")
-  .sc(UpdateGlobalSettings)
+  .sc(UpdateGlobalSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

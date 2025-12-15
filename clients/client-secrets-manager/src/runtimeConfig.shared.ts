@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: SecretsManagerClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.secretsmanager",
-        serviceTarget: "secretsmanager",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.secretsmanager",
+      version: "2017-10-17",
+      serviceTarget: "secretsmanager",
+    },
     serviceId: config?.serviceId ?? "Secrets Manager",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteBrowserRequest, DeleteBrowserResponse } from "../models/models_0";
-import { DeleteBrowser } from "../schemas/schemas_0";
+import { DeleteBrowser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class DeleteBrowserCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "DeleteBrowser", {})
   .n("BedrockAgentCoreControlClient", "DeleteBrowserCommand")
-  .sc(DeleteBrowser)
+  .sc(DeleteBrowser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

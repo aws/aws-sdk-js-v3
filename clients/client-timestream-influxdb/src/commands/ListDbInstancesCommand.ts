@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListDbInstancesInput, ListDbInstancesOutput } from "../models/models_0";
-import { ListDbInstances } from "../schemas/schemas_0";
+import { ListDbInstances$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -108,7 +108,7 @@ export class ListDbInstancesCommand extends $Command
   })
   .s("AmazonTimestreamInfluxDB", "ListDbInstances", {})
   .n("TimestreamInfluxDBClient", "ListDbInstancesCommand")
-  .sc(ListDbInstances)
+  .sc(ListDbInstances$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

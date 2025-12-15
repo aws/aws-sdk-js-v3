@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteNamedQueryInput, DeleteNamedQueryOutput } from "../models/models_0";
-import { DeleteNamedQuery } from "../schemas/schemas_0";
+import { DeleteNamedQuery$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -80,7 +80,7 @@ export class DeleteNamedQueryCommand extends $Command
   })
   .s("AmazonAthena", "DeleteNamedQuery", {})
   .n("AthenaClient", "DeleteNamedQueryCommand")
-  .sc(DeleteNamedQuery)
+  .sc(DeleteNamedQuery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

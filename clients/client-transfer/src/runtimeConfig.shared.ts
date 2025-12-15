@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: TransferClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.transfer",
-        serviceTarget: "TransferService",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.transfer",
+      version: "2018-11-05",
+      serviceTarget: "TransferService",
+    },
     serviceId: config?.serviceId ?? "Transfer",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

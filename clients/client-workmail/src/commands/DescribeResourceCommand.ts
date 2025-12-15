@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeResourceRequest, DescribeResourceResponse } from "../models/models_0";
-import { DescribeResource } from "../schemas/schemas_0";
+import { DescribeResource$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -105,7 +105,7 @@ export class DescribeResourceCommand extends $Command
   })
   .s("WorkMailService", "DescribeResource", {})
   .n("WorkMailClient", "DescribeResourceCommand")
-  .sc(DescribeResource)
+  .sc(DescribeResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

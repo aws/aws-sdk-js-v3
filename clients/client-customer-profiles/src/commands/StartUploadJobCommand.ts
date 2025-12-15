@@ -10,7 +10,7 @@ import type {
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartUploadJobRequest, StartUploadJobResponse } from "../models/models_0";
-import { StartUploadJob } from "../schemas/schemas_0";
+import { StartUploadJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class StartUploadJobCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "StartUploadJob", {})
   .n("CustomerProfilesClient", "StartUploadJobCommand")
-  .sc(StartUploadJob)
+  .sc(StartUploadJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

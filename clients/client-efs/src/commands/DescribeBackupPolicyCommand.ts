@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BackupPolicyDescription, DescribeBackupPolicyRequest } from "../models/models_0";
-import { DescribeBackupPolicy } from "../schemas/schemas_0";
+import { DescribeBackupPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class DescribeBackupPolicyCommand extends $Command
   })
   .s("MagnolioAPIService_v20150201", "DescribeBackupPolicy", {})
   .n("EFSClient", "DescribeBackupPolicyCommand")
-  .sc(DescribeBackupPolicy)
+  .sc(DescribeBackupPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

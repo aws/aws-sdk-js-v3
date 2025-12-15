@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
-import { CreateCrossAccountAuthorization } from "../schemas/schemas_0";
+import { CreateCrossAccountAuthorization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class CreateCrossAccountAuthorizationCommand extends $Command
   })
   .s("Route53RecoveryReadiness", "CreateCrossAccountAuthorization", {})
   .n("Route53RecoveryReadinessClient", "CreateCrossAccountAuthorizationCommand")
-  .sc(CreateCrossAccountAuthorization)
+  .sc(CreateCrossAccountAuthorization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

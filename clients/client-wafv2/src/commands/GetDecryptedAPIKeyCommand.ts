@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDecryptedAPIKeyRequest, GetDecryptedAPIKeyResponse } from "../models/models_0";
-import { GetDecryptedAPIKey } from "../schemas/schemas_0";
+import { GetDecryptedAPIKey$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -118,7 +118,7 @@ export class GetDecryptedAPIKeyCommand extends $Command
   })
   .s("AWSWAF_20190729", "GetDecryptedAPIKey", {})
   .n("WAFV2Client", "GetDecryptedAPIKeyCommand")
-  .sc(GetDecryptedAPIKey)
+  .sc(GetDecryptedAPIKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

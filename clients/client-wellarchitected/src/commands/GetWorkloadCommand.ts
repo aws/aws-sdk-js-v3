@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetWorkloadInput, GetWorkloadOutput } from "../models/models_0";
-import { GetWorkload } from "../schemas/schemas_0";
+import { GetWorkload$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -154,7 +154,7 @@ export class GetWorkloadCommand extends $Command
   })
   .s("WellArchitectedApiServiceLambda", "GetWorkload", {})
   .n("WellArchitectedClient", "GetWorkloadCommand")
-  .sc(GetWorkload)
+  .sc(GetWorkload$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

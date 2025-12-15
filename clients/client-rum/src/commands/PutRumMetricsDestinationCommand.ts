@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutRumMetricsDestinationRequest, PutRumMetricsDestinationResponse } from "../models/models_0";
 import type { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
-import { PutRumMetricsDestination } from "../schemas/schemas_0";
+import { PutRumMetricsDestination$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class PutRumMetricsDestinationCommand extends $Command
   })
   .s("RUM", "PutRumMetricsDestination", {})
   .n("RUMClient", "PutRumMetricsDestinationCommand")
-  .sc(PutRumMetricsDestination)
+  .sc(PutRumMetricsDestination$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

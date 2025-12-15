@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
 import type { DescribePipelineRequest, DescribePipelineResponse } from "../models/models_0";
-import { DescribePipeline } from "../schemas/schemas_0";
+import { DescribePipeline$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -165,7 +165,7 @@ export class DescribePipelineCommand extends $Command
   })
   .s("AWSIoTAnalytics", "DescribePipeline", {})
   .n("IoTAnalyticsClient", "DescribePipelineCommand")
-  .sc(DescribePipeline)
+  .sc(DescribePipeline$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

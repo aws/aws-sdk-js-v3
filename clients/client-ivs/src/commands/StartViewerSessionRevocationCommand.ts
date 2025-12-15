@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
 import type { StartViewerSessionRevocationRequest, StartViewerSessionRevocationResponse } from "../models/models_0";
-import { StartViewerSessionRevocation } from "../schemas/schemas_0";
+import { StartViewerSessionRevocation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class StartViewerSessionRevocationCommand extends $Command
   })
   .s("AmazonInteractiveVideoService", "StartViewerSessionRevocation", {})
   .n("IvsClient", "StartViewerSessionRevocationCommand")
-  .sc(StartViewerSessionRevocation)
+  .sc(StartViewerSessionRevocation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

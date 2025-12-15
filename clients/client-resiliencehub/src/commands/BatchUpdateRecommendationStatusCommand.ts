@@ -9,7 +9,7 @@ import type {
   BatchUpdateRecommendationStatusResponse,
 } from "../models/models_0";
 import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
-import { BatchUpdateRecommendationStatus } from "../schemas/schemas_0";
+import { BatchUpdateRecommendationStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -130,7 +130,7 @@ export class BatchUpdateRecommendationStatusCommand extends $Command
   })
   .s("AwsResilienceHub", "BatchUpdateRecommendationStatus", {})
   .n("ResiliencehubClient", "BatchUpdateRecommendationStatusCommand")
-  .sc(BatchUpdateRecommendationStatus)
+  .sc(BatchUpdateRecommendationStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

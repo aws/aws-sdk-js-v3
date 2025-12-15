@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import type { DenyCustomRoutingTrafficRequest } from "../models/models_0";
-import { DenyCustomRoutingTraffic } from "../schemas/schemas_0";
+import { DenyCustomRoutingTraffic$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class DenyCustomRoutingTrafficCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "DenyCustomRoutingTraffic", {})
   .n("GlobalAcceleratorClient", "DenyCustomRoutingTrafficCommand")
-  .sc(DenyCustomRoutingTraffic)
+  .sc(DenyCustomRoutingTraffic$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   UpdateAutoshiftObserverNotificationStatusRequest,
   UpdateAutoshiftObserverNotificationStatusResponse,
 } from "../models/models_0";
-import { UpdateAutoshiftObserverNotificationStatus } from "../schemas/schemas_0";
+import { UpdateAutoshiftObserverNotificationStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class UpdateAutoshiftObserverNotificationStatusCommand extends $Command
   })
   .s("PercDataPlane", "UpdateAutoshiftObserverNotificationStatus", {})
   .n("ARCZonalShiftClient", "UpdateAutoshiftObserverNotificationStatusCommand")
-  .sc(UpdateAutoshiftObserverNotificationStatus)
+  .sc(UpdateAutoshiftObserverNotificationStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

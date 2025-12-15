@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetBranchRequest, GetBranchResult } from "../models/models_0";
-import { GetBranch } from "../schemas/schemas_0";
+import { GetBranch$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,7 +127,7 @@ export class GetBranchCommand extends $Command
   })
   .s("Amplify", "GetBranch", {})
   .n("AmplifyClient", "GetBranchCommand")
-  .sc(GetBranch)
+  .sc(GetBranch$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

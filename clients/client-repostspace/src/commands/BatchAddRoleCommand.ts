@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchAddRoleInput, BatchAddRoleOutput } from "../models/models_0";
 import type { RepostspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RepostspaceClient";
-import { BatchAddRole } from "../schemas/schemas_0";
+import { BatchAddRole$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,7 +123,7 @@ export class BatchAddRoleCommand extends $Command
   })
   .s("RepostSpace", "BatchAddRole", {})
   .n("RepostspaceClient", "BatchAddRoleCommand")
-  .sc(BatchAddRole)
+  .sc(BatchAddRole$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

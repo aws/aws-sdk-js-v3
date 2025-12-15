@@ -10,7 +10,7 @@ import type {
   GetBucketIntelligentTieringConfigurationRequest,
 } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { GetBucketIntelligentTieringConfiguration } from "../schemas/schemas_0";
+import { GetBucketIntelligentTieringConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -138,7 +138,7 @@ export class GetBucketIntelligentTieringConfigurationCommand extends $Command
   })
   .s("AmazonS3", "GetBucketIntelligentTieringConfiguration", {})
   .n("S3Client", "GetBucketIntelligentTieringConfigurationCommand")
-  .sc(GetBucketIntelligentTieringConfiguration)
+  .sc(GetBucketIntelligentTieringConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

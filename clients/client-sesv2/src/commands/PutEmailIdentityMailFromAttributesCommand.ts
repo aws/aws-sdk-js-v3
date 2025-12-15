@@ -8,7 +8,7 @@ import type {
   PutEmailIdentityMailFromAttributesRequest,
   PutEmailIdentityMailFromAttributesResponse,
 } from "../models/models_0";
-import { PutEmailIdentityMailFromAttributes } from "../schemas/schemas_0";
+import { PutEmailIdentityMailFromAttributes$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -88,7 +88,7 @@ export class PutEmailIdentityMailFromAttributesCommand extends $Command
   })
   .s("SimpleEmailService_v2", "PutEmailIdentityMailFromAttributes", {})
   .n("SESv2Client", "PutEmailIdentityMailFromAttributesCommand")
-  .sc(PutEmailIdentityMailFromAttributes)
+  .sc(PutEmailIdentityMailFromAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

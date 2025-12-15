@@ -8,7 +8,7 @@ import type {
   DisassociateServiceQuotaTemplateRequest,
   DisassociateServiceQuotaTemplateResponse,
 } from "../models/models_0";
-import { DisassociateServiceQuotaTemplate } from "../schemas/schemas_0";
+import { DisassociateServiceQuotaTemplate$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
@@ -102,7 +102,7 @@ export class DisassociateServiceQuotaTemplateCommand extends $Command
   })
   .s("ServiceQuotasV20190624", "DisassociateServiceQuotaTemplate", {})
   .n("ServiceQuotasClient", "DisassociateServiceQuotaTemplateCommand")
-  .sc(DisassociateServiceQuotaTemplate)
+  .sc(DisassociateServiceQuotaTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

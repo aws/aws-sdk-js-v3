@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { StopMultiplexRequest, StopMultiplexResponse } from "../models/models_1";
-import { StopMultiplex } from "../schemas/schemas_0";
+import { StopMultiplex$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class StopMultiplexCommand extends $Command
   })
   .s("MediaLive", "StopMultiplex", {})
   .n("MediaLiveClient", "StopMultiplexCommand")
-  .sc(StopMultiplex)
+  .sc(StopMultiplex$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

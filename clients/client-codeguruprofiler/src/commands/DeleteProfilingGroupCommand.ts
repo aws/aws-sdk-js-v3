@@ -10,7 +10,7 @@ import type {
 } from "../CodeGuruProfilerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteProfilingGroupRequest, DeleteProfilingGroupResponse } from "../models/models_0";
-import { DeleteProfilingGroup } from "../schemas/schemas_0";
+import { DeleteProfilingGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeleteProfilingGroupCommand extends $Command
   })
   .s("CodeGuruProfiler", "DeleteProfilingGroup", {})
   .n("CodeGuruProfilerClient", "DeleteProfilingGroupCommand")
-  .sc(DeleteProfilingGroup)
+  .sc(DeleteProfilingGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

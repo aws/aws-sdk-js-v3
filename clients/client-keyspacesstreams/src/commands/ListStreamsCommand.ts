@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../KeyspacesStreamsClient";
 import type { ListStreamsInput, ListStreamsOutput } from "../models/models_0";
-import { ListStreams } from "../schemas/schemas_0";
+import { ListStreams$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class ListStreamsCommand extends $Command
   })
   .s("KeyspacesStreams", "ListStreams", {})
   .n("KeyspacesStreamsClient", "ListStreamsCommand")
-  .sc(ListStreams)
+  .sc(ListStreams$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

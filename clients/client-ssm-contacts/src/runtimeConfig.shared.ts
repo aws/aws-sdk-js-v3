@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: SSMContactsClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.ssmcontacts",
-        serviceTarget: "SSMContacts",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.ssmcontacts",
+      version: "2021-05-03",
+      serviceTarget: "SSMContacts",
+    },
     serviceId: config?.serviceId ?? "SSM Contacts",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

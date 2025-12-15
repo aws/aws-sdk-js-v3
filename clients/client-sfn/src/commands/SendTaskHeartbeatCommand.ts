@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SendTaskHeartbeatInput, SendTaskHeartbeatOutput } from "../models/models_0";
-import { SendTaskHeartbeat } from "../schemas/schemas_0";
+import { SendTaskHeartbeat$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -94,7 +94,7 @@ export class SendTaskHeartbeatCommand extends $Command
   })
   .s("AWSStepFunctions", "SendTaskHeartbeat", {})
   .n("SFNClient", "SendTaskHeartbeatCommand")
-  .sc(SendTaskHeartbeat)
+  .sc(SendTaskHeartbeat$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

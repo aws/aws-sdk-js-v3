@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateEventSubscriptionMessage, CreateEventSubscriptionResult } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { CreateEventSubscription } from "../schemas/schemas_0";
+import { CreateEventSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -170,7 +170,7 @@ export class CreateEventSubscriptionCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "CreateEventSubscription", {})
   .n("RedshiftClient", "CreateEventSubscriptionCommand")
-  .sc(CreateEventSubscription)
+  .sc(CreateEventSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeactivatePipelineInput, DeactivatePipelineOutput } from "../models/models_0";
-import { DeactivatePipeline } from "../schemas/schemas_0";
+import { DeactivatePipeline$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DeactivatePipelineCommand extends $Command
   })
   .s("DataPipeline", "DeactivatePipeline", {})
   .n("DataPipelineClient", "DeactivatePipelineCommand")
-  .sc(DeactivatePipeline)
+  .sc(DeactivatePipeline$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

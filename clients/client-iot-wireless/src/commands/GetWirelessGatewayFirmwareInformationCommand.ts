@@ -9,7 +9,7 @@ import type {
   GetWirelessGatewayFirmwareInformationRequest,
   GetWirelessGatewayFirmwareInformationResponse,
 } from "../models/models_0";
-import { GetWirelessGatewayFirmwareInformation } from "../schemas/schemas_0";
+import { GetWirelessGatewayFirmwareInformation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class GetWirelessGatewayFirmwareInformationCommand extends $Command
   })
   .s("iotwireless", "GetWirelessGatewayFirmwareInformation", {})
   .n("IoTWirelessClient", "GetWirelessGatewayFirmwareInformationCommand")
-  .sc(GetWirelessGatewayFirmwareInformation)
+  .sc(GetWirelessGatewayFirmwareInformation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

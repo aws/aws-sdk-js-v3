@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListTagsForCertificateRequest, ListTagsForCertificateResponse } from "../models/models_0";
-import { ListTagsForCertificate } from "../schemas/schemas_0";
+import { ListTagsForCertificate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class ListTagsForCertificateCommand extends $Command
   })
   .s("CertificateManager", "ListTagsForCertificate", {})
   .n("ACMClient", "ListTagsForCertificateCommand")
-  .sc(ListTagsForCertificate)
+  .sc(ListTagsForCertificate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

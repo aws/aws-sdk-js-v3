@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchDescribeTypeConfigurationsInput, BatchDescribeTypeConfigurationsOutput } from "../models/models_0";
-import { BatchDescribeTypeConfigurations } from "../schemas/schemas_0";
+import { BatchDescribeTypeConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -129,7 +129,7 @@ export class BatchDescribeTypeConfigurationsCommand extends $Command
   })
   .s("CloudFormation", "BatchDescribeTypeConfigurations", {})
   .n("CloudFormationClient", "BatchDescribeTypeConfigurationsCommand")
-  .sc(BatchDescribeTypeConfigurations)
+  .sc(BatchDescribeTypeConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteExpressionRequest, DeleteExpressionResponse } from "../models/models_0";
-import { DeleteExpression } from "../schemas/schemas_0";
+import { DeleteExpression$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class DeleteExpressionCommand extends $Command
   })
   .s("A9SearchCloudConfigService2013", "DeleteExpression", {})
   .n("CloudSearchClient", "DeleteExpressionCommand")
-  .sc(DeleteExpression)
+  .sc(DeleteExpression$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

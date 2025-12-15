@@ -9,7 +9,7 @@ import type {
   UpdateChatControlsConfigurationResponse,
 } from "../models/models_0";
 import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
-import { UpdateChatControlsConfiguration } from "../schemas/schemas_0";
+import { UpdateChatControlsConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -203,7 +203,7 @@ export class UpdateChatControlsConfigurationCommand extends $Command
   })
   .s("ExpertQ", "UpdateChatControlsConfiguration", {})
   .n("QBusinessClient", "UpdateChatControlsConfigurationCommand")
-  .sc(UpdateChatControlsConfiguration)
+  .sc(UpdateChatControlsConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

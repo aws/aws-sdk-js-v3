@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
 import type { CreateUserRequest, CreateUserResponse } from "../models/models_0";
-import { CreateUser } from "../schemas/schemas_0";
+import { CreateUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class CreateUserCommand extends $Command
   })
   .s("AWSHabaneroPublicAPI", "CreateUser", {})
   .n("FinspaceDataClient", "CreateUserCommand")
-  .sc(CreateUser)
+  .sc(CreateUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

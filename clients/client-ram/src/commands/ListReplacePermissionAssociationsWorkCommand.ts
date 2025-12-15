@@ -9,7 +9,7 @@ import type {
   ListReplacePermissionAssociationsWorkResponse,
 } from "../models/models_0";
 import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
-import { ListReplacePermissionAssociationsWork } from "../schemas/schemas_0";
+import { ListReplacePermissionAssociationsWork$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class ListReplacePermissionAssociationsWorkCommand extends $Command
   })
   .s("AmazonResourceSharing", "ListReplacePermissionAssociationsWork", {})
   .n("RAMClient", "ListReplacePermissionAssociationsWorkCommand")
-  .sc(ListReplacePermissionAssociationsWork)
+  .sc(ListReplacePermissionAssociationsWork$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

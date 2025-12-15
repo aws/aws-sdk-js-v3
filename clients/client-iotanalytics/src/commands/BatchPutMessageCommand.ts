@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
 import type { BatchPutMessageRequest, BatchPutMessageResponse } from "../models/models_0";
-import { BatchPutMessage } from "../schemas/schemas_0";
+import { BatchPutMessage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class BatchPutMessageCommand extends $Command
   })
   .s("AWSIoTAnalytics", "BatchPutMessage", {})
   .n("IoTAnalyticsClient", "BatchPutMessageCommand")
-  .sc(BatchPutMessage)
+  .sc(BatchPutMessage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

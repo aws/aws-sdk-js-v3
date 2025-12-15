@@ -15,7 +15,7 @@ import type {
   InvokeModelWithBidirectionalStreamRequest,
   InvokeModelWithBidirectionalStreamResponse,
 } from "../models/models_0";
-import { InvokeModelWithBidirectionalStream } from "../schemas/schemas_0";
+import { InvokeModelWithBidirectionalStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -160,7 +160,7 @@ export class InvokeModelWithBidirectionalStreamCommand extends $Command
     },
   })
   .n("BedrockRuntimeClient", "InvokeModelWithBidirectionalStreamCommand")
-  .sc(InvokeModelWithBidirectionalStream)
+  .sc(InvokeModelWithBidirectionalStream$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

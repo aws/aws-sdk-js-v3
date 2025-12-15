@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import type { AbortVaultLockInput } from "../models/models_0";
-import { AbortVaultLock } from "../schemas/schemas_0";
+import { AbortVaultLock$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class AbortVaultLockCommand extends $Command
   })
   .s("Glacier", "AbortVaultLock", {})
   .n("GlacierClient", "AbortVaultLockCommand")
-  .sc(AbortVaultLock)
+  .sc(AbortVaultLock$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { GetTableRequest } from "../models/models_2";
 import type { GetTableResponse } from "../models/models_3";
-import { GetTable } from "../schemas/schemas_0";
+import { GetTable$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -383,7 +383,7 @@ export class GetTableCommand extends $Command
   })
   .s("AWSGlue", "GetTable", {})
   .n("GlueClient", "GetTableCommand")
-  .sc(GetTable)
+  .sc(GetTable$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

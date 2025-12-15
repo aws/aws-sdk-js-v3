@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AllocateAddressRequest, AllocateAddressResult } from "../models/models_0";
-import { AllocateAddress } from "../schemas/schemas_0";
+import { AllocateAddress$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -141,7 +141,7 @@ export class AllocateAddressCommand extends $Command
   })
   .s("AmazonEC2", "AllocateAddress", {})
   .n("EC2Client", "AllocateAddressCommand")
-  .sc(AllocateAddress)
+  .sc(AllocateAddress$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

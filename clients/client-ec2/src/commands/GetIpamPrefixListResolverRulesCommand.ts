@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetIpamPrefixListResolverRulesRequest, GetIpamPrefixListResolverRulesResult } from "../models/models_6";
-import { GetIpamPrefixListResolverRules } from "../schemas/schemas_0";
+import { GetIpamPrefixListResolverRules$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class GetIpamPrefixListResolverRulesCommand extends $Command
   })
   .s("AmazonEC2", "GetIpamPrefixListResolverRules", {})
   .n("EC2Client", "GetIpamPrefixListResolverRulesCommand")
-  .sc(GetIpamPrefixListResolverRules)
+  .sc(GetIpamPrefixListResolverRules$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

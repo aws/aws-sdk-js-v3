@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListNotebookExecutionsInput, ListNotebookExecutionsOutput } from "../models/models_0";
-import { ListNotebookExecutions } from "../schemas/schemas_0";
+import { ListNotebookExecutions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class ListNotebookExecutionsCommand extends $Command
   })
   .s("ElasticMapReduce", "ListNotebookExecutions", {})
   .n("EMRClient", "ListNotebookExecutionsCommand")
-  .sc(ListNotebookExecutions)
+  .sc(ListNotebookExecutions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

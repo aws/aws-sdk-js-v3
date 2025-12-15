@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { GetMLTaskRunRequest, GetMLTaskRunResponse } from "../models/models_1";
-import { GetMLTaskRun } from "../schemas/schemas_0";
+import { GetMLTaskRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class GetMLTaskRunCommand extends $Command
   })
   .s("AWSGlue", "GetMLTaskRun", {})
   .n("GlueClient", "GetMLTaskRunCommand")
-  .sc(GetMLTaskRun)
+  .sc(GetMLTaskRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetBudgetRequest, GetBudgetResponse } from "../models/models_0";
-import { GetBudget } from "../schemas/schemas_0";
+import { GetBudget$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class GetBudgetCommand extends $Command
   })
   .s("Deadline", "GetBudget", {})
   .n("DeadlineClient", "GetBudgetCommand")
-  .sc(GetBudget)
+  .sc(GetBudget$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

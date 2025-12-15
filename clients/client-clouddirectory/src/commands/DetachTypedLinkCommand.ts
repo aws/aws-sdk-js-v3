@@ -10,7 +10,7 @@ import type {
 } from "../CloudDirectoryClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DetachTypedLinkRequest } from "../models/models_0";
-import { DetachTypedLink } from "../schemas/schemas_0";
+import { DetachTypedLink$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -161,7 +161,7 @@ export class DetachTypedLinkCommand extends $Command
   })
   .s("AmazonCloudDirectory_20170111", "DetachTypedLink", {})
   .n("CloudDirectoryClient", "DetachTypedLinkCommand")
-  .sc(DetachTypedLink)
+  .sc(DetachTypedLink$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

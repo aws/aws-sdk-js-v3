@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: ECRClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.ecr",
-        serviceTarget: "AmazonEC2ContainerRegistry_V20150921",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.ecr",
+      xmlNamespace: "http://ecr.amazonaws.com/doc/2015-09-21/",
+      version: "2015-09-21",
+      serviceTarget: "AmazonEC2ContainerRegistry_V20150921",
+    },
     serviceId: config?.serviceId ?? "ECR",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EnableAlarmActionsInput } from "../models/models_0";
-import { EnableAlarmActions } from "../schemas/schemas_0";
+import { EnableAlarmActions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -73,7 +73,7 @@ export class EnableAlarmActionsCommand extends $Command
   })
   .s("GraniteServiceVersion20100801", "EnableAlarmActions", {})
   .n("CloudWatchClient", "EnableAlarmActionsCommand")
-  .sc(EnableAlarmActions)
+  .sc(EnableAlarmActions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

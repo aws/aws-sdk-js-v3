@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SetIdentityDkimEnabledRequest, SetIdentityDkimEnabledResponse } from "../models/models_0";
-import { SetIdentityDkimEnabled } from "../schemas/schemas_0";
+import { SetIdentityDkimEnabled$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -99,7 +99,7 @@ export class SetIdentityDkimEnabledCommand extends $Command
   })
   .s("SimpleEmailService", "SetIdentityDkimEnabled", {})
   .n("SESClient", "SetIdentityDkimEnabledCommand")
-  .sc(SetIdentityDkimEnabled)
+  .sc(SetIdentityDkimEnabled$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

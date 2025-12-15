@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetOfferingStatusRequest, GetOfferingStatusResult } from "../models/models_0";
-import { GetOfferingStatus } from "../schemas/schemas_0";
+import { GetOfferingStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -136,7 +136,7 @@ export class GetOfferingStatusCommand extends $Command
   })
   .s("DeviceFarm_20150623", "GetOfferingStatus", {})
   .n("DeviceFarmClient", "GetOfferingStatusCommand")
-  .sc(GetOfferingStatus)
+  .sc(GetOfferingStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

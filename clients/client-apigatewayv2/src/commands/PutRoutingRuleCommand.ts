@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutRoutingRuleRequest, PutRoutingRuleResponse } from "../models/models_0";
-import { PutRoutingRule } from "../schemas/schemas_0";
+import { PutRoutingRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -142,7 +142,7 @@ export class PutRoutingRuleCommand extends $Command
   })
   .s("ApiGatewayV2", "PutRoutingRule", {})
   .n("ApiGatewayV2Client", "PutRoutingRuleCommand")
-  .sc(PutRoutingRule)
+  .sc(PutRoutingRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

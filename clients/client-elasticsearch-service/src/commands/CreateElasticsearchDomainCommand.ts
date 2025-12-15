@@ -10,7 +10,7 @@ import type {
 } from "../ElasticsearchServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateElasticsearchDomainRequest, CreateElasticsearchDomainResponse } from "../models/models_0";
-import { CreateElasticsearchDomain } from "../schemas/schemas_0";
+import { CreateElasticsearchDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -335,7 +335,7 @@ export class CreateElasticsearchDomainCommand extends $Command
   })
   .s("AmazonElasticsearchService2015", "CreateElasticsearchDomain", {})
   .n("ElasticsearchServiceClient", "CreateElasticsearchDomainCommand")
-  .sc(CreateElasticsearchDomain)
+  .sc(CreateElasticsearchDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

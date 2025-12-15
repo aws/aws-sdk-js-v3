@@ -9,7 +9,7 @@ import type {
   RejectResourceGroupingRecommendationsResponse,
 } from "../models/models_0";
 import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
-import { RejectResourceGroupingRecommendations } from "../schemas/schemas_0";
+import { RejectResourceGroupingRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class RejectResourceGroupingRecommendationsCommand extends $Command
   })
   .s("AwsResilienceHub", "RejectResourceGroupingRecommendations", {})
   .n("ResiliencehubClient", "RejectResourceGroupingRecommendationsCommand")
-  .sc(RejectResourceGroupingRecommendations)
+  .sc(RejectResourceGroupingRecommendations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

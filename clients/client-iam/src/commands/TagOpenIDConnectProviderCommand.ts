@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import type { TagOpenIDConnectProviderRequest } from "../models/models_0";
-import { TagOpenIDConnectProvider } from "../schemas/schemas_0";
+import { TagOpenIDConnectProvider$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -134,7 +134,7 @@ export class TagOpenIDConnectProviderCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "TagOpenIDConnectProvider", {})
   .n("IAMClient", "TagOpenIDConnectProviderCommand")
-  .sc(TagOpenIDConnectProvider)
+  .sc(TagOpenIDConnectProvider$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

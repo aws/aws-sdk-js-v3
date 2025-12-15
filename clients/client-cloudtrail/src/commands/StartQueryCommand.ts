@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartQueryRequest, StartQueryResponse } from "../models/models_0";
-import { StartQuery } from "../schemas/schemas_0";
+import { StartQuery$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -138,7 +138,7 @@ export class StartQueryCommand extends $Command
   })
   .s("CloudTrail_20131101", "StartQuery", {})
   .n("CloudTrailClient", "StartQueryCommand")
-  .sc(StartQuery)
+  .sc(StartQuery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

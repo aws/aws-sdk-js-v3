@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestXmlProtocolClient";
-import { XmlAttributesOnPayload } from "../schemas/schemas_0";
+import { XmlAttributesOnPayload$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class XmlAttributesOnPayloadCommand extends $Command
   })
   .s("RestXml", "XmlAttributesOnPayload", {})
   .n("RestXmlProtocolClient", "XmlAttributesOnPayloadCommand")
-  .sc(XmlAttributesOnPayload)
+  .sc(XmlAttributesOnPayload$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

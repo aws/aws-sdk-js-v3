@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteRunCacheRequest } from "../models/models_0";
 import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { DeleteRunCache } from "../schemas/schemas_0";
+import { DeleteRunCache$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DeleteRunCacheCommand extends $Command
   })
   .s("Omics", "DeleteRunCache", {})
   .n("OmicsClient", "DeleteRunCacheCommand")
-  .sc(DeleteRunCache)
+  .sc(DeleteRunCache$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

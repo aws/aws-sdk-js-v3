@@ -187,26 +187,33 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { EC2ProtocolServiceException as __EC2ProtocolServiceException } from "../models/EC2ProtocolServiceException";
-import { ComplexError as __ComplexError, InvalidGreeting as __InvalidGreeting } from "../models/errors";
+import { EC2ProtocolServiceException } from "../models/EC2ProtocolServiceException";
+import { ComplexError, InvalidGreeting } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var ComplexError: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c }, [_TL, _N], [0, () => ComplexNestedErrorData]];
-TypeRegistry.for(n0).registerError(ComplexError, __ComplexError);
-export var ComplexNestedErrorData: StaticStructureSchema = [3, n0, _CNED, 0, [_F], [0]];
-export var DatetimeOffsetsOutput: StaticStructureSchema = [3, n0, _DOO, 0, [_d], [5]];
-export var EmptyInputAndEmptyOutputInput: StaticStructureSchema = [3, n0, _EIAEOI, 0, [], []];
-export var EmptyInputAndEmptyOutputOutput: StaticStructureSchema = [3, n0, _EIAEOO, 0, [], []];
-export var FractionalSecondsOutput: StaticStructureSchema = [3, n0, _FSO, 0, [_d], [5]];
-export var GreetingWithErrorsOutput: StaticStructureSchema = [3, n0, _GWEO, 0, [_g], [0]];
-export var HostLabelInput: StaticStructureSchema = [3, n0, _HLI, 0, [_l], [[0, { [_hL]: 1 }]]];
-export var IgnoresWrappingXmlNameOutput: StaticStructureSchema = [3, n0, _IWXNO, { [_xN]: _IM }, [_f], [0]];
-export var InvalidGreeting: StaticErrorSchema = [-3, n0, _IG, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidGreeting, __InvalidGreeting);
-export var NestedStructuresInput: StaticStructureSchema = [3, n0, _NSI, 0, [_N], [() => StructArg]];
-export var NestedStructWithList: StaticStructureSchema = [3, n0, _NSWL, 0, [_LA], [64 | 0]];
-export var NoInputAndOutputOutput: StaticStructureSchema = [3, n0, _NIAOO, 0, [], []];
-export var PutWithContentEncodingInput: StaticStructureSchema = [
+export var ComplexError$: StaticErrorSchema = [
+  -3,
+  n0,
+  _CE,
+  { [_e]: _c },
+  [_TL, _N],
+  [0, () => ComplexNestedErrorData$],
+];
+TypeRegistry.for(n0).registerError(ComplexError$, ComplexError);
+export var ComplexNestedErrorData$: StaticStructureSchema = [3, n0, _CNED, 0, [_F], [0]];
+export var DatetimeOffsetsOutput$: StaticStructureSchema = [3, n0, _DOO, 0, [_d], [5]];
+export var EmptyInputAndEmptyOutputInput$: StaticStructureSchema = [3, n0, _EIAEOI, 0, [], []];
+export var EmptyInputAndEmptyOutputOutput$: StaticStructureSchema = [3, n0, _EIAEOO, 0, [], []];
+export var FractionalSecondsOutput$: StaticStructureSchema = [3, n0, _FSO, 0, [_d], [5]];
+export var GreetingWithErrorsOutput$: StaticStructureSchema = [3, n0, _GWEO, 0, [_g], [0]];
+export var HostLabelInput$: StaticStructureSchema = [3, n0, _HLI, 0, [_l], [[0, { [_hL]: 1 }]]];
+export var IgnoresWrappingXmlNameOutput$: StaticStructureSchema = [3, n0, _IWXNO, { [_xN]: _IM }, [_f], [0]];
+export var InvalidGreeting$: StaticErrorSchema = [-3, n0, _IG, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InvalidGreeting$, InvalidGreeting);
+export var NestedStructuresInput$: StaticStructureSchema = [3, n0, _NSI, 0, [_N], [() => StructArg$]];
+export var NestedStructWithList$: StaticStructureSchema = [3, n0, _NSWL, 0, [_LA], [64 | 0]];
+export var NoInputAndOutputOutput$: StaticStructureSchema = [3, n0, _NIAOO, 0, [], []];
+export var PutWithContentEncodingInput$: StaticStructureSchema = [
   3,
   n0,
   _PWCEI,
@@ -214,8 +221,8 @@ export var PutWithContentEncodingInput: StaticStructureSchema = [
   [_en, _da],
   [[0, { [_hH]: _CE_ }], 0],
 ];
-export var QueryIdempotencyTokenAutoFillInput: StaticStructureSchema = [3, n0, _QITAFI, 0, [_t], [[0, 4]]];
-export var QueryListsInput: StaticStructureSchema = [
+export var QueryIdempotencyTokenAutoFillInput$: StaticStructureSchema = [3, n0, _QITAFI, 0, [_t], [[0, 4]]];
+export var QueryListsInput$: StaticStructureSchema = [
   3,
   n0,
   _QLI,
@@ -226,35 +233,35 @@ export var QueryListsInput: StaticStructureSchema = [
     () => GreetingList,
     [() => ListWithXmlName, 0],
     [() => ListWithXmlName, { [_xN]: _H }],
-    () => NestedStructWithList,
+    () => NestedStructWithList$,
   ],
 ];
-export var QueryTimestampsInput: StaticStructureSchema = [3, n0, _QTI, 0, [_nF, _eM, _eT], [4, 7, 7]];
-export var RecursiveXmlShapesOutput: StaticStructureSchema = [
+export var QueryTimestampsInput$: StaticStructureSchema = [3, n0, _QTI, 0, [_nF, _eM, _eT], [4, 7, 7]];
+export var RecursiveXmlShapesOutput$: StaticStructureSchema = [
   3,
   n0,
   _RXSO,
   0,
   [_n],
-  [() => RecursiveXmlShapesOutputNested1],
+  [() => RecursiveXmlShapesOutputNested1$],
 ];
-export var RecursiveXmlShapesOutputNested1: StaticStructureSchema = [
+export var RecursiveXmlShapesOutputNested1$: StaticStructureSchema = [
   3,
   n0,
   _RXSON,
   0,
   [_f, _n],
-  [0, () => RecursiveXmlShapesOutputNested2],
+  [0, () => RecursiveXmlShapesOutputNested2$],
 ];
-export var RecursiveXmlShapesOutputNested2: StaticStructureSchema = [
+export var RecursiveXmlShapesOutputNested2$: StaticStructureSchema = [
   3,
   n0,
   _RXSONe,
   0,
   [_b, _rM],
-  [0, () => RecursiveXmlShapesOutputNested1],
+  [0, () => RecursiveXmlShapesOutputNested1$],
 ];
-export var SimpleInputParamsInput: StaticStructureSchema = [
+export var SimpleInputParamsInput$: StaticStructureSchema = [
   3,
   n0,
   _SIPI,
@@ -274,7 +281,7 @@ export var SimpleInputParamsInput: StaticStructureSchema = [
     [0, { [_xN]: _uXN }],
   ],
 ];
-export var SimpleScalarXmlPropertiesOutput: StaticStructureSchema = [
+export var SimpleScalarXmlPropertiesOutput$: StaticStructureSchema = [
   3,
   n0,
   _SSXPO,
@@ -282,8 +289,8 @@ export var SimpleScalarXmlPropertiesOutput: StaticStructureSchema = [
   [_sV, _eSV, _tBV, _fBV, _bV, _sVh, _iV, _lV, _fV, _dV],
   [[0, { [_eQN]: `IgnoreMe` }], 0, 2, 2, 1, 1, 1, 1, 1, [1, { [_xN]: _DD }]],
 ];
-export var StructArg: StaticStructureSchema = [3, n0, _SA, 0, [_SAt, _OA, _RA], [0, 2, () => StructArg]];
-export var StructureListMember: StaticStructureSchema = [
+export var StructArg$: StaticStructureSchema = [3, n0, _SA, 0, [_SAt, _OA, _RA], [0, 2, () => StructArg$]];
+export var StructureListMember$: StaticStructureSchema = [
   3,
   n0,
   _SLM,
@@ -294,8 +301,8 @@ export var StructureListMember: StaticStructureSchema = [
     [0, { [_xN]: _o }],
   ],
 ];
-export var XmlBlobsOutput: StaticStructureSchema = [3, n0, _XBO, 0, [_da], [21]];
-export var XmlEnumsOutput: StaticStructureSchema = [
+export var XmlBlobsOutput$: StaticStructureSchema = [3, n0, _XBO, 0, [_da], [21]];
+export var XmlEnumsOutput$: StaticStructureSchema = [
   3,
   n0,
   _XEO,
@@ -303,7 +310,7 @@ export var XmlEnumsOutput: StaticStructureSchema = [
   [_fE, _fEo, _fEoo, _fEL, _fES, _fEM],
   [0, 0, 0, 64 | 0, 64 | 0, 128 | 0],
 ];
-export var XmlIntEnumsOutput: StaticStructureSchema = [
+export var XmlIntEnumsOutput$: StaticStructureSchema = [
   3,
   n0,
   _XIEO,
@@ -311,7 +318,7 @@ export var XmlIntEnumsOutput: StaticStructureSchema = [
   [_iE, _iEn, _iEnt, _iEL, _iES, _iEM],
   [1, 1, 1, 64 | 1, 64 | 1, 128 | 1],
 ];
-export var XmlListsOutput: StaticStructureSchema = [
+export var XmlListsOutput$: StaticStructureSchema = [
   3,
   n0,
   _XLO,
@@ -334,7 +341,7 @@ export var XmlListsOutput: StaticStructureSchema = [
     [() => StructureList, { [_xN]: _mSL }],
   ],
 ];
-export var XmlNamespaceNested: StaticStructureSchema = [
+export var XmlNamespaceNested$: StaticStructureSchema = [
   3,
   n0,
   _XNN,
@@ -345,15 +352,15 @@ export var XmlNamespaceNested: StaticStructureSchema = [
     [() => XmlNamespacedList, { [_xNm]: [_, _htt] }],
   ],
 ];
-export var XmlNamespacesOutput: StaticStructureSchema = [
+export var XmlNamespacesOutput$: StaticStructureSchema = [
   3,
   n0,
   _XNO,
   { [_xNm]: [_, _h] },
   [_n],
-  [[() => XmlNamespaceNested, 0]],
+  [[() => XmlNamespaceNested$, 0]],
 ];
-export var XmlTimestampsOutput: StaticStructureSchema = [
+export var XmlTimestampsOutput$: StaticStructureSchema = [
   3,
   n0,
   _XTO,
@@ -361,93 +368,93 @@ export var XmlTimestampsOutput: StaticStructureSchema = [
   [_no, _dT, _dTOT, _eS, _eSOT, _hD, _hDOT],
   [4, 5, 5, 7, 7, 6, 6],
 ];
-export var GreetingStruct: StaticStructureSchema = [3, n1, _GS, 0, [_hi], [0]];
-export var __Unit = "unit" as const;
-export var EC2ProtocolServiceException: StaticErrorSchema = [-3, _s, "EC2ProtocolServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(EC2ProtocolServiceException, __EC2ProtocolServiceException);
-export var ListWithMemberNamespace: StaticListSchema = [1, n0, _LWMN, { [_xNm]: [_, _hl] }, [0, { [_xNm]: [_, _hm] }]];
-export var ListWithNamespace: StaticListSchema = [1, n0, _LWN, { [_xNm]: [_, _hl] }, 0];
-export var ListWithXmlName: StaticListSchema = [1, n0, _LWXN, 0, [0, { [_xN]: _i }]];
-export var RenamedListMembers: StaticListSchema = [1, n0, _RLM, 0, [0, { [_xN]: _i }]];
-export var StructureList: StaticListSchema = [1, n0, _SL, 0, [() => StructureListMember, { [_xN]: _i }]];
-export var XmlNamespacedList: StaticListSchema = [1, n0, _XNL, 0, [0, { [_xNm]: [_, _http] }]];
-export var BooleanList = 64 | 2;
-export var FooEnumList = 64 | 0;
-export var FooEnumSet = 64 | 0;
-export var GreetingList: StaticListSchema = [1, n1, _GL, 0, () => GreetingStruct];
-export var IntegerEnumList = 64 | 1;
-export var IntegerEnumSet = 64 | 1;
-export var IntegerList = 64 | 1;
-export var NestedStringList: StaticListSchema = [1, n1, _NSL, 0, 64 | 0];
-export var StringList = 64 | 0;
-export var StringSet = 64 | 0;
-export var TimestampList = 64 | 4;
-export var FooEnumMap = 128 | 0;
-export var IntegerEnumMap = 128 | 1;
-export var DatetimeOffsets: StaticOperationSchema = [9, n0, _DO, 0, () => __Unit, () => DatetimeOffsetsOutput];
-export var EmptyInputAndEmptyOutput: StaticOperationSchema = [
+export var GreetingStruct$: StaticStructureSchema = [3, n1, _GS, 0, [_hi], [0]];
+var __Unit = "unit" as const;
+export var EC2ProtocolServiceException$: StaticErrorSchema = [-3, _s, "EC2ProtocolServiceException", 0, [], []];
+TypeRegistry.for(_s).registerError(EC2ProtocolServiceException$, EC2ProtocolServiceException);
+var ListWithMemberNamespace: StaticListSchema = [1, n0, _LWMN, { [_xNm]: [_, _hl] }, [0, { [_xNm]: [_, _hm] }]];
+var ListWithNamespace: StaticListSchema = [1, n0, _LWN, { [_xNm]: [_, _hl] }, 0];
+var ListWithXmlName: StaticListSchema = [1, n0, _LWXN, 0, [0, { [_xN]: _i }]];
+var RenamedListMembers: StaticListSchema = [1, n0, _RLM, 0, [0, { [_xN]: _i }]];
+var StructureList: StaticListSchema = [1, n0, _SL, 0, [() => StructureListMember$, { [_xN]: _i }]];
+var XmlNamespacedList: StaticListSchema = [1, n0, _XNL, 0, [0, { [_xNm]: [_, _http] }]];
+var BooleanList = 64 | 2;
+var FooEnumList = 64 | 0;
+var FooEnumSet = 64 | 0;
+var GreetingList: StaticListSchema = [1, n1, _GL, 0, () => GreetingStruct$];
+var IntegerEnumList = 64 | 1;
+var IntegerEnumSet = 64 | 1;
+var IntegerList = 64 | 1;
+var NestedStringList: StaticListSchema = [1, n1, _NSL, 0, 64 | 0];
+var StringList = 64 | 0;
+var StringSet = 64 | 0;
+var TimestampList = 64 | 4;
+var FooEnumMap = 128 | 0;
+var IntegerEnumMap = 128 | 1;
+export var DatetimeOffsets$: StaticOperationSchema = [9, n0, _DO, 0, () => __Unit, () => DatetimeOffsetsOutput$];
+export var EmptyInputAndEmptyOutput$: StaticOperationSchema = [
   9,
   n0,
   _EIAEO,
   0,
-  () => EmptyInputAndEmptyOutputInput,
-  () => EmptyInputAndEmptyOutputOutput,
+  () => EmptyInputAndEmptyOutputInput$,
+  () => EmptyInputAndEmptyOutputOutput$,
 ];
-export var EndpointOperation: StaticOperationSchema = [9, n0, _EO, { [_end]: ["foo."] }, () => __Unit, () => __Unit];
-export var EndpointWithHostLabelOperation: StaticOperationSchema = [
+export var EndpointOperation$: StaticOperationSchema = [9, n0, _EO, { [_end]: ["foo."] }, () => __Unit, () => __Unit];
+export var EndpointWithHostLabelOperation$: StaticOperationSchema = [
   9,
   n0,
   _EWHLO,
   { [_end]: ["foo.{label}."] },
-  () => HostLabelInput,
+  () => HostLabelInput$,
   () => __Unit,
 ];
-export var FractionalSeconds: StaticOperationSchema = [9, n0, _FS, 0, () => __Unit, () => FractionalSecondsOutput];
-export var GreetingWithErrors: StaticOperationSchema = [9, n0, _GWE, 0, () => __Unit, () => GreetingWithErrorsOutput];
-export var HostWithPathOperation: StaticOperationSchema = [9, n0, _HWPO, 0, () => __Unit, () => __Unit];
-export var IgnoresWrappingXmlName: StaticOperationSchema = [
+export var FractionalSeconds$: StaticOperationSchema = [9, n0, _FS, 0, () => __Unit, () => FractionalSecondsOutput$];
+export var GreetingWithErrors$: StaticOperationSchema = [9, n0, _GWE, 0, () => __Unit, () => GreetingWithErrorsOutput$];
+export var HostWithPathOperation$: StaticOperationSchema = [9, n0, _HWPO, 0, () => __Unit, () => __Unit];
+export var IgnoresWrappingXmlName$: StaticOperationSchema = [
   9,
   n0,
   _IWXN,
   0,
   () => __Unit,
-  () => IgnoresWrappingXmlNameOutput,
+  () => IgnoresWrappingXmlNameOutput$,
 ];
-export var NestedStructures: StaticOperationSchema = [9, n0, _NS, 0, () => NestedStructuresInput, () => __Unit];
-export var NoInputAndOutput: StaticOperationSchema = [9, n0, _NIAO, 0, () => __Unit, () => NoInputAndOutputOutput];
-export var PutWithContentEncoding: StaticOperationSchema = [
+export var NestedStructures$: StaticOperationSchema = [9, n0, _NS, 0, () => NestedStructuresInput$, () => __Unit];
+export var NoInputAndOutput$: StaticOperationSchema = [9, n0, _NIAO, 0, () => __Unit, () => NoInputAndOutputOutput$];
+export var PutWithContentEncoding$: StaticOperationSchema = [
   9,
   n0,
   _PWCE,
   0,
-  () => PutWithContentEncodingInput,
+  () => PutWithContentEncodingInput$,
   () => __Unit,
 ];
-export var QueryIdempotencyTokenAutoFill: StaticOperationSchema = [
+export var QueryIdempotencyTokenAutoFill$: StaticOperationSchema = [
   9,
   n0,
   _QITAF,
   0,
-  () => QueryIdempotencyTokenAutoFillInput,
+  () => QueryIdempotencyTokenAutoFillInput$,
   () => __Unit,
 ];
-export var QueryLists: StaticOperationSchema = [9, n0, _QL, 0, () => QueryListsInput, () => __Unit];
-export var QueryTimestamps: StaticOperationSchema = [9, n0, _QT, 0, () => QueryTimestampsInput, () => __Unit];
-export var RecursiveXmlShapes: StaticOperationSchema = [9, n0, _RXS, 0, () => __Unit, () => RecursiveXmlShapesOutput];
-export var SimpleInputParams: StaticOperationSchema = [9, n0, _SIP, 0, () => SimpleInputParamsInput, () => __Unit];
-export var SimpleScalarXmlProperties: StaticOperationSchema = [
+export var QueryLists$: StaticOperationSchema = [9, n0, _QL, 0, () => QueryListsInput$, () => __Unit];
+export var QueryTimestamps$: StaticOperationSchema = [9, n0, _QT, 0, () => QueryTimestampsInput$, () => __Unit];
+export var RecursiveXmlShapes$: StaticOperationSchema = [9, n0, _RXS, 0, () => __Unit, () => RecursiveXmlShapesOutput$];
+export var SimpleInputParams$: StaticOperationSchema = [9, n0, _SIP, 0, () => SimpleInputParamsInput$, () => __Unit];
+export var SimpleScalarXmlProperties$: StaticOperationSchema = [
   9,
   n0,
   _SSXP,
   0,
   () => __Unit,
-  () => SimpleScalarXmlPropertiesOutput,
+  () => SimpleScalarXmlPropertiesOutput$,
 ];
-export var XmlBlobs: StaticOperationSchema = [9, n0, _XB, 0, () => __Unit, () => XmlBlobsOutput];
-export var XmlEmptyBlobs: StaticOperationSchema = [9, n0, _XEB, 0, () => __Unit, () => XmlBlobsOutput];
-export var XmlEmptyLists: StaticOperationSchema = [9, n0, _XEL, 0, () => __Unit, () => XmlListsOutput];
-export var XmlEnums: StaticOperationSchema = [9, n0, _XE, 0, () => __Unit, () => XmlEnumsOutput];
-export var XmlIntEnums: StaticOperationSchema = [9, n0, _XIE, 0, () => __Unit, () => XmlIntEnumsOutput];
-export var XmlLists: StaticOperationSchema = [9, n0, _XL, 0, () => __Unit, () => XmlListsOutput];
-export var XmlNamespaces: StaticOperationSchema = [9, n0, _XN, 0, () => __Unit, () => XmlNamespacesOutput];
-export var XmlTimestamps: StaticOperationSchema = [9, n0, _XT, 0, () => __Unit, () => XmlTimestampsOutput];
+export var XmlBlobs$: StaticOperationSchema = [9, n0, _XB, 0, () => __Unit, () => XmlBlobsOutput$];
+export var XmlEmptyBlobs$: StaticOperationSchema = [9, n0, _XEB, 0, () => __Unit, () => XmlBlobsOutput$];
+export var XmlEmptyLists$: StaticOperationSchema = [9, n0, _XEL, 0, () => __Unit, () => XmlListsOutput$];
+export var XmlEnums$: StaticOperationSchema = [9, n0, _XE, 0, () => __Unit, () => XmlEnumsOutput$];
+export var XmlIntEnums$: StaticOperationSchema = [9, n0, _XIE, 0, () => __Unit, () => XmlIntEnumsOutput$];
+export var XmlLists$: StaticOperationSchema = [9, n0, _XL, 0, () => __Unit, () => XmlListsOutput$];
+export var XmlNamespaces$: StaticOperationSchema = [9, n0, _XN, 0, () => __Unit, () => XmlNamespacesOutput$];
+export var XmlTimestamps$: StaticOperationSchema = [9, n0, _XT, 0, () => __Unit, () => XmlTimestampsOutput$];

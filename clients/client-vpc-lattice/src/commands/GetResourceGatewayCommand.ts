@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetResourceGatewayRequest, GetResourceGatewayResponse } from "../models/models_0";
-import { GetResourceGateway } from "../schemas/schemas_0";
+import { GetResourceGateway$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -102,7 +102,7 @@ export class GetResourceGatewayCommand extends $Command
   })
   .s("MercuryControlPlane", "GetResourceGateway", {})
   .n("VPCLatticeClient", "GetResourceGatewayCommand")
-  .sc(GetResourceGateway)
+  .sc(GetResourceGateway$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

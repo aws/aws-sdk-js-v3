@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AllocateHostedConnectionRequest, Connection } from "../models/models_0";
-import { AllocateHostedConnection } from "../schemas/schemas_0";
+import { AllocateHostedConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -134,7 +134,7 @@ export class AllocateHostedConnectionCommand extends $Command
   })
   .s("OvertureService", "AllocateHostedConnection", {})
   .n("DirectConnectClient", "AllocateHostedConnectionCommand")
-  .sc(AllocateHostedConnection)
+  .sc(AllocateHostedConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

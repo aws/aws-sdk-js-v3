@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { DisassociateProtectConfiguration } from "../schemas/schemas_0";
+import { DisassociateProtectConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class DisassociateProtectConfigurationCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "DisassociateProtectConfiguration", {})
   .n("PinpointSMSVoiceV2Client", "DisassociateProtectConfigurationCommand")
-  .sc(DisassociateProtectConfiguration)
+  .sc(DisassociateProtectConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

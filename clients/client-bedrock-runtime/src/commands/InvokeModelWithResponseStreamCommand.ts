@@ -10,7 +10,7 @@ import type {
 } from "../BedrockRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type InvokeModelWithResponseStreamResponse, InvokeModelWithResponseStreamRequest } from "../models/models_0";
-import { InvokeModelWithResponseStream } from "../schemas/schemas_0";
+import { InvokeModelWithResponseStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -161,7 +161,7 @@ export class InvokeModelWithResponseStreamCommand extends $Command
     },
   })
   .n("BedrockRuntimeClient", "InvokeModelWithResponseStreamCommand")
-  .sc(InvokeModelWithResponseStream)
+  .sc(InvokeModelWithResponseStream$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

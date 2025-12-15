@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListNamespacesRequest, ListNamespacesResponse } from "../models/models_0";
-import { ListNamespaces } from "../schemas/schemas_0";
+import { ListNamespaces$ } from "../schemas/schemas_0";
 import type {
   ServiceDiscoveryClientResolvedConfig,
   ServiceInputTypes,
@@ -233,7 +233,7 @@ export class ListNamespacesCommand extends $Command
   })
   .s("Route53AutoNaming_v20170314", "ListNamespaces", {})
   .n("ServiceDiscoveryClient", "ListNamespacesCommand")
-  .sc(ListNamespaces)
+  .sc(ListNamespaces$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { CreateClassifierRequest, CreateClassifierResponse } from "../models/models_0";
-import { CreateClassifier } from "../schemas/schemas_0";
+import { CreateClassifier$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class CreateClassifierCommand extends $Command
   })
   .s("AWSGlue", "CreateClassifier", {})
   .n("GlueClient", "CreateClassifierCommand")
-  .sc(CreateClassifier)
+  .sc(CreateClassifier$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

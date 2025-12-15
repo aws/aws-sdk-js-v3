@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateLinkInput, UpdateLinkOutput } from "../models/models_0";
 import type { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
-import { UpdateLink } from "../schemas/schemas_0";
+import { UpdateLink$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class UpdateLinkCommand extends $Command
   })
   .s("oamservice", "UpdateLink", {})
   .n("OAMClient", "UpdateLinkCommand")
-  .sc(UpdateLink)
+  .sc(UpdateLink$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

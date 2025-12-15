@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutWarmPoolAnswer, PutWarmPoolType } from "../models/models_0";
-import { PutWarmPool } from "../schemas/schemas_0";
+import { PutWarmPool$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class PutWarmPoolCommand extends $Command
   })
   .s("AutoScaling_2011_01_01", "PutWarmPool", {})
   .n("AutoScalingClient", "PutWarmPoolCommand")
-  .sc(PutWarmPool)
+  .sc(PutWarmPool$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

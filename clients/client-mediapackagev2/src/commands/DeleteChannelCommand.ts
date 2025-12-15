@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MediaPackageV2Client";
 import type { DeleteChannelRequest, DeleteChannelResponse } from "../models/models_0";
-import { DeleteChannel } from "../schemas/schemas_0";
+import { DeleteChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class DeleteChannelCommand extends $Command
   })
   .s("mediapackagev2", "DeleteChannel", {})
   .n("MediaPackageV2Client", "DeleteChannelCommand")
-  .sc(DeleteChannel)
+  .sc(DeleteChannel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

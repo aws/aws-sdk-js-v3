@@ -13,7 +13,7 @@ import type {
   ApplicationResourceLifecycleDescriptionMessage,
   UpdateApplicationResourceLifecycleMessage,
 } from "../models/models_0";
-import { UpdateApplicationResourceLifecycle } from "../schemas/schemas_0";
+import { UpdateApplicationResourceLifecycle$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class UpdateApplicationResourceLifecycleCommand extends $Command
   })
   .s("AWSElasticBeanstalkService", "UpdateApplicationResourceLifecycle", {})
   .n("ElasticBeanstalkClient", "UpdateApplicationResourceLifecycleCommand")
-  .sc(UpdateApplicationResourceLifecycle)
+  .sc(UpdateApplicationResourceLifecycle$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

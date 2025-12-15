@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAccountRolesRequest, ListAccountRolesResponse } from "../models/models_0";
-import { ListAccountRoles } from "../schemas/schemas_0";
+import { ListAccountRoles$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOClientResolvedConfig } from "../SSOClient";
 
 /**
@@ -97,7 +97,7 @@ export class ListAccountRolesCommand extends $Command
   })
   .s("SWBPortalService", "ListAccountRoles", {})
   .n("SSOClient", "ListAccountRolesCommand")
-  .sc(ListAccountRoles)
+  .sc(ListAccountRoles$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

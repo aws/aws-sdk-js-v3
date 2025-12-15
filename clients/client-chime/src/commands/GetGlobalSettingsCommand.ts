@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetGlobalSettingsResponse } from "../models/models_0";
-import { GetGlobalSettings } from "../schemas/schemas_0";
+import { GetGlobalSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class GetGlobalSettingsCommand extends $Command
   })
   .s("UCBuzzConsoleService", "GetGlobalSettings", {})
   .n("ChimeClient", "GetGlobalSettingsCommand")
-  .sc(GetGlobalSettings)
+  .sc(GetGlobalSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

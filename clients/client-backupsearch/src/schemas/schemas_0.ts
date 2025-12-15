@@ -158,27 +158,27 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { BackupSearchServiceException as __BackupSearchServiceException } from "../models/BackupSearchServiceException";
+import { BackupSearchServiceException } from "../models/BackupSearchServiceException";
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var FilePath: StaticSimpleSchema = [0, n0, _FP, 8, 0];
-export var ObjectKey: StaticSimpleSchema = [0, n0, _OK, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var BackupCreationTimeFilter: StaticStructureSchema = [3, n0, _BCTF, 0, [_CA, _CB], [4, 4]];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CurrentSearchProgress: StaticStructureSchema = [3, n0, _CSP, 0, [_RPSC, _ISC, _IMC], [1, 1, 1]];
-export var EBSItemFilter: StaticStructureSchema = [
+var FilePath: StaticSimpleSchema = [0, n0, _FP, 8, 0];
+var ObjectKey: StaticSimpleSchema = [0, n0, _OK, 8, 0];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var BackupCreationTimeFilter$: StaticStructureSchema = [3, n0, _BCTF, 0, [_CA, _CB], [4, 4]];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CurrentSearchProgress$: StaticStructureSchema = [3, n0, _CSP, 0, [_RPSC, _ISC, _IMC], [1, 1, 1]];
+export var EBSItemFilter$: StaticStructureSchema = [
   3,
   n0,
   _EBSIF,
@@ -186,7 +186,7 @@ export var EBSItemFilter: StaticStructureSchema = [
   [_FPi, _S, _CT, _LMT],
   [() => StringConditionList, () => LongConditionList, () => TimeConditionList, () => TimeConditionList],
 ];
-export var EBSResultItem: StaticStructureSchema = [
+export var EBSResultItem$: StaticStructureSchema = [
   3,
   n0,
   _EBSRI,
@@ -194,7 +194,7 @@ export var EBSResultItem: StaticStructureSchema = [
   [_BRA, _SRA, _BVN, _FSI, _FP, _FS, _CTr, _LMTa],
   [0, 0, 0, 0, [() => FilePath, 0], 1, 4, 4],
 ];
-export var ExportJobSummary: StaticStructureSchema = [
+export var ExportJobSummary$: StaticStructureSchema = [
   3,
   n0,
   _EJS,
@@ -202,8 +202,8 @@ export var ExportJobSummary: StaticStructureSchema = [
   [_EJI, _EJA, _St, _CTr, _CTo, _SM, _SJA],
   [0, 0, 0, 4, 4, 0, 0],
 ];
-export var GetSearchJobInput: StaticStructureSchema = [3, n0, _GSJI, 0, [_SJI], [[0, 1]]];
-export var GetSearchJobOutput: StaticStructureSchema = [
+export var GetSearchJobInput$: StaticStructureSchema = [3, n0, _GSJI, 0, [_SJI], [[0, 1]]];
+export var GetSearchJobOutput$: StaticStructureSchema = [
   3,
   n0,
   _GSJO,
@@ -211,29 +211,29 @@ export var GetSearchJobOutput: StaticStructureSchema = [
   [_N, _SSS, _CSP, _SM, _EKA, _CTo, _St, _SS, _IF, _CTr, _SJI, _SJA],
   [
     0,
-    () => SearchScopeSummary,
-    () => CurrentSearchProgress,
+    () => SearchScopeSummary$,
+    () => CurrentSearchProgress$,
     0,
     0,
     4,
     0,
-    [() => SearchScope, 0],
-    () => ItemFilters,
+    [() => SearchScope$, 0],
+    () => ItemFilters$,
     4,
     0,
     0,
   ],
 ];
-export var GetSearchResultExportJobInput: StaticStructureSchema = [3, n0, _GSREJI, 0, [_EJI], [[0, 1]]];
-export var GetSearchResultExportJobOutput: StaticStructureSchema = [
+export var GetSearchResultExportJobInput$: StaticStructureSchema = [3, n0, _GSREJI, 0, [_EJI], [[0, 1]]];
+export var GetSearchResultExportJobOutput$: StaticStructureSchema = [
   3,
   n0,
   _GSREJO,
   0,
   [_EJI, _EJA, _St, _CTr, _CTo, _SM, _ES, _SJA],
-  [0, 0, 0, 4, 4, 0, () => ExportSpecification, 0],
+  [0, 0, 0, 4, 4, 0, () => ExportSpecification$, 0],
 ];
-export var InternalServerException: StaticErrorSchema = [
+export var InternalServerException$: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
@@ -241,8 +241,8 @@ export var InternalServerException: StaticErrorSchema = [
   [_m, _rAS],
   [0, [1, { [_hH]: _RA }]],
 ];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var ItemFilters: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var ItemFilters$: StaticStructureSchema = [
   3,
   n0,
   _IF,
@@ -250,7 +250,7 @@ export var ItemFilters: StaticStructureSchema = [
   [_SIF, _EBSIFt],
   [() => S3ItemFilters, () => EBSItemFilters],
 ];
-export var ListSearchJobBackupsInput: StaticStructureSchema = [
+export var ListSearchJobBackupsInput$: StaticStructureSchema = [
   3,
   n0,
   _LSJBI,
@@ -262,7 +262,7 @@ export var ListSearchJobBackupsInput: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListSearchJobBackupsOutput: StaticStructureSchema = [
+export var ListSearchJobBackupsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LSJBO,
@@ -270,7 +270,7 @@ export var ListSearchJobBackupsOutput: StaticStructureSchema = [
   [_R, _NT],
   [() => SearchJobBackupsResults, 0],
 ];
-export var ListSearchJobResultsInput: StaticStructureSchema = [
+export var ListSearchJobResultsInput$: StaticStructureSchema = [
   3,
   n0,
   _LSJRI,
@@ -282,8 +282,8 @@ export var ListSearchJobResultsInput: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListSearchJobResultsOutput: StaticStructureSchema = [3, n0, _LSJRO, 0, [_R, _NT], [[() => Results, 0], 0]];
-export var ListSearchJobsInput: StaticStructureSchema = [
+export var ListSearchJobResultsOutput$: StaticStructureSchema = [3, n0, _LSJRO, 0, [_R, _NT], [[() => Results, 0], 0]];
+export var ListSearchJobsInput$: StaticStructureSchema = [
   3,
   n0,
   _LSJI,
@@ -295,8 +295,8 @@ export var ListSearchJobsInput: StaticStructureSchema = [
     [1, { [_hQ]: _MR }],
   ],
 ];
-export var ListSearchJobsOutput: StaticStructureSchema = [3, n0, _LSJO, 0, [_SJ, _NT], [() => SearchJobs, 0]];
-export var ListSearchResultExportJobsInput: StaticStructureSchema = [
+export var ListSearchJobsOutput$: StaticStructureSchema = [3, n0, _LSJO, 0, [_SJ, _NT], [() => SearchJobs, 0]];
+export var ListSearchResultExportJobsInput$: StaticStructureSchema = [
   3,
   n0,
   _LSREJI,
@@ -309,7 +309,7 @@ export var ListSearchResultExportJobsInput: StaticStructureSchema = [
     [1, { [_hQ]: _MR }],
   ],
 ];
-export var ListSearchResultExportJobsOutput: StaticStructureSchema = [
+export var ListSearchResultExportJobsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LSREJO,
@@ -317,10 +317,10 @@ export var ListSearchResultExportJobsOutput: StaticStructureSchema = [
   [_EJ, _NT],
   [() => ExportJobSummaries, 0],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RAe], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [[() => TagMap, 0]]];
-export var LongCondition: StaticStructureSchema = [3, n0, _LC, 0, [_V, _O], [1, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RAe], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [[() => TagMap, 0]]];
+export var LongCondition$: StaticStructureSchema = [3, n0, _LC, 0, [_V, _O], [1, 0]];
+export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
@@ -328,9 +328,9 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var S3ExportSpecification: StaticStructureSchema = [3, n0, _SES, 0, [_DB, _DP], [0, 0]];
-export var S3ItemFilter: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var S3ExportSpecification$: StaticStructureSchema = [3, n0, _SES, 0, [_DB, _DP], [0, 0]];
+export var S3ItemFilter$: StaticStructureSchema = [
   3,
   n0,
   _SIFt,
@@ -344,7 +344,7 @@ export var S3ItemFilter: StaticStructureSchema = [
     () => StringConditionList,
   ],
 ];
-export var S3ResultItem: StaticStructureSchema = [
+export var S3ResultItem$: StaticStructureSchema = [
   3,
   n0,
   _SRI,
@@ -352,7 +352,7 @@ export var S3ResultItem: StaticStructureSchema = [
   [_BRA, _SRA, _BVN, _OK, _OS, _CTr, _ETa, _VIe],
   [0, 0, 0, [() => ObjectKey, 0], 1, 4, 0, 0],
 ];
-export var SearchJobBackupsResult: StaticStructureSchema = [
+export var SearchJobBackupsResult$: StaticStructureSchema = [
   3,
   n0,
   _SJBR,
@@ -360,24 +360,24 @@ export var SearchJobBackupsResult: StaticStructureSchema = [
   [_St, _SM, _RT, _BRA, _SRA, _ICT, _BCT],
   [0, 0, 0, 0, 0, 4, 4],
 ];
-export var SearchJobSummary: StaticStructureSchema = [
+export var SearchJobSummary$: StaticStructureSchema = [
   3,
   n0,
   _SJS,
   0,
   [_SJI, _SJA, _N, _St, _CTr, _CTo, _SSS, _SM],
-  [0, 0, 0, 0, 4, 4, () => SearchScopeSummary, 0],
+  [0, 0, 0, 0, 4, 4, () => SearchScopeSummary$, 0],
 ];
-export var SearchScope: StaticStructureSchema = [
+export var SearchScope$: StaticStructureSchema = [
   3,
   n0,
   _SS,
   0,
   [_BRT, _BRCT, _SRAo, _BRAa, _BRTa],
-  [64 | 0, () => BackupCreationTimeFilter, 64 | 0, 64 | 0, [() => TagMap, 0]],
+  [64 | 0, () => BackupCreationTimeFilter$, 64 | 0, 64 | 0, [() => TagMap, 0]],
 ];
-export var SearchScopeSummary: StaticStructureSchema = [3, n0, _SSS, 0, [_TRPTSC, _TITSC], [1, 1]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
+export var SearchScopeSummary$: StaticStructureSchema = [3, n0, _SSS, 0, [_TRPTSC, _TITSC], [1, 1]];
+export var ServiceQuotaExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
@@ -385,29 +385,29 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   [_m, _rI, _rT, _sC, _qC],
   [0, 0, 0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var StartSearchJobInput: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var StartSearchJobInput$: StaticStructureSchema = [
   3,
   n0,
   _SSJI,
   0,
   [_T, _N, _EKA, _CTl, _SS, _IF],
-  [[() => TagMap, 0], 0, 0, 0, [() => SearchScope, 0], () => ItemFilters],
+  [[() => TagMap, 0], 0, 0, 0, [() => SearchScope$, 0], () => ItemFilters$],
 ];
-export var StartSearchJobOutput: StaticStructureSchema = [3, n0, _SSJO, 0, [_SJA, _CTr, _SJI], [0, 4, 0]];
-export var StartSearchResultExportJobInput: StaticStructureSchema = [
+export var StartSearchJobOutput$: StaticStructureSchema = [3, n0, _SSJO, 0, [_SJA, _CTr, _SJI], [0, 4, 0]];
+export var StartSearchResultExportJobInput$: StaticStructureSchema = [
   3,
   n0,
   _SSREJI,
   0,
   [_SJI, _ES, _CTl, _T, _RAo],
-  [0, () => ExportSpecification, 0, [() => TagMap, 0], 0],
+  [0, () => ExportSpecification$, 0, [() => TagMap, 0], 0],
 ];
-export var StartSearchResultExportJobOutput: StaticStructureSchema = [3, n0, _SSREJO, 0, [_EJA, _EJI], [0, 0]];
-export var StopSearchJobInput: StaticStructureSchema = [3, n0, _SSJIt, 0, [_SJI], [[0, 1]]];
-export var StopSearchJobOutput: StaticStructureSchema = [3, n0, _SSJOt, 0, [], []];
-export var StringCondition: StaticStructureSchema = [3, n0, _SC, 0, [_V, _O], [0, 0]];
-export var TagResourceRequest: StaticStructureSchema = [
+export var StartSearchResultExportJobOutput$: StaticStructureSchema = [3, n0, _SSREJO, 0, [_EJA, _EJI], [0, 0]];
+export var StopSearchJobInput$: StaticStructureSchema = [3, n0, _SSJIt, 0, [_SJI], [[0, 1]]];
+export var StopSearchJobOutput$: StaticStructureSchema = [3, n0, _SSJOt, 0, [], []];
+export var StringCondition$: StaticStructureSchema = [3, n0, _SC, 0, [_V, _O], [0, 0]];
+export var TagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _TRR,
@@ -418,8 +418,8 @@ export var TagResourceRequest: StaticStructureSchema = [
     [() => TagMap, 0],
   ],
 ];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var ThrottlingException$: StaticErrorSchema = [
   -3,
   n0,
   _TE,
@@ -427,9 +427,9 @@ export var ThrottlingException: StaticErrorSchema = [
   [_m, _sC, _qC, _rAS],
   [0, 0, 0, [1, { [_hH]: _RA }]],
 ];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var TimeCondition: StaticStructureSchema = [3, n0, _TC, 0, [_V, _O], [4, 0]];
-export var UntagResourceRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var TimeCondition$: StaticStructureSchema = [3, n0, _TC, 0, [_V, _O], [4, 0]];
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -440,130 +440,130 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var BackupSearchServiceException: StaticErrorSchema = [-3, _sm, "BackupSearchServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(BackupSearchServiceException, __BackupSearchServiceException);
-export var EBSItemFilters: StaticListSchema = [1, n0, _EBSIFt, 0, () => EBSItemFilter];
-export var ExportJobSummaries: StaticListSchema = [1, n0, _EJSx, 0, () => ExportJobSummary];
-export var LongConditionList: StaticListSchema = [1, n0, _LCL, 0, () => LongCondition];
-export var RecoveryPointArnList = 64 | 0;
-export var ResourceArnList = 64 | 0;
-export var ResourceTypeList = 64 | 0;
-export var Results: StaticListSchema = [1, n0, _R, 0, [() => ResultItem, 0]];
-export var S3ItemFilters: StaticListSchema = [1, n0, _SIF, 0, () => S3ItemFilter];
-export var SearchJobBackupsResults: StaticListSchema = [1, n0, _SJBRe, 0, () => SearchJobBackupsResult];
-export var SearchJobs: StaticListSchema = [1, n0, _SJ, 0, () => SearchJobSummary];
-export var StringConditionList: StaticListSchema = [1, n0, _SCL, 0, () => StringCondition];
-export var TagKeys = 64 | 0;
-export var TimeConditionList: StaticListSchema = [1, n0, _TCL, 0, () => TimeCondition];
-export var TagMap: StaticMapSchema = [2, n0, _TM, { [_sp]: 1 }, 0, 0];
-export var ExportSpecification: StaticStructureSchema = [3, n0, _ES, 0, [_sES], [() => S3ExportSpecification]];
-export var ResultItem: StaticStructureSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var BackupSearchServiceException$: StaticErrorSchema = [-3, _sm, "BackupSearchServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(BackupSearchServiceException$, BackupSearchServiceException);
+var EBSItemFilters: StaticListSchema = [1, n0, _EBSIFt, 0, () => EBSItemFilter$];
+var ExportJobSummaries: StaticListSchema = [1, n0, _EJSx, 0, () => ExportJobSummary$];
+var LongConditionList: StaticListSchema = [1, n0, _LCL, 0, () => LongCondition$];
+var RecoveryPointArnList = 64 | 0;
+var ResourceArnList = 64 | 0;
+var ResourceTypeList = 64 | 0;
+var Results: StaticListSchema = [1, n0, _R, 0, [() => ResultItem$, 0]];
+var S3ItemFilters: StaticListSchema = [1, n0, _SIF, 0, () => S3ItemFilter$];
+var SearchJobBackupsResults: StaticListSchema = [1, n0, _SJBRe, 0, () => SearchJobBackupsResult$];
+var SearchJobs: StaticListSchema = [1, n0, _SJ, 0, () => SearchJobSummary$];
+var StringConditionList: StaticListSchema = [1, n0, _SCL, 0, () => StringCondition$];
+var TagKeys = 64 | 0;
+var TimeConditionList: StaticListSchema = [1, n0, _TCL, 0, () => TimeCondition$];
+var TagMap: StaticMapSchema = [2, n0, _TM, { [_sp]: 1 }, 0, 0];
+export var ExportSpecification$: StaticStructureSchema = [3, n0, _ES, 0, [_sES], [() => S3ExportSpecification$]];
+export var ResultItem$: StaticStructureSchema = [
   3,
   n0,
   _RI,
   0,
   [_SRI, _EBSRI],
   [
-    [() => S3ResultItem, 0],
-    [() => EBSResultItem, 0],
+    [() => S3ResultItem$, 0],
+    [() => EBSResultItem$, 0],
   ],
 ];
-export var GetSearchJob: StaticOperationSchema = [
+export var GetSearchJob$: StaticOperationSchema = [
   9,
   n0,
   _GSJ,
   { [_h]: ["GET", "/search-jobs/{SearchJobIdentifier}", 200] },
-  () => GetSearchJobInput,
-  () => GetSearchJobOutput,
+  () => GetSearchJobInput$,
+  () => GetSearchJobOutput$,
 ];
-export var GetSearchResultExportJob: StaticOperationSchema = [
+export var GetSearchResultExportJob$: StaticOperationSchema = [
   9,
   n0,
   _GSREJ,
   { [_h]: ["GET", "/export-search-jobs/{ExportJobIdentifier}", 200] },
-  () => GetSearchResultExportJobInput,
-  () => GetSearchResultExportJobOutput,
+  () => GetSearchResultExportJobInput$,
+  () => GetSearchResultExportJobOutput$,
 ];
-export var ListSearchJobBackups: StaticOperationSchema = [
+export var ListSearchJobBackups$: StaticOperationSchema = [
   9,
   n0,
   _LSJB,
   { [_h]: ["GET", "/search-jobs/{SearchJobIdentifier}/backups", 200] },
-  () => ListSearchJobBackupsInput,
-  () => ListSearchJobBackupsOutput,
+  () => ListSearchJobBackupsInput$,
+  () => ListSearchJobBackupsOutput$,
 ];
-export var ListSearchJobResults: StaticOperationSchema = [
+export var ListSearchJobResults$: StaticOperationSchema = [
   9,
   n0,
   _LSJR,
   { [_h]: ["GET", "/search-jobs/{SearchJobIdentifier}/search-results", 200] },
-  () => ListSearchJobResultsInput,
-  () => ListSearchJobResultsOutput,
+  () => ListSearchJobResultsInput$,
+  () => ListSearchJobResultsOutput$,
 ];
-export var ListSearchJobs: StaticOperationSchema = [
+export var ListSearchJobs$: StaticOperationSchema = [
   9,
   n0,
   _LSJ,
   { [_h]: ["GET", "/search-jobs", 200] },
-  () => ListSearchJobsInput,
-  () => ListSearchJobsOutput,
+  () => ListSearchJobsInput$,
+  () => ListSearchJobsOutput$,
 ];
-export var ListSearchResultExportJobs: StaticOperationSchema = [
+export var ListSearchResultExportJobs$: StaticOperationSchema = [
   9,
   n0,
   _LSREJ,
   { [_h]: ["GET", "/export-search-jobs", 200] },
-  () => ListSearchResultExportJobsInput,
-  () => ListSearchResultExportJobsOutput,
+  () => ListSearchResultExportJobsInput$,
+  () => ListSearchResultExportJobsOutput$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var StartSearchJob: StaticOperationSchema = [
+export var StartSearchJob$: StaticOperationSchema = [
   9,
   n0,
   _SSJ,
   { [_h]: ["PUT", "/search-jobs", 200] },
-  () => StartSearchJobInput,
-  () => StartSearchJobOutput,
+  () => StartSearchJobInput$,
+  () => StartSearchJobOutput$,
 ];
-export var StartSearchResultExportJob: StaticOperationSchema = [
+export var StartSearchResultExportJob$: StaticOperationSchema = [
   9,
   n0,
   _SSREJ,
   { [_h]: ["PUT", "/export-search-jobs", 200] },
-  () => StartSearchResultExportJobInput,
-  () => StartSearchResultExportJobOutput,
+  () => StartSearchResultExportJobInput$,
+  () => StartSearchResultExportJobOutput$,
 ];
-export var StopSearchJob: StaticOperationSchema = [
+export var StopSearchJob$: StaticOperationSchema = [
   9,
   n0,
   _SSJt,
   { [_h]: ["PUT", "/search-jobs/{SearchJobIdentifier}/actions/cancel", 200] },
-  () => StopSearchJobInput,
-  () => StopSearchJobOutput,
+  () => StopSearchJobInput$,
+  () => StopSearchJobOutput$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/tags/{ResourceArn}", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tags/{ResourceArn}", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];

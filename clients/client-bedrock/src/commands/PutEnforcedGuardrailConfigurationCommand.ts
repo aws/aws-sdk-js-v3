@@ -9,7 +9,7 @@ import type {
   PutEnforcedGuardrailConfigurationRequest,
   PutEnforcedGuardrailConfigurationResponse,
 } from "../models/models_0";
-import { PutEnforcedGuardrailConfiguration } from "../schemas/schemas_0";
+import { PutEnforcedGuardrailConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class PutEnforcedGuardrailConfigurationCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "PutEnforcedGuardrailConfiguration", {})
   .n("BedrockClient", "PutEnforcedGuardrailConfigurationCommand")
-  .sc(PutEnforcedGuardrailConfiguration)
+  .sc(PutEnforcedGuardrailConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

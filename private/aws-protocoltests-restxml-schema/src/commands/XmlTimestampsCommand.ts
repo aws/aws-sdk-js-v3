@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestXmlProtocolClient";
-import { XmlTimestamps } from "../schemas/schemas_0";
+import { XmlTimestamps$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class XmlTimestampsCommand extends $Command
   })
   .s("RestXml", "XmlTimestamps", {})
   .n("RestXmlProtocolClient", "XmlTimestampsCommand")
-  .sc(XmlTimestamps)
+  .sc(XmlTimestamps$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

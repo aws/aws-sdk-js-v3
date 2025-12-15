@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteBranchRequest, DeleteBranchResult } from "../models/models_0";
-import { DeleteBranch } from "../schemas/schemas_0";
+import { DeleteBranch$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -130,7 +130,7 @@ export class DeleteBranchCommand extends $Command
   })
   .s("Amplify", "DeleteBranch", {})
   .n("AmplifyClient", "DeleteBranchCommand")
-  .sc(DeleteBranch)
+  .sc(DeleteBranch$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

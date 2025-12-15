@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateQAppPermissionsInput, UpdateQAppPermissionsOutput } from "../models/models_0";
 import type { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
-import { UpdateQAppPermissions } from "../schemas/schemas_0";
+import { UpdateQAppPermissions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -186,7 +186,7 @@ export class UpdateQAppPermissionsCommand extends $Command
   })
   .s("QAppsService", "UpdateQAppPermissions", {})
   .n("QAppsClient", "UpdateQAppPermissionsCommand")
-  .sc(UpdateQAppPermissions)
+  .sc(UpdateQAppPermissions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

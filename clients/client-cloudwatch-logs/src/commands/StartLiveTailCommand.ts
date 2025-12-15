@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartLiveTailRequest, StartLiveTailResponse } from "../models/models_0";
-import { StartLiveTail } from "../schemas/schemas_0";
+import { StartLiveTail$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -186,7 +186,7 @@ export class StartLiveTailCommand extends $Command
     },
   })
   .n("CloudWatchLogsClient", "StartLiveTailCommand")
-  .sc(StartLiveTail)
+  .sc(StartLiveTail$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

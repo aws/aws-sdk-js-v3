@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteEntityRecognizerRequest, DeleteEntityRecognizerResponse } from "../models/models_0";
-import { DeleteEntityRecognizer } from "../schemas/schemas_0";
+import { DeleteEntityRecognizer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class DeleteEntityRecognizerCommand extends $Command
   })
   .s("Comprehend_20171127", "DeleteEntityRecognizer", {})
   .n("ComprehendClient", "DeleteEntityRecognizerCommand")
-  .sc(DeleteEntityRecognizer)
+  .sc(DeleteEntityRecognizer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

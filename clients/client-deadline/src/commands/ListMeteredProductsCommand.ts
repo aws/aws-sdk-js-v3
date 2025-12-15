@@ -7,7 +7,7 @@ import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListMeteredProductsRequest } from "../models/models_0";
 import type { ListMeteredProductsResponse } from "../models/models_1";
-import { ListMeteredProducts } from "../schemas/schemas_0";
+import { ListMeteredProducts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class ListMeteredProductsCommand extends $Command
   })
   .s("Deadline", "ListMeteredProducts", {})
   .n("DeadlineClient", "ListMeteredProductsCommand")
-  .sc(ListMeteredProducts)
+  .sc(ListMeteredProducts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

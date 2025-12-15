@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAwsLogSourceRequest, DeleteAwsLogSourceResponse } from "../models/models_0";
-import { DeleteAwsLogSource } from "../schemas/schemas_0";
+import { DeleteAwsLogSource$ } from "../schemas/schemas_0";
 import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -117,7 +117,7 @@ export class DeleteAwsLogSourceCommand extends $Command
   })
   .s("SecurityLake", "DeleteAwsLogSource", {})
   .n("SecurityLakeClient", "DeleteAwsLogSourceCommand")
-  .sc(DeleteAwsLogSource)
+  .sc(DeleteAwsLogSource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

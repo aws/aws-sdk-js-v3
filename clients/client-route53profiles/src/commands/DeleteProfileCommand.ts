@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ProfilesClient";
-import { DeleteProfile } from "../schemas/schemas_0";
+import { DeleteProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class DeleteProfileCommand extends $Command
   })
   .s("Route53Profiles", "DeleteProfile", {})
   .n("Route53ProfilesClient", "DeleteProfileCommand")
-  .sc(DeleteProfile)
+  .sc(DeleteProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LookoutEquipmentClient";
 import type { DeleteModelRequest } from "../models/models_0";
-import { DeleteModel } from "../schemas/schemas_0";
+import { DeleteModel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class DeleteModelCommand extends $Command
   })
   .s("AWSLookoutEquipmentFrontendService", "DeleteModel", {})
   .n("LookoutEquipmentClient", "DeleteModelCommand")
-  .sc(DeleteModel)
+  .sc(DeleteModel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

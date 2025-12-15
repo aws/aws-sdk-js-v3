@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopMetricStreamsInput, StopMetricStreamsOutput } from "../models/models_0";
-import { StopMetricStreams } from "../schemas/schemas_0";
+import { StopMetricStreams$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class StopMetricStreamsCommand extends $Command
   })
   .s("GraniteServiceVersion20100801", "StopMetricStreams", {})
   .n("CloudWatchClient", "StopMetricStreamsCommand")
-  .sc(StopMetricStreams)
+  .sc(StopMetricStreams$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

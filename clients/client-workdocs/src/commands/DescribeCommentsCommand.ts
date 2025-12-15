@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeCommentsRequest, DescribeCommentsResponse } from "../models/models_0";
-import { DescribeComments } from "../schemas/schemas_0";
+import { DescribeComments$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -132,7 +132,7 @@ export class DescribeCommentsCommand extends $Command
   })
   .s("AWSGorillaBoyService", "DescribeComments", {})
   .n("WorkDocsClient", "DescribeCommentsCommand")
-  .sc(DescribeComments)
+  .sc(DescribeComments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

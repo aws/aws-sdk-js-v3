@@ -13,7 +13,7 @@ import type {
   CreateDataIntegrationAssociationRequest,
   CreateDataIntegrationAssociationResponse,
 } from "../models/models_0";
-import { CreateDataIntegrationAssociation } from "../schemas/schemas_0";
+import { CreateDataIntegrationAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class CreateDataIntegrationAssociationCommand extends $Command
   })
   .s("AmazonAppIntegrationService", "CreateDataIntegrationAssociation", {})
   .n("AppIntegrationsClient", "CreateDataIntegrationAssociationCommand")
-  .sc(CreateDataIntegrationAssociation)
+  .sc(CreateDataIntegrationAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

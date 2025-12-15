@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteIntegrationResponseRequest } from "../models/models_0";
-import { DeleteIntegrationResponse } from "../schemas/schemas_0";
+import { DeleteIntegrationResponse$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -79,7 +79,7 @@ export class DeleteIntegrationResponseCommand extends $Command
   })
   .s("ApiGatewayV2", "DeleteIntegrationResponse", {})
   .n("ApiGatewayV2Client", "DeleteIntegrationResponseCommand")
-  .sc(DeleteIntegrationResponse)
+  .sc(DeleteIntegrationResponse$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

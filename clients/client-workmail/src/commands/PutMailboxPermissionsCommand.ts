@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutMailboxPermissionsRequest, PutMailboxPermissionsResponse } from "../models/models_0";
-import { PutMailboxPermissions } from "../schemas/schemas_0";
+import { PutMailboxPermissions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -96,7 +96,7 @@ export class PutMailboxPermissionsCommand extends $Command
   })
   .s("WorkMailService", "PutMailboxPermissions", {})
   .n("WorkMailClient", "PutMailboxPermissionsCommand")
-  .sc(PutMailboxPermissions)
+  .sc(PutMailboxPermissions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

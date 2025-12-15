@@ -13,7 +13,7 @@ import type {
   PutAppInstanceUserExpirationSettingsRequest,
   PutAppInstanceUserExpirationSettingsResponse,
 } from "../models/models_0";
-import { PutAppInstanceUserExpirationSettings } from "../schemas/schemas_0";
+import { PutAppInstanceUserExpirationSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class PutAppInstanceUserExpirationSettingsCommand extends $Command
   })
   .s("ChimeIdentityService", "PutAppInstanceUserExpirationSettings", {})
   .n("ChimeSDKIdentityClient", "PutAppInstanceUserExpirationSettingsCommand")
-  .sc(PutAppInstanceUserExpirationSettings)
+  .sc(PutAppInstanceUserExpirationSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MedicalImagingClient";
 import type { DeleteImageSetRequest, DeleteImageSetResponse } from "../models/models_0";
-import { DeleteImageSet } from "../schemas/schemas_0";
+import { DeleteImageSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class DeleteImageSetCommand extends $Command
   })
   .s("AHIGatewayService", "DeleteImageSet", {})
   .n("MedicalImagingClient", "DeleteImageSetCommand")
-  .sc(DeleteImageSet)
+  .sc(DeleteImageSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

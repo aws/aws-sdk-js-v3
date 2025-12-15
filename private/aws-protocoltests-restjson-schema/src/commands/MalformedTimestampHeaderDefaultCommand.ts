@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { MalformedTimestampHeaderDefault } from "../schemas/schemas_0";
+import { MalformedTimestampHeaderDefault$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -75,7 +75,7 @@ export class MalformedTimestampHeaderDefaultCommand extends $Command
   })
   .s("RestJson", "MalformedTimestampHeaderDefault", {})
   .n("RestJsonProtocolClient", "MalformedTimestampHeaderDefaultCommand")
-  .sc(MalformedTimestampHeaderDefault)
+  .sc(MalformedTimestampHeaderDefault$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

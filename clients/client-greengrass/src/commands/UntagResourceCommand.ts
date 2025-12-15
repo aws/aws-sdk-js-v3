@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import type { UntagResourceRequest } from "../models/models_0";
-import { UntagResource } from "../schemas/schemas_0";
+import { UntagResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,7 +77,7 @@ export class UntagResourceCommand extends $Command
   })
   .s("Greengrass", "UntagResource", {})
   .n("GreengrassClient", "UntagResourceCommand")
-  .sc(UntagResource)
+  .sc(UntagResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   GetEffectiveRecommendationPreferencesRequest,
   GetEffectiveRecommendationPreferencesResponse,
 } from "../models/models_0";
-import { GetEffectiveRecommendationPreferences } from "../schemas/schemas_0";
+import { GetEffectiveRecommendationPreferences$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -140,7 +140,7 @@ export class GetEffectiveRecommendationPreferencesCommand extends $Command
   })
   .s("ComputeOptimizerService", "GetEffectiveRecommendationPreferences", {})
   .n("ComputeOptimizerClient", "GetEffectiveRecommendationPreferencesCommand")
-  .sc(GetEffectiveRecommendationPreferences)
+  .sc(GetEffectiveRecommendationPreferences$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

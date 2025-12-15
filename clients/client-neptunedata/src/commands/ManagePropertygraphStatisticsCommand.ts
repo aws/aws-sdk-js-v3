@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ManagePropertygraphStatisticsInput, ManagePropertygraphStatisticsOutput } from "../models/models_0";
 import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
-import { ManagePropertygraphStatistics } from "../schemas/schemas_0";
+import { ManagePropertygraphStatistics$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class ManagePropertygraphStatisticsCommand extends $Command
   })
   .s("AmazonNeptuneDataplane", "ManagePropertygraphStatistics", {})
   .n("NeptunedataClient", "ManagePropertygraphStatisticsCommand")
-  .sc(ManagePropertygraphStatistics)
+  .sc(ManagePropertygraphStatistics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

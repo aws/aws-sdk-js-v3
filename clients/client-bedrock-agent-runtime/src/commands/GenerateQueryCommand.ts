@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GenerateQueryRequest, GenerateQueryResponse } from "../models/models_0";
-import { GenerateQuery } from "../schemas/schemas_0";
+import { GenerateQuery$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class GenerateQueryCommand extends $Command
   })
   .s("AmazonBedrockAgentRunTimeService", "GenerateQuery", {})
   .n("BedrockAgentRuntimeClient", "GenerateQueryCommand")
-  .sc(GenerateQuery)
+  .sc(GenerateQuery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

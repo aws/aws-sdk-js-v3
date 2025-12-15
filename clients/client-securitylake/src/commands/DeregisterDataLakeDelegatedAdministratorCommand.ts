@@ -8,7 +8,7 @@ import type {
   DeregisterDataLakeDelegatedAdministratorRequest,
   DeregisterDataLakeDelegatedAdministratorResponse,
 } from "../models/models_0";
-import { DeregisterDataLakeDelegatedAdministrator } from "../schemas/schemas_0";
+import { DeregisterDataLakeDelegatedAdministrator$ } from "../schemas/schemas_0";
 import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -102,7 +102,7 @@ export class DeregisterDataLakeDelegatedAdministratorCommand extends $Command
   })
   .s("SecurityLake", "DeregisterDataLakeDelegatedAdministrator", {})
   .n("SecurityLakeClient", "DeregisterDataLakeDelegatedAdministratorCommand")
-  .sc(DeregisterDataLakeDelegatedAdministrator)
+  .sc(DeregisterDataLakeDelegatedAdministrator$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

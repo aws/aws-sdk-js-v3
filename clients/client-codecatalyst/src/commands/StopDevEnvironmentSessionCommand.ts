@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopDevEnvironmentSessionRequest, StopDevEnvironmentSessionResponse } from "../models/models_0";
-import { StopDevEnvironmentSession } from "../schemas/schemas_0";
+import { StopDevEnvironmentSession$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class StopDevEnvironmentSessionCommand extends $Command
   })
   .s("CodeCatalyst", "StopDevEnvironmentSession", {})
   .n("CodeCatalystClient", "StopDevEnvironmentSessionCommand")
-  .sc(StopDevEnvironmentSession)
+  .sc(StopDevEnvironmentSession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

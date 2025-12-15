@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { GetIntegrationResourcePropertyRequest, GetIntegrationResourcePropertyResponse } from "../models/models_1";
-import { GetIntegrationResourceProperty } from "../schemas/schemas_0";
+import { GetIntegrationResourceProperty$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class GetIntegrationResourcePropertyCommand extends $Command
   })
   .s("AWSGlue", "GetIntegrationResourceProperty", {})
   .n("GlueClient", "GetIntegrationResourcePropertyCommand")
-  .sc(GetIntegrationResourceProperty)
+  .sc(GetIntegrationResourceProperty$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

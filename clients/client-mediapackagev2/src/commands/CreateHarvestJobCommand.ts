@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MediaPackageV2Client";
 import type { CreateHarvestJobRequest, CreateHarvestJobResponse } from "../models/models_0";
-import { CreateHarvestJob } from "../schemas/schemas_0";
+import { CreateHarvestJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -258,7 +258,7 @@ export class CreateHarvestJobCommand extends $Command
   })
   .s("mediapackagev2", "CreateHarvestJob", {})
   .n("MediaPackageV2Client", "CreateHarvestJobCommand")
-  .sc(CreateHarvestJob)
+  .sc(CreateHarvestJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

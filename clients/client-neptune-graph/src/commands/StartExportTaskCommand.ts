@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartExportTaskInput, StartExportTaskOutput } from "../models/models_0";
 import type { NeptuneGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneGraphClient";
-import { StartExportTask } from "../schemas/schemas_0";
+import { StartExportTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -155,7 +155,7 @@ export class StartExportTaskCommand extends $Command
   })
   .s("AmazonNeptuneGraph", "StartExportTask", {})
   .n("NeptuneGraphClient", "StartExportTaskCommand")
-  .sc(StartExportTask)
+  .sc(StartExportTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

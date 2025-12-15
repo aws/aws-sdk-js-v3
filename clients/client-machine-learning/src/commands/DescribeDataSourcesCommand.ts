@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MachineLearningClient";
 import type { DescribeDataSourcesInput, DescribeDataSourcesOutput } from "../models/models_0";
-import { DescribeDataSources } from "../schemas/schemas_0";
+import { DescribeDataSources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class DescribeDataSourcesCommand extends $Command
   })
   .s("AmazonML_20141212", "DescribeDataSources", {})
   .n("MachineLearningClient", "DescribeDataSourcesCommand")
-  .sc(DescribeDataSources)
+  .sc(DescribeDataSources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

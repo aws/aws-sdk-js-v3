@@ -9,7 +9,7 @@ import type {
   PutVoiceConnectorStreamingConfigurationRequest,
   PutVoiceConnectorStreamingConfigurationResponse,
 } from "../models/models_0";
-import { PutVoiceConnectorStreamingConfiguration } from "../schemas/schemas_0";
+import { PutVoiceConnectorStreamingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -125,7 +125,7 @@ export class PutVoiceConnectorStreamingConfigurationCommand extends $Command
   })
   .s("ChimeSDKTelephonyService", "PutVoiceConnectorStreamingConfiguration", {})
   .n("ChimeSDKVoiceClient", "PutVoiceConnectorStreamingConfigurationCommand")
-  .sc(PutVoiceConnectorStreamingConfiguration)
+  .sc(PutVoiceConnectorStreamingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

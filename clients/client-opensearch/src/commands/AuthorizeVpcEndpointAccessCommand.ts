@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AuthorizeVpcEndpointAccessRequest, AuthorizeVpcEndpointAccessResponse } from "../models/models_0";
 import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { AuthorizeVpcEndpointAccess } from "../schemas/schemas_0";
+import { AuthorizeVpcEndpointAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class AuthorizeVpcEndpointAccessCommand extends $Command
   })
   .s("AmazonOpenSearchService", "AuthorizeVpcEndpointAccess", {})
   .n("OpenSearchClient", "AuthorizeVpcEndpointAccessCommand")
-  .sc(AuthorizeVpcEndpointAccess)
+  .sc(AuthorizeVpcEndpointAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

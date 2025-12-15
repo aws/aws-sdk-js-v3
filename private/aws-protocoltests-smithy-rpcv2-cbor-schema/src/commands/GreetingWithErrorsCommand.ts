@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GreetingWithErrorsOutput } from "../models/models_0";
 import type { RpcV2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RpcV2ProtocolClient";
-import { GreetingWithErrors } from "../schemas/schemas_0";
+import { GreetingWithErrors$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class GreetingWithErrorsCommand extends $Command
   })
   .s("RpcV2Protocol", "GreetingWithErrors", {})
   .n("RpcV2ProtocolClient", "GreetingWithErrorsCommand")
-  .sc(GreetingWithErrors)
+  .sc(GreetingWithErrors$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

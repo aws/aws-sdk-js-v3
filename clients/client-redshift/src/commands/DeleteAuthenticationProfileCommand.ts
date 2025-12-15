@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAuthenticationProfileMessage, DeleteAuthenticationProfileResult } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DeleteAuthenticationProfile } from "../schemas/schemas_0";
+import { DeleteAuthenticationProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -80,7 +80,7 @@ export class DeleteAuthenticationProfileCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "DeleteAuthenticationProfile", {})
   .n("RedshiftClient", "DeleteAuthenticationProfileCommand")
-  .sc(DeleteAuthenticationProfile)
+  .sc(DeleteAuthenticationProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

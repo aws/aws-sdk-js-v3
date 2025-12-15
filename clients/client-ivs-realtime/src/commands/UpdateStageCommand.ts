@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IVSRealTimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IVSRealTimeClient";
 import type { UpdateStageRequest, UpdateStageResponse } from "../models/models_0";
-import { UpdateStage } from "../schemas/schemas_0";
+import { UpdateStage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -141,7 +141,7 @@ export class UpdateStageCommand extends $Command
   })
   .s("AmazonInteractiveVideoServiceRealTime", "UpdateStage", {})
   .n("IVSRealTimeClient", "UpdateStageCommand")
-  .sc(UpdateStage)
+  .sc(UpdateStage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

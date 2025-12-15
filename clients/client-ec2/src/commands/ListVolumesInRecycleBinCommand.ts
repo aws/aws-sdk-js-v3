@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListVolumesInRecycleBinRequest, ListVolumesInRecycleBinResult } from "../models/models_6";
-import { ListVolumesInRecycleBin } from "../schemas/schemas_0";
+import { ListVolumesInRecycleBin$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class ListVolumesInRecycleBinCommand extends $Command
   })
   .s("AmazonEC2", "ListVolumesInRecycleBin", {})
   .n("EC2Client", "ListVolumesInRecycleBinCommand")
-  .sc(ListVolumesInRecycleBin)
+  .sc(ListVolumesInRecycleBin$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

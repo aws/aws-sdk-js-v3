@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTThingsGraphClient";
 import type { UntagResourceRequest, UntagResourceResponse } from "../models/models_0";
-import { UntagResource } from "../schemas/schemas_0";
+import { UntagResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class UntagResourceCommand extends $Command
   })
   .s("IotThingsGraphFrontEndService", "UntagResource", {})
   .n("IoTThingsGraphClient", "UntagResourceCommand")
-  .sc(UntagResource)
+  .sc(UntagResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

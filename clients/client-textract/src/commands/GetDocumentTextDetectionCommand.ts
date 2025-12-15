@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDocumentTextDetectionRequest, GetDocumentTextDetectionResponse } from "../models/models_0";
-import { GetDocumentTextDetection } from "../schemas/schemas_0";
+import { GetDocumentTextDetection$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
@@ -194,7 +194,7 @@ export class GetDocumentTextDetectionCommand extends $Command
   })
   .s("Textract", "GetDocumentTextDetection", {})
   .n("TextractClient", "GetDocumentTextDetectionCommand")
-  .sc(GetDocumentTextDetection)
+  .sc(GetDocumentTextDetection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteMeshInput, DeleteMeshOutput } from "../models/models_0";
-import { DeleteMesh } from "../schemas/schemas_0";
+import { DeleteMesh$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -122,7 +122,7 @@ export class DeleteMeshCommand extends $Command
   })
   .s("AppMesh", "DeleteMesh", {})
   .n("AppMeshClient", "DeleteMeshCommand")
-  .sc(DeleteMesh)
+  .sc(DeleteMesh$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

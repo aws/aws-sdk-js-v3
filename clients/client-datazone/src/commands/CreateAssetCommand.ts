@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateAssetInput, CreateAssetOutput } from "../models/models_0";
-import { CreateAsset } from "../schemas/schemas_0";
+import { CreateAsset$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -173,7 +173,7 @@ export class CreateAssetCommand extends $Command
   })
   .s("DataZone", "CreateAsset", {})
   .n("DataZoneClient", "CreateAssetCommand")
-  .sc(CreateAsset)
+  .sc(CreateAsset$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

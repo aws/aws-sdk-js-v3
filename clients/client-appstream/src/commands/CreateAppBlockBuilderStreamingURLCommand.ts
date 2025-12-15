@@ -9,7 +9,7 @@ import type {
   CreateAppBlockBuilderStreamingURLRequest,
   CreateAppBlockBuilderStreamingURLResult,
 } from "../models/models_0";
-import { CreateAppBlockBuilderStreamingURL } from "../schemas/schemas_0";
+import { CreateAppBlockBuilderStreamingURL$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class CreateAppBlockBuilderStreamingURLCommand extends $Command
   })
   .s("PhotonAdminProxyService", "CreateAppBlockBuilderStreamingURL", {})
   .n("AppStreamClient", "CreateAppBlockBuilderStreamingURLCommand")
-  .sc(CreateAppBlockBuilderStreamingURL)
+  .sc(CreateAppBlockBuilderStreamingURL$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

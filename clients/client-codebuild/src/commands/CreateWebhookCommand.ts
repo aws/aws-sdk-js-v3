@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateWebhookInput, CreateWebhookOutput } from "../models/models_0";
-import { CreateWebhook } from "../schemas/schemas_0";
+import { CreateWebhook$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -149,7 +149,7 @@ export class CreateWebhookCommand extends $Command
   })
   .s("CodeBuild_20161006", "CreateWebhook", {})
   .n("CodeBuildClient", "CreateWebhookCommand")
-  .sc(CreateWebhook)
+  .sc(CreateWebhook$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

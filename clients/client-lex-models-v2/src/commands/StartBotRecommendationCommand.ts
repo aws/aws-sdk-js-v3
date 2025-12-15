@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import type { StartBotRecommendationRequest, StartBotRecommendationResponse } from "../models/models_1";
-import { StartBotRecommendation } from "../schemas/schemas_0";
+import { StartBotRecommendation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -160,7 +160,7 @@ export class StartBotRecommendationCommand extends $Command
   })
   .s("LexModelBuildingServiceV2", "StartBotRecommendation", {})
   .n("LexModelsV2Client", "StartBotRecommendationCommand")
-  .sc(StartBotRecommendation)
+  .sc(StartBotRecommendation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

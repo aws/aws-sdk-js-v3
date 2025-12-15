@@ -10,7 +10,7 @@ import type {
 } from "../CodeStarConnectionsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateRepositoryLinkInput, CreateRepositoryLinkOutput } from "../models/models_0";
-import { CreateRepositoryLink } from "../schemas/schemas_0";
+import { CreateRepositoryLink$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class CreateRepositoryLinkCommand extends $Command
   })
   .s("CodeStar_connections_20191201", "CreateRepositoryLink", {})
   .n("CodeStarConnectionsClient", "CreateRepositoryLinkCommand")
-  .sc(CreateRepositoryLink)
+  .sc(CreateRepositoryLink$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

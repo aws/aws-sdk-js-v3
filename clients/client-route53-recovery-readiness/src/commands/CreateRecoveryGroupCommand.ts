@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
-import { CreateRecoveryGroup } from "../schemas/schemas_0";
+import { CreateRecoveryGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class CreateRecoveryGroupCommand extends $Command
   })
   .s("Route53RecoveryReadiness", "CreateRecoveryGroup", {})
   .n("Route53RecoveryReadinessClient", "CreateRecoveryGroupCommand")
-  .sc(CreateRecoveryGroup)
+  .sc(CreateRecoveryGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

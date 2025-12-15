@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import type { ListAssetModelCompositeModelsRequest, ListAssetModelCompositeModelsResponse } from "../models/models_0";
-import { ListAssetModelCompositeModels } from "../schemas/schemas_0";
+import { ListAssetModelCompositeModels$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class ListAssetModelCompositeModelsCommand extends $Command
   })
   .s("AWSIoTSiteWise", "ListAssetModelCompositeModels", {})
   .n("IoTSiteWiseClient", "ListAssetModelCompositeModelsCommand")
-  .sc(ListAssetModelCompositeModels)
+  .sc(ListAssetModelCompositeModels$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

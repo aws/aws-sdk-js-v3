@@ -13,7 +13,7 @@ import type {
   UpdateApplicationComponentConfigRequest,
   UpdateApplicationComponentConfigResponse,
 } from "../models/models_0";
-import { UpdateApplicationComponentConfig } from "../schemas/schemas_0";
+import { UpdateApplicationComponentConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class UpdateApplicationComponentConfigCommand extends $Command
   })
   .s("AWSMigrationHubStrategyRecommendation", "UpdateApplicationComponentConfig", {})
   .n("MigrationHubStrategyClient", "UpdateApplicationComponentConfigCommand")
-  .sc(UpdateApplicationComponentConfig)
+  .sc(UpdateApplicationComponentConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

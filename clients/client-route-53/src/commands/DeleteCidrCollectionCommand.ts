@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteCidrCollectionRequest, DeleteCidrCollectionResponse } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { DeleteCidrCollection } from "../schemas/schemas_0";
+import { DeleteCidrCollection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class DeleteCidrCollectionCommand extends $Command
   })
   .s("AWSDnsV20130401", "DeleteCidrCollection", {})
   .n("Route53Client", "DeleteCidrCollectionCommand")
-  .sc(DeleteCidrCollection)
+  .sc(DeleteCidrCollection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

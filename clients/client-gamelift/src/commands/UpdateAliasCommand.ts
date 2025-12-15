@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import type { UpdateAliasInput, UpdateAliasOutput } from "../models/models_0";
-import { UpdateAlias } from "../schemas/schemas_0";
+import { UpdateAlias$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class UpdateAliasCommand extends $Command
   })
   .s("GameLift", "UpdateAlias", {})
   .n("GameLiftClient", "UpdateAliasCommand")
-  .sc(UpdateAlias)
+  .sc(UpdateAlias$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

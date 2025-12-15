@@ -338,38 +338,38 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { ChimeSDKMessagingServiceException as __ChimeSDKMessagingServiceException } from "../models/ChimeSDKMessagingServiceException";
+import { ChimeSDKMessagingServiceException } from "../models/ChimeSDKMessagingServiceException";
 import {
-  BadRequestException as __BadRequestException,
-  ConflictException as __ConflictException,
-  ForbiddenException as __ForbiddenException,
-  NotFoundException as __NotFoundException,
-  ResourceLimitExceededException as __ResourceLimitExceededException,
-  ServiceFailureException as __ServiceFailureException,
-  ServiceUnavailableException as __ServiceUnavailableException,
-  ThrottledClientException as __ThrottledClientException,
-  UnauthorizedClientException as __UnauthorizedClientException,
+  BadRequestException,
+  ConflictException,
+  ForbiddenException,
+  NotFoundException,
+  ResourceLimitExceededException,
+  ServiceFailureException,
+  ServiceUnavailableException,
+  ThrottledClientException,
+  UnauthorizedClientException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var ChannelId: StaticSimpleSchema = [0, n0, _CI, 8, 0];
-export var ClientRequestToken: StaticSimpleSchema = [0, n0, _CRT, 8, 0];
-export var Content: StaticSimpleSchema = [0, n0, _C, 8, 0];
-export var ContentType: StaticSimpleSchema = [0, n0, _CT, 8, 0];
-export var FilterRule: StaticSimpleSchema = [0, n0, _FR, 8, 0];
-export var MessageAttributeName: StaticSimpleSchema = [0, n0, _MAN, 8, 0];
-export var MessageAttributeStringValue: StaticSimpleSchema = [0, n0, _MASV, 8, 0];
-export var Metadata: StaticSimpleSchema = [0, n0, _M, 8, 0];
-export var NextToken: StaticSimpleSchema = [0, n0, _NT, 8, 0];
-export var NonEmptyContent: StaticSimpleSchema = [0, n0, _NEC, 8, 0];
-export var NonEmptyResourceName: StaticSimpleSchema = [0, n0, _NERN, 8, 0];
-export var PushNotificationBody: StaticSimpleSchema = [0, n0, _PNB, 8, 0];
-export var PushNotificationTitle: StaticSimpleSchema = [0, n0, _PNT, 8, 0];
-export var ResourceName: StaticSimpleSchema = [0, n0, _RN, 8, 0];
-export var TagKey: StaticSimpleSchema = [0, n0, _TK, 8, 0];
-export var TagValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
-export var AppInstanceUserMembershipSummary: StaticStructureSchema = [3, n0, _AIUMS, 0, [_T, _RMT, _SCI], [0, 4, 0]];
-export var AssociateChannelFlowRequest: StaticStructureSchema = [
+var ChannelId: StaticSimpleSchema = [0, n0, _CI, 8, 0];
+var ClientRequestToken: StaticSimpleSchema = [0, n0, _CRT, 8, 0];
+var Content: StaticSimpleSchema = [0, n0, _C, 8, 0];
+var ContentType: StaticSimpleSchema = [0, n0, _CT, 8, 0];
+var FilterRule: StaticSimpleSchema = [0, n0, _FR, 8, 0];
+var MessageAttributeName: StaticSimpleSchema = [0, n0, _MAN, 8, 0];
+var MessageAttributeStringValue: StaticSimpleSchema = [0, n0, _MASV, 8, 0];
+var Metadata: StaticSimpleSchema = [0, n0, _M, 8, 0];
+var NextToken: StaticSimpleSchema = [0, n0, _NT, 8, 0];
+var NonEmptyContent: StaticSimpleSchema = [0, n0, _NEC, 8, 0];
+var NonEmptyResourceName: StaticSimpleSchema = [0, n0, _NERN, 8, 0];
+var PushNotificationBody: StaticSimpleSchema = [0, n0, _PNB, 8, 0];
+var PushNotificationTitle: StaticSimpleSchema = [0, n0, _PNT, 8, 0];
+var ResourceName: StaticSimpleSchema = [0, n0, _RN, 8, 0];
+var TagKey: StaticSimpleSchema = [0, n0, _TK, 8, 0];
+var TagValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
+export var AppInstanceUserMembershipSummary$: StaticStructureSchema = [3, n0, _AIUMS, 0, [_T, _RMT, _SCI], [0, 4, 0]];
+export var AssociateChannelFlowRequest$: StaticStructureSchema = [
   3,
   n0,
   _ACFR,
@@ -377,18 +377,18 @@ export var AssociateChannelFlowRequest: StaticStructureSchema = [
   [_CA, _CFA, _CB],
   [[0, 1], 0, [0, { [_hH]: _xacb }]],
 ];
-export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_Co, _Me], [0, 0]];
-TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-export var BatchChannelMemberships: StaticStructureSchema = [
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_Co, _Me], [0, 0]];
+TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
+export var BatchChannelMemberships$: StaticStructureSchema = [
   3,
   n0,
   _BCM,
   0,
   [_IB, _T, _Mem, _CA, _SCI],
-  [[() => Identity, 0], 0, [() => Members, 0], 0, 0],
+  [[() => Identity$, 0], 0, [() => Members, 0], 0, 0],
 ];
-export var BatchCreateChannelMembershipError: StaticStructureSchema = [3, n0, _BCCME, 0, [_MA, _EC, _EM], [0, 0, 0]];
-export var BatchCreateChannelMembershipRequest: StaticStructureSchema = [
+export var BatchCreateChannelMembershipError$: StaticStructureSchema = [3, n0, _BCCME, 0, [_MA, _EC, _EM], [0, 0, 0]];
+export var BatchCreateChannelMembershipRequest$: StaticStructureSchema = [
   3,
   n0,
   _BCCMR,
@@ -396,15 +396,15 @@ export var BatchCreateChannelMembershipRequest: StaticStructureSchema = [
   [_CA, _T, _MAe, _CB, _SCI],
   [[0, 1], 0, 64 | 0, [0, { [_hH]: _xacb }], 0],
 ];
-export var BatchCreateChannelMembershipResponse: StaticStructureSchema = [
+export var BatchCreateChannelMembershipResponse$: StaticStructureSchema = [
   3,
   n0,
   _BCCMRa,
   0,
   [_BCM, _E],
-  [[() => BatchChannelMemberships, 0], () => BatchCreateChannelMembershipErrors],
+  [[() => BatchChannelMemberships$, 0], () => BatchCreateChannelMembershipErrors],
 ];
-export var Channel: StaticStructureSchema = [
+export var Channel$: StaticStructureSchema = [
   3,
   n0,
   _Ch,
@@ -416,16 +416,16 @@ export var Channel: StaticStructureSchema = [
     0,
     0,
     [() => Metadata, 0],
-    [() => Identity, 0],
+    [() => Identity$, 0],
     4,
     4,
     4,
     0,
-    () => ElasticChannelConfiguration,
-    () => ExpirationSettings,
+    () => ElasticChannelConfiguration$,
+    () => ExpirationSettings$,
   ],
 ];
-export var ChannelAssociatedWithFlowSummary: StaticStructureSchema = [
+export var ChannelAssociatedWithFlowSummary$: StaticStructureSchema = [
   3,
   n0,
   _CAWFS,
@@ -433,16 +433,16 @@ export var ChannelAssociatedWithFlowSummary: StaticStructureSchema = [
   [_N, _CA, _Mo, _P, _M],
   [[() => NonEmptyResourceName, 0], 0, 0, 0, [() => Metadata, 0]],
 ];
-export var ChannelBan: StaticStructureSchema = [
+export var ChannelBan$: StaticStructureSchema = [
   3,
   n0,
   _CBh,
   0,
   [_Memb, _CA, _CTr, _CBr],
-  [[() => Identity, 0], 0, 4, [() => Identity, 0]],
+  [[() => Identity$, 0], 0, 4, [() => Identity$, 0]],
 ];
-export var ChannelBanSummary: StaticStructureSchema = [3, n0, _CBS, 0, [_Memb], [[() => Identity, 0]]];
-export var ChannelFlow: StaticStructureSchema = [
+export var ChannelBanSummary$: StaticStructureSchema = [3, n0, _CBS, 0, [_Memb], [[() => Identity$, 0]]];
+export var ChannelFlow$: StaticStructureSchema = [
   3,
   n0,
   _CF,
@@ -450,16 +450,16 @@ export var ChannelFlow: StaticStructureSchema = [
   [_CFA, _Pr, _N, _CTr, _LUT],
   [0, [() => ProcessorList, 0], [() => NonEmptyResourceName, 0], 4, 4],
 ];
-export var ChannelFlowCallbackRequest: StaticStructureSchema = [
+export var ChannelFlowCallbackRequest$: StaticStructureSchema = [
   3,
   n0,
   _CFCR,
   0,
   [_CIa, _CA, _DR, _CM],
-  [[0, 4], [0, 1], 2, [() => ChannelMessageCallback, 0]],
+  [[0, 4], [0, 1], 2, [() => ChannelMessageCallback$, 0]],
 ];
-export var ChannelFlowCallbackResponse: StaticStructureSchema = [3, n0, _CFCRh, 0, [_CA, _CIa], [0, 0]];
-export var ChannelFlowSummary: StaticStructureSchema = [
+export var ChannelFlowCallbackResponse$: StaticStructureSchema = [3, n0, _CFCRh, 0, [_CA, _CIa], [0, 0]];
+export var ChannelFlowSummary$: StaticStructureSchema = [
   3,
   n0,
   _CFS,
@@ -467,32 +467,32 @@ export var ChannelFlowSummary: StaticStructureSchema = [
   [_CFA, _N, _Pr],
   [0, [() => NonEmptyResourceName, 0], [() => ProcessorList, 0]],
 ];
-export var ChannelMembership: StaticStructureSchema = [
+export var ChannelMembership$: StaticStructureSchema = [
   3,
   n0,
   _CMh,
   0,
   [_IB, _T, _Memb, _CA, _CTr, _LUT, _SCI],
-  [[() => Identity, 0], 0, [() => Identity, 0], 0, 4, 4, 0],
+  [[() => Identity$, 0], 0, [() => Identity$, 0], 0, 4, 4, 0],
 ];
-export var ChannelMembershipForAppInstanceUserSummary: StaticStructureSchema = [
+export var ChannelMembershipForAppInstanceUserSummary$: StaticStructureSchema = [
   3,
   n0,
   _CMFAIUS,
   0,
   [_CS, _AIUMS],
-  [[() => ChannelSummary, 0], () => AppInstanceUserMembershipSummary],
+  [[() => ChannelSummary$, 0], () => AppInstanceUserMembershipSummary$],
 ];
-export var ChannelMembershipPreferences: StaticStructureSchema = [
+export var ChannelMembershipPreferences$: StaticStructureSchema = [
   3,
   n0,
   _CMP,
   0,
   [_PN],
-  [[() => PushNotificationPreferences, 0]],
+  [[() => PushNotificationPreferences$, 0]],
 ];
-export var ChannelMembershipSummary: StaticStructureSchema = [3, n0, _CMS, 0, [_Memb], [[() => Identity, 0]]];
-export var ChannelMessage: StaticStructureSchema = [
+export var ChannelMembershipSummary$: StaticStructureSchema = [3, n0, _CMS, 0, [_Memb], [[() => Identity$, 0]]];
+export var ChannelMessage$: StaticStructureSchema = [
   3,
   n0,
   _CM,
@@ -507,17 +507,17 @@ export var ChannelMessage: StaticStructureSchema = [
     4,
     4,
     4,
-    [() => Identity, 0],
+    [() => Identity$, 0],
     2,
     0,
-    () => ChannelMessageStatusStructure,
+    () => ChannelMessageStatusStructure$,
     [() => MessageAttributeMap, 0],
     0,
     [() => ContentType, 0],
     () => TargetList,
   ],
 ];
-export var ChannelMessageCallback: StaticStructureSchema = [
+export var ChannelMessageCallback$: StaticStructureSchema = [
   3,
   n0,
   _CMC,
@@ -527,14 +527,14 @@ export var ChannelMessageCallback: StaticStructureSchema = [
     0,
     [() => NonEmptyContent, 0],
     [() => Metadata, 0],
-    [() => PushNotificationConfiguration, 0],
+    [() => PushNotificationConfiguration$, 0],
     [() => MessageAttributeMap, 0],
     0,
     [() => ContentType, 0],
   ],
 ];
-export var ChannelMessageStatusStructure: StaticStructureSchema = [3, n0, _CMSS, 0, [_V, _D], [0, 0]];
-export var ChannelMessageSummary: StaticStructureSchema = [
+export var ChannelMessageStatusStructure$: StaticStructureSchema = [3, n0, _CMSS, 0, [_V, _D], [0, 0]];
+export var ChannelMessageSummary$: StaticStructureSchema = [
   3,
   n0,
   _CMSh,
@@ -548,32 +548,32 @@ export var ChannelMessageSummary: StaticStructureSchema = [
     4,
     4,
     4,
-    [() => Identity, 0],
+    [() => Identity$, 0],
     2,
-    () => ChannelMessageStatusStructure,
+    () => ChannelMessageStatusStructure$,
     [() => MessageAttributeMap, 0],
     [() => ContentType, 0],
     () => TargetList,
   ],
 ];
-export var ChannelModeratedByAppInstanceUserSummary: StaticStructureSchema = [
+export var ChannelModeratedByAppInstanceUserSummary$: StaticStructureSchema = [
   3,
   n0,
   _CMBAIUS,
   0,
   [_CS],
-  [[() => ChannelSummary, 0]],
+  [[() => ChannelSummary$, 0]],
 ];
-export var ChannelModerator: StaticStructureSchema = [
+export var ChannelModerator$: StaticStructureSchema = [
   3,
   n0,
   _CMha,
   0,
   [_Mod, _CA, _CTr, _CBr],
-  [[() => Identity, 0], 0, 4, [() => Identity, 0]],
+  [[() => Identity$, 0], 0, 4, [() => Identity$, 0]],
 ];
-export var ChannelModeratorSummary: StaticStructureSchema = [3, n0, _CMSha, 0, [_Mod], [[() => Identity, 0]]];
-export var ChannelSummary: StaticStructureSchema = [
+export var ChannelModeratorSummary$: StaticStructureSchema = [3, n0, _CMSha, 0, [_Mod], [[() => Identity$, 0]]];
+export var ChannelSummary$: StaticStructureSchema = [
   3,
   n0,
   _CS,
@@ -581,9 +581,9 @@ export var ChannelSummary: StaticStructureSchema = [
   [_N, _CA, _Mo, _P, _M, _LMT],
   [[() => NonEmptyResourceName, 0], 0, 0, 0, [() => Metadata, 0], 4],
 ];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_Co, _Me], [0, 0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateChannelBanRequest: StaticStructureSchema = [
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_Co, _Me], [0, 0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateChannelBanRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCBR,
@@ -591,8 +591,15 @@ export var CreateChannelBanRequest: StaticStructureSchema = [
   [_CA, _MA, _CB],
   [[0, 1], 0, [0, { [_hH]: _xacb }]],
 ];
-export var CreateChannelBanResponse: StaticStructureSchema = [3, n0, _CCBRr, 0, [_CA, _Memb], [0, [() => Identity, 0]]];
-export var CreateChannelFlowRequest: StaticStructureSchema = [
+export var CreateChannelBanResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _CCBRr,
+  0,
+  [_CA, _Memb],
+  [0, [() => Identity$, 0]],
+];
+export var CreateChannelFlowRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCFR,
@@ -600,8 +607,8 @@ export var CreateChannelFlowRequest: StaticStructureSchema = [
   [_AIA, _Pr, _N, _Tag, _CRT],
   [0, [() => ProcessorList, 0], [() => NonEmptyResourceName, 0], [() => TagList, 0], [() => ClientRequestToken, 4]],
 ];
-export var CreateChannelFlowResponse: StaticStructureSchema = [3, n0, _CCFRr, 0, [_CFA], [0]];
-export var CreateChannelMembershipRequest: StaticStructureSchema = [
+export var CreateChannelFlowResponse$: StaticStructureSchema = [3, n0, _CCFRr, 0, [_CFA], [0]];
+export var CreateChannelMembershipRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCMR,
@@ -609,15 +616,15 @@ export var CreateChannelMembershipRequest: StaticStructureSchema = [
   [_CA, _MA, _T, _CB, _SCI],
   [[0, 1], 0, 0, [0, { [_hH]: _xacb }], 0],
 ];
-export var CreateChannelMembershipResponse: StaticStructureSchema = [
+export var CreateChannelMembershipResponse$: StaticStructureSchema = [
   3,
   n0,
   _CCMRr,
   0,
   [_CA, _Memb, _SCI],
-  [0, [() => Identity, 0], 0],
+  [0, [() => Identity$, 0], 0],
 ];
-export var CreateChannelModeratorRequest: StaticStructureSchema = [
+export var CreateChannelModeratorRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCMRre,
@@ -625,15 +632,15 @@ export var CreateChannelModeratorRequest: StaticStructureSchema = [
   [_CA, _CMA, _CB],
   [[0, 1], 0, [0, { [_hH]: _xacb }]],
 ];
-export var CreateChannelModeratorResponse: StaticStructureSchema = [
+export var CreateChannelModeratorResponse$: StaticStructureSchema = [
   3,
   n0,
   _CCMRrea,
   0,
   [_CA, _CMha],
-  [0, [() => Identity, 0]],
+  [0, [() => Identity$, 0]],
 ];
-export var CreateChannelRequest: StaticStructureSchema = [
+export var CreateChannelRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCR,
@@ -651,12 +658,12 @@ export var CreateChannelRequest: StaticStructureSchema = [
     [() => ChannelId, 0],
     64 | 0,
     64 | 0,
-    () => ElasticChannelConfiguration,
-    () => ExpirationSettings,
+    () => ElasticChannelConfiguration$,
+    () => ExpirationSettings$,
   ],
 ];
-export var CreateChannelResponse: StaticStructureSchema = [3, n0, _CCRr, 0, [_CA], [0]];
-export var DeleteChannelBanRequest: StaticStructureSchema = [
+export var CreateChannelResponse$: StaticStructureSchema = [3, n0, _CCRr, 0, [_CA], [0]];
+export var DeleteChannelBanRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCBR,
@@ -668,8 +675,8 @@ export var DeleteChannelBanRequest: StaticStructureSchema = [
     [0, { [_hH]: _xacb }],
   ],
 ];
-export var DeleteChannelFlowRequest: StaticStructureSchema = [3, n0, _DCFR, 0, [_CFA], [[0, 1]]];
-export var DeleteChannelMembershipRequest: StaticStructureSchema = [
+export var DeleteChannelFlowRequest$: StaticStructureSchema = [3, n0, _DCFR, 0, [_CFA], [[0, 1]]];
+export var DeleteChannelMembershipRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCMR,
@@ -682,7 +689,7 @@ export var DeleteChannelMembershipRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sci }],
   ],
 ];
-export var DeleteChannelMessageRequest: StaticStructureSchema = [
+export var DeleteChannelMessageRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCMRe,
@@ -695,7 +702,7 @@ export var DeleteChannelMessageRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sci }],
   ],
 ];
-export var DeleteChannelModeratorRequest: StaticStructureSchema = [
+export var DeleteChannelModeratorRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCMRel,
@@ -707,7 +714,7 @@ export var DeleteChannelModeratorRequest: StaticStructureSchema = [
     [0, { [_hH]: _xacb }],
   ],
 ];
-export var DeleteChannelRequest: StaticStructureSchema = [
+export var DeleteChannelRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCR,
@@ -718,8 +725,8 @@ export var DeleteChannelRequest: StaticStructureSchema = [
     [0, { [_hH]: _xacb }],
   ],
 ];
-export var DeleteMessagingStreamingConfigurationsRequest: StaticStructureSchema = [3, n0, _DMSCR, 0, [_AIA], [[0, 1]]];
-export var DescribeChannelBanRequest: StaticStructureSchema = [
+export var DeleteMessagingStreamingConfigurationsRequest$: StaticStructureSchema = [3, n0, _DMSCR, 0, [_AIA], [[0, 1]]];
+export var DescribeChannelBanRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCBRe,
@@ -731,10 +738,10 @@ export var DescribeChannelBanRequest: StaticStructureSchema = [
     [0, { [_hH]: _xacb }],
   ],
 ];
-export var DescribeChannelBanResponse: StaticStructureSchema = [3, n0, _DCBRes, 0, [_CBh], [[() => ChannelBan, 0]]];
-export var DescribeChannelFlowRequest: StaticStructureSchema = [3, n0, _DCFRe, 0, [_CFA], [[0, 1]]];
-export var DescribeChannelFlowResponse: StaticStructureSchema = [3, n0, _DCFRes, 0, [_CF], [[() => ChannelFlow, 0]]];
-export var DescribeChannelMembershipForAppInstanceUserRequest: StaticStructureSchema = [
+export var DescribeChannelBanResponse$: StaticStructureSchema = [3, n0, _DCBRes, 0, [_CBh], [[() => ChannelBan$, 0]]];
+export var DescribeChannelFlowRequest$: StaticStructureSchema = [3, n0, _DCFRe, 0, [_CFA], [[0, 1]]];
+export var DescribeChannelFlowResponse$: StaticStructureSchema = [3, n0, _DCFRes, 0, [_CF], [[() => ChannelFlow$, 0]]];
+export var DescribeChannelMembershipForAppInstanceUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCMFAIUR,
@@ -746,15 +753,15 @@ export var DescribeChannelMembershipForAppInstanceUserRequest: StaticStructureSc
     [0, { [_hH]: _xacb }],
   ],
 ];
-export var DescribeChannelMembershipForAppInstanceUserResponse: StaticStructureSchema = [
+export var DescribeChannelMembershipForAppInstanceUserResponse$: StaticStructureSchema = [
   3,
   n0,
   _DCMFAIURe,
   0,
   [_CMh],
-  [[() => ChannelMembershipForAppInstanceUserSummary, 0]],
+  [[() => ChannelMembershipForAppInstanceUserSummary$, 0]],
 ];
-export var DescribeChannelMembershipRequest: StaticStructureSchema = [
+export var DescribeChannelMembershipRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCMRes,
@@ -767,15 +774,15 @@ export var DescribeChannelMembershipRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sci }],
   ],
 ];
-export var DescribeChannelMembershipResponse: StaticStructureSchema = [
+export var DescribeChannelMembershipResponse$: StaticStructureSchema = [
   3,
   n0,
   _DCMResc,
   0,
   [_CMh],
-  [[() => ChannelMembership, 0]],
+  [[() => ChannelMembership$, 0]],
 ];
-export var DescribeChannelModeratedByAppInstanceUserRequest: StaticStructureSchema = [
+export var DescribeChannelModeratedByAppInstanceUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCMBAIUR,
@@ -787,15 +794,15 @@ export var DescribeChannelModeratedByAppInstanceUserRequest: StaticStructureSche
     [0, { [_hH]: _xacb }],
   ],
 ];
-export var DescribeChannelModeratedByAppInstanceUserResponse: StaticStructureSchema = [
+export var DescribeChannelModeratedByAppInstanceUserResponse$: StaticStructureSchema = [
   3,
   n0,
   _DCMBAIURe,
   0,
   [_Ch],
-  [[() => ChannelModeratedByAppInstanceUserSummary, 0]],
+  [[() => ChannelModeratedByAppInstanceUserSummary$, 0]],
 ];
-export var DescribeChannelModeratorRequest: StaticStructureSchema = [
+export var DescribeChannelModeratorRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCMRescr,
@@ -807,15 +814,15 @@ export var DescribeChannelModeratorRequest: StaticStructureSchema = [
     [0, { [_hH]: _xacb }],
   ],
 ];
-export var DescribeChannelModeratorResponse: StaticStructureSchema = [
+export var DescribeChannelModeratorResponse$: StaticStructureSchema = [
   3,
   n0,
   _DCMRescri,
   0,
   [_CMha],
-  [[() => ChannelModerator, 0]],
+  [[() => ChannelModerator$, 0]],
 ];
-export var DescribeChannelRequest: StaticStructureSchema = [
+export var DescribeChannelRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCRe,
@@ -826,8 +833,8 @@ export var DescribeChannelRequest: StaticStructureSchema = [
     [0, { [_hH]: _xacb }],
   ],
 ];
-export var DescribeChannelResponse: StaticStructureSchema = [3, n0, _DCRes, 0, [_Ch], [[() => Channel, 0]]];
-export var DisassociateChannelFlowRequest: StaticStructureSchema = [
+export var DescribeChannelResponse$: StaticStructureSchema = [3, n0, _DCRes, 0, [_Ch], [[() => Channel$, 0]]];
+export var DisassociateChannelFlowRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCFRi,
@@ -839,11 +846,11 @@ export var DisassociateChannelFlowRequest: StaticStructureSchema = [
     [0, { [_hH]: _xacb }],
   ],
 ];
-export var ElasticChannelConfiguration: StaticStructureSchema = [3, n0, _ECC, 0, [_MSC, _TMPSC, _MMP], [1, 1, 1]];
-export var ExpirationSettings: StaticStructureSchema = [3, n0, _ES, 0, [_ED, _ECx], [1, 0]];
-export var ForbiddenException: StaticErrorSchema = [-3, n0, _FE, { [_e]: _c, [_hE]: 403 }, [_Co, _Me], [0, 0]];
-TypeRegistry.for(n0).registerError(ForbiddenException, __ForbiddenException);
-export var GetChannelMembershipPreferencesRequest: StaticStructureSchema = [
+export var ElasticChannelConfiguration$: StaticStructureSchema = [3, n0, _ECC, 0, [_MSC, _TMPSC, _MMP], [1, 1, 1]];
+export var ExpirationSettings$: StaticStructureSchema = [3, n0, _ES, 0, [_ED, _ECx], [1, 0]];
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE, { [_e]: _c, [_hE]: 403 }, [_Co, _Me], [0, 0]];
+TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
+export var GetChannelMembershipPreferencesRequest$: StaticStructureSchema = [
   3,
   n0,
   _GCMPR,
@@ -855,15 +862,15 @@ export var GetChannelMembershipPreferencesRequest: StaticStructureSchema = [
     [0, { [_hH]: _xacb }],
   ],
 ];
-export var GetChannelMembershipPreferencesResponse: StaticStructureSchema = [
+export var GetChannelMembershipPreferencesResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCMPRe,
   0,
   [_CA, _Memb, _Pre],
-  [0, [() => Identity, 0], [() => ChannelMembershipPreferences, 0]],
+  [0, [() => Identity$, 0], [() => ChannelMembershipPreferences$, 0]],
 ];
-export var GetChannelMessageRequest: StaticStructureSchema = [
+export var GetChannelMessageRequest$: StaticStructureSchema = [
   3,
   n0,
   _GCMR,
@@ -876,8 +883,8 @@ export var GetChannelMessageRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sci }],
   ],
 ];
-export var GetChannelMessageResponse: StaticStructureSchema = [3, n0, _GCMRe, 0, [_CM], [[() => ChannelMessage, 0]]];
-export var GetChannelMessageStatusRequest: StaticStructureSchema = [
+export var GetChannelMessageResponse$: StaticStructureSchema = [3, n0, _GCMRe, 0, [_CM], [[() => ChannelMessage$, 0]]];
+export var GetChannelMessageStatusRequest$: StaticStructureSchema = [
   3,
   n0,
   _GCMSR,
@@ -890,15 +897,15 @@ export var GetChannelMessageStatusRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sci }],
   ],
 ];
-export var GetChannelMessageStatusResponse: StaticStructureSchema = [
+export var GetChannelMessageStatusResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCMSRe,
   0,
   [_St],
-  [() => ChannelMessageStatusStructure],
+  [() => ChannelMessageStatusStructure$],
 ];
-export var GetMessagingSessionEndpointRequest: StaticStructureSchema = [
+export var GetMessagingSessionEndpointRequest$: StaticStructureSchema = [
   3,
   n0,
   _GMSER,
@@ -906,16 +913,16 @@ export var GetMessagingSessionEndpointRequest: StaticStructureSchema = [
   [_NTe],
   [[0, { [_hQ]: _nt }]],
 ];
-export var GetMessagingSessionEndpointResponse: StaticStructureSchema = [
+export var GetMessagingSessionEndpointResponse$: StaticStructureSchema = [
   3,
   n0,
   _GMSERe,
   0,
   [_En],
-  [() => MessagingSessionEndpoint],
+  [() => MessagingSessionEndpoint$],
 ];
-export var GetMessagingStreamingConfigurationsRequest: StaticStructureSchema = [3, n0, _GMSCR, 0, [_AIA], [[0, 1]]];
-export var GetMessagingStreamingConfigurationsResponse: StaticStructureSchema = [
+export var GetMessagingStreamingConfigurationsRequest$: StaticStructureSchema = [3, n0, _GMSCR, 0, [_AIA], [[0, 1]]];
+export var GetMessagingStreamingConfigurationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _GMSCRe,
@@ -923,9 +930,9 @@ export var GetMessagingStreamingConfigurationsResponse: StaticStructureSchema = 
   [_SC],
   [() => StreamingConfigurationList],
 ];
-export var Identity: StaticStructureSchema = [3, n0, _I, 0, [_A, _N], [0, [() => ResourceName, 0]]];
-export var LambdaConfiguration: StaticStructureSchema = [3, n0, _LC, 0, [_RA, _IT], [0, 0]];
-export var ListChannelBansRequest: StaticStructureSchema = [
+export var Identity$: StaticStructureSchema = [3, n0, _I, 0, [_A, _N], [0, [() => ResourceName, 0]]];
+export var LambdaConfiguration$: StaticStructureSchema = [3, n0, _LC, 0, [_RA, _IT], [0, 0]];
+export var ListChannelBansRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCBR,
@@ -938,7 +945,7 @@ export var ListChannelBansRequest: StaticStructureSchema = [
     [0, { [_hH]: _xacb }],
   ],
 ];
-export var ListChannelBansResponse: StaticStructureSchema = [
+export var ListChannelBansResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCBRi,
@@ -946,7 +953,7 @@ export var ListChannelBansResponse: StaticStructureSchema = [
   [_CA, _NT, _CBha],
   [0, [() => NextToken, 0], [() => ChannelBanSummaryList, 0]],
 ];
-export var ListChannelFlowsRequest: StaticStructureSchema = [
+export var ListChannelFlowsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCFR,
@@ -958,7 +965,7 @@ export var ListChannelFlowsRequest: StaticStructureSchema = [
     [() => NextToken, { [_hQ]: _nt_ }],
   ],
 ];
-export var ListChannelFlowsResponse: StaticStructureSchema = [
+export var ListChannelFlowsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCFRi,
@@ -969,7 +976,7 @@ export var ListChannelFlowsResponse: StaticStructureSchema = [
     [() => NextToken, 0],
   ],
 ];
-export var ListChannelMembershipsForAppInstanceUserRequest: StaticStructureSchema = [
+export var ListChannelMembershipsForAppInstanceUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCMFAIUR,
@@ -982,7 +989,7 @@ export var ListChannelMembershipsForAppInstanceUserRequest: StaticStructureSchem
     [0, { [_hH]: _xacb }],
   ],
 ];
-export var ListChannelMembershipsForAppInstanceUserResponse: StaticStructureSchema = [
+export var ListChannelMembershipsForAppInstanceUserResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCMFAIURi,
@@ -993,7 +1000,7 @@ export var ListChannelMembershipsForAppInstanceUserResponse: StaticStructureSche
     [() => NextToken, 0],
   ],
 ];
-export var ListChannelMembershipsRequest: StaticStructureSchema = [
+export var ListChannelMembershipsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCMR,
@@ -1008,7 +1015,7 @@ export var ListChannelMembershipsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sci }],
   ],
 ];
-export var ListChannelMembershipsResponse: StaticStructureSchema = [
+export var ListChannelMembershipsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCMRi,
@@ -1016,7 +1023,7 @@ export var ListChannelMembershipsResponse: StaticStructureSchema = [
   [_CA, _CMhan, _NT],
   [0, [() => ChannelMembershipSummaryList, 0], [() => NextToken, 0]],
 ];
-export var ListChannelMessagesRequest: StaticStructureSchema = [
+export var ListChannelMessagesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCMRis,
@@ -1033,7 +1040,7 @@ export var ListChannelMessagesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sci }],
   ],
 ];
-export var ListChannelMessagesResponse: StaticStructureSchema = [
+export var ListChannelMessagesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCMRist,
@@ -1041,7 +1048,7 @@ export var ListChannelMessagesResponse: StaticStructureSchema = [
   [_CA, _NT, _CMhann, _SCI],
   [0, [() => NextToken, 0], [() => ChannelMessageSummaryList, 0], 0],
 ];
-export var ListChannelModeratorsRequest: StaticStructureSchema = [
+export var ListChannelModeratorsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCMRisth,
@@ -1054,7 +1061,7 @@ export var ListChannelModeratorsRequest: StaticStructureSchema = [
     [0, { [_hH]: _xacb }],
   ],
 ];
-export var ListChannelModeratorsResponse: StaticStructureSchema = [
+export var ListChannelModeratorsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCMRistha,
@@ -1062,7 +1069,7 @@ export var ListChannelModeratorsResponse: StaticStructureSchema = [
   [_CA, _NT, _CMhanne],
   [0, [() => NextToken, 0], [() => ChannelModeratorSummaryList, 0]],
 ];
-export var ListChannelsAssociatedWithChannelFlowRequest: StaticStructureSchema = [
+export var ListChannelsAssociatedWithChannelFlowRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCAWCFR,
@@ -1074,7 +1081,7 @@ export var ListChannelsAssociatedWithChannelFlowRequest: StaticStructureSchema =
     [() => NextToken, { [_hQ]: _nt_ }],
   ],
 ];
-export var ListChannelsAssociatedWithChannelFlowResponse: StaticStructureSchema = [
+export var ListChannelsAssociatedWithChannelFlowResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCAWCFRi,
@@ -1085,7 +1092,7 @@ export var ListChannelsAssociatedWithChannelFlowResponse: StaticStructureSchema 
     [() => NextToken, 0],
   ],
 ];
-export var ListChannelsModeratedByAppInstanceUserRequest: StaticStructureSchema = [
+export var ListChannelsModeratedByAppInstanceUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCMBAIUR,
@@ -1098,7 +1105,7 @@ export var ListChannelsModeratedByAppInstanceUserRequest: StaticStructureSchema 
     [0, { [_hH]: _xacb }],
   ],
 ];
-export var ListChannelsModeratedByAppInstanceUserResponse: StaticStructureSchema = [
+export var ListChannelsModeratedByAppInstanceUserResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCMBAIURi,
@@ -1109,7 +1116,7 @@ export var ListChannelsModeratedByAppInstanceUserResponse: StaticStructureSchema
     [() => NextToken, 0],
   ],
 ];
-export var ListChannelsRequest: StaticStructureSchema = [
+export var ListChannelsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCR,
@@ -1123,7 +1130,7 @@ export var ListChannelsRequest: StaticStructureSchema = [
     [0, { [_hH]: _xacb }],
   ],
 ];
-export var ListChannelsResponse: StaticStructureSchema = [
+export var ListChannelsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCRi,
@@ -1134,7 +1141,7 @@ export var ListChannelsResponse: StaticStructureSchema = [
     [() => NextToken, 0],
   ],
 ];
-export var ListSubChannelsRequest: StaticStructureSchema = [
+export var ListSubChannelsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LSCR,
@@ -1147,7 +1154,7 @@ export var ListSubChannelsRequest: StaticStructureSchema = [
     [() => NextToken, { [_hQ]: _nt_ }],
   ],
 ];
-export var ListSubChannelsResponse: StaticStructureSchema = [
+export var ListSubChannelsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LSCRi,
@@ -1155,9 +1162,9 @@ export var ListSubChannelsResponse: StaticStructureSchema = [
   [_CA, _SCu, _NT],
   [0, () => SubChannelSummaryList, [() => NextToken, 0]],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RARN], [[0, { [_hQ]: _a }]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Tag], [[() => TagList, 0]]];
-export var MessageAttributeValue: StaticStructureSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RARN], [[0, { [_hQ]: _a }]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Tag], [[() => TagList, 0]]];
+export var MessageAttributeValue$: StaticStructureSchema = [
   3,
   n0,
   _MAV,
@@ -1165,19 +1172,19 @@ export var MessageAttributeValue: StaticStructureSchema = [
   [_SV],
   [[() => MessageAttributeStringValues, 0]],
 ];
-export var MessagingSessionEndpoint: StaticStructureSchema = [3, n0, _MSE, 0, [_U], [0]];
-export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_Co, _Me], [0, 0]];
-TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-export var Processor: StaticStructureSchema = [
+export var MessagingSessionEndpoint$: StaticStructureSchema = [3, n0, _MSE, 0, [_U], [0]];
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_Co, _Me], [0, 0]];
+TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
+export var Processor$: StaticStructureSchema = [
   3,
   n0,
   _Pro,
   0,
   [_N, _Con, _EO, _FA],
-  [[() => NonEmptyResourceName, 0], () => ProcessorConfiguration, 1, 0],
+  [[() => NonEmptyResourceName, 0], () => ProcessorConfiguration$, 1, 0],
 ];
-export var ProcessorConfiguration: StaticStructureSchema = [3, n0, _PC, 0, [_L], [() => LambdaConfiguration]];
-export var PushNotificationConfiguration: StaticStructureSchema = [
+export var ProcessorConfiguration$: StaticStructureSchema = [3, n0, _PC, 0, [_L], [() => LambdaConfiguration$]];
+export var PushNotificationConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _PNC,
@@ -1185,7 +1192,7 @@ export var PushNotificationConfiguration: StaticStructureSchema = [
   [_Ti, _B, _T],
   [[() => PushNotificationTitle, 0], [() => PushNotificationBody, 0], 0],
 ];
-export var PushNotificationPreferences: StaticStructureSchema = [
+export var PushNotificationPreferences$: StaticStructureSchema = [
   3,
   n0,
   _PNP,
@@ -1193,23 +1200,23 @@ export var PushNotificationPreferences: StaticStructureSchema = [
   [_AN, _FR],
   [0, [() => FilterRule, 0]],
 ];
-export var PutChannelExpirationSettingsRequest: StaticStructureSchema = [
+export var PutChannelExpirationSettingsRequest$: StaticStructureSchema = [
   3,
   n0,
   _PCESR,
   0,
   [_CA, _CB, _ES],
-  [[0, 1], [0, { [_hH]: _xacb }], () => ExpirationSettings],
+  [[0, 1], [0, { [_hH]: _xacb }], () => ExpirationSettings$],
 ];
-export var PutChannelExpirationSettingsResponse: StaticStructureSchema = [
+export var PutChannelExpirationSettingsResponse$: StaticStructureSchema = [
   3,
   n0,
   _PCESRu,
   0,
   [_CA, _ES],
-  [0, () => ExpirationSettings],
+  [0, () => ExpirationSettings$],
 ];
-export var PutChannelMembershipPreferencesRequest: StaticStructureSchema = [
+export var PutChannelMembershipPreferencesRequest$: StaticStructureSchema = [
   3,
   n0,
   _PCMPR,
@@ -1219,18 +1226,18 @@ export var PutChannelMembershipPreferencesRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, { [_hH]: _xacb }],
-    [() => ChannelMembershipPreferences, 0],
+    [() => ChannelMembershipPreferences$, 0],
   ],
 ];
-export var PutChannelMembershipPreferencesResponse: StaticStructureSchema = [
+export var PutChannelMembershipPreferencesResponse$: StaticStructureSchema = [
   3,
   n0,
   _PCMPRu,
   0,
   [_CA, _Memb, _Pre],
-  [0, [() => Identity, 0], [() => ChannelMembershipPreferences, 0]],
+  [0, [() => Identity$, 0], [() => ChannelMembershipPreferences$, 0]],
 ];
-export var PutMessagingStreamingConfigurationsRequest: StaticStructureSchema = [
+export var PutMessagingStreamingConfigurationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _PMSCR,
@@ -1238,7 +1245,7 @@ export var PutMessagingStreamingConfigurationsRequest: StaticStructureSchema = [
   [_AIA, _SC],
   [[0, 1], () => StreamingConfigurationList],
 ];
-export var PutMessagingStreamingConfigurationsResponse: StaticStructureSchema = [
+export var PutMessagingStreamingConfigurationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _PMSCRu,
@@ -1246,7 +1253,7 @@ export var PutMessagingStreamingConfigurationsResponse: StaticStructureSchema = 
   [_SC],
   [() => StreamingConfigurationList],
 ];
-export var RedactChannelMessageRequest: StaticStructureSchema = [
+export var RedactChannelMessageRequest$: StaticStructureSchema = [
   3,
   n0,
   _RCMR,
@@ -1254,8 +1261,8 @@ export var RedactChannelMessageRequest: StaticStructureSchema = [
   [_CA, _MI, _CB, _SCI],
   [[0, 1], [0, 1], [0, { [_hH]: _xacb }], 0],
 ];
-export var RedactChannelMessageResponse: StaticStructureSchema = [3, n0, _RCMRe, 0, [_CA, _MI, _SCI], [0, 0, 0]];
-export var ResourceLimitExceededException: StaticErrorSchema = [
+export var RedactChannelMessageResponse$: StaticStructureSchema = [3, n0, _RCMRe, 0, [_CA, _MI, _SCI], [0, 0, 0]];
+export var ResourceLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _RLEE,
@@ -1263,8 +1270,8 @@ export var ResourceLimitExceededException: StaticErrorSchema = [
   [_Co, _Me],
   [0, 0],
 ];
-TypeRegistry.for(n0).registerError(ResourceLimitExceededException, __ResourceLimitExceededException);
-export var SearchChannelsRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ResourceLimitExceededException$, ResourceLimitExceededException);
+export var SearchChannelsRequest$: StaticStructureSchema = [
   3,
   n0,
   _SCR,
@@ -1272,7 +1279,7 @@ export var SearchChannelsRequest: StaticStructureSchema = [
   [_CB, _F, _MR, _NT],
   [[0, { [_hH]: _xacb }], () => SearchFields, [1, { [_hQ]: _mr }], [() => NextToken, { [_hQ]: _nt_ }]],
 ];
-export var SearchChannelsResponse: StaticStructureSchema = [
+export var SearchChannelsResponse$: StaticStructureSchema = [
   3,
   n0,
   _SCRe,
@@ -1283,8 +1290,8 @@ export var SearchChannelsResponse: StaticStructureSchema = [
     [() => NextToken, 0],
   ],
 ];
-export var SearchField: StaticStructureSchema = [3, n0, _SF, 0, [_K, _Va, _O], [0, 64 | 0, 0]];
-export var SendChannelMessageRequest: StaticStructureSchema = [
+export var SearchField$: StaticStructureSchema = [3, n0, _SF, 0, [_K, _Va, _O], [0, 64 | 0, 0]];
+export var SendChannelMessageRequest$: StaticStructureSchema = [
   3,
   n0,
   _SCMR,
@@ -1298,24 +1305,24 @@ export var SendChannelMessageRequest: StaticStructureSchema = [
     [() => Metadata, 0],
     [() => ClientRequestToken, 4],
     [0, { [_hH]: _xacb }],
-    [() => PushNotificationConfiguration, 0],
+    [() => PushNotificationConfiguration$, 0],
     [() => MessageAttributeMap, 0],
     0,
     [() => ContentType, 0],
     () => TargetList,
   ],
 ];
-export var SendChannelMessageResponse: StaticStructureSchema = [
+export var SendChannelMessageResponse$: StaticStructureSchema = [
   3,
   n0,
   _SCMRe,
   0,
   [_CA, _MI, _St, _SCI],
-  [0, 0, () => ChannelMessageStatusStructure, 0],
+  [0, 0, () => ChannelMessageStatusStructure$, 0],
 ];
-export var ServiceFailureException: StaticErrorSchema = [-3, n0, _SFE, { [_e]: _s, [_hE]: 500 }, [_Co, _Me], [0, 0]];
-TypeRegistry.for(n0).registerError(ServiceFailureException, __ServiceFailureException);
-export var ServiceUnavailableException: StaticErrorSchema = [
+export var ServiceFailureException$: StaticErrorSchema = [-3, n0, _SFE, { [_e]: _s, [_hE]: 500 }, [_Co, _Me], [0, 0]];
+TypeRegistry.for(n0).registerError(ServiceFailureException$, ServiceFailureException);
+export var ServiceUnavailableException$: StaticErrorSchema = [
   -3,
   n0,
   _SUE,
@@ -1323,10 +1330,10 @@ export var ServiceUnavailableException: StaticErrorSchema = [
   [_Co, _Me],
   [0, 0],
 ];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-export var StreamingConfiguration: StaticStructureSchema = [3, n0, _SCt, 0, [_DT, _RA], [0, 0]];
-export var SubChannelSummary: StaticStructureSchema = [3, n0, _SCS, 0, [_SCI, _MC], [0, 1]];
-export var Tag: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var StreamingConfiguration$: StaticStructureSchema = [3, n0, _SCt, 0, [_DT, _RA], [0, 0]];
+export var SubChannelSummary$: StaticStructureSchema = [3, n0, _SCS, 0, [_SCI, _MC], [0, 1]];
+export var Tag$: StaticStructureSchema = [
   3,
   n0,
   _Tag_,
@@ -1337,11 +1344,11 @@ export var Tag: StaticStructureSchema = [
     [() => TagValue, 0],
   ],
 ];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RARN, _Tag], [0, [() => TagList, 0]]];
-export var Target: StaticStructureSchema = [3, n0, _Ta, 0, [_MA], [0]];
-export var ThrottledClientException: StaticErrorSchema = [-3, n0, _TCE, { [_e]: _c, [_hE]: 429 }, [_Co, _Me], [0, 0]];
-TypeRegistry.for(n0).registerError(ThrottledClientException, __ThrottledClientException);
-export var UnauthorizedClientException: StaticErrorSchema = [
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_RARN, _Tag], [0, [() => TagList, 0]]];
+export var Target$: StaticStructureSchema = [3, n0, _Ta, 0, [_MA], [0]];
+export var ThrottledClientException$: StaticErrorSchema = [-3, n0, _TCE, { [_e]: _c, [_hE]: 429 }, [_Co, _Me], [0, 0]];
+TypeRegistry.for(n0).registerError(ThrottledClientException$, ThrottledClientException);
+export var UnauthorizedClientException$: StaticErrorSchema = [
   -3,
   n0,
   _UCE,
@@ -1349,9 +1356,9 @@ export var UnauthorizedClientException: StaticErrorSchema = [
   [_Co, _Me],
   [0, 0],
 ];
-TypeRegistry.for(n0).registerError(UnauthorizedClientException, __UnauthorizedClientException);
-export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RARN, _TKa], [0, [() => TagKeyList, 0]]];
-export var UpdateChannelFlowRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(UnauthorizedClientException$, UnauthorizedClientException);
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR, 0, [_RARN, _TKa], [0, [() => TagKeyList, 0]]];
+export var UpdateChannelFlowRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCFR,
@@ -1363,8 +1370,8 @@ export var UpdateChannelFlowRequest: StaticStructureSchema = [
     [() => NonEmptyResourceName, 0],
   ],
 ];
-export var UpdateChannelFlowResponse: StaticStructureSchema = [3, n0, _UCFRp, 0, [_CFA], [0]];
-export var UpdateChannelMessageRequest: StaticStructureSchema = [
+export var UpdateChannelFlowResponse$: StaticStructureSchema = [3, n0, _UCFRp, 0, [_CFA], [0]];
+export var UpdateChannelMessageRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCMR,
@@ -1372,15 +1379,15 @@ export var UpdateChannelMessageRequest: StaticStructureSchema = [
   [_CA, _MI, _C, _M, _CB, _SCI, _CT],
   [[0, 1], [0, 1], [() => NonEmptyContent, 0], [() => Metadata, 0], [0, { [_hH]: _xacb }], 0, [() => ContentType, 0]],
 ];
-export var UpdateChannelMessageResponse: StaticStructureSchema = [
+export var UpdateChannelMessageResponse$: StaticStructureSchema = [
   3,
   n0,
   _UCMRp,
   0,
   [_CA, _MI, _St, _SCI],
-  [0, 0, () => ChannelMessageStatusStructure, 0],
+  [0, 0, () => ChannelMessageStatusStructure$, 0],
 ];
-export var UpdateChannelReadMarkerRequest: StaticStructureSchema = [
+export var UpdateChannelReadMarkerRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCRMR,
@@ -1391,8 +1398,8 @@ export var UpdateChannelReadMarkerRequest: StaticStructureSchema = [
     [0, { [_hH]: _xacb }],
   ],
 ];
-export var UpdateChannelReadMarkerResponse: StaticStructureSchema = [3, n0, _UCRMRp, 0, [_CA], [0]];
-export var UpdateChannelRequest: StaticStructureSchema = [
+export var UpdateChannelReadMarkerResponse$: StaticStructureSchema = [3, n0, _UCRMRp, 0, [_CA], [0]];
+export var UpdateChannelRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCR,
@@ -1400,9 +1407,9 @@ export var UpdateChannelRequest: StaticStructureSchema = [
   [_CA, _N, _Mo, _M, _CB],
   [[0, 1], [() => NonEmptyResourceName, 0], 0, [() => Metadata, 0], [0, { [_hH]: _xacb }]],
 ];
-export var UpdateChannelResponse: StaticStructureSchema = [3, n0, _UCRp, 0, [_CA], [0]];
-export var __Unit = "unit" as const;
-export var ChimeSDKMessagingServiceException: StaticErrorSchema = [
+export var UpdateChannelResponse$: StaticStructureSchema = [3, n0, _UCRp, 0, [_CA], [0]];
+var __Unit = "unit" as const;
+export var ChimeSDKMessagingServiceException$: StaticErrorSchema = [
   -3,
   _sm,
   "ChimeSDKMessagingServiceException",
@@ -1410,467 +1417,467 @@ export var ChimeSDKMessagingServiceException: StaticErrorSchema = [
   [],
   [],
 ];
-TypeRegistry.for(_sm).registerError(ChimeSDKMessagingServiceException, __ChimeSDKMessagingServiceException);
-export var BatchCreateChannelMembershipErrors: StaticListSchema = [
+TypeRegistry.for(_sm).registerError(ChimeSDKMessagingServiceException$, ChimeSDKMessagingServiceException);
+var BatchCreateChannelMembershipErrors: StaticListSchema = [
   1,
   n0,
   _BCCMEa,
   0,
-  () => BatchCreateChannelMembershipError,
+  () => BatchCreateChannelMembershipError$,
 ];
-export var ChannelAssociatedWithFlowSummaryList: StaticListSchema = [
+var ChannelAssociatedWithFlowSummaryList: StaticListSchema = [
   1,
   n0,
   _CAWFSL,
   0,
-  [() => ChannelAssociatedWithFlowSummary, 0],
+  [() => ChannelAssociatedWithFlowSummary$, 0],
 ];
-export var ChannelBanSummaryList: StaticListSchema = [1, n0, _CBSL, 0, [() => ChannelBanSummary, 0]];
-export var ChannelFlowSummaryList: StaticListSchema = [1, n0, _CFSL, 0, [() => ChannelFlowSummary, 0]];
-export var ChannelMemberArns = 64 | 0;
-export var ChannelMembershipForAppInstanceUserSummaryList: StaticListSchema = [
+var ChannelBanSummaryList: StaticListSchema = [1, n0, _CBSL, 0, [() => ChannelBanSummary$, 0]];
+var ChannelFlowSummaryList: StaticListSchema = [1, n0, _CFSL, 0, [() => ChannelFlowSummary$, 0]];
+var ChannelMemberArns = 64 | 0;
+var ChannelMembershipForAppInstanceUserSummaryList: StaticListSchema = [
   1,
   n0,
   _CMFAIUSL,
   0,
-  [() => ChannelMembershipForAppInstanceUserSummary, 0],
+  [() => ChannelMembershipForAppInstanceUserSummary$, 0],
 ];
-export var ChannelMembershipSummaryList: StaticListSchema = [1, n0, _CMSL, 0, [() => ChannelMembershipSummary, 0]];
-export var ChannelMessageSummaryList: StaticListSchema = [1, n0, _CMSLh, 0, [() => ChannelMessageSummary, 0]];
-export var ChannelModeratedByAppInstanceUserSummaryList: StaticListSchema = [
+var ChannelMembershipSummaryList: StaticListSchema = [1, n0, _CMSL, 0, [() => ChannelMembershipSummary$, 0]];
+var ChannelMessageSummaryList: StaticListSchema = [1, n0, _CMSLh, 0, [() => ChannelMessageSummary$, 0]];
+var ChannelModeratedByAppInstanceUserSummaryList: StaticListSchema = [
   1,
   n0,
   _CMBAIUSL,
   0,
-  [() => ChannelModeratedByAppInstanceUserSummary, 0],
+  [() => ChannelModeratedByAppInstanceUserSummary$, 0],
 ];
-export var ChannelModeratorArns = 64 | 0;
-export var ChannelModeratorSummaryList: StaticListSchema = [1, n0, _CMSLha, 0, [() => ChannelModeratorSummary, 0]];
-export var ChannelSummaryList: StaticListSchema = [1, n0, _CSL, 0, [() => ChannelSummary, 0]];
-export var MemberArns = 64 | 0;
-export var Members: StaticListSchema = [1, n0, _Mem, 0, [() => Identity, 0]];
-export var MessageAttributeStringValues: StaticListSchema = [1, n0, _MASVe, 0, [() => MessageAttributeStringValue, 0]];
-export var ProcessorList: StaticListSchema = [1, n0, _PL, 0, [() => Processor, 0]];
-export var SearchFields: StaticListSchema = [1, n0, _SFe, 0, () => SearchField];
-export var SearchFieldValues = 64 | 0;
-export var StreamingConfigurationList: StaticListSchema = [1, n0, _SCL, 0, () => StreamingConfiguration];
-export var SubChannelSummaryList: StaticListSchema = [1, n0, _SCSL, 0, () => SubChannelSummary];
-export var TagKeyList: StaticListSchema = [1, n0, _TKL, 0, [() => TagKey, 0]];
-export var TagList: StaticListSchema = [1, n0, _TL, 0, [() => Tag, 0]];
-export var TargetList: StaticListSchema = [1, n0, _TLa, 0, () => Target];
-export var MessageAttributeMap: StaticMapSchema = [
+var ChannelModeratorArns = 64 | 0;
+var ChannelModeratorSummaryList: StaticListSchema = [1, n0, _CMSLha, 0, [() => ChannelModeratorSummary$, 0]];
+var ChannelSummaryList: StaticListSchema = [1, n0, _CSL, 0, [() => ChannelSummary$, 0]];
+var MemberArns = 64 | 0;
+var Members: StaticListSchema = [1, n0, _Mem, 0, [() => Identity$, 0]];
+var MessageAttributeStringValues: StaticListSchema = [1, n0, _MASVe, 0, [() => MessageAttributeStringValue, 0]];
+var ProcessorList: StaticListSchema = [1, n0, _PL, 0, [() => Processor$, 0]];
+var SearchFields: StaticListSchema = [1, n0, _SFe, 0, () => SearchField$];
+var SearchFieldValues = 64 | 0;
+var StreamingConfigurationList: StaticListSchema = [1, n0, _SCL, 0, () => StreamingConfiguration$];
+var SubChannelSummaryList: StaticListSchema = [1, n0, _SCSL, 0, () => SubChannelSummary$];
+var TagKeyList: StaticListSchema = [1, n0, _TKL, 0, [() => TagKey, 0]];
+var TagList: StaticListSchema = [1, n0, _TL, 0, [() => Tag$, 0]];
+var TargetList: StaticListSchema = [1, n0, _TLa, 0, () => Target$];
+var MessageAttributeMap: StaticMapSchema = [
   2,
   n0,
   _MAM,
   0,
   [() => MessageAttributeName, 0],
-  [() => MessageAttributeValue, 0],
+  [() => MessageAttributeValue$, 0],
 ];
-export var AssociateChannelFlow: StaticOperationSchema = [
+export var AssociateChannelFlow$: StaticOperationSchema = [
   9,
   n0,
   _ACF,
   { [_h]: ["PUT", "/channels/{ChannelArn}/channel-flow", 200] },
-  () => AssociateChannelFlowRequest,
+  () => AssociateChannelFlowRequest$,
   () => __Unit,
 ];
-export var BatchCreateChannelMembership: StaticOperationSchema = [
+export var BatchCreateChannelMembership$: StaticOperationSchema = [
   9,
   n0,
   _BCCM,
   { [_h]: ["POST", "/channels/{ChannelArn}/memberships?operation=batch-create", 200] },
-  () => BatchCreateChannelMembershipRequest,
-  () => BatchCreateChannelMembershipResponse,
+  () => BatchCreateChannelMembershipRequest$,
+  () => BatchCreateChannelMembershipResponse$,
 ];
-export var ChannelFlowCallback: StaticOperationSchema = [
+export var ChannelFlowCallback$: StaticOperationSchema = [
   9,
   n0,
   _CFC,
   { [_h]: ["POST", "/channels/{ChannelArn}?operation=channel-flow-callback", 200] },
-  () => ChannelFlowCallbackRequest,
-  () => ChannelFlowCallbackResponse,
+  () => ChannelFlowCallbackRequest$,
+  () => ChannelFlowCallbackResponse$,
 ];
-export var CreateChannel: StaticOperationSchema = [
+export var CreateChannel$: StaticOperationSchema = [
   9,
   n0,
   _CC,
   { [_h]: ["POST", "/channels", 201] },
-  () => CreateChannelRequest,
-  () => CreateChannelResponse,
+  () => CreateChannelRequest$,
+  () => CreateChannelResponse$,
 ];
-export var CreateChannelBan: StaticOperationSchema = [
+export var CreateChannelBan$: StaticOperationSchema = [
   9,
   n0,
   _CCB,
   { [_h]: ["POST", "/channels/{ChannelArn}/bans", 201] },
-  () => CreateChannelBanRequest,
-  () => CreateChannelBanResponse,
+  () => CreateChannelBanRequest$,
+  () => CreateChannelBanResponse$,
 ];
-export var CreateChannelFlow: StaticOperationSchema = [
+export var CreateChannelFlow$: StaticOperationSchema = [
   9,
   n0,
   _CCF,
   { [_h]: ["POST", "/channel-flows", 201] },
-  () => CreateChannelFlowRequest,
-  () => CreateChannelFlowResponse,
+  () => CreateChannelFlowRequest$,
+  () => CreateChannelFlowResponse$,
 ];
-export var CreateChannelMembership: StaticOperationSchema = [
+export var CreateChannelMembership$: StaticOperationSchema = [
   9,
   n0,
   _CCM,
   { [_h]: ["POST", "/channels/{ChannelArn}/memberships", 201] },
-  () => CreateChannelMembershipRequest,
-  () => CreateChannelMembershipResponse,
+  () => CreateChannelMembershipRequest$,
+  () => CreateChannelMembershipResponse$,
 ];
-export var CreateChannelModerator: StaticOperationSchema = [
+export var CreateChannelModerator$: StaticOperationSchema = [
   9,
   n0,
   _CCMr,
   { [_h]: ["POST", "/channels/{ChannelArn}/moderators", 201] },
-  () => CreateChannelModeratorRequest,
-  () => CreateChannelModeratorResponse,
+  () => CreateChannelModeratorRequest$,
+  () => CreateChannelModeratorResponse$,
 ];
-export var DeleteChannel: StaticOperationSchema = [
+export var DeleteChannel$: StaticOperationSchema = [
   9,
   n0,
   _DC,
   { [_h]: ["DELETE", "/channels/{ChannelArn}", 204] },
-  () => DeleteChannelRequest,
+  () => DeleteChannelRequest$,
   () => __Unit,
 ];
-export var DeleteChannelBan: StaticOperationSchema = [
+export var DeleteChannelBan$: StaticOperationSchema = [
   9,
   n0,
   _DCB,
   { [_h]: ["DELETE", "/channels/{ChannelArn}/bans/{MemberArn}", 204] },
-  () => DeleteChannelBanRequest,
+  () => DeleteChannelBanRequest$,
   () => __Unit,
 ];
-export var DeleteChannelFlow: StaticOperationSchema = [
+export var DeleteChannelFlow$: StaticOperationSchema = [
   9,
   n0,
   _DCF,
   { [_h]: ["DELETE", "/channel-flows/{ChannelFlowArn}", 204] },
-  () => DeleteChannelFlowRequest,
+  () => DeleteChannelFlowRequest$,
   () => __Unit,
 ];
-export var DeleteChannelMembership: StaticOperationSchema = [
+export var DeleteChannelMembership$: StaticOperationSchema = [
   9,
   n0,
   _DCM,
   { [_h]: ["DELETE", "/channels/{ChannelArn}/memberships/{MemberArn}", 204] },
-  () => DeleteChannelMembershipRequest,
+  () => DeleteChannelMembershipRequest$,
   () => __Unit,
 ];
-export var DeleteChannelMessage: StaticOperationSchema = [
+export var DeleteChannelMessage$: StaticOperationSchema = [
   9,
   n0,
   _DCMe,
   { [_h]: ["DELETE", "/channels/{ChannelArn}/messages/{MessageId}", 204] },
-  () => DeleteChannelMessageRequest,
+  () => DeleteChannelMessageRequest$,
   () => __Unit,
 ];
-export var DeleteChannelModerator: StaticOperationSchema = [
+export var DeleteChannelModerator$: StaticOperationSchema = [
   9,
   n0,
   _DCMel,
   { [_h]: ["DELETE", "/channels/{ChannelArn}/moderators/{ChannelModeratorArn}", 204] },
-  () => DeleteChannelModeratorRequest,
+  () => DeleteChannelModeratorRequest$,
   () => __Unit,
 ];
-export var DeleteMessagingStreamingConfigurations: StaticOperationSchema = [
+export var DeleteMessagingStreamingConfigurations$: StaticOperationSchema = [
   9,
   n0,
   _DMSC,
   { [_h]: ["DELETE", "/app-instances/{AppInstanceArn}/streaming-configurations", 204] },
-  () => DeleteMessagingStreamingConfigurationsRequest,
+  () => DeleteMessagingStreamingConfigurationsRequest$,
   () => __Unit,
 ];
-export var DescribeChannel: StaticOperationSchema = [
+export var DescribeChannel$: StaticOperationSchema = [
   9,
   n0,
   _DCe,
   { [_h]: ["GET", "/channels/{ChannelArn}", 200] },
-  () => DescribeChannelRequest,
-  () => DescribeChannelResponse,
+  () => DescribeChannelRequest$,
+  () => DescribeChannelResponse$,
 ];
-export var DescribeChannelBan: StaticOperationSchema = [
+export var DescribeChannelBan$: StaticOperationSchema = [
   9,
   n0,
   _DCBe,
   { [_h]: ["GET", "/channels/{ChannelArn}/bans/{MemberArn}", 200] },
-  () => DescribeChannelBanRequest,
-  () => DescribeChannelBanResponse,
+  () => DescribeChannelBanRequest$,
+  () => DescribeChannelBanResponse$,
 ];
-export var DescribeChannelFlow: StaticOperationSchema = [
+export var DescribeChannelFlow$: StaticOperationSchema = [
   9,
   n0,
   _DCFe,
   { [_h]: ["GET", "/channel-flows/{ChannelFlowArn}", 200] },
-  () => DescribeChannelFlowRequest,
-  () => DescribeChannelFlowResponse,
+  () => DescribeChannelFlowRequest$,
+  () => DescribeChannelFlowResponse$,
 ];
-export var DescribeChannelMembership: StaticOperationSchema = [
+export var DescribeChannelMembership$: StaticOperationSchema = [
   9,
   n0,
   _DCMes,
   { [_h]: ["GET", "/channels/{ChannelArn}/memberships/{MemberArn}", 200] },
-  () => DescribeChannelMembershipRequest,
-  () => DescribeChannelMembershipResponse,
+  () => DescribeChannelMembershipRequest$,
+  () => DescribeChannelMembershipResponse$,
 ];
-export var DescribeChannelMembershipForAppInstanceUser: StaticOperationSchema = [
+export var DescribeChannelMembershipForAppInstanceUser$: StaticOperationSchema = [
   9,
   n0,
   _DCMFAIU,
   { [_h]: ["GET", "/channels/{ChannelArn}?scope=app-instance-user-membership", 200] },
-  () => DescribeChannelMembershipForAppInstanceUserRequest,
-  () => DescribeChannelMembershipForAppInstanceUserResponse,
+  () => DescribeChannelMembershipForAppInstanceUserRequest$,
+  () => DescribeChannelMembershipForAppInstanceUserResponse$,
 ];
-export var DescribeChannelModeratedByAppInstanceUser: StaticOperationSchema = [
+export var DescribeChannelModeratedByAppInstanceUser$: StaticOperationSchema = [
   9,
   n0,
   _DCMBAIU,
   { [_h]: ["GET", "/channels/{ChannelArn}?scope=app-instance-user-moderated-channel", 200] },
-  () => DescribeChannelModeratedByAppInstanceUserRequest,
-  () => DescribeChannelModeratedByAppInstanceUserResponse,
+  () => DescribeChannelModeratedByAppInstanceUserRequest$,
+  () => DescribeChannelModeratedByAppInstanceUserResponse$,
 ];
-export var DescribeChannelModerator: StaticOperationSchema = [
+export var DescribeChannelModerator$: StaticOperationSchema = [
   9,
   n0,
   _DCMesc,
   { [_h]: ["GET", "/channels/{ChannelArn}/moderators/{ChannelModeratorArn}", 200] },
-  () => DescribeChannelModeratorRequest,
-  () => DescribeChannelModeratorResponse,
+  () => DescribeChannelModeratorRequest$,
+  () => DescribeChannelModeratorResponse$,
 ];
-export var DisassociateChannelFlow: StaticOperationSchema = [
+export var DisassociateChannelFlow$: StaticOperationSchema = [
   9,
   n0,
   _DCFi,
   { [_h]: ["DELETE", "/channels/{ChannelArn}/channel-flow/{ChannelFlowArn}", 204] },
-  () => DisassociateChannelFlowRequest,
+  () => DisassociateChannelFlowRequest$,
   () => __Unit,
 ];
-export var GetChannelMembershipPreferences: StaticOperationSchema = [
+export var GetChannelMembershipPreferences$: StaticOperationSchema = [
   9,
   n0,
   _GCMP,
   { [_h]: ["GET", "/channels/{ChannelArn}/memberships/{MemberArn}/preferences", 200] },
-  () => GetChannelMembershipPreferencesRequest,
-  () => GetChannelMembershipPreferencesResponse,
+  () => GetChannelMembershipPreferencesRequest$,
+  () => GetChannelMembershipPreferencesResponse$,
 ];
-export var GetChannelMessage: StaticOperationSchema = [
+export var GetChannelMessage$: StaticOperationSchema = [
   9,
   n0,
   _GCM,
   { [_h]: ["GET", "/channels/{ChannelArn}/messages/{MessageId}", 200] },
-  () => GetChannelMessageRequest,
-  () => GetChannelMessageResponse,
+  () => GetChannelMessageRequest$,
+  () => GetChannelMessageResponse$,
 ];
-export var GetChannelMessageStatus: StaticOperationSchema = [
+export var GetChannelMessageStatus$: StaticOperationSchema = [
   9,
   n0,
   _GCMS,
   { [_h]: ["GET", "/channels/{ChannelArn}/messages/{MessageId}?scope=message-status", 200] },
-  () => GetChannelMessageStatusRequest,
-  () => GetChannelMessageStatusResponse,
+  () => GetChannelMessageStatusRequest$,
+  () => GetChannelMessageStatusResponse$,
 ];
-export var GetMessagingSessionEndpoint: StaticOperationSchema = [
+export var GetMessagingSessionEndpoint$: StaticOperationSchema = [
   9,
   n0,
   _GMSE,
   { [_h]: ["GET", "/endpoints/messaging-session", 200] },
-  () => GetMessagingSessionEndpointRequest,
-  () => GetMessagingSessionEndpointResponse,
+  () => GetMessagingSessionEndpointRequest$,
+  () => GetMessagingSessionEndpointResponse$,
 ];
-export var GetMessagingStreamingConfigurations: StaticOperationSchema = [
+export var GetMessagingStreamingConfigurations$: StaticOperationSchema = [
   9,
   n0,
   _GMSC,
   { [_h]: ["GET", "/app-instances/{AppInstanceArn}/streaming-configurations", 200] },
-  () => GetMessagingStreamingConfigurationsRequest,
-  () => GetMessagingStreamingConfigurationsResponse,
+  () => GetMessagingStreamingConfigurationsRequest$,
+  () => GetMessagingStreamingConfigurationsResponse$,
 ];
-export var ListChannelBans: StaticOperationSchema = [
+export var ListChannelBans$: StaticOperationSchema = [
   9,
   n0,
   _LCB,
   { [_h]: ["GET", "/channels/{ChannelArn}/bans", 200] },
-  () => ListChannelBansRequest,
-  () => ListChannelBansResponse,
+  () => ListChannelBansRequest$,
+  () => ListChannelBansResponse$,
 ];
-export var ListChannelFlows: StaticOperationSchema = [
+export var ListChannelFlows$: StaticOperationSchema = [
   9,
   n0,
   _LCF,
   { [_h]: ["GET", "/channel-flows", 200] },
-  () => ListChannelFlowsRequest,
-  () => ListChannelFlowsResponse,
+  () => ListChannelFlowsRequest$,
+  () => ListChannelFlowsResponse$,
 ];
-export var ListChannelMemberships: StaticOperationSchema = [
+export var ListChannelMemberships$: StaticOperationSchema = [
   9,
   n0,
   _LCM,
   { [_h]: ["GET", "/channels/{ChannelArn}/memberships", 200] },
-  () => ListChannelMembershipsRequest,
-  () => ListChannelMembershipsResponse,
+  () => ListChannelMembershipsRequest$,
+  () => ListChannelMembershipsResponse$,
 ];
-export var ListChannelMembershipsForAppInstanceUser: StaticOperationSchema = [
+export var ListChannelMembershipsForAppInstanceUser$: StaticOperationSchema = [
   9,
   n0,
   _LCMFAIU,
   { [_h]: ["GET", "/channels?scope=app-instance-user-memberships", 200] },
-  () => ListChannelMembershipsForAppInstanceUserRequest,
-  () => ListChannelMembershipsForAppInstanceUserResponse,
+  () => ListChannelMembershipsForAppInstanceUserRequest$,
+  () => ListChannelMembershipsForAppInstanceUserResponse$,
 ];
-export var ListChannelMessages: StaticOperationSchema = [
+export var ListChannelMessages$: StaticOperationSchema = [
   9,
   n0,
   _LCMi,
   { [_h]: ["GET", "/channels/{ChannelArn}/messages", 200] },
-  () => ListChannelMessagesRequest,
-  () => ListChannelMessagesResponse,
+  () => ListChannelMessagesRequest$,
+  () => ListChannelMessagesResponse$,
 ];
-export var ListChannelModerators: StaticOperationSchema = [
+export var ListChannelModerators$: StaticOperationSchema = [
   9,
   n0,
   _LCMis,
   { [_h]: ["GET", "/channels/{ChannelArn}/moderators", 200] },
-  () => ListChannelModeratorsRequest,
-  () => ListChannelModeratorsResponse,
+  () => ListChannelModeratorsRequest$,
+  () => ListChannelModeratorsResponse$,
 ];
-export var ListChannels: StaticOperationSchema = [
+export var ListChannels$: StaticOperationSchema = [
   9,
   n0,
   _LCi,
   { [_h]: ["GET", "/channels", 200] },
-  () => ListChannelsRequest,
-  () => ListChannelsResponse,
+  () => ListChannelsRequest$,
+  () => ListChannelsResponse$,
 ];
-export var ListChannelsAssociatedWithChannelFlow: StaticOperationSchema = [
+export var ListChannelsAssociatedWithChannelFlow$: StaticOperationSchema = [
   9,
   n0,
   _LCAWCF,
   { [_h]: ["GET", "/channels?scope=channel-flow-associations", 200] },
-  () => ListChannelsAssociatedWithChannelFlowRequest,
-  () => ListChannelsAssociatedWithChannelFlowResponse,
+  () => ListChannelsAssociatedWithChannelFlowRequest$,
+  () => ListChannelsAssociatedWithChannelFlowResponse$,
 ];
-export var ListChannelsModeratedByAppInstanceUser: StaticOperationSchema = [
+export var ListChannelsModeratedByAppInstanceUser$: StaticOperationSchema = [
   9,
   n0,
   _LCMBAIU,
   { [_h]: ["GET", "/channels?scope=app-instance-user-moderated-channels", 200] },
-  () => ListChannelsModeratedByAppInstanceUserRequest,
-  () => ListChannelsModeratedByAppInstanceUserResponse,
+  () => ListChannelsModeratedByAppInstanceUserRequest$,
+  () => ListChannelsModeratedByAppInstanceUserResponse$,
 ];
-export var ListSubChannels: StaticOperationSchema = [
+export var ListSubChannels$: StaticOperationSchema = [
   9,
   n0,
   _LSC,
   { [_h]: ["GET", "/channels/{ChannelArn}/subchannels", 200] },
-  () => ListSubChannelsRequest,
-  () => ListSubChannelsResponse,
+  () => ListSubChannelsRequest$,
+  () => ListSubChannelsResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var PutChannelExpirationSettings: StaticOperationSchema = [
+export var PutChannelExpirationSettings$: StaticOperationSchema = [
   9,
   n0,
   _PCES,
   { [_h]: ["PUT", "/channels/{ChannelArn}/expiration-settings", 200] },
-  () => PutChannelExpirationSettingsRequest,
-  () => PutChannelExpirationSettingsResponse,
+  () => PutChannelExpirationSettingsRequest$,
+  () => PutChannelExpirationSettingsResponse$,
 ];
-export var PutChannelMembershipPreferences: StaticOperationSchema = [
+export var PutChannelMembershipPreferences$: StaticOperationSchema = [
   9,
   n0,
   _PCMP,
   { [_h]: ["PUT", "/channels/{ChannelArn}/memberships/{MemberArn}/preferences", 200] },
-  () => PutChannelMembershipPreferencesRequest,
-  () => PutChannelMembershipPreferencesResponse,
+  () => PutChannelMembershipPreferencesRequest$,
+  () => PutChannelMembershipPreferencesResponse$,
 ];
-export var PutMessagingStreamingConfigurations: StaticOperationSchema = [
+export var PutMessagingStreamingConfigurations$: StaticOperationSchema = [
   9,
   n0,
   _PMSC,
   { [_h]: ["PUT", "/app-instances/{AppInstanceArn}/streaming-configurations", 200] },
-  () => PutMessagingStreamingConfigurationsRequest,
-  () => PutMessagingStreamingConfigurationsResponse,
+  () => PutMessagingStreamingConfigurationsRequest$,
+  () => PutMessagingStreamingConfigurationsResponse$,
 ];
-export var RedactChannelMessage: StaticOperationSchema = [
+export var RedactChannelMessage$: StaticOperationSchema = [
   9,
   n0,
   _RCM,
   { [_h]: ["POST", "/channels/{ChannelArn}/messages/{MessageId}?operation=redact", 200] },
-  () => RedactChannelMessageRequest,
-  () => RedactChannelMessageResponse,
+  () => RedactChannelMessageRequest$,
+  () => RedactChannelMessageResponse$,
 ];
-export var SearchChannels: StaticOperationSchema = [
+export var SearchChannels$: StaticOperationSchema = [
   9,
   n0,
   _SCe,
   { [_h]: ["POST", "/channels?operation=search", 200] },
-  () => SearchChannelsRequest,
-  () => SearchChannelsResponse,
+  () => SearchChannelsRequest$,
+  () => SearchChannelsResponse$,
 ];
-export var SendChannelMessage: StaticOperationSchema = [
+export var SendChannelMessage$: StaticOperationSchema = [
   9,
   n0,
   _SCM,
   { [_h]: ["POST", "/channels/{ChannelArn}/messages", 201] },
-  () => SendChannelMessageRequest,
-  () => SendChannelMessageResponse,
+  () => SendChannelMessageRequest$,
+  () => SendChannelMessageResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/tags?operation=tag-resource", 204] },
-  () => TagResourceRequest,
+  () => TagResourceRequest$,
   () => __Unit,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["POST", "/tags?operation=untag-resource", 204] },
-  () => UntagResourceRequest,
+  () => UntagResourceRequest$,
   () => __Unit,
 ];
-export var UpdateChannel: StaticOperationSchema = [
+export var UpdateChannel$: StaticOperationSchema = [
   9,
   n0,
   _UC,
   { [_h]: ["PUT", "/channels/{ChannelArn}", 200] },
-  () => UpdateChannelRequest,
-  () => UpdateChannelResponse,
+  () => UpdateChannelRequest$,
+  () => UpdateChannelResponse$,
 ];
-export var UpdateChannelFlow: StaticOperationSchema = [
+export var UpdateChannelFlow$: StaticOperationSchema = [
   9,
   n0,
   _UCF,
   { [_h]: ["PUT", "/channel-flows/{ChannelFlowArn}", 200] },
-  () => UpdateChannelFlowRequest,
-  () => UpdateChannelFlowResponse,
+  () => UpdateChannelFlowRequest$,
+  () => UpdateChannelFlowResponse$,
 ];
-export var UpdateChannelMessage: StaticOperationSchema = [
+export var UpdateChannelMessage$: StaticOperationSchema = [
   9,
   n0,
   _UCM,
   { [_h]: ["PUT", "/channels/{ChannelArn}/messages/{MessageId}", 200] },
-  () => UpdateChannelMessageRequest,
-  () => UpdateChannelMessageResponse,
+  () => UpdateChannelMessageRequest$,
+  () => UpdateChannelMessageResponse$,
 ];
-export var UpdateChannelReadMarker: StaticOperationSchema = [
+export var UpdateChannelReadMarker$: StaticOperationSchema = [
   9,
   n0,
   _UCRM,
   { [_h]: ["PUT", "/channels/{ChannelArn}/readMarker", 200] },
-  () => UpdateChannelReadMarkerRequest,
-  () => UpdateChannelReadMarkerResponse,
+  () => UpdateChannelReadMarkerRequest$,
+  () => UpdateChannelReadMarkerResponse$,
 ];

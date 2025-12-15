@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient";
 import type { GetHLSStreamingSessionURLInput, GetHLSStreamingSessionURLOutput } from "../models/models_0";
-import { GetHLSStreamingSessionURL } from "../schemas/schemas_0";
+import { GetHLSStreamingSessionURL$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -317,7 +317,7 @@ export class GetHLSStreamingSessionURLCommand extends $Command
   })
   .s("AWSAcuityReader", "GetHLSStreamingSessionURL", {})
   .n("KinesisVideoArchivedMediaClient", "GetHLSStreamingSessionURLCommand")
-  .sc(GetHLSStreamingSessionURL)
+  .sc(GetHLSStreamingSessionURL$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

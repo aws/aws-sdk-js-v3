@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetBlacklistReportsRequest, GetBlacklistReportsResponse } from "../models/models_0";
-import { GetBlacklistReports } from "../schemas/schemas_0";
+import { GetBlacklistReports$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -92,7 +92,7 @@ export class GetBlacklistReportsCommand extends $Command
   })
   .s("SimpleEmailService_v2", "GetBlacklistReports", {})
   .n("SESv2Client", "GetBlacklistReportsCommand")
-  .sc(GetBlacklistReports)
+  .sc(GetBlacklistReports$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

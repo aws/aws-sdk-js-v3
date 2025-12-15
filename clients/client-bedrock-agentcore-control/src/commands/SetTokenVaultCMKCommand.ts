@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SetTokenVaultCMKRequest, SetTokenVaultCMKResponse } from "../models/models_1";
-import { SetTokenVaultCMK } from "../schemas/schemas_0";
+import { SetTokenVaultCMK$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class SetTokenVaultCMKCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "SetTokenVaultCMK", {})
   .n("BedrockAgentCoreControlClient", "SetTokenVaultCMKCommand")
-  .sc(SetTokenVaultCMK)
+  .sc(SetTokenVaultCMK$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

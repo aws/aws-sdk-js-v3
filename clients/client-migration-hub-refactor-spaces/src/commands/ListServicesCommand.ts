@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MigrationHubRefactorSpacesClient";
 import type { ListServicesRequest, ListServicesResponse } from "../models/models_0";
-import { ListServices } from "../schemas/schemas_0";
+import { ListServices$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -139,7 +139,7 @@ export class ListServicesCommand extends $Command
   })
   .s("RefactorSpaces", "ListServices", {})
   .n("MigrationHubRefactorSpacesClient", "ListServicesCommand")
-  .sc(ListServices)
+  .sc(ListServices$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

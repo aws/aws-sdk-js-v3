@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { UpdateNotificationConfigurationRequest } from "../models/models_0";
-import { UpdateNotificationConfiguration } from "../schemas/schemas_0";
+import { UpdateNotificationConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class UpdateNotificationConfigurationCommand extends $Command
   })
   .s("IotManagedIntegrations", "UpdateNotificationConfiguration", {})
   .n("IoTManagedIntegrationsClient", "UpdateNotificationConfigurationCommand")
-  .sc(UpdateNotificationConfiguration)
+  .sc(UpdateNotificationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

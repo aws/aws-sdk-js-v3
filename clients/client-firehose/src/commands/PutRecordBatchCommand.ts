@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
 import type { PutRecordBatchInput, PutRecordBatchOutput } from "../models/models_0";
-import { PutRecordBatch } from "../schemas/schemas_0";
+import { PutRecordBatch$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -166,7 +166,7 @@ export class PutRecordBatchCommand extends $Command
   })
   .s("Firehose_20150804", "PutRecordBatch", {})
   .n("FirehoseClient", "PutRecordBatchCommand")
-  .sc(PutRecordBatch)
+  .sc(PutRecordBatch$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

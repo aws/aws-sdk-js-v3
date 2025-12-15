@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateGroupRequest, UpdateGroupResponse } from "../models/models_0";
-import { UpdateGroup } from "../schemas/schemas_0";
+import { UpdateGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class UpdateGroupCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "UpdateGroup", {})
   .n("CognitoIdentityProviderClient", "UpdateGroupCommand")
-  .sc(UpdateGroup)
+  .sc(UpdateGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

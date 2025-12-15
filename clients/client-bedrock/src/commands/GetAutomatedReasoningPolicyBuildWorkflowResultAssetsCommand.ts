@@ -9,7 +9,7 @@ import type {
   GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest,
   GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponse,
 } from "../models/models_0";
-import { GetAutomatedReasoningPolicyBuildWorkflowResultAssets } from "../schemas/schemas_0";
+import { GetAutomatedReasoningPolicyBuildWorkflowResultAssets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -335,7 +335,7 @@ export class GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommand extends
   })
   .s("AmazonBedrockControlPlaneService", "GetAutomatedReasoningPolicyBuildWorkflowResultAssets", {})
   .n("BedrockClient", "GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommand")
-  .sc(GetAutomatedReasoningPolicyBuildWorkflowResultAssets)
+  .sc(GetAutomatedReasoningPolicyBuildWorkflowResultAssets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

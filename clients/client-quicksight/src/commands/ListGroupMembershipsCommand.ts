@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListGroupMembershipsRequest, ListGroupMembershipsResponse } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { ListGroupMemberships } from "../schemas/schemas_0";
+import { ListGroupMemberships$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class ListGroupMembershipsCommand extends $Command
   })
   .s("QuickSight_20180401", "ListGroupMemberships", {})
   .n("QuickSightClient", "ListGroupMembershipsCommand")
-  .sc(ListGroupMemberships)
+  .sc(ListGroupMemberships$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

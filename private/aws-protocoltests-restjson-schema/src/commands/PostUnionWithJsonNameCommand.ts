@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { PostUnionWithJsonName } from "../schemas/schemas_0";
+import { PostUnionWithJsonName$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class PostUnionWithJsonNameCommand extends $Command
   })
   .s("RestJson", "PostUnionWithJsonName", {})
   .n("RestJsonProtocolClient", "PostUnionWithJsonNameCommand")
-  .sc(PostUnionWithJsonName)
+  .sc(PostUnionWithJsonName$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

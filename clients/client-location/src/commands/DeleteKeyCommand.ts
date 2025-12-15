@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import type { DeleteKeyRequest, DeleteKeyResponse } from "../models/models_0";
-import { DeleteKey } from "../schemas/schemas_0";
+import { DeleteKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DeleteKeyCommand extends $Command
   })
   .s("LocationService", "DeleteKey", {})
   .n("LocationClient", "DeleteKeyCommand")
-  .sc(DeleteKey)
+  .sc(DeleteKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

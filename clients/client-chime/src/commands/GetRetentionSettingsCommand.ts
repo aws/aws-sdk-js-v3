@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetRetentionSettingsRequest, GetRetentionSettingsResponse } from "../models/models_0";
-import { GetRetentionSettings } from "../schemas/schemas_0";
+import { GetRetentionSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class GetRetentionSettingsCommand extends $Command
   })
   .s("UCBuzzConsoleService", "GetRetentionSettings", {})
   .n("ChimeClient", "GetRetentionSettingsCommand")
-  .sc(GetRetentionSettings)
+  .sc(GetRetentionSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

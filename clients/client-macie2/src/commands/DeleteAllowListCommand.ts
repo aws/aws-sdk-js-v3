@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import type { DeleteAllowListRequest, DeleteAllowListResponse } from "../models/models_0";
-import { DeleteAllowList } from "../schemas/schemas_0";
+import { DeleteAllowList$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DeleteAllowListCommand extends $Command
   })
   .s("Macie2", "DeleteAllowList", {})
   .n("Macie2Client", "DeleteAllowListCommand")
-  .sc(DeleteAllowList)
+  .sc(DeleteAllowList$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

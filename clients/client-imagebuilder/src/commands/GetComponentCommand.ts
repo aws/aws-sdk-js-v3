@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import type { GetComponentRequest, GetComponentResponse } from "../models/models_0";
-import { GetComponent } from "../schemas/schemas_0";
+import { GetComponent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -142,7 +142,7 @@ export class GetComponentCommand extends $Command
   })
   .s("imagebuilder", "GetComponent", {})
   .n("ImagebuilderClient", "GetComponentCommand")
-  .sc(GetComponent)
+  .sc(GetComponent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

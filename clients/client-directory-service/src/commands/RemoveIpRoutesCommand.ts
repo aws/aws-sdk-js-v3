@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RemoveIpRoutesRequest, RemoveIpRoutesResult } from "../models/models_0";
-import { RemoveIpRoutes } from "../schemas/schemas_0";
+import { RemoveIpRoutes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class RemoveIpRoutesCommand extends $Command
   })
   .s("DirectoryService_20150416", "RemoveIpRoutes", {})
   .n("DirectoryServiceClient", "RemoveIpRoutesCommand")
-  .sc(RemoveIpRoutes)
+  .sc(RemoveIpRoutes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

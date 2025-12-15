@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UntagResourceRequest, UntagResourceResponse } from "../models/models_1";
-import { UntagResource } from "../schemas/schemas_0";
+import { UntagResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class UntagResourceCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "UntagResource", {})
   .n("BedrockClient", "UntagResourceCommand")
-  .sc(UntagResource)
+  .sc(UntagResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

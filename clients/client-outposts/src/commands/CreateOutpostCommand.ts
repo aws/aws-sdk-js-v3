@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateOutpostInput, CreateOutpostOutput } from "../models/models_0";
 import type { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import { CreateOutpost } from "../schemas/schemas_0";
+import { CreateOutpost$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class CreateOutpostCommand extends $Command
   })
   .s("OutpostsOlafService", "CreateOutpost", {})
   .n("OutpostsClient", "CreateOutpostCommand")
-  .sc(CreateOutpost)
+  .sc(CreateOutpost$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

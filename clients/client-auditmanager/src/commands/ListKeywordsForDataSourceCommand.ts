@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListKeywordsForDataSourceRequest, ListKeywordsForDataSourceResponse } from "../models/models_0";
-import { ListKeywordsForDataSource } from "../schemas/schemas_0";
+import { ListKeywordsForDataSource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class ListKeywordsForDataSourceCommand extends $Command
   })
   .s("BedrockAssessmentManagerLambda", "ListKeywordsForDataSource", {})
   .n("AuditManagerClient", "ListKeywordsForDataSourceCommand")
-  .sc(ListKeywordsForDataSource)
+  .sc(ListKeywordsForDataSource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   RegisterTransitGatewayMulticastGroupMembersRequest,
   RegisterTransitGatewayMulticastGroupMembersResult,
 } from "../models/models_7";
-import { RegisterTransitGatewayMulticastGroupMembers } from "../schemas/schemas_0";
+import { RegisterTransitGatewayMulticastGroupMembers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class RegisterTransitGatewayMulticastGroupMembersCommand extends $Command
   })
   .s("AmazonEC2", "RegisterTransitGatewayMulticastGroupMembers", {})
   .n("EC2Client", "RegisterTransitGatewayMulticastGroupMembersCommand")
-  .sc(RegisterTransitGatewayMulticastGroupMembers)
+  .sc(RegisterTransitGatewayMulticastGroupMembers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

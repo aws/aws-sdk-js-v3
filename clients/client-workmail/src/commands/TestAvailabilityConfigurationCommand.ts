@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { TestAvailabilityConfigurationRequest, TestAvailabilityConfigurationResponse } from "../models/models_0";
-import { TestAvailabilityConfiguration } from "../schemas/schemas_0";
+import { TestAvailabilityConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -106,7 +106,7 @@ export class TestAvailabilityConfigurationCommand extends $Command
   })
   .s("WorkMailService", "TestAvailabilityConfiguration", {})
   .n("WorkMailClient", "TestAvailabilityConfigurationCommand")
-  .sc(TestAvailabilityConfiguration)
+  .sc(TestAvailabilityConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

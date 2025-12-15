@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { DeleteGlobalNetwork } from "../schemas/schemas_0";
+import { DeleteGlobalNetwork$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class DeleteGlobalNetworkCommand extends $Command
   })
   .s("NetworkManager", "DeleteGlobalNetwork", {})
   .n("NetworkManagerClient", "DeleteGlobalNetworkCommand")
-  .sc(DeleteGlobalNetwork)
+  .sc(DeleteGlobalNetwork$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

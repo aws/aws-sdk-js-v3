@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetFolderRequest, GetFolderResponse } from "../models/models_0";
-import { GetFolder } from "../schemas/schemas_0";
+import { GetFolder$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -115,7 +115,7 @@ export class GetFolderCommand extends $Command
   })
   .s("AWSGorillaBoyService", "GetFolder", {})
   .n("WorkDocsClient", "GetFolderCommand")
-  .sc(GetFolder)
+  .sc(GetFolder$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

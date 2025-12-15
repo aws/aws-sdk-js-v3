@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import type { CreateCampaignRequest, CreateCampaignResponse } from "../models/models_0";
-import { CreateCampaign } from "../schemas/schemas_0";
+import { CreateCampaign$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -198,7 +198,7 @@ export class CreateCampaignCommand extends $Command
   })
   .s("IoTAutobahnControlPlane", "CreateCampaign", {})
   .n("IoTFleetWiseClient", "CreateCampaignCommand")
-  .sc(CreateCampaign)
+  .sc(CreateCampaign$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

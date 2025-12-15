@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyCapacityReservationRequest, ModifyCapacityReservationResult } from "../models/models_6";
-import { ModifyCapacityReservation } from "../schemas/schemas_0";
+import { ModifyCapacityReservation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class ModifyCapacityReservationCommand extends $Command
   })
   .s("AmazonEC2", "ModifyCapacityReservation", {})
   .n("EC2Client", "ModifyCapacityReservationCommand")
-  .sc(ModifyCapacityReservation)
+  .sc(ModifyCapacityReservation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

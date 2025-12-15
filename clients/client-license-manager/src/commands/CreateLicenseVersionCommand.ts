@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LicenseManagerClient";
 import type { CreateLicenseVersionRequest, CreateLicenseVersionResponse } from "../models/models_0";
-import { CreateLicenseVersion } from "../schemas/schemas_0";
+import { CreateLicenseVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -144,7 +144,7 @@ export class CreateLicenseVersionCommand extends $Command
   })
   .s("AWSLicenseManager", "CreateLicenseVersion", {})
   .n("LicenseManagerClient", "CreateLicenseVersionCommand")
-  .sc(CreateLicenseVersion)
+  .sc(CreateLicenseVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

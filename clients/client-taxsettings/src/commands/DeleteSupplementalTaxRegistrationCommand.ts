@@ -8,7 +8,7 @@ import type {
   DeleteSupplementalTaxRegistrationRequest,
   DeleteSupplementalTaxRegistrationResponse,
 } from "../models/models_0";
-import { DeleteSupplementalTaxRegistration } from "../schemas/schemas_0";
+import { DeleteSupplementalTaxRegistration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TaxSettingsClientResolvedConfig } from "../TaxSettingsClient";
 
 /**
@@ -91,7 +91,7 @@ export class DeleteSupplementalTaxRegistrationCommand extends $Command
   })
   .s("TaxSettings", "DeleteSupplementalTaxRegistration", {})
   .n("TaxSettingsClient", "DeleteSupplementalTaxRegistrationCommand")
-  .sc(DeleteSupplementalTaxRegistration)
+  .sc(DeleteSupplementalTaxRegistration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyClusterRequest, ModifyClusterResponse } from "../models/models_0";
-import { ModifyCluster } from "../schemas/schemas_0";
+import { ModifyCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -146,7 +146,7 @@ export class ModifyClusterCommand extends $Command
   })
   .s("BaldrApiService", "ModifyCluster", {})
   .n("CloudHSMV2Client", "ModifyClusterCommand")
-  .sc(ModifyCluster)
+  .sc(ModifyCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DeleteColumnStatisticsTaskSettingsRequest,
   DeleteColumnStatisticsTaskSettingsResponse,
 } from "../models/models_1";
-import { DeleteColumnStatisticsTaskSettings } from "../schemas/schemas_0";
+import { DeleteColumnStatisticsTaskSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class DeleteColumnStatisticsTaskSettingsCommand extends $Command
   })
   .s("AWSGlue", "DeleteColumnStatisticsTaskSettings", {})
   .n("GlueClient", "DeleteColumnStatisticsTaskSettingsCommand")
-  .sc(DeleteColumnStatisticsTaskSettings)
+  .sc(DeleteColumnStatisticsTaskSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

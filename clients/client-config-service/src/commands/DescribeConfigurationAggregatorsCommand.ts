@@ -9,7 +9,7 @@ import type {
   DescribeConfigurationAggregatorsRequest,
   DescribeConfigurationAggregatorsResponse,
 } from "../models/models_0";
-import { DescribeConfigurationAggregators } from "../schemas/schemas_0";
+import { DescribeConfigurationAggregators$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -141,7 +141,7 @@ export class DescribeConfigurationAggregatorsCommand extends $Command
   })
   .s("StarlingDoveService", "DescribeConfigurationAggregators", {})
   .n("ConfigServiceClient", "DescribeConfigurationAggregatorsCommand")
-  .sc(DescribeConfigurationAggregators)
+  .sc(DescribeConfigurationAggregators$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

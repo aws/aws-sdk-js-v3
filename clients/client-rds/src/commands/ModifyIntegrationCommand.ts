@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { Integration } from "../models/models_0";
 import type { ModifyIntegrationMessage } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { ModifyIntegration } from "../schemas/schemas_0";
+import { ModifyIntegration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -135,7 +135,7 @@ export class ModifyIntegrationCommand extends $Command
   })
   .s("AmazonRDSv19", "ModifyIntegration", {})
   .n("RDSClient", "ModifyIntegrationCommand")
-  .sc(ModifyIntegration)
+  .sc(ModifyIntegration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListTagsForResourceRequest, ListTagsForResourceResult } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { ListTagsForResource } from "../schemas/schemas_0";
+import { ListTagsForResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -135,7 +135,7 @@ export class ListTagsForResourceCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "ListTagsForResource", {})
   .n("S3ControlClient", "ListTagsForResourceCommand")
-  .sc(ListTagsForResource)
+  .sc(ListTagsForResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

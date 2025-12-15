@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../EntityResolutionClient";
 import type { ListIdMappingJobsInput, ListIdMappingJobsOutput } from "../models/models_0";
-import { ListIdMappingJobs } from "../schemas/schemas_0";
+import { ListIdMappingJobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class ListIdMappingJobsCommand extends $Command
   })
   .s("AWSVeniceService", "ListIdMappingJobs", {})
   .n("EntityResolutionClient", "ListIdMappingJobsCommand")
-  .sc(ListIdMappingJobs)
+  .sc(ListIdMappingJobs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

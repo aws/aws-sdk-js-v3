@@ -10,7 +10,7 @@ import type {
 } from "../ChimeSDKMessagingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutChannelExpirationSettingsRequest, PutChannelExpirationSettingsResponse } from "../models/models_0";
-import { PutChannelExpirationSettings } from "../schemas/schemas_0";
+import { PutChannelExpirationSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,7 +127,7 @@ export class PutChannelExpirationSettingsCommand extends $Command
   })
   .s("ChimeMessagingService", "PutChannelExpirationSettings", {})
   .n("ChimeSDKMessagingClient", "PutChannelExpirationSettingsCommand")
-  .sc(PutChannelExpirationSettings)
+  .sc(PutChannelExpirationSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

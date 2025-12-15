@@ -9,7 +9,7 @@ import type {
   DescribeImageGenerationConfigurationInput,
   DescribeImageGenerationConfigurationOutput,
 } from "../models/models_0";
-import { DescribeImageGenerationConfiguration } from "../schemas/schemas_0";
+import { DescribeImageGenerationConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class DescribeImageGenerationConfigurationCommand extends $Command
   })
   .s("KinesisVideo_20170930", "DescribeImageGenerationConfiguration", {})
   .n("KinesisVideoClient", "DescribeImageGenerationConfigurationCommand")
-  .sc(DescribeImageGenerationConfiguration)
+  .sc(DescribeImageGenerationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

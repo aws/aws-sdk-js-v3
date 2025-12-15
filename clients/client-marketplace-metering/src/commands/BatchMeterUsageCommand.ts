@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MarketplaceMeteringClient";
 import type { BatchMeterUsageRequest, BatchMeterUsageResult } from "../models/models_0";
-import { BatchMeterUsage } from "../schemas/schemas_0";
+import { BatchMeterUsage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -207,7 +207,7 @@ export class BatchMeterUsageCommand extends $Command
   })
   .s("AWSMPMeteringService", "BatchMeterUsage", {})
   .n("MarketplaceMeteringClient", "BatchMeterUsageCommand")
-  .sc(BatchMeterUsage)
+  .sc(BatchMeterUsage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

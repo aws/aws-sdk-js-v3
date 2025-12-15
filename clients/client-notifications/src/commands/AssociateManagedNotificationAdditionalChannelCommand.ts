@@ -9,7 +9,7 @@ import type {
   AssociateManagedNotificationAdditionalChannelResponse,
 } from "../models/models_0";
 import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { AssociateManagedNotificationAdditionalChannel } from "../schemas/schemas_0";
+import { AssociateManagedNotificationAdditionalChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class AssociateManagedNotificationAdditionalChannelCommand extends $Comma
   })
   .s("Notifications", "AssociateManagedNotificationAdditionalChannel", {})
   .n("NotificationsClient", "AssociateManagedNotificationAdditionalChannelCommand")
-  .sc(AssociateManagedNotificationAdditionalChannel)
+  .sc(AssociateManagedNotificationAdditionalChannel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

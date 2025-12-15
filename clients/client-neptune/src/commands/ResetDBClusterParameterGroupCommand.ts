@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DBClusterParameterGroupNameMessage, ResetDBClusterParameterGroupMessage } from "../models/models_0";
 import type { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { ResetDBClusterParameterGroup } from "../schemas/schemas_0";
+import { ResetDBClusterParameterGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class ResetDBClusterParameterGroupCommand extends $Command
   })
   .s("AmazonRDSv19", "ResetDBClusterParameterGroup", {})
   .n("NeptuneClient", "ResetDBClusterParameterGroupCommand")
-  .sc(ResetDBClusterParameterGroup)
+  .sc(ResetDBClusterParameterGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

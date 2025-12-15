@@ -8,7 +8,7 @@ import type {
   PutApplicationSessionConfigurationRequest,
   PutApplicationSessionConfigurationResponse,
 } from "../models/models_0";
-import { PutApplicationSessionConfiguration } from "../schemas/schemas_0";
+import { PutApplicationSessionConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -95,7 +95,7 @@ export class PutApplicationSessionConfigurationCommand extends $Command
   })
   .s("SWBExternalService", "PutApplicationSessionConfiguration", {})
   .n("SSOAdminClient", "PutApplicationSessionConfigurationCommand")
-  .sc(PutApplicationSessionConfiguration)
+  .sc(PutApplicationSessionConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

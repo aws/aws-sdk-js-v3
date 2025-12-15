@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { GetInstanceStateRequest, GetInstanceStateResult } from "../models/models_0";
-import { GetInstanceState } from "../schemas/schemas_0";
+import { GetInstanceState$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class GetInstanceStateCommand extends $Command
   })
   .s("Lightsail_20161128", "GetInstanceState", {})
   .n("LightsailClient", "GetInstanceStateCommand")
-  .sc(GetInstanceState)
+  .sc(GetInstanceState$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

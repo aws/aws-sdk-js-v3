@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53GlobalResolverClient";
-import { UpdateDNSView } from "../schemas/schemas_0";
+import { UpdateDNSView$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class UpdateDNSViewCommand extends $Command
   })
   .s("EC2DNSGlobalResolverCustomerAPI", "UpdateDNSView", {})
   .n("Route53GlobalResolverClient", "UpdateDNSViewCommand")
-  .sc(UpdateDNSView)
+  .sc(UpdateDNSView$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

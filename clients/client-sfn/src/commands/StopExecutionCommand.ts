@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopExecutionInput, StopExecutionOutput } from "../models/models_0";
-import { StopExecution } from "../schemas/schemas_0";
+import { StopExecution$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -96,7 +96,7 @@ export class StopExecutionCommand extends $Command
   })
   .s("AWSStepFunctions", "StopExecution", {})
   .n("SFNClient", "StopExecutionCommand")
-  .sc(StopExecution)
+  .sc(StopExecution$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

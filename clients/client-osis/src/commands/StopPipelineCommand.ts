@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopPipelineRequest, StopPipelineResponse } from "../models/models_0";
 import type { OSISClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OSISClient";
-import { StopPipeline } from "../schemas/schemas_0";
+import { StopPipeline$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -159,7 +159,7 @@ export class StopPipelineCommand extends $Command
   })
   .s("AmazonOpenSearchIngestionService", "StopPipeline", {})
   .n("OSISClient", "StopPipelineCommand")
-  .sc(StopPipeline)
+  .sc(StopPipeline$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

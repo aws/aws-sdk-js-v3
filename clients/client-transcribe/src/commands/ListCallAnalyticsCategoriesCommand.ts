@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListCallAnalyticsCategoriesRequest, ListCallAnalyticsCategoriesResponse } from "../models/models_0";
-import { ListCallAnalyticsCategories } from "../schemas/schemas_0";
+import { ListCallAnalyticsCategories$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
@@ -182,7 +182,7 @@ export class ListCallAnalyticsCategoriesCommand extends $Command
   })
   .s("Transcribe", "ListCallAnalyticsCategories", {})
   .n("TranscribeClient", "ListCallAnalyticsCategoriesCommand")
-  .sc(ListCallAnalyticsCategories)
+  .sc(ListCallAnalyticsCategories$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchIsAuthorizedInput, BatchIsAuthorizedOutput } from "../models/models_0";
-import { BatchIsAuthorized } from "../schemas/schemas_0";
+import { BatchIsAuthorized$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -418,7 +418,7 @@ export class BatchIsAuthorizedCommand extends $Command
   })
   .s("VerifiedPermissions", "BatchIsAuthorized", {})
   .n("VerifiedPermissionsClient", "BatchIsAuthorizedCommand")
-  .sc(BatchIsAuthorized)
+  .sc(BatchIsAuthorized$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

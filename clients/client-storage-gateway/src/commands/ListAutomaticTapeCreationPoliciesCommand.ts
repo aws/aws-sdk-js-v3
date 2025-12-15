@@ -8,7 +8,7 @@ import type {
   ListAutomaticTapeCreationPoliciesInput,
   ListAutomaticTapeCreationPoliciesOutput,
 } from "../models/models_0";
-import { ListAutomaticTapeCreationPolicies } from "../schemas/schemas_0";
+import { ListAutomaticTapeCreationPolicies$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -105,7 +105,7 @@ export class ListAutomaticTapeCreationPoliciesCommand extends $Command
   })
   .s("StorageGateway_20130630", "ListAutomaticTapeCreationPolicies", {})
   .n("StorageGatewayClient", "ListAutomaticTapeCreationPoliciesCommand")
-  .sc(ListAutomaticTapeCreationPolicies)
+  .sc(ListAutomaticTapeCreationPolicies$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

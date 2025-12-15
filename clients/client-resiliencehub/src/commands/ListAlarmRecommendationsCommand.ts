@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAlarmRecommendationsRequest, ListAlarmRecommendationsResponse } from "../models/models_0";
 import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
-import { ListAlarmRecommendations } from "../schemas/schemas_0";
+import { ListAlarmRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class ListAlarmRecommendationsCommand extends $Command
   })
   .s("AwsResilienceHub", "ListAlarmRecommendations", {})
   .n("ResiliencehubClient", "ListAlarmRecommendationsCommand")
-  .sc(ListAlarmRecommendations)
+  .sc(ListAlarmRecommendations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

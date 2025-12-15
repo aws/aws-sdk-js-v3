@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyDataClient";
-import { TranslateKeyMaterial } from "../schemas/schemas_0";
+import { TranslateKeyMaterial$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class TranslateKeyMaterialCommand extends $Command
   })
   .s("PaymentCryptographyDataPlane", "TranslateKeyMaterial", {})
   .n("PaymentCryptographyDataClient", "TranslateKeyMaterialCommand")
-  .sc(TranslateKeyMaterial)
+  .sc(TranslateKeyMaterial$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

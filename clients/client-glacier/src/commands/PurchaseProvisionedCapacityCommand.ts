@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import type { PurchaseProvisionedCapacityInput, PurchaseProvisionedCapacityOutput } from "../models/models_0";
-import { PurchaseProvisionedCapacity } from "../schemas/schemas_0";
+import { PurchaseProvisionedCapacity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class PurchaseProvisionedCapacityCommand extends $Command
   })
   .s("Glacier", "PurchaseProvisionedCapacity", {})
   .n("GlacierClient", "PurchaseProvisionedCapacityCommand")
-  .sc(PurchaseProvisionedCapacity)
+  .sc(PurchaseProvisionedCapacity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

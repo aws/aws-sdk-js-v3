@@ -9,7 +9,7 @@ import type {
   StartMLLabelingSetGenerationTaskRunRequest,
   StartMLLabelingSetGenerationTaskRunResponse,
 } from "../models/models_2";
-import { StartMLLabelingSetGenerationTaskRun } from "../schemas/schemas_0";
+import { StartMLLabelingSetGenerationTaskRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class StartMLLabelingSetGenerationTaskRunCommand extends $Command
   })
   .s("AWSGlue", "StartMLLabelingSetGenerationTaskRun", {})
   .n("GlueClient", "StartMLLabelingSetGenerationTaskRunCommand")
-  .sc(StartMLLabelingSetGenerationTaskRun)
+  .sc(StartMLLabelingSetGenerationTaskRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

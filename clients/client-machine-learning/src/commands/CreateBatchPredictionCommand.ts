@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MachineLearningClient";
 import type { CreateBatchPredictionInput, CreateBatchPredictionOutput } from "../models/models_0";
-import { CreateBatchPrediction } from "../schemas/schemas_0";
+import { CreateBatchPrediction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class CreateBatchPredictionCommand extends $Command
   })
   .s("AmazonML_20141212", "CreateBatchPrediction", {})
   .n("MachineLearningClient", "CreateBatchPredictionCommand")
-  .sc(CreateBatchPrediction)
+  .sc(CreateBatchPrediction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

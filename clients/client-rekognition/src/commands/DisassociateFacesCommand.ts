@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateFacesRequest, DisassociateFacesResponse } from "../models/models_0";
 import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
-import { DisassociateFaces } from "../schemas/schemas_0";
+import { DisassociateFaces$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -162,7 +162,7 @@ export class DisassociateFacesCommand extends $Command
   })
   .s("RekognitionService", "DisassociateFaces", {})
   .n("RekognitionClient", "DisassociateFacesCommand")
-  .sc(DisassociateFaces)
+  .sc(DisassociateFaces$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

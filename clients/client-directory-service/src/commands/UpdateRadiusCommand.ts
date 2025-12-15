@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateRadiusRequest, UpdateRadiusResult } from "../models/models_0";
-import { UpdateRadius } from "../schemas/schemas_0";
+import { UpdateRadius$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class UpdateRadiusCommand extends $Command
   })
   .s("DirectoryService_20150416", "UpdateRadius", {})
   .n("DirectoryServiceClient", "UpdateRadiusCommand")
-  .sc(UpdateRadius)
+  .sc(UpdateRadius$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

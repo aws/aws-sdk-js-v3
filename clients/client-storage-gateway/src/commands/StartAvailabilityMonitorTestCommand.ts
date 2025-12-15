@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartAvailabilityMonitorTestInput, StartAvailabilityMonitorTestOutput } from "../models/models_0";
-import { StartAvailabilityMonitorTest } from "../schemas/schemas_0";
+import { StartAvailabilityMonitorTest$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -94,7 +94,7 @@ export class StartAvailabilityMonitorTestCommand extends $Command
   })
   .s("StorageGateway_20130630", "StartAvailabilityMonitorTest", {})
   .n("StorageGatewayClient", "StartAvailabilityMonitorTestCommand")
-  .sc(StartAvailabilityMonitorTest)
+  .sc(StartAvailabilityMonitorTest$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -835,31 +835,31 @@ import type {
 } from "@smithy/types";
 
 import {
-  ConflictException as __ConflictException,
-  FleetCapacityExceededException as __FleetCapacityExceededException,
-  GameSessionFullException as __GameSessionFullException,
-  IdempotentParameterMismatchException as __IdempotentParameterMismatchException,
-  InternalServiceException as __InternalServiceException,
-  InvalidFleetStatusException as __InvalidFleetStatusException,
-  InvalidGameSessionStatusException as __InvalidGameSessionStatusException,
-  InvalidRequestException as __InvalidRequestException,
-  LimitExceededException as __LimitExceededException,
-  NotFoundException as __NotFoundException,
-  NotReadyException as __NotReadyException,
-  OutOfCapacityException as __OutOfCapacityException,
-  TaggingFailedException as __TaggingFailedException,
-  TerminalRoutingStrategyException as __TerminalRoutingStrategyException,
-  UnauthorizedException as __UnauthorizedException,
-  UnsupportedRegionException as __UnsupportedRegionException,
+  ConflictException,
+  FleetCapacityExceededException,
+  GameSessionFullException,
+  IdempotentParameterMismatchException,
+  InternalServiceException,
+  InvalidFleetStatusException,
+  InvalidGameSessionStatusException,
+  InvalidRequestException,
+  LimitExceededException,
+  NotFoundException,
+  NotReadyException,
+  OutOfCapacityException,
+  TaggingFailedException,
+  TerminalRoutingStrategyException,
+  UnauthorizedException,
+  UnsupportedRegionException,
 } from "../models/errors";
-import { GameLiftServiceException as __GameLiftServiceException } from "../models/GameLiftServiceException";
+import { GameLiftServiceException } from "../models/GameLiftServiceException";
 
 /* eslint no-var: 0 */
-export var IpAddress: StaticSimpleSchema = [0, n0, _IA, 8, 0];
-export var IpRange: StaticSimpleSchema = [0, n0, _IR, 8, 0];
-export var PlayerId: StaticSimpleSchema = [0, n0, _PI, 8, 0];
-export var PortNumber: StaticSimpleSchema = [0, n0, _PN, 8, 1];
-export var AcceptMatchInput: StaticStructureSchema = [
+var IpAddress: StaticSimpleSchema = [0, n0, _IA, 8, 0];
+var IpRange: StaticSimpleSchema = [0, n0, _IR, 8, 0];
+var PlayerId: StaticSimpleSchema = [0, n0, _PI, 8, 0];
+var PortNumber: StaticSimpleSchema = [0, n0, _PN, 8, 1];
+export var AcceptMatchInput$: StaticStructureSchema = [
   3,
   n0,
   _AMI,
@@ -867,19 +867,19 @@ export var AcceptMatchInput: StaticStructureSchema = [
   [_TI, _PIl, _AT],
   [0, [() => PlayerIdsForAcceptMatch, 0], 0],
 ];
-export var AcceptMatchOutput: StaticStructureSchema = [3, n0, _AMO, 0, [], []];
-export var Alias: StaticStructureSchema = [
+export var AcceptMatchOutput$: StaticStructureSchema = [3, n0, _AMO, 0, [], []];
+export var Alias$: StaticStructureSchema = [
   3,
   n0,
   _A,
   0,
   [_AI, _N, _AA, _D, _RS, _CT, _LUT],
-  [0, 0, 0, 0, () => RoutingStrategy, 4, 4],
+  [0, 0, 0, 0, () => RoutingStrategy$, 4, 4],
 ];
-export var AnywhereConfiguration: StaticStructureSchema = [3, n0, _AC, 0, [_C], [0]];
-export var AttributeValue: StaticStructureSchema = [3, n0, _AV, 0, [_S, _N_, _SL, _SDM], [0, 1, 64 | 0, 128 | 1]];
-export var AwsCredentials: StaticStructureSchema = [3, n0, _ACw, 8, [_AKI, _SAK, _ST], [0, 0, 0]];
-export var Build: StaticStructureSchema = [
+export var AnywhereConfiguration$: StaticStructureSchema = [3, n0, _AC, 0, [_C], [0]];
+export var AttributeValue$: StaticStructureSchema = [3, n0, _AV, 0, [_S, _N_, _SL, _SDM], [0, 1, 64 | 0, 128 | 1]];
+export var AwsCredentials$: StaticStructureSchema = [3, n0, _ACw, 8, [_AKI, _SAK, _ST], [0, 0, 0]];
+export var Build$: StaticStructureSchema = [
   3,
   n0,
   _B,
@@ -887,18 +887,18 @@ export var Build: StaticStructureSchema = [
   [_BI, _BA, _N, _V, _St, _SOD, _OS, _CT, _SSV],
   [0, 0, 0, 0, 0, 1, 0, 4, 0],
 ];
-export var CertificateConfiguration: StaticStructureSchema = [3, n0, _CC, 0, [_CTe], [0]];
-export var ClaimFilterOption: StaticStructureSchema = [3, n0, _CFO, 0, [_IS], [64 | 0]];
-export var ClaimGameServerInput: StaticStructureSchema = [
+export var CertificateConfiguration$: StaticStructureSchema = [3, n0, _CC, 0, [_CTe], [0]];
+export var ClaimFilterOption$: StaticStructureSchema = [3, n0, _CFO, 0, [_IS], [64 | 0]];
+export var ClaimGameServerInput$: StaticStructureSchema = [
   3,
   n0,
   _CGSI,
   0,
   [_GSGN, _GSI, _GSD, _FO],
-  [0, 0, 0, () => ClaimFilterOption],
+  [0, 0, 0, () => ClaimFilterOption$],
 ];
-export var ClaimGameServerOutput: StaticStructureSchema = [3, n0, _CGSO, 0, [_GS], [() => GameServer]];
-export var Compute: StaticStructureSchema = [
+export var ClaimGameServerOutput$: StaticStructureSchema = [3, n0, _CGSO, 0, [_GS], [() => GameServer$]];
+export var Compute$: StaticStructureSchema = [
   3,
   n0,
   _Co,
@@ -906,9 +906,9 @@ export var Compute: StaticStructureSchema = [
   [_FI, _FA, _CN, _CA, _IA, _DN, _CS, _L, _CT, _OS, _T, _GLSSE, _GLAE, _II, _CAo, _GSCGDA],
   [0, 0, 0, 0, [() => IpAddress, 0], 0, 0, 0, 4, 0, 0, 0, 0, 0, () => ContainerAttributes, 0],
 ];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var ConnectionPortRange: StaticStructureSchema = [
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var ConnectionPortRange$: StaticStructureSchema = [
   3,
   n0,
   _CPR,
@@ -919,10 +919,10 @@ export var ConnectionPortRange: StaticStructureSchema = [
     [() => PortNumber, 0],
   ],
 ];
-export var ContainerAttribute: StaticStructureSchema = [3, n0, _CAon, 0, [_CNo, _CRI], [0, 0]];
-export var ContainerDependency: StaticStructureSchema = [3, n0, _CD, 0, [_CNo, _Con], [0, 0]];
-export var ContainerEnvironment: StaticStructureSchema = [3, n0, _CEo, 0, [_N, _Va], [0, 0]];
-export var ContainerFleet: StaticStructureSchema = [
+export var ContainerAttribute$: StaticStructureSchema = [3, n0, _CAon, 0, [_CNo, _CRI], [0, 0]];
+export var ContainerDependency$: StaticStructureSchema = [3, n0, _CD, 0, [_CNo, _Con], [0, 0]];
+export var ContainerEnvironment$: StaticStructureSchema = [3, n0, _CEo, 0, [_N, _Va], [0, 0]];
+export var ContainerFleet$: StaticStructureSchema = [
   3,
   n0,
   _CF,
@@ -959,7 +959,7 @@ export var ContainerFleet: StaticStructureSchema = [
     0,
     0,
     0,
-    [() => ConnectionPortRange, 0],
+    [() => ConnectionPortRange$, 0],
     [() => IpPermissionsList, 0],
     1,
     1,
@@ -969,15 +969,15 @@ export var ContainerFleet: StaticStructureSchema = [
     4,
     64 | 0,
     0,
-    () => GameSessionCreationLimitPolicy,
+    () => GameSessionCreationLimitPolicy$,
     0,
-    () => DeploymentDetails,
-    () => LogConfiguration,
+    () => DeploymentDetails$,
+    () => LogConfiguration$,
     () => ContainerFleetLocationAttributesList,
   ],
 ];
-export var ContainerFleetLocationAttributes: StaticStructureSchema = [3, n0, _CFLA, 0, [_L, _St], [0, 0]];
-export var ContainerGroupDefinition: StaticStructureSchema = [
+export var ContainerFleetLocationAttributes$: StaticStructureSchema = [3, n0, _CFLA, 0, [_L, _St], [0, 0]];
+export var ContainerGroupDefinition$: StaticStructureSchema = [
   3,
   n0,
   _CGD,
@@ -991,7 +991,7 @@ export var ContainerGroupDefinition: StaticStructureSchema = [
     0,
     1,
     1,
-    [() => GameServerContainerDefinition, 0],
+    [() => GameServerContainerDefinition$, 0],
     [() => SupportContainerDefinitionList, 0],
     1,
     0,
@@ -999,7 +999,7 @@ export var ContainerGroupDefinition: StaticStructureSchema = [
     0,
   ],
 ];
-export var ContainerHealthCheck: StaticStructureSchema = [
+export var ContainerHealthCheck$: StaticStructureSchema = [
   3,
   n0,
   _CHC,
@@ -1007,9 +1007,9 @@ export var ContainerHealthCheck: StaticStructureSchema = [
   [_Com, _I, _R, _SP, _Ti],
   [64 | 0, 1, 1, 1, 1],
 ];
-export var ContainerIdentifier: StaticStructureSchema = [3, n0, _CI, 0, [_CNo, _CRI], [0, 0]];
-export var ContainerMountPoint: StaticStructureSchema = [3, n0, _CMP, 0, [_IP, _CP, _AL], [0, 0, 0]];
-export var ContainerPortConfiguration: StaticStructureSchema = [
+export var ContainerIdentifier$: StaticStructureSchema = [3, n0, _CI, 0, [_CNo, _CRI], [0, 0]];
+export var ContainerMountPoint$: StaticStructureSchema = [3, n0, _CMP, 0, [_IP, _CP, _AL], [0, 0, 0]];
+export var ContainerPortConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _CPC,
@@ -1017,7 +1017,7 @@ export var ContainerPortConfiguration: StaticStructureSchema = [
   [_CPRo],
   [[() => ContainerPortRangeList, 0]],
 ];
-export var ContainerPortRange: StaticStructureSchema = [
+export var ContainerPortRange$: StaticStructureSchema = [
   3,
   n0,
   _CPRon,
@@ -1025,32 +1025,32 @@ export var ContainerPortRange: StaticStructureSchema = [
   [_FP, _TP, _P],
   [[() => PortNumber, 0], [() => PortNumber, 0], 0],
 ];
-export var CreateAliasInput: StaticStructureSchema = [
+export var CreateAliasInput$: StaticStructureSchema = [
   3,
   n0,
   _CAI,
   0,
   [_N, _D, _RS, _Ta],
-  [0, 0, () => RoutingStrategy, () => TagList],
+  [0, 0, () => RoutingStrategy$, () => TagList],
 ];
-export var CreateAliasOutput: StaticStructureSchema = [3, n0, _CAO, 0, [_A], [() => Alias]];
-export var CreateBuildInput: StaticStructureSchema = [
+export var CreateAliasOutput$: StaticStructureSchema = [3, n0, _CAO, 0, [_A], [() => Alias$]];
+export var CreateBuildInput$: StaticStructureSchema = [
   3,
   n0,
   _CBI,
   0,
   [_N, _V, _SLt, _OS, _Ta, _SSV],
-  [0, 0, () => S3Location, 0, () => TagList, 0],
+  [0, 0, () => S3Location$, 0, () => TagList, 0],
 ];
-export var CreateBuildOutput: StaticStructureSchema = [
+export var CreateBuildOutput$: StaticStructureSchema = [
   3,
   n0,
   _CBO,
   0,
   [_B, _UC, _SLt],
-  [() => Build, [() => AwsCredentials, 0], () => S3Location],
+  [() => Build$, [() => AwsCredentials$, 0], () => S3Location$],
 ];
-export var CreateContainerFleetInput: StaticStructureSchema = [
+export var CreateContainerFleetInput$: StaticStructureSchema = [
   3,
   n0,
   _CCFI,
@@ -1061,7 +1061,7 @@ export var CreateContainerFleetInput: StaticStructureSchema = [
     0,
     0,
     0,
-    [() => ConnectionPortRange, 0],
+    [() => ConnectionPortRange$, 0],
     [() => IpPermissionsList, 0],
     1,
     0,
@@ -1069,13 +1069,13 @@ export var CreateContainerFleetInput: StaticStructureSchema = [
     () => LocationConfigurationList,
     64 | 0,
     0,
-    () => GameSessionCreationLimitPolicy,
-    () => LogConfiguration,
+    () => GameSessionCreationLimitPolicy$,
+    () => LogConfiguration$,
     () => TagList,
   ],
 ];
-export var CreateContainerFleetOutput: StaticStructureSchema = [3, n0, _CCFO, 0, [_CF], [[() => ContainerFleet, 0]]];
-export var CreateContainerGroupDefinitionInput: StaticStructureSchema = [
+export var CreateContainerFleetOutput$: StaticStructureSchema = [3, n0, _CCFO, 0, [_CF], [[() => ContainerFleet$, 0]]];
+export var CreateContainerGroupDefinitionInput$: StaticStructureSchema = [
   3,
   n0,
   _CCGDI,
@@ -1086,22 +1086,22 @@ export var CreateContainerGroupDefinitionInput: StaticStructureSchema = [
     0,
     1,
     1,
-    [() => GameServerContainerDefinitionInput, 0],
+    [() => GameServerContainerDefinitionInput$, 0],
     [() => SupportContainerDefinitionInputList, 0],
     0,
     0,
     () => TagList,
   ],
 ];
-export var CreateContainerGroupDefinitionOutput: StaticStructureSchema = [
+export var CreateContainerGroupDefinitionOutput$: StaticStructureSchema = [
   3,
   n0,
   _CCGDO,
   0,
   [_CGD],
-  [[() => ContainerGroupDefinition, 0]],
+  [[() => ContainerGroupDefinition$, 0]],
 ];
-export var CreateFleetInput: StaticStructureSchema = [
+export var CreateFleetInput$: StaticStructureSchema = [
   3,
   n0,
   _CFI,
@@ -1142,22 +1142,22 @@ export var CreateFleetInput: StaticStructureSchema = [
     0,
     [() => IpPermissionsList, 0],
     0,
-    () => RuntimeConfiguration,
-    () => ResourceCreationLimitPolicy,
+    () => RuntimeConfiguration$,
+    () => ResourceCreationLimitPolicy$,
     64 | 0,
     0,
     0,
     0,
     0,
-    () => CertificateConfiguration,
+    () => CertificateConfiguration$,
     () => LocationConfigurationList,
     () => TagList,
     0,
-    () => AnywhereConfiguration,
+    () => AnywhereConfiguration$,
     0,
   ],
 ];
-export var CreateFleetLocationsInput: StaticStructureSchema = [
+export var CreateFleetLocationsInput$: StaticStructureSchema = [
   3,
   n0,
   _CFLI,
@@ -1165,7 +1165,7 @@ export var CreateFleetLocationsInput: StaticStructureSchema = [
   [_FI, _Lo],
   [0, () => LocationConfigurationList],
 ];
-export var CreateFleetLocationsOutput: StaticStructureSchema = [
+export var CreateFleetLocationsOutput$: StaticStructureSchema = [
   3,
   n0,
   _CFLO,
@@ -1173,15 +1173,15 @@ export var CreateFleetLocationsOutput: StaticStructureSchema = [
   [_FI, _FA, _LS],
   [0, 0, () => LocationStateList],
 ];
-export var CreateFleetOutput: StaticStructureSchema = [
+export var CreateFleetOutput$: StaticStructureSchema = [
   3,
   n0,
   _CFOr,
   0,
   [_FAl, _LS],
-  [() => FleetAttributes, () => LocationStateList],
+  [() => FleetAttributes$, () => LocationStateList],
 ];
-export var CreateGameServerGroupInput: StaticStructureSchema = [
+export var CreateGameServerGroupInput$: StaticStructureSchema = [
   3,
   n0,
   _CGSGI,
@@ -1192,17 +1192,17 @@ export var CreateGameServerGroupInput: StaticStructureSchema = [
     0,
     1,
     1,
-    () => LaunchTemplateSpecification,
+    () => LaunchTemplateSpecification$,
     () => InstanceDefinitions,
-    () => GameServerGroupAutoScalingPolicy,
+    () => GameServerGroupAutoScalingPolicy$,
     0,
     0,
     64 | 0,
     () => TagList,
   ],
 ];
-export var CreateGameServerGroupOutput: StaticStructureSchema = [3, n0, _CGSGO, 0, [_GSG], [() => GameServerGroup]];
-export var CreateGameSessionInput: StaticStructureSchema = [
+export var CreateGameServerGroupOutput$: StaticStructureSchema = [3, n0, _CGSGO, 0, [_GSG], [() => GameServerGroup$]];
+export var CreateGameSessionInput$: StaticStructureSchema = [
   3,
   n0,
   _CGSIr,
@@ -1210,8 +1210,8 @@ export var CreateGameSessionInput: StaticStructureSchema = [
   [_FI, _AI, _MPSC, _N, _GP, _CIr, _GSIa, _ITd, _GSDa, _L],
   [0, 0, 1, 0, () => GamePropertyList, 0, 0, 0, 0, 0],
 ];
-export var CreateGameSessionOutput: StaticStructureSchema = [3, n0, _CGSOr, 0, [_GSa], [[() => GameSession, 0]]];
-export var CreateGameSessionQueueInput: StaticStructureSchema = [
+export var CreateGameSessionOutput$: StaticStructureSchema = [3, n0, _CGSOr, 0, [_GSa], [[() => GameSession$, 0]]];
+export var CreateGameSessionQueueInput$: StaticStructureSchema = [
   3,
   n0,
   _CGSQI,
@@ -1222,17 +1222,17 @@ export var CreateGameSessionQueueInput: StaticStructureSchema = [
     1,
     () => PlayerLatencyPolicyList,
     () => GameSessionQueueDestinationList,
-    () => FilterConfiguration,
-    () => PriorityConfiguration,
+    () => FilterConfiguration$,
+    () => PriorityConfiguration$,
     0,
     0,
     () => TagList,
   ],
 ];
-export var CreateGameSessionQueueOutput: StaticStructureSchema = [3, n0, _CGSQO, 0, [_GSQ], [() => GameSessionQueue]];
-export var CreateLocationInput: StaticStructureSchema = [3, n0, _CLI, 0, [_LN, _Ta], [0, () => TagList]];
-export var CreateLocationOutput: StaticStructureSchema = [3, n0, _CLO, 0, [_L], [() => LocationModel]];
-export var CreateMatchmakingConfigurationInput: StaticStructureSchema = [
+export var CreateGameSessionQueueOutput$: StaticStructureSchema = [3, n0, _CGSQO, 0, [_GSQ], [() => GameSessionQueue$]];
+export var CreateLocationInput$: StaticStructureSchema = [3, n0, _CLI, 0, [_LN, _Ta], [0, () => TagList]];
+export var CreateLocationOutput$: StaticStructureSchema = [3, n0, _CLO, 0, [_L], [() => LocationModel$]];
+export var CreateMatchmakingConfigurationInput$: StaticStructureSchema = [
   3,
   n0,
   _CMCI,
@@ -1240,15 +1240,15 @@ export var CreateMatchmakingConfigurationInput: StaticStructureSchema = [
   [_N, _D, _GSQA, _RTS, _ATS, _AR, _RSN, _NT, _APC, _CED, _GP, _GSDa, _BM, _FMM, _Ta],
   [0, 0, 64 | 0, 1, 1, 2, 0, 0, 1, 0, () => GamePropertyList, 0, 0, 0, () => TagList],
 ];
-export var CreateMatchmakingConfigurationOutput: StaticStructureSchema = [
+export var CreateMatchmakingConfigurationOutput$: StaticStructureSchema = [
   3,
   n0,
   _CMCO,
   0,
   [_Conf],
-  [() => MatchmakingConfiguration],
+  [() => MatchmakingConfiguration$],
 ];
-export var CreateMatchmakingRuleSetInput: StaticStructureSchema = [
+export var CreateMatchmakingRuleSetInput$: StaticStructureSchema = [
   3,
   n0,
   _CMRSI,
@@ -1256,15 +1256,15 @@ export var CreateMatchmakingRuleSetInput: StaticStructureSchema = [
   [_N, _RSB, _Ta],
   [0, 0, () => TagList],
 ];
-export var CreateMatchmakingRuleSetOutput: StaticStructureSchema = [
+export var CreateMatchmakingRuleSetOutput$: StaticStructureSchema = [
   3,
   n0,
   _CMRSO,
   0,
   [_RSu],
-  [() => MatchmakingRuleSet],
+  [() => MatchmakingRuleSet$],
 ];
-export var CreatePlayerSessionInput: StaticStructureSchema = [
+export var CreatePlayerSessionInput$: StaticStructureSchema = [
   3,
   n0,
   _CPSI,
@@ -1272,8 +1272,8 @@ export var CreatePlayerSessionInput: StaticStructureSchema = [
   [_GSIa, _PI, _PD],
   [0, [() => PlayerId, 0], 0],
 ];
-export var CreatePlayerSessionOutput: StaticStructureSchema = [3, n0, _CPSO, 0, [_PS], [[() => PlayerSession, 0]]];
-export var CreatePlayerSessionsInput: StaticStructureSchema = [
+export var CreatePlayerSessionOutput$: StaticStructureSchema = [3, n0, _CPSO, 0, [_PS], [[() => PlayerSession$, 0]]];
+export var CreatePlayerSessionsInput$: StaticStructureSchema = [
   3,
   n0,
   _CPSIr,
@@ -1281,7 +1281,7 @@ export var CreatePlayerSessionsInput: StaticStructureSchema = [
   [_GSIa, _PIl, _PDM],
   [0, [() => PlayerIdList, 0], 128 | 0],
 ];
-export var CreatePlayerSessionsOutput: StaticStructureSchema = [
+export var CreatePlayerSessionsOutput$: StaticStructureSchema = [
   3,
   n0,
   _CPSOr,
@@ -1289,35 +1289,42 @@ export var CreatePlayerSessionsOutput: StaticStructureSchema = [
   [_PSl],
   [[() => PlayerSessionList, 0]],
 ];
-export var CreateScriptInput: StaticStructureSchema = [
+export var CreateScriptInput$: StaticStructureSchema = [
   3,
   n0,
   _CSI,
   0,
   [_N, _V, _SLt, _ZF, _Ta],
-  [0, 0, () => S3Location, 21, () => TagList],
+  [0, 0, () => S3Location$, 21, () => TagList],
 ];
-export var CreateScriptOutput: StaticStructureSchema = [3, n0, _CSO, 0, [_Sc], [() => Script]];
-export var CreateVpcPeeringAuthorizationInput: StaticStructureSchema = [3, n0, _CVPAI, 0, [_GLAAI, _PVI], [0, 0]];
-export var CreateVpcPeeringAuthorizationOutput: StaticStructureSchema = [
+export var CreateScriptOutput$: StaticStructureSchema = [3, n0, _CSO, 0, [_Sc], [() => Script$]];
+export var CreateVpcPeeringAuthorizationInput$: StaticStructureSchema = [3, n0, _CVPAI, 0, [_GLAAI, _PVI], [0, 0]];
+export var CreateVpcPeeringAuthorizationOutput$: StaticStructureSchema = [
   3,
   n0,
   _CVPAO,
   0,
   [_VPA],
-  [() => VpcPeeringAuthorization],
+  [() => VpcPeeringAuthorization$],
 ];
-export var CreateVpcPeeringConnectionInput: StaticStructureSchema = [3, n0, _CVPCI, 0, [_FI, _PVAAI, _PVI], [0, 0, 0]];
-export var CreateVpcPeeringConnectionOutput: StaticStructureSchema = [3, n0, _CVPCO, 0, [], []];
-export var DeleteAliasInput: StaticStructureSchema = [3, n0, _DAI, 0, [_AI], [0]];
-export var DeleteBuildInput: StaticStructureSchema = [3, n0, _DBI, 0, [_BI], [0]];
-export var DeleteContainerFleetInput: StaticStructureSchema = [3, n0, _DCFI, 0, [_FI], [0]];
-export var DeleteContainerFleetOutput: StaticStructureSchema = [3, n0, _DCFO, 0, [], []];
-export var DeleteContainerGroupDefinitionInput: StaticStructureSchema = [3, n0, _DCGDI, 0, [_N, _VN, _VCTR], [0, 1, 1]];
-export var DeleteContainerGroupDefinitionOutput: StaticStructureSchema = [3, n0, _DCGDO, 0, [], []];
-export var DeleteFleetInput: StaticStructureSchema = [3, n0, _DFI, 0, [_FI], [0]];
-export var DeleteFleetLocationsInput: StaticStructureSchema = [3, n0, _DFLI, 0, [_FI, _Lo], [0, 64 | 0]];
-export var DeleteFleetLocationsOutput: StaticStructureSchema = [
+export var CreateVpcPeeringConnectionInput$: StaticStructureSchema = [3, n0, _CVPCI, 0, [_FI, _PVAAI, _PVI], [0, 0, 0]];
+export var CreateVpcPeeringConnectionOutput$: StaticStructureSchema = [3, n0, _CVPCO, 0, [], []];
+export var DeleteAliasInput$: StaticStructureSchema = [3, n0, _DAI, 0, [_AI], [0]];
+export var DeleteBuildInput$: StaticStructureSchema = [3, n0, _DBI, 0, [_BI], [0]];
+export var DeleteContainerFleetInput$: StaticStructureSchema = [3, n0, _DCFI, 0, [_FI], [0]];
+export var DeleteContainerFleetOutput$: StaticStructureSchema = [3, n0, _DCFO, 0, [], []];
+export var DeleteContainerGroupDefinitionInput$: StaticStructureSchema = [
+  3,
+  n0,
+  _DCGDI,
+  0,
+  [_N, _VN, _VCTR],
+  [0, 1, 1],
+];
+export var DeleteContainerGroupDefinitionOutput$: StaticStructureSchema = [3, n0, _DCGDO, 0, [], []];
+export var DeleteFleetInput$: StaticStructureSchema = [3, n0, _DFI, 0, [_FI], [0]];
+export var DeleteFleetLocationsInput$: StaticStructureSchema = [3, n0, _DFLI, 0, [_FI, _Lo], [0, 64 | 0]];
+export var DeleteFleetLocationsOutput$: StaticStructureSchema = [
   3,
   n0,
   _DFLO,
@@ -1325,46 +1332,53 @@ export var DeleteFleetLocationsOutput: StaticStructureSchema = [
   [_FI, _FA, _LS],
   [0, 0, () => LocationStateList],
 ];
-export var DeleteGameServerGroupInput: StaticStructureSchema = [3, n0, _DGSGI, 0, [_GSGN, _DO], [0, 0]];
-export var DeleteGameServerGroupOutput: StaticStructureSchema = [3, n0, _DGSGO, 0, [_GSG], [() => GameServerGroup]];
-export var DeleteGameSessionQueueInput: StaticStructureSchema = [3, n0, _DGSQI, 0, [_N], [0]];
-export var DeleteGameSessionQueueOutput: StaticStructureSchema = [3, n0, _DGSQO, 0, [], []];
-export var DeleteLocationInput: StaticStructureSchema = [3, n0, _DLI, 0, [_LN], [0]];
-export var DeleteLocationOutput: StaticStructureSchema = [3, n0, _DLO, 0, [], []];
-export var DeleteMatchmakingConfigurationInput: StaticStructureSchema = [3, n0, _DMCI, 0, [_N], [0]];
-export var DeleteMatchmakingConfigurationOutput: StaticStructureSchema = [3, n0, _DMCO, 0, [], []];
-export var DeleteMatchmakingRuleSetInput: StaticStructureSchema = [3, n0, _DMRSI, 0, [_N], [0]];
-export var DeleteMatchmakingRuleSetOutput: StaticStructureSchema = [3, n0, _DMRSO, 0, [], []];
-export var DeleteScalingPolicyInput: StaticStructureSchema = [3, n0, _DSPI, 0, [_N, _FI], [0, 0]];
-export var DeleteScriptInput: StaticStructureSchema = [3, n0, _DSI, 0, [_SI], [0]];
-export var DeleteVpcPeeringAuthorizationInput: StaticStructureSchema = [3, n0, _DVPAI, 0, [_GLAAI, _PVI], [0, 0]];
-export var DeleteVpcPeeringAuthorizationOutput: StaticStructureSchema = [3, n0, _DVPAO, 0, [], []];
-export var DeleteVpcPeeringConnectionInput: StaticStructureSchema = [3, n0, _DVPCI, 0, [_FI, _VPCI], [0, 0]];
-export var DeleteVpcPeeringConnectionOutput: StaticStructureSchema = [3, n0, _DVPCO, 0, [], []];
-export var DeploymentConfiguration: StaticStructureSchema = [3, n0, _DC, 0, [_PSr, _MHP, _ISm], [0, 1, 0]];
-export var DeploymentDetails: StaticStructureSchema = [3, n0, _DD, 0, [_LDI], [0]];
-export var DeregisterComputeInput: StaticStructureSchema = [3, n0, _DCI, 0, [_FI, _CN], [0, 0]];
-export var DeregisterComputeOutput: StaticStructureSchema = [3, n0, _DCO, 0, [], []];
-export var DeregisterGameServerInput: StaticStructureSchema = [3, n0, _DGSI, 0, [_GSGN, _GSI], [0, 0]];
-export var DescribeAliasInput: StaticStructureSchema = [3, n0, _DAIe, 0, [_AI], [0]];
-export var DescribeAliasOutput: StaticStructureSchema = [3, n0, _DAO, 0, [_A], [() => Alias]];
-export var DescribeBuildInput: StaticStructureSchema = [3, n0, _DBIe, 0, [_BI], [0]];
-export var DescribeBuildOutput: StaticStructureSchema = [3, n0, _DBO, 0, [_B], [() => Build]];
-export var DescribeComputeInput: StaticStructureSchema = [3, n0, _DCIe, 0, [_FI, _CN], [0, 0]];
-export var DescribeComputeOutput: StaticStructureSchema = [3, n0, _DCOe, 0, [_Co], [[() => Compute, 0]]];
-export var DescribeContainerFleetInput: StaticStructureSchema = [3, n0, _DCFIe, 0, [_FI], [0]];
-export var DescribeContainerFleetOutput: StaticStructureSchema = [3, n0, _DCFOe, 0, [_CF], [[() => ContainerFleet, 0]]];
-export var DescribeContainerGroupDefinitionInput: StaticStructureSchema = [3, n0, _DCGDIe, 0, [_N, _VN], [0, 1]];
-export var DescribeContainerGroupDefinitionOutput: StaticStructureSchema = [
+export var DeleteGameServerGroupInput$: StaticStructureSchema = [3, n0, _DGSGI, 0, [_GSGN, _DO], [0, 0]];
+export var DeleteGameServerGroupOutput$: StaticStructureSchema = [3, n0, _DGSGO, 0, [_GSG], [() => GameServerGroup$]];
+export var DeleteGameSessionQueueInput$: StaticStructureSchema = [3, n0, _DGSQI, 0, [_N], [0]];
+export var DeleteGameSessionQueueOutput$: StaticStructureSchema = [3, n0, _DGSQO, 0, [], []];
+export var DeleteLocationInput$: StaticStructureSchema = [3, n0, _DLI, 0, [_LN], [0]];
+export var DeleteLocationOutput$: StaticStructureSchema = [3, n0, _DLO, 0, [], []];
+export var DeleteMatchmakingConfigurationInput$: StaticStructureSchema = [3, n0, _DMCI, 0, [_N], [0]];
+export var DeleteMatchmakingConfigurationOutput$: StaticStructureSchema = [3, n0, _DMCO, 0, [], []];
+export var DeleteMatchmakingRuleSetInput$: StaticStructureSchema = [3, n0, _DMRSI, 0, [_N], [0]];
+export var DeleteMatchmakingRuleSetOutput$: StaticStructureSchema = [3, n0, _DMRSO, 0, [], []];
+export var DeleteScalingPolicyInput$: StaticStructureSchema = [3, n0, _DSPI, 0, [_N, _FI], [0, 0]];
+export var DeleteScriptInput$: StaticStructureSchema = [3, n0, _DSI, 0, [_SI], [0]];
+export var DeleteVpcPeeringAuthorizationInput$: StaticStructureSchema = [3, n0, _DVPAI, 0, [_GLAAI, _PVI], [0, 0]];
+export var DeleteVpcPeeringAuthorizationOutput$: StaticStructureSchema = [3, n0, _DVPAO, 0, [], []];
+export var DeleteVpcPeeringConnectionInput$: StaticStructureSchema = [3, n0, _DVPCI, 0, [_FI, _VPCI], [0, 0]];
+export var DeleteVpcPeeringConnectionOutput$: StaticStructureSchema = [3, n0, _DVPCO, 0, [], []];
+export var DeploymentConfiguration$: StaticStructureSchema = [3, n0, _DC, 0, [_PSr, _MHP, _ISm], [0, 1, 0]];
+export var DeploymentDetails$: StaticStructureSchema = [3, n0, _DD, 0, [_LDI], [0]];
+export var DeregisterComputeInput$: StaticStructureSchema = [3, n0, _DCI, 0, [_FI, _CN], [0, 0]];
+export var DeregisterComputeOutput$: StaticStructureSchema = [3, n0, _DCO, 0, [], []];
+export var DeregisterGameServerInput$: StaticStructureSchema = [3, n0, _DGSI, 0, [_GSGN, _GSI], [0, 0]];
+export var DescribeAliasInput$: StaticStructureSchema = [3, n0, _DAIe, 0, [_AI], [0]];
+export var DescribeAliasOutput$: StaticStructureSchema = [3, n0, _DAO, 0, [_A], [() => Alias$]];
+export var DescribeBuildInput$: StaticStructureSchema = [3, n0, _DBIe, 0, [_BI], [0]];
+export var DescribeBuildOutput$: StaticStructureSchema = [3, n0, _DBO, 0, [_B], [() => Build$]];
+export var DescribeComputeInput$: StaticStructureSchema = [3, n0, _DCIe, 0, [_FI, _CN], [0, 0]];
+export var DescribeComputeOutput$: StaticStructureSchema = [3, n0, _DCOe, 0, [_Co], [[() => Compute$, 0]]];
+export var DescribeContainerFleetInput$: StaticStructureSchema = [3, n0, _DCFIe, 0, [_FI], [0]];
+export var DescribeContainerFleetOutput$: StaticStructureSchema = [
+  3,
+  n0,
+  _DCFOe,
+  0,
+  [_CF],
+  [[() => ContainerFleet$, 0]],
+];
+export var DescribeContainerGroupDefinitionInput$: StaticStructureSchema = [3, n0, _DCGDIe, 0, [_N, _VN], [0, 1]];
+export var DescribeContainerGroupDefinitionOutput$: StaticStructureSchema = [
   3,
   n0,
   _DCGDOe,
   0,
   [_CGD],
-  [[() => ContainerGroupDefinition, 0]],
+  [[() => ContainerGroupDefinition$, 0]],
 ];
-export var DescribeEC2InstanceLimitsInput: StaticStructureSchema = [3, n0, _DECILI, 0, [_ECIT, _L], [0, 0]];
-export var DescribeEC2InstanceLimitsOutput: StaticStructureSchema = [
+export var DescribeEC2InstanceLimitsInput$: StaticStructureSchema = [3, n0, _DECILI, 0, [_ECIT, _L], [0, 0]];
+export var DescribeEC2InstanceLimitsOutput$: StaticStructureSchema = [
   3,
   n0,
   _DECILO,
@@ -1372,8 +1386,8 @@ export var DescribeEC2InstanceLimitsOutput: StaticStructureSchema = [
   [_ECIL],
   [() => EC2InstanceLimitList],
 ];
-export var DescribeFleetAttributesInput: StaticStructureSchema = [3, n0, _DFAI, 0, [_FIl, _Li, _NTe], [64 | 0, 1, 0]];
-export var DescribeFleetAttributesOutput: StaticStructureSchema = [
+export var DescribeFleetAttributesInput$: StaticStructureSchema = [3, n0, _DFAI, 0, [_FIl, _Li, _NTe], [64 | 0, 1, 0]];
+export var DescribeFleetAttributesOutput$: StaticStructureSchema = [
   3,
   n0,
   _DFAO,
@@ -1381,8 +1395,8 @@ export var DescribeFleetAttributesOutput: StaticStructureSchema = [
   [_FAl, _NTe],
   [() => FleetAttributesList, 0],
 ];
-export var DescribeFleetCapacityInput: StaticStructureSchema = [3, n0, _DFCI, 0, [_FIl, _Li, _NTe], [64 | 0, 1, 0]];
-export var DescribeFleetCapacityOutput: StaticStructureSchema = [
+export var DescribeFleetCapacityInput$: StaticStructureSchema = [3, n0, _DFCI, 0, [_FIl, _Li, _NTe], [64 | 0, 1, 0]];
+export var DescribeFleetCapacityOutput$: StaticStructureSchema = [
   3,
   n0,
   _DFCO,
@@ -1390,16 +1404,16 @@ export var DescribeFleetCapacityOutput: StaticStructureSchema = [
   [_FCl, _NTe],
   [() => FleetCapacityList, 0],
 ];
-export var DescribeFleetDeploymentInput: StaticStructureSchema = [3, n0, _DFDI, 0, [_FI, _DI], [0, 0]];
-export var DescribeFleetDeploymentOutput: StaticStructureSchema = [
+export var DescribeFleetDeploymentInput$: StaticStructureSchema = [3, n0, _DFDI, 0, [_FI, _DI], [0, 0]];
+export var DescribeFleetDeploymentOutput$: StaticStructureSchema = [
   3,
   n0,
   _DFDO,
   0,
   [_FD, _LD],
-  [() => FleetDeployment, () => LocationalDeployments],
+  [() => FleetDeployment$, () => LocationalDeployments],
 ];
-export var DescribeFleetEventsInput: StaticStructureSchema = [
+export var DescribeFleetEventsInput$: StaticStructureSchema = [
   3,
   n0,
   _DFEI,
@@ -1407,8 +1421,8 @@ export var DescribeFleetEventsInput: StaticStructureSchema = [
   [_FI, _STt, _ET, _Li, _NTe],
   [0, 4, 4, 1, 0],
 ];
-export var DescribeFleetEventsOutput: StaticStructureSchema = [3, n0, _DFEO, 0, [_E, _NTe], [() => EventList, 0]];
-export var DescribeFleetLocationAttributesInput: StaticStructureSchema = [
+export var DescribeFleetEventsOutput$: StaticStructureSchema = [3, n0, _DFEO, 0, [_E, _NTe], [() => EventList, 0]];
+export var DescribeFleetLocationAttributesInput$: StaticStructureSchema = [
   3,
   n0,
   _DFLAI,
@@ -1416,7 +1430,7 @@ export var DescribeFleetLocationAttributesInput: StaticStructureSchema = [
   [_FI, _Lo, _Li, _NTe],
   [0, 64 | 0, 1, 0],
 ];
-export var DescribeFleetLocationAttributesOutput: StaticStructureSchema = [
+export var DescribeFleetLocationAttributesOutput$: StaticStructureSchema = [
   3,
   n0,
   _DFLAO,
@@ -1424,26 +1438,26 @@ export var DescribeFleetLocationAttributesOutput: StaticStructureSchema = [
   [_FI, _FA, _LA, _NTe],
   [0, 0, () => LocationAttributesList, 0],
 ];
-export var DescribeFleetLocationCapacityInput: StaticStructureSchema = [3, n0, _DFLCI, 0, [_FI, _L], [0, 0]];
-export var DescribeFleetLocationCapacityOutput: StaticStructureSchema = [
+export var DescribeFleetLocationCapacityInput$: StaticStructureSchema = [3, n0, _DFLCI, 0, [_FI, _L], [0, 0]];
+export var DescribeFleetLocationCapacityOutput$: StaticStructureSchema = [
   3,
   n0,
   _DFLCO,
   0,
   [_FCl],
-  [() => FleetCapacity],
+  [() => FleetCapacity$],
 ];
-export var DescribeFleetLocationUtilizationInput: StaticStructureSchema = [3, n0, _DFLUI, 0, [_FI, _L], [0, 0]];
-export var DescribeFleetLocationUtilizationOutput: StaticStructureSchema = [
+export var DescribeFleetLocationUtilizationInput$: StaticStructureSchema = [3, n0, _DFLUI, 0, [_FI, _L], [0, 0]];
+export var DescribeFleetLocationUtilizationOutput$: StaticStructureSchema = [
   3,
   n0,
   _DFLUO,
   0,
   [_FU],
-  [() => FleetUtilization],
+  [() => FleetUtilization$],
 ];
-export var DescribeFleetPortSettingsInput: StaticStructureSchema = [3, n0, _DFPSI, 0, [_FI, _L], [0, 0]];
-export var DescribeFleetPortSettingsOutput: StaticStructureSchema = [
+export var DescribeFleetPortSettingsInput$: StaticStructureSchema = [3, n0, _DFPSI, 0, [_FI, _L], [0, 0]];
+export var DescribeFleetPortSettingsOutput$: StaticStructureSchema = [
   3,
   n0,
   _DFPSO,
@@ -1451,8 +1465,8 @@ export var DescribeFleetPortSettingsOutput: StaticStructureSchema = [
   [_FI, _FA, _IPn, _US, _L],
   [0, 0, [() => IpPermissionsList, 0], 0, 0],
 ];
-export var DescribeFleetUtilizationInput: StaticStructureSchema = [3, n0, _DFUI, 0, [_FIl, _Li, _NTe], [64 | 0, 1, 0]];
-export var DescribeFleetUtilizationOutput: StaticStructureSchema = [
+export var DescribeFleetUtilizationInput$: StaticStructureSchema = [3, n0, _DFUI, 0, [_FIl, _Li, _NTe], [64 | 0, 1, 0]];
+export var DescribeFleetUtilizationOutput$: StaticStructureSchema = [
   3,
   n0,
   _DFUO,
@@ -1460,10 +1474,17 @@ export var DescribeFleetUtilizationOutput: StaticStructureSchema = [
   [_FU, _NTe],
   [() => FleetUtilizationList, 0],
 ];
-export var DescribeGameServerGroupInput: StaticStructureSchema = [3, n0, _DGSGIe, 0, [_GSGN], [0]];
-export var DescribeGameServerGroupOutput: StaticStructureSchema = [3, n0, _DGSGOe, 0, [_GSG], [() => GameServerGroup]];
-export var DescribeGameServerInput: StaticStructureSchema = [3, n0, _DGSIe, 0, [_GSGN, _GSI], [0, 0]];
-export var DescribeGameServerInstancesInput: StaticStructureSchema = [
+export var DescribeGameServerGroupInput$: StaticStructureSchema = [3, n0, _DGSGIe, 0, [_GSGN], [0]];
+export var DescribeGameServerGroupOutput$: StaticStructureSchema = [
+  3,
+  n0,
+  _DGSGOe,
+  0,
+  [_GSG],
+  [() => GameServerGroup$],
+];
+export var DescribeGameServerInput$: StaticStructureSchema = [3, n0, _DGSIe, 0, [_GSGN, _GSI], [0, 0]];
+export var DescribeGameServerInstancesInput$: StaticStructureSchema = [
   3,
   n0,
   _DGSII,
@@ -1471,7 +1492,7 @@ export var DescribeGameServerInstancesInput: StaticStructureSchema = [
   [_GSGN, _IIn, _Li, _NTe],
   [0, 64 | 0, 1, 0],
 ];
-export var DescribeGameServerInstancesOutput: StaticStructureSchema = [
+export var DescribeGameServerInstancesOutput$: StaticStructureSchema = [
   3,
   n0,
   _DGSIO,
@@ -1479,8 +1500,8 @@ export var DescribeGameServerInstancesOutput: StaticStructureSchema = [
   [_GSIam, _NTe],
   [() => GameServerInstances, 0],
 ];
-export var DescribeGameServerOutput: StaticStructureSchema = [3, n0, _DGSO, 0, [_GS], [() => GameServer]];
-export var DescribeGameSessionDetailsInput: StaticStructureSchema = [
+export var DescribeGameServerOutput$: StaticStructureSchema = [3, n0, _DGSO, 0, [_GS], [() => GameServer$]];
+export var DescribeGameSessionDetailsInput$: StaticStructureSchema = [
   3,
   n0,
   _DGSDI,
@@ -1488,7 +1509,7 @@ export var DescribeGameSessionDetailsInput: StaticStructureSchema = [
   [_FI, _GSIa, _AI, _L, _SF, _Li, _NTe],
   [0, 0, 0, 0, 0, 1, 0],
 ];
-export var DescribeGameSessionDetailsOutput: StaticStructureSchema = [
+export var DescribeGameSessionDetailsOutput$: StaticStructureSchema = [
   3,
   n0,
   _DGSDO,
@@ -1496,16 +1517,16 @@ export var DescribeGameSessionDetailsOutput: StaticStructureSchema = [
   [_GSDam, _NTe],
   [[() => GameSessionDetailList, 0], 0],
 ];
-export var DescribeGameSessionPlacementInput: StaticStructureSchema = [3, n0, _DGSPI, 0, [_PIla], [0]];
-export var DescribeGameSessionPlacementOutput: StaticStructureSchema = [
+export var DescribeGameSessionPlacementInput$: StaticStructureSchema = [3, n0, _DGSPI, 0, [_PIla], [0]];
+export var DescribeGameSessionPlacementOutput$: StaticStructureSchema = [
   3,
   n0,
   _DGSPO,
   0,
   [_GSP],
-  [[() => GameSessionPlacement, 0]],
+  [[() => GameSessionPlacement$, 0]],
 ];
-export var DescribeGameSessionQueuesInput: StaticStructureSchema = [
+export var DescribeGameSessionQueuesInput$: StaticStructureSchema = [
   3,
   n0,
   _DGSQIe,
@@ -1513,7 +1534,7 @@ export var DescribeGameSessionQueuesInput: StaticStructureSchema = [
   [_Na, _Li, _NTe],
   [64 | 0, 1, 0],
 ];
-export var DescribeGameSessionQueuesOutput: StaticStructureSchema = [
+export var DescribeGameSessionQueuesOutput$: StaticStructureSchema = [
   3,
   n0,
   _DGSQOe,
@@ -1521,7 +1542,7 @@ export var DescribeGameSessionQueuesOutput: StaticStructureSchema = [
   [_GSQa, _NTe],
   [() => GameSessionQueueList, 0],
 ];
-export var DescribeGameSessionsInput: StaticStructureSchema = [
+export var DescribeGameSessionsInput$: StaticStructureSchema = [
   3,
   n0,
   _DGSIes,
@@ -1529,7 +1550,7 @@ export var DescribeGameSessionsInput: StaticStructureSchema = [
   [_FI, _GSIa, _AI, _L, _SF, _Li, _NTe],
   [0, 0, 0, 0, 0, 1, 0],
 ];
-export var DescribeGameSessionsOutput: StaticStructureSchema = [
+export var DescribeGameSessionsOutput$: StaticStructureSchema = [
   3,
   n0,
   _DGSOe,
@@ -1537,9 +1558,23 @@ export var DescribeGameSessionsOutput: StaticStructureSchema = [
   [_GSam, _NTe],
   [[() => GameSessionList, 0], 0],
 ];
-export var DescribeInstancesInput: StaticStructureSchema = [3, n0, _DII, 0, [_FI, _II, _Li, _NTe, _L], [0, 0, 1, 0, 0]];
-export var DescribeInstancesOutput: StaticStructureSchema = [3, n0, _DIO, 0, [_In, _NTe], [[() => InstanceList, 0], 0]];
-export var DescribeMatchmakingConfigurationsInput: StaticStructureSchema = [
+export var DescribeInstancesInput$: StaticStructureSchema = [
+  3,
+  n0,
+  _DII,
+  0,
+  [_FI, _II, _Li, _NTe, _L],
+  [0, 0, 1, 0, 0],
+];
+export var DescribeInstancesOutput$: StaticStructureSchema = [
+  3,
+  n0,
+  _DIO,
+  0,
+  [_In, _NTe],
+  [[() => InstanceList, 0], 0],
+];
+export var DescribeMatchmakingConfigurationsInput$: StaticStructureSchema = [
   3,
   n0,
   _DMCIe,
@@ -1547,7 +1582,7 @@ export var DescribeMatchmakingConfigurationsInput: StaticStructureSchema = [
   [_Na, _RSN, _Li, _NTe],
   [64 | 0, 0, 1, 0],
 ];
-export var DescribeMatchmakingConfigurationsOutput: StaticStructureSchema = [
+export var DescribeMatchmakingConfigurationsOutput$: StaticStructureSchema = [
   3,
   n0,
   _DMCOe,
@@ -1555,8 +1590,8 @@ export var DescribeMatchmakingConfigurationsOutput: StaticStructureSchema = [
   [_Confi, _NTe],
   [() => MatchmakingConfigurationList, 0],
 ];
-export var DescribeMatchmakingInput: StaticStructureSchema = [3, n0, _DMI, 0, [_TIi], [64 | 0]];
-export var DescribeMatchmakingOutput: StaticStructureSchema = [
+export var DescribeMatchmakingInput$: StaticStructureSchema = [3, n0, _DMI, 0, [_TIi], [64 | 0]];
+export var DescribeMatchmakingOutput$: StaticStructureSchema = [
   3,
   n0,
   _DMO,
@@ -1564,7 +1599,7 @@ export var DescribeMatchmakingOutput: StaticStructureSchema = [
   [_TL],
   [[() => MatchmakingTicketList, 0]],
 ];
-export var DescribeMatchmakingRuleSetsInput: StaticStructureSchema = [
+export var DescribeMatchmakingRuleSetsInput$: StaticStructureSchema = [
   3,
   n0,
   _DMRSIe,
@@ -1572,7 +1607,7 @@ export var DescribeMatchmakingRuleSetsInput: StaticStructureSchema = [
   [_Na, _Li, _NTe],
   [64 | 0, 1, 0],
 ];
-export var DescribeMatchmakingRuleSetsOutput: StaticStructureSchema = [
+export var DescribeMatchmakingRuleSetsOutput$: StaticStructureSchema = [
   3,
   n0,
   _DMRSOe,
@@ -1580,7 +1615,7 @@ export var DescribeMatchmakingRuleSetsOutput: StaticStructureSchema = [
   [_RSul, _NTe],
   [() => MatchmakingRuleSetList, 0],
 ];
-export var DescribePlayerSessionsInput: StaticStructureSchema = [
+export var DescribePlayerSessionsInput$: StaticStructureSchema = [
   3,
   n0,
   _DPSI,
@@ -1588,7 +1623,7 @@ export var DescribePlayerSessionsInput: StaticStructureSchema = [
   [_GSIa, _PI, _PSI, _PSSF, _Li, _NTe],
   [0, [() => PlayerId, 0], 0, 0, 1, 0],
 ];
-export var DescribePlayerSessionsOutput: StaticStructureSchema = [
+export var DescribePlayerSessionsOutput$: StaticStructureSchema = [
   3,
   n0,
   _DPSO,
@@ -1596,16 +1631,16 @@ export var DescribePlayerSessionsOutput: StaticStructureSchema = [
   [_PSl, _NTe],
   [[() => PlayerSessionList, 0], 0],
 ];
-export var DescribeRuntimeConfigurationInput: StaticStructureSchema = [3, n0, _DRCI, 0, [_FI], [0]];
-export var DescribeRuntimeConfigurationOutput: StaticStructureSchema = [
+export var DescribeRuntimeConfigurationInput$: StaticStructureSchema = [3, n0, _DRCI, 0, [_FI], [0]];
+export var DescribeRuntimeConfigurationOutput$: StaticStructureSchema = [
   3,
   n0,
   _DRCO,
   0,
   [_RC],
-  [() => RuntimeConfiguration],
+  [() => RuntimeConfiguration$],
 ];
-export var DescribeScalingPoliciesInput: StaticStructureSchema = [
+export var DescribeScalingPoliciesInput$: StaticStructureSchema = [
   3,
   n0,
   _DSPIe,
@@ -1613,7 +1648,7 @@ export var DescribeScalingPoliciesInput: StaticStructureSchema = [
   [_FI, _SF, _Li, _NTe, _L],
   [0, 0, 1, 0, 0],
 ];
-export var DescribeScalingPoliciesOutput: StaticStructureSchema = [
+export var DescribeScalingPoliciesOutput$: StaticStructureSchema = [
   3,
   n0,
   _DSPO,
@@ -1621,10 +1656,10 @@ export var DescribeScalingPoliciesOutput: StaticStructureSchema = [
   [_SPc, _NTe],
   [() => ScalingPolicyList, 0],
 ];
-export var DescribeScriptInput: StaticStructureSchema = [3, n0, _DSIe, 0, [_SI], [0]];
-export var DescribeScriptOutput: StaticStructureSchema = [3, n0, _DSO, 0, [_Sc], [() => Script]];
-export var DescribeVpcPeeringAuthorizationsInput: StaticStructureSchema = [3, n0, _DVPAIe, 0, [], []];
-export var DescribeVpcPeeringAuthorizationsOutput: StaticStructureSchema = [
+export var DescribeScriptInput$: StaticStructureSchema = [3, n0, _DSIe, 0, [_SI], [0]];
+export var DescribeScriptOutput$: StaticStructureSchema = [3, n0, _DSO, 0, [_Sc], [() => Script$]];
+export var DescribeVpcPeeringAuthorizationsInput$: StaticStructureSchema = [3, n0, _DVPAIe, 0, [], []];
+export var DescribeVpcPeeringAuthorizationsOutput$: StaticStructureSchema = [
   3,
   n0,
   _DVPAOe,
@@ -1632,8 +1667,8 @@ export var DescribeVpcPeeringAuthorizationsOutput: StaticStructureSchema = [
   [_VPAp],
   [() => VpcPeeringAuthorizationList],
 ];
-export var DescribeVpcPeeringConnectionsInput: StaticStructureSchema = [3, n0, _DVPCIe, 0, [_FI], [0]];
-export var DescribeVpcPeeringConnectionsOutput: StaticStructureSchema = [
+export var DescribeVpcPeeringConnectionsInput$: StaticStructureSchema = [3, n0, _DVPCIe, 0, [_FI], [0]];
+export var DescribeVpcPeeringConnectionsOutput$: StaticStructureSchema = [
   3,
   n0,
   _DVPCOe,
@@ -1641,8 +1676,8 @@ export var DescribeVpcPeeringConnectionsOutput: StaticStructureSchema = [
   [_VPC],
   [() => VpcPeeringConnectionList],
 ];
-export var DesiredPlayerSession: StaticStructureSchema = [3, n0, _DPS, 0, [_PI, _PD], [[() => PlayerId, 0], 0]];
-export var EC2InstanceCounts: StaticStructureSchema = [
+export var DesiredPlayerSession$: StaticStructureSchema = [3, n0, _DPS, 0, [_PI, _PD], [[() => PlayerId, 0], 0]];
+export var EC2InstanceCounts$: StaticStructureSchema = [
   3,
   n0,
   _ECIC,
@@ -1650,8 +1685,8 @@ export var EC2InstanceCounts: StaticStructureSchema = [
   [_DESIRED, _MINIMUM, _MAXIMUM, _PENDING, _ACTIVE, _IDLE, _TERMINATING],
   [1, 1, 1, 1, 1, 1, 1],
 ];
-export var EC2InstanceLimit: StaticStructureSchema = [3, n0, _ECILn, 0, [_ECIT, _CIu, _IL, _L], [0, 1, 1, 0]];
-export var Event: StaticStructureSchema = [
+export var EC2InstanceLimit$: StaticStructureSchema = [3, n0, _ECILn, 0, [_ECIT, _CIu, _IL, _L], [0, 1, 1, 0]];
+export var Event$: StaticStructureSchema = [
   3,
   n0,
   _Ev,
@@ -1659,8 +1694,8 @@ export var Event: StaticStructureSchema = [
   [_EI, _RI, _EC, _M, _ETv, _PSLU, _Cou],
   [0, 0, 0, 0, 4, 0, 1],
 ];
-export var FilterConfiguration: StaticStructureSchema = [3, n0, _FC, 0, [_ALl], [64 | 0]];
-export var FleetAttributes: StaticStructureSchema = [
+export var FilterConfiguration$: StaticStructureSchema = [3, n0, _FC, 0, [_ALl], [64 | 0]];
+export var FleetAttributes$: StaticStructureSchema = [
   3,
   n0,
   _FAl,
@@ -1712,35 +1747,35 @@ export var FleetAttributes: StaticStructureSchema = [
     64 | 0,
     0,
     0,
-    () => ResourceCreationLimitPolicy,
+    () => ResourceCreationLimitPolicy$,
     64 | 0,
     64 | 0,
     0,
-    () => CertificateConfiguration,
+    () => CertificateConfiguration$,
     0,
-    () => AnywhereConfiguration,
+    () => AnywhereConfiguration$,
     0,
   ],
 ];
-export var FleetCapacity: StaticStructureSchema = [
+export var FleetCapacity$: StaticStructureSchema = [
   3,
   n0,
   _FCl,
   0,
   [_FI, _FA, _IT, _IC, _L, _GSCGC],
-  [0, 0, 0, () => EC2InstanceCounts, 0, () => GameServerContainerGroupCounts],
+  [0, 0, 0, () => EC2InstanceCounts$, 0, () => GameServerContainerGroupCounts$],
 ];
-export var FleetCapacityExceededException: StaticErrorSchema = [-3, n0, _FCEE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(FleetCapacityExceededException, __FleetCapacityExceededException);
-export var FleetDeployment: StaticStructureSchema = [
+export var FleetCapacityExceededException$: StaticErrorSchema = [-3, n0, _FCEE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(FleetCapacityExceededException$, FleetCapacityExceededException);
+export var FleetDeployment$: StaticStructureSchema = [
   3,
   n0,
   _FD,
   0,
   [_DI, _FI, _GSBA, _RGSBA, _PIBA, _RPIBA, _DS, _DC, _CT],
-  [0, 0, 0, 0, 0, 0, 0, () => DeploymentConfiguration, 4],
+  [0, 0, 0, 0, 0, 0, 0, () => DeploymentConfiguration$, 4],
 ];
-export var FleetUtilization: StaticStructureSchema = [
+export var FleetUtilization$: StaticStructureSchema = [
   3,
   n0,
   _FU,
@@ -1748,8 +1783,8 @@ export var FleetUtilization: StaticStructureSchema = [
   [_FI, _FA, _ASPC, _AGSC, _CPSC, _MPSC, _L],
   [0, 0, 1, 1, 1, 1, 0],
 ];
-export var GameProperty: StaticStructureSchema = [3, n0, _GPa, 0, [_K, _Va], [0, 0]];
-export var GameServer: StaticStructureSchema = [
+export var GameProperty$: StaticStructureSchema = [3, n0, _GPa, 0, [_K, _Va], [0, 0]];
+export var GameServer$: StaticStructureSchema = [
   3,
   n0,
   _GS,
@@ -1757,7 +1792,7 @@ export var GameServer: StaticStructureSchema = [
   [_GSGN, _GSGA, _GSI, _II, _CIo, _GSD, _CSl, _USt, _RT, _LCT, _LHCT],
   [0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4],
 ];
-export var GameServerContainerDefinition: StaticStructureSchema = [
+export var GameServerContainerDefinition$: StaticStructureSchema = [
   3,
   n0,
   _GSCD,
@@ -1769,12 +1804,12 @@ export var GameServerContainerDefinition: StaticStructureSchema = [
     () => ContainerMountPointList,
     () => ContainerEnvironmentList,
     0,
-    [() => ContainerPortConfiguration, 0],
+    [() => ContainerPortConfiguration$, 0],
     0,
     0,
   ],
 ];
-export var GameServerContainerDefinitionInput: StaticStructureSchema = [
+export var GameServerContainerDefinitionInput$: StaticStructureSchema = [
   3,
   n0,
   _GSCDI,
@@ -1786,11 +1821,11 @@ export var GameServerContainerDefinitionInput: StaticStructureSchema = [
     () => ContainerMountPointList,
     () => ContainerEnvironmentList,
     0,
-    [() => ContainerPortConfiguration, 0],
+    [() => ContainerPortConfiguration$, 0],
     0,
   ],
 ];
-export var GameServerContainerGroupCounts: StaticStructureSchema = [
+export var GameServerContainerGroupCounts$: StaticStructureSchema = [
   3,
   n0,
   _GSCGC,
@@ -1798,7 +1833,7 @@ export var GameServerContainerGroupCounts: StaticStructureSchema = [
   [_PENDING, _ACTIVE, _IDLE, _TERMINATING],
   [1, 1, 1, 1],
 ];
-export var GameServerGroup: StaticStructureSchema = [
+export var GameServerGroup$: StaticStructureSchema = [
   3,
   n0,
   _GSG,
@@ -1806,16 +1841,16 @@ export var GameServerGroup: StaticStructureSchema = [
   [_GSGN, _GSGA, _RA, _ID, _BS, _GSPP, _ASGA, _St, _SR, _SAu, _CT, _LUT],
   [0, 0, 0, () => InstanceDefinitions, 0, 0, 0, 0, 0, 64 | 0, 4, 4],
 ];
-export var GameServerGroupAutoScalingPolicy: StaticStructureSchema = [
+export var GameServerGroupAutoScalingPolicy$: StaticStructureSchema = [
   3,
   n0,
   _GSGASP,
   0,
   [_EIW, _TTC],
-  [1, () => TargetTrackingConfiguration],
+  [1, () => TargetTrackingConfiguration$],
 ];
-export var GameServerInstance: StaticStructureSchema = [3, n0, _GSIame, 0, [_GSGN, _GSGA, _II, _ISn], [0, 0, 0, 0]];
-export var GameSession: StaticStructureSchema = [
+export var GameServerInstance$: StaticStructureSchema = [3, n0, _GSIame, 0, [_GSGN, _GSGA, _II, _ISn], [0, 0, 0, 0]];
+export var GameSession$: StaticStructureSchema = [
   3,
   n0,
   _GSa,
@@ -1823,7 +1858,7 @@ export var GameSession: StaticStructureSchema = [
   [_GSIa, _N, _FI, _FA, _CT, _TT, _CPSC, _MPSC, _St, _SR, _GP, _IA, _DN, _Po, _PSCP, _CIr, _GSDa, _MD, _L],
   [0, 0, 0, 0, 4, 4, 1, 1, 0, 0, () => GamePropertyList, [() => IpAddress, 0], 0, [() => PortNumber, 0], 0, 0, 0, 0, 0],
 ];
-export var GameSessionConnectionInfo: StaticStructureSchema = [
+export var GameSessionConnectionInfo$: StaticStructureSchema = [
   3,
   n0,
   _GSCI,
@@ -1831,11 +1866,11 @@ export var GameSessionConnectionInfo: StaticStructureSchema = [
   [_GSA, _IA, _DN, _Po, _MPS],
   [0, [() => IpAddress, 0], 0, 1, [() => MatchedPlayerSessionList, 0]],
 ];
-export var GameSessionCreationLimitPolicy: StaticStructureSchema = [3, n0, _GSCLP, 0, [_NGSPC, _PPIM], [1, 1]];
-export var GameSessionDetail: StaticStructureSchema = [3, n0, _GSDame, 0, [_GSa, _PP], [[() => GameSession, 0], 0]];
-export var GameSessionFullException: StaticErrorSchema = [-3, n0, _GSFE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(GameSessionFullException, __GameSessionFullException);
-export var GameSessionPlacement: StaticStructureSchema = [
+export var GameSessionCreationLimitPolicy$: StaticStructureSchema = [3, n0, _GSCLP, 0, [_NGSPC, _PPIM], [1, 1]];
+export var GameSessionDetail$: StaticStructureSchema = [3, n0, _GSDame, 0, [_GSa, _PP], [[() => GameSession$, 0], 0]];
+export var GameSessionFullException$: StaticErrorSchema = [-3, n0, _GSFE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(GameSessionFullException$, GameSessionFullException);
+export var GameSessionPlacement$: StaticStructureSchema = [
   3,
   n0,
   _GSP,
@@ -1860,10 +1895,10 @@ export var GameSessionPlacement: StaticStructureSchema = [
     [() => PlacedPlayerSessionList, 0],
     0,
     0,
-    () => PriorityConfigurationOverride,
+    () => PriorityConfigurationOverride$,
   ],
 ];
-export var GameSessionQueue: StaticStructureSchema = [
+export var GameSessionQueue$: StaticStructureSchema = [
   3,
   n0,
   _GSQ,
@@ -1875,24 +1910,24 @@ export var GameSessionQueue: StaticStructureSchema = [
     1,
     () => PlayerLatencyPolicyList,
     () => GameSessionQueueDestinationList,
-    () => FilterConfiguration,
-    () => PriorityConfiguration,
+    () => FilterConfiguration$,
+    () => PriorityConfiguration$,
     0,
     0,
   ],
 ];
-export var GameSessionQueueDestination: StaticStructureSchema = [3, n0, _GSQD, 0, [_DA], [0]];
-export var GetComputeAccessInput: StaticStructureSchema = [3, n0, _GCAI, 0, [_FI, _CN], [0, 0]];
-export var GetComputeAccessOutput: StaticStructureSchema = [
+export var GameSessionQueueDestination$: StaticStructureSchema = [3, n0, _GSQD, 0, [_DA], [0]];
+export var GetComputeAccessInput$: StaticStructureSchema = [3, n0, _GCAI, 0, [_FI, _CN], [0, 0]];
+export var GetComputeAccessOutput$: StaticStructureSchema = [
   3,
   n0,
   _GCAO,
   0,
   [_FI, _FA, _CN, _CA, _Cr, _Tar, _CIon],
-  [0, 0, 0, 0, [() => AwsCredentials, 0], 0, () => ContainerIdentifierList],
+  [0, 0, 0, 0, [() => AwsCredentials$, 0], 0, () => ContainerIdentifierList],
 ];
-export var GetComputeAuthTokenInput: StaticStructureSchema = [3, n0, _GCATI, 0, [_FI, _CN], [0, 0]];
-export var GetComputeAuthTokenOutput: StaticStructureSchema = [
+export var GetComputeAuthTokenInput$: StaticStructureSchema = [3, n0, _GCATI, 0, [_FI, _CN], [0, 0]];
+export var GetComputeAuthTokenOutput$: StaticStructureSchema = [
   3,
   n0,
   _GCATO,
@@ -1900,13 +1935,13 @@ export var GetComputeAuthTokenOutput: StaticStructureSchema = [
   [_FI, _FA, _CN, _CA, _ATu, _ETx],
   [0, 0, 0, 0, 0, 4],
 ];
-export var GetGameSessionLogUrlInput: StaticStructureSchema = [3, n0, _GGSLUI, 0, [_GSIa], [0]];
-export var GetGameSessionLogUrlOutput: StaticStructureSchema = [3, n0, _GGSLUO, 0, [_PSU], [0]];
-export var GetInstanceAccessInput: StaticStructureSchema = [3, n0, _GIAI, 0, [_FI, _II], [0, 0]];
-export var GetInstanceAccessOutput: StaticStructureSchema = [3, n0, _GIAO, 0, [_IAn], [[() => InstanceAccess, 0]]];
-export var IdempotentParameterMismatchException: StaticErrorSchema = [-3, n0, _IPME, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(IdempotentParameterMismatchException, __IdempotentParameterMismatchException);
-export var Instance: StaticStructureSchema = [
+export var GetGameSessionLogUrlInput$: StaticStructureSchema = [3, n0, _GGSLUI, 0, [_GSIa], [0]];
+export var GetGameSessionLogUrlOutput$: StaticStructureSchema = [3, n0, _GGSLUO, 0, [_PSU], [0]];
+export var GetInstanceAccessInput$: StaticStructureSchema = [3, n0, _GIAI, 0, [_FI, _II], [0, 0]];
+export var GetInstanceAccessOutput$: StaticStructureSchema = [3, n0, _GIAO, 0, [_IAn], [[() => InstanceAccess$, 0]]];
+export var IdempotentParameterMismatchException$: StaticErrorSchema = [-3, n0, _IPME, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(IdempotentParameterMismatchException$, IdempotentParameterMismatchException);
+export var Instance$: StaticStructureSchema = [
   3,
   n0,
   _Ins,
@@ -1914,25 +1949,25 @@ export var Instance: StaticStructureSchema = [
   [_FI, _FA, _II, _IA, _DN, _OS, _T, _St, _CT, _L],
   [0, 0, 0, [() => IpAddress, 0], 0, 0, 0, 0, 4, 0],
 ];
-export var InstanceAccess: StaticStructureSchema = [
+export var InstanceAccess$: StaticStructureSchema = [
   3,
   n0,
   _IAn,
   0,
   [_FI, _II, _IA, _OS, _Cr],
-  [0, 0, [() => IpAddress, 0], 0, [() => InstanceCredentials, 0]],
+  [0, 0, [() => IpAddress, 0], 0, [() => InstanceCredentials$, 0]],
 ];
-export var InstanceCredentials: StaticStructureSchema = [3, n0, _ICn, 8, [_UN, _Se], [0, 0]];
-export var InstanceDefinition: StaticStructureSchema = [3, n0, _IDn, 0, [_IT, _WC], [0, 0]];
-export var InternalServiceException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InternalServiceException, __InternalServiceException);
-export var InvalidFleetStatusException: StaticErrorSchema = [-3, n0, _IFSE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidFleetStatusException, __InvalidFleetStatusException);
-export var InvalidGameSessionStatusException: StaticErrorSchema = [-3, n0, _IGSSE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidGameSessionStatusException, __InvalidGameSessionStatusException);
-export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-export var IpPermission: StaticStructureSchema = [
+export var InstanceCredentials$: StaticStructureSchema = [3, n0, _ICn, 8, [_UN, _Se], [0, 0]];
+export var InstanceDefinition$: StaticStructureSchema = [3, n0, _IDn, 0, [_IT, _WC], [0, 0]];
+export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InternalServiceException$, InternalServiceException);
+export var InvalidFleetStatusException$: StaticErrorSchema = [-3, n0, _IFSE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InvalidFleetStatusException$, InvalidFleetStatusException);
+export var InvalidGameSessionStatusException$: StaticErrorSchema = [-3, n0, _IGSSE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InvalidGameSessionStatusException$, InvalidGameSessionStatusException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
+export var IpPermission$: StaticStructureSchema = [
   3,
   n0,
   _IPp,
@@ -1940,14 +1975,14 @@ export var IpPermission: StaticStructureSchema = [
   [_FP, _TP, _IR, _P],
   [[() => PortNumber, 0], [() => PortNumber, 0], [() => IpRange, 0], 0],
 ];
-export var LaunchTemplateSpecification: StaticStructureSchema = [3, n0, _LTS, 0, [_LTI, _LTN, _V], [0, 0, 0]];
-export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-export var ListAliasesInput: StaticStructureSchema = [3, n0, _LAI, 0, [_RST, _N, _Li, _NTe], [0, 0, 1, 0]];
-export var ListAliasesOutput: StaticStructureSchema = [3, n0, _LAO, 0, [_Al, _NTe], [() => AliasList, 0]];
-export var ListBuildsInput: StaticStructureSchema = [3, n0, _LBI, 0, [_St, _Li, _NTe], [0, 1, 0]];
-export var ListBuildsOutput: StaticStructureSchema = [3, n0, _LBO, 0, [_Bu, _NTe], [() => BuildList, 0]];
-export var ListComputeInput: StaticStructureSchema = [
+export var LaunchTemplateSpecification$: StaticStructureSchema = [3, n0, _LTS, 0, [_LTI, _LTN, _V], [0, 0, 0]];
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
+export var ListAliasesInput$: StaticStructureSchema = [3, n0, _LAI, 0, [_RST, _N, _Li, _NTe], [0, 0, 1, 0]];
+export var ListAliasesOutput$: StaticStructureSchema = [3, n0, _LAO, 0, [_Al, _NTe], [() => AliasList, 0]];
+export var ListBuildsInput$: StaticStructureSchema = [3, n0, _LBI, 0, [_St, _Li, _NTe], [0, 1, 0]];
+export var ListBuildsOutput$: StaticStructureSchema = [3, n0, _LBO, 0, [_Bu, _NTe], [() => BuildList, 0]];
+export var ListComputeInput$: StaticStructureSchema = [
   3,
   n0,
   _LCI,
@@ -1955,9 +1990,9 @@ export var ListComputeInput: StaticStructureSchema = [
   [_FI, _L, _CGDN, _CS, _Li, _NTe],
   [0, 0, 0, 0, 1, 0],
 ];
-export var ListComputeOutput: StaticStructureSchema = [3, n0, _LCO, 0, [_CL, _NTe], [[() => ComputeList, 0], 0]];
-export var ListContainerFleetsInput: StaticStructureSchema = [3, n0, _LCFI, 0, [_CGDN, _Li, _NTe], [0, 1, 0]];
-export var ListContainerFleetsOutput: StaticStructureSchema = [
+export var ListComputeOutput$: StaticStructureSchema = [3, n0, _LCO, 0, [_CL, _NTe], [[() => ComputeList, 0], 0]];
+export var ListContainerFleetsInput$: StaticStructureSchema = [3, n0, _LCFI, 0, [_CGDN, _Li, _NTe], [0, 1, 0]];
+export var ListContainerFleetsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LCFO,
@@ -1965,8 +2000,15 @@ export var ListContainerFleetsOutput: StaticStructureSchema = [
   [_CFo, _NTe],
   [[() => ContainerFleetList, 0], 0],
 ];
-export var ListContainerGroupDefinitionsInput: StaticStructureSchema = [3, n0, _LCGDI, 0, [_CGT, _Li, _NTe], [0, 1, 0]];
-export var ListContainerGroupDefinitionsOutput: StaticStructureSchema = [
+export var ListContainerGroupDefinitionsInput$: StaticStructureSchema = [
+  3,
+  n0,
+  _LCGDI,
+  0,
+  [_CGT, _Li, _NTe],
+  [0, 1, 0],
+];
+export var ListContainerGroupDefinitionsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LCGDO,
@@ -1974,7 +2016,7 @@ export var ListContainerGroupDefinitionsOutput: StaticStructureSchema = [
   [_CGDo, _NTe],
   [[() => ContainerGroupDefinitionList, 0], 0],
 ];
-export var ListContainerGroupDefinitionVersionsInput: StaticStructureSchema = [
+export var ListContainerGroupDefinitionVersionsInput$: StaticStructureSchema = [
   3,
   n0,
   _LCGDVI,
@@ -1982,7 +2024,7 @@ export var ListContainerGroupDefinitionVersionsInput: StaticStructureSchema = [
   [_N, _Li, _NTe],
   [0, 1, 0],
 ];
-export var ListContainerGroupDefinitionVersionsOutput: StaticStructureSchema = [
+export var ListContainerGroupDefinitionVersionsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LCGDVO,
@@ -1990,8 +2032,8 @@ export var ListContainerGroupDefinitionVersionsOutput: StaticStructureSchema = [
   [_CGDo, _NTe],
   [[() => ContainerGroupDefinitionList, 0], 0],
 ];
-export var ListFleetDeploymentsInput: StaticStructureSchema = [3, n0, _LFDI, 0, [_FI, _Li, _NTe], [0, 1, 0]];
-export var ListFleetDeploymentsOutput: StaticStructureSchema = [
+export var ListFleetDeploymentsInput$: StaticStructureSchema = [3, n0, _LFDI, 0, [_FI, _Li, _NTe], [0, 1, 0]];
+export var ListFleetDeploymentsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LFDO,
@@ -1999,10 +2041,10 @@ export var ListFleetDeploymentsOutput: StaticStructureSchema = [
   [_FDl, _NTe],
   [() => FleetDeployments, 0],
 ];
-export var ListFleetsInput: StaticStructureSchema = [3, n0, _LFI, 0, [_BI, _SI, _Li, _NTe], [0, 0, 1, 0]];
-export var ListFleetsOutput: StaticStructureSchema = [3, n0, _LFO, 0, [_FIl, _NTe], [64 | 0, 0]];
-export var ListGameServerGroupsInput: StaticStructureSchema = [3, n0, _LGSGI, 0, [_Li, _NTe], [1, 0]];
-export var ListGameServerGroupsOutput: StaticStructureSchema = [
+export var ListFleetsInput$: StaticStructureSchema = [3, n0, _LFI, 0, [_BI, _SI, _Li, _NTe], [0, 0, 1, 0]];
+export var ListFleetsOutput$: StaticStructureSchema = [3, n0, _LFO, 0, [_FIl, _NTe], [64 | 0, 0]];
+export var ListGameServerGroupsInput$: StaticStructureSchema = [3, n0, _LGSGI, 0, [_Li, _NTe], [1, 0]];
+export var ListGameServerGroupsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LGSGO,
@@ -2010,29 +2052,29 @@ export var ListGameServerGroupsOutput: StaticStructureSchema = [
   [_GSGa, _NTe],
   [() => GameServerGroups, 0],
 ];
-export var ListGameServersInput: StaticStructureSchema = [3, n0, _LGSI, 0, [_GSGN, _SO, _Li, _NTe], [0, 0, 1, 0]];
-export var ListGameServersOutput: StaticStructureSchema = [3, n0, _LGSO, 0, [_GSame, _NTe], [() => GameServers, 0]];
-export var ListLocationsInput: StaticStructureSchema = [3, n0, _LLI, 0, [_F, _Li, _NTe], [64 | 0, 1, 0]];
-export var ListLocationsOutput: StaticStructureSchema = [3, n0, _LLO, 0, [_Lo, _NTe], [() => LocationModelList, 0]];
-export var ListScriptsInput: StaticStructureSchema = [3, n0, _LSI, 0, [_Li, _NTe], [1, 0]];
-export var ListScriptsOutput: StaticStructureSchema = [3, n0, _LSO, 0, [_Scr, _NTe], [() => ScriptList, 0]];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RARN], [0]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [() => TagList]];
-export var LocationalDeployment: StaticStructureSchema = [3, n0, _LDo, 0, [_DS], [0]];
-export var LocationAttributes: StaticStructureSchema = [
+export var ListGameServersInput$: StaticStructureSchema = [3, n0, _LGSI, 0, [_GSGN, _SO, _Li, _NTe], [0, 0, 1, 0]];
+export var ListGameServersOutput$: StaticStructureSchema = [3, n0, _LGSO, 0, [_GSame, _NTe], [() => GameServers, 0]];
+export var ListLocationsInput$: StaticStructureSchema = [3, n0, _LLI, 0, [_F, _Li, _NTe], [64 | 0, 1, 0]];
+export var ListLocationsOutput$: StaticStructureSchema = [3, n0, _LLO, 0, [_Lo, _NTe], [() => LocationModelList, 0]];
+export var ListScriptsInput$: StaticStructureSchema = [3, n0, _LSI, 0, [_Li, _NTe], [1, 0]];
+export var ListScriptsOutput$: StaticStructureSchema = [3, n0, _LSO, 0, [_Scr, _NTe], [() => ScriptList, 0]];
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RARN], [0]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [() => TagList]];
+export var LocationalDeployment$: StaticStructureSchema = [3, n0, _LDo, 0, [_DS], [0]];
+export var LocationAttributes$: StaticStructureSchema = [
   3,
   n0,
   _LA,
   0,
   [_LSo, _SAt, _US],
-  [() => LocationState, 64 | 0, 0],
+  [() => LocationState$, 64 | 0, 0],
 ];
-export var LocationConfiguration: StaticStructureSchema = [3, n0, _LCo, 0, [_L], [0]];
-export var LocationModel: StaticStructureSchema = [3, n0, _LM, 0, [_LN, _LAo, _PB], [0, 0, () => PingBeacon]];
-export var LocationState: StaticStructureSchema = [3, n0, _LSo, 0, [_L, _St], [0, 0]];
-export var LogConfiguration: StaticStructureSchema = [3, n0, _LC, 0, [_LDog, _SBN, _LGA], [0, 0, 0]];
-export var MatchedPlayerSession: StaticStructureSchema = [3, n0, _MPSa, 0, [_PI, _PSI], [[() => PlayerId, 0], 0]];
-export var MatchmakingConfiguration: StaticStructureSchema = [
+export var LocationConfiguration$: StaticStructureSchema = [3, n0, _LCo, 0, [_L], [0]];
+export var LocationModel$: StaticStructureSchema = [3, n0, _LM, 0, [_LN, _LAo, _PB], [0, 0, () => PingBeacon$]];
+export var LocationState$: StaticStructureSchema = [3, n0, _LSo, 0, [_L, _St], [0, 0]];
+export var LogConfiguration$: StaticStructureSchema = [3, n0, _LC, 0, [_LDog, _SBN, _LGA], [0, 0, 0]];
+export var MatchedPlayerSession$: StaticStructureSchema = [3, n0, _MPSa, 0, [_PI, _PSI], [[() => PlayerId, 0], 0]];
+export var MatchmakingConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _MC,
@@ -2040,24 +2082,24 @@ export var MatchmakingConfiguration: StaticStructureSchema = [
   [_N, _CAonf, _D, _GSQA, _RTS, _ATS, _AR, _RSN, _RSA, _NT, _APC, _CED, _CT, _GP, _GSDa, _BM, _FMM],
   [0, 0, 0, 64 | 0, 1, 1, 2, 0, 0, 0, 1, 0, 4, () => GamePropertyList, 0, 0, 0],
 ];
-export var MatchmakingRuleSet: StaticStructureSchema = [3, n0, _MRS, 0, [_RSN, _RSA, _RSB, _CT], [0, 0, 0, 4]];
-export var MatchmakingTicket: StaticStructureSchema = [
+export var MatchmakingRuleSet$: StaticStructureSchema = [3, n0, _MRS, 0, [_RSN, _RSA, _RSB, _CT], [0, 0, 0, 4]];
+export var MatchmakingTicket$: StaticStructureSchema = [
   3,
   n0,
   _MT,
   0,
   [_TI, _CNon, _CAonf, _St, _SR, _SM, _STt, _ET, _Pl, _GSCI, _EWT],
-  [0, 0, 0, 0, 0, 0, 4, 4, [() => PlayerList, 0], [() => GameSessionConnectionInfo, 0], 1],
+  [0, 0, 0, 0, 0, 0, 4, 4, [() => PlayerList, 0], [() => GameSessionConnectionInfo$, 0], 1],
 ];
-export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-export var NotReadyException: StaticErrorSchema = [-3, n0, _NRE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(NotReadyException, __NotReadyException);
-export var OutOfCapacityException: StaticErrorSchema = [-3, n0, _OOCE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(OutOfCapacityException, __OutOfCapacityException);
-export var PingBeacon: StaticStructureSchema = [3, n0, _PB, 0, [_UDPE], [() => UDPEndpoint]];
-export var PlacedPlayerSession: StaticStructureSchema = [3, n0, _PPSl, 0, [_PI, _PSI], [[() => PlayerId, 0], 0]];
-export var Player: StaticStructureSchema = [
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
+export var NotReadyException$: StaticErrorSchema = [-3, n0, _NRE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(NotReadyException$, NotReadyException);
+export var OutOfCapacityException$: StaticErrorSchema = [-3, n0, _OOCE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(OutOfCapacityException$, OutOfCapacityException);
+export var PingBeacon$: StaticStructureSchema = [3, n0, _PB, 0, [_UDPE], [() => UDPEndpoint$]];
+export var PlacedPlayerSession$: StaticStructureSchema = [3, n0, _PPSl, 0, [_PI, _PSI], [[() => PlayerId, 0], 0]];
+export var Player$: StaticStructureSchema = [
   3,
   n0,
   _Pla,
@@ -2065,9 +2107,9 @@ export var Player: StaticStructureSchema = [
   [_PI, _PA, _Te, _LIM],
   [[() => PlayerId, 0], () => PlayerAttributeMap, 0, 128 | 1],
 ];
-export var PlayerLatency: StaticStructureSchema = [3, n0, _PLl, 0, [_PI, _RIe, _LIMa], [[() => PlayerId, 0], 0, 1]];
-export var PlayerLatencyPolicy: StaticStructureSchema = [3, n0, _PLPl, 0, [_MIPLM, _PDS], [1, 1]];
-export var PlayerSession: StaticStructureSchema = [
+export var PlayerLatency$: StaticStructureSchema = [3, n0, _PLl, 0, [_PI, _RIe, _LIMa], [[() => PlayerId, 0], 0, 1]];
+export var PlayerLatencyPolicy$: StaticStructureSchema = [3, n0, _PLPl, 0, [_MIPLM, _PDS], [1, 1]];
+export var PlayerSession$: StaticStructureSchema = [
   3,
   n0,
   _PS,
@@ -2075,18 +2117,18 @@ export var PlayerSession: StaticStructureSchema = [
   [_PSI, _PI, _GSIa, _FI, _FA, _CT, _TT, _St, _IA, _DN, _Po, _PD],
   [0, [() => PlayerId, 0], 0, 0, 0, 4, 4, 0, [() => IpAddress, 0], 0, [() => PortNumber, 0], 0],
 ];
-export var PriorityConfiguration: StaticStructureSchema = [3, n0, _PC, 0, [_PO, _LO], [64 | 0, 64 | 0]];
-export var PriorityConfigurationOverride: StaticStructureSchema = [3, n0, _PCO, 0, [_PFS, _LO], [0, 64 | 0]];
-export var PutScalingPolicyInput: StaticStructureSchema = [
+export var PriorityConfiguration$: StaticStructureSchema = [3, n0, _PC, 0, [_PO, _LO], [64 | 0, 64 | 0]];
+export var PriorityConfigurationOverride$: StaticStructureSchema = [3, n0, _PCO, 0, [_PFS, _LO], [0, 64 | 0]];
+export var PutScalingPolicyInput$: StaticStructureSchema = [
   3,
   n0,
   _PSPI,
   0,
   [_N, _FI, _SAc, _SAT, _Th, _CO, _EP, _MN, _PT, _TC],
-  [0, 0, 1, 0, 1, 0, 1, 0, 0, () => TargetConfiguration],
+  [0, 0, 1, 0, 1, 0, 1, 0, 0, () => TargetConfiguration$],
 ];
-export var PutScalingPolicyOutput: StaticStructureSchema = [3, n0, _PSPO, 0, [_N], [0]];
-export var RegisterComputeInput: StaticStructureSchema = [
+export var PutScalingPolicyOutput$: StaticStructureSchema = [3, n0, _PSPO, 0, [_N], [0]];
+export var RegisterComputeInput$: StaticStructureSchema = [
   3,
   n0,
   _RCI,
@@ -2094,8 +2136,8 @@ export var RegisterComputeInput: StaticStructureSchema = [
   [_FI, _CN, _CPe, _DN, _IA, _L],
   [0, 0, 0, 0, [() => IpAddress, 0], 0],
 ];
-export var RegisterComputeOutput: StaticStructureSchema = [3, n0, _RCO, 0, [_Co], [[() => Compute, 0]]];
-export var RegisterGameServerInput: StaticStructureSchema = [
+export var RegisterComputeOutput$: StaticStructureSchema = [3, n0, _RCO, 0, [_Co], [[() => Compute$, 0]]];
+export var RegisterGameServerInput$: StaticStructureSchema = [
   3,
   n0,
   _RGSI,
@@ -2103,23 +2145,23 @@ export var RegisterGameServerInput: StaticStructureSchema = [
   [_GSGN, _GSI, _II, _CIo, _GSD],
   [0, 0, 0, 0, 0],
 ];
-export var RegisterGameServerOutput: StaticStructureSchema = [3, n0, _RGSO, 0, [_GS], [() => GameServer]];
-export var RequestUploadCredentialsInput: StaticStructureSchema = [3, n0, _RUCI, 0, [_BI], [0]];
-export var RequestUploadCredentialsOutput: StaticStructureSchema = [
+export var RegisterGameServerOutput$: StaticStructureSchema = [3, n0, _RGSO, 0, [_GS], [() => GameServer$]];
+export var RequestUploadCredentialsInput$: StaticStructureSchema = [3, n0, _RUCI, 0, [_BI], [0]];
+export var RequestUploadCredentialsOutput$: StaticStructureSchema = [
   3,
   n0,
   _RUCO,
   0,
   [_UC, _SLt],
-  [[() => AwsCredentials, 0], () => S3Location],
+  [[() => AwsCredentials$, 0], () => S3Location$],
 ];
-export var ResolveAliasInput: StaticStructureSchema = [3, n0, _RAI, 0, [_AI], [0]];
-export var ResolveAliasOutput: StaticStructureSchema = [3, n0, _RAO, 0, [_FI, _FA], [0, 0]];
-export var ResourceCreationLimitPolicy: StaticStructureSchema = [3, n0, _RCLP, 0, [_NGSPC, _PPIM], [1, 1]];
-export var ResumeGameServerGroupInput: StaticStructureSchema = [3, n0, _RGSGI, 0, [_GSGN, _RAe], [0, 64 | 0]];
-export var ResumeGameServerGroupOutput: StaticStructureSchema = [3, n0, _RGSGO, 0, [_GSG], [() => GameServerGroup]];
-export var RoutingStrategy: StaticStructureSchema = [3, n0, _RS, 0, [_T, _FI, _M], [0, 0, 0]];
-export var RuntimeConfiguration: StaticStructureSchema = [
+export var ResolveAliasInput$: StaticStructureSchema = [3, n0, _RAI, 0, [_AI], [0]];
+export var ResolveAliasOutput$: StaticStructureSchema = [3, n0, _RAO, 0, [_FI, _FA], [0, 0]];
+export var ResourceCreationLimitPolicy$: StaticStructureSchema = [3, n0, _RCLP, 0, [_NGSPC, _PPIM], [1, 1]];
+export var ResumeGameServerGroupInput$: StaticStructureSchema = [3, n0, _RGSGI, 0, [_GSGN, _RAe], [0, 64 | 0]];
+export var ResumeGameServerGroupOutput$: StaticStructureSchema = [3, n0, _RGSGO, 0, [_GSG], [() => GameServerGroup$]];
+export var RoutingStrategy$: StaticStructureSchema = [3, n0, _RS, 0, [_T, _FI, _M], [0, 0, 0]];
+export var RuntimeConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RC,
@@ -2127,24 +2169,24 @@ export var RuntimeConfiguration: StaticStructureSchema = [
   [_SPe, _MCGSA, _GSATS],
   [() => ServerProcessList, 1, 1],
 ];
-export var S3Location: StaticStructureSchema = [3, n0, _SLo, 0, [_Buc, _K, _RA, _OV], [0, 0, 0, 0]];
-export var ScalingPolicy: StaticStructureSchema = [
+export var S3Location$: StaticStructureSchema = [3, n0, _SLo, 0, [_Buc, _K, _RA, _OV], [0, 0, 0, 0]];
+export var ScalingPolicy$: StaticStructureSchema = [
   3,
   n0,
   _SPca,
   0,
   [_FI, _FA, _N, _St, _SAc, _SAT, _CO, _Th, _EP, _MN, _PT, _TC, _US, _L],
-  [0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, () => TargetConfiguration, 0, 0],
+  [0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, () => TargetConfiguration$, 0, 0],
 ];
-export var Script: StaticStructureSchema = [
+export var Script$: StaticStructureSchema = [
   3,
   n0,
   _Sc,
   0,
   [_SI, _SA, _N, _V, _SOD, _CT, _SLt],
-  [0, 0, 0, 0, 1, 4, () => S3Location],
+  [0, 0, 0, 0, 1, 4, () => S3Location$],
 ];
-export var SearchGameSessionsInput: StaticStructureSchema = [
+export var SearchGameSessionsInput$: StaticStructureSchema = [
   3,
   n0,
   _SGSI,
@@ -2152,7 +2194,7 @@ export var SearchGameSessionsInput: StaticStructureSchema = [
   [_FI, _AI, _L, _FE, _SE, _Li, _NTe],
   [0, 0, 0, 0, 0, 1, 0],
 ];
-export var SearchGameSessionsOutput: StaticStructureSchema = [
+export var SearchGameSessionsOutput$: StaticStructureSchema = [
   3,
   n0,
   _SGSO,
@@ -2160,10 +2202,10 @@ export var SearchGameSessionsOutput: StaticStructureSchema = [
   [_GSam, _NTe],
   [[() => GameSessionList, 0], 0],
 ];
-export var ServerProcess: StaticStructureSchema = [3, n0, _SPer, 0, [_LPa, _Pa, _CEon], [0, 0, 1]];
-export var StartFleetActionsInput: StaticStructureSchema = [3, n0, _SFAI, 0, [_FI, _Ac, _L], [0, 64 | 0, 0]];
-export var StartFleetActionsOutput: StaticStructureSchema = [3, n0, _SFAO, 0, [_FI, _FA], [0, 0]];
-export var StartGameSessionPlacementInput: StaticStructureSchema = [
+export var ServerProcess$: StaticStructureSchema = [3, n0, _SPer, 0, [_LPa, _Pa, _CEon], [0, 0, 1]];
+export var StartFleetActionsInput$: StaticStructureSchema = [3, n0, _SFAI, 0, [_FI, _Ac, _L], [0, 64 | 0, 0]];
+export var StartFleetActionsOutput$: StaticStructureSchema = [3, n0, _SFAO, 0, [_FI, _FA], [0, 0]];
+export var StartGameSessionPlacementInput$: StaticStructureSchema = [
   3,
   n0,
   _SGSPI,
@@ -2178,18 +2220,18 @@ export var StartGameSessionPlacementInput: StaticStructureSchema = [
     [() => PlayerLatencyList, 0],
     [() => DesiredPlayerSessionList, 0],
     0,
-    () => PriorityConfigurationOverride,
+    () => PriorityConfigurationOverride$,
   ],
 ];
-export var StartGameSessionPlacementOutput: StaticStructureSchema = [
+export var StartGameSessionPlacementOutput$: StaticStructureSchema = [
   3,
   n0,
   _SGSPO,
   0,
   [_GSP],
-  [[() => GameSessionPlacement, 0]],
+  [[() => GameSessionPlacement$, 0]],
 ];
-export var StartMatchBackfillInput: StaticStructureSchema = [
+export var StartMatchBackfillInput$: StaticStructureSchema = [
   3,
   n0,
   _SMBI,
@@ -2197,8 +2239,8 @@ export var StartMatchBackfillInput: StaticStructureSchema = [
   [_TI, _CNon, _GSA, _Pl],
   [0, 0, 0, [() => PlayerList, 0]],
 ];
-export var StartMatchBackfillOutput: StaticStructureSchema = [3, n0, _SMBO, 0, [_MT], [[() => MatchmakingTicket, 0]]];
-export var StartMatchmakingInput: StaticStructureSchema = [
+export var StartMatchBackfillOutput$: StaticStructureSchema = [3, n0, _SMBO, 0, [_MT], [[() => MatchmakingTicket$, 0]]];
+export var StartMatchmakingInput$: StaticStructureSchema = [
   3,
   n0,
   _SMI,
@@ -2206,21 +2248,21 @@ export var StartMatchmakingInput: StaticStructureSchema = [
   [_TI, _CNon, _Pl],
   [0, 0, [() => PlayerList, 0]],
 ];
-export var StartMatchmakingOutput: StaticStructureSchema = [3, n0, _SMO, 0, [_MT], [[() => MatchmakingTicket, 0]]];
-export var StopFleetActionsInput: StaticStructureSchema = [3, n0, _SFAIt, 0, [_FI, _Ac, _L], [0, 64 | 0, 0]];
-export var StopFleetActionsOutput: StaticStructureSchema = [3, n0, _SFAOt, 0, [_FI, _FA], [0, 0]];
-export var StopGameSessionPlacementInput: StaticStructureSchema = [3, n0, _SGSPIt, 0, [_PIla], [0]];
-export var StopGameSessionPlacementOutput: StaticStructureSchema = [
+export var StartMatchmakingOutput$: StaticStructureSchema = [3, n0, _SMO, 0, [_MT], [[() => MatchmakingTicket$, 0]]];
+export var StopFleetActionsInput$: StaticStructureSchema = [3, n0, _SFAIt, 0, [_FI, _Ac, _L], [0, 64 | 0, 0]];
+export var StopFleetActionsOutput$: StaticStructureSchema = [3, n0, _SFAOt, 0, [_FI, _FA], [0, 0]];
+export var StopGameSessionPlacementInput$: StaticStructureSchema = [3, n0, _SGSPIt, 0, [_PIla], [0]];
+export var StopGameSessionPlacementOutput$: StaticStructureSchema = [
   3,
   n0,
   _SGSPOt,
   0,
   [_GSP],
-  [[() => GameSessionPlacement, 0]],
+  [[() => GameSessionPlacement$, 0]],
 ];
-export var StopMatchmakingInput: StaticStructureSchema = [3, n0, _SMIt, 0, [_TI], [0]];
-export var StopMatchmakingOutput: StaticStructureSchema = [3, n0, _SMOt, 0, [], []];
-export var SupportContainerDefinition: StaticStructureSchema = [
+export var StopMatchmakingInput$: StaticStructureSchema = [3, n0, _SMIt, 0, [_TI], [0]];
+export var StopMatchmakingOutput$: StaticStructureSchema = [3, n0, _SMOt, 0, [], []];
+export var SupportContainerDefinition$: StaticStructureSchema = [
   3,
   n0,
   _SCDu,
@@ -2232,15 +2274,15 @@ export var SupportContainerDefinition: StaticStructureSchema = [
     () => ContainerMountPointList,
     () => ContainerEnvironmentList,
     2,
-    () => ContainerHealthCheck,
+    () => ContainerHealthCheck$,
     0,
     1,
-    [() => ContainerPortConfiguration, 0],
+    [() => ContainerPortConfiguration$, 0],
     0,
     1,
   ],
 ];
-export var SupportContainerDefinitionInput: StaticStructureSchema = [
+export var SupportContainerDefinitionInput$: StaticStructureSchema = [
   3,
   n0,
   _SCDI,
@@ -2252,45 +2294,45 @@ export var SupportContainerDefinitionInput: StaticStructureSchema = [
     () => ContainerMountPointList,
     () => ContainerEnvironmentList,
     2,
-    () => ContainerHealthCheck,
+    () => ContainerHealthCheck$,
     0,
     1,
-    [() => ContainerPortConfiguration, 0],
+    [() => ContainerPortConfiguration$, 0],
     1,
   ],
 ];
-export var SuspendGameServerGroupInput: StaticStructureSchema = [3, n0, _SGSGI, 0, [_GSGN, _SAus], [0, 64 | 0]];
-export var SuspendGameServerGroupOutput: StaticStructureSchema = [3, n0, _SGSGO, 0, [_GSG], [() => GameServerGroup]];
-export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _Va], [0, 0]];
-export var TaggingFailedException: StaticErrorSchema = [-3, n0, _TFE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TaggingFailedException, __TaggingFailedException);
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RARN, _Ta], [0, () => TagList]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TargetConfiguration: StaticStructureSchema = [3, n0, _TC, 0, [_TV], [1]];
-export var TargetTrackingConfiguration: StaticStructureSchema = [3, n0, _TTC, 0, [_TV], [1]];
-export var TerminalRoutingStrategyException: StaticErrorSchema = [-3, n0, _TRSE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TerminalRoutingStrategyException, __TerminalRoutingStrategyException);
-export var TerminateGameSessionInput: StaticStructureSchema = [3, n0, _TGSI, 0, [_GSIa, _TM], [0, 0]];
-export var TerminateGameSessionOutput: StaticStructureSchema = [3, n0, _TGSO, 0, [_GSa], [[() => GameSession, 0]]];
-export var UDPEndpoint: StaticStructureSchema = [3, n0, _UDPE, 0, [_Do, _Po], [0, 1]];
-export var UnauthorizedException: StaticErrorSchema = [-3, n0, _UE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
-export var UnsupportedRegionException: StaticErrorSchema = [-3, n0, _URE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(UnsupportedRegionException, __UnsupportedRegionException);
-export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RARN, _TK], [0, 64 | 0]];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateAliasInput: StaticStructureSchema = [
+export var SuspendGameServerGroupInput$: StaticStructureSchema = [3, n0, _SGSGI, 0, [_GSGN, _SAus], [0, 64 | 0]];
+export var SuspendGameServerGroupOutput$: StaticStructureSchema = [3, n0, _SGSGO, 0, [_GSG], [() => GameServerGroup$]];
+export var Tag$: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _Va], [0, 0]];
+export var TaggingFailedException$: StaticErrorSchema = [-3, n0, _TFE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(TaggingFailedException$, TaggingFailedException);
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_RARN, _Ta], [0, () => TagList]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var TargetConfiguration$: StaticStructureSchema = [3, n0, _TC, 0, [_TV], [1]];
+export var TargetTrackingConfiguration$: StaticStructureSchema = [3, n0, _TTC, 0, [_TV], [1]];
+export var TerminalRoutingStrategyException$: StaticErrorSchema = [-3, n0, _TRSE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(TerminalRoutingStrategyException$, TerminalRoutingStrategyException);
+export var TerminateGameSessionInput$: StaticStructureSchema = [3, n0, _TGSI, 0, [_GSIa, _TM], [0, 0]];
+export var TerminateGameSessionOutput$: StaticStructureSchema = [3, n0, _TGSO, 0, [_GSa], [[() => GameSession$, 0]]];
+export var UDPEndpoint$: StaticStructureSchema = [3, n0, _UDPE, 0, [_Do, _Po], [0, 1]];
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
+export var UnsupportedRegionException$: StaticErrorSchema = [-3, n0, _URE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(UnsupportedRegionException$, UnsupportedRegionException);
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR, 0, [_RARN, _TK], [0, 64 | 0]];
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateAliasInput$: StaticStructureSchema = [
   3,
   n0,
   _UAI,
   0,
   [_AI, _N, _D, _RS],
-  [0, 0, 0, () => RoutingStrategy],
+  [0, 0, 0, () => RoutingStrategy$],
 ];
-export var UpdateAliasOutput: StaticStructureSchema = [3, n0, _UAO, 0, [_A], [() => Alias]];
-export var UpdateBuildInput: StaticStructureSchema = [3, n0, _UBI, 0, [_BI, _N, _V], [0, 0, 0]];
-export var UpdateBuildOutput: StaticStructureSchema = [3, n0, _UBO, 0, [_B], [() => Build]];
-export var UpdateContainerFleetInput: StaticStructureSchema = [
+export var UpdateAliasOutput$: StaticStructureSchema = [3, n0, _UAO, 0, [_A], [() => Alias$]];
+export var UpdateBuildInput$: StaticStructureSchema = [3, n0, _UBI, 0, [_BI, _N, _V], [0, 0, 0]];
+export var UpdateBuildOutput$: StaticStructureSchema = [3, n0, _UBO, 0, [_B], [() => Build$]];
+export var UpdateContainerFleetInput$: StaticStructureSchema = [
   3,
   n0,
   _UCFI,
@@ -2301,45 +2343,45 @@ export var UpdateContainerFleetInput: StaticStructureSchema = [
     0,
     0,
     1,
-    [() => ConnectionPortRange, 0],
+    [() => ConnectionPortRange$, 0],
     [() => IpPermissionsList, 0],
     [() => IpPermissionsList, 0],
-    () => DeploymentConfiguration,
+    () => DeploymentConfiguration$,
     0,
     64 | 0,
     0,
-    () => GameSessionCreationLimitPolicy,
-    () => LogConfiguration,
+    () => GameSessionCreationLimitPolicy$,
+    () => LogConfiguration$,
     64 | 0,
   ],
 ];
-export var UpdateContainerFleetOutput: StaticStructureSchema = [3, n0, _UCFO, 0, [_CF], [[() => ContainerFleet, 0]]];
-export var UpdateContainerGroupDefinitionInput: StaticStructureSchema = [
+export var UpdateContainerFleetOutput$: StaticStructureSchema = [3, n0, _UCFO, 0, [_CF], [[() => ContainerFleet$, 0]]];
+export var UpdateContainerGroupDefinitionInput$: StaticStructureSchema = [
   3,
   n0,
   _UCGDI,
   0,
   [_N, _GSCD, _SCD, _TMLM, _TVL, _VD, _SVN, _OS],
-  [0, [() => GameServerContainerDefinitionInput, 0], [() => SupportContainerDefinitionInputList, 0], 1, 1, 0, 1, 0],
+  [0, [() => GameServerContainerDefinitionInput$, 0], [() => SupportContainerDefinitionInputList, 0], 1, 1, 0, 1, 0],
 ];
-export var UpdateContainerGroupDefinitionOutput: StaticStructureSchema = [
+export var UpdateContainerGroupDefinitionOutput$: StaticStructureSchema = [
   3,
   n0,
   _UCGDO,
   0,
   [_CGD],
-  [[() => ContainerGroupDefinition, 0]],
+  [[() => ContainerGroupDefinition$, 0]],
 ];
-export var UpdateFleetAttributesInput: StaticStructureSchema = [
+export var UpdateFleetAttributesInput$: StaticStructureSchema = [
   3,
   n0,
   _UFAI,
   0,
   [_FI, _N, _D, _NGSPP, _RCLP, _MG, _AC],
-  [0, 0, 0, 0, () => ResourceCreationLimitPolicy, 64 | 0, () => AnywhereConfiguration],
+  [0, 0, 0, 0, () => ResourceCreationLimitPolicy$, 64 | 0, () => AnywhereConfiguration$],
 ];
-export var UpdateFleetAttributesOutput: StaticStructureSchema = [3, n0, _UFAO, 0, [_FI, _FA], [0, 0]];
-export var UpdateFleetCapacityInput: StaticStructureSchema = [
+export var UpdateFleetAttributesOutput$: StaticStructureSchema = [3, n0, _UFAO, 0, [_FI, _FA], [0, 0]];
+export var UpdateFleetCapacityInput$: StaticStructureSchema = [
   3,
   n0,
   _UFCI,
@@ -2347,8 +2389,8 @@ export var UpdateFleetCapacityInput: StaticStructureSchema = [
   [_FI, _DIe, _MS, _MSa, _L],
   [0, 1, 1, 1, 0],
 ];
-export var UpdateFleetCapacityOutput: StaticStructureSchema = [3, n0, _UFCO, 0, [_FI, _FA, _L], [0, 0, 0]];
-export var UpdateFleetPortSettingsInput: StaticStructureSchema = [
+export var UpdateFleetCapacityOutput$: StaticStructureSchema = [3, n0, _UFCO, 0, [_FI, _FA, _L], [0, 0, 0]];
+export var UpdateFleetPortSettingsInput$: StaticStructureSchema = [
   3,
   n0,
   _UFPSI,
@@ -2356,8 +2398,8 @@ export var UpdateFleetPortSettingsInput: StaticStructureSchema = [
   [_FI, _IPA, _IPR],
   [0, [() => IpPermissionsList, 0], [() => IpPermissionsList, 0]],
 ];
-export var UpdateFleetPortSettingsOutput: StaticStructureSchema = [3, n0, _UFPSO, 0, [_FI, _FA], [0, 0]];
-export var UpdateGameServerGroupInput: StaticStructureSchema = [
+export var UpdateFleetPortSettingsOutput$: StaticStructureSchema = [3, n0, _UFPSO, 0, [_FI, _FA], [0, 0]];
+export var UpdateGameServerGroupInput$: StaticStructureSchema = [
   3,
   n0,
   _UGSGI,
@@ -2365,8 +2407,8 @@ export var UpdateGameServerGroupInput: StaticStructureSchema = [
   [_GSGN, _RA, _ID, _GSPP, _BS],
   [0, 0, () => InstanceDefinitions, 0, 0],
 ];
-export var UpdateGameServerGroupOutput: StaticStructureSchema = [3, n0, _UGSGO, 0, [_GSG], [() => GameServerGroup]];
-export var UpdateGameServerInput: StaticStructureSchema = [
+export var UpdateGameServerGroupOutput$: StaticStructureSchema = [3, n0, _UGSGO, 0, [_GSG], [() => GameServerGroup$]];
+export var UpdateGameServerInput$: StaticStructureSchema = [
   3,
   n0,
   _UGSI,
@@ -2374,8 +2416,8 @@ export var UpdateGameServerInput: StaticStructureSchema = [
   [_GSGN, _GSI, _GSD, _USt, _HC],
   [0, 0, 0, 0, 0],
 ];
-export var UpdateGameServerOutput: StaticStructureSchema = [3, n0, _UGSO, 0, [_GS], [() => GameServer]];
-export var UpdateGameSessionInput: StaticStructureSchema = [
+export var UpdateGameServerOutput$: StaticStructureSchema = [3, n0, _UGSO, 0, [_GS], [() => GameServer$]];
+export var UpdateGameSessionInput$: StaticStructureSchema = [
   3,
   n0,
   _UGSIp,
@@ -2383,8 +2425,8 @@ export var UpdateGameSessionInput: StaticStructureSchema = [
   [_GSIa, _MPSC, _N, _PSCP, _PP, _GP],
   [0, 1, 0, 0, 0, () => GamePropertyList],
 ];
-export var UpdateGameSessionOutput: StaticStructureSchema = [3, n0, _UGSOp, 0, [_GSa], [[() => GameSession, 0]]];
-export var UpdateGameSessionQueueInput: StaticStructureSchema = [
+export var UpdateGameSessionOutput$: StaticStructureSchema = [3, n0, _UGSOp, 0, [_GSa], [[() => GameSession$, 0]]];
+export var UpdateGameSessionQueueInput$: StaticStructureSchema = [
   3,
   n0,
   _UGSQI,
@@ -2395,14 +2437,14 @@ export var UpdateGameSessionQueueInput: StaticStructureSchema = [
     1,
     () => PlayerLatencyPolicyList,
     () => GameSessionQueueDestinationList,
-    () => FilterConfiguration,
-    () => PriorityConfiguration,
+    () => FilterConfiguration$,
+    () => PriorityConfiguration$,
     0,
     0,
   ],
 ];
-export var UpdateGameSessionQueueOutput: StaticStructureSchema = [3, n0, _UGSQO, 0, [_GSQ], [() => GameSessionQueue]];
-export var UpdateMatchmakingConfigurationInput: StaticStructureSchema = [
+export var UpdateGameSessionQueueOutput$: StaticStructureSchema = [3, n0, _UGSQO, 0, [_GSQ], [() => GameSessionQueue$]];
+export var UpdateMatchmakingConfigurationInput$: StaticStructureSchema = [
   3,
   n0,
   _UMCI,
@@ -2410,42 +2452,42 @@ export var UpdateMatchmakingConfigurationInput: StaticStructureSchema = [
   [_N, _D, _GSQA, _RTS, _ATS, _AR, _RSN, _NT, _APC, _CED, _GP, _GSDa, _BM, _FMM],
   [0, 0, 64 | 0, 1, 1, 2, 0, 0, 1, 0, () => GamePropertyList, 0, 0, 0],
 ];
-export var UpdateMatchmakingConfigurationOutput: StaticStructureSchema = [
+export var UpdateMatchmakingConfigurationOutput$: StaticStructureSchema = [
   3,
   n0,
   _UMCO,
   0,
   [_Conf],
-  [() => MatchmakingConfiguration],
+  [() => MatchmakingConfiguration$],
 ];
-export var UpdateRuntimeConfigurationInput: StaticStructureSchema = [
+export var UpdateRuntimeConfigurationInput$: StaticStructureSchema = [
   3,
   n0,
   _URCI,
   0,
   [_FI, _RC],
-  [0, () => RuntimeConfiguration],
+  [0, () => RuntimeConfiguration$],
 ];
-export var UpdateRuntimeConfigurationOutput: StaticStructureSchema = [
+export var UpdateRuntimeConfigurationOutput$: StaticStructureSchema = [
   3,
   n0,
   _URCO,
   0,
   [_RC],
-  [() => RuntimeConfiguration],
+  [() => RuntimeConfiguration$],
 ];
-export var UpdateScriptInput: StaticStructureSchema = [
+export var UpdateScriptInput$: StaticStructureSchema = [
   3,
   n0,
   _USI,
   0,
   [_SI, _N, _V, _SLt, _ZF],
-  [0, 0, 0, () => S3Location, 21],
+  [0, 0, 0, () => S3Location$, 21],
 ];
-export var UpdateScriptOutput: StaticStructureSchema = [3, n0, _USO, 0, [_Sc], [() => Script]];
-export var ValidateMatchmakingRuleSetInput: StaticStructureSchema = [3, n0, _VMRSI, 0, [_RSB], [0]];
-export var ValidateMatchmakingRuleSetOutput: StaticStructureSchema = [3, n0, _VMRSO, 0, [_Val], [2]];
-export var VpcPeeringAuthorization: StaticStructureSchema = [
+export var UpdateScriptOutput$: StaticStructureSchema = [3, n0, _USO, 0, [_Sc], [() => Script$]];
+export var ValidateMatchmakingRuleSetInput$: StaticStructureSchema = [3, n0, _VMRSI, 0, [_RSB], [0]];
+export var ValidateMatchmakingRuleSetOutput$: StaticStructureSchema = [3, n0, _VMRSO, 0, [_Val], [2]];
+export var VpcPeeringAuthorization$: StaticStructureSchema = [
   3,
   n0,
   _VPA,
@@ -2453,897 +2495,925 @@ export var VpcPeeringAuthorization: StaticStructureSchema = [
   [_GLAAI, _PVAAI, _PVI, _CT, _ETxp],
   [0, 0, 0, 4, 4],
 ];
-export var VpcPeeringConnection: StaticStructureSchema = [
+export var VpcPeeringConnection$: StaticStructureSchema = [
   3,
   n0,
   _VPCp,
   0,
   [_FI, _FA, _IVCB, _VPCI, _St, _PVI, _GLVI],
-  [0, 0, 0, 0, () => VpcPeeringConnectionStatus, 0, 0],
+  [0, 0, 0, 0, () => VpcPeeringConnectionStatus$, 0, 0],
 ];
-export var VpcPeeringConnectionStatus: StaticStructureSchema = [3, n0, _VPCS, 0, [_Cod, _M], [0, 0]];
-export var __Unit = "unit" as const;
-export var GameLiftServiceException: StaticErrorSchema = [-3, _sm, "GameLiftServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(GameLiftServiceException, __GameLiftServiceException);
-export var AliasList: StaticListSchema = [1, n0, _ALli, 0, () => Alias];
-export var BuildList: StaticListSchema = [1, n0, _BL, 0, () => Build];
-export var ComputeList: StaticListSchema = [1, n0, _CL, 0, [() => Compute, 0]];
-export var ContainerAttributes: StaticListSchema = [1, n0, _CAo, 0, () => ContainerAttribute];
-export var ContainerCommandStringList = 64 | 0;
-export var ContainerDependencyList: StaticListSchema = [1, n0, _CDL, 0, () => ContainerDependency];
-export var ContainerEnvironmentList: StaticListSchema = [1, n0, _CEL, 0, () => ContainerEnvironment];
-export var ContainerFleetList: StaticListSchema = [1, n0, _CFL, 0, [() => ContainerFleet, 0]];
-export var ContainerFleetLocationAttributesList: StaticListSchema = [
+export var VpcPeeringConnectionStatus$: StaticStructureSchema = [3, n0, _VPCS, 0, [_Cod, _M], [0, 0]];
+var __Unit = "unit" as const;
+export var GameLiftServiceException$: StaticErrorSchema = [-3, _sm, "GameLiftServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(GameLiftServiceException$, GameLiftServiceException);
+var AliasList: StaticListSchema = [1, n0, _ALli, 0, () => Alias$];
+var BuildList: StaticListSchema = [1, n0, _BL, 0, () => Build$];
+var ComputeList: StaticListSchema = [1, n0, _CL, 0, [() => Compute$, 0]];
+var ContainerAttributes: StaticListSchema = [1, n0, _CAo, 0, () => ContainerAttribute$];
+var ContainerCommandStringList = 64 | 0;
+var ContainerDependencyList: StaticListSchema = [1, n0, _CDL, 0, () => ContainerDependency$];
+var ContainerEnvironmentList: StaticListSchema = [1, n0, _CEL, 0, () => ContainerEnvironment$];
+var ContainerFleetList: StaticListSchema = [1, n0, _CFL, 0, [() => ContainerFleet$, 0]];
+var ContainerFleetLocationAttributesList: StaticListSchema = [
   1,
   n0,
   _CFLAL,
   0,
-  () => ContainerFleetLocationAttributes,
+  () => ContainerFleetLocationAttributes$,
 ];
-export var ContainerFleetRemoveAttributeList = 64 | 0;
-export var ContainerGroupDefinitionList: StaticListSchema = [1, n0, _CGDL, 0, [() => ContainerGroupDefinition, 0]];
-export var ContainerIdentifierList: StaticListSchema = [1, n0, _CIL, 0, () => ContainerIdentifier];
-export var ContainerMountPointList: StaticListSchema = [1, n0, _CMPL, 0, () => ContainerMountPoint];
-export var ContainerPortRangeList: StaticListSchema = [1, n0, _CPRL, 0, [() => ContainerPortRange, 0]];
-export var DesiredPlayerSessionList: StaticListSchema = [1, n0, _DPSL, 0, [() => DesiredPlayerSession, 0]];
-export var EC2InstanceLimitList: StaticListSchema = [1, n0, _ECILL, 0, () => EC2InstanceLimit];
-export var EventList: StaticListSchema = [1, n0, _EL, 0, () => Event];
-export var FilterInstanceStatuses = 64 | 0;
-export var FleetActionList = 64 | 0;
-export var FleetAttributesList: StaticListSchema = [1, n0, _FAL, 0, () => FleetAttributes];
-export var FleetCapacityList: StaticListSchema = [1, n0, _FCL, 0, () => FleetCapacity];
-export var FleetDeployments: StaticListSchema = [1, n0, _FDl, 0, () => FleetDeployment];
-export var FleetIdList = 64 | 0;
-export var FleetIdOrArnList = 64 | 0;
-export var FleetUtilizationList: StaticListSchema = [1, n0, _FUL, 0, () => FleetUtilization];
-export var GamePropertyList: StaticListSchema = [1, n0, _GPL, 0, () => GameProperty];
-export var GameServerGroupActions = 64 | 0;
-export var GameServerGroups: StaticListSchema = [1, n0, _GSGa, 0, () => GameServerGroup];
-export var GameServerInstanceIds = 64 | 0;
-export var GameServerInstances: StaticListSchema = [1, n0, _GSIam, 0, () => GameServerInstance];
-export var GameServers: StaticListSchema = [1, n0, _GSame, 0, () => GameServer];
-export var GameSessionDetailList: StaticListSchema = [1, n0, _GSDL, 0, [() => GameSessionDetail, 0]];
-export var GameSessionList: StaticListSchema = [1, n0, _GSL, 0, [() => GameSession, 0]];
-export var GameSessionQueueDestinationList: StaticListSchema = [1, n0, _GSQDL, 0, () => GameSessionQueueDestination];
-export var GameSessionQueueList: StaticListSchema = [1, n0, _GSQL, 0, () => GameSessionQueue];
-export var GameSessionQueueNameOrArnList = 64 | 0;
-export var InstanceDefinitions: StaticListSchema = [1, n0, _ID, 0, () => InstanceDefinition];
-export var InstanceList: StaticListSchema = [1, n0, _ILn, 0, [() => Instance, 0]];
-export var IpPermissionsList: StaticListSchema = [1, n0, _IPL, 0, [() => IpPermission, 0]];
-export var LocationAttributesList: StaticListSchema = [1, n0, _LAL, 0, () => LocationAttributes];
-export var LocationConfigurationList: StaticListSchema = [1, n0, _LCL, 0, () => LocationConfiguration];
-export var LocationFilterList = 64 | 0;
-export var LocationList = 64 | 0;
-export var LocationModelList: StaticListSchema = [1, n0, _LML, 0, () => LocationModel];
-export var LocationOrderOverrideList = 64 | 0;
-export var LocationStateList: StaticListSchema = [1, n0, _LSL, 0, () => LocationState];
-export var MatchedPlayerSessionList: StaticListSchema = [1, n0, _MPSL, 0, [() => MatchedPlayerSession, 0]];
-export var MatchmakingConfigurationList: StaticListSchema = [1, n0, _MCL, 0, () => MatchmakingConfiguration];
-export var MatchmakingConfigurationNameList = 64 | 0;
-export var MatchmakingIdList = 64 | 0;
-export var MatchmakingRuleSetList: StaticListSchema = [1, n0, _MRSL, 0, () => MatchmakingRuleSet];
-export var MatchmakingRuleSetNameList = 64 | 0;
-export var MatchmakingTicketList: StaticListSchema = [1, n0, _MTL, 0, [() => MatchmakingTicket, 0]];
-export var MetricGroupList = 64 | 0;
-export var PlacedPlayerSessionList: StaticListSchema = [1, n0, _PPSL, 0, [() => PlacedPlayerSession, 0]];
-export var PlayerAttributeStringList = 64 | 0;
-export var PlayerIdList: StaticListSchema = [1, n0, _PIL, 8, [() => PlayerId, 0]];
-export var PlayerIdsForAcceptMatch: StaticListSchema = [1, n0, _PIFAM, 8, [() => PlayerId, 0]];
-export var PlayerLatencyList: StaticListSchema = [1, n0, _PLL, 0, [() => PlayerLatency, 0]];
-export var PlayerLatencyPolicyList: StaticListSchema = [1, n0, _PLPL, 0, () => PlayerLatencyPolicy];
-export var PlayerList: StaticListSchema = [1, n0, _PLla, 0, [() => Player, 0]];
-export var PlayerSessionList: StaticListSchema = [1, n0, _PSL, 0, [() => PlayerSession, 0]];
-export var PriorityTypeList = 64 | 0;
-export var QueueArnsList = 64 | 0;
-export var ScalingPolicyList: StaticListSchema = [1, n0, _SPL, 0, () => ScalingPolicy];
-export var ScriptList: StaticListSchema = [1, n0, _SLc, 0, () => Script];
-export var ServerProcessList: StaticListSchema = [1, n0, _SPLe, 0, () => ServerProcess];
-export var StringList = 64 | 0;
-export var SupportContainerDefinitionInputList: StaticListSchema = [
+var ContainerFleetRemoveAttributeList = 64 | 0;
+var ContainerGroupDefinitionList: StaticListSchema = [1, n0, _CGDL, 0, [() => ContainerGroupDefinition$, 0]];
+var ContainerIdentifierList: StaticListSchema = [1, n0, _CIL, 0, () => ContainerIdentifier$];
+var ContainerMountPointList: StaticListSchema = [1, n0, _CMPL, 0, () => ContainerMountPoint$];
+var ContainerPortRangeList: StaticListSchema = [1, n0, _CPRL, 0, [() => ContainerPortRange$, 0]];
+var DesiredPlayerSessionList: StaticListSchema = [1, n0, _DPSL, 0, [() => DesiredPlayerSession$, 0]];
+var EC2InstanceLimitList: StaticListSchema = [1, n0, _ECILL, 0, () => EC2InstanceLimit$];
+var EventList: StaticListSchema = [1, n0, _EL, 0, () => Event$];
+var FilterInstanceStatuses = 64 | 0;
+var FleetActionList = 64 | 0;
+var FleetAttributesList: StaticListSchema = [1, n0, _FAL, 0, () => FleetAttributes$];
+var FleetCapacityList: StaticListSchema = [1, n0, _FCL, 0, () => FleetCapacity$];
+var FleetDeployments: StaticListSchema = [1, n0, _FDl, 0, () => FleetDeployment$];
+var FleetIdList = 64 | 0;
+var FleetIdOrArnList = 64 | 0;
+var FleetUtilizationList: StaticListSchema = [1, n0, _FUL, 0, () => FleetUtilization$];
+var GamePropertyList: StaticListSchema = [1, n0, _GPL, 0, () => GameProperty$];
+var GameServerGroupActions = 64 | 0;
+var GameServerGroups: StaticListSchema = [1, n0, _GSGa, 0, () => GameServerGroup$];
+var GameServerInstanceIds = 64 | 0;
+var GameServerInstances: StaticListSchema = [1, n0, _GSIam, 0, () => GameServerInstance$];
+var GameServers: StaticListSchema = [1, n0, _GSame, 0, () => GameServer$];
+var GameSessionDetailList: StaticListSchema = [1, n0, _GSDL, 0, [() => GameSessionDetail$, 0]];
+var GameSessionList: StaticListSchema = [1, n0, _GSL, 0, [() => GameSession$, 0]];
+var GameSessionQueueDestinationList: StaticListSchema = [1, n0, _GSQDL, 0, () => GameSessionQueueDestination$];
+var GameSessionQueueList: StaticListSchema = [1, n0, _GSQL, 0, () => GameSessionQueue$];
+var GameSessionQueueNameOrArnList = 64 | 0;
+var InstanceDefinitions: StaticListSchema = [1, n0, _ID, 0, () => InstanceDefinition$];
+var InstanceList: StaticListSchema = [1, n0, _ILn, 0, [() => Instance$, 0]];
+var IpPermissionsList: StaticListSchema = [1, n0, _IPL, 0, [() => IpPermission$, 0]];
+var LocationAttributesList: StaticListSchema = [1, n0, _LAL, 0, () => LocationAttributes$];
+var LocationConfigurationList: StaticListSchema = [1, n0, _LCL, 0, () => LocationConfiguration$];
+var LocationFilterList = 64 | 0;
+var LocationList = 64 | 0;
+var LocationModelList: StaticListSchema = [1, n0, _LML, 0, () => LocationModel$];
+var LocationOrderOverrideList = 64 | 0;
+var LocationStateList: StaticListSchema = [1, n0, _LSL, 0, () => LocationState$];
+var MatchedPlayerSessionList: StaticListSchema = [1, n0, _MPSL, 0, [() => MatchedPlayerSession$, 0]];
+var MatchmakingConfigurationList: StaticListSchema = [1, n0, _MCL, 0, () => MatchmakingConfiguration$];
+var MatchmakingConfigurationNameList = 64 | 0;
+var MatchmakingIdList = 64 | 0;
+var MatchmakingRuleSetList: StaticListSchema = [1, n0, _MRSL, 0, () => MatchmakingRuleSet$];
+var MatchmakingRuleSetNameList = 64 | 0;
+var MatchmakingTicketList: StaticListSchema = [1, n0, _MTL, 0, [() => MatchmakingTicket$, 0]];
+var MetricGroupList = 64 | 0;
+var PlacedPlayerSessionList: StaticListSchema = [1, n0, _PPSL, 0, [() => PlacedPlayerSession$, 0]];
+var PlayerAttributeStringList = 64 | 0;
+var PlayerIdList: StaticListSchema = [1, n0, _PIL, 8, [() => PlayerId, 0]];
+var PlayerIdsForAcceptMatch: StaticListSchema = [1, n0, _PIFAM, 8, [() => PlayerId, 0]];
+var PlayerLatencyList: StaticListSchema = [1, n0, _PLL, 0, [() => PlayerLatency$, 0]];
+var PlayerLatencyPolicyList: StaticListSchema = [1, n0, _PLPL, 0, () => PlayerLatencyPolicy$];
+var PlayerList: StaticListSchema = [1, n0, _PLla, 0, [() => Player$, 0]];
+var PlayerSessionList: StaticListSchema = [1, n0, _PSL, 0, [() => PlayerSession$, 0]];
+var PriorityTypeList = 64 | 0;
+var QueueArnsList = 64 | 0;
+var ScalingPolicyList: StaticListSchema = [1, n0, _SPL, 0, () => ScalingPolicy$];
+var ScriptList: StaticListSchema = [1, n0, _SLc, 0, () => Script$];
+var ServerProcessList: StaticListSchema = [1, n0, _SPLe, 0, () => ServerProcess$];
+var StringList = 64 | 0;
+var SupportContainerDefinitionInputList: StaticListSchema = [
   1,
   n0,
   _SCDIL,
   0,
-  [() => SupportContainerDefinitionInput, 0],
+  [() => SupportContainerDefinitionInput$, 0],
 ];
-export var SupportContainerDefinitionList: StaticListSchema = [1, n0, _SCDL, 0, [() => SupportContainerDefinition, 0]];
-export var TagKeyList = 64 | 0;
-export var TagList: StaticListSchema = [1, n0, _TLa, 0, () => Tag];
-export var VpcPeeringAuthorizationList: StaticListSchema = [1, n0, _VPAL, 0, () => VpcPeeringAuthorization];
-export var VpcPeeringConnectionList: StaticListSchema = [1, n0, _VPCL, 0, () => VpcPeeringConnection];
-export var VpcSubnets = 64 | 0;
-export var LatencyMap = 128 | 1;
-export var LocationalDeployments: StaticMapSchema = [2, n0, _LD, 0, 0, () => LocationalDeployment];
-export var PlayerAttributeMap: StaticMapSchema = [2, n0, _PAM, 0, 0, () => AttributeValue];
-export var PlayerAttributeStringDoubleMap = 128 | 1;
-export var PlayerDataMap = 128 | 0;
-export var AcceptMatch: StaticOperationSchema = [9, n0, _AM, 0, () => AcceptMatchInput, () => AcceptMatchOutput];
-export var ClaimGameServer: StaticOperationSchema = [
+var SupportContainerDefinitionList: StaticListSchema = [1, n0, _SCDL, 0, [() => SupportContainerDefinition$, 0]];
+var TagKeyList = 64 | 0;
+var TagList: StaticListSchema = [1, n0, _TLa, 0, () => Tag$];
+var VpcPeeringAuthorizationList: StaticListSchema = [1, n0, _VPAL, 0, () => VpcPeeringAuthorization$];
+var VpcPeeringConnectionList: StaticListSchema = [1, n0, _VPCL, 0, () => VpcPeeringConnection$];
+var VpcSubnets = 64 | 0;
+var LatencyMap = 128 | 1;
+var LocationalDeployments: StaticMapSchema = [2, n0, _LD, 0, 0, () => LocationalDeployment$];
+var PlayerAttributeMap: StaticMapSchema = [2, n0, _PAM, 0, 0, () => AttributeValue$];
+var PlayerAttributeStringDoubleMap = 128 | 1;
+var PlayerDataMap = 128 | 0;
+export var AcceptMatch$: StaticOperationSchema = [9, n0, _AM, 0, () => AcceptMatchInput$, () => AcceptMatchOutput$];
+export var ClaimGameServer$: StaticOperationSchema = [
   9,
   n0,
   _CGS,
   0,
-  () => ClaimGameServerInput,
-  () => ClaimGameServerOutput,
+  () => ClaimGameServerInput$,
+  () => ClaimGameServerOutput$,
 ];
-export var CreateAlias: StaticOperationSchema = [9, n0, _CAr, 0, () => CreateAliasInput, () => CreateAliasOutput];
-export var CreateBuild: StaticOperationSchema = [9, n0, _CB, 0, () => CreateBuildInput, () => CreateBuildOutput];
-export var CreateContainerFleet: StaticOperationSchema = [
+export var CreateAlias$: StaticOperationSchema = [9, n0, _CAr, 0, () => CreateAliasInput$, () => CreateAliasOutput$];
+export var CreateBuild$: StaticOperationSchema = [9, n0, _CB, 0, () => CreateBuildInput$, () => CreateBuildOutput$];
+export var CreateContainerFleet$: StaticOperationSchema = [
   9,
   n0,
   _CCF,
   0,
-  () => CreateContainerFleetInput,
-  () => CreateContainerFleetOutput,
+  () => CreateContainerFleetInput$,
+  () => CreateContainerFleetOutput$,
 ];
-export var CreateContainerGroupDefinition: StaticOperationSchema = [
+export var CreateContainerGroupDefinition$: StaticOperationSchema = [
   9,
   n0,
   _CCGD,
   0,
-  () => CreateContainerGroupDefinitionInput,
-  () => CreateContainerGroupDefinitionOutput,
+  () => CreateContainerGroupDefinitionInput$,
+  () => CreateContainerGroupDefinitionOutput$,
 ];
-export var CreateFleet: StaticOperationSchema = [9, n0, _CFr, 0, () => CreateFleetInput, () => CreateFleetOutput];
-export var CreateFleetLocations: StaticOperationSchema = [
+export var CreateFleet$: StaticOperationSchema = [9, n0, _CFr, 0, () => CreateFleetInput$, () => CreateFleetOutput$];
+export var CreateFleetLocations$: StaticOperationSchema = [
   9,
   n0,
   _CFLr,
   0,
-  () => CreateFleetLocationsInput,
-  () => CreateFleetLocationsOutput,
+  () => CreateFleetLocationsInput$,
+  () => CreateFleetLocationsOutput$,
 ];
-export var CreateGameServerGroup: StaticOperationSchema = [
+export var CreateGameServerGroup$: StaticOperationSchema = [
   9,
   n0,
   _CGSG,
   0,
-  () => CreateGameServerGroupInput,
-  () => CreateGameServerGroupOutput,
+  () => CreateGameServerGroupInput$,
+  () => CreateGameServerGroupOutput$,
 ];
-export var CreateGameSession: StaticOperationSchema = [
+export var CreateGameSession$: StaticOperationSchema = [
   9,
   n0,
   _CGSr,
   0,
-  () => CreateGameSessionInput,
-  () => CreateGameSessionOutput,
+  () => CreateGameSessionInput$,
+  () => CreateGameSessionOutput$,
 ];
-export var CreateGameSessionQueue: StaticOperationSchema = [
+export var CreateGameSessionQueue$: StaticOperationSchema = [
   9,
   n0,
   _CGSQ,
   0,
-  () => CreateGameSessionQueueInput,
-  () => CreateGameSessionQueueOutput,
+  () => CreateGameSessionQueueInput$,
+  () => CreateGameSessionQueueOutput$,
 ];
-export var CreateLocation: StaticOperationSchema = [
+export var CreateLocation$: StaticOperationSchema = [
   9,
   n0,
   _CLr,
   0,
-  () => CreateLocationInput,
-  () => CreateLocationOutput,
+  () => CreateLocationInput$,
+  () => CreateLocationOutput$,
 ];
-export var CreateMatchmakingConfiguration: StaticOperationSchema = [
+export var CreateMatchmakingConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _CMC,
   0,
-  () => CreateMatchmakingConfigurationInput,
-  () => CreateMatchmakingConfigurationOutput,
+  () => CreateMatchmakingConfigurationInput$,
+  () => CreateMatchmakingConfigurationOutput$,
 ];
-export var CreateMatchmakingRuleSet: StaticOperationSchema = [
+export var CreateMatchmakingRuleSet$: StaticOperationSchema = [
   9,
   n0,
   _CMRS,
   0,
-  () => CreateMatchmakingRuleSetInput,
-  () => CreateMatchmakingRuleSetOutput,
+  () => CreateMatchmakingRuleSetInput$,
+  () => CreateMatchmakingRuleSetOutput$,
 ];
-export var CreatePlayerSession: StaticOperationSchema = [
+export var CreatePlayerSession$: StaticOperationSchema = [
   9,
   n0,
   _CPS,
   0,
-  () => CreatePlayerSessionInput,
-  () => CreatePlayerSessionOutput,
+  () => CreatePlayerSessionInput$,
+  () => CreatePlayerSessionOutput$,
 ];
-export var CreatePlayerSessions: StaticOperationSchema = [
+export var CreatePlayerSessions$: StaticOperationSchema = [
   9,
   n0,
   _CPSr,
   0,
-  () => CreatePlayerSessionsInput,
-  () => CreatePlayerSessionsOutput,
+  () => CreatePlayerSessionsInput$,
+  () => CreatePlayerSessionsOutput$,
 ];
-export var CreateScript: StaticOperationSchema = [9, n0, _CSr, 0, () => CreateScriptInput, () => CreateScriptOutput];
-export var CreateVpcPeeringAuthorization: StaticOperationSchema = [
+export var CreateScript$: StaticOperationSchema = [9, n0, _CSr, 0, () => CreateScriptInput$, () => CreateScriptOutput$];
+export var CreateVpcPeeringAuthorization$: StaticOperationSchema = [
   9,
   n0,
   _CVPA,
   0,
-  () => CreateVpcPeeringAuthorizationInput,
-  () => CreateVpcPeeringAuthorizationOutput,
+  () => CreateVpcPeeringAuthorizationInput$,
+  () => CreateVpcPeeringAuthorizationOutput$,
 ];
-export var CreateVpcPeeringConnection: StaticOperationSchema = [
+export var CreateVpcPeeringConnection$: StaticOperationSchema = [
   9,
   n0,
   _CVPC,
   0,
-  () => CreateVpcPeeringConnectionInput,
-  () => CreateVpcPeeringConnectionOutput,
+  () => CreateVpcPeeringConnectionInput$,
+  () => CreateVpcPeeringConnectionOutput$,
 ];
-export var DeleteAlias: StaticOperationSchema = [9, n0, _DAe, 0, () => DeleteAliasInput, () => __Unit];
-export var DeleteBuild: StaticOperationSchema = [9, n0, _DB, 0, () => DeleteBuildInput, () => __Unit];
-export var DeleteContainerFleet: StaticOperationSchema = [
+export var DeleteAlias$: StaticOperationSchema = [9, n0, _DAe, 0, () => DeleteAliasInput$, () => __Unit];
+export var DeleteBuild$: StaticOperationSchema = [9, n0, _DB, 0, () => DeleteBuildInput$, () => __Unit];
+export var DeleteContainerFleet$: StaticOperationSchema = [
   9,
   n0,
   _DCF,
   0,
-  () => DeleteContainerFleetInput,
-  () => DeleteContainerFleetOutput,
+  () => DeleteContainerFleetInput$,
+  () => DeleteContainerFleetOutput$,
 ];
-export var DeleteContainerGroupDefinition: StaticOperationSchema = [
+export var DeleteContainerGroupDefinition$: StaticOperationSchema = [
   9,
   n0,
   _DCGD,
   0,
-  () => DeleteContainerGroupDefinitionInput,
-  () => DeleteContainerGroupDefinitionOutput,
+  () => DeleteContainerGroupDefinitionInput$,
+  () => DeleteContainerGroupDefinitionOutput$,
 ];
-export var DeleteFleet: StaticOperationSchema = [9, n0, _DF, 0, () => DeleteFleetInput, () => __Unit];
-export var DeleteFleetLocations: StaticOperationSchema = [
+export var DeleteFleet$: StaticOperationSchema = [9, n0, _DF, 0, () => DeleteFleetInput$, () => __Unit];
+export var DeleteFleetLocations$: StaticOperationSchema = [
   9,
   n0,
   _DFL,
   0,
-  () => DeleteFleetLocationsInput,
-  () => DeleteFleetLocationsOutput,
+  () => DeleteFleetLocationsInput$,
+  () => DeleteFleetLocationsOutput$,
 ];
-export var DeleteGameServerGroup: StaticOperationSchema = [
+export var DeleteGameServerGroup$: StaticOperationSchema = [
   9,
   n0,
   _DGSG,
   0,
-  () => DeleteGameServerGroupInput,
-  () => DeleteGameServerGroupOutput,
+  () => DeleteGameServerGroupInput$,
+  () => DeleteGameServerGroupOutput$,
 ];
-export var DeleteGameSessionQueue: StaticOperationSchema = [
+export var DeleteGameSessionQueue$: StaticOperationSchema = [
   9,
   n0,
   _DGSQ,
   0,
-  () => DeleteGameSessionQueueInput,
-  () => DeleteGameSessionQueueOutput,
+  () => DeleteGameSessionQueueInput$,
+  () => DeleteGameSessionQueueOutput$,
 ];
-export var DeleteLocation: StaticOperationSchema = [
+export var DeleteLocation$: StaticOperationSchema = [
   9,
   n0,
   _DL,
   0,
-  () => DeleteLocationInput,
-  () => DeleteLocationOutput,
+  () => DeleteLocationInput$,
+  () => DeleteLocationOutput$,
 ];
-export var DeleteMatchmakingConfiguration: StaticOperationSchema = [
+export var DeleteMatchmakingConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DMC,
   0,
-  () => DeleteMatchmakingConfigurationInput,
-  () => DeleteMatchmakingConfigurationOutput,
+  () => DeleteMatchmakingConfigurationInput$,
+  () => DeleteMatchmakingConfigurationOutput$,
 ];
-export var DeleteMatchmakingRuleSet: StaticOperationSchema = [
+export var DeleteMatchmakingRuleSet$: StaticOperationSchema = [
   9,
   n0,
   _DMRS,
   0,
-  () => DeleteMatchmakingRuleSetInput,
-  () => DeleteMatchmakingRuleSetOutput,
+  () => DeleteMatchmakingRuleSetInput$,
+  () => DeleteMatchmakingRuleSetOutput$,
 ];
-export var DeleteScalingPolicy: StaticOperationSchema = [9, n0, _DSP, 0, () => DeleteScalingPolicyInput, () => __Unit];
-export var DeleteScript: StaticOperationSchema = [9, n0, _DSe, 0, () => DeleteScriptInput, () => __Unit];
-export var DeleteVpcPeeringAuthorization: StaticOperationSchema = [
+export var DeleteScalingPolicy$: StaticOperationSchema = [
+  9,
+  n0,
+  _DSP,
+  0,
+  () => DeleteScalingPolicyInput$,
+  () => __Unit,
+];
+export var DeleteScript$: StaticOperationSchema = [9, n0, _DSe, 0, () => DeleteScriptInput$, () => __Unit];
+export var DeleteVpcPeeringAuthorization$: StaticOperationSchema = [
   9,
   n0,
   _DVPA,
   0,
-  () => DeleteVpcPeeringAuthorizationInput,
-  () => DeleteVpcPeeringAuthorizationOutput,
+  () => DeleteVpcPeeringAuthorizationInput$,
+  () => DeleteVpcPeeringAuthorizationOutput$,
 ];
-export var DeleteVpcPeeringConnection: StaticOperationSchema = [
+export var DeleteVpcPeeringConnection$: StaticOperationSchema = [
   9,
   n0,
   _DVPC,
   0,
-  () => DeleteVpcPeeringConnectionInput,
-  () => DeleteVpcPeeringConnectionOutput,
+  () => DeleteVpcPeeringConnectionInput$,
+  () => DeleteVpcPeeringConnectionOutput$,
 ];
-export var DeregisterCompute: StaticOperationSchema = [
+export var DeregisterCompute$: StaticOperationSchema = [
   9,
   n0,
   _DCe,
   0,
-  () => DeregisterComputeInput,
-  () => DeregisterComputeOutput,
+  () => DeregisterComputeInput$,
+  () => DeregisterComputeOutput$,
 ];
-export var DeregisterGameServer: StaticOperationSchema = [
+export var DeregisterGameServer$: StaticOperationSchema = [
   9,
   n0,
   _DGS,
   0,
-  () => DeregisterGameServerInput,
+  () => DeregisterGameServerInput$,
   () => __Unit,
 ];
-export var DescribeAlias: StaticOperationSchema = [
+export var DescribeAlias$: StaticOperationSchema = [
   9,
   n0,
   _DAes,
   0,
-  () => DescribeAliasInput,
-  () => DescribeAliasOutput,
+  () => DescribeAliasInput$,
+  () => DescribeAliasOutput$,
 ];
-export var DescribeBuild: StaticOperationSchema = [9, n0, _DBe, 0, () => DescribeBuildInput, () => DescribeBuildOutput];
-export var DescribeCompute: StaticOperationSchema = [
+export var DescribeBuild$: StaticOperationSchema = [
+  9,
+  n0,
+  _DBe,
+  0,
+  () => DescribeBuildInput$,
+  () => DescribeBuildOutput$,
+];
+export var DescribeCompute$: StaticOperationSchema = [
   9,
   n0,
   _DCes,
   0,
-  () => DescribeComputeInput,
-  () => DescribeComputeOutput,
+  () => DescribeComputeInput$,
+  () => DescribeComputeOutput$,
 ];
-export var DescribeContainerFleet: StaticOperationSchema = [
+export var DescribeContainerFleet$: StaticOperationSchema = [
   9,
   n0,
   _DCFe,
   0,
-  () => DescribeContainerFleetInput,
-  () => DescribeContainerFleetOutput,
+  () => DescribeContainerFleetInput$,
+  () => DescribeContainerFleetOutput$,
 ];
-export var DescribeContainerGroupDefinition: StaticOperationSchema = [
+export var DescribeContainerGroupDefinition$: StaticOperationSchema = [
   9,
   n0,
   _DCGDe,
   0,
-  () => DescribeContainerGroupDefinitionInput,
-  () => DescribeContainerGroupDefinitionOutput,
+  () => DescribeContainerGroupDefinitionInput$,
+  () => DescribeContainerGroupDefinitionOutput$,
 ];
-export var DescribeEC2InstanceLimits: StaticOperationSchema = [
+export var DescribeEC2InstanceLimits$: StaticOperationSchema = [
   9,
   n0,
   _DECIL,
   0,
-  () => DescribeEC2InstanceLimitsInput,
-  () => DescribeEC2InstanceLimitsOutput,
+  () => DescribeEC2InstanceLimitsInput$,
+  () => DescribeEC2InstanceLimitsOutput$,
 ];
-export var DescribeFleetAttributes: StaticOperationSchema = [
+export var DescribeFleetAttributes$: StaticOperationSchema = [
   9,
   n0,
   _DFA,
   0,
-  () => DescribeFleetAttributesInput,
-  () => DescribeFleetAttributesOutput,
+  () => DescribeFleetAttributesInput$,
+  () => DescribeFleetAttributesOutput$,
 ];
-export var DescribeFleetCapacity: StaticOperationSchema = [
+export var DescribeFleetCapacity$: StaticOperationSchema = [
   9,
   n0,
   _DFC,
   0,
-  () => DescribeFleetCapacityInput,
-  () => DescribeFleetCapacityOutput,
+  () => DescribeFleetCapacityInput$,
+  () => DescribeFleetCapacityOutput$,
 ];
-export var DescribeFleetDeployment: StaticOperationSchema = [
+export var DescribeFleetDeployment$: StaticOperationSchema = [
   9,
   n0,
   _DFD,
   0,
-  () => DescribeFleetDeploymentInput,
-  () => DescribeFleetDeploymentOutput,
+  () => DescribeFleetDeploymentInput$,
+  () => DescribeFleetDeploymentOutput$,
 ];
-export var DescribeFleetEvents: StaticOperationSchema = [
+export var DescribeFleetEvents$: StaticOperationSchema = [
   9,
   n0,
   _DFE,
   0,
-  () => DescribeFleetEventsInput,
-  () => DescribeFleetEventsOutput,
+  () => DescribeFleetEventsInput$,
+  () => DescribeFleetEventsOutput$,
 ];
-export var DescribeFleetLocationAttributes: StaticOperationSchema = [
+export var DescribeFleetLocationAttributes$: StaticOperationSchema = [
   9,
   n0,
   _DFLA,
   0,
-  () => DescribeFleetLocationAttributesInput,
-  () => DescribeFleetLocationAttributesOutput,
+  () => DescribeFleetLocationAttributesInput$,
+  () => DescribeFleetLocationAttributesOutput$,
 ];
-export var DescribeFleetLocationCapacity: StaticOperationSchema = [
+export var DescribeFleetLocationCapacity$: StaticOperationSchema = [
   9,
   n0,
   _DFLC,
   0,
-  () => DescribeFleetLocationCapacityInput,
-  () => DescribeFleetLocationCapacityOutput,
+  () => DescribeFleetLocationCapacityInput$,
+  () => DescribeFleetLocationCapacityOutput$,
 ];
-export var DescribeFleetLocationUtilization: StaticOperationSchema = [
+export var DescribeFleetLocationUtilization$: StaticOperationSchema = [
   9,
   n0,
   _DFLU,
   0,
-  () => DescribeFleetLocationUtilizationInput,
-  () => DescribeFleetLocationUtilizationOutput,
+  () => DescribeFleetLocationUtilizationInput$,
+  () => DescribeFleetLocationUtilizationOutput$,
 ];
-export var DescribeFleetPortSettings: StaticOperationSchema = [
+export var DescribeFleetPortSettings$: StaticOperationSchema = [
   9,
   n0,
   _DFPS,
   0,
-  () => DescribeFleetPortSettingsInput,
-  () => DescribeFleetPortSettingsOutput,
+  () => DescribeFleetPortSettingsInput$,
+  () => DescribeFleetPortSettingsOutput$,
 ];
-export var DescribeFleetUtilization: StaticOperationSchema = [
+export var DescribeFleetUtilization$: StaticOperationSchema = [
   9,
   n0,
   _DFU,
   0,
-  () => DescribeFleetUtilizationInput,
-  () => DescribeFleetUtilizationOutput,
+  () => DescribeFleetUtilizationInput$,
+  () => DescribeFleetUtilizationOutput$,
 ];
-export var DescribeGameServer: StaticOperationSchema = [
+export var DescribeGameServer$: StaticOperationSchema = [
   9,
   n0,
   _DGSe,
   0,
-  () => DescribeGameServerInput,
-  () => DescribeGameServerOutput,
+  () => DescribeGameServerInput$,
+  () => DescribeGameServerOutput$,
 ];
-export var DescribeGameServerGroup: StaticOperationSchema = [
+export var DescribeGameServerGroup$: StaticOperationSchema = [
   9,
   n0,
   _DGSGe,
   0,
-  () => DescribeGameServerGroupInput,
-  () => DescribeGameServerGroupOutput,
+  () => DescribeGameServerGroupInput$,
+  () => DescribeGameServerGroupOutput$,
 ];
-export var DescribeGameServerInstances: StaticOperationSchema = [
+export var DescribeGameServerInstances$: StaticOperationSchema = [
   9,
   n0,
   _DGSIesc,
   0,
-  () => DescribeGameServerInstancesInput,
-  () => DescribeGameServerInstancesOutput,
+  () => DescribeGameServerInstancesInput$,
+  () => DescribeGameServerInstancesOutput$,
 ];
-export var DescribeGameSessionDetails: StaticOperationSchema = [
+export var DescribeGameSessionDetails$: StaticOperationSchema = [
   9,
   n0,
   _DGSD,
   0,
-  () => DescribeGameSessionDetailsInput,
-  () => DescribeGameSessionDetailsOutput,
+  () => DescribeGameSessionDetailsInput$,
+  () => DescribeGameSessionDetailsOutput$,
 ];
-export var DescribeGameSessionPlacement: StaticOperationSchema = [
+export var DescribeGameSessionPlacement$: StaticOperationSchema = [
   9,
   n0,
   _DGSP,
   0,
-  () => DescribeGameSessionPlacementInput,
-  () => DescribeGameSessionPlacementOutput,
+  () => DescribeGameSessionPlacementInput$,
+  () => DescribeGameSessionPlacementOutput$,
 ];
-export var DescribeGameSessionQueues: StaticOperationSchema = [
+export var DescribeGameSessionQueues$: StaticOperationSchema = [
   9,
   n0,
   _DGSQe,
   0,
-  () => DescribeGameSessionQueuesInput,
-  () => DescribeGameSessionQueuesOutput,
+  () => DescribeGameSessionQueuesInput$,
+  () => DescribeGameSessionQueuesOutput$,
 ];
-export var DescribeGameSessions: StaticOperationSchema = [
+export var DescribeGameSessions$: StaticOperationSchema = [
   9,
   n0,
   _DGSes,
   0,
-  () => DescribeGameSessionsInput,
-  () => DescribeGameSessionsOutput,
+  () => DescribeGameSessionsInput$,
+  () => DescribeGameSessionsOutput$,
 ];
-export var DescribeInstances: StaticOperationSchema = [
+export var DescribeInstances$: StaticOperationSchema = [
   9,
   n0,
   _DIes,
   0,
-  () => DescribeInstancesInput,
-  () => DescribeInstancesOutput,
+  () => DescribeInstancesInput$,
+  () => DescribeInstancesOutput$,
 ];
-export var DescribeMatchmaking: StaticOperationSchema = [
+export var DescribeMatchmaking$: StaticOperationSchema = [
   9,
   n0,
   _DM,
   0,
-  () => DescribeMatchmakingInput,
-  () => DescribeMatchmakingOutput,
+  () => DescribeMatchmakingInput$,
+  () => DescribeMatchmakingOutput$,
 ];
-export var DescribeMatchmakingConfigurations: StaticOperationSchema = [
+export var DescribeMatchmakingConfigurations$: StaticOperationSchema = [
   9,
   n0,
   _DMCe,
   0,
-  () => DescribeMatchmakingConfigurationsInput,
-  () => DescribeMatchmakingConfigurationsOutput,
+  () => DescribeMatchmakingConfigurationsInput$,
+  () => DescribeMatchmakingConfigurationsOutput$,
 ];
-export var DescribeMatchmakingRuleSets: StaticOperationSchema = [
+export var DescribeMatchmakingRuleSets$: StaticOperationSchema = [
   9,
   n0,
   _DMRSe,
   0,
-  () => DescribeMatchmakingRuleSetsInput,
-  () => DescribeMatchmakingRuleSetsOutput,
+  () => DescribeMatchmakingRuleSetsInput$,
+  () => DescribeMatchmakingRuleSetsOutput$,
 ];
-export var DescribePlayerSessions: StaticOperationSchema = [
+export var DescribePlayerSessions$: StaticOperationSchema = [
   9,
   n0,
   _DPSes,
   0,
-  () => DescribePlayerSessionsInput,
-  () => DescribePlayerSessionsOutput,
+  () => DescribePlayerSessionsInput$,
+  () => DescribePlayerSessionsOutput$,
 ];
-export var DescribeRuntimeConfiguration: StaticOperationSchema = [
+export var DescribeRuntimeConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DRC,
   0,
-  () => DescribeRuntimeConfigurationInput,
-  () => DescribeRuntimeConfigurationOutput,
+  () => DescribeRuntimeConfigurationInput$,
+  () => DescribeRuntimeConfigurationOutput$,
 ];
-export var DescribeScalingPolicies: StaticOperationSchema = [
+export var DescribeScalingPolicies$: StaticOperationSchema = [
   9,
   n0,
   _DSPe,
   0,
-  () => DescribeScalingPoliciesInput,
-  () => DescribeScalingPoliciesOutput,
+  () => DescribeScalingPoliciesInput$,
+  () => DescribeScalingPoliciesOutput$,
 ];
-export var DescribeScript: StaticOperationSchema = [
+export var DescribeScript$: StaticOperationSchema = [
   9,
   n0,
   _DSes,
   0,
-  () => DescribeScriptInput,
-  () => DescribeScriptOutput,
+  () => DescribeScriptInput$,
+  () => DescribeScriptOutput$,
 ];
-export var DescribeVpcPeeringAuthorizations: StaticOperationSchema = [
+export var DescribeVpcPeeringAuthorizations$: StaticOperationSchema = [
   9,
   n0,
   _DVPAe,
   0,
-  () => DescribeVpcPeeringAuthorizationsInput,
-  () => DescribeVpcPeeringAuthorizationsOutput,
+  () => DescribeVpcPeeringAuthorizationsInput$,
+  () => DescribeVpcPeeringAuthorizationsOutput$,
 ];
-export var DescribeVpcPeeringConnections: StaticOperationSchema = [
+export var DescribeVpcPeeringConnections$: StaticOperationSchema = [
   9,
   n0,
   _DVPCe,
   0,
-  () => DescribeVpcPeeringConnectionsInput,
-  () => DescribeVpcPeeringConnectionsOutput,
+  () => DescribeVpcPeeringConnectionsInput$,
+  () => DescribeVpcPeeringConnectionsOutput$,
 ];
-export var GetComputeAccess: StaticOperationSchema = [
+export var GetComputeAccess$: StaticOperationSchema = [
   9,
   n0,
   _GCA,
   0,
-  () => GetComputeAccessInput,
-  () => GetComputeAccessOutput,
+  () => GetComputeAccessInput$,
+  () => GetComputeAccessOutput$,
 ];
-export var GetComputeAuthToken: StaticOperationSchema = [
+export var GetComputeAuthToken$: StaticOperationSchema = [
   9,
   n0,
   _GCAT,
   0,
-  () => GetComputeAuthTokenInput,
-  () => GetComputeAuthTokenOutput,
+  () => GetComputeAuthTokenInput$,
+  () => GetComputeAuthTokenOutput$,
 ];
-export var GetGameSessionLogUrl: StaticOperationSchema = [
+export var GetGameSessionLogUrl$: StaticOperationSchema = [
   9,
   n0,
   _GGSLU,
   0,
-  () => GetGameSessionLogUrlInput,
-  () => GetGameSessionLogUrlOutput,
+  () => GetGameSessionLogUrlInput$,
+  () => GetGameSessionLogUrlOutput$,
 ];
-export var GetInstanceAccess: StaticOperationSchema = [
+export var GetInstanceAccess$: StaticOperationSchema = [
   9,
   n0,
   _GIA,
   0,
-  () => GetInstanceAccessInput,
-  () => GetInstanceAccessOutput,
+  () => GetInstanceAccessInput$,
+  () => GetInstanceAccessOutput$,
 ];
-export var ListAliases: StaticOperationSchema = [9, n0, _LAi, 0, () => ListAliasesInput, () => ListAliasesOutput];
-export var ListBuilds: StaticOperationSchema = [9, n0, _LB, 0, () => ListBuildsInput, () => ListBuildsOutput];
-export var ListCompute: StaticOperationSchema = [9, n0, _LCi, 0, () => ListComputeInput, () => ListComputeOutput];
-export var ListContainerFleets: StaticOperationSchema = [
+export var ListAliases$: StaticOperationSchema = [9, n0, _LAi, 0, () => ListAliasesInput$, () => ListAliasesOutput$];
+export var ListBuilds$: StaticOperationSchema = [9, n0, _LB, 0, () => ListBuildsInput$, () => ListBuildsOutput$];
+export var ListCompute$: StaticOperationSchema = [9, n0, _LCi, 0, () => ListComputeInput$, () => ListComputeOutput$];
+export var ListContainerFleets$: StaticOperationSchema = [
   9,
   n0,
   _LCF,
   0,
-  () => ListContainerFleetsInput,
-  () => ListContainerFleetsOutput,
+  () => ListContainerFleetsInput$,
+  () => ListContainerFleetsOutput$,
 ];
-export var ListContainerGroupDefinitions: StaticOperationSchema = [
+export var ListContainerGroupDefinitions$: StaticOperationSchema = [
   9,
   n0,
   _LCGD,
   0,
-  () => ListContainerGroupDefinitionsInput,
-  () => ListContainerGroupDefinitionsOutput,
+  () => ListContainerGroupDefinitionsInput$,
+  () => ListContainerGroupDefinitionsOutput$,
 ];
-export var ListContainerGroupDefinitionVersions: StaticOperationSchema = [
+export var ListContainerGroupDefinitionVersions$: StaticOperationSchema = [
   9,
   n0,
   _LCGDV,
   0,
-  () => ListContainerGroupDefinitionVersionsInput,
-  () => ListContainerGroupDefinitionVersionsOutput,
+  () => ListContainerGroupDefinitionVersionsInput$,
+  () => ListContainerGroupDefinitionVersionsOutput$,
 ];
-export var ListFleetDeployments: StaticOperationSchema = [
+export var ListFleetDeployments$: StaticOperationSchema = [
   9,
   n0,
   _LFD,
   0,
-  () => ListFleetDeploymentsInput,
-  () => ListFleetDeploymentsOutput,
+  () => ListFleetDeploymentsInput$,
+  () => ListFleetDeploymentsOutput$,
 ];
-export var ListFleets: StaticOperationSchema = [9, n0, _LF, 0, () => ListFleetsInput, () => ListFleetsOutput];
-export var ListGameServerGroups: StaticOperationSchema = [
+export var ListFleets$: StaticOperationSchema = [9, n0, _LF, 0, () => ListFleetsInput$, () => ListFleetsOutput$];
+export var ListGameServerGroups$: StaticOperationSchema = [
   9,
   n0,
   _LGSG,
   0,
-  () => ListGameServerGroupsInput,
-  () => ListGameServerGroupsOutput,
+  () => ListGameServerGroupsInput$,
+  () => ListGameServerGroupsOutput$,
 ];
-export var ListGameServers: StaticOperationSchema = [
+export var ListGameServers$: StaticOperationSchema = [
   9,
   n0,
   _LGS,
   0,
-  () => ListGameServersInput,
-  () => ListGameServersOutput,
+  () => ListGameServersInput$,
+  () => ListGameServersOutput$,
 ];
-export var ListLocations: StaticOperationSchema = [9, n0, _LL, 0, () => ListLocationsInput, () => ListLocationsOutput];
-export var ListScripts: StaticOperationSchema = [9, n0, _LSi, 0, () => ListScriptsInput, () => ListScriptsOutput];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListLocations$: StaticOperationSchema = [
+  9,
+  n0,
+  _LL,
+  0,
+  () => ListLocationsInput$,
+  () => ListLocationsOutput$,
+];
+export var ListScripts$: StaticOperationSchema = [9, n0, _LSi, 0, () => ListScriptsInput$, () => ListScriptsOutput$];
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   0,
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var PutScalingPolicy: StaticOperationSchema = [
+export var PutScalingPolicy$: StaticOperationSchema = [
   9,
   n0,
   _PSP,
   0,
-  () => PutScalingPolicyInput,
-  () => PutScalingPolicyOutput,
+  () => PutScalingPolicyInput$,
+  () => PutScalingPolicyOutput$,
 ];
-export var RegisterCompute: StaticOperationSchema = [
+export var RegisterCompute$: StaticOperationSchema = [
   9,
   n0,
   _RCe,
   0,
-  () => RegisterComputeInput,
-  () => RegisterComputeOutput,
+  () => RegisterComputeInput$,
+  () => RegisterComputeOutput$,
 ];
-export var RegisterGameServer: StaticOperationSchema = [
+export var RegisterGameServer$: StaticOperationSchema = [
   9,
   n0,
   _RGS,
   0,
-  () => RegisterGameServerInput,
-  () => RegisterGameServerOutput,
+  () => RegisterGameServerInput$,
+  () => RegisterGameServerOutput$,
 ];
-export var RequestUploadCredentials: StaticOperationSchema = [
+export var RequestUploadCredentials$: StaticOperationSchema = [
   9,
   n0,
   _RUC,
   0,
-  () => RequestUploadCredentialsInput,
-  () => RequestUploadCredentialsOutput,
+  () => RequestUploadCredentialsInput$,
+  () => RequestUploadCredentialsOutput$,
 ];
-export var ResolveAlias: StaticOperationSchema = [9, n0, _RAes, 0, () => ResolveAliasInput, () => ResolveAliasOutput];
-export var ResumeGameServerGroup: StaticOperationSchema = [
+export var ResolveAlias$: StaticOperationSchema = [
+  9,
+  n0,
+  _RAes,
+  0,
+  () => ResolveAliasInput$,
+  () => ResolveAliasOutput$,
+];
+export var ResumeGameServerGroup$: StaticOperationSchema = [
   9,
   n0,
   _RGSG,
   0,
-  () => ResumeGameServerGroupInput,
-  () => ResumeGameServerGroupOutput,
+  () => ResumeGameServerGroupInput$,
+  () => ResumeGameServerGroupOutput$,
 ];
-export var SearchGameSessions: StaticOperationSchema = [
+export var SearchGameSessions$: StaticOperationSchema = [
   9,
   n0,
   _SGS,
   0,
-  () => SearchGameSessionsInput,
-  () => SearchGameSessionsOutput,
+  () => SearchGameSessionsInput$,
+  () => SearchGameSessionsOutput$,
 ];
-export var StartFleetActions: StaticOperationSchema = [
+export var StartFleetActions$: StaticOperationSchema = [
   9,
   n0,
   _SFA,
   0,
-  () => StartFleetActionsInput,
-  () => StartFleetActionsOutput,
+  () => StartFleetActionsInput$,
+  () => StartFleetActionsOutput$,
 ];
-export var StartGameSessionPlacement: StaticOperationSchema = [
+export var StartGameSessionPlacement$: StaticOperationSchema = [
   9,
   n0,
   _SGSP,
   0,
-  () => StartGameSessionPlacementInput,
-  () => StartGameSessionPlacementOutput,
+  () => StartGameSessionPlacementInput$,
+  () => StartGameSessionPlacementOutput$,
 ];
-export var StartMatchBackfill: StaticOperationSchema = [
+export var StartMatchBackfill$: StaticOperationSchema = [
   9,
   n0,
   _SMB,
   0,
-  () => StartMatchBackfillInput,
-  () => StartMatchBackfillOutput,
+  () => StartMatchBackfillInput$,
+  () => StartMatchBackfillOutput$,
 ];
-export var StartMatchmaking: StaticOperationSchema = [
+export var StartMatchmaking$: StaticOperationSchema = [
   9,
   n0,
   _SMt,
   0,
-  () => StartMatchmakingInput,
-  () => StartMatchmakingOutput,
+  () => StartMatchmakingInput$,
+  () => StartMatchmakingOutput$,
 ];
-export var StopFleetActions: StaticOperationSchema = [
+export var StopFleetActions$: StaticOperationSchema = [
   9,
   n0,
   _SFAt,
   0,
-  () => StopFleetActionsInput,
-  () => StopFleetActionsOutput,
+  () => StopFleetActionsInput$,
+  () => StopFleetActionsOutput$,
 ];
-export var StopGameSessionPlacement: StaticOperationSchema = [
+export var StopGameSessionPlacement$: StaticOperationSchema = [
   9,
   n0,
   _SGSPt,
   0,
-  () => StopGameSessionPlacementInput,
-  () => StopGameSessionPlacementOutput,
+  () => StopGameSessionPlacementInput$,
+  () => StopGameSessionPlacementOutput$,
 ];
-export var StopMatchmaking: StaticOperationSchema = [
+export var StopMatchmaking$: StaticOperationSchema = [
   9,
   n0,
   _SMto,
   0,
-  () => StopMatchmakingInput,
-  () => StopMatchmakingOutput,
+  () => StopMatchmakingInput$,
+  () => StopMatchmakingOutput$,
 ];
-export var SuspendGameServerGroup: StaticOperationSchema = [
+export var SuspendGameServerGroup$: StaticOperationSchema = [
   9,
   n0,
   _SGSG,
   0,
-  () => SuspendGameServerGroupInput,
-  () => SuspendGameServerGroupOutput,
+  () => SuspendGameServerGroupInput$,
+  () => SuspendGameServerGroupOutput$,
 ];
-export var TagResource: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceRequest, () => TagResourceResponse];
-export var TerminateGameSession: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceRequest$, () => TagResourceResponse$];
+export var TerminateGameSession$: StaticOperationSchema = [
   9,
   n0,
   _TGS,
   0,
-  () => TerminateGameSessionInput,
-  () => TerminateGameSessionOutput,
+  () => TerminateGameSessionInput$,
+  () => TerminateGameSessionOutput$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   0,
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateAlias: StaticOperationSchema = [9, n0, _UA, 0, () => UpdateAliasInput, () => UpdateAliasOutput];
-export var UpdateBuild: StaticOperationSchema = [9, n0, _UB, 0, () => UpdateBuildInput, () => UpdateBuildOutput];
-export var UpdateContainerFleet: StaticOperationSchema = [
+export var UpdateAlias$: StaticOperationSchema = [9, n0, _UA, 0, () => UpdateAliasInput$, () => UpdateAliasOutput$];
+export var UpdateBuild$: StaticOperationSchema = [9, n0, _UB, 0, () => UpdateBuildInput$, () => UpdateBuildOutput$];
+export var UpdateContainerFleet$: StaticOperationSchema = [
   9,
   n0,
   _UCF,
   0,
-  () => UpdateContainerFleetInput,
-  () => UpdateContainerFleetOutput,
+  () => UpdateContainerFleetInput$,
+  () => UpdateContainerFleetOutput$,
 ];
-export var UpdateContainerGroupDefinition: StaticOperationSchema = [
+export var UpdateContainerGroupDefinition$: StaticOperationSchema = [
   9,
   n0,
   _UCGD,
   0,
-  () => UpdateContainerGroupDefinitionInput,
-  () => UpdateContainerGroupDefinitionOutput,
+  () => UpdateContainerGroupDefinitionInput$,
+  () => UpdateContainerGroupDefinitionOutput$,
 ];
-export var UpdateFleetAttributes: StaticOperationSchema = [
+export var UpdateFleetAttributes$: StaticOperationSchema = [
   9,
   n0,
   _UFA,
   0,
-  () => UpdateFleetAttributesInput,
-  () => UpdateFleetAttributesOutput,
+  () => UpdateFleetAttributesInput$,
+  () => UpdateFleetAttributesOutput$,
 ];
-export var UpdateFleetCapacity: StaticOperationSchema = [
+export var UpdateFleetCapacity$: StaticOperationSchema = [
   9,
   n0,
   _UFC,
   0,
-  () => UpdateFleetCapacityInput,
-  () => UpdateFleetCapacityOutput,
+  () => UpdateFleetCapacityInput$,
+  () => UpdateFleetCapacityOutput$,
 ];
-export var UpdateFleetPortSettings: StaticOperationSchema = [
+export var UpdateFleetPortSettings$: StaticOperationSchema = [
   9,
   n0,
   _UFPS,
   0,
-  () => UpdateFleetPortSettingsInput,
-  () => UpdateFleetPortSettingsOutput,
+  () => UpdateFleetPortSettingsInput$,
+  () => UpdateFleetPortSettingsOutput$,
 ];
-export var UpdateGameServer: StaticOperationSchema = [
+export var UpdateGameServer$: StaticOperationSchema = [
   9,
   n0,
   _UGS,
   0,
-  () => UpdateGameServerInput,
-  () => UpdateGameServerOutput,
+  () => UpdateGameServerInput$,
+  () => UpdateGameServerOutput$,
 ];
-export var UpdateGameServerGroup: StaticOperationSchema = [
+export var UpdateGameServerGroup$: StaticOperationSchema = [
   9,
   n0,
   _UGSG,
   0,
-  () => UpdateGameServerGroupInput,
-  () => UpdateGameServerGroupOutput,
+  () => UpdateGameServerGroupInput$,
+  () => UpdateGameServerGroupOutput$,
 ];
-export var UpdateGameSession: StaticOperationSchema = [
+export var UpdateGameSession$: StaticOperationSchema = [
   9,
   n0,
   _UGSp,
   0,
-  () => UpdateGameSessionInput,
-  () => UpdateGameSessionOutput,
+  () => UpdateGameSessionInput$,
+  () => UpdateGameSessionOutput$,
 ];
-export var UpdateGameSessionQueue: StaticOperationSchema = [
+export var UpdateGameSessionQueue$: StaticOperationSchema = [
   9,
   n0,
   _UGSQ,
   0,
-  () => UpdateGameSessionQueueInput,
-  () => UpdateGameSessionQueueOutput,
+  () => UpdateGameSessionQueueInput$,
+  () => UpdateGameSessionQueueOutput$,
 ];
-export var UpdateMatchmakingConfiguration: StaticOperationSchema = [
+export var UpdateMatchmakingConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UMC,
   0,
-  () => UpdateMatchmakingConfigurationInput,
-  () => UpdateMatchmakingConfigurationOutput,
+  () => UpdateMatchmakingConfigurationInput$,
+  () => UpdateMatchmakingConfigurationOutput$,
 ];
-export var UpdateRuntimeConfiguration: StaticOperationSchema = [
+export var UpdateRuntimeConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _URC,
   0,
-  () => UpdateRuntimeConfigurationInput,
-  () => UpdateRuntimeConfigurationOutput,
+  () => UpdateRuntimeConfigurationInput$,
+  () => UpdateRuntimeConfigurationOutput$,
 ];
-export var UpdateScript: StaticOperationSchema = [9, n0, _USp, 0, () => UpdateScriptInput, () => UpdateScriptOutput];
-export var ValidateMatchmakingRuleSet: StaticOperationSchema = [
+export var UpdateScript$: StaticOperationSchema = [9, n0, _USp, 0, () => UpdateScriptInput$, () => UpdateScriptOutput$];
+export var ValidateMatchmakingRuleSet$: StaticOperationSchema = [
   9,
   n0,
   _VMRS,
   0,
-  () => ValidateMatchmakingRuleSetInput,
-  () => ValidateMatchmakingRuleSetOutput,
+  () => ValidateMatchmakingRuleSetInput$,
+  () => ValidateMatchmakingRuleSetOutput$,
 ];

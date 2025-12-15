@@ -32,7 +32,7 @@ export const getRuntimeConfig = (config: MediaLiveClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.medialive" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
     sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     serviceId: config?.serviceId ?? "MediaLive",
     urlParser: config?.urlParser ?? parseUrl,

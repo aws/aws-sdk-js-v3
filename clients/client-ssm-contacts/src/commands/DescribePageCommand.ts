@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribePageRequest, DescribePageResult } from "../models/models_0";
-import { DescribePage } from "../schemas/schemas_0";
+import { DescribePage$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -103,7 +103,7 @@ export class DescribePageCommand extends $Command
   })
   .s("SSMContacts", "DescribePage", {})
   .n("SSMContactsClient", "DescribePageCommand")
-  .sc(DescribePage)
+  .sc(DescribePage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

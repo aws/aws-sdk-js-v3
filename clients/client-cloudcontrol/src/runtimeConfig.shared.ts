@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: CloudControlClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_0Protocol({
-        defaultNamespace: "com.amazonaws.cloudcontrol",
-        serviceTarget: "CloudApiService",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_0Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.cloudcontrol",
+      version: "2021-09-30",
+      serviceTarget: "CloudApiService",
+    },
     serviceId: config?.serviceId ?? "CloudControl",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

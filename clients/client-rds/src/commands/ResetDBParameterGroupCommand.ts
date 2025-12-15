@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DBParameterGroupNameMessage, ResetDBParameterGroupMessage } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { ResetDBParameterGroup } from "../schemas/schemas_0";
+import { ResetDBParameterGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,7 +124,7 @@ export class ResetDBParameterGroupCommand extends $Command
   })
   .s("AmazonRDSv19", "ResetDBParameterGroup", {})
   .n("RDSClient", "ResetDBParameterGroupCommand")
-  .sc(ResetDBParameterGroup)
+  .sc(ResetDBParameterGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

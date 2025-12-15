@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAgentCollaboratorRequest, GetAgentCollaboratorResponse } from "../models/models_0";
-import { GetAgentCollaborator } from "../schemas/schemas_0";
+import { GetAgentCollaborator$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class GetAgentCollaboratorCommand extends $Command
   })
   .s("AmazonBedrockAgentBuildTimeLambda", "GetAgentCollaborator", {})
   .n("BedrockAgentClient", "GetAgentCollaboratorCommand")
-  .sc(GetAgentCollaborator)
+  .sc(GetAgentCollaborator$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

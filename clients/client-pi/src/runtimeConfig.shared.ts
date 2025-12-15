@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: PIClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.pi",
-        serviceTarget: "PerformanceInsightsv20180227",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.pi",
+      xmlNamespace: "http://pi.amazonaws.com/doc/2018-02-27/",
+      version: "2018-02-27",
+      serviceTarget: "PerformanceInsightsv20180227",
+    },
     serviceId: config?.serviceId ?? "PI",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

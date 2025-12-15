@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopFleetRequest, StopFleetResult } from "../models/models_0";
-import { StopFleet } from "../schemas/schemas_0";
+import { StopFleet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,7 +77,7 @@ export class StopFleetCommand extends $Command
   })
   .s("PhotonAdminProxyService", "StopFleet", {})
   .n("AppStreamClient", "StopFleetCommand")
-  .sc(StopFleet)
+  .sc(StopFleet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

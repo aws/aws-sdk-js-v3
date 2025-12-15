@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import type { StopDataSourceSyncJobRequest } from "../models/models_0";
-import { StopDataSourceSyncJob } from "../schemas/schemas_0";
+import { StopDataSourceSyncJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class StopDataSourceSyncJobCommand extends $Command
   })
   .s("AWSKendraFrontendService", "StopDataSourceSyncJob", {})
   .n("KendraClient", "StopDataSourceSyncJobCommand")
-  .sc(StopDataSourceSyncJob)
+  .sc(StopDataSourceSyncJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
 import type { MissionProfileIdResponse, UpdateMissionProfileRequest } from "../models/models_0";
-import { UpdateMissionProfile } from "../schemas/schemas_0";
+import { UpdateMissionProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class UpdateMissionProfileCommand extends $Command
   })
   .s("GroundStation", "UpdateMissionProfile", {})
   .n("GroundStationClient", "UpdateMissionProfileCommand")
-  .sc(UpdateMissionProfile)
+  .sc(UpdateMissionProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

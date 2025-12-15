@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { ListAttachments } from "../schemas/schemas_0";
+import { ListAttachments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -148,7 +148,7 @@ export class ListAttachmentsCommand extends $Command
   })
   .s("NetworkManager", "ListAttachments", {})
   .n("NetworkManagerClient", "ListAttachmentsCommand")
-  .sc(ListAttachments)
+  .sc(ListAttachments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -39,12 +39,13 @@ export const getRuntimeConfig = (config: S3ClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsRestXmlProtocol({
-        defaultNamespace: "com.amazonaws.s3",
-        xmlNamespace: "http://s3.amazonaws.com/doc/2006-03-01/",
-      }),
+    protocol: config?.protocol ?? AwsRestXmlProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.s3",
+      xmlNamespace: "http://s3.amazonaws.com/doc/2006-03-01/",
+      version: "2006-03-01",
+      serviceTarget: "AmazonS3",
+    },
     sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     serviceId: config?.serviceId ?? "S3",
     signerConstructor: config?.signerConstructor ?? SignatureV4MultiRegion,

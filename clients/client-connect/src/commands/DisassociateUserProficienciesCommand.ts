@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateUserProficienciesRequest } from "../models/models_1";
-import { DisassociateUserProficiencies } from "../schemas/schemas_0";
+import { DisassociateUserProficiencies$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DisassociateUserProficienciesCommand extends $Command
   })
   .s("AmazonConnectService", "DisassociateUserProficiencies", {})
   .n("ConnectClient", "DisassociateUserProficienciesCommand")
-  .sc(DisassociateUserProficiencies)
+  .sc(DisassociateUserProficiencies$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

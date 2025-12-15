@@ -6,7 +6,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type GetSolFunctionPackageContentInput, GetSolFunctionPackageContentOutput } from "../models/models_0";
-import { GetSolFunctionPackageContent } from "../schemas/schemas_0";
+import { GetSolFunctionPackageContent$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
@@ -122,7 +122,7 @@ export class GetSolFunctionPackageContentCommand extends $Command
   })
   .s("TNB", "GetSolFunctionPackageContent", {})
   .n("TnbClient", "GetSolFunctionPackageContentCommand")
-  .sc(GetSolFunctionPackageContent)
+  .sc(GetSolFunctionPackageContent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

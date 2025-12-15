@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateEnvironmentTemplateVersionInput, CreateEnvironmentTemplateVersionOutput } from "../models/models_0";
 import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
-import { CreateEnvironmentTemplateVersion } from "../schemas/schemas_0";
+import { CreateEnvironmentTemplateVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class CreateEnvironmentTemplateVersionCommand extends $Command
   })
   .s("AwsProton20200720", "CreateEnvironmentTemplateVersion", {})
   .n("ProtonClient", "CreateEnvironmentTemplateVersionCommand")
-  .sc(CreateEnvironmentTemplateVersion)
+  .sc(CreateEnvironmentTemplateVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

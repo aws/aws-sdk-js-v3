@@ -9,7 +9,7 @@ import type {
   DescribeProvisioningTemplateVersionRequest,
   DescribeProvisioningTemplateVersionResponse,
 } from "../models/models_1";
-import { DescribeProvisioningTemplateVersion } from "../schemas/schemas_0";
+import { DescribeProvisioningTemplateVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class DescribeProvisioningTemplateVersionCommand extends $Command
   })
   .s("AWSIotService", "DescribeProvisioningTemplateVersion", {})
   .n("IoTClient", "DescribeProvisioningTemplateVersionCommand")
-  .sc(DescribeProvisioningTemplateVersion)
+  .sc(DescribeProvisioningTemplateVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

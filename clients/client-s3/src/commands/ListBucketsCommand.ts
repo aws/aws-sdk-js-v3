@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListBucketsOutput, ListBucketsRequest } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { ListBuckets } from "../schemas/schemas_0";
+import { ListBuckets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -137,7 +137,7 @@ export class ListBucketsCommand extends $Command
   })
   .s("AmazonS3", "ListBuckets", {})
   .n("S3Client", "ListBucketsCommand")
-  .sc(ListBuckets)
+  .sc(ListBuckets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

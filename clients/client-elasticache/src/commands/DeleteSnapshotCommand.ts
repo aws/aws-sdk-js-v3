@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSnapshotMessage, DeleteSnapshotResult } from "../models/models_0";
-import { DeleteSnapshot } from "../schemas/schemas_0";
+import { DeleteSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -184,7 +184,7 @@ export class DeleteSnapshotCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "DeleteSnapshot", {})
   .n("ElastiCacheClient", "DeleteSnapshotCommand")
-  .sc(DeleteSnapshot)
+  .sc(DeleteSnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

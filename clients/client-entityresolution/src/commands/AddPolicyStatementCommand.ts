@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../EntityResolutionClient";
 import type { AddPolicyStatementInput, AddPolicyStatementOutput } from "../models/models_0";
-import { AddPolicyStatement } from "../schemas/schemas_0";
+import { AddPolicyStatement$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class AddPolicyStatementCommand extends $Command
   })
   .s("AWSVeniceService", "AddPolicyStatement", {})
   .n("EntityResolutionClient", "AddPolicyStatementCommand")
-  .sc(AddPolicyStatement)
+  .sc(AddPolicyStatement$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

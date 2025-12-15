@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { DeleteBucketRequest, DeleteBucketResult } from "../models/models_0";
-import { DeleteBucket } from "../schemas/schemas_0";
+import { DeleteBucket$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,7 +123,7 @@ export class DeleteBucketCommand extends $Command
   })
   .s("Lightsail_20161128", "DeleteBucket", {})
   .n("LightsailClient", "DeleteBucketCommand")
-  .sc(DeleteBucket)
+  .sc(DeleteBucket$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

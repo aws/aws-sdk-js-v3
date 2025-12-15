@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: FSxClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.fsx",
-        serviceTarget: "AWSSimbaAPIService_v20180301",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.fsx",
+      version: "2018-03-01",
+      serviceTarget: "AWSSimbaAPIService_v20180301",
+    },
     serviceId: config?.serviceId ?? "FSx",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -37,8 +37,7 @@ export const getRuntimeConfig = (config: CloudFrontKeyValueStoreClientConfig) =>
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.cloudfrontkeyvaluestore" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
     serviceId: config?.serviceId ?? "CloudFront KeyValueStore",
     signerConstructor: config?.signerConstructor ?? SignatureV4MultiRegion,
     urlParser: config?.urlParser ?? parseUrl,

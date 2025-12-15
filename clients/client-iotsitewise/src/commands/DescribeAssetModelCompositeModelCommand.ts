@@ -9,7 +9,7 @@ import type {
   DescribeAssetModelCompositeModelRequest,
   DescribeAssetModelCompositeModelResponse,
 } from "../models/models_0";
-import { DescribeAssetModelCompositeModel } from "../schemas/schemas_0";
+import { DescribeAssetModelCompositeModel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -217,7 +217,7 @@ export class DescribeAssetModelCompositeModelCommand extends $Command
   })
   .s("AWSIoTSiteWise", "DescribeAssetModelCompositeModel", {})
   .n("IoTSiteWiseClient", "DescribeAssetModelCompositeModelCommand")
-  .sc(DescribeAssetModelCompositeModel)
+  .sc(DescribeAssetModelCompositeModel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

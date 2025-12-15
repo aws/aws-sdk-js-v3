@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateEventSubscriptionMessage, CreateEventSubscriptionResponse } from "../models/models_0";
-import { CreateEventSubscription } from "../schemas/schemas_0";
+import { CreateEventSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -151,7 +151,7 @@ export class CreateEventSubscriptionCommand extends $Command
   })
   .s("AmazonDMSv20160101", "CreateEventSubscription", {})
   .n("DatabaseMigrationServiceClient", "CreateEventSubscriptionCommand")
-  .sc(CreateEventSubscription)
+  .sc(CreateEventSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

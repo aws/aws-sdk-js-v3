@@ -9,7 +9,7 @@ import type {
   DisableOrganizationsRootSessionsRequest,
   DisableOrganizationsRootSessionsResponse,
 } from "../models/models_0";
-import { DisableOrganizationsRootSessions } from "../schemas/schemas_0";
+import { DisableOrganizationsRootSessions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class DisableOrganizationsRootSessionsCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "DisableOrganizationsRootSessions", {})
   .n("IAMClient", "DisableOrganizationsRootSessionsCommand")
-  .sc(DisableOrganizationsRootSessions)
+  .sc(DisableOrganizationsRootSessions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

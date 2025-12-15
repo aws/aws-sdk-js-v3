@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
 import type { DeleteStreamKeyRequest } from "../models/models_0";
-import { DeleteStreamKey } from "../schemas/schemas_0";
+import { DeleteStreamKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class DeleteStreamKeyCommand extends $Command
   })
   .s("AmazonInteractiveVideoService", "DeleteStreamKey", {})
   .n("IvsClient", "DeleteStreamKeyCommand")
-  .sc(DeleteStreamKey)
+  .sc(DeleteStreamKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListSessionsRequest, ListSessionsResponse } from "../models/models_0";
-import { ListSessions } from "../schemas/schemas_0";
+import { ListSessions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -104,7 +104,7 @@ export class ListSessionsCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "ListSessions", {})
   .n("WorkSpacesWebClient", "ListSessionsCommand")
-  .sc(ListSessions)
+  .sc(ListSessions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

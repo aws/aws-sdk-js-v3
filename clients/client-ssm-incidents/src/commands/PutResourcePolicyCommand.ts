@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutResourcePolicyInput, PutResourcePolicyOutput } from "../models/models_0";
-import { PutResourcePolicy } from "../schemas/schemas_0";
+import { PutResourcePolicy$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
@@ -93,7 +93,7 @@ export class PutResourcePolicyCommand extends $Command
   })
   .s("SSMIncidents", "PutResourcePolicy", {})
   .n("SSMIncidentsClient", "PutResourcePolicyCommand")
-  .sc(PutResourcePolicy)
+  .sc(PutResourcePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

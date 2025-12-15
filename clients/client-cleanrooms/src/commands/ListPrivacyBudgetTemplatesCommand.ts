@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListPrivacyBudgetTemplatesInput, ListPrivacyBudgetTemplatesOutput } from "../models/models_1";
-import { ListPrivacyBudgetTemplates } from "../schemas/schemas_0";
+import { ListPrivacyBudgetTemplates$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class ListPrivacyBudgetTemplatesCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "ListPrivacyBudgetTemplates", {})
   .n("CleanRoomsClient", "ListPrivacyBudgetTemplatesCommand")
-  .sc(ListPrivacyBudgetTemplates)
+  .sc(ListPrivacyBudgetTemplates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

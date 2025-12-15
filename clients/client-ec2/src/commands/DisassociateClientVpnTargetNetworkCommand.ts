@@ -9,7 +9,7 @@ import type {
   DisassociateClientVpnTargetNetworkRequest,
   DisassociateClientVpnTargetNetworkResult,
 } from "../models/models_5";
-import { DisassociateClientVpnTargetNetwork } from "../schemas/schemas_0";
+import { DisassociateClientVpnTargetNetwork$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class DisassociateClientVpnTargetNetworkCommand extends $Command
   })
   .s("AmazonEC2", "DisassociateClientVpnTargetNetwork", {})
   .n("EC2Client", "DisassociateClientVpnTargetNetworkCommand")
-  .sc(DisassociateClientVpnTargetNetwork)
+  .sc(DisassociateClientVpnTargetNetwork$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

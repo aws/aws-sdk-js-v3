@@ -9,7 +9,7 @@ import type {
   DisassociateWirelessGatewayFromThingRequest,
   DisassociateWirelessGatewayFromThingResponse,
 } from "../models/models_0";
-import { DisassociateWirelessGatewayFromThing } from "../schemas/schemas_0";
+import { DisassociateWirelessGatewayFromThing$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DisassociateWirelessGatewayFromThingCommand extends $Command
   })
   .s("iotwireless", "DisassociateWirelessGatewayFromThing", {})
   .n("IoTWirelessClient", "DisassociateWirelessGatewayFromThingCommand")
-  .sc(DisassociateWirelessGatewayFromThing)
+  .sc(DisassociateWirelessGatewayFromThing$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

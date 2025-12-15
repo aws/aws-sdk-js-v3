@@ -9,7 +9,7 @@ import type {
   StartMisconfiguredStateRecoveryRequest,
   StartMisconfiguredStateRecoveryResponse,
 } from "../models/models_0";
-import { StartMisconfiguredStateRecovery } from "../schemas/schemas_0";
+import { StartMisconfiguredStateRecovery$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -701,7 +701,7 @@ export class StartMisconfiguredStateRecoveryCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "StartMisconfiguredStateRecovery", {})
   .n("FSxClient", "StartMisconfiguredStateRecoveryCommand")
-  .sc(StartMisconfiguredStateRecovery)
+  .sc(StartMisconfiguredStateRecovery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

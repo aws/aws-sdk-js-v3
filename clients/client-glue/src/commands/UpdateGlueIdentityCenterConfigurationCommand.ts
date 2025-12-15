@@ -9,7 +9,7 @@ import type {
   UpdateGlueIdentityCenterConfigurationRequest,
   UpdateGlueIdentityCenterConfigurationResponse,
 } from "../models/models_2";
-import { UpdateGlueIdentityCenterConfiguration } from "../schemas/schemas_0";
+import { UpdateGlueIdentityCenterConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class UpdateGlueIdentityCenterConfigurationCommand extends $Command
   })
   .s("AWSGlue", "UpdateGlueIdentityCenterConfiguration", {})
   .n("GlueClient", "UpdateGlueIdentityCenterConfigurationCommand")
-  .sc(UpdateGlueIdentityCenterConfiguration)
+  .sc(UpdateGlueIdentityCenterConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RevokeSnapshotAccessMessage, RevokeSnapshotAccessResult } from "../models/models_1";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { RevokeSnapshotAccess } from "../schemas/schemas_0";
+import { RevokeSnapshotAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -146,7 +146,7 @@ export class RevokeSnapshotAccessCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "RevokeSnapshotAccess", {})
   .n("RedshiftClient", "RevokeSnapshotAccessCommand")
-  .sc(RevokeSnapshotAccess)
+  .sc(RevokeSnapshotAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

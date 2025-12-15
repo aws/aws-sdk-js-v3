@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAdmChannelRequest, DeleteAdmChannelResponse } from "../models/models_0";
 import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { DeleteAdmChannel } from "../schemas/schemas_0";
+import { DeleteAdmChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class DeleteAdmChannelCommand extends $Command
   })
   .s("Pinpoint", "DeleteAdmChannel", {})
   .n("PinpointClient", "DeleteAdmChannelCommand")
-  .sc(DeleteAdmChannel)
+  .sc(DeleteAdmChannel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

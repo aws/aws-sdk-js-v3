@@ -32,13 +32,12 @@ export const getRuntimeConfig = (config: MarketplaceEntitlementServiceClientConf
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.marketplaceentitlementservice",
-        serviceTarget: "AWSMPEntitlementService",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.marketplaceentitlementservice",
+      version: "2017-01-11",
+      serviceTarget: "AWSMPEntitlementService",
+    },
     serviceId: config?.serviceId ?? "Marketplace Entitlement Service",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteGatewayTargetRequest, DeleteGatewayTargetResponse } from "../models/models_0";
-import { DeleteGatewayTarget } from "../schemas/schemas_0";
+import { DeleteGatewayTarget$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class DeleteGatewayTargetCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "DeleteGatewayTarget", {})
   .n("BedrockAgentCoreControlClient", "DeleteGatewayTargetCommand")
-  .sc(DeleteGatewayTarget)
+  .sc(DeleteGatewayTarget$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

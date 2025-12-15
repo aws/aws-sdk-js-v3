@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ResolverClient";
-import { DeleteResolverQueryLogConfig } from "../schemas/schemas_0";
+import { DeleteResolverQueryLogConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class DeleteResolverQueryLogConfigCommand extends $Command
   })
   .s("Route53Resolver", "DeleteResolverQueryLogConfig", {})
   .n("Route53ResolverClient", "DeleteResolverQueryLogConfigCommand")
-  .sc(DeleteResolverQueryLogConfig)
+  .sc(DeleteResolverQueryLogConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

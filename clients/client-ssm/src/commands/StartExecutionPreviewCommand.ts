@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartExecutionPreviewRequest, StartExecutionPreviewResponse } from "../models/models_1";
-import { StartExecutionPreview } from "../schemas/schemas_0";
+import { StartExecutionPreview$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -158,7 +158,7 @@ export class StartExecutionPreviewCommand extends $Command
   })
   .s("AmazonSSM", "StartExecutionPreview", {})
   .n("SSMClient", "StartExecutionPreviewCommand")
-  .sc(StartExecutionPreview)
+  .sc(StartExecutionPreview$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

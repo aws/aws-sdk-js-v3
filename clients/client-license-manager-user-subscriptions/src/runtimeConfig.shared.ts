@@ -32,9 +32,7 @@ export const getRuntimeConfig = (config: LicenseManagerUserSubscriptionsClientCo
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.licensemanagerusersubscriptions" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
     serviceId: config?.serviceId ?? "License Manager User Subscriptions",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

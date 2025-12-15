@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { DeleteDataQualityRulesetRequest, DeleteDataQualityRulesetResponse } from "../models/models_1";
-import { DeleteDataQualityRuleset } from "../schemas/schemas_0";
+import { DeleteDataQualityRuleset$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class DeleteDataQualityRulesetCommand extends $Command
   })
   .s("AWSGlue", "DeleteDataQualityRuleset", {})
   .n("GlueClient", "DeleteDataQualityRulesetCommand")
-  .sc(DeleteDataQualityRuleset)
+  .sc(DeleteDataQualityRuleset$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

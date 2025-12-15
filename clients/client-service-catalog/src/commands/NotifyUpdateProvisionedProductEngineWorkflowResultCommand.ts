@@ -8,7 +8,7 @@ import type {
   NotifyUpdateProvisionedProductEngineWorkflowResultInput,
   NotifyUpdateProvisionedProductEngineWorkflowResultOutput,
 } from "../models/models_0";
-import { NotifyUpdateProvisionedProductEngineWorkflowResult } from "../schemas/schemas_0";
+import { NotifyUpdateProvisionedProductEngineWorkflowResult$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -101,7 +101,7 @@ export class NotifyUpdateProvisionedProductEngineWorkflowResultCommand extends $
   })
   .s("AWS242ServiceCatalogService", "NotifyUpdateProvisionedProductEngineWorkflowResult", {})
   .n("ServiceCatalogClient", "NotifyUpdateProvisionedProductEngineWorkflowResultCommand")
-  .sc(NotifyUpdateProvisionedProductEngineWorkflowResult)
+  .sc(NotifyUpdateProvisionedProductEngineWorkflowResult$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

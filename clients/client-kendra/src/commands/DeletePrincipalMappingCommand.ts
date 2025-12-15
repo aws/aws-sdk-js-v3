@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import type { DeletePrincipalMappingRequest } from "../models/models_0";
-import { DeletePrincipalMapping } from "../schemas/schemas_0";
+import { DeletePrincipalMapping$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class DeletePrincipalMappingCommand extends $Command
   })
   .s("AWSKendraFrontendService", "DeletePrincipalMapping", {})
   .n("KendraClient", "DeletePrincipalMappingCommand")
-  .sc(DeletePrincipalMapping)
+  .sc(DeletePrincipalMapping$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

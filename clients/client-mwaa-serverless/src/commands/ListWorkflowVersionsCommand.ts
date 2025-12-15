@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MWAAServerlessClient";
-import { ListWorkflowVersions } from "../schemas/schemas_0";
+import { ListWorkflowVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class ListWorkflowVersionsCommand extends $Command
   })
   .s("AmazonMWAAServerless", "ListWorkflowVersions", {})
   .n("MWAAServerlessClient", "ListWorkflowVersionsCommand")
-  .sc(ListWorkflowVersions)
+  .sc(ListWorkflowVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

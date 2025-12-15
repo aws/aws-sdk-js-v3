@@ -32,7 +32,7 @@ export const getRuntimeConfig = (config: LakeFormationClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.lakeformation" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
     sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     serviceId: config?.serviceId ?? "LakeFormation",
     urlParser: config?.urlParser ?? parseUrl,

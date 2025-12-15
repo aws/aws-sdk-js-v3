@@ -13,7 +13,7 @@ import type {
   GetWorkloadAccessTokenForUserIdRequest,
   GetWorkloadAccessTokenForUserIdResponse,
 } from "../models/models_0";
-import { GetWorkloadAccessTokenForUserId } from "../schemas/schemas_0";
+import { GetWorkloadAccessTokenForUserId$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class GetWorkloadAccessTokenForUserIdCommand extends $Command
   })
   .s("AmazonBedrockAgentCore", "GetWorkloadAccessTokenForUserId", {})
   .n("BedrockAgentCoreClient", "GetWorkloadAccessTokenForUserIdCommand")
-  .sc(GetWorkloadAccessTokenForUserId)
+  .sc(GetWorkloadAccessTokenForUserId$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

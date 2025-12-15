@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import type { DeleteBotVersionRequest, DeleteBotVersionResponse } from "../models/models_0";
-import { DeleteBotVersion } from "../schemas/schemas_0";
+import { DeleteBotVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class DeleteBotVersionCommand extends $Command
   })
   .s("LexModelBuildingServiceV2", "DeleteBotVersion", {})
   .n("LexModelsV2Client", "DeleteBotVersionCommand")
-  .sc(DeleteBotVersion)
+  .sc(DeleteBotVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

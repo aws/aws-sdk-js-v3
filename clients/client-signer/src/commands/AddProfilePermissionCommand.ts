@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AddProfilePermissionRequest, AddProfilePermissionResponse } from "../models/models_0";
-import { AddProfilePermission } from "../schemas/schemas_0";
+import { AddProfilePermission$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
@@ -100,7 +100,7 @@ export class AddProfilePermissionCommand extends $Command
   })
   .s("WallabyService", "AddProfilePermission", {})
   .n("SignerClient", "AddProfilePermissionCommand")
-  .sc(AddProfilePermission)
+  .sc(AddProfilePermission$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

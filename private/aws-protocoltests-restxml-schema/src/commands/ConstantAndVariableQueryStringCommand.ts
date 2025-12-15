@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestXmlProtocolClient";
-import { ConstantAndVariableQueryString } from "../schemas/schemas_0";
+import { ConstantAndVariableQueryString$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -78,7 +78,7 @@ export class ConstantAndVariableQueryStringCommand extends $Command
   })
   .s("RestXml", "ConstantAndVariableQueryString", {})
   .n("RestXmlProtocolClient", "ConstantAndVariableQueryStringCommand")
-  .sc(ConstantAndVariableQueryString)
+  .sc(ConstantAndVariableQueryString$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

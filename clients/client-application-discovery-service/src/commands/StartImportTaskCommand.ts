@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationDiscoveryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartImportTaskRequest, StartImportTaskResponse } from "../models/models_0";
-import { StartImportTask } from "../schemas/schemas_0";
+import { StartImportTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -150,7 +150,7 @@ export class StartImportTaskCommand extends $Command
   })
   .s("AWSPoseidonService_V2015_11_01", "StartImportTask", {})
   .n("ApplicationDiscoveryServiceClient", "StartImportTaskCommand")
-  .sc(StartImportTask)
+  .sc(StartImportTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

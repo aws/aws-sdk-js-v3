@@ -13,7 +13,7 @@ import type {
   ListChannelsAssociatedWithChannelFlowRequest,
   ListChannelsAssociatedWithChannelFlowResponse,
 } from "../models/models_0";
-import { ListChannelsAssociatedWithChannelFlow } from "../schemas/schemas_0";
+import { ListChannelsAssociatedWithChannelFlow$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class ListChannelsAssociatedWithChannelFlowCommand extends $Command
   })
   .s("ChimeMessagingService", "ListChannelsAssociatedWithChannelFlow", {})
   .n("ChimeSDKMessagingClient", "ListChannelsAssociatedWithChannelFlowCommand")
-  .sc(ListChannelsAssociatedWithChannelFlow)
+  .sc(ListChannelsAssociatedWithChannelFlow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

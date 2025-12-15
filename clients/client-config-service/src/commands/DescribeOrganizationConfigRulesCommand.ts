@@ -9,7 +9,7 @@ import type {
   DescribeOrganizationConfigRulesRequest,
   DescribeOrganizationConfigRulesResponse,
 } from "../models/models_0";
-import { DescribeOrganizationConfigRules } from "../schemas/schemas_0";
+import { DescribeOrganizationConfigRules$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -187,7 +187,7 @@ export class DescribeOrganizationConfigRulesCommand extends $Command
   })
   .s("StarlingDoveService", "DescribeOrganizationConfigRules", {})
   .n("ConfigServiceClient", "DescribeOrganizationConfigRulesCommand")
-  .sc(DescribeOrganizationConfigRules)
+  .sc(DescribeOrganizationConfigRules$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

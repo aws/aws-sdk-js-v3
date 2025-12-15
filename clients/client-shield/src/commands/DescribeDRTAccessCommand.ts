@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeDRTAccessRequest, DescribeDRTAccessResponse } from "../models/models_0";
-import { DescribeDRTAccess } from "../schemas/schemas_0";
+import { DescribeDRTAccess$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -80,7 +80,7 @@ export class DescribeDRTAccessCommand extends $Command
   })
   .s("AWSShield_20160616", "DescribeDRTAccess", {})
   .n("ShieldClient", "DescribeDRTAccessCommand")
-  .sc(DescribeDRTAccess)
+  .sc(DescribeDRTAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

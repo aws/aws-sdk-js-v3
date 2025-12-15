@@ -9,7 +9,7 @@ import type {
   GetSessionsStatisticsAggregationRequest,
   GetSessionsStatisticsAggregationResponse,
 } from "../models/models_0";
-import { GetSessionsStatisticsAggregation } from "../schemas/schemas_0";
+import { GetSessionsStatisticsAggregation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -129,7 +129,7 @@ export class GetSessionsStatisticsAggregationCommand extends $Command
   })
   .s("Deadline", "GetSessionsStatisticsAggregation", {})
   .n("DeadlineClient", "GetSessionsStatisticsAggregationCommand")
-  .sc(GetSessionsStatisticsAggregation)
+  .sc(GetSessionsStatisticsAggregation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import type { DeletePlaceIndexRequest, DeletePlaceIndexResponse } from "../models/models_0";
-import { DeletePlaceIndex } from "../schemas/schemas_0";
+import { DeletePlaceIndex$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class DeletePlaceIndexCommand extends $Command
   })
   .s("LocationService", "DeletePlaceIndex", {})
   .n("LocationClient", "DeletePlaceIndexCommand")
-  .sc(DeletePlaceIndex)
+  .sc(DeletePlaceIndex$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

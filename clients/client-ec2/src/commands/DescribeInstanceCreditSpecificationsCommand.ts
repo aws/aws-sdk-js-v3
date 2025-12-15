@@ -9,7 +9,7 @@ import type {
   DescribeInstanceCreditSpecificationsRequest,
   DescribeInstanceCreditSpecificationsResult,
 } from "../models/models_3";
-import { DescribeInstanceCreditSpecifications } from "../schemas/schemas_0";
+import { DescribeInstanceCreditSpecifications$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class DescribeInstanceCreditSpecificationsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeInstanceCreditSpecifications", {})
   .n("EC2Client", "DescribeInstanceCreditSpecificationsCommand")
-  .sc(DescribeInstanceCreditSpecifications)
+  .sc(DescribeInstanceCreditSpecifications$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

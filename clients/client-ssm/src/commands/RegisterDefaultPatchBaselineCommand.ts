@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RegisterDefaultPatchBaselineRequest, RegisterDefaultPatchBaselineResult } from "../models/models_1";
-import { RegisterDefaultPatchBaseline } from "../schemas/schemas_0";
+import { RegisterDefaultPatchBaseline$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -91,7 +91,7 @@ export class RegisterDefaultPatchBaselineCommand extends $Command
   })
   .s("AmazonSSM", "RegisterDefaultPatchBaseline", {})
   .n("SSMClient", "RegisterDefaultPatchBaselineCommand")
-  .sc(RegisterDefaultPatchBaseline)
+  .sc(RegisterDefaultPatchBaseline$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

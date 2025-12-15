@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchDeleteBuildsInput, BatchDeleteBuildsOutput } from "../models/models_0";
-import { BatchDeleteBuilds } from "../schemas/schemas_0";
+import { BatchDeleteBuilds$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class BatchDeleteBuildsCommand extends $Command
   })
   .s("CodeBuild_20161006", "BatchDeleteBuilds", {})
   .n("CodeBuildClient", "BatchDeleteBuildsCommand")
-  .sc(BatchDeleteBuilds)
+  .sc(BatchDeleteBuilds$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

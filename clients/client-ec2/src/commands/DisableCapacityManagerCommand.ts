@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisableCapacityManagerRequest, DisableCapacityManagerResult } from "../models/models_5";
-import { DisableCapacityManager } from "../schemas/schemas_0";
+import { DisableCapacityManager$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -78,7 +78,7 @@ export class DisableCapacityManagerCommand extends $Command
   })
   .s("AmazonEC2", "DisableCapacityManager", {})
   .n("EC2Client", "DisableCapacityManagerCommand")
-  .sc(DisableCapacityManager)
+  .sc(DisableCapacityManager$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -387,49 +387,49 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { AmplifyUIBuilderServiceException as __AmplifyUIBuilderServiceException } from "../models/AmplifyUIBuilderServiceException";
+import { AmplifyUIBuilderServiceException } from "../models/AmplifyUIBuilderServiceException";
 import {
-  InternalServerException as __InternalServerException,
-  InvalidParameterException as __InvalidParameterException,
-  ResourceConflictException as __ResourceConflictException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  UnauthorizedException as __UnauthorizedException,
+  InternalServerException,
+  InvalidParameterException,
+  ResourceConflictException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  UnauthorizedException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
-export var ActionParameters: StaticStructureSchema = [
+var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
+export var ActionParameters$: StaticStructureSchema = [
   3,
   n0,
   _AP,
   0,
   [_t, _u, _a, _ta, _g, _m, _i, _f, _s],
   [
-    () => ComponentProperty,
-    () => ComponentProperty,
-    () => ComponentProperty,
-    () => ComponentProperty,
-    () => ComponentProperty,
+    () => ComponentProperty$,
+    () => ComponentProperty$,
+    () => ComponentProperty$,
+    () => ComponentProperty$,
+    () => ComponentProperty$,
     0,
-    () => ComponentProperty,
+    () => ComponentProperty$,
     () => ComponentProperties,
-    () => MutationActionSetStateParameter,
+    () => MutationActionSetStateParameter$,
   ],
 ];
-export var CodegenDependency: StaticStructureSchema = [3, n0, _CD, 0, [_n, _sV, _iSV, _r], [0, 0, 2, 0]];
-export var CodegenFeatureFlags: StaticStructureSchema = [3, n0, _CFF, 0, [_iRS, _iNMS], [2, 2]];
-export var CodegenGenericDataEnum: StaticStructureSchema = [3, n0, _CGDE, 0, [_v], [64 | 0]];
-export var CodegenGenericDataField: StaticStructureSchema = [
+export var CodegenDependency$: StaticStructureSchema = [3, n0, _CD, 0, [_n, _sV, _iSV, _r], [0, 0, 2, 0]];
+export var CodegenFeatureFlags$: StaticStructureSchema = [3, n0, _CFF, 0, [_iRS, _iNMS], [2, 2]];
+export var CodegenGenericDataEnum$: StaticStructureSchema = [3, n0, _CGDE, 0, [_v], [64 | 0]];
+export var CodegenGenericDataField$: StaticStructureSchema = [
   3,
   n0,
   _CGDF,
   0,
   [_dT, _dTV, _re, _rO, _iA, _rel],
-  [0, 0, 2, 2, 2, () => CodegenGenericDataRelationshipType],
+  [0, 0, 2, 2, 2, () => CodegenGenericDataRelationshipType$],
 ];
-export var CodegenGenericDataModel: StaticStructureSchema = [
+export var CodegenGenericDataModel$: StaticStructureSchema = [
   3,
   n0,
   _CGDM,
@@ -437,7 +437,7 @@ export var CodegenGenericDataModel: StaticStructureSchema = [
   [_f, _iJT, _pK],
   [() => CodegenGenericDataFields, 2, 64 | 0],
 ];
-export var CodegenGenericDataNonModel: StaticStructureSchema = [
+export var CodegenGenericDataNonModel$: StaticStructureSchema = [
   3,
   n0,
   _CGDNM,
@@ -445,7 +445,7 @@ export var CodegenGenericDataNonModel: StaticStructureSchema = [
   [_f],
   [() => CodegenGenericDataNonModelFields],
 ];
-export var CodegenGenericDataRelationshipType: StaticStructureSchema = [
+export var CodegenGenericDataRelationshipType$: StaticStructureSchema = [
   3,
   n0,
   _CGDRT,
@@ -453,7 +453,7 @@ export var CodegenGenericDataRelationshipType: StaticStructureSchema = [
   [_t, _rMN, _rMF, _cUAM, _rJFN, _rJTN, _bTFORM, _aF, _iHMI],
   [0, 0, 64 | 0, 2, 0, 0, 0, 64 | 0, 2],
 ];
-export var CodegenJob: StaticStructureSchema = [
+export var CodegenJob$: StaticStructureSchema = [
   3,
   n0,
   _CJ,
@@ -463,21 +463,21 @@ export var CodegenJob: StaticStructureSchema = [
     0,
     0,
     0,
-    () => CodegenJobRenderConfig,
-    () => CodegenJobGenericDataSchema,
+    () => CodegenJobRenderConfig$,
+    () => CodegenJobGenericDataSchema$,
     2,
-    () => CodegenFeatureFlags,
+    () => CodegenFeatureFlags$,
     0,
     0,
-    () => CodegenJobAsset,
+    () => CodegenJobAsset$,
     128 | 0,
     5,
     5,
     () => CodegenDependencies,
   ],
 ];
-export var CodegenJobAsset: StaticStructureSchema = [3, n0, _CJA, 0, [_dU], [0]];
-export var CodegenJobGenericDataSchema: StaticStructureSchema = [
+export var CodegenJobAsset$: StaticStructureSchema = [3, n0, _CJA, 0, [_dU], [0]];
+export var CodegenJobGenericDataSchema$: StaticStructureSchema = [
   3,
   n0,
   _CJGDS,
@@ -485,8 +485,8 @@ export var CodegenJobGenericDataSchema: StaticStructureSchema = [
   [_dST, _mo, _e, _nM],
   [0, () => CodegenGenericDataModels, () => CodegenGenericDataEnums, () => CodegenGenericDataNonModels],
 ];
-export var CodegenJobSummary: StaticStructureSchema = [3, n0, _CJS, 0, [_aI, _eN, _i, _cA, _mA], [0, 0, 0, 5, 5]];
-export var Component: StaticStructureSchema = [
+export var CodegenJobSummary$: StaticStructureSchema = [3, n0, _CJS, 0, [_aI, _eN, _i, _cA, _mA], [0, 0, 0, 5, 5]];
+export var Component$: StaticStructureSchema = [
   3,
   n0,
   _C,
@@ -512,15 +512,15 @@ export var Component: StaticStructureSchema = [
     0,
   ],
 ];
-export var ComponentBindingPropertiesValue: StaticStructureSchema = [
+export var ComponentBindingPropertiesValue$: StaticStructureSchema = [
   3,
   n0,
   _CBPV,
   0,
   [_t, _bP, _dV],
-  [0, () => ComponentBindingPropertiesValueProperties, 0],
+  [0, () => ComponentBindingPropertiesValueProperties$, 0],
 ];
-export var ComponentBindingPropertiesValueProperties: StaticStructureSchema = [
+export var ComponentBindingPropertiesValueProperties$: StaticStructureSchema = [
   3,
   n0,
   _CBPVP,
@@ -528,7 +528,7 @@ export var ComponentBindingPropertiesValueProperties: StaticStructureSchema = [
   [_m, _fi, _pr, _uA, _b, _k, _dV, _sN],
   [0, 0, () => PredicateList, 0, 0, 0, 0, 0],
 ];
-export var ComponentChild: StaticStructureSchema = [
+export var ComponentChild$: StaticStructureSchema = [
   3,
   n0,
   _CC,
@@ -536,24 +536,24 @@ export var ComponentChild: StaticStructureSchema = [
   [_cT, _n, _p, _c, _ev, _sI],
   [0, 0, () => ComponentProperties, () => ComponentChildList, () => ComponentEvents, 0],
 ];
-export var ComponentConditionProperty: StaticStructureSchema = [
+export var ComponentConditionProperty$: StaticStructureSchema = [
   3,
   n0,
   _CCP,
   0,
   [_pro, _fi, _op, _ope, _th, _el, _oT],
-  [0, 0, 0, 0, () => ComponentProperty, () => ComponentProperty, 0],
+  [0, 0, 0, 0, () => ComponentProperty$, () => ComponentProperty$, 0],
 ];
-export var ComponentDataConfiguration: StaticStructureSchema = [
+export var ComponentDataConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _CDC,
   0,
   [_m, _so, _pre, _id],
-  [0, () => SortPropertyList, () => Predicate, 64 | 0],
+  [0, () => SortPropertyList, () => Predicate$, 64 | 0],
 ];
-export var ComponentEvent: StaticStructureSchema = [3, n0, _CE, 0, [_ac, _pa, _bE], [0, () => ActionParameters, 0]];
-export var ComponentProperty: StaticStructureSchema = [
+export var ComponentEvent$: StaticStructureSchema = [3, n0, _CE, 0, [_ac, _pa, _bE], [0, () => ActionParameters$, 0]];
+export var ComponentProperty$: StaticStructureSchema = [
   3,
   n0,
   _CP,
@@ -561,15 +561,15 @@ export var ComponentProperty: StaticStructureSchema = [
   [_val, _bP, _cBP, _dV, _m, _bi, _eve, _uA, _co, _con, _conf, _t, _iV, _cN, _pro],
   [
     0,
-    () => ComponentPropertyBindingProperties,
-    () => ComponentPropertyBindingProperties,
+    () => ComponentPropertyBindingProperties$,
+    () => ComponentPropertyBindingProperties$,
     0,
     0,
     () => FormBindings,
     0,
     0,
     () => ComponentPropertyList,
-    () => ComponentConditionProperty,
+    () => ComponentConditionProperty$,
     2,
     0,
     0,
@@ -577,10 +577,17 @@ export var ComponentProperty: StaticStructureSchema = [
     0,
   ],
 ];
-export var ComponentPropertyBindingProperties: StaticStructureSchema = [3, n0, _CPBP, 0, [_pro, _fi], [0, 0]];
-export var ComponentSummary: StaticStructureSchema = [3, n0, _CS, 0, [_aI, _eN, _i, _n, _cT], [0, 0, 0, 0, 0]];
-export var ComponentVariant: StaticStructureSchema = [3, n0, _CV, 0, [_vV, _o], [128 | 0, [2, n0, _CO, 0, 0, 128 | 0]]];
-export var CreateComponentData: StaticStructureSchema = [
+export var ComponentPropertyBindingProperties$: StaticStructureSchema = [3, n0, _CPBP, 0, [_pro, _fi], [0, 0]];
+export var ComponentSummary$: StaticStructureSchema = [3, n0, _CS, 0, [_aI, _eN, _i, _n, _cT], [0, 0, 0, 0, 0]];
+export var ComponentVariant$: StaticStructureSchema = [
+  3,
+  n0,
+  _CV,
+  0,
+  [_vV, _o],
+  [128 | 0, [2, n0, _CO, 0, 0, 128 | 0]],
+];
+export var CreateComponentData$: StaticStructureSchema = [
   3,
   n0,
   _CCD,
@@ -601,7 +608,7 @@ export var CreateComponentData: StaticStructureSchema = [
     0,
   ],
 ];
-export var CreateComponentRequest: StaticStructureSchema = [
+export var CreateComponentRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCR,
@@ -611,11 +618,11 @@ export var CreateComponentRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, { [_iT]: 1, [_hQ]: _cTl }],
-    [() => CreateComponentData, 16],
+    [() => CreateComponentData$, 16],
   ],
 ];
-export var CreateComponentResponse: StaticStructureSchema = [3, n0, _CCRr, 0, [_en], [[() => Component, 16]]];
-export var CreateFormData: StaticStructureSchema = [
+export var CreateComponentResponse$: StaticStructureSchema = [3, n0, _CCRr, 0, [_en], [[() => Component$, 16]]];
+export var CreateFormData$: StaticStructureSchema = [
   3,
   n0,
   _CFD,
@@ -623,18 +630,18 @@ export var CreateFormData: StaticStructureSchema = [
   [_n, _dT, _fAT, _f, _sty, _sE, _sVc, _ct, _tag, _lD],
   [
     0,
-    () => FormDataTypeConfig,
+    () => FormDataTypeConfig$,
     0,
     () => FieldsMap,
-    () => FormStyle,
+    () => FormStyle$,
     () => SectionalElementMap,
     0,
-    () => FormCTA,
+    () => FormCTA$,
     128 | 0,
     0,
   ],
 ];
-export var CreateFormRequest: StaticStructureSchema = [
+export var CreateFormRequest$: StaticStructureSchema = [
   3,
   n0,
   _CFR,
@@ -644,11 +651,11 @@ export var CreateFormRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, { [_iT]: 1, [_hQ]: _cTl }],
-    [() => CreateFormData, 16],
+    [() => CreateFormData$, 16],
   ],
 ];
-export var CreateFormResponse: StaticStructureSchema = [3, n0, _CFRr, 0, [_en], [[() => Form, 16]]];
-export var CreateThemeData: StaticStructureSchema = [
+export var CreateFormResponse$: StaticStructureSchema = [3, n0, _CFRr, 0, [_en], [[() => Form$, 16]]];
+export var CreateThemeData$: StaticStructureSchema = [
   3,
   n0,
   _CTD,
@@ -656,7 +663,7 @@ export var CreateThemeData: StaticStructureSchema = [
   [_n, _v, _o, _tag],
   [0, () => ThemeValuesList, () => ThemeValuesList, 128 | 0],
 ];
-export var CreateThemeRequest: StaticStructureSchema = [
+export var CreateThemeRequest$: StaticStructureSchema = [
   3,
   n0,
   _CTR,
@@ -666,12 +673,12 @@ export var CreateThemeRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, { [_iT]: 1, [_hQ]: _cTl }],
-    [() => CreateThemeData, 16],
+    [() => CreateThemeData$, 16],
   ],
 ];
-export var CreateThemeResponse: StaticStructureSchema = [3, n0, _CTRr, 0, [_en], [[() => Theme, 16]]];
-export var DataStoreRenderConfig: StaticStructureSchema = [3, n0, _DSRC, 0, [], []];
-export var DeleteComponentRequest: StaticStructureSchema = [
+export var CreateThemeResponse$: StaticStructureSchema = [3, n0, _CTRr, 0, [_en], [[() => Theme$, 16]]];
+export var DataStoreRenderConfig$: StaticStructureSchema = [3, n0, _DSRC, 0, [], []];
+export var DeleteComponentRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCR,
@@ -683,7 +690,7 @@ export var DeleteComponentRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteFormRequest: StaticStructureSchema = [
+export var DeleteFormRequest$: StaticStructureSchema = [
   3,
   n0,
   _DFR,
@@ -695,7 +702,7 @@ export var DeleteFormRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteThemeRequest: StaticStructureSchema = [
+export var DeleteThemeRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTR,
@@ -707,7 +714,7 @@ export var DeleteThemeRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var ExchangeCodeForTokenRequest: StaticStructureSchema = [
+export var ExchangeCodeForTokenRequest$: StaticStructureSchema = [
   3,
   n0,
   _ECFTR,
@@ -715,10 +722,10 @@ export var ExchangeCodeForTokenRequest: StaticStructureSchema = [
   [_prov, _req],
   [
     [0, 1],
-    [() => ExchangeCodeForTokenRequestBody, 16],
+    [() => ExchangeCodeForTokenRequestBody$, 16],
   ],
 ];
-export var ExchangeCodeForTokenRequestBody: StaticStructureSchema = [
+export var ExchangeCodeForTokenRequestBody$: StaticStructureSchema = [
   3,
   n0,
   _ECFTRB,
@@ -726,7 +733,7 @@ export var ExchangeCodeForTokenRequestBody: StaticStructureSchema = [
   [_cod, _rU, _cI],
   [[() => SensitiveString, 0], 0, [() => SensitiveString, 0]],
 ];
-export var ExchangeCodeForTokenResponse: StaticStructureSchema = [
+export var ExchangeCodeForTokenResponse$: StaticStructureSchema = [
   3,
   n0,
   _ECFTRx,
@@ -734,7 +741,7 @@ export var ExchangeCodeForTokenResponse: StaticStructureSchema = [
   [_aT, _eI, _rT],
   [[() => SensitiveString, 0], 1, [() => SensitiveString, 0]],
 ];
-export var ExportComponentsRequest: StaticStructureSchema = [
+export var ExportComponentsRequest$: StaticStructureSchema = [
   3,
   n0,
   _ECR,
@@ -746,8 +753,8 @@ export var ExportComponentsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ExportComponentsResponse: StaticStructureSchema = [3, n0, _ECRx, 0, [_ent, _nT], [() => ComponentList, 0]];
-export var ExportFormsRequest: StaticStructureSchema = [
+export var ExportComponentsResponse$: StaticStructureSchema = [3, n0, _ECRx, 0, [_ent, _nT], [() => ComponentList, 0]];
+export var ExportFormsRequest$: StaticStructureSchema = [
   3,
   n0,
   _EFR,
@@ -759,8 +766,8 @@ export var ExportFormsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ExportFormsResponse: StaticStructureSchema = [3, n0, _EFRx, 0, [_ent, _nT], [() => FormList, 0]];
-export var ExportThemesRequest: StaticStructureSchema = [
+export var ExportFormsResponse$: StaticStructureSchema = [3, n0, _EFRx, 0, [_ent, _nT], [() => FormList, 0]];
+export var ExportThemesRequest$: StaticStructureSchema = [
   3,
   n0,
   _ETR,
@@ -772,24 +779,24 @@ export var ExportThemesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ExportThemesResponse: StaticStructureSchema = [3, n0, _ETRx, 0, [_ent, _nT], [() => ThemeList, 0]];
-export var FieldConfig: StaticStructureSchema = [
+export var ExportThemesResponse$: StaticStructureSchema = [3, n0, _ETRx, 0, [_ent, _nT], [() => ThemeList, 0]];
+export var FieldConfig$: StaticStructureSchema = [
   3,
   n0,
   _FC,
   0,
   [_l, _po, _ex, _iTn, _vali],
-  [0, () => FieldPosition, 2, () => FieldInputConfig, () => ValidationsList],
+  [0, () => FieldPosition$, 2, () => FieldInputConfig$, () => ValidationsList],
 ];
-export var FieldInputConfig: StaticStructureSchema = [
+export var FieldInputConfig$: StaticStructureSchema = [
   3,
   n0,
   _FIC,
   0,
   [_t, _re, _rO, _pl, _dV, _dTe, _dC, _dCC, _vM, _n, _mV, _mVa, _ste, _val, _iA, _fUC],
-  [0, 2, 2, 0, 0, 0, 2, 0, () => ValueMappings, 0, 1, 1, 1, 0, 2, () => FileUploaderFieldConfig],
+  [0, 2, 2, 0, 0, 0, 2, 0, () => ValueMappings$, 0, 1, 1, 1, 0, 2, () => FileUploaderFieldConfig$],
 ];
-export var FieldValidationConfiguration: StaticStructureSchema = [
+export var FieldValidationConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _FVC,
@@ -797,7 +804,7 @@ export var FieldValidationConfiguration: StaticStructureSchema = [
   [_t, _sVt, _nV, _vMa],
   [0, 64 | 0, 64 | 1, 0],
 ];
-export var FileUploaderFieldConfig: StaticStructureSchema = [
+export var FileUploaderFieldConfig$: StaticStructureSchema = [
   3,
   n0,
   _FUFC,
@@ -805,7 +812,7 @@ export var FileUploaderFieldConfig: StaticStructureSchema = [
   [_aL, _aFT, _sT, _iR, _mFC, _mS],
   [0, 64 | 0, 2, 2, 1, 1],
 ];
-export var Form: StaticStructureSchema = [
+export var Form$: StaticStructureSchema = [
   3,
   n0,
   _F,
@@ -817,62 +824,62 @@ export var Form: StaticStructureSchema = [
     0,
     0,
     0,
-    () => FormStyle,
-    () => FormDataTypeConfig,
+    () => FormStyle$,
+    () => FormDataTypeConfig$,
     () => FieldsMap,
     () => SectionalElementMap,
     0,
     128 | 0,
-    () => FormCTA,
+    () => FormCTA$,
     0,
   ],
 ];
-export var FormBindingElement: StaticStructureSchema = [3, n0, _FBE, 0, [_ele, _pro], [0, 0]];
-export var FormButton: StaticStructureSchema = [3, n0, _FB, 0, [_ex, _c, _po], [2, 0, () => FieldPosition]];
-export var FormCTA: StaticStructureSchema = [
+export var FormBindingElement$: StaticStructureSchema = [3, n0, _FBE, 0, [_ele, _pro], [0, 0]];
+export var FormButton$: StaticStructureSchema = [3, n0, _FB, 0, [_ex, _c, _po], [2, 0, () => FieldPosition$]];
+export var FormCTA$: StaticStructureSchema = [
   3,
   n0,
   _FCTA,
   0,
   [_po, _cl, _ca, _su],
-  [0, () => FormButton, () => FormButton, () => FormButton],
+  [0, () => FormButton$, () => FormButton$, () => FormButton$],
 ];
-export var FormDataTypeConfig: StaticStructureSchema = [3, n0, _FDTC, 0, [_dST, _dTN], [0, 0]];
-export var FormInputBindingPropertiesValue: StaticStructureSchema = [
+export var FormDataTypeConfig$: StaticStructureSchema = [3, n0, _FDTC, 0, [_dST, _dTN], [0, 0]];
+export var FormInputBindingPropertiesValue$: StaticStructureSchema = [
   3,
   n0,
   _FIBPV,
   0,
   [_t, _bP],
-  [0, () => FormInputBindingPropertiesValueProperties],
+  [0, () => FormInputBindingPropertiesValueProperties$],
 ];
-export var FormInputBindingPropertiesValueProperties: StaticStructureSchema = [3, n0, _FIBPVP, 0, [_m], [0]];
-export var FormInputValueProperty: StaticStructureSchema = [
+export var FormInputBindingPropertiesValueProperties$: StaticStructureSchema = [3, n0, _FIBPVP, 0, [_m], [0]];
+export var FormInputValueProperty$: StaticStructureSchema = [
   3,
   n0,
   _FIVP,
   0,
   [_val, _bP, _co],
-  [0, () => FormInputValuePropertyBindingProperties, () => FormInputValuePropertyList],
+  [0, () => FormInputValuePropertyBindingProperties$, () => FormInputValuePropertyList],
 ];
-export var FormInputValuePropertyBindingProperties: StaticStructureSchema = [3, n0, _FIVPBP, 0, [_pro, _fi], [0, 0]];
-export var FormStyle: StaticStructureSchema = [
+export var FormInputValuePropertyBindingProperties$: StaticStructureSchema = [3, n0, _FIVPBP, 0, [_pro, _fi], [0, 0]];
+export var FormStyle$: StaticStructureSchema = [
   3,
   n0,
   _FS,
   0,
   [_hG, _vG, _oP],
-  [() => FormStyleConfig, () => FormStyleConfig, () => FormStyleConfig],
+  [() => FormStyleConfig$, () => FormStyleConfig$, () => FormStyleConfig$],
 ];
-export var FormSummary: StaticStructureSchema = [
+export var FormSummary$: StaticStructureSchema = [
   3,
   n0,
   _FSo,
   0,
   [_aI, _dT, _eN, _fAT, _i, _n],
-  [0, () => FormDataTypeConfig, 0, 0, 0, 0],
+  [0, () => FormDataTypeConfig$, 0, 0, 0, 0],
 ];
-export var GetCodegenJobRequest: StaticStructureSchema = [
+export var GetCodegenJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _GCJR,
@@ -884,8 +891,8 @@ export var GetCodegenJobRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetCodegenJobResponse: StaticStructureSchema = [3, n0, _GCJRe, 0, [_j], [[() => CodegenJob, 16]]];
-export var GetComponentRequest: StaticStructureSchema = [
+export var GetCodegenJobResponse$: StaticStructureSchema = [3, n0, _GCJRe, 0, [_j], [[() => CodegenJob$, 16]]];
+export var GetComponentRequest$: StaticStructureSchema = [
   3,
   n0,
   _GCR,
@@ -897,8 +904,8 @@ export var GetComponentRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetComponentResponse: StaticStructureSchema = [3, n0, _GCRe, 0, [_com], [[() => Component, 16]]];
-export var GetFormRequest: StaticStructureSchema = [
+export var GetComponentResponse$: StaticStructureSchema = [3, n0, _GCRe, 0, [_com], [[() => Component$, 16]]];
+export var GetFormRequest$: StaticStructureSchema = [
   3,
   n0,
   _GFR,
@@ -910,8 +917,8 @@ export var GetFormRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetFormResponse: StaticStructureSchema = [3, n0, _GFRe, 0, [_fo], [[() => Form, 16]]];
-export var GetMetadataRequest: StaticStructureSchema = [
+export var GetFormResponse$: StaticStructureSchema = [3, n0, _GFRe, 0, [_fo], [[() => Form$, 16]]];
+export var GetMetadataRequest$: StaticStructureSchema = [
   3,
   n0,
   _GMR,
@@ -922,8 +929,8 @@ export var GetMetadataRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetMetadataResponse: StaticStructureSchema = [3, n0, _GMRe, 0, [_fe], [128 | 0]];
-export var GetThemeRequest: StaticStructureSchema = [
+export var GetMetadataResponse$: StaticStructureSchema = [3, n0, _GMRe, 0, [_fe], [128 | 0]];
+export var GetThemeRequest$: StaticStructureSchema = [
   3,
   n0,
   _GTR,
@@ -935,8 +942,8 @@ export var GetThemeRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetThemeResponse: StaticStructureSchema = [3, n0, _GTRe, 0, [_the], [[() => Theme, 16]]];
-export var GraphQLRenderConfig: StaticStructureSchema = [
+export var GetThemeResponse$: StaticStructureSchema = [3, n0, _GTRe, 0, [_the], [[() => Theme$, 16]]];
+export var GraphQLRenderConfig$: StaticStructureSchema = [
   3,
   n0,
   _GQLRC,
@@ -944,11 +951,11 @@ export var GraphQLRenderConfig: StaticStructureSchema = [
   [_tFP, _qFP, _mFP, _sFP, _fFP],
   [0, 0, 0, 0, 0],
 ];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_er]: _se, [_hE]: 500 }, [_me], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var InvalidParameterException: StaticErrorSchema = [-3, n0, _IPE, { [_er]: _cli, [_hE]: 400 }, [_me], [0]];
-TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-export var ListCodegenJobsRequest: StaticStructureSchema = [
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_er]: _se, [_hE]: 500 }, [_me], [0]];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE, { [_er]: _cli, [_hE]: 400 }, [_me], [0]];
+TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
+export var ListCodegenJobsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCJR,
@@ -961,7 +968,7 @@ export var ListCodegenJobsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListCodegenJobsResponse: StaticStructureSchema = [
+export var ListCodegenJobsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCJRi,
@@ -969,7 +976,7 @@ export var ListCodegenJobsResponse: StaticStructureSchema = [
   [_ent, _nT],
   [() => CodegenJobSummaryList, 0],
 ];
-export var ListComponentsRequest: StaticStructureSchema = [
+export var ListComponentsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCR,
@@ -982,7 +989,7 @@ export var ListComponentsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListComponentsResponse: StaticStructureSchema = [
+export var ListComponentsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCRi,
@@ -990,7 +997,7 @@ export var ListComponentsResponse: StaticStructureSchema = [
   [_ent, _nT],
   [() => ComponentSummaryList, 0],
 ];
-export var ListFormsRequest: StaticStructureSchema = [
+export var ListFormsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LFR,
@@ -1003,10 +1010,10 @@ export var ListFormsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListFormsResponse: StaticStructureSchema = [3, n0, _LFRi, 0, [_ent, _nT], [() => FormSummaryList, 0]];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_tag], [128 | 0]];
-export var ListThemesRequest: StaticStructureSchema = [
+export var ListFormsResponse$: StaticStructureSchema = [3, n0, _LFRi, 0, [_ent, _nT], [() => FormSummaryList, 0]];
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_tag], [128 | 0]];
+export var ListThemesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LTR,
@@ -1019,17 +1026,17 @@ export var ListThemesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListThemesResponse: StaticStructureSchema = [3, n0, _LTRi, 0, [_ent, _nT], [() => ThemeSummaryList, 0]];
-export var MutationActionSetStateParameter: StaticStructureSchema = [
+export var ListThemesResponse$: StaticStructureSchema = [3, n0, _LTRi, 0, [_ent, _nT], [() => ThemeSummaryList, 0]];
+export var MutationActionSetStateParameter$: StaticStructureSchema = [
   3,
   n0,
   _MASSP,
   0,
   [_cN, _pro, _set],
-  [0, 0, () => ComponentProperty],
+  [0, 0, () => ComponentProperty$],
 ];
-export var NoApiRenderConfig: StaticStructureSchema = [3, n0, _NARC, 0, [], []];
-export var Predicate: StaticStructureSchema = [
+export var NoApiRenderConfig$: StaticStructureSchema = [3, n0, _NARC, 0, [], []];
+export var Predicate$: StaticStructureSchema = [
   3,
   n0,
   _P,
@@ -1037,8 +1044,8 @@ export var Predicate: StaticStructureSchema = [
   [_or, _an, _fi, _op, _ope, _oT],
   [() => PredicateList, () => PredicateList, 0, 0, 0, 0],
 ];
-export var PutMetadataFlagBody: StaticStructureSchema = [3, n0, _PMFB, 0, [_nVe], [0]];
-export var PutMetadataFlagRequest: StaticStructureSchema = [
+export var PutMetadataFlagBody$: StaticStructureSchema = [3, n0, _PMFB, 0, [_nVe], [0]];
+export var PutMetadataFlagRequest$: StaticStructureSchema = [
   3,
   n0,
   _PMFR,
@@ -1048,18 +1055,18 @@ export var PutMetadataFlagRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [() => PutMetadataFlagBody, 16],
+    [() => PutMetadataFlagBody$, 16],
   ],
 ];
-export var ReactStartCodegenJobData: StaticStructureSchema = [
+export var ReactStartCodegenJobData$: StaticStructureSchema = [
   3,
   n0,
   _RSCJD,
   0,
   [_mod, _ta, _sc, _rTD, _iSM, _aC, _d],
-  [0, 0, 0, 2, 2, () => ApiConfiguration, 128 | 0],
+  [0, 0, 0, 2, 2, () => ApiConfiguration$, 128 | 0],
 ];
-export var RefreshTokenRequest: StaticStructureSchema = [
+export var RefreshTokenRequest$: StaticStructureSchema = [
   3,
   n0,
   _RTR,
@@ -1067,10 +1074,10 @@ export var RefreshTokenRequest: StaticStructureSchema = [
   [_prov, _rTB],
   [
     [0, 1],
-    [() => RefreshTokenRequestBody, 16],
+    [() => RefreshTokenRequestBody$, 16],
   ],
 ];
-export var RefreshTokenRequestBody: StaticStructureSchema = [
+export var RefreshTokenRequestBody$: StaticStructureSchema = [
   3,
   n0,
   _RTRB,
@@ -1081,31 +1088,38 @@ export var RefreshTokenRequestBody: StaticStructureSchema = [
     [() => SensitiveString, 0],
   ],
 ];
-export var RefreshTokenResponse: StaticStructureSchema = [3, n0, _RTRe, 0, [_aT, _eI], [[() => SensitiveString, 0], 1]];
-export var ResourceConflictException: StaticErrorSchema = [-3, n0, _RCE, { [_er]: _cli, [_hE]: 409 }, [_me], [0]];
-TypeRegistry.for(n0).registerError(ResourceConflictException, __ResourceConflictException);
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_er]: _cli, [_hE]: 404 }, [_me], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var SectionalElement: StaticStructureSchema = [
+export var RefreshTokenResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _RTRe,
+  0,
+  [_aT, _eI],
+  [[() => SensitiveString, 0], 1],
+];
+export var ResourceConflictException$: StaticErrorSchema = [-3, n0, _RCE, { [_er]: _cli, [_hE]: 409 }, [_me], [0]];
+TypeRegistry.for(n0).registerError(ResourceConflictException$, ResourceConflictException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_er]: _cli, [_hE]: 404 }, [_me], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var SectionalElement$: StaticStructureSchema = [
   3,
   n0,
   _SE,
   0,
   [_t, _po, _te, _le, _ori, _ex],
-  [0, () => FieldPosition, 0, 1, 0, 2],
+  [0, () => FieldPosition$, 0, 1, 0, 2],
 ];
-export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_er]: _cli, [_hE]: 402 }, [_me], [0]];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var SortProperty: StaticStructureSchema = [3, n0, _SP, 0, [_fi, _di], [0, 0]];
-export var StartCodegenJobData: StaticStructureSchema = [
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE, { [_er]: _cli, [_hE]: 402 }, [_me], [0]];
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var SortProperty$: StaticStructureSchema = [3, n0, _SP, 0, [_fi, _di], [0, 0]];
+export var StartCodegenJobData$: StaticStructureSchema = [
   3,
   n0,
   _SCJD,
   0,
   [_rC, _gDS, _aGF, _fe, _tag],
-  [() => CodegenJobRenderConfig, () => CodegenJobGenericDataSchema, 2, () => CodegenFeatureFlags, 128 | 0],
+  [() => CodegenJobRenderConfig$, () => CodegenJobGenericDataSchema$, 2, () => CodegenFeatureFlags$, 128 | 0],
 ];
-export var StartCodegenJobRequest: StaticStructureSchema = [
+export var StartCodegenJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _SCJR,
@@ -1115,13 +1129,13 @@ export var StartCodegenJobRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, { [_iT]: 1, [_hQ]: _cTl }],
-    [() => StartCodegenJobData, 16],
+    [() => StartCodegenJobData$, 16],
   ],
 ];
-export var StartCodegenJobResponse: StaticStructureSchema = [3, n0, _SCJRt, 0, [_en], [[() => CodegenJob, 16]]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _tag], [[0, 1], 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var Theme: StaticStructureSchema = [
+export var StartCodegenJobResponse$: StaticStructureSchema = [3, n0, _SCJRt, 0, [_en], [[() => CodegenJob$, 16]]];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _tag], [[0, 1], 128 | 0]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var Theme$: StaticStructureSchema = [
   3,
   n0,
   _T,
@@ -1129,14 +1143,14 @@ export var Theme: StaticStructureSchema = [
   [_aI, _eN, _i, _n, _cA, _mA, _v, _o, _tag],
   [0, 0, 0, 0, 5, 5, () => ThemeValuesList, () => ThemeValuesList, 128 | 0],
 ];
-export var ThemeSummary: StaticStructureSchema = [3, n0, _TS, 0, [_aI, _eN, _i, _n], [0, 0, 0, 0]];
-export var ThemeValue: StaticStructureSchema = [3, n0, _TV, 0, [_val, _c], [0, () => ThemeValuesList]];
-export var ThemeValues: StaticStructureSchema = [3, n0, _TVh, 0, [_k, _val], [0, () => ThemeValue]];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_er]: _cli, [_hE]: 429 }, [_me], [0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var UnauthorizedException: StaticErrorSchema = [-3, n0, _UE, { [_er]: _cli, [_hE]: 401 }, [_me], [0]];
-TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
-export var UntagResourceRequest: StaticStructureSchema = [
+export var ThemeSummary$: StaticStructureSchema = [3, n0, _TS, 0, [_aI, _eN, _i, _n], [0, 0, 0, 0]];
+export var ThemeValue$: StaticStructureSchema = [3, n0, _TV, 0, [_val, _c], [0, () => ThemeValuesList]];
+export var ThemeValues$: StaticStructureSchema = [3, n0, _TVh, 0, [_k, _val], [0, () => ThemeValue$]];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_er]: _cli, [_hE]: 429 }, [_me], [0]];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE, { [_er]: _cli, [_hE]: 401 }, [_me], [0]];
+TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -1147,8 +1161,8 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateComponentData: StaticStructureSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateComponentData$: StaticStructureSchema = [
   3,
   n0,
   _UCD,
@@ -1169,7 +1183,7 @@ export var UpdateComponentData: StaticStructureSchema = [
     0,
   ],
 ];
-export var UpdateComponentRequest: StaticStructureSchema = [
+export var UpdateComponentRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCR,
@@ -1180,19 +1194,19 @@ export var UpdateComponentRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, { [_iT]: 1, [_hQ]: _cTl }],
-    [() => UpdateComponentData, 16],
+    [() => UpdateComponentData$, 16],
   ],
 ];
-export var UpdateComponentResponse: StaticStructureSchema = [3, n0, _UCRp, 0, [_en], [[() => Component, 16]]];
-export var UpdateFormData: StaticStructureSchema = [
+export var UpdateComponentResponse$: StaticStructureSchema = [3, n0, _UCRp, 0, [_en], [[() => Component$, 16]]];
+export var UpdateFormData$: StaticStructureSchema = [
   3,
   n0,
   _UFD,
   0,
   [_n, _dT, _fAT, _f, _sty, _sE, _sVc, _ct, _lD],
-  [0, () => FormDataTypeConfig, 0, () => FieldsMap, () => FormStyle, () => SectionalElementMap, 0, () => FormCTA, 0],
+  [0, () => FormDataTypeConfig$, 0, () => FieldsMap, () => FormStyle$, () => SectionalElementMap, 0, () => FormCTA$, 0],
 ];
-export var UpdateFormRequest: StaticStructureSchema = [
+export var UpdateFormRequest$: StaticStructureSchema = [
   3,
   n0,
   _UFR,
@@ -1203,11 +1217,11 @@ export var UpdateFormRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, { [_iT]: 1, [_hQ]: _cTl }],
-    [() => UpdateFormData, 16],
+    [() => UpdateFormData$, 16],
   ],
 ];
-export var UpdateFormResponse: StaticStructureSchema = [3, n0, _UFRp, 0, [_en], [[() => Form, 16]]];
-export var UpdateThemeData: StaticStructureSchema = [
+export var UpdateFormResponse$: StaticStructureSchema = [3, n0, _UFRp, 0, [_en], [[() => Form$, 16]]];
+export var UpdateThemeData$: StaticStructureSchema = [
   3,
   n0,
   _UTD,
@@ -1215,7 +1229,7 @@ export var UpdateThemeData: StaticStructureSchema = [
   [_i, _n, _v, _o],
   [0, 0, () => ThemeValuesList, () => ThemeValuesList],
 ];
-export var UpdateThemeRequest: StaticStructureSchema = [
+export var UpdateThemeRequest$: StaticStructureSchema = [
   3,
   n0,
   _UTR,
@@ -1226,19 +1240,19 @@ export var UpdateThemeRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, { [_iT]: 1, [_hQ]: _cTl }],
-    [() => UpdateThemeData, 16],
+    [() => UpdateThemeData$, 16],
   ],
 ];
-export var UpdateThemeResponse: StaticStructureSchema = [3, n0, _UTRp, 0, [_en], [[() => Theme, 16]]];
-export var ValueMapping: StaticStructureSchema = [
+export var UpdateThemeResponse$: StaticStructureSchema = [3, n0, _UTRp, 0, [_en], [[() => Theme$, 16]]];
+export var ValueMapping$: StaticStructureSchema = [
   3,
   n0,
   _VM,
   0,
   [_dVi, _val],
-  [() => FormInputValueProperty, () => FormInputValueProperty],
+  [() => FormInputValueProperty$, () => FormInputValueProperty$],
 ];
-export var ValueMappings: StaticStructureSchema = [
+export var ValueMappings$: StaticStructureSchema = [
   3,
   n0,
   _VMa,
@@ -1246,8 +1260,8 @@ export var ValueMappings: StaticStructureSchema = [
   [_v, _bP],
   [() => ValueMappingList, () => FormInputBindingProperties],
 ];
-export var __Unit = "unit" as const;
-export var AmplifyUIBuilderServiceException: StaticErrorSchema = [
+var __Unit = "unit" as const;
+export var AmplifyUIBuilderServiceException$: StaticErrorSchema = [
   -3,
   _sm,
   "AmplifyUIBuilderServiceException",
@@ -1255,283 +1269,290 @@ export var AmplifyUIBuilderServiceException: StaticErrorSchema = [
   [],
   [],
 ];
-TypeRegistry.for(_sm).registerError(AmplifyUIBuilderServiceException, __AmplifyUIBuilderServiceException);
-export var AssociatedFieldsList = 64 | 0;
-export var CodegenDependencies: StaticListSchema = [1, n0, _CDo, 0, () => CodegenDependency];
-export var CodegenGenericDataEnumValuesList = 64 | 0;
-export var CodegenJobSummaryList: StaticListSchema = [1, n0, _CJSL, 0, () => CodegenJobSummary];
-export var CodegenPrimaryKeysList = 64 | 0;
-export var ComponentChildList: StaticListSchema = [1, n0, _CCL, 0, () => ComponentChild];
-export var ComponentList: StaticListSchema = [1, n0, _CL, 0, () => Component];
-export var ComponentPropertyList: StaticListSchema = [1, n0, _CPL, 0, () => ComponentProperty];
-export var ComponentSummaryList: StaticListSchema = [1, n0, _CSL, 0, () => ComponentSummary];
-export var ComponentVariants: StaticListSchema = [1, n0, _CVo, 0, () => ComponentVariant];
-export var FormInputValuePropertyList: StaticListSchema = [1, n0, _FIVPL, 0, () => FormInputValueProperty];
-export var FormList: StaticListSchema = [1, n0, _FL, 0, () => Form];
-export var FormSummaryList: StaticListSchema = [1, n0, _FSL, 0, () => FormSummary];
-export var IdentifierList = 64 | 0;
-export var NumValues = 64 | 1;
-export var PredicateList: StaticListSchema = [1, n0, _PL, 0, () => Predicate];
-export var RelatedModelFieldsList = 64 | 0;
-export var SortPropertyList: StaticListSchema = [1, n0, _SPL, 0, () => SortProperty];
-export var StrValues = 64 | 0;
-export var TagKeyList = 64 | 0;
-export var ThemeList: StaticListSchema = [1, n0, _TL, 0, () => Theme];
-export var ThemeSummaryList: StaticListSchema = [1, n0, _TSL, 0, () => ThemeSummary];
-export var ThemeValuesList: StaticListSchema = [1, n0, _TVL, 0, () => ThemeValues];
-export var ValidationsList: StaticListSchema = [1, n0, _VL, 0, () => FieldValidationConfiguration];
-export var ValueMappingList: StaticListSchema = [1, n0, _VML, 0, () => ValueMapping];
-export var CodegenGenericDataEnums: StaticMapSchema = [2, n0, _CGDEo, 0, 0, () => CodegenGenericDataEnum];
-export var CodegenGenericDataFields: StaticMapSchema = [2, n0, _CGDFo, 0, 0, () => CodegenGenericDataField];
-export var CodegenGenericDataModels: StaticMapSchema = [2, n0, _CGDMo, 0, 0, () => CodegenGenericDataModel];
-export var CodegenGenericDataNonModelFields: StaticMapSchema = [2, n0, _CGDNMF, 0, 0, () => CodegenGenericDataField];
-export var CodegenGenericDataNonModels: StaticMapSchema = [2, n0, _CGDNMo, 0, 0, () => CodegenGenericDataNonModel];
-export var ComponentBindingProperties: StaticMapSchema = [2, n0, _CBP, 0, 0, () => ComponentBindingPropertiesValue];
-export var ComponentCollectionProperties: StaticMapSchema = [2, n0, _CCPo, 0, 0, () => ComponentDataConfiguration];
-export var ComponentEvents: StaticMapSchema = [2, n0, _CEo, 0, 0, () => ComponentEvent];
-export var ComponentOverrides: StaticMapSchema = [2, n0, _CO, 0, 0, 128 | 0];
-export var ComponentOverridesValue = 128 | 0;
-export var ComponentProperties: StaticMapSchema = [2, n0, _CPo, 0, 0, () => ComponentProperty];
-export var ComponentVariantValues = 128 | 0;
-export var FeaturesMap = 128 | 0;
-export var FieldsMap: StaticMapSchema = [2, n0, _FM, 0, 0, () => FieldConfig];
-export var FormBindings: StaticMapSchema = [2, n0, _FBo, 0, 0, () => FormBindingElement];
-export var FormInputBindingProperties: StaticMapSchema = [2, n0, _FIBP, 0, 0, () => FormInputBindingPropertiesValue];
-export var ReactCodegenDependencies = 128 | 0;
-export var SectionalElementMap: StaticMapSchema = [2, n0, _SEM, 0, 0, () => SectionalElement];
-export var Tags = 128 | 0;
-export var ApiConfiguration: StaticStructureSchema = [
+TypeRegistry.for(_sm).registerError(AmplifyUIBuilderServiceException$, AmplifyUIBuilderServiceException);
+var AssociatedFieldsList = 64 | 0;
+var CodegenDependencies: StaticListSchema = [1, n0, _CDo, 0, () => CodegenDependency$];
+var CodegenGenericDataEnumValuesList = 64 | 0;
+var CodegenJobSummaryList: StaticListSchema = [1, n0, _CJSL, 0, () => CodegenJobSummary$];
+var CodegenPrimaryKeysList = 64 | 0;
+var ComponentChildList: StaticListSchema = [1, n0, _CCL, 0, () => ComponentChild$];
+var ComponentList: StaticListSchema = [1, n0, _CL, 0, () => Component$];
+var ComponentPropertyList: StaticListSchema = [1, n0, _CPL, 0, () => ComponentProperty$];
+var ComponentSummaryList: StaticListSchema = [1, n0, _CSL, 0, () => ComponentSummary$];
+var ComponentVariants: StaticListSchema = [1, n0, _CVo, 0, () => ComponentVariant$];
+var FormInputValuePropertyList: StaticListSchema = [1, n0, _FIVPL, 0, () => FormInputValueProperty$];
+var FormList: StaticListSchema = [1, n0, _FL, 0, () => Form$];
+var FormSummaryList: StaticListSchema = [1, n0, _FSL, 0, () => FormSummary$];
+var IdentifierList = 64 | 0;
+var NumValues = 64 | 1;
+var PredicateList: StaticListSchema = [1, n0, _PL, 0, () => Predicate$];
+var RelatedModelFieldsList = 64 | 0;
+var SortPropertyList: StaticListSchema = [1, n0, _SPL, 0, () => SortProperty$];
+var StrValues = 64 | 0;
+var TagKeyList = 64 | 0;
+var ThemeList: StaticListSchema = [1, n0, _TL, 0, () => Theme$];
+var ThemeSummaryList: StaticListSchema = [1, n0, _TSL, 0, () => ThemeSummary$];
+var ThemeValuesList: StaticListSchema = [1, n0, _TVL, 0, () => ThemeValues$];
+var ValidationsList: StaticListSchema = [1, n0, _VL, 0, () => FieldValidationConfiguration$];
+var ValueMappingList: StaticListSchema = [1, n0, _VML, 0, () => ValueMapping$];
+var CodegenGenericDataEnums: StaticMapSchema = [2, n0, _CGDEo, 0, 0, () => CodegenGenericDataEnum$];
+var CodegenGenericDataFields: StaticMapSchema = [2, n0, _CGDFo, 0, 0, () => CodegenGenericDataField$];
+var CodegenGenericDataModels: StaticMapSchema = [2, n0, _CGDMo, 0, 0, () => CodegenGenericDataModel$];
+var CodegenGenericDataNonModelFields: StaticMapSchema = [2, n0, _CGDNMF, 0, 0, () => CodegenGenericDataField$];
+var CodegenGenericDataNonModels: StaticMapSchema = [2, n0, _CGDNMo, 0, 0, () => CodegenGenericDataNonModel$];
+var ComponentBindingProperties: StaticMapSchema = [2, n0, _CBP, 0, 0, () => ComponentBindingPropertiesValue$];
+var ComponentCollectionProperties: StaticMapSchema = [2, n0, _CCPo, 0, 0, () => ComponentDataConfiguration$];
+var ComponentEvents: StaticMapSchema = [2, n0, _CEo, 0, 0, () => ComponentEvent$];
+var ComponentOverrides: StaticMapSchema = [2, n0, _CO, 0, 0, 128 | 0];
+var ComponentOverridesValue = 128 | 0;
+var ComponentProperties: StaticMapSchema = [2, n0, _CPo, 0, 0, () => ComponentProperty$];
+var ComponentVariantValues = 128 | 0;
+var FeaturesMap = 128 | 0;
+var FieldsMap: StaticMapSchema = [2, n0, _FM, 0, 0, () => FieldConfig$];
+var FormBindings: StaticMapSchema = [2, n0, _FBo, 0, 0, () => FormBindingElement$];
+var FormInputBindingProperties: StaticMapSchema = [2, n0, _FIBP, 0, 0, () => FormInputBindingPropertiesValue$];
+var ReactCodegenDependencies = 128 | 0;
+var SectionalElementMap: StaticMapSchema = [2, n0, _SEM, 0, 0, () => SectionalElement$];
+var Tags = 128 | 0;
+export var ApiConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _AC,
   0,
   [_gQLC, _dSC, _nAC],
-  [() => GraphQLRenderConfig, () => DataStoreRenderConfig, () => NoApiRenderConfig],
+  [() => GraphQLRenderConfig$, () => DataStoreRenderConfig$, () => NoApiRenderConfig$],
 ];
-export var CodegenJobRenderConfig: StaticStructureSchema = [3, n0, _CJRC, 0, [_rea], [() => ReactStartCodegenJobData]];
-export var FieldPosition: StaticStructureSchema = [3, n0, _FP, 0, [_fix, _rOi, _be], [0, 0, 0]];
-export var FormStyleConfig: StaticStructureSchema = [3, n0, _FSC, 0, [_tR, _val], [0, 0]];
-export var CreateComponent: StaticOperationSchema = [
+export var CodegenJobRenderConfig$: StaticStructureSchema = [
+  3,
+  n0,
+  _CJRC,
+  0,
+  [_rea],
+  [() => ReactStartCodegenJobData$],
+];
+export var FieldPosition$: StaticStructureSchema = [3, n0, _FP, 0, [_fix, _rOi, _be], [0, 0, 0]];
+export var FormStyleConfig$: StaticStructureSchema = [3, n0, _FSC, 0, [_tR, _val], [0, 0]];
+export var CreateComponent$: StaticOperationSchema = [
   9,
   n0,
   _CCr,
   { [_h]: ["POST", "/app/{appId}/environment/{environmentName}/components", 200] },
-  () => CreateComponentRequest,
-  () => CreateComponentResponse,
+  () => CreateComponentRequest$,
+  () => CreateComponentResponse$,
 ];
-export var CreateForm: StaticOperationSchema = [
+export var CreateForm$: StaticOperationSchema = [
   9,
   n0,
   _CF,
   { [_h]: ["POST", "/app/{appId}/environment/{environmentName}/forms", 200] },
-  () => CreateFormRequest,
-  () => CreateFormResponse,
+  () => CreateFormRequest$,
+  () => CreateFormResponse$,
 ];
-export var CreateTheme: StaticOperationSchema = [
+export var CreateTheme$: StaticOperationSchema = [
   9,
   n0,
   _CT,
   { [_h]: ["POST", "/app/{appId}/environment/{environmentName}/themes", 200] },
-  () => CreateThemeRequest,
-  () => CreateThemeResponse,
+  () => CreateThemeRequest$,
+  () => CreateThemeResponse$,
 ];
-export var DeleteComponent: StaticOperationSchema = [
+export var DeleteComponent$: StaticOperationSchema = [
   9,
   n0,
   _DC,
   { [_h]: ["DELETE", "/app/{appId}/environment/{environmentName}/components/{id}", 200] },
-  () => DeleteComponentRequest,
+  () => DeleteComponentRequest$,
   () => __Unit,
 ];
-export var DeleteForm: StaticOperationSchema = [
+export var DeleteForm$: StaticOperationSchema = [
   9,
   n0,
   _DF,
   { [_h]: ["DELETE", "/app/{appId}/environment/{environmentName}/forms/{id}", 200] },
-  () => DeleteFormRequest,
+  () => DeleteFormRequest$,
   () => __Unit,
 ];
-export var DeleteTheme: StaticOperationSchema = [
+export var DeleteTheme$: StaticOperationSchema = [
   9,
   n0,
   _DT,
   { [_h]: ["DELETE", "/app/{appId}/environment/{environmentName}/themes/{id}", 200] },
-  () => DeleteThemeRequest,
+  () => DeleteThemeRequest$,
   () => __Unit,
 ];
-export var ExchangeCodeForToken: StaticOperationSchema = [
+export var ExchangeCodeForToken$: StaticOperationSchema = [
   9,
   n0,
   _ECFT,
   { [_h]: ["POST", "/tokens/{provider}", 200] },
-  () => ExchangeCodeForTokenRequest,
-  () => ExchangeCodeForTokenResponse,
+  () => ExchangeCodeForTokenRequest$,
+  () => ExchangeCodeForTokenResponse$,
 ];
-export var ExportComponents: StaticOperationSchema = [
+export var ExportComponents$: StaticOperationSchema = [
   9,
   n0,
   _EC,
   { [_h]: ["GET", "/export/app/{appId}/environment/{environmentName}/components", 200] },
-  () => ExportComponentsRequest,
-  () => ExportComponentsResponse,
+  () => ExportComponentsRequest$,
+  () => ExportComponentsResponse$,
 ];
-export var ExportForms: StaticOperationSchema = [
+export var ExportForms$: StaticOperationSchema = [
   9,
   n0,
   _EF,
   { [_h]: ["GET", "/export/app/{appId}/environment/{environmentName}/forms", 200] },
-  () => ExportFormsRequest,
-  () => ExportFormsResponse,
+  () => ExportFormsRequest$,
+  () => ExportFormsResponse$,
 ];
-export var ExportThemes: StaticOperationSchema = [
+export var ExportThemes$: StaticOperationSchema = [
   9,
   n0,
   _ET,
   { [_h]: ["GET", "/export/app/{appId}/environment/{environmentName}/themes", 200] },
-  () => ExportThemesRequest,
-  () => ExportThemesResponse,
+  () => ExportThemesRequest$,
+  () => ExportThemesResponse$,
 ];
-export var GetCodegenJob: StaticOperationSchema = [
+export var GetCodegenJob$: StaticOperationSchema = [
   9,
   n0,
   _GCJ,
   { [_h]: ["GET", "/app/{appId}/environment/{environmentName}/codegen-jobs/{id}", 200] },
-  () => GetCodegenJobRequest,
-  () => GetCodegenJobResponse,
+  () => GetCodegenJobRequest$,
+  () => GetCodegenJobResponse$,
 ];
-export var GetComponent: StaticOperationSchema = [
+export var GetComponent$: StaticOperationSchema = [
   9,
   n0,
   _GC,
   { [_h]: ["GET", "/app/{appId}/environment/{environmentName}/components/{id}", 200] },
-  () => GetComponentRequest,
-  () => GetComponentResponse,
+  () => GetComponentRequest$,
+  () => GetComponentResponse$,
 ];
-export var GetForm: StaticOperationSchema = [
+export var GetForm$: StaticOperationSchema = [
   9,
   n0,
   _GF,
   { [_h]: ["GET", "/app/{appId}/environment/{environmentName}/forms/{id}", 200] },
-  () => GetFormRequest,
-  () => GetFormResponse,
+  () => GetFormRequest$,
+  () => GetFormResponse$,
 ];
-export var GetMetadata: StaticOperationSchema = [
+export var GetMetadata$: StaticOperationSchema = [
   9,
   n0,
   _GM,
   { [_h]: ["GET", "/app/{appId}/environment/{environmentName}/metadata", 200] },
-  () => GetMetadataRequest,
-  () => GetMetadataResponse,
+  () => GetMetadataRequest$,
+  () => GetMetadataResponse$,
 ];
-export var GetTheme: StaticOperationSchema = [
+export var GetTheme$: StaticOperationSchema = [
   9,
   n0,
   _GT,
   { [_h]: ["GET", "/app/{appId}/environment/{environmentName}/themes/{id}", 200] },
-  () => GetThemeRequest,
-  () => GetThemeResponse,
+  () => GetThemeRequest$,
+  () => GetThemeResponse$,
 ];
-export var ListCodegenJobs: StaticOperationSchema = [
+export var ListCodegenJobs$: StaticOperationSchema = [
   9,
   n0,
   _LCJ,
   { [_h]: ["GET", "/app/{appId}/environment/{environmentName}/codegen-jobs", 200] },
-  () => ListCodegenJobsRequest,
-  () => ListCodegenJobsResponse,
+  () => ListCodegenJobsRequest$,
+  () => ListCodegenJobsResponse$,
 ];
-export var ListComponents: StaticOperationSchema = [
+export var ListComponents$: StaticOperationSchema = [
   9,
   n0,
   _LC,
   { [_h]: ["GET", "/app/{appId}/environment/{environmentName}/components", 200] },
-  () => ListComponentsRequest,
-  () => ListComponentsResponse,
+  () => ListComponentsRequest$,
+  () => ListComponentsResponse$,
 ];
-export var ListForms: StaticOperationSchema = [
+export var ListForms$: StaticOperationSchema = [
   9,
   n0,
   _LF,
   { [_h]: ["GET", "/app/{appId}/environment/{environmentName}/forms", 200] },
-  () => ListFormsRequest,
-  () => ListFormsResponse,
+  () => ListFormsRequest$,
+  () => ListFormsResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{resourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var ListThemes: StaticOperationSchema = [
+export var ListThemes$: StaticOperationSchema = [
   9,
   n0,
   _LT,
   { [_h]: ["GET", "/app/{appId}/environment/{environmentName}/themes", 200] },
-  () => ListThemesRequest,
-  () => ListThemesResponse,
+  () => ListThemesRequest$,
+  () => ListThemesResponse$,
 ];
-export var PutMetadataFlag: StaticOperationSchema = [
+export var PutMetadataFlag$: StaticOperationSchema = [
   9,
   n0,
   _PMF,
   { [_h]: ["PUT", "/app/{appId}/environment/{environmentName}/metadata/features/{featureName}", 200] },
-  () => PutMetadataFlagRequest,
+  () => PutMetadataFlagRequest$,
   () => __Unit,
 ];
-export var RefreshToken: StaticOperationSchema = [
+export var RefreshToken$: StaticOperationSchema = [
   9,
   n0,
   _RT,
   { [_h]: ["POST", "/tokens/{provider}/refresh", 200] },
-  () => RefreshTokenRequest,
-  () => RefreshTokenResponse,
+  () => RefreshTokenRequest$,
+  () => RefreshTokenResponse$,
 ];
-export var StartCodegenJob: StaticOperationSchema = [
+export var StartCodegenJob$: StaticOperationSchema = [
   9,
   n0,
   _SCJ,
   { [_h]: ["POST", "/app/{appId}/environment/{environmentName}/codegen-jobs", 200] },
-  () => StartCodegenJobRequest,
-  () => StartCodegenJobResponse,
+  () => StartCodegenJobRequest$,
+  () => StartCodegenJobResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/tags/{resourceArn}", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateComponent: StaticOperationSchema = [
+export var UpdateComponent$: StaticOperationSchema = [
   9,
   n0,
   _UC,
   { [_h]: ["PATCH", "/app/{appId}/environment/{environmentName}/components/{id}", 200] },
-  () => UpdateComponentRequest,
-  () => UpdateComponentResponse,
+  () => UpdateComponentRequest$,
+  () => UpdateComponentResponse$,
 ];
-export var UpdateForm: StaticOperationSchema = [
+export var UpdateForm$: StaticOperationSchema = [
   9,
   n0,
   _UF,
   { [_h]: ["PATCH", "/app/{appId}/environment/{environmentName}/forms/{id}", 200] },
-  () => UpdateFormRequest,
-  () => UpdateFormResponse,
+  () => UpdateFormRequest$,
+  () => UpdateFormResponse$,
 ];
-export var UpdateTheme: StaticOperationSchema = [
+export var UpdateTheme$: StaticOperationSchema = [
   9,
   n0,
   _UT,
   { [_h]: ["PATCH", "/app/{appId}/environment/{environmentName}/themes/{id}", 200] },
-  () => UpdateThemeRequest,
-  () => UpdateThemeResponse,
+  () => UpdateThemeRequest$,
+  () => UpdateThemeResponse$,
 ];

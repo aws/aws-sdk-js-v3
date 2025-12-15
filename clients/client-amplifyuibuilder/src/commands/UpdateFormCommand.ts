@@ -10,7 +10,7 @@ import type {
 } from "../AmplifyUIBuilderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateFormRequest, UpdateFormResponse } from "../models/models_0";
-import { UpdateForm } from "../schemas/schemas_0";
+import { UpdateForm$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -396,7 +396,7 @@ export class UpdateFormCommand extends $Command
   })
   .s("AmplifyUIBuilder", "UpdateForm", {})
   .n("AmplifyUIBuilderClient", "UpdateFormCommand")
-  .sc(UpdateForm)
+  .sc(UpdateForm$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

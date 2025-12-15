@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartCanaryDryRunRequest, StartCanaryDryRunResponse } from "../models/models_0";
-import { StartCanaryDryRun } from "../schemas/schemas_0";
+import { StartCanaryDryRun$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
@@ -168,7 +168,7 @@ export class StartCanaryDryRunCommand extends $Command
   })
   .s("Synthetics", "StartCanaryDryRun", {})
   .n("SyntheticsClient", "StartCanaryDryRunCommand")
-  .sc(StartCanaryDryRun)
+  .sc(StartCanaryDryRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

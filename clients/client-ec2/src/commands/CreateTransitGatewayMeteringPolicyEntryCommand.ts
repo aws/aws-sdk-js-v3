@@ -9,7 +9,7 @@ import type {
   CreateTransitGatewayMeteringPolicyEntryRequest,
   CreateTransitGatewayMeteringPolicyEntryResult,
 } from "../models/models_2";
-import { CreateTransitGatewayMeteringPolicyEntry } from "../schemas/schemas_0";
+import { CreateTransitGatewayMeteringPolicyEntry$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class CreateTransitGatewayMeteringPolicyEntryCommand extends $Command
   })
   .s("AmazonEC2", "CreateTransitGatewayMeteringPolicyEntry", {})
   .n("EC2Client", "CreateTransitGatewayMeteringPolicyEntryCommand")
-  .sc(CreateTransitGatewayMeteringPolicyEntry)
+  .sc(CreateTransitGatewayMeteringPolicyEntry$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

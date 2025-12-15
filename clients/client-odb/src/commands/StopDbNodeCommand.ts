@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopDbNodeInput, StopDbNodeOutput } from "../models/models_0";
 import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
-import { StopDbNode } from "../schemas/schemas_0";
+import { StopDbNode$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class StopDbNodeCommand extends $Command
   })
   .s("Odb", "StopDbNode", {})
   .n("OdbClient", "StopDbNodeCommand")
-  .sc(StopDbNode)
+  .sc(StopDbNode$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
 import type { DeleteArchiveRequest, DeleteArchiveResponse } from "../models/models_0";
-import { DeleteArchive } from "../schemas/schemas_0";
+import { DeleteArchive$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class DeleteArchiveCommand extends $Command
   })
   .s("MailManagerSvc", "DeleteArchive", {})
   .n("MailManagerClient", "DeleteArchiveCommand")
-  .sc(DeleteArchive)
+  .sc(DeleteArchive$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

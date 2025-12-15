@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAttributeValuesRequest, GetAttributeValuesResponse } from "../models/models_0";
 import type { PricingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PricingClient";
-import { GetAttributeValues } from "../schemas/schemas_0";
+import { GetAttributeValues$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class GetAttributeValuesCommand extends $Command
   })
   .s("AWSPriceListService", "GetAttributeValues", {})
   .n("PricingClient", "GetAttributeValuesCommand")
-  .sc(GetAttributeValues)
+  .sc(GetAttributeValues$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

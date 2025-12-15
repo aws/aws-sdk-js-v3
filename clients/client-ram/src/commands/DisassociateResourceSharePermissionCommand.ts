@@ -9,7 +9,7 @@ import type {
   DisassociateResourceSharePermissionResponse,
 } from "../models/models_0";
 import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
-import { DisassociateResourceSharePermission } from "../schemas/schemas_0";
+import { DisassociateResourceSharePermission$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class DisassociateResourceSharePermissionCommand extends $Command
   })
   .s("AmazonResourceSharing", "DisassociateResourceSharePermission", {})
   .n("RAMClient", "DisassociateResourceSharePermissionCommand")
-  .sc(DisassociateResourceSharePermission)
+  .sc(DisassociateResourceSharePermission$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

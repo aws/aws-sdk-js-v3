@@ -9,7 +9,7 @@ import type {
   DescribeCertificateAuthorityAuditReportRequest,
   DescribeCertificateAuthorityAuditReportResponse,
 } from "../models/models_0";
-import { DescribeCertificateAuthorityAuditReport } from "../schemas/schemas_0";
+import { DescribeCertificateAuthorityAuditReport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class DescribeCertificateAuthorityAuditReportCommand extends $Command
   })
   .s("ACMPrivateCA", "DescribeCertificateAuthorityAuditReport", {})
   .n("ACMPCAClient", "DescribeCertificateAuthorityAuditReportCommand")
-  .sc(DescribeCertificateAuthorityAuditReport)
+  .sc(DescribeCertificateAuthorityAuditReport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

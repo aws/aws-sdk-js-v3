@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
 import type { AssociateUserToPermissionGroupRequest, AssociateUserToPermissionGroupResponse } from "../models/models_0";
-import { AssociateUserToPermissionGroup } from "../schemas/schemas_0";
+import { AssociateUserToPermissionGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class AssociateUserToPermissionGroupCommand extends $Command
   })
   .s("AWSHabaneroPublicAPI", "AssociateUserToPermissionGroup", {})
   .n("FinspaceDataClient", "AssociateUserToPermissionGroupCommand")
-  .sc(AssociateUserToPermissionGroup)
+  .sc(AssociateUserToPermissionGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

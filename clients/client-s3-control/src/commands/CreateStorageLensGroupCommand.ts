@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateStorageLensGroupRequest } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { CreateStorageLensGroup } from "../schemas/schemas_0";
+import { CreateStorageLensGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -164,7 +164,7 @@ export class CreateStorageLensGroupCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "CreateStorageLensGroup", {})
   .n("S3ControlClient", "CreateStorageLensGroupCommand")
-  .sc(CreateStorageLensGroup)
+  .sc(CreateStorageLensGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

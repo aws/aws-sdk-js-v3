@@ -891,95 +891,102 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { CognitoIdentityProviderServiceException as __CognitoIdentityProviderServiceException } from "../models/CognitoIdentityProviderServiceException";
+import { CognitoIdentityProviderServiceException } from "../models/CognitoIdentityProviderServiceException";
 import {
-  AliasExistsException as __AliasExistsException,
-  CodeDeliveryFailureException as __CodeDeliveryFailureException,
-  CodeMismatchException as __CodeMismatchException,
-  ConcurrentModificationException as __ConcurrentModificationException,
-  DeviceKeyExistsException as __DeviceKeyExistsException,
-  DuplicateProviderException as __DuplicateProviderException,
-  EnableSoftwareTokenMFAException as __EnableSoftwareTokenMFAException,
-  ExpiredCodeException as __ExpiredCodeException,
-  FeatureUnavailableInTierException as __FeatureUnavailableInTierException,
-  ForbiddenException as __ForbiddenException,
-  GroupExistsException as __GroupExistsException,
-  InternalErrorException as __InternalErrorException,
-  InvalidEmailRoleAccessPolicyException as __InvalidEmailRoleAccessPolicyException,
-  InvalidLambdaResponseException as __InvalidLambdaResponseException,
-  InvalidOAuthFlowException as __InvalidOAuthFlowException,
-  InvalidParameterException as __InvalidParameterException,
-  InvalidPasswordException as __InvalidPasswordException,
-  InvalidSmsRoleAccessPolicyException as __InvalidSmsRoleAccessPolicyException,
-  InvalidSmsRoleTrustRelationshipException as __InvalidSmsRoleTrustRelationshipException,
-  InvalidUserPoolConfigurationException as __InvalidUserPoolConfigurationException,
-  LimitExceededException as __LimitExceededException,
-  ManagedLoginBrandingExistsException as __ManagedLoginBrandingExistsException,
-  MFAMethodNotFoundException as __MFAMethodNotFoundException,
-  NotAuthorizedException as __NotAuthorizedException,
-  PasswordHistoryPolicyViolationException as __PasswordHistoryPolicyViolationException,
-  PasswordResetRequiredException as __PasswordResetRequiredException,
-  PreconditionNotMetException as __PreconditionNotMetException,
-  RefreshTokenReuseException as __RefreshTokenReuseException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ScopeDoesNotExistException as __ScopeDoesNotExistException,
-  SoftwareTokenMFANotFoundException as __SoftwareTokenMFANotFoundException,
-  TermsExistsException as __TermsExistsException,
-  TierChangeNotAllowedException as __TierChangeNotAllowedException,
-  TooManyFailedAttemptsException as __TooManyFailedAttemptsException,
-  TooManyRequestsException as __TooManyRequestsException,
-  UnauthorizedException as __UnauthorizedException,
-  UnexpectedLambdaException as __UnexpectedLambdaException,
-  UnsupportedIdentityProviderException as __UnsupportedIdentityProviderException,
-  UnsupportedOperationException as __UnsupportedOperationException,
-  UnsupportedTokenTypeException as __UnsupportedTokenTypeException,
-  UnsupportedUserStateException as __UnsupportedUserStateException,
-  UserImportInProgressException as __UserImportInProgressException,
-  UserLambdaValidationException as __UserLambdaValidationException,
-  UsernameExistsException as __UsernameExistsException,
-  UserNotConfirmedException as __UserNotConfirmedException,
-  UserNotFoundException as __UserNotFoundException,
-  UserPoolAddOnNotEnabledException as __UserPoolAddOnNotEnabledException,
-  UserPoolTaggingException as __UserPoolTaggingException,
-  WebAuthnChallengeNotFoundException as __WebAuthnChallengeNotFoundException,
-  WebAuthnClientMismatchException as __WebAuthnClientMismatchException,
-  WebAuthnConfigurationMissingException as __WebAuthnConfigurationMissingException,
-  WebAuthnCredentialNotSupportedException as __WebAuthnCredentialNotSupportedException,
-  WebAuthnNotEnabledException as __WebAuthnNotEnabledException,
-  WebAuthnOriginNotAllowedException as __WebAuthnOriginNotAllowedException,
-  WebAuthnRelyingPartyMismatchException as __WebAuthnRelyingPartyMismatchException,
+  AliasExistsException,
+  CodeDeliveryFailureException,
+  CodeMismatchException,
+  ConcurrentModificationException,
+  DeviceKeyExistsException,
+  DuplicateProviderException,
+  EnableSoftwareTokenMFAException,
+  ExpiredCodeException,
+  FeatureUnavailableInTierException,
+  ForbiddenException,
+  GroupExistsException,
+  InternalErrorException,
+  InvalidEmailRoleAccessPolicyException,
+  InvalidLambdaResponseException,
+  InvalidOAuthFlowException,
+  InvalidParameterException,
+  InvalidPasswordException,
+  InvalidSmsRoleAccessPolicyException,
+  InvalidSmsRoleTrustRelationshipException,
+  InvalidUserPoolConfigurationException,
+  LimitExceededException,
+  ManagedLoginBrandingExistsException,
+  MFAMethodNotFoundException,
+  NotAuthorizedException,
+  PasswordHistoryPolicyViolationException,
+  PasswordResetRequiredException,
+  PreconditionNotMetException,
+  RefreshTokenReuseException,
+  ResourceNotFoundException,
+  ScopeDoesNotExistException,
+  SoftwareTokenMFANotFoundException,
+  TermsExistsException,
+  TierChangeNotAllowedException,
+  TooManyFailedAttemptsException,
+  TooManyRequestsException,
+  UnauthorizedException,
+  UnexpectedLambdaException,
+  UnsupportedIdentityProviderException,
+  UnsupportedOperationException,
+  UnsupportedTokenTypeException,
+  UnsupportedUserStateException,
+  UserImportInProgressException,
+  UserLambdaValidationException,
+  UsernameExistsException,
+  UserNotConfirmedException,
+  UserNotFoundException,
+  UserPoolAddOnNotEnabledException,
+  UserPoolTaggingException,
+  WebAuthnChallengeNotFoundException,
+  WebAuthnClientMismatchException,
+  WebAuthnConfigurationMissingException,
+  WebAuthnCredentialNotSupportedException,
+  WebAuthnNotEnabledException,
+  WebAuthnOriginNotAllowedException,
+  WebAuthnRelyingPartyMismatchException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var AttributeValueType: StaticSimpleSchema = [0, n0, _AVT, 8, 0];
-export var ClientIdType: StaticSimpleSchema = [0, n0, _CIT, 8, 0];
-export var ClientSecretType: StaticSimpleSchema = [0, n0, _CST, 8, 0];
-export var PasswordType: StaticSimpleSchema = [0, n0, _PT, 8, 0];
-export var SecretCodeType: StaticSimpleSchema = [0, n0, _SCT, 8, 0];
-export var SecretHashType: StaticSimpleSchema = [0, n0, _SHT, 8, 0];
-export var SessionType: StaticSimpleSchema = [0, n0, _ST, 8, 0];
-export var SoftwareTokenMFAUserCodeType: StaticSimpleSchema = [0, n0, _STMFAUCT, 8, 0];
-export var TokenModelType: StaticSimpleSchema = [0, n0, _TMT, 8, 0];
-export var UsernameType: StaticSimpleSchema = [0, n0, _UT, 8, 0];
-export var AccountRecoverySettingType: StaticStructureSchema = [3, n0, _ARST, 0, [_RM], [() => RecoveryMechanismsType]];
-export var AccountTakeoverActionsType: StaticStructureSchema = [
+var AttributeValueType: StaticSimpleSchema = [0, n0, _AVT, 8, 0];
+var ClientIdType: StaticSimpleSchema = [0, n0, _CIT, 8, 0];
+var ClientSecretType: StaticSimpleSchema = [0, n0, _CST, 8, 0];
+var PasswordType: StaticSimpleSchema = [0, n0, _PT, 8, 0];
+var SecretCodeType: StaticSimpleSchema = [0, n0, _SCT, 8, 0];
+var SecretHashType: StaticSimpleSchema = [0, n0, _SHT, 8, 0];
+var SessionType: StaticSimpleSchema = [0, n0, _ST, 8, 0];
+var SoftwareTokenMFAUserCodeType: StaticSimpleSchema = [0, n0, _STMFAUCT, 8, 0];
+var TokenModelType: StaticSimpleSchema = [0, n0, _TMT, 8, 0];
+var UsernameType: StaticSimpleSchema = [0, n0, _UT, 8, 0];
+export var AccountRecoverySettingType$: StaticStructureSchema = [
+  3,
+  n0,
+  _ARST,
+  0,
+  [_RM],
+  [() => RecoveryMechanismsType],
+];
+export var AccountTakeoverActionsType$: StaticStructureSchema = [
   3,
   n0,
   _ATAT,
   0,
   [_LA, _MA, _HA],
-  [() => AccountTakeoverActionType, () => AccountTakeoverActionType, () => AccountTakeoverActionType],
+  [() => AccountTakeoverActionType$, () => AccountTakeoverActionType$, () => AccountTakeoverActionType$],
 ];
-export var AccountTakeoverActionType: StaticStructureSchema = [3, n0, _ATATc, 0, [_N, _EA], [2, 0]];
-export var AccountTakeoverRiskConfigurationType: StaticStructureSchema = [
+export var AccountTakeoverActionType$: StaticStructureSchema = [3, n0, _ATATc, 0, [_N, _EA], [2, 0]];
+export var AccountTakeoverRiskConfigurationType$: StaticStructureSchema = [
   3,
   n0,
   _ATRCT,
   0,
   [_NC, _A],
-  [() => NotifyConfigurationType, () => AccountTakeoverActionsType],
+  [() => NotifyConfigurationType$, () => AccountTakeoverActionsType$],
 ];
-export var AddCustomAttributesRequest: StaticStructureSchema = [
+export var AddCustomAttributesRequest$: StaticStructureSchema = [
   3,
   n0,
   _ACAR,
@@ -987,8 +994,8 @@ export var AddCustomAttributesRequest: StaticStructureSchema = [
   [_UPI, _CA],
   [0, () => CustomAttributesListType],
 ];
-export var AddCustomAttributesResponse: StaticStructureSchema = [3, n0, _ACARd, 0, [], []];
-export var AdminAddUserToGroupRequest: StaticStructureSchema = [
+export var AddCustomAttributesResponse$: StaticStructureSchema = [3, n0, _ACARd, 0, [], []];
+export var AdminAddUserToGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _AAUTGR,
@@ -996,7 +1003,7 @@ export var AdminAddUserToGroupRequest: StaticStructureSchema = [
   [_UPI, _U, _GN],
   [0, [() => UsernameType, 0], 0],
 ];
-export var AdminConfirmSignUpRequest: StaticStructureSchema = [
+export var AdminConfirmSignUpRequest$: StaticStructureSchema = [
   3,
   n0,
   _ACSUR,
@@ -1004,16 +1011,16 @@ export var AdminConfirmSignUpRequest: StaticStructureSchema = [
   [_UPI, _U, _CM],
   [0, [() => UsernameType, 0], 128 | 0],
 ];
-export var AdminConfirmSignUpResponse: StaticStructureSchema = [3, n0, _ACSURd, 0, [], []];
-export var AdminCreateUserConfigType: StaticStructureSchema = [
+export var AdminConfirmSignUpResponse$: StaticStructureSchema = [3, n0, _ACSURd, 0, [], []];
+export var AdminCreateUserConfigType$: StaticStructureSchema = [
   3,
   n0,
   _ACUCT,
   0,
   [_AACUO, _UAVD, _IMT],
-  [2, 1, () => MessageTemplateType],
+  [2, 1, () => MessageTemplateType$],
 ];
-export var AdminCreateUserRequest: StaticStructureSchema = [
+export var AdminCreateUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _ACUR,
@@ -1031,8 +1038,8 @@ export var AdminCreateUserRequest: StaticStructureSchema = [
     128 | 0,
   ],
 ];
-export var AdminCreateUserResponse: StaticStructureSchema = [3, n0, _ACURd, 0, [_Us], [[() => UserType, 0]]];
-export var AdminDeleteUserAttributesRequest: StaticStructureSchema = [
+export var AdminCreateUserResponse$: StaticStructureSchema = [3, n0, _ACURd, 0, [_Us], [[() => UserType$, 0]]];
+export var AdminDeleteUserAttributesRequest$: StaticStructureSchema = [
   3,
   n0,
   _ADUAR,
@@ -1040,18 +1047,18 @@ export var AdminDeleteUserAttributesRequest: StaticStructureSchema = [
   [_UPI, _U, _UAN],
   [0, [() => UsernameType, 0], 64 | 0],
 ];
-export var AdminDeleteUserAttributesResponse: StaticStructureSchema = [3, n0, _ADUARd, 0, [], []];
-export var AdminDeleteUserRequest: StaticStructureSchema = [3, n0, _ADUR, 0, [_UPI, _U], [0, [() => UsernameType, 0]]];
-export var AdminDisableProviderForUserRequest: StaticStructureSchema = [
+export var AdminDeleteUserAttributesResponse$: StaticStructureSchema = [3, n0, _ADUARd, 0, [], []];
+export var AdminDeleteUserRequest$: StaticStructureSchema = [3, n0, _ADUR, 0, [_UPI, _U], [0, [() => UsernameType, 0]]];
+export var AdminDisableProviderForUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _ADPFUR,
   0,
   [_UPI, _Us],
-  [0, () => ProviderUserIdentifierType],
+  [0, () => ProviderUserIdentifierType$],
 ];
-export var AdminDisableProviderForUserResponse: StaticStructureSchema = [3, n0, _ADPFURd, 0, [], []];
-export var AdminDisableUserRequest: StaticStructureSchema = [
+export var AdminDisableProviderForUserResponse$: StaticStructureSchema = [3, n0, _ADPFURd, 0, [], []];
+export var AdminDisableUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _ADURd,
@@ -1059,10 +1066,10 @@ export var AdminDisableUserRequest: StaticStructureSchema = [
   [_UPI, _U],
   [0, [() => UsernameType, 0]],
 ];
-export var AdminDisableUserResponse: StaticStructureSchema = [3, n0, _ADURdm, 0, [], []];
-export var AdminEnableUserRequest: StaticStructureSchema = [3, n0, _AEUR, 0, [_UPI, _U], [0, [() => UsernameType, 0]]];
-export var AdminEnableUserResponse: StaticStructureSchema = [3, n0, _AEURd, 0, [], []];
-export var AdminForgetDeviceRequest: StaticStructureSchema = [
+export var AdminDisableUserResponse$: StaticStructureSchema = [3, n0, _ADURdm, 0, [], []];
+export var AdminEnableUserRequest$: StaticStructureSchema = [3, n0, _AEUR, 0, [_UPI, _U], [0, [() => UsernameType, 0]]];
+export var AdminEnableUserResponse$: StaticStructureSchema = [3, n0, _AEURd, 0, [], []];
+export var AdminForgetDeviceRequest$: StaticStructureSchema = [
   3,
   n0,
   _AFDR,
@@ -1070,7 +1077,7 @@ export var AdminForgetDeviceRequest: StaticStructureSchema = [
   [_UPI, _U, _DK],
   [0, [() => UsernameType, 0], 0],
 ];
-export var AdminGetDeviceRequest: StaticStructureSchema = [
+export var AdminGetDeviceRequest$: StaticStructureSchema = [
   3,
   n0,
   _AGDR,
@@ -1078,9 +1085,9 @@ export var AdminGetDeviceRequest: StaticStructureSchema = [
   [_DK, _UPI, _U],
   [0, 0, [() => UsernameType, 0]],
 ];
-export var AdminGetDeviceResponse: StaticStructureSchema = [3, n0, _AGDRd, 0, [_D], [[() => DeviceType, 0]]];
-export var AdminGetUserRequest: StaticStructureSchema = [3, n0, _AGUR, 0, [_UPI, _U], [0, [() => UsernameType, 0]]];
-export var AdminGetUserResponse: StaticStructureSchema = [
+export var AdminGetDeviceResponse$: StaticStructureSchema = [3, n0, _AGDRd, 0, [_D], [[() => DeviceType$, 0]]];
+export var AdminGetUserRequest$: StaticStructureSchema = [3, n0, _AGUR, 0, [_UPI, _U], [0, [() => UsernameType, 0]]];
+export var AdminGetUserResponse$: StaticStructureSchema = [
   3,
   n0,
   _AGURd,
@@ -1088,7 +1095,7 @@ export var AdminGetUserResponse: StaticStructureSchema = [
   [_U, _UA, _UCD, _ULMD, _E, _US, _MFAO, _PMS, _UMFASL],
   [[() => UsernameType, 0], [() => AttributeListType, 0], 4, 4, 2, 0, () => MFAOptionListType, 0, 64 | 0],
 ];
-export var AdminInitiateAuthRequest: StaticStructureSchema = [
+export var AdminInitiateAuthRequest$: StaticStructureSchema = [
   3,
   n0,
   _AIAR,
@@ -1100,29 +1107,29 @@ export var AdminInitiateAuthRequest: StaticStructureSchema = [
     0,
     [() => AuthParametersType, 0],
     128 | 0,
-    () => AnalyticsMetadataType,
-    () => ContextDataType,
+    () => AnalyticsMetadataType$,
+    () => ContextDataType$,
     [() => SessionType, 0],
   ],
 ];
-export var AdminInitiateAuthResponse: StaticStructureSchema = [
+export var AdminInitiateAuthResponse$: StaticStructureSchema = [
   3,
   n0,
   _AIARd,
   0,
   [_CN, _S, _CP, _AR, _AC],
-  [0, [() => SessionType, 0], 128 | 0, [() => AuthenticationResultType, 0], 64 | 0],
+  [0, [() => SessionType, 0], 128 | 0, [() => AuthenticationResultType$, 0], 64 | 0],
 ];
-export var AdminLinkProviderForUserRequest: StaticStructureSchema = [
+export var AdminLinkProviderForUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _ALPFUR,
   0,
   [_UPI, _DU, _SU],
-  [0, () => ProviderUserIdentifierType, () => ProviderUserIdentifierType],
+  [0, () => ProviderUserIdentifierType$, () => ProviderUserIdentifierType$],
 ];
-export var AdminLinkProviderForUserResponse: StaticStructureSchema = [3, n0, _ALPFURd, 0, [], []];
-export var AdminListDevicesRequest: StaticStructureSchema = [
+export var AdminLinkProviderForUserResponse$: StaticStructureSchema = [3, n0, _ALPFURd, 0, [], []];
+export var AdminListDevicesRequest$: StaticStructureSchema = [
   3,
   n0,
   _ALDR,
@@ -1130,7 +1137,7 @@ export var AdminListDevicesRequest: StaticStructureSchema = [
   [_UPI, _U, _L, _PTa],
   [0, [() => UsernameType, 0], 1, 0],
 ];
-export var AdminListDevicesResponse: StaticStructureSchema = [
+export var AdminListDevicesResponse$: StaticStructureSchema = [
   3,
   n0,
   _ALDRd,
@@ -1138,7 +1145,7 @@ export var AdminListDevicesResponse: StaticStructureSchema = [
   [_De, _PTa],
   [[() => DeviceListType, 0], 0],
 ];
-export var AdminListGroupsForUserRequest: StaticStructureSchema = [
+export var AdminListGroupsForUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _ALGFUR,
@@ -1146,7 +1153,7 @@ export var AdminListGroupsForUserRequest: StaticStructureSchema = [
   [_U, _UPI, _L, _NT],
   [[() => UsernameType, 0], 0, 1, 0],
 ];
-export var AdminListGroupsForUserResponse: StaticStructureSchema = [
+export var AdminListGroupsForUserResponse$: StaticStructureSchema = [
   3,
   n0,
   _ALGFURd,
@@ -1154,7 +1161,7 @@ export var AdminListGroupsForUserResponse: StaticStructureSchema = [
   [_G, _NT],
   [() => GroupListType, 0],
 ];
-export var AdminListUserAuthEventsRequest: StaticStructureSchema = [
+export var AdminListUserAuthEventsRequest$: StaticStructureSchema = [
   3,
   n0,
   _ALUAER,
@@ -1162,7 +1169,7 @@ export var AdminListUserAuthEventsRequest: StaticStructureSchema = [
   [_UPI, _U, _MR, _NT],
   [0, [() => UsernameType, 0], 1, 0],
 ];
-export var AdminListUserAuthEventsResponse: StaticStructureSchema = [
+export var AdminListUserAuthEventsResponse$: StaticStructureSchema = [
   3,
   n0,
   _ALUAERd,
@@ -1170,7 +1177,7 @@ export var AdminListUserAuthEventsResponse: StaticStructureSchema = [
   [_AE, _NT],
   [() => AuthEventsType, 0],
 ];
-export var AdminRemoveUserFromGroupRequest: StaticStructureSchema = [
+export var AdminRemoveUserFromGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _ARUFGR,
@@ -1178,7 +1185,7 @@ export var AdminRemoveUserFromGroupRequest: StaticStructureSchema = [
   [_UPI, _U, _GN],
   [0, [() => UsernameType, 0], 0],
 ];
-export var AdminResetUserPasswordRequest: StaticStructureSchema = [
+export var AdminResetUserPasswordRequest$: StaticStructureSchema = [
   3,
   n0,
   _ARUPR,
@@ -1186,8 +1193,8 @@ export var AdminResetUserPasswordRequest: StaticStructureSchema = [
   [_UPI, _U, _CM],
   [0, [() => UsernameType, 0], 128 | 0],
 ];
-export var AdminResetUserPasswordResponse: StaticStructureSchema = [3, n0, _ARUPRd, 0, [], []];
-export var AdminRespondToAuthChallengeRequest: StaticStructureSchema = [
+export var AdminResetUserPasswordResponse$: StaticStructureSchema = [3, n0, _ARUPRd, 0, [], []];
+export var AdminRespondToAuthChallengeRequest$: StaticStructureSchema = [
   3,
   n0,
   _ARTACR,
@@ -1199,35 +1206,35 @@ export var AdminRespondToAuthChallengeRequest: StaticStructureSchema = [
     0,
     [() => ChallengeResponsesType, 0],
     [() => SessionType, 0],
-    () => AnalyticsMetadataType,
-    () => ContextDataType,
+    () => AnalyticsMetadataType$,
+    () => ContextDataType$,
     128 | 0,
   ],
 ];
-export var AdminRespondToAuthChallengeResponse: StaticStructureSchema = [
+export var AdminRespondToAuthChallengeResponse$: StaticStructureSchema = [
   3,
   n0,
   _ARTACRd,
   0,
   [_CN, _S, _CP, _AR],
-  [0, [() => SessionType, 0], 128 | 0, [() => AuthenticationResultType, 0]],
+  [0, [() => SessionType, 0], 128 | 0, [() => AuthenticationResultType$, 0]],
 ];
-export var AdminSetUserMFAPreferenceRequest: StaticStructureSchema = [
+export var AdminSetUserMFAPreferenceRequest$: StaticStructureSchema = [
   3,
   n0,
   _ASUMFAPR,
   0,
   [_SMSMS, _STMS, _EMS, _U, _UPI],
   [
-    () => SMSMfaSettingsType,
-    () => SoftwareTokenMfaSettingsType,
-    () => EmailMfaSettingsType,
+    () => SMSMfaSettingsType$,
+    () => SoftwareTokenMfaSettingsType$,
+    () => EmailMfaSettingsType$,
     [() => UsernameType, 0],
     0,
   ],
 ];
-export var AdminSetUserMFAPreferenceResponse: StaticStructureSchema = [3, n0, _ASUMFAPRd, 0, [], []];
-export var AdminSetUserPasswordRequest: StaticStructureSchema = [
+export var AdminSetUserMFAPreferenceResponse$: StaticStructureSchema = [3, n0, _ASUMFAPRd, 0, [], []];
+export var AdminSetUserPasswordRequest$: StaticStructureSchema = [
   3,
   n0,
   _ASUPR,
@@ -1235,8 +1242,8 @@ export var AdminSetUserPasswordRequest: StaticStructureSchema = [
   [_UPI, _U, _P, _Pe],
   [0, [() => UsernameType, 0], [() => PasswordType, 0], 2],
 ];
-export var AdminSetUserPasswordResponse: StaticStructureSchema = [3, n0, _ASUPRd, 0, [], []];
-export var AdminSetUserSettingsRequest: StaticStructureSchema = [
+export var AdminSetUserPasswordResponse$: StaticStructureSchema = [3, n0, _ASUPRd, 0, [], []];
+export var AdminSetUserSettingsRequest$: StaticStructureSchema = [
   3,
   n0,
   _ASUSR,
@@ -1244,8 +1251,8 @@ export var AdminSetUserSettingsRequest: StaticStructureSchema = [
   [_UPI, _U, _MFAO],
   [0, [() => UsernameType, 0], () => MFAOptionListType],
 ];
-export var AdminSetUserSettingsResponse: StaticStructureSchema = [3, n0, _ASUSRd, 0, [], []];
-export var AdminUpdateAuthEventFeedbackRequest: StaticStructureSchema = [
+export var AdminSetUserSettingsResponse$: StaticStructureSchema = [3, n0, _ASUSRd, 0, [], []];
+export var AdminUpdateAuthEventFeedbackRequest$: StaticStructureSchema = [
   3,
   n0,
   _AUAEFR,
@@ -1253,8 +1260,8 @@ export var AdminUpdateAuthEventFeedbackRequest: StaticStructureSchema = [
   [_UPI, _U, _EI, _FV],
   [0, [() => UsernameType, 0], 0, 0],
 ];
-export var AdminUpdateAuthEventFeedbackResponse: StaticStructureSchema = [3, n0, _AUAEFRd, 0, [], []];
-export var AdminUpdateDeviceStatusRequest: StaticStructureSchema = [
+export var AdminUpdateAuthEventFeedbackResponse$: StaticStructureSchema = [3, n0, _AUAEFRd, 0, [], []];
+export var AdminUpdateDeviceStatusRequest$: StaticStructureSchema = [
   3,
   n0,
   _AUDSR,
@@ -1262,8 +1269,8 @@ export var AdminUpdateDeviceStatusRequest: StaticStructureSchema = [
   [_UPI, _U, _DK, _DRS],
   [0, [() => UsernameType, 0], 0, 0],
 ];
-export var AdminUpdateDeviceStatusResponse: StaticStructureSchema = [3, n0, _AUDSRd, 0, [], []];
-export var AdminUpdateUserAttributesRequest: StaticStructureSchema = [
+export var AdminUpdateDeviceStatusResponse$: StaticStructureSchema = [3, n0, _AUDSRd, 0, [], []];
+export var AdminUpdateUserAttributesRequest$: StaticStructureSchema = [
   3,
   n0,
   _AUUAR,
@@ -1271,8 +1278,8 @@ export var AdminUpdateUserAttributesRequest: StaticStructureSchema = [
   [_UPI, _U, _UA, _CM],
   [0, [() => UsernameType, 0], [() => AttributeListType, 0], 128 | 0],
 ];
-export var AdminUpdateUserAttributesResponse: StaticStructureSchema = [3, n0, _AUUARd, 0, [], []];
-export var AdminUserGlobalSignOutRequest: StaticStructureSchema = [
+export var AdminUpdateUserAttributesResponse$: StaticStructureSchema = [3, n0, _AUUARd, 0, [], []];
+export var AdminUserGlobalSignOutRequest$: StaticStructureSchema = [
   3,
   n0,
   _AUGSOR,
@@ -1280,11 +1287,11 @@ export var AdminUserGlobalSignOutRequest: StaticStructureSchema = [
   [_UPI, _U],
   [0, [() => UsernameType, 0]],
 ];
-export var AdminUserGlobalSignOutResponse: StaticStructureSchema = [3, n0, _AUGSORd, 0, [], []];
-export var AdvancedSecurityAdditionalFlowsType: StaticStructureSchema = [3, n0, _ASAFT, 0, [_CAM], [0]];
-export var AliasExistsException: StaticErrorSchema = [-3, n0, _AEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AliasExistsException, __AliasExistsException);
-export var AnalyticsConfigurationType: StaticStructureSchema = [
+export var AdminUserGlobalSignOutResponse$: StaticStructureSchema = [3, n0, _AUGSORd, 0, [], []];
+export var AdvancedSecurityAdditionalFlowsType$: StaticStructureSchema = [3, n0, _ASAFT, 0, [_CAM], [0]];
+export var AliasExistsException$: StaticErrorSchema = [-3, n0, _AEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(AliasExistsException$, AliasExistsException);
+export var AnalyticsConfigurationType$: StaticStructureSchema = [
   3,
   n0,
   _ACT,
@@ -1292,9 +1299,9 @@ export var AnalyticsConfigurationType: StaticStructureSchema = [
   [_AI, _AA, _RA, _EIx, _UDS],
   [0, 0, 0, 0, 2],
 ];
-export var AnalyticsMetadataType: StaticStructureSchema = [3, n0, _AMT, 0, [_AEI], [0]];
-export var AssetType: StaticStructureSchema = [3, n0, _AT, 0, [_C, _CMo, _Ex, _B, _RI], [0, 0, 0, 21, 0]];
-export var AssociateSoftwareTokenRequest: StaticStructureSchema = [
+export var AnalyticsMetadataType$: StaticStructureSchema = [3, n0, _AMT, 0, [_AEI], [0]];
+export var AssetType$: StaticStructureSchema = [3, n0, _AT, 0, [_C, _CMo, _Ex, _B, _RI], [0, 0, 0, 21, 0]];
+export var AssociateSoftwareTokenRequest$: StaticStructureSchema = [
   3,
   n0,
   _ASTR,
@@ -1305,7 +1312,7 @@ export var AssociateSoftwareTokenRequest: StaticStructureSchema = [
     [() => SessionType, 0],
   ],
 ];
-export var AssociateSoftwareTokenResponse: StaticStructureSchema = [
+export var AssociateSoftwareTokenResponse$: StaticStructureSchema = [
   3,
   n0,
   _ASTRs,
@@ -1316,16 +1323,16 @@ export var AssociateSoftwareTokenResponse: StaticStructureSchema = [
     [() => SessionType, 0],
   ],
 ];
-export var AttributeType: StaticStructureSchema = [3, n0, _ATt, 0, [_Na, _V], [0, [() => AttributeValueType, 0]]];
-export var AuthenticationResultType: StaticStructureSchema = [
+export var AttributeType$: StaticStructureSchema = [3, n0, _ATt, 0, [_Na, _V], [0, [() => AttributeValueType, 0]]];
+export var AuthenticationResultType$: StaticStructureSchema = [
   3,
   n0,
   _ART,
   0,
   [_ATc, _EIxp, _TT, _RT, _IT, _NDM],
-  [[() => TokenModelType, 0], 1, 0, [() => TokenModelType, 0], [() => TokenModelType, 0], () => NewDeviceMetadataType],
+  [[() => TokenModelType, 0], 1, 0, [() => TokenModelType, 0], [() => TokenModelType, 0], () => NewDeviceMetadataType$],
 ];
-export var AuthEventType: StaticStructureSchema = [
+export var AuthEventType$: StaticStructureSchema = [
   3,
   n0,
   _AET,
@@ -1336,14 +1343,14 @@ export var AuthEventType: StaticStructureSchema = [
     0,
     4,
     0,
-    () => EventRiskType,
+    () => EventRiskType$,
     () => ChallengeResponseListType,
-    () => EventContextDataType,
-    () => EventFeedbackType,
+    () => EventContextDataType$,
+    () => EventFeedbackType$,
   ],
 ];
-export var ChallengeResponseType: StaticStructureSchema = [3, n0, _CRT, 0, [_CN, _CRh], [0, 0]];
-export var ChangePasswordRequest: StaticStructureSchema = [
+export var ChallengeResponseType$: StaticStructureSchema = [3, n0, _CRT, 0, [_CN, _CRh], [0, 0]];
+export var ChangePasswordRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPR,
@@ -1355,14 +1362,14 @@ export var ChangePasswordRequest: StaticStructureSchema = [
     [() => TokenModelType, 0],
   ],
 ];
-export var ChangePasswordResponse: StaticStructureSchema = [3, n0, _CPRh, 0, [], []];
-export var CloudWatchLogsConfigurationType: StaticStructureSchema = [3, n0, _CWLCT, 0, [_LGA], [0]];
-export var CodeDeliveryDetailsType: StaticStructureSchema = [3, n0, _CDDT, 0, [_Des, _DM, _AN], [0, 0, 0]];
-export var CodeDeliveryFailureException: StaticErrorSchema = [-3, n0, _CDFE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(CodeDeliveryFailureException, __CodeDeliveryFailureException);
-export var CodeMismatchException: StaticErrorSchema = [-3, n0, _CME, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(CodeMismatchException, __CodeMismatchException);
-export var CompleteWebAuthnRegistrationRequest: StaticStructureSchema = [
+export var ChangePasswordResponse$: StaticStructureSchema = [3, n0, _CPRh, 0, [], []];
+export var CloudWatchLogsConfigurationType$: StaticStructureSchema = [3, n0, _CWLCT, 0, [_LGA], [0]];
+export var CodeDeliveryDetailsType$: StaticStructureSchema = [3, n0, _CDDT, 0, [_Des, _DM, _AN], [0, 0, 0]];
+export var CodeDeliveryFailureException$: StaticErrorSchema = [-3, n0, _CDFE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(CodeDeliveryFailureException$, CodeDeliveryFailureException);
+export var CodeMismatchException$: StaticErrorSchema = [-3, n0, _CME, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(CodeMismatchException$, CodeMismatchException);
+export var CompleteWebAuthnRegistrationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CWARR,
@@ -1370,28 +1377,28 @@ export var CompleteWebAuthnRegistrationRequest: StaticStructureSchema = [
   [_ATc, _Cr],
   [[() => TokenModelType, 0], 15],
 ];
-export var CompleteWebAuthnRegistrationResponse: StaticStructureSchema = [3, n0, _CWARRo, 0, [], []];
-export var CompromisedCredentialsActionsType: StaticStructureSchema = [3, n0, _CCAT, 0, [_EA], [0]];
-export var CompromisedCredentialsRiskConfigurationType: StaticStructureSchema = [
+export var CompleteWebAuthnRegistrationResponse$: StaticStructureSchema = [3, n0, _CWARRo, 0, [], []];
+export var CompromisedCredentialsActionsType$: StaticStructureSchema = [3, n0, _CCAT, 0, [_EA], [0]];
+export var CompromisedCredentialsRiskConfigurationType$: StaticStructureSchema = [
   3,
   n0,
   _CCRCT,
   0,
   [_EFv, _A],
-  [64 | 0, () => CompromisedCredentialsActionsType],
+  [64 | 0, () => CompromisedCredentialsActionsType$],
 ];
-export var ConcurrentModificationException: StaticErrorSchema = [-3, n0, _CMEo, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException, __ConcurrentModificationException);
-export var ConfirmDeviceRequest: StaticStructureSchema = [
+export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CMEo, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
+export var ConfirmDeviceRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDR,
   0,
   [_ATc, _DK, _DSVC, _DN],
-  [[() => TokenModelType, 0], 0, () => DeviceSecretVerifierConfigType, 0],
+  [[() => TokenModelType, 0], 0, () => DeviceSecretVerifierConfigType$, 0],
 ];
-export var ConfirmDeviceResponse: StaticStructureSchema = [3, n0, _CDRo, 0, [_UCN], [2]];
-export var ConfirmForgotPasswordRequest: StaticStructureSchema = [
+export var ConfirmDeviceResponse$: StaticStructureSchema = [3, n0, _CDRo, 0, [_UCN], [2]];
+export var ConfirmForgotPasswordRequest$: StaticStructureSchema = [
   3,
   n0,
   _CFPR,
@@ -1403,13 +1410,13 @@ export var ConfirmForgotPasswordRequest: StaticStructureSchema = [
     [() => UsernameType, 0],
     0,
     [() => PasswordType, 0],
-    () => AnalyticsMetadataType,
-    [() => UserContextDataType, 0],
+    () => AnalyticsMetadataType$,
+    [() => UserContextDataType$, 0],
     128 | 0,
   ],
 ];
-export var ConfirmForgotPasswordResponse: StaticStructureSchema = [3, n0, _CFPRo, 0, [], []];
-export var ConfirmSignUpRequest: StaticStructureSchema = [
+export var ConfirmForgotPasswordResponse$: StaticStructureSchema = [3, n0, _CFPRo, 0, [], []];
+export var ConfirmSignUpRequest$: StaticStructureSchema = [
   3,
   n0,
   _CSUR,
@@ -1421,14 +1428,14 @@ export var ConfirmSignUpRequest: StaticStructureSchema = [
     [() => UsernameType, 0],
     0,
     2,
-    () => AnalyticsMetadataType,
-    [() => UserContextDataType, 0],
+    () => AnalyticsMetadataType$,
+    [() => UserContextDataType$, 0],
     128 | 0,
     [() => SessionType, 0],
   ],
 ];
-export var ConfirmSignUpResponse: StaticStructureSchema = [3, n0, _CSURo, 0, [_S], [[() => SessionType, 0]]];
-export var ContextDataType: StaticStructureSchema = [
+export var ConfirmSignUpResponse$: StaticStructureSchema = [3, n0, _CSURo, 0, [_S], [[() => SessionType, 0]]];
+export var ContextDataType$: StaticStructureSchema = [
   3,
   n0,
   _CDT,
@@ -1436,9 +1443,9 @@ export var ContextDataType: StaticStructureSchema = [
   [_IA, _SN, _SP, _HH, _ED],
   [0, 0, 0, () => HttpHeaderList, 0],
 ];
-export var CreateGroupRequest: StaticStructureSchema = [3, n0, _CGR, 0, [_GN, _UPI, _Desc, _RA, _Pr], [0, 0, 0, 0, 1]];
-export var CreateGroupResponse: StaticStructureSchema = [3, n0, _CGRr, 0, [_Gr], [() => GroupType]];
-export var CreateIdentityProviderRequest: StaticStructureSchema = [
+export var CreateGroupRequest$: StaticStructureSchema = [3, n0, _CGR, 0, [_GN, _UPI, _Desc, _RA, _Pr], [0, 0, 0, 0, 1]];
+export var CreateGroupResponse$: StaticStructureSchema = [3, n0, _CGRr, 0, [_Gr], [() => GroupType$]];
+export var CreateIdentityProviderRequest$: StaticStructureSchema = [
   3,
   n0,
   _CIPR,
@@ -1446,15 +1453,15 @@ export var CreateIdentityProviderRequest: StaticStructureSchema = [
   [_UPI, _PN, _PTr, _PD, _AMt, _II],
   [0, 0, 0, 128 | 0, 128 | 0, 64 | 0],
 ];
-export var CreateIdentityProviderResponse: StaticStructureSchema = [
+export var CreateIdentityProviderResponse$: StaticStructureSchema = [
   3,
   n0,
   _CIPRr,
   0,
   [_IP],
-  [() => IdentityProviderType],
+  [() => IdentityProviderType$],
 ];
-export var CreateManagedLoginBrandingRequest: StaticStructureSchema = [
+export var CreateManagedLoginBrandingRequest$: StaticStructureSchema = [
   3,
   n0,
   _CMLBR,
@@ -1462,15 +1469,15 @@ export var CreateManagedLoginBrandingRequest: StaticStructureSchema = [
   [_UPI, _CI, _UCPV, _Se, _As],
   [0, [() => ClientIdType, 0], 2, 15, () => AssetListType],
 ];
-export var CreateManagedLoginBrandingResponse: StaticStructureSchema = [
+export var CreateManagedLoginBrandingResponse$: StaticStructureSchema = [
   3,
   n0,
   _CMLBRr,
   0,
   [_MLB],
-  [() => ManagedLoginBrandingType],
+  [() => ManagedLoginBrandingType$],
 ];
-export var CreateResourceServerRequest: StaticStructureSchema = [
+export var CreateResourceServerRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRSR,
@@ -1478,8 +1485,15 @@ export var CreateResourceServerRequest: StaticStructureSchema = [
   [_UPI, _I, _Na, _Sc],
   [0, 0, 0, () => ResourceServerScopeListType],
 ];
-export var CreateResourceServerResponse: StaticStructureSchema = [3, n0, _CRSRr, 0, [_RS], [() => ResourceServerType]];
-export var CreateTermsRequest: StaticStructureSchema = [
+export var CreateResourceServerResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _CRSRr,
+  0,
+  [_RS],
+  [() => ResourceServerType$],
+];
+export var CreateTermsRequest$: StaticStructureSchema = [
   3,
   n0,
   _CTR,
@@ -1487,10 +1501,17 @@ export var CreateTermsRequest: StaticStructureSchema = [
   [_UPI, _CI, _TN, _TS, _En, _Li],
   [0, [() => ClientIdType, 0], 0, 0, 0, 128 | 0],
 ];
-export var CreateTermsResponse: StaticStructureSchema = [3, n0, _CTRr, 0, [_T], [[() => TermsType, 0]]];
-export var CreateUserImportJobRequest: StaticStructureSchema = [3, n0, _CUIJR, 0, [_JN, _UPI, _CWLRA], [0, 0, 0]];
-export var CreateUserImportJobResponse: StaticStructureSchema = [3, n0, _CUIJRr, 0, [_UIJ], [() => UserImportJobType]];
-export var CreateUserPoolClientRequest: StaticStructureSchema = [
+export var CreateTermsResponse$: StaticStructureSchema = [3, n0, _CTRr, 0, [_T], [[() => TermsType$, 0]]];
+export var CreateUserImportJobRequest$: StaticStructureSchema = [3, n0, _CUIJR, 0, [_JN, _UPI, _CWLRA], [0, 0, 0]];
+export var CreateUserImportJobResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _CUIJRr,
+  0,
+  [_UIJ],
+  [() => UserImportJobType$],
+];
+export var CreateUserPoolClientRequest$: StaticStructureSchema = [
   3,
   n0,
   _CUPCR,
@@ -1527,7 +1548,7 @@ export var CreateUserPoolClientRequest: StaticStructureSchema = [
     1,
     1,
     1,
-    () => TokenValidityUnitsType,
+    () => TokenValidityUnitsType$,
     64 | 0,
     64 | 0,
     64 | 0,
@@ -1538,32 +1559,32 @@ export var CreateUserPoolClientRequest: StaticStructureSchema = [
     64 | 0,
     64 | 0,
     2,
-    () => AnalyticsConfigurationType,
+    () => AnalyticsConfigurationType$,
     0,
     2,
     2,
     1,
-    () => RefreshTokenRotationType,
+    () => RefreshTokenRotationType$,
   ],
 ];
-export var CreateUserPoolClientResponse: StaticStructureSchema = [
+export var CreateUserPoolClientResponse$: StaticStructureSchema = [
   3,
   n0,
   _CUPCRr,
   0,
   [_UPC],
-  [[() => UserPoolClientType, 0]],
+  [[() => UserPoolClientType$, 0]],
 ];
-export var CreateUserPoolDomainRequest: StaticStructureSchema = [
+export var CreateUserPoolDomainRequest$: StaticStructureSchema = [
   3,
   n0,
   _CUPDR,
   0,
   [_Do, _UPI, _MLV, _CDC],
-  [0, 0, 1, () => CustomDomainConfigType],
+  [0, 0, 1, () => CustomDomainConfigType$],
 ];
-export var CreateUserPoolDomainResponse: StaticStructureSchema = [3, n0, _CUPDRr, 0, [_MLV, _CFD], [1, 0]];
-export var CreateUserPoolRequest: StaticStructureSchema = [
+export var CreateUserPoolDomainResponse$: StaticStructureSchema = [3, n0, _CUPDRr, 0, [_MLV, _CFD], [1, 0]];
+export var CreateUserPoolRequest$: StaticStructureSchema = [
   3,
   n0,
   _CUPR,
@@ -1596,41 +1617,41 @@ export var CreateUserPoolRequest: StaticStructureSchema = [
   ],
   [
     0,
-    () => UserPoolPolicyType,
+    () => UserPoolPolicyType$,
     0,
-    () => LambdaConfigType,
+    () => LambdaConfigType$,
     64 | 0,
     64 | 0,
     64 | 0,
     0,
     0,
     0,
-    () => VerificationMessageTemplateType,
+    () => VerificationMessageTemplateType$,
     0,
     0,
-    () => UserAttributeUpdateSettingsType,
-    () => DeviceConfigurationType,
-    () => EmailConfigurationType,
-    () => SmsConfigurationType,
+    () => UserAttributeUpdateSettingsType$,
+    () => DeviceConfigurationType$,
+    () => EmailConfigurationType$,
+    () => SmsConfigurationType$,
     128 | 0,
-    () => AdminCreateUserConfigType,
+    () => AdminCreateUserConfigType$,
     () => SchemaAttributesListType,
-    () => UserPoolAddOnsType,
-    () => UsernameConfigurationType,
-    () => AccountRecoverySettingType,
+    () => UserPoolAddOnsType$,
+    () => UsernameConfigurationType$,
+    () => AccountRecoverySettingType$,
     0,
   ],
 ];
-export var CreateUserPoolResponse: StaticStructureSchema = [3, n0, _CUPRr, 0, [_UP], [() => UserPoolType]];
-export var CustomDomainConfigType: StaticStructureSchema = [3, n0, _CDCT, 0, [_CAe], [0]];
-export var CustomEmailLambdaVersionConfigType: StaticStructureSchema = [3, n0, _CELVCT, 0, [_LV, _LAa], [0, 0]];
-export var CustomSMSLambdaVersionConfigType: StaticStructureSchema = [3, n0, _CSMSLVCT, 0, [_LV, _LAa], [0, 0]];
-export var DeleteGroupRequest: StaticStructureSchema = [3, n0, _DGR, 0, [_GN, _UPI], [0, 0]];
-export var DeleteIdentityProviderRequest: StaticStructureSchema = [3, n0, _DIPR, 0, [_UPI, _PN], [0, 0]];
-export var DeleteManagedLoginBrandingRequest: StaticStructureSchema = [3, n0, _DMLBR, 0, [_MLBI, _UPI], [0, 0]];
-export var DeleteResourceServerRequest: StaticStructureSchema = [3, n0, _DRSR, 0, [_UPI, _I], [0, 0]];
-export var DeleteTermsRequest: StaticStructureSchema = [3, n0, _DTR, 0, [_TI, _UPI], [0, 0]];
-export var DeleteUserAttributesRequest: StaticStructureSchema = [
+export var CreateUserPoolResponse$: StaticStructureSchema = [3, n0, _CUPRr, 0, [_UP], [() => UserPoolType$]];
+export var CustomDomainConfigType$: StaticStructureSchema = [3, n0, _CDCT, 0, [_CAe], [0]];
+export var CustomEmailLambdaVersionConfigType$: StaticStructureSchema = [3, n0, _CELVCT, 0, [_LV, _LAa], [0, 0]];
+export var CustomSMSLambdaVersionConfigType$: StaticStructureSchema = [3, n0, _CSMSLVCT, 0, [_LV, _LAa], [0, 0]];
+export var DeleteGroupRequest$: StaticStructureSchema = [3, n0, _DGR, 0, [_GN, _UPI], [0, 0]];
+export var DeleteIdentityProviderRequest$: StaticStructureSchema = [3, n0, _DIPR, 0, [_UPI, _PN], [0, 0]];
+export var DeleteManagedLoginBrandingRequest$: StaticStructureSchema = [3, n0, _DMLBR, 0, [_MLBI, _UPI], [0, 0]];
+export var DeleteResourceServerRequest$: StaticStructureSchema = [3, n0, _DRSR, 0, [_UPI, _I], [0, 0]];
+export var DeleteTermsRequest$: StaticStructureSchema = [3, n0, _DTR, 0, [_TI, _UPI], [0, 0]];
+export var DeleteUserAttributesRequest$: StaticStructureSchema = [
   3,
   n0,
   _DUAR,
@@ -1638,8 +1659,8 @@ export var DeleteUserAttributesRequest: StaticStructureSchema = [
   [_UAN, _ATc],
   [64 | 0, [() => TokenModelType, 0]],
 ];
-export var DeleteUserAttributesResponse: StaticStructureSchema = [3, n0, _DUARe, 0, [], []];
-export var DeleteUserPoolClientRequest: StaticStructureSchema = [
+export var DeleteUserAttributesResponse$: StaticStructureSchema = [3, n0, _DUARe, 0, [], []];
+export var DeleteUserPoolClientRequest$: StaticStructureSchema = [
   3,
   n0,
   _DUPCR,
@@ -1647,11 +1668,11 @@ export var DeleteUserPoolClientRequest: StaticStructureSchema = [
   [_UPI, _CI],
   [0, [() => ClientIdType, 0]],
 ];
-export var DeleteUserPoolDomainRequest: StaticStructureSchema = [3, n0, _DUPDR, 0, [_Do, _UPI], [0, 0]];
-export var DeleteUserPoolDomainResponse: StaticStructureSchema = [3, n0, _DUPDRe, 0, [], []];
-export var DeleteUserPoolRequest: StaticStructureSchema = [3, n0, _DUPR, 0, [_UPI], [0]];
-export var DeleteUserRequest: StaticStructureSchema = [3, n0, _DUR, 0, [_ATc], [[() => TokenModelType, 0]]];
-export var DeleteWebAuthnCredentialRequest: StaticStructureSchema = [
+export var DeleteUserPoolDomainRequest$: StaticStructureSchema = [3, n0, _DUPDR, 0, [_Do, _UPI], [0, 0]];
+export var DeleteUserPoolDomainResponse$: StaticStructureSchema = [3, n0, _DUPDRe, 0, [], []];
+export var DeleteUserPoolRequest$: StaticStructureSchema = [3, n0, _DUPR, 0, [_UPI], [0]];
+export var DeleteUserRequest$: StaticStructureSchema = [3, n0, _DUR, 0, [_ATc], [[() => TokenModelType, 0]]];
+export var DeleteWebAuthnCredentialRequest$: StaticStructureSchema = [
   3,
   n0,
   _DWACR,
@@ -1659,17 +1680,17 @@ export var DeleteWebAuthnCredentialRequest: StaticStructureSchema = [
   [_ATc, _CIr],
   [[() => TokenModelType, 0], 0],
 ];
-export var DeleteWebAuthnCredentialResponse: StaticStructureSchema = [3, n0, _DWACRe, 0, [], []];
-export var DescribeIdentityProviderRequest: StaticStructureSchema = [3, n0, _DIPRe, 0, [_UPI, _PN], [0, 0]];
-export var DescribeIdentityProviderResponse: StaticStructureSchema = [
+export var DeleteWebAuthnCredentialResponse$: StaticStructureSchema = [3, n0, _DWACRe, 0, [], []];
+export var DescribeIdentityProviderRequest$: StaticStructureSchema = [3, n0, _DIPRe, 0, [_UPI, _PN], [0, 0]];
+export var DescribeIdentityProviderResponse$: StaticStructureSchema = [
   3,
   n0,
   _DIPRes,
   0,
   [_IP],
-  [() => IdentityProviderType],
+  [() => IdentityProviderType$],
 ];
-export var DescribeManagedLoginBrandingByClientRequest: StaticStructureSchema = [
+export var DescribeManagedLoginBrandingByClientRequest$: StaticStructureSchema = [
   3,
   n0,
   _DMLBBCR,
@@ -1677,15 +1698,15 @@ export var DescribeManagedLoginBrandingByClientRequest: StaticStructureSchema = 
   [_UPI, _CI, _RMR],
   [0, [() => ClientIdType, 0], 2],
 ];
-export var DescribeManagedLoginBrandingByClientResponse: StaticStructureSchema = [
+export var DescribeManagedLoginBrandingByClientResponse$: StaticStructureSchema = [
   3,
   n0,
   _DMLBBCRe,
   0,
   [_MLB],
-  [() => ManagedLoginBrandingType],
+  [() => ManagedLoginBrandingType$],
 ];
-export var DescribeManagedLoginBrandingRequest: StaticStructureSchema = [
+export var DescribeManagedLoginBrandingRequest$: StaticStructureSchema = [
   3,
   n0,
   _DMLBRe,
@@ -1693,24 +1714,24 @@ export var DescribeManagedLoginBrandingRequest: StaticStructureSchema = [
   [_UPI, _MLBI, _RMR],
   [0, 0, 2],
 ];
-export var DescribeManagedLoginBrandingResponse: StaticStructureSchema = [
+export var DescribeManagedLoginBrandingResponse$: StaticStructureSchema = [
   3,
   n0,
   _DMLBRes,
   0,
   [_MLB],
-  [() => ManagedLoginBrandingType],
+  [() => ManagedLoginBrandingType$],
 ];
-export var DescribeResourceServerRequest: StaticStructureSchema = [3, n0, _DRSRe, 0, [_UPI, _I], [0, 0]];
-export var DescribeResourceServerResponse: StaticStructureSchema = [
+export var DescribeResourceServerRequest$: StaticStructureSchema = [3, n0, _DRSRe, 0, [_UPI, _I], [0, 0]];
+export var DescribeResourceServerResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRSRes,
   0,
   [_RS],
-  [() => ResourceServerType],
+  [() => ResourceServerType$],
 ];
-export var DescribeRiskConfigurationRequest: StaticStructureSchema = [
+export var DescribeRiskConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRCR,
@@ -1718,26 +1739,26 @@ export var DescribeRiskConfigurationRequest: StaticStructureSchema = [
   [_UPI, _CI],
   [0, [() => ClientIdType, 0]],
 ];
-export var DescribeRiskConfigurationResponse: StaticStructureSchema = [
+export var DescribeRiskConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRCRe,
   0,
   [_RC],
-  [[() => RiskConfigurationType, 0]],
+  [[() => RiskConfigurationType$, 0]],
 ];
-export var DescribeTermsRequest: StaticStructureSchema = [3, n0, _DTRe, 0, [_TI, _UPI], [0, 0]];
-export var DescribeTermsResponse: StaticStructureSchema = [3, n0, _DTRes, 0, [_T], [[() => TermsType, 0]]];
-export var DescribeUserImportJobRequest: StaticStructureSchema = [3, n0, _DUIJR, 0, [_UPI, _JI], [0, 0]];
-export var DescribeUserImportJobResponse: StaticStructureSchema = [
+export var DescribeTermsRequest$: StaticStructureSchema = [3, n0, _DTRe, 0, [_TI, _UPI], [0, 0]];
+export var DescribeTermsResponse$: StaticStructureSchema = [3, n0, _DTRes, 0, [_T], [[() => TermsType$, 0]]];
+export var DescribeUserImportJobRequest$: StaticStructureSchema = [3, n0, _DUIJR, 0, [_UPI, _JI], [0, 0]];
+export var DescribeUserImportJobResponse$: StaticStructureSchema = [
   3,
   n0,
   _DUIJRe,
   0,
   [_UIJ],
-  [() => UserImportJobType],
+  [() => UserImportJobType$],
 ];
-export var DescribeUserPoolClientRequest: StaticStructureSchema = [
+export var DescribeUserPoolClientRequest$: StaticStructureSchema = [
   3,
   n0,
   _DUPCRe,
@@ -1745,30 +1766,30 @@ export var DescribeUserPoolClientRequest: StaticStructureSchema = [
   [_UPI, _CI],
   [0, [() => ClientIdType, 0]],
 ];
-export var DescribeUserPoolClientResponse: StaticStructureSchema = [
+export var DescribeUserPoolClientResponse$: StaticStructureSchema = [
   3,
   n0,
   _DUPCRes,
   0,
   [_UPC],
-  [[() => UserPoolClientType, 0]],
+  [[() => UserPoolClientType$, 0]],
 ];
-export var DescribeUserPoolDomainRequest: StaticStructureSchema = [3, n0, _DUPDRes, 0, [_Do], [0]];
-export var DescribeUserPoolDomainResponse: StaticStructureSchema = [
+export var DescribeUserPoolDomainRequest$: StaticStructureSchema = [3, n0, _DUPDRes, 0, [_Do], [0]];
+export var DescribeUserPoolDomainResponse$: StaticStructureSchema = [
   3,
   n0,
   _DUPDResc,
   0,
   [_DD],
-  [() => DomainDescriptionType],
+  [() => DomainDescriptionType$],
 ];
-export var DescribeUserPoolRequest: StaticStructureSchema = [3, n0, _DUPRe, 0, [_UPI], [0]];
-export var DescribeUserPoolResponse: StaticStructureSchema = [3, n0, _DUPRes, 0, [_UP], [() => UserPoolType]];
-export var DeviceConfigurationType: StaticStructureSchema = [3, n0, _DCT, 0, [_CROND, _DOROUP], [2, 2]];
-export var DeviceKeyExistsException: StaticErrorSchema = [-3, n0, _DKEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(DeviceKeyExistsException, __DeviceKeyExistsException);
-export var DeviceSecretVerifierConfigType: StaticStructureSchema = [3, n0, _DSVCT, 0, [_PV, _Sa], [0, 0]];
-export var DeviceType: StaticStructureSchema = [
+export var DescribeUserPoolRequest$: StaticStructureSchema = [3, n0, _DUPRe, 0, [_UPI], [0]];
+export var DescribeUserPoolResponse$: StaticStructureSchema = [3, n0, _DUPRes, 0, [_UP], [() => UserPoolType$]];
+export var DeviceConfigurationType$: StaticStructureSchema = [3, n0, _DCT, 0, [_CROND, _DOROUP], [2, 2]];
+export var DeviceKeyExistsException$: StaticErrorSchema = [-3, n0, _DKEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(DeviceKeyExistsException$, DeviceKeyExistsException);
+export var DeviceSecretVerifierConfigType$: StaticStructureSchema = [3, n0, _DSVCT, 0, [_PV, _Sa], [0, 0]];
+export var DeviceType$: StaticStructureSchema = [
   3,
   n0,
   _DT,
@@ -1776,17 +1797,17 @@ export var DeviceType: StaticStructureSchema = [
   [_DK, _DA, _DCD, _DLMD, _DLAD],
   [0, [() => AttributeListType, 0], 4, 4, 4],
 ];
-export var DomainDescriptionType: StaticStructureSchema = [
+export var DomainDescriptionType$: StaticStructureSchema = [
   3,
   n0,
   _DDT,
   0,
   [_UPI, _AWSAI, _Do, _SB, _CFDl, _Ve, _St, _CDC, _MLV],
-  [0, 0, 0, 0, 0, 0, 0, () => CustomDomainConfigType, 1],
+  [0, 0, 0, 0, 0, 0, 0, () => CustomDomainConfigType$, 1],
 ];
-export var DuplicateProviderException: StaticErrorSchema = [-3, n0, _DPE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(DuplicateProviderException, __DuplicateProviderException);
-export var EmailConfigurationType: StaticStructureSchema = [
+export var DuplicateProviderException$: StaticErrorSchema = [-3, n0, _DPE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(DuplicateProviderException$, DuplicateProviderException);
+export var EmailConfigurationType$: StaticStructureSchema = [
   3,
   n0,
   _ECT,
@@ -1794,22 +1815,36 @@ export var EmailConfigurationType: StaticStructureSchema = [
   [_SA, _RTEA, _ESA, _F, _CS],
   [0, 0, 0, 0, 0],
 ];
-export var EmailMfaConfigType: StaticStructureSchema = [3, n0, _EMCT, 0, [_M, _Su], [0, 0]];
-export var EmailMfaSettingsType: StaticStructureSchema = [3, n0, _EMST, 0, [_E, _PM], [2, 2]];
-export var EnableSoftwareTokenMFAException: StaticErrorSchema = [-3, n0, _ESTMFAE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(EnableSoftwareTokenMFAException, __EnableSoftwareTokenMFAException);
-export var EventContextDataType: StaticStructureSchema = [3, n0, _ECDT, 0, [_IA, _DN, _Ti, _Ci, _Co], [0, 0, 0, 0, 0]];
-export var EventFeedbackType: StaticStructureSchema = [3, n0, _EFT, 0, [_FV, _Pro, _FD], [0, 0, 4]];
-export var EventRiskType: StaticStructureSchema = [3, n0, _ERT, 0, [_RD, _RL, _CCD], [0, 0, 2]];
-export var ExpiredCodeException: StaticErrorSchema = [-3, n0, _ECE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ExpiredCodeException, __ExpiredCodeException);
-export var FeatureUnavailableInTierException: StaticErrorSchema = [-3, n0, _FUITE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(FeatureUnavailableInTierException, __FeatureUnavailableInTierException);
-export var FirehoseConfigurationType: StaticStructureSchema = [3, n0, _FCT, 0, [_SAt], [0]];
-export var ForbiddenException: StaticErrorSchema = [-3, n0, _FE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ForbiddenException, __ForbiddenException);
-export var ForgetDeviceRequest: StaticStructureSchema = [3, n0, _FDR, 0, [_ATc, _DK], [[() => TokenModelType, 0], 0]];
-export var ForgotPasswordRequest: StaticStructureSchema = [
+export var EmailMfaConfigType$: StaticStructureSchema = [3, n0, _EMCT, 0, [_M, _Su], [0, 0]];
+export var EmailMfaSettingsType$: StaticStructureSchema = [3, n0, _EMST, 0, [_E, _PM], [2, 2]];
+export var EnableSoftwareTokenMFAException$: StaticErrorSchema = [
+  -3,
+  n0,
+  _ESTMFAE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(EnableSoftwareTokenMFAException$, EnableSoftwareTokenMFAException);
+export var EventContextDataType$: StaticStructureSchema = [3, n0, _ECDT, 0, [_IA, _DN, _Ti, _Ci, _Co], [0, 0, 0, 0, 0]];
+export var EventFeedbackType$: StaticStructureSchema = [3, n0, _EFT, 0, [_FV, _Pro, _FD], [0, 0, 4]];
+export var EventRiskType$: StaticStructureSchema = [3, n0, _ERT, 0, [_RD, _RL, _CCD], [0, 0, 2]];
+export var ExpiredCodeException$: StaticErrorSchema = [-3, n0, _ECE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ExpiredCodeException$, ExpiredCodeException);
+export var FeatureUnavailableInTierException$: StaticErrorSchema = [
+  -3,
+  n0,
+  _FUITE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(FeatureUnavailableInTierException$, FeatureUnavailableInTierException);
+export var FirehoseConfigurationType$: StaticStructureSchema = [3, n0, _FCT, 0, [_SAt], [0]];
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
+export var ForgetDeviceRequest$: StaticStructureSchema = [3, n0, _FDR, 0, [_ATc, _DK], [[() => TokenModelType, 0], 0]];
+export var ForgotPasswordRequest$: StaticStructureSchema = [
   3,
   n0,
   _FPR,
@@ -1818,40 +1853,40 @@ export var ForgotPasswordRequest: StaticStructureSchema = [
   [
     [() => ClientIdType, 0],
     [() => SecretHashType, 0],
-    [() => UserContextDataType, 0],
+    [() => UserContextDataType$, 0],
     [() => UsernameType, 0],
-    () => AnalyticsMetadataType,
+    () => AnalyticsMetadataType$,
     128 | 0,
   ],
 ];
-export var ForgotPasswordResponse: StaticStructureSchema = [3, n0, _FPRo, 0, [_CDD], [() => CodeDeliveryDetailsType]];
-export var GetCSVHeaderRequest: StaticStructureSchema = [3, n0, _GCSVHR, 0, [_UPI], [0]];
-export var GetCSVHeaderResponse: StaticStructureSchema = [3, n0, _GCSVHRe, 0, [_UPI, _CSVH], [0, 64 | 0]];
-export var GetDeviceRequest: StaticStructureSchema = [3, n0, _GDR, 0, [_DK, _ATc], [0, [() => TokenModelType, 0]]];
-export var GetDeviceResponse: StaticStructureSchema = [3, n0, _GDRe, 0, [_D], [[() => DeviceType, 0]]];
-export var GetGroupRequest: StaticStructureSchema = [3, n0, _GGR, 0, [_GN, _UPI], [0, 0]];
-export var GetGroupResponse: StaticStructureSchema = [3, n0, _GGRe, 0, [_Gr], [() => GroupType]];
-export var GetIdentityProviderByIdentifierRequest: StaticStructureSchema = [3, n0, _GIPBIR, 0, [_UPI, _IId], [0, 0]];
-export var GetIdentityProviderByIdentifierResponse: StaticStructureSchema = [
+export var ForgotPasswordResponse$: StaticStructureSchema = [3, n0, _FPRo, 0, [_CDD], [() => CodeDeliveryDetailsType$]];
+export var GetCSVHeaderRequest$: StaticStructureSchema = [3, n0, _GCSVHR, 0, [_UPI], [0]];
+export var GetCSVHeaderResponse$: StaticStructureSchema = [3, n0, _GCSVHRe, 0, [_UPI, _CSVH], [0, 64 | 0]];
+export var GetDeviceRequest$: StaticStructureSchema = [3, n0, _GDR, 0, [_DK, _ATc], [0, [() => TokenModelType, 0]]];
+export var GetDeviceResponse$: StaticStructureSchema = [3, n0, _GDRe, 0, [_D], [[() => DeviceType$, 0]]];
+export var GetGroupRequest$: StaticStructureSchema = [3, n0, _GGR, 0, [_GN, _UPI], [0, 0]];
+export var GetGroupResponse$: StaticStructureSchema = [3, n0, _GGRe, 0, [_Gr], [() => GroupType$]];
+export var GetIdentityProviderByIdentifierRequest$: StaticStructureSchema = [3, n0, _GIPBIR, 0, [_UPI, _IId], [0, 0]];
+export var GetIdentityProviderByIdentifierResponse$: StaticStructureSchema = [
   3,
   n0,
   _GIPBIRe,
   0,
   [_IP],
-  [() => IdentityProviderType],
+  [() => IdentityProviderType$],
 ];
-export var GetLogDeliveryConfigurationRequest: StaticStructureSchema = [3, n0, _GLDCR, 0, [_UPI], [0]];
-export var GetLogDeliveryConfigurationResponse: StaticStructureSchema = [
+export var GetLogDeliveryConfigurationRequest$: StaticStructureSchema = [3, n0, _GLDCR, 0, [_UPI], [0]];
+export var GetLogDeliveryConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GLDCRe,
   0,
   [_LDC],
-  [() => LogDeliveryConfigurationType],
+  [() => LogDeliveryConfigurationType$],
 ];
-export var GetSigningCertificateRequest: StaticStructureSchema = [3, n0, _GSCR, 0, [_UPI], [0]];
-export var GetSigningCertificateResponse: StaticStructureSchema = [3, n0, _GSCRe, 0, [_Ce], [0]];
-export var GetTokensFromRefreshTokenRequest: StaticStructureSchema = [
+export var GetSigningCertificateRequest$: StaticStructureSchema = [3, n0, _GSCR, 0, [_UPI], [0]];
+export var GetSigningCertificateResponse$: StaticStructureSchema = [3, n0, _GSCRe, 0, [_Ce], [0]];
+export var GetTokensFromRefreshTokenRequest$: StaticStructureSchema = [
   3,
   n0,
   _GTFRTR,
@@ -1859,15 +1894,15 @@ export var GetTokensFromRefreshTokenRequest: StaticStructureSchema = [
   [_RT, _CI, _CSl, _DK, _CM],
   [[() => TokenModelType, 0], [() => ClientIdType, 0], [() => ClientSecretType, 0], 0, 128 | 0],
 ];
-export var GetTokensFromRefreshTokenResponse: StaticStructureSchema = [
+export var GetTokensFromRefreshTokenResponse$: StaticStructureSchema = [
   3,
   n0,
   _GTFRTRe,
   0,
   [_AR],
-  [[() => AuthenticationResultType, 0]],
+  [[() => AuthenticationResultType$, 0]],
 ];
-export var GetUICustomizationRequest: StaticStructureSchema = [
+export var GetUICustomizationRequest$: StaticStructureSchema = [
   3,
   n0,
   _GUICR,
@@ -1875,15 +1910,15 @@ export var GetUICustomizationRequest: StaticStructureSchema = [
   [_UPI, _CI],
   [0, [() => ClientIdType, 0]],
 ];
-export var GetUICustomizationResponse: StaticStructureSchema = [
+export var GetUICustomizationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GUICRe,
   0,
   [_UIC],
-  [[() => UICustomizationType, 0]],
+  [[() => UICustomizationType$, 0]],
 ];
-export var GetUserAttributeVerificationCodeRequest: StaticStructureSchema = [
+export var GetUserAttributeVerificationCodeRequest$: StaticStructureSchema = [
   3,
   n0,
   _GUAVCR,
@@ -1891,16 +1926,16 @@ export var GetUserAttributeVerificationCodeRequest: StaticStructureSchema = [
   [_ATc, _AN, _CM],
   [[() => TokenModelType, 0], 0, 128 | 0],
 ];
-export var GetUserAttributeVerificationCodeResponse: StaticStructureSchema = [
+export var GetUserAttributeVerificationCodeResponse$: StaticStructureSchema = [
   3,
   n0,
   _GUAVCRe,
   0,
   [_CDD],
-  [() => CodeDeliveryDetailsType],
+  [() => CodeDeliveryDetailsType$],
 ];
-export var GetUserAuthFactorsRequest: StaticStructureSchema = [3, n0, _GUAFR, 0, [_ATc], [[() => TokenModelType, 0]]];
-export var GetUserAuthFactorsResponse: StaticStructureSchema = [
+export var GetUserAuthFactorsRequest$: StaticStructureSchema = [3, n0, _GUAFR, 0, [_ATc], [[() => TokenModelType, 0]]];
+export var GetUserAuthFactorsResponse$: StaticStructureSchema = [
   3,
   n0,
   _GUAFRe,
@@ -1908,23 +1943,23 @@ export var GetUserAuthFactorsResponse: StaticStructureSchema = [
   [_U, _PMS, _UMFASL, _CUAF],
   [[() => UsernameType, 0], 0, 64 | 0, 64 | 0],
 ];
-export var GetUserPoolMfaConfigRequest: StaticStructureSchema = [3, n0, _GUPMCR, 0, [_UPI], [0]];
-export var GetUserPoolMfaConfigResponse: StaticStructureSchema = [
+export var GetUserPoolMfaConfigRequest$: StaticStructureSchema = [3, n0, _GUPMCR, 0, [_UPI], [0]];
+export var GetUserPoolMfaConfigResponse$: StaticStructureSchema = [
   3,
   n0,
   _GUPMCRe,
   0,
   [_SMC, _STMC, _EMC, _MC, _WAC],
   [
-    () => SmsMfaConfigType,
-    () => SoftwareTokenMfaConfigType,
-    () => EmailMfaConfigType,
+    () => SmsMfaConfigType$,
+    () => SoftwareTokenMfaConfigType$,
+    () => EmailMfaConfigType$,
     0,
-    () => WebAuthnConfigurationType,
+    () => WebAuthnConfigurationType$,
   ],
 ];
-export var GetUserRequest: StaticStructureSchema = [3, n0, _GUR, 0, [_ATc], [[() => TokenModelType, 0]]];
-export var GetUserResponse: StaticStructureSchema = [
+export var GetUserRequest$: StaticStructureSchema = [3, n0, _GUR, 0, [_ATc], [[() => TokenModelType, 0]]];
+export var GetUserResponse$: StaticStructureSchema = [
   3,
   n0,
   _GURe,
@@ -1932,11 +1967,11 @@ export var GetUserResponse: StaticStructureSchema = [
   [_U, _UA, _MFAO, _PMS, _UMFASL],
   [[() => UsernameType, 0], [() => AttributeListType, 0], () => MFAOptionListType, 0, 64 | 0],
 ];
-export var GlobalSignOutRequest: StaticStructureSchema = [3, n0, _GSOR, 0, [_ATc], [[() => TokenModelType, 0]]];
-export var GlobalSignOutResponse: StaticStructureSchema = [3, n0, _GSORl, 0, [], []];
-export var GroupExistsException: StaticErrorSchema = [-3, n0, _GEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(GroupExistsException, __GroupExistsException);
-export var GroupType: StaticStructureSchema = [
+export var GlobalSignOutRequest$: StaticStructureSchema = [3, n0, _GSOR, 0, [_ATc], [[() => TokenModelType, 0]]];
+export var GlobalSignOutResponse$: StaticStructureSchema = [3, n0, _GSORl, 0, [], []];
+export var GroupExistsException$: StaticErrorSchema = [-3, n0, _GEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(GroupExistsException$, GroupExistsException);
+export var GroupType$: StaticStructureSchema = [
   3,
   n0,
   _GT,
@@ -1944,8 +1979,8 @@ export var GroupType: StaticStructureSchema = [
   [_GN, _UPI, _Desc, _RA, _Pr, _LMD, _CDr],
   [0, 0, 0, 0, 1, 4, 4],
 ];
-export var HttpHeader: StaticStructureSchema = [3, n0, _HHt, 0, [_hN, _hV], [0, 0]];
-export var IdentityProviderType: StaticStructureSchema = [
+export var HttpHeader$: StaticStructureSchema = [3, n0, _HHt, 0, [_hN, _hV], [0, 0]];
+export var IdentityProviderType$: StaticStructureSchema = [
   3,
   n0,
   _IPT,
@@ -1953,7 +1988,7 @@ export var IdentityProviderType: StaticStructureSchema = [
   [_UPI, _PN, _PTr, _PD, _AMt, _II, _LMD, _CDr],
   [0, 0, 0, 128 | 0, 128 | 0, 64 | 0, 4, 4],
 ];
-export var InitiateAuthRequest: StaticStructureSchema = [
+export var InitiateAuthRequest$: StaticStructureSchema = [
   3,
   n0,
   _IAR,
@@ -1964,22 +1999,22 @@ export var InitiateAuthRequest: StaticStructureSchema = [
     [() => AuthParametersType, 0],
     128 | 0,
     [() => ClientIdType, 0],
-    () => AnalyticsMetadataType,
-    [() => UserContextDataType, 0],
+    () => AnalyticsMetadataType$,
+    [() => UserContextDataType$, 0],
     [() => SessionType, 0],
   ],
 ];
-export var InitiateAuthResponse: StaticStructureSchema = [
+export var InitiateAuthResponse$: StaticStructureSchema = [
   3,
   n0,
   _IARn,
   0,
   [_CN, _S, _CP, _AR, _AC],
-  [0, [() => SessionType, 0], 128 | 0, [() => AuthenticationResultType, 0], 64 | 0],
+  [0, [() => SessionType, 0], 128 | 0, [() => AuthenticationResultType$, 0], 64 | 0],
 ];
-export var InternalErrorException: StaticErrorSchema = [-3, n0, _IEE, { [_e]: _s }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InternalErrorException, __InternalErrorException);
-export var InvalidEmailRoleAccessPolicyException: StaticErrorSchema = [
+export var InternalErrorException$: StaticErrorSchema = [-3, n0, _IEE, { [_e]: _s }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InternalErrorException$, InternalErrorException);
+export var InvalidEmailRoleAccessPolicyException$: StaticErrorSchema = [
   -3,
   n0,
   _IERAPE,
@@ -1987,16 +2022,16 @@ export var InvalidEmailRoleAccessPolicyException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(InvalidEmailRoleAccessPolicyException, __InvalidEmailRoleAccessPolicyException);
-export var InvalidLambdaResponseException: StaticErrorSchema = [-3, n0, _ILRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InvalidLambdaResponseException, __InvalidLambdaResponseException);
-export var InvalidOAuthFlowException: StaticErrorSchema = [-3, n0, _IOAFE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InvalidOAuthFlowException, __InvalidOAuthFlowException);
-export var InvalidParameterException: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c, [_hE]: 400 }, [_m, _rC], [0, 0]];
-TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-export var InvalidPasswordException: StaticErrorSchema = [-3, n0, _IPEn, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InvalidPasswordException, __InvalidPasswordException);
-export var InvalidSmsRoleAccessPolicyException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(InvalidEmailRoleAccessPolicyException$, InvalidEmailRoleAccessPolicyException);
+export var InvalidLambdaResponseException$: StaticErrorSchema = [-3, n0, _ILRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InvalidLambdaResponseException$, InvalidLambdaResponseException);
+export var InvalidOAuthFlowException$: StaticErrorSchema = [-3, n0, _IOAFE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InvalidOAuthFlowException$, InvalidOAuthFlowException);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c, [_hE]: 400 }, [_m, _rC], [0, 0]];
+TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
+export var InvalidPasswordException$: StaticErrorSchema = [-3, n0, _IPEn, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InvalidPasswordException$, InvalidPasswordException);
+export var InvalidSmsRoleAccessPolicyException$: StaticErrorSchema = [
   -3,
   n0,
   _ISRAPE,
@@ -2004,8 +2039,8 @@ export var InvalidSmsRoleAccessPolicyException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(InvalidSmsRoleAccessPolicyException, __InvalidSmsRoleAccessPolicyException);
-export var InvalidSmsRoleTrustRelationshipException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(InvalidSmsRoleAccessPolicyException$, InvalidSmsRoleAccessPolicyException);
+export var InvalidSmsRoleTrustRelationshipException$: StaticErrorSchema = [
   -3,
   n0,
   _ISRTRE,
@@ -2013,11 +2048,8 @@ export var InvalidSmsRoleTrustRelationshipException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(
-  InvalidSmsRoleTrustRelationshipException,
-  __InvalidSmsRoleTrustRelationshipException
-);
-export var InvalidUserPoolConfigurationException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(InvalidSmsRoleTrustRelationshipException$, InvalidSmsRoleTrustRelationshipException);
+export var InvalidUserPoolConfigurationException$: StaticErrorSchema = [
   -3,
   n0,
   _IUPCE,
@@ -2025,8 +2057,8 @@ export var InvalidUserPoolConfigurationException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(InvalidUserPoolConfigurationException, __InvalidUserPoolConfigurationException);
-export var LambdaConfigType: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InvalidUserPoolConfigurationException$, InvalidUserPoolConfigurationException);
+export var LambdaConfigType$: StaticStructureSchema = [
   3,
   n0,
   _LCT,
@@ -2043,15 +2075,15 @@ export var LambdaConfigType: StaticStructureSchema = [
     0,
     0,
     0,
-    () => PreTokenGenerationVersionConfigType,
-    () => CustomSMSLambdaVersionConfigType,
-    () => CustomEmailLambdaVersionConfigType,
+    () => PreTokenGenerationVersionConfigType$,
+    () => CustomSMSLambdaVersionConfigType$,
+    () => CustomEmailLambdaVersionConfigType$,
     0,
   ],
 ];
-export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-export var ListDevicesRequest: StaticStructureSchema = [
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
+export var ListDevicesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDR,
@@ -2059,11 +2091,11 @@ export var ListDevicesRequest: StaticStructureSchema = [
   [_ATc, _L, _PTa],
   [[() => TokenModelType, 0], 1, 0],
 ];
-export var ListDevicesResponse: StaticStructureSchema = [3, n0, _LDRi, 0, [_De, _PTa], [[() => DeviceListType, 0], 0]];
-export var ListGroupsRequest: StaticStructureSchema = [3, n0, _LGR, 0, [_UPI, _L, _NT], [0, 1, 0]];
-export var ListGroupsResponse: StaticStructureSchema = [3, n0, _LGRi, 0, [_G, _NT], [() => GroupListType, 0]];
-export var ListIdentityProvidersRequest: StaticStructureSchema = [3, n0, _LIPR, 0, [_UPI, _MR, _NT], [0, 1, 0]];
-export var ListIdentityProvidersResponse: StaticStructureSchema = [
+export var ListDevicesResponse$: StaticStructureSchema = [3, n0, _LDRi, 0, [_De, _PTa], [[() => DeviceListType, 0], 0]];
+export var ListGroupsRequest$: StaticStructureSchema = [3, n0, _LGR, 0, [_UPI, _L, _NT], [0, 1, 0]];
+export var ListGroupsResponse$: StaticStructureSchema = [3, n0, _LGRi, 0, [_G, _NT], [() => GroupListType, 0]];
+export var ListIdentityProvidersRequest$: StaticStructureSchema = [3, n0, _LIPR, 0, [_UPI, _MR, _NT], [0, 1, 0]];
+export var ListIdentityProvidersResponse$: StaticStructureSchema = [
   3,
   n0,
   _LIPRi,
@@ -2071,8 +2103,8 @@ export var ListIdentityProvidersResponse: StaticStructureSchema = [
   [_Prov, _NT],
   [() => ProvidersListType, 0],
 ];
-export var ListResourceServersRequest: StaticStructureSchema = [3, n0, _LRSR, 0, [_UPI, _MR, _NT], [0, 1, 0]];
-export var ListResourceServersResponse: StaticStructureSchema = [
+export var ListResourceServersRequest$: StaticStructureSchema = [3, n0, _LRSR, 0, [_UPI, _MR, _NT], [0, 1, 0]];
+export var ListResourceServersResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRSRi,
@@ -2080,12 +2112,19 @@ export var ListResourceServersResponse: StaticStructureSchema = [
   [_RSe, _NT],
   [() => ResourceServersListType, 0],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RAes], [0]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [128 | 0]];
-export var ListTermsRequest: StaticStructureSchema = [3, n0, _LTR, 0, [_UPI, _MR, _NT], [0, 1, 0]];
-export var ListTermsResponse: StaticStructureSchema = [3, n0, _LTRi, 0, [_T, _NT], [() => TermsDescriptionListType, 0]];
-export var ListUserImportJobsRequest: StaticStructureSchema = [3, n0, _LUIJR, 0, [_UPI, _MR, _PTa], [0, 1, 0]];
-export var ListUserImportJobsResponse: StaticStructureSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RAes], [0]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [128 | 0]];
+export var ListTermsRequest$: StaticStructureSchema = [3, n0, _LTR, 0, [_UPI, _MR, _NT], [0, 1, 0]];
+export var ListTermsResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _LTRi,
+  0,
+  [_T, _NT],
+  [() => TermsDescriptionListType, 0],
+];
+export var ListUserImportJobsRequest$: StaticStructureSchema = [3, n0, _LUIJR, 0, [_UPI, _MR, _PTa], [0, 1, 0]];
+export var ListUserImportJobsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LUIJRi,
@@ -2093,8 +2132,8 @@ export var ListUserImportJobsResponse: StaticStructureSchema = [
   [_UIJs, _PTa],
   [() => UserImportJobsListType, 0],
 ];
-export var ListUserPoolClientsRequest: StaticStructureSchema = [3, n0, _LUPCR, 0, [_UPI, _MR, _NT], [0, 1, 0]];
-export var ListUserPoolClientsResponse: StaticStructureSchema = [
+export var ListUserPoolClientsRequest$: StaticStructureSchema = [3, n0, _LUPCR, 0, [_UPI, _MR, _NT], [0, 1, 0]];
+export var ListUserPoolClientsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LUPCRi,
@@ -2102,10 +2141,10 @@ export var ListUserPoolClientsResponse: StaticStructureSchema = [
   [_UPCs, _NT],
   [[() => UserPoolClientListType, 0], 0],
 ];
-export var ListUserPoolsRequest: StaticStructureSchema = [3, n0, _LUPR, 0, [_NT, _MR], [0, 1]];
-export var ListUserPoolsResponse: StaticStructureSchema = [3, n0, _LUPRi, 0, [_UPs, _NT], [() => UserPoolListType, 0]];
-export var ListUsersInGroupRequest: StaticStructureSchema = [3, n0, _LUIGR, 0, [_UPI, _GN, _L, _NT], [0, 0, 1, 0]];
-export var ListUsersInGroupResponse: StaticStructureSchema = [
+export var ListUserPoolsRequest$: StaticStructureSchema = [3, n0, _LUPR, 0, [_NT, _MR], [0, 1]];
+export var ListUserPoolsResponse$: StaticStructureSchema = [3, n0, _LUPRi, 0, [_UPs, _NT], [() => UserPoolListType, 0]];
+export var ListUsersInGroupRequest$: StaticStructureSchema = [3, n0, _LUIGR, 0, [_UPI, _GN, _L, _NT], [0, 0, 1, 0]];
+export var ListUsersInGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _LUIGRi,
@@ -2113,7 +2152,7 @@ export var ListUsersInGroupResponse: StaticStructureSchema = [
   [_Use, _NT],
   [[() => UsersListType, 0], 0],
 ];
-export var ListUsersRequest: StaticStructureSchema = [
+export var ListUsersRequest$: StaticStructureSchema = [
   3,
   n0,
   _LUR,
@@ -2121,8 +2160,8 @@ export var ListUsersRequest: StaticStructureSchema = [
   [_UPI, _ATG, _L, _PTa, _Fi],
   [0, 64 | 0, 1, 0, 0],
 ];
-export var ListUsersResponse: StaticStructureSchema = [3, n0, _LURi, 0, [_Use, _PTa], [[() => UsersListType, 0], 0]];
-export var ListWebAuthnCredentialsRequest: StaticStructureSchema = [
+export var ListUsersResponse$: StaticStructureSchema = [3, n0, _LURi, 0, [_Use, _PTa], [[() => UsersListType, 0], 0]];
+export var ListWebAuthnCredentialsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LWACR,
@@ -2130,7 +2169,7 @@ export var ListWebAuthnCredentialsRequest: StaticStructureSchema = [
   [_ATc, _NT, _MR],
   [[() => TokenModelType, 0], 0, 1],
 ];
-export var ListWebAuthnCredentialsResponse: StaticStructureSchema = [
+export var ListWebAuthnCredentialsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LWACRi,
@@ -2138,15 +2177,15 @@ export var ListWebAuthnCredentialsResponse: StaticStructureSchema = [
   [_Cre, _NT],
   [() => WebAuthnCredentialDescriptionListType, 0],
 ];
-export var LogConfigurationType: StaticStructureSchema = [
+export var LogConfigurationType$: StaticStructureSchema = [
   3,
   n0,
   _LCTo,
   0,
   [_LL, _ES, _CWLC, _SCo, _FC],
-  [0, 0, () => CloudWatchLogsConfigurationType, () => S3ConfigurationType, () => FirehoseConfigurationType],
+  [0, 0, () => CloudWatchLogsConfigurationType$, () => S3ConfigurationType$, () => FirehoseConfigurationType$],
 ];
-export var LogDeliveryConfigurationType: StaticStructureSchema = [
+export var LogDeliveryConfigurationType$: StaticStructureSchema = [
   3,
   n0,
   _LDCT,
@@ -2154,7 +2193,7 @@ export var LogDeliveryConfigurationType: StaticStructureSchema = [
   [_UPI, _LCo],
   [0, () => LogConfigurationListType],
 ];
-export var ManagedLoginBrandingExistsException: StaticErrorSchema = [
+export var ManagedLoginBrandingExistsException$: StaticErrorSchema = [
   -3,
   n0,
   _MLBEE,
@@ -2162,8 +2201,8 @@ export var ManagedLoginBrandingExistsException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(ManagedLoginBrandingExistsException, __ManagedLoginBrandingExistsException);
-export var ManagedLoginBrandingType: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ManagedLoginBrandingExistsException$, ManagedLoginBrandingExistsException);
+export var ManagedLoginBrandingType$: StaticStructureSchema = [
   3,
   n0,
   _MLBT,
@@ -2171,24 +2210,24 @@ export var ManagedLoginBrandingType: StaticStructureSchema = [
   [_MLBI, _UPI, _UCPV, _Se, _As, _CDr, _LMD],
   [0, 0, 2, 15, () => AssetListType, 4, 4],
 ];
-export var MessageTemplateType: StaticStructureSchema = [3, n0, _MTT, 0, [_SMSM, _EM, _ESm], [0, 0, 0]];
-export var MFAMethodNotFoundException: StaticErrorSchema = [-3, n0, _MFAMNFE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(MFAMethodNotFoundException, __MFAMethodNotFoundException);
-export var MFAOptionType: StaticStructureSchema = [3, n0, _MFAOT, 0, [_DM, _AN], [0, 0]];
-export var NewDeviceMetadataType: StaticStructureSchema = [3, n0, _NDMT, 0, [_DK, _DGK], [0, 0]];
-export var NotAuthorizedException: StaticErrorSchema = [-3, n0, _NAE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(NotAuthorizedException, __NotAuthorizedException);
-export var NotifyConfigurationType: StaticStructureSchema = [
+export var MessageTemplateType$: StaticStructureSchema = [3, n0, _MTT, 0, [_SMSM, _EM, _ESm], [0, 0, 0]];
+export var MFAMethodNotFoundException$: StaticErrorSchema = [-3, n0, _MFAMNFE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(MFAMethodNotFoundException$, MFAMethodNotFoundException);
+export var MFAOptionType$: StaticStructureSchema = [3, n0, _MFAOT, 0, [_DM, _AN], [0, 0]];
+export var NewDeviceMetadataType$: StaticStructureSchema = [3, n0, _NDMT, 0, [_DK, _DGK], [0, 0]];
+export var NotAuthorizedException$: StaticErrorSchema = [-3, n0, _NAE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(NotAuthorizedException$, NotAuthorizedException);
+export var NotifyConfigurationType$: StaticStructureSchema = [
   3,
   n0,
   _NCT,
   0,
   [_F, _RTe, _SA, _BE, _NAEo, _ME],
-  [0, 0, 0, () => NotifyEmailType, () => NotifyEmailType, () => NotifyEmailType],
+  [0, 0, 0, () => NotifyEmailType$, () => NotifyEmailType$, () => NotifyEmailType$],
 ];
-export var NotifyEmailType: StaticStructureSchema = [3, n0, _NET, 0, [_Su, _HB, _TB], [0, 0, 0]];
-export var NumberAttributeConstraintsType: StaticStructureSchema = [3, n0, _NACT, 0, [_MV, _MVa], [0, 0]];
-export var PasswordHistoryPolicyViolationException: StaticErrorSchema = [
+export var NotifyEmailType$: StaticStructureSchema = [3, n0, _NET, 0, [_Su, _HB, _TB], [0, 0, 0]];
+export var NumberAttributeConstraintsType$: StaticStructureSchema = [3, n0, _NACT, 0, [_MV, _MVa], [0, 0]];
+export var PasswordHistoryPolicyViolationException$: StaticErrorSchema = [
   -3,
   n0,
   _PHPVE,
@@ -2196,8 +2235,8 @@ export var PasswordHistoryPolicyViolationException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(PasswordHistoryPolicyViolationException, __PasswordHistoryPolicyViolationException);
-export var PasswordPolicyType: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(PasswordHistoryPolicyViolationException$, PasswordHistoryPolicyViolationException);
+export var PasswordPolicyType$: StaticStructureSchema = [
   3,
   n0,
   _PPT,
@@ -2205,18 +2244,18 @@ export var PasswordPolicyType: StaticStructureSchema = [
   [_ML, _RU, _RLe, _RN, _RSeq, _PHS, _TPVD],
   [1, 2, 2, 2, 2, 1, 1],
 ];
-export var PasswordResetRequiredException: StaticErrorSchema = [-3, n0, _PRRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(PasswordResetRequiredException, __PasswordResetRequiredException);
-export var PreconditionNotMetException: StaticErrorSchema = [-3, n0, _PNME, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(PreconditionNotMetException, __PreconditionNotMetException);
-export var PreTokenGenerationVersionConfigType: StaticStructureSchema = [3, n0, _PTGVCT, 0, [_LV, _LAa], [0, 0]];
-export var ProviderDescription: StaticStructureSchema = [3, n0, _PDr, 0, [_PN, _PTr, _LMD, _CDr], [0, 0, 4, 4]];
-export var ProviderUserIdentifierType: StaticStructureSchema = [3, n0, _PUIT, 0, [_PN, _PAN, _PAV], [0, 0, 0]];
-export var RecoveryOptionType: StaticStructureSchema = [3, n0, _ROT, 0, [_Pri, _Na], [1, 0]];
-export var RefreshTokenReuseException: StaticErrorSchema = [-3, n0, _RTRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(RefreshTokenReuseException, __RefreshTokenReuseException);
-export var RefreshTokenRotationType: StaticStructureSchema = [3, n0, _RTRT, 0, [_Fe, _RGPS], [0, 1]];
-export var ResendConfirmationCodeRequest: StaticStructureSchema = [
+export var PasswordResetRequiredException$: StaticErrorSchema = [-3, n0, _PRRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(PasswordResetRequiredException$, PasswordResetRequiredException);
+export var PreconditionNotMetException$: StaticErrorSchema = [-3, n0, _PNME, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(PreconditionNotMetException$, PreconditionNotMetException);
+export var PreTokenGenerationVersionConfigType$: StaticStructureSchema = [3, n0, _PTGVCT, 0, [_LV, _LAa], [0, 0]];
+export var ProviderDescription$: StaticStructureSchema = [3, n0, _PDr, 0, [_PN, _PTr, _LMD, _CDr], [0, 0, 4, 4]];
+export var ProviderUserIdentifierType$: StaticStructureSchema = [3, n0, _PUIT, 0, [_PN, _PAN, _PAV], [0, 0, 0]];
+export var RecoveryOptionType$: StaticStructureSchema = [3, n0, _ROT, 0, [_Pri, _Na], [1, 0]];
+export var RefreshTokenReuseException$: StaticErrorSchema = [-3, n0, _RTRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(RefreshTokenReuseException$, RefreshTokenReuseException);
+export var RefreshTokenRotationType$: StaticStructureSchema = [3, n0, _RTRT, 0, [_Fe, _RGPS], [0, 1]];
+export var ResendConfirmationCodeRequest$: StaticStructureSchema = [
   3,
   n0,
   _RCCR,
@@ -2225,24 +2264,24 @@ export var ResendConfirmationCodeRequest: StaticStructureSchema = [
   [
     [() => ClientIdType, 0],
     [() => SecretHashType, 0],
-    [() => UserContextDataType, 0],
+    [() => UserContextDataType$, 0],
     [() => UsernameType, 0],
-    () => AnalyticsMetadataType,
+    () => AnalyticsMetadataType$,
     128 | 0,
   ],
 ];
-export var ResendConfirmationCodeResponse: StaticStructureSchema = [
+export var ResendConfirmationCodeResponse$: StaticStructureSchema = [
   3,
   n0,
   _RCCRe,
   0,
   [_CDD],
-  [() => CodeDeliveryDetailsType],
+  [() => CodeDeliveryDetailsType$],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ResourceServerScopeType: StaticStructureSchema = [3, n0, _RSST, 0, [_SNc, _SD], [0, 0]];
-export var ResourceServerType: StaticStructureSchema = [
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourceServerScopeType$: StaticStructureSchema = [3, n0, _RSST, 0, [_SNc, _SD], [0, 0]];
+export var ResourceServerType$: StaticStructureSchema = [
   3,
   n0,
   _RST,
@@ -2250,7 +2289,7 @@ export var ResourceServerType: StaticStructureSchema = [
   [_UPI, _I, _Na, _Sc],
   [0, 0, 0, () => ResourceServerScopeListType],
 ];
-export var RespondToAuthChallengeRequest: StaticStructureSchema = [
+export var RespondToAuthChallengeRequest$: StaticStructureSchema = [
   3,
   n0,
   _RTACR,
@@ -2261,20 +2300,20 @@ export var RespondToAuthChallengeRequest: StaticStructureSchema = [
     0,
     [() => SessionType, 0],
     [() => ChallengeResponsesType, 0],
-    () => AnalyticsMetadataType,
-    [() => UserContextDataType, 0],
+    () => AnalyticsMetadataType$,
+    [() => UserContextDataType$, 0],
     128 | 0,
   ],
 ];
-export var RespondToAuthChallengeResponse: StaticStructureSchema = [
+export var RespondToAuthChallengeResponse$: StaticStructureSchema = [
   3,
   n0,
   _RTACRe,
   0,
   [_CN, _S, _CP, _AR],
-  [0, [() => SessionType, 0], 128 | 0, [() => AuthenticationResultType, 0]],
+  [0, [() => SessionType, 0], 128 | 0, [() => AuthenticationResultType$, 0]],
 ];
-export var RevokeTokenRequest: StaticStructureSchema = [
+export var RevokeTokenRequest$: StaticStructureSchema = [
   3,
   n0,
   _RTRe,
@@ -2286,8 +2325,8 @@ export var RevokeTokenRequest: StaticStructureSchema = [
     [() => ClientSecretType, 0],
   ],
 ];
-export var RevokeTokenResponse: StaticStructureSchema = [3, n0, _RTRev, 0, [], []];
-export var RiskConfigurationType: StaticStructureSchema = [
+export var RevokeTokenResponse$: StaticStructureSchema = [3, n0, _RTRev, 0, [], []];
+export var RiskConfigurationType$: StaticStructureSchema = [
   3,
   n0,
   _RCT,
@@ -2296,13 +2335,13 @@ export var RiskConfigurationType: StaticStructureSchema = [
   [
     0,
     [() => ClientIdType, 0],
-    () => CompromisedCredentialsRiskConfigurationType,
-    () => AccountTakeoverRiskConfigurationType,
-    () => RiskExceptionConfigurationType,
+    () => CompromisedCredentialsRiskConfigurationType$,
+    () => AccountTakeoverRiskConfigurationType$,
+    () => RiskExceptionConfigurationType$,
     4,
   ],
 ];
-export var RiskExceptionConfigurationType: StaticStructureSchema = [
+export var RiskExceptionConfigurationType$: StaticStructureSchema = [
   3,
   n0,
   _RECT,
@@ -2310,18 +2349,18 @@ export var RiskExceptionConfigurationType: StaticStructureSchema = [
   [_BIPRL, _SIPRL],
   [64 | 0, 64 | 0],
 ];
-export var S3ConfigurationType: StaticStructureSchema = [3, n0, _SCTo, 0, [_BA], [0]];
-export var SchemaAttributeType: StaticStructureSchema = [
+export var S3ConfigurationType$: StaticStructureSchema = [3, n0, _SCTo, 0, [_BA], [0]];
+export var SchemaAttributeType$: StaticStructureSchema = [
   3,
   n0,
   _SAT,
   0,
   [_Na, _ADT, _DOA, _Mu, _R, _NAC, _SAC],
-  [0, 0, 2, 2, 2, () => NumberAttributeConstraintsType, () => StringAttributeConstraintsType],
+  [0, 0, 2, 2, 2, () => NumberAttributeConstraintsType$, () => StringAttributeConstraintsType$],
 ];
-export var ScopeDoesNotExistException: StaticErrorSchema = [-3, n0, _SDNEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ScopeDoesNotExistException, __ScopeDoesNotExistException);
-export var SetLogDeliveryConfigurationRequest: StaticStructureSchema = [
+export var ScopeDoesNotExistException$: StaticErrorSchema = [-3, n0, _SDNEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ScopeDoesNotExistException$, ScopeDoesNotExistException);
+export var SetLogDeliveryConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _SLDCR,
@@ -2329,15 +2368,15 @@ export var SetLogDeliveryConfigurationRequest: StaticStructureSchema = [
   [_UPI, _LCo],
   [0, () => LogConfigurationListType],
 ];
-export var SetLogDeliveryConfigurationResponse: StaticStructureSchema = [
+export var SetLogDeliveryConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _SLDCRe,
   0,
   [_LDC],
-  [() => LogDeliveryConfigurationType],
+  [() => LogDeliveryConfigurationType$],
 ];
-export var SetRiskConfigurationRequest: StaticStructureSchema = [
+export var SetRiskConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _SRCR,
@@ -2346,20 +2385,20 @@ export var SetRiskConfigurationRequest: StaticStructureSchema = [
   [
     0,
     [() => ClientIdType, 0],
-    () => CompromisedCredentialsRiskConfigurationType,
-    () => AccountTakeoverRiskConfigurationType,
-    () => RiskExceptionConfigurationType,
+    () => CompromisedCredentialsRiskConfigurationType$,
+    () => AccountTakeoverRiskConfigurationType$,
+    () => RiskExceptionConfigurationType$,
   ],
 ];
-export var SetRiskConfigurationResponse: StaticStructureSchema = [
+export var SetRiskConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _SRCRe,
   0,
   [_RC],
-  [[() => RiskConfigurationType, 0]],
+  [[() => RiskConfigurationType$, 0]],
 ];
-export var SetUICustomizationRequest: StaticStructureSchema = [
+export var SetUICustomizationRequest$: StaticStructureSchema = [
   3,
   n0,
   _SUICR,
@@ -2367,24 +2406,29 @@ export var SetUICustomizationRequest: StaticStructureSchema = [
   [_UPI, _CI, _CSS, _IF],
   [0, [() => ClientIdType, 0], 0, 21],
 ];
-export var SetUICustomizationResponse: StaticStructureSchema = [
+export var SetUICustomizationResponse$: StaticStructureSchema = [
   3,
   n0,
   _SUICRe,
   0,
   [_UIC],
-  [[() => UICustomizationType, 0]],
+  [[() => UICustomizationType$, 0]],
 ];
-export var SetUserMFAPreferenceRequest: StaticStructureSchema = [
+export var SetUserMFAPreferenceRequest$: StaticStructureSchema = [
   3,
   n0,
   _SUMFAPR,
   0,
   [_SMSMS, _STMS, _EMS, _ATc],
-  [() => SMSMfaSettingsType, () => SoftwareTokenMfaSettingsType, () => EmailMfaSettingsType, [() => TokenModelType, 0]],
+  [
+    () => SMSMfaSettingsType$,
+    () => SoftwareTokenMfaSettingsType$,
+    () => EmailMfaSettingsType$,
+    [() => TokenModelType, 0],
+  ],
 ];
-export var SetUserMFAPreferenceResponse: StaticStructureSchema = [3, n0, _SUMFAPRe, 0, [], []];
-export var SetUserPoolMfaConfigRequest: StaticStructureSchema = [
+export var SetUserMFAPreferenceResponse$: StaticStructureSchema = [3, n0, _SUMFAPRe, 0, [], []];
+export var SetUserPoolMfaConfigRequest$: StaticStructureSchema = [
   3,
   n0,
   _SUPMCR,
@@ -2392,28 +2436,28 @@ export var SetUserPoolMfaConfigRequest: StaticStructureSchema = [
   [_UPI, _SMC, _STMC, _EMC, _MC, _WAC],
   [
     0,
-    () => SmsMfaConfigType,
-    () => SoftwareTokenMfaConfigType,
-    () => EmailMfaConfigType,
+    () => SmsMfaConfigType$,
+    () => SoftwareTokenMfaConfigType$,
+    () => EmailMfaConfigType$,
     0,
-    () => WebAuthnConfigurationType,
+    () => WebAuthnConfigurationType$,
   ],
 ];
-export var SetUserPoolMfaConfigResponse: StaticStructureSchema = [
+export var SetUserPoolMfaConfigResponse$: StaticStructureSchema = [
   3,
   n0,
   _SUPMCRe,
   0,
   [_SMC, _STMC, _EMC, _MC, _WAC],
   [
-    () => SmsMfaConfigType,
-    () => SoftwareTokenMfaConfigType,
-    () => EmailMfaConfigType,
+    () => SmsMfaConfigType$,
+    () => SoftwareTokenMfaConfigType$,
+    () => EmailMfaConfigType$,
     0,
-    () => WebAuthnConfigurationType,
+    () => WebAuthnConfigurationType$,
   ],
 ];
-export var SetUserSettingsRequest: StaticStructureSchema = [
+export var SetUserSettingsRequest$: StaticStructureSchema = [
   3,
   n0,
   _SUSR,
@@ -2421,9 +2465,9 @@ export var SetUserSettingsRequest: StaticStructureSchema = [
   [_ATc, _MFAO],
   [[() => TokenModelType, 0], () => MFAOptionListType],
 ];
-export var SetUserSettingsResponse: StaticStructureSchema = [3, n0, _SUSRe, 0, [], []];
-export var SignInPolicyType: StaticStructureSchema = [3, n0, _SIPT, 0, [_AFAF], [64 | 0]];
-export var SignUpRequest: StaticStructureSchema = [
+export var SetUserSettingsResponse$: StaticStructureSchema = [3, n0, _SUSRe, 0, [], []];
+export var SignInPolicyType$: StaticStructureSchema = [3, n0, _SIPT, 0, [_AFAF], [64 | 0]];
+export var SignUpRequest$: StaticStructureSchema = [
   3,
   n0,
   _SUR,
@@ -2436,24 +2480,24 @@ export var SignUpRequest: StaticStructureSchema = [
     [() => PasswordType, 0],
     [() => AttributeListType, 0],
     [() => AttributeListType, 0],
-    () => AnalyticsMetadataType,
-    [() => UserContextDataType, 0],
+    () => AnalyticsMetadataType$,
+    [() => UserContextDataType$, 0],
     128 | 0,
   ],
 ];
-export var SignUpResponse: StaticStructureSchema = [
+export var SignUpResponse$: StaticStructureSchema = [
   3,
   n0,
   _SURi,
   0,
   [_UCs, _CDD, _USs, _S],
-  [2, () => CodeDeliveryDetailsType, 0, [() => SessionType, 0]],
+  [2, () => CodeDeliveryDetailsType$, 0, [() => SessionType, 0]],
 ];
-export var SmsConfigurationType: StaticStructureSchema = [3, n0, _SCTm, 0, [_SCA, _EIx, _SR], [0, 0, 0]];
-export var SmsMfaConfigType: StaticStructureSchema = [3, n0, _SMCT, 0, [_SAM, _SCm], [0, () => SmsConfigurationType]];
-export var SMSMfaSettingsType: StaticStructureSchema = [3, n0, _SMSMST, 0, [_E, _PM], [2, 2]];
-export var SoftwareTokenMfaConfigType: StaticStructureSchema = [3, n0, _STMCT, 0, [_E], [2]];
-export var SoftwareTokenMFANotFoundException: StaticErrorSchema = [
+export var SmsConfigurationType$: StaticStructureSchema = [3, n0, _SCTm, 0, [_SCA, _EIx, _SR], [0, 0, 0]];
+export var SmsMfaConfigType$: StaticStructureSchema = [3, n0, _SMCT, 0, [_SAM, _SCm], [0, () => SmsConfigurationType$]];
+export var SMSMfaSettingsType$: StaticStructureSchema = [3, n0, _SMSMST, 0, [_E, _PM], [2, 2]];
+export var SoftwareTokenMfaConfigType$: StaticStructureSchema = [3, n0, _STMCT, 0, [_E], [2]];
+export var SoftwareTokenMFANotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _STMFANFE,
@@ -2461,11 +2505,11 @@ export var SoftwareTokenMFANotFoundException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(SoftwareTokenMFANotFoundException, __SoftwareTokenMFANotFoundException);
-export var SoftwareTokenMfaSettingsType: StaticStructureSchema = [3, n0, _STMST, 0, [_E, _PM], [2, 2]];
-export var StartUserImportJobRequest: StaticStructureSchema = [3, n0, _SUIJR, 0, [_UPI, _JI], [0, 0]];
-export var StartUserImportJobResponse: StaticStructureSchema = [3, n0, _SUIJRt, 0, [_UIJ], [() => UserImportJobType]];
-export var StartWebAuthnRegistrationRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(SoftwareTokenMFANotFoundException$, SoftwareTokenMFANotFoundException);
+export var SoftwareTokenMfaSettingsType$: StaticStructureSchema = [3, n0, _STMST, 0, [_E, _PM], [2, 2]];
+export var StartUserImportJobRequest$: StaticStructureSchema = [3, n0, _SUIJR, 0, [_UPI, _JI], [0, 0]];
+export var StartUserImportJobResponse$: StaticStructureSchema = [3, n0, _SUIJRt, 0, [_UIJ], [() => UserImportJobType$]];
+export var StartWebAuthnRegistrationRequest$: StaticStructureSchema = [
   3,
   n0,
   _SWARR,
@@ -2473,16 +2517,30 @@ export var StartWebAuthnRegistrationRequest: StaticStructureSchema = [
   [_ATc],
   [[() => TokenModelType, 0]],
 ];
-export var StartWebAuthnRegistrationResponse: StaticStructureSchema = [3, n0, _SWARRt, 0, [_CCO], [15]];
-export var StopUserImportJobRequest: StaticStructureSchema = [3, n0, _SUIJRto, 0, [_UPI, _JI], [0, 0]];
-export var StopUserImportJobResponse: StaticStructureSchema = [3, n0, _SUIJRtop, 0, [_UIJ], [() => UserImportJobType]];
-export var StringAttributeConstraintsType: StaticStructureSchema = [3, n0, _SACT, 0, [_MLi, _MLa], [0, 0]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RAes, _Ta], [0, 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TermsDescriptionType: StaticStructureSchema = [3, n0, _TDT, 0, [_TI, _TN, _En, _CDr, _LMD], [0, 0, 0, 4, 4]];
-export var TermsExistsException: StaticErrorSchema = [-3, n0, _TEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(TermsExistsException, __TermsExistsException);
-export var TermsType: StaticStructureSchema = [
+export var StartWebAuthnRegistrationResponse$: StaticStructureSchema = [3, n0, _SWARRt, 0, [_CCO], [15]];
+export var StopUserImportJobRequest$: StaticStructureSchema = [3, n0, _SUIJRto, 0, [_UPI, _JI], [0, 0]];
+export var StopUserImportJobResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _SUIJRtop,
+  0,
+  [_UIJ],
+  [() => UserImportJobType$],
+];
+export var StringAttributeConstraintsType$: StaticStructureSchema = [3, n0, _SACT, 0, [_MLi, _MLa], [0, 0]];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_RAes, _Ta], [0, 128 | 0]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var TermsDescriptionType$: StaticStructureSchema = [
+  3,
+  n0,
+  _TDT,
+  0,
+  [_TI, _TN, _En, _CDr, _LMD],
+  [0, 0, 0, 4, 4],
+];
+export var TermsExistsException$: StaticErrorSchema = [-3, n0, _TEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(TermsExistsException$, TermsExistsException);
+export var TermsType$: StaticStructureSchema = [
   3,
   n0,
   _TTe,
@@ -2490,14 +2548,14 @@ export var TermsType: StaticStructureSchema = [
   [_TI, _UPI, _CI, _TN, _TS, _En, _Li, _CDr, _LMD],
   [0, 0, [() => ClientIdType, 0], 0, 0, 0, 128 | 0, 4, 4],
 ];
-export var TierChangeNotAllowedException: StaticErrorSchema = [-3, n0, _TCNAE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(TierChangeNotAllowedException, __TierChangeNotAllowedException);
-export var TokenValidityUnitsType: StaticStructureSchema = [3, n0, _TVUT, 0, [_ATc, _IT, _RT], [0, 0, 0]];
-export var TooManyFailedAttemptsException: StaticErrorSchema = [-3, n0, _TMFAE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(TooManyFailedAttemptsException, __TooManyFailedAttemptsException);
-export var TooManyRequestsException: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-export var UICustomizationType: StaticStructureSchema = [
+export var TierChangeNotAllowedException$: StaticErrorSchema = [-3, n0, _TCNAE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(TierChangeNotAllowedException$, TierChangeNotAllowedException);
+export var TokenValidityUnitsType$: StaticStructureSchema = [3, n0, _TVUT, 0, [_ATc, _IT, _RT], [0, 0, 0]];
+export var TooManyFailedAttemptsException$: StaticErrorSchema = [-3, n0, _TMFAE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(TooManyFailedAttemptsException$, TooManyFailedAttemptsException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
+export var UICustomizationType$: StaticStructureSchema = [
   3,
   n0,
   _UICT,
@@ -2505,11 +2563,11 @@ export var UICustomizationType: StaticStructureSchema = [
   [_UPI, _CI, _IU, _CSS, _CSSV, _LMD, _CDr],
   [0, [() => ClientIdType, 0], 0, 0, 0, 4, 4],
 ];
-export var UnauthorizedException: StaticErrorSchema = [-3, n0, _UE, { [_e]: _c, [_hE]: 401 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
-export var UnexpectedLambdaException: StaticErrorSchema = [-3, n0, _ULE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(UnexpectedLambdaException, __UnexpectedLambdaException);
-export var UnsupportedIdentityProviderException: StaticErrorSchema = [
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE, { [_e]: _c, [_hE]: 401 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
+export var UnexpectedLambdaException$: StaticErrorSchema = [-3, n0, _ULE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(UnexpectedLambdaException$, UnexpectedLambdaException);
+export var UnsupportedIdentityProviderException$: StaticErrorSchema = [
   -3,
   n0,
   _UIPE,
@@ -2517,16 +2575,16 @@ export var UnsupportedIdentityProviderException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(UnsupportedIdentityProviderException, __UnsupportedIdentityProviderException);
-export var UnsupportedOperationException: StaticErrorSchema = [-3, n0, _UOE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(UnsupportedOperationException, __UnsupportedOperationException);
-export var UnsupportedTokenTypeException: StaticErrorSchema = [-3, n0, _UTTE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(UnsupportedTokenTypeException, __UnsupportedTokenTypeException);
-export var UnsupportedUserStateException: StaticErrorSchema = [-3, n0, _UUSE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(UnsupportedUserStateException, __UnsupportedUserStateException);
-export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RAes, _TK], [0, 64 | 0]];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateAuthEventFeedbackRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(UnsupportedIdentityProviderException$, UnsupportedIdentityProviderException);
+export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(UnsupportedOperationException$, UnsupportedOperationException);
+export var UnsupportedTokenTypeException$: StaticErrorSchema = [-3, n0, _UTTE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(UnsupportedTokenTypeException$, UnsupportedTokenTypeException);
+export var UnsupportedUserStateException$: StaticErrorSchema = [-3, n0, _UUSE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(UnsupportedUserStateException$, UnsupportedUserStateException);
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR, 0, [_RAes, _TK], [0, 64 | 0]];
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateAuthEventFeedbackRequest$: StaticStructureSchema = [
   3,
   n0,
   _UAEFR,
@@ -2534,8 +2592,8 @@ export var UpdateAuthEventFeedbackRequest: StaticStructureSchema = [
   [_UPI, _U, _EI, _FT, _FV],
   [0, [() => UsernameType, 0], 0, [() => TokenModelType, 0], 0],
 ];
-export var UpdateAuthEventFeedbackResponse: StaticStructureSchema = [3, n0, _UAEFRp, 0, [], []];
-export var UpdateDeviceStatusRequest: StaticStructureSchema = [
+export var UpdateAuthEventFeedbackResponse$: StaticStructureSchema = [3, n0, _UAEFRp, 0, [], []];
+export var UpdateDeviceStatusRequest$: StaticStructureSchema = [
   3,
   n0,
   _UDSR,
@@ -2543,10 +2601,10 @@ export var UpdateDeviceStatusRequest: StaticStructureSchema = [
   [_ATc, _DK, _DRS],
   [[() => TokenModelType, 0], 0, 0],
 ];
-export var UpdateDeviceStatusResponse: StaticStructureSchema = [3, n0, _UDSRp, 0, [], []];
-export var UpdateGroupRequest: StaticStructureSchema = [3, n0, _UGR, 0, [_GN, _UPI, _Desc, _RA, _Pr], [0, 0, 0, 0, 1]];
-export var UpdateGroupResponse: StaticStructureSchema = [3, n0, _UGRp, 0, [_Gr], [() => GroupType]];
-export var UpdateIdentityProviderRequest: StaticStructureSchema = [
+export var UpdateDeviceStatusResponse$: StaticStructureSchema = [3, n0, _UDSRp, 0, [], []];
+export var UpdateGroupRequest$: StaticStructureSchema = [3, n0, _UGR, 0, [_GN, _UPI, _Desc, _RA, _Pr], [0, 0, 0, 0, 1]];
+export var UpdateGroupResponse$: StaticStructureSchema = [3, n0, _UGRp, 0, [_Gr], [() => GroupType$]];
+export var UpdateIdentityProviderRequest$: StaticStructureSchema = [
   3,
   n0,
   _UIPR,
@@ -2554,15 +2612,15 @@ export var UpdateIdentityProviderRequest: StaticStructureSchema = [
   [_UPI, _PN, _PD, _AMt, _II],
   [0, 0, 128 | 0, 128 | 0, 64 | 0],
 ];
-export var UpdateIdentityProviderResponse: StaticStructureSchema = [
+export var UpdateIdentityProviderResponse$: StaticStructureSchema = [
   3,
   n0,
   _UIPRp,
   0,
   [_IP],
-  [() => IdentityProviderType],
+  [() => IdentityProviderType$],
 ];
-export var UpdateManagedLoginBrandingRequest: StaticStructureSchema = [
+export var UpdateManagedLoginBrandingRequest$: StaticStructureSchema = [
   3,
   n0,
   _UMLBR,
@@ -2570,15 +2628,15 @@ export var UpdateManagedLoginBrandingRequest: StaticStructureSchema = [
   [_UPI, _MLBI, _UCPV, _Se, _As],
   [0, 0, 2, 15, () => AssetListType],
 ];
-export var UpdateManagedLoginBrandingResponse: StaticStructureSchema = [
+export var UpdateManagedLoginBrandingResponse$: StaticStructureSchema = [
   3,
   n0,
   _UMLBRp,
   0,
   [_MLB],
-  [() => ManagedLoginBrandingType],
+  [() => ManagedLoginBrandingType$],
 ];
-export var UpdateResourceServerRequest: StaticStructureSchema = [
+export var UpdateResourceServerRequest$: StaticStructureSchema = [
   3,
   n0,
   _URSR,
@@ -2586,8 +2644,15 @@ export var UpdateResourceServerRequest: StaticStructureSchema = [
   [_UPI, _I, _Na, _Sc],
   [0, 0, 0, () => ResourceServerScopeListType],
 ];
-export var UpdateResourceServerResponse: StaticStructureSchema = [3, n0, _URSRp, 0, [_RS], [() => ResourceServerType]];
-export var UpdateTermsRequest: StaticStructureSchema = [
+export var UpdateResourceServerResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _URSRp,
+  0,
+  [_RS],
+  [() => ResourceServerType$],
+];
+export var UpdateTermsRequest$: StaticStructureSchema = [
   3,
   n0,
   _UTR,
@@ -2595,8 +2660,8 @@ export var UpdateTermsRequest: StaticStructureSchema = [
   [_TI, _UPI, _TN, _TS, _En, _Li],
   [0, 0, 0, 0, 0, 128 | 0],
 ];
-export var UpdateTermsResponse: StaticStructureSchema = [3, n0, _UTRp, 0, [_T], [[() => TermsType, 0]]];
-export var UpdateUserAttributesRequest: StaticStructureSchema = [
+export var UpdateTermsResponse$: StaticStructureSchema = [3, n0, _UTRp, 0, [_T], [[() => TermsType$, 0]]];
+export var UpdateUserAttributesRequest$: StaticStructureSchema = [
   3,
   n0,
   _UUAR,
@@ -2604,7 +2669,7 @@ export var UpdateUserAttributesRequest: StaticStructureSchema = [
   [_UA, _ATc, _CM],
   [[() => AttributeListType, 0], [() => TokenModelType, 0], 128 | 0],
 ];
-export var UpdateUserAttributesResponse: StaticStructureSchema = [
+export var UpdateUserAttributesResponse$: StaticStructureSchema = [
   3,
   n0,
   _UUARp,
@@ -2612,7 +2677,7 @@ export var UpdateUserAttributesResponse: StaticStructureSchema = [
   [_CDDL],
   [() => CodeDeliveryDetailsListType],
 ];
-export var UpdateUserPoolClientRequest: StaticStructureSchema = [
+export var UpdateUserPoolClientRequest$: StaticStructureSchema = [
   3,
   n0,
   _UUPCR,
@@ -2649,7 +2714,7 @@ export var UpdateUserPoolClientRequest: StaticStructureSchema = [
     1,
     1,
     1,
-    () => TokenValidityUnitsType,
+    () => TokenValidityUnitsType$,
     64 | 0,
     64 | 0,
     64 | 0,
@@ -2660,32 +2725,32 @@ export var UpdateUserPoolClientRequest: StaticStructureSchema = [
     64 | 0,
     64 | 0,
     2,
-    () => AnalyticsConfigurationType,
+    () => AnalyticsConfigurationType$,
     0,
     2,
     2,
     1,
-    () => RefreshTokenRotationType,
+    () => RefreshTokenRotationType$,
   ],
 ];
-export var UpdateUserPoolClientResponse: StaticStructureSchema = [
+export var UpdateUserPoolClientResponse$: StaticStructureSchema = [
   3,
   n0,
   _UUPCRp,
   0,
   [_UPC],
-  [[() => UserPoolClientType, 0]],
+  [[() => UserPoolClientType$, 0]],
 ];
-export var UpdateUserPoolDomainRequest: StaticStructureSchema = [
+export var UpdateUserPoolDomainRequest$: StaticStructureSchema = [
   3,
   n0,
   _UUPDR,
   0,
   [_Do, _UPI, _MLV, _CDC],
-  [0, 0, 1, () => CustomDomainConfigType],
+  [0, 0, 1, () => CustomDomainConfigType$],
 ];
-export var UpdateUserPoolDomainResponse: StaticStructureSchema = [3, n0, _UUPDRp, 0, [_MLV, _CFD], [1, 0]];
-export var UpdateUserPoolRequest: StaticStructureSchema = [
+export var UpdateUserPoolDomainResponse$: StaticStructureSchema = [3, n0, _UUPDRp, 0, [_MLV, _CFD], [1, 0]];
+export var UpdateUserPoolRequest$: StaticStructureSchema = [
   3,
   n0,
   _UUPR,
@@ -2715,34 +2780,34 @@ export var UpdateUserPoolRequest: StaticStructureSchema = [
   ],
   [
     0,
-    () => UserPoolPolicyType,
+    () => UserPoolPolicyType$,
     0,
-    () => LambdaConfigType,
+    () => LambdaConfigType$,
     64 | 0,
     0,
     0,
     0,
-    () => VerificationMessageTemplateType,
+    () => VerificationMessageTemplateType$,
     0,
-    () => UserAttributeUpdateSettingsType,
+    () => UserAttributeUpdateSettingsType$,
     0,
-    () => DeviceConfigurationType,
-    () => EmailConfigurationType,
-    () => SmsConfigurationType,
+    () => DeviceConfigurationType$,
+    () => EmailConfigurationType$,
+    () => SmsConfigurationType$,
     128 | 0,
-    () => AdminCreateUserConfigType,
-    () => UserPoolAddOnsType,
-    () => AccountRecoverySettingType,
+    () => AdminCreateUserConfigType$,
+    () => UserPoolAddOnsType$,
+    () => AccountRecoverySettingType$,
     0,
     0,
   ],
 ];
-export var UpdateUserPoolResponse: StaticStructureSchema = [3, n0, _UUPRp, 0, [], []];
-export var UserAttributeUpdateSettingsType: StaticStructureSchema = [3, n0, _UAUST, 0, [_ARVBU], [64 | 0]];
-export var UserContextDataType: StaticStructureSchema = [3, n0, _UCDT, 8, [_IA, _ED], [0, 0]];
-export var UserImportInProgressException: StaticErrorSchema = [-3, n0, _UIIPE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(UserImportInProgressException, __UserImportInProgressException);
-export var UserImportJobType: StaticStructureSchema = [
+export var UpdateUserPoolResponse$: StaticStructureSchema = [3, n0, _UUPRp, 0, [], []];
+export var UserAttributeUpdateSettingsType$: StaticStructureSchema = [3, n0, _UAUST, 0, [_ARVBU], [64 | 0]];
+export var UserContextDataType$: StaticStructureSchema = [3, n0, _UCDT, 8, [_IA, _ED], [0, 0]];
+export var UserImportInProgressException$: StaticErrorSchema = [-3, n0, _UIIPE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(UserImportInProgressException$, UserImportInProgressException);
+export var UserImportJobType$: StaticStructureSchema = [
   3,
   n0,
   _UIJT,
@@ -2750,16 +2815,16 @@ export var UserImportJobType: StaticStructureSchema = [
   [_JN, _JI, _UPI, _PSUr, _CDr, _SDt, _CDo, _St, _CWLRA, _IUm, _SUk, _FU, _CMom],
   [0, 0, 0, 0, 4, 4, 4, 0, 0, 1, 1, 1, 0],
 ];
-export var UserLambdaValidationException: StaticErrorSchema = [-3, n0, _ULVE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(UserLambdaValidationException, __UserLambdaValidationException);
-export var UsernameConfigurationType: StaticStructureSchema = [3, n0, _UCT, 0, [_CSa], [2]];
-export var UsernameExistsException: StaticErrorSchema = [-3, n0, _UEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(UsernameExistsException, __UsernameExistsException);
-export var UserNotConfirmedException: StaticErrorSchema = [-3, n0, _UNCE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(UserNotConfirmedException, __UserNotConfirmedException);
-export var UserNotFoundException: StaticErrorSchema = [-3, n0, _UNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(UserNotFoundException, __UserNotFoundException);
-export var UserPoolAddOnNotEnabledException: StaticErrorSchema = [
+export var UserLambdaValidationException$: StaticErrorSchema = [-3, n0, _ULVE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(UserLambdaValidationException$, UserLambdaValidationException);
+export var UsernameConfigurationType$: StaticStructureSchema = [3, n0, _UCT, 0, [_CSa], [2]];
+export var UsernameExistsException$: StaticErrorSchema = [-3, n0, _UEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(UsernameExistsException$, UsernameExistsException);
+export var UserNotConfirmedException$: StaticErrorSchema = [-3, n0, _UNCE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(UserNotConfirmedException$, UserNotConfirmedException);
+export var UserNotFoundException$: StaticErrorSchema = [-3, n0, _UNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(UserNotFoundException$, UserNotFoundException);
+export var UserPoolAddOnNotEnabledException$: StaticErrorSchema = [
   -3,
   n0,
   _UPAONEE,
@@ -2767,16 +2832,16 @@ export var UserPoolAddOnNotEnabledException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(UserPoolAddOnNotEnabledException, __UserPoolAddOnNotEnabledException);
-export var UserPoolAddOnsType: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(UserPoolAddOnNotEnabledException$, UserPoolAddOnNotEnabledException);
+export var UserPoolAddOnsType$: StaticStructureSchema = [
   3,
   n0,
   _UPAOT,
   0,
   [_ASM, _ASAF],
-  [0, () => AdvancedSecurityAdditionalFlowsType],
+  [0, () => AdvancedSecurityAdditionalFlowsType$],
 ];
-export var UserPoolClientDescription: StaticStructureSchema = [
+export var UserPoolClientDescription$: StaticStructureSchema = [
   3,
   n0,
   _UPCD,
@@ -2784,7 +2849,7 @@ export var UserPoolClientDescription: StaticStructureSchema = [
   [_CI, _UPI, _CNl],
   [[() => ClientIdType, 0], 0, 0],
 ];
-export var UserPoolClientType: StaticStructureSchema = [
+export var UserPoolClientType$: StaticStructureSchema = [
   3,
   n0,
   _UPCT,
@@ -2827,7 +2892,7 @@ export var UserPoolClientType: StaticStructureSchema = [
     1,
     1,
     1,
-    () => TokenValidityUnitsType,
+    () => TokenValidityUnitsType$,
     64 | 0,
     64 | 0,
     64 | 0,
@@ -2838,33 +2903,33 @@ export var UserPoolClientType: StaticStructureSchema = [
     64 | 0,
     64 | 0,
     2,
-    () => AnalyticsConfigurationType,
+    () => AnalyticsConfigurationType$,
     0,
     2,
     2,
     1,
-    () => RefreshTokenRotationType,
+    () => RefreshTokenRotationType$,
   ],
 ];
-export var UserPoolDescriptionType: StaticStructureSchema = [
+export var UserPoolDescriptionType$: StaticStructureSchema = [
   3,
   n0,
   _UPDT,
   0,
   [_Id, _Na, _LC, _St, _LMD, _CDr],
-  [0, 0, () => LambdaConfigType, 0, 4, 4],
+  [0, 0, () => LambdaConfigType$, 0, 4, 4],
 ];
-export var UserPoolPolicyType: StaticStructureSchema = [
+export var UserPoolPolicyType$: StaticStructureSchema = [
   3,
   n0,
   _UPPT,
   0,
   [_PPa, _SIPi],
-  [() => PasswordPolicyType, () => SignInPolicyType],
+  [() => PasswordPolicyType$, () => SignInPolicyType$],
 ];
-export var UserPoolTaggingException: StaticErrorSchema = [-3, n0, _UPTE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(UserPoolTaggingException, __UserPoolTaggingException);
-export var UserPoolType: StaticStructureSchema = [
+export var UserPoolTaggingException$: StaticErrorSchema = [-3, n0, _UPTE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(UserPoolTaggingException$, UserPoolTaggingException);
+export var UserPoolType$: StaticStructureSchema = [
   3,
   n0,
   _UPTse,
@@ -2908,9 +2973,9 @@ export var UserPoolType: StaticStructureSchema = [
   [
     0,
     0,
-    () => UserPoolPolicyType,
+    () => UserPoolPolicyType$,
     0,
-    () => LambdaConfigType,
+    () => LambdaConfigType$,
     0,
     4,
     4,
@@ -2921,28 +2986,28 @@ export var UserPoolType: StaticStructureSchema = [
     0,
     0,
     0,
-    () => VerificationMessageTemplateType,
+    () => VerificationMessageTemplateType$,
     0,
-    () => UserAttributeUpdateSettingsType,
+    () => UserAttributeUpdateSettingsType$,
     0,
-    () => DeviceConfigurationType,
+    () => DeviceConfigurationType$,
     1,
-    () => EmailConfigurationType,
-    () => SmsConfigurationType,
+    () => EmailConfigurationType$,
+    () => SmsConfigurationType$,
     128 | 0,
     0,
     0,
     0,
     0,
-    () => AdminCreateUserConfigType,
-    () => UserPoolAddOnsType,
-    () => UsernameConfigurationType,
+    () => AdminCreateUserConfigType$,
+    () => UserPoolAddOnsType$,
+    () => UsernameConfigurationType$,
     0,
-    () => AccountRecoverySettingType,
+    () => AccountRecoverySettingType$,
     0,
   ],
 ];
-export var UserType: StaticStructureSchema = [
+export var UserType$: StaticStructureSchema = [
   3,
   n0,
   _UTs,
@@ -2950,7 +3015,7 @@ export var UserType: StaticStructureSchema = [
   [_U, _At, _UCD, _ULMD, _E, _US, _MFAO],
   [[() => UsernameType, 0], [() => AttributeListType, 0], 4, 4, 2, 0, () => MFAOptionListType],
 ];
-export var VerificationMessageTemplateType: StaticStructureSchema = [
+export var VerificationMessageTemplateType$: StaticStructureSchema = [
   3,
   n0,
   _VMTT,
@@ -2958,7 +3023,7 @@ export var VerificationMessageTemplateType: StaticStructureSchema = [
   [_SM, _EM, _ESm, _EMBL, _ESBL, _DEO],
   [0, 0, 0, 0, 0, 0],
 ];
-export var VerifySoftwareTokenRequest: StaticStructureSchema = [
+export var VerifySoftwareTokenRequest$: StaticStructureSchema = [
   3,
   n0,
   _VSTR,
@@ -2966,7 +3031,7 @@ export var VerifySoftwareTokenRequest: StaticStructureSchema = [
   [_ATc, _S, _UCse, _FDN],
   [[() => TokenModelType, 0], [() => SessionType, 0], [() => SoftwareTokenMFAUserCodeType, 0], 0],
 ];
-export var VerifySoftwareTokenResponse: StaticStructureSchema = [
+export var VerifySoftwareTokenResponse$: StaticStructureSchema = [
   3,
   n0,
   _VSTRe,
@@ -2974,7 +3039,7 @@ export var VerifySoftwareTokenResponse: StaticStructureSchema = [
   [_St, _S],
   [0, [() => SessionType, 0]],
 ];
-export var VerifyUserAttributeRequest: StaticStructureSchema = [
+export var VerifyUserAttributeRequest$: StaticStructureSchema = [
   3,
   n0,
   _VUAR,
@@ -2982,8 +3047,8 @@ export var VerifyUserAttributeRequest: StaticStructureSchema = [
   [_ATc, _AN, _Cod],
   [[() => TokenModelType, 0], 0, 0],
 ];
-export var VerifyUserAttributeResponse: StaticStructureSchema = [3, n0, _VUARe, 0, [], []];
-export var WebAuthnChallengeNotFoundException: StaticErrorSchema = [
+export var VerifyUserAttributeResponse$: StaticStructureSchema = [3, n0, _VUARe, 0, [], []];
+export var WebAuthnChallengeNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _WACNFE,
@@ -2991,10 +3056,10 @@ export var WebAuthnChallengeNotFoundException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(WebAuthnChallengeNotFoundException, __WebAuthnChallengeNotFoundException);
-export var WebAuthnClientMismatchException: StaticErrorSchema = [-3, n0, _WACME, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(WebAuthnClientMismatchException, __WebAuthnClientMismatchException);
-export var WebAuthnConfigurationMissingException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(WebAuthnChallengeNotFoundException$, WebAuthnChallengeNotFoundException);
+export var WebAuthnClientMismatchException$: StaticErrorSchema = [-3, n0, _WACME, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(WebAuthnClientMismatchException$, WebAuthnClientMismatchException);
+export var WebAuthnConfigurationMissingException$: StaticErrorSchema = [
   -3,
   n0,
   _WACMEe,
@@ -3002,9 +3067,9 @@ export var WebAuthnConfigurationMissingException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(WebAuthnConfigurationMissingException, __WebAuthnConfigurationMissingException);
-export var WebAuthnConfigurationType: StaticStructureSchema = [3, n0, _WACT, 0, [_RPI, _UV], [0, 0]];
-export var WebAuthnCredentialDescription: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(WebAuthnConfigurationMissingException$, WebAuthnConfigurationMissingException);
+export var WebAuthnConfigurationType$: StaticStructureSchema = [3, n0, _WACT, 0, [_RPI, _UV], [0, 0]];
+export var WebAuthnCredentialDescription$: StaticStructureSchema = [
   3,
   n0,
   _WACD,
@@ -3012,7 +3077,7 @@ export var WebAuthnCredentialDescription: StaticStructureSchema = [
   [_CIr, _FCN, _RPI, _AAu, _ATu, _CAr],
   [0, 0, 0, 0, 64 | 0, 4],
 ];
-export var WebAuthnCredentialNotSupportedException: StaticErrorSchema = [
+export var WebAuthnCredentialNotSupportedException$: StaticErrorSchema = [
   -3,
   n0,
   _WACNSE,
@@ -3020,10 +3085,10 @@ export var WebAuthnCredentialNotSupportedException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(WebAuthnCredentialNotSupportedException, __WebAuthnCredentialNotSupportedException);
-export var WebAuthnNotEnabledException: StaticErrorSchema = [-3, n0, _WANEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(WebAuthnNotEnabledException, __WebAuthnNotEnabledException);
-export var WebAuthnOriginNotAllowedException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(WebAuthnCredentialNotSupportedException$, WebAuthnCredentialNotSupportedException);
+export var WebAuthnNotEnabledException$: StaticErrorSchema = [-3, n0, _WANEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(WebAuthnNotEnabledException$, WebAuthnNotEnabledException);
+export var WebAuthnOriginNotAllowedException$: StaticErrorSchema = [
   -3,
   n0,
   _WAONAE,
@@ -3031,8 +3096,8 @@ export var WebAuthnOriginNotAllowedException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(WebAuthnOriginNotAllowedException, __WebAuthnOriginNotAllowedException);
-export var WebAuthnRelyingPartyMismatchException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(WebAuthnOriginNotAllowedException$, WebAuthnOriginNotAllowedException);
+export var WebAuthnRelyingPartyMismatchException$: StaticErrorSchema = [
   -3,
   n0,
   _WARPME,
@@ -3040,9 +3105,9 @@ export var WebAuthnRelyingPartyMismatchException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(WebAuthnRelyingPartyMismatchException, __WebAuthnRelyingPartyMismatchException);
-export var __Unit = "unit" as const;
-export var CognitoIdentityProviderServiceException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(WebAuthnRelyingPartyMismatchException$, WebAuthnRelyingPartyMismatchException);
+var __Unit = "unit" as const;
+export var CognitoIdentityProviderServiceException$: StaticErrorSchema = [
   -3,
   _sm,
   "CognitoIdentityProviderServiceException",
@@ -3050,870 +3115,878 @@ export var CognitoIdentityProviderServiceException: StaticErrorSchema = [
   [],
   [],
 ];
-TypeRegistry.for(_sm).registerError(CognitoIdentityProviderServiceException, __CognitoIdentityProviderServiceException);
-export var AliasAttributesListType = 64 | 0;
-export var AllowedFirstAuthFactorsListType = 64 | 0;
-export var AssetListType: StaticListSchema = [1, n0, _ALT, 0, () => AssetType];
-export var AttributeListType: StaticListSchema = [1, n0, _ALTt, 0, [() => AttributeType, 0]];
-export var AttributeNameListType = 64 | 0;
-export var AttributesRequireVerificationBeforeUpdateType = 64 | 0;
-export var AuthEventsType: StaticListSchema = [1, n0, _AETu, 0, () => AuthEventType];
-export var AvailableChallengeListType = 64 | 0;
-export var BlockedIPRangeListType = 64 | 0;
-export var CallbackURLsListType = 64 | 0;
-export var ChallengeResponseListType: StaticListSchema = [1, n0, _CRLT, 0, () => ChallengeResponseType];
-export var ClientPermissionListType = 64 | 0;
-export var CodeDeliveryDetailsListType: StaticListSchema = [1, n0, _CDDLT, 0, () => CodeDeliveryDetailsType];
-export var ConfiguredUserAuthFactorsListType = 64 | 0;
-export var CustomAttributesListType: StaticListSchema = [1, n0, _CALT, 0, () => SchemaAttributeType];
-export var DeliveryMediumListType = 64 | 0;
-export var DeviceListType: StaticListSchema = [1, n0, _DLT, 0, [() => DeviceType, 0]];
-export var EventFiltersType = 64 | 0;
-export var ExplicitAuthFlowsListType = 64 | 0;
-export var GroupListType: StaticListSchema = [1, n0, _GLT, 0, () => GroupType];
-export var HttpHeaderList: StaticListSchema = [1, n0, _HHL, 0, () => HttpHeader];
-export var IdpIdentifiersListType = 64 | 0;
-export var ListOfStringTypes = 64 | 0;
-export var LogConfigurationListType: StaticListSchema = [1, n0, _LCLT, 0, () => LogConfigurationType];
-export var LogoutURLsListType = 64 | 0;
-export var MFAOptionListType: StaticListSchema = [1, n0, _MFAOLT, 0, () => MFAOptionType];
-export var OAuthFlowsType = 64 | 0;
-export var ProvidersListType: StaticListSchema = [1, n0, _PLT, 0, () => ProviderDescription];
-export var RecoveryMechanismsType: StaticListSchema = [1, n0, _RMT, 0, () => RecoveryOptionType];
-export var ResourceServerScopeListType: StaticListSchema = [1, n0, _RSSLT, 0, () => ResourceServerScopeType];
-export var ResourceServersListType: StaticListSchema = [1, n0, _RSLT, 0, () => ResourceServerType];
-export var SchemaAttributesListType: StaticListSchema = [1, n0, _SALT, 0, () => SchemaAttributeType];
-export var ScopeListType = 64 | 0;
-export var SearchedAttributeNamesListType = 64 | 0;
-export var SkippedIPRangeListType = 64 | 0;
-export var SupportedIdentityProvidersListType = 64 | 0;
-export var TermsDescriptionListType: StaticListSchema = [1, n0, _TDLT, 0, () => TermsDescriptionType];
-export var UserImportJobsListType: StaticListSchema = [1, n0, _UIJLT, 0, () => UserImportJobType];
-export var UserMFASettingListType = 64 | 0;
-export var UsernameAttributesListType = 64 | 0;
-export var UserPoolClientListType: StaticListSchema = [1, n0, _UPCLT, 0, [() => UserPoolClientDescription, 0]];
-export var UserPoolListType: StaticListSchema = [1, n0, _UPLT, 0, () => UserPoolDescriptionType];
-export var UserPoolTagsListType = 64 | 0;
-export var UsersListType: StaticListSchema = [1, n0, _ULT, 0, [() => UserType, 0]];
-export var VerifiedAttributesListType = 64 | 0;
-export var WebAuthnAuthenticatorTransportsList = 64 | 0;
-export var WebAuthnCredentialDescriptionListType: StaticListSchema = [
-  1,
-  n0,
-  _WACDLT,
-  0,
-  () => WebAuthnCredentialDescription,
-];
-export var AttributeMappingType = 128 | 0;
-export var AuthParametersType: StaticMapSchema = [2, n0, _APT, 8, 0, 0];
-export var ChallengeParametersType = 128 | 0;
-export var ChallengeResponsesType: StaticMapSchema = [2, n0, _CRTh, 8, 0, 0];
-export var ClientMetadataType = 128 | 0;
-export var LinksType = 128 | 0;
-export var ProviderDetailsType = 128 | 0;
-export var UserPoolTagsType = 128 | 0;
-export var AddCustomAttributes: StaticOperationSchema = [
+TypeRegistry.for(_sm).registerError(CognitoIdentityProviderServiceException$, CognitoIdentityProviderServiceException);
+var AliasAttributesListType = 64 | 0;
+var AllowedFirstAuthFactorsListType = 64 | 0;
+var AssetListType: StaticListSchema = [1, n0, _ALT, 0, () => AssetType$];
+var AttributeListType: StaticListSchema = [1, n0, _ALTt, 0, [() => AttributeType$, 0]];
+var AttributeNameListType = 64 | 0;
+var AttributesRequireVerificationBeforeUpdateType = 64 | 0;
+var AuthEventsType: StaticListSchema = [1, n0, _AETu, 0, () => AuthEventType$];
+var AvailableChallengeListType = 64 | 0;
+var BlockedIPRangeListType = 64 | 0;
+var CallbackURLsListType = 64 | 0;
+var ChallengeResponseListType: StaticListSchema = [1, n0, _CRLT, 0, () => ChallengeResponseType$];
+var ClientPermissionListType = 64 | 0;
+var CodeDeliveryDetailsListType: StaticListSchema = [1, n0, _CDDLT, 0, () => CodeDeliveryDetailsType$];
+var ConfiguredUserAuthFactorsListType = 64 | 0;
+var CustomAttributesListType: StaticListSchema = [1, n0, _CALT, 0, () => SchemaAttributeType$];
+var DeliveryMediumListType = 64 | 0;
+var DeviceListType: StaticListSchema = [1, n0, _DLT, 0, [() => DeviceType$, 0]];
+var EventFiltersType = 64 | 0;
+var ExplicitAuthFlowsListType = 64 | 0;
+var GroupListType: StaticListSchema = [1, n0, _GLT, 0, () => GroupType$];
+var HttpHeaderList: StaticListSchema = [1, n0, _HHL, 0, () => HttpHeader$];
+var IdpIdentifiersListType = 64 | 0;
+var ListOfStringTypes = 64 | 0;
+var LogConfigurationListType: StaticListSchema = [1, n0, _LCLT, 0, () => LogConfigurationType$];
+var LogoutURLsListType = 64 | 0;
+var MFAOptionListType: StaticListSchema = [1, n0, _MFAOLT, 0, () => MFAOptionType$];
+var OAuthFlowsType = 64 | 0;
+var ProvidersListType: StaticListSchema = [1, n0, _PLT, 0, () => ProviderDescription$];
+var RecoveryMechanismsType: StaticListSchema = [1, n0, _RMT, 0, () => RecoveryOptionType$];
+var ResourceServerScopeListType: StaticListSchema = [1, n0, _RSSLT, 0, () => ResourceServerScopeType$];
+var ResourceServersListType: StaticListSchema = [1, n0, _RSLT, 0, () => ResourceServerType$];
+var SchemaAttributesListType: StaticListSchema = [1, n0, _SALT, 0, () => SchemaAttributeType$];
+var ScopeListType = 64 | 0;
+var SearchedAttributeNamesListType = 64 | 0;
+var SkippedIPRangeListType = 64 | 0;
+var SupportedIdentityProvidersListType = 64 | 0;
+var TermsDescriptionListType: StaticListSchema = [1, n0, _TDLT, 0, () => TermsDescriptionType$];
+var UserImportJobsListType: StaticListSchema = [1, n0, _UIJLT, 0, () => UserImportJobType$];
+var UserMFASettingListType = 64 | 0;
+var UsernameAttributesListType = 64 | 0;
+var UserPoolClientListType: StaticListSchema = [1, n0, _UPCLT, 0, [() => UserPoolClientDescription$, 0]];
+var UserPoolListType: StaticListSchema = [1, n0, _UPLT, 0, () => UserPoolDescriptionType$];
+var UserPoolTagsListType = 64 | 0;
+var UsersListType: StaticListSchema = [1, n0, _ULT, 0, [() => UserType$, 0]];
+var VerifiedAttributesListType = 64 | 0;
+var WebAuthnAuthenticatorTransportsList = 64 | 0;
+var WebAuthnCredentialDescriptionListType: StaticListSchema = [1, n0, _WACDLT, 0, () => WebAuthnCredentialDescription$];
+var AttributeMappingType = 128 | 0;
+var AuthParametersType: StaticMapSchema = [2, n0, _APT, 8, 0, 0];
+var ChallengeParametersType = 128 | 0;
+var ChallengeResponsesType: StaticMapSchema = [2, n0, _CRTh, 8, 0, 0];
+var ClientMetadataType = 128 | 0;
+var LinksType = 128 | 0;
+var ProviderDetailsType = 128 | 0;
+var UserPoolTagsType = 128 | 0;
+export var AddCustomAttributes$: StaticOperationSchema = [
   9,
   n0,
   _ACA,
   0,
-  () => AddCustomAttributesRequest,
-  () => AddCustomAttributesResponse,
+  () => AddCustomAttributesRequest$,
+  () => AddCustomAttributesResponse$,
 ];
-export var AdminAddUserToGroup: StaticOperationSchema = [
+export var AdminAddUserToGroup$: StaticOperationSchema = [
   9,
   n0,
   _AAUTG,
   0,
-  () => AdminAddUserToGroupRequest,
+  () => AdminAddUserToGroupRequest$,
   () => __Unit,
 ];
-export var AdminConfirmSignUp: StaticOperationSchema = [
+export var AdminConfirmSignUp$: StaticOperationSchema = [
   9,
   n0,
   _ACSU,
   0,
-  () => AdminConfirmSignUpRequest,
-  () => AdminConfirmSignUpResponse,
+  () => AdminConfirmSignUpRequest$,
+  () => AdminConfirmSignUpResponse$,
 ];
-export var AdminCreateUser: StaticOperationSchema = [
+export var AdminCreateUser$: StaticOperationSchema = [
   9,
   n0,
   _ACU,
   0,
-  () => AdminCreateUserRequest,
-  () => AdminCreateUserResponse,
+  () => AdminCreateUserRequest$,
+  () => AdminCreateUserResponse$,
 ];
-export var AdminDeleteUser: StaticOperationSchema = [9, n0, _ADU, 0, () => AdminDeleteUserRequest, () => __Unit];
-export var AdminDeleteUserAttributes: StaticOperationSchema = [
+export var AdminDeleteUser$: StaticOperationSchema = [9, n0, _ADU, 0, () => AdminDeleteUserRequest$, () => __Unit];
+export var AdminDeleteUserAttributes$: StaticOperationSchema = [
   9,
   n0,
   _ADUA,
   0,
-  () => AdminDeleteUserAttributesRequest,
-  () => AdminDeleteUserAttributesResponse,
+  () => AdminDeleteUserAttributesRequest$,
+  () => AdminDeleteUserAttributesResponse$,
 ];
-export var AdminDisableProviderForUser: StaticOperationSchema = [
+export var AdminDisableProviderForUser$: StaticOperationSchema = [
   9,
   n0,
   _ADPFU,
   0,
-  () => AdminDisableProviderForUserRequest,
-  () => AdminDisableProviderForUserResponse,
+  () => AdminDisableProviderForUserRequest$,
+  () => AdminDisableProviderForUserResponse$,
 ];
-export var AdminDisableUser: StaticOperationSchema = [
+export var AdminDisableUser$: StaticOperationSchema = [
   9,
   n0,
   _ADUd,
   0,
-  () => AdminDisableUserRequest,
-  () => AdminDisableUserResponse,
+  () => AdminDisableUserRequest$,
+  () => AdminDisableUserResponse$,
 ];
-export var AdminEnableUser: StaticOperationSchema = [
+export var AdminEnableUser$: StaticOperationSchema = [
   9,
   n0,
   _AEU,
   0,
-  () => AdminEnableUserRequest,
-  () => AdminEnableUserResponse,
+  () => AdminEnableUserRequest$,
+  () => AdminEnableUserResponse$,
 ];
-export var AdminForgetDevice: StaticOperationSchema = [9, n0, _AFD, 0, () => AdminForgetDeviceRequest, () => __Unit];
-export var AdminGetDevice: StaticOperationSchema = [
+export var AdminForgetDevice$: StaticOperationSchema = [9, n0, _AFD, 0, () => AdminForgetDeviceRequest$, () => __Unit];
+export var AdminGetDevice$: StaticOperationSchema = [
   9,
   n0,
   _AGD,
   0,
-  () => AdminGetDeviceRequest,
-  () => AdminGetDeviceResponse,
+  () => AdminGetDeviceRequest$,
+  () => AdminGetDeviceResponse$,
 ];
-export var AdminGetUser: StaticOperationSchema = [
+export var AdminGetUser$: StaticOperationSchema = [
   9,
   n0,
   _AGU,
   0,
-  () => AdminGetUserRequest,
-  () => AdminGetUserResponse,
+  () => AdminGetUserRequest$,
+  () => AdminGetUserResponse$,
 ];
-export var AdminInitiateAuth: StaticOperationSchema = [
+export var AdminInitiateAuth$: StaticOperationSchema = [
   9,
   n0,
   _AIA,
   0,
-  () => AdminInitiateAuthRequest,
-  () => AdminInitiateAuthResponse,
+  () => AdminInitiateAuthRequest$,
+  () => AdminInitiateAuthResponse$,
 ];
-export var AdminLinkProviderForUser: StaticOperationSchema = [
+export var AdminLinkProviderForUser$: StaticOperationSchema = [
   9,
   n0,
   _ALPFU,
   0,
-  () => AdminLinkProviderForUserRequest,
-  () => AdminLinkProviderForUserResponse,
+  () => AdminLinkProviderForUserRequest$,
+  () => AdminLinkProviderForUserResponse$,
 ];
-export var AdminListDevices: StaticOperationSchema = [
+export var AdminListDevices$: StaticOperationSchema = [
   9,
   n0,
   _ALD,
   0,
-  () => AdminListDevicesRequest,
-  () => AdminListDevicesResponse,
+  () => AdminListDevicesRequest$,
+  () => AdminListDevicesResponse$,
 ];
-export var AdminListGroupsForUser: StaticOperationSchema = [
+export var AdminListGroupsForUser$: StaticOperationSchema = [
   9,
   n0,
   _ALGFU,
   0,
-  () => AdminListGroupsForUserRequest,
-  () => AdminListGroupsForUserResponse,
+  () => AdminListGroupsForUserRequest$,
+  () => AdminListGroupsForUserResponse$,
 ];
-export var AdminListUserAuthEvents: StaticOperationSchema = [
+export var AdminListUserAuthEvents$: StaticOperationSchema = [
   9,
   n0,
   _ALUAE,
   0,
-  () => AdminListUserAuthEventsRequest,
-  () => AdminListUserAuthEventsResponse,
+  () => AdminListUserAuthEventsRequest$,
+  () => AdminListUserAuthEventsResponse$,
 ];
-export var AdminRemoveUserFromGroup: StaticOperationSchema = [
+export var AdminRemoveUserFromGroup$: StaticOperationSchema = [
   9,
   n0,
   _ARUFG,
   0,
-  () => AdminRemoveUserFromGroupRequest,
+  () => AdminRemoveUserFromGroupRequest$,
   () => __Unit,
 ];
-export var AdminResetUserPassword: StaticOperationSchema = [
+export var AdminResetUserPassword$: StaticOperationSchema = [
   9,
   n0,
   _ARUP,
   0,
-  () => AdminResetUserPasswordRequest,
-  () => AdminResetUserPasswordResponse,
+  () => AdminResetUserPasswordRequest$,
+  () => AdminResetUserPasswordResponse$,
 ];
-export var AdminRespondToAuthChallenge: StaticOperationSchema = [
+export var AdminRespondToAuthChallenge$: StaticOperationSchema = [
   9,
   n0,
   _ARTAC,
   0,
-  () => AdminRespondToAuthChallengeRequest,
-  () => AdminRespondToAuthChallengeResponse,
+  () => AdminRespondToAuthChallengeRequest$,
+  () => AdminRespondToAuthChallengeResponse$,
 ];
-export var AdminSetUserMFAPreference: StaticOperationSchema = [
+export var AdminSetUserMFAPreference$: StaticOperationSchema = [
   9,
   n0,
   _ASUMFAP,
   0,
-  () => AdminSetUserMFAPreferenceRequest,
-  () => AdminSetUserMFAPreferenceResponse,
+  () => AdminSetUserMFAPreferenceRequest$,
+  () => AdminSetUserMFAPreferenceResponse$,
 ];
-export var AdminSetUserPassword: StaticOperationSchema = [
+export var AdminSetUserPassword$: StaticOperationSchema = [
   9,
   n0,
   _ASUP,
   0,
-  () => AdminSetUserPasswordRequest,
-  () => AdminSetUserPasswordResponse,
+  () => AdminSetUserPasswordRequest$,
+  () => AdminSetUserPasswordResponse$,
 ];
-export var AdminSetUserSettings: StaticOperationSchema = [
+export var AdminSetUserSettings$: StaticOperationSchema = [
   9,
   n0,
   _ASUS,
   0,
-  () => AdminSetUserSettingsRequest,
-  () => AdminSetUserSettingsResponse,
+  () => AdminSetUserSettingsRequest$,
+  () => AdminSetUserSettingsResponse$,
 ];
-export var AdminUpdateAuthEventFeedback: StaticOperationSchema = [
+export var AdminUpdateAuthEventFeedback$: StaticOperationSchema = [
   9,
   n0,
   _AUAEF,
   0,
-  () => AdminUpdateAuthEventFeedbackRequest,
-  () => AdminUpdateAuthEventFeedbackResponse,
+  () => AdminUpdateAuthEventFeedbackRequest$,
+  () => AdminUpdateAuthEventFeedbackResponse$,
 ];
-export var AdminUpdateDeviceStatus: StaticOperationSchema = [
+export var AdminUpdateDeviceStatus$: StaticOperationSchema = [
   9,
   n0,
   _AUDS,
   0,
-  () => AdminUpdateDeviceStatusRequest,
-  () => AdminUpdateDeviceStatusResponse,
+  () => AdminUpdateDeviceStatusRequest$,
+  () => AdminUpdateDeviceStatusResponse$,
 ];
-export var AdminUpdateUserAttributes: StaticOperationSchema = [
+export var AdminUpdateUserAttributes$: StaticOperationSchema = [
   9,
   n0,
   _AUUA,
   0,
-  () => AdminUpdateUserAttributesRequest,
-  () => AdminUpdateUserAttributesResponse,
+  () => AdminUpdateUserAttributesRequest$,
+  () => AdminUpdateUserAttributesResponse$,
 ];
-export var AdminUserGlobalSignOut: StaticOperationSchema = [
+export var AdminUserGlobalSignOut$: StaticOperationSchema = [
   9,
   n0,
   _AUGSO,
   0,
-  () => AdminUserGlobalSignOutRequest,
-  () => AdminUserGlobalSignOutResponse,
+  () => AdminUserGlobalSignOutRequest$,
+  () => AdminUserGlobalSignOutResponse$,
 ];
-export var AssociateSoftwareToken: StaticOperationSchema = [
+export var AssociateSoftwareToken$: StaticOperationSchema = [
   9,
   n0,
   _AST,
   0,
-  () => AssociateSoftwareTokenRequest,
-  () => AssociateSoftwareTokenResponse,
+  () => AssociateSoftwareTokenRequest$,
+  () => AssociateSoftwareTokenResponse$,
 ];
-export var ChangePassword: StaticOperationSchema = [
+export var ChangePassword$: StaticOperationSchema = [
   9,
   n0,
   _CPh,
   0,
-  () => ChangePasswordRequest,
-  () => ChangePasswordResponse,
+  () => ChangePasswordRequest$,
+  () => ChangePasswordResponse$,
 ];
-export var CompleteWebAuthnRegistration: StaticOperationSchema = [
+export var CompleteWebAuthnRegistration$: StaticOperationSchema = [
   9,
   n0,
   _CWAR,
   0,
-  () => CompleteWebAuthnRegistrationRequest,
-  () => CompleteWebAuthnRegistrationResponse,
+  () => CompleteWebAuthnRegistrationRequest$,
+  () => CompleteWebAuthnRegistrationResponse$,
 ];
-export var ConfirmDevice: StaticOperationSchema = [
+export var ConfirmDevice$: StaticOperationSchema = [
   9,
   n0,
   _CDon,
   0,
-  () => ConfirmDeviceRequest,
-  () => ConfirmDeviceResponse,
+  () => ConfirmDeviceRequest$,
+  () => ConfirmDeviceResponse$,
 ];
-export var ConfirmForgotPassword: StaticOperationSchema = [
+export var ConfirmForgotPassword$: StaticOperationSchema = [
   9,
   n0,
   _CFP,
   0,
-  () => ConfirmForgotPasswordRequest,
-  () => ConfirmForgotPasswordResponse,
+  () => ConfirmForgotPasswordRequest$,
+  () => ConfirmForgotPasswordResponse$,
 ];
-export var ConfirmSignUp: StaticOperationSchema = [
+export var ConfirmSignUp$: StaticOperationSchema = [
   9,
   n0,
   _CSU,
   0,
-  () => ConfirmSignUpRequest,
-  () => ConfirmSignUpResponse,
+  () => ConfirmSignUpRequest$,
+  () => ConfirmSignUpResponse$,
 ];
-export var CreateGroup: StaticOperationSchema = [9, n0, _CG, 0, () => CreateGroupRequest, () => CreateGroupResponse];
-export var CreateIdentityProvider: StaticOperationSchema = [
+export var CreateGroup$: StaticOperationSchema = [9, n0, _CG, 0, () => CreateGroupRequest$, () => CreateGroupResponse$];
+export var CreateIdentityProvider$: StaticOperationSchema = [
   9,
   n0,
   _CIP,
   0,
-  () => CreateIdentityProviderRequest,
-  () => CreateIdentityProviderResponse,
+  () => CreateIdentityProviderRequest$,
+  () => CreateIdentityProviderResponse$,
 ];
-export var CreateManagedLoginBranding: StaticOperationSchema = [
+export var CreateManagedLoginBranding$: StaticOperationSchema = [
   9,
   n0,
   _CMLB,
   0,
-  () => CreateManagedLoginBrandingRequest,
-  () => CreateManagedLoginBrandingResponse,
+  () => CreateManagedLoginBrandingRequest$,
+  () => CreateManagedLoginBrandingResponse$,
 ];
-export var CreateResourceServer: StaticOperationSchema = [
+export var CreateResourceServer$: StaticOperationSchema = [
   9,
   n0,
   _CRS,
   0,
-  () => CreateResourceServerRequest,
-  () => CreateResourceServerResponse,
+  () => CreateResourceServerRequest$,
+  () => CreateResourceServerResponse$,
 ];
-export var CreateTerms: StaticOperationSchema = [9, n0, _CT, 0, () => CreateTermsRequest, () => CreateTermsResponse];
-export var CreateUserImportJob: StaticOperationSchema = [
+export var CreateTerms$: StaticOperationSchema = [9, n0, _CT, 0, () => CreateTermsRequest$, () => CreateTermsResponse$];
+export var CreateUserImportJob$: StaticOperationSchema = [
   9,
   n0,
   _CUIJ,
   0,
-  () => CreateUserImportJobRequest,
-  () => CreateUserImportJobResponse,
+  () => CreateUserImportJobRequest$,
+  () => CreateUserImportJobResponse$,
 ];
-export var CreateUserPool: StaticOperationSchema = [
+export var CreateUserPool$: StaticOperationSchema = [
   9,
   n0,
   _CUP,
   0,
-  () => CreateUserPoolRequest,
-  () => CreateUserPoolResponse,
+  () => CreateUserPoolRequest$,
+  () => CreateUserPoolResponse$,
 ];
-export var CreateUserPoolClient: StaticOperationSchema = [
+export var CreateUserPoolClient$: StaticOperationSchema = [
   9,
   n0,
   _CUPC,
   0,
-  () => CreateUserPoolClientRequest,
-  () => CreateUserPoolClientResponse,
+  () => CreateUserPoolClientRequest$,
+  () => CreateUserPoolClientResponse$,
 ];
-export var CreateUserPoolDomain: StaticOperationSchema = [
+export var CreateUserPoolDomain$: StaticOperationSchema = [
   9,
   n0,
   _CUPD,
   0,
-  () => CreateUserPoolDomainRequest,
-  () => CreateUserPoolDomainResponse,
+  () => CreateUserPoolDomainRequest$,
+  () => CreateUserPoolDomainResponse$,
 ];
-export var DeleteGroup: StaticOperationSchema = [9, n0, _DG, 0, () => DeleteGroupRequest, () => __Unit];
-export var DeleteIdentityProvider: StaticOperationSchema = [
+export var DeleteGroup$: StaticOperationSchema = [9, n0, _DG, 0, () => DeleteGroupRequest$, () => __Unit];
+export var DeleteIdentityProvider$: StaticOperationSchema = [
   9,
   n0,
   _DIP,
   0,
-  () => DeleteIdentityProviderRequest,
+  () => DeleteIdentityProviderRequest$,
   () => __Unit,
 ];
-export var DeleteManagedLoginBranding: StaticOperationSchema = [
+export var DeleteManagedLoginBranding$: StaticOperationSchema = [
   9,
   n0,
   _DMLB,
   0,
-  () => DeleteManagedLoginBrandingRequest,
+  () => DeleteManagedLoginBrandingRequest$,
   () => __Unit,
 ];
-export var DeleteResourceServer: StaticOperationSchema = [
+export var DeleteResourceServer$: StaticOperationSchema = [
   9,
   n0,
   _DRSe,
   0,
-  () => DeleteResourceServerRequest,
+  () => DeleteResourceServerRequest$,
   () => __Unit,
 ];
-export var DeleteTerms: StaticOperationSchema = [9, n0, _DTe, 0, () => DeleteTermsRequest, () => __Unit];
-export var DeleteUser: StaticOperationSchema = [9, n0, _DUe, 0, () => DeleteUserRequest, () => __Unit];
-export var DeleteUserAttributes: StaticOperationSchema = [
+export var DeleteTerms$: StaticOperationSchema = [9, n0, _DTe, 0, () => DeleteTermsRequest$, () => __Unit];
+export var DeleteUser$: StaticOperationSchema = [9, n0, _DUe, 0, () => DeleteUserRequest$, () => __Unit];
+export var DeleteUserAttributes$: StaticOperationSchema = [
   9,
   n0,
   _DUA,
   0,
-  () => DeleteUserAttributesRequest,
-  () => DeleteUserAttributesResponse,
+  () => DeleteUserAttributesRequest$,
+  () => DeleteUserAttributesResponse$,
 ];
-export var DeleteUserPool: StaticOperationSchema = [9, n0, _DUP, 0, () => DeleteUserPoolRequest, () => __Unit];
-export var DeleteUserPoolClient: StaticOperationSchema = [
+export var DeleteUserPool$: StaticOperationSchema = [9, n0, _DUP, 0, () => DeleteUserPoolRequest$, () => __Unit];
+export var DeleteUserPoolClient$: StaticOperationSchema = [
   9,
   n0,
   _DUPC,
   0,
-  () => DeleteUserPoolClientRequest,
+  () => DeleteUserPoolClientRequest$,
   () => __Unit,
 ];
-export var DeleteUserPoolDomain: StaticOperationSchema = [
+export var DeleteUserPoolDomain$: StaticOperationSchema = [
   9,
   n0,
   _DUPD,
   0,
-  () => DeleteUserPoolDomainRequest,
-  () => DeleteUserPoolDomainResponse,
+  () => DeleteUserPoolDomainRequest$,
+  () => DeleteUserPoolDomainResponse$,
 ];
-export var DeleteWebAuthnCredential: StaticOperationSchema = [
+export var DeleteWebAuthnCredential$: StaticOperationSchema = [
   9,
   n0,
   _DWAC,
   0,
-  () => DeleteWebAuthnCredentialRequest,
-  () => DeleteWebAuthnCredentialResponse,
+  () => DeleteWebAuthnCredentialRequest$,
+  () => DeleteWebAuthnCredentialResponse$,
 ];
-export var DescribeIdentityProvider: StaticOperationSchema = [
+export var DescribeIdentityProvider$: StaticOperationSchema = [
   9,
   n0,
   _DIPe,
   0,
-  () => DescribeIdentityProviderRequest,
-  () => DescribeIdentityProviderResponse,
+  () => DescribeIdentityProviderRequest$,
+  () => DescribeIdentityProviderResponse$,
 ];
-export var DescribeManagedLoginBranding: StaticOperationSchema = [
+export var DescribeManagedLoginBranding$: StaticOperationSchema = [
   9,
   n0,
   _DMLBe,
   0,
-  () => DescribeManagedLoginBrandingRequest,
-  () => DescribeManagedLoginBrandingResponse,
+  () => DescribeManagedLoginBrandingRequest$,
+  () => DescribeManagedLoginBrandingResponse$,
 ];
-export var DescribeManagedLoginBrandingByClient: StaticOperationSchema = [
+export var DescribeManagedLoginBrandingByClient$: StaticOperationSchema = [
   9,
   n0,
   _DMLBBC,
   0,
-  () => DescribeManagedLoginBrandingByClientRequest,
-  () => DescribeManagedLoginBrandingByClientResponse,
+  () => DescribeManagedLoginBrandingByClientRequest$,
+  () => DescribeManagedLoginBrandingByClientResponse$,
 ];
-export var DescribeResourceServer: StaticOperationSchema = [
+export var DescribeResourceServer$: StaticOperationSchema = [
   9,
   n0,
   _DRSes,
   0,
-  () => DescribeResourceServerRequest,
-  () => DescribeResourceServerResponse,
+  () => DescribeResourceServerRequest$,
+  () => DescribeResourceServerResponse$,
 ];
-export var DescribeRiskConfiguration: StaticOperationSchema = [
+export var DescribeRiskConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DRC,
   0,
-  () => DescribeRiskConfigurationRequest,
-  () => DescribeRiskConfigurationResponse,
+  () => DescribeRiskConfigurationRequest$,
+  () => DescribeRiskConfigurationResponse$,
 ];
-export var DescribeTerms: StaticOperationSchema = [
+export var DescribeTerms$: StaticOperationSchema = [
   9,
   n0,
   _DTes,
   0,
-  () => DescribeTermsRequest,
-  () => DescribeTermsResponse,
+  () => DescribeTermsRequest$,
+  () => DescribeTermsResponse$,
 ];
-export var DescribeUserImportJob: StaticOperationSchema = [
+export var DescribeUserImportJob$: StaticOperationSchema = [
   9,
   n0,
   _DUIJ,
   0,
-  () => DescribeUserImportJobRequest,
-  () => DescribeUserImportJobResponse,
+  () => DescribeUserImportJobRequest$,
+  () => DescribeUserImportJobResponse$,
 ];
-export var DescribeUserPool: StaticOperationSchema = [
+export var DescribeUserPool$: StaticOperationSchema = [
   9,
   n0,
   _DUPe,
   0,
-  () => DescribeUserPoolRequest,
-  () => DescribeUserPoolResponse,
+  () => DescribeUserPoolRequest$,
+  () => DescribeUserPoolResponse$,
 ];
-export var DescribeUserPoolClient: StaticOperationSchema = [
+export var DescribeUserPoolClient$: StaticOperationSchema = [
   9,
   n0,
   _DUPCe,
   0,
-  () => DescribeUserPoolClientRequest,
-  () => DescribeUserPoolClientResponse,
+  () => DescribeUserPoolClientRequest$,
+  () => DescribeUserPoolClientResponse$,
 ];
-export var DescribeUserPoolDomain: StaticOperationSchema = [
+export var DescribeUserPoolDomain$: StaticOperationSchema = [
   9,
   n0,
   _DUPDe,
   0,
-  () => DescribeUserPoolDomainRequest,
-  () => DescribeUserPoolDomainResponse,
+  () => DescribeUserPoolDomainRequest$,
+  () => DescribeUserPoolDomainResponse$,
 ];
-export var ForgetDevice: StaticOperationSchema = [9, n0, _FDo, 0, () => ForgetDeviceRequest, () => __Unit];
-export var ForgotPassword: StaticOperationSchema = [
+export var ForgetDevice$: StaticOperationSchema = [9, n0, _FDo, 0, () => ForgetDeviceRequest$, () => __Unit];
+export var ForgotPassword$: StaticOperationSchema = [
   9,
   n0,
   _FP,
   0,
-  () => ForgotPasswordRequest,
-  () => ForgotPasswordResponse,
+  () => ForgotPasswordRequest$,
+  () => ForgotPasswordResponse$,
 ];
-export var GetCSVHeader: StaticOperationSchema = [
+export var GetCSVHeader$: StaticOperationSchema = [
   9,
   n0,
   _GCSVH,
   0,
-  () => GetCSVHeaderRequest,
-  () => GetCSVHeaderResponse,
+  () => GetCSVHeaderRequest$,
+  () => GetCSVHeaderResponse$,
 ];
-export var GetDevice: StaticOperationSchema = [9, n0, _GD, 0, () => GetDeviceRequest, () => GetDeviceResponse];
-export var GetGroup: StaticOperationSchema = [9, n0, _GG, 0, () => GetGroupRequest, () => GetGroupResponse];
-export var GetIdentityProviderByIdentifier: StaticOperationSchema = [
+export var GetDevice$: StaticOperationSchema = [9, n0, _GD, 0, () => GetDeviceRequest$, () => GetDeviceResponse$];
+export var GetGroup$: StaticOperationSchema = [9, n0, _GG, 0, () => GetGroupRequest$, () => GetGroupResponse$];
+export var GetIdentityProviderByIdentifier$: StaticOperationSchema = [
   9,
   n0,
   _GIPBI,
   0,
-  () => GetIdentityProviderByIdentifierRequest,
-  () => GetIdentityProviderByIdentifierResponse,
+  () => GetIdentityProviderByIdentifierRequest$,
+  () => GetIdentityProviderByIdentifierResponse$,
 ];
-export var GetLogDeliveryConfiguration: StaticOperationSchema = [
+export var GetLogDeliveryConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GLDC,
   0,
-  () => GetLogDeliveryConfigurationRequest,
-  () => GetLogDeliveryConfigurationResponse,
+  () => GetLogDeliveryConfigurationRequest$,
+  () => GetLogDeliveryConfigurationResponse$,
 ];
-export var GetSigningCertificate: StaticOperationSchema = [
+export var GetSigningCertificate$: StaticOperationSchema = [
   9,
   n0,
   _GSC,
   0,
-  () => GetSigningCertificateRequest,
-  () => GetSigningCertificateResponse,
+  () => GetSigningCertificateRequest$,
+  () => GetSigningCertificateResponse$,
 ];
-export var GetTokensFromRefreshToken: StaticOperationSchema = [
+export var GetTokensFromRefreshToken$: StaticOperationSchema = [
   9,
   n0,
   _GTFRT,
   0,
-  () => GetTokensFromRefreshTokenRequest,
-  () => GetTokensFromRefreshTokenResponse,
+  () => GetTokensFromRefreshTokenRequest$,
+  () => GetTokensFromRefreshTokenResponse$,
 ];
-export var GetUICustomization: StaticOperationSchema = [
+export var GetUICustomization$: StaticOperationSchema = [
   9,
   n0,
   _GUIC,
   0,
-  () => GetUICustomizationRequest,
-  () => GetUICustomizationResponse,
+  () => GetUICustomizationRequest$,
+  () => GetUICustomizationResponse$,
 ];
-export var GetUser: StaticOperationSchema = [9, n0, _GU, 0, () => GetUserRequest, () => GetUserResponse];
-export var GetUserAttributeVerificationCode: StaticOperationSchema = [
+export var GetUser$: StaticOperationSchema = [9, n0, _GU, 0, () => GetUserRequest$, () => GetUserResponse$];
+export var GetUserAttributeVerificationCode$: StaticOperationSchema = [
   9,
   n0,
   _GUAVC,
   0,
-  () => GetUserAttributeVerificationCodeRequest,
-  () => GetUserAttributeVerificationCodeResponse,
+  () => GetUserAttributeVerificationCodeRequest$,
+  () => GetUserAttributeVerificationCodeResponse$,
 ];
-export var GetUserAuthFactors: StaticOperationSchema = [
+export var GetUserAuthFactors$: StaticOperationSchema = [
   9,
   n0,
   _GUAF,
   0,
-  () => GetUserAuthFactorsRequest,
-  () => GetUserAuthFactorsResponse,
+  () => GetUserAuthFactorsRequest$,
+  () => GetUserAuthFactorsResponse$,
 ];
-export var GetUserPoolMfaConfig: StaticOperationSchema = [
+export var GetUserPoolMfaConfig$: StaticOperationSchema = [
   9,
   n0,
   _GUPMC,
   0,
-  () => GetUserPoolMfaConfigRequest,
-  () => GetUserPoolMfaConfigResponse,
+  () => GetUserPoolMfaConfigRequest$,
+  () => GetUserPoolMfaConfigResponse$,
 ];
-export var GlobalSignOut: StaticOperationSchema = [
+export var GlobalSignOut$: StaticOperationSchema = [
   9,
   n0,
   _GSO,
   0,
-  () => GlobalSignOutRequest,
-  () => GlobalSignOutResponse,
+  () => GlobalSignOutRequest$,
+  () => GlobalSignOutResponse$,
 ];
-export var InitiateAuth: StaticOperationSchema = [
+export var InitiateAuth$: StaticOperationSchema = [
   9,
   n0,
   _IAn,
   0,
-  () => InitiateAuthRequest,
-  () => InitiateAuthResponse,
+  () => InitiateAuthRequest$,
+  () => InitiateAuthResponse$,
 ];
-export var ListDevices: StaticOperationSchema = [9, n0, _LD, 0, () => ListDevicesRequest, () => ListDevicesResponse];
-export var ListGroups: StaticOperationSchema = [9, n0, _LG, 0, () => ListGroupsRequest, () => ListGroupsResponse];
-export var ListIdentityProviders: StaticOperationSchema = [
+export var ListDevices$: StaticOperationSchema = [9, n0, _LD, 0, () => ListDevicesRequest$, () => ListDevicesResponse$];
+export var ListGroups$: StaticOperationSchema = [9, n0, _LG, 0, () => ListGroupsRequest$, () => ListGroupsResponse$];
+export var ListIdentityProviders$: StaticOperationSchema = [
   9,
   n0,
   _LIP,
   0,
-  () => ListIdentityProvidersRequest,
-  () => ListIdentityProvidersResponse,
+  () => ListIdentityProvidersRequest$,
+  () => ListIdentityProvidersResponse$,
 ];
-export var ListResourceServers: StaticOperationSchema = [
+export var ListResourceServers$: StaticOperationSchema = [
   9,
   n0,
   _LRS,
   0,
-  () => ListResourceServersRequest,
-  () => ListResourceServersResponse,
+  () => ListResourceServersRequest$,
+  () => ListResourceServersResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   0,
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var ListTerms: StaticOperationSchema = [9, n0, _LT, 0, () => ListTermsRequest, () => ListTermsResponse];
-export var ListUserImportJobs: StaticOperationSchema = [
+export var ListTerms$: StaticOperationSchema = [9, n0, _LT, 0, () => ListTermsRequest$, () => ListTermsResponse$];
+export var ListUserImportJobs$: StaticOperationSchema = [
   9,
   n0,
   _LUIJ,
   0,
-  () => ListUserImportJobsRequest,
-  () => ListUserImportJobsResponse,
+  () => ListUserImportJobsRequest$,
+  () => ListUserImportJobsResponse$,
 ];
-export var ListUserPoolClients: StaticOperationSchema = [
+export var ListUserPoolClients$: StaticOperationSchema = [
   9,
   n0,
   _LUPC,
   0,
-  () => ListUserPoolClientsRequest,
-  () => ListUserPoolClientsResponse,
+  () => ListUserPoolClientsRequest$,
+  () => ListUserPoolClientsResponse$,
 ];
-export var ListUserPools: StaticOperationSchema = [
+export var ListUserPools$: StaticOperationSchema = [
   9,
   n0,
   _LUP,
   0,
-  () => ListUserPoolsRequest,
-  () => ListUserPoolsResponse,
+  () => ListUserPoolsRequest$,
+  () => ListUserPoolsResponse$,
 ];
-export var ListUsers: StaticOperationSchema = [9, n0, _LU, 0, () => ListUsersRequest, () => ListUsersResponse];
-export var ListUsersInGroup: StaticOperationSchema = [
+export var ListUsers$: StaticOperationSchema = [9, n0, _LU, 0, () => ListUsersRequest$, () => ListUsersResponse$];
+export var ListUsersInGroup$: StaticOperationSchema = [
   9,
   n0,
   _LUIG,
   0,
-  () => ListUsersInGroupRequest,
-  () => ListUsersInGroupResponse,
+  () => ListUsersInGroupRequest$,
+  () => ListUsersInGroupResponse$,
 ];
-export var ListWebAuthnCredentials: StaticOperationSchema = [
+export var ListWebAuthnCredentials$: StaticOperationSchema = [
   9,
   n0,
   _LWAC,
   0,
-  () => ListWebAuthnCredentialsRequest,
-  () => ListWebAuthnCredentialsResponse,
+  () => ListWebAuthnCredentialsRequest$,
+  () => ListWebAuthnCredentialsResponse$,
 ];
-export var ResendConfirmationCode: StaticOperationSchema = [
+export var ResendConfirmationCode$: StaticOperationSchema = [
   9,
   n0,
   _RCC,
   0,
-  () => ResendConfirmationCodeRequest,
-  () => ResendConfirmationCodeResponse,
+  () => ResendConfirmationCodeRequest$,
+  () => ResendConfirmationCodeResponse$,
 ];
-export var RespondToAuthChallenge: StaticOperationSchema = [
+export var RespondToAuthChallenge$: StaticOperationSchema = [
   9,
   n0,
   _RTAC,
   0,
-  () => RespondToAuthChallengeRequest,
-  () => RespondToAuthChallengeResponse,
+  () => RespondToAuthChallengeRequest$,
+  () => RespondToAuthChallengeResponse$,
 ];
-export var RevokeToken: StaticOperationSchema = [9, n0, _RTev, 0, () => RevokeTokenRequest, () => RevokeTokenResponse];
-export var SetLogDeliveryConfiguration: StaticOperationSchema = [
+export var RevokeToken$: StaticOperationSchema = [
+  9,
+  n0,
+  _RTev,
+  0,
+  () => RevokeTokenRequest$,
+  () => RevokeTokenResponse$,
+];
+export var SetLogDeliveryConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _SLDC,
   0,
-  () => SetLogDeliveryConfigurationRequest,
-  () => SetLogDeliveryConfigurationResponse,
+  () => SetLogDeliveryConfigurationRequest$,
+  () => SetLogDeliveryConfigurationResponse$,
 ];
-export var SetRiskConfiguration: StaticOperationSchema = [
+export var SetRiskConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _SRC,
   0,
-  () => SetRiskConfigurationRequest,
-  () => SetRiskConfigurationResponse,
+  () => SetRiskConfigurationRequest$,
+  () => SetRiskConfigurationResponse$,
 ];
-export var SetUICustomization: StaticOperationSchema = [
+export var SetUICustomization$: StaticOperationSchema = [
   9,
   n0,
   _SUIC,
   0,
-  () => SetUICustomizationRequest,
-  () => SetUICustomizationResponse,
+  () => SetUICustomizationRequest$,
+  () => SetUICustomizationResponse$,
 ];
-export var SetUserMFAPreference: StaticOperationSchema = [
+export var SetUserMFAPreference$: StaticOperationSchema = [
   9,
   n0,
   _SUMFAP,
   0,
-  () => SetUserMFAPreferenceRequest,
-  () => SetUserMFAPreferenceResponse,
+  () => SetUserMFAPreferenceRequest$,
+  () => SetUserMFAPreferenceResponse$,
 ];
-export var SetUserPoolMfaConfig: StaticOperationSchema = [
+export var SetUserPoolMfaConfig$: StaticOperationSchema = [
   9,
   n0,
   _SUPMC,
   0,
-  () => SetUserPoolMfaConfigRequest,
-  () => SetUserPoolMfaConfigResponse,
+  () => SetUserPoolMfaConfigRequest$,
+  () => SetUserPoolMfaConfigResponse$,
 ];
-export var SetUserSettings: StaticOperationSchema = [
+export var SetUserSettings$: StaticOperationSchema = [
   9,
   n0,
   _SUS,
   0,
-  () => SetUserSettingsRequest,
-  () => SetUserSettingsResponse,
+  () => SetUserSettingsRequest$,
+  () => SetUserSettingsResponse$,
 ];
-export var SignUp: StaticOperationSchema = [9, n0, _SUi, 0, () => SignUpRequest, () => SignUpResponse];
-export var StartUserImportJob: StaticOperationSchema = [
+export var SignUp$: StaticOperationSchema = [9, n0, _SUi, 0, () => SignUpRequest$, () => SignUpResponse$];
+export var StartUserImportJob$: StaticOperationSchema = [
   9,
   n0,
   _SUIJ,
   0,
-  () => StartUserImportJobRequest,
-  () => StartUserImportJobResponse,
+  () => StartUserImportJobRequest$,
+  () => StartUserImportJobResponse$,
 ];
-export var StartWebAuthnRegistration: StaticOperationSchema = [
+export var StartWebAuthnRegistration$: StaticOperationSchema = [
   9,
   n0,
   _SWAR,
   0,
-  () => StartWebAuthnRegistrationRequest,
-  () => StartWebAuthnRegistrationResponse,
+  () => StartWebAuthnRegistrationRequest$,
+  () => StartWebAuthnRegistrationResponse$,
 ];
-export var StopUserImportJob: StaticOperationSchema = [
+export var StopUserImportJob$: StaticOperationSchema = [
   9,
   n0,
   _SUIJt,
   0,
-  () => StopUserImportJobRequest,
-  () => StopUserImportJobResponse,
+  () => StopUserImportJobRequest$,
+  () => StopUserImportJobResponse$,
 ];
-export var TagResource: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceRequest, () => TagResourceResponse];
-export var UntagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceRequest$, () => TagResourceResponse$];
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   0,
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateAuthEventFeedback: StaticOperationSchema = [
+export var UpdateAuthEventFeedback$: StaticOperationSchema = [
   9,
   n0,
   _UAEF,
   0,
-  () => UpdateAuthEventFeedbackRequest,
-  () => UpdateAuthEventFeedbackResponse,
+  () => UpdateAuthEventFeedbackRequest$,
+  () => UpdateAuthEventFeedbackResponse$,
 ];
-export var UpdateDeviceStatus: StaticOperationSchema = [
+export var UpdateDeviceStatus$: StaticOperationSchema = [
   9,
   n0,
   _UDSp,
   0,
-  () => UpdateDeviceStatusRequest,
-  () => UpdateDeviceStatusResponse,
+  () => UpdateDeviceStatusRequest$,
+  () => UpdateDeviceStatusResponse$,
 ];
-export var UpdateGroup: StaticOperationSchema = [9, n0, _UG, 0, () => UpdateGroupRequest, () => UpdateGroupResponse];
-export var UpdateIdentityProvider: StaticOperationSchema = [
+export var UpdateGroup$: StaticOperationSchema = [9, n0, _UG, 0, () => UpdateGroupRequest$, () => UpdateGroupResponse$];
+export var UpdateIdentityProvider$: StaticOperationSchema = [
   9,
   n0,
   _UIP,
   0,
-  () => UpdateIdentityProviderRequest,
-  () => UpdateIdentityProviderResponse,
+  () => UpdateIdentityProviderRequest$,
+  () => UpdateIdentityProviderResponse$,
 ];
-export var UpdateManagedLoginBranding: StaticOperationSchema = [
+export var UpdateManagedLoginBranding$: StaticOperationSchema = [
   9,
   n0,
   _UMLB,
   0,
-  () => UpdateManagedLoginBrandingRequest,
-  () => UpdateManagedLoginBrandingResponse,
+  () => UpdateManagedLoginBrandingRequest$,
+  () => UpdateManagedLoginBrandingResponse$,
 ];
-export var UpdateResourceServer: StaticOperationSchema = [
+export var UpdateResourceServer$: StaticOperationSchema = [
   9,
   n0,
   _URS,
   0,
-  () => UpdateResourceServerRequest,
-  () => UpdateResourceServerResponse,
+  () => UpdateResourceServerRequest$,
+  () => UpdateResourceServerResponse$,
 ];
-export var UpdateTerms: StaticOperationSchema = [9, n0, _UTp, 0, () => UpdateTermsRequest, () => UpdateTermsResponse];
-export var UpdateUserAttributes: StaticOperationSchema = [
+export var UpdateTerms$: StaticOperationSchema = [
+  9,
+  n0,
+  _UTp,
+  0,
+  () => UpdateTermsRequest$,
+  () => UpdateTermsResponse$,
+];
+export var UpdateUserAttributes$: StaticOperationSchema = [
   9,
   n0,
   _UUA,
   0,
-  () => UpdateUserAttributesRequest,
-  () => UpdateUserAttributesResponse,
+  () => UpdateUserAttributesRequest$,
+  () => UpdateUserAttributesResponse$,
 ];
-export var UpdateUserPool: StaticOperationSchema = [
+export var UpdateUserPool$: StaticOperationSchema = [
   9,
   n0,
   _UUP,
   0,
-  () => UpdateUserPoolRequest,
-  () => UpdateUserPoolResponse,
+  () => UpdateUserPoolRequest$,
+  () => UpdateUserPoolResponse$,
 ];
-export var UpdateUserPoolClient: StaticOperationSchema = [
+export var UpdateUserPoolClient$: StaticOperationSchema = [
   9,
   n0,
   _UUPC,
   0,
-  () => UpdateUserPoolClientRequest,
-  () => UpdateUserPoolClientResponse,
+  () => UpdateUserPoolClientRequest$,
+  () => UpdateUserPoolClientResponse$,
 ];
-export var UpdateUserPoolDomain: StaticOperationSchema = [
+export var UpdateUserPoolDomain$: StaticOperationSchema = [
   9,
   n0,
   _UUPD,
   0,
-  () => UpdateUserPoolDomainRequest,
-  () => UpdateUserPoolDomainResponse,
+  () => UpdateUserPoolDomainRequest$,
+  () => UpdateUserPoolDomainResponse$,
 ];
-export var VerifySoftwareToken: StaticOperationSchema = [
+export var VerifySoftwareToken$: StaticOperationSchema = [
   9,
   n0,
   _VST,
   0,
-  () => VerifySoftwareTokenRequest,
-  () => VerifySoftwareTokenResponse,
+  () => VerifySoftwareTokenRequest$,
+  () => VerifySoftwareTokenResponse$,
 ];
-export var VerifyUserAttribute: StaticOperationSchema = [
+export var VerifyUserAttribute$: StaticOperationSchema = [
   9,
   n0,
   _VUA,
   0,
-  () => VerifyUserAttributeRequest,
-  () => VerifyUserAttributeResponse,
+  () => VerifyUserAttributeRequest$,
+  () => VerifyUserAttributeResponse$,
 ];

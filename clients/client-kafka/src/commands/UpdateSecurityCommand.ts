@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
 import type { UpdateSecurityRequest, UpdateSecurityResponse } from "../models/models_0";
-import { UpdateSecurity } from "../schemas/schemas_0";
+import { UpdateSecurity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,7 +124,7 @@ export class UpdateSecurityCommand extends $Command
   })
   .s("Kafka", "UpdateSecurity", {})
   .n("KafkaClient", "UpdateSecurityCommand")
-  .sc(UpdateSecurity)
+  .sc(UpdateSecurity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

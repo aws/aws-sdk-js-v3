@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { InvokeAgentRequest, InvokeAgentResponse } from "../models/models_0";
-import { InvokeAgent } from "../schemas/schemas_0";
+import { InvokeAgent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -1238,7 +1238,7 @@ export class InvokeAgentCommand extends $Command
     },
   })
   .n("BedrockAgentRuntimeClient", "InvokeAgentCommand")
-  .sc(InvokeAgent)
+  .sc(InvokeAgent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -391,30 +391,30 @@ import { TypeRegistry } from "@smithy/core/schema";
 import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import {
-  DefaultUndefinedFault as __DefaultUndefinedFault,
-  DomainAlreadyExistsFault as __DomainAlreadyExistsFault,
-  DomainDeprecatedFault as __DomainDeprecatedFault,
-  LimitExceededFault as __LimitExceededFault,
-  OperationNotPermittedFault as __OperationNotPermittedFault,
-  TooManyTagsFault as __TooManyTagsFault,
-  TypeAlreadyExistsFault as __TypeAlreadyExistsFault,
-  TypeDeprecatedFault as __TypeDeprecatedFault,
-  TypeNotDeprecatedFault as __TypeNotDeprecatedFault,
-  UnknownResourceFault as __UnknownResourceFault,
-  WorkflowExecutionAlreadyStartedFault as __WorkflowExecutionAlreadyStartedFault,
+  DefaultUndefinedFault,
+  DomainAlreadyExistsFault,
+  DomainDeprecatedFault,
+  LimitExceededFault,
+  OperationNotPermittedFault,
+  TooManyTagsFault,
+  TypeAlreadyExistsFault,
+  TypeDeprecatedFault,
+  TypeNotDeprecatedFault,
+  UnknownResourceFault,
+  WorkflowExecutionAlreadyStartedFault,
 } from "../models/errors";
-import { SWFServiceException as __SWFServiceException } from "../models/SWFServiceException";
+import { SWFServiceException } from "../models/SWFServiceException";
 
 /* eslint no-var: 0 */
-export var ActivityTask: StaticStructureSchema = [
+export var ActivityTask$: StaticStructureSchema = [
   3,
   n0,
   _AT,
   0,
   [_tT, _aI, _sEI, _wE, _aT, _i],
-  [0, 0, 1, () => WorkflowExecution, () => ActivityType, 0],
+  [0, 0, 1, () => WorkflowExecution$, () => ActivityType$, 0],
 ];
-export var ActivityTaskCanceledEventAttributes: StaticStructureSchema = [
+export var ActivityTaskCanceledEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _ATCEA,
@@ -422,7 +422,7 @@ export var ActivityTaskCanceledEventAttributes: StaticStructureSchema = [
   [_d, _sEIc, _sEI, _lCREI],
   [0, 1, 1, 1],
 ];
-export var ActivityTaskCancelRequestedEventAttributes: StaticStructureSchema = [
+export var ActivityTaskCancelRequestedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _ATCREA,
@@ -430,7 +430,7 @@ export var ActivityTaskCancelRequestedEventAttributes: StaticStructureSchema = [
   [_dTCEI, _aI],
   [1, 0],
 ];
-export var ActivityTaskCompletedEventAttributes: StaticStructureSchema = [
+export var ActivityTaskCompletedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _ATCEAc,
@@ -438,7 +438,7 @@ export var ActivityTaskCompletedEventAttributes: StaticStructureSchema = [
   [_r, _sEIc, _sEI],
   [0, 1, 1],
 ];
-export var ActivityTaskFailedEventAttributes: StaticStructureSchema = [
+export var ActivityTaskFailedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _ATFEA,
@@ -446,17 +446,17 @@ export var ActivityTaskFailedEventAttributes: StaticStructureSchema = [
   [_re, _d, _sEIc, _sEI],
   [0, 0, 1, 1],
 ];
-export var ActivityTaskScheduledEventAttributes: StaticStructureSchema = [
+export var ActivityTaskScheduledEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _ATSEA,
   0,
   [_aT, _aI, _i, _c, _sTST, _sTCT, _sTCTt, _tL, _tP, _dTCEI, _hT],
-  [() => ActivityType, 0, 0, 0, 0, 0, 0, () => TaskList, 0, 1, 0],
+  [() => ActivityType$, 0, 0, 0, 0, 0, 0, () => TaskList$, 0, 1, 0],
 ];
-export var ActivityTaskStartedEventAttributes: StaticStructureSchema = [3, n0, _ATSEAc, 0, [_id, _sEIc], [0, 1]];
-export var ActivityTaskStatus: StaticStructureSchema = [3, n0, _ATS, 0, [_cR], [2]];
-export var ActivityTaskTimedOutEventAttributes: StaticStructureSchema = [
+export var ActivityTaskStartedEventAttributes$: StaticStructureSchema = [3, n0, _ATSEAc, 0, [_id, _sEIc], [0, 1]];
+export var ActivityTaskStatus$: StaticStructureSchema = [3, n0, _ATS, 0, [_cR], [2]];
+export var ActivityTaskTimedOutEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _ATTOEA,
@@ -464,36 +464,43 @@ export var ActivityTaskTimedOutEventAttributes: StaticStructureSchema = [
   [_tTi, _sEIc, _sEI, _d],
   [0, 1, 1, 0],
 ];
-export var ActivityType: StaticStructureSchema = [3, n0, _ATc, 0, [_n, _v], [0, 0]];
-export var ActivityTypeConfiguration: StaticStructureSchema = [
+export var ActivityType$: StaticStructureSchema = [3, n0, _ATc, 0, [_n, _v], [0, 0]];
+export var ActivityTypeConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ATC,
   0,
   [_dTSTCT, _dTHT, _dTL, _dTP, _dTSTST, _dTSTCTe],
-  [0, 0, () => TaskList, 0, 0, 0],
+  [0, 0, () => TaskList$, 0, 0, 0],
 ];
-export var ActivityTypeDetail: StaticStructureSchema = [
+export var ActivityTypeDetail$: StaticStructureSchema = [
   3,
   n0,
   _ATD,
   0,
   [_tI, _co],
-  [() => ActivityTypeInfo, () => ActivityTypeConfiguration],
+  [() => ActivityTypeInfo$, () => ActivityTypeConfiguration$],
 ];
-export var ActivityTypeInfo: StaticStructureSchema = [
+export var ActivityTypeInfo$: StaticStructureSchema = [
   3,
   n0,
   _ATI,
   0,
   [_aT, _s, _de, _cD, _dD],
-  [() => ActivityType, 0, 0, 4, 4],
+  [() => ActivityType$, 0, 0, 4, 4],
 ];
-export var ActivityTypeInfos: StaticStructureSchema = [3, n0, _ATIc, 0, [_tIy, _nPT], [() => ActivityTypeInfoList, 0]];
-export var CancelTimerDecisionAttributes: StaticStructureSchema = [3, n0, _CTDA, 0, [_tIi], [0]];
-export var CancelTimerFailedEventAttributes: StaticStructureSchema = [3, n0, _CTFEA, 0, [_tIi, _ca, _dTCEI], [0, 0, 1]];
-export var CancelWorkflowExecutionDecisionAttributes: StaticStructureSchema = [3, n0, _CWEDA, 0, [_d], [0]];
-export var CancelWorkflowExecutionFailedEventAttributes: StaticStructureSchema = [
+export var ActivityTypeInfos$: StaticStructureSchema = [3, n0, _ATIc, 0, [_tIy, _nPT], [() => ActivityTypeInfoList, 0]];
+export var CancelTimerDecisionAttributes$: StaticStructureSchema = [3, n0, _CTDA, 0, [_tIi], [0]];
+export var CancelTimerFailedEventAttributes$: StaticStructureSchema = [
+  3,
+  n0,
+  _CTFEA,
+  0,
+  [_tIi, _ca, _dTCEI],
+  [0, 0, 1],
+];
+export var CancelWorkflowExecutionDecisionAttributes$: StaticStructureSchema = [3, n0, _CWEDA, 0, [_d], [0]];
+export var CancelWorkflowExecutionFailedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _CWEFEA,
@@ -501,57 +508,57 @@ export var CancelWorkflowExecutionFailedEventAttributes: StaticStructureSchema =
   [_ca, _dTCEI],
   [0, 1],
 ];
-export var ChildWorkflowExecutionCanceledEventAttributes: StaticStructureSchema = [
+export var ChildWorkflowExecutionCanceledEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _CWECEA,
   0,
   [_wE, _wT, _d, _iEI, _sEI],
-  [() => WorkflowExecution, () => WorkflowType, 0, 1, 1],
+  [() => WorkflowExecution$, () => WorkflowType$, 0, 1, 1],
 ];
-export var ChildWorkflowExecutionCompletedEventAttributes: StaticStructureSchema = [
+export var ChildWorkflowExecutionCompletedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _CWECEAh,
   0,
   [_wE, _wT, _r, _iEI, _sEI],
-  [() => WorkflowExecution, () => WorkflowType, 0, 1, 1],
+  [() => WorkflowExecution$, () => WorkflowType$, 0, 1, 1],
 ];
-export var ChildWorkflowExecutionFailedEventAttributes: StaticStructureSchema = [
+export var ChildWorkflowExecutionFailedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _CWEFEAh,
   0,
   [_wE, _wT, _re, _d, _iEI, _sEI],
-  [() => WorkflowExecution, () => WorkflowType, 0, 0, 1, 1],
+  [() => WorkflowExecution$, () => WorkflowType$, 0, 0, 1, 1],
 ];
-export var ChildWorkflowExecutionStartedEventAttributes: StaticStructureSchema = [
+export var ChildWorkflowExecutionStartedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _CWESEA,
   0,
   [_wE, _wT, _iEI],
-  [() => WorkflowExecution, () => WorkflowType, 1],
+  [() => WorkflowExecution$, () => WorkflowType$, 1],
 ];
-export var ChildWorkflowExecutionTerminatedEventAttributes: StaticStructureSchema = [
+export var ChildWorkflowExecutionTerminatedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _CWETEA,
   0,
   [_wE, _wT, _iEI, _sEI],
-  [() => WorkflowExecution, () => WorkflowType, 1, 1],
+  [() => WorkflowExecution$, () => WorkflowType$, 1, 1],
 ];
-export var ChildWorkflowExecutionTimedOutEventAttributes: StaticStructureSchema = [
+export var ChildWorkflowExecutionTimedOutEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _CWETOEA,
   0,
   [_wE, _wT, _tTi, _iEI, _sEI],
-  [() => WorkflowExecution, () => WorkflowType, 0, 1, 1],
+  [() => WorkflowExecution$, () => WorkflowType$, 0, 1, 1],
 ];
-export var CloseStatusFilter: StaticStructureSchema = [3, n0, _CSF, 0, [_s], [0]];
-export var CompleteWorkflowExecutionDecisionAttributes: StaticStructureSchema = [3, n0, _CWEDAo, 0, [_r], [0]];
-export var CompleteWorkflowExecutionFailedEventAttributes: StaticStructureSchema = [
+export var CloseStatusFilter$: StaticStructureSchema = [3, n0, _CSF, 0, [_s], [0]];
+export var CompleteWorkflowExecutionDecisionAttributes$: StaticStructureSchema = [3, n0, _CWEDAo, 0, [_r], [0]];
+export var CompleteWorkflowExecutionFailedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _CWEFEAo,
@@ -559,15 +566,15 @@ export var CompleteWorkflowExecutionFailedEventAttributes: StaticStructureSchema
   [_ca, _dTCEI],
   [0, 1],
 ];
-export var ContinueAsNewWorkflowExecutionDecisionAttributes: StaticStructureSchema = [
+export var ContinueAsNewWorkflowExecutionDecisionAttributes$: StaticStructureSchema = [
   3,
   n0,
   _CANWEDA,
   0,
   [_i, _eSTCT, _tL, _tP, _tSTCT, _cP, _tLa, _wTV, _lR],
-  [0, 0, () => TaskList, 0, 0, 0, 64 | 0, 0, 0],
+  [0, 0, () => TaskList$, 0, 0, 0, 64 | 0, 0, 0],
 ];
-export var ContinueAsNewWorkflowExecutionFailedEventAttributes: StaticStructureSchema = [
+export var ContinueAsNewWorkflowExecutionFailedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _CANWEFEA,
@@ -575,7 +582,7 @@ export var ContinueAsNewWorkflowExecutionFailedEventAttributes: StaticStructureS
   [_ca, _dTCEI],
   [0, 1],
 ];
-export var CountClosedWorkflowExecutionsInput: StaticStructureSchema = [
+export var CountClosedWorkflowExecutionsInput$: StaticStructureSchema = [
   3,
   n0,
   _CCWEI,
@@ -583,25 +590,39 @@ export var CountClosedWorkflowExecutionsInput: StaticStructureSchema = [
   [_do, _sTF, _cTF, _eF, _tF, _tFa, _cSF],
   [
     0,
-    () => ExecutionTimeFilter,
-    () => ExecutionTimeFilter,
-    () => WorkflowExecutionFilter,
-    () => WorkflowTypeFilter,
-    () => TagFilter,
-    () => CloseStatusFilter,
+    () => ExecutionTimeFilter$,
+    () => ExecutionTimeFilter$,
+    () => WorkflowExecutionFilter$,
+    () => WorkflowTypeFilter$,
+    () => TagFilter$,
+    () => CloseStatusFilter$,
   ],
 ];
-export var CountOpenWorkflowExecutionsInput: StaticStructureSchema = [
+export var CountOpenWorkflowExecutionsInput$: StaticStructureSchema = [
   3,
   n0,
   _COWEI,
   0,
   [_do, _sTF, _tF, _tFa, _eF],
-  [0, () => ExecutionTimeFilter, () => WorkflowTypeFilter, () => TagFilter, () => WorkflowExecutionFilter],
+  [0, () => ExecutionTimeFilter$, () => WorkflowTypeFilter$, () => TagFilter$, () => WorkflowExecutionFilter$],
 ];
-export var CountPendingActivityTasksInput: StaticStructureSchema = [3, n0, _CPATI, 0, [_do, _tL], [0, () => TaskList]];
-export var CountPendingDecisionTasksInput: StaticStructureSchema = [3, n0, _CPDTI, 0, [_do, _tL], [0, () => TaskList]];
-export var Decision: StaticStructureSchema = [
+export var CountPendingActivityTasksInput$: StaticStructureSchema = [
+  3,
+  n0,
+  _CPATI,
+  0,
+  [_do, _tL],
+  [0, () => TaskList$],
+];
+export var CountPendingDecisionTasksInput$: StaticStructureSchema = [
+  3,
+  n0,
+  _CPDTI,
+  0,
+  [_do, _tL],
+  [0, () => TaskList$],
+];
+export var Decision$: StaticStructureSchema = [
   3,
   n0,
   _D,
@@ -609,47 +630,47 @@ export var Decision: StaticStructureSchema = [
   [_dT, _sATDA, _rCATDA, _cWEDA, _fWEDA, _cWEDAa, _cANWEDA, _rMDA, _sTDA, _cTDA, _sEWEDA, _rCEWEDA, _sCWEDA, _sLFDA],
   [
     0,
-    () => ScheduleActivityTaskDecisionAttributes,
-    () => RequestCancelActivityTaskDecisionAttributes,
-    () => CompleteWorkflowExecutionDecisionAttributes,
-    () => FailWorkflowExecutionDecisionAttributes,
-    () => CancelWorkflowExecutionDecisionAttributes,
-    () => ContinueAsNewWorkflowExecutionDecisionAttributes,
-    () => RecordMarkerDecisionAttributes,
-    () => StartTimerDecisionAttributes,
-    () => CancelTimerDecisionAttributes,
-    () => SignalExternalWorkflowExecutionDecisionAttributes,
-    () => RequestCancelExternalWorkflowExecutionDecisionAttributes,
-    () => StartChildWorkflowExecutionDecisionAttributes,
-    () => ScheduleLambdaFunctionDecisionAttributes,
+    () => ScheduleActivityTaskDecisionAttributes$,
+    () => RequestCancelActivityTaskDecisionAttributes$,
+    () => CompleteWorkflowExecutionDecisionAttributes$,
+    () => FailWorkflowExecutionDecisionAttributes$,
+    () => CancelWorkflowExecutionDecisionAttributes$,
+    () => ContinueAsNewWorkflowExecutionDecisionAttributes$,
+    () => RecordMarkerDecisionAttributes$,
+    () => StartTimerDecisionAttributes$,
+    () => CancelTimerDecisionAttributes$,
+    () => SignalExternalWorkflowExecutionDecisionAttributes$,
+    () => RequestCancelExternalWorkflowExecutionDecisionAttributes$,
+    () => StartChildWorkflowExecutionDecisionAttributes$,
+    () => ScheduleLambdaFunctionDecisionAttributes$,
   ],
 ];
-export var DecisionTask: StaticStructureSchema = [
+export var DecisionTask$: StaticStructureSchema = [
   3,
   n0,
   _DT,
   0,
   [_tT, _sEI, _wE, _wT, _e, _nPT, _pSEI],
-  [0, 1, () => WorkflowExecution, () => WorkflowType, () => HistoryEventList, 0, 1],
+  [0, 1, () => WorkflowExecution$, () => WorkflowType$, () => HistoryEventList, 0, 1],
 ];
-export var DecisionTaskCompletedEventAttributes: StaticStructureSchema = [
+export var DecisionTaskCompletedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _DTCEA,
   0,
   [_eC, _sEIc, _sEI, _tL, _tLSTST],
-  [0, 1, 1, () => TaskList, 0],
+  [0, 1, 1, () => TaskList$, 0],
 ];
-export var DecisionTaskScheduledEventAttributes: StaticStructureSchema = [
+export var DecisionTaskScheduledEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _DTSEA,
   0,
   [_tL, _tP, _sTCTt, _sTST],
-  [() => TaskList, 0, 0, 0],
+  [() => TaskList$, 0, 0, 0],
 ];
-export var DecisionTaskStartedEventAttributes: StaticStructureSchema = [3, n0, _DTSEAe, 0, [_id, _sEIc], [0, 1]];
-export var DecisionTaskTimedOutEventAttributes: StaticStructureSchema = [
+export var DecisionTaskStartedEventAttributes$: StaticStructureSchema = [3, n0, _DTSEAe, 0, [_id, _sEIc], [0, 1]];
+export var DecisionTaskTimedOutEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _DTTOEA,
@@ -657,58 +678,86 @@ export var DecisionTaskTimedOutEventAttributes: StaticStructureSchema = [
   [_tTi, _sEIc, _sEI],
   [0, 1, 1],
 ];
-export var DefaultUndefinedFault: StaticErrorSchema = [-3, n0, _DUF, { [_er]: _cl }, [_m], [0]];
-TypeRegistry.for(n0).registerError(DefaultUndefinedFault, __DefaultUndefinedFault);
-export var DeleteActivityTypeInput: StaticStructureSchema = [3, n0, _DATI, 0, [_do, _aT], [0, () => ActivityType]];
-export var DeleteWorkflowTypeInput: StaticStructureSchema = [3, n0, _DWTI, 0, [_do, _wT], [0, () => WorkflowType]];
-export var DeprecateActivityTypeInput: StaticStructureSchema = [3, n0, _DATIe, 0, [_do, _aT], [0, () => ActivityType]];
-export var DeprecateDomainInput: StaticStructureSchema = [3, n0, _DDI, 0, [_n], [0]];
-export var DeprecateWorkflowTypeInput: StaticStructureSchema = [3, n0, _DWTIe, 0, [_do, _wT], [0, () => WorkflowType]];
-export var DescribeActivityTypeInput: StaticStructureSchema = [3, n0, _DATIes, 0, [_do, _aT], [0, () => ActivityType]];
-export var DescribeDomainInput: StaticStructureSchema = [3, n0, _DDIe, 0, [_n], [0]];
-export var DescribeWorkflowExecutionInput: StaticStructureSchema = [
+export var DefaultUndefinedFault$: StaticErrorSchema = [-3, n0, _DUF, { [_er]: _cl }, [_m], [0]];
+TypeRegistry.for(n0).registerError(DefaultUndefinedFault$, DefaultUndefinedFault);
+export var DeleteActivityTypeInput$: StaticStructureSchema = [3, n0, _DATI, 0, [_do, _aT], [0, () => ActivityType$]];
+export var DeleteWorkflowTypeInput$: StaticStructureSchema = [3, n0, _DWTI, 0, [_do, _wT], [0, () => WorkflowType$]];
+export var DeprecateActivityTypeInput$: StaticStructureSchema = [
+  3,
+  n0,
+  _DATIe,
+  0,
+  [_do, _aT],
+  [0, () => ActivityType$],
+];
+export var DeprecateDomainInput$: StaticStructureSchema = [3, n0, _DDI, 0, [_n], [0]];
+export var DeprecateWorkflowTypeInput$: StaticStructureSchema = [
+  3,
+  n0,
+  _DWTIe,
+  0,
+  [_do, _wT],
+  [0, () => WorkflowType$],
+];
+export var DescribeActivityTypeInput$: StaticStructureSchema = [
+  3,
+  n0,
+  _DATIes,
+  0,
+  [_do, _aT],
+  [0, () => ActivityType$],
+];
+export var DescribeDomainInput$: StaticStructureSchema = [3, n0, _DDIe, 0, [_n], [0]];
+export var DescribeWorkflowExecutionInput$: StaticStructureSchema = [
   3,
   n0,
   _DWEI,
   0,
   [_do, _ex],
-  [0, () => WorkflowExecution],
+  [0, () => WorkflowExecution$],
 ];
-export var DescribeWorkflowTypeInput: StaticStructureSchema = [3, n0, _DWTIes, 0, [_do, _wT], [0, () => WorkflowType]];
-export var DomainAlreadyExistsFault: StaticErrorSchema = [-3, n0, _DAEF, { [_er]: _cl }, [_m], [0]];
-TypeRegistry.for(n0).registerError(DomainAlreadyExistsFault, __DomainAlreadyExistsFault);
-export var DomainConfiguration: StaticStructureSchema = [3, n0, _DC, 0, [_wERPID], [0]];
-export var DomainDeprecatedFault: StaticErrorSchema = [-3, n0, _DDF, { [_er]: _cl }, [_m], [0]];
-TypeRegistry.for(n0).registerError(DomainDeprecatedFault, __DomainDeprecatedFault);
-export var DomainDetail: StaticStructureSchema = [
+export var DescribeWorkflowTypeInput$: StaticStructureSchema = [
+  3,
+  n0,
+  _DWTIes,
+  0,
+  [_do, _wT],
+  [0, () => WorkflowType$],
+];
+export var DomainAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _DAEF, { [_er]: _cl }, [_m], [0]];
+TypeRegistry.for(n0).registerError(DomainAlreadyExistsFault$, DomainAlreadyExistsFault);
+export var DomainConfiguration$: StaticStructureSchema = [3, n0, _DC, 0, [_wERPID], [0]];
+export var DomainDeprecatedFault$: StaticErrorSchema = [-3, n0, _DDF, { [_er]: _cl }, [_m], [0]];
+TypeRegistry.for(n0).registerError(DomainDeprecatedFault$, DomainDeprecatedFault);
+export var DomainDetail$: StaticStructureSchema = [
   3,
   n0,
   _DD,
   0,
   [_dI, _co],
-  [() => DomainInfo, () => DomainConfiguration],
+  [() => DomainInfo$, () => DomainConfiguration$],
 ];
-export var DomainInfo: StaticStructureSchema = [3, n0, _DI, 0, [_n, _s, _de, _a], [0, 0, 0, 0]];
-export var DomainInfos: StaticStructureSchema = [3, n0, _DIo, 0, [_dIo, _nPT], [() => DomainInfoList, 0]];
-export var ExecutionTimeFilter: StaticStructureSchema = [3, n0, _ETF, 0, [_oD, _lD], [4, 4]];
-export var ExternalWorkflowExecutionCancelRequestedEventAttributes: StaticStructureSchema = [
+export var DomainInfo$: StaticStructureSchema = [3, n0, _DI, 0, [_n, _s, _de, _a], [0, 0, 0, 0]];
+export var DomainInfos$: StaticStructureSchema = [3, n0, _DIo, 0, [_dIo, _nPT], [() => DomainInfoList, 0]];
+export var ExecutionTimeFilter$: StaticStructureSchema = [3, n0, _ETF, 0, [_oD, _lD], [4, 4]];
+export var ExternalWorkflowExecutionCancelRequestedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _EWECREA,
   0,
   [_wE, _iEI],
-  [() => WorkflowExecution, 1],
+  [() => WorkflowExecution$, 1],
 ];
-export var ExternalWorkflowExecutionSignaledEventAttributes: StaticStructureSchema = [
+export var ExternalWorkflowExecutionSignaledEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _EWESEA,
   0,
   [_wE, _iEI],
-  [() => WorkflowExecution, 1],
+  [() => WorkflowExecution$, 1],
 ];
-export var FailWorkflowExecutionDecisionAttributes: StaticStructureSchema = [3, n0, _FWEDA, 0, [_re, _d], [0, 0]];
-export var FailWorkflowExecutionFailedEventAttributes: StaticStructureSchema = [
+export var FailWorkflowExecutionDecisionAttributes$: StaticStructureSchema = [3, n0, _FWEDA, 0, [_re, _d], [0, 0]];
+export var FailWorkflowExecutionFailedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _FWEFEA,
@@ -716,16 +765,16 @@ export var FailWorkflowExecutionFailedEventAttributes: StaticStructureSchema = [
   [_ca, _dTCEI],
   [0, 1],
 ];
-export var GetWorkflowExecutionHistoryInput: StaticStructureSchema = [
+export var GetWorkflowExecutionHistoryInput$: StaticStructureSchema = [
   3,
   n0,
   _GWEHI,
   0,
   [_do, _ex, _nPT, _mPS, _rO],
-  [0, () => WorkflowExecution, 0, 1, 2],
+  [0, () => WorkflowExecution$, 0, 1, 2],
 ];
-export var History: StaticStructureSchema = [3, n0, _H, 0, [_e, _nPT], [() => HistoryEventList, 0]];
-export var HistoryEvent: StaticStructureSchema = [
+export var History$: StaticStructureSchema = [3, n0, _H, 0, [_e, _nPT], [() => HistoryEventList, 0]];
+export var HistoryEvent$: StaticStructureSchema = [
   3,
   n0,
   _HE,
@@ -793,63 +842,63 @@ export var HistoryEvent: StaticStructureSchema = [
     4,
     0,
     1,
-    () => WorkflowExecutionStartedEventAttributes,
-    () => WorkflowExecutionCompletedEventAttributes,
-    () => CompleteWorkflowExecutionFailedEventAttributes,
-    () => WorkflowExecutionFailedEventAttributes,
-    () => FailWorkflowExecutionFailedEventAttributes,
-    () => WorkflowExecutionTimedOutEventAttributes,
-    () => WorkflowExecutionCanceledEventAttributes,
-    () => CancelWorkflowExecutionFailedEventAttributes,
-    () => WorkflowExecutionContinuedAsNewEventAttributes,
-    () => ContinueAsNewWorkflowExecutionFailedEventAttributes,
-    () => WorkflowExecutionTerminatedEventAttributes,
-    () => WorkflowExecutionCancelRequestedEventAttributes,
-    () => DecisionTaskScheduledEventAttributes,
-    () => DecisionTaskStartedEventAttributes,
-    () => DecisionTaskCompletedEventAttributes,
-    () => DecisionTaskTimedOutEventAttributes,
-    () => ActivityTaskScheduledEventAttributes,
-    () => ActivityTaskStartedEventAttributes,
-    () => ActivityTaskCompletedEventAttributes,
-    () => ActivityTaskFailedEventAttributes,
-    () => ActivityTaskTimedOutEventAttributes,
-    () => ActivityTaskCanceledEventAttributes,
-    () => ActivityTaskCancelRequestedEventAttributes,
-    () => WorkflowExecutionSignaledEventAttributes,
-    () => MarkerRecordedEventAttributes,
-    () => RecordMarkerFailedEventAttributes,
-    () => TimerStartedEventAttributes,
-    () => TimerFiredEventAttributes,
-    () => TimerCanceledEventAttributes,
-    () => StartChildWorkflowExecutionInitiatedEventAttributes,
-    () => ChildWorkflowExecutionStartedEventAttributes,
-    () => ChildWorkflowExecutionCompletedEventAttributes,
-    () => ChildWorkflowExecutionFailedEventAttributes,
-    () => ChildWorkflowExecutionTimedOutEventAttributes,
-    () => ChildWorkflowExecutionCanceledEventAttributes,
-    () => ChildWorkflowExecutionTerminatedEventAttributes,
-    () => SignalExternalWorkflowExecutionInitiatedEventAttributes,
-    () => ExternalWorkflowExecutionSignaledEventAttributes,
-    () => SignalExternalWorkflowExecutionFailedEventAttributes,
-    () => ExternalWorkflowExecutionCancelRequestedEventAttributes,
-    () => RequestCancelExternalWorkflowExecutionInitiatedEventAttributes,
-    () => RequestCancelExternalWorkflowExecutionFailedEventAttributes,
-    () => ScheduleActivityTaskFailedEventAttributes,
-    () => RequestCancelActivityTaskFailedEventAttributes,
-    () => StartTimerFailedEventAttributes,
-    () => CancelTimerFailedEventAttributes,
-    () => StartChildWorkflowExecutionFailedEventAttributes,
-    () => LambdaFunctionScheduledEventAttributes,
-    () => LambdaFunctionStartedEventAttributes,
-    () => LambdaFunctionCompletedEventAttributes,
-    () => LambdaFunctionFailedEventAttributes,
-    () => LambdaFunctionTimedOutEventAttributes,
-    () => ScheduleLambdaFunctionFailedEventAttributes,
-    () => StartLambdaFunctionFailedEventAttributes,
+    () => WorkflowExecutionStartedEventAttributes$,
+    () => WorkflowExecutionCompletedEventAttributes$,
+    () => CompleteWorkflowExecutionFailedEventAttributes$,
+    () => WorkflowExecutionFailedEventAttributes$,
+    () => FailWorkflowExecutionFailedEventAttributes$,
+    () => WorkflowExecutionTimedOutEventAttributes$,
+    () => WorkflowExecutionCanceledEventAttributes$,
+    () => CancelWorkflowExecutionFailedEventAttributes$,
+    () => WorkflowExecutionContinuedAsNewEventAttributes$,
+    () => ContinueAsNewWorkflowExecutionFailedEventAttributes$,
+    () => WorkflowExecutionTerminatedEventAttributes$,
+    () => WorkflowExecutionCancelRequestedEventAttributes$,
+    () => DecisionTaskScheduledEventAttributes$,
+    () => DecisionTaskStartedEventAttributes$,
+    () => DecisionTaskCompletedEventAttributes$,
+    () => DecisionTaskTimedOutEventAttributes$,
+    () => ActivityTaskScheduledEventAttributes$,
+    () => ActivityTaskStartedEventAttributes$,
+    () => ActivityTaskCompletedEventAttributes$,
+    () => ActivityTaskFailedEventAttributes$,
+    () => ActivityTaskTimedOutEventAttributes$,
+    () => ActivityTaskCanceledEventAttributes$,
+    () => ActivityTaskCancelRequestedEventAttributes$,
+    () => WorkflowExecutionSignaledEventAttributes$,
+    () => MarkerRecordedEventAttributes$,
+    () => RecordMarkerFailedEventAttributes$,
+    () => TimerStartedEventAttributes$,
+    () => TimerFiredEventAttributes$,
+    () => TimerCanceledEventAttributes$,
+    () => StartChildWorkflowExecutionInitiatedEventAttributes$,
+    () => ChildWorkflowExecutionStartedEventAttributes$,
+    () => ChildWorkflowExecutionCompletedEventAttributes$,
+    () => ChildWorkflowExecutionFailedEventAttributes$,
+    () => ChildWorkflowExecutionTimedOutEventAttributes$,
+    () => ChildWorkflowExecutionCanceledEventAttributes$,
+    () => ChildWorkflowExecutionTerminatedEventAttributes$,
+    () => SignalExternalWorkflowExecutionInitiatedEventAttributes$,
+    () => ExternalWorkflowExecutionSignaledEventAttributes$,
+    () => SignalExternalWorkflowExecutionFailedEventAttributes$,
+    () => ExternalWorkflowExecutionCancelRequestedEventAttributes$,
+    () => RequestCancelExternalWorkflowExecutionInitiatedEventAttributes$,
+    () => RequestCancelExternalWorkflowExecutionFailedEventAttributes$,
+    () => ScheduleActivityTaskFailedEventAttributes$,
+    () => RequestCancelActivityTaskFailedEventAttributes$,
+    () => StartTimerFailedEventAttributes$,
+    () => CancelTimerFailedEventAttributes$,
+    () => StartChildWorkflowExecutionFailedEventAttributes$,
+    () => LambdaFunctionScheduledEventAttributes$,
+    () => LambdaFunctionStartedEventAttributes$,
+    () => LambdaFunctionCompletedEventAttributes$,
+    () => LambdaFunctionFailedEventAttributes$,
+    () => LambdaFunctionTimedOutEventAttributes$,
+    () => ScheduleLambdaFunctionFailedEventAttributes$,
+    () => StartLambdaFunctionFailedEventAttributes$,
   ],
 ];
-export var LambdaFunctionCompletedEventAttributes: StaticStructureSchema = [
+export var LambdaFunctionCompletedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _LFCEA,
@@ -857,7 +906,7 @@ export var LambdaFunctionCompletedEventAttributes: StaticStructureSchema = [
   [_sEIc, _sEI, _r],
   [1, 1, 0],
 ];
-export var LambdaFunctionFailedEventAttributes: StaticStructureSchema = [
+export var LambdaFunctionFailedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _LFFEA,
@@ -865,7 +914,7 @@ export var LambdaFunctionFailedEventAttributes: StaticStructureSchema = [
   [_sEIc, _sEI, _re, _d],
   [1, 1, 0, 0],
 ];
-export var LambdaFunctionScheduledEventAttributes: StaticStructureSchema = [
+export var LambdaFunctionScheduledEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _LFSEA,
@@ -873,8 +922,8 @@ export var LambdaFunctionScheduledEventAttributes: StaticStructureSchema = [
   [_id_, _n, _c, _i, _sTCTt, _dTCEI],
   [0, 0, 0, 0, 0, 1],
 ];
-export var LambdaFunctionStartedEventAttributes: StaticStructureSchema = [3, n0, _LFSEAa, 0, [_sEIc], [1]];
-export var LambdaFunctionTimedOutEventAttributes: StaticStructureSchema = [
+export var LambdaFunctionStartedEventAttributes$: StaticStructureSchema = [3, n0, _LFSEAa, 0, [_sEIc], [1]];
+export var LambdaFunctionTimedOutEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _LFTOEA,
@@ -882,9 +931,9 @@ export var LambdaFunctionTimedOutEventAttributes: StaticStructureSchema = [
   [_sEIc, _sEI, _tTi],
   [1, 1, 0],
 ];
-export var LimitExceededFault: StaticErrorSchema = [-3, n0, _LEF, { [_er]: _cl }, [_m], [0]];
-TypeRegistry.for(n0).registerError(LimitExceededFault, __LimitExceededFault);
-export var ListActivityTypesInput: StaticStructureSchema = [
+export var LimitExceededFault$: StaticErrorSchema = [-3, n0, _LEF, { [_er]: _cl }, [_m], [0]];
+TypeRegistry.for(n0).registerError(LimitExceededFault$, LimitExceededFault);
+export var ListActivityTypesInput$: StaticStructureSchema = [
   3,
   n0,
   _LATI,
@@ -892,7 +941,7 @@ export var ListActivityTypesInput: StaticStructureSchema = [
   [_do, _n, _rS, _nPT, _mPS, _rO],
   [0, 0, 0, 0, 1, 2],
 ];
-export var ListClosedWorkflowExecutionsInput: StaticStructureSchema = [
+export var ListClosedWorkflowExecutionsInput$: StaticStructureSchema = [
   3,
   n0,
   _LCWEI,
@@ -900,29 +949,29 @@ export var ListClosedWorkflowExecutionsInput: StaticStructureSchema = [
   [_do, _sTF, _cTF, _eF, _cSF, _tF, _tFa, _nPT, _mPS, _rO],
   [
     0,
-    () => ExecutionTimeFilter,
-    () => ExecutionTimeFilter,
-    () => WorkflowExecutionFilter,
-    () => CloseStatusFilter,
-    () => WorkflowTypeFilter,
-    () => TagFilter,
+    () => ExecutionTimeFilter$,
+    () => ExecutionTimeFilter$,
+    () => WorkflowExecutionFilter$,
+    () => CloseStatusFilter$,
+    () => WorkflowTypeFilter$,
+    () => TagFilter$,
     0,
     1,
     2,
   ],
 ];
-export var ListDomainsInput: StaticStructureSchema = [3, n0, _LDI, 0, [_nPT, _rS, _mPS, _rO], [0, 0, 1, 2]];
-export var ListOpenWorkflowExecutionsInput: StaticStructureSchema = [
+export var ListDomainsInput$: StaticStructureSchema = [3, n0, _LDI, 0, [_nPT, _rS, _mPS, _rO], [0, 0, 1, 2]];
+export var ListOpenWorkflowExecutionsInput$: StaticStructureSchema = [
   3,
   n0,
   _LOWEI,
   0,
   [_do, _sTF, _tF, _tFa, _nPT, _mPS, _rO, _eF],
-  [0, () => ExecutionTimeFilter, () => WorkflowTypeFilter, () => TagFilter, 0, 1, 2, () => WorkflowExecutionFilter],
+  [0, () => ExecutionTimeFilter$, () => WorkflowTypeFilter$, () => TagFilter$, 0, 1, 2, () => WorkflowExecutionFilter$],
 ];
-export var ListTagsForResourceInput: StaticStructureSchema = [3, n0, _LTFRI, 0, [_rA], [0]];
-export var ListTagsForResourceOutput: StaticStructureSchema = [3, n0, _LTFRO, 0, [_t], [() => ResourceTagList]];
-export var ListWorkflowTypesInput: StaticStructureSchema = [
+export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI, 0, [_rA], [0]];
+export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO, 0, [_t], [() => ResourceTagList]];
+export var ListWorkflowTypesInput$: StaticStructureSchema = [
   3,
   n0,
   _LWTI,
@@ -930,38 +979,45 @@ export var ListWorkflowTypesInput: StaticStructureSchema = [
   [_do, _n, _rS, _nPT, _mPS, _rO],
   [0, 0, 0, 0, 1, 2],
 ];
-export var MarkerRecordedEventAttributes: StaticStructureSchema = [3, n0, _MREA, 0, [_mN, _d, _dTCEI], [0, 0, 1]];
-export var OperationNotPermittedFault: StaticErrorSchema = [-3, n0, _ONPF, { [_er]: _cl }, [_m], [0]];
-TypeRegistry.for(n0).registerError(OperationNotPermittedFault, __OperationNotPermittedFault);
-export var PendingTaskCount: StaticStructureSchema = [3, n0, _PTC, 0, [_cou, _tr], [1, 2]];
-export var PollForActivityTaskInput: StaticStructureSchema = [
+export var MarkerRecordedEventAttributes$: StaticStructureSchema = [3, n0, _MREA, 0, [_mN, _d, _dTCEI], [0, 0, 1]];
+export var OperationNotPermittedFault$: StaticErrorSchema = [-3, n0, _ONPF, { [_er]: _cl }, [_m], [0]];
+TypeRegistry.for(n0).registerError(OperationNotPermittedFault$, OperationNotPermittedFault);
+export var PendingTaskCount$: StaticStructureSchema = [3, n0, _PTC, 0, [_cou, _tr], [1, 2]];
+export var PollForActivityTaskInput$: StaticStructureSchema = [
   3,
   n0,
   _PFATI,
   0,
   [_do, _tL, _id],
-  [0, () => TaskList, 0],
+  [0, () => TaskList$, 0],
 ];
-export var PollForDecisionTaskInput: StaticStructureSchema = [
+export var PollForDecisionTaskInput$: StaticStructureSchema = [
   3,
   n0,
   _PFDTI,
   0,
   [_do, _tL, _id, _nPT, _mPS, _rO, _sAPSE],
-  [0, () => TaskList, 0, 0, 1, 2, 2],
+  [0, () => TaskList$, 0, 0, 1, 2, 2],
 ];
-export var RecordActivityTaskHeartbeatInput: StaticStructureSchema = [3, n0, _RATHI, 0, [_tT, _d], [0, 0]];
-export var RecordMarkerDecisionAttributes: StaticStructureSchema = [3, n0, _RMDA, 0, [_mN, _d], [0, 0]];
-export var RecordMarkerFailedEventAttributes: StaticStructureSchema = [3, n0, _RMFEA, 0, [_mN, _ca, _dTCEI], [0, 0, 1]];
-export var RegisterActivityTypeInput: StaticStructureSchema = [
+export var RecordActivityTaskHeartbeatInput$: StaticStructureSchema = [3, n0, _RATHI, 0, [_tT, _d], [0, 0]];
+export var RecordMarkerDecisionAttributes$: StaticStructureSchema = [3, n0, _RMDA, 0, [_mN, _d], [0, 0]];
+export var RecordMarkerFailedEventAttributes$: StaticStructureSchema = [
+  3,
+  n0,
+  _RMFEA,
+  0,
+  [_mN, _ca, _dTCEI],
+  [0, 0, 1],
+];
+export var RegisterActivityTypeInput$: StaticStructureSchema = [
   3,
   n0,
   _RATI,
   0,
   [_do, _n, _v, _de, _dTSTCT, _dTHT, _dTL, _dTP, _dTSTST, _dTSTCTe],
-  [0, 0, 0, 0, 0, 0, () => TaskList, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, () => TaskList$, 0, 0, 0],
 ];
-export var RegisterDomainInput: StaticStructureSchema = [
+export var RegisterDomainInput$: StaticStructureSchema = [
   3,
   n0,
   _RDI,
@@ -969,16 +1025,16 @@ export var RegisterDomainInput: StaticStructureSchema = [
   [_n, _de, _wERPID, _t],
   [0, 0, 0, () => ResourceTagList],
 ];
-export var RegisterWorkflowTypeInput: StaticStructureSchema = [
+export var RegisterWorkflowTypeInput$: StaticStructureSchema = [
   3,
   n0,
   _RWTI,
   0,
   [_do, _n, _v, _de, _dTSTCT, _dESTCT, _dTL, _dTP, _dCP, _dLR],
-  [0, 0, 0, 0, 0, 0, () => TaskList, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, () => TaskList$, 0, 0, 0],
 ];
-export var RequestCancelActivityTaskDecisionAttributes: StaticStructureSchema = [3, n0, _RCATDA, 0, [_aI], [0]];
-export var RequestCancelActivityTaskFailedEventAttributes: StaticStructureSchema = [
+export var RequestCancelActivityTaskDecisionAttributes$: StaticStructureSchema = [3, n0, _RCATDA, 0, [_aI], [0]];
+export var RequestCancelActivityTaskFailedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _RCATFEA,
@@ -986,7 +1042,7 @@ export var RequestCancelActivityTaskFailedEventAttributes: StaticStructureSchema
   [_aI, _ca, _dTCEI],
   [0, 0, 1],
 ];
-export var RequestCancelExternalWorkflowExecutionDecisionAttributes: StaticStructureSchema = [
+export var RequestCancelExternalWorkflowExecutionDecisionAttributes$: StaticStructureSchema = [
   3,
   n0,
   _RCEWEDA,
@@ -994,7 +1050,7 @@ export var RequestCancelExternalWorkflowExecutionDecisionAttributes: StaticStruc
   [_wI, _rI, _c],
   [0, 0, 0],
 ];
-export var RequestCancelExternalWorkflowExecutionFailedEventAttributes: StaticStructureSchema = [
+export var RequestCancelExternalWorkflowExecutionFailedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _RCEWEFEA,
@@ -1002,7 +1058,7 @@ export var RequestCancelExternalWorkflowExecutionFailedEventAttributes: StaticSt
   [_wI, _rI, _ca, _iEI, _dTCEI, _c],
   [0, 0, 0, 1, 1, 0],
 ];
-export var RequestCancelExternalWorkflowExecutionInitiatedEventAttributes: StaticStructureSchema = [
+export var RequestCancelExternalWorkflowExecutionInitiatedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _RCEWEIEA,
@@ -1010,37 +1066,37 @@ export var RequestCancelExternalWorkflowExecutionInitiatedEventAttributes: Stati
   [_wI, _rI, _dTCEI, _c],
   [0, 0, 1, 0],
 ];
-export var RequestCancelWorkflowExecutionInput: StaticStructureSchema = [3, n0, _RCWEI, 0, [_do, _wI, _rI], [0, 0, 0]];
-export var ResourceTag: StaticStructureSchema = [3, n0, _RT, 0, [_k, _va], [0, 0]];
-export var RespondActivityTaskCanceledInput: StaticStructureSchema = [3, n0, _RATCI, 0, [_tT, _d], [0, 0]];
-export var RespondActivityTaskCompletedInput: StaticStructureSchema = [3, n0, _RATCIe, 0, [_tT, _r], [0, 0]];
-export var RespondActivityTaskFailedInput: StaticStructureSchema = [3, n0, _RATFI, 0, [_tT, _re, _d], [0, 0, 0]];
-export var RespondDecisionTaskCompletedInput: StaticStructureSchema = [
+export var RequestCancelWorkflowExecutionInput$: StaticStructureSchema = [3, n0, _RCWEI, 0, [_do, _wI, _rI], [0, 0, 0]];
+export var ResourceTag$: StaticStructureSchema = [3, n0, _RT, 0, [_k, _va], [0, 0]];
+export var RespondActivityTaskCanceledInput$: StaticStructureSchema = [3, n0, _RATCI, 0, [_tT, _d], [0, 0]];
+export var RespondActivityTaskCompletedInput$: StaticStructureSchema = [3, n0, _RATCIe, 0, [_tT, _r], [0, 0]];
+export var RespondActivityTaskFailedInput$: StaticStructureSchema = [3, n0, _RATFI, 0, [_tT, _re, _d], [0, 0, 0]];
+export var RespondDecisionTaskCompletedInput$: StaticStructureSchema = [
   3,
   n0,
   _RDTCI,
   0,
   [_tT, _dec, _eC, _tL, _tLSTST],
-  [0, () => DecisionList, 0, () => TaskList, 0],
+  [0, () => DecisionList, 0, () => TaskList$, 0],
 ];
-export var Run: StaticStructureSchema = [3, n0, _R, 0, [_rI], [0]];
-export var ScheduleActivityTaskDecisionAttributes: StaticStructureSchema = [
+export var Run$: StaticStructureSchema = [3, n0, _R, 0, [_rI], [0]];
+export var ScheduleActivityTaskDecisionAttributes$: StaticStructureSchema = [
   3,
   n0,
   _SATDA,
   0,
   [_aT, _aI, _c, _i, _sTCT, _tL, _tP, _sTST, _sTCTt, _hT],
-  [() => ActivityType, 0, 0, 0, 0, () => TaskList, 0, 0, 0, 0],
+  [() => ActivityType$, 0, 0, 0, 0, () => TaskList$, 0, 0, 0, 0],
 ];
-export var ScheduleActivityTaskFailedEventAttributes: StaticStructureSchema = [
+export var ScheduleActivityTaskFailedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _SATFEA,
   0,
   [_aT, _aI, _ca, _dTCEI],
-  [() => ActivityType, 0, 0, 1],
+  [() => ActivityType$, 0, 0, 1],
 ];
-export var ScheduleLambdaFunctionDecisionAttributes: StaticStructureSchema = [
+export var ScheduleLambdaFunctionDecisionAttributes$: StaticStructureSchema = [
   3,
   n0,
   _SLFDA,
@@ -1048,7 +1104,7 @@ export var ScheduleLambdaFunctionDecisionAttributes: StaticStructureSchema = [
   [_id_, _n, _c, _i, _sTCTt],
   [0, 0, 0, 0, 0],
 ];
-export var ScheduleLambdaFunctionFailedEventAttributes: StaticStructureSchema = [
+export var ScheduleLambdaFunctionFailedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _SLFFEA,
@@ -1056,7 +1112,7 @@ export var ScheduleLambdaFunctionFailedEventAttributes: StaticStructureSchema = 
   [_id_, _n, _ca, _dTCEI],
   [0, 0, 0, 1],
 ];
-export var SignalExternalWorkflowExecutionDecisionAttributes: StaticStructureSchema = [
+export var SignalExternalWorkflowExecutionDecisionAttributes$: StaticStructureSchema = [
   3,
   n0,
   _SEWEDA,
@@ -1064,7 +1120,7 @@ export var SignalExternalWorkflowExecutionDecisionAttributes: StaticStructureSch
   [_wI, _rI, _sN, _i, _c],
   [0, 0, 0, 0, 0],
 ];
-export var SignalExternalWorkflowExecutionFailedEventAttributes: StaticStructureSchema = [
+export var SignalExternalWorkflowExecutionFailedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _SEWEFEA,
@@ -1072,7 +1128,7 @@ export var SignalExternalWorkflowExecutionFailedEventAttributes: StaticStructure
   [_wI, _rI, _ca, _iEI, _dTCEI, _c],
   [0, 0, 0, 1, 1, 0],
 ];
-export var SignalExternalWorkflowExecutionInitiatedEventAttributes: StaticStructureSchema = [
+export var SignalExternalWorkflowExecutionInitiatedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _SEWEIEA,
@@ -1080,7 +1136,7 @@ export var SignalExternalWorkflowExecutionInitiatedEventAttributes: StaticStruct
   [_wI, _rI, _sN, _i, _dTCEI, _c],
   [0, 0, 0, 0, 1, 0],
 ];
-export var SignalWorkflowExecutionInput: StaticStructureSchema = [
+export var SignalWorkflowExecutionInput$: StaticStructureSchema = [
   3,
   n0,
   _SWEI,
@@ -1088,31 +1144,31 @@ export var SignalWorkflowExecutionInput: StaticStructureSchema = [
   [_do, _wI, _rI, _sN, _i],
   [0, 0, 0, 0, 0],
 ];
-export var StartChildWorkflowExecutionDecisionAttributes: StaticStructureSchema = [
+export var StartChildWorkflowExecutionDecisionAttributes$: StaticStructureSchema = [
   3,
   n0,
   _SCWEDA,
   0,
   [_wT, _wI, _c, _i, _eSTCT, _tL, _tP, _tSTCT, _cP, _tLa, _lR],
-  [() => WorkflowType, 0, 0, 0, 0, () => TaskList, 0, 0, 0, 64 | 0, 0],
+  [() => WorkflowType$, 0, 0, 0, 0, () => TaskList$, 0, 0, 0, 64 | 0, 0],
 ];
-export var StartChildWorkflowExecutionFailedEventAttributes: StaticStructureSchema = [
+export var StartChildWorkflowExecutionFailedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _SCWEFEA,
   0,
   [_wT, _ca, _wI, _iEI, _dTCEI, _c],
-  [() => WorkflowType, 0, 0, 1, 1, 0],
+  [() => WorkflowType$, 0, 0, 1, 1, 0],
 ];
-export var StartChildWorkflowExecutionInitiatedEventAttributes: StaticStructureSchema = [
+export var StartChildWorkflowExecutionInitiatedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _SCWEIEA,
   0,
   [_wI, _wT, _c, _i, _eSTCT, _tL, _tP, _dTCEI, _cP, _tSTCT, _tLa, _lR],
-  [0, () => WorkflowType, 0, 0, 0, () => TaskList, 0, 1, 0, 0, 64 | 0, 0],
+  [0, () => WorkflowType$, 0, 0, 0, () => TaskList$, 0, 1, 0, 0, 64 | 0, 0],
 ];
-export var StartLambdaFunctionFailedEventAttributes: StaticStructureSchema = [
+export var StartLambdaFunctionFailedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _SLFFEAt,
@@ -1120,20 +1176,20 @@ export var StartLambdaFunctionFailedEventAttributes: StaticStructureSchema = [
   [_sEIc, _ca, _m],
   [1, 0, 0],
 ];
-export var StartTimerDecisionAttributes: StaticStructureSchema = [3, n0, _STDA, 0, [_tIi, _c, _sTFT], [0, 0, 0]];
-export var StartTimerFailedEventAttributes: StaticStructureSchema = [3, n0, _STFEA, 0, [_tIi, _ca, _dTCEI], [0, 0, 1]];
-export var StartWorkflowExecutionInput: StaticStructureSchema = [
+export var StartTimerDecisionAttributes$: StaticStructureSchema = [3, n0, _STDA, 0, [_tIi, _c, _sTFT], [0, 0, 0]];
+export var StartTimerFailedEventAttributes$: StaticStructureSchema = [3, n0, _STFEA, 0, [_tIi, _ca, _dTCEI], [0, 0, 1]];
+export var StartWorkflowExecutionInput$: StaticStructureSchema = [
   3,
   n0,
   _SWEIt,
   0,
   [_do, _wI, _wT, _tL, _tP, _i, _eSTCT, _tLa, _tSTCT, _cP, _lR],
-  [0, 0, () => WorkflowType, () => TaskList, 0, 0, 0, 64 | 0, 0, 0, 0],
+  [0, 0, () => WorkflowType$, () => TaskList$, 0, 0, 0, 64 | 0, 0, 0, 0],
 ];
-export var TagFilter: StaticStructureSchema = [3, n0, _TF, 0, [_ta], [0]];
-export var TagResourceInput: StaticStructureSchema = [3, n0, _TRI, 0, [_rA, _t], [0, () => ResourceTagList]];
-export var TaskList: StaticStructureSchema = [3, n0, _TL, 0, [_n], [0]];
-export var TerminateWorkflowExecutionInput: StaticStructureSchema = [
+export var TagFilter$: StaticStructureSchema = [3, n0, _TF, 0, [_ta], [0]];
+export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI, 0, [_rA, _t], [0, () => ResourceTagList]];
+export var TaskList$: StaticStructureSchema = [3, n0, _TL, 0, [_n], [0]];
+export var TerminateWorkflowExecutionInput$: StaticStructureSchema = [
   3,
   n0,
   _TWEI,
@@ -1141,9 +1197,9 @@ export var TerminateWorkflowExecutionInput: StaticStructureSchema = [
   [_do, _wI, _rI, _re, _d, _cP],
   [0, 0, 0, 0, 0, 0],
 ];
-export var TimerCanceledEventAttributes: StaticStructureSchema = [3, n0, _TCEA, 0, [_tIi, _sEI, _dTCEI], [0, 1, 1]];
-export var TimerFiredEventAttributes: StaticStructureSchema = [3, n0, _TFEA, 0, [_tIi, _sEI], [0, 1]];
-export var TimerStartedEventAttributes: StaticStructureSchema = [
+export var TimerCanceledEventAttributes$: StaticStructureSchema = [3, n0, _TCEA, 0, [_tIi, _sEI, _dTCEI], [0, 1, 1]];
+export var TimerFiredEventAttributes$: StaticStructureSchema = [3, n0, _TFEA, 0, [_tIi, _sEI], [0, 1]];
+export var TimerStartedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _TSEA,
@@ -1151,59 +1207,80 @@ export var TimerStartedEventAttributes: StaticStructureSchema = [
   [_tIi, _c, _sTFT, _dTCEI],
   [0, 0, 0, 1],
 ];
-export var TooManyTagsFault: StaticErrorSchema = [-3, n0, _TMTF, { [_er]: _cl, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(TooManyTagsFault, __TooManyTagsFault);
-export var TypeAlreadyExistsFault: StaticErrorSchema = [-3, n0, _TAEF, { [_er]: _cl }, [_m], [0]];
-TypeRegistry.for(n0).registerError(TypeAlreadyExistsFault, __TypeAlreadyExistsFault);
-export var TypeDeprecatedFault: StaticErrorSchema = [-3, n0, _TDF, { [_er]: _cl }, [_m], [0]];
-TypeRegistry.for(n0).registerError(TypeDeprecatedFault, __TypeDeprecatedFault);
-export var TypeNotDeprecatedFault: StaticErrorSchema = [-3, n0, _TNDF, { [_er]: _cl }, [_m], [0]];
-TypeRegistry.for(n0).registerError(TypeNotDeprecatedFault, __TypeNotDeprecatedFault);
-export var UndeprecateActivityTypeInput: StaticStructureSchema = [3, n0, _UATI, 0, [_do, _aT], [0, () => ActivityType]];
-export var UndeprecateDomainInput: StaticStructureSchema = [3, n0, _UDI, 0, [_n], [0]];
-export var UndeprecateWorkflowTypeInput: StaticStructureSchema = [3, n0, _UWTI, 0, [_do, _wT], [0, () => WorkflowType]];
-export var UnknownResourceFault: StaticErrorSchema = [-3, n0, _URF, { [_er]: _cl }, [_m], [0]];
-TypeRegistry.for(n0).registerError(UnknownResourceFault, __UnknownResourceFault);
-export var UntagResourceInput: StaticStructureSchema = [3, n0, _URI, 0, [_rA, _tK], [0, 64 | 0]];
-export var WorkflowExecution: StaticStructureSchema = [3, n0, _WE, 0, [_wI, _rI], [0, 0]];
-export var WorkflowExecutionAlreadyStartedFault: StaticErrorSchema = [-3, n0, _WEASF, { [_er]: _cl }, [_m], [0]];
-TypeRegistry.for(n0).registerError(WorkflowExecutionAlreadyStartedFault, __WorkflowExecutionAlreadyStartedFault);
-export var WorkflowExecutionCanceledEventAttributes: StaticStructureSchema = [3, n0, _WECEA, 0, [_d, _dTCEI], [0, 1]];
-export var WorkflowExecutionCancelRequestedEventAttributes: StaticStructureSchema = [
+export var TooManyTagsFault$: StaticErrorSchema = [-3, n0, _TMTF, { [_er]: _cl, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(TooManyTagsFault$, TooManyTagsFault);
+export var TypeAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _TAEF, { [_er]: _cl }, [_m], [0]];
+TypeRegistry.for(n0).registerError(TypeAlreadyExistsFault$, TypeAlreadyExistsFault);
+export var TypeDeprecatedFault$: StaticErrorSchema = [-3, n0, _TDF, { [_er]: _cl }, [_m], [0]];
+TypeRegistry.for(n0).registerError(TypeDeprecatedFault$, TypeDeprecatedFault);
+export var TypeNotDeprecatedFault$: StaticErrorSchema = [-3, n0, _TNDF, { [_er]: _cl }, [_m], [0]];
+TypeRegistry.for(n0).registerError(TypeNotDeprecatedFault$, TypeNotDeprecatedFault);
+export var UndeprecateActivityTypeInput$: StaticStructureSchema = [
+  3,
+  n0,
+  _UATI,
+  0,
+  [_do, _aT],
+  [0, () => ActivityType$],
+];
+export var UndeprecateDomainInput$: StaticStructureSchema = [3, n0, _UDI, 0, [_n], [0]];
+export var UndeprecateWorkflowTypeInput$: StaticStructureSchema = [
+  3,
+  n0,
+  _UWTI,
+  0,
+  [_do, _wT],
+  [0, () => WorkflowType$],
+];
+export var UnknownResourceFault$: StaticErrorSchema = [-3, n0, _URF, { [_er]: _cl }, [_m], [0]];
+TypeRegistry.for(n0).registerError(UnknownResourceFault$, UnknownResourceFault);
+export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI, 0, [_rA, _tK], [0, 64 | 0]];
+export var WorkflowExecution$: StaticStructureSchema = [3, n0, _WE, 0, [_wI, _rI], [0, 0]];
+export var WorkflowExecutionAlreadyStartedFault$: StaticErrorSchema = [-3, n0, _WEASF, { [_er]: _cl }, [_m], [0]];
+TypeRegistry.for(n0).registerError(WorkflowExecutionAlreadyStartedFault$, WorkflowExecutionAlreadyStartedFault);
+export var WorkflowExecutionCanceledEventAttributes$: StaticStructureSchema = [3, n0, _WECEA, 0, [_d, _dTCEI], [0, 1]];
+export var WorkflowExecutionCancelRequestedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _WECREA,
   0,
   [_eWE, _eIEI, _ca],
-  [() => WorkflowExecution, 1, 0],
+  [() => WorkflowExecution$, 1, 0],
 ];
-export var WorkflowExecutionCompletedEventAttributes: StaticStructureSchema = [3, n0, _WECEAo, 0, [_r, _dTCEI], [0, 1]];
-export var WorkflowExecutionConfiguration: StaticStructureSchema = [
+export var WorkflowExecutionCompletedEventAttributes$: StaticStructureSchema = [
+  3,
+  n0,
+  _WECEAo,
+  0,
+  [_r, _dTCEI],
+  [0, 1],
+];
+export var WorkflowExecutionConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _WEC,
   0,
   [_tSTCT, _eSTCT, _tL, _tP, _cP, _lR],
-  [0, 0, () => TaskList, 0, 0, 0],
+  [0, 0, () => TaskList$, 0, 0, 0],
 ];
-export var WorkflowExecutionContinuedAsNewEventAttributes: StaticStructureSchema = [
+export var WorkflowExecutionContinuedAsNewEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _WECANEA,
   0,
   [_i, _dTCEI, _nERI, _eSTCT, _tL, _tP, _tSTCT, _cP, _tLa, _wT, _lR],
-  [0, 1, 0, 0, () => TaskList, 0, 0, 0, 64 | 0, () => WorkflowType, 0],
+  [0, 1, 0, 0, () => TaskList$, 0, 0, 0, 64 | 0, () => WorkflowType$, 0],
 ];
-export var WorkflowExecutionCount: StaticStructureSchema = [3, n0, _WECo, 0, [_cou, _tr], [1, 2]];
-export var WorkflowExecutionDetail: StaticStructureSchema = [
+export var WorkflowExecutionCount$: StaticStructureSchema = [3, n0, _WECo, 0, [_cou, _tr], [1, 2]];
+export var WorkflowExecutionDetail$: StaticStructureSchema = [
   3,
   n0,
   _WED,
   0,
   [_eIx, _eCx, _oC, _lATT, _lEC],
-  [() => WorkflowExecutionInfo, () => WorkflowExecutionConfiguration, () => WorkflowExecutionOpenCounts, 4, 0],
+  [() => WorkflowExecutionInfo$, () => WorkflowExecutionConfiguration$, () => WorkflowExecutionOpenCounts$, 4, 0],
 ];
-export var WorkflowExecutionFailedEventAttributes: StaticStructureSchema = [
+export var WorkflowExecutionFailedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _WEFEA,
@@ -1211,16 +1288,16 @@ export var WorkflowExecutionFailedEventAttributes: StaticStructureSchema = [
   [_re, _d, _dTCEI],
   [0, 0, 1],
 ];
-export var WorkflowExecutionFilter: StaticStructureSchema = [3, n0, _WEF, 0, [_wI], [0]];
-export var WorkflowExecutionInfo: StaticStructureSchema = [
+export var WorkflowExecutionFilter$: StaticStructureSchema = [3, n0, _WEF, 0, [_wI], [0]];
+export var WorkflowExecutionInfo$: StaticStructureSchema = [
   3,
   n0,
   _WEI,
   0,
   [_ex, _wT, _sT, _cT, _eS, _cS, _p, _tLa, _cR],
-  [() => WorkflowExecution, () => WorkflowType, 4, 4, 0, 0, () => WorkflowExecution, 64 | 0, 2],
+  [() => WorkflowExecution$, () => WorkflowType$, 4, 4, 0, 0, () => WorkflowExecution$, 64 | 0, 2],
 ];
-export var WorkflowExecutionInfos: StaticStructureSchema = [
+export var WorkflowExecutionInfos$: StaticStructureSchema = [
   3,
   n0,
   _WEIo,
@@ -1228,7 +1305,7 @@ export var WorkflowExecutionInfos: StaticStructureSchema = [
   [_eIxe, _nPT],
   [() => WorkflowExecutionInfoList, 0],
 ];
-export var WorkflowExecutionOpenCounts: StaticStructureSchema = [
+export var WorkflowExecutionOpenCounts$: StaticStructureSchema = [
   3,
   n0,
   _WEOC,
@@ -1236,23 +1313,23 @@ export var WorkflowExecutionOpenCounts: StaticStructureSchema = [
   [_oAT, _oDT, _oT, _oCWE, _oLF],
   [1, 1, 1, 1, 1],
 ];
-export var WorkflowExecutionSignaledEventAttributes: StaticStructureSchema = [
+export var WorkflowExecutionSignaledEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _WESEA,
   0,
   [_sN, _i, _eWE, _eIEI],
-  [0, 0, () => WorkflowExecution, 1],
+  [0, 0, () => WorkflowExecution$, 1],
 ];
-export var WorkflowExecutionStartedEventAttributes: StaticStructureSchema = [
+export var WorkflowExecutionStartedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _WESEAo,
   0,
   [_i, _eSTCT, _tSTCT, _cP, _tL, _tP, _wT, _tLa, _cERI, _pWE, _pIEI, _lR],
-  [0, 0, 0, 0, () => TaskList, 0, () => WorkflowType, 64 | 0, 0, () => WorkflowExecution, 1, 0],
+  [0, 0, 0, 0, () => TaskList$, 0, () => WorkflowType$, 64 | 0, 0, () => WorkflowExecution$, 1, 0],
 ];
-export var WorkflowExecutionTerminatedEventAttributes: StaticStructureSchema = [
+export var WorkflowExecutionTerminatedEventAttributes$: StaticStructureSchema = [
   3,
   n0,
   _WETEA,
@@ -1260,292 +1337,292 @@ export var WorkflowExecutionTerminatedEventAttributes: StaticStructureSchema = [
   [_re, _d, _cP, _ca],
   [0, 0, 0, 0],
 ];
-export var WorkflowExecutionTimedOutEventAttributes: StaticStructureSchema = [3, n0, _WETOEA, 0, [_tTi, _cP], [0, 0]];
-export var WorkflowType: StaticStructureSchema = [3, n0, _WT, 0, [_n, _v], [0, 0]];
-export var WorkflowTypeConfiguration: StaticStructureSchema = [
+export var WorkflowExecutionTimedOutEventAttributes$: StaticStructureSchema = [3, n0, _WETOEA, 0, [_tTi, _cP], [0, 0]];
+export var WorkflowType$: StaticStructureSchema = [3, n0, _WT, 0, [_n, _v], [0, 0]];
+export var WorkflowTypeConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _WTC,
   0,
   [_dTSTCT, _dESTCT, _dTL, _dTP, _dCP, _dLR],
-  [0, 0, () => TaskList, 0, 0, 0],
+  [0, 0, () => TaskList$, 0, 0, 0],
 ];
-export var WorkflowTypeDetail: StaticStructureSchema = [
+export var WorkflowTypeDetail$: StaticStructureSchema = [
   3,
   n0,
   _WTD,
   0,
   [_tI, _co],
-  [() => WorkflowTypeInfo, () => WorkflowTypeConfiguration],
+  [() => WorkflowTypeInfo$, () => WorkflowTypeConfiguration$],
 ];
-export var WorkflowTypeFilter: StaticStructureSchema = [3, n0, _WTF, 0, [_n, _v], [0, 0]];
-export var WorkflowTypeInfo: StaticStructureSchema = [
+export var WorkflowTypeFilter$: StaticStructureSchema = [3, n0, _WTF, 0, [_n, _v], [0, 0]];
+export var WorkflowTypeInfo$: StaticStructureSchema = [
   3,
   n0,
   _WTI,
   0,
   [_wT, _s, _de, _cD, _dD],
-  [() => WorkflowType, 0, 0, 4, 4],
+  [() => WorkflowType$, 0, 0, 4, 4],
 ];
-export var WorkflowTypeInfos: StaticStructureSchema = [3, n0, _WTIo, 0, [_tIy, _nPT], [() => WorkflowTypeInfoList, 0]];
-export var __Unit = "unit" as const;
-export var SWFServiceException: StaticErrorSchema = [-3, _sm, "SWFServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SWFServiceException, __SWFServiceException);
-export var ActivityTypeInfoList: StaticListSchema = [1, n0, _ATIL, 0, () => ActivityTypeInfo];
-export var DecisionList: StaticListSchema = [1, n0, _DL, 0, () => Decision];
-export var DomainInfoList: StaticListSchema = [1, n0, _DIL, 0, () => DomainInfo];
-export var HistoryEventList: StaticListSchema = [1, n0, _HEL, 0, () => HistoryEvent];
-export var ResourceTagKeyList = 64 | 0;
-export var ResourceTagList: StaticListSchema = [1, n0, _RTL, 0, () => ResourceTag];
-export var TagList = 64 | 0;
-export var WorkflowExecutionInfoList: StaticListSchema = [1, n0, _WEIL, 0, () => WorkflowExecutionInfo];
-export var WorkflowTypeInfoList: StaticListSchema = [1, n0, _WTIL, 0, () => WorkflowTypeInfo];
-export var CountClosedWorkflowExecutions: StaticOperationSchema = [
+export var WorkflowTypeInfos$: StaticStructureSchema = [3, n0, _WTIo, 0, [_tIy, _nPT], [() => WorkflowTypeInfoList, 0]];
+var __Unit = "unit" as const;
+export var SWFServiceException$: StaticErrorSchema = [-3, _sm, "SWFServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(SWFServiceException$, SWFServiceException);
+var ActivityTypeInfoList: StaticListSchema = [1, n0, _ATIL, 0, () => ActivityTypeInfo$];
+var DecisionList: StaticListSchema = [1, n0, _DL, 0, () => Decision$];
+var DomainInfoList: StaticListSchema = [1, n0, _DIL, 0, () => DomainInfo$];
+var HistoryEventList: StaticListSchema = [1, n0, _HEL, 0, () => HistoryEvent$];
+var ResourceTagKeyList = 64 | 0;
+var ResourceTagList: StaticListSchema = [1, n0, _RTL, 0, () => ResourceTag$];
+var TagList = 64 | 0;
+var WorkflowExecutionInfoList: StaticListSchema = [1, n0, _WEIL, 0, () => WorkflowExecutionInfo$];
+var WorkflowTypeInfoList: StaticListSchema = [1, n0, _WTIL, 0, () => WorkflowTypeInfo$];
+export var CountClosedWorkflowExecutions$: StaticOperationSchema = [
   9,
   n0,
   _CCWE,
   0,
-  () => CountClosedWorkflowExecutionsInput,
-  () => WorkflowExecutionCount,
+  () => CountClosedWorkflowExecutionsInput$,
+  () => WorkflowExecutionCount$,
 ];
-export var CountOpenWorkflowExecutions: StaticOperationSchema = [
+export var CountOpenWorkflowExecutions$: StaticOperationSchema = [
   9,
   n0,
   _COWE,
   0,
-  () => CountOpenWorkflowExecutionsInput,
-  () => WorkflowExecutionCount,
+  () => CountOpenWorkflowExecutionsInput$,
+  () => WorkflowExecutionCount$,
 ];
-export var CountPendingActivityTasks: StaticOperationSchema = [
+export var CountPendingActivityTasks$: StaticOperationSchema = [
   9,
   n0,
   _CPAT,
   0,
-  () => CountPendingActivityTasksInput,
-  () => PendingTaskCount,
+  () => CountPendingActivityTasksInput$,
+  () => PendingTaskCount$,
 ];
-export var CountPendingDecisionTasks: StaticOperationSchema = [
+export var CountPendingDecisionTasks$: StaticOperationSchema = [
   9,
   n0,
   _CPDT,
   0,
-  () => CountPendingDecisionTasksInput,
-  () => PendingTaskCount,
+  () => CountPendingDecisionTasksInput$,
+  () => PendingTaskCount$,
 ];
-export var DeleteActivityType: StaticOperationSchema = [9, n0, _DAT, 0, () => DeleteActivityTypeInput, () => __Unit];
-export var DeleteWorkflowType: StaticOperationSchema = [9, n0, _DWT, 0, () => DeleteWorkflowTypeInput, () => __Unit];
-export var DeprecateActivityType: StaticOperationSchema = [
+export var DeleteActivityType$: StaticOperationSchema = [9, n0, _DAT, 0, () => DeleteActivityTypeInput$, () => __Unit];
+export var DeleteWorkflowType$: StaticOperationSchema = [9, n0, _DWT, 0, () => DeleteWorkflowTypeInput$, () => __Unit];
+export var DeprecateActivityType$: StaticOperationSchema = [
   9,
   n0,
   _DATe,
   0,
-  () => DeprecateActivityTypeInput,
+  () => DeprecateActivityTypeInput$,
   () => __Unit,
 ];
-export var DeprecateDomain: StaticOperationSchema = [9, n0, _DDe, 0, () => DeprecateDomainInput, () => __Unit];
-export var DeprecateWorkflowType: StaticOperationSchema = [
+export var DeprecateDomain$: StaticOperationSchema = [9, n0, _DDe, 0, () => DeprecateDomainInput$, () => __Unit];
+export var DeprecateWorkflowType$: StaticOperationSchema = [
   9,
   n0,
   _DWTe,
   0,
-  () => DeprecateWorkflowTypeInput,
+  () => DeprecateWorkflowTypeInput$,
   () => __Unit,
 ];
-export var DescribeActivityType: StaticOperationSchema = [
+export var DescribeActivityType$: StaticOperationSchema = [
   9,
   n0,
   _DATes,
   0,
-  () => DescribeActivityTypeInput,
-  () => ActivityTypeDetail,
+  () => DescribeActivityTypeInput$,
+  () => ActivityTypeDetail$,
 ];
-export var DescribeDomain: StaticOperationSchema = [9, n0, _DDes, 0, () => DescribeDomainInput, () => DomainDetail];
-export var DescribeWorkflowExecution: StaticOperationSchema = [
+export var DescribeDomain$: StaticOperationSchema = [9, n0, _DDes, 0, () => DescribeDomainInput$, () => DomainDetail$];
+export var DescribeWorkflowExecution$: StaticOperationSchema = [
   9,
   n0,
   _DWE,
   0,
-  () => DescribeWorkflowExecutionInput,
-  () => WorkflowExecutionDetail,
+  () => DescribeWorkflowExecutionInput$,
+  () => WorkflowExecutionDetail$,
 ];
-export var DescribeWorkflowType: StaticOperationSchema = [
+export var DescribeWorkflowType$: StaticOperationSchema = [
   9,
   n0,
   _DWTes,
   0,
-  () => DescribeWorkflowTypeInput,
-  () => WorkflowTypeDetail,
+  () => DescribeWorkflowTypeInput$,
+  () => WorkflowTypeDetail$,
 ];
-export var GetWorkflowExecutionHistory: StaticOperationSchema = [
+export var GetWorkflowExecutionHistory$: StaticOperationSchema = [
   9,
   n0,
   _GWEH,
   0,
-  () => GetWorkflowExecutionHistoryInput,
-  () => History,
+  () => GetWorkflowExecutionHistoryInput$,
+  () => History$,
 ];
-export var ListActivityTypes: StaticOperationSchema = [
+export var ListActivityTypes$: StaticOperationSchema = [
   9,
   n0,
   _LAT,
   0,
-  () => ListActivityTypesInput,
-  () => ActivityTypeInfos,
+  () => ListActivityTypesInput$,
+  () => ActivityTypeInfos$,
 ];
-export var ListClosedWorkflowExecutions: StaticOperationSchema = [
+export var ListClosedWorkflowExecutions$: StaticOperationSchema = [
   9,
   n0,
   _LCWE,
   0,
-  () => ListClosedWorkflowExecutionsInput,
-  () => WorkflowExecutionInfos,
+  () => ListClosedWorkflowExecutionsInput$,
+  () => WorkflowExecutionInfos$,
 ];
-export var ListDomains: StaticOperationSchema = [9, n0, _LD, 0, () => ListDomainsInput, () => DomainInfos];
-export var ListOpenWorkflowExecutions: StaticOperationSchema = [
+export var ListDomains$: StaticOperationSchema = [9, n0, _LD, 0, () => ListDomainsInput$, () => DomainInfos$];
+export var ListOpenWorkflowExecutions$: StaticOperationSchema = [
   9,
   n0,
   _LOWE,
   0,
-  () => ListOpenWorkflowExecutionsInput,
-  () => WorkflowExecutionInfos,
+  () => ListOpenWorkflowExecutionsInput$,
+  () => WorkflowExecutionInfos$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   0,
-  () => ListTagsForResourceInput,
-  () => ListTagsForResourceOutput,
+  () => ListTagsForResourceInput$,
+  () => ListTagsForResourceOutput$,
 ];
-export var ListWorkflowTypes: StaticOperationSchema = [
+export var ListWorkflowTypes$: StaticOperationSchema = [
   9,
   n0,
   _LWT,
   0,
-  () => ListWorkflowTypesInput,
-  () => WorkflowTypeInfos,
+  () => ListWorkflowTypesInput$,
+  () => WorkflowTypeInfos$,
 ];
-export var PollForActivityTask: StaticOperationSchema = [
+export var PollForActivityTask$: StaticOperationSchema = [
   9,
   n0,
   _PFAT,
   0,
-  () => PollForActivityTaskInput,
-  () => ActivityTask,
+  () => PollForActivityTaskInput$,
+  () => ActivityTask$,
 ];
-export var PollForDecisionTask: StaticOperationSchema = [
+export var PollForDecisionTask$: StaticOperationSchema = [
   9,
   n0,
   _PFDT,
   0,
-  () => PollForDecisionTaskInput,
-  () => DecisionTask,
+  () => PollForDecisionTaskInput$,
+  () => DecisionTask$,
 ];
-export var RecordActivityTaskHeartbeat: StaticOperationSchema = [
+export var RecordActivityTaskHeartbeat$: StaticOperationSchema = [
   9,
   n0,
   _RATH,
   0,
-  () => RecordActivityTaskHeartbeatInput,
-  () => ActivityTaskStatus,
+  () => RecordActivityTaskHeartbeatInput$,
+  () => ActivityTaskStatus$,
 ];
-export var RegisterActivityType: StaticOperationSchema = [
+export var RegisterActivityType$: StaticOperationSchema = [
   9,
   n0,
   _RAT,
   0,
-  () => RegisterActivityTypeInput,
+  () => RegisterActivityTypeInput$,
   () => __Unit,
 ];
-export var RegisterDomain: StaticOperationSchema = [9, n0, _RD, 0, () => RegisterDomainInput, () => __Unit];
-export var RegisterWorkflowType: StaticOperationSchema = [
+export var RegisterDomain$: StaticOperationSchema = [9, n0, _RD, 0, () => RegisterDomainInput$, () => __Unit];
+export var RegisterWorkflowType$: StaticOperationSchema = [
   9,
   n0,
   _RWT,
   0,
-  () => RegisterWorkflowTypeInput,
+  () => RegisterWorkflowTypeInput$,
   () => __Unit,
 ];
-export var RequestCancelWorkflowExecution: StaticOperationSchema = [
+export var RequestCancelWorkflowExecution$: StaticOperationSchema = [
   9,
   n0,
   _RCWE,
   0,
-  () => RequestCancelWorkflowExecutionInput,
+  () => RequestCancelWorkflowExecutionInput$,
   () => __Unit,
 ];
-export var RespondActivityTaskCanceled: StaticOperationSchema = [
+export var RespondActivityTaskCanceled$: StaticOperationSchema = [
   9,
   n0,
   _RATC,
   0,
-  () => RespondActivityTaskCanceledInput,
+  () => RespondActivityTaskCanceledInput$,
   () => __Unit,
 ];
-export var RespondActivityTaskCompleted: StaticOperationSchema = [
+export var RespondActivityTaskCompleted$: StaticOperationSchema = [
   9,
   n0,
   _RATCe,
   0,
-  () => RespondActivityTaskCompletedInput,
+  () => RespondActivityTaskCompletedInput$,
   () => __Unit,
 ];
-export var RespondActivityTaskFailed: StaticOperationSchema = [
+export var RespondActivityTaskFailed$: StaticOperationSchema = [
   9,
   n0,
   _RATF,
   0,
-  () => RespondActivityTaskFailedInput,
+  () => RespondActivityTaskFailedInput$,
   () => __Unit,
 ];
-export var RespondDecisionTaskCompleted: StaticOperationSchema = [
+export var RespondDecisionTaskCompleted$: StaticOperationSchema = [
   9,
   n0,
   _RDTC,
   0,
-  () => RespondDecisionTaskCompletedInput,
+  () => RespondDecisionTaskCompletedInput$,
   () => __Unit,
 ];
-export var SignalWorkflowExecution: StaticOperationSchema = [
+export var SignalWorkflowExecution$: StaticOperationSchema = [
   9,
   n0,
   _SWE,
   0,
-  () => SignalWorkflowExecutionInput,
+  () => SignalWorkflowExecutionInput$,
   () => __Unit,
 ];
-export var StartWorkflowExecution: StaticOperationSchema = [
+export var StartWorkflowExecution$: StaticOperationSchema = [
   9,
   n0,
   _SWEt,
   0,
-  () => StartWorkflowExecutionInput,
-  () => Run,
+  () => StartWorkflowExecutionInput$,
+  () => Run$,
 ];
-export var TagResource: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceInput, () => __Unit];
-export var TerminateWorkflowExecution: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceInput$, () => __Unit];
+export var TerminateWorkflowExecution$: StaticOperationSchema = [
   9,
   n0,
   _TWE,
   0,
-  () => TerminateWorkflowExecutionInput,
+  () => TerminateWorkflowExecutionInput$,
   () => __Unit,
 ];
-export var UndeprecateActivityType: StaticOperationSchema = [
+export var UndeprecateActivityType$: StaticOperationSchema = [
   9,
   n0,
   _UAT,
   0,
-  () => UndeprecateActivityTypeInput,
+  () => UndeprecateActivityTypeInput$,
   () => __Unit,
 ];
-export var UndeprecateDomain: StaticOperationSchema = [9, n0, _UD, 0, () => UndeprecateDomainInput, () => __Unit];
-export var UndeprecateWorkflowType: StaticOperationSchema = [
+export var UndeprecateDomain$: StaticOperationSchema = [9, n0, _UD, 0, () => UndeprecateDomainInput$, () => __Unit];
+export var UndeprecateWorkflowType$: StaticOperationSchema = [
   9,
   n0,
   _UWT,
   0,
-  () => UndeprecateWorkflowTypeInput,
+  () => UndeprecateWorkflowTypeInput$,
   () => __Unit,
 ];
-export var UntagResource: StaticOperationSchema = [9, n0, _UR, 0, () => UntagResourceInput, () => __Unit];
+export var UntagResource$: StaticOperationSchema = [9, n0, _UR, 0, () => UntagResourceInput$, () => __Unit];

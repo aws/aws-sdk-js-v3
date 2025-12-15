@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeDomainRequest, DescribeDomainResult } from "../models/models_0";
-import { DescribeDomain } from "../schemas/schemas_0";
+import { DescribeDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class DescribeDomainCommand extends $Command
   })
   .s("CodeArtifactControlPlaneService", "DescribeDomain", {})
   .n("CodeartifactClient", "DescribeDomainCommand")
-  .sc(DescribeDomain)
+  .sc(DescribeDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

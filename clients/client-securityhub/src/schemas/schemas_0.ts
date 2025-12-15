@@ -3434,108 +3434,108 @@ import type {
 } from "@smithy/types";
 
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  InternalException as __InternalException,
-  InternalServerException as __InternalServerException,
-  InvalidAccessException as __InvalidAccessException,
-  InvalidInputException as __InvalidInputException,
-  LimitExceededException as __LimitExceededException,
-  ResourceConflictException as __ResourceConflictException,
-  ResourceInUseException as __ResourceInUseException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  InternalException,
+  InternalServerException,
+  InvalidAccessException,
+  InvalidInputException,
+  LimitExceededException,
+  ResourceConflictException,
+  ResourceInUseException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
-import { SecurityHubServiceException as __SecurityHubServiceException } from "../models/SecurityHubServiceException";
+import { SecurityHubServiceException } from "../models/SecurityHubServiceException";
 
 /* eslint no-var: 0 */
-export var AcceptAdministratorInvitationRequest: StaticStructureSchema = [3, n0, _AAIR, 0, [_AI, _II], [0, 0]];
-export var AcceptAdministratorInvitationResponse: StaticStructureSchema = [3, n0, _AAIRc, 0, [], []];
-export var AcceptInvitationRequest: StaticStructureSchema = [3, n0, _AIR, 0, [_MI, _II], [0, 0]];
-export var AcceptInvitationResponse: StaticStructureSchema = [3, n0, _AIRc, 0, [], []];
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M, _C], [0, 0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var AccountDetails: StaticStructureSchema = [3, n0, _AD, 0, [_AIc, _E], [0, 0]];
-export var Action: StaticStructureSchema = [
+export var AcceptAdministratorInvitationRequest$: StaticStructureSchema = [3, n0, _AAIR, 0, [_AI, _II], [0, 0]];
+export var AcceptAdministratorInvitationResponse$: StaticStructureSchema = [3, n0, _AAIRc, 0, [], []];
+export var AcceptInvitationRequest$: StaticStructureSchema = [3, n0, _AIR, 0, [_MI, _II], [0, 0]];
+export var AcceptInvitationResponse$: StaticStructureSchema = [3, n0, _AIRc, 0, [], []];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M, _C], [0, 0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var AccountDetails$: StaticStructureSchema = [3, n0, _AD, 0, [_AIc, _E], [0, 0]];
+export var Action$: StaticStructureSchema = [
   3,
   n0,
   _A,
   0,
   [_AT, _NCA, _AACA, _DRA, _PPA],
-  [0, () => NetworkConnectionAction, () => AwsApiCallAction, () => DnsRequestAction, () => PortProbeAction],
+  [0, () => NetworkConnectionAction$, () => AwsApiCallAction$, () => DnsRequestAction$, () => PortProbeAction$],
 ];
-export var ActionLocalIpDetails: StaticStructureSchema = [3, n0, _ALID, 0, [_IAV], [0]];
-export var ActionLocalPortDetails: StaticStructureSchema = [3, n0, _ALPD, 0, [_P, _PN], [1, 0]];
-export var ActionRemoteIpDetails: StaticStructureSchema = [
+export var ActionLocalIpDetails$: StaticStructureSchema = [3, n0, _ALID, 0, [_IAV], [0]];
+export var ActionLocalPortDetails$: StaticStructureSchema = [3, n0, _ALPD, 0, [_P, _PN], [1, 0]];
+export var ActionRemoteIpDetails$: StaticStructureSchema = [
   3,
   n0,
   _ARID,
   0,
   [_IAV, _O, _Co, _Ci, _GL],
-  [0, () => IpOrganizationDetails, () => Country, () => City, () => GeoLocation],
+  [0, () => IpOrganizationDetails$, () => Country$, () => City$, () => GeoLocation$],
 ];
-export var ActionRemotePortDetails: StaticStructureSchema = [3, n0, _ARPD, 0, [_P, _PN], [1, 0]];
-export var ActionTarget: StaticStructureSchema = [3, n0, _ATc, 0, [_ATA, _N, _D], [0, 0, 0]];
-export var Actor: StaticStructureSchema = [3, n0, _Ac, 0, [_I, _U, _S], [0, () => ActorUser, () => ActorSession]];
-export var ActorSession: StaticStructureSchema = [3, n0, _AS, 0, [_Ui, _MS, _CT, _Is], [0, 0, 1, 0]];
-export var ActorUser: StaticStructureSchema = [
+export var ActionRemotePortDetails$: StaticStructureSchema = [3, n0, _ARPD, 0, [_P, _PN], [1, 0]];
+export var ActionTarget$: StaticStructureSchema = [3, n0, _ATc, 0, [_ATA, _N, _D], [0, 0, 0]];
+export var Actor$: StaticStructureSchema = [3, n0, _Ac, 0, [_I, _U, _S], [0, () => ActorUser$, () => ActorSession$]];
+export var ActorSession$: StaticStructureSchema = [3, n0, _AS, 0, [_Ui, _MS, _CT, _Is], [0, 0, 1, 0]];
+export var ActorUser$: StaticStructureSchema = [
   3,
   n0,
   _AU,
   0,
   [_N, _Ui, _T, _CU, _Acc],
-  [0, 0, 0, 0, () => UserAccount],
+  [0, 0, 0, 0, () => UserAccount$],
 ];
-export var Adjustment: StaticStructureSchema = [3, n0, _Ad, 0, [_Me, _R], [0, 0]];
-export var AdminAccount: StaticStructureSchema = [3, n0, _AA, 0, [_AIc, _St], [0, 0]];
-export var AggregatorV2: StaticStructureSchema = [3, n0, _AV, 0, [_AVA], [0]];
-export var AssociatedStandard: StaticStructureSchema = [3, n0, _ASs, 0, [_SI], [0]];
-export var AssociationFilters: StaticStructureSchema = [3, n0, _AF, 0, [_CPI, _ATs, _ASss], [0, 0, 0]];
-export var AssociationSetDetails: StaticStructureSchema = [
+export var Adjustment$: StaticStructureSchema = [3, n0, _Ad, 0, [_Me, _R], [0, 0]];
+export var AdminAccount$: StaticStructureSchema = [3, n0, _AA, 0, [_AIc, _St], [0, 0]];
+export var AggregatorV2$: StaticStructureSchema = [3, n0, _AV, 0, [_AVA], [0]];
+export var AssociatedStandard$: StaticStructureSchema = [3, n0, _ASs, 0, [_SI], [0]];
+export var AssociationFilters$: StaticStructureSchema = [3, n0, _AF, 0, [_CPI, _ATs, _ASss], [0, 0, 0]];
+export var AssociationSetDetails$: StaticStructureSchema = [
   3,
   n0,
   _ASD,
   0,
   [_ASsso, _GI, _Ma, _RTAI, _RTI, _SIu],
-  [() => AssociationStateDetails, 0, 2, 0, 0, 0],
+  [() => AssociationStateDetails$, 0, 2, 0, 0, 0],
 ];
-export var AssociationStateDetails: StaticStructureSchema = [3, n0, _ASDs, 0, [_Sta, _SM], [0, 0]];
-export var AutomationRulesAction: StaticStructureSchema = [
+export var AssociationStateDetails$: StaticStructureSchema = [3, n0, _ASDs, 0, [_Sta, _SM], [0, 0]];
+export var AutomationRulesAction$: StaticStructureSchema = [
   3,
   n0,
   _ARA,
   0,
   [_T, _FFU],
-  [0, () => AutomationRulesFindingFieldsUpdate],
+  [0, () => AutomationRulesFindingFieldsUpdate$],
 ];
-export var AutomationRulesActionTypeObjectV2: StaticStructureSchema = [3, n0, _ARATOV, 0, [_T], [0]];
-export var AutomationRulesActionV2: StaticStructureSchema = [
+export var AutomationRulesActionTypeObjectV2$: StaticStructureSchema = [3, n0, _ARATOV, 0, [_T], [0]];
+export var AutomationRulesActionV2$: StaticStructureSchema = [
   3,
   n0,
   _ARAV,
   0,
   [_T, _FFU, _EIC],
-  [0, () => AutomationRulesFindingFieldsUpdateV2, () => ExternalIntegrationConfiguration],
+  [0, () => AutomationRulesFindingFieldsUpdateV2$, () => ExternalIntegrationConfiguration$],
 ];
-export var AutomationRulesConfig: StaticStructureSchema = [
+export var AutomationRulesConfig$: StaticStructureSchema = [
   3,
   n0,
   _ARC,
   0,
   [_RA, _RS, _RO, _RN, _D, _IT, _Cr, _Act, _CA, _UA, _CB],
-  [0, 0, 1, 0, 0, 2, () => AutomationRulesFindingFilters, () => ActionList, 5, 5, 0],
+  [0, 0, 1, 0, 0, 2, () => AutomationRulesFindingFilters$, () => ActionList, 5, 5, 0],
 ];
-export var AutomationRulesFindingFieldsUpdate: StaticStructureSchema = [
+export var AutomationRulesFindingFieldsUpdate$: StaticStructureSchema = [
   3,
   n0,
   _ARFFU,
   0,
   [_No, _Se, _VS, _Con, _Cri, _Ty, _UDF, _W, _RF],
-  [() => NoteUpdate, () => SeverityUpdate, 0, 1, 1, 64 | 0, 128 | 0, () => WorkflowUpdate, () => RelatedFindingList],
+  [() => NoteUpdate$, () => SeverityUpdate$, 0, 1, 1, 64 | 0, 128 | 0, () => WorkflowUpdate$, () => RelatedFindingList],
 ];
-export var AutomationRulesFindingFieldsUpdateV2: StaticStructureSchema = [
+export var AutomationRulesFindingFieldsUpdateV2$: StaticStructureSchema = [
   3,
   n0,
   _ARFFUV,
@@ -3543,7 +3543,7 @@ export var AutomationRulesFindingFieldsUpdateV2: StaticStructureSchema = [
   [_SIe, _Com, _SIt],
   [1, 0, 1],
 ];
-export var AutomationRulesFindingFilters: StaticStructureSchema = [
+export var AutomationRulesFindingFilters$: StaticStructureSchema = [
   3,
   n0,
   _ARFF,
@@ -3629,7 +3629,7 @@ export var AutomationRulesFindingFilters: StaticStructureSchema = [
     () => StringFilterList,
   ],
 ];
-export var AutomationRulesMetadata: StaticStructureSchema = [
+export var AutomationRulesMetadata$: StaticStructureSchema = [
   3,
   n0,
   _ARM,
@@ -3637,7 +3637,7 @@ export var AutomationRulesMetadata: StaticStructureSchema = [
   [_RA, _RS, _RO, _RN, _D, _IT, _CA, _UA, _CB],
   [0, 0, 1, 0, 0, 2, 5, 5, 0],
 ];
-export var AutomationRulesMetadataV2: StaticStructureSchema = [
+export var AutomationRulesMetadataV2$: StaticStructureSchema = [
   3,
   n0,
   _ARMV,
@@ -3645,8 +3645,8 @@ export var AutomationRulesMetadataV2: StaticStructureSchema = [
   [_RA, _RIu, _RO, _RN, _RS, _D, _Act, _CA, _UA],
   [0, 0, 1, 0, 0, 0, () => AutomationRulesActionTypeListV2, 5, 5],
 ];
-export var AvailabilityZone: StaticStructureSchema = [3, n0, _AZ, 0, [_ZN, _SIu], [0, 0]];
-export var AwsAmazonMqBrokerDetails: StaticStructureSchema = [
+export var AvailabilityZone$: StaticStructureSchema = [3, n0, _AZ, 0, [_ZN, _SIu], [0, 0]];
+export var AwsAmazonMqBrokerDetails$: StaticStructureSchema = [
   3,
   n0,
   _AAMBD,
@@ -3658,14 +3658,14 @@ export var AwsAmazonMqBrokerDetails: StaticStructureSchema = [
     0,
     0,
     0,
-    () => AwsAmazonMqBrokerEncryptionOptionsDetails,
+    () => AwsAmazonMqBrokerEncryptionOptionsDetails$,
     0,
     0,
     0,
     0,
-    () => AwsAmazonMqBrokerLdapServerMetadataDetails,
-    () => AwsAmazonMqBrokerLogsDetails,
-    () => AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails,
+    () => AwsAmazonMqBrokerLdapServerMetadataDetails$,
+    () => AwsAmazonMqBrokerLogsDetails$,
+    () => AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails$,
     2,
     64 | 0,
     0,
@@ -3673,7 +3673,7 @@ export var AwsAmazonMqBrokerDetails: StaticStructureSchema = [
     () => AwsAmazonMqBrokerUsersList,
   ],
 ];
-export var AwsAmazonMqBrokerEncryptionOptionsDetails: StaticStructureSchema = [
+export var AwsAmazonMqBrokerEncryptionOptionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AAMBEOD,
@@ -3681,7 +3681,7 @@ export var AwsAmazonMqBrokerEncryptionOptionsDetails: StaticStructureSchema = [
   [_KKI, _UAOK],
   [0, 2],
 ];
-export var AwsAmazonMqBrokerLdapServerMetadataDetails: StaticStructureSchema = [
+export var AwsAmazonMqBrokerLdapServerMetadataDetails$: StaticStructureSchema = [
   3,
   n0,
   _AAMBLSMD,
@@ -3689,16 +3689,16 @@ export var AwsAmazonMqBrokerLdapServerMetadataDetails: StaticStructureSchema = [
   [_H, _RB, _RNo, _RSM, _RSS, _SAU, _UB, _URN, _USM, _USS],
   [64 | 0, 0, 0, 0, 2, 0, 0, 0, 0, 2],
 ];
-export var AwsAmazonMqBrokerLogsDetails: StaticStructureSchema = [
+export var AwsAmazonMqBrokerLogsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AAMBLD,
   0,
   [_Au, _G, _ALG, _GLG, _Pe],
-  [2, 2, 0, 0, () => AwsAmazonMqBrokerLogsPendingDetails],
+  [2, 2, 0, 0, () => AwsAmazonMqBrokerLogsPendingDetails$],
 ];
-export var AwsAmazonMqBrokerLogsPendingDetails: StaticStructureSchema = [3, n0, _AAMBLPD, 0, [_Au, _G], [2, 2]];
-export var AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails: StaticStructureSchema = [
+export var AwsAmazonMqBrokerLogsPendingDetails$: StaticStructureSchema = [3, n0, _AAMBLPD, 0, [_Au, _G], [2, 2]];
+export var AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails$: StaticStructureSchema = [
   3,
   n0,
   _AAMBMWSTD,
@@ -3706,18 +3706,18 @@ export var AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails: StaticStructureSc
   [_DOW, _TOD, _TZ],
   [0, 0, 0],
 ];
-export var AwsAmazonMqBrokerUsersDetails: StaticStructureSchema = [3, n0, _AAMBUD, 0, [_PC, _Use], [0, 0]];
-export var AwsApiCallAction: StaticStructureSchema = [
+export var AwsAmazonMqBrokerUsersDetails$: StaticStructureSchema = [3, n0, _AAMBUD, 0, [_PC, _Use], [0, 0]];
+export var AwsApiCallAction$: StaticStructureSchema = [
   3,
   n0,
   _AACA,
   0,
   [_Ap, _SN, _CTa, _RID, _DD, _AR, _FS, _LS],
-  [0, 0, 0, () => ActionRemoteIpDetails, () => AwsApiCallActionDomainDetails, 128 | 0, 0, 0],
+  [0, 0, 0, () => ActionRemoteIpDetails$, () => AwsApiCallActionDomainDetails$, 128 | 0, 0, 0],
 ];
-export var AwsApiCallActionDomainDetails: StaticStructureSchema = [3, n0, _AACADD, 0, [_Do], [0]];
-export var AwsApiGatewayAccessLogSettings: StaticStructureSchema = [3, n0, _AAGALS, 0, [_F, _DA], [0, 0]];
-export var AwsApiGatewayCanarySettings: StaticStructureSchema = [
+export var AwsApiCallActionDomainDetails$: StaticStructureSchema = [3, n0, _AACADD, 0, [_Do], [0]];
+export var AwsApiGatewayAccessLogSettings$: StaticStructureSchema = [3, n0, _AAGALS, 0, [_F, _DA], [0, 0]];
+export var AwsApiGatewayCanarySettings$: StaticStructureSchema = [
   3,
   n0,
   _AAGCS,
@@ -3725,8 +3725,8 @@ export var AwsApiGatewayCanarySettings: StaticStructureSchema = [
   [_PT, _DI, _SVO, _USC],
   [1, 0, 128 | 0, 2],
 ];
-export var AwsApiGatewayEndpointConfiguration: StaticStructureSchema = [3, n0, _AAGEC, 0, [_Ty], [64 | 0]];
-export var AwsApiGatewayMethodSettings: StaticStructureSchema = [
+export var AwsApiGatewayEndpointConfiguration$: StaticStructureSchema = [3, n0, _AAGEC, 0, [_Ty], [64 | 0]];
+export var AwsApiGatewayMethodSettings$: StaticStructureSchema = [
   3,
   n0,
   _AAGMS,
@@ -3734,15 +3734,15 @@ export var AwsApiGatewayMethodSettings: StaticStructureSchema = [
   [_ME, _LL, _DTE, _TBL, _TRL, _CE, _CTIS, _CDE, _RAFCC, _UCCHS, _HM, _RPe],
   [2, 0, 2, 1, 1, 2, 1, 2, 2, 0, 0, 0],
 ];
-export var AwsApiGatewayRestApiDetails: StaticStructureSchema = [
+export var AwsApiGatewayRestApiDetails$: StaticStructureSchema = [
   3,
   n0,
   _AAGRAD,
   0,
   [_I, _N, _D, _CD, _V, _BMT, _MCS, _AKS, _EC],
-  [0, 0, 0, 0, 0, 64 | 0, 1, 0, () => AwsApiGatewayEndpointConfiguration],
+  [0, 0, 0, 0, 0, 64 | 0, 1, 0, () => AwsApiGatewayEndpointConfiguration$],
 ];
-export var AwsApiGatewayStageDetails: StaticStructureSchema = [
+export var AwsApiGatewayStageDetails$: StaticStructureSchema = [
   3,
   n0,
   _AAGSD,
@@ -3759,23 +3759,23 @@ export var AwsApiGatewayStageDetails: StaticStructureSchema = [
     () => AwsApiGatewayMethodSettingsList,
     128 | 0,
     0,
-    () => AwsApiGatewayAccessLogSettings,
-    () => AwsApiGatewayCanarySettings,
+    () => AwsApiGatewayAccessLogSettings$,
+    () => AwsApiGatewayCanarySettings$,
     2,
     0,
     0,
     0,
   ],
 ];
-export var AwsApiGatewayV2ApiDetails: StaticStructureSchema = [
+export var AwsApiGatewayV2ApiDetails$: StaticStructureSchema = [
   3,
   n0,
   _AAGVAD,
   0,
   [_AE, _AIp, _AKSE, _CD, _D, _V, _N, _PTr, _RSE, _CC],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => AwsCorsConfiguration],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => AwsCorsConfiguration$],
 ];
-export var AwsApiGatewayV2RouteSettings: StaticStructureSchema = [
+export var AwsApiGatewayV2RouteSettings$: StaticStructureSchema = [
   3,
   n0,
   _AAGVRS,
@@ -3783,7 +3783,7 @@ export var AwsApiGatewayV2RouteSettings: StaticStructureSchema = [
   [_DME, _LL, _DTE, _TBL, _TRL],
   [2, 0, 2, 1, 1],
 ];
-export var AwsApiGatewayV2StageDetails: StaticStructureSchema = [
+export var AwsApiGatewayV2StageDetails$: StaticStructureSchema = [
   3,
   n0,
   _AAGVSD,
@@ -3793,19 +3793,19 @@ export var AwsApiGatewayV2StageDetails: StaticStructureSchema = [
     0,
     0,
     0,
-    () => AwsApiGatewayV2RouteSettings,
+    () => AwsApiGatewayV2RouteSettings$,
     0,
     0,
-    () => AwsApiGatewayV2RouteSettings,
+    () => AwsApiGatewayV2RouteSettings$,
     0,
     128 | 0,
-    () => AwsApiGatewayAccessLogSettings,
+    () => AwsApiGatewayAccessLogSettings$,
     2,
     0,
     2,
   ],
 ];
-export var AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails: StaticStructureSchema = [
+export var AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails$: StaticStructureSchema = [
   3,
   n0,
   _AASGQAAAPD,
@@ -3813,12 +3813,12 @@ export var AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails: StaticS
   [_ATu, _LAC, _OICC, _UPC],
   [
     0,
-    () => AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails,
-    () => AwsAppSyncGraphQlApiOpenIdConnectConfigDetails,
-    () => AwsAppSyncGraphQlApiUserPoolConfigDetails,
+    () => AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails$,
+    () => AwsAppSyncGraphQlApiOpenIdConnectConfigDetails$,
+    () => AwsAppSyncGraphQlApiUserPoolConfigDetails$,
   ],
 ];
-export var AwsAppSyncGraphQlApiDetails: StaticStructureSchema = [
+export var AwsAppSyncGraphQlApiDetails$: StaticStructureSchema = [
   3,
   n0,
   _AASGQAD,
@@ -3827,19 +3827,19 @@ export var AwsAppSyncGraphQlApiDetails: StaticStructureSchema = [
   [
     0,
     0,
-    () => AwsAppSyncGraphQlApiOpenIdConnectConfigDetails,
+    () => AwsAppSyncGraphQlApiOpenIdConnectConfigDetails$,
     0,
-    () => AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails,
+    () => AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails$,
     2,
     0,
-    () => AwsAppSyncGraphQlApiUserPoolConfigDetails,
+    () => AwsAppSyncGraphQlApiUserPoolConfigDetails$,
     0,
-    () => AwsAppSyncGraphQlApiLogConfigDetails,
+    () => AwsAppSyncGraphQlApiLogConfigDetails$,
     () => AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersList,
     0,
   ],
 ];
-export var AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails: StaticStructureSchema = [
+export var AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails$: StaticStructureSchema = [
   3,
   n0,
   _AASGQALACD,
@@ -3847,7 +3847,7 @@ export var AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails: StaticStructureSch
   [_ARTIS, _AUu, _IVE],
   [1, 0, 0],
 ];
-export var AwsAppSyncGraphQlApiLogConfigDetails: StaticStructureSchema = [
+export var AwsAppSyncGraphQlApiLogConfigDetails$: StaticStructureSchema = [
   3,
   n0,
   _AASGQALCD,
@@ -3855,7 +3855,7 @@ export var AwsAppSyncGraphQlApiLogConfigDetails: StaticStructureSchema = [
   [_CWLRA, _EVC, _FLL],
   [0, 2, 0],
 ];
-export var AwsAppSyncGraphQlApiOpenIdConnectConfigDetails: StaticStructureSchema = [
+export var AwsAppSyncGraphQlApiOpenIdConnectConfigDetails$: StaticStructureSchema = [
   3,
   n0,
   _AASGQAOICCD,
@@ -3863,7 +3863,7 @@ export var AwsAppSyncGraphQlApiOpenIdConnectConfigDetails: StaticStructureSchema
   [_ATL, _CI, _ITL, _Is],
   [1, 0, 1, 0],
 ];
-export var AwsAppSyncGraphQlApiUserPoolConfigDetails: StaticStructureSchema = [
+export var AwsAppSyncGraphQlApiUserPoolConfigDetails$: StaticStructureSchema = [
   3,
   n0,
   _AASGQAUPCD,
@@ -3871,23 +3871,23 @@ export var AwsAppSyncGraphQlApiUserPoolConfigDetails: StaticStructureSchema = [
   [_AICR, _ARw, _DAe, _UPI],
   [0, 0, 0, 0],
 ];
-export var AwsAthenaWorkGroupConfigurationDetails: StaticStructureSchema = [
+export var AwsAthenaWorkGroupConfigurationDetails$: StaticStructureSchema = [
   3,
   n0,
   _AAWGCD,
   0,
   [_RC],
-  [() => AwsAthenaWorkGroupConfigurationResultConfigurationDetails],
+  [() => AwsAthenaWorkGroupConfigurationResultConfigurationDetails$],
 ];
-export var AwsAthenaWorkGroupConfigurationResultConfigurationDetails: StaticStructureSchema = [
+export var AwsAthenaWorkGroupConfigurationResultConfigurationDetails$: StaticStructureSchema = [
   3,
   n0,
   _AAWGCRCD,
   0,
   [_ECn],
-  [() => AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetails],
+  [() => AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetails$],
 ];
-export var AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetails: StaticStructureSchema = [
+export var AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetails$: StaticStructureSchema = [
   3,
   n0,
   _AAWGCRCECD,
@@ -3895,15 +3895,15 @@ export var AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigura
   [_EOn, _KK],
   [0, 0],
 ];
-export var AwsAthenaWorkGroupDetails: StaticStructureSchema = [
+export var AwsAthenaWorkGroupDetails$: StaticStructureSchema = [
   3,
   n0,
   _AAWGD,
   0,
   [_N, _D, _Sta, _Conf],
-  [0, 0, 0, () => AwsAthenaWorkGroupConfigurationDetails],
+  [0, 0, 0, () => AwsAthenaWorkGroupConfigurationDetails$],
 ];
-export var AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails: StaticStructureSchema = [
+export var AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails$: StaticStructureSchema = [
   3,
   n0,
   _AASASGAZLD,
@@ -3911,7 +3911,7 @@ export var AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails: StaticStr
   [_Val],
   [0],
 ];
-export var AwsAutoScalingAutoScalingGroupDetails: StaticStructureSchema = [
+export var AwsAutoScalingAutoScalingGroupDetails$: StaticStructureSchema = [
   3,
   n0,
   _AASASGD,
@@ -3923,13 +3923,13 @@ export var AwsAutoScalingAutoScalingGroupDetails: StaticStructureSchema = [
     0,
     1,
     0,
-    () => AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails,
+    () => AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails$,
     () => AwsAutoScalingAutoScalingGroupAvailabilityZonesList,
-    () => AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification,
+    () => AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification$,
     2,
   ],
 ];
-export var AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification: StaticStructureSchema = [
+export var AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification$: StaticStructureSchema = [
   3,
   n0,
   _AASASGLTLTS,
@@ -3937,18 +3937,18 @@ export var AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecificati
   [_LTI, _LTN, _V],
   [0, 0, 0],
 ];
-export var AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails: StaticStructureSchema = [
+export var AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails$: StaticStructureSchema = [
   3,
   n0,
   _AASASGMIPD,
   0,
   [_ID, _LT],
   [
-    () => AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails,
-    () => AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails,
+    () => AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails$,
+    () => AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails$,
   ],
 ];
-export var AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails: StaticStructureSchema = [
+export var AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails$: StaticStructureSchema = [
   3,
   n0,
   _AASASGMIPIDD,
@@ -3956,30 +3956,30 @@ export var AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributi
   [_ODAS, _ODBC, _ODPABC, _SAS, _SIP, _SMP],
   [0, 1, 1, 0, 1, 0],
 ];
-export var AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails: StaticStructureSchema = [
+export var AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails$: StaticStructureSchema = [
   3,
   n0,
   _AASASGMIPLTD,
   0,
   [_LTS, _Ov],
   [
-    () => AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification,
+    () => AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification$,
     () => AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesList,
   ],
 ];
-export var AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification: StaticStructureSchema =
+export var AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification$: StaticStructureSchema =
   [3, n0, _AASASGMIPLTLTS, 0, [_LTI, _LTN, _V], [0, 0, 0]];
-export var AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails: StaticStructureSchema =
+export var AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails$: StaticStructureSchema =
   [3, n0, _AASASGMIPLTOLD, 0, [_ITn, _WC], [0, 0]];
-export var AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails: StaticStructureSchema = [
+export var AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AASLCBDMD,
   0,
   [_DN, _Eb, _ND, _VN],
-  [0, () => AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails, 2, 0],
+  [0, () => AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails$, 2, 0],
 ];
-export var AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails: StaticStructureSchema = [
+export var AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AASLCBDMED,
@@ -3987,7 +3987,7 @@ export var AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails: Stati
   [_DOT, _En, _Io, _SIn, _VSo, _VT],
   [2, 2, 1, 0, 1, 0],
 ];
-export var AwsAutoScalingLaunchConfigurationDetails: StaticStructureSchema = [
+export var AwsAutoScalingLaunchConfigurationDetails$: StaticStructureSchema = [
   3,
   n0,
   _AASLCD,
@@ -4002,7 +4002,7 @@ export var AwsAutoScalingLaunchConfigurationDetails: StaticStructureSchema = [
     2,
     0,
     0,
-    () => AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails,
+    () => AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails$,
     0,
     0,
     0,
@@ -4012,10 +4012,10 @@ export var AwsAutoScalingLaunchConfigurationDetails: StaticStructureSchema = [
     64 | 0,
     0,
     0,
-    () => AwsAutoScalingLaunchConfigurationMetadataOptions,
+    () => AwsAutoScalingLaunchConfigurationMetadataOptions$,
   ],
 ];
-export var AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails: StaticStructureSchema = [
+export var AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails$: StaticStructureSchema = [
   3,
   n0,
   _AASLCIMD,
@@ -4023,7 +4023,7 @@ export var AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails: StaticStr
   [_Ena],
   [2],
 ];
-export var AwsAutoScalingLaunchConfigurationMetadataOptions: StaticStructureSchema = [
+export var AwsAutoScalingLaunchConfigurationMetadataOptions$: StaticStructureSchema = [
   3,
   n0,
   _AASLCMO,
@@ -4031,7 +4031,7 @@ export var AwsAutoScalingLaunchConfigurationMetadataOptions: StaticStructureSche
   [_HE, _HPRHL, _HT],
   [0, 1, 0],
 ];
-export var AwsBackupBackupPlanAdvancedBackupSettingsDetails: StaticStructureSchema = [
+export var AwsBackupBackupPlanAdvancedBackupSettingsDetails$: StaticStructureSchema = [
   3,
   n0,
   _ABBPABSD,
@@ -4039,7 +4039,7 @@ export var AwsBackupBackupPlanAdvancedBackupSettingsDetails: StaticStructureSche
   [_BO, _RT],
   [128 | 0, 0],
 ];
-export var AwsBackupBackupPlanBackupPlanDetails: StaticStructureSchema = [
+export var AwsBackupBackupPlanBackupPlanDetails$: StaticStructureSchema = [
   3,
   n0,
   _ABBPBPD,
@@ -4047,40 +4047,40 @@ export var AwsBackupBackupPlanBackupPlanDetails: StaticStructureSchema = [
   [_BPN, _ABS, _BPR],
   [0, () => AwsBackupBackupPlanAdvancedBackupSettingsList, () => AwsBackupBackupPlanRuleList],
 ];
-export var AwsBackupBackupPlanDetails: StaticStructureSchema = [
+export var AwsBackupBackupPlanDetails$: StaticStructureSchema = [
   3,
   n0,
   _ABBPD,
   0,
   [_BP, _BPA, _BPI, _VI],
-  [() => AwsBackupBackupPlanBackupPlanDetails, 0, 0, 0],
+  [() => AwsBackupBackupPlanBackupPlanDetails$, 0, 0, 0],
 ];
-export var AwsBackupBackupPlanLifecycleDetails: StaticStructureSchema = [3, n0, _ABBPLD, 0, [_DAD, _MTCSAD], [1, 1]];
-export var AwsBackupBackupPlanRuleCopyActionsDetails: StaticStructureSchema = [
+export var AwsBackupBackupPlanLifecycleDetails$: StaticStructureSchema = [3, n0, _ABBPLD, 0, [_DAD, _MTCSAD], [1, 1]];
+export var AwsBackupBackupPlanRuleCopyActionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _ABBPRCAD,
   0,
   [_DBVA, _Li],
-  [0, () => AwsBackupBackupPlanLifecycleDetails],
+  [0, () => AwsBackupBackupPlanLifecycleDetails$],
 ];
-export var AwsBackupBackupPlanRuleDetails: StaticStructureSchema = [
+export var AwsBackupBackupPlanRuleDetails$: StaticStructureSchema = [
   3,
   n0,
   _ABBPRD,
   0,
   [_TBV, _SWM, _SE, _RN, _RIu, _ECB, _CWM, _CAo, _Li],
-  [0, 1, 0, 0, 0, 2, 1, () => AwsBackupBackupPlanRuleCopyActionsList, () => AwsBackupBackupPlanLifecycleDetails],
+  [0, 1, 0, 0, 0, 2, 1, () => AwsBackupBackupPlanRuleCopyActionsList, () => AwsBackupBackupPlanLifecycleDetails$],
 ];
-export var AwsBackupBackupVaultDetails: StaticStructureSchema = [
+export var AwsBackupBackupVaultDetails$: StaticStructureSchema = [
   3,
   n0,
   _ABBVD,
   0,
   [_BVA, _BVN, _EKA, _Not, _AP],
-  [0, 0, 0, () => AwsBackupBackupVaultNotificationsDetails, 0],
+  [0, 0, 0, () => AwsBackupBackupVaultNotificationsDetails$, 0],
 ];
-export var AwsBackupBackupVaultNotificationsDetails: StaticStructureSchema = [
+export var AwsBackupBackupVaultNotificationsDetails$: StaticStructureSchema = [
   3,
   n0,
   _ABBVND,
@@ -4088,7 +4088,7 @@ export var AwsBackupBackupVaultNotificationsDetails: StaticStructureSchema = [
   [_BVE, _STA],
   [64 | 0, 0],
 ];
-export var AwsBackupRecoveryPointCalculatedLifecycleDetails: StaticStructureSchema = [
+export var AwsBackupRecoveryPointCalculatedLifecycleDetails$: StaticStructureSchema = [
   3,
   n0,
   _ABRPCLD,
@@ -4096,7 +4096,7 @@ export var AwsBackupRecoveryPointCalculatedLifecycleDetails: StaticStructureSche
   [_DAel, _MTCSA],
   [0, 0],
 ];
-export var AwsBackupRecoveryPointCreatedByDetails: StaticStructureSchema = [
+export var AwsBackupRecoveryPointCreatedByDetails$: StaticStructureSchema = [
   3,
   n0,
   _ABRPCBD,
@@ -4104,7 +4104,7 @@ export var AwsBackupRecoveryPointCreatedByDetails: StaticStructureSchema = [
   [_BPA, _BPI, _BPV, _BRI],
   [0, 0, 0, 0],
 ];
-export var AwsBackupRecoveryPointDetails: StaticStructureSchema = [
+export var AwsBackupRecoveryPointDetails$: StaticStructureSchema = [
   3,
   n0,
   _ABRPD,
@@ -4114,15 +4114,15 @@ export var AwsBackupRecoveryPointDetails: StaticStructureSchema = [
     1,
     0,
     0,
-    () => AwsBackupRecoveryPointCalculatedLifecycleDetails,
+    () => AwsBackupRecoveryPointCalculatedLifecycleDetails$,
     0,
-    () => AwsBackupRecoveryPointCreatedByDetails,
+    () => AwsBackupRecoveryPointCreatedByDetails$,
     0,
     0,
     0,
     2,
     0,
-    () => AwsBackupRecoveryPointLifecycleDetails,
+    () => AwsBackupRecoveryPointLifecycleDetails$,
     0,
     0,
     0,
@@ -4132,8 +4132,15 @@ export var AwsBackupRecoveryPointDetails: StaticStructureSchema = [
     0,
   ],
 ];
-export var AwsBackupRecoveryPointLifecycleDetails: StaticStructureSchema = [3, n0, _ABRPLD, 0, [_DAD, _MTCSAD], [1, 1]];
-export var AwsCertificateManagerCertificateDetails: StaticStructureSchema = [
+export var AwsBackupRecoveryPointLifecycleDetails$: StaticStructureSchema = [
+  3,
+  n0,
+  _ABRPLD,
+  0,
+  [_DAD, _MTCSAD],
+  [1, 1],
+];
+export var AwsCertificateManagerCertificateDetails$: StaticStructureSchema = [
   3,
   n0,
   _ACMCD,
@@ -4178,9 +4185,9 @@ export var AwsCertificateManagerCertificateDetails: StaticStructureSchema = [
     () => AwsCertificateManagerCertificateKeyUsages,
     0,
     0,
-    () => AwsCertificateManagerCertificateOptions,
+    () => AwsCertificateManagerCertificateOptions$,
     0,
-    () => AwsCertificateManagerCertificateRenewalSummary,
+    () => AwsCertificateManagerCertificateRenewalSummary$,
     0,
     0,
     0,
@@ -4189,15 +4196,15 @@ export var AwsCertificateManagerCertificateDetails: StaticStructureSchema = [
     0,
   ],
 ];
-export var AwsCertificateManagerCertificateDomainValidationOption: StaticStructureSchema = [
+export var AwsCertificateManagerCertificateDomainValidationOption$: StaticStructureSchema = [
   3,
   n0,
   _ACMCDVO,
   0,
   [_DNo, _RRe, _VD, _VE, _VM, _VSa],
-  [0, () => AwsCertificateManagerCertificateResourceRecord, 0, 64 | 0, 0, 0],
+  [0, () => AwsCertificateManagerCertificateResourceRecord$, 0, 64 | 0, 0, 0],
 ];
-export var AwsCertificateManagerCertificateExtendedKeyUsage: StaticStructureSchema = [
+export var AwsCertificateManagerCertificateExtendedKeyUsage$: StaticStructureSchema = [
   3,
   n0,
   _ACMCEKU,
@@ -4205,9 +4212,9 @@ export var AwsCertificateManagerCertificateExtendedKeyUsage: StaticStructureSche
   [_N, _OI],
   [0, 0],
 ];
-export var AwsCertificateManagerCertificateKeyUsage: StaticStructureSchema = [3, n0, _ACMCKU, 0, [_N], [0]];
-export var AwsCertificateManagerCertificateOptions: StaticStructureSchema = [3, n0, _ACMCO, 0, [_CTLP], [0]];
-export var AwsCertificateManagerCertificateRenewalSummary: StaticStructureSchema = [
+export var AwsCertificateManagerCertificateKeyUsage$: StaticStructureSchema = [3, n0, _ACMCKU, 0, [_N], [0]];
+export var AwsCertificateManagerCertificateOptions$: StaticStructureSchema = [3, n0, _ACMCO, 0, [_CTLP], [0]];
+export var AwsCertificateManagerCertificateRenewalSummary$: StaticStructureSchema = [
   3,
   n0,
   _ACMCRS,
@@ -4215,7 +4222,7 @@ export var AwsCertificateManagerCertificateRenewalSummary: StaticStructureSchema
   [_DVO, _RSene, _RSR, _UA],
   [() => AwsCertificateManagerCertificateDomainValidationOptions, 0, 0, 0],
 ];
-export var AwsCertificateManagerCertificateResourceRecord: StaticStructureSchema = [
+export var AwsCertificateManagerCertificateResourceRecord$: StaticStructureSchema = [
   3,
   n0,
   _ACMCRR,
@@ -4223,7 +4230,7 @@ export var AwsCertificateManagerCertificateResourceRecord: StaticStructureSchema
   [_N, _T, _Val],
   [0, 0, 0],
 ];
-export var AwsCloudFormationStackDetails: StaticStructureSchema = [
+export var AwsCloudFormationStackDetails$: StaticStructureSchema = [
   3,
   n0,
   _ACFSD,
@@ -4234,7 +4241,7 @@ export var AwsCloudFormationStackDetails: StaticStructureSchema = [
     0,
     0,
     2,
-    () => AwsCloudFormationStackDriftInformationDetails,
+    () => AwsCloudFormationStackDriftInformationDetails$,
     2,
     0,
     64 | 0,
@@ -4247,10 +4254,17 @@ export var AwsCloudFormationStackDetails: StaticStructureSchema = [
     1,
   ],
 ];
-export var AwsCloudFormationStackDriftInformationDetails: StaticStructureSchema = [3, n0, _ACFSDID, 0, [_SDS], [0]];
-export var AwsCloudFormationStackOutputsDetails: StaticStructureSchema = [3, n0, _ACFSOD, 0, [_D, _OK, _OV], [0, 0, 0]];
-export var AwsCloudFrontDistributionCacheBehavior: StaticStructureSchema = [3, n0, _ACFDCB, 0, [_VPP], [0]];
-export var AwsCloudFrontDistributionCacheBehaviors: StaticStructureSchema = [
+export var AwsCloudFormationStackDriftInformationDetails$: StaticStructureSchema = [3, n0, _ACFSDID, 0, [_SDS], [0]];
+export var AwsCloudFormationStackOutputsDetails$: StaticStructureSchema = [
+  3,
+  n0,
+  _ACFSOD,
+  0,
+  [_D, _OK, _OV],
+  [0, 0, 0],
+];
+export var AwsCloudFrontDistributionCacheBehavior$: StaticStructureSchema = [3, n0, _ACFDCB, 0, [_VPP], [0]];
+export var AwsCloudFrontDistributionCacheBehaviors$: StaticStructureSchema = [
   3,
   n0,
   _ACFDCBw,
@@ -4258,29 +4272,29 @@ export var AwsCloudFrontDistributionCacheBehaviors: StaticStructureSchema = [
   [_It],
   [() => AwsCloudFrontDistributionCacheBehaviorsItemList],
 ];
-export var AwsCloudFrontDistributionDefaultCacheBehavior: StaticStructureSchema = [3, n0, _ACFDDCB, 0, [_VPP], [0]];
-export var AwsCloudFrontDistributionDetails: StaticStructureSchema = [
+export var AwsCloudFrontDistributionDefaultCacheBehavior$: StaticStructureSchema = [3, n0, _ACFDDCB, 0, [_VPP], [0]];
+export var AwsCloudFrontDistributionDetails$: StaticStructureSchema = [
   3,
   n0,
   _ACFDD,
   0,
   [_CBa, _DCB, _DRO, _DNo, _ETa, _LMT, _Lo, _Or, _OG, _VC, _St, _WAI],
   [
-    () => AwsCloudFrontDistributionCacheBehaviors,
-    () => AwsCloudFrontDistributionDefaultCacheBehavior,
+    () => AwsCloudFrontDistributionCacheBehaviors$,
+    () => AwsCloudFrontDistributionDefaultCacheBehavior$,
     0,
     0,
     0,
     0,
-    () => AwsCloudFrontDistributionLogging,
-    () => AwsCloudFrontDistributionOrigins,
-    () => AwsCloudFrontDistributionOriginGroups,
-    () => AwsCloudFrontDistributionViewerCertificate,
+    () => AwsCloudFrontDistributionLogging$,
+    () => AwsCloudFrontDistributionOrigins$,
+    () => AwsCloudFrontDistributionOriginGroups$,
+    () => AwsCloudFrontDistributionViewerCertificate$,
     0,
     0,
   ],
 ];
-export var AwsCloudFrontDistributionLogging: StaticStructureSchema = [
+export var AwsCloudFrontDistributionLogging$: StaticStructureSchema = [
   3,
   n0,
   _ACFDL,
@@ -4288,31 +4302,31 @@ export var AwsCloudFrontDistributionLogging: StaticStructureSchema = [
   [_B, _Ena, _IC, _Pr],
   [0, 2, 2, 0],
 ];
-export var AwsCloudFrontDistributionOriginCustomOriginConfig: StaticStructureSchema = [
+export var AwsCloudFrontDistributionOriginCustomOriginConfig$: StaticStructureSchema = [
   3,
   n0,
   _ACFDOCOC,
   0,
   [_HP, _HPt, _OKT, _OPP, _ORT, _OSP],
-  [1, 1, 1, 0, 1, () => AwsCloudFrontDistributionOriginSslProtocols],
+  [1, 1, 1, 0, 1, () => AwsCloudFrontDistributionOriginSslProtocols$],
 ];
-export var AwsCloudFrontDistributionOriginGroup: StaticStructureSchema = [
+export var AwsCloudFrontDistributionOriginGroup$: StaticStructureSchema = [
   3,
   n0,
   _ACFDOG,
   0,
   [_FC],
-  [() => AwsCloudFrontDistributionOriginGroupFailover],
+  [() => AwsCloudFrontDistributionOriginGroupFailover$],
 ];
-export var AwsCloudFrontDistributionOriginGroupFailover: StaticStructureSchema = [
+export var AwsCloudFrontDistributionOriginGroupFailover$: StaticStructureSchema = [
   3,
   n0,
   _ACFDOGF,
   0,
   [_SCt],
-  [() => AwsCloudFrontDistributionOriginGroupFailoverStatusCodes],
+  [() => AwsCloudFrontDistributionOriginGroupFailoverStatusCodes$],
 ];
-export var AwsCloudFrontDistributionOriginGroupFailoverStatusCodes: StaticStructureSchema = [
+export var AwsCloudFrontDistributionOriginGroupFailoverStatusCodes$: StaticStructureSchema = [
   3,
   n0,
   _ACFDOGFSC,
@@ -4320,7 +4334,7 @@ export var AwsCloudFrontDistributionOriginGroupFailoverStatusCodes: StaticStruct
   [_It, _Q],
   [64 | 1, 1],
 ];
-export var AwsCloudFrontDistributionOriginGroups: StaticStructureSchema = [
+export var AwsCloudFrontDistributionOriginGroups$: StaticStructureSchema = [
   3,
   n0,
   _ACFDOGw,
@@ -4328,7 +4342,7 @@ export var AwsCloudFrontDistributionOriginGroups: StaticStructureSchema = [
   [_It],
   [() => AwsCloudFrontDistributionOriginGroupsItemList],
 ];
-export var AwsCloudFrontDistributionOriginItem: StaticStructureSchema = [
+export var AwsCloudFrontDistributionOriginItem$: StaticStructureSchema = [
   3,
   n0,
   _ACFDOI,
@@ -4338,11 +4352,11 @@ export var AwsCloudFrontDistributionOriginItem: StaticStructureSchema = [
     0,
     0,
     0,
-    () => AwsCloudFrontDistributionOriginS3OriginConfig,
-    () => AwsCloudFrontDistributionOriginCustomOriginConfig,
+    () => AwsCloudFrontDistributionOriginS3OriginConfig$,
+    () => AwsCloudFrontDistributionOriginCustomOriginConfig$,
   ],
 ];
-export var AwsCloudFrontDistributionOrigins: StaticStructureSchema = [
+export var AwsCloudFrontDistributionOrigins$: StaticStructureSchema = [
   3,
   n0,
   _ACFDO,
@@ -4350,8 +4364,8 @@ export var AwsCloudFrontDistributionOrigins: StaticStructureSchema = [
   [_It],
   [() => AwsCloudFrontDistributionOriginItemList],
 ];
-export var AwsCloudFrontDistributionOriginS3OriginConfig: StaticStructureSchema = [3, n0, _ACFDOSOC, 0, [_OAI], [0]];
-export var AwsCloudFrontDistributionOriginSslProtocols: StaticStructureSchema = [
+export var AwsCloudFrontDistributionOriginS3OriginConfig$: StaticStructureSchema = [3, n0, _ACFDOSOC, 0, [_OAI], [0]];
+export var AwsCloudFrontDistributionOriginSslProtocols$: StaticStructureSchema = [
   3,
   n0,
   _ACFDOSP,
@@ -4359,7 +4373,7 @@ export var AwsCloudFrontDistributionOriginSslProtocols: StaticStructureSchema = 
   [_It, _Q],
   [64 | 0, 1],
 ];
-export var AwsCloudFrontDistributionViewerCertificate: StaticStructureSchema = [
+export var AwsCloudFrontDistributionViewerCertificate$: StaticStructureSchema = [
   3,
   n0,
   _ACFDVC,
@@ -4367,7 +4381,7 @@ export var AwsCloudFrontDistributionViewerCertificate: StaticStructureSchema = [
   [_ACA, _Ce, _CSe, _CFDC, _ICI, _MPV, _SSM],
   [0, 0, 0, 2, 0, 0, 0],
 ];
-export var AwsCloudTrailTrailDetails: StaticStructureSchema = [
+export var AwsCloudTrailTrailDetails$: StaticStructureSchema = [
   3,
   n0,
   _ACTTD,
@@ -4375,7 +4389,7 @@ export var AwsCloudTrailTrailDetails: StaticStructureSchema = [
   [_CWLLGA, _CWLRA, _HCES, _HR, _IGSE, _IMRT, _IOT, _KKI, _LFVE, _N, _SBN, _SKP, _STA, _STN, _TA],
   [0, 0, 2, 0, 2, 2, 2, 0, 2, 0, 0, 0, 0, 0, 0],
 ];
-export var AwsCloudWatchAlarmDetails: StaticStructureSchema = [
+export var AwsCloudWatchAlarmDetails$: StaticStructureSchema = [
   3,
   n0,
   _ACWAD,
@@ -4429,8 +4443,8 @@ export var AwsCloudWatchAlarmDetails: StaticStructureSchema = [
     0,
   ],
 ];
-export var AwsCloudWatchAlarmDimensionsDetails: StaticStructureSchema = [3, n0, _ACWADD, 0, [_N, _Val], [0, 0]];
-export var AwsCodeBuildProjectArtifactsDetails: StaticStructureSchema = [
+export var AwsCloudWatchAlarmDimensionsDetails$: StaticStructureSchema = [3, n0, _ACWADD, 0, [_N, _Val], [0, 0]];
+export var AwsCodeBuildProjectArtifactsDetails$: StaticStructureSchema = [
   3,
   n0,
   _ACBPAD,
@@ -4438,7 +4452,7 @@ export var AwsCodeBuildProjectArtifactsDetails: StaticStructureSchema = [
   [_AIr, _ED, _Loc, _N, _NTa, _OAN, _Pa, _Pat, _T],
   [0, 2, 0, 0, 0, 2, 0, 0, 0],
 ];
-export var AwsCodeBuildProjectDetails: StaticStructureSchema = [
+export var AwsCodeBuildProjectDetails$: StaticStructureSchema = [
   3,
   n0,
   _ACBPD,
@@ -4447,16 +4461,16 @@ export var AwsCodeBuildProjectDetails: StaticStructureSchema = [
   [
     0,
     () => AwsCodeBuildProjectArtifactsList,
-    () => AwsCodeBuildProjectEnvironment,
+    () => AwsCodeBuildProjectEnvironment$,
     0,
-    () => AwsCodeBuildProjectSource,
+    () => AwsCodeBuildProjectSource$,
     0,
-    () => AwsCodeBuildProjectLogsConfigDetails,
-    () => AwsCodeBuildProjectVpcConfig,
+    () => AwsCodeBuildProjectLogsConfigDetails$,
+    () => AwsCodeBuildProjectVpcConfig$,
     () => AwsCodeBuildProjectArtifactsList,
   ],
 ];
-export var AwsCodeBuildProjectEnvironment: StaticStructureSchema = [
+export var AwsCodeBuildProjectEnvironment$: StaticStructureSchema = [
   3,
   n0,
   _ACBPE,
@@ -4467,11 +4481,11 @@ export var AwsCodeBuildProjectEnvironment: StaticStructureSchema = [
     () => AwsCodeBuildProjectEnvironmentEnvironmentVariablesList,
     2,
     0,
-    () => AwsCodeBuildProjectEnvironmentRegistryCredential,
+    () => AwsCodeBuildProjectEnvironmentRegistryCredential$,
     0,
   ],
 ];
-export var AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails: StaticStructureSchema = [
+export var AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails$: StaticStructureSchema = [
   3,
   n0,
   _ACBPEEVD,
@@ -4479,7 +4493,7 @@ export var AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails: StaticStru
   [_N, _T, _Val],
   [0, 0, 0],
 ];
-export var AwsCodeBuildProjectEnvironmentRegistryCredential: StaticStructureSchema = [
+export var AwsCodeBuildProjectEnvironmentRegistryCredential$: StaticStructureSchema = [
   3,
   n0,
   _ACBPERC,
@@ -4487,7 +4501,7 @@ export var AwsCodeBuildProjectEnvironmentRegistryCredential: StaticStructureSche
   [_Cre, _CP],
   [0, 0],
 ];
-export var AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails: StaticStructureSchema = [
+export var AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails$: StaticStructureSchema = [
   3,
   n0,
   _ACBPLCCWLD,
@@ -4495,15 +4509,15 @@ export var AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails: StaticStructureSc
   [_GN, _St, _SNtr],
   [0, 0, 0],
 ];
-export var AwsCodeBuildProjectLogsConfigDetails: StaticStructureSchema = [
+export var AwsCodeBuildProjectLogsConfigDetails$: StaticStructureSchema = [
   3,
   n0,
   _ACBPLCD,
   0,
   [_CWL, _SLo],
-  [() => AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails, () => AwsCodeBuildProjectLogsConfigS3LogsDetails],
+  [() => AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails$, () => AwsCodeBuildProjectLogsConfigS3LogsDetails$],
 ];
-export var AwsCodeBuildProjectLogsConfigS3LogsDetails: StaticStructureSchema = [
+export var AwsCodeBuildProjectLogsConfigS3LogsDetails$: StaticStructureSchema = [
   3,
   n0,
   _ACBPLCSLD,
@@ -4511,8 +4525,8 @@ export var AwsCodeBuildProjectLogsConfigS3LogsDetails: StaticStructureSchema = [
   [_ED, _Loc, _St],
   [2, 0, 0],
 ];
-export var AwsCodeBuildProjectSource: StaticStructureSchema = [3, n0, _ACBPS, 0, [_T, _Loc, _GCD, _IS], [0, 0, 1, 2]];
-export var AwsCodeBuildProjectVpcConfig: StaticStructureSchema = [
+export var AwsCodeBuildProjectSource$: StaticStructureSchema = [3, n0, _ACBPS, 0, [_T, _Loc, _GCD, _IS], [0, 0, 1, 2]];
+export var AwsCodeBuildProjectVpcConfig$: StaticStructureSchema = [
   3,
   n0,
   _ACBPVC,
@@ -4520,7 +4534,7 @@ export var AwsCodeBuildProjectVpcConfig: StaticStructureSchema = [
   [_VIp, _Sub, _SGI],
   [0, 64 | 0, 64 | 0],
 ];
-export var AwsCorsConfiguration: StaticStructureSchema = [
+export var AwsCorsConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ACC,
@@ -4528,7 +4542,7 @@ export var AwsCorsConfiguration: StaticStructureSchema = [
   [_AO, _AC, _EH, _MA, _AM, _AH],
   [64 | 0, 2, 64 | 0, 1, 64 | 0, 64 | 0],
 ];
-export var AwsDmsEndpointDetails: StaticStructureSchema = [
+export var AwsDmsEndpointDetails$: StaticStructureSchema = [
   3,
   n0,
   _ADED,
@@ -4536,7 +4550,7 @@ export var AwsDmsEndpointDetails: StaticStructureSchema = [
   [_CAe, _DNa, _EA, _EI, _ETn, _EN, _EIx, _ECA, _KKI, _P, _SNe, _SMs, _Use],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
 ];
-export var AwsDmsReplicationInstanceDetails: StaticStructureSchema = [
+export var AwsDmsReplicationInstanceDetails$: StaticStructureSchema = [
   3,
   n0,
   _ADRID,
@@ -4553,11 +4567,11 @@ export var AwsDmsReplicationInstanceDetails: StaticStructureSchema = [
     2,
     0,
     0,
-    () => AwsDmsReplicationInstanceReplicationSubnetGroupDetails,
+    () => AwsDmsReplicationInstanceReplicationSubnetGroupDetails$,
     () => AwsDmsReplicationInstanceVpcSecurityGroupsList,
   ],
 ];
-export var AwsDmsReplicationInstanceReplicationSubnetGroupDetails: StaticStructureSchema = [
+export var AwsDmsReplicationInstanceReplicationSubnetGroupDetails$: StaticStructureSchema = [
   3,
   n0,
   _ADRIRSGD,
@@ -4565,7 +4579,7 @@ export var AwsDmsReplicationInstanceReplicationSubnetGroupDetails: StaticStructu
   [_RSGI],
   [0],
 ];
-export var AwsDmsReplicationInstanceVpcSecurityGroupsDetails: StaticStructureSchema = [
+export var AwsDmsReplicationInstanceVpcSecurityGroupsDetails$: StaticStructureSchema = [
   3,
   n0,
   _ADRIVSGD,
@@ -4573,7 +4587,7 @@ export var AwsDmsReplicationInstanceVpcSecurityGroupsDetails: StaticStructureSch
   [_VSGI],
   [0],
 ];
-export var AwsDmsReplicationTaskDetails: StaticStructureSchema = [
+export var AwsDmsReplicationTaskDetails$: StaticStructureSchema = [
   3,
   n0,
   _ADRTD,
@@ -4581,9 +4595,9 @@ export var AwsDmsReplicationTaskDetails: StaticStructureSchema = [
   [_CSP, _CST, _CSPd, _MT, _I, _RIe, _RIA, _RTIe, _RTS, _SEA, _TM, _TEA, _TD],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var AwsDynamoDbTableAttributeDefinition: StaticStructureSchema = [3, n0, _ADDTAD, 0, [_ANt, _ATt], [0, 0]];
-export var AwsDynamoDbTableBillingModeSummary: StaticStructureSchema = [3, n0, _ADDTBMS, 0, [_BM, _LUTPPRDT], [0, 0]];
-export var AwsDynamoDbTableDetails: StaticStructureSchema = [
+export var AwsDynamoDbTableAttributeDefinition$: StaticStructureSchema = [3, n0, _ADDTAD, 0, [_ANt, _ATt], [0, 0]];
+export var AwsDynamoDbTableBillingModeSummary$: StaticStructureSchema = [3, n0, _ADDTBMS, 0, [_BM, _LUTPPRDT], [0, 0]];
+export var AwsDynamoDbTableDetails$: StaticStructureSchema = [
   3,
   n0,
   _ADDTD,
@@ -4591,7 +4605,7 @@ export var AwsDynamoDbTableDetails: StaticStructureSchema = [
   [_ADt, _BMS, _CDT, _GSI, _GTV, _ICt, _KS, _LSA, _LSL, _LSI, _PTro, _Re, _RSes, _SD, _SSt, _TI, _TN, _TSB, _TS, _DPE],
   [
     () => AwsDynamoDbTableAttributeDefinitionList,
-    () => AwsDynamoDbTableBillingModeSummary,
+    () => AwsDynamoDbTableBillingModeSummary$,
     0,
     () => AwsDynamoDbTableGlobalSecondaryIndexList,
     0,
@@ -4600,11 +4614,11 @@ export var AwsDynamoDbTableDetails: StaticStructureSchema = [
     0,
     0,
     () => AwsDynamoDbTableLocalSecondaryIndexList,
-    () => AwsDynamoDbTableProvisionedThroughput,
+    () => AwsDynamoDbTableProvisionedThroughput$,
     () => AwsDynamoDbTableReplicaList,
-    () => AwsDynamoDbTableRestoreSummary,
-    () => AwsDynamoDbTableSseDescription,
-    () => AwsDynamoDbTableStreamSpecification,
+    () => AwsDynamoDbTableRestoreSummary$,
+    () => AwsDynamoDbTableSseDescription$,
+    () => AwsDynamoDbTableStreamSpecification$,
     0,
     0,
     1,
@@ -4612,7 +4626,7 @@ export var AwsDynamoDbTableDetails: StaticStructureSchema = [
     2,
   ],
 ];
-export var AwsDynamoDbTableGlobalSecondaryIndex: StaticStructureSchema = [
+export var AwsDynamoDbTableGlobalSecondaryIndex$: StaticStructureSchema = [
   3,
   n0,
   _ADDTGSI,
@@ -4626,21 +4640,21 @@ export var AwsDynamoDbTableGlobalSecondaryIndex: StaticStructureSchema = [
     0,
     1,
     () => AwsDynamoDbTableKeySchemaList,
-    () => AwsDynamoDbTableProjection,
-    () => AwsDynamoDbTableProvisionedThroughput,
+    () => AwsDynamoDbTableProjection$,
+    () => AwsDynamoDbTableProvisionedThroughput$,
   ],
 ];
-export var AwsDynamoDbTableKeySchema: StaticStructureSchema = [3, n0, _ADDTKS, 0, [_ANt, _KT], [0, 0]];
-export var AwsDynamoDbTableLocalSecondaryIndex: StaticStructureSchema = [
+export var AwsDynamoDbTableKeySchema$: StaticStructureSchema = [3, n0, _ADDTKS, 0, [_ANt, _KT], [0, 0]];
+export var AwsDynamoDbTableLocalSecondaryIndex$: StaticStructureSchema = [
   3,
   n0,
   _ADDTLSI,
   0,
   [_IAn, _IN, _KS, _Pro],
-  [0, 0, () => AwsDynamoDbTableKeySchemaList, () => AwsDynamoDbTableProjection],
+  [0, 0, () => AwsDynamoDbTableKeySchemaList, () => AwsDynamoDbTableProjection$],
 ];
-export var AwsDynamoDbTableProjection: StaticStructureSchema = [3, n0, _ADDTP, 0, [_NKA, _PTroj], [64 | 0, 0]];
-export var AwsDynamoDbTableProvisionedThroughput: StaticStructureSchema = [
+export var AwsDynamoDbTableProjection$: StaticStructureSchema = [3, n0, _ADDTP, 0, [_NKA, _PTroj], [64 | 0, 0]];
+export var AwsDynamoDbTableProvisionedThroughput$: StaticStructureSchema = [
   3,
   n0,
   _ADDTPT,
@@ -4648,8 +4662,8 @@ export var AwsDynamoDbTableProvisionedThroughput: StaticStructureSchema = [
   [_LDDT, _LIDT, _NODT, _RCU, _WCU],
   [0, 0, 1, 1, 1],
 ];
-export var AwsDynamoDbTableProvisionedThroughputOverride: StaticStructureSchema = [3, n0, _ADDTPTO, 0, [_RCU], [1]];
-export var AwsDynamoDbTableReplica: StaticStructureSchema = [
+export var AwsDynamoDbTableProvisionedThroughputOverride$: StaticStructureSchema = [3, n0, _ADDTPTO, 0, [_RCU], [1]];
+export var AwsDynamoDbTableReplica$: StaticStructureSchema = [
   3,
   n0,
   _ADDTR,
@@ -4658,21 +4672,21 @@ export var AwsDynamoDbTableReplica: StaticStructureSchema = [
   [
     () => AwsDynamoDbTableReplicaGlobalSecondaryIndexList,
     0,
-    () => AwsDynamoDbTableProvisionedThroughputOverride,
+    () => AwsDynamoDbTableProvisionedThroughputOverride$,
     0,
     0,
     0,
   ],
 ];
-export var AwsDynamoDbTableReplicaGlobalSecondaryIndex: StaticStructureSchema = [
+export var AwsDynamoDbTableReplicaGlobalSecondaryIndex$: StaticStructureSchema = [
   3,
   n0,
   _ADDTRGSI,
   0,
   [_IN, _PTO],
-  [0, () => AwsDynamoDbTableProvisionedThroughputOverride],
+  [0, () => AwsDynamoDbTableProvisionedThroughputOverride$],
 ];
-export var AwsDynamoDbTableRestoreSummary: StaticStructureSchema = [
+export var AwsDynamoDbTableRestoreSummary$: StaticStructureSchema = [
   3,
   n0,
   _ADDTRS,
@@ -4680,7 +4694,7 @@ export var AwsDynamoDbTableRestoreSummary: StaticStructureSchema = [
   [_SBA, _STAo, _RDT, _RIP],
   [0, 0, 0, 2],
 ];
-export var AwsDynamoDbTableSseDescription: StaticStructureSchema = [
+export var AwsDynamoDbTableSseDescription$: StaticStructureSchema = [
   3,
   n0,
   _ADDTSD,
@@ -4688,8 +4702,8 @@ export var AwsDynamoDbTableSseDescription: StaticStructureSchema = [
   [_IEDT, _St, _STs, _KMKA],
   [0, 0, 0, 0],
 ];
-export var AwsDynamoDbTableStreamSpecification: StaticStructureSchema = [3, n0, _ADDTSS, 0, [_SEt, _SVT], [2, 0]];
-export var AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetails: StaticStructureSchema = [
+export var AwsDynamoDbTableStreamSpecification$: StaticStructureSchema = [3, n0, _ADDTSS, 0, [_SEt, _SVT], [2, 0]];
+export var AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetails$: StaticStructureSchema = [
   3,
   n0,
   _AECVEAOADD,
@@ -4697,7 +4711,7 @@ export var AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetails: S
   [_DIi],
   [0],
 ];
-export var AwsEc2ClientVpnEndpointAuthenticationOptionsDetails: StaticStructureSchema = [
+export var AwsEc2ClientVpnEndpointAuthenticationOptionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AECVEAOD,
@@ -4705,12 +4719,12 @@ export var AwsEc2ClientVpnEndpointAuthenticationOptionsDetails: StaticStructureS
   [_T, _ADc, _MAu, _FA],
   [
     0,
-    () => AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetails,
-    () => AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetails,
-    () => AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetails,
+    () => AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetails$,
+    () => AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetails$,
+    () => AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetails$,
   ],
 ];
-export var AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetails: StaticStructureSchema = [
+export var AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetails$: StaticStructureSchema = [
   3,
   n0,
   _AECVEAOFAD,
@@ -4718,7 +4732,7 @@ export var AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDe
   [_SPA, _SSSPA],
   [0, 0],
 ];
-export var AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetails: StaticStructureSchema = [
+export var AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetails$: StaticStructureSchema = [
   3,
   n0,
   _AECVEAOMAD,
@@ -4726,15 +4740,15 @@ export var AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetai
   [_CRCC],
   [0],
 ];
-export var AwsEc2ClientVpnEndpointClientConnectOptionsDetails: StaticStructureSchema = [
+export var AwsEc2ClientVpnEndpointClientConnectOptionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AECVECCOD,
   0,
   [_Ena, _LFA, _St],
-  [2, 0, () => AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetails],
+  [2, 0, () => AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetails$],
 ];
-export var AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetails: StaticStructureSchema = [
+export var AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetails$: StaticStructureSchema = [
   3,
   n0,
   _AECVECCOSD,
@@ -4742,7 +4756,7 @@ export var AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetails: StaticStruc
   [_C, _M],
   [0, 0],
 ];
-export var AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails: StaticStructureSchema = [
+export var AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AECVECLBOD,
@@ -4750,7 +4764,7 @@ export var AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails: StaticStructu
   [_Ena, _BT],
   [2, 0],
 ];
-export var AwsEc2ClientVpnEndpointConnectionLogOptionsDetails: StaticStructureSchema = [
+export var AwsEc2ClientVpnEndpointConnectionLogOptionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AECVECLOD,
@@ -4758,7 +4772,7 @@ export var AwsEc2ClientVpnEndpointConnectionLogOptionsDetails: StaticStructureSc
   [_Ena, _CLG, _CLS],
   [2, 0, 0],
 ];
-export var AwsEc2ClientVpnEndpointDetails: StaticStructureSchema = [
+export var AwsEc2ClientVpnEndpointDetails$: StaticStructureSchema = [
   3,
   n0,
   _AECVED,
@@ -4774,16 +4788,16 @@ export var AwsEc2ClientVpnEndpointDetails: StaticStructureSchema = [
     1,
     0,
     () => AwsEc2ClientVpnEndpointAuthenticationOptionsList,
-    () => AwsEc2ClientVpnEndpointConnectionLogOptionsDetails,
+    () => AwsEc2ClientVpnEndpointConnectionLogOptionsDetails$,
     64 | 0,
     0,
     0,
-    () => AwsEc2ClientVpnEndpointClientConnectOptionsDetails,
+    () => AwsEc2ClientVpnEndpointClientConnectOptionsDetails$,
     1,
-    () => AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails,
+    () => AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails$,
   ],
 ];
-export var AwsEc2EipDetails: StaticStructureSchema = [
+export var AwsEc2EipDetails$: StaticStructureSchema = [
   3,
   n0,
   _AEED,
@@ -4791,7 +4805,7 @@ export var AwsEc2EipDetails: StaticStructureSchema = [
   [_IIn, _PI, _AIl, _AIs, _Do, _PIP, _NBG, _NII, _NIOI, _PIA],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var AwsEc2InstanceDetails: StaticStructureSchema = [
+export var AwsEc2InstanceDetails$: StaticStructureSchema = [
   3,
   n0,
   _AEID,
@@ -4809,11 +4823,11 @@ export var AwsEc2InstanceDetails: StaticStructureSchema = [
     0,
     () => AwsEc2InstanceNetworkInterfacesList,
     0,
-    () => AwsEc2InstanceMetadataOptions,
-    () => AwsEc2InstanceMonitoringDetails,
+    () => AwsEc2InstanceMetadataOptions$,
+    () => AwsEc2InstanceMonitoringDetails$,
   ],
 ];
-export var AwsEc2InstanceMetadataOptions: StaticStructureSchema = [
+export var AwsEc2InstanceMetadataOptions$: StaticStructureSchema = [
   3,
   n0,
   _AEIMO,
@@ -4821,17 +4835,17 @@ export var AwsEc2InstanceMetadataOptions: StaticStructureSchema = [
   [_HE, _HPI, _HPRHL, _HT, _IMT],
   [0, 0, 1, 0, 0],
 ];
-export var AwsEc2InstanceMonitoringDetails: StaticStructureSchema = [3, n0, _AEIMD, 0, [_Sta], [0]];
-export var AwsEc2InstanceNetworkInterfacesDetails: StaticStructureSchema = [3, n0, _AEINID, 0, [_NII], [0]];
-export var AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails: StaticStructureSchema = [
+export var AwsEc2InstanceMonitoringDetails$: StaticStructureSchema = [3, n0, _AEIMD, 0, [_Sta], [0]];
+export var AwsEc2InstanceNetworkInterfacesDetails$: StaticStructureSchema = [3, n0, _AEINID, 0, [_NII], [0]];
+export var AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDBDMSD,
   0,
   [_DN, _Eb, _ND, _VN],
-  [0, () => AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails, 0, 0],
+  [0, () => AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails$, 0, 0],
 ];
-export var AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDBDMSED,
@@ -4839,17 +4853,17 @@ export var AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails: StaticStruct
   [_DOT, _En, _Io, _KKI, _SIn, _Thr, _VSo, _VT],
   [2, 2, 1, 0, 0, 1, 1, 0],
 ];
-export var AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails: StaticStructureSchema =
+export var AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails$: StaticStructureSchema =
   [3, n0, _AELTDCRSCRTD, 0, [_CRI, _CRRGA], [0, 0]];
-export var AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDCRSD,
   0,
   [_CRP, _CRT],
-  [0, () => AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails],
+  [0, () => AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails$],
 ];
-export var AwsEc2LaunchTemplateDataCpuOptionsDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataCpuOptionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDCOD,
@@ -4857,7 +4871,7 @@ export var AwsEc2LaunchTemplateDataCpuOptionsDetails: StaticStructureSchema = [
   [_CCo, _TPC],
   [1, 1],
 ];
-export var AwsEc2LaunchTemplateDataCreditSpecificationDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataCreditSpecificationDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDCSD,
@@ -4865,7 +4879,7 @@ export var AwsEc2LaunchTemplateDataCreditSpecificationDetails: StaticStructureSc
   [_CCp],
   [0],
 ];
-export var AwsEc2LaunchTemplateDataDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDD,
@@ -4904,38 +4918,38 @@ export var AwsEc2LaunchTemplateDataDetails: StaticStructureSchema = [
   ],
   [
     () => AwsEc2LaunchTemplateDataBlockDeviceMappingSetList,
-    () => AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails,
-    () => AwsEc2LaunchTemplateDataCpuOptionsDetails,
-    () => AwsEc2LaunchTemplateDataCreditSpecificationDetails,
+    () => AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails$,
+    () => AwsEc2LaunchTemplateDataCpuOptionsDetails$,
+    () => AwsEc2LaunchTemplateDataCreditSpecificationDetails$,
     2,
     2,
     2,
     () => AwsEc2LaunchTemplateDataElasticGpuSpecificationSetList,
     () => AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetList,
-    () => AwsEc2LaunchTemplateDataEnclaveOptionsDetails,
-    () => AwsEc2LaunchTemplateDataHibernationOptionsDetails,
-    () => AwsEc2LaunchTemplateDataIamInstanceProfileDetails,
+    () => AwsEc2LaunchTemplateDataEnclaveOptionsDetails$,
+    () => AwsEc2LaunchTemplateDataHibernationOptionsDetails$,
+    () => AwsEc2LaunchTemplateDataIamInstanceProfileDetails$,
     0,
     0,
-    () => AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails,
-    () => AwsEc2LaunchTemplateDataInstanceRequirementsDetails,
+    () => AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails$,
+    () => AwsEc2LaunchTemplateDataInstanceRequirementsDetails$,
     0,
     0,
     0,
     () => AwsEc2LaunchTemplateDataLicenseSetList,
-    () => AwsEc2LaunchTemplateDataMaintenanceOptionsDetails,
-    () => AwsEc2LaunchTemplateDataMetadataOptionsDetails,
-    () => AwsEc2LaunchTemplateDataMonitoringDetails,
+    () => AwsEc2LaunchTemplateDataMaintenanceOptionsDetails$,
+    () => AwsEc2LaunchTemplateDataMetadataOptionsDetails$,
+    () => AwsEc2LaunchTemplateDataMonitoringDetails$,
     () => AwsEc2LaunchTemplateDataNetworkInterfaceSetList,
-    () => AwsEc2LaunchTemplateDataPlacementDetails,
-    () => AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails,
+    () => AwsEc2LaunchTemplateDataPlacementDetails$,
+    () => AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails$,
     0,
     64 | 0,
     64 | 0,
     0,
   ],
 ];
-export var AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDEGSSD,
@@ -4943,7 +4957,7 @@ export var AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails: StaticStru
   [_T],
   [0],
 ];
-export var AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDEIASD,
@@ -4951,8 +4965,8 @@ export var AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails: Static
   [_Cou, _T],
   [1, 0],
 ];
-export var AwsEc2LaunchTemplateDataEnclaveOptionsDetails: StaticStructureSchema = [3, n0, _AELTDEOD, 0, [_Ena], [2]];
-export var AwsEc2LaunchTemplateDataHibernationOptionsDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataEnclaveOptionsDetails$: StaticStructureSchema = [3, n0, _AELTDEOD, 0, [_Ena], [2]];
+export var AwsEc2LaunchTemplateDataHibernationOptionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDHOD,
@@ -4960,7 +4974,7 @@ export var AwsEc2LaunchTemplateDataHibernationOptionsDetails: StaticStructureSch
   [_Confi],
   [2],
 ];
-export var AwsEc2LaunchTemplateDataIamInstanceProfileDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataIamInstanceProfileDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDIIPD,
@@ -4968,15 +4982,15 @@ export var AwsEc2LaunchTemplateDataIamInstanceProfileDetails: StaticStructureSch
   [_Ar, _N],
   [0, 0],
 ];
-export var AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDIMOD,
   0,
   [_MTa, _SO],
-  [0, () => AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails],
+  [0, () => AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails$],
 ];
-export var AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDIMOSOD,
@@ -4984,7 +4998,7 @@ export var AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails: Stat
   [_BDMl, _IIB, _MP, _SIT, _VU],
   [1, 0, 0, 0, 0],
 ];
-export var AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDIRACD,
@@ -4992,7 +5006,7 @@ export var AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails: 
   [_Max, _Mi],
   [1, 1],
 ];
-export var AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDIRATMMBD,
@@ -5000,7 +5014,7 @@ export var AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiB
   [_Max, _Mi],
   [1, 1],
 ];
-export var AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDIRBEBMD,
@@ -5008,7 +5022,7 @@ export var AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsD
   [_Max, _Mi],
   [1, 1],
 ];
-export var AwsEc2LaunchTemplateDataInstanceRequirementsDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataInstanceRequirementsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDIRD,
@@ -5037,30 +5051,30 @@ export var AwsEc2LaunchTemplateDataInstanceRequirementsDetails: StaticStructureS
     _VCC,
   ],
   [
-    () => AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails,
+    () => AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails$,
     64 | 0,
     64 | 0,
-    () => AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails,
-    64 | 0,
-    0,
-    () => AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails,
-    0,
-    64 | 0,
-    64 | 0,
+    () => AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails$,
     64 | 0,
     0,
+    () => AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails$,
+    0,
     64 | 0,
-    () => AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails,
-    () => AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails,
-    () => AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails,
+    64 | 0,
+    64 | 0,
+    0,
+    64 | 0,
+    () => AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails$,
+    () => AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails$,
+    () => AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails$,
     1,
     2,
     1,
-    () => AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails,
-    () => AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails,
+    () => AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails$,
+    () => AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails$,
   ],
 ];
-export var AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDIRMGBPVCD,
@@ -5068,7 +5082,7 @@ export var AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails: 
   [_Max, _Mi],
   [1, 1],
 ];
-export var AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDIRMMBD,
@@ -5076,7 +5090,7 @@ export var AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails: StaticS
   [_Max, _Mi],
   [1, 1],
 ];
-export var AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDIRNICD,
@@ -5084,7 +5098,7 @@ export var AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDeta
   [_Max, _Mi],
   [1, 1],
 ];
-export var AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDIRTLSGBD,
@@ -5092,7 +5106,7 @@ export var AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetail
   [_Max, _Mi],
   [1, 1],
 ];
-export var AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDIRVCCD,
@@ -5100,8 +5114,8 @@ export var AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails: StaticS
   [_Max, _Mi],
   [1, 1],
 ];
-export var AwsEc2LaunchTemplateDataLicenseSetDetails: StaticStructureSchema = [3, n0, _AELTDLSD, 0, [_LCA], [0]];
-export var AwsEc2LaunchTemplateDataMaintenanceOptionsDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataLicenseSetDetails$: StaticStructureSchema = [3, n0, _AELTDLSD, 0, [_LCA], [0]];
+export var AwsEc2LaunchTemplateDataMaintenanceOptionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDMOD,
@@ -5109,7 +5123,7 @@ export var AwsEc2LaunchTemplateDataMaintenanceOptionsDetails: StaticStructureSch
   [_ARu],
   [0],
 ];
-export var AwsEc2LaunchTemplateDataMetadataOptionsDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataMetadataOptionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDMODw,
@@ -5117,8 +5131,8 @@ export var AwsEc2LaunchTemplateDataMetadataOptionsDetails: StaticStructureSchema
   [_HE, _HPI, _HT, _HPRHL, _IMT],
   [0, 0, 0, 1, 0],
 ];
-export var AwsEc2LaunchTemplateDataMonitoringDetails: StaticStructureSchema = [3, n0, _AELTDMD, 0, [_Ena], [2]];
-export var AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataMonitoringDetails$: StaticStructureSchema = [3, n0, _AELTDMD, 0, [_Ena], [2]];
+export var AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDNISD,
@@ -5146,7 +5160,7 @@ export var AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails: StaticStructureSc
     0,
   ],
 ];
-export var AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDNISIPD,
@@ -5154,7 +5168,7 @@ export var AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails: Stati
   [_IPpv],
   [0],
 ];
-export var AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDNISIAD,
@@ -5162,7 +5176,7 @@ export var AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails: Stat
   [_IApv],
   [0],
 ];
-export var AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDNISIPDw,
@@ -5170,7 +5184,7 @@ export var AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails: Stati
   [_IPpvr],
   [0],
 ];
-export var AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDNISPIAD,
@@ -5178,7 +5192,7 @@ export var AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails:
   [_Pri, _PIA],
   [2, 0],
 ];
-export var AwsEc2LaunchTemplateDataPlacementDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataPlacementDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDPD,
@@ -5186,7 +5200,7 @@ export var AwsEc2LaunchTemplateDataPlacementDetails: StaticStructureSchema = [
   [_Af, _AZ, _GN, _HI, _HRGA, _PNa, _SDp, _Te],
   [0, 0, 0, 0, 0, 1, 0, 0],
 ];
-export var AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTDPDNOD,
@@ -5194,16 +5208,16 @@ export var AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails: StaticStructure
   [_ERNDAAAAR, _ERNDAR, _HTo],
   [2, 2, 0],
 ];
-export var AwsEc2LaunchTemplateDetails: StaticStructureSchema = [
+export var AwsEc2LaunchTemplateDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELTD,
   0,
   [_LTN, _I, _LTD, _DVN, _LVN],
-  [0, 0, () => AwsEc2LaunchTemplateDataDetails, 1, 1],
+  [0, 0, () => AwsEc2LaunchTemplateDataDetails$, 1, 1],
 ];
-export var AwsEc2NetworkAclAssociation: StaticStructureSchema = [3, n0, _AENAA, 0, [_NAAI, _NAI, _SIu], [0, 0, 0]];
-export var AwsEc2NetworkAclDetails: StaticStructureSchema = [
+export var AwsEc2NetworkAclAssociation$: StaticStructureSchema = [3, n0, _AENAA, 0, [_NAAI, _NAI, _SIu], [0, 0, 0]];
+export var AwsEc2NetworkAclDetails$: StaticStructureSchema = [
   3,
   n0,
   _AENAD,
@@ -5211,15 +5225,15 @@ export var AwsEc2NetworkAclDetails: StaticStructureSchema = [
   [_IDs, _NAI, _OIw, _VIp, _As, _Ent],
   [2, 0, 0, 0, () => AwsEc2NetworkAclAssociationList, () => AwsEc2NetworkAclEntryList],
 ];
-export var AwsEc2NetworkAclEntry: StaticStructureSchema = [
+export var AwsEc2NetworkAclEntry$: StaticStructureSchema = [
   3,
   n0,
   _AENAE,
   0,
   [_CBi, _Eg, _ITC, _ICB, _PR, _Prot, _RAu, _RNu],
-  [0, 2, () => IcmpTypeCode, 0, () => PortRangeFromTo, 0, 0, 1],
+  [0, 2, () => IcmpTypeCode$, 0, () => PortRangeFromTo$, 0, 0, 1],
 ];
-export var AwsEc2NetworkInterfaceAttachment: StaticStructureSchema = [
+export var AwsEc2NetworkInterfaceAttachment$: StaticStructureSchema = [
   3,
   n0,
   _AENIA,
@@ -5227,14 +5241,14 @@ export var AwsEc2NetworkInterfaceAttachment: StaticStructureSchema = [
   [_ATtt, _AIt, _DOT, _DIe, _IIn, _IOI, _St],
   [0, 0, 2, 1, 0, 0, 0],
 ];
-export var AwsEc2NetworkInterfaceDetails: StaticStructureSchema = [
+export var AwsEc2NetworkInterfaceDetails$: StaticStructureSchema = [
   3,
   n0,
   _AENID,
   0,
   [_At, _NII, _SG, _SDC, _IVAp, _PIAr, _PDN, _PI],
   [
-    () => AwsEc2NetworkInterfaceAttachment,
+    () => AwsEc2NetworkInterfaceAttachment$,
     0,
     () => AwsEc2NetworkInterfaceSecurityGroupList,
     2,
@@ -5244,8 +5258,8 @@ export var AwsEc2NetworkInterfaceDetails: StaticStructureSchema = [
     0,
   ],
 ];
-export var AwsEc2NetworkInterfaceIpV6AddressDetail: StaticStructureSchema = [3, n0, _AENIIVAD, 0, [_IVApd], [0]];
-export var AwsEc2NetworkInterfacePrivateIpAddressDetail: StaticStructureSchema = [
+export var AwsEc2NetworkInterfaceIpV6AddressDetail$: StaticStructureSchema = [3, n0, _AENIIVAD, 0, [_IVApd], [0]];
+export var AwsEc2NetworkInterfacePrivateIpAddressDetail$: StaticStructureSchema = [
   3,
   n0,
   _AENIPIAD,
@@ -5253,8 +5267,8 @@ export var AwsEc2NetworkInterfacePrivateIpAddressDetail: StaticStructureSchema =
   [_PIA, _PDNr],
   [0, 0],
 ];
-export var AwsEc2NetworkInterfaceSecurityGroup: StaticStructureSchema = [3, n0, _AENISG, 0, [_GN, _GIr], [0, 0]];
-export var AwsEc2RouteTableDetails: StaticStructureSchema = [
+export var AwsEc2NetworkInterfaceSecurityGroup$: StaticStructureSchema = [3, n0, _AENISG, 0, [_GN, _GIr], [0, 0]];
+export var AwsEc2RouteTableDetails$: StaticStructureSchema = [
   3,
   n0,
   _AERTD,
@@ -5262,7 +5276,7 @@ export var AwsEc2RouteTableDetails: StaticStructureSchema = [
   [_ASssoc, _OIw, _PVS, _RTI, _RSou, _VIp],
   [() => AssociationSetList, 0, () => PropagatingVgwSetList, 0, () => RouteSetList, 0],
 ];
-export var AwsEc2SecurityGroupDetails: StaticStructureSchema = [
+export var AwsEc2SecurityGroupDetails$: StaticStructureSchema = [
   3,
   n0,
   _AESGD,
@@ -5270,7 +5284,7 @@ export var AwsEc2SecurityGroupDetails: StaticStructureSchema = [
   [_GN, _GIr, _OIw, _VIp, _IPpe, _IPE],
   [0, 0, 0, 0, () => AwsEc2SecurityGroupIpPermissionList, () => AwsEc2SecurityGroupIpPermissionList],
 ];
-export var AwsEc2SecurityGroupIpPermission: StaticStructureSchema = [
+export var AwsEc2SecurityGroupIpPermission$: StaticStructureSchema = [
   3,
   n0,
   _AESGIP,
@@ -5286,10 +5300,10 @@ export var AwsEc2SecurityGroupIpPermission: StaticStructureSchema = [
     () => AwsEc2SecurityGroupPrefixListIdList,
   ],
 ];
-export var AwsEc2SecurityGroupIpRange: StaticStructureSchema = [3, n0, _AESGIR, 0, [_CIi], [0]];
-export var AwsEc2SecurityGroupIpv6Range: StaticStructureSchema = [3, n0, _AESGIRw, 0, [_CIid], [0]];
-export var AwsEc2SecurityGroupPrefixListId: StaticStructureSchema = [3, n0, _AESGPLI, 0, [_PLIr], [0]];
-export var AwsEc2SecurityGroupUserIdGroupPair: StaticStructureSchema = [
+export var AwsEc2SecurityGroupIpRange$: StaticStructureSchema = [3, n0, _AESGIR, 0, [_CIi], [0]];
+export var AwsEc2SecurityGroupIpv6Range$: StaticStructureSchema = [3, n0, _AESGIRw, 0, [_CIid], [0]];
+export var AwsEc2SecurityGroupPrefixListId$: StaticStructureSchema = [3, n0, _AESGPLI, 0, [_PLIr], [0]];
+export var AwsEc2SecurityGroupUserIdGroupPair$: StaticStructureSchema = [
   3,
   n0,
   _AESGUIGP,
@@ -5297,7 +5311,7 @@ export var AwsEc2SecurityGroupUserIdGroupPair: StaticStructureSchema = [
   [_GIr, _GN, _PS, _UI, _VIp, _VPCI],
   [0, 0, 0, 0, 0, 0],
 ];
-export var AwsEc2SubnetDetails: StaticStructureSchema = [
+export var AwsEc2SubnetDetails$: StaticStructureSchema = [
   3,
   n0,
   _AESD,
@@ -5305,7 +5319,7 @@ export var AwsEc2SubnetDetails: StaticStructureSchema = [
   [_AIAOC, _AZ, _AZI, _AIAC, _CBi, _DFA, _MPIOL, _OIw, _Sta, _SAu, _SIu, _VIp, _ICBAS],
   [2, 0, 0, 1, 0, 2, 2, 0, 0, 0, 0, 0, () => Ipv6CidrBlockAssociationList],
 ];
-export var AwsEc2TransitGatewayDetails: StaticStructureSchema = [
+export var AwsEc2TransitGatewayDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETGD,
@@ -5313,8 +5327,8 @@ export var AwsEc2TransitGatewayDetails: StaticStructureSchema = [
   [_I, _D, _DRTP, _AASA, _DRTA, _TGCB, _ADRTI, _PDRTI, _VES, _DSn, _MSu, _ASA],
   [0, 0, 0, 0, 0, 64 | 0, 0, 0, 0, 0, 0, 1],
 ];
-export var AwsEc2VolumeAttachment: StaticStructureSchema = [3, n0, _AEVA, 0, [_ATtt, _DOT, _IIn, _St], [0, 2, 0, 0]];
-export var AwsEc2VolumeDetails: StaticStructureSchema = [
+export var AwsEc2VolumeAttachment$: StaticStructureSchema = [3, n0, _AEVA, 0, [_ATtt, _DOT, _IIn, _St], [0, 2, 0, 0]];
+export var AwsEc2VolumeDetails$: StaticStructureSchema = [
   3,
   n0,
   _AEVD,
@@ -5322,7 +5336,7 @@ export var AwsEc2VolumeDetails: StaticStructureSchema = [
   [_CTre, _DN, _En, _Si, _SIn, _St, _KKI, _Att, _VIo, _VT, _VSS],
   [0, 0, 2, 1, 0, 0, 0, () => AwsEc2VolumeAttachmentList, 0, 0, 0],
 ];
-export var AwsEc2VpcDetails: StaticStructureSchema = [
+export var AwsEc2VpcDetails$: StaticStructureSchema = [
   3,
   n0,
   _AEVDw,
@@ -5330,7 +5344,7 @@ export var AwsEc2VpcDetails: StaticStructureSchema = [
   [_CBAS, _ICBAS, _DOI, _Sta],
   [() => CidrBlockAssociationList, () => Ipv6CidrBlockAssociationList, 0, 0],
 ];
-export var AwsEc2VpcEndpointServiceDetails: StaticStructureSchema = [
+export var AwsEc2VpcEndpointServiceDetails$: StaticStructureSchema = [
   3,
   n0,
   _AEVESD,
@@ -5338,31 +5352,31 @@ export var AwsEc2VpcEndpointServiceDetails: StaticStructureSchema = [
   [_ARc, _AZv, _BEDN, _MVE, _GLBA, _NLBA, _PDNr, _SIer, _SN, _SSe, _STe],
   [2, 64 | 0, 64 | 0, 2, 64 | 0, 64 | 0, 0, 0, 0, 0, () => AwsEc2VpcEndpointServiceServiceTypeList],
 ];
-export var AwsEc2VpcEndpointServiceServiceTypeDetails: StaticStructureSchema = [3, n0, _AEVESSTD, 0, [_STe], [0]];
-export var AwsEc2VpcPeeringConnectionDetails: StaticStructureSchema = [
+export var AwsEc2VpcEndpointServiceServiceTypeDetails$: StaticStructureSchema = [3, n0, _AEVESSTD, 0, [_STe], [0]];
+export var AwsEc2VpcPeeringConnectionDetails$: StaticStructureSchema = [
   3,
   n0,
   _AEVPCD,
   0,
   [_AVI, _ETx, _RVI, _St, _VPCI],
   [
-    () => AwsEc2VpcPeeringConnectionVpcInfoDetails,
+    () => AwsEc2VpcPeeringConnectionVpcInfoDetails$,
     0,
-    () => AwsEc2VpcPeeringConnectionVpcInfoDetails,
-    () => AwsEc2VpcPeeringConnectionStatusDetails,
+    () => AwsEc2VpcPeeringConnectionVpcInfoDetails$,
+    () => AwsEc2VpcPeeringConnectionStatusDetails$,
     0,
   ],
 ];
-export var AwsEc2VpcPeeringConnectionStatusDetails: StaticStructureSchema = [3, n0, _AEVPCSD, 0, [_C, _M], [0, 0]];
-export var AwsEc2VpcPeeringConnectionVpcInfoDetails: StaticStructureSchema = [
+export var AwsEc2VpcPeeringConnectionStatusDetails$: StaticStructureSchema = [3, n0, _AEVPCSD, 0, [_C, _M], [0, 0]];
+export var AwsEc2VpcPeeringConnectionVpcInfoDetails$: StaticStructureSchema = [
   3,
   n0,
   _AEVPCVID,
   0,
   [_CBi, _CBS, _ICBS, _OIw, _PO, _Reg, _VIp],
-  [0, () => VpcInfoCidrBlockSetList, () => VpcInfoIpv6CidrBlockSetList, 0, () => VpcInfoPeeringOptionsDetails, 0, 0],
+  [0, () => VpcInfoCidrBlockSetList, () => VpcInfoIpv6CidrBlockSetList, 0, () => VpcInfoPeeringOptionsDetails$, 0, 0],
 ];
-export var AwsEc2VpnConnectionDetails: StaticStructureSchema = [
+export var AwsEc2VpnConnectionDetails$: StaticStructureSchema = [
   3,
   n0,
   _AEVCD,
@@ -5377,12 +5391,12 @@ export var AwsEc2VpnConnectionDetails: StaticStructureSchema = [
     0,
     0,
     () => AwsEc2VpnConnectionVgwTelemetryList,
-    () => AwsEc2VpnConnectionOptionsDetails,
+    () => AwsEc2VpnConnectionOptionsDetails$,
     () => AwsEc2VpnConnectionRoutesList,
     0,
   ],
 ];
-export var AwsEc2VpnConnectionOptionsDetails: StaticStructureSchema = [
+export var AwsEc2VpnConnectionOptionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AEVCOD,
@@ -5390,7 +5404,7 @@ export var AwsEc2VpnConnectionOptionsDetails: StaticStructureSchema = [
   [_SRO, _TO],
   [2, () => AwsEc2VpnConnectionOptionsTunnelOptionsList],
 ];
-export var AwsEc2VpnConnectionOptionsTunnelOptionsDetails: StaticStructureSchema = [
+export var AwsEc2VpnConnectionOptionsTunnelOptionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AEVCOTOD,
@@ -5398,8 +5412,8 @@ export var AwsEc2VpnConnectionOptionsTunnelOptionsDetails: StaticStructureSchema
   [_DTS, _IV, _OIA, _PDGN, _PEA, _PIAh, _PLS, _PDGNh, _PEAh, _PIAha, _PLSh, _PSK, _RFP, _RMTS, _RWS, _TIC],
   [1, 64 | 0, 0, 64 | 1, 64 | 0, 64 | 0, 1, 64 | 1, 64 | 0, 64 | 0, 1, 0, 1, 1, 1, 0],
 ];
-export var AwsEc2VpnConnectionRoutesDetails: StaticStructureSchema = [3, n0, _AEVCRD, 0, [_DCBe, _Sta], [0, 0]];
-export var AwsEc2VpnConnectionVgwTelemetryDetails: StaticStructureSchema = [
+export var AwsEc2VpnConnectionRoutesDetails$: StaticStructureSchema = [3, n0, _AEVCRD, 0, [_DCBe, _Sta], [0, 0]];
+export var AwsEc2VpnConnectionVgwTelemetryDetails$: StaticStructureSchema = [
   3,
   n0,
   _AEVCVTD,
@@ -5407,7 +5421,7 @@ export var AwsEc2VpnConnectionVgwTelemetryDetails: StaticStructureSchema = [
   [_ARCc, _CAe, _LSC, _OIA, _St, _SM],
   [1, 0, 0, 0, 0, 0],
 ];
-export var AwsEcrContainerImageDetails: StaticStructureSchema = [
+export var AwsEcrContainerImageDetails$: StaticStructureSchema = [
   3,
   n0,
   _AECID,
@@ -5415,34 +5429,41 @@ export var AwsEcrContainerImageDetails: StaticStructureSchema = [
   [_RIeg, _RNep, _Arc, _IDm, _ITm, _IPA],
   [0, 0, 0, 0, 64 | 0, 0],
 ];
-export var AwsEcrRepositoryDetails: StaticStructureSchema = [
+export var AwsEcrRepositoryDetails$: StaticStructureSchema = [
   3,
   n0,
   _AERD,
   0,
   [_Ar, _ISC, _ITM, _LP, _RNep, _RPT],
-  [0, () => AwsEcrRepositoryImageScanningConfigurationDetails, 0, () => AwsEcrRepositoryLifecyclePolicyDetails, 0, 0],
+  [0, () => AwsEcrRepositoryImageScanningConfigurationDetails$, 0, () => AwsEcrRepositoryLifecyclePolicyDetails$, 0, 0],
 ];
-export var AwsEcrRepositoryImageScanningConfigurationDetails: StaticStructureSchema = [3, n0, _AERISCD, 0, [_SOP], [2]];
-export var AwsEcrRepositoryLifecyclePolicyDetails: StaticStructureSchema = [3, n0, _AERLPD, 0, [_LPT, _RIeg], [0, 0]];
-export var AwsEcsClusterClusterSettingsDetails: StaticStructureSchema = [3, n0, _AECCSD, 0, [_N, _Val], [0, 0]];
-export var AwsEcsClusterConfigurationDetails: StaticStructureSchema = [
+export var AwsEcrRepositoryImageScanningConfigurationDetails$: StaticStructureSchema = [
+  3,
+  n0,
+  _AERISCD,
+  0,
+  [_SOP],
+  [2],
+];
+export var AwsEcrRepositoryLifecyclePolicyDetails$: StaticStructureSchema = [3, n0, _AERLPD, 0, [_LPT, _RIeg], [0, 0]];
+export var AwsEcsClusterClusterSettingsDetails$: StaticStructureSchema = [3, n0, _AECCSD, 0, [_N, _Val], [0, 0]];
+export var AwsEcsClusterConfigurationDetails$: StaticStructureSchema = [
   3,
   n0,
   _AECCD,
   0,
   [_ECC],
-  [() => AwsEcsClusterConfigurationExecuteCommandConfigurationDetails],
+  [() => AwsEcsClusterConfigurationExecuteCommandConfigurationDetails$],
 ];
-export var AwsEcsClusterConfigurationExecuteCommandConfigurationDetails: StaticStructureSchema = [
+export var AwsEcsClusterConfigurationExecuteCommandConfigurationDetails$: StaticStructureSchema = [
   3,
   n0,
   _AECCECCD,
   0,
   [_KKI, _LCog, _Lo],
-  [0, () => AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails, 0],
+  [0, () => AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails$, 0],
 ];
-export var AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails: StaticStructureSchema = [
+export var AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails$: StaticStructureSchema = [
   3,
   n0,
   _AECCECCLCD,
@@ -5450,7 +5471,7 @@ export var AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfiguration
   [_CWEE, _CWLGN, _SBN, _SEE, _SKP],
   [2, 0, 0, 2, 0],
 ];
-export var AwsEcsClusterDefaultCapacityProviderStrategyDetails: StaticStructureSchema = [
+export var AwsEcsClusterDefaultCapacityProviderStrategyDetails$: StaticStructureSchema = [
   3,
   n0,
   _AECDCPSD,
@@ -5458,7 +5479,7 @@ export var AwsEcsClusterDefaultCapacityProviderStrategyDetails: StaticStructureS
   [_Bas, _CPa, _We],
   [1, 0, 1],
 ];
-export var AwsEcsClusterDetails: StaticStructureSchema = [
+export var AwsEcsClusterDetails$: StaticStructureSchema = [
   3,
   n0,
   _AECD,
@@ -5469,7 +5490,7 @@ export var AwsEcsClusterDetails: StaticStructureSchema = [
     1,
     64 | 0,
     () => AwsEcsClusterClusterSettingsList,
-    () => AwsEcsClusterConfigurationDetails,
+    () => AwsEcsClusterConfigurationDetails$,
     () => AwsEcsClusterDefaultCapacityProviderStrategyList,
     0,
     1,
@@ -5477,7 +5498,7 @@ export var AwsEcsClusterDetails: StaticStructureSchema = [
     0,
   ],
 ];
-export var AwsEcsContainerDetails: StaticStructureSchema = [
+export var AwsEcsContainerDetails$: StaticStructureSchema = [
   3,
   n0,
   _AECDw,
@@ -5485,7 +5506,7 @@ export var AwsEcsContainerDetails: StaticStructureSchema = [
   [_N, _Im, _MPo, _Priv],
   [0, 0, () => AwsMountPointList, 2],
 ];
-export var AwsEcsServiceCapacityProviderStrategyDetails: StaticStructureSchema = [
+export var AwsEcsServiceCapacityProviderStrategyDetails$: StaticStructureSchema = [
   3,
   n0,
   _AESCPSD,
@@ -5493,7 +5514,7 @@ export var AwsEcsServiceCapacityProviderStrategyDetails: StaticStructureSchema =
   [_Bas, _CPa, _We],
   [1, 0, 1],
 ];
-export var AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails: StaticStructureSchema = [
+export var AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails$: StaticStructureSchema = [
   3,
   n0,
   _AESDCDCBD,
@@ -5501,16 +5522,16 @@ export var AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails: 
   [_Enab, _Rol],
   [2, 2],
 ];
-export var AwsEcsServiceDeploymentConfigurationDetails: StaticStructureSchema = [
+export var AwsEcsServiceDeploymentConfigurationDetails$: StaticStructureSchema = [
   3,
   n0,
   _AESDCD,
   0,
   [_DCBep, _MPa, _MHP],
-  [() => AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails, 1, 1],
+  [() => AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails$, 1, 1],
 ];
-export var AwsEcsServiceDeploymentControllerDetails: StaticStructureSchema = [3, n0, _AESDCDw, 0, [_T], [0]];
-export var AwsEcsServiceDetails: StaticStructureSchema = [
+export var AwsEcsServiceDeploymentControllerDetails$: StaticStructureSchema = [3, n0, _AESDCDw, 0, [_T], [0]];
+export var AwsEcsServiceDetails$: StaticStructureSchema = [
   3,
   n0,
   _AESDw,
@@ -5542,8 +5563,8 @@ export var AwsEcsServiceDetails: StaticStructureSchema = [
   [
     () => AwsEcsServiceCapacityProviderStrategyList,
     0,
-    () => AwsEcsServiceDeploymentConfigurationDetails,
-    () => AwsEcsServiceDeploymentControllerDetails,
+    () => AwsEcsServiceDeploymentConfigurationDetails$,
+    () => AwsEcsServiceDeploymentControllerDetails$,
     1,
     2,
     2,
@@ -5551,7 +5572,7 @@ export var AwsEcsServiceDetails: StaticStructureSchema = [
     0,
     () => AwsEcsServiceLoadBalancersList,
     0,
-    () => AwsEcsServiceNetworkConfigurationDetails,
+    () => AwsEcsServiceNetworkConfigurationDetails$,
     () => AwsEcsServicePlacementConstraintsList,
     () => AwsEcsServicePlacementStrategiesList,
     0,
@@ -5564,7 +5585,7 @@ export var AwsEcsServiceDetails: StaticStructureSchema = [
     0,
   ],
 ];
-export var AwsEcsServiceLoadBalancersDetails: StaticStructureSchema = [
+export var AwsEcsServiceLoadBalancersDetails$: StaticStructureSchema = [
   3,
   n0,
   _AESLBD,
@@ -5572,7 +5593,7 @@ export var AwsEcsServiceLoadBalancersDetails: StaticStructureSchema = [
   [_CNo, _CPo, _LBNo, _TGA],
   [0, 1, 0, 0],
 ];
-export var AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails: StaticStructureSchema = [
+export var AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails$: StaticStructureSchema = [
   3,
   n0,
   _AESNCAVCD,
@@ -5580,17 +5601,17 @@ export var AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails: StaticSt
   [_API, _SG, _Sub],
   [0, 64 | 0, 64 | 0],
 ];
-export var AwsEcsServiceNetworkConfigurationDetails: StaticStructureSchema = [
+export var AwsEcsServiceNetworkConfigurationDetails$: StaticStructureSchema = [
   3,
   n0,
   _AESNCD,
   0,
   [_AVC],
-  [() => AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails],
+  [() => AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails$],
 ];
-export var AwsEcsServicePlacementConstraintsDetails: StaticStructureSchema = [3, n0, _AESPCD, 0, [_Ex, _T], [0, 0]];
-export var AwsEcsServicePlacementStrategiesDetails: StaticStructureSchema = [3, n0, _AESPSD, 0, [_Fi, _T], [0, 0]];
-export var AwsEcsServiceServiceRegistriesDetails: StaticStructureSchema = [
+export var AwsEcsServicePlacementConstraintsDetails$: StaticStructureSchema = [3, n0, _AESPCD, 0, [_Ex, _T], [0, 0]];
+export var AwsEcsServicePlacementStrategiesDetails$: StaticStructureSchema = [3, n0, _AESPSD, 0, [_Fi, _T], [0, 0]];
+export var AwsEcsServiceServiceRegistriesDetails$: StaticStructureSchema = [
   3,
   n0,
   _AESSRD,
@@ -5598,7 +5619,7 @@ export var AwsEcsServiceServiceRegistriesDetails: StaticStructureSchema = [
   [_CNo, _CPo, _P, _RAeg],
   [0, 1, 1, 0],
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDCDDOD,
@@ -5606,7 +5627,7 @@ export var AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails: StaticStruc
   [_Cond, _CNo],
   [0, 0],
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionContainerDefinitionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDCDD,
@@ -5666,14 +5687,14 @@ export var AwsEcsTaskDefinitionContainerDefinitionsDetails: StaticStructureSchem
     () => AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesList,
     2,
     () => AwsEcsTaskDefinitionContainerDefinitionsExtraHostsList,
-    () => AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails,
-    () => AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails,
+    () => AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails$,
+    () => AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails$,
     0,
     0,
     2,
     64 | 0,
-    () => AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails,
-    () => AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails,
+    () => AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails$,
+    () => AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails$,
     1,
     1,
     () => AwsEcsTaskDefinitionContainerDefinitionsMountPointsList,
@@ -5682,7 +5703,7 @@ export var AwsEcsTaskDefinitionContainerDefinitionsDetails: StaticStructureSchem
     2,
     2,
     2,
-    () => AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails,
+    () => AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails$,
     () => AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsList,
     () => AwsEcsTaskDefinitionContainerDefinitionsSecretsList,
     1,
@@ -5694,7 +5715,7 @@ export var AwsEcsTaskDefinitionContainerDefinitionsDetails: StaticStructureSchem
     0,
   ],
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDCDED,
@@ -5702,7 +5723,7 @@ export var AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails: StaticStr
   [_N, _Val],
   [0, 0],
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDCDEFD,
@@ -5710,7 +5731,7 @@ export var AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails: Stat
   [_T, _Val],
   [0, 0],
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDCDEHD,
@@ -5718,7 +5739,7 @@ export var AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails: StaticStru
   [_Ho, _IApd],
   [0, 0],
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDCDFCD,
@@ -5726,7 +5747,7 @@ export var AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails:
   [_Op, _T],
   [128 | 0, 0],
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDCDHCD,
@@ -5734,7 +5755,7 @@ export var AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails: StaticStr
   [_Comm, _Int, _Ret, _SPt, _Tim],
   [64 | 0, 1, 1, 1, 1],
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDCDLPCD,
@@ -5742,14 +5763,14 @@ export var AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDe
   [_Add, _Dr],
   [64 | 0, 64 | 0],
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDCDLPD,
   0,
   [_Ca, _De, _IPEn, _MSa, _SMS, _Sw, _Tm],
   [
-    () => AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails,
+    () => AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails$,
     () => AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesList,
     2,
     1,
@@ -5758,7 +5779,7 @@ export var AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails: Stati
     () => AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsList,
   ],
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDCDLPDD,
@@ -5766,7 +5787,7 @@ export var AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails
   [_CPon, _HPo, _Perm],
   [0, 0, 64 | 0],
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDCDLPTD,
@@ -5774,7 +5795,7 @@ export var AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails: 
   [_CPon, _MOo, _Si],
   [0, 64 | 0, 1],
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDCDLCD,
@@ -5782,7 +5803,7 @@ export var AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails: Stat
   [_LD, _Op, _SOe],
   [0, 128 | 0, () => AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsList],
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDCDLCSOD,
@@ -5790,7 +5811,7 @@ export var AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptions
   [_N, _VFa],
   [0, 0],
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDCDMPD,
@@ -5798,7 +5819,7 @@ export var AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails: StaticStr
   [_CPon, _ROe, _SVo],
   [0, 2, 0],
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDCDPMD,
@@ -5806,7 +5827,7 @@ export var AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails: StaticSt
   [_CPo, _HPos, _Prot],
   [1, 1, 0],
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDCDRCD,
@@ -5814,7 +5835,7 @@ export var AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails:
   [_CPr],
   [0],
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDCDRRD,
@@ -5822,7 +5843,7 @@ export var AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails: 
   [_T, _Val],
   [0, 0],
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDCDSD,
@@ -5830,7 +5851,7 @@ export var AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails: StaticStructu
   [_N, _VFa],
   [0, 0],
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDCDSCD,
@@ -5838,7 +5859,7 @@ export var AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails: Static
   [_Na, _Val],
   [0, 0],
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDCDUD,
@@ -5846,7 +5867,7 @@ export var AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails: StaticStructu
   [_HL, _N, _SLof],
   [1, 0, 1],
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDCDVFD,
@@ -5854,7 +5875,7 @@ export var AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails: StaticStr
   [_ROe, _SCo],
   [2, 0],
 ];
-export var AwsEcsTaskDefinitionDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDD,
@@ -5871,14 +5892,14 @@ export var AwsEcsTaskDefinitionDetails: StaticStructureSchema = [
     0,
     0,
     () => AwsEcsTaskDefinitionPlacementConstraintsList,
-    () => AwsEcsTaskDefinitionProxyConfigurationDetails,
+    () => AwsEcsTaskDefinitionProxyConfigurationDetails$,
     64 | 0,
     0,
     () => AwsEcsTaskDefinitionVolumesList,
     0,
   ],
 ];
-export var AwsEcsTaskDefinitionInferenceAcceleratorsDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionInferenceAcceleratorsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDIAD,
@@ -5886,7 +5907,7 @@ export var AwsEcsTaskDefinitionInferenceAcceleratorsDetails: StaticStructureSche
   [_DN, _DT],
   [0, 0],
 ];
-export var AwsEcsTaskDefinitionPlacementConstraintsDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionPlacementConstraintsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDPCD,
@@ -5894,7 +5915,7 @@ export var AwsEcsTaskDefinitionPlacementConstraintsDetails: StaticStructureSchem
   [_Ex, _T],
   [0, 0],
 ];
-export var AwsEcsTaskDefinitionProxyConfigurationDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionProxyConfigurationDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDPCDw,
@@ -5902,7 +5923,7 @@ export var AwsEcsTaskDefinitionProxyConfigurationDetails: StaticStructureSchema 
   [_CNo, _PCP, _T],
   [0, () => AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesList, 0],
 ];
-export var AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDPCPCPD,
@@ -5910,20 +5931,20 @@ export var AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDet
   [_N, _Val],
   [0, 0],
 ];
-export var AwsEcsTaskDefinitionVolumesDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionVolumesDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDVD,
   0,
   [_DVC, _EVCf, _Hos, _N],
   [
-    () => AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails,
-    () => AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails,
-    () => AwsEcsTaskDefinitionVolumesHostDetails,
+    () => AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails$,
+    () => AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails$,
+    () => AwsEcsTaskDefinitionVolumesHostDetails$,
     0,
   ],
 ];
-export var AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDVDVCD,
@@ -5931,7 +5952,7 @@ export var AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails: StaticSt
   [_Aut, _Dri, _DOr, _La, _Sc],
   [2, 0, 128 | 0, 128 | 0, 0],
 ];
-export var AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDVEVCACD,
@@ -5939,16 +5960,16 @@ export var AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigD
   [_APIc, _Ia],
   [0, 0],
 ];
-export var AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETDVEVCD,
   0,
   [_ACu, _FI, _RD, _TEr, _TEP],
-  [() => AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails, 0, 0, 0, 1],
+  [() => AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails$, 0, 0, 0, 1],
 ];
-export var AwsEcsTaskDefinitionVolumesHostDetails: StaticStructureSchema = [3, n0, _AETDVHD, 0, [_SPo], [0]];
-export var AwsEcsTaskDetails: StaticStructureSchema = [
+export var AwsEcsTaskDefinitionVolumesHostDetails$: StaticStructureSchema = [3, n0, _AETDVHD, 0, [_SPo], [0]];
+export var AwsEcsTaskDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETD,
@@ -5956,24 +5977,24 @@ export var AwsEcsTaskDetails: StaticStructureSchema = [
   [_CAl, _TDA, _V, _CA, _SAt, _SB, _Gro, _Vo, _Cont],
   [0, 0, 0, 0, 0, 0, 0, () => AwsEcsTaskVolumeDetailsList, () => AwsEcsContainerDetailsList],
 ];
-export var AwsEcsTaskVolumeDetails: StaticStructureSchema = [
+export var AwsEcsTaskVolumeDetails$: StaticStructureSchema = [
   3,
   n0,
   _AETVD,
   0,
   [_N, _Hos],
-  [0, () => AwsEcsTaskVolumeHostDetails],
+  [0, () => AwsEcsTaskVolumeHostDetails$],
 ];
-export var AwsEcsTaskVolumeHostDetails: StaticStructureSchema = [3, n0, _AETVHD, 0, [_SPo], [0]];
-export var AwsEfsAccessPointDetails: StaticStructureSchema = [
+export var AwsEcsTaskVolumeHostDetails$: StaticStructureSchema = [3, n0, _AETVHD, 0, [_SPo], [0]];
+export var AwsEfsAccessPointDetails$: StaticStructureSchema = [
   3,
   n0,
   _AEAPD,
   0,
   [_APIc, _Ar, _CTl, _FSI, _PU, _RD],
-  [0, 0, 0, 0, () => AwsEfsAccessPointPosixUserDetails, () => AwsEfsAccessPointRootDirectoryDetails],
+  [0, 0, 0, 0, () => AwsEfsAccessPointPosixUserDetails$, () => AwsEfsAccessPointRootDirectoryDetails$],
 ];
-export var AwsEfsAccessPointPosixUserDetails: StaticStructureSchema = [
+export var AwsEfsAccessPointPosixUserDetails$: StaticStructureSchema = [
   3,
   n0,
   _AEAPPUD,
@@ -5981,7 +6002,7 @@ export var AwsEfsAccessPointPosixUserDetails: StaticStructureSchema = [
   [_Gi, _SGe, _Ui],
   [0, 64 | 0, 0],
 ];
-export var AwsEfsAccessPointRootDirectoryCreationInfoDetails: StaticStructureSchema = [
+export var AwsEfsAccessPointRootDirectoryCreationInfoDetails$: StaticStructureSchema = [
   3,
   n0,
   _AEAPRDCID,
@@ -5989,23 +6010,23 @@ export var AwsEfsAccessPointRootDirectoryCreationInfoDetails: StaticStructureSch
   [_OGw, _OU, _Perm],
   [0, 0, 0],
 ];
-export var AwsEfsAccessPointRootDirectoryDetails: StaticStructureSchema = [
+export var AwsEfsAccessPointRootDirectoryDetails$: StaticStructureSchema = [
   3,
   n0,
   _AEAPRDD,
   0,
   [_CIr, _Pat],
-  [() => AwsEfsAccessPointRootDirectoryCreationInfoDetails, 0],
+  [() => AwsEfsAccessPointRootDirectoryCreationInfoDetails$, 0],
 ];
-export var AwsEksClusterDetails: StaticStructureSchema = [
+export var AwsEksClusterDetails$: StaticStructureSchema = [
   3,
   n0,
   _AECDws,
   0,
   [_Ar, _CAD, _CSlu, _End, _N, _RVC, _RAo, _V, _Lo],
-  [0, 0, 0, 0, 0, () => AwsEksClusterResourcesVpcConfigDetails, 0, 0, () => AwsEksClusterLoggingDetails],
+  [0, 0, 0, 0, 0, () => AwsEksClusterResourcesVpcConfigDetails$, 0, 0, () => AwsEksClusterLoggingDetails$],
 ];
-export var AwsEksClusterLoggingClusterLoggingDetails: StaticStructureSchema = [
+export var AwsEksClusterLoggingClusterLoggingDetails$: StaticStructureSchema = [
   3,
   n0,
   _AECLCLD,
@@ -6013,7 +6034,7 @@ export var AwsEksClusterLoggingClusterLoggingDetails: StaticStructureSchema = [
   [_Ena, _Ty],
   [2, 64 | 0],
 ];
-export var AwsEksClusterLoggingDetails: StaticStructureSchema = [
+export var AwsEksClusterLoggingDetails$: StaticStructureSchema = [
   3,
   n0,
   _AECLD,
@@ -6021,7 +6042,7 @@ export var AwsEksClusterLoggingDetails: StaticStructureSchema = [
   [_CLl],
   [() => AwsEksClusterLoggingClusterLoggingList],
 ];
-export var AwsEksClusterResourcesVpcConfigDetails: StaticStructureSchema = [
+export var AwsEksClusterResourcesVpcConfigDetails$: StaticStructureSchema = [
   3,
   n0,
   _AECRVCD,
@@ -6029,7 +6050,7 @@ export var AwsEksClusterResourcesVpcConfigDetails: StaticStructureSchema = [
   [_SGI, _SIub, _EPA],
   [64 | 0, 64 | 0, 2],
 ];
-export var AwsElasticBeanstalkEnvironmentDetails: StaticStructureSchema = [
+export var AwsElasticBeanstalkEnvironmentDetails$: StaticStructureSchema = [
   3,
   n0,
   _AEBED,
@@ -6050,11 +6071,11 @@ export var AwsElasticBeanstalkEnvironmentDetails: StaticStructureSchema = [
     0,
     0,
     0,
-    () => AwsElasticBeanstalkEnvironmentTier,
+    () => AwsElasticBeanstalkEnvironmentTier$,
     0,
   ],
 ];
-export var AwsElasticBeanstalkEnvironmentEnvironmentLink: StaticStructureSchema = [
+export var AwsElasticBeanstalkEnvironmentEnvironmentLink$: StaticStructureSchema = [
   3,
   n0,
   _AEBEEL,
@@ -6062,7 +6083,7 @@ export var AwsElasticBeanstalkEnvironmentEnvironmentLink: StaticStructureSchema 
   [_ENn, _LN],
   [0, 0],
 ];
-export var AwsElasticBeanstalkEnvironmentOptionSetting: StaticStructureSchema = [
+export var AwsElasticBeanstalkEnvironmentOptionSetting$: StaticStructureSchema = [
   3,
   n0,
   _AEBEOS,
@@ -6070,8 +6091,8 @@ export var AwsElasticBeanstalkEnvironmentOptionSetting: StaticStructureSchema = 
   [_Na, _ON, _RNes, _Val],
   [0, 0, 0, 0],
 ];
-export var AwsElasticBeanstalkEnvironmentTier: StaticStructureSchema = [3, n0, _AEBET, 0, [_N, _T, _V], [0, 0, 0]];
-export var AwsElasticsearchDomainDetails: StaticStructureSchema = [
+export var AwsElasticBeanstalkEnvironmentTier$: StaticStructureSchema = [3, n0, _AEBET, 0, [_N, _T, _V], [0, 0, 0]];
+export var AwsElasticsearchDomainDetails$: StaticStructureSchema = [
   3,
   n0,
   _AEDD,
@@ -6079,21 +6100,21 @@ export var AwsElasticsearchDomainDetails: StaticStructureSchema = [
   [_APc, _DEO, _DIo, _DNo, _End, _Endp, _EVl, _ECCl, _EARO, _LPO, _NTNEO, _SSO, _VPCO],
   [
     0,
-    () => AwsElasticsearchDomainDomainEndpointOptions,
+    () => AwsElasticsearchDomainDomainEndpointOptions$,
     0,
     0,
     0,
     128 | 0,
     0,
-    () => AwsElasticsearchDomainElasticsearchClusterConfigDetails,
-    () => AwsElasticsearchDomainEncryptionAtRestOptions,
-    () => AwsElasticsearchDomainLogPublishingOptions,
-    () => AwsElasticsearchDomainNodeToNodeEncryptionOptions,
-    () => AwsElasticsearchDomainServiceSoftwareOptions,
-    () => AwsElasticsearchDomainVPCOptions,
+    () => AwsElasticsearchDomainElasticsearchClusterConfigDetails$,
+    () => AwsElasticsearchDomainEncryptionAtRestOptions$,
+    () => AwsElasticsearchDomainLogPublishingOptions$,
+    () => AwsElasticsearchDomainNodeToNodeEncryptionOptions$,
+    () => AwsElasticsearchDomainServiceSoftwareOptions$,
+    () => AwsElasticsearchDomainVPCOptions$,
   ],
 ];
-export var AwsElasticsearchDomainDomainEndpointOptions: StaticStructureSchema = [
+export var AwsElasticsearchDomainDomainEndpointOptions$: StaticStructureSchema = [
   3,
   n0,
   _AEDDEO,
@@ -6101,15 +6122,15 @@ export var AwsElasticsearchDomainDomainEndpointOptions: StaticStructureSchema = 
   [_EHTTPS, _TLSSP],
   [2, 0],
 ];
-export var AwsElasticsearchDomainElasticsearchClusterConfigDetails: StaticStructureSchema = [
+export var AwsElasticsearchDomainElasticsearchClusterConfigDetails$: StaticStructureSchema = [
   3,
   n0,
   _AEDECCD,
   0,
   [_DMC, _DMEe, _DMT, _ICn, _ITn, _ZAC, _ZAE],
-  [1, 2, 0, 1, 0, () => AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails, 2],
+  [1, 2, 0, 1, 0, () => AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails$, 2],
 ];
-export var AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails: StaticStructureSchema = [
+export var AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails$: StaticStructureSchema = [
   3,
   n0,
   _AEDECCZACD,
@@ -6117,7 +6138,7 @@ export var AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDe
   [_AZC],
   [1],
 ];
-export var AwsElasticsearchDomainEncryptionAtRestOptions: StaticStructureSchema = [
+export var AwsElasticsearchDomainEncryptionAtRestOptions$: StaticStructureSchema = [
   3,
   n0,
   _AEDEARO,
@@ -6125,19 +6146,19 @@ export var AwsElasticsearchDomainEncryptionAtRestOptions: StaticStructureSchema 
   [_Ena, _KKI],
   [2, 0],
 ];
-export var AwsElasticsearchDomainLogPublishingOptions: StaticStructureSchema = [
+export var AwsElasticsearchDomainLogPublishingOptions$: StaticStructureSchema = [
   3,
   n0,
   _AEDLPO,
   0,
   [_ISL, _SSL, _AL],
   [
-    () => AwsElasticsearchDomainLogPublishingOptionsLogConfig,
-    () => AwsElasticsearchDomainLogPublishingOptionsLogConfig,
-    () => AwsElasticsearchDomainLogPublishingOptionsLogConfig,
+    () => AwsElasticsearchDomainLogPublishingOptionsLogConfig$,
+    () => AwsElasticsearchDomainLogPublishingOptionsLogConfig$,
+    () => AwsElasticsearchDomainLogPublishingOptionsLogConfig$,
   ],
 ];
-export var AwsElasticsearchDomainLogPublishingOptionsLogConfig: StaticStructureSchema = [
+export var AwsElasticsearchDomainLogPublishingOptionsLogConfig$: StaticStructureSchema = [
   3,
   n0,
   _AEDLPOLC,
@@ -6145,7 +6166,7 @@ export var AwsElasticsearchDomainLogPublishingOptionsLogConfig: StaticStructureS
   [_CWLLGA, _Ena],
   [0, 2],
 ];
-export var AwsElasticsearchDomainNodeToNodeEncryptionOptions: StaticStructureSchema = [
+export var AwsElasticsearchDomainNodeToNodeEncryptionOptions$: StaticStructureSchema = [
   3,
   n0,
   _AEDNTNEO,
@@ -6153,7 +6174,7 @@ export var AwsElasticsearchDomainNodeToNodeEncryptionOptions: StaticStructureSch
   [_Ena],
   [2],
 ];
-export var AwsElasticsearchDomainServiceSoftwareOptions: StaticStructureSchema = [
+export var AwsElasticsearchDomainServiceSoftwareOptions$: StaticStructureSchema = [
   3,
   n0,
   _AEDSSO,
@@ -6161,7 +6182,7 @@ export var AwsElasticsearchDomainServiceSoftwareOptions: StaticStructureSchema =
   [_AUD, _Can, _CV, _D, _NV, _UAp, _US],
   [0, 2, 0, 0, 0, 2, 0],
 ];
-export var AwsElasticsearchDomainVPCOptions: StaticStructureSchema = [
+export var AwsElasticsearchDomainVPCOptions$: StaticStructureSchema = [
   3,
   n0,
   _AEDVPCO,
@@ -6169,9 +6190,9 @@ export var AwsElasticsearchDomainVPCOptions: StaticStructureSchema = [
   [_AZv, _SGI, _SIub, _VPCId],
   [64 | 0, 64 | 0, 64 | 0, 0],
 ];
-export var AwsElbAppCookieStickinessPolicy: StaticStructureSchema = [3, n0, _AEACSP, 0, [_CNoo, _PNo], [0, 0]];
-export var AwsElbLbCookieStickinessPolicy: StaticStructureSchema = [3, n0, _AELCSP, 0, [_CEP, _PNo], [1, 0]];
-export var AwsElbLoadBalancerAccessLog: StaticStructureSchema = [
+export var AwsElbAppCookieStickinessPolicy$: StaticStructureSchema = [3, n0, _AEACSP, 0, [_CNoo, _PNo], [0, 0]];
+export var AwsElbLbCookieStickinessPolicy$: StaticStructureSchema = [3, n0, _AELCSP, 0, [_CEP, _PNo], [1, 0]];
+export var AwsElbLoadBalancerAccessLog$: StaticStructureSchema = [
   3,
   n0,
   _AELBAL,
@@ -6179,22 +6200,22 @@ export var AwsElbLoadBalancerAccessLog: StaticStructureSchema = [
   [_EIm, _Ena, _SBN, _SBP],
   [1, 2, 0, 0],
 ];
-export var AwsElbLoadBalancerAdditionalAttribute: StaticStructureSchema = [3, n0, _AELBAA, 0, [_K, _Val], [0, 0]];
-export var AwsElbLoadBalancerAttributes: StaticStructureSchema = [
+export var AwsElbLoadBalancerAdditionalAttribute$: StaticStructureSchema = [3, n0, _AELBAA, 0, [_K, _Val], [0, 0]];
+export var AwsElbLoadBalancerAttributes$: StaticStructureSchema = [
   3,
   n0,
   _AELBA,
   0,
   [_ALc, _CDonn, _CSo, _CZLB, _AAd],
   [
-    () => AwsElbLoadBalancerAccessLog,
-    () => AwsElbLoadBalancerConnectionDraining,
-    () => AwsElbLoadBalancerConnectionSettings,
-    () => AwsElbLoadBalancerCrossZoneLoadBalancing,
+    () => AwsElbLoadBalancerAccessLog$,
+    () => AwsElbLoadBalancerConnectionDraining$,
+    () => AwsElbLoadBalancerConnectionSettings$,
+    () => AwsElbLoadBalancerCrossZoneLoadBalancing$,
     () => AwsElbLoadBalancerAdditionalAttributeList,
   ],
 ];
-export var AwsElbLoadBalancerBackendServerDescription: StaticStructureSchema = [
+export var AwsElbLoadBalancerBackendServerDescription$: StaticStructureSchema = [
   3,
   n0,
   _AELBBSD,
@@ -6202,10 +6223,10 @@ export var AwsElbLoadBalancerBackendServerDescription: StaticStructureSchema = [
   [_IPn, _PNol],
   [1, 64 | 0],
 ];
-export var AwsElbLoadBalancerConnectionDraining: StaticStructureSchema = [3, n0, _AELBCD, 0, [_Ena, _Tim], [2, 1]];
-export var AwsElbLoadBalancerConnectionSettings: StaticStructureSchema = [3, n0, _AELBCS, 0, [_ITd], [1]];
-export var AwsElbLoadBalancerCrossZoneLoadBalancing: StaticStructureSchema = [3, n0, _AELBCZLB, 0, [_Ena], [2]];
-export var AwsElbLoadBalancerDetails: StaticStructureSchema = [
+export var AwsElbLoadBalancerConnectionDraining$: StaticStructureSchema = [3, n0, _AELBCD, 0, [_Ena, _Tim], [2, 1]];
+export var AwsElbLoadBalancerConnectionSettings$: StaticStructureSchema = [3, n0, _AELBCS, 0, [_ITd], [1]];
+export var AwsElbLoadBalancerCrossZoneLoadBalancing$: StaticStructureSchema = [3, n0, _AELBCZLB, 0, [_Ena], [2]];
+export var AwsElbLoadBalancerDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELBD,
@@ -6218,20 +6239,20 @@ export var AwsElbLoadBalancerDetails: StaticStructureSchema = [
     0,
     0,
     0,
-    () => AwsElbLoadBalancerHealthCheck,
+    () => AwsElbLoadBalancerHealthCheck$,
     () => AwsElbLoadBalancerInstances,
     () => AwsElbLoadBalancerListenerDescriptions,
-    () => AwsElbLoadBalancerAttributes,
+    () => AwsElbLoadBalancerAttributes$,
     0,
-    () => AwsElbLoadBalancerPolicies,
+    () => AwsElbLoadBalancerPolicies$,
     0,
     64 | 0,
-    () => AwsElbLoadBalancerSourceSecurityGroup,
+    () => AwsElbLoadBalancerSourceSecurityGroup$,
     64 | 0,
     0,
   ],
 ];
-export var AwsElbLoadBalancerHealthCheck: StaticStructureSchema = [
+export var AwsElbLoadBalancerHealthCheck$: StaticStructureSchema = [
   3,
   n0,
   _AELBHC,
@@ -6239,8 +6260,8 @@ export var AwsElbLoadBalancerHealthCheck: StaticStructureSchema = [
   [_HTe, _Int, _Ta, _Tim, _UT],
   [1, 1, 0, 1, 1],
 ];
-export var AwsElbLoadBalancerInstance: StaticStructureSchema = [3, n0, _AELBI, 0, [_IIn], [0]];
-export var AwsElbLoadBalancerListener: StaticStructureSchema = [
+export var AwsElbLoadBalancerInstance$: StaticStructureSchema = [3, n0, _AELBI, 0, [_IIn], [0]];
+export var AwsElbLoadBalancerListener$: StaticStructureSchema = [
   3,
   n0,
   _AELBL,
@@ -6248,15 +6269,15 @@ export var AwsElbLoadBalancerListener: StaticStructureSchema = [
   [_IPn, _IPns, _LBP, _Prot, _SCI],
   [1, 0, 1, 0, 0],
 ];
-export var AwsElbLoadBalancerListenerDescription: StaticStructureSchema = [
+export var AwsElbLoadBalancerListenerDescription$: StaticStructureSchema = [
   3,
   n0,
   _AELBLD,
   0,
   [_Lis, _PNol],
-  [() => AwsElbLoadBalancerListener, 64 | 0],
+  [() => AwsElbLoadBalancerListener$, 64 | 0],
 ];
-export var AwsElbLoadBalancerPolicies: StaticStructureSchema = [
+export var AwsElbLoadBalancerPolicies$: StaticStructureSchema = [
   3,
   n0,
   _AELBP,
@@ -6264,18 +6285,30 @@ export var AwsElbLoadBalancerPolicies: StaticStructureSchema = [
   [_ACSP, _LCSP, _OPt],
   [() => AwsElbAppCookieStickinessPolicies, () => AwsElbLbCookieStickinessPolicies, 64 | 0],
 ];
-export var AwsElbLoadBalancerSourceSecurityGroup: StaticStructureSchema = [3, n0, _AELBSSG, 0, [_GN, _OAw], [0, 0]];
-export var AwsElbv2LoadBalancerAttribute: StaticStructureSchema = [3, n0, _AELBAw, 0, [_K, _Val], [0, 0]];
-export var AwsElbv2LoadBalancerDetails: StaticStructureSchema = [
+export var AwsElbLoadBalancerSourceSecurityGroup$: StaticStructureSchema = [3, n0, _AELBSSG, 0, [_GN, _OAw], [0, 0]];
+export var AwsElbv2LoadBalancerAttribute$: StaticStructureSchema = [3, n0, _AELBAw, 0, [_K, _Val], [0, 0]];
+export var AwsElbv2LoadBalancerDetails$: StaticStructureSchema = [
   3,
   n0,
   _AELBDw,
   0,
   [_AZv, _CHZI, _CT, _DNSN, _IAT, _Sch, _SG, _Sta, _T, _VIp, _LBA],
-  [() => AvailabilityZones, 0, 0, 0, 0, 0, 64 | 0, () => LoadBalancerState, 0, 0, () => AwsElbv2LoadBalancerAttributes],
+  [
+    () => AvailabilityZones,
+    0,
+    0,
+    0,
+    0,
+    0,
+    64 | 0,
+    () => LoadBalancerState$,
+    0,
+    0,
+    () => AwsElbv2LoadBalancerAttributes,
+  ],
 ];
-export var AwsEventSchemasRegistryDetails: StaticStructureSchema = [3, n0, _AESRD, 0, [_D, _RAeg, _RNeg], [0, 0, 0]];
-export var AwsEventsEndpointDetails: StaticStructureSchema = [
+export var AwsEventSchemasRegistryDetails$: StaticStructureSchema = [3, n0, _AESRD, 0, [_D, _RAeg, _RNeg], [0, 0, 0]];
+export var AwsEventsEndpointDetails$: StaticStructureSchema = [
   3,
   n0,
   _AEEDw,
@@ -6288,35 +6321,35 @@ export var AwsEventsEndpointDetails: StaticStructureSchema = [
     0,
     () => AwsEventsEndpointEventBusesList,
     0,
-    () => AwsEventsEndpointReplicationConfigDetails,
+    () => AwsEventsEndpointReplicationConfigDetails$,
     0,
-    () => AwsEventsEndpointRoutingConfigDetails,
+    () => AwsEventsEndpointRoutingConfigDetails$,
     0,
     0,
   ],
 ];
-export var AwsEventsEndpointEventBusesDetails: StaticStructureSchema = [3, n0, _AEEEBD, 0, [_EBA], [0]];
-export var AwsEventsEndpointReplicationConfigDetails: StaticStructureSchema = [3, n0, _AEERCD, 0, [_Sta], [0]];
-export var AwsEventsEndpointRoutingConfigDetails: StaticStructureSchema = [
+export var AwsEventsEndpointEventBusesDetails$: StaticStructureSchema = [3, n0, _AEEEBD, 0, [_EBA], [0]];
+export var AwsEventsEndpointReplicationConfigDetails$: StaticStructureSchema = [3, n0, _AEERCD, 0, [_Sta], [0]];
+export var AwsEventsEndpointRoutingConfigDetails$: StaticStructureSchema = [
   3,
   n0,
   _AEERCDw,
   0,
   [_FCa],
-  [() => AwsEventsEndpointRoutingConfigFailoverConfigDetails],
+  [() => AwsEventsEndpointRoutingConfigFailoverConfigDetails$],
 ];
-export var AwsEventsEndpointRoutingConfigFailoverConfigDetails: StaticStructureSchema = [
+export var AwsEventsEndpointRoutingConfigFailoverConfigDetails$: StaticStructureSchema = [
   3,
   n0,
   _AEERCFCD,
   0,
   [_Pri, _Seco],
   [
-    () => AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetails,
-    () => AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetails,
+    () => AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetails$,
+    () => AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetails$,
   ],
 ];
-export var AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetails: StaticStructureSchema = [
+export var AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetails$: StaticStructureSchema = [
   3,
   n0,
   _AEERCFCPD,
@@ -6324,7 +6357,7 @@ export var AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetails: StaticStr
   [_HC],
   [0],
 ];
-export var AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetails: StaticStructureSchema = [
+export var AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetails$: StaticStructureSchema = [
   3,
   n0,
   _AEERCFCSD,
@@ -6332,26 +6365,33 @@ export var AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetails: StaticS
   [_Rou],
   [0],
 ];
-export var AwsEventsEventbusDetails: StaticStructureSchema = [3, n0, _AEEDws, 0, [_Ar, _N, _Pol], [0, 0, 0]];
-export var AwsGuardDutyDetectorDataSourcesCloudTrailDetails: StaticStructureSchema = [3, n0, _AGDDDSCTD, 0, [_St], [0]];
-export var AwsGuardDutyDetectorDataSourcesDetails: StaticStructureSchema = [
+export var AwsEventsEventbusDetails$: StaticStructureSchema = [3, n0, _AEEDws, 0, [_Ar, _N, _Pol], [0, 0, 0]];
+export var AwsGuardDutyDetectorDataSourcesCloudTrailDetails$: StaticStructureSchema = [
+  3,
+  n0,
+  _AGDDDSCTD,
+  0,
+  [_St],
+  [0],
+];
+export var AwsGuardDutyDetectorDataSourcesDetails$: StaticStructureSchema = [
   3,
   n0,
   _AGDDDSD,
   0,
   [_CTlo, _DLn, _FL, _Ku, _MPal, _SLo],
   [
-    () => AwsGuardDutyDetectorDataSourcesCloudTrailDetails,
-    () => AwsGuardDutyDetectorDataSourcesDnsLogsDetails,
-    () => AwsGuardDutyDetectorDataSourcesFlowLogsDetails,
-    () => AwsGuardDutyDetectorDataSourcesKubernetesDetails,
-    () => AwsGuardDutyDetectorDataSourcesMalwareProtectionDetails,
-    () => AwsGuardDutyDetectorDataSourcesS3LogsDetails,
+    () => AwsGuardDutyDetectorDataSourcesCloudTrailDetails$,
+    () => AwsGuardDutyDetectorDataSourcesDnsLogsDetails$,
+    () => AwsGuardDutyDetectorDataSourcesFlowLogsDetails$,
+    () => AwsGuardDutyDetectorDataSourcesKubernetesDetails$,
+    () => AwsGuardDutyDetectorDataSourcesMalwareProtectionDetails$,
+    () => AwsGuardDutyDetectorDataSourcesS3LogsDetails$,
   ],
 ];
-export var AwsGuardDutyDetectorDataSourcesDnsLogsDetails: StaticStructureSchema = [3, n0, _AGDDDSDLD, 0, [_St], [0]];
-export var AwsGuardDutyDetectorDataSourcesFlowLogsDetails: StaticStructureSchema = [3, n0, _AGDDDSFLD, 0, [_St], [0]];
-export var AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails: StaticStructureSchema = [
+export var AwsGuardDutyDetectorDataSourcesDnsLogsDetails$: StaticStructureSchema = [3, n0, _AGDDDSDLD, 0, [_St], [0]];
+export var AwsGuardDutyDetectorDataSourcesFlowLogsDetails$: StaticStructureSchema = [3, n0, _AGDDDSFLD, 0, [_St], [0]];
+export var AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AGDDDSKALD,
@@ -6359,60 +6399,61 @@ export var AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails: StaticStru
   [_St],
   [0],
 ];
-export var AwsGuardDutyDetectorDataSourcesKubernetesDetails: StaticStructureSchema = [
+export var AwsGuardDutyDetectorDataSourcesKubernetesDetails$: StaticStructureSchema = [
   3,
   n0,
   _AGDDDSKD,
   0,
   [_AL],
-  [() => AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails],
+  [() => AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails$],
 ];
-export var AwsGuardDutyDetectorDataSourcesMalwareProtectionDetails: StaticStructureSchema = [
+export var AwsGuardDutyDetectorDataSourcesMalwareProtectionDetails$: StaticStructureSchema = [
   3,
   n0,
   _AGDDDSMPD,
   0,
   [_SEIWF, _SR],
-  [() => AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails, 0],
+  [() => AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails$, 0],
 ];
-export var AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _AGDDDSMPSEIWFD,
-  0,
-  [_EVb],
-  [() => AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetails],
-];
-export var AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetails: StaticStructureSchema =
+export var AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails$: StaticStructureSchema =
+  [
+    3,
+    n0,
+    _AGDDDSMPSEIWFD,
+    0,
+    [_EVb],
+    [() => AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetails$],
+  ];
+export var AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetails$: StaticStructureSchema =
   [3, n0, _AGDDDSMPSEIWFEVD, 0, [_R, _St], [0, 0]];
-export var AwsGuardDutyDetectorDataSourcesS3LogsDetails: StaticStructureSchema = [3, n0, _AGDDDSSLD, 0, [_St], [0]];
-export var AwsGuardDutyDetectorDetails: StaticStructureSchema = [
+export var AwsGuardDutyDetectorDataSourcesS3LogsDetails$: StaticStructureSchema = [3, n0, _AGDDDSSLD, 0, [_St], [0]];
+export var AwsGuardDutyDetectorDetails$: StaticStructureSchema = [
   3,
   n0,
   _AGDDD,
   0,
   [_DSa, _Fe, _FPF, _SR, _St],
-  [() => AwsGuardDutyDetectorDataSourcesDetails, () => AwsGuardDutyDetectorFeaturesList, 0, 0, 0],
+  [() => AwsGuardDutyDetectorDataSourcesDetails$, () => AwsGuardDutyDetectorFeaturesList, 0, 0, 0],
 ];
-export var AwsGuardDutyDetectorFeaturesDetails: StaticStructureSchema = [3, n0, _AGDDFD, 0, [_N, _St], [0, 0]];
-export var AwsIamAccessKeyDetails: StaticStructureSchema = [
+export var AwsGuardDutyDetectorFeaturesDetails$: StaticStructureSchema = [3, n0, _AGDDFD, 0, [_N, _St], [0, 0]];
+export var AwsIamAccessKeyDetails$: StaticStructureSchema = [
   3,
   n0,
   _AIAKD,
   0,
   [_UN, _St, _CA, _PIr, _PTri, _PNri, _AIc, _AKI, _SCe],
-  [0, 0, 0, 0, 0, 0, 0, 0, () => AwsIamAccessKeySessionContext],
+  [0, 0, 0, 0, 0, 0, 0, 0, () => AwsIamAccessKeySessionContext$],
 ];
-export var AwsIamAccessKeySessionContext: StaticStructureSchema = [
+export var AwsIamAccessKeySessionContext$: StaticStructureSchema = [
   3,
   n0,
   _AIAKSC,
   0,
   [_Attr, _SIes],
-  [() => AwsIamAccessKeySessionContextAttributes, () => AwsIamAccessKeySessionContextSessionIssuer],
+  [() => AwsIamAccessKeySessionContextAttributes$, () => AwsIamAccessKeySessionContextSessionIssuer$],
 ];
-export var AwsIamAccessKeySessionContextAttributes: StaticStructureSchema = [3, n0, _AIAKSCA, 0, [_MAf, _CDr], [2, 0]];
-export var AwsIamAccessKeySessionContextSessionIssuer: StaticStructureSchema = [
+export var AwsIamAccessKeySessionContextAttributes$: StaticStructureSchema = [3, n0, _AIAKSCA, 0, [_MAf, _CDr], [2, 0]];
+export var AwsIamAccessKeySessionContextSessionIssuer$: StaticStructureSchema = [
   3,
   n0,
   _AIAKSCSI,
@@ -6420,8 +6461,8 @@ export var AwsIamAccessKeySessionContextSessionIssuer: StaticStructureSchema = [
   [_T, _PIr, _Ar, _AIc, _UN],
   [0, 0, 0, 0, 0],
 ];
-export var AwsIamAttachedManagedPolicy: StaticStructureSchema = [3, n0, _AIAMP, 0, [_PNo, _PAo], [0, 0]];
-export var AwsIamGroupDetails: StaticStructureSchema = [
+export var AwsIamAttachedManagedPolicy$: StaticStructureSchema = [3, n0, _AIAMP, 0, [_PNo, _PAo], [0, 0]];
+export var AwsIamGroupDetails$: StaticStructureSchema = [
   3,
   n0,
   _AIGD,
@@ -6429,8 +6470,8 @@ export var AwsIamGroupDetails: StaticStructureSchema = [
   [_AMP, _CDre, _GIr, _GN, _GPL, _Pat],
   [() => AwsIamAttachedManagedPolicyList, 0, 0, 0, () => AwsIamGroupPolicyList, 0],
 ];
-export var AwsIamGroupPolicy: StaticStructureSchema = [3, n0, _AIGP, 0, [_PNo], [0]];
-export var AwsIamInstanceProfile: StaticStructureSchema = [
+export var AwsIamGroupPolicy$: StaticStructureSchema = [3, n0, _AIGP, 0, [_PNo], [0]];
+export var AwsIamInstanceProfile$: StaticStructureSchema = [
   3,
   n0,
   _AIIP,
@@ -6438,7 +6479,7 @@ export var AwsIamInstanceProfile: StaticStructureSchema = [
   [_Ar, _CDre, _IPI, _IPN, _Pat, _Roles],
   [0, 0, 0, 0, 0, () => AwsIamInstanceProfileRoles],
 ];
-export var AwsIamInstanceProfileRole: StaticStructureSchema = [
+export var AwsIamInstanceProfileRole$: StaticStructureSchema = [
   3,
   n0,
   _AIIPR,
@@ -6446,8 +6487,8 @@ export var AwsIamInstanceProfileRole: StaticStructureSchema = [
   [_Ar, _ARPDs, _CDre, _Pat, _RIo, _RNo],
   [0, 0, 0, 0, 0, 0],
 ];
-export var AwsIamPermissionsBoundary: StaticStructureSchema = [3, n0, _AIPB, 0, [_PBA, _PBT], [0, 0]];
-export var AwsIamPolicyDetails: StaticStructureSchema = [
+export var AwsIamPermissionsBoundary$: StaticStructureSchema = [3, n0, _AIPB, 0, [_PBA, _PBT], [0, 0]];
+export var AwsIamPolicyDetails$: StaticStructureSchema = [
   3,
   n0,
   _AIPD,
@@ -6455,8 +6496,8 @@ export var AwsIamPolicyDetails: StaticStructureSchema = [
   [_ACt, _CDre, _DVI, _D, _IAst, _Pat, _PBUC, _PIo, _PNo, _PVL, _UDp],
   [1, 0, 0, 0, 2, 0, 1, 0, 0, () => AwsIamPolicyVersionList, 0],
 ];
-export var AwsIamPolicyVersion: StaticStructureSchema = [3, n0, _AIPV, 0, [_VI, _IDV, _CDre], [0, 2, 0]];
-export var AwsIamRoleDetails: StaticStructureSchema = [
+export var AwsIamPolicyVersion$: StaticStructureSchema = [3, n0, _AIPV, 0, [_VI, _IDV, _CDre], [0, 2, 0]];
+export var AwsIamRoleDetails$: StaticStructureSchema = [
   3,
   n0,
   _AIRD,
@@ -6467,7 +6508,7 @@ export var AwsIamRoleDetails: StaticStructureSchema = [
     () => AwsIamAttachedManagedPolicyList,
     0,
     () => AwsIamInstanceProfileList,
-    () => AwsIamPermissionsBoundary,
+    () => AwsIamPermissionsBoundary$,
     0,
     0,
     () => AwsIamRolePolicyList,
@@ -6475,8 +6516,8 @@ export var AwsIamRoleDetails: StaticStructureSchema = [
     0,
   ],
 ];
-export var AwsIamRolePolicy: StaticStructureSchema = [3, n0, _AIRP, 0, [_PNo], [0]];
-export var AwsIamUserDetails: StaticStructureSchema = [
+export var AwsIamRolePolicy$: StaticStructureSchema = [3, n0, _AIRP, 0, [_PNo], [0]];
+export var AwsIamUserDetails$: StaticStructureSchema = [
   3,
   n0,
   _AIUD,
@@ -6487,23 +6528,23 @@ export var AwsIamUserDetails: StaticStructureSchema = [
     0,
     64 | 0,
     0,
-    () => AwsIamPermissionsBoundary,
+    () => AwsIamPermissionsBoundary$,
     0,
     0,
     () => AwsIamUserPolicyList,
   ],
 ];
-export var AwsIamUserPolicy: StaticStructureSchema = [3, n0, _AIUP, 0, [_PNo], [0]];
-export var AwsKinesisStreamDetails: StaticStructureSchema = [
+export var AwsIamUserPolicy$: StaticStructureSchema = [3, n0, _AIUP, 0, [_PNo], [0]];
+export var AwsKinesisStreamDetails$: StaticStructureSchema = [
   3,
   n0,
   _AKSD,
   0,
   [_N, _Ar, _SEtr, _SCh, _RPH],
-  [0, 0, () => AwsKinesisStreamStreamEncryptionDetails, 1, 1],
+  [0, 0, () => AwsKinesisStreamStreamEncryptionDetails$, 1, 1],
 ];
-export var AwsKinesisStreamStreamEncryptionDetails: StaticStructureSchema = [3, n0, _AKSSED, 0, [_ETnc, _KIe], [0, 0]];
-export var AwsKmsKeyDetails: StaticStructureSchema = [
+export var AwsKinesisStreamStreamEncryptionDetails$: StaticStructureSchema = [3, n0, _AKSSED, 0, [_ETnc, _KIe], [0, 0]];
+export var AwsKmsKeyDetails$: StaticStructureSchema = [
   3,
   n0,
   _AKKD,
@@ -6511,19 +6552,19 @@ export var AwsKmsKeyDetails: StaticStructureSchema = [
   [_AWSAI, _CDr, _KIe, _KM, _KSe, _Ori, _D, _KRS],
   [0, 1, 0, 0, 0, 0, 0, 2],
 ];
-export var AwsLambdaFunctionCode: StaticStructureSchema = [3, n0, _ALFC, 0, [_SBu, _SK, _SOV, _ZF], [0, 0, 0, 0]];
-export var AwsLambdaFunctionDeadLetterConfig: StaticStructureSchema = [3, n0, _ALFDLC, 0, [_TAa], [0]];
-export var AwsLambdaFunctionDetails: StaticStructureSchema = [
+export var AwsLambdaFunctionCode$: StaticStructureSchema = [3, n0, _ALFC, 0, [_SBu, _SK, _SOV, _ZF], [0, 0, 0, 0]];
+export var AwsLambdaFunctionDeadLetterConfig$: StaticStructureSchema = [3, n0, _ALFDLC, 0, [_TAa], [0]];
+export var AwsLambdaFunctionDetails$: StaticStructureSchema = [
   3,
   n0,
   _ALFD,
   0,
   [_C, _CSod, _DLC, _Env, _FN, _Ha, _KKA, _LM, _Lay, _MAa, _MSem, _RIev, _Role, _Ru, _Tim, _TC, _VCp, _V, _Arch, _PTa],
   [
-    () => AwsLambdaFunctionCode,
+    () => AwsLambdaFunctionCode$,
     0,
-    () => AwsLambdaFunctionDeadLetterConfig,
-    () => AwsLambdaFunctionEnvironment,
+    () => AwsLambdaFunctionDeadLetterConfig$,
+    () => AwsLambdaFunctionEnvironment$,
     0,
     0,
     0,
@@ -6535,25 +6576,25 @@ export var AwsLambdaFunctionDetails: StaticStructureSchema = [
     0,
     0,
     1,
-    () => AwsLambdaFunctionTracingConfig,
-    () => AwsLambdaFunctionVpcConfig,
+    () => AwsLambdaFunctionTracingConfig$,
+    () => AwsLambdaFunctionVpcConfig$,
     0,
     64 | 0,
     0,
   ],
 ];
-export var AwsLambdaFunctionEnvironment: StaticStructureSchema = [
+export var AwsLambdaFunctionEnvironment$: StaticStructureSchema = [
   3,
   n0,
   _ALFE,
   0,
   [_Va, _Er],
-  [128 | 0, () => AwsLambdaFunctionEnvironmentError],
+  [128 | 0, () => AwsLambdaFunctionEnvironmentError$],
 ];
-export var AwsLambdaFunctionEnvironmentError: StaticStructureSchema = [3, n0, _ALFEE, 0, [_ECr, _M], [0, 0]];
-export var AwsLambdaFunctionLayer: StaticStructureSchema = [3, n0, _ALFL, 0, [_Ar, _CSode], [0, 1]];
-export var AwsLambdaFunctionTracingConfig: StaticStructureSchema = [3, n0, _ALFTC, 0, [_Mod], [0]];
-export var AwsLambdaFunctionVpcConfig: StaticStructureSchema = [
+export var AwsLambdaFunctionEnvironmentError$: StaticStructureSchema = [3, n0, _ALFEE, 0, [_ECr, _M], [0, 0]];
+export var AwsLambdaFunctionLayer$: StaticStructureSchema = [3, n0, _ALFL, 0, [_Ar, _CSode], [0, 1]];
+export var AwsLambdaFunctionTracingConfig$: StaticStructureSchema = [3, n0, _ALFTC, 0, [_Mod], [0]];
+export var AwsLambdaFunctionVpcConfig$: StaticStructureSchema = [
   3,
   n0,
   _ALFVC,
@@ -6561,32 +6602,32 @@ export var AwsLambdaFunctionVpcConfig: StaticStructureSchema = [
   [_SGI, _SIub, _VIp],
   [64 | 0, 64 | 0, 0],
 ];
-export var AwsLambdaLayerVersionDetails: StaticStructureSchema = [3, n0, _ALLVD, 0, [_V, _CRo, _CD], [1, 64 | 0, 0]];
-export var AwsMountPoint: StaticStructureSchema = [3, n0, _AMPw, 0, [_SVo, _CPon], [0, 0]];
-export var AwsMskClusterClusterInfoClientAuthenticationDetails: StaticStructureSchema = [
+export var AwsLambdaLayerVersionDetails$: StaticStructureSchema = [3, n0, _ALLVD, 0, [_V, _CRo, _CD], [1, 64 | 0, 0]];
+export var AwsMountPoint$: StaticStructureSchema = [3, n0, _AMPw, 0, [_SVo, _CPon], [0, 0]];
+export var AwsMskClusterClusterInfoClientAuthenticationDetails$: StaticStructureSchema = [
   3,
   n0,
   _AMCCICAD,
   0,
   [_Sa, _Una, _Tl],
   [
-    () => AwsMskClusterClusterInfoClientAuthenticationSaslDetails,
-    () => AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetails,
-    () => AwsMskClusterClusterInfoClientAuthenticationTlsDetails,
+    () => AwsMskClusterClusterInfoClientAuthenticationSaslDetails$,
+    () => AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetails$,
+    () => AwsMskClusterClusterInfoClientAuthenticationTlsDetails$,
   ],
 ];
-export var AwsMskClusterClusterInfoClientAuthenticationSaslDetails: StaticStructureSchema = [
+export var AwsMskClusterClusterInfoClientAuthenticationSaslDetails$: StaticStructureSchema = [
   3,
   n0,
   _AMCCICASD,
   0,
   [_Ia, _Scr],
   [
-    () => AwsMskClusterClusterInfoClientAuthenticationSaslIamDetails,
-    () => AwsMskClusterClusterInfoClientAuthenticationSaslScramDetails,
+    () => AwsMskClusterClusterInfoClientAuthenticationSaslIamDetails$,
+    () => AwsMskClusterClusterInfoClientAuthenticationSaslScramDetails$,
   ],
 ];
-export var AwsMskClusterClusterInfoClientAuthenticationSaslIamDetails: StaticStructureSchema = [
+export var AwsMskClusterClusterInfoClientAuthenticationSaslIamDetails$: StaticStructureSchema = [
   3,
   n0,
   _AMCCICASID,
@@ -6594,7 +6635,7 @@ export var AwsMskClusterClusterInfoClientAuthenticationSaslIamDetails: StaticStr
   [_Ena],
   [2],
 ];
-export var AwsMskClusterClusterInfoClientAuthenticationSaslScramDetails: StaticStructureSchema = [
+export var AwsMskClusterClusterInfoClientAuthenticationSaslScramDetails$: StaticStructureSchema = [
   3,
   n0,
   _AMCCICASSD,
@@ -6602,7 +6643,7 @@ export var AwsMskClusterClusterInfoClientAuthenticationSaslScramDetails: StaticS
   [_Ena],
   [2],
 ];
-export var AwsMskClusterClusterInfoClientAuthenticationTlsDetails: StaticStructureSchema = [
+export var AwsMskClusterClusterInfoClientAuthenticationTlsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AMCCICATD,
@@ -6610,7 +6651,7 @@ export var AwsMskClusterClusterInfoClientAuthenticationTlsDetails: StaticStructu
   [_CAAL, _Ena],
   [64 | 0, 2],
 ];
-export var AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetails: StaticStructureSchema = [
+export var AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetails$: StaticStructureSchema = [
   3,
   n0,
   _AMCCICAUD,
@@ -6618,33 +6659,33 @@ export var AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetails: S
   [_Ena],
   [2],
 ];
-export var AwsMskClusterClusterInfoDetails: StaticStructureSchema = [
+export var AwsMskClusterClusterInfoDetails$: StaticStructureSchema = [
   3,
   n0,
   _AMCCID,
   0,
   [_EInc, _CV, _NOBN, _CNl, _CAli, _EM],
   [
-    () => AwsMskClusterClusterInfoEncryptionInfoDetails,
+    () => AwsMskClusterClusterInfoEncryptionInfoDetails$,
     0,
     1,
     0,
-    () => AwsMskClusterClusterInfoClientAuthenticationDetails,
+    () => AwsMskClusterClusterInfoClientAuthenticationDetails$,
     0,
   ],
 ];
-export var AwsMskClusterClusterInfoEncryptionInfoDetails: StaticStructureSchema = [
+export var AwsMskClusterClusterInfoEncryptionInfoDetails$: StaticStructureSchema = [
   3,
   n0,
   _AMCCIEID,
   0,
   [_EITn, _EAR],
   [
-    () => AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetails,
-    () => AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetails,
+    () => AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetails$,
+    () => AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetails$,
   ],
 ];
-export var AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetails: StaticStructureSchema = [
+export var AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetails$: StaticStructureSchema = [
   3,
   n0,
   _AMCCIEIEARD,
@@ -6652,7 +6693,7 @@ export var AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetails: Static
   [_DVKMSKI],
   [0],
 ];
-export var AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetails: StaticStructureSchema = [
+export var AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetails$: StaticStructureSchema = [
   3,
   n0,
   _AMCCIEIEITD,
@@ -6660,15 +6701,15 @@ export var AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetails: Sta
   [_ICnl, _CBl],
   [2, 0],
 ];
-export var AwsMskClusterDetails: StaticStructureSchema = [
+export var AwsMskClusterDetails$: StaticStructureSchema = [
   3,
   n0,
   _AMCD,
   0,
   [_CIl],
-  [() => AwsMskClusterClusterInfoDetails],
+  [() => AwsMskClusterClusterInfoDetails$],
 ];
-export var AwsNetworkFirewallFirewallDetails: StaticStructureSchema = [
+export var AwsNetworkFirewallFirewallDetails$: StaticStructureSchema = [
   3,
   n0,
   _ANFFD,
@@ -6676,40 +6717,40 @@ export var AwsNetworkFirewallFirewallDetails: StaticStructureSchema = [
   [_DP, _D, _FAi, _FIi, _FNi, _FPA, _FPCP, _SCP, _SMu, _VIp],
   [2, 0, 0, 0, 0, 0, 2, 2, () => AwsNetworkFirewallFirewallSubnetMappingsList, 0],
 ];
-export var AwsNetworkFirewallFirewallPolicyDetails: StaticStructureSchema = [
+export var AwsNetworkFirewallFirewallPolicyDetails$: StaticStructureSchema = [
   3,
   n0,
   _ANFFPD,
   0,
   [_FPi, _FPA, _FPI, _FPN, _D],
-  [() => FirewallPolicyDetails, 0, 0, 0, 0],
+  [() => FirewallPolicyDetails$, 0, 0, 0, 0],
 ];
-export var AwsNetworkFirewallFirewallSubnetMappingsDetails: StaticStructureSchema = [3, n0, _ANFFSMD, 0, [_SIu], [0]];
-export var AwsNetworkFirewallRuleGroupDetails: StaticStructureSchema = [
+export var AwsNetworkFirewallFirewallSubnetMappingsDetails$: StaticStructureSchema = [3, n0, _ANFFSMD, 0, [_SIu], [0]];
+export var AwsNetworkFirewallRuleGroupDetails$: StaticStructureSchema = [
   3,
   n0,
   _ANFRGD,
   0,
   [_Cap, _D, _RG, _RGA, _RGI, _RGN, _T],
-  [1, 0, () => RuleGroupDetails, 0, 0, 0, 0],
+  [1, 0, () => RuleGroupDetails$, 0, 0, 0, 0],
 ];
-export var AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails: StaticStructureSchema = [
+export var AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AOSSDASOD,
   0,
   [_Ena, _IUDE, _MUO],
-  [2, 2, () => AwsOpenSearchServiceDomainMasterUserOptionsDetails],
+  [2, 2, () => AwsOpenSearchServiceDomainMasterUserOptionsDetails$],
 ];
-export var AwsOpenSearchServiceDomainClusterConfigDetails: StaticStructureSchema = [
+export var AwsOpenSearchServiceDomainClusterConfigDetails$: StaticStructureSchema = [
   3,
   n0,
   _AOSSDCCD,
   0,
   [_ICn, _WE, _WCa, _DMEe, _ZAC, _DMC, _ITn, _WT, _ZAE, _DMT],
-  [1, 2, 1, 2, () => AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails, 1, 0, 0, 2, 0],
+  [1, 2, 1, 2, () => AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails$, 1, 0, 0, 2, 0],
 ];
-export var AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails: StaticStructureSchema = [
+export var AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails$: StaticStructureSchema = [
   3,
   n0,
   _AOSSDCCZACD,
@@ -6717,7 +6758,7 @@ export var AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails: St
   [_AZC],
   [1],
 ];
-export var AwsOpenSearchServiceDomainDetails: StaticStructureSchema = [
+export var AwsOpenSearchServiceDomainDetails$: StaticStructureSchema = [
   3,
   n0,
   _AOSSDD,
@@ -6730,18 +6771,18 @@ export var AwsOpenSearchServiceDomainDetails: StaticStructureSchema = [
     0,
     0,
     0,
-    () => AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails,
-    () => AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails,
-    () => AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails,
-    () => AwsOpenSearchServiceDomainClusterConfigDetails,
-    () => AwsOpenSearchServiceDomainDomainEndpointOptionsDetails,
-    () => AwsOpenSearchServiceDomainVpcOptionsDetails,
-    () => AwsOpenSearchServiceDomainLogPublishingOptionsDetails,
+    () => AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails$,
+    () => AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails$,
+    () => AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails$,
+    () => AwsOpenSearchServiceDomainClusterConfigDetails$,
+    () => AwsOpenSearchServiceDomainDomainEndpointOptionsDetails$,
+    () => AwsOpenSearchServiceDomainVpcOptionsDetails$,
+    () => AwsOpenSearchServiceDomainLogPublishingOptionsDetails$,
     128 | 0,
-    () => AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails,
+    () => AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails$,
   ],
 ];
-export var AwsOpenSearchServiceDomainDomainEndpointOptionsDetails: StaticStructureSchema = [
+export var AwsOpenSearchServiceDomainDomainEndpointOptionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AOSSDDEOD,
@@ -6749,7 +6790,7 @@ export var AwsOpenSearchServiceDomainDomainEndpointOptionsDetails: StaticStructu
   [_CECA, _CEE, _EHTTPS, _CEu, _TLSSP],
   [0, 2, 2, 0, 0],
 ];
-export var AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails: StaticStructureSchema = [
+export var AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AOSSDEAROD,
@@ -6757,7 +6798,7 @@ export var AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails: StaticStruc
   [_Ena, _KKI],
   [2, 0],
 ];
-export var AwsOpenSearchServiceDomainLogPublishingOption: StaticStructureSchema = [
+export var AwsOpenSearchServiceDomainLogPublishingOption$: StaticStructureSchema = [
   3,
   n0,
   _AOSSDLPO,
@@ -6765,19 +6806,19 @@ export var AwsOpenSearchServiceDomainLogPublishingOption: StaticStructureSchema 
   [_CWLLGA, _Ena],
   [0, 2],
 ];
-export var AwsOpenSearchServiceDomainLogPublishingOptionsDetails: StaticStructureSchema = [
+export var AwsOpenSearchServiceDomainLogPublishingOptionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AOSSDLPOD,
   0,
   [_ISL, _SSL, _AL],
   [
-    () => AwsOpenSearchServiceDomainLogPublishingOption,
-    () => AwsOpenSearchServiceDomainLogPublishingOption,
-    () => AwsOpenSearchServiceDomainLogPublishingOption,
+    () => AwsOpenSearchServiceDomainLogPublishingOption$,
+    () => AwsOpenSearchServiceDomainLogPublishingOption$,
+    () => AwsOpenSearchServiceDomainLogPublishingOption$,
   ],
 ];
-export var AwsOpenSearchServiceDomainMasterUserOptionsDetails: StaticStructureSchema = [
+export var AwsOpenSearchServiceDomainMasterUserOptionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AOSSDMUOD,
@@ -6785,7 +6826,7 @@ export var AwsOpenSearchServiceDomainMasterUserOptionsDetails: StaticStructureSc
   [_MUA, _MUN, _MUP],
   [0, 0, 0],
 ];
-export var AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails: StaticStructureSchema = [
+export var AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AOSSDNTNEOD,
@@ -6793,7 +6834,7 @@ export var AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails: StaticS
   [_Ena],
   [2],
 ];
-export var AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails: StaticStructureSchema = [
+export var AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AOSSDSSOD,
@@ -6801,7 +6842,7 @@ export var AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails: StaticStruct
   [_AUD, _Can, _CV, _D, _NV, _UAp, _US, _OD],
   [0, 2, 0, 0, 0, 2, 0, 2],
 ];
-export var AwsOpenSearchServiceDomainVpcOptionsDetails: StaticStructureSchema = [
+export var AwsOpenSearchServiceDomainVpcOptionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _AOSSDVOD,
@@ -6809,8 +6850,8 @@ export var AwsOpenSearchServiceDomainVpcOptionsDetails: StaticStructureSchema = 
   [_SGI, _SIub],
   [64 | 0, 64 | 0],
 ];
-export var AwsRdsDbClusterAssociatedRole: StaticStructureSchema = [3, n0, _ARDCAR, 0, [_RAo, _St], [0, 0]];
-export var AwsRdsDbClusterDetails: StaticStructureSchema = [
+export var AwsRdsDbClusterAssociatedRole$: StaticStructureSchema = [3, n0, _ARDCAR, 0, [_RAo, _St], [0, 0]];
+export var AwsRdsDbClusterDetails$: StaticStructureSchema = [
   3,
   n0,
   _ARDCD,
@@ -6896,7 +6937,7 @@ export var AwsRdsDbClusterDetails: StaticStructureSchema = [
     2,
   ],
 ];
-export var AwsRdsDbClusterMember: StaticStructureSchema = [
+export var AwsRdsDbClusterMember$: StaticStructureSchema = [
   3,
   n0,
   _ARDCM,
@@ -6904,8 +6945,8 @@ export var AwsRdsDbClusterMember: StaticStructureSchema = [
   [_ICW, _PTrom, _DII, _DCPGS],
   [2, 1, 0, 0],
 ];
-export var AwsRdsDbClusterOptionGroupMembership: StaticStructureSchema = [3, n0, _ARDCOGM, 0, [_DCOGN, _St], [0, 0]];
-export var AwsRdsDbClusterSnapshotDbClusterSnapshotAttribute: StaticStructureSchema = [
+export var AwsRdsDbClusterOptionGroupMembership$: StaticStructureSchema = [3, n0, _ARDCOGM, 0, [_DCOGN, _St], [0, 0]];
+export var AwsRdsDbClusterSnapshotDbClusterSnapshotAttribute$: StaticStructureSchema = [
   3,
   n0,
   _ARDCSDCSA,
@@ -6913,7 +6954,7 @@ export var AwsRdsDbClusterSnapshotDbClusterSnapshotAttribute: StaticStructureSch
   [_ANt, _AVt],
   [0, 64 | 0],
 ];
-export var AwsRdsDbClusterSnapshotDetails: StaticStructureSchema = [
+export var AwsRdsDbClusterSnapshotDetails$: StaticStructureSchema = [
   3,
   n0,
   _ARDCSD,
@@ -6921,9 +6962,9 @@ export var AwsRdsDbClusterSnapshotDetails: StaticStructureSchema = [
   [_AZv, _SCT, _Eng, _ASl, _St, _P, _VIp, _CCT, _MU, _EV, _LMi, _STn, _PP, _SEto, _KKI, _DCI, _DCSI, _IDAE, _DCSA],
   [64 | 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 2, () => AwsRdsDbClusterSnapshotDbClusterSnapshotAttributes],
 ];
-export var AwsRdsDbDomainMembership: StaticStructureSchema = [3, n0, _ARDDM, 0, [_Do, _St, _Fq, _IRN], [0, 0, 0, 0]];
-export var AwsRdsDbInstanceAssociatedRole: StaticStructureSchema = [3, n0, _ARDIAR, 0, [_RAo, _FNe, _St], [0, 0, 0]];
-export var AwsRdsDbInstanceDetails: StaticStructureSchema = [
+export var AwsRdsDbDomainMembership$: StaticStructureSchema = [3, n0, _ARDDM, 0, [_Do, _St, _Fq, _IRN], [0, 0, 0, 0]];
+export var AwsRdsDbInstanceAssociatedRole$: StaticStructureSchema = [3, n0, _ARDIAR, 0, [_RAo, _FNe, _St], [0, 0, 0]];
+export var AwsRdsDbInstanceDetails$: StaticStructureSchema = [
   3,
   n0,
   _ARDID,
@@ -6997,7 +7038,7 @@ export var AwsRdsDbInstanceDetails: StaticStructureSchema = [
     0,
     0,
     2,
-    () => AwsRdsDbInstanceEndpoint,
+    () => AwsRdsDbInstanceEndpoint$,
     0,
     0,
     2,
@@ -7017,9 +7058,9 @@ export var AwsRdsDbInstanceDetails: StaticStructureSchema = [
     64 | 0,
     () => AwsRdsDbParameterGroups,
     0,
-    () => AwsRdsDbSubnetGroup,
+    () => AwsRdsDbSubnetGroup$,
     0,
-    () => AwsRdsDbPendingModifiedValues,
+    () => AwsRdsDbPendingModifiedValues$,
     0,
     2,
     0,
@@ -7043,24 +7084,24 @@ export var AwsRdsDbInstanceDetails: StaticStructureSchema = [
     1,
     64 | 0,
     () => AwsRdsDbProcessorFeatures,
-    () => AwsRdsDbInstanceEndpoint,
+    () => AwsRdsDbInstanceEndpoint$,
     1,
   ],
 ];
-export var AwsRdsDbInstanceEndpoint: StaticStructureSchema = [3, n0, _ARDIE, 0, [_Addr, _P, _HZI], [0, 1, 0]];
-export var AwsRdsDbInstanceVpcSecurityGroup: StaticStructureSchema = [3, n0, _ARDIVSG, 0, [_VSGI, _St], [0, 0]];
-export var AwsRdsDbOptionGroupMembership: StaticStructureSchema = [3, n0, _ARDOGM, 0, [_OGN, _St], [0, 0]];
-export var AwsRdsDbParameterGroup: StaticStructureSchema = [3, n0, _ARDPG, 0, [_DPGN, _PAS], [0, 0]];
-export var AwsRdsDbPendingModifiedValues: StaticStructureSchema = [
+export var AwsRdsDbInstanceEndpoint$: StaticStructureSchema = [3, n0, _ARDIE, 0, [_Addr, _P, _HZI], [0, 1, 0]];
+export var AwsRdsDbInstanceVpcSecurityGroup$: StaticStructureSchema = [3, n0, _ARDIVSG, 0, [_VSGI, _St], [0, 0]];
+export var AwsRdsDbOptionGroupMembership$: StaticStructureSchema = [3, n0, _ARDOGM, 0, [_OGN, _St], [0, 0]];
+export var AwsRdsDbParameterGroup$: StaticStructureSchema = [3, n0, _ARDPG, 0, [_DPGN, _PAS], [0, 0]];
+export var AwsRdsDbPendingModifiedValues$: StaticStructureSchema = [
   3,
   n0,
   _ARDPMV,
   0,
   [_DIC, _ASl, _MUP, _P, _BRP, _MAZ, _EV, _LMi, _Io, _DII, _ST, _CCIa, _DSGN, _PCWLE, _PF],
-  [0, 1, 0, 1, 1, 2, 0, 0, 1, 0, 0, 0, 0, () => AwsRdsPendingCloudWatchLogsExports, () => AwsRdsDbProcessorFeatures],
+  [0, 1, 0, 1, 1, 2, 0, 0, 1, 0, 0, 0, 0, () => AwsRdsPendingCloudWatchLogsExports$, () => AwsRdsDbProcessorFeatures],
 ];
-export var AwsRdsDbProcessorFeature: StaticStructureSchema = [3, n0, _ARDPF, 0, [_N, _Val], [0, 0]];
-export var AwsRdsDbSecurityGroupDetails: StaticStructureSchema = [
+export var AwsRdsDbProcessorFeature$: StaticStructureSchema = [3, n0, _ARDPF, 0, [_N, _Val], [0, 0]];
+export var AwsRdsDbSecurityGroupDetails$: StaticStructureSchema = [
   3,
   n0,
   _ARDSGD,
@@ -7068,7 +7109,7 @@ export var AwsRdsDbSecurityGroupDetails: StaticStructureSchema = [
   [_DSGA, _DSGD, _DSGNb, _ESG, _IRp, _OIw, _VIp],
   [0, 0, 0, () => AwsRdsDbSecurityGroupEc2SecurityGroups, () => AwsRdsDbSecurityGroupIpRanges, 0, 0],
 ];
-export var AwsRdsDbSecurityGroupEc2SecurityGroup: StaticStructureSchema = [
+export var AwsRdsDbSecurityGroupEc2SecurityGroup$: StaticStructureSchema = [
   3,
   n0,
   _ARDSGESG,
@@ -7076,8 +7117,8 @@ export var AwsRdsDbSecurityGroupEc2SecurityGroup: StaticStructureSchema = [
   [_ESGI, _ESGN, _ESGOI, _St],
   [0, 0, 0, 0],
 ];
-export var AwsRdsDbSecurityGroupIpRange: StaticStructureSchema = [3, n0, _ARDSGIR, 0, [_CIi, _St], [0, 0]];
-export var AwsRdsDbSnapshotDetails: StaticStructureSchema = [
+export var AwsRdsDbSecurityGroupIpRange$: StaticStructureSchema = [3, n0, _ARDSGIR, 0, [_CIi, _St], [0, 0]];
+export var AwsRdsDbSnapshotDetails$: StaticStructureSchema = [
   3,
   n0,
   _ARDSD,
@@ -7113,8 +7154,8 @@ export var AwsRdsDbSnapshotDetails: StaticStructureSchema = [
   ],
   [0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 2, 0, 0, 2, () => AwsRdsDbProcessorFeatures, 0],
 ];
-export var AwsRdsDbStatusInfo: StaticStructureSchema = [3, n0, _ARDSI, 0, [_STta, _Nor, _St, _M], [0, 2, 0, 0]];
-export var AwsRdsDbSubnetGroup: StaticStructureSchema = [
+export var AwsRdsDbStatusInfo$: StaticStructureSchema = [3, n0, _ARDSI, 0, [_STta, _Nor, _St, _M], [0, 2, 0, 0]];
+export var AwsRdsDbSubnetGroup$: StaticStructureSchema = [
   3,
   n0,
   _ARDSG,
@@ -7122,16 +7163,16 @@ export var AwsRdsDbSubnetGroup: StaticStructureSchema = [
   [_DSGN, _DSGDb, _VIp, _SGSu, _Sub, _DSGAb],
   [0, 0, 0, 0, () => AwsRdsDbSubnetGroupSubnets, 0],
 ];
-export var AwsRdsDbSubnetGroupSubnet: StaticStructureSchema = [
+export var AwsRdsDbSubnetGroupSubnet$: StaticStructureSchema = [
   3,
   n0,
   _ARDSGS,
   0,
   [_SIubn, _SAZu, _SSu],
-  [0, () => AwsRdsDbSubnetGroupSubnetAvailabilityZone, 0],
+  [0, () => AwsRdsDbSubnetGroupSubnetAvailabilityZone$, 0],
 ];
-export var AwsRdsDbSubnetGroupSubnetAvailabilityZone: StaticStructureSchema = [3, n0, _ARDSGSAZ, 0, [_N], [0]];
-export var AwsRdsEventSubscriptionDetails: StaticStructureSchema = [
+export var AwsRdsDbSubnetGroupSubnetAvailabilityZone$: StaticStructureSchema = [3, n0, _ARDSGSAZ, 0, [_N], [0]];
+export var AwsRdsEventSubscriptionDetails$: StaticStructureSchema = [
   3,
   n0,
   _ARESD,
@@ -7139,7 +7180,7 @@ export var AwsRdsEventSubscriptionDetails: StaticStructureSchema = [
   [_CSI, _CAI, _Ena, _ECL, _ESA, _STA, _SIL, _STo, _St, _SCTu],
   [0, 0, 2, 64 | 0, 0, 0, 64 | 0, 0, 0, 0],
 ];
-export var AwsRdsPendingCloudWatchLogsExports: StaticStructureSchema = [
+export var AwsRdsPendingCloudWatchLogsExports$: StaticStructureSchema = [
   3,
   n0,
   _ARPCWLE,
@@ -7147,8 +7188,8 @@ export var AwsRdsPendingCloudWatchLogsExports: StaticStructureSchema = [
   [_LTTE, _LTTD],
   [64 | 0, 64 | 0],
 ];
-export var AwsRedshiftClusterClusterNode: StaticStructureSchema = [3, n0, _ARCCN, 0, [_NR, _PIA, _PIAu], [0, 0, 0]];
-export var AwsRedshiftClusterClusterParameterGroup: StaticStructureSchema = [
+export var AwsRedshiftClusterClusterNode$: StaticStructureSchema = [3, n0, _ARCCN, 0, [_NR, _PIA, _PIAu], [0, 0, 0]];
+export var AwsRedshiftClusterClusterParameterGroup$: StaticStructureSchema = [
   3,
   n0,
   _ARCCPG,
@@ -7156,7 +7197,7 @@ export var AwsRedshiftClusterClusterParameterGroup: StaticStructureSchema = [
   [_CPSL, _PAS, _PGN],
   [() => AwsRedshiftClusterClusterParameterStatusList, 0, 0],
 ];
-export var AwsRedshiftClusterClusterParameterStatus: StaticStructureSchema = [
+export var AwsRedshiftClusterClusterParameterStatus$: StaticStructureSchema = [
   3,
   n0,
   _ARCCPS,
@@ -7164,8 +7205,8 @@ export var AwsRedshiftClusterClusterParameterStatus: StaticStructureSchema = [
   [_PNar, _PAS, _PAED],
   [0, 0, 0],
 ];
-export var AwsRedshiftClusterClusterSecurityGroup: StaticStructureSchema = [3, n0, _ARCCSG, 0, [_CSGN, _St], [0, 0]];
-export var AwsRedshiftClusterClusterSnapshotCopyStatus: StaticStructureSchema = [
+export var AwsRedshiftClusterClusterSecurityGroup$: StaticStructureSchema = [3, n0, _ARCCSG, 0, [_CSGN, _St], [0, 0]];
+export var AwsRedshiftClusterClusterSnapshotCopyStatus$: StaticStructureSchema = [
   3,
   n0,
   _ARCCSCS,
@@ -7173,7 +7214,7 @@ export var AwsRedshiftClusterClusterSnapshotCopyStatus: StaticStructureSchema = 
   [_DRe, _MSRP, _RPet, _SCGN],
   [0, 1, 1, 0],
 ];
-export var AwsRedshiftClusterDeferredMaintenanceWindow: StaticStructureSchema = [
+export var AwsRedshiftClusterDeferredMaintenanceWindow$: StaticStructureSchema = [
   3,
   n0,
   _ARCDMW,
@@ -7181,7 +7222,7 @@ export var AwsRedshiftClusterDeferredMaintenanceWindow: StaticStructureSchema = 
   [_DMET, _DMI, _DMST],
   [0, 0, 0],
 ];
-export var AwsRedshiftClusterDetails: StaticStructureSchema = [
+export var AwsRedshiftClusterDetails$: StaticStructureSchema = [
   3,
   n0,
   _ARCD,
@@ -7244,20 +7285,20 @@ export var AwsRedshiftClusterDetails: StaticStructureSchema = [
     0,
     0,
     () => AwsRedshiftClusterClusterSecurityGroups,
-    () => AwsRedshiftClusterClusterSnapshotCopyStatus,
+    () => AwsRedshiftClusterClusterSnapshotCopyStatus$,
     0,
     0,
     0,
     0,
     () => AwsRedshiftClusterDeferredMaintenanceWindows,
-    () => AwsRedshiftClusterElasticIpStatus,
+    () => AwsRedshiftClusterElasticIpStatus$,
     0,
     2,
-    () => AwsRedshiftClusterEndpoint,
+    () => AwsRedshiftClusterEndpoint$,
     2,
     0,
     0,
-    () => AwsRedshiftClusterHsmStatus,
+    () => AwsRedshiftClusterHsmStatus$,
     () => AwsRedshiftClusterIamRoles,
     0,
     0,
@@ -7267,23 +7308,23 @@ export var AwsRedshiftClusterDetails: StaticStructureSchema = [
     0,
     1,
     64 | 0,
-    () => AwsRedshiftClusterPendingModifiedValues,
+    () => AwsRedshiftClusterPendingModifiedValues$,
     0,
     2,
-    () => AwsRedshiftClusterResizeInfo,
-    () => AwsRedshiftClusterRestoreStatus,
+    () => AwsRedshiftClusterResizeInfo$,
+    () => AwsRedshiftClusterRestoreStatus$,
     0,
     0,
     0,
     () => AwsRedshiftClusterVpcSecurityGroups,
-    () => AwsRedshiftClusterLoggingStatus,
+    () => AwsRedshiftClusterLoggingStatus$,
   ],
 ];
-export var AwsRedshiftClusterElasticIpStatus: StaticStructureSchema = [3, n0, _ARCEIS, 0, [_EIl, _St], [0, 0]];
-export var AwsRedshiftClusterEndpoint: StaticStructureSchema = [3, n0, _ARCE, 0, [_Addr, _P], [0, 1]];
-export var AwsRedshiftClusterHsmStatus: StaticStructureSchema = [3, n0, _ARCHS, 0, [_HCCI, _HCI, _St], [0, 0, 0]];
-export var AwsRedshiftClusterIamRole: StaticStructureSchema = [3, n0, _ARCIR, 0, [_ASp, _IRA], [0, 0]];
-export var AwsRedshiftClusterLoggingStatus: StaticStructureSchema = [
+export var AwsRedshiftClusterElasticIpStatus$: StaticStructureSchema = [3, n0, _ARCEIS, 0, [_EIl, _St], [0, 0]];
+export var AwsRedshiftClusterEndpoint$: StaticStructureSchema = [3, n0, _ARCE, 0, [_Addr, _P], [0, 1]];
+export var AwsRedshiftClusterHsmStatus$: StaticStructureSchema = [3, n0, _ARCHS, 0, [_HCCI, _HCI, _St], [0, 0, 0]];
+export var AwsRedshiftClusterIamRole$: StaticStructureSchema = [3, n0, _ARCIR, 0, [_ASp, _IRA], [0, 0]];
+export var AwsRedshiftClusterLoggingStatus$: StaticStructureSchema = [
   3,
   n0,
   _ARCLS,
@@ -7291,7 +7332,7 @@ export var AwsRedshiftClusterLoggingStatus: StaticStructureSchema = [
   [_BNu, _LFM, _LFT, _LSDT, _LEo, _SKP],
   [0, 0, 0, 0, 2, 0],
 ];
-export var AwsRedshiftClusterPendingModifiedValues: StaticStructureSchema = [
+export var AwsRedshiftClusterPendingModifiedValues$: StaticStructureSchema = [
   3,
   n0,
   _ARCPMV,
@@ -7299,8 +7340,8 @@ export var AwsRedshiftClusterPendingModifiedValues: StaticStructureSchema = [
   [_ASRP, _CIlu, _CTlu, _CVl, _ETnc, _EVR, _MTN, _MUP, _NTo, _NON, _PAu],
   [1, 0, 0, 0, 0, 2, 0, 0, 0, 1, 2],
 ];
-export var AwsRedshiftClusterResizeInfo: StaticStructureSchema = [3, n0, _ARCRI, 0, [_ACR, _RTes], [2, 0]];
-export var AwsRedshiftClusterRestoreStatus: StaticStructureSchema = [
+export var AwsRedshiftClusterResizeInfo$: StaticStructureSchema = [3, n0, _ARCRI, 0, [_ACR, _RTes], [2, 0]];
+export var AwsRedshiftClusterRestoreStatus$: StaticStructureSchema = [
   3,
   n0,
   _ARCRS,
@@ -7308,48 +7349,48 @@ export var AwsRedshiftClusterRestoreStatus: StaticStructureSchema = [
   [_CRRIMBPS, _ETIS, _ETTCIS, _PIMB, _SSIMB, _St],
   [1, 1, 1, 1, 1, 0],
 ];
-export var AwsRedshiftClusterVpcSecurityGroup: StaticStructureSchema = [3, n0, _ARCVSG, 0, [_St, _VSGI], [0, 0]];
-export var AwsRoute53HostedZoneConfigDetails: StaticStructureSchema = [3, n0, _ARHZCD, 0, [_Com], [0]];
-export var AwsRoute53HostedZoneDetails: StaticStructureSchema = [
+export var AwsRedshiftClusterVpcSecurityGroup$: StaticStructureSchema = [3, n0, _ARCVSG, 0, [_St, _VSGI], [0, 0]];
+export var AwsRoute53HostedZoneConfigDetails$: StaticStructureSchema = [3, n0, _ARHZCD, 0, [_Com], [0]];
+export var AwsRoute53HostedZoneDetails$: StaticStructureSchema = [
   3,
   n0,
   _ARHZD,
   0,
   [_HZ, _Vp, _NS, _QLC],
   [
-    () => AwsRoute53HostedZoneObjectDetails,
+    () => AwsRoute53HostedZoneObjectDetails$,
     () => AwsRoute53HostedZoneVpcsList,
     64 | 0,
-    () => AwsRoute53QueryLoggingConfigDetails,
+    () => AwsRoute53QueryLoggingConfigDetails$,
   ],
 ];
-export var AwsRoute53HostedZoneObjectDetails: StaticStructureSchema = [
+export var AwsRoute53HostedZoneObjectDetails$: StaticStructureSchema = [
   3,
   n0,
   _ARHZOD,
   0,
   [_I, _N, _Config],
-  [0, 0, () => AwsRoute53HostedZoneConfigDetails],
+  [0, 0, () => AwsRoute53HostedZoneConfigDetails$],
 ];
-export var AwsRoute53HostedZoneVpcDetails: StaticStructureSchema = [3, n0, _ARHZVD, 0, [_I, _Reg], [0, 0]];
-export var AwsRoute53QueryLoggingConfigDetails: StaticStructureSchema = [
+export var AwsRoute53HostedZoneVpcDetails$: StaticStructureSchema = [3, n0, _ARHZVD, 0, [_I, _Reg], [0, 0]];
+export var AwsRoute53QueryLoggingConfigDetails$: StaticStructureSchema = [
   3,
   n0,
   _ARQLCD,
   0,
   [_CWLLGA],
-  [() => CloudWatchLogsLogGroupArnConfigDetails],
+  [() => CloudWatchLogsLogGroupArnConfigDetails$],
 ];
-export var AwsS3AccessPointDetails: StaticStructureSchema = [
+export var AwsS3AccessPointDetails$: StaticStructureSchema = [
   3,
   n0,
   _ASAPD,
   0,
   [_APA, _Al, _B, _BAI, _N, _NO, _PABC, _VCpc],
-  [0, 0, 0, 0, 0, 0, () => AwsS3AccountPublicAccessBlockDetails, () => AwsS3AccessPointVpcConfigurationDetails],
+  [0, 0, 0, 0, 0, 0, () => AwsS3AccountPublicAccessBlockDetails$, () => AwsS3AccessPointVpcConfigurationDetails$],
 ];
-export var AwsS3AccessPointVpcConfigurationDetails: StaticStructureSchema = [3, n0, _ASAPVCD, 0, [_VIp], [0]];
-export var AwsS3AccountPublicAccessBlockDetails: StaticStructureSchema = [
+export var AwsS3AccessPointVpcConfigurationDetails$: StaticStructureSchema = [3, n0, _ASAPVCD, 0, [_VIp], [0]];
+export var AwsS3AccountPublicAccessBlockDetails$: StaticStructureSchema = [
   3,
   n0,
   _ASAPABD,
@@ -7357,7 +7398,7 @@ export var AwsS3AccountPublicAccessBlockDetails: StaticStructureSchema = [
   [_BPAl, _BPP, _IPAg, _RPB],
   [2, 2, 2, 2],
 ];
-export var AwsS3BucketBucketLifecycleConfigurationDetails: StaticStructureSchema = [
+export var AwsS3BucketBucketLifecycleConfigurationDetails$: StaticStructureSchema = [
   3,
   n0,
   _ASBBLCD,
@@ -7365,7 +7406,7 @@ export var AwsS3BucketBucketLifecycleConfigurationDetails: StaticStructureSchema
   [_Rul],
   [() => AwsS3BucketBucketLifecycleConfigurationRulesList],
 ];
-export var AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails: StaticStructureSchema = [
+export var AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails$: StaticStructureSchema = [
   3,
   n0,
   _ASBBLCRAIMUD,
@@ -7373,18 +7414,18 @@ export var AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartU
   [_DAI],
   [1],
 ];
-export var AwsS3BucketBucketLifecycleConfigurationRulesDetails: StaticStructureSchema = [
+export var AwsS3BucketBucketLifecycleConfigurationRulesDetails$: StaticStructureSchema = [
   3,
   n0,
   _ASBBLCRD,
   0,
   [_AIMU, _EDx, _EID, _EODM, _Fil, _ID_, _NVEID, _NVT, _Pr, _St, _Tr],
   [
-    () => AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails,
+    () => AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails$,
     0,
     1,
     2,
-    () => AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails,
+    () => AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails$,
     0,
     1,
     () => AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsList,
@@ -7393,15 +7434,15 @@ export var AwsS3BucketBucketLifecycleConfigurationRulesDetails: StaticStructureS
     () => AwsS3BucketBucketLifecycleConfigurationRulesTransitionsList,
   ],
 ];
-export var AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails: StaticStructureSchema = [
+export var AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails$: StaticStructureSchema = [
   3,
   n0,
   _ASBBLCRFD,
   0,
   [_Pre],
-  [() => AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails],
+  [() => AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails$],
 ];
-export var AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails: StaticStructureSchema = [
+export var AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails$: StaticStructureSchema = [
   3,
   n0,
   _ASBBLCRFPD,
@@ -7410,19 +7451,19 @@ export var AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails: S
   [
     () => AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsList,
     0,
-    () => AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails,
+    () => AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails$,
     0,
   ],
 ];
-export var AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails: StaticStructureSchema = [
+export var AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails$: StaticStructureSchema = [
   3,
   n0,
   _ASBBLCRFPOD,
   0,
   [_Pr, _Tag, _T],
-  [0, () => AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails, 0],
+  [0, () => AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails$, 0],
 ];
-export var AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails: StaticStructureSchema = [
+export var AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails$: StaticStructureSchema = [
   3,
   n0,
   _ASBBLCRFPOTD,
@@ -7430,7 +7471,7 @@ export var AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTa
   [_K, _Val],
   [0, 0],
 ];
-export var AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails: StaticStructureSchema = [
+export var AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails$: StaticStructureSchema = [
   3,
   n0,
   _ASBBLCRFPTD,
@@ -7438,7 +7479,7 @@ export var AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails
   [_K, _Val],
   [0, 0],
 ];
-export var AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails: StaticStructureSchema = [
+export var AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _ASBBLCRNVTD,
@@ -7446,7 +7487,7 @@ export var AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransiti
   [_Da, _SC],
   [1, 0],
 ];
-export var AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails: StaticStructureSchema = [
+export var AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _ASBBLCRTD,
@@ -7454,8 +7495,8 @@ export var AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails: Stati
   [_Dat, _Da, _SC],
   [0, 1, 0],
 ];
-export var AwsS3BucketBucketVersioningConfiguration: StaticStructureSchema = [3, n0, _ASBBVC, 0, [_IMDE, _St], [2, 0]];
-export var AwsS3BucketDetails: StaticStructureSchema = [
+export var AwsS3BucketBucketVersioningConfiguration$: StaticStructureSchema = [3, n0, _ASBBVC, 0, [_IMDE, _St], [2, 0]];
+export var AwsS3BucketDetails$: StaticStructureSchema = [
   3,
   n0,
   _ASBD,
@@ -7466,20 +7507,20 @@ export var AwsS3BucketDetails: StaticStructureSchema = [
     0,
     0,
     0,
-    () => AwsS3BucketServerSideEncryptionConfiguration,
-    () => AwsS3BucketBucketLifecycleConfigurationDetails,
-    () => AwsS3AccountPublicAccessBlockDetails,
+    () => AwsS3BucketServerSideEncryptionConfiguration$,
+    () => AwsS3BucketBucketLifecycleConfigurationDetails$,
+    () => AwsS3AccountPublicAccessBlockDetails$,
     0,
-    () => AwsS3BucketLoggingConfiguration,
-    () => AwsS3BucketWebsiteConfiguration,
-    () => AwsS3BucketNotificationConfiguration,
-    () => AwsS3BucketBucketVersioningConfiguration,
-    () => AwsS3BucketObjectLockConfiguration,
+    () => AwsS3BucketLoggingConfiguration$,
+    () => AwsS3BucketWebsiteConfiguration$,
+    () => AwsS3BucketNotificationConfiguration$,
+    () => AwsS3BucketBucketVersioningConfiguration$,
+    () => AwsS3BucketObjectLockConfiguration$,
     0,
   ],
 ];
-export var AwsS3BucketLoggingConfiguration: StaticStructureSchema = [3, n0, _ASBLC, 0, [_DBNe, _LFP], [0, 0]];
-export var AwsS3BucketNotificationConfiguration: StaticStructureSchema = [
+export var AwsS3BucketLoggingConfiguration$: StaticStructureSchema = [3, n0, _ASBLC, 0, [_DBNe, _LFP], [0, 0]];
+export var AwsS3BucketNotificationConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ASBNC,
@@ -7487,23 +7528,23 @@ export var AwsS3BucketNotificationConfiguration: StaticStructureSchema = [
   [_Configu],
   [() => AwsS3BucketNotificationConfigurationDetails],
 ];
-export var AwsS3BucketNotificationConfigurationDetail: StaticStructureSchema = [
+export var AwsS3BucketNotificationConfigurationDetail$: StaticStructureSchema = [
   3,
   n0,
   _ASBNCD,
   0,
   [_Ev, _Fil, _Des, _T],
-  [64 | 0, () => AwsS3BucketNotificationConfigurationFilter, 0, 0],
+  [64 | 0, () => AwsS3BucketNotificationConfigurationFilter$, 0, 0],
 ];
-export var AwsS3BucketNotificationConfigurationFilter: StaticStructureSchema = [
+export var AwsS3BucketNotificationConfigurationFilter$: StaticStructureSchema = [
   3,
   n0,
   _ASBNCF,
   0,
   [_SKF],
-  [() => AwsS3BucketNotificationConfigurationS3KeyFilter],
+  [() => AwsS3BucketNotificationConfigurationS3KeyFilter$],
 ];
-export var AwsS3BucketNotificationConfigurationS3KeyFilter: StaticStructureSchema = [
+export var AwsS3BucketNotificationConfigurationS3KeyFilter$: StaticStructureSchema = [
   3,
   n0,
   _ASBNCSKF,
@@ -7511,7 +7552,7 @@ export var AwsS3BucketNotificationConfigurationS3KeyFilter: StaticStructureSchem
   [_FRi],
   [() => AwsS3BucketNotificationConfigurationS3KeyFilterRules],
 ];
-export var AwsS3BucketNotificationConfigurationS3KeyFilterRule: StaticStructureSchema = [
+export var AwsS3BucketNotificationConfigurationS3KeyFilterRule$: StaticStructureSchema = [
   3,
   n0,
   _ASBNCSKFR,
@@ -7519,15 +7560,15 @@ export var AwsS3BucketNotificationConfigurationS3KeyFilterRule: StaticStructureS
   [_N, _Val],
   [0, 0],
 ];
-export var AwsS3BucketObjectLockConfiguration: StaticStructureSchema = [
+export var AwsS3BucketObjectLockConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ASBOLC,
   0,
   [_OLE, _Rule],
-  [0, () => AwsS3BucketObjectLockConfigurationRuleDetails],
+  [0, () => AwsS3BucketObjectLockConfigurationRuleDetails$],
 ];
-export var AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails: StaticStructureSchema = [
+export var AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails$: StaticStructureSchema = [
   3,
   n0,
   _ASBOLCRDRD,
@@ -7535,15 +7576,15 @@ export var AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails: Static
   [_Da, _Mod, _Y],
   [1, 0, 1],
 ];
-export var AwsS3BucketObjectLockConfigurationRuleDetails: StaticStructureSchema = [
+export var AwsS3BucketObjectLockConfigurationRuleDetails$: StaticStructureSchema = [
   3,
   n0,
   _ASBOLCRD,
   0,
   [_DRef],
-  [() => AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails],
+  [() => AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails$],
 ];
-export var AwsS3BucketServerSideEncryptionByDefault: StaticStructureSchema = [
+export var AwsS3BucketServerSideEncryptionByDefault$: StaticStructureSchema = [
   3,
   n0,
   _ASBSSEBD,
@@ -7551,7 +7592,7 @@ export var AwsS3BucketServerSideEncryptionByDefault: StaticStructureSchema = [
   [_SSEA, _KMSMKID],
   [0, 0],
 ];
-export var AwsS3BucketServerSideEncryptionConfiguration: StaticStructureSchema = [
+export var AwsS3BucketServerSideEncryptionConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ASBSSEC,
@@ -7559,23 +7600,23 @@ export var AwsS3BucketServerSideEncryptionConfiguration: StaticStructureSchema =
   [_Rul],
   [() => AwsS3BucketServerSideEncryptionRules],
 ];
-export var AwsS3BucketServerSideEncryptionRule: StaticStructureSchema = [
+export var AwsS3BucketServerSideEncryptionRule$: StaticStructureSchema = [
   3,
   n0,
   _ASBSSER,
   0,
   [_ASSEBD],
-  [() => AwsS3BucketServerSideEncryptionByDefault],
+  [() => AwsS3BucketServerSideEncryptionByDefault$],
 ];
-export var AwsS3BucketWebsiteConfiguration: StaticStructureSchema = [
+export var AwsS3BucketWebsiteConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ASBWC,
   0,
   [_EDr, _IDS, _RART, _RRo],
-  [0, 0, () => AwsS3BucketWebsiteConfigurationRedirectTo, () => AwsS3BucketWebsiteConfigurationRoutingRules],
+  [0, 0, () => AwsS3BucketWebsiteConfigurationRedirectTo$, () => AwsS3BucketWebsiteConfigurationRoutingRules],
 ];
-export var AwsS3BucketWebsiteConfigurationRedirectTo: StaticStructureSchema = [
+export var AwsS3BucketWebsiteConfigurationRedirectTo$: StaticStructureSchema = [
   3,
   n0,
   _ASBWCRT,
@@ -7583,15 +7624,18 @@ export var AwsS3BucketWebsiteConfigurationRedirectTo: StaticStructureSchema = [
   [_Ho, _Prot],
   [0, 0],
 ];
-export var AwsS3BucketWebsiteConfigurationRoutingRule: StaticStructureSchema = [
+export var AwsS3BucketWebsiteConfigurationRoutingRule$: StaticStructureSchema = [
   3,
   n0,
   _ASBWCRR,
   0,
   [_Cond, _Red],
-  [() => AwsS3BucketWebsiteConfigurationRoutingRuleCondition, () => AwsS3BucketWebsiteConfigurationRoutingRuleRedirect],
+  [
+    () => AwsS3BucketWebsiteConfigurationRoutingRuleCondition$,
+    () => AwsS3BucketWebsiteConfigurationRoutingRuleRedirect$,
+  ],
 ];
-export var AwsS3BucketWebsiteConfigurationRoutingRuleCondition: StaticStructureSchema = [
+export var AwsS3BucketWebsiteConfigurationRoutingRuleCondition$: StaticStructureSchema = [
   3,
   n0,
   _ASBWCRRC,
@@ -7599,7 +7643,7 @@ export var AwsS3BucketWebsiteConfigurationRoutingRuleCondition: StaticStructureS
   [_HECRE, _KPE],
   [0, 0],
 ];
-export var AwsS3BucketWebsiteConfigurationRoutingRuleRedirect: StaticStructureSchema = [
+export var AwsS3BucketWebsiteConfigurationRoutingRuleRedirect$: StaticStructureSchema = [
   3,
   n0,
   _ASBWCRRR,
@@ -7607,7 +7651,7 @@ export var AwsS3BucketWebsiteConfigurationRoutingRuleRedirect: StaticStructureSc
   [_Ho, _HRC, _Prot, _RKPW, _RKW],
   [0, 0, 0, 0, 0],
 ];
-export var AwsS3ObjectDetails: StaticStructureSchema = [
+export var AwsS3ObjectDetails$: StaticStructureSchema = [
   3,
   n0,
   _ASOD,
@@ -7615,7 +7659,7 @@ export var AwsS3ObjectDetails: StaticStructureSchema = [
   [_LM, _ETa, _VI, _CTo, _SSE, _SSEKMSKI],
   [0, 0, 0, 0, 0, 0],
 ];
-export var AwsSageMakerNotebookInstanceDetails: StaticStructureSchema = [
+export var AwsSageMakerNotebookInstanceDetails$: StaticStructureSchema = [
   3,
   n0,
   _ASMNID,
@@ -7648,7 +7692,7 @@ export var AwsSageMakerNotebookInstanceDetails: StaticStructureSchema = [
     0,
     0,
     0,
-    () => AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails,
+    () => AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails$,
     0,
     0,
     0,
@@ -7665,7 +7709,7 @@ export var AwsSageMakerNotebookInstanceDetails: StaticStructureSchema = [
     1,
   ],
 ];
-export var AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails: StaticStructureSchema = [
+export var AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails$: StaticStructureSchema = [
   3,
   n0,
   _ASMNIMSCD,
@@ -7673,16 +7717,16 @@ export var AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails: Stat
   [_MIMSV],
   [0],
 ];
-export var AwsSecretsManagerSecretDetails: StaticStructureSchema = [
+export var AwsSecretsManagerSecretDetails$: StaticStructureSchema = [
   3,
   n0,
   _ASMSD,
   0,
   [_RRot, _ROWF, _KKI, _REo, _RLA, _Del, _N, _D],
-  [() => AwsSecretsManagerSecretRotationRules, 2, 0, 2, 0, 2, 0, 0],
+  [() => AwsSecretsManagerSecretRotationRules$, 2, 0, 2, 0, 2, 0, 0],
 ];
-export var AwsSecretsManagerSecretRotationRules: StaticStructureSchema = [3, n0, _ASMSRR, 0, [_AAD], [1]];
-export var AwsSecurityFinding: StaticStructureSchema = [
+export var AwsSecretsManagerSecretRotationRules$: StaticStructureSchema = [3, n0, _ASMSRR, 0, [_AAD], [1]];
+export var AwsSecurityFinding$: StaticStructureSchema = [
   3,
   n0,
   _ASF,
@@ -7748,41 +7792,41 @@ export var AwsSecurityFinding: StaticStructureSchema = [
     0,
     0,
     0,
-    () => Severity,
+    () => Severity$,
     1,
     1,
     0,
     0,
-    () => Remediation,
+    () => Remediation$,
     0,
     128 | 0,
     128 | 0,
     () => MalwareList,
-    () => Network,
+    () => Network$,
     () => NetworkPathList,
-    () => ProcessDetails,
+    () => ProcessDetails$,
     () => ThreatList,
     () => ThreatIntelIndicatorList,
     () => ResourceList,
-    () => Compliance,
+    () => Compliance$,
     0,
     0,
-    () => Workflow,
+    () => Workflow$,
     0,
     () => RelatedFindingList,
-    () => Note,
+    () => Note$,
     () => VulnerabilityList,
-    () => PatchSummary,
-    () => Action,
-    () => FindingProviderFields,
+    () => PatchSummary$,
+    () => Action$,
+    () => FindingProviderFields$,
     2,
-    () => GeneratorDetails,
+    () => GeneratorDetails$,
     0,
     0,
-    () => Detection,
+    () => Detection$,
   ],
 ];
-export var AwsSecurityFindingFilters: StaticStructureSchema = [
+export var AwsSecurityFindingFilters$: StaticStructureSchema = [
   3,
   n0,
   _ASFF,
@@ -8000,8 +8044,8 @@ export var AwsSecurityFindingFilters: StaticStructureSchema = [
     () => StringFilterList,
   ],
 ];
-export var AwsSecurityFindingIdentifier: StaticStructureSchema = [3, n0, _ASFI, 0, [_I, _PA], [0, 0]];
-export var AwsSnsTopicDetails: StaticStructureSchema = [
+export var AwsSecurityFindingIdentifier$: StaticStructureSchema = [3, n0, _ASFI, 0, [_I, _PA], [0, 0]];
+export var AwsSnsTopicDetails$: StaticStructureSchema = [
   3,
   n0,
   _ASTD,
@@ -8009,9 +8053,9 @@ export var AwsSnsTopicDetails: StaticStructureSchema = [
   [_KMKI, _Subs, _TNo, _Ow, _SSFRA, _SFFRA, _ASFRA, _FSFRA, _FFFRA, _HSFRA, _HFFRA],
   [0, () => AwsSnsTopicSubscriptionList, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var AwsSnsTopicSubscription: StaticStructureSchema = [3, n0, _ASTS, 0, [_End, _Prot], [0, 0]];
-export var AwsSqsQueueDetails: StaticStructureSchema = [3, n0, _ASQD, 0, [_KDKRPS, _KMKI, _QN, _DLTA], [1, 0, 0, 0]];
-export var AwsSsmComplianceSummary: StaticStructureSchema = [
+export var AwsSnsTopicSubscription$: StaticStructureSchema = [3, n0, _ASTS, 0, [_End, _Prot], [0, 0]];
+export var AwsSqsQueueDetails$: StaticStructureSchema = [3, n0, _ASQD, 0, [_KDKRPS, _KMKI, _QN, _DLTA], [1, 0, 0, 0]];
+export var AwsSsmComplianceSummary$: StaticStructureSchema = [
   3,
   n0,
   _ASCS,
@@ -8019,9 +8063,9 @@ export var AwsSsmComplianceSummary: StaticStructureSchema = [
   [_St, _CCC, _CHC, _CMC, _ETxe, _NCCC, _CIC, _NCIC, _CUC, _NCLC, _NCHC, _CLC, _CTom, _PBI, _OSv, _NCMC, _NCUC, _PG],
   [0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0],
 ];
-export var AwsSsmPatch: StaticStructureSchema = [3, n0, _ASP, 0, [_CSom], [() => AwsSsmComplianceSummary]];
-export var AwsSsmPatchComplianceDetails: StaticStructureSchema = [3, n0, _ASPCD, 0, [_Patc], [() => AwsSsmPatch]];
-export var AwsStepFunctionStateMachineDetails: StaticStructureSchema = [
+export var AwsSsmPatch$: StaticStructureSchema = [3, n0, _ASP, 0, [_CSom], [() => AwsSsmComplianceSummary$]];
+export var AwsSsmPatchComplianceDetails$: StaticStructureSchema = [3, n0, _ASPCD, 0, [_Patc], [() => AwsSsmPatch$]];
+export var AwsStepFunctionStateMachineDetails$: StaticStructureSchema = [
   3,
   n0,
   _ASFSMD,
@@ -8029,26 +8073,26 @@ export var AwsStepFunctionStateMachineDetails: StaticStructureSchema = [
   [_Lab, _LCogg, _N, _RAo, _SMA, _St, _TCr, _T],
   [
     0,
-    () => AwsStepFunctionStateMachineLoggingConfigurationDetails,
+    () => AwsStepFunctionStateMachineLoggingConfigurationDetails$,
     0,
     0,
     0,
     0,
-    () => AwsStepFunctionStateMachineTracingConfigurationDetails,
+    () => AwsStepFunctionStateMachineTracingConfigurationDetails$,
     0,
   ],
 ];
-export var AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails: StaticStructureSchema =
+export var AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails$: StaticStructureSchema =
   [3, n0, _ASFSMLCDCWLLGD, 0, [_LGA], [0]];
-export var AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails: StaticStructureSchema = [
+export var AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails$: StaticStructureSchema = [
   3,
   n0,
   _ASFSMLCDD,
   0,
   [_CWLLG],
-  [() => AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails],
+  [() => AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails$],
 ];
-export var AwsStepFunctionStateMachineLoggingConfigurationDetails: StaticStructureSchema = [
+export var AwsStepFunctionStateMachineLoggingConfigurationDetails$: StaticStructureSchema = [
   3,
   n0,
   _ASFSMLCD,
@@ -8056,7 +8100,7 @@ export var AwsStepFunctionStateMachineLoggingConfigurationDetails: StaticStructu
   [_Dest, _IED, _Le],
   [() => AwsStepFunctionStateMachineLoggingConfigurationDestinationsList, 2, 0],
 ];
-export var AwsStepFunctionStateMachineTracingConfigurationDetails: StaticStructureSchema = [
+export var AwsStepFunctionStateMachineTracingConfigurationDetails$: StaticStructureSchema = [
   3,
   n0,
   _ASFSMTCD,
@@ -8064,7 +8108,7 @@ export var AwsStepFunctionStateMachineTracingConfigurationDetails: StaticStructu
   [_Ena],
   [2],
 ];
-export var AwsWafRateBasedRuleDetails: StaticStructureSchema = [
+export var AwsWafRateBasedRuleDetails$: StaticStructureSchema = [
   3,
   n0,
   _AWRBRD,
@@ -8072,8 +8116,15 @@ export var AwsWafRateBasedRuleDetails: StaticStructureSchema = [
   [_MN, _N, _RK, _RL, _RIu, _MPat],
   [0, 0, 0, 1, 0, () => AwsWafRateBasedRuleMatchPredicateList],
 ];
-export var AwsWafRateBasedRuleMatchPredicate: StaticStructureSchema = [3, n0, _AWRBRMP, 0, [_DIa, _Neg, _T], [0, 2, 0]];
-export var AwsWafRegionalRateBasedRuleDetails: StaticStructureSchema = [
+export var AwsWafRateBasedRuleMatchPredicate$: StaticStructureSchema = [
+  3,
+  n0,
+  _AWRBRMP,
+  0,
+  [_DIa, _Neg, _T],
+  [0, 2, 0],
+];
+export var AwsWafRegionalRateBasedRuleDetails$: StaticStructureSchema = [
   3,
   n0,
   _AWRRBRD,
@@ -8081,7 +8132,7 @@ export var AwsWafRegionalRateBasedRuleDetails: StaticStructureSchema = [
   [_MN, _N, _RK, _RL, _RIu, _MPat],
   [0, 0, 0, 1, 0, () => AwsWafRegionalRateBasedRuleMatchPredicateList],
 ];
-export var AwsWafRegionalRateBasedRuleMatchPredicate: StaticStructureSchema = [
+export var AwsWafRegionalRateBasedRuleMatchPredicate$: StaticStructureSchema = [
   3,
   n0,
   _AWRRBRMP,
@@ -8089,7 +8140,7 @@ export var AwsWafRegionalRateBasedRuleMatchPredicate: StaticStructureSchema = [
   [_DIa, _Neg, _T],
   [0, 2, 0],
 ];
-export var AwsWafRegionalRuleDetails: StaticStructureSchema = [
+export var AwsWafRegionalRuleDetails$: StaticStructureSchema = [
   3,
   n0,
   _AWRRD,
@@ -8097,7 +8148,7 @@ export var AwsWafRegionalRuleDetails: StaticStructureSchema = [
   [_MN, _N, _PL, _RIu],
   [0, 0, () => AwsWafRegionalRulePredicateList, 0],
 ];
-export var AwsWafRegionalRuleGroupDetails: StaticStructureSchema = [
+export var AwsWafRegionalRuleGroupDetails$: StaticStructureSchema = [
   3,
   n0,
   _AWRRGD,
@@ -8105,16 +8156,16 @@ export var AwsWafRegionalRuleGroupDetails: StaticStructureSchema = [
   [_MN, _N, _RGI, _Rul],
   [0, 0, 0, () => AwsWafRegionalRuleGroupRulesList],
 ];
-export var AwsWafRegionalRuleGroupRulesActionDetails: StaticStructureSchema = [3, n0, _AWRRGRAD, 0, [_T], [0]];
-export var AwsWafRegionalRuleGroupRulesDetails: StaticStructureSchema = [
+export var AwsWafRegionalRuleGroupRulesActionDetails$: StaticStructureSchema = [3, n0, _AWRRGRAD, 0, [_T], [0]];
+export var AwsWafRegionalRuleGroupRulesDetails$: StaticStructureSchema = [
   3,
   n0,
   _AWRRGRD,
   0,
   [_A, _Prio, _RIu, _T],
-  [() => AwsWafRegionalRuleGroupRulesActionDetails, 1, 0, 0],
+  [() => AwsWafRegionalRuleGroupRulesActionDetails$, 1, 0, 0],
 ];
-export var AwsWafRegionalRulePredicateListDetails: StaticStructureSchema = [
+export var AwsWafRegionalRulePredicateListDetails$: StaticStructureSchema = [
   3,
   n0,
   _AWRRPLD,
@@ -8122,7 +8173,7 @@ export var AwsWafRegionalRulePredicateListDetails: StaticStructureSchema = [
   [_DIa, _Neg, _T],
   [0, 2, 0],
 ];
-export var AwsWafRegionalWebAclDetails: StaticStructureSchema = [
+export var AwsWafRegionalWebAclDetails$: StaticStructureSchema = [
   3,
   n0,
   _AWRWAD,
@@ -8130,16 +8181,22 @@ export var AwsWafRegionalWebAclDetails: StaticStructureSchema = [
   [_DAe, _MN, _N, _RLu, _WAI],
   [0, 0, 0, () => AwsWafRegionalWebAclRulesList, 0],
 ];
-export var AwsWafRegionalWebAclRulesListActionDetails: StaticStructureSchema = [3, n0, _AWRWARLAD, 0, [_T], [0]];
-export var AwsWafRegionalWebAclRulesListDetails: StaticStructureSchema = [
+export var AwsWafRegionalWebAclRulesListActionDetails$: StaticStructureSchema = [3, n0, _AWRWARLAD, 0, [_T], [0]];
+export var AwsWafRegionalWebAclRulesListDetails$: StaticStructureSchema = [
   3,
   n0,
   _AWRWARLD,
   0,
   [_A, _OAv, _Prio, _RIu, _T],
-  [() => AwsWafRegionalWebAclRulesListActionDetails, () => AwsWafRegionalWebAclRulesListOverrideActionDetails, 1, 0, 0],
+  [
+    () => AwsWafRegionalWebAclRulesListActionDetails$,
+    () => AwsWafRegionalWebAclRulesListOverrideActionDetails$,
+    1,
+    0,
+    0,
+  ],
 ];
-export var AwsWafRegionalWebAclRulesListOverrideActionDetails: StaticStructureSchema = [
+export var AwsWafRegionalWebAclRulesListOverrideActionDetails$: StaticStructureSchema = [
   3,
   n0,
   _AWRWARLOAD,
@@ -8147,7 +8204,7 @@ export var AwsWafRegionalWebAclRulesListOverrideActionDetails: StaticStructureSc
   [_T],
   [0],
 ];
-export var AwsWafRuleDetails: StaticStructureSchema = [
+export var AwsWafRuleDetails$: StaticStructureSchema = [
   3,
   n0,
   _AWRD,
@@ -8155,7 +8212,7 @@ export var AwsWafRuleDetails: StaticStructureSchema = [
   [_MN, _N, _PL, _RIu],
   [0, 0, () => AwsWafRulePredicateList, 0],
 ];
-export var AwsWafRuleGroupDetails: StaticStructureSchema = [
+export var AwsWafRuleGroupDetails$: StaticStructureSchema = [
   3,
   n0,
   _AWRGD,
@@ -8163,34 +8220,34 @@ export var AwsWafRuleGroupDetails: StaticStructureSchema = [
   [_MN, _N, _RGI, _Rul],
   [0, 0, 0, () => AwsWafRuleGroupRulesList],
 ];
-export var AwsWafRuleGroupRulesActionDetails: StaticStructureSchema = [3, n0, _AWRGRAD, 0, [_T], [0]];
-export var AwsWafRuleGroupRulesDetails: StaticStructureSchema = [
+export var AwsWafRuleGroupRulesActionDetails$: StaticStructureSchema = [3, n0, _AWRGRAD, 0, [_T], [0]];
+export var AwsWafRuleGroupRulesDetails$: StaticStructureSchema = [
   3,
   n0,
   _AWRGRD,
   0,
   [_A, _Prio, _RIu, _T],
-  [() => AwsWafRuleGroupRulesActionDetails, 1, 0, 0],
+  [() => AwsWafRuleGroupRulesActionDetails$, 1, 0, 0],
 ];
-export var AwsWafRulePredicateListDetails: StaticStructureSchema = [3, n0, _AWRPLD, 0, [_DIa, _Neg, _T], [0, 2, 0]];
-export var AwsWafv2ActionAllowDetails: StaticStructureSchema = [
+export var AwsWafRulePredicateListDetails$: StaticStructureSchema = [3, n0, _AWRPLD, 0, [_DIa, _Neg, _T], [0, 2, 0]];
+export var AwsWafv2ActionAllowDetails$: StaticStructureSchema = [
   3,
   n0,
   _AWAAD,
   0,
   [_CRH],
-  [() => AwsWafv2CustomRequestHandlingDetails],
+  [() => AwsWafv2CustomRequestHandlingDetails$],
 ];
-export var AwsWafv2ActionBlockDetails: StaticStructureSchema = [
+export var AwsWafv2ActionBlockDetails$: StaticStructureSchema = [
   3,
   n0,
   _AWABD,
   0,
   [_CRu],
-  [() => AwsWafv2CustomResponseDetails],
+  [() => AwsWafv2CustomResponseDetails$],
 ];
-export var AwsWafv2CustomHttpHeader: StaticStructureSchema = [3, n0, _AWCHH, 0, [_N, _Val], [0, 0]];
-export var AwsWafv2CustomRequestHandlingDetails: StaticStructureSchema = [
+export var AwsWafv2CustomHttpHeader$: StaticStructureSchema = [3, n0, _AWCHH, 0, [_N, _Val], [0, 0]];
+export var AwsWafv2CustomRequestHandlingDetails$: StaticStructureSchema = [
   3,
   n0,
   _AWCRHD,
@@ -8198,7 +8255,7 @@ export var AwsWafv2CustomRequestHandlingDetails: StaticStructureSchema = [
   [_IH],
   [() => AwsWafv2InsertHeadersList],
 ];
-export var AwsWafv2CustomResponseDetails: StaticStructureSchema = [
+export var AwsWafv2CustomResponseDetails$: StaticStructureSchema = [
   3,
   n0,
   _AWCRD,
@@ -8206,69 +8263,69 @@ export var AwsWafv2CustomResponseDetails: StaticStructureSchema = [
   [_CRBK, _RCes, _RH],
   [0, 1, () => AwsWafv2InsertHeadersList],
 ];
-export var AwsWafv2RuleGroupDetails: StaticStructureSchema = [
+export var AwsWafv2RuleGroupDetails$: StaticStructureSchema = [
   3,
   n0,
   _AWRGDw,
   0,
   [_Cap, _D, _I, _N, _Ar, _Rul, _Sc, _VCi],
-  [1, 0, 0, 0, 0, () => AwsWafv2RulesList, 0, () => AwsWafv2VisibilityConfigDetails],
+  [1, 0, 0, 0, 0, () => AwsWafv2RulesList, 0, () => AwsWafv2VisibilityConfigDetails$],
 ];
-export var AwsWafv2RulesActionCaptchaDetails: StaticStructureSchema = [
+export var AwsWafv2RulesActionCaptchaDetails$: StaticStructureSchema = [
   3,
   n0,
   _AWRACD,
   0,
   [_CRH],
-  [() => AwsWafv2CustomRequestHandlingDetails],
+  [() => AwsWafv2CustomRequestHandlingDetails$],
 ];
-export var AwsWafv2RulesActionCountDetails: StaticStructureSchema = [
+export var AwsWafv2RulesActionCountDetails$: StaticStructureSchema = [
   3,
   n0,
   _AWRACDw,
   0,
   [_CRH],
-  [() => AwsWafv2CustomRequestHandlingDetails],
+  [() => AwsWafv2CustomRequestHandlingDetails$],
 ];
-export var AwsWafv2RulesActionDetails: StaticStructureSchema = [
+export var AwsWafv2RulesActionDetails$: StaticStructureSchema = [
   3,
   n0,
   _AWRAD,
   0,
   [_All, _Bl, _Capt, _Cou],
   [
-    () => AwsWafv2ActionAllowDetails,
-    () => AwsWafv2ActionBlockDetails,
-    () => AwsWafv2RulesActionCaptchaDetails,
-    () => AwsWafv2RulesActionCountDetails,
+    () => AwsWafv2ActionAllowDetails$,
+    () => AwsWafv2ActionBlockDetails$,
+    () => AwsWafv2RulesActionCaptchaDetails$,
+    () => AwsWafv2RulesActionCountDetails$,
   ],
 ];
-export var AwsWafv2RulesDetails: StaticStructureSchema = [
+export var AwsWafv2RulesDetails$: StaticStructureSchema = [
   3,
   n0,
   _AWRDw,
   0,
   [_A, _N, _OAv, _Prio, _VCi],
-  [() => AwsWafv2RulesActionDetails, 0, 0, 1, () => AwsWafv2VisibilityConfigDetails],
+  [() => AwsWafv2RulesActionDetails$, 0, 0, 1, () => AwsWafv2VisibilityConfigDetails$],
 ];
-export var AwsWafv2VisibilityConfigDetails: StaticStructureSchema = [3, n0, _AWVCD, 0, [_CWME, _MN, _SRE], [2, 0, 2]];
-export var AwsWafv2WebAclActionDetails: StaticStructureSchema = [
+export var AwsWafv2VisibilityConfigDetails$: StaticStructureSchema = [3, n0, _AWVCD, 0, [_CWME, _MN, _SRE], [2, 0, 2]];
+export var AwsWafv2WebAclActionDetails$: StaticStructureSchema = [
   3,
   n0,
   _AWWAAD,
   0,
   [_All, _Bl],
-  [() => AwsWafv2ActionAllowDetails, () => AwsWafv2ActionBlockDetails],
+  [() => AwsWafv2ActionAllowDetails$, () => AwsWafv2ActionBlockDetails$],
 ];
-export var AwsWafv2WebAclCaptchaConfigDetails: StaticStructureSchema = [
+export var AwsWafv2WebAclCaptchaConfigDetails$: StaticStructureSchema = [
   3,
   n0,
   _AWWACCD,
   0,
   [_ITP],
-  [() => AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails],
+  [() => AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails$],
 ];
-export var AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails: StaticStructureSchema = [
+export var AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails$: StaticStructureSchema = [
   3,
   n0,
   _AWWACCITPD,
@@ -8276,7 +8333,7 @@ export var AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails: StaticStructu
   [_ITmm],
   [1],
 ];
-export var AwsWafv2WebAclDetails: StaticStructureSchema = [
+export var AwsWafv2WebAclDetails$: StaticStructureSchema = [
   3,
   n0,
   _AWWAD,
@@ -8288,14 +8345,14 @@ export var AwsWafv2WebAclDetails: StaticStructureSchema = [
     2,
     0,
     1,
-    () => AwsWafv2WebAclCaptchaConfigDetails,
-    () => AwsWafv2WebAclActionDetails,
+    () => AwsWafv2WebAclCaptchaConfigDetails$,
+    () => AwsWafv2WebAclActionDetails$,
     0,
     () => AwsWafv2RulesList,
-    () => AwsWafv2VisibilityConfigDetails,
+    () => AwsWafv2VisibilityConfigDetails$,
   ],
 ];
-export var AwsWafWebAclDetails: StaticStructureSchema = [
+export var AwsWafWebAclDetails$: StaticStructureSchema = [
   3,
   n0,
   _AWWADw,
@@ -8303,17 +8360,17 @@ export var AwsWafWebAclDetails: StaticStructureSchema = [
   [_N, _DAe, _Rul, _WAI],
   [0, 0, () => AwsWafWebAclRuleList, 0],
 ];
-export var AwsWafWebAclRule: StaticStructureSchema = [
+export var AwsWafWebAclRule$: StaticStructureSchema = [
   3,
   n0,
   _AWWAR,
   0,
   [_A, _ER, _OAv, _Prio, _RIu, _T],
-  [() => WafAction, () => WafExcludedRuleList, () => WafOverrideAction, 1, 0, 0],
+  [() => WafAction$, () => WafExcludedRuleList, () => WafOverrideAction$, 1, 0, 0],
 ];
-export var AwsXrayEncryptionConfigDetails: StaticStructureSchema = [3, n0, _AXECD, 0, [_KIe, _St, _T], [0, 0, 0]];
-export var BatchDeleteAutomationRulesRequest: StaticStructureSchema = [3, n0, _BDARR, 0, [_ARAu], [64 | 0]];
-export var BatchDeleteAutomationRulesResponse: StaticStructureSchema = [
+export var AwsXrayEncryptionConfigDetails$: StaticStructureSchema = [3, n0, _AXECD, 0, [_KIe, _St, _T], [0, 0, 0]];
+export var BatchDeleteAutomationRulesRequest$: StaticStructureSchema = [3, n0, _BDARR, 0, [_ARAu], [64 | 0]];
+export var BatchDeleteAutomationRulesResponse$: StaticStructureSchema = [
   3,
   n0,
   _BDARRa,
@@ -8321,8 +8378,8 @@ export var BatchDeleteAutomationRulesResponse: StaticStructureSchema = [
   [_PAR, _UAR],
   [64 | 0, () => UnprocessedAutomationRulesList],
 ];
-export var BatchDisableStandardsRequest: StaticStructureSchema = [3, n0, _BDSR, 0, [_SSA], [64 | 0]];
-export var BatchDisableStandardsResponse: StaticStructureSchema = [
+export var BatchDisableStandardsRequest$: StaticStructureSchema = [3, n0, _BDSR, 0, [_SSA], [64 | 0]];
+export var BatchDisableStandardsResponse$: StaticStructureSchema = [
   3,
   n0,
   _BDSRa,
@@ -8330,7 +8387,7 @@ export var BatchDisableStandardsResponse: StaticStructureSchema = [
   [_SSta],
   [() => StandardsSubscriptions],
 ];
-export var BatchEnableStandardsRequest: StaticStructureSchema = [
+export var BatchEnableStandardsRequest$: StaticStructureSchema = [
   3,
   n0,
   _BESR,
@@ -8338,7 +8395,7 @@ export var BatchEnableStandardsRequest: StaticStructureSchema = [
   [_SSRt],
   [() => StandardsSubscriptionRequests],
 ];
-export var BatchEnableStandardsResponse: StaticStructureSchema = [
+export var BatchEnableStandardsResponse$: StaticStructureSchema = [
   3,
   n0,
   _BESRa,
@@ -8346,8 +8403,8 @@ export var BatchEnableStandardsResponse: StaticStructureSchema = [
   [_SSta],
   [() => StandardsSubscriptions],
 ];
-export var BatchGetAutomationRulesRequest: StaticStructureSchema = [3, n0, _BGARR, 0, [_ARAu], [64 | 0]];
-export var BatchGetAutomationRulesResponse: StaticStructureSchema = [
+export var BatchGetAutomationRulesRequest$: StaticStructureSchema = [3, n0, _BGARR, 0, [_ARAu], [64 | 0]];
+export var BatchGetAutomationRulesResponse$: StaticStructureSchema = [
   3,
   n0,
   _BGARRa,
@@ -8355,7 +8412,7 @@ export var BatchGetAutomationRulesResponse: StaticStructureSchema = [
   [_Rul, _UAR],
   [() => AutomationRulesConfigList, () => UnprocessedAutomationRulesList],
 ];
-export var BatchGetConfigurationPolicyAssociationsRequest: StaticStructureSchema = [
+export var BatchGetConfigurationPolicyAssociationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _BGCPAR,
@@ -8363,7 +8420,7 @@ export var BatchGetConfigurationPolicyAssociationsRequest: StaticStructureSchema
   [_CPAI],
   [() => ConfigurationPolicyAssociationsList],
 ];
-export var BatchGetConfigurationPolicyAssociationsResponse: StaticStructureSchema = [
+export var BatchGetConfigurationPolicyAssociationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _BGCPARa,
@@ -8371,8 +8428,8 @@ export var BatchGetConfigurationPolicyAssociationsResponse: StaticStructureSchem
   [_CPA, _UCPA],
   [() => ConfigurationPolicyAssociationList, () => UnprocessedConfigurationPolicyAssociationList],
 ];
-export var BatchGetSecurityControlsRequest: StaticStructureSchema = [3, n0, _BGSCR, 0, [_SCIe], [64 | 0]];
-export var BatchGetSecurityControlsResponse: StaticStructureSchema = [
+export var BatchGetSecurityControlsRequest$: StaticStructureSchema = [3, n0, _BGSCR, 0, [_SCIe], [64 | 0]];
+export var BatchGetSecurityControlsResponse$: StaticStructureSchema = [
   3,
   n0,
   _BGSCRa,
@@ -8380,7 +8437,7 @@ export var BatchGetSecurityControlsResponse: StaticStructureSchema = [
   [_SCec, _UIn],
   [() => SecurityControls, () => UnprocessedSecurityControls],
 ];
-export var BatchGetStandardsControlAssociationsRequest: StaticStructureSchema = [
+export var BatchGetStandardsControlAssociationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _BGSCAR,
@@ -8388,7 +8445,7 @@ export var BatchGetStandardsControlAssociationsRequest: StaticStructureSchema = 
   [_SCAI],
   [() => StandardsControlAssociationIds],
 ];
-export var BatchGetStandardsControlAssociationsResponse: StaticStructureSchema = [
+export var BatchGetStandardsControlAssociationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _BGSCARa,
@@ -8396,7 +8453,7 @@ export var BatchGetStandardsControlAssociationsResponse: StaticStructureSchema =
   [_SCAD, _UAn],
   [() => StandardsControlAssociationDetails, () => UnprocessedStandardsControlAssociations],
 ];
-export var BatchImportFindingsRequest: StaticStructureSchema = [
+export var BatchImportFindingsRequest$: StaticStructureSchema = [
   3,
   n0,
   _BIFR,
@@ -8404,7 +8461,7 @@ export var BatchImportFindingsRequest: StaticStructureSchema = [
   [_Fin],
   [() => BatchImportFindingsRequestFindingList],
 ];
-export var BatchImportFindingsResponse: StaticStructureSchema = [
+export var BatchImportFindingsResponse$: StaticStructureSchema = [
   3,
   n0,
   _BIFRa,
@@ -8412,7 +8469,7 @@ export var BatchImportFindingsResponse: StaticStructureSchema = [
   [_FCai, _SCu, _FF],
   [1, 1, () => ImportFindingsErrorList],
 ];
-export var BatchUpdateAutomationRulesRequest: StaticStructureSchema = [
+export var BatchUpdateAutomationRulesRequest$: StaticStructureSchema = [
   3,
   n0,
   _BUARR,
@@ -8420,7 +8477,7 @@ export var BatchUpdateAutomationRulesRequest: StaticStructureSchema = [
   [_UARRI],
   [() => UpdateAutomationRulesRequestItemsList],
 ];
-export var BatchUpdateAutomationRulesResponse: StaticStructureSchema = [
+export var BatchUpdateAutomationRulesResponse$: StaticStructureSchema = [
   3,
   n0,
   _BUARRa,
@@ -8428,7 +8485,7 @@ export var BatchUpdateAutomationRulesResponse: StaticStructureSchema = [
   [_PAR, _UAR],
   [64 | 0, () => UnprocessedAutomationRulesList],
 ];
-export var BatchUpdateFindingsRequest: StaticStructureSchema = [
+export var BatchUpdateFindingsRequest$: StaticStructureSchema = [
   3,
   n0,
   _BUFR,
@@ -8436,18 +8493,18 @@ export var BatchUpdateFindingsRequest: StaticStructureSchema = [
   [_FIin, _No, _Se, _VS, _Con, _Cri, _Ty, _UDF, _W, _RF],
   [
     () => AwsSecurityFindingIdentifierList,
-    () => NoteUpdate,
-    () => SeverityUpdate,
+    () => NoteUpdate$,
+    () => SeverityUpdate$,
     0,
     1,
     1,
     64 | 0,
     128 | 0,
-    () => WorkflowUpdate,
+    () => WorkflowUpdate$,
     () => RelatedFindingList,
   ],
 ];
-export var BatchUpdateFindingsResponse: StaticStructureSchema = [
+export var BatchUpdateFindingsResponse$: StaticStructureSchema = [
   3,
   n0,
   _BUFRa,
@@ -8455,23 +8512,23 @@ export var BatchUpdateFindingsResponse: StaticStructureSchema = [
   [_PFro, _UF],
   [() => AwsSecurityFindingIdentifierList, () => BatchUpdateFindingsUnprocessedFindingsList],
 ];
-export var BatchUpdateFindingsUnprocessedFinding: StaticStructureSchema = [
+export var BatchUpdateFindingsUnprocessedFinding$: StaticStructureSchema = [
   3,
   n0,
   _BUFUF,
   0,
   [_FIind, _ECr, _EMr],
-  [() => AwsSecurityFindingIdentifier, 0, 0],
+  [() => AwsSecurityFindingIdentifier$, 0, 0],
 ];
-export var BatchUpdateFindingsV2ProcessedFinding: StaticStructureSchema = [
+export var BatchUpdateFindingsV2ProcessedFinding$: StaticStructureSchema = [
   3,
   n0,
   _BUFVPF,
   0,
   [_FIind, _MUe],
-  [() => OcsfFindingIdentifier, 0],
+  [() => OcsfFindingIdentifier$, 0],
 ];
-export var BatchUpdateFindingsV2Request: StaticStructureSchema = [
+export var BatchUpdateFindingsV2Request$: StaticStructureSchema = [
   3,
   n0,
   _BUFVR,
@@ -8479,7 +8536,7 @@ export var BatchUpdateFindingsV2Request: StaticStructureSchema = [
   [_MUet, _FIin, _Com, _SIe, _SIt],
   [64 | 0, () => OcsfFindingIdentifierList, 0, 1, 1],
 ];
-export var BatchUpdateFindingsV2Response: StaticStructureSchema = [
+export var BatchUpdateFindingsV2Response$: StaticStructureSchema = [
   3,
   n0,
   _BUFVRa,
@@ -8487,15 +8544,15 @@ export var BatchUpdateFindingsV2Response: StaticStructureSchema = [
   [_PFro, _UF],
   [() => BatchUpdateFindingsV2ProcessedFindingsList, () => BatchUpdateFindingsV2UnprocessedFindingsList],
 ];
-export var BatchUpdateFindingsV2UnprocessedFinding: StaticStructureSchema = [
+export var BatchUpdateFindingsV2UnprocessedFinding$: StaticStructureSchema = [
   3,
   n0,
   _BUFVUF,
   0,
   [_FIind, _MUe, _ECr, _EMr],
-  [() => OcsfFindingIdentifier, 0, 0, 0],
+  [() => OcsfFindingIdentifier$, 0, 0, 0],
 ];
-export var BatchUpdateStandardsControlAssociationsRequest: StaticStructureSchema = [
+export var BatchUpdateStandardsControlAssociationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _BUSCAR,
@@ -8503,7 +8560,7 @@ export var BatchUpdateStandardsControlAssociationsRequest: StaticStructureSchema
   [_SCAU],
   [() => StandardsControlAssociationUpdates],
 ];
-export var BatchUpdateStandardsControlAssociationsResponse: StaticStructureSchema = [
+export var BatchUpdateStandardsControlAssociationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _BUSCARa,
@@ -8511,21 +8568,21 @@ export var BatchUpdateStandardsControlAssociationsResponse: StaticStructureSchem
   [_UAU],
   [() => UnprocessedStandardsControlAssociationUpdates],
 ];
-export var BooleanConfigurationOptions: StaticStructureSchema = [3, n0, _BCO, 0, [_DVe], [2]];
-export var BooleanFilter: StaticStructureSchema = [3, n0, _BF, 0, [_Val], [2]];
-export var Cell: StaticStructureSchema = [3, n0, _Cel, 0, [_Col, _Row, _CNol, _CRe], [1, 1, 0, 0]];
-export var CidrBlockAssociation: StaticStructureSchema = [3, n0, _CBA, 0, [_AIs, _CBi, _CBSi], [0, 0, 0]];
-export var City: StaticStructureSchema = [3, n0, _Ci, 0, [_CNi], [0]];
-export var ClassificationResult: StaticStructureSchema = [
+export var BooleanConfigurationOptions$: StaticStructureSchema = [3, n0, _BCO, 0, [_DVe], [2]];
+export var BooleanFilter$: StaticStructureSchema = [3, n0, _BF, 0, [_Val], [2]];
+export var Cell$: StaticStructureSchema = [3, n0, _Cel, 0, [_Col, _Row, _CNol, _CRe], [1, 1, 0, 0]];
+export var CidrBlockAssociation$: StaticStructureSchema = [3, n0, _CBA, 0, [_AIs, _CBi, _CBSi], [0, 0, 0]];
+export var City$: StaticStructureSchema = [3, n0, _Ci, 0, [_CNi], [0]];
+export var ClassificationResult$: StaticStructureSchema = [
   3,
   n0,
   _CRl,
   0,
   [_MTi, _SCi, _AOd, _St, _SDe, _CDI],
-  [0, 1, 2, () => ClassificationStatus, () => SensitiveDataResultList, () => CustomDataIdentifiersResult],
+  [0, 1, 2, () => ClassificationStatus$, () => SensitiveDataResultList, () => CustomDataIdentifiersResult$],
 ];
-export var ClassificationStatus: StaticStructureSchema = [3, n0, _CSla, 0, [_C, _R], [0, 0]];
-export var CloudWatchLogsLogGroupArnConfigDetails: StaticStructureSchema = [
+export var ClassificationStatus$: StaticStructureSchema = [3, n0, _CSla, 0, [_C, _R], [0, 0]];
+export var CloudWatchLogsLogGroupArnConfigDetails$: StaticStructureSchema = [
   3,
   n0,
   _CWLLGACD,
@@ -8533,8 +8590,8 @@ export var CloudWatchLogsLogGroupArnConfigDetails: StaticStructureSchema = [
   [_CWLLGA, _HZI, _I],
   [0, 0, 0],
 ];
-export var CodeRepositoryDetails: StaticStructureSchema = [3, n0, _CRD, 0, [_PTrov, _PNroj, _CSIA], [0, 0, 0]];
-export var CodeVulnerabilitiesFilePath: StaticStructureSchema = [
+export var CodeRepositoryDetails$: StaticStructureSchema = [3, n0, _CRD, 0, [_PTrov, _PNroj, _CSIA], [0, 0, 0]];
+export var CodeVulnerabilitiesFilePath$: StaticStructureSchema = [
   3,
   n0,
   _CVFP,
@@ -8542,7 +8599,7 @@ export var CodeVulnerabilitiesFilePath: StaticStructureSchema = [
   [_ELn, _FNil, _FPil, _SLt],
   [1, 0, 0, 1],
 ];
-export var Compliance: StaticStructureSchema = [
+export var Compliance$: StaticStructureSchema = [
   3,
   n0,
   _Comp,
@@ -8550,7 +8607,7 @@ export var Compliance: StaticStructureSchema = [
   [_St, _RRel, _SRta, _SCIec, _ASssoci, _SCPe],
   [0, 64 | 0, () => StatusReasonsList, 0, () => AssociatedStandardsList, () => SecurityControlParametersList],
 ];
-export var CompositeFilter: StaticStructureSchema = [
+export var CompositeFilter$: StaticStructureSchema = [
   3,
   n0,
   _CF,
@@ -8567,8 +8624,8 @@ export var CompositeFilter: StaticStructureSchema = [
     0,
   ],
 ];
-export var ConfigurationPolicyAssociation: StaticStructureSchema = [3, n0, _CPAo, 0, [_Ta], [() => Target]];
-export var ConfigurationPolicyAssociationSummary: StaticStructureSchema = [
+export var ConfigurationPolicyAssociation$: StaticStructureSchema = [3, n0, _CPAo, 0, [_Ta], [() => Target$]];
+export var ConfigurationPolicyAssociationSummary$: StaticStructureSchema = [
   3,
   n0,
   _CPAS,
@@ -8576,7 +8633,7 @@ export var ConfigurationPolicyAssociationSummary: StaticStructureSchema = [
   [_CPI, _TIa, _TT, _ATs, _UA, _ASss, _ASM],
   [0, 0, 0, 0, 5, 0, 0],
 ];
-export var ConfigurationPolicySummary: StaticStructureSchema = [
+export var ConfigurationPolicySummary$: StaticStructureSchema = [
   3,
   n0,
   _CPSo,
@@ -8584,17 +8641,17 @@ export var ConfigurationPolicySummary: StaticStructureSchema = [
   [_Ar, _I, _N, _D, _UA, _SEe],
   [0, 0, 0, 0, 5, 2],
 ];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CEo, { [_e]: _c, [_hE]: 409 }, [_M, _C], [0, 0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var ConnectorSummary: StaticStructureSchema = [
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo, { [_e]: _c, [_hE]: 409 }, [_M, _C], [0, 0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var ConnectorSummary$: StaticStructureSchema = [
   3,
   n0,
   _CSon,
   0,
   [_CAon, _CIo, _N, _D, _PSr, _CA],
-  [0, 0, 0, 0, () => ProviderSummary, 5],
+  [0, 0, 0, 0, () => ProviderSummary$, 5],
 ];
-export var ContainerDetails: StaticStructureSchema = [
+export var ContainerDetails$: StaticStructureSchema = [
   3,
   n0,
   _CDont,
@@ -8602,10 +8659,10 @@ export var ContainerDetails: StaticStructureSchema = [
   [_CRon, _N, _IIm, _INm, _LA, _VMo, _Priv],
   [0, 0, 0, 0, 0, () => VolumeMountList, 2],
 ];
-export var Country: StaticStructureSchema = [3, n0, _Co, 0, [_CCou, _CNou], [0, 0]];
-export var CreateActionTargetRequest: StaticStructureSchema = [3, n0, _CATR, 0, [_N, _D, _I], [0, 0, 0]];
-export var CreateActionTargetResponse: StaticStructureSchema = [3, n0, _CATRr, 0, [_ATA], [0]];
-export var CreateAggregatorV2Request: StaticStructureSchema = [
+export var Country$: StaticStructureSchema = [3, n0, _Co, 0, [_CCou, _CNou], [0, 0]];
+export var CreateActionTargetRequest$: StaticStructureSchema = [3, n0, _CATR, 0, [_N, _D, _I], [0, 0, 0]];
+export var CreateActionTargetResponse$: StaticStructureSchema = [3, n0, _CATRr, 0, [_ATA], [0]];
+export var CreateAggregatorV2Request$: StaticStructureSchema = [
   3,
   n0,
   _CAVR,
@@ -8613,7 +8670,7 @@ export var CreateAggregatorV2Request: StaticStructureSchema = [
   [_RLM, _LR, _Tags, _CTl],
   [0, 64 | 0, 128 | 0, [0, 4]],
 ];
-export var CreateAggregatorV2Response: StaticStructureSchema = [
+export var CreateAggregatorV2Response$: StaticStructureSchema = [
   3,
   n0,
   _CAVRr,
@@ -8621,49 +8678,49 @@ export var CreateAggregatorV2Response: StaticStructureSchema = [
   [_AVA, _ARg, _RLM, _LR],
   [0, 0, 0, 64 | 0],
 ];
-export var CreateAutomationRuleRequest: StaticStructureSchema = [
+export var CreateAutomationRuleRequest$: StaticStructureSchema = [
   3,
   n0,
   _CARR,
   0,
   [_Tags, _RS, _RO, _RN, _D, _IT, _Cr, _Act],
-  [128 | 0, 0, 1, 0, 0, 2, () => AutomationRulesFindingFilters, () => ActionList],
+  [128 | 0, 0, 1, 0, 0, 2, () => AutomationRulesFindingFilters$, () => ActionList],
 ];
-export var CreateAutomationRuleResponse: StaticStructureSchema = [3, n0, _CARRr, 0, [_RA], [0]];
-export var CreateAutomationRuleV2Request: StaticStructureSchema = [
+export var CreateAutomationRuleResponse$: StaticStructureSchema = [3, n0, _CARRr, 0, [_RA], [0]];
+export var CreateAutomationRuleV2Request$: StaticStructureSchema = [
   3,
   n0,
   _CARVR,
   0,
   [_RN, _RS, _D, _RO, _Cr, _Act, _Tags, _CTl],
-  [0, 0, 0, 1, () => Criteria, () => AutomationRulesActionListV2, 128 | 0, [0, 4]],
+  [0, 0, 0, 1, () => Criteria$, () => AutomationRulesActionListV2, 128 | 0, [0, 4]],
 ];
-export var CreateAutomationRuleV2Response: StaticStructureSchema = [3, n0, _CARVRr, 0, [_RA, _RIu], [0, 0]];
-export var CreateConfigurationPolicyRequest: StaticStructureSchema = [
+export var CreateAutomationRuleV2Response$: StaticStructureSchema = [3, n0, _CARVRr, 0, [_RA, _RIu], [0, 0]];
+export var CreateConfigurationPolicyRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCPR,
   0,
   [_N, _D, _CPonf, _Tags],
-  [0, 0, () => Policy, 128 | 0],
+  [0, 0, () => Policy$, 128 | 0],
 ];
-export var CreateConfigurationPolicyResponse: StaticStructureSchema = [
+export var CreateConfigurationPolicyResponse$: StaticStructureSchema = [
   3,
   n0,
   _CCPRr,
   0,
   [_Ar, _I, _N, _D, _UA, _CA, _CPonf],
-  [0, 0, 0, 0, 5, 5, () => Policy],
+  [0, 0, 0, 0, 5, 5, () => Policy$],
 ];
-export var CreateConnectorV2Request: StaticStructureSchema = [
+export var CreateConnectorV2Request$: StaticStructureSchema = [
   3,
   n0,
   _CCVR,
   0,
   [_N, _D, _Prov, _KKA, _Tags, _CTl],
-  [0, 0, () => ProviderConfiguration, 0, 128 | 0, [0, 4]],
+  [0, 0, () => ProviderConfiguration$, 0, 128 | 0, [0, 4]],
 ];
-export var CreateConnectorV2Response: StaticStructureSchema = [
+export var CreateConnectorV2Response$: StaticStructureSchema = [
   3,
   n0,
   _CCVRr,
@@ -8671,8 +8728,8 @@ export var CreateConnectorV2Response: StaticStructureSchema = [
   [_CAon, _CIo, _AUut, _CSonn],
   [0, 0, 0, 0],
 ];
-export var CreateFindingAggregatorRequest: StaticStructureSchema = [3, n0, _CFAR, 0, [_RLM, _Regi], [0, 64 | 0]];
-export var CreateFindingAggregatorResponse: StaticStructureSchema = [
+export var CreateFindingAggregatorRequest$: StaticStructureSchema = [3, n0, _CFAR, 0, [_RLM, _Regi], [0, 64 | 0]];
+export var CreateFindingAggregatorResponse$: StaticStructureSchema = [
   3,
   n0,
   _CFARr,
@@ -8680,18 +8737,18 @@ export var CreateFindingAggregatorResponse: StaticStructureSchema = [
   [_FAA, _FAR, _RLM, _Regi],
   [0, 0, 0, 64 | 0],
 ];
-export var CreateInsightRequest: StaticStructureSchema = [
+export var CreateInsightRequest$: StaticStructureSchema = [
   3,
   n0,
   _CIR,
   0,
   [_N, _Filt, _GBA],
-  [0, () => AwsSecurityFindingFilters, 0],
+  [0, () => AwsSecurityFindingFilters$, 0],
 ];
-export var CreateInsightResponse: StaticStructureSchema = [3, n0, _CIRr, 0, [_IAns], [0]];
-export var CreateMembersRequest: StaticStructureSchema = [3, n0, _CMR, 0, [_AD], [() => AccountDetailsList]];
-export var CreateMembersResponse: StaticStructureSchema = [3, n0, _CMRr, 0, [_UAnp], [() => ResultList]];
-export var CreateTicketV2Request: StaticStructureSchema = [
+export var CreateInsightResponse$: StaticStructureSchema = [3, n0, _CIRr, 0, [_IAns], [0]];
+export var CreateMembersRequest$: StaticStructureSchema = [3, n0, _CMR, 0, [_AD], [() => AccountDetailsList]];
+export var CreateMembersResponse$: StaticStructureSchema = [3, n0, _CMRr, 0, [_UAnp], [() => ResultList]];
+export var CreateTicketV2Request$: StaticStructureSchema = [
   3,
   n0,
   _CTVR,
@@ -8699,16 +8756,16 @@ export var CreateTicketV2Request: StaticStructureSchema = [
   [_CIo, _FMU, _CTl, _Mod],
   [0, 0, [0, 4], 0],
 ];
-export var CreateTicketV2Response: StaticStructureSchema = [3, n0, _CTVRr, 0, [_TIi, _TSU], [0, 0]];
-export var CustomDataIdentifiersDetections: StaticStructureSchema = [
+export var CreateTicketV2Response$: StaticStructureSchema = [3, n0, _CTVRr, 0, [_TIi, _TSU], [0, 0]];
+export var CustomDataIdentifiersDetections$: StaticStructureSchema = [
   3,
   n0,
   _CDID,
   0,
   [_Cou, _Ar, _N, _Oc],
-  [1, 0, 0, () => Occurrences],
+  [1, 0, 0, () => Occurrences$],
 ];
-export var CustomDataIdentifiersResult: StaticStructureSchema = [
+export var CustomDataIdentifiersResult$: StaticStructureSchema = [
   3,
   n0,
   _CDIR,
@@ -8716,38 +8773,45 @@ export var CustomDataIdentifiersResult: StaticStructureSchema = [
   [_Dete, _TCo],
   [() => CustomDataIdentifiersDetectionsList, 1],
 ];
-export var Cvss: StaticStructureSchema = [3, n0, _Cv, 0, [_V, _BS, _BV, _So, _Adj], [0, 1, 0, 0, () => AdjustmentList]];
-export var DataClassificationDetails: StaticStructureSchema = [
+export var Cvss$: StaticStructureSchema = [
+  3,
+  n0,
+  _Cv,
+  0,
+  [_V, _BS, _BV, _So, _Adj],
+  [0, 1, 0, 0, () => AdjustmentList],
+];
+export var DataClassificationDetails$: StaticStructureSchema = [
   3,
   n0,
   _DCD,
   0,
   [_DRL, _Resu],
-  [0, () => ClassificationResult],
+  [0, () => ClassificationResult$],
 ];
-export var DateFilter: StaticStructureSchema = [3, n0, _DFa, 0, [_Star, _End_, _DRa], [0, 0, () => DateRange]];
-export var DateRange: StaticStructureSchema = [3, n0, _DRa, 0, [_Val, _Un], [1, 0]];
-export var DeclineInvitationsRequest: StaticStructureSchema = [3, n0, _DIR, 0, [_AIcc], [64 | 0]];
-export var DeclineInvitationsResponse: StaticStructureSchema = [3, n0, _DIRe, 0, [_UAnp], [() => ResultList]];
-export var DeleteActionTargetRequest: StaticStructureSchema = [3, n0, _DATR, 0, [_ATA], [[0, 1]]];
-export var DeleteActionTargetResponse: StaticStructureSchema = [3, n0, _DATRe, 0, [_ATA], [0]];
-export var DeleteAggregatorV2Request: StaticStructureSchema = [3, n0, _DAVR, 0, [_AVA], [[0, 1]]];
-export var DeleteAggregatorV2Response: StaticStructureSchema = [3, n0, _DAVRe, 0, [], []];
-export var DeleteAutomationRuleV2Request: StaticStructureSchema = [3, n0, _DARVR, 0, [_Id], [[0, 1]]];
-export var DeleteAutomationRuleV2Response: StaticStructureSchema = [3, n0, _DARVRe, 0, [], []];
-export var DeleteConfigurationPolicyRequest: StaticStructureSchema = [3, n0, _DCPR, 0, [_Id], [[0, 1]]];
-export var DeleteConfigurationPolicyResponse: StaticStructureSchema = [3, n0, _DCPRe, 0, [], []];
-export var DeleteConnectorV2Request: StaticStructureSchema = [3, n0, _DCVR, 0, [_CIo], [[0, 1]]];
-export var DeleteConnectorV2Response: StaticStructureSchema = [3, n0, _DCVRe, 0, [], []];
-export var DeleteFindingAggregatorRequest: StaticStructureSchema = [3, n0, _DFAR, 0, [_FAA], [[0, 1]]];
-export var DeleteFindingAggregatorResponse: StaticStructureSchema = [3, n0, _DFARe, 0, [], []];
-export var DeleteInsightRequest: StaticStructureSchema = [3, n0, _DIRel, 0, [_IAns], [[0, 1]]];
-export var DeleteInsightResponse: StaticStructureSchema = [3, n0, _DIRele, 0, [_IAns], [0]];
-export var DeleteInvitationsRequest: StaticStructureSchema = [3, n0, _DIRelet, 0, [_AIcc], [64 | 0]];
-export var DeleteInvitationsResponse: StaticStructureSchema = [3, n0, _DIRelete, 0, [_UAnp], [() => ResultList]];
-export var DeleteMembersRequest: StaticStructureSchema = [3, n0, _DMR, 0, [_AIcc], [64 | 0]];
-export var DeleteMembersResponse: StaticStructureSchema = [3, n0, _DMRe, 0, [_UAnp], [() => ResultList]];
-export var DescribeActionTargetsRequest: StaticStructureSchema = [
+export var DateFilter$: StaticStructureSchema = [3, n0, _DFa, 0, [_Star, _End_, _DRa], [0, 0, () => DateRange$]];
+export var DateRange$: StaticStructureSchema = [3, n0, _DRa, 0, [_Val, _Un], [1, 0]];
+export var DeclineInvitationsRequest$: StaticStructureSchema = [3, n0, _DIR, 0, [_AIcc], [64 | 0]];
+export var DeclineInvitationsResponse$: StaticStructureSchema = [3, n0, _DIRe, 0, [_UAnp], [() => ResultList]];
+export var DeleteActionTargetRequest$: StaticStructureSchema = [3, n0, _DATR, 0, [_ATA], [[0, 1]]];
+export var DeleteActionTargetResponse$: StaticStructureSchema = [3, n0, _DATRe, 0, [_ATA], [0]];
+export var DeleteAggregatorV2Request$: StaticStructureSchema = [3, n0, _DAVR, 0, [_AVA], [[0, 1]]];
+export var DeleteAggregatorV2Response$: StaticStructureSchema = [3, n0, _DAVRe, 0, [], []];
+export var DeleteAutomationRuleV2Request$: StaticStructureSchema = [3, n0, _DARVR, 0, [_Id], [[0, 1]]];
+export var DeleteAutomationRuleV2Response$: StaticStructureSchema = [3, n0, _DARVRe, 0, [], []];
+export var DeleteConfigurationPolicyRequest$: StaticStructureSchema = [3, n0, _DCPR, 0, [_Id], [[0, 1]]];
+export var DeleteConfigurationPolicyResponse$: StaticStructureSchema = [3, n0, _DCPRe, 0, [], []];
+export var DeleteConnectorV2Request$: StaticStructureSchema = [3, n0, _DCVR, 0, [_CIo], [[0, 1]]];
+export var DeleteConnectorV2Response$: StaticStructureSchema = [3, n0, _DCVRe, 0, [], []];
+export var DeleteFindingAggregatorRequest$: StaticStructureSchema = [3, n0, _DFAR, 0, [_FAA], [[0, 1]]];
+export var DeleteFindingAggregatorResponse$: StaticStructureSchema = [3, n0, _DFARe, 0, [], []];
+export var DeleteInsightRequest$: StaticStructureSchema = [3, n0, _DIRel, 0, [_IAns], [[0, 1]]];
+export var DeleteInsightResponse$: StaticStructureSchema = [3, n0, _DIRele, 0, [_IAns], [0]];
+export var DeleteInvitationsRequest$: StaticStructureSchema = [3, n0, _DIRelet, 0, [_AIcc], [64 | 0]];
+export var DeleteInvitationsResponse$: StaticStructureSchema = [3, n0, _DIRelete, 0, [_UAnp], [() => ResultList]];
+export var DeleteMembersRequest$: StaticStructureSchema = [3, n0, _DMR, 0, [_AIcc], [64 | 0]];
+export var DeleteMembersResponse$: StaticStructureSchema = [3, n0, _DMRe, 0, [_UAnp], [() => ResultList]];
+export var DescribeActionTargetsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DATRes,
@@ -8755,7 +8819,7 @@ export var DescribeActionTargetsRequest: StaticStructureSchema = [
   [_ATAc, _NTe, _MRa],
   [64 | 0, 0, 1],
 ];
-export var DescribeActionTargetsResponse: StaticStructureSchema = [
+export var DescribeActionTargetsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DATResc,
@@ -8763,18 +8827,18 @@ export var DescribeActionTargetsResponse: StaticStructureSchema = [
   [_ATct, _NTe],
   [() => ActionTargetList, 0],
 ];
-export var DescribeHubRequest: StaticStructureSchema = [3, n0, _DHR, 0, [_HA], [[0, { [_hQ]: _HA }]]];
-export var DescribeHubResponse: StaticStructureSchema = [3, n0, _DHRe, 0, [_HA, _SAub, _AEC, _CFG], [0, 0, 2, 0]];
-export var DescribeOrganizationConfigurationRequest: StaticStructureSchema = [3, n0, _DOCR, 0, [], []];
-export var DescribeOrganizationConfigurationResponse: StaticStructureSchema = [
+export var DescribeHubRequest$: StaticStructureSchema = [3, n0, _DHR, 0, [_HA], [[0, { [_hQ]: _HA }]]];
+export var DescribeHubResponse$: StaticStructureSchema = [3, n0, _DHRe, 0, [_HA, _SAub, _AEC, _CFG], [0, 0, 2, 0]];
+export var DescribeOrganizationConfigurationRequest$: StaticStructureSchema = [3, n0, _DOCR, 0, [], []];
+export var DescribeOrganizationConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DOCRe,
   0,
   [_AEu, _MALR, _AES, _OC],
-  [2, 2, 0, () => OrganizationConfiguration],
+  [2, 2, 0, () => OrganizationConfiguration$],
 ];
-export var DescribeProductsRequest: StaticStructureSchema = [
+export var DescribeProductsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DPR,
@@ -8786,8 +8850,8 @@ export var DescribeProductsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _PA }],
   ],
 ];
-export var DescribeProductsResponse: StaticStructureSchema = [3, n0, _DPRe, 0, [_Prod, _NTe], [() => ProductsList, 0]];
-export var DescribeProductsV2Request: StaticStructureSchema = [
+export var DescribeProductsResponse$: StaticStructureSchema = [3, n0, _DPRe, 0, [_Prod, _NTe], [() => ProductsList, 0]];
+export var DescribeProductsV2Request$: StaticStructureSchema = [
   3,
   n0,
   _DPVR,
@@ -8798,7 +8862,7 @@ export var DescribeProductsV2Request: StaticStructureSchema = [
     [1, { [_hQ]: _MRa }],
   ],
 ];
-export var DescribeProductsV2Response: StaticStructureSchema = [
+export var DescribeProductsV2Response$: StaticStructureSchema = [
   3,
   n0,
   _DPVRe,
@@ -8806,9 +8870,9 @@ export var DescribeProductsV2Response: StaticStructureSchema = [
   [_PVr, _NTe],
   [() => ProductsV2List, 0],
 ];
-export var DescribeSecurityHubV2Request: StaticStructureSchema = [3, n0, _DSHVR, 0, [], []];
-export var DescribeSecurityHubV2Response: StaticStructureSchema = [3, n0, _DSHVRe, 0, [_HVA, _SAub], [0, 0]];
-export var DescribeStandardsControlsRequest: StaticStructureSchema = [
+export var DescribeSecurityHubV2Request$: StaticStructureSchema = [3, n0, _DSHVR, 0, [], []];
+export var DescribeSecurityHubV2Response$: StaticStructureSchema = [3, n0, _DSHVRe, 0, [_HVA, _SAub], [0, 0]];
+export var DescribeStandardsControlsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DSCR,
@@ -8820,7 +8884,7 @@ export var DescribeStandardsControlsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _MRa }],
   ],
 ];
-export var DescribeStandardsControlsResponse: StaticStructureSchema = [
+export var DescribeStandardsControlsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DSCRe,
@@ -8828,7 +8892,7 @@ export var DescribeStandardsControlsResponse: StaticStructureSchema = [
   [_Contr, _NTe],
   [() => StandardsControls, 0],
 ];
-export var DescribeStandardsRequest: StaticStructureSchema = [
+export var DescribeStandardsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DSR,
@@ -8839,34 +8903,34 @@ export var DescribeStandardsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _MRa }],
   ],
 ];
-export var DescribeStandardsResponse: StaticStructureSchema = [3, n0, _DSRe, 0, [_Stan, _NTe], [() => Standards, 0]];
-export var Detection: StaticStructureSchema = [3, n0, _Det, 0, [_Seq], [() => Sequence]];
-export var DisableImportFindingsForProductRequest: StaticStructureSchema = [3, n0, _DIFFPR, 0, [_PSA], [[0, 1]]];
-export var DisableImportFindingsForProductResponse: StaticStructureSchema = [3, n0, _DIFFPRi, 0, [], []];
-export var DisableOrganizationAdminAccountRequest: StaticStructureSchema = [3, n0, _DOAAR, 0, [_AAId, _Fea], [0, 0]];
-export var DisableOrganizationAdminAccountResponse: StaticStructureSchema = [3, n0, _DOAARi, 0, [], []];
-export var DisableSecurityHubRequest: StaticStructureSchema = [3, n0, _DSHR, 0, [], []];
-export var DisableSecurityHubResponse: StaticStructureSchema = [3, n0, _DSHRi, 0, [], []];
-export var DisableSecurityHubV2Request: StaticStructureSchema = [3, n0, _DSHVRi, 0, [], []];
-export var DisableSecurityHubV2Response: StaticStructureSchema = [3, n0, _DSHVRis, 0, [], []];
-export var DisassociateFromAdministratorAccountRequest: StaticStructureSchema = [3, n0, _DFAAR, 0, [], []];
-export var DisassociateFromAdministratorAccountResponse: StaticStructureSchema = [3, n0, _DFAARi, 0, [], []];
-export var DisassociateFromMasterAccountRequest: StaticStructureSchema = [3, n0, _DFMAR, 0, [], []];
-export var DisassociateFromMasterAccountResponse: StaticStructureSchema = [3, n0, _DFMARi, 0, [], []];
-export var DisassociateMembersRequest: StaticStructureSchema = [3, n0, _DMRi, 0, [_AIcc], [64 | 0]];
-export var DisassociateMembersResponse: StaticStructureSchema = [3, n0, _DMRis, 0, [], []];
-export var DnsRequestAction: StaticStructureSchema = [3, n0, _DRA, 0, [_Do, _Prot, _Blo], [0, 0, 2]];
-export var DoubleConfigurationOptions: StaticStructureSchema = [3, n0, _DCO, 0, [_DVe, _Mi, _Max], [1, 1, 1]];
-export var EnableImportFindingsForProductRequest: StaticStructureSchema = [3, n0, _EIFFPR, 0, [_PA], [0]];
-export var EnableImportFindingsForProductResponse: StaticStructureSchema = [3, n0, _EIFFPRn, 0, [_PSA], [0]];
-export var EnableOrganizationAdminAccountRequest: StaticStructureSchema = [3, n0, _EOAAR, 0, [_AAId, _Fea], [0, 0]];
-export var EnableOrganizationAdminAccountResponse: StaticStructureSchema = [3, n0, _EOAARn, 0, [_AAId, _Fea], [0, 0]];
-export var EnableSecurityHubRequest: StaticStructureSchema = [3, n0, _ESHR, 0, [_Tags, _EDS, _CFG], [128 | 0, 2, 0]];
-export var EnableSecurityHubResponse: StaticStructureSchema = [3, n0, _ESHRn, 0, [], []];
-export var EnableSecurityHubV2Request: StaticStructureSchema = [3, n0, _ESHVR, 0, [_Tags], [128 | 0]];
-export var EnableSecurityHubV2Response: StaticStructureSchema = [3, n0, _ESHVRn, 0, [_HVA], [0]];
-export var EnumConfigurationOptions: StaticStructureSchema = [3, n0, _ECO, 0, [_DVe, _AVl], [0, 64 | 0]];
-export var EnumListConfigurationOptions: StaticStructureSchema = [
+export var DescribeStandardsResponse$: StaticStructureSchema = [3, n0, _DSRe, 0, [_Stan, _NTe], [() => Standards, 0]];
+export var Detection$: StaticStructureSchema = [3, n0, _Det, 0, [_Seq], [() => Sequence$]];
+export var DisableImportFindingsForProductRequest$: StaticStructureSchema = [3, n0, _DIFFPR, 0, [_PSA], [[0, 1]]];
+export var DisableImportFindingsForProductResponse$: StaticStructureSchema = [3, n0, _DIFFPRi, 0, [], []];
+export var DisableOrganizationAdminAccountRequest$: StaticStructureSchema = [3, n0, _DOAAR, 0, [_AAId, _Fea], [0, 0]];
+export var DisableOrganizationAdminAccountResponse$: StaticStructureSchema = [3, n0, _DOAARi, 0, [], []];
+export var DisableSecurityHubRequest$: StaticStructureSchema = [3, n0, _DSHR, 0, [], []];
+export var DisableSecurityHubResponse$: StaticStructureSchema = [3, n0, _DSHRi, 0, [], []];
+export var DisableSecurityHubV2Request$: StaticStructureSchema = [3, n0, _DSHVRi, 0, [], []];
+export var DisableSecurityHubV2Response$: StaticStructureSchema = [3, n0, _DSHVRis, 0, [], []];
+export var DisassociateFromAdministratorAccountRequest$: StaticStructureSchema = [3, n0, _DFAAR, 0, [], []];
+export var DisassociateFromAdministratorAccountResponse$: StaticStructureSchema = [3, n0, _DFAARi, 0, [], []];
+export var DisassociateFromMasterAccountRequest$: StaticStructureSchema = [3, n0, _DFMAR, 0, [], []];
+export var DisassociateFromMasterAccountResponse$: StaticStructureSchema = [3, n0, _DFMARi, 0, [], []];
+export var DisassociateMembersRequest$: StaticStructureSchema = [3, n0, _DMRi, 0, [_AIcc], [64 | 0]];
+export var DisassociateMembersResponse$: StaticStructureSchema = [3, n0, _DMRis, 0, [], []];
+export var DnsRequestAction$: StaticStructureSchema = [3, n0, _DRA, 0, [_Do, _Prot, _Blo], [0, 0, 2]];
+export var DoubleConfigurationOptions$: StaticStructureSchema = [3, n0, _DCO, 0, [_DVe, _Mi, _Max], [1, 1, 1]];
+export var EnableImportFindingsForProductRequest$: StaticStructureSchema = [3, n0, _EIFFPR, 0, [_PA], [0]];
+export var EnableImportFindingsForProductResponse$: StaticStructureSchema = [3, n0, _EIFFPRn, 0, [_PSA], [0]];
+export var EnableOrganizationAdminAccountRequest$: StaticStructureSchema = [3, n0, _EOAAR, 0, [_AAId, _Fea], [0, 0]];
+export var EnableOrganizationAdminAccountResponse$: StaticStructureSchema = [3, n0, _EOAARn, 0, [_AAId, _Fea], [0, 0]];
+export var EnableSecurityHubRequest$: StaticStructureSchema = [3, n0, _ESHR, 0, [_Tags, _EDS, _CFG], [128 | 0, 2, 0]];
+export var EnableSecurityHubResponse$: StaticStructureSchema = [3, n0, _ESHRn, 0, [], []];
+export var EnableSecurityHubV2Request$: StaticStructureSchema = [3, n0, _ESHVR, 0, [_Tags], [128 | 0]];
+export var EnableSecurityHubV2Response$: StaticStructureSchema = [3, n0, _ESHVRn, 0, [_HVA], [0]];
+export var EnumConfigurationOptions$: StaticStructureSchema = [3, n0, _ECO, 0, [_DVe, _AVl], [0, 64 | 0]];
+export var EnumListConfigurationOptions$: StaticStructureSchema = [
   3,
   n0,
   _ELCO,
@@ -8874,29 +8938,29 @@ export var EnumListConfigurationOptions: StaticStructureSchema = [
   [_DVe, _MIa, _AVl],
   [64 | 0, 1, 64 | 0],
 ];
-export var ExternalIntegrationConfiguration: StaticStructureSchema = [3, n0, _EIC, 0, [_CAon], [0]];
-export var FilePaths: StaticStructureSchema = [3, n0, _FPile, 0, [_FPil, _FNil, _RI, _Has], [0, 0, 0, 0]];
-export var FindingAggregator: StaticStructureSchema = [3, n0, _FAin, 0, [_FAA], [0]];
-export var FindingHistoryRecord: StaticStructureSchema = [
+export var ExternalIntegrationConfiguration$: StaticStructureSchema = [3, n0, _EIC, 0, [_CAon], [0]];
+export var FilePaths$: StaticStructureSchema = [3, n0, _FPile, 0, [_FPil, _FNil, _RI, _Has], [0, 0, 0, 0]];
+export var FindingAggregator$: StaticStructureSchema = [3, n0, _FAin, 0, [_FAA], [0]];
+export var FindingHistoryRecord$: StaticStructureSchema = [
   3,
   n0,
   _FHR,
   0,
   [_FIind, _UTp, _FCin, _USp, _Up, _NTe],
-  [() => AwsSecurityFindingIdentifier, 5, 2, () => FindingHistoryUpdateSource, () => FindingHistoryUpdatesList, 0],
+  [() => AwsSecurityFindingIdentifier$, 5, 2, () => FindingHistoryUpdateSource$, () => FindingHistoryUpdatesList, 0],
 ];
-export var FindingHistoryUpdate: StaticStructureSchema = [3, n0, _FHU, 0, [_UFp, _OVl, _NVe], [0, 0, 0]];
-export var FindingHistoryUpdateSource: StaticStructureSchema = [3, n0, _FHUS, 0, [_T, _Ide], [0, 0]];
-export var FindingProviderFields: StaticStructureSchema = [
+export var FindingHistoryUpdate$: StaticStructureSchema = [3, n0, _FHU, 0, [_UFp, _OVl, _NVe], [0, 0, 0]];
+export var FindingHistoryUpdateSource$: StaticStructureSchema = [3, n0, _FHUS, 0, [_T, _Ide], [0, 0]];
+export var FindingProviderFields$: StaticStructureSchema = [
   3,
   n0,
   _FPFi,
   0,
   [_Con, _Cri, _RF, _Se, _Ty],
-  [1, 1, () => RelatedFindingList, () => FindingProviderSeverity, 64 | 0],
+  [1, 1, () => RelatedFindingList, () => FindingProviderSeverity$, 64 | 0],
 ];
-export var FindingProviderSeverity: StaticStructureSchema = [3, n0, _FPS, 0, [_Lab, _Orig], [0, 0]];
-export var FindingsTrendsCompositeFilter: StaticStructureSchema = [
+export var FindingProviderSeverity$: StaticStructureSchema = [3, n0, _FPS, 0, [_Lab, _Orig], [0, 0]];
+export var FindingsTrendsCompositeFilter$: StaticStructureSchema = [
   3,
   n0,
   _FTCF,
@@ -8904,7 +8968,7 @@ export var FindingsTrendsCompositeFilter: StaticStructureSchema = [
   [_SF, _NCF, _Oper],
   [() => FindingsTrendsStringFilterList, () => FindingsTrendsCompositeFilterList, 0],
 ];
-export var FindingsTrendsFilters: StaticStructureSchema = [
+export var FindingsTrendsFilters$: StaticStructureSchema = [
   3,
   n0,
   _FTF,
@@ -8912,15 +8976,15 @@ export var FindingsTrendsFilters: StaticStructureSchema = [
   [_CFo, _COo],
   [() => FindingsTrendsCompositeFilterList, 0],
 ];
-export var FindingsTrendsStringFilter: StaticStructureSchema = [
+export var FindingsTrendsStringFilter$: StaticStructureSchema = [
   3,
   n0,
   _FTSF,
   0,
   [_FNie, _Fil],
-  [0, () => StringFilter],
+  [0, () => StringFilter$],
 ];
-export var FirewallPolicyDetails: StaticStructureSchema = [
+export var FirewallPolicyDetails$: StaticStructureSchema = [
   3,
   n0,
   _FPD,
@@ -8934,16 +8998,16 @@ export var FirewallPolicyDetails: StaticStructureSchema = [
     () => FirewallPolicyStatelessRuleGroupReferencesList,
   ],
 ];
-export var FirewallPolicyStatefulRuleGroupReferencesDetails: StaticStructureSchema = [3, n0, _FPSRGRD, 0, [_RAe], [0]];
-export var FirewallPolicyStatelessCustomActionsDetails: StaticStructureSchema = [
+export var FirewallPolicyStatefulRuleGroupReferencesDetails$: StaticStructureSchema = [3, n0, _FPSRGRD, 0, [_RAe], [0]];
+export var FirewallPolicyStatelessCustomActionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _FPSCAD,
   0,
   [_ADct, _ANct],
-  [() => StatelessCustomActionDefinition, 0],
+  [() => StatelessCustomActionDefinition$, 0],
 ];
-export var FirewallPolicyStatelessRuleGroupReferencesDetails: StaticStructureSchema = [
+export var FirewallPolicyStatelessRuleGroupReferencesDetails$: StaticStructureSchema = [
   3,
   n0,
   _FPSRGRDi,
@@ -8951,12 +9015,12 @@ export var FirewallPolicyStatelessRuleGroupReferencesDetails: StaticStructureSch
   [_Prio, _RAe],
   [1, 0],
 ];
-export var GeneratorDetails: StaticStructureSchema = [3, n0, _GD, 0, [_N, _D, _La], [0, 0, 64 | 0]];
-export var GeoLocation: StaticStructureSchema = [3, n0, _GL, 0, [_Lon, _Lat], [1, 1]];
-export var GetAdministratorAccountRequest: StaticStructureSchema = [3, n0, _GAAR, 0, [], []];
-export var GetAdministratorAccountResponse: StaticStructureSchema = [3, n0, _GAARe, 0, [_Adm], [() => Invitation]];
-export var GetAggregatorV2Request: StaticStructureSchema = [3, n0, _GAVR, 0, [_AVA], [[0, 1]]];
-export var GetAggregatorV2Response: StaticStructureSchema = [
+export var GeneratorDetails$: StaticStructureSchema = [3, n0, _GD, 0, [_N, _D, _La], [0, 0, 64 | 0]];
+export var GeoLocation$: StaticStructureSchema = [3, n0, _GL, 0, [_Lon, _Lat], [1, 1]];
+export var GetAdministratorAccountRequest$: StaticStructureSchema = [3, n0, _GAAR, 0, [], []];
+export var GetAdministratorAccountResponse$: StaticStructureSchema = [3, n0, _GAARe, 0, [_Adm], [() => Invitation$]];
+export var GetAggregatorV2Request$: StaticStructureSchema = [3, n0, _GAVR, 0, [_AVA], [[0, 1]]];
+export var GetAggregatorV2Response$: StaticStructureSchema = [
   3,
   n0,
   _GAVRe,
@@ -8964,17 +9028,24 @@ export var GetAggregatorV2Response: StaticStructureSchema = [
   [_AVA, _ARg, _RLM, _LR],
   [0, 0, 0, 64 | 0],
 ];
-export var GetAutomationRuleV2Request: StaticStructureSchema = [3, n0, _GARVR, 0, [_Id], [[0, 1]]];
-export var GetAutomationRuleV2Response: StaticStructureSchema = [
+export var GetAutomationRuleV2Request$: StaticStructureSchema = [3, n0, _GARVR, 0, [_Id], [[0, 1]]];
+export var GetAutomationRuleV2Response$: StaticStructureSchema = [
   3,
   n0,
   _GARVRe,
   0,
   [_RA, _RIu, _RO, _RN, _RS, _D, _Cr, _Act, _CA, _UA],
-  [0, 0, 1, 0, 0, 0, () => Criteria, () => AutomationRulesActionListV2, 5, 5],
+  [0, 0, 1, 0, 0, 0, () => Criteria$, () => AutomationRulesActionListV2, 5, 5],
 ];
-export var GetConfigurationPolicyAssociationRequest: StaticStructureSchema = [3, n0, _GCPAR, 0, [_Ta], [() => Target]];
-export var GetConfigurationPolicyAssociationResponse: StaticStructureSchema = [
+export var GetConfigurationPolicyAssociationRequest$: StaticStructureSchema = [
+  3,
+  n0,
+  _GCPAR,
+  0,
+  [_Ta],
+  [() => Target$],
+];
+export var GetConfigurationPolicyAssociationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCPARe,
@@ -8982,26 +9053,26 @@ export var GetConfigurationPolicyAssociationResponse: StaticStructureSchema = [
   [_CPI, _TIa, _TT, _ATs, _UA, _ASss, _ASM],
   [0, 0, 0, 0, 5, 0, 0],
 ];
-export var GetConfigurationPolicyRequest: StaticStructureSchema = [3, n0, _GCPR, 0, [_Id], [[0, 1]]];
-export var GetConfigurationPolicyResponse: StaticStructureSchema = [
+export var GetConfigurationPolicyRequest$: StaticStructureSchema = [3, n0, _GCPR, 0, [_Id], [[0, 1]]];
+export var GetConfigurationPolicyResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCPRe,
   0,
   [_Ar, _I, _N, _D, _UA, _CA, _CPonf],
-  [0, 0, 0, 0, 5, 5, () => Policy],
+  [0, 0, 0, 0, 5, 5, () => Policy$],
 ];
-export var GetConnectorV2Request: StaticStructureSchema = [3, n0, _GCVR, 0, [_CIo], [[0, 1]]];
-export var GetConnectorV2Response: StaticStructureSchema = [
+export var GetConnectorV2Request$: StaticStructureSchema = [3, n0, _GCVR, 0, [_CIo], [[0, 1]]];
+export var GetConnectorV2Response$: StaticStructureSchema = [
   3,
   n0,
   _GCVRe,
   0,
   [_CAon, _CIo, _N, _D, _KKA, _CA, _LUA, _He, _PD],
-  [0, 0, 0, 0, 0, 5, 5, () => HealthCheck, () => ProviderDetail],
+  [0, 0, 0, 0, 0, 5, 5, () => HealthCheck$, () => ProviderDetail$],
 ];
-export var GetEnabledStandardsRequest: StaticStructureSchema = [3, n0, _GESR, 0, [_SSA, _NTe, _MRa], [64 | 0, 0, 1]];
-export var GetEnabledStandardsResponse: StaticStructureSchema = [
+export var GetEnabledStandardsRequest$: StaticStructureSchema = [3, n0, _GESR, 0, [_SSA, _NTe, _MRa], [64 | 0, 0, 1]];
+export var GetEnabledStandardsResponse$: StaticStructureSchema = [
   3,
   n0,
   _GESRe,
@@ -9009,8 +9080,8 @@ export var GetEnabledStandardsResponse: StaticStructureSchema = [
   [_SSta, _NTe],
   [() => StandardsSubscriptions, 0],
 ];
-export var GetFindingAggregatorRequest: StaticStructureSchema = [3, n0, _GFAR, 0, [_FAA], [[0, 1]]];
-export var GetFindingAggregatorResponse: StaticStructureSchema = [
+export var GetFindingAggregatorRequest$: StaticStructureSchema = [3, n0, _GFAR, 0, [_FAA], [[0, 1]]];
+export var GetFindingAggregatorResponse$: StaticStructureSchema = [
   3,
   n0,
   _GFARe,
@@ -9018,15 +9089,15 @@ export var GetFindingAggregatorResponse: StaticStructureSchema = [
   [_FAA, _FAR, _RLM, _Regi],
   [0, 0, 0, 64 | 0],
 ];
-export var GetFindingHistoryRequest: StaticStructureSchema = [
+export var GetFindingHistoryRequest$: StaticStructureSchema = [
   3,
   n0,
   _GFHR,
   0,
   [_FIind, _STtar, _ETnd, _NTe, _MRa],
-  [() => AwsSecurityFindingIdentifier, 5, 5, 0, 1],
+  [() => AwsSecurityFindingIdentifier$, 5, 5, 0, 1],
 ];
-export var GetFindingHistoryResponse: StaticStructureSchema = [
+export var GetFindingHistoryResponse$: StaticStructureSchema = [
   3,
   n0,
   _GFHRe,
@@ -9034,15 +9105,15 @@ export var GetFindingHistoryResponse: StaticStructureSchema = [
   [_Rec, _NTe],
   [() => FindingHistoryRecordList, 0],
 ];
-export var GetFindingsRequest: StaticStructureSchema = [
+export var GetFindingsRequest$: StaticStructureSchema = [
   3,
   n0,
   _GFR,
   0,
   [_Filt, _SCor, _NTe, _MRa],
-  [() => AwsSecurityFindingFilters, () => SortCriteria, 0, 1],
+  [() => AwsSecurityFindingFilters$, () => SortCriteria, 0, 1],
 ];
-export var GetFindingsResponse: StaticStructureSchema = [
+export var GetFindingsResponse$: StaticStructureSchema = [
   3,
   n0,
   _GFRe,
@@ -9050,7 +9121,7 @@ export var GetFindingsResponse: StaticStructureSchema = [
   [_Fin, _NTe],
   [() => AwsSecurityFindingList, 0],
 ];
-export var GetFindingStatisticsV2Request: StaticStructureSchema = [
+export var GetFindingStatisticsV2Request$: StaticStructureSchema = [
   3,
   n0,
   _GFSVR,
@@ -9058,16 +9129,23 @@ export var GetFindingStatisticsV2Request: StaticStructureSchema = [
   [_GBR, _SOo, _MSR],
   [() => GroupByRules, 0, 1],
 ];
-export var GetFindingStatisticsV2Response: StaticStructureSchema = [3, n0, _GFSVRe, 0, [_GBRr], [() => GroupByResults]];
-export var GetFindingsTrendsV2Request: StaticStructureSchema = [
+export var GetFindingStatisticsV2Response$: StaticStructureSchema = [
+  3,
+  n0,
+  _GFSVRe,
+  0,
+  [_GBRr],
+  [() => GroupByResults],
+];
+export var GetFindingsTrendsV2Request$: StaticStructureSchema = [
   3,
   n0,
   _GFTVR,
   0,
   [_Filt, _STtar, _ETnd, _NTe, _MRa],
-  [() => FindingsTrendsFilters, 5, 5, 0, 1],
+  [() => FindingsTrendsFilters$, 5, 5, 0, 1],
 ];
-export var GetFindingsTrendsV2Response: StaticStructureSchema = [
+export var GetFindingsTrendsV2Response$: StaticStructureSchema = [
   3,
   n0,
   _GFTVRe,
@@ -9075,25 +9153,25 @@ export var GetFindingsTrendsV2Response: StaticStructureSchema = [
   [_Gra, _TMr, _NTe],
   [0, () => TrendsMetrics, 0],
 ];
-export var GetFindingsV2Request: StaticStructureSchema = [
+export var GetFindingsV2Request$: StaticStructureSchema = [
   3,
   n0,
   _GFVR,
   0,
   [_Filt, _SCor, _NTe, _MRa],
-  [() => OcsfFindingFilters, () => SortCriteria, 0, 1],
+  [() => OcsfFindingFilters$, () => SortCriteria, 0, 1],
 ];
-export var GetFindingsV2Response: StaticStructureSchema = [3, n0, _GFVRe, 0, [_Fin, _NTe], [64 | 15, 0]];
-export var GetInsightResultsRequest: StaticStructureSchema = [3, n0, _GIRR, 0, [_IAns], [[0, 1]]];
-export var GetInsightResultsResponse: StaticStructureSchema = [3, n0, _GIRRe, 0, [_IRn], [() => InsightResults]];
-export var GetInsightsRequest: StaticStructureSchema = [3, n0, _GIR, 0, [_IAnsi, _NTe, _MRa], [64 | 0, 0, 1]];
-export var GetInsightsResponse: StaticStructureSchema = [3, n0, _GIRe, 0, [_Insi, _NTe], [() => InsightList, 0]];
-export var GetInvitationsCountRequest: StaticStructureSchema = [3, n0, _GICR, 0, [], []];
-export var GetInvitationsCountResponse: StaticStructureSchema = [3, n0, _GICRe, 0, [_ICnv], [1]];
-export var GetMasterAccountRequest: StaticStructureSchema = [3, n0, _GMAR, 0, [], []];
-export var GetMasterAccountResponse: StaticStructureSchema = [3, n0, _GMARe, 0, [_Mas], [() => Invitation]];
-export var GetMembersRequest: StaticStructureSchema = [3, n0, _GMR, 0, [_AIcc], [64 | 0]];
-export var GetMembersResponse: StaticStructureSchema = [
+export var GetFindingsV2Response$: StaticStructureSchema = [3, n0, _GFVRe, 0, [_Fin, _NTe], [64 | 15, 0]];
+export var GetInsightResultsRequest$: StaticStructureSchema = [3, n0, _GIRR, 0, [_IAns], [[0, 1]]];
+export var GetInsightResultsResponse$: StaticStructureSchema = [3, n0, _GIRRe, 0, [_IRn], [() => InsightResults$]];
+export var GetInsightsRequest$: StaticStructureSchema = [3, n0, _GIR, 0, [_IAnsi, _NTe, _MRa], [64 | 0, 0, 1]];
+export var GetInsightsResponse$: StaticStructureSchema = [3, n0, _GIRe, 0, [_Insi, _NTe], [() => InsightList, 0]];
+export var GetInvitationsCountRequest$: StaticStructureSchema = [3, n0, _GICR, 0, [], []];
+export var GetInvitationsCountResponse$: StaticStructureSchema = [3, n0, _GICRe, 0, [_ICnv], [1]];
+export var GetMasterAccountRequest$: StaticStructureSchema = [3, n0, _GMAR, 0, [], []];
+export var GetMasterAccountResponse$: StaticStructureSchema = [3, n0, _GMARe, 0, [_Mas], [() => Invitation$]];
+export var GetMembersRequest$: StaticStructureSchema = [3, n0, _GMR, 0, [_AIcc], [64 | 0]];
+export var GetMembersResponse$: StaticStructureSchema = [
   3,
   n0,
   _GMRe,
@@ -9101,7 +9179,7 @@ export var GetMembersResponse: StaticStructureSchema = [
   [_Memb, _UAnp],
   [() => MemberList, () => ResultList],
 ];
-export var GetResourcesStatisticsV2Request: StaticStructureSchema = [
+export var GetResourcesStatisticsV2Request$: StaticStructureSchema = [
   3,
   n0,
   _GRSVR,
@@ -9109,7 +9187,7 @@ export var GetResourcesStatisticsV2Request: StaticStructureSchema = [
   [_GBR, _SOo, _MSR],
   [() => ResourceGroupByRules, 0, 1],
 ];
-export var GetResourcesStatisticsV2Response: StaticStructureSchema = [
+export var GetResourcesStatisticsV2Response$: StaticStructureSchema = [
   3,
   n0,
   _GRSVRe,
@@ -9117,15 +9195,15 @@ export var GetResourcesStatisticsV2Response: StaticStructureSchema = [
   [_GBRr],
   [() => GroupByResults],
 ];
-export var GetResourcesTrendsV2Request: StaticStructureSchema = [
+export var GetResourcesTrendsV2Request$: StaticStructureSchema = [
   3,
   n0,
   _GRTVR,
   0,
   [_Filt, _STtar, _ETnd, _NTe, _MRa],
-  [() => ResourcesTrendsFilters, 5, 5, 0, 1],
+  [() => ResourcesTrendsFilters$, 5, 5, 0, 1],
 ];
-export var GetResourcesTrendsV2Response: StaticStructureSchema = [
+export var GetResourcesTrendsV2Response$: StaticStructureSchema = [
   3,
   n0,
   _GRTVRe,
@@ -9133,16 +9211,16 @@ export var GetResourcesTrendsV2Response: StaticStructureSchema = [
   [_Gra, _TMr, _NTe],
   [0, () => ResourcesTrendsMetrics, 0],
 ];
-export var GetResourcesV2Request: StaticStructureSchema = [
+export var GetResourcesV2Request$: StaticStructureSchema = [
   3,
   n0,
   _GRVR,
   0,
   [_Filt, _SCor, _NTe, _MRa],
-  [() => ResourcesFilters, () => SortCriteria, 0, 1],
+  [() => ResourcesFilters$, () => SortCriteria, 0, 1],
 ];
-export var GetResourcesV2Response: StaticStructureSchema = [3, n0, _GRVRe, 0, [_Res, _NTe], [() => Resources, 0]];
-export var GetSecurityControlDefinitionRequest: StaticStructureSchema = [
+export var GetResourcesV2Response$: StaticStructureSchema = [3, n0, _GRVRe, 0, [_Res, _NTe], [() => Resources, 0]];
+export var GetSecurityControlDefinitionRequest$: StaticStructureSchema = [
   3,
   n0,
   _GSCDR,
@@ -9150,30 +9228,30 @@ export var GetSecurityControlDefinitionRequest: StaticStructureSchema = [
   [_SCIec],
   [[0, { [_hQ]: _SCIec }]],
 ];
-export var GetSecurityControlDefinitionResponse: StaticStructureSchema = [
+export var GetSecurityControlDefinitionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GSCDRe,
   0,
   [_SCD],
-  [() => SecurityControlDefinition],
+  [() => SecurityControlDefinition$],
 ];
-export var GroupByResult: StaticStructureSchema = [3, n0, _GBRro, 0, [_GBF, _GBV], [0, () => GroupByValues]];
-export var GroupByRule: StaticStructureSchema = [3, n0, _GBRrou, 0, [_Filt, _GBF], [() => OcsfFindingFilters, 0]];
-export var GroupByValue: StaticStructureSchema = [3, n0, _GBVr, 0, [_FV, _Cou], [0, 1]];
-export var HealthCheck: StaticStructureSchema = [3, n0, _HC, 0, [_CSonn, _M, _LCAa], [0, 0, 5]];
-export var IcmpTypeCode: StaticStructureSchema = [3, n0, _ITC, 0, [_C, _T], [1, 1]];
-export var ImportFindingsError: StaticStructureSchema = [3, n0, _IFE, 0, [_I, _ECr, _EMr], [0, 0, 0]];
-export var Indicator: StaticStructureSchema = [3, n0, _Ind, 0, [_K, _Valu, _Ti, _T], [0, 64 | 0, 0, 0]];
-export var Insight: StaticStructureSchema = [
+export var GroupByResult$: StaticStructureSchema = [3, n0, _GBRro, 0, [_GBF, _GBV], [0, () => GroupByValues]];
+export var GroupByRule$: StaticStructureSchema = [3, n0, _GBRrou, 0, [_Filt, _GBF], [() => OcsfFindingFilters$, 0]];
+export var GroupByValue$: StaticStructureSchema = [3, n0, _GBVr, 0, [_FV, _Cou], [0, 1]];
+export var HealthCheck$: StaticStructureSchema = [3, n0, _HC, 0, [_CSonn, _M, _LCAa], [0, 0, 5]];
+export var IcmpTypeCode$: StaticStructureSchema = [3, n0, _ITC, 0, [_C, _T], [1, 1]];
+export var ImportFindingsError$: StaticStructureSchema = [3, n0, _IFE, 0, [_I, _ECr, _EMr], [0, 0, 0]];
+export var Indicator$: StaticStructureSchema = [3, n0, _Ind, 0, [_K, _Valu, _Ti, _T], [0, 64 | 0, 0, 0]];
+export var Insight$: StaticStructureSchema = [
   3,
   n0,
   _Insig,
   0,
   [_IAns, _N, _Filt, _GBA],
-  [0, 0, () => AwsSecurityFindingFilters, 0],
+  [0, 0, () => AwsSecurityFindingFilters$, 0],
 ];
-export var InsightResults: StaticStructureSchema = [
+export var InsightResults$: StaticStructureSchema = [
   3,
   n0,
   _IRn,
@@ -9181,9 +9259,9 @@ export var InsightResults: StaticStructureSchema = [
   [_IAns, _GBA, _RV],
   [0, 0, () => InsightResultValueList],
 ];
-export var InsightResultValue: StaticStructureSchema = [3, n0, _IRV, 0, [_GBAV, _Cou], [0, 1]];
-export var IntegerConfigurationOptions: StaticStructureSchema = [3, n0, _ICO, 0, [_DVe, _Mi, _Max], [1, 1, 1]];
-export var IntegerListConfigurationOptions: StaticStructureSchema = [
+export var InsightResultValue$: StaticStructureSchema = [3, n0, _IRV, 0, [_GBAV, _Cou], [0, 1]];
+export var IntegerConfigurationOptions$: StaticStructureSchema = [3, n0, _ICO, 0, [_DVe, _Mi, _Max], [1, 1, 1]];
+export var IntegerListConfigurationOptions$: StaticStructureSchema = [
   3,
   n0,
   _ILCO,
@@ -9191,27 +9269,27 @@ export var IntegerListConfigurationOptions: StaticStructureSchema = [
   [_DVe, _Mi, _Max, _MIa],
   [64 | 1, 1, 1, 1],
 ];
-export var InternalException: StaticErrorSchema = [-3, n0, _IEn, { [_e]: _s, [_hE]: 500 }, [_M, _C], [0, 0]];
-TypeRegistry.for(n0).registerError(InternalException, __InternalException);
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M, _C], [0, 0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var InvalidAccessException: StaticErrorSchema = [-3, n0, _IAE, { [_e]: _c, [_hE]: 401 }, [_M, _C], [0, 0]];
-TypeRegistry.for(n0).registerError(InvalidAccessException, __InvalidAccessException);
-export var InvalidInputException: StaticErrorSchema = [-3, n0, _IIE, { [_e]: _c, [_hE]: 400 }, [_M, _C], [0, 0]];
-TypeRegistry.for(n0).registerError(InvalidInputException, __InvalidInputException);
-export var Invitation: StaticStructureSchema = [3, n0, _Inv, 0, [_AIc, _II, _IAnv, _MSemb], [0, 0, 5, 0]];
-export var InviteMembersRequest: StaticStructureSchema = [3, n0, _IMR, 0, [_AIcc], [64 | 0]];
-export var InviteMembersResponse: StaticStructureSchema = [3, n0, _IMRn, 0, [_UAnp], [() => ResultList]];
-export var IpFilter: StaticStructureSchema = [3, n0, _IFp, 0, [_Cid], [0]];
-export var IpOrganizationDetails: StaticStructureSchema = [3, n0, _IOD, 0, [_Asn, _AOs, _Isp, _Org], [1, 0, 0, 0]];
-export var Ipv6CidrBlockAssociation: StaticStructureSchema = [3, n0, _ICBA, 0, [_AIs, _ICB, _CBSi], [0, 0, 0]];
-export var JiraCloudDetail: StaticStructureSchema = [3, n0, _JCD, 0, [_CIlo, _PK, _Do, _AUut, _ASut], [0, 0, 0, 0, 0]];
-export var JiraCloudProviderConfiguration: StaticStructureSchema = [3, n0, _JCPC, 0, [_PK], [0]];
-export var JiraCloudUpdateConfiguration: StaticStructureSchema = [3, n0, _JCUC, 0, [_PK], [0]];
-export var KeywordFilter: StaticStructureSchema = [3, n0, _KF, 0, [_Val], [0]];
-export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 429 }, [_M, _C], [0, 0]];
-TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-export var ListAggregatorsV2Request: StaticStructureSchema = [
+export var InternalException$: StaticErrorSchema = [-3, n0, _IEn, { [_e]: _s, [_hE]: 500 }, [_M, _C], [0, 0]];
+TypeRegistry.for(n0).registerError(InternalException$, InternalException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M, _C], [0, 0]];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var InvalidAccessException$: StaticErrorSchema = [-3, n0, _IAE, { [_e]: _c, [_hE]: 401 }, [_M, _C], [0, 0]];
+TypeRegistry.for(n0).registerError(InvalidAccessException$, InvalidAccessException);
+export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE, { [_e]: _c, [_hE]: 400 }, [_M, _C], [0, 0]];
+TypeRegistry.for(n0).registerError(InvalidInputException$, InvalidInputException);
+export var Invitation$: StaticStructureSchema = [3, n0, _Inv, 0, [_AIc, _II, _IAnv, _MSemb], [0, 0, 5, 0]];
+export var InviteMembersRequest$: StaticStructureSchema = [3, n0, _IMR, 0, [_AIcc], [64 | 0]];
+export var InviteMembersResponse$: StaticStructureSchema = [3, n0, _IMRn, 0, [_UAnp], [() => ResultList]];
+export var IpFilter$: StaticStructureSchema = [3, n0, _IFp, 0, [_Cid], [0]];
+export var IpOrganizationDetails$: StaticStructureSchema = [3, n0, _IOD, 0, [_Asn, _AOs, _Isp, _Org], [1, 0, 0, 0]];
+export var Ipv6CidrBlockAssociation$: StaticStructureSchema = [3, n0, _ICBA, 0, [_AIs, _ICB, _CBSi], [0, 0, 0]];
+export var JiraCloudDetail$: StaticStructureSchema = [3, n0, _JCD, 0, [_CIlo, _PK, _Do, _AUut, _ASut], [0, 0, 0, 0, 0]];
+export var JiraCloudProviderConfiguration$: StaticStructureSchema = [3, n0, _JCPC, 0, [_PK], [0]];
+export var JiraCloudUpdateConfiguration$: StaticStructureSchema = [3, n0, _JCUC, 0, [_PK], [0]];
+export var KeywordFilter$: StaticStructureSchema = [3, n0, _KF, 0, [_Val], [0]];
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 429 }, [_M, _C], [0, 0]];
+TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
+export var ListAggregatorsV2Request$: StaticStructureSchema = [
   3,
   n0,
   _LAVR,
@@ -9222,7 +9300,7 @@ export var ListAggregatorsV2Request: StaticStructureSchema = [
     [1, { [_hQ]: _MRa }],
   ],
 ];
-export var ListAggregatorsV2Response: StaticStructureSchema = [
+export var ListAggregatorsV2Response$: StaticStructureSchema = [
   3,
   n0,
   _LAVRi,
@@ -9230,7 +9308,7 @@ export var ListAggregatorsV2Response: StaticStructureSchema = [
   [_AVg, _NTe],
   [() => AggregatorV2List, 0],
 ];
-export var ListAutomationRulesRequest: StaticStructureSchema = [
+export var ListAutomationRulesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LARR,
@@ -9241,7 +9319,7 @@ export var ListAutomationRulesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _MRa }],
   ],
 ];
-export var ListAutomationRulesResponse: StaticStructureSchema = [
+export var ListAutomationRulesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LARRi,
@@ -9249,7 +9327,7 @@ export var ListAutomationRulesResponse: StaticStructureSchema = [
   [_ARM, _NTe],
   [() => AutomationRulesMetadataList, 0],
 ];
-export var ListAutomationRulesV2Request: StaticStructureSchema = [
+export var ListAutomationRulesV2Request$: StaticStructureSchema = [
   3,
   n0,
   _LARVR,
@@ -9260,7 +9338,7 @@ export var ListAutomationRulesV2Request: StaticStructureSchema = [
     [1, { [_hQ]: _MRa }],
   ],
 ];
-export var ListAutomationRulesV2Response: StaticStructureSchema = [
+export var ListAutomationRulesV2Response$: StaticStructureSchema = [
   3,
   n0,
   _LARVRi,
@@ -9268,7 +9346,7 @@ export var ListAutomationRulesV2Response: StaticStructureSchema = [
   [_Rul, _NTe],
   [() => AutomationRulesMetadataListV2, 0],
 ];
-export var ListConfigurationPoliciesRequest: StaticStructureSchema = [
+export var ListConfigurationPoliciesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCPR,
@@ -9279,7 +9357,7 @@ export var ListConfigurationPoliciesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _MRa }],
   ],
 ];
-export var ListConfigurationPoliciesResponse: StaticStructureSchema = [
+export var ListConfigurationPoliciesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCPRi,
@@ -9287,15 +9365,15 @@ export var ListConfigurationPoliciesResponse: StaticStructureSchema = [
   [_CPSon, _NTe],
   [() => ConfigurationPolicySummaryList, 0],
 ];
-export var ListConfigurationPolicyAssociationsRequest: StaticStructureSchema = [
+export var ListConfigurationPolicyAssociationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCPAR,
   0,
   [_NTe, _MRa, _Filt],
-  [0, 1, () => AssociationFilters],
+  [0, 1, () => AssociationFilters$],
 ];
-export var ListConfigurationPolicyAssociationsResponse: StaticStructureSchema = [
+export var ListConfigurationPolicyAssociationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCPARi,
@@ -9303,7 +9381,7 @@ export var ListConfigurationPolicyAssociationsResponse: StaticStructureSchema = 
   [_CPASo, _NTe],
   [() => ConfigurationPolicyAssociationSummaryList, 0],
 ];
-export var ListConnectorsV2Request: StaticStructureSchema = [
+export var ListConnectorsV2Request$: StaticStructureSchema = [
   3,
   n0,
   _LCVR,
@@ -9316,7 +9394,7 @@ export var ListConnectorsV2Request: StaticStructureSchema = [
     [0, { [_hQ]: _CSonn }],
   ],
 ];
-export var ListConnectorsV2Response: StaticStructureSchema = [
+export var ListConnectorsV2Response$: StaticStructureSchema = [
   3,
   n0,
   _LCVRi,
@@ -9324,7 +9402,7 @@ export var ListConnectorsV2Response: StaticStructureSchema = [
   [_NTe, _Conn],
   [0, () => ConnectorSummaryList],
 ];
-export var ListEnabledProductsForImportRequest: StaticStructureSchema = [
+export var ListEnabledProductsForImportRequest$: StaticStructureSchema = [
   3,
   n0,
   _LEPFIR,
@@ -9335,7 +9413,7 @@ export var ListEnabledProductsForImportRequest: StaticStructureSchema = [
     [1, { [_hQ]: _MRa }],
   ],
 ];
-export var ListEnabledProductsForImportResponse: StaticStructureSchema = [
+export var ListEnabledProductsForImportResponse$: StaticStructureSchema = [
   3,
   n0,
   _LEPFIRi,
@@ -9343,7 +9421,7 @@ export var ListEnabledProductsForImportResponse: StaticStructureSchema = [
   [_PSro, _NTe],
   [64 | 0, 0],
 ];
-export var ListFindingAggregatorsRequest: StaticStructureSchema = [
+export var ListFindingAggregatorsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LFAR,
@@ -9354,7 +9432,7 @@ export var ListFindingAggregatorsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _MRa }],
   ],
 ];
-export var ListFindingAggregatorsResponse: StaticStructureSchema = [
+export var ListFindingAggregatorsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LFARi,
@@ -9362,7 +9440,7 @@ export var ListFindingAggregatorsResponse: StaticStructureSchema = [
   [_FAind, _NTe],
   [() => FindingAggregatorList, 0],
 ];
-export var ListInvitationsRequest: StaticStructureSchema = [
+export var ListInvitationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LIR,
@@ -9373,8 +9451,15 @@ export var ListInvitationsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NTe }],
   ],
 ];
-export var ListInvitationsResponse: StaticStructureSchema = [3, n0, _LIRi, 0, [_Invi, _NTe], [() => InvitationList, 0]];
-export var ListMembersRequest: StaticStructureSchema = [
+export var ListInvitationsResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _LIRi,
+  0,
+  [_Invi, _NTe],
+  [() => InvitationList, 0],
+];
+export var ListMembersRequest$: StaticStructureSchema = [
   3,
   n0,
   _LMR,
@@ -9386,8 +9471,8 @@ export var ListMembersRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NTe }],
   ],
 ];
-export var ListMembersResponse: StaticStructureSchema = [3, n0, _LMRi, 0, [_Memb, _NTe], [() => MemberList, 0]];
-export var ListOrganizationAdminAccountsRequest: StaticStructureSchema = [
+export var ListMembersResponse$: StaticStructureSchema = [3, n0, _LMRi, 0, [_Memb, _NTe], [() => MemberList, 0]];
+export var ListOrganizationAdminAccountsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LOAAR,
@@ -9399,7 +9484,7 @@ export var ListOrganizationAdminAccountsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _Fea }],
   ],
 ];
-export var ListOrganizationAdminAccountsResponse: StaticStructureSchema = [
+export var ListOrganizationAdminAccountsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LOAARi,
@@ -9407,7 +9492,7 @@ export var ListOrganizationAdminAccountsResponse: StaticStructureSchema = [
   [_AAdm, _NTe, _Fea],
   [() => AdminAccounts, 0, 0],
 ];
-export var ListSecurityControlDefinitionsRequest: StaticStructureSchema = [
+export var ListSecurityControlDefinitionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LSCDR,
@@ -9419,7 +9504,7 @@ export var ListSecurityControlDefinitionsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _MRa }],
   ],
 ];
-export var ListSecurityControlDefinitionsResponse: StaticStructureSchema = [
+export var ListSecurityControlDefinitionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LSCDRi,
@@ -9427,7 +9512,7 @@ export var ListSecurityControlDefinitionsResponse: StaticStructureSchema = [
   [_SCDe, _NTe],
   [() => SecurityControlDefinitions, 0],
 ];
-export var ListStandardsControlAssociationsRequest: StaticStructureSchema = [
+export var ListStandardsControlAssociationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LSCAR,
@@ -9439,7 +9524,7 @@ export var ListStandardsControlAssociationsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _MRa }],
   ],
 ];
-export var ListStandardsControlAssociationsResponse: StaticStructureSchema = [
+export var ListStandardsControlAssociationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LSCARi,
@@ -9447,12 +9532,12 @@ export var ListStandardsControlAssociationsResponse: StaticStructureSchema = [
   [_SCAS, _NTe],
   [() => StandardsControlAssociationSummaries, 0],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RAe], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Tags], [128 | 0]];
-export var LoadBalancerState: StaticStructureSchema = [3, n0, _LBS, 0, [_C, _R], [0, 0]];
-export var Malware: StaticStructureSchema = [3, n0, _Mal, 0, [_N, _T, _Pat, _Sta], [0, 0, 0, 0]];
-export var MapFilter: StaticStructureSchema = [3, n0, _MFa, 0, [_K, _Val, _Compa], [0, 0, 0]];
-export var Member: StaticStructureSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RAe], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Tags], [128 | 0]];
+export var LoadBalancerState$: StaticStructureSchema = [3, n0, _LBS, 0, [_C, _R], [0, 0]];
+export var Malware$: StaticStructureSchema = [3, n0, _Mal, 0, [_N, _T, _Pat, _Sta], [0, 0, 0, 0]];
+export var MapFilter$: StaticStructureSchema = [3, n0, _MFa, 0, [_K, _Val, _Compa], [0, 0, 0]];
+export var Member$: StaticStructureSchema = [
   3,
   n0,
   _Membe,
@@ -9460,50 +9545,50 @@ export var Member: StaticStructureSchema = [
   [_AIc, _E, _MI, _AI, _MSemb, _IAnv, _UA],
   [0, 0, 0, 0, 0, 5, 5],
 ];
-export var Network: StaticStructureSchema = [
+export var Network$: StaticStructureSchema = [
   3,
   n0,
   _Ne,
   0,
   [_Dir, _Prot, _OPR, _SIV, _SIVo, _SPou, _SDo, _SMo, _DIV, _DIVe, _DPes, _DDe],
-  [0, 0, () => PortRange, 0, 0, 1, 0, 0, 0, 0, 1, 0],
+  [0, 0, () => PortRange$, 0, 0, 1, 0, 0, 0, 0, 1, 0],
 ];
-export var NetworkAutonomousSystem: StaticStructureSchema = [3, n0, _NAS, 0, [_N, _Nu], [0, 1]];
-export var NetworkConnection: StaticStructureSchema = [3, n0, _NCe, 0, [_Dir], [0]];
-export var NetworkConnectionAction: StaticStructureSchema = [
+export var NetworkAutonomousSystem$: StaticStructureSchema = [3, n0, _NAS, 0, [_N, _Nu], [0, 1]];
+export var NetworkConnection$: StaticStructureSchema = [3, n0, _NCe, 0, [_Dir], [0]];
+export var NetworkConnectionAction$: StaticStructureSchema = [
   3,
   n0,
   _NCA,
   0,
   [_CDonne, _RID, _RPD, _LPD, _Prot, _Blo],
-  [0, () => ActionRemoteIpDetails, () => ActionRemotePortDetails, () => ActionLocalPortDetails, 0, 2],
+  [0, () => ActionRemoteIpDetails$, () => ActionRemotePortDetails$, () => ActionLocalPortDetails$, 0, 2],
 ];
-export var NetworkEndpoint: StaticStructureSchema = [
+export var NetworkEndpoint$: StaticStructureSchema = [
   3,
   n0,
   _NE,
   0,
   [_I, _Ip, _Do, _P, _Loc, _ASuto, _Conne],
-  [0, 0, 0, 1, () => NetworkGeoLocation, () => NetworkAutonomousSystem, () => NetworkConnection],
+  [0, 0, 0, 1, () => NetworkGeoLocation$, () => NetworkAutonomousSystem$, () => NetworkConnection$],
 ];
-export var NetworkGeoLocation: StaticStructureSchema = [3, n0, _NGL, 0, [_Ci, _Co, _Lat, _Lon], [0, 0, 1, 1]];
-export var NetworkHeader: StaticStructureSchema = [
+export var NetworkGeoLocation$: StaticStructureSchema = [3, n0, _NGL, 0, [_Ci, _Co, _Lat, _Lon], [0, 0, 1, 1]];
+export var NetworkHeader$: StaticStructureSchema = [
   3,
   n0,
   _NH,
   0,
   [_Prot, _Des, _So],
-  [0, () => NetworkPathComponentDetails, () => NetworkPathComponentDetails],
+  [0, () => NetworkPathComponentDetails$, () => NetworkPathComponentDetails$],
 ];
-export var NetworkPathComponent: StaticStructureSchema = [
+export var NetworkPathComponent$: StaticStructureSchema = [
   3,
   n0,
   _NPC,
   0,
   [_CIom, _CTomp, _Eg, _Ing],
-  [0, 0, () => NetworkHeader, () => NetworkHeader],
+  [0, 0, () => NetworkHeader$, () => NetworkHeader$],
 ];
-export var NetworkPathComponentDetails: StaticStructureSchema = [
+export var NetworkPathComponentDetails$: StaticStructureSchema = [
   3,
   n0,
   _NPCD,
@@ -9511,10 +9596,10 @@ export var NetworkPathComponentDetails: StaticStructureSchema = [
   [_Addr, _PRo],
   [64 | 0, () => PortRangeList],
 ];
-export var Note: StaticStructureSchema = [3, n0, _No, 0, [_Tex, _UBp, _UA], [0, 0, 0]];
-export var NoteUpdate: StaticStructureSchema = [3, n0, _NU, 0, [_Tex, _UBp], [0, 0]];
-export var NumberFilter: StaticStructureSchema = [3, n0, _NFu, 0, [_Gt, _Lt, _Eq, _Gt_, _Lt_], [1, 1, 1, 1, 1]];
-export var Occurrences: StaticStructureSchema = [
+export var Note$: StaticStructureSchema = [3, n0, _No, 0, [_Tex, _UBp, _UA], [0, 0, 0]];
+export var NoteUpdate$: StaticStructureSchema = [3, n0, _NU, 0, [_Tex, _UBp], [0, 0]];
+export var NumberFilter$: StaticStructureSchema = [3, n0, _NFu, 0, [_Gt, _Lt, _Eq, _Gt_, _Lt_], [1, 1, 1, 1, 1]];
+export var Occurrences$: StaticStructureSchema = [
   3,
   n0,
   _Oc,
@@ -9522,19 +9607,26 @@ export var Occurrences: StaticStructureSchema = [
   [_LRi, _OR, _Pag, _Rec, _Cell],
   [() => Ranges, () => Ranges, () => Pages, () => Records, () => Cells],
 ];
-export var OcsfBooleanFilter: StaticStructureSchema = [3, n0, _OBF, 0, [_FNie, _Fil], [0, () => BooleanFilter]];
-export var OcsfDateFilter: StaticStructureSchema = [3, n0, _ODF, 0, [_FNie, _Fil], [0, () => DateFilter]];
-export var OcsfFindingFilters: StaticStructureSchema = [3, n0, _OFF, 0, [_CFo, _COo], [() => CompositeFilterList, 0]];
-export var OcsfFindingIdentifier: StaticStructureSchema = [3, n0, _OFI, 0, [_CAU, _FIU, _MPU], [0, 0, 0]];
-export var OcsfIpFilter: StaticStructureSchema = [3, n0, _OIF, 0, [_FNie, _Fil], [0, () => IpFilter]];
-export var OcsfMapFilter: StaticStructureSchema = [3, n0, _OMF, 0, [_FNie, _Fil], [0, () => MapFilter]];
-export var OcsfNumberFilter: StaticStructureSchema = [3, n0, _ONF, 0, [_FNie, _Fil], [0, () => NumberFilter]];
-export var OcsfStringFilter: StaticStructureSchema = [3, n0, _OSF, 0, [_FNie, _Fil], [0, () => StringFilter]];
-export var OrganizationConfiguration: StaticStructureSchema = [3, n0, _OC, 0, [_CTon, _St, _SM], [0, 0, 0]];
-export var Page: StaticStructureSchema = [3, n0, _Page, 0, [_PNag, _LRin, _ORf], [1, () => Range, () => Range]];
-export var ParameterConfiguration: StaticStructureSchema = [3, n0, _PCa, 0, [_VTa, _Val], [0, () => ParameterValue]];
-export var ParameterDefinition: StaticStructureSchema = [3, n0, _PDa, 0, [_D, _COon], [0, () => ConfigurationOptions]];
-export var PatchSummary: StaticStructureSchema = [
+export var OcsfBooleanFilter$: StaticStructureSchema = [3, n0, _OBF, 0, [_FNie, _Fil], [0, () => BooleanFilter$]];
+export var OcsfDateFilter$: StaticStructureSchema = [3, n0, _ODF, 0, [_FNie, _Fil], [0, () => DateFilter$]];
+export var OcsfFindingFilters$: StaticStructureSchema = [3, n0, _OFF, 0, [_CFo, _COo], [() => CompositeFilterList, 0]];
+export var OcsfFindingIdentifier$: StaticStructureSchema = [3, n0, _OFI, 0, [_CAU, _FIU, _MPU], [0, 0, 0]];
+export var OcsfIpFilter$: StaticStructureSchema = [3, n0, _OIF, 0, [_FNie, _Fil], [0, () => IpFilter$]];
+export var OcsfMapFilter$: StaticStructureSchema = [3, n0, _OMF, 0, [_FNie, _Fil], [0, () => MapFilter$]];
+export var OcsfNumberFilter$: StaticStructureSchema = [3, n0, _ONF, 0, [_FNie, _Fil], [0, () => NumberFilter$]];
+export var OcsfStringFilter$: StaticStructureSchema = [3, n0, _OSF, 0, [_FNie, _Fil], [0, () => StringFilter$]];
+export var OrganizationConfiguration$: StaticStructureSchema = [3, n0, _OC, 0, [_CTon, _St, _SM], [0, 0, 0]];
+export var Page$: StaticStructureSchema = [3, n0, _Page, 0, [_PNag, _LRin, _ORf], [1, () => Range$, () => Range$]];
+export var ParameterConfiguration$: StaticStructureSchema = [3, n0, _PCa, 0, [_VTa, _Val], [0, () => ParameterValue$]];
+export var ParameterDefinition$: StaticStructureSchema = [
+  3,
+  n0,
+  _PDa,
+  0,
+  [_D, _COon],
+  [0, () => ConfigurationOptions$],
+];
+export var PatchSummary$: StaticStructureSchema = [
   3,
   n0,
   _PSa,
@@ -9542,18 +9634,18 @@ export var PatchSummary: StaticStructureSchema = [
   [_I, _ICns, _MC, _FCai, _IOC, _IRC, _IPR, _OST, _OET, _ROeb, _Opera],
   [0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0],
 ];
-export var PortProbeAction: StaticStructureSchema = [3, n0, _PPA, 0, [_PPD, _Blo], [() => PortProbeDetailList, 2]];
-export var PortProbeDetail: StaticStructureSchema = [
+export var PortProbeAction$: StaticStructureSchema = [3, n0, _PPA, 0, [_PPD, _Blo], [() => PortProbeDetailList, 2]];
+export var PortProbeDetail$: StaticStructureSchema = [
   3,
   n0,
   _PPDo,
   0,
   [_LPD, _LID, _RID],
-  [() => ActionLocalPortDetails, () => ActionLocalIpDetails, () => ActionRemoteIpDetails],
+  [() => ActionLocalPortDetails$, () => ActionLocalIpDetails$, () => ActionRemoteIpDetails$],
 ];
-export var PortRange: StaticStructureSchema = [3, n0, _PR, 0, [_Be, _End_], [1, 1]];
-export var PortRangeFromTo: StaticStructureSchema = [3, n0, _PRFT, 0, [_Fr, _To], [1, 1]];
-export var ProcessDetails: StaticStructureSchema = [
+export var PortRange$: StaticStructureSchema = [3, n0, _PR, 0, [_Be, _End_], [1, 1]];
+export var PortRangeFromTo$: StaticStructureSchema = [3, n0, _PRFT, 0, [_Fr, _To], [1, 1]];
+export var ProcessDetails$: StaticStructureSchema = [
   3,
   n0,
   _PDr,
@@ -9561,7 +9653,7 @@ export var ProcessDetails: StaticStructureSchema = [
   [_N, _Pat, _Pi, _PPa, _LA, _TAe],
   [0, 0, 1, 1, 0, 0],
 ];
-export var Product: StaticStructureSchema = [
+export var Product$: StaticStructureSchema = [
   3,
   n0,
   _Produ,
@@ -9569,7 +9661,7 @@ export var Product: StaticStructureSchema = [
   [_PA, _PNr, _CN, _D, _Cate, _ITnte, _MUa, _AUc, _PSRP],
   [0, 0, 0, 0, 64 | 0, 64 | 0, 0, 0, 0],
 ];
-export var ProductV2: StaticStructureSchema = [
+export var ProductV2$: StaticStructureSchema = [
   3,
   n0,
   _PVro,
@@ -9577,26 +9669,26 @@ export var ProductV2: StaticStructureSchema = [
   [_PVN, _CN, _D, _Cate, _IVT, _MUa, _AUc],
   [0, 0, 0, 64 | 0, 64 | 0, 0, 0],
 ];
-export var PropagatingVgwSetDetails: StaticStructureSchema = [3, n0, _PVSD, 0, [_GI], [0]];
-export var ProviderSummary: StaticStructureSchema = [3, n0, _PSr, 0, [_PNrov, _CSonn], [0, 0]];
-export var Range: StaticStructureSchema = [3, n0, _Ra, 0, [_Star, _End_, _SCta], [1, 1, 1]];
-export var Recommendation: StaticStructureSchema = [3, n0, _Reco, 0, [_Tex, _Ur], [0, 0]];
-export var _Record: StaticStructureSchema = [3, n0, _Recor, 0, [_JP, _RIec], [0, 1]];
-export var RegisterConnectorV2Request: StaticStructureSchema = [3, n0, _RCVR, 0, [_ACut, _ASuth], [0, 0]];
-export var RegisterConnectorV2Response: StaticStructureSchema = [3, n0, _RCVRe, 0, [_CAon, _CIo], [0, 0]];
-export var RelatedFinding: StaticStructureSchema = [3, n0, _RFe, 0, [_PA, _I], [0, 0]];
-export var Remediation: StaticStructureSchema = [3, n0, _Rem, 0, [_Reco], [() => Recommendation]];
-export var Resource: StaticStructureSchema = [
+export var PropagatingVgwSetDetails$: StaticStructureSchema = [3, n0, _PVSD, 0, [_GI], [0]];
+export var ProviderSummary$: StaticStructureSchema = [3, n0, _PSr, 0, [_PNrov, _CSonn], [0, 0]];
+export var Range$: StaticStructureSchema = [3, n0, _Ra, 0, [_Star, _End_, _SCta], [1, 1, 1]];
+export var Recommendation$: StaticStructureSchema = [3, n0, _Reco, 0, [_Tex, _Ur], [0, 0]];
+export var _Record$: StaticStructureSchema = [3, n0, _Recor, 0, [_JP, _RIec], [0, 1]];
+export var RegisterConnectorV2Request$: StaticStructureSchema = [3, n0, _RCVR, 0, [_ACut, _ASuth], [0, 0]];
+export var RegisterConnectorV2Response$: StaticStructureSchema = [3, n0, _RCVRe, 0, [_CAon, _CIo], [0, 0]];
+export var RelatedFinding$: StaticStructureSchema = [3, n0, _RFe, 0, [_PA, _I], [0, 0]];
+export var Remediation$: StaticStructureSchema = [3, n0, _Rem, 0, [_Reco], [() => Recommendation$]];
+export var Resource$: StaticStructureSchema = [
   3,
   n0,
   _Reso,
   0,
   [_T, _I, _Par, _Reg, _RReso, _Tags, _DCat, _Deta, _ANp, _AAp],
-  [0, 0, 0, 0, 0, 128 | 0, () => DataClassificationDetails, () => ResourceDetails, 0, 0],
+  [0, 0, 0, 0, 0, 128 | 0, () => DataClassificationDetails$, () => ResourceDetails$, 0, 0],
 ];
-export var ResourceConflictException: StaticErrorSchema = [-3, n0, _RCE, { [_e]: _c, [_hE]: 409 }, [_M, _C], [0, 0]];
-TypeRegistry.for(n0).registerError(ResourceConflictException, __ResourceConflictException);
-export var ResourceDetails: StaticStructureSchema = [
+export var ResourceConflictException$: StaticErrorSchema = [-3, n0, _RCE, { [_e]: _c, [_hE]: 409 }, [_M, _C], [0, 0]];
+TypeRegistry.for(n0).registerError(ResourceConflictException$, ResourceConflictException);
+export var ResourceDetails$: StaticStructureSchema = [
   3,
   n0,
   _RDe,
@@ -9704,122 +9796,122 @@ export var ResourceDetails: StaticStructureSchema = [
     _CRod,
   ],
   [
-    () => AwsAutoScalingAutoScalingGroupDetails,
-    () => AwsCodeBuildProjectDetails,
-    () => AwsCloudFrontDistributionDetails,
-    () => AwsEc2InstanceDetails,
-    () => AwsEc2NetworkInterfaceDetails,
-    () => AwsEc2SecurityGroupDetails,
-    () => AwsEc2VolumeDetails,
-    () => AwsEc2VpcDetails,
-    () => AwsEc2EipDetails,
-    () => AwsEc2SubnetDetails,
-    () => AwsEc2NetworkAclDetails,
-    () => AwsElbv2LoadBalancerDetails,
-    () => AwsElasticBeanstalkEnvironmentDetails,
-    () => AwsElasticsearchDomainDetails,
-    () => AwsS3BucketDetails,
-    () => AwsS3AccountPublicAccessBlockDetails,
-    () => AwsS3ObjectDetails,
-    () => AwsSecretsManagerSecretDetails,
-    () => AwsIamAccessKeyDetails,
-    () => AwsIamUserDetails,
-    () => AwsIamPolicyDetails,
-    () => AwsApiGatewayV2StageDetails,
-    () => AwsApiGatewayV2ApiDetails,
-    () => AwsDynamoDbTableDetails,
-    () => AwsApiGatewayStageDetails,
-    () => AwsApiGatewayRestApiDetails,
-    () => AwsCloudTrailTrailDetails,
-    () => AwsSsmPatchComplianceDetails,
-    () => AwsCertificateManagerCertificateDetails,
-    () => AwsRedshiftClusterDetails,
-    () => AwsElbLoadBalancerDetails,
-    () => AwsIamGroupDetails,
-    () => AwsIamRoleDetails,
-    () => AwsKmsKeyDetails,
-    () => AwsLambdaFunctionDetails,
-    () => AwsLambdaLayerVersionDetails,
-    () => AwsRdsDbInstanceDetails,
-    () => AwsSnsTopicDetails,
-    () => AwsSqsQueueDetails,
-    () => AwsWafWebAclDetails,
-    () => AwsRdsDbSnapshotDetails,
-    () => AwsRdsDbClusterSnapshotDetails,
-    () => AwsRdsDbClusterDetails,
-    () => AwsEcsClusterDetails,
-    () => AwsEcsContainerDetails,
-    () => AwsEcsTaskDefinitionDetails,
-    () => ContainerDetails,
+    () => AwsAutoScalingAutoScalingGroupDetails$,
+    () => AwsCodeBuildProjectDetails$,
+    () => AwsCloudFrontDistributionDetails$,
+    () => AwsEc2InstanceDetails$,
+    () => AwsEc2NetworkInterfaceDetails$,
+    () => AwsEc2SecurityGroupDetails$,
+    () => AwsEc2VolumeDetails$,
+    () => AwsEc2VpcDetails$,
+    () => AwsEc2EipDetails$,
+    () => AwsEc2SubnetDetails$,
+    () => AwsEc2NetworkAclDetails$,
+    () => AwsElbv2LoadBalancerDetails$,
+    () => AwsElasticBeanstalkEnvironmentDetails$,
+    () => AwsElasticsearchDomainDetails$,
+    () => AwsS3BucketDetails$,
+    () => AwsS3AccountPublicAccessBlockDetails$,
+    () => AwsS3ObjectDetails$,
+    () => AwsSecretsManagerSecretDetails$,
+    () => AwsIamAccessKeyDetails$,
+    () => AwsIamUserDetails$,
+    () => AwsIamPolicyDetails$,
+    () => AwsApiGatewayV2StageDetails$,
+    () => AwsApiGatewayV2ApiDetails$,
+    () => AwsDynamoDbTableDetails$,
+    () => AwsApiGatewayStageDetails$,
+    () => AwsApiGatewayRestApiDetails$,
+    () => AwsCloudTrailTrailDetails$,
+    () => AwsSsmPatchComplianceDetails$,
+    () => AwsCertificateManagerCertificateDetails$,
+    () => AwsRedshiftClusterDetails$,
+    () => AwsElbLoadBalancerDetails$,
+    () => AwsIamGroupDetails$,
+    () => AwsIamRoleDetails$,
+    () => AwsKmsKeyDetails$,
+    () => AwsLambdaFunctionDetails$,
+    () => AwsLambdaLayerVersionDetails$,
+    () => AwsRdsDbInstanceDetails$,
+    () => AwsSnsTopicDetails$,
+    () => AwsSqsQueueDetails$,
+    () => AwsWafWebAclDetails$,
+    () => AwsRdsDbSnapshotDetails$,
+    () => AwsRdsDbClusterSnapshotDetails$,
+    () => AwsRdsDbClusterDetails$,
+    () => AwsEcsClusterDetails$,
+    () => AwsEcsContainerDetails$,
+    () => AwsEcsTaskDefinitionDetails$,
+    () => ContainerDetails$,
     128 | 0,
-    () => AwsRdsEventSubscriptionDetails,
-    () => AwsEcsServiceDetails,
-    () => AwsAutoScalingLaunchConfigurationDetails,
-    () => AwsEc2VpnConnectionDetails,
-    () => AwsEcrContainerImageDetails,
-    () => AwsOpenSearchServiceDomainDetails,
-    () => AwsEc2VpcEndpointServiceDetails,
-    () => AwsXrayEncryptionConfigDetails,
-    () => AwsWafRateBasedRuleDetails,
-    () => AwsWafRegionalRateBasedRuleDetails,
-    () => AwsEcrRepositoryDetails,
-    () => AwsEksClusterDetails,
-    () => AwsNetworkFirewallFirewallPolicyDetails,
-    () => AwsNetworkFirewallFirewallDetails,
-    () => AwsNetworkFirewallRuleGroupDetails,
-    () => AwsRdsDbSecurityGroupDetails,
-    () => AwsKinesisStreamDetails,
-    () => AwsEc2TransitGatewayDetails,
-    () => AwsEfsAccessPointDetails,
-    () => AwsCloudFormationStackDetails,
-    () => AwsCloudWatchAlarmDetails,
-    () => AwsEc2VpcPeeringConnectionDetails,
-    () => AwsWafRegionalRuleGroupDetails,
-    () => AwsWafRegionalRuleDetails,
-    () => AwsWafRegionalWebAclDetails,
-    () => AwsWafRuleDetails,
-    () => AwsWafRuleGroupDetails,
-    () => AwsEcsTaskDetails,
-    () => AwsBackupBackupVaultDetails,
-    () => AwsBackupBackupPlanDetails,
-    () => AwsBackupRecoveryPointDetails,
-    () => AwsEc2LaunchTemplateDetails,
-    () => AwsSageMakerNotebookInstanceDetails,
-    () => AwsWafv2WebAclDetails,
-    () => AwsWafv2RuleGroupDetails,
-    () => AwsEc2RouteTableDetails,
-    () => AwsAmazonMqBrokerDetails,
-    () => AwsAppSyncGraphQlApiDetails,
-    () => AwsEventSchemasRegistryDetails,
-    () => AwsGuardDutyDetectorDetails,
-    () => AwsStepFunctionStateMachineDetails,
-    () => AwsAthenaWorkGroupDetails,
-    () => AwsEventsEventbusDetails,
-    () => AwsDmsEndpointDetails,
-    () => AwsEventsEndpointDetails,
-    () => AwsDmsReplicationTaskDetails,
-    () => AwsDmsReplicationInstanceDetails,
-    () => AwsRoute53HostedZoneDetails,
-    () => AwsMskClusterDetails,
-    () => AwsS3AccessPointDetails,
-    () => AwsEc2ClientVpnEndpointDetails,
-    () => CodeRepositoryDetails,
+    () => AwsRdsEventSubscriptionDetails$,
+    () => AwsEcsServiceDetails$,
+    () => AwsAutoScalingLaunchConfigurationDetails$,
+    () => AwsEc2VpnConnectionDetails$,
+    () => AwsEcrContainerImageDetails$,
+    () => AwsOpenSearchServiceDomainDetails$,
+    () => AwsEc2VpcEndpointServiceDetails$,
+    () => AwsXrayEncryptionConfigDetails$,
+    () => AwsWafRateBasedRuleDetails$,
+    () => AwsWafRegionalRateBasedRuleDetails$,
+    () => AwsEcrRepositoryDetails$,
+    () => AwsEksClusterDetails$,
+    () => AwsNetworkFirewallFirewallPolicyDetails$,
+    () => AwsNetworkFirewallFirewallDetails$,
+    () => AwsNetworkFirewallRuleGroupDetails$,
+    () => AwsRdsDbSecurityGroupDetails$,
+    () => AwsKinesisStreamDetails$,
+    () => AwsEc2TransitGatewayDetails$,
+    () => AwsEfsAccessPointDetails$,
+    () => AwsCloudFormationStackDetails$,
+    () => AwsCloudWatchAlarmDetails$,
+    () => AwsEc2VpcPeeringConnectionDetails$,
+    () => AwsWafRegionalRuleGroupDetails$,
+    () => AwsWafRegionalRuleDetails$,
+    () => AwsWafRegionalWebAclDetails$,
+    () => AwsWafRuleDetails$,
+    () => AwsWafRuleGroupDetails$,
+    () => AwsEcsTaskDetails$,
+    () => AwsBackupBackupVaultDetails$,
+    () => AwsBackupBackupPlanDetails$,
+    () => AwsBackupRecoveryPointDetails$,
+    () => AwsEc2LaunchTemplateDetails$,
+    () => AwsSageMakerNotebookInstanceDetails$,
+    () => AwsWafv2WebAclDetails$,
+    () => AwsWafv2RuleGroupDetails$,
+    () => AwsEc2RouteTableDetails$,
+    () => AwsAmazonMqBrokerDetails$,
+    () => AwsAppSyncGraphQlApiDetails$,
+    () => AwsEventSchemasRegistryDetails$,
+    () => AwsGuardDutyDetectorDetails$,
+    () => AwsStepFunctionStateMachineDetails$,
+    () => AwsAthenaWorkGroupDetails$,
+    () => AwsEventsEventbusDetails$,
+    () => AwsDmsEndpointDetails$,
+    () => AwsEventsEndpointDetails$,
+    () => AwsDmsReplicationTaskDetails$,
+    () => AwsDmsReplicationInstanceDetails$,
+    () => AwsRoute53HostedZoneDetails$,
+    () => AwsMskClusterDetails$,
+    () => AwsS3AccessPointDetails$,
+    () => AwsEc2ClientVpnEndpointDetails$,
+    () => CodeRepositoryDetails$,
   ],
 ];
-export var ResourceFindingsSummary: StaticStructureSchema = [
+export var ResourceFindingsSummary$: StaticStructureSchema = [
   3,
   n0,
   _RFS,
   0,
   [_FT, _PNr, _TF, _Sev],
-  [0, 0, 1, () => ResourceSeverityBreakdown],
+  [0, 0, 1, () => ResourceSeverityBreakdown$],
 ];
-export var ResourceGroupByRule: StaticStructureSchema = [3, n0, _RGBR, 0, [_GBF, _Filt], [0, () => ResourcesFilters]];
-export var ResourceInUseException: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _c, [_hE]: 400 }, [_M, _C], [0, 0]];
-TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M, _C], [0, 0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ResourceResult: StaticStructureSchema = [
+export var ResourceGroupByRule$: StaticStructureSchema = [3, n0, _RGBR, 0, [_GBF, _Filt], [0, () => ResourcesFilters$]];
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _c, [_hE]: 400 }, [_M, _C], [0, 0]];
+TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M, _C], [0, 0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourceResult$: StaticStructureSchema = [
   3,
   n0,
   _RResou,
@@ -9827,7 +9919,7 @@ export var ResourceResult: StaticStructureSchema = [
   [_RGe, _RI, _AIc, _Reg, _RCeso, _RT, _RNes, _RCTD, _RDCTD, _FSi, _RTe, _RCesou],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, () => ResourceFindingsSummaryList, () => ResourceTagList, 15],
 ];
-export var ResourcesCompositeFilter: StaticStructureSchema = [
+export var ResourcesCompositeFilter$: StaticStructureSchema = [
   3,
   n0,
   _RCF,
@@ -9842,9 +9934,9 @@ export var ResourcesCompositeFilter: StaticStructureSchema = [
     0,
   ],
 ];
-export var ResourcesCount: StaticStructureSchema = [3, n0, _RCesour, 0, [_ARl], [1]];
-export var ResourcesDateFilter: StaticStructureSchema = [3, n0, _RDF, 0, [_FNie, _Fil], [0, () => DateFilter]];
-export var ResourceSeverityBreakdown: StaticStructureSchema = [
+export var ResourcesCount$: StaticStructureSchema = [3, n0, _RCesour, 0, [_ARl], [1]];
+export var ResourcesDateFilter$: StaticStructureSchema = [3, n0, _RDF, 0, [_FNie, _Fil], [0, () => DateFilter$]];
+export var ResourceSeverityBreakdown$: StaticStructureSchema = [
   3,
   n0,
   _RSB,
@@ -9852,7 +9944,7 @@ export var ResourceSeverityBreakdown: StaticStructureSchema = [
   [_Ot, _Fat, _Crit, _Hi, _Med, _Low, _Inf, _Unk],
   [1, 1, 1, 1, 1, 1, 1, 1],
 ];
-export var ResourcesFilters: StaticStructureSchema = [
+export var ResourcesFilters$: StaticStructureSchema = [
   3,
   n0,
   _RFes,
@@ -9860,10 +9952,10 @@ export var ResourcesFilters: StaticStructureSchema = [
   [_CFo, _COo],
   [() => ResourcesCompositeFilterList, 0],
 ];
-export var ResourcesMapFilter: StaticStructureSchema = [3, n0, _RMF, 0, [_FNie, _Fil], [0, () => MapFilter]];
-export var ResourcesNumberFilter: StaticStructureSchema = [3, n0, _RNF, 0, [_FNie, _Fil], [0, () => NumberFilter]];
-export var ResourcesStringFilter: StaticStructureSchema = [3, n0, _RSF, 0, [_FNie, _Fil], [0, () => StringFilter]];
-export var ResourcesTrendsCompositeFilter: StaticStructureSchema = [
+export var ResourcesMapFilter$: StaticStructureSchema = [3, n0, _RMF, 0, [_FNie, _Fil], [0, () => MapFilter$]];
+export var ResourcesNumberFilter$: StaticStructureSchema = [3, n0, _RNF, 0, [_FNie, _Fil], [0, () => NumberFilter$]];
+export var ResourcesStringFilter$: StaticStructureSchema = [3, n0, _RSF, 0, [_FNie, _Fil], [0, () => StringFilter$]];
+export var ResourcesTrendsCompositeFilter$: StaticStructureSchema = [
   3,
   n0,
   _RTCF,
@@ -9871,7 +9963,7 @@ export var ResourcesTrendsCompositeFilter: StaticStructureSchema = [
   [_SF, _NCF, _Oper],
   [() => ResourcesTrendsStringFilterList, () => ResourcesTrendsCompositeFilterList, 0],
 ];
-export var ResourcesTrendsFilters: StaticStructureSchema = [
+export var ResourcesTrendsFilters$: StaticStructureSchema = [
   3,
   n0,
   _RTF,
@@ -9879,26 +9971,26 @@ export var ResourcesTrendsFilters: StaticStructureSchema = [
   [_CFo, _COo],
   [() => ResourcesTrendsCompositeFilterList, 0],
 ];
-export var ResourcesTrendsMetricsResult: StaticStructureSchema = [
+export var ResourcesTrendsMetricsResult$: StaticStructureSchema = [
   3,
   n0,
   _RTMR,
   0,
   [_Times, _TV],
-  [5, () => ResourcesTrendsValues],
+  [5, () => ResourcesTrendsValues$],
 ];
-export var ResourcesTrendsStringFilter: StaticStructureSchema = [
+export var ResourcesTrendsStringFilter$: StaticStructureSchema = [
   3,
   n0,
   _RTSF,
   0,
   [_FNie, _Fil],
-  [0, () => StringFilter],
+  [0, () => StringFilter$],
 ];
-export var ResourcesTrendsValues: StaticStructureSchema = [3, n0, _RTV, 0, [_RCesour], [() => ResourcesCount]];
-export var ResourceTag: StaticStructureSchema = [3, n0, _RTeso, 0, [_K, _Val], [0, 0]];
-export var Result: StaticStructureSchema = [3, n0, _Resu, 0, [_AIc, _PRr], [0, 0]];
-export var RouteSetDetails: StaticStructureSchema = [
+export var ResourcesTrendsValues$: StaticStructureSchema = [3, n0, _RTV, 0, [_RCesour], [() => ResourcesCount$]];
+export var ResourceTag$: StaticStructureSchema = [3, n0, _RTeso, 0, [_K, _Val], [0, 0]];
+export var Result$: StaticStructureSchema = [3, n0, _Resu, 0, [_AIc, _PRr], [0, 0]];
+export var RouteSetDetails$: StaticStructureSchema = [
   3,
   n0,
   _RSDo,
@@ -9906,36 +9998,36 @@ export var RouteSetDetails: StaticStructureSchema = [
   [_CGIa, _CNA, _DCBe, _DICB, _DPLI, _EOIGI, _GI, _IIn, _IOI, _LGI, _NGI, _NII, _Ori, _Sta, _TGI, _VPCI],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var RuleGroupDetails: StaticStructureSchema = [
+export var RuleGroupDetails$: StaticStructureSchema = [
   3,
   n0,
   _RGD,
   0,
   [_RVu, _RSu],
-  [() => RuleGroupVariables, () => RuleGroupSource],
+  [() => RuleGroupVariables$, () => RuleGroupSource$],
 ];
-export var RuleGroupSource: StaticStructureSchema = [
+export var RuleGroupSource$: StaticStructureSchema = [
   3,
   n0,
   _RGS,
   0,
   [_RSL, _RSul, _SRtat, _SRACA],
   [
-    () => RuleGroupSourceListDetails,
+    () => RuleGroupSourceListDetails$,
     0,
     () => RuleGroupSourceStatefulRulesList,
-    () => RuleGroupSourceStatelessRulesAndCustomActionsDetails,
+    () => RuleGroupSourceStatelessRulesAndCustomActionsDetails$,
   ],
 ];
-export var RuleGroupSourceCustomActionsDetails: StaticStructureSchema = [
+export var RuleGroupSourceCustomActionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _RGSCAD,
   0,
   [_ADct, _ANct],
-  [() => StatelessCustomActionDefinition, 0],
+  [() => StatelessCustomActionDefinition$, 0],
 ];
-export var RuleGroupSourceListDetails: StaticStructureSchema = [
+export var RuleGroupSourceListDetails$: StaticStructureSchema = [
   3,
   n0,
   _RGSLD,
@@ -9943,15 +10035,15 @@ export var RuleGroupSourceListDetails: StaticStructureSchema = [
   [_GRT, _TTa, _Tar],
   [0, 64 | 0, 64 | 0],
 ];
-export var RuleGroupSourceStatefulRulesDetails: StaticStructureSchema = [
+export var RuleGroupSourceStatefulRulesDetails$: StaticStructureSchema = [
   3,
   n0,
   _RGSSRD,
   0,
   [_A, _Hea, _ROu],
-  [0, () => RuleGroupSourceStatefulRulesHeaderDetails, () => RuleGroupSourceStatefulRulesOptionsList],
+  [0, () => RuleGroupSourceStatefulRulesHeaderDetails$, () => RuleGroupSourceStatefulRulesOptionsList],
 ];
-export var RuleGroupSourceStatefulRulesHeaderDetails: StaticStructureSchema = [
+export var RuleGroupSourceStatefulRulesHeaderDetails$: StaticStructureSchema = [
   3,
   n0,
   _RGSSRHD,
@@ -9959,7 +10051,7 @@ export var RuleGroupSourceStatefulRulesHeaderDetails: StaticStructureSchema = [
   [_Des, _DPes, _Dir, _Prot, _So, _SPou],
   [0, 0, 0, 0, 0, 0],
 ];
-export var RuleGroupSourceStatefulRulesOptionsDetails: StaticStructureSchema = [
+export var RuleGroupSourceStatefulRulesOptionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _RGSSROD,
@@ -9967,15 +10059,15 @@ export var RuleGroupSourceStatefulRulesOptionsDetails: StaticStructureSchema = [
   [_Ke, _Set],
   [0, 64 | 0],
 ];
-export var RuleGroupSourceStatelessRuleDefinition: StaticStructureSchema = [
+export var RuleGroupSourceStatelessRuleDefinition$: StaticStructureSchema = [
   3,
   n0,
   _RGSSRDu,
   0,
   [_Act, _MAat],
-  [64 | 0, () => RuleGroupSourceStatelessRuleMatchAttributes],
+  [64 | 0, () => RuleGroupSourceStatelessRuleMatchAttributes$],
 ];
-export var RuleGroupSourceStatelessRuleMatchAttributes: StaticStructureSchema = [
+export var RuleGroupSourceStatelessRuleMatchAttributes$: StaticStructureSchema = [
   3,
   n0,
   _RGSSRMA,
@@ -9990,7 +10082,7 @@ export var RuleGroupSourceStatelessRuleMatchAttributes: StaticStructureSchema = 
     () => RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsList,
   ],
 ];
-export var RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts: StaticStructureSchema = [
+export var RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts$: StaticStructureSchema = [
   3,
   n0,
   _RGSSRMADP,
@@ -9998,7 +10090,7 @@ export var RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts: StaticSt
   [_FP, _TPo],
   [1, 1],
 ];
-export var RuleGroupSourceStatelessRuleMatchAttributesDestinations: StaticStructureSchema = [
+export var RuleGroupSourceStatelessRuleMatchAttributesDestinations$: StaticStructureSchema = [
   3,
   n0,
   _RGSSRMAD,
@@ -10006,7 +10098,7 @@ export var RuleGroupSourceStatelessRuleMatchAttributesDestinations: StaticStruct
   [_ADd],
   [0],
 ];
-export var RuleGroupSourceStatelessRuleMatchAttributesSourcePorts: StaticStructureSchema = [
+export var RuleGroupSourceStatelessRuleMatchAttributesSourcePorts$: StaticStructureSchema = [
   3,
   n0,
   _RGSSRMASP,
@@ -10014,7 +10106,7 @@ export var RuleGroupSourceStatelessRuleMatchAttributesSourcePorts: StaticStructu
   [_FP, _TPo],
   [1, 1],
 ];
-export var RuleGroupSourceStatelessRuleMatchAttributesSources: StaticStructureSchema = [
+export var RuleGroupSourceStatelessRuleMatchAttributesSources$: StaticStructureSchema = [
   3,
   n0,
   _RGSSRMAS,
@@ -10022,7 +10114,7 @@ export var RuleGroupSourceStatelessRuleMatchAttributesSources: StaticStructureSc
   [_ADd],
   [0],
 ];
-export var RuleGroupSourceStatelessRuleMatchAttributesTcpFlags: StaticStructureSchema = [
+export var RuleGroupSourceStatelessRuleMatchAttributesTcpFlags$: StaticStructureSchema = [
   3,
   n0,
   _RGSSRMATF,
@@ -10030,7 +10122,7 @@ export var RuleGroupSourceStatelessRuleMatchAttributesTcpFlags: StaticStructureS
   [_Fl, _Mask],
   [64 | 0, 64 | 0],
 ];
-export var RuleGroupSourceStatelessRulesAndCustomActionsDetails: StaticStructureSchema = [
+export var RuleGroupSourceStatelessRulesAndCustomActionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _RGSSRACAD,
@@ -10038,25 +10130,25 @@ export var RuleGroupSourceStatelessRulesAndCustomActionsDetails: StaticStructure
   [_CAu, _SRtate],
   [() => RuleGroupSourceCustomActionsList, () => RuleGroupSourceStatelessRulesList],
 ];
-export var RuleGroupSourceStatelessRulesDetails: StaticStructureSchema = [
+export var RuleGroupSourceStatelessRulesDetails$: StaticStructureSchema = [
   3,
   n0,
   _RGSSRDul,
   0,
   [_Prio, _RDu],
-  [1, () => RuleGroupSourceStatelessRuleDefinition],
+  [1, () => RuleGroupSourceStatelessRuleDefinition$],
 ];
-export var RuleGroupVariables: StaticStructureSchema = [
+export var RuleGroupVariables$: StaticStructureSchema = [
   3,
   n0,
   _RGV,
   0,
   [_ISp, _PSo],
-  [() => RuleGroupVariablesIpSetsDetails, () => RuleGroupVariablesPortSetsDetails],
+  [() => RuleGroupVariablesIpSetsDetails$, () => RuleGroupVariablesPortSetsDetails$],
 ];
-export var RuleGroupVariablesIpSetsDetails: StaticStructureSchema = [3, n0, _RGVISD, 0, [_Def], [64 | 0]];
-export var RuleGroupVariablesPortSetsDetails: StaticStructureSchema = [3, n0, _RGVPSD, 0, [_Def], [64 | 0]];
-export var SecurityControl: StaticStructureSchema = [
+export var RuleGroupVariablesIpSetsDetails$: StaticStructureSchema = [3, n0, _RGVISD, 0, [_Def], [64 | 0]];
+export var RuleGroupVariablesPortSetsDetails$: StaticStructureSchema = [3, n0, _RGVPSD, 0, [_Def], [64 | 0]];
+export var SecurityControl$: StaticStructureSchema = [
   3,
   n0,
   _SCecu,
@@ -10064,7 +10156,7 @@ export var SecurityControl: StaticStructureSchema = [
   [_SCIec, _SCAe, _Ti, _D, _RU, _SRev, _SCS, _US, _Para, _LUR],
   [0, 0, 0, 0, 0, 0, 0, 0, () => _Parameters, 0],
 ];
-export var SecurityControlCustomParameter: StaticStructureSchema = [
+export var SecurityControlCustomParameter$: StaticStructureSchema = [
   3,
   n0,
   _SCCP,
@@ -10072,7 +10164,7 @@ export var SecurityControlCustomParameter: StaticStructureSchema = [
   [_SCIec, _Para],
   [0, () => _Parameters],
 ];
-export var SecurityControlDefinition: StaticStructureSchema = [
+export var SecurityControlDefinition$: StaticStructureSchema = [
   3,
   n0,
   _SCD,
@@ -10080,8 +10172,8 @@ export var SecurityControlDefinition: StaticStructureSchema = [
   [_SCIec, _Ti, _D, _RU, _SRev, _CRA, _CPu, _PDar],
   [0, 0, 0, 0, 0, 0, 64 | 0, () => ParameterDefinitions],
 ];
-export var SecurityControlParameter: StaticStructureSchema = [3, n0, _SCPec, 0, [_N, _Val], [0, 64 | 0]];
-export var SecurityControlsConfiguration: StaticStructureSchema = [
+export var SecurityControlParameter$: StaticStructureSchema = [3, n0, _SCPec, 0, [_N, _Val], [0, 64 | 0]];
+export var SecurityControlsConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SCC,
@@ -10089,23 +10181,23 @@ export var SecurityControlsConfiguration: StaticStructureSchema = [
   [_ESCI, _DSCI, _SCCPe],
   [64 | 0, 64 | 0, () => SecurityControlCustomParametersList],
 ];
-export var SecurityHubPolicy: StaticStructureSchema = [
+export var SecurityHubPolicy$: StaticStructureSchema = [
   3,
   n0,
   _SHP,
   0,
   [_SEe, _ESI, _SCC],
-  [2, 64 | 0, () => SecurityControlsConfiguration],
+  [2, 64 | 0, () => SecurityControlsConfiguration$],
 ];
-export var SensitiveDataDetections: StaticStructureSchema = [
+export var SensitiveDataDetections$: StaticStructureSchema = [
   3,
   n0,
   _SDD,
   0,
   [_Cou, _T, _Oc],
-  [1, 0, () => Occurrences],
+  [1, 0, () => Occurrences$],
 ];
-export var SensitiveDataResult: StaticStructureSchema = [
+export var SensitiveDataResult$: StaticStructureSchema = [
   3,
   n0,
   _SDR,
@@ -10113,7 +10205,7 @@ export var SensitiveDataResult: StaticStructureSchema = [
   [_Cat, _Dete, _TCo],
   [0, () => SensitiveDataDetectionsList, 1],
 ];
-export var Sequence: StaticStructureSchema = [
+export var Sequence$: StaticStructureSchema = [
   3,
   n0,
   _Seq,
@@ -10121,10 +10213,10 @@ export var Sequence: StaticStructureSchema = [
   [_Ui, _Acto, _Endp, _Sig, _SIeq],
   [0, () => ActorsList, () => NetworkEndpointsList, () => SignalsList, () => IndicatorsList],
 ];
-export var ServiceNowDetail: StaticStructureSchema = [3, n0, _SND, 0, [_INn, _SAec, _ASut], [0, 0, 0]];
-export var ServiceNowProviderConfiguration: StaticStructureSchema = [3, n0, _SNPC, 0, [_INn, _SAec], [0, 0]];
-export var ServiceNowUpdateConfiguration: StaticStructureSchema = [3, n0, _SNUC, 0, [_SAec], [0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
+export var ServiceNowDetail$: StaticStructureSchema = [3, n0, _SND, 0, [_INn, _SAec, _ASut], [0, 0, 0]];
+export var ServiceNowProviderConfiguration$: StaticStructureSchema = [3, n0, _SNPC, 0, [_INn, _SAec], [0, 0]];
+export var ServiceNowUpdateConfiguration$: StaticStructureSchema = [3, n0, _SNUC, 0, [_SAec], [0]];
+export var ServiceQuotaExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
@@ -10132,9 +10224,9 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   [_M, _C],
   [0, 0],
 ];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var Severity: StaticStructureSchema = [3, n0, _Se, 0, [_Produ, _Lab, _Norm, _Orig], [1, 0, 1, 0]];
-export var SeverityTrendsCount: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var Severity$: StaticStructureSchema = [3, n0, _Se, 0, [_Produ, _Lab, _Norm, _Orig], [1, 0, 1, 0]];
+export var SeverityTrendsCount$: StaticStructureSchema = [
   3,
   n0,
   _STC,
@@ -10142,8 +10234,8 @@ export var SeverityTrendsCount: StaticStructureSchema = [
   [_Unk, _Inf, _Low, _Med, _Hi, _Crit, _Fat, _Ot],
   [1, 1, 1, 1, 1, 1, 1, 1],
 ];
-export var SeverityUpdate: StaticStructureSchema = [3, n0, _SUe, 0, [_Norm, _Produ, _Lab], [1, 1, 0]];
-export var Signal: StaticStructureSchema = [
+export var SeverityUpdate$: StaticStructureSchema = [3, n0, _SUe, 0, [_Norm, _Produ, _Lab], [1, 1, 0]];
+export var Signal$: StaticStructureSchema = [
   3,
   n0,
   _Sign,
@@ -10151,7 +10243,7 @@ export var Signal: StaticStructureSchema = [
   [_T, _I, _Ti, _PA, _RIeso, _SIi, _N, _CA, _UA, _FSA, _LSAa, _Se, _Cou, _AIct, _EIndp],
   [0, 0, 0, 0, 64 | 0, () => IndicatorsList, 0, 1, 1, 1, 1, 1, 1, 64 | 0, 64 | 0],
 ];
-export var SoftwarePackage: StaticStructureSchema = [
+export var SoftwarePackage$: StaticStructureSchema = [
   3,
   n0,
   _SPof,
@@ -10159,16 +10251,16 @@ export var SoftwarePackage: StaticStructureSchema = [
   [_N, _V, _Ep, _Rel, _Arc, _PMa, _FPil, _FIV, _Rem, _SLH, _SLA],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var SortCriterion: StaticStructureSchema = [3, n0, _SCort, 0, [_Fi, _SOo], [0, 0]];
-export var Standard: StaticStructureSchema = [
+export var SortCriterion$: StaticStructureSchema = [3, n0, _SCort, 0, [_Fi, _SOo], [0, 0]];
+export var Standard$: StaticStructureSchema = [
   3,
   n0,
   _Stand,
   0,
   [_SAta, _N, _D, _EBD, _SMB],
-  [0, 0, 0, 2, () => StandardsManagedBy],
+  [0, 0, 0, 2, () => StandardsManagedBy$],
 ];
-export var StandardsControl: StaticStructureSchema = [
+export var StandardsControl$: StaticStructureSchema = [
   3,
   n0,
   _SCtan,
@@ -10176,7 +10268,7 @@ export var StandardsControl: StaticStructureSchema = [
   [_SCAta, _CSont, _DRi, _CSUA, _CIon, _Ti, _D, _RU, _SRev, _RRel],
   [0, 0, 0, 5, 0, 0, 0, 0, 0, 64 | 0],
 ];
-export var StandardsControlAssociationDetail: StaticStructureSchema = [
+export var StandardsControlAssociationDetail$: StaticStructureSchema = [
   3,
   n0,
   _SCADt,
@@ -10184,8 +10276,8 @@ export var StandardsControlAssociationDetail: StaticStructureSchema = [
   [_SAta, _SCIec, _SCAe, _ASss, _RRel, _UA, _UR, _SCTt, _SCDt, _SCAtan],
   [0, 0, 0, 0, 64 | 0, 5, 0, 0, 0, 64 | 0],
 ];
-export var StandardsControlAssociationId: StaticStructureSchema = [3, n0, _SCAIt, 0, [_SCIec, _SAta], [0, 0]];
-export var StandardsControlAssociationSummary: StaticStructureSchema = [
+export var StandardsControlAssociationId$: StaticStructureSchema = [3, n0, _SCAIt, 0, [_SCIec, _SAta], [0, 0]];
+export var StandardsControlAssociationSummary$: StaticStructureSchema = [
   3,
   n0,
   _SCASt,
@@ -10193,7 +10285,7 @@ export var StandardsControlAssociationSummary: StaticStructureSchema = [
   [_SAta, _SCIec, _SCAe, _ASss, _RRel, _UA, _UR, _SCTt, _SCDt],
   [0, 0, 0, 0, 64 | 0, 5, 0, 0, 0],
 ];
-export var StandardsControlAssociationUpdate: StaticStructureSchema = [
+export var StandardsControlAssociationUpdate$: StaticStructureSchema = [
   3,
   n0,
   _SCAUt,
@@ -10201,26 +10293,26 @@ export var StandardsControlAssociationUpdate: StaticStructureSchema = [
   [_SAta, _SCIec, _ASss, _UR],
   [0, 0, 0, 0],
 ];
-export var StandardsManagedBy: StaticStructureSchema = [3, n0, _SMB, 0, [_Compan, _Produ], [0, 0]];
-export var StandardsStatusReason: StaticStructureSchema = [3, n0, _SSRta, 0, [_SRC], [0]];
-export var StandardsSubscription: StaticStructureSchema = [
+export var StandardsManagedBy$: StaticStructureSchema = [3, n0, _SMB, 0, [_Compan, _Produ], [0, 0]];
+export var StandardsStatusReason$: StaticStructureSchema = [3, n0, _SSRta, 0, [_SRC], [0]];
+export var StandardsSubscription$: StaticStructureSchema = [
   3,
   n0,
   _SStan,
   0,
   [_SSAt, _SAta, _SItan, _SStand, _SCU, _SSRta],
-  [0, 0, 128 | 0, 0, 0, () => StandardsStatusReason],
+  [0, 0, 128 | 0, 0, 0, () => StandardsStatusReason$],
 ];
-export var StandardsSubscriptionRequest: StaticStructureSchema = [3, n0, _SSRtan, 0, [_SAta, _SItan], [0, 128 | 0]];
-export var StartConfigurationPolicyAssociationRequest: StaticStructureSchema = [
+export var StandardsSubscriptionRequest$: StaticStructureSchema = [3, n0, _SSRtan, 0, [_SAta, _SItan], [0, 128 | 0]];
+export var StartConfigurationPolicyAssociationRequest$: StaticStructureSchema = [
   3,
   n0,
   _SCPAR,
   0,
   [_CPIo, _Ta],
-  [0, () => Target],
+  [0, () => Target$],
 ];
-export var StartConfigurationPolicyAssociationResponse: StaticStructureSchema = [
+export var StartConfigurationPolicyAssociationResponse$: StaticStructureSchema = [
   3,
   n0,
   _SCPARt,
@@ -10228,24 +10320,24 @@ export var StartConfigurationPolicyAssociationResponse: StaticStructureSchema = 
   [_CPI, _TIa, _TT, _ATs, _UA, _ASss, _ASM],
   [0, 0, 0, 0, 5, 0, 0],
 ];
-export var StartConfigurationPolicyDisassociationRequest: StaticStructureSchema = [
+export var StartConfigurationPolicyDisassociationRequest$: StaticStructureSchema = [
   3,
   n0,
   _SCPDR,
   0,
   [_Ta, _CPIo],
-  [() => Target, 0],
+  [() => Target$, 0],
 ];
-export var StartConfigurationPolicyDisassociationResponse: StaticStructureSchema = [3, n0, _SCPDRt, 0, [], []];
-export var StatelessCustomActionDefinition: StaticStructureSchema = [
+export var StartConfigurationPolicyDisassociationResponse$: StaticStructureSchema = [3, n0, _SCPDRt, 0, [], []];
+export var StatelessCustomActionDefinition$: StaticStructureSchema = [
   3,
   n0,
   _SCADta,
   0,
   [_PMA],
-  [() => StatelessCustomPublishMetricAction],
+  [() => StatelessCustomPublishMetricAction$],
 ];
-export var StatelessCustomPublishMetricAction: StaticStructureSchema = [
+export var StatelessCustomPublishMetricAction$: StaticStructureSchema = [
   3,
   n0,
   _SCPMA,
@@ -10253,11 +10345,11 @@ export var StatelessCustomPublishMetricAction: StaticStructureSchema = [
   [_Di],
   [() => StatelessCustomPublishMetricActionDimensionsList],
 ];
-export var StatelessCustomPublishMetricActionDimension: StaticStructureSchema = [3, n0, _SCPMAD, 0, [_Val], [0]];
-export var StatusReason: StaticStructureSchema = [3, n0, _SRtatu, 0, [_RCea, _D], [0, 0]];
-export var StringConfigurationOptions: StaticStructureSchema = [3, n0, _SCO, 0, [_DVe, _REex, _EDxp], [0, 0, 0]];
-export var StringFilter: StaticStructureSchema = [3, n0, _SFt, 0, [_Val, _Compa], [0, 0]];
-export var StringListConfigurationOptions: StaticStructureSchema = [
+export var StatelessCustomPublishMetricActionDimension$: StaticStructureSchema = [3, n0, _SCPMAD, 0, [_Val], [0]];
+export var StatusReason$: StaticStructureSchema = [3, n0, _SRtatu, 0, [_RCea, _D], [0, 0]];
+export var StringConfigurationOptions$: StaticStructureSchema = [3, n0, _SCO, 0, [_DVe, _REex, _EDxp], [0, 0, 0]];
+export var StringFilter$: StaticStructureSchema = [3, n0, _SFt, 0, [_Val, _Compa], [0, 0]];
+export var StringListConfigurationOptions$: StaticStructureSchema = [
   3,
   n0,
   _SLCO,
@@ -10265,10 +10357,10 @@ export var StringListConfigurationOptions: StaticStructureSchema = [
   [_DVe, _REex, _MIa, _EDxp],
   [64 | 0, 0, 1, 0],
 ];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RAe, _Tags], [[0, 1], 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var Threat: StaticStructureSchema = [3, n0, _Threa, 0, [_N, _Se, _ICt, _FPile], [0, 0, 1, () => FilePathList]];
-export var ThreatIntelIndicator: StaticStructureSchema = [
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_RAe, _Tags], [[0, 1], 128 | 0]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var Threat$: StaticStructureSchema = [3, n0, _Threa, 0, [_N, _Se, _ICt, _FPile], [0, 0, 1, () => FilePathList]];
+export var ThreatIntelIndicator$: StaticStructureSchema = [
   3,
   n0,
   _TIIh,
@@ -10276,37 +10368,37 @@ export var ThreatIntelIndicator: StaticStructureSchema = [
   [_T, _Val, _Cat, _LOA, _So, _SU],
   [0, 0, 0, 0, 0, 0],
 ];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TEh, { [_e]: _c, [_hE]: 429 }, [_M, _C], [0, 0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var TrendsMetricsResult: StaticStructureSchema = [3, n0, _TMR, 0, [_Times, _TV], [5, () => TrendsValues]];
-export var TrendsValues: StaticStructureSchema = [3, n0, _TV, 0, [_STev], [() => SeverityTrendsCount]];
-export var UnprocessedAutomationRule: StaticStructureSchema = [3, n0, _UARn, 0, [_RA, _ECr, _EMr], [0, 1, 0]];
-export var UnprocessedConfigurationPolicyAssociation: StaticStructureSchema = [
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TEh, { [_e]: _c, [_hE]: 429 }, [_M, _C], [0, 0]];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var TrendsMetricsResult$: StaticStructureSchema = [3, n0, _TMR, 0, [_Times, _TV], [5, () => TrendsValues$]];
+export var TrendsValues$: StaticStructureSchema = [3, n0, _TV, 0, [_STev], [() => SeverityTrendsCount$]];
+export var UnprocessedAutomationRule$: StaticStructureSchema = [3, n0, _UARn, 0, [_RA, _ECr, _EMr], [0, 1, 0]];
+export var UnprocessedConfigurationPolicyAssociation$: StaticStructureSchema = [
   3,
   n0,
   _UCPAn,
   0,
   [_CPAI, _ECr, _ERr],
-  [() => ConfigurationPolicyAssociation, 0, 0],
+  [() => ConfigurationPolicyAssociation$, 0, 0],
 ];
-export var UnprocessedSecurityControl: StaticStructureSchema = [3, n0, _USCn, 0, [_SCIec, _ECr, _ERr], [0, 0, 0]];
-export var UnprocessedStandardsControlAssociation: StaticStructureSchema = [
+export var UnprocessedSecurityControl$: StaticStructureSchema = [3, n0, _USCn, 0, [_SCIec, _ECr, _ERr], [0, 0, 0]];
+export var UnprocessedStandardsControlAssociation$: StaticStructureSchema = [
   3,
   n0,
   _USCA,
   0,
   [_SCAIt, _ECr, _ERr],
-  [() => StandardsControlAssociationId, 0, 0],
+  [() => StandardsControlAssociationId$, 0, 0],
 ];
-export var UnprocessedStandardsControlAssociationUpdate: StaticStructureSchema = [
+export var UnprocessedStandardsControlAssociationUpdate$: StaticStructureSchema = [
   3,
   n0,
   _USCAU,
   0,
   [_SCAUt, _ECr, _ERr],
-  [() => StandardsControlAssociationUpdate, 0, 0],
+  [() => StandardsControlAssociationUpdate$, 0, 0],
 ];
-export var UntagResourceRequest: StaticStructureSchema = [
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -10317,11 +10409,18 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateActionTargetRequest: StaticStructureSchema = [3, n0, _UATR, 0, [_ATA, _N, _D], [[0, 1], 0, 0]];
-export var UpdateActionTargetResponse: StaticStructureSchema = [3, n0, _UATRp, 0, [], []];
-export var UpdateAggregatorV2Request: StaticStructureSchema = [3, n0, _UAVR, 0, [_AVA, _RLM, _LR], [[0, 1], 0, 64 | 0]];
-export var UpdateAggregatorV2Response: StaticStructureSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateActionTargetRequest$: StaticStructureSchema = [3, n0, _UATR, 0, [_ATA, _N, _D], [[0, 1], 0, 0]];
+export var UpdateActionTargetResponse$: StaticStructureSchema = [3, n0, _UATRp, 0, [], []];
+export var UpdateAggregatorV2Request$: StaticStructureSchema = [
+  3,
+  n0,
+  _UAVR,
+  0,
+  [_AVA, _RLM, _LR],
+  [[0, 1], 0, 64 | 0],
+];
+export var UpdateAggregatorV2Response$: StaticStructureSchema = [
   3,
   n0,
   _UAVRp,
@@ -10329,49 +10428,49 @@ export var UpdateAggregatorV2Response: StaticStructureSchema = [
   [_AVA, _ARg, _RLM, _LR],
   [0, 0, 0, 64 | 0],
 ];
-export var UpdateAutomationRulesRequestItem: StaticStructureSchema = [
+export var UpdateAutomationRulesRequestItem$: StaticStructureSchema = [
   3,
   n0,
   _UARRIp,
   0,
   [_RA, _RS, _RO, _D, _RN, _IT, _Cr, _Act],
-  [0, 0, 1, 0, 0, 2, () => AutomationRulesFindingFilters, () => ActionList],
+  [0, 0, 1, 0, 0, 2, () => AutomationRulesFindingFilters$, () => ActionList],
 ];
-export var UpdateAutomationRuleV2Request: StaticStructureSchema = [
+export var UpdateAutomationRuleV2Request$: StaticStructureSchema = [
   3,
   n0,
   _UARVR,
   0,
   [_Id, _RS, _RO, _D, _RN, _Cr, _Act],
-  [[0, 1], 0, 1, 0, 0, () => Criteria, () => AutomationRulesActionListV2],
+  [[0, 1], 0, 1, 0, 0, () => Criteria$, () => AutomationRulesActionListV2],
 ];
-export var UpdateAutomationRuleV2Response: StaticStructureSchema = [3, n0, _UARVRp, 0, [], []];
-export var UpdateConfigurationPolicyRequest: StaticStructureSchema = [
+export var UpdateAutomationRuleV2Response$: StaticStructureSchema = [3, n0, _UARVRp, 0, [], []];
+export var UpdateConfigurationPolicyRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCPR,
   0,
   [_Id, _N, _D, _UR, _CPonf],
-  [[0, 1], 0, 0, 0, () => Policy],
+  [[0, 1], 0, 0, 0, () => Policy$],
 ];
-export var UpdateConfigurationPolicyResponse: StaticStructureSchema = [
+export var UpdateConfigurationPolicyResponse$: StaticStructureSchema = [
   3,
   n0,
   _UCPRp,
   0,
   [_Ar, _I, _N, _D, _UA, _CA, _CPonf],
-  [0, 0, 0, 0, 5, 5, () => Policy],
+  [0, 0, 0, 0, 5, 5, () => Policy$],
 ];
-export var UpdateConnectorV2Request: StaticStructureSchema = [
+export var UpdateConnectorV2Request$: StaticStructureSchema = [
   3,
   n0,
   _UCVR,
   0,
   [_CIo, _D, _Prov],
-  [[0, 1], 0, () => ProviderUpdateConfiguration],
+  [[0, 1], 0, () => ProviderUpdateConfiguration$],
 ];
-export var UpdateConnectorV2Response: StaticStructureSchema = [3, n0, _UCVRp, 0, [], []];
-export var UpdateFindingAggregatorRequest: StaticStructureSchema = [
+export var UpdateConnectorV2Response$: StaticStructureSchema = [3, n0, _UCVRp, 0, [], []];
+export var UpdateFindingAggregatorRequest$: StaticStructureSchema = [
   3,
   n0,
   _UFAR,
@@ -10379,7 +10478,7 @@ export var UpdateFindingAggregatorRequest: StaticStructureSchema = [
   [_FAA, _RLM, _Regi],
   [0, 0, 64 | 0],
 ];
-export var UpdateFindingAggregatorResponse: StaticStructureSchema = [
+export var UpdateFindingAggregatorResponse$: StaticStructureSchema = [
   3,
   n0,
   _UFARp,
@@ -10387,34 +10486,34 @@ export var UpdateFindingAggregatorResponse: StaticStructureSchema = [
   [_FAA, _FAR, _RLM, _Regi],
   [0, 0, 0, 64 | 0],
 ];
-export var UpdateFindingsRequest: StaticStructureSchema = [
+export var UpdateFindingsRequest$: StaticStructureSchema = [
   3,
   n0,
   _UFR,
   0,
   [_Filt, _No, _RSe],
-  [() => AwsSecurityFindingFilters, () => NoteUpdate, 0],
+  [() => AwsSecurityFindingFilters$, () => NoteUpdate$, 0],
 ];
-export var UpdateFindingsResponse: StaticStructureSchema = [3, n0, _UFRp, 0, [], []];
-export var UpdateInsightRequest: StaticStructureSchema = [
+export var UpdateFindingsResponse$: StaticStructureSchema = [3, n0, _UFRp, 0, [], []];
+export var UpdateInsightRequest$: StaticStructureSchema = [
   3,
   n0,
   _UIR,
   0,
   [_IAns, _N, _Filt, _GBA],
-  [[0, 1], 0, () => AwsSecurityFindingFilters, 0],
+  [[0, 1], 0, () => AwsSecurityFindingFilters$, 0],
 ];
-export var UpdateInsightResponse: StaticStructureSchema = [3, n0, _UIRp, 0, [], []];
-export var UpdateOrganizationConfigurationRequest: StaticStructureSchema = [
+export var UpdateInsightResponse$: StaticStructureSchema = [3, n0, _UIRp, 0, [], []];
+export var UpdateOrganizationConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UOCR,
   0,
   [_AEu, _AES, _OC],
-  [2, 0, () => OrganizationConfiguration],
+  [2, 0, () => OrganizationConfiguration$],
 ];
-export var UpdateOrganizationConfigurationResponse: StaticStructureSchema = [3, n0, _UOCRp, 0, [], []];
-export var UpdateSecurityControlRequest: StaticStructureSchema = [
+export var UpdateOrganizationConfigurationResponse$: StaticStructureSchema = [3, n0, _UOCRp, 0, [], []];
+export var UpdateSecurityControlRequest$: StaticStructureSchema = [
   3,
   n0,
   _USCR,
@@ -10422,10 +10521,10 @@ export var UpdateSecurityControlRequest: StaticStructureSchema = [
   [_SCIec, _Para, _LUR],
   [0, () => _Parameters, 0],
 ];
-export var UpdateSecurityControlResponse: StaticStructureSchema = [3, n0, _USCRp, 0, [], []];
-export var UpdateSecurityHubConfigurationRequest: StaticStructureSchema = [3, n0, _USHCR, 0, [_AEC, _CFG], [2, 0]];
-export var UpdateSecurityHubConfigurationResponse: StaticStructureSchema = [3, n0, _USHCRp, 0, [], []];
-export var UpdateStandardsControlRequest: StaticStructureSchema = [
+export var UpdateSecurityControlResponse$: StaticStructureSchema = [3, n0, _USCRp, 0, [], []];
+export var UpdateSecurityHubConfigurationRequest$: StaticStructureSchema = [3, n0, _USHCR, 0, [_AEC, _CFG], [2, 0]];
+export var UpdateSecurityHubConfigurationResponse$: StaticStructureSchema = [3, n0, _USHCRp, 0, [], []];
+export var UpdateStandardsControlRequest$: StaticStructureSchema = [
   3,
   n0,
   _USCRpd,
@@ -10433,14 +10532,14 @@ export var UpdateStandardsControlRequest: StaticStructureSchema = [
   [_SCAta, _CSont, _DRi],
   [[0, 1], 0, 0],
 ];
-export var UpdateStandardsControlResponse: StaticStructureSchema = [3, n0, _USCRpda, 0, [], []];
-export var UserAccount: StaticStructureSchema = [3, n0, _UAs, 0, [_Ui, _N], [0, 0]];
-export var ValidationException: StaticErrorSchema = [-3, n0, _VEa, { [_e]: _c, [_hE]: 400 }, [_M, _C], [0, 0]];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var VolumeMount: StaticStructureSchema = [3, n0, _VMol, 0, [_N, _MPou], [0, 0]];
-export var VpcInfoCidrBlockSetDetails: StaticStructureSchema = [3, n0, _VICBSD, 0, [_CBi], [0]];
-export var VpcInfoIpv6CidrBlockSetDetails: StaticStructureSchema = [3, n0, _VIICBSD, 0, [_ICB], [0]];
-export var VpcInfoPeeringOptionsDetails: StaticStructureSchema = [
+export var UpdateStandardsControlResponse$: StaticStructureSchema = [3, n0, _USCRpda, 0, [], []];
+export var UserAccount$: StaticStructureSchema = [3, n0, _UAs, 0, [_Ui, _N], [0, 0]];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VEa, { [_e]: _c, [_hE]: 400 }, [_M, _C], [0, 0]];
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var VolumeMount$: StaticStructureSchema = [3, n0, _VMol, 0, [_N, _MPou], [0, 0]];
+export var VpcInfoCidrBlockSetDetails$: StaticStructureSchema = [3, n0, _VICBSD, 0, [_CBi], [0]];
+export var VpcInfoIpv6CidrBlockSetDetails$: StaticStructureSchema = [3, n0, _VIICBSD, 0, [_ICB], [0]];
+export var VpcInfoPeeringOptionsDetails$: StaticStructureSchema = [
   3,
   n0,
   _VIPOD,
@@ -10448,7 +10547,7 @@ export var VpcInfoPeeringOptionsDetails: StaticStructureSchema = [
   [_ADRFRV, _AEFLCLTRV, _AEFLVTRCL],
   [2, 2, 2],
 ];
-export var Vulnerability: StaticStructureSchema = [
+export var Vulnerability$: StaticStructureSchema = [
   3,
   n0,
   _Vul,
@@ -10459,7 +10558,7 @@ export var Vulnerability: StaticStructureSchema = [
     () => SoftwarePackageList,
     () => CvssList,
     64 | 0,
-    () => VulnerabilityVendor,
+    () => VulnerabilityVendor$,
     64 | 0,
     0,
     1,
@@ -10468,1167 +10567,1059 @@ export var Vulnerability: StaticStructureSchema = [
     () => VulnerabilityCodeVulnerabilitiesList,
   ],
 ];
-export var VulnerabilityCodeVulnerabilities: StaticStructureSchema = [
+export var VulnerabilityCodeVulnerabilities$: StaticStructureSchema = [
   3,
   n0,
   _VCV,
   0,
   [_Cw, _FPil, _SAo],
-  [64 | 0, () => CodeVulnerabilitiesFilePath, 0],
+  [64 | 0, () => CodeVulnerabilitiesFilePath$, 0],
 ];
-export var VulnerabilityVendor: StaticStructureSchema = [3, n0, _VV, 0, [_N, _Ur, _VSe, _VCA, _VUA], [0, 0, 0, 0, 0]];
-export var WafAction: StaticStructureSchema = [3, n0, _WA, 0, [_T], [0]];
-export var WafExcludedRule: StaticStructureSchema = [3, n0, _WER, 0, [_RIu], [0]];
-export var WafOverrideAction: StaticStructureSchema = [3, n0, _WOA, 0, [_T], [0]];
-export var Workflow: StaticStructureSchema = [3, n0, _W, 0, [_St], [0]];
-export var WorkflowUpdate: StaticStructureSchema = [3, n0, _WU, 0, [_St], [0]];
-export var SecurityHubServiceException: StaticErrorSchema = [-3, _sm, "SecurityHubServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SecurityHubServiceException, __SecurityHubServiceException);
-export var AccountDetailsList: StaticListSchema = [1, n0, _ADL, 0, () => AccountDetails];
-export var AccountIdList = 64 | 0;
-export var ActionList: StaticListSchema = [1, n0, _ALct, 0, () => AutomationRulesAction];
-export var ActionTargetList: StaticListSchema = [1, n0, _ATLc, 0, () => ActionTarget];
-export var ActorsList: StaticListSchema = [1, n0, _ALcto, 0, () => Actor];
-export var AdjustmentList: StaticListSchema = [1, n0, _ALd, 0, () => Adjustment];
-export var AdminAccounts: StaticListSchema = [1, n0, _AAdm, 0, () => AdminAccount];
-export var AggregatorV2List: StaticListSchema = [1, n0, _AVL, 0, () => AggregatorV2];
-export var ArnList = 64 | 0;
-export var AssociatedStandardsList: StaticListSchema = [1, n0, _ASL, 0, () => AssociatedStandard];
-export var AssociationSetList: StaticListSchema = [1, n0, _ASLs, 0, () => AssociationSetDetails];
-export var AutomationRulesActionListV2: StaticListSchema = [1, n0, _ARALV, 0, () => AutomationRulesActionV2];
-export var AutomationRulesActionTypeListV2: StaticListSchema = [
-  1,
-  n0,
-  _ARATLV,
-  0,
-  () => AutomationRulesActionTypeObjectV2,
-];
-export var AutomationRulesArnsList = 64 | 0;
-export var AutomationRulesConfigList: StaticListSchema = [1, n0, _ARCL, 0, () => AutomationRulesConfig];
-export var AutomationRulesMetadataList: StaticListSchema = [1, n0, _ARML, 0, () => AutomationRulesMetadata];
-export var AutomationRulesMetadataListV2: StaticListSchema = [1, n0, _ARMLV, 0, () => AutomationRulesMetadataV2];
-export var AvailabilityZones: StaticListSchema = [1, n0, _AZv, 0, () => AvailabilityZone];
-export var AwsAmazonMqBrokerUsersList: StaticListSchema = [1, n0, _AAMBUL, 0, () => AwsAmazonMqBrokerUsersDetails];
-export var AwsApiGatewayMethodSettingsList: StaticListSchema = [1, n0, _AAGMSL, 0, () => AwsApiGatewayMethodSettings];
-export var AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersList: StaticListSchema = [
+export var VulnerabilityVendor$: StaticStructureSchema = [3, n0, _VV, 0, [_N, _Ur, _VSe, _VCA, _VUA], [0, 0, 0, 0, 0]];
+export var WafAction$: StaticStructureSchema = [3, n0, _WA, 0, [_T], [0]];
+export var WafExcludedRule$: StaticStructureSchema = [3, n0, _WER, 0, [_RIu], [0]];
+export var WafOverrideAction$: StaticStructureSchema = [3, n0, _WOA, 0, [_T], [0]];
+export var Workflow$: StaticStructureSchema = [3, n0, _W, 0, [_St], [0]];
+export var WorkflowUpdate$: StaticStructureSchema = [3, n0, _WU, 0, [_St], [0]];
+export var SecurityHubServiceException$: StaticErrorSchema = [-3, _sm, "SecurityHubServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(SecurityHubServiceException$, SecurityHubServiceException);
+var AccountDetailsList: StaticListSchema = [1, n0, _ADL, 0, () => AccountDetails$];
+var AccountIdList = 64 | 0;
+var ActionList: StaticListSchema = [1, n0, _ALct, 0, () => AutomationRulesAction$];
+var ActionTargetList: StaticListSchema = [1, n0, _ATLc, 0, () => ActionTarget$];
+var ActorsList: StaticListSchema = [1, n0, _ALcto, 0, () => Actor$];
+var AdjustmentList: StaticListSchema = [1, n0, _ALd, 0, () => Adjustment$];
+var AdminAccounts: StaticListSchema = [1, n0, _AAdm, 0, () => AdminAccount$];
+var AggregatorV2List: StaticListSchema = [1, n0, _AVL, 0, () => AggregatorV2$];
+var ArnList = 64 | 0;
+var AssociatedStandardsList: StaticListSchema = [1, n0, _ASL, 0, () => AssociatedStandard$];
+var AssociationSetList: StaticListSchema = [1, n0, _ASLs, 0, () => AssociationSetDetails$];
+var AutomationRulesActionListV2: StaticListSchema = [1, n0, _ARALV, 0, () => AutomationRulesActionV2$];
+var AutomationRulesActionTypeListV2: StaticListSchema = [1, n0, _ARATLV, 0, () => AutomationRulesActionTypeObjectV2$];
+var AutomationRulesArnsList = 64 | 0;
+var AutomationRulesConfigList: StaticListSchema = [1, n0, _ARCL, 0, () => AutomationRulesConfig$];
+var AutomationRulesMetadataList: StaticListSchema = [1, n0, _ARML, 0, () => AutomationRulesMetadata$];
+var AutomationRulesMetadataListV2: StaticListSchema = [1, n0, _ARMLV, 0, () => AutomationRulesMetadataV2$];
+var AvailabilityZones: StaticListSchema = [1, n0, _AZv, 0, () => AvailabilityZone$];
+var AwsAmazonMqBrokerUsersList: StaticListSchema = [1, n0, _AAMBUL, 0, () => AwsAmazonMqBrokerUsersDetails$];
+var AwsApiGatewayMethodSettingsList: StaticListSchema = [1, n0, _AAGMSL, 0, () => AwsApiGatewayMethodSettings$];
+var AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersList: StaticListSchema = [
   1,
   n0,
   _AASGQAAAPL,
   0,
-  () => AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails,
+  () => AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails$,
 ];
-export var AwsAutoScalingAutoScalingGroupAvailabilityZonesList: StaticListSchema = [
+var AwsAutoScalingAutoScalingGroupAvailabilityZonesList: StaticListSchema = [
   1,
   n0,
   _AASASGAZL,
   0,
-  () => AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails,
+  () => AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails$,
 ];
-export var AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesList: StaticListSchema = [
+var AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesList: StaticListSchema = [
   1,
   n0,
   _AASASGMIPLTOL,
   0,
-  () => AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails,
+  () => AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails$,
 ];
-export var AwsAutoScalingLaunchConfigurationBlockDeviceMappingsList: StaticListSchema = [
+var AwsAutoScalingLaunchConfigurationBlockDeviceMappingsList: StaticListSchema = [
   1,
   n0,
   _AASLCBDML,
   0,
-  () => AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails,
+  () => AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails$,
 ];
-export var AwsBackupBackupPlanAdvancedBackupSettingsList: StaticListSchema = [
+var AwsBackupBackupPlanAdvancedBackupSettingsList: StaticListSchema = [
   1,
   n0,
   _ABBPABSL,
   0,
-  () => AwsBackupBackupPlanAdvancedBackupSettingsDetails,
+  () => AwsBackupBackupPlanAdvancedBackupSettingsDetails$,
 ];
-export var AwsBackupBackupPlanRuleCopyActionsList: StaticListSchema = [
+var AwsBackupBackupPlanRuleCopyActionsList: StaticListSchema = [
   1,
   n0,
   _ABBPRCAL,
   0,
-  () => AwsBackupBackupPlanRuleCopyActionsDetails,
+  () => AwsBackupBackupPlanRuleCopyActionsDetails$,
 ];
-export var AwsBackupBackupPlanRuleList: StaticListSchema = [1, n0, _ABBPRL, 0, () => AwsBackupBackupPlanRuleDetails];
-export var AwsCertificateManagerCertificateDomainValidationOptions: StaticListSchema = [
+var AwsBackupBackupPlanRuleList: StaticListSchema = [1, n0, _ABBPRL, 0, () => AwsBackupBackupPlanRuleDetails$];
+var AwsCertificateManagerCertificateDomainValidationOptions: StaticListSchema = [
   1,
   n0,
   _ACMCDVOw,
   0,
-  () => AwsCertificateManagerCertificateDomainValidationOption,
+  () => AwsCertificateManagerCertificateDomainValidationOption$,
 ];
-export var AwsCertificateManagerCertificateExtendedKeyUsages: StaticListSchema = [
+var AwsCertificateManagerCertificateExtendedKeyUsages: StaticListSchema = [
   1,
   n0,
   _ACMCEKUw,
   0,
-  () => AwsCertificateManagerCertificateExtendedKeyUsage,
+  () => AwsCertificateManagerCertificateExtendedKeyUsage$,
 ];
-export var AwsCertificateManagerCertificateKeyUsages: StaticListSchema = [
+var AwsCertificateManagerCertificateKeyUsages: StaticListSchema = [
   1,
   n0,
   _ACMCKUw,
   0,
-  () => AwsCertificateManagerCertificateKeyUsage,
+  () => AwsCertificateManagerCertificateKeyUsage$,
 ];
-export var AwsCloudFormationStackOutputsList: StaticListSchema = [
+var AwsCloudFormationStackOutputsList: StaticListSchema = [
   1,
   n0,
   _ACFSOL,
   0,
-  () => AwsCloudFormationStackOutputsDetails,
+  () => AwsCloudFormationStackOutputsDetails$,
 ];
-export var AwsCloudFrontDistributionCacheBehaviorsItemList: StaticListSchema = [
+var AwsCloudFrontDistributionCacheBehaviorsItemList: StaticListSchema = [
   1,
   n0,
   _ACFDCBIL,
   0,
-  () => AwsCloudFrontDistributionCacheBehavior,
+  () => AwsCloudFrontDistributionCacheBehavior$,
 ];
-export var AwsCloudFrontDistributionOriginGroupFailoverStatusCodesItemList = 64 | 1;
-export var AwsCloudFrontDistributionOriginGroupsItemList: StaticListSchema = [
+var AwsCloudFrontDistributionOriginGroupFailoverStatusCodesItemList = 64 | 1;
+var AwsCloudFrontDistributionOriginGroupsItemList: StaticListSchema = [
   1,
   n0,
   _ACFDOGIL,
   0,
-  () => AwsCloudFrontDistributionOriginGroup,
+  () => AwsCloudFrontDistributionOriginGroup$,
 ];
-export var AwsCloudFrontDistributionOriginItemList: StaticListSchema = [
+var AwsCloudFrontDistributionOriginItemList: StaticListSchema = [
   1,
   n0,
   _ACFDOIL,
   0,
-  () => AwsCloudFrontDistributionOriginItem,
+  () => AwsCloudFrontDistributionOriginItem$,
 ];
-export var AwsCloudWatchAlarmDimensionsList: StaticListSchema = [
+var AwsCloudWatchAlarmDimensionsList: StaticListSchema = [
   1,
   n0,
   _ACWADL,
   0,
-  () => AwsCloudWatchAlarmDimensionsDetails,
+  () => AwsCloudWatchAlarmDimensionsDetails$,
 ];
-export var AwsCodeBuildProjectArtifactsList: StaticListSchema = [
+var AwsCodeBuildProjectArtifactsList: StaticListSchema = [
   1,
   n0,
   _ACBPAL,
   0,
-  () => AwsCodeBuildProjectArtifactsDetails,
+  () => AwsCodeBuildProjectArtifactsDetails$,
 ];
-export var AwsCodeBuildProjectEnvironmentEnvironmentVariablesList: StaticListSchema = [
+var AwsCodeBuildProjectEnvironmentEnvironmentVariablesList: StaticListSchema = [
   1,
   n0,
   _ACBPEEVL,
   0,
-  () => AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails,
+  () => AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails$,
 ];
-export var AwsDmsReplicationInstanceVpcSecurityGroupsList: StaticListSchema = [
+var AwsDmsReplicationInstanceVpcSecurityGroupsList: StaticListSchema = [
   1,
   n0,
   _ADRIVSGL,
   0,
-  () => AwsDmsReplicationInstanceVpcSecurityGroupsDetails,
+  () => AwsDmsReplicationInstanceVpcSecurityGroupsDetails$,
 ];
-export var AwsDynamoDbTableAttributeDefinitionList: StaticListSchema = [
+var AwsDynamoDbTableAttributeDefinitionList: StaticListSchema = [
   1,
   n0,
   _ADDTADL,
   0,
-  () => AwsDynamoDbTableAttributeDefinition,
+  () => AwsDynamoDbTableAttributeDefinition$,
 ];
-export var AwsDynamoDbTableGlobalSecondaryIndexList: StaticListSchema = [
+var AwsDynamoDbTableGlobalSecondaryIndexList: StaticListSchema = [
   1,
   n0,
   _ADDTGSIL,
   0,
-  () => AwsDynamoDbTableGlobalSecondaryIndex,
+  () => AwsDynamoDbTableGlobalSecondaryIndex$,
 ];
-export var AwsDynamoDbTableKeySchemaList: StaticListSchema = [1, n0, _ADDTKSL, 0, () => AwsDynamoDbTableKeySchema];
-export var AwsDynamoDbTableLocalSecondaryIndexList: StaticListSchema = [
+var AwsDynamoDbTableKeySchemaList: StaticListSchema = [1, n0, _ADDTKSL, 0, () => AwsDynamoDbTableKeySchema$];
+var AwsDynamoDbTableLocalSecondaryIndexList: StaticListSchema = [
   1,
   n0,
   _ADDTLSIL,
   0,
-  () => AwsDynamoDbTableLocalSecondaryIndex,
+  () => AwsDynamoDbTableLocalSecondaryIndex$,
 ];
-export var AwsDynamoDbTableReplicaGlobalSecondaryIndexList: StaticListSchema = [
+var AwsDynamoDbTableReplicaGlobalSecondaryIndexList: StaticListSchema = [
   1,
   n0,
   _ADDTRGSIL,
   0,
-  () => AwsDynamoDbTableReplicaGlobalSecondaryIndex,
+  () => AwsDynamoDbTableReplicaGlobalSecondaryIndex$,
 ];
-export var AwsDynamoDbTableReplicaList: StaticListSchema = [1, n0, _ADDTRL, 0, () => AwsDynamoDbTableReplica];
-export var AwsEc2ClientVpnEndpointAuthenticationOptionsList: StaticListSchema = [
+var AwsDynamoDbTableReplicaList: StaticListSchema = [1, n0, _ADDTRL, 0, () => AwsDynamoDbTableReplica$];
+var AwsEc2ClientVpnEndpointAuthenticationOptionsList: StaticListSchema = [
   1,
   n0,
   _AECVEAOL,
   0,
-  () => AwsEc2ClientVpnEndpointAuthenticationOptionsDetails,
+  () => AwsEc2ClientVpnEndpointAuthenticationOptionsDetails$,
 ];
-export var AwsEc2InstanceNetworkInterfacesList: StaticListSchema = [
+var AwsEc2InstanceNetworkInterfacesList: StaticListSchema = [
   1,
   n0,
   _AEINIL,
   0,
-  () => AwsEc2InstanceNetworkInterfacesDetails,
+  () => AwsEc2InstanceNetworkInterfacesDetails$,
 ];
-export var AwsEc2LaunchTemplateDataBlockDeviceMappingSetList: StaticListSchema = [
+var AwsEc2LaunchTemplateDataBlockDeviceMappingSetList: StaticListSchema = [
   1,
   n0,
   _AELTDBDMSL,
   0,
-  () => AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails,
+  () => AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails$,
 ];
-export var AwsEc2LaunchTemplateDataElasticGpuSpecificationSetList: StaticListSchema = [
+var AwsEc2LaunchTemplateDataElasticGpuSpecificationSetList: StaticListSchema = [
   1,
   n0,
   _AELTDEGSSL,
   0,
-  () => AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails,
+  () => AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails$,
 ];
-export var AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetList: StaticListSchema = [
+var AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetList: StaticListSchema = [
   1,
   n0,
   _AELTDEIASL,
   0,
-  () => AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails,
+  () => AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails$,
 ];
-export var AwsEc2LaunchTemplateDataLicenseSetList: StaticListSchema = [
+var AwsEc2LaunchTemplateDataLicenseSetList: StaticListSchema = [
   1,
   n0,
   _AELTDLSL,
   0,
-  () => AwsEc2LaunchTemplateDataLicenseSetDetails,
+  () => AwsEc2LaunchTemplateDataLicenseSetDetails$,
 ];
-export var AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesList: StaticListSchema = [
+var AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesList: StaticListSchema = [
   1,
   n0,
   _AELTDNISIPL,
   0,
-  () => AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails,
+  () => AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails$,
 ];
-export var AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesList: StaticListSchema = [
+var AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesList: StaticListSchema = [
   1,
   n0,
   _AELTDNISIAL,
   0,
-  () => AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails,
+  () => AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails$,
 ];
-export var AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesList: StaticListSchema = [
+var AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesList: StaticListSchema = [
   1,
   n0,
   _AELTDNISIPLw,
   0,
-  () => AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails,
+  () => AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails$,
 ];
-export var AwsEc2LaunchTemplateDataNetworkInterfaceSetList: StaticListSchema = [
+var AwsEc2LaunchTemplateDataNetworkInterfaceSetList: StaticListSchema = [
   1,
   n0,
   _AELTDNISL,
   0,
-  () => AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails,
+  () => AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails$,
 ];
-export var AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesList: StaticListSchema = [
+var AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesList: StaticListSchema = [
   1,
   n0,
   _AELTDNISPIAL,
   0,
-  () => AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails,
+  () => AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails$,
 ];
-export var AwsEc2NetworkAclAssociationList: StaticListSchema = [1, n0, _AENAAL, 0, () => AwsEc2NetworkAclAssociation];
-export var AwsEc2NetworkAclEntryList: StaticListSchema = [1, n0, _AENAEL, 0, () => AwsEc2NetworkAclEntry];
-export var AwsEc2NetworkInterfaceIpV6AddressList: StaticListSchema = [
+var AwsEc2NetworkAclAssociationList: StaticListSchema = [1, n0, _AENAAL, 0, () => AwsEc2NetworkAclAssociation$];
+var AwsEc2NetworkAclEntryList: StaticListSchema = [1, n0, _AENAEL, 0, () => AwsEc2NetworkAclEntry$];
+var AwsEc2NetworkInterfaceIpV6AddressList: StaticListSchema = [
   1,
   n0,
   _AENIIVAL,
   0,
-  () => AwsEc2NetworkInterfaceIpV6AddressDetail,
+  () => AwsEc2NetworkInterfaceIpV6AddressDetail$,
 ];
-export var AwsEc2NetworkInterfacePrivateIpAddressList: StaticListSchema = [
+var AwsEc2NetworkInterfacePrivateIpAddressList: StaticListSchema = [
   1,
   n0,
   _AENIPIAL,
   0,
-  () => AwsEc2NetworkInterfacePrivateIpAddressDetail,
+  () => AwsEc2NetworkInterfacePrivateIpAddressDetail$,
 ];
-export var AwsEc2NetworkInterfaceSecurityGroupList: StaticListSchema = [
+var AwsEc2NetworkInterfaceSecurityGroupList: StaticListSchema = [
   1,
   n0,
   _AENISGL,
   0,
-  () => AwsEc2NetworkInterfaceSecurityGroup,
+  () => AwsEc2NetworkInterfaceSecurityGroup$,
 ];
-export var AwsEc2SecurityGroupIpPermissionList: StaticListSchema = [
+var AwsEc2SecurityGroupIpPermissionList: StaticListSchema = [
   1,
   n0,
   _AESGIPL,
   0,
-  () => AwsEc2SecurityGroupIpPermission,
+  () => AwsEc2SecurityGroupIpPermission$,
 ];
-export var AwsEc2SecurityGroupIpRangeList: StaticListSchema = [1, n0, _AESGIRL, 0, () => AwsEc2SecurityGroupIpRange];
-export var AwsEc2SecurityGroupIpv6RangeList: StaticListSchema = [
-  1,
-  n0,
-  _AESGIRLw,
-  0,
-  () => AwsEc2SecurityGroupIpv6Range,
-];
-export var AwsEc2SecurityGroupPrefixListIdList: StaticListSchema = [
+var AwsEc2SecurityGroupIpRangeList: StaticListSchema = [1, n0, _AESGIRL, 0, () => AwsEc2SecurityGroupIpRange$];
+var AwsEc2SecurityGroupIpv6RangeList: StaticListSchema = [1, n0, _AESGIRLw, 0, () => AwsEc2SecurityGroupIpv6Range$];
+var AwsEc2SecurityGroupPrefixListIdList: StaticListSchema = [
   1,
   n0,
   _AESGPLIL,
   0,
-  () => AwsEc2SecurityGroupPrefixListId,
+  () => AwsEc2SecurityGroupPrefixListId$,
 ];
-export var AwsEc2SecurityGroupUserIdGroupPairList: StaticListSchema = [
+var AwsEc2SecurityGroupUserIdGroupPairList: StaticListSchema = [
   1,
   n0,
   _AESGUIGPL,
   0,
-  () => AwsEc2SecurityGroupUserIdGroupPair,
+  () => AwsEc2SecurityGroupUserIdGroupPair$,
 ];
-export var AwsEc2VolumeAttachmentList: StaticListSchema = [1, n0, _AEVAL, 0, () => AwsEc2VolumeAttachment];
-export var AwsEc2VpcEndpointServiceServiceTypeList: StaticListSchema = [
+var AwsEc2VolumeAttachmentList: StaticListSchema = [1, n0, _AEVAL, 0, () => AwsEc2VolumeAttachment$];
+var AwsEc2VpcEndpointServiceServiceTypeList: StaticListSchema = [
   1,
   n0,
   _AEVESSTL,
   0,
-  () => AwsEc2VpcEndpointServiceServiceTypeDetails,
+  () => AwsEc2VpcEndpointServiceServiceTypeDetails$,
 ];
-export var AwsEc2VpnConnectionOptionsTunnelOptionsList: StaticListSchema = [
+var AwsEc2VpnConnectionOptionsTunnelOptionsList: StaticListSchema = [
   1,
   n0,
   _AEVCOTOL,
   0,
-  () => AwsEc2VpnConnectionOptionsTunnelOptionsDetails,
+  () => AwsEc2VpnConnectionOptionsTunnelOptionsDetails$,
 ];
-export var AwsEc2VpnConnectionRoutesList: StaticListSchema = [
-  1,
-  n0,
-  _AEVCRL,
-  0,
-  () => AwsEc2VpnConnectionRoutesDetails,
-];
-export var AwsEc2VpnConnectionVgwTelemetryList: StaticListSchema = [
+var AwsEc2VpnConnectionRoutesList: StaticListSchema = [1, n0, _AEVCRL, 0, () => AwsEc2VpnConnectionRoutesDetails$];
+var AwsEc2VpnConnectionVgwTelemetryList: StaticListSchema = [
   1,
   n0,
   _AEVCVTL,
   0,
-  () => AwsEc2VpnConnectionVgwTelemetryDetails,
+  () => AwsEc2VpnConnectionVgwTelemetryDetails$,
 ];
-export var AwsEcsClusterClusterSettingsList: StaticListSchema = [
+var AwsEcsClusterClusterSettingsList: StaticListSchema = [
   1,
   n0,
   _AECCSL,
   0,
-  () => AwsEcsClusterClusterSettingsDetails,
+  () => AwsEcsClusterClusterSettingsDetails$,
 ];
-export var AwsEcsClusterDefaultCapacityProviderStrategyList: StaticListSchema = [
+var AwsEcsClusterDefaultCapacityProviderStrategyList: StaticListSchema = [
   1,
   n0,
   _AECDCPSL,
   0,
-  () => AwsEcsClusterDefaultCapacityProviderStrategyDetails,
+  () => AwsEcsClusterDefaultCapacityProviderStrategyDetails$,
 ];
-export var AwsEcsContainerDetailsList: StaticListSchema = [1, n0, _AECDL, 0, () => AwsEcsContainerDetails];
-export var AwsEcsServiceCapacityProviderStrategyList: StaticListSchema = [
+var AwsEcsContainerDetailsList: StaticListSchema = [1, n0, _AECDL, 0, () => AwsEcsContainerDetails$];
+var AwsEcsServiceCapacityProviderStrategyList: StaticListSchema = [
   1,
   n0,
   _AESCPSL,
   0,
-  () => AwsEcsServiceCapacityProviderStrategyDetails,
+  () => AwsEcsServiceCapacityProviderStrategyDetails$,
 ];
-export var AwsEcsServiceLoadBalancersList: StaticListSchema = [
-  1,
-  n0,
-  _AESLBL,
-  0,
-  () => AwsEcsServiceLoadBalancersDetails,
-];
-export var AwsEcsServicePlacementConstraintsList: StaticListSchema = [
+var AwsEcsServiceLoadBalancersList: StaticListSchema = [1, n0, _AESLBL, 0, () => AwsEcsServiceLoadBalancersDetails$];
+var AwsEcsServicePlacementConstraintsList: StaticListSchema = [
   1,
   n0,
   _AESPCL,
   0,
-  () => AwsEcsServicePlacementConstraintsDetails,
+  () => AwsEcsServicePlacementConstraintsDetails$,
 ];
-export var AwsEcsServicePlacementStrategiesList: StaticListSchema = [
+var AwsEcsServicePlacementStrategiesList: StaticListSchema = [
   1,
   n0,
   _AESPSL,
   0,
-  () => AwsEcsServicePlacementStrategiesDetails,
+  () => AwsEcsServicePlacementStrategiesDetails$,
 ];
-export var AwsEcsServiceServiceRegistriesList: StaticListSchema = [
+var AwsEcsServiceServiceRegistriesList: StaticListSchema = [
   1,
   n0,
   _AESSRL,
   0,
-  () => AwsEcsServiceServiceRegistriesDetails,
+  () => AwsEcsServiceServiceRegistriesDetails$,
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsDependsOnList: StaticListSchema = [
+var AwsEcsTaskDefinitionContainerDefinitionsDependsOnList: StaticListSchema = [
   1,
   n0,
   _AETDCDDOL,
   0,
-  () => AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails,
+  () => AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails$,
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesList: StaticListSchema = [
+var AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesList: StaticListSchema = [
   1,
   n0,
   _AETDCDEFL,
   0,
-  () => AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails,
+  () => AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails$,
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsEnvironmentList: StaticListSchema = [
+var AwsEcsTaskDefinitionContainerDefinitionsEnvironmentList: StaticListSchema = [
   1,
   n0,
   _AETDCDEL,
   0,
-  () => AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails,
+  () => AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails$,
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsExtraHostsList: StaticListSchema = [
+var AwsEcsTaskDefinitionContainerDefinitionsExtraHostsList: StaticListSchema = [
   1,
   n0,
   _AETDCDEHL,
   0,
-  () => AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails,
+  () => AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails$,
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesList: StaticListSchema = [
+var AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesList: StaticListSchema = [
   1,
   n0,
   _AETDCDLPDL,
   0,
-  () => AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails,
+  () => AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails$,
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsList: StaticListSchema = [
+var AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsList: StaticListSchema = [
   1,
   n0,
   _AETDCDLPTL,
   0,
-  () => AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails,
+  () => AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails$,
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsList: StaticListSchema = [
+var AwsEcsTaskDefinitionContainerDefinitionsList: StaticListSchema = [
   1,
   n0,
   _AETDCDL,
   0,
-  () => AwsEcsTaskDefinitionContainerDefinitionsDetails,
+  () => AwsEcsTaskDefinitionContainerDefinitionsDetails$,
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsList: StaticListSchema = [
+var AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsList: StaticListSchema = [
   1,
   n0,
   _AETDCDLCSOL,
   0,
-  () => AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails,
+  () => AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails$,
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsMountPointsList: StaticListSchema = [
+var AwsEcsTaskDefinitionContainerDefinitionsMountPointsList: StaticListSchema = [
   1,
   n0,
   _AETDCDMPL,
   0,
-  () => AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails,
+  () => AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails$,
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsPortMappingsList: StaticListSchema = [
+var AwsEcsTaskDefinitionContainerDefinitionsPortMappingsList: StaticListSchema = [
   1,
   n0,
   _AETDCDPML,
   0,
-  () => AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails,
+  () => AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails$,
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsList: StaticListSchema = [
+var AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsList: StaticListSchema = [
   1,
   n0,
   _AETDCDRRL,
   0,
-  () => AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails,
+  () => AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails$,
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsSecretsList: StaticListSchema = [
+var AwsEcsTaskDefinitionContainerDefinitionsSecretsList: StaticListSchema = [
   1,
   n0,
   _AETDCDSL,
   0,
-  () => AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails,
+  () => AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails$,
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsSystemControlsList: StaticListSchema = [
+var AwsEcsTaskDefinitionContainerDefinitionsSystemControlsList: StaticListSchema = [
   1,
   n0,
   _AETDCDSCL,
   0,
-  () => AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails,
+  () => AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails$,
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsUlimitsList: StaticListSchema = [
+var AwsEcsTaskDefinitionContainerDefinitionsUlimitsList: StaticListSchema = [
   1,
   n0,
   _AETDCDUL,
   0,
-  () => AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails,
+  () => AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails$,
 ];
-export var AwsEcsTaskDefinitionContainerDefinitionsVolumesFromList: StaticListSchema = [
+var AwsEcsTaskDefinitionContainerDefinitionsVolumesFromList: StaticListSchema = [
   1,
   n0,
   _AETDCDVFL,
   0,
-  () => AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails,
+  () => AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails$,
 ];
-export var AwsEcsTaskDefinitionInferenceAcceleratorsList: StaticListSchema = [
+var AwsEcsTaskDefinitionInferenceAcceleratorsList: StaticListSchema = [
   1,
   n0,
   _AETDIAL,
   0,
-  () => AwsEcsTaskDefinitionInferenceAcceleratorsDetails,
+  () => AwsEcsTaskDefinitionInferenceAcceleratorsDetails$,
 ];
-export var AwsEcsTaskDefinitionPlacementConstraintsList: StaticListSchema = [
+var AwsEcsTaskDefinitionPlacementConstraintsList: StaticListSchema = [
   1,
   n0,
   _AETDPCL,
   0,
-  () => AwsEcsTaskDefinitionPlacementConstraintsDetails,
+  () => AwsEcsTaskDefinitionPlacementConstraintsDetails$,
 ];
-export var AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesList: StaticListSchema = [
+var AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesList: StaticListSchema = [
   1,
   n0,
   _AETDPCPCPL,
   0,
-  () => AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails,
+  () => AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails$,
 ];
-export var AwsEcsTaskDefinitionVolumesList: StaticListSchema = [
-  1,
-  n0,
-  _AETDVL,
-  0,
-  () => AwsEcsTaskDefinitionVolumesDetails,
-];
-export var AwsEcsTaskVolumeDetailsList: StaticListSchema = [1, n0, _AETVDL, 0, () => AwsEcsTaskVolumeDetails];
-export var AwsEksClusterLoggingClusterLoggingList: StaticListSchema = [
+var AwsEcsTaskDefinitionVolumesList: StaticListSchema = [1, n0, _AETDVL, 0, () => AwsEcsTaskDefinitionVolumesDetails$];
+var AwsEcsTaskVolumeDetailsList: StaticListSchema = [1, n0, _AETVDL, 0, () => AwsEcsTaskVolumeDetails$];
+var AwsEksClusterLoggingClusterLoggingList: StaticListSchema = [
   1,
   n0,
   _AECLCLL,
   0,
-  () => AwsEksClusterLoggingClusterLoggingDetails,
+  () => AwsEksClusterLoggingClusterLoggingDetails$,
 ];
-export var AwsElasticBeanstalkEnvironmentEnvironmentLinks: StaticListSchema = [
+var AwsElasticBeanstalkEnvironmentEnvironmentLinks: StaticListSchema = [
   1,
   n0,
   _AEBEELw,
   0,
-  () => AwsElasticBeanstalkEnvironmentEnvironmentLink,
+  () => AwsElasticBeanstalkEnvironmentEnvironmentLink$,
 ];
-export var AwsElasticBeanstalkEnvironmentOptionSettings: StaticListSchema = [
+var AwsElasticBeanstalkEnvironmentOptionSettings: StaticListSchema = [
   1,
   n0,
   _AEBEOSw,
   0,
-  () => AwsElasticBeanstalkEnvironmentOptionSetting,
+  () => AwsElasticBeanstalkEnvironmentOptionSetting$,
 ];
-export var AwsElbAppCookieStickinessPolicies: StaticListSchema = [
-  1,
-  n0,
-  _AEACSPw,
-  0,
-  () => AwsElbAppCookieStickinessPolicy,
-];
-export var AwsElbLbCookieStickinessPolicies: StaticListSchema = [
-  1,
-  n0,
-  _AELCSPw,
-  0,
-  () => AwsElbLbCookieStickinessPolicy,
-];
-export var AwsElbLoadBalancerAdditionalAttributeList: StaticListSchema = [
+var AwsElbAppCookieStickinessPolicies: StaticListSchema = [1, n0, _AEACSPw, 0, () => AwsElbAppCookieStickinessPolicy$];
+var AwsElbLbCookieStickinessPolicies: StaticListSchema = [1, n0, _AELCSPw, 0, () => AwsElbLbCookieStickinessPolicy$];
+var AwsElbLoadBalancerAdditionalAttributeList: StaticListSchema = [
   1,
   n0,
   _AELBAAL,
   0,
-  () => AwsElbLoadBalancerAdditionalAttribute,
+  () => AwsElbLoadBalancerAdditionalAttribute$,
 ];
-export var AwsElbLoadBalancerBackendServerDescriptions: StaticListSchema = [
+var AwsElbLoadBalancerBackendServerDescriptions: StaticListSchema = [
   1,
   n0,
   _AELBBSDw,
   0,
-  () => AwsElbLoadBalancerBackendServerDescription,
+  () => AwsElbLoadBalancerBackendServerDescription$,
 ];
-export var AwsElbLoadBalancerInstances: StaticListSchema = [1, n0, _AELBIw, 0, () => AwsElbLoadBalancerInstance];
-export var AwsElbLoadBalancerListenerDescriptions: StaticListSchema = [
+var AwsElbLoadBalancerInstances: StaticListSchema = [1, n0, _AELBIw, 0, () => AwsElbLoadBalancerInstance$];
+var AwsElbLoadBalancerListenerDescriptions: StaticListSchema = [
   1,
   n0,
   _AELBLDw,
   0,
-  () => AwsElbLoadBalancerListenerDescription,
+  () => AwsElbLoadBalancerListenerDescription$,
 ];
-export var AwsElbv2LoadBalancerAttributes: StaticListSchema = [1, n0, _AELBAws, 0, () => AwsElbv2LoadBalancerAttribute];
-export var AwsEventsEndpointEventBusesList: StaticListSchema = [
-  1,
-  n0,
-  _AEEEBL,
-  0,
-  () => AwsEventsEndpointEventBusesDetails,
-];
-export var AwsGuardDutyDetectorFeaturesList: StaticListSchema = [
+var AwsElbv2LoadBalancerAttributes: StaticListSchema = [1, n0, _AELBAws, 0, () => AwsElbv2LoadBalancerAttribute$];
+var AwsEventsEndpointEventBusesList: StaticListSchema = [1, n0, _AEEEBL, 0, () => AwsEventsEndpointEventBusesDetails$];
+var AwsGuardDutyDetectorFeaturesList: StaticListSchema = [
   1,
   n0,
   _AGDDFL,
   0,
-  () => AwsGuardDutyDetectorFeaturesDetails,
+  () => AwsGuardDutyDetectorFeaturesDetails$,
 ];
-export var AwsIamAttachedManagedPolicyList: StaticListSchema = [1, n0, _AIAMPL, 0, () => AwsIamAttachedManagedPolicy];
-export var AwsIamGroupPolicyList: StaticListSchema = [1, n0, _AIGPL, 0, () => AwsIamGroupPolicy];
-export var AwsIamInstanceProfileList: StaticListSchema = [1, n0, _AIIPL, 0, () => AwsIamInstanceProfile];
-export var AwsIamInstanceProfileRoles: StaticListSchema = [1, n0, _AIIPRw, 0, () => AwsIamInstanceProfileRole];
-export var AwsIamPolicyVersionList: StaticListSchema = [1, n0, _AIPVL, 0, () => AwsIamPolicyVersion];
-export var AwsIamRolePolicyList: StaticListSchema = [1, n0, _AIRPL, 0, () => AwsIamRolePolicy];
-export var AwsIamUserPolicyList: StaticListSchema = [1, n0, _AIUPL, 0, () => AwsIamUserPolicy];
-export var AwsLambdaFunctionLayerList: StaticListSchema = [1, n0, _ALFLL, 0, () => AwsLambdaFunctionLayer];
-export var AwsMountPointList: StaticListSchema = [1, n0, _AMPL, 0, () => AwsMountPoint];
-export var AwsNetworkFirewallFirewallSubnetMappingsList: StaticListSchema = [
+var AwsIamAttachedManagedPolicyList: StaticListSchema = [1, n0, _AIAMPL, 0, () => AwsIamAttachedManagedPolicy$];
+var AwsIamGroupPolicyList: StaticListSchema = [1, n0, _AIGPL, 0, () => AwsIamGroupPolicy$];
+var AwsIamInstanceProfileList: StaticListSchema = [1, n0, _AIIPL, 0, () => AwsIamInstanceProfile$];
+var AwsIamInstanceProfileRoles: StaticListSchema = [1, n0, _AIIPRw, 0, () => AwsIamInstanceProfileRole$];
+var AwsIamPolicyVersionList: StaticListSchema = [1, n0, _AIPVL, 0, () => AwsIamPolicyVersion$];
+var AwsIamRolePolicyList: StaticListSchema = [1, n0, _AIRPL, 0, () => AwsIamRolePolicy$];
+var AwsIamUserPolicyList: StaticListSchema = [1, n0, _AIUPL, 0, () => AwsIamUserPolicy$];
+var AwsLambdaFunctionLayerList: StaticListSchema = [1, n0, _ALFLL, 0, () => AwsLambdaFunctionLayer$];
+var AwsMountPointList: StaticListSchema = [1, n0, _AMPL, 0, () => AwsMountPoint$];
+var AwsNetworkFirewallFirewallSubnetMappingsList: StaticListSchema = [
   1,
   n0,
   _ANFFSML,
   0,
-  () => AwsNetworkFirewallFirewallSubnetMappingsDetails,
+  () => AwsNetworkFirewallFirewallSubnetMappingsDetails$,
 ];
-export var AwsRdsDbClusterAssociatedRoles: StaticListSchema = [1, n0, _ARDCARw, 0, () => AwsRdsDbClusterAssociatedRole];
-export var AwsRdsDbClusterMembers: StaticListSchema = [1, n0, _ARDCMw, 0, () => AwsRdsDbClusterMember];
-export var AwsRdsDbClusterOptionGroupMemberships: StaticListSchema = [
+var AwsRdsDbClusterAssociatedRoles: StaticListSchema = [1, n0, _ARDCARw, 0, () => AwsRdsDbClusterAssociatedRole$];
+var AwsRdsDbClusterMembers: StaticListSchema = [1, n0, _ARDCMw, 0, () => AwsRdsDbClusterMember$];
+var AwsRdsDbClusterOptionGroupMemberships: StaticListSchema = [
   1,
   n0,
   _ARDCOGMw,
   0,
-  () => AwsRdsDbClusterOptionGroupMembership,
+  () => AwsRdsDbClusterOptionGroupMembership$,
 ];
-export var AwsRdsDbClusterSnapshotDbClusterSnapshotAttributes: StaticListSchema = [
+var AwsRdsDbClusterSnapshotDbClusterSnapshotAttributes: StaticListSchema = [
   1,
   n0,
   _ARDCSDCSAw,
   0,
-  () => AwsRdsDbClusterSnapshotDbClusterSnapshotAttribute,
+  () => AwsRdsDbClusterSnapshotDbClusterSnapshotAttribute$,
 ];
-export var AwsRdsDbDomainMemberships: StaticListSchema = [1, n0, _ARDDMw, 0, () => AwsRdsDbDomainMembership];
-export var AwsRdsDbInstanceAssociatedRoles: StaticListSchema = [
-  1,
-  n0,
-  _ARDIARw,
-  0,
-  () => AwsRdsDbInstanceAssociatedRole,
-];
-export var AwsRdsDbInstanceVpcSecurityGroups: StaticListSchema = [
+var AwsRdsDbDomainMemberships: StaticListSchema = [1, n0, _ARDDMw, 0, () => AwsRdsDbDomainMembership$];
+var AwsRdsDbInstanceAssociatedRoles: StaticListSchema = [1, n0, _ARDIARw, 0, () => AwsRdsDbInstanceAssociatedRole$];
+var AwsRdsDbInstanceVpcSecurityGroups: StaticListSchema = [
   1,
   n0,
   _ARDIVSGw,
   0,
-  () => AwsRdsDbInstanceVpcSecurityGroup,
+  () => AwsRdsDbInstanceVpcSecurityGroup$,
 ];
-export var AwsRdsDbOptionGroupMemberships: StaticListSchema = [1, n0, _ARDOGMw, 0, () => AwsRdsDbOptionGroupMembership];
-export var AwsRdsDbParameterGroups: StaticListSchema = [1, n0, _ARDPGw, 0, () => AwsRdsDbParameterGroup];
-export var AwsRdsDbProcessorFeatures: StaticListSchema = [1, n0, _ARDPFw, 0, () => AwsRdsDbProcessorFeature];
-export var AwsRdsDbSecurityGroupEc2SecurityGroups: StaticListSchema = [
+var AwsRdsDbOptionGroupMemberships: StaticListSchema = [1, n0, _ARDOGMw, 0, () => AwsRdsDbOptionGroupMembership$];
+var AwsRdsDbParameterGroups: StaticListSchema = [1, n0, _ARDPGw, 0, () => AwsRdsDbParameterGroup$];
+var AwsRdsDbProcessorFeatures: StaticListSchema = [1, n0, _ARDPFw, 0, () => AwsRdsDbProcessorFeature$];
+var AwsRdsDbSecurityGroupEc2SecurityGroups: StaticListSchema = [
   1,
   n0,
   _ARDSGESGw,
   0,
-  () => AwsRdsDbSecurityGroupEc2SecurityGroup,
+  () => AwsRdsDbSecurityGroupEc2SecurityGroup$,
 ];
-export var AwsRdsDbSecurityGroupIpRanges: StaticListSchema = [1, n0, _ARDSGIRw, 0, () => AwsRdsDbSecurityGroupIpRange];
-export var AwsRdsDbStatusInfos: StaticListSchema = [1, n0, _ARDSIw, 0, () => AwsRdsDbStatusInfo];
-export var AwsRdsDbSubnetGroupSubnets: StaticListSchema = [1, n0, _ARDSGSw, 0, () => AwsRdsDbSubnetGroupSubnet];
-export var AwsRedshiftClusterClusterNodes: StaticListSchema = [1, n0, _ARCCNw, 0, () => AwsRedshiftClusterClusterNode];
-export var AwsRedshiftClusterClusterParameterGroups: StaticListSchema = [
+var AwsRdsDbSecurityGroupIpRanges: StaticListSchema = [1, n0, _ARDSGIRw, 0, () => AwsRdsDbSecurityGroupIpRange$];
+var AwsRdsDbStatusInfos: StaticListSchema = [1, n0, _ARDSIw, 0, () => AwsRdsDbStatusInfo$];
+var AwsRdsDbSubnetGroupSubnets: StaticListSchema = [1, n0, _ARDSGSw, 0, () => AwsRdsDbSubnetGroupSubnet$];
+var AwsRedshiftClusterClusterNodes: StaticListSchema = [1, n0, _ARCCNw, 0, () => AwsRedshiftClusterClusterNode$];
+var AwsRedshiftClusterClusterParameterGroups: StaticListSchema = [
   1,
   n0,
   _ARCCPGw,
   0,
-  () => AwsRedshiftClusterClusterParameterGroup,
+  () => AwsRedshiftClusterClusterParameterGroup$,
 ];
-export var AwsRedshiftClusterClusterParameterStatusList: StaticListSchema = [
+var AwsRedshiftClusterClusterParameterStatusList: StaticListSchema = [
   1,
   n0,
   _ARCCPSL,
   0,
-  () => AwsRedshiftClusterClusterParameterStatus,
+  () => AwsRedshiftClusterClusterParameterStatus$,
 ];
-export var AwsRedshiftClusterClusterSecurityGroups: StaticListSchema = [
+var AwsRedshiftClusterClusterSecurityGroups: StaticListSchema = [
   1,
   n0,
   _ARCCSGw,
   0,
-  () => AwsRedshiftClusterClusterSecurityGroup,
+  () => AwsRedshiftClusterClusterSecurityGroup$,
 ];
-export var AwsRedshiftClusterDeferredMaintenanceWindows: StaticListSchema = [
+var AwsRedshiftClusterDeferredMaintenanceWindows: StaticListSchema = [
   1,
   n0,
   _ARCDMWw,
   0,
-  () => AwsRedshiftClusterDeferredMaintenanceWindow,
+  () => AwsRedshiftClusterDeferredMaintenanceWindow$,
 ];
-export var AwsRedshiftClusterIamRoles: StaticListSchema = [1, n0, _ARCIRw, 0, () => AwsRedshiftClusterIamRole];
-export var AwsRedshiftClusterVpcSecurityGroups: StaticListSchema = [
+var AwsRedshiftClusterIamRoles: StaticListSchema = [1, n0, _ARCIRw, 0, () => AwsRedshiftClusterIamRole$];
+var AwsRedshiftClusterVpcSecurityGroups: StaticListSchema = [
   1,
   n0,
   _ARCVSGw,
   0,
-  () => AwsRedshiftClusterVpcSecurityGroup,
+  () => AwsRedshiftClusterVpcSecurityGroup$,
 ];
-export var AwsRoute53HostedZoneNameServersList = 64 | 0;
-export var AwsRoute53HostedZoneVpcsList: StaticListSchema = [1, n0, _ARHZVL, 0, () => AwsRoute53HostedZoneVpcDetails];
-export var AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsList: StaticListSchema = [
+var AwsRoute53HostedZoneNameServersList = 64 | 0;
+var AwsRoute53HostedZoneVpcsList: StaticListSchema = [1, n0, _ARHZVL, 0, () => AwsRoute53HostedZoneVpcDetails$];
+var AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsList: StaticListSchema = [
   1,
   n0,
   _ASBBLCRFPOL,
   0,
-  () => AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails,
+  () => AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails$,
 ];
-export var AwsS3BucketBucketLifecycleConfigurationRulesList: StaticListSchema = [
+var AwsS3BucketBucketLifecycleConfigurationRulesList: StaticListSchema = [
   1,
   n0,
   _ASBBLCRL,
   0,
-  () => AwsS3BucketBucketLifecycleConfigurationRulesDetails,
+  () => AwsS3BucketBucketLifecycleConfigurationRulesDetails$,
 ];
-export var AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsList: StaticListSchema = [
+var AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsList: StaticListSchema = [
   1,
   n0,
   _ASBBLCRNVTL,
   0,
-  () => AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails,
+  () => AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails$,
 ];
-export var AwsS3BucketBucketLifecycleConfigurationRulesTransitionsList: StaticListSchema = [
+var AwsS3BucketBucketLifecycleConfigurationRulesTransitionsList: StaticListSchema = [
   1,
   n0,
   _ASBBLCRTL,
   0,
-  () => AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails,
+  () => AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails$,
 ];
-export var AwsS3BucketNotificationConfigurationDetails: StaticListSchema = [
+var AwsS3BucketNotificationConfigurationDetails: StaticListSchema = [
   1,
   n0,
   _ASBNCDw,
   0,
-  () => AwsS3BucketNotificationConfigurationDetail,
+  () => AwsS3BucketNotificationConfigurationDetail$,
 ];
-export var AwsS3BucketNotificationConfigurationEvents = 64 | 0;
-export var AwsS3BucketNotificationConfigurationS3KeyFilterRules: StaticListSchema = [
+var AwsS3BucketNotificationConfigurationEvents = 64 | 0;
+var AwsS3BucketNotificationConfigurationS3KeyFilterRules: StaticListSchema = [
   1,
   n0,
   _ASBNCSKFRw,
   0,
-  () => AwsS3BucketNotificationConfigurationS3KeyFilterRule,
+  () => AwsS3BucketNotificationConfigurationS3KeyFilterRule$,
 ];
-export var AwsS3BucketServerSideEncryptionRules: StaticListSchema = [
+var AwsS3BucketServerSideEncryptionRules: StaticListSchema = [
   1,
   n0,
   _ASBSSERw,
   0,
-  () => AwsS3BucketServerSideEncryptionRule,
+  () => AwsS3BucketServerSideEncryptionRule$,
 ];
-export var AwsS3BucketWebsiteConfigurationRoutingRules: StaticListSchema = [
+var AwsS3BucketWebsiteConfigurationRoutingRules: StaticListSchema = [
   1,
   n0,
   _ASBWCRRw,
   0,
-  () => AwsS3BucketWebsiteConfigurationRoutingRule,
+  () => AwsS3BucketWebsiteConfigurationRoutingRule$,
 ];
-export var AwsSecurityFindingIdentifierList: StaticListSchema = [1, n0, _ASFIL, 0, () => AwsSecurityFindingIdentifier];
-export var AwsSecurityFindingList: StaticListSchema = [1, n0, _ASFL, 0, () => AwsSecurityFinding];
-export var AwsSnsTopicSubscriptionList: StaticListSchema = [1, n0, _ASTSL, 0, () => AwsSnsTopicSubscription];
-export var AwsStepFunctionStateMachineLoggingConfigurationDestinationsList: StaticListSchema = [
+var AwsSecurityFindingIdentifierList: StaticListSchema = [1, n0, _ASFIL, 0, () => AwsSecurityFindingIdentifier$];
+var AwsSecurityFindingList: StaticListSchema = [1, n0, _ASFL, 0, () => AwsSecurityFinding$];
+var AwsSnsTopicSubscriptionList: StaticListSchema = [1, n0, _ASTSL, 0, () => AwsSnsTopicSubscription$];
+var AwsStepFunctionStateMachineLoggingConfigurationDestinationsList: StaticListSchema = [
   1,
   n0,
   _ASFSMLCDL,
   0,
-  () => AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails,
+  () => AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails$,
 ];
-export var AwsWafRateBasedRuleMatchPredicateList: StaticListSchema = [
+var AwsWafRateBasedRuleMatchPredicateList: StaticListSchema = [
   1,
   n0,
   _AWRBRMPL,
   0,
-  () => AwsWafRateBasedRuleMatchPredicate,
+  () => AwsWafRateBasedRuleMatchPredicate$,
 ];
-export var AwsWafRegionalRateBasedRuleMatchPredicateList: StaticListSchema = [
+var AwsWafRegionalRateBasedRuleMatchPredicateList: StaticListSchema = [
   1,
   n0,
   _AWRRBRMPL,
   0,
-  () => AwsWafRegionalRateBasedRuleMatchPredicate,
+  () => AwsWafRegionalRateBasedRuleMatchPredicate$,
 ];
-export var AwsWafRegionalRuleGroupRulesList: StaticListSchema = [
+var AwsWafRegionalRuleGroupRulesList: StaticListSchema = [
   1,
   n0,
   _AWRRGRL,
   0,
-  () => AwsWafRegionalRuleGroupRulesDetails,
+  () => AwsWafRegionalRuleGroupRulesDetails$,
 ];
-export var AwsWafRegionalRulePredicateList: StaticListSchema = [
+var AwsWafRegionalRulePredicateList: StaticListSchema = [
   1,
   n0,
   _AWRRPL,
   0,
-  () => AwsWafRegionalRulePredicateListDetails,
+  () => AwsWafRegionalRulePredicateListDetails$,
 ];
-export var AwsWafRegionalWebAclRulesList: StaticListSchema = [
-  1,
-  n0,
-  _AWRWARL,
-  0,
-  () => AwsWafRegionalWebAclRulesListDetails,
-];
-export var AwsWafRuleGroupRulesList: StaticListSchema = [1, n0, _AWRGRL, 0, () => AwsWafRuleGroupRulesDetails];
-export var AwsWafRulePredicateList: StaticListSchema = [1, n0, _AWRPL, 0, () => AwsWafRulePredicateListDetails];
-export var AwsWafv2InsertHeadersList: StaticListSchema = [1, n0, _AWIHL, 0, () => AwsWafv2CustomHttpHeader];
-export var AwsWafv2RulesList: StaticListSchema = [1, n0, _AWRL, 0, () => AwsWafv2RulesDetails];
-export var AwsWafWebAclRuleList: StaticListSchema = [1, n0, _AWWARL, 0, () => AwsWafWebAclRule];
-export var BatchImportFindingsRequestFindingList: StaticListSchema = [1, n0, _BIFRFL, 0, () => AwsSecurityFinding];
-export var BatchUpdateFindingsUnprocessedFindingsList: StaticListSchema = [
+var AwsWafRegionalWebAclRulesList: StaticListSchema = [1, n0, _AWRWARL, 0, () => AwsWafRegionalWebAclRulesListDetails$];
+var AwsWafRuleGroupRulesList: StaticListSchema = [1, n0, _AWRGRL, 0, () => AwsWafRuleGroupRulesDetails$];
+var AwsWafRulePredicateList: StaticListSchema = [1, n0, _AWRPL, 0, () => AwsWafRulePredicateListDetails$];
+var AwsWafv2InsertHeadersList: StaticListSchema = [1, n0, _AWIHL, 0, () => AwsWafv2CustomHttpHeader$];
+var AwsWafv2RulesList: StaticListSchema = [1, n0, _AWRL, 0, () => AwsWafv2RulesDetails$];
+var AwsWafWebAclRuleList: StaticListSchema = [1, n0, _AWWARL, 0, () => AwsWafWebAclRule$];
+var BatchImportFindingsRequestFindingList: StaticListSchema = [1, n0, _BIFRFL, 0, () => AwsSecurityFinding$];
+var BatchUpdateFindingsUnprocessedFindingsList: StaticListSchema = [
   1,
   n0,
   _BUFUFL,
   0,
-  () => BatchUpdateFindingsUnprocessedFinding,
+  () => BatchUpdateFindingsUnprocessedFinding$,
 ];
-export var BatchUpdateFindingsV2ProcessedFindingsList: StaticListSchema = [
+var BatchUpdateFindingsV2ProcessedFindingsList: StaticListSchema = [
   1,
   n0,
   _BUFVPFL,
   0,
-  () => BatchUpdateFindingsV2ProcessedFinding,
+  () => BatchUpdateFindingsV2ProcessedFinding$,
 ];
-export var BatchUpdateFindingsV2UnprocessedFindingsList: StaticListSchema = [
+var BatchUpdateFindingsV2UnprocessedFindingsList: StaticListSchema = [
   1,
   n0,
   _BUFVUFL,
   0,
-  () => BatchUpdateFindingsV2UnprocessedFinding,
+  () => BatchUpdateFindingsV2UnprocessedFinding$,
 ];
-export var BooleanFilterList: StaticListSchema = [1, n0, _BFL, 0, () => BooleanFilter];
-export var CategoryList = 64 | 0;
-export var Cells: StaticListSchema = [1, n0, _Cell, 0, () => Cell];
-export var CidrBlockAssociationList: StaticListSchema = [1, n0, _CBAL, 0, () => CidrBlockAssociation];
-export var CompositeFilterList: StaticListSchema = [1, n0, _CFL, 0, () => CompositeFilter];
-export var ConfigurationPolicyAssociationList: StaticListSchema = [
+var BooleanFilterList: StaticListSchema = [1, n0, _BFL, 0, () => BooleanFilter$];
+var CategoryList = 64 | 0;
+var Cells: StaticListSchema = [1, n0, _Cell, 0, () => Cell$];
+var CidrBlockAssociationList: StaticListSchema = [1, n0, _CBAL, 0, () => CidrBlockAssociation$];
+var CompositeFilterList: StaticListSchema = [1, n0, _CFL, 0, () => CompositeFilter$];
+var ConfigurationPolicyAssociationList: StaticListSchema = [
   1,
   n0,
   _CPAL,
   0,
-  () => ConfigurationPolicyAssociationSummary,
+  () => ConfigurationPolicyAssociationSummary$,
 ];
-export var ConfigurationPolicyAssociationsList: StaticListSchema = [
-  1,
-  n0,
-  _CPALo,
-  0,
-  () => ConfigurationPolicyAssociation,
-];
-export var ConfigurationPolicyAssociationSummaryList: StaticListSchema = [
+var ConfigurationPolicyAssociationsList: StaticListSchema = [1, n0, _CPALo, 0, () => ConfigurationPolicyAssociation$];
+var ConfigurationPolicyAssociationSummaryList: StaticListSchema = [
   1,
   n0,
   _CPASL,
   0,
-  () => ConfigurationPolicyAssociationSummary,
+  () => ConfigurationPolicyAssociationSummary$,
 ];
-export var ConfigurationPolicySummaryList: StaticListSchema = [1, n0, _CPSLo, 0, () => ConfigurationPolicySummary];
-export var ConnectorSummaryList: StaticListSchema = [1, n0, _CSL, 0, () => ConnectorSummary];
-export var CustomDataIdentifiersDetectionsList: StaticListSchema = [
-  1,
-  n0,
-  _CDIDL,
-  0,
-  () => CustomDataIdentifiersDetections,
-];
-export var CustomizableProperties = 64 | 0;
-export var CvssList: StaticListSchema = [1, n0, _CLv, 0, () => Cvss];
-export var DateFilterList: StaticListSchema = [1, n0, _DFL, 0, () => DateFilter];
-export var DisabledSecurityControlIdentifierList = 64 | 0;
-export var EnabledSecurityControlIdentifierList = 64 | 0;
-export var EnabledStandardIdentifierList = 64 | 0;
-export var FilePathList: StaticListSchema = [1, n0, _FPL, 0, () => FilePaths];
-export var FindingAggregatorList: StaticListSchema = [1, n0, _FAL, 0, () => FindingAggregator];
-export var FindingHistoryRecordList: StaticListSchema = [1, n0, _FHRL, 0, () => FindingHistoryRecord];
-export var FindingHistoryUpdatesList: StaticListSchema = [1, n0, _FHUL, 0, () => FindingHistoryUpdate];
-export var FindingsTrendsCompositeFilterList: StaticListSchema = [
-  1,
-  n0,
-  _FTCFL,
-  0,
-  () => FindingsTrendsCompositeFilter,
-];
-export var FindingsTrendsStringFilterList: StaticListSchema = [1, n0, _FTSFL, 0, () => FindingsTrendsStringFilter];
-export var FirewallPolicyStatefulRuleGroupReferencesList: StaticListSchema = [
+var ConfigurationPolicySummaryList: StaticListSchema = [1, n0, _CPSLo, 0, () => ConfigurationPolicySummary$];
+var ConnectorSummaryList: StaticListSchema = [1, n0, _CSL, 0, () => ConnectorSummary$];
+var CustomDataIdentifiersDetectionsList: StaticListSchema = [1, n0, _CDIDL, 0, () => CustomDataIdentifiersDetections$];
+var CustomizableProperties = 64 | 0;
+var CvssList: StaticListSchema = [1, n0, _CLv, 0, () => Cvss$];
+var DateFilterList: StaticListSchema = [1, n0, _DFL, 0, () => DateFilter$];
+var DisabledSecurityControlIdentifierList = 64 | 0;
+var EnabledSecurityControlIdentifierList = 64 | 0;
+var EnabledStandardIdentifierList = 64 | 0;
+var FilePathList: StaticListSchema = [1, n0, _FPL, 0, () => FilePaths$];
+var FindingAggregatorList: StaticListSchema = [1, n0, _FAL, 0, () => FindingAggregator$];
+var FindingHistoryRecordList: StaticListSchema = [1, n0, _FHRL, 0, () => FindingHistoryRecord$];
+var FindingHistoryUpdatesList: StaticListSchema = [1, n0, _FHUL, 0, () => FindingHistoryUpdate$];
+var FindingsTrendsCompositeFilterList: StaticListSchema = [1, n0, _FTCFL, 0, () => FindingsTrendsCompositeFilter$];
+var FindingsTrendsStringFilterList: StaticListSchema = [1, n0, _FTSFL, 0, () => FindingsTrendsStringFilter$];
+var FirewallPolicyStatefulRuleGroupReferencesList: StaticListSchema = [
   1,
   n0,
   _FPSRGRL,
   0,
-  () => FirewallPolicyStatefulRuleGroupReferencesDetails,
+  () => FirewallPolicyStatefulRuleGroupReferencesDetails$,
 ];
-export var FirewallPolicyStatelessCustomActionsList: StaticListSchema = [
+var FirewallPolicyStatelessCustomActionsList: StaticListSchema = [
   1,
   n0,
   _FPSCAL,
   0,
-  () => FirewallPolicyStatelessCustomActionsDetails,
+  () => FirewallPolicyStatelessCustomActionsDetails$,
 ];
-export var FirewallPolicyStatelessRuleGroupReferencesList: StaticListSchema = [
+var FirewallPolicyStatelessRuleGroupReferencesList: StaticListSchema = [
   1,
   n0,
   _FPSRGRLi,
   0,
-  () => FirewallPolicyStatelessRuleGroupReferencesDetails,
+  () => FirewallPolicyStatelessRuleGroupReferencesDetails$,
 ];
-export var GroupByResults: StaticListSchema = [1, n0, _GBRr, 0, () => GroupByResult];
-export var GroupByRules: StaticListSchema = [1, n0, _GBR, 0, () => GroupByRule];
-export var GroupByValues: StaticListSchema = [1, n0, _GBV, 0, () => GroupByValue];
-export var ImportFindingsErrorList: StaticListSchema = [1, n0, _IFEL, 0, () => ImportFindingsError];
-export var IndicatorsList: StaticListSchema = [1, n0, _IL, 0, () => Indicator];
-export var InsightList: StaticListSchema = [1, n0, _ILn, 0, () => Insight];
-export var InsightResultValueList: StaticListSchema = [1, n0, _IRVL, 0, () => InsightResultValue];
-export var IntegerList = 64 | 1;
-export var IntegrationTypeList = 64 | 0;
-export var IntegrationV2TypeList = 64 | 0;
-export var InvitationList: StaticListSchema = [1, n0, _ILnv, 0, () => Invitation];
-export var IpFilterList: StaticListSchema = [1, n0, _IFL, 0, () => IpFilter];
-export var Ipv6CidrBlockAssociationList: StaticListSchema = [1, n0, _ICBAL, 0, () => Ipv6CidrBlockAssociation];
-export var KeywordFilterList: StaticListSchema = [1, n0, _KFL, 0, () => KeywordFilter];
-export var MalwareList: StaticListSchema = [1, n0, _ML, 0, () => Malware];
-export var MapFilterList: StaticListSchema = [1, n0, _MFL, 0, () => MapFilter];
-export var MemberList: StaticListSchema = [1, n0, _MLe, 0, () => Member];
-export var MetadataUidList = 64 | 0;
-export var NetworkEndpointsList: StaticListSchema = [1, n0, _NEL, 0, () => NetworkEndpoint];
-export var NetworkPathList: StaticListSchema = [1, n0, _NPL, 0, () => NetworkPathComponent];
-export var NonEmptyStringList = 64 | 0;
-export var NumberFilterList: StaticListSchema = [1, n0, _NFL, 0, () => NumberFilter];
-export var OcsfBooleanFilterList: StaticListSchema = [1, n0, _OBFL, 0, () => OcsfBooleanFilter];
-export var OcsfDateFilterList: StaticListSchema = [1, n0, _ODFL, 0, () => OcsfDateFilter];
-export var OcsfFindingIdentifierList: StaticListSchema = [1, n0, _OFIL, 0, () => OcsfFindingIdentifier];
-export var OcsfFindingsList = 64 | 15;
-export var OcsfIpFilterList: StaticListSchema = [1, n0, _OIFL, 0, () => OcsfIpFilter];
-export var OcsfMapFilterList: StaticListSchema = [1, n0, _OMFL, 0, () => OcsfMapFilter];
-export var OcsfNumberFilterList: StaticListSchema = [1, n0, _ONFL, 0, () => OcsfNumberFilter];
-export var OcsfStringFilterList: StaticListSchema = [1, n0, _OSFL, 0, () => OcsfStringFilter];
-export var Pages: StaticListSchema = [1, n0, _Pag, 0, () => Page];
-export var PortProbeDetailList: StaticListSchema = [1, n0, _PPDL, 0, () => PortProbeDetail];
-export var PortRangeList: StaticListSchema = [1, n0, _PRL, 0, () => PortRange];
-export var ProductsList: StaticListSchema = [1, n0, _PLr, 0, () => Product];
-export var ProductSubscriptionArnList = 64 | 0;
-export var ProductsV2List: StaticListSchema = [1, n0, _PVLr, 0, () => ProductV2];
-export var PropagatingVgwSetList: StaticListSchema = [1, n0, _PVSL, 0, () => PropagatingVgwSetDetails];
-export var Ranges: StaticListSchema = [1, n0, _Ran, 0, () => Range];
-export var Records: StaticListSchema = [1, n0, _Rec, 0, () => _Record];
-export var RelatedFindingList: StaticListSchema = [1, n0, _RFL, 0, () => RelatedFinding];
-export var RelatedRequirementsList = 64 | 0;
-export var ResourceFindingsSummaryList: StaticListSchema = [1, n0, _RFSL, 0, () => ResourceFindingsSummary];
-export var ResourceGroupByRules: StaticListSchema = [1, n0, _RGBRe, 0, () => ResourceGroupByRule];
-export var ResourceList: StaticListSchema = [1, n0, _RLe, 0, () => Resource];
-export var Resources: StaticListSchema = [1, n0, _Res, 0, () => ResourceResult];
-export var ResourcesCompositeFilterList: StaticListSchema = [1, n0, _RCFL, 0, () => ResourcesCompositeFilter];
-export var ResourcesDateFilterList: StaticListSchema = [1, n0, _RDFL, 0, () => ResourcesDateFilter];
-export var ResourcesMapFilterList: StaticListSchema = [1, n0, _RMFL, 0, () => ResourcesMapFilter];
-export var ResourcesNumberFilterList: StaticListSchema = [1, n0, _RNFL, 0, () => ResourcesNumberFilter];
-export var ResourcesStringFilterList: StaticListSchema = [1, n0, _RSFL, 0, () => ResourcesStringFilter];
-export var ResourcesTrendsCompositeFilterList: StaticListSchema = [
-  1,
-  n0,
-  _RTCFL,
-  0,
-  () => ResourcesTrendsCompositeFilter,
-];
-export var ResourcesTrendsMetrics: StaticListSchema = [1, n0, _RTM, 0, () => ResourcesTrendsMetricsResult];
-export var ResourcesTrendsStringFilterList: StaticListSchema = [1, n0, _RTSFL, 0, () => ResourcesTrendsStringFilter];
-export var ResourceTagList: StaticListSchema = [1, n0, _RTL, 0, () => ResourceTag];
-export var ResultList: StaticListSchema = [1, n0, _RLes, 0, () => Result];
-export var RouteSetList: StaticListSchema = [1, n0, _RSLo, 0, () => RouteSetDetails];
-export var RuleGroupSourceCustomActionsList: StaticListSchema = [
+var GroupByResults: StaticListSchema = [1, n0, _GBRr, 0, () => GroupByResult$];
+var GroupByRules: StaticListSchema = [1, n0, _GBR, 0, () => GroupByRule$];
+var GroupByValues: StaticListSchema = [1, n0, _GBV, 0, () => GroupByValue$];
+var ImportFindingsErrorList: StaticListSchema = [1, n0, _IFEL, 0, () => ImportFindingsError$];
+var IndicatorsList: StaticListSchema = [1, n0, _IL, 0, () => Indicator$];
+var InsightList: StaticListSchema = [1, n0, _ILn, 0, () => Insight$];
+var InsightResultValueList: StaticListSchema = [1, n0, _IRVL, 0, () => InsightResultValue$];
+var IntegerList = 64 | 1;
+var IntegrationTypeList = 64 | 0;
+var IntegrationV2TypeList = 64 | 0;
+var InvitationList: StaticListSchema = [1, n0, _ILnv, 0, () => Invitation$];
+var IpFilterList: StaticListSchema = [1, n0, _IFL, 0, () => IpFilter$];
+var Ipv6CidrBlockAssociationList: StaticListSchema = [1, n0, _ICBAL, 0, () => Ipv6CidrBlockAssociation$];
+var KeywordFilterList: StaticListSchema = [1, n0, _KFL, 0, () => KeywordFilter$];
+var MalwareList: StaticListSchema = [1, n0, _ML, 0, () => Malware$];
+var MapFilterList: StaticListSchema = [1, n0, _MFL, 0, () => MapFilter$];
+var MemberList: StaticListSchema = [1, n0, _MLe, 0, () => Member$];
+var MetadataUidList = 64 | 0;
+var NetworkEndpointsList: StaticListSchema = [1, n0, _NEL, 0, () => NetworkEndpoint$];
+var NetworkPathList: StaticListSchema = [1, n0, _NPL, 0, () => NetworkPathComponent$];
+var NonEmptyStringList = 64 | 0;
+var NumberFilterList: StaticListSchema = [1, n0, _NFL, 0, () => NumberFilter$];
+var OcsfBooleanFilterList: StaticListSchema = [1, n0, _OBFL, 0, () => OcsfBooleanFilter$];
+var OcsfDateFilterList: StaticListSchema = [1, n0, _ODFL, 0, () => OcsfDateFilter$];
+var OcsfFindingIdentifierList: StaticListSchema = [1, n0, _OFIL, 0, () => OcsfFindingIdentifier$];
+var OcsfFindingsList = 64 | 15;
+var OcsfIpFilterList: StaticListSchema = [1, n0, _OIFL, 0, () => OcsfIpFilter$];
+var OcsfMapFilterList: StaticListSchema = [1, n0, _OMFL, 0, () => OcsfMapFilter$];
+var OcsfNumberFilterList: StaticListSchema = [1, n0, _ONFL, 0, () => OcsfNumberFilter$];
+var OcsfStringFilterList: StaticListSchema = [1, n0, _OSFL, 0, () => OcsfStringFilter$];
+var Pages: StaticListSchema = [1, n0, _Pag, 0, () => Page$];
+var PortProbeDetailList: StaticListSchema = [1, n0, _PPDL, 0, () => PortProbeDetail$];
+var PortRangeList: StaticListSchema = [1, n0, _PRL, 0, () => PortRange$];
+var ProductsList: StaticListSchema = [1, n0, _PLr, 0, () => Product$];
+var ProductSubscriptionArnList = 64 | 0;
+var ProductsV2List: StaticListSchema = [1, n0, _PVLr, 0, () => ProductV2$];
+var PropagatingVgwSetList: StaticListSchema = [1, n0, _PVSL, 0, () => PropagatingVgwSetDetails$];
+var Ranges: StaticListSchema = [1, n0, _Ran, 0, () => Range$];
+var Records: StaticListSchema = [1, n0, _Rec, 0, () => _Record$];
+var RelatedFindingList: StaticListSchema = [1, n0, _RFL, 0, () => RelatedFinding$];
+var RelatedRequirementsList = 64 | 0;
+var ResourceFindingsSummaryList: StaticListSchema = [1, n0, _RFSL, 0, () => ResourceFindingsSummary$];
+var ResourceGroupByRules: StaticListSchema = [1, n0, _RGBRe, 0, () => ResourceGroupByRule$];
+var ResourceList: StaticListSchema = [1, n0, _RLe, 0, () => Resource$];
+var Resources: StaticListSchema = [1, n0, _Res, 0, () => ResourceResult$];
+var ResourcesCompositeFilterList: StaticListSchema = [1, n0, _RCFL, 0, () => ResourcesCompositeFilter$];
+var ResourcesDateFilterList: StaticListSchema = [1, n0, _RDFL, 0, () => ResourcesDateFilter$];
+var ResourcesMapFilterList: StaticListSchema = [1, n0, _RMFL, 0, () => ResourcesMapFilter$];
+var ResourcesNumberFilterList: StaticListSchema = [1, n0, _RNFL, 0, () => ResourcesNumberFilter$];
+var ResourcesStringFilterList: StaticListSchema = [1, n0, _RSFL, 0, () => ResourcesStringFilter$];
+var ResourcesTrendsCompositeFilterList: StaticListSchema = [1, n0, _RTCFL, 0, () => ResourcesTrendsCompositeFilter$];
+var ResourcesTrendsMetrics: StaticListSchema = [1, n0, _RTM, 0, () => ResourcesTrendsMetricsResult$];
+var ResourcesTrendsStringFilterList: StaticListSchema = [1, n0, _RTSFL, 0, () => ResourcesTrendsStringFilter$];
+var ResourceTagList: StaticListSchema = [1, n0, _RTL, 0, () => ResourceTag$];
+var ResultList: StaticListSchema = [1, n0, _RLes, 0, () => Result$];
+var RouteSetList: StaticListSchema = [1, n0, _RSLo, 0, () => RouteSetDetails$];
+var RuleGroupSourceCustomActionsList: StaticListSchema = [
   1,
   n0,
   _RGSCAL,
   0,
-  () => RuleGroupSourceCustomActionsDetails,
+  () => RuleGroupSourceCustomActionsDetails$,
 ];
-export var RuleGroupSourceStatefulRulesList: StaticListSchema = [
+var RuleGroupSourceStatefulRulesList: StaticListSchema = [
   1,
   n0,
   _RGSSRL,
   0,
-  () => RuleGroupSourceStatefulRulesDetails,
+  () => RuleGroupSourceStatefulRulesDetails$,
 ];
-export var RuleGroupSourceStatefulRulesOptionsList: StaticListSchema = [
+var RuleGroupSourceStatefulRulesOptionsList: StaticListSchema = [
   1,
   n0,
   _RGSSROL,
   0,
-  () => RuleGroupSourceStatefulRulesOptionsDetails,
+  () => RuleGroupSourceStatefulRulesOptionsDetails$,
 ];
-export var RuleGroupSourceStatefulRulesRuleOptionsSettingsList = 64 | 0;
-export var RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsList: StaticListSchema = [
+var RuleGroupSourceStatefulRulesRuleOptionsSettingsList = 64 | 0;
+var RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsList: StaticListSchema = [
   1,
   n0,
   _RGSSRMADPL,
   0,
-  () => RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts,
+  () => RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts$,
 ];
-export var RuleGroupSourceStatelessRuleMatchAttributesDestinationsList: StaticListSchema = [
+var RuleGroupSourceStatelessRuleMatchAttributesDestinationsList: StaticListSchema = [
   1,
   n0,
   _RGSSRMADL,
   0,
-  () => RuleGroupSourceStatelessRuleMatchAttributesDestinations,
+  () => RuleGroupSourceStatelessRuleMatchAttributesDestinations$,
 ];
-export var RuleGroupSourceStatelessRuleMatchAttributesProtocolsList = 64 | 1;
-export var RuleGroupSourceStatelessRuleMatchAttributesSourcePortsList: StaticListSchema = [
+var RuleGroupSourceStatelessRuleMatchAttributesProtocolsList = 64 | 1;
+var RuleGroupSourceStatelessRuleMatchAttributesSourcePortsList: StaticListSchema = [
   1,
   n0,
   _RGSSRMASPL,
   0,
-  () => RuleGroupSourceStatelessRuleMatchAttributesSourcePorts,
+  () => RuleGroupSourceStatelessRuleMatchAttributesSourcePorts$,
 ];
-export var RuleGroupSourceStatelessRuleMatchAttributesSourcesList: StaticListSchema = [
+var RuleGroupSourceStatelessRuleMatchAttributesSourcesList: StaticListSchema = [
   1,
   n0,
   _RGSSRMASL,
   0,
-  () => RuleGroupSourceStatelessRuleMatchAttributesSources,
+  () => RuleGroupSourceStatelessRuleMatchAttributesSources$,
 ];
-export var RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsList: StaticListSchema = [
+var RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsList: StaticListSchema = [
   1,
   n0,
   _RGSSRMATFL,
   0,
-  () => RuleGroupSourceStatelessRuleMatchAttributesTcpFlags,
+  () => RuleGroupSourceStatelessRuleMatchAttributesTcpFlags$,
 ];
-export var RuleGroupSourceStatelessRulesList: StaticListSchema = [
+var RuleGroupSourceStatelessRulesList: StaticListSchema = [
   1,
   n0,
   _RGSSRLu,
   0,
-  () => RuleGroupSourceStatelessRulesDetails,
+  () => RuleGroupSourceStatelessRulesDetails$,
 ];
-export var SecurityControlCustomParametersList: StaticListSchema = [
-  1,
-  n0,
-  _SCCPL,
-  0,
-  () => SecurityControlCustomParameter,
-];
-export var SecurityControlDefinitions: StaticListSchema = [1, n0, _SCDe, 0, () => SecurityControlDefinition];
-export var SecurityControlParametersList: StaticListSchema = [1, n0, _SCPL, 0, () => SecurityControlParameter];
-export var SecurityControls: StaticListSchema = [1, n0, _SCec, 0, () => SecurityControl];
-export var SecurityGroups = 64 | 0;
-export var SensitiveDataDetectionsList: StaticListSchema = [1, n0, _SDDL, 0, () => SensitiveDataDetections];
-export var SensitiveDataResultList: StaticListSchema = [1, n0, _SDRL, 0, () => SensitiveDataResult];
-export var SignalsList: StaticListSchema = [1, n0, _SLi, 0, () => Signal];
-export var SoftwarePackageList: StaticListSchema = [1, n0, _SPL, 0, () => SoftwarePackage];
-export var SortCriteria: StaticListSchema = [1, n0, _SCor, 0, () => SortCriterion];
-export var Standards: StaticListSchema = [1, n0, _Stan, 0, () => Standard];
-export var StandardsControlArnList = 64 | 0;
-export var StandardsControlAssociationDetails: StaticListSchema = [
-  1,
-  n0,
-  _SCAD,
-  0,
-  () => StandardsControlAssociationDetail,
-];
-export var StandardsControlAssociationIds: StaticListSchema = [1, n0, _SCAI, 0, () => StandardsControlAssociationId];
-export var StandardsControlAssociationSummaries: StaticListSchema = [
+var SecurityControlCustomParametersList: StaticListSchema = [1, n0, _SCCPL, 0, () => SecurityControlCustomParameter$];
+var SecurityControlDefinitions: StaticListSchema = [1, n0, _SCDe, 0, () => SecurityControlDefinition$];
+var SecurityControlParametersList: StaticListSchema = [1, n0, _SCPL, 0, () => SecurityControlParameter$];
+var SecurityControls: StaticListSchema = [1, n0, _SCec, 0, () => SecurityControl$];
+var SecurityGroups = 64 | 0;
+var SensitiveDataDetectionsList: StaticListSchema = [1, n0, _SDDL, 0, () => SensitiveDataDetections$];
+var SensitiveDataResultList: StaticListSchema = [1, n0, _SDRL, 0, () => SensitiveDataResult$];
+var SignalsList: StaticListSchema = [1, n0, _SLi, 0, () => Signal$];
+var SoftwarePackageList: StaticListSchema = [1, n0, _SPL, 0, () => SoftwarePackage$];
+var SortCriteria: StaticListSchema = [1, n0, _SCor, 0, () => SortCriterion$];
+var Standards: StaticListSchema = [1, n0, _Stan, 0, () => Standard$];
+var StandardsControlArnList = 64 | 0;
+var StandardsControlAssociationDetails: StaticListSchema = [1, n0, _SCAD, 0, () => StandardsControlAssociationDetail$];
+var StandardsControlAssociationIds: StaticListSchema = [1, n0, _SCAI, 0, () => StandardsControlAssociationId$];
+var StandardsControlAssociationSummaries: StaticListSchema = [
   1,
   n0,
   _SCAS,
   0,
-  () => StandardsControlAssociationSummary,
+  () => StandardsControlAssociationSummary$,
 ];
-export var StandardsControlAssociationUpdates: StaticListSchema = [
-  1,
-  n0,
-  _SCAU,
-  0,
-  () => StandardsControlAssociationUpdate,
-];
-export var StandardsControls: StaticListSchema = [1, n0, _SCtand, 0, () => StandardsControl];
-export var StandardsSubscriptionArns = 64 | 0;
-export var StandardsSubscriptionRequests: StaticListSchema = [1, n0, _SSRt, 0, () => StandardsSubscriptionRequest];
-export var StandardsSubscriptions: StaticListSchema = [1, n0, _SSta, 0, () => StandardsSubscription];
-export var StatelessCustomPublishMetricActionDimensionsList: StaticListSchema = [
+var StandardsControlAssociationUpdates: StaticListSchema = [1, n0, _SCAU, 0, () => StandardsControlAssociationUpdate$];
+var StandardsControls: StaticListSchema = [1, n0, _SCtand, 0, () => StandardsControl$];
+var StandardsSubscriptionArns = 64 | 0;
+var StandardsSubscriptionRequests: StaticListSchema = [1, n0, _SSRt, 0, () => StandardsSubscriptionRequest$];
+var StandardsSubscriptions: StaticListSchema = [1, n0, _SSta, 0, () => StandardsSubscription$];
+var StatelessCustomPublishMetricActionDimensionsList: StaticListSchema = [
   1,
   n0,
   _SCPMADL,
   0,
-  () => StatelessCustomPublishMetricActionDimension,
+  () => StatelessCustomPublishMetricActionDimension$,
 ];
-export var StatusReasonsList: StaticListSchema = [1, n0, _SRL, 0, () => StatusReason];
-export var StringFilterList: StaticListSchema = [1, n0, _SFL, 0, () => StringFilter];
-export var StringList = 64 | 0;
-export var TagKeyList = 64 | 0;
-export var ThreatIntelIndicatorList: StaticListSchema = [1, n0, _TIIL, 0, () => ThreatIntelIndicator];
-export var ThreatList: StaticListSchema = [1, n0, _TL, 0, () => Threat];
-export var TrendsMetrics: StaticListSchema = [1, n0, _TMr, 0, () => TrendsMetricsResult];
-export var TypeList = 64 | 0;
-export var UnprocessedAutomationRulesList: StaticListSchema = [1, n0, _UARL, 0, () => UnprocessedAutomationRule];
-export var UnprocessedConfigurationPolicyAssociationList: StaticListSchema = [
+var StatusReasonsList: StaticListSchema = [1, n0, _SRL, 0, () => StatusReason$];
+var StringFilterList: StaticListSchema = [1, n0, _SFL, 0, () => StringFilter$];
+var StringList = 64 | 0;
+var TagKeyList = 64 | 0;
+var ThreatIntelIndicatorList: StaticListSchema = [1, n0, _TIIL, 0, () => ThreatIntelIndicator$];
+var ThreatList: StaticListSchema = [1, n0, _TL, 0, () => Threat$];
+var TrendsMetrics: StaticListSchema = [1, n0, _TMr, 0, () => TrendsMetricsResult$];
+var TypeList = 64 | 0;
+var UnprocessedAutomationRulesList: StaticListSchema = [1, n0, _UARL, 0, () => UnprocessedAutomationRule$];
+var UnprocessedConfigurationPolicyAssociationList: StaticListSchema = [
   1,
   n0,
   _UCPAL,
   0,
-  () => UnprocessedConfigurationPolicyAssociation,
+  () => UnprocessedConfigurationPolicyAssociation$,
 ];
-export var UnprocessedSecurityControls: StaticListSchema = [1, n0, _USCnp, 0, () => UnprocessedSecurityControl];
-export var UnprocessedStandardsControlAssociations: StaticListSchema = [
+var UnprocessedSecurityControls: StaticListSchema = [1, n0, _USCnp, 0, () => UnprocessedSecurityControl$];
+var UnprocessedStandardsControlAssociations: StaticListSchema = [
   1,
   n0,
   _USCAn,
   0,
-  () => UnprocessedStandardsControlAssociation,
+  () => UnprocessedStandardsControlAssociation$,
 ];
-export var UnprocessedStandardsControlAssociationUpdates: StaticListSchema = [
+var UnprocessedStandardsControlAssociationUpdates: StaticListSchema = [
   1,
   n0,
   _USCAUn,
   0,
-  () => UnprocessedStandardsControlAssociationUpdate,
+  () => UnprocessedStandardsControlAssociationUpdate$,
 ];
-export var UpdateAutomationRulesRequestItemsList: StaticListSchema = [
+var UpdateAutomationRulesRequestItemsList: StaticListSchema = [
   1,
   n0,
   _UARRIL,
   0,
-  () => UpdateAutomationRulesRequestItem,
+  () => UpdateAutomationRulesRequestItem$,
 ];
-export var VolumeMountList: StaticListSchema = [1, n0, _VML, 0, () => VolumeMount];
-export var VpcInfoCidrBlockSetList: StaticListSchema = [1, n0, _VICBSL, 0, () => VpcInfoCidrBlockSetDetails];
-export var VpcInfoIpv6CidrBlockSetList: StaticListSchema = [1, n0, _VIICBSL, 0, () => VpcInfoIpv6CidrBlockSetDetails];
-export var VulnerabilityCodeVulnerabilitiesList: StaticListSchema = [
-  1,
-  n0,
-  _VCVL,
-  0,
-  () => VulnerabilityCodeVulnerabilities,
-];
-export var VulnerabilityList: StaticListSchema = [1, n0, _VLu, 0, () => Vulnerability];
-export var WafExcludedRuleList: StaticListSchema = [1, n0, _WERL, 0, () => WafExcludedRule];
-export var FieldMap = 128 | 0;
-export var ParameterDefinitions: StaticMapSchema = [2, n0, _PDar, 0, 0, () => ParameterDefinition];
-export var _Parameters: StaticMapSchema = [2, n0, _Para, 0, 0, () => ParameterConfiguration];
-export var StandardsInputParameterMap = 128 | 0;
-export var TagMap = 128 | 0;
-export var ConfigurationOptions: StaticStructureSchema = [
+var VolumeMountList: StaticListSchema = [1, n0, _VML, 0, () => VolumeMount$];
+var VpcInfoCidrBlockSetList: StaticListSchema = [1, n0, _VICBSL, 0, () => VpcInfoCidrBlockSetDetails$];
+var VpcInfoIpv6CidrBlockSetList: StaticListSchema = [1, n0, _VIICBSL, 0, () => VpcInfoIpv6CidrBlockSetDetails$];
+var VulnerabilityCodeVulnerabilitiesList: StaticListSchema = [1, n0, _VCVL, 0, () => VulnerabilityCodeVulnerabilities$];
+var VulnerabilityList: StaticListSchema = [1, n0, _VLu, 0, () => Vulnerability$];
+var WafExcludedRuleList: StaticListSchema = [1, n0, _WERL, 0, () => WafExcludedRule$];
+var FieldMap = 128 | 0;
+var ParameterDefinitions: StaticMapSchema = [2, n0, _PDar, 0, 0, () => ParameterDefinition$];
+var _Parameters: StaticMapSchema = [2, n0, _Para, 0, 0, () => ParameterConfiguration$];
+var StandardsInputParameterMap = 128 | 0;
+var TagMap = 128 | 0;
+export var ConfigurationOptions$: StaticStructureSchema = [
   3,
   n0,
   _COon,
   0,
   [_Inte, _ILnt, _Dou, _Str, _SLtr, _Bo, _Enu, _ELnu],
   [
-    () => IntegerConfigurationOptions,
-    () => IntegerListConfigurationOptions,
-    () => DoubleConfigurationOptions,
-    () => StringConfigurationOptions,
-    () => StringListConfigurationOptions,
-    () => BooleanConfigurationOptions,
-    () => EnumConfigurationOptions,
-    () => EnumListConfigurationOptions,
+    () => IntegerConfigurationOptions$,
+    () => IntegerListConfigurationOptions$,
+    () => DoubleConfigurationOptions$,
+    () => StringConfigurationOptions$,
+    () => StringListConfigurationOptions$,
+    () => BooleanConfigurationOptions$,
+    () => EnumConfigurationOptions$,
+    () => EnumListConfigurationOptions$,
   ],
 ];
-export var Criteria: StaticStructureSchema = [3, n0, _Cr, 0, [_OFC], [() => OcsfFindingFilters]];
-export var ParameterValue: StaticStructureSchema = [
+export var Criteria$: StaticStructureSchema = [3, n0, _Cr, 0, [_OFC], [() => OcsfFindingFilters$]];
+export var ParameterValue$: StaticStructureSchema = [
   3,
   n0,
   _PVa,
@@ -11636,885 +11627,885 @@ export var ParameterValue: StaticStructureSchema = [
   [_Inte, _ILnt, _Dou, _Str, _SLtr, _Bo, _Enu, _ELnu],
   [1, 64 | 1, 1, 0, 64 | 0, 2, 0, 64 | 0],
 ];
-export var Policy: StaticStructureSchema = [3, n0, _Pol, 0, [_SH], [() => SecurityHubPolicy]];
-export var ProviderConfiguration: StaticStructureSchema = [
+export var Policy$: StaticStructureSchema = [3, n0, _Pol, 0, [_SH], [() => SecurityHubPolicy$]];
+export var ProviderConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _PCro,
   0,
   [_JC, _SNer],
-  [() => JiraCloudProviderConfiguration, () => ServiceNowProviderConfiguration],
+  [() => JiraCloudProviderConfiguration$, () => ServiceNowProviderConfiguration$],
 ];
-export var ProviderDetail: StaticStructureSchema = [
+export var ProviderDetail$: StaticStructureSchema = [
   3,
   n0,
   _PD,
   0,
   [_JC, _SNer],
-  [() => JiraCloudDetail, () => ServiceNowDetail],
+  [() => JiraCloudDetail$, () => ServiceNowDetail$],
 ];
-export var ProviderUpdateConfiguration: StaticStructureSchema = [
+export var ProviderUpdateConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _PUC,
   0,
   [_JC, _SNer],
-  [() => JiraCloudUpdateConfiguration, () => ServiceNowUpdateConfiguration],
+  [() => JiraCloudUpdateConfiguration$, () => ServiceNowUpdateConfiguration$],
 ];
-export var Target: StaticStructureSchema = [3, n0, _Ta, 0, [_AIc, _OUI, _RIoo], [0, 0, 0]];
-export var AcceptAdministratorInvitation: StaticOperationSchema = [
+export var Target$: StaticStructureSchema = [3, n0, _Ta, 0, [_AIc, _OUI, _RIoo], [0, 0, 0]];
+export var AcceptAdministratorInvitation$: StaticOperationSchema = [
   9,
   n0,
   _AAIc,
   { [_h]: ["POST", "/administrator", 200] },
-  () => AcceptAdministratorInvitationRequest,
-  () => AcceptAdministratorInvitationResponse,
+  () => AcceptAdministratorInvitationRequest$,
+  () => AcceptAdministratorInvitationResponse$,
 ];
-export var AcceptInvitation: StaticOperationSchema = [
+export var AcceptInvitation$: StaticOperationSchema = [
   9,
   n0,
   _AIcce,
   { [_h]: ["POST", "/master", 200] },
-  () => AcceptInvitationRequest,
-  () => AcceptInvitationResponse,
+  () => AcceptInvitationRequest$,
+  () => AcceptInvitationResponse$,
 ];
-export var BatchDeleteAutomationRules: StaticOperationSchema = [
+export var BatchDeleteAutomationRules$: StaticOperationSchema = [
   9,
   n0,
   _BDAR,
   { [_h]: ["POST", "/automationrules/delete", 200] },
-  () => BatchDeleteAutomationRulesRequest,
-  () => BatchDeleteAutomationRulesResponse,
+  () => BatchDeleteAutomationRulesRequest$,
+  () => BatchDeleteAutomationRulesResponse$,
 ];
-export var BatchDisableStandards: StaticOperationSchema = [
+export var BatchDisableStandards$: StaticOperationSchema = [
   9,
   n0,
   _BDS,
   { [_h]: ["POST", "/standards/deregister", 200] },
-  () => BatchDisableStandardsRequest,
-  () => BatchDisableStandardsResponse,
+  () => BatchDisableStandardsRequest$,
+  () => BatchDisableStandardsResponse$,
 ];
-export var BatchEnableStandards: StaticOperationSchema = [
+export var BatchEnableStandards$: StaticOperationSchema = [
   9,
   n0,
   _BES,
   { [_h]: ["POST", "/standards/register", 200] },
-  () => BatchEnableStandardsRequest,
-  () => BatchEnableStandardsResponse,
+  () => BatchEnableStandardsRequest$,
+  () => BatchEnableStandardsResponse$,
 ];
-export var BatchGetAutomationRules: StaticOperationSchema = [
+export var BatchGetAutomationRules$: StaticOperationSchema = [
   9,
   n0,
   _BGAR,
   { [_h]: ["POST", "/automationrules/get", 200] },
-  () => BatchGetAutomationRulesRequest,
-  () => BatchGetAutomationRulesResponse,
+  () => BatchGetAutomationRulesRequest$,
+  () => BatchGetAutomationRulesResponse$,
 ];
-export var BatchGetConfigurationPolicyAssociations: StaticOperationSchema = [
+export var BatchGetConfigurationPolicyAssociations$: StaticOperationSchema = [
   9,
   n0,
   _BGCPA,
   { [_h]: ["POST", "/configurationPolicyAssociation/batchget", 200] },
-  () => BatchGetConfigurationPolicyAssociationsRequest,
-  () => BatchGetConfigurationPolicyAssociationsResponse,
+  () => BatchGetConfigurationPolicyAssociationsRequest$,
+  () => BatchGetConfigurationPolicyAssociationsResponse$,
 ];
-export var BatchGetSecurityControls: StaticOperationSchema = [
+export var BatchGetSecurityControls$: StaticOperationSchema = [
   9,
   n0,
   _BGSC,
   { [_h]: ["POST", "/securityControls/batchGet", 200] },
-  () => BatchGetSecurityControlsRequest,
-  () => BatchGetSecurityControlsResponse,
+  () => BatchGetSecurityControlsRequest$,
+  () => BatchGetSecurityControlsResponse$,
 ];
-export var BatchGetStandardsControlAssociations: StaticOperationSchema = [
+export var BatchGetStandardsControlAssociations$: StaticOperationSchema = [
   9,
   n0,
   _BGSCA,
   { [_h]: ["POST", "/associations/batchGet", 200] },
-  () => BatchGetStandardsControlAssociationsRequest,
-  () => BatchGetStandardsControlAssociationsResponse,
+  () => BatchGetStandardsControlAssociationsRequest$,
+  () => BatchGetStandardsControlAssociationsResponse$,
 ];
-export var BatchImportFindings: StaticOperationSchema = [
+export var BatchImportFindings$: StaticOperationSchema = [
   9,
   n0,
   _BIF,
   { [_h]: ["POST", "/findings/import", 200] },
-  () => BatchImportFindingsRequest,
-  () => BatchImportFindingsResponse,
+  () => BatchImportFindingsRequest$,
+  () => BatchImportFindingsResponse$,
 ];
-export var BatchUpdateAutomationRules: StaticOperationSchema = [
+export var BatchUpdateAutomationRules$: StaticOperationSchema = [
   9,
   n0,
   _BUAR,
   { [_h]: ["PATCH", "/automationrules/update", 200] },
-  () => BatchUpdateAutomationRulesRequest,
-  () => BatchUpdateAutomationRulesResponse,
+  () => BatchUpdateAutomationRulesRequest$,
+  () => BatchUpdateAutomationRulesResponse$,
 ];
-export var BatchUpdateFindings: StaticOperationSchema = [
+export var BatchUpdateFindings$: StaticOperationSchema = [
   9,
   n0,
   _BUF,
   { [_h]: ["PATCH", "/findings/batchupdate", 200] },
-  () => BatchUpdateFindingsRequest,
-  () => BatchUpdateFindingsResponse,
+  () => BatchUpdateFindingsRequest$,
+  () => BatchUpdateFindingsResponse$,
 ];
-export var BatchUpdateFindingsV2: StaticOperationSchema = [
+export var BatchUpdateFindingsV2$: StaticOperationSchema = [
   9,
   n0,
   _BUFV,
   { [_h]: ["PATCH", "/findingsv2/batchupdatev2", 200] },
-  () => BatchUpdateFindingsV2Request,
-  () => BatchUpdateFindingsV2Response,
+  () => BatchUpdateFindingsV2Request$,
+  () => BatchUpdateFindingsV2Response$,
 ];
-export var BatchUpdateStandardsControlAssociations: StaticOperationSchema = [
+export var BatchUpdateStandardsControlAssociations$: StaticOperationSchema = [
   9,
   n0,
   _BUSCA,
   { [_h]: ["PATCH", "/associations", 200] },
-  () => BatchUpdateStandardsControlAssociationsRequest,
-  () => BatchUpdateStandardsControlAssociationsResponse,
+  () => BatchUpdateStandardsControlAssociationsRequest$,
+  () => BatchUpdateStandardsControlAssociationsResponse$,
 ];
-export var CreateActionTarget: StaticOperationSchema = [
+export var CreateActionTarget$: StaticOperationSchema = [
   9,
   n0,
   _CAT,
   { [_h]: ["POST", "/actionTargets", 200] },
-  () => CreateActionTargetRequest,
-  () => CreateActionTargetResponse,
+  () => CreateActionTargetRequest$,
+  () => CreateActionTargetResponse$,
 ];
-export var CreateAggregatorV2: StaticOperationSchema = [
+export var CreateAggregatorV2$: StaticOperationSchema = [
   9,
   n0,
   _CAV,
   { [_h]: ["POST", "/aggregatorv2/create", 200] },
-  () => CreateAggregatorV2Request,
-  () => CreateAggregatorV2Response,
+  () => CreateAggregatorV2Request$,
+  () => CreateAggregatorV2Response$,
 ];
-export var CreateAutomationRule: StaticOperationSchema = [
+export var CreateAutomationRule$: StaticOperationSchema = [
   9,
   n0,
   _CAR,
   { [_h]: ["POST", "/automationrules/create", 200] },
-  () => CreateAutomationRuleRequest,
-  () => CreateAutomationRuleResponse,
+  () => CreateAutomationRuleRequest$,
+  () => CreateAutomationRuleResponse$,
 ];
-export var CreateAutomationRuleV2: StaticOperationSchema = [
+export var CreateAutomationRuleV2$: StaticOperationSchema = [
   9,
   n0,
   _CARV,
   { [_h]: ["POST", "/automationrulesv2/create", 200] },
-  () => CreateAutomationRuleV2Request,
-  () => CreateAutomationRuleV2Response,
+  () => CreateAutomationRuleV2Request$,
+  () => CreateAutomationRuleV2Response$,
 ];
-export var CreateConfigurationPolicy: StaticOperationSchema = [
+export var CreateConfigurationPolicy$: StaticOperationSchema = [
   9,
   n0,
   _CCP,
   { [_h]: ["POST", "/configurationPolicy/create", 200] },
-  () => CreateConfigurationPolicyRequest,
-  () => CreateConfigurationPolicyResponse,
+  () => CreateConfigurationPolicyRequest$,
+  () => CreateConfigurationPolicyResponse$,
 ];
-export var CreateConnectorV2: StaticOperationSchema = [
+export var CreateConnectorV2$: StaticOperationSchema = [
   9,
   n0,
   _CCV,
   { [_h]: ["POST", "/connectorsv2", 200] },
-  () => CreateConnectorV2Request,
-  () => CreateConnectorV2Response,
+  () => CreateConnectorV2Request$,
+  () => CreateConnectorV2Response$,
 ];
-export var CreateFindingAggregator: StaticOperationSchema = [
+export var CreateFindingAggregator$: StaticOperationSchema = [
   9,
   n0,
   _CFA,
   { [_h]: ["POST", "/findingAggregator/create", 200] },
-  () => CreateFindingAggregatorRequest,
-  () => CreateFindingAggregatorResponse,
+  () => CreateFindingAggregatorRequest$,
+  () => CreateFindingAggregatorResponse$,
 ];
-export var CreateInsight: StaticOperationSchema = [
+export var CreateInsight$: StaticOperationSchema = [
   9,
   n0,
   _CIre,
   { [_h]: ["POST", "/insights", 200] },
-  () => CreateInsightRequest,
-  () => CreateInsightResponse,
+  () => CreateInsightRequest$,
+  () => CreateInsightResponse$,
 ];
-export var CreateMembers: StaticOperationSchema = [
+export var CreateMembers$: StaticOperationSchema = [
   9,
   n0,
   _CMr,
   { [_h]: ["POST", "/members", 200] },
-  () => CreateMembersRequest,
-  () => CreateMembersResponse,
+  () => CreateMembersRequest$,
+  () => CreateMembersResponse$,
 ];
-export var CreateTicketV2: StaticOperationSchema = [
+export var CreateTicketV2$: StaticOperationSchema = [
   9,
   n0,
   _CTV,
   { [_h]: ["POST", "/ticketsv2", 200] },
-  () => CreateTicketV2Request,
-  () => CreateTicketV2Response,
+  () => CreateTicketV2Request$,
+  () => CreateTicketV2Response$,
 ];
-export var DeclineInvitations: StaticOperationSchema = [
+export var DeclineInvitations$: StaticOperationSchema = [
   9,
   n0,
   _DIec,
   { [_h]: ["POST", "/invitations/decline", 200] },
-  () => DeclineInvitationsRequest,
-  () => DeclineInvitationsResponse,
+  () => DeclineInvitationsRequest$,
+  () => DeclineInvitationsResponse$,
 ];
-export var DeleteActionTarget: StaticOperationSchema = [
+export var DeleteActionTarget$: StaticOperationSchema = [
   9,
   n0,
   _DATe,
   { [_h]: ["DELETE", "/actionTargets/{ActionTargetArn+}", 200] },
-  () => DeleteActionTargetRequest,
-  () => DeleteActionTargetResponse,
+  () => DeleteActionTargetRequest$,
+  () => DeleteActionTargetResponse$,
 ];
-export var DeleteAggregatorV2: StaticOperationSchema = [
+export var DeleteAggregatorV2$: StaticOperationSchema = [
   9,
   n0,
   _DAV,
   { [_h]: ["DELETE", "/aggregatorv2/delete/{AggregatorV2Arn+}", 200] },
-  () => DeleteAggregatorV2Request,
-  () => DeleteAggregatorV2Response,
+  () => DeleteAggregatorV2Request$,
+  () => DeleteAggregatorV2Response$,
 ];
-export var DeleteAutomationRuleV2: StaticOperationSchema = [
+export var DeleteAutomationRuleV2$: StaticOperationSchema = [
   9,
   n0,
   _DARV,
   { [_h]: ["DELETE", "/automationrulesv2/{Identifier}", 200] },
-  () => DeleteAutomationRuleV2Request,
-  () => DeleteAutomationRuleV2Response,
+  () => DeleteAutomationRuleV2Request$,
+  () => DeleteAutomationRuleV2Response$,
 ];
-export var DeleteConfigurationPolicy: StaticOperationSchema = [
+export var DeleteConfigurationPolicy$: StaticOperationSchema = [
   9,
   n0,
   _DCP,
   { [_h]: ["DELETE", "/configurationPolicy/{Identifier}", 200] },
-  () => DeleteConfigurationPolicyRequest,
-  () => DeleteConfigurationPolicyResponse,
+  () => DeleteConfigurationPolicyRequest$,
+  () => DeleteConfigurationPolicyResponse$,
 ];
-export var DeleteConnectorV2: StaticOperationSchema = [
+export var DeleteConnectorV2$: StaticOperationSchema = [
   9,
   n0,
   _DCV,
   { [_h]: ["DELETE", "/connectorsv2/{ConnectorId+}", 200] },
-  () => DeleteConnectorV2Request,
-  () => DeleteConnectorV2Response,
+  () => DeleteConnectorV2Request$,
+  () => DeleteConnectorV2Response$,
 ];
-export var DeleteFindingAggregator: StaticOperationSchema = [
+export var DeleteFindingAggregator$: StaticOperationSchema = [
   9,
   n0,
   _DFAe,
   { [_h]: ["DELETE", "/findingAggregator/delete/{FindingAggregatorArn+}", 200] },
-  () => DeleteFindingAggregatorRequest,
-  () => DeleteFindingAggregatorResponse,
+  () => DeleteFindingAggregatorRequest$,
+  () => DeleteFindingAggregatorResponse$,
 ];
-export var DeleteInsight: StaticOperationSchema = [
+export var DeleteInsight$: StaticOperationSchema = [
   9,
   n0,
   _DIel,
   { [_h]: ["DELETE", "/insights/{InsightArn+}", 200] },
-  () => DeleteInsightRequest,
-  () => DeleteInsightResponse,
+  () => DeleteInsightRequest$,
+  () => DeleteInsightResponse$,
 ];
-export var DeleteInvitations: StaticOperationSchema = [
+export var DeleteInvitations$: StaticOperationSchema = [
   9,
   n0,
   _DIele,
   { [_h]: ["POST", "/invitations/delete", 200] },
-  () => DeleteInvitationsRequest,
-  () => DeleteInvitationsResponse,
+  () => DeleteInvitationsRequest$,
+  () => DeleteInvitationsResponse$,
 ];
-export var DeleteMembers: StaticOperationSchema = [
+export var DeleteMembers$: StaticOperationSchema = [
   9,
   n0,
   _DMe,
   { [_h]: ["POST", "/members/delete", 200] },
-  () => DeleteMembersRequest,
-  () => DeleteMembersResponse,
+  () => DeleteMembersRequest$,
+  () => DeleteMembersResponse$,
 ];
-export var DescribeActionTargets: StaticOperationSchema = [
+export var DescribeActionTargets$: StaticOperationSchema = [
   9,
   n0,
   _DATes,
   { [_h]: ["POST", "/actionTargets/get", 200] },
-  () => DescribeActionTargetsRequest,
-  () => DescribeActionTargetsResponse,
+  () => DescribeActionTargetsRequest$,
+  () => DescribeActionTargetsResponse$,
 ];
-export var DescribeHub: StaticOperationSchema = [
+export var DescribeHub$: StaticOperationSchema = [
   9,
   n0,
   _DH,
   { [_h]: ["GET", "/accounts", 200] },
-  () => DescribeHubRequest,
-  () => DescribeHubResponse,
+  () => DescribeHubRequest$,
+  () => DescribeHubResponse$,
 ];
-export var DescribeOrganizationConfiguration: StaticOperationSchema = [
+export var DescribeOrganizationConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DOC,
   { [_h]: ["GET", "/organization/configuration", 200] },
-  () => DescribeOrganizationConfigurationRequest,
-  () => DescribeOrganizationConfigurationResponse,
+  () => DescribeOrganizationConfigurationRequest$,
+  () => DescribeOrganizationConfigurationResponse$,
 ];
-export var DescribeProducts: StaticOperationSchema = [
+export var DescribeProducts$: StaticOperationSchema = [
   9,
   n0,
   _DPesc,
   { [_h]: ["GET", "/products", 200] },
-  () => DescribeProductsRequest,
-  () => DescribeProductsResponse,
+  () => DescribeProductsRequest$,
+  () => DescribeProductsResponse$,
 ];
-export var DescribeProductsV2: StaticOperationSchema = [
+export var DescribeProductsV2$: StaticOperationSchema = [
   9,
   n0,
   _DPV,
   { [_h]: ["GET", "/productsV2", 200] },
-  () => DescribeProductsV2Request,
-  () => DescribeProductsV2Response,
+  () => DescribeProductsV2Request$,
+  () => DescribeProductsV2Response$,
 ];
-export var DescribeSecurityHubV2: StaticOperationSchema = [
+export var DescribeSecurityHubV2$: StaticOperationSchema = [
   9,
   n0,
   _DSHV,
   { [_h]: ["GET", "/hubv2", 200] },
-  () => DescribeSecurityHubV2Request,
-  () => DescribeSecurityHubV2Response,
+  () => DescribeSecurityHubV2Request$,
+  () => DescribeSecurityHubV2Response$,
 ];
-export var DescribeStandards: StaticOperationSchema = [
+export var DescribeStandards$: StaticOperationSchema = [
   9,
   n0,
   _DSe,
   { [_h]: ["GET", "/standards", 200] },
-  () => DescribeStandardsRequest,
-  () => DescribeStandardsResponse,
+  () => DescribeStandardsRequest$,
+  () => DescribeStandardsResponse$,
 ];
-export var DescribeStandardsControls: StaticOperationSchema = [
+export var DescribeStandardsControls$: StaticOperationSchema = [
   9,
   n0,
   _DSC,
   { [_h]: ["GET", "/standards/controls/{StandardsSubscriptionArn+}", 200] },
-  () => DescribeStandardsControlsRequest,
-  () => DescribeStandardsControlsResponse,
+  () => DescribeStandardsControlsRequest$,
+  () => DescribeStandardsControlsResponse$,
 ];
-export var DisableImportFindingsForProduct: StaticOperationSchema = [
+export var DisableImportFindingsForProduct$: StaticOperationSchema = [
   9,
   n0,
   _DIFFP,
   { [_h]: ["DELETE", "/productSubscriptions/{ProductSubscriptionArn+}", 200] },
-  () => DisableImportFindingsForProductRequest,
-  () => DisableImportFindingsForProductResponse,
+  () => DisableImportFindingsForProductRequest$,
+  () => DisableImportFindingsForProductResponse$,
 ];
-export var DisableOrganizationAdminAccount: StaticOperationSchema = [
+export var DisableOrganizationAdminAccount$: StaticOperationSchema = [
   9,
   n0,
   _DOAA,
   { [_h]: ["POST", "/organization/admin/disable", 200] },
-  () => DisableOrganizationAdminAccountRequest,
-  () => DisableOrganizationAdminAccountResponse,
+  () => DisableOrganizationAdminAccountRequest$,
+  () => DisableOrganizationAdminAccountResponse$,
 ];
-export var DisableSecurityHub: StaticOperationSchema = [
+export var DisableSecurityHub$: StaticOperationSchema = [
   9,
   n0,
   _DSH,
   { [_h]: ["DELETE", "/accounts", 200] },
-  () => DisableSecurityHubRequest,
-  () => DisableSecurityHubResponse,
+  () => DisableSecurityHubRequest$,
+  () => DisableSecurityHubResponse$,
 ];
-export var DisableSecurityHubV2: StaticOperationSchema = [
+export var DisableSecurityHubV2$: StaticOperationSchema = [
   9,
   n0,
   _DSHVi,
   { [_h]: ["DELETE", "/hubv2", 200] },
-  () => DisableSecurityHubV2Request,
-  () => DisableSecurityHubV2Response,
+  () => DisableSecurityHubV2Request$,
+  () => DisableSecurityHubV2Response$,
 ];
-export var DisassociateFromAdministratorAccount: StaticOperationSchema = [
+export var DisassociateFromAdministratorAccount$: StaticOperationSchema = [
   9,
   n0,
   _DFAA,
   { [_h]: ["POST", "/administrator/disassociate", 200] },
-  () => DisassociateFromAdministratorAccountRequest,
-  () => DisassociateFromAdministratorAccountResponse,
+  () => DisassociateFromAdministratorAccountRequest$,
+  () => DisassociateFromAdministratorAccountResponse$,
 ];
-export var DisassociateFromMasterAccount: StaticOperationSchema = [
+export var DisassociateFromMasterAccount$: StaticOperationSchema = [
   9,
   n0,
   _DFMA,
   { [_h]: ["POST", "/master/disassociate", 200] },
-  () => DisassociateFromMasterAccountRequest,
-  () => DisassociateFromMasterAccountResponse,
+  () => DisassociateFromMasterAccountRequest$,
+  () => DisassociateFromMasterAccountResponse$,
 ];
-export var DisassociateMembers: StaticOperationSchema = [
+export var DisassociateMembers$: StaticOperationSchema = [
   9,
   n0,
   _DMi,
   { [_h]: ["POST", "/members/disassociate", 200] },
-  () => DisassociateMembersRequest,
-  () => DisassociateMembersResponse,
+  () => DisassociateMembersRequest$,
+  () => DisassociateMembersResponse$,
 ];
-export var EnableImportFindingsForProduct: StaticOperationSchema = [
+export var EnableImportFindingsForProduct$: StaticOperationSchema = [
   9,
   n0,
   _EIFFP,
   { [_h]: ["POST", "/productSubscriptions", 200] },
-  () => EnableImportFindingsForProductRequest,
-  () => EnableImportFindingsForProductResponse,
+  () => EnableImportFindingsForProductRequest$,
+  () => EnableImportFindingsForProductResponse$,
 ];
-export var EnableOrganizationAdminAccount: StaticOperationSchema = [
+export var EnableOrganizationAdminAccount$: StaticOperationSchema = [
   9,
   n0,
   _EOAA,
   { [_h]: ["POST", "/organization/admin/enable", 200] },
-  () => EnableOrganizationAdminAccountRequest,
-  () => EnableOrganizationAdminAccountResponse,
+  () => EnableOrganizationAdminAccountRequest$,
+  () => EnableOrganizationAdminAccountResponse$,
 ];
-export var EnableSecurityHub: StaticOperationSchema = [
+export var EnableSecurityHub$: StaticOperationSchema = [
   9,
   n0,
   _ESH,
   { [_h]: ["POST", "/accounts", 200] },
-  () => EnableSecurityHubRequest,
-  () => EnableSecurityHubResponse,
+  () => EnableSecurityHubRequest$,
+  () => EnableSecurityHubResponse$,
 ];
-export var EnableSecurityHubV2: StaticOperationSchema = [
+export var EnableSecurityHubV2$: StaticOperationSchema = [
   9,
   n0,
   _ESHV,
   { [_h]: ["POST", "/hubv2", 200] },
-  () => EnableSecurityHubV2Request,
-  () => EnableSecurityHubV2Response,
+  () => EnableSecurityHubV2Request$,
+  () => EnableSecurityHubV2Response$,
 ];
-export var GetAdministratorAccount: StaticOperationSchema = [
+export var GetAdministratorAccount$: StaticOperationSchema = [
   9,
   n0,
   _GAA,
   { [_h]: ["GET", "/administrator", 200] },
-  () => GetAdministratorAccountRequest,
-  () => GetAdministratorAccountResponse,
+  () => GetAdministratorAccountRequest$,
+  () => GetAdministratorAccountResponse$,
 ];
-export var GetAggregatorV2: StaticOperationSchema = [
+export var GetAggregatorV2$: StaticOperationSchema = [
   9,
   n0,
   _GAV,
   { [_h]: ["GET", "/aggregatorv2/get/{AggregatorV2Arn+}", 200] },
-  () => GetAggregatorV2Request,
-  () => GetAggregatorV2Response,
+  () => GetAggregatorV2Request$,
+  () => GetAggregatorV2Response$,
 ];
-export var GetAutomationRuleV2: StaticOperationSchema = [
+export var GetAutomationRuleV2$: StaticOperationSchema = [
   9,
   n0,
   _GARV,
   { [_h]: ["GET", "/automationrulesv2/{Identifier}", 200] },
-  () => GetAutomationRuleV2Request,
-  () => GetAutomationRuleV2Response,
+  () => GetAutomationRuleV2Request$,
+  () => GetAutomationRuleV2Response$,
 ];
-export var GetConfigurationPolicy: StaticOperationSchema = [
+export var GetConfigurationPolicy$: StaticOperationSchema = [
   9,
   n0,
   _GCP,
   { [_h]: ["GET", "/configurationPolicy/get/{Identifier}", 200] },
-  () => GetConfigurationPolicyRequest,
-  () => GetConfigurationPolicyResponse,
+  () => GetConfigurationPolicyRequest$,
+  () => GetConfigurationPolicyResponse$,
 ];
-export var GetConfigurationPolicyAssociation: StaticOperationSchema = [
+export var GetConfigurationPolicyAssociation$: StaticOperationSchema = [
   9,
   n0,
   _GCPA,
   { [_h]: ["POST", "/configurationPolicyAssociation/get", 200] },
-  () => GetConfigurationPolicyAssociationRequest,
-  () => GetConfigurationPolicyAssociationResponse,
+  () => GetConfigurationPolicyAssociationRequest$,
+  () => GetConfigurationPolicyAssociationResponse$,
 ];
-export var GetConnectorV2: StaticOperationSchema = [
+export var GetConnectorV2$: StaticOperationSchema = [
   9,
   n0,
   _GCV,
   { [_h]: ["GET", "/connectorsv2/{ConnectorId+}", 200] },
-  () => GetConnectorV2Request,
-  () => GetConnectorV2Response,
+  () => GetConnectorV2Request$,
+  () => GetConnectorV2Response$,
 ];
-export var GetEnabledStandards: StaticOperationSchema = [
+export var GetEnabledStandards$: StaticOperationSchema = [
   9,
   n0,
   _GES,
   { [_h]: ["POST", "/standards/get", 200] },
-  () => GetEnabledStandardsRequest,
-  () => GetEnabledStandardsResponse,
+  () => GetEnabledStandardsRequest$,
+  () => GetEnabledStandardsResponse$,
 ];
-export var GetFindingAggregator: StaticOperationSchema = [
+export var GetFindingAggregator$: StaticOperationSchema = [
   9,
   n0,
   _GFA,
   { [_h]: ["GET", "/findingAggregator/get/{FindingAggregatorArn+}", 200] },
-  () => GetFindingAggregatorRequest,
-  () => GetFindingAggregatorResponse,
+  () => GetFindingAggregatorRequest$,
+  () => GetFindingAggregatorResponse$,
 ];
-export var GetFindingHistory: StaticOperationSchema = [
+export var GetFindingHistory$: StaticOperationSchema = [
   9,
   n0,
   _GFH,
   { [_h]: ["POST", "/findingHistory/get", 200] },
-  () => GetFindingHistoryRequest,
-  () => GetFindingHistoryResponse,
+  () => GetFindingHistoryRequest$,
+  () => GetFindingHistoryResponse$,
 ];
-export var GetFindings: StaticOperationSchema = [
+export var GetFindings$: StaticOperationSchema = [
   9,
   n0,
   _GF,
   { [_h]: ["POST", "/findings", 200] },
-  () => GetFindingsRequest,
-  () => GetFindingsResponse,
+  () => GetFindingsRequest$,
+  () => GetFindingsResponse$,
 ];
-export var GetFindingStatisticsV2: StaticOperationSchema = [
+export var GetFindingStatisticsV2$: StaticOperationSchema = [
   9,
   n0,
   _GFSV,
   { [_h]: ["POST", "/findingsv2/statistics", 200] },
-  () => GetFindingStatisticsV2Request,
-  () => GetFindingStatisticsV2Response,
+  () => GetFindingStatisticsV2Request$,
+  () => GetFindingStatisticsV2Response$,
 ];
-export var GetFindingsTrendsV2: StaticOperationSchema = [
+export var GetFindingsTrendsV2$: StaticOperationSchema = [
   9,
   n0,
   _GFTV,
   { [_h]: ["POST", "/findingsTrendsv2", 200] },
-  () => GetFindingsTrendsV2Request,
-  () => GetFindingsTrendsV2Response,
+  () => GetFindingsTrendsV2Request$,
+  () => GetFindingsTrendsV2Response$,
 ];
-export var GetFindingsV2: StaticOperationSchema = [
+export var GetFindingsV2$: StaticOperationSchema = [
   9,
   n0,
   _GFV,
   { [_h]: ["POST", "/findingsv2", 200] },
-  () => GetFindingsV2Request,
-  () => GetFindingsV2Response,
+  () => GetFindingsV2Request$,
+  () => GetFindingsV2Response$,
 ];
-export var GetInsightResults: StaticOperationSchema = [
+export var GetInsightResults$: StaticOperationSchema = [
   9,
   n0,
   _GIRet,
   { [_h]: ["GET", "/insights/results/{InsightArn+}", 200] },
-  () => GetInsightResultsRequest,
-  () => GetInsightResultsResponse,
+  () => GetInsightResultsRequest$,
+  () => GetInsightResultsResponse$,
 ];
-export var GetInsights: StaticOperationSchema = [
+export var GetInsights$: StaticOperationSchema = [
   9,
   n0,
   _GIet,
   { [_h]: ["POST", "/insights/get", 200] },
-  () => GetInsightsRequest,
-  () => GetInsightsResponse,
+  () => GetInsightsRequest$,
+  () => GetInsightsResponse$,
 ];
-export var GetInvitationsCount: StaticOperationSchema = [
+export var GetInvitationsCount$: StaticOperationSchema = [
   9,
   n0,
   _GIC,
   { [_h]: ["GET", "/invitations/count", 200] },
-  () => GetInvitationsCountRequest,
-  () => GetInvitationsCountResponse,
+  () => GetInvitationsCountRequest$,
+  () => GetInvitationsCountResponse$,
 ];
-export var GetMasterAccount: StaticOperationSchema = [
+export var GetMasterAccount$: StaticOperationSchema = [
   9,
   n0,
   _GMA,
   { [_h]: ["GET", "/master", 200] },
-  () => GetMasterAccountRequest,
-  () => GetMasterAccountResponse,
+  () => GetMasterAccountRequest$,
+  () => GetMasterAccountResponse$,
 ];
-export var GetMembers: StaticOperationSchema = [
+export var GetMembers$: StaticOperationSchema = [
   9,
   n0,
   _GM,
   { [_h]: ["POST", "/members/get", 200] },
-  () => GetMembersRequest,
-  () => GetMembersResponse,
+  () => GetMembersRequest$,
+  () => GetMembersResponse$,
 ];
-export var GetResourcesStatisticsV2: StaticOperationSchema = [
+export var GetResourcesStatisticsV2$: StaticOperationSchema = [
   9,
   n0,
   _GRSV,
   { [_h]: ["POST", "/resourcesv2/statistics", 200] },
-  () => GetResourcesStatisticsV2Request,
-  () => GetResourcesStatisticsV2Response,
+  () => GetResourcesStatisticsV2Request$,
+  () => GetResourcesStatisticsV2Response$,
 ];
-export var GetResourcesTrendsV2: StaticOperationSchema = [
+export var GetResourcesTrendsV2$: StaticOperationSchema = [
   9,
   n0,
   _GRTV,
   { [_h]: ["POST", "/resourcesTrendsv2", 200] },
-  () => GetResourcesTrendsV2Request,
-  () => GetResourcesTrendsV2Response,
+  () => GetResourcesTrendsV2Request$,
+  () => GetResourcesTrendsV2Response$,
 ];
-export var GetResourcesV2: StaticOperationSchema = [
+export var GetResourcesV2$: StaticOperationSchema = [
   9,
   n0,
   _GRV,
   { [_h]: ["POST", "/resourcesv2", 200] },
-  () => GetResourcesV2Request,
-  () => GetResourcesV2Response,
+  () => GetResourcesV2Request$,
+  () => GetResourcesV2Response$,
 ];
-export var GetSecurityControlDefinition: StaticOperationSchema = [
+export var GetSecurityControlDefinition$: StaticOperationSchema = [
   9,
   n0,
   _GSCD,
   { [_h]: ["GET", "/securityControl/definition", 200] },
-  () => GetSecurityControlDefinitionRequest,
-  () => GetSecurityControlDefinitionResponse,
+  () => GetSecurityControlDefinitionRequest$,
+  () => GetSecurityControlDefinitionResponse$,
 ];
-export var InviteMembers: StaticOperationSchema = [
+export var InviteMembers$: StaticOperationSchema = [
   9,
   n0,
   _IMn,
   { [_h]: ["POST", "/members/invite", 200] },
-  () => InviteMembersRequest,
-  () => InviteMembersResponse,
+  () => InviteMembersRequest$,
+  () => InviteMembersResponse$,
 ];
-export var ListAggregatorsV2: StaticOperationSchema = [
+export var ListAggregatorsV2$: StaticOperationSchema = [
   9,
   n0,
   _LAV,
   { [_h]: ["GET", "/aggregatorv2/list", 200] },
-  () => ListAggregatorsV2Request,
-  () => ListAggregatorsV2Response,
+  () => ListAggregatorsV2Request$,
+  () => ListAggregatorsV2Response$,
 ];
-export var ListAutomationRules: StaticOperationSchema = [
+export var ListAutomationRules$: StaticOperationSchema = [
   9,
   n0,
   _LAR,
   { [_h]: ["GET", "/automationrules/list", 200] },
-  () => ListAutomationRulesRequest,
-  () => ListAutomationRulesResponse,
+  () => ListAutomationRulesRequest$,
+  () => ListAutomationRulesResponse$,
 ];
-export var ListAutomationRulesV2: StaticOperationSchema = [
+export var ListAutomationRulesV2$: StaticOperationSchema = [
   9,
   n0,
   _LARV,
   { [_h]: ["GET", "/automationrulesv2/list", 200] },
-  () => ListAutomationRulesV2Request,
-  () => ListAutomationRulesV2Response,
+  () => ListAutomationRulesV2Request$,
+  () => ListAutomationRulesV2Response$,
 ];
-export var ListConfigurationPolicies: StaticOperationSchema = [
+export var ListConfigurationPolicies$: StaticOperationSchema = [
   9,
   n0,
   _LCP,
   { [_h]: ["GET", "/configurationPolicy/list", 200] },
-  () => ListConfigurationPoliciesRequest,
-  () => ListConfigurationPoliciesResponse,
+  () => ListConfigurationPoliciesRequest$,
+  () => ListConfigurationPoliciesResponse$,
 ];
-export var ListConfigurationPolicyAssociations: StaticOperationSchema = [
+export var ListConfigurationPolicyAssociations$: StaticOperationSchema = [
   9,
   n0,
   _LCPA,
   { [_h]: ["POST", "/configurationPolicyAssociation/list", 200] },
-  () => ListConfigurationPolicyAssociationsRequest,
-  () => ListConfigurationPolicyAssociationsResponse,
+  () => ListConfigurationPolicyAssociationsRequest$,
+  () => ListConfigurationPolicyAssociationsResponse$,
 ];
-export var ListConnectorsV2: StaticOperationSchema = [
+export var ListConnectorsV2$: StaticOperationSchema = [
   9,
   n0,
   _LCV,
   { [_h]: ["GET", "/connectorsv2", 200] },
-  () => ListConnectorsV2Request,
-  () => ListConnectorsV2Response,
+  () => ListConnectorsV2Request$,
+  () => ListConnectorsV2Response$,
 ];
-export var ListEnabledProductsForImport: StaticOperationSchema = [
+export var ListEnabledProductsForImport$: StaticOperationSchema = [
   9,
   n0,
   _LEPFI,
   { [_h]: ["GET", "/productSubscriptions", 200] },
-  () => ListEnabledProductsForImportRequest,
-  () => ListEnabledProductsForImportResponse,
+  () => ListEnabledProductsForImportRequest$,
+  () => ListEnabledProductsForImportResponse$,
 ];
-export var ListFindingAggregators: StaticOperationSchema = [
+export var ListFindingAggregators$: StaticOperationSchema = [
   9,
   n0,
   _LFAi,
   { [_h]: ["GET", "/findingAggregator/list", 200] },
-  () => ListFindingAggregatorsRequest,
-  () => ListFindingAggregatorsResponse,
+  () => ListFindingAggregatorsRequest$,
+  () => ListFindingAggregatorsResponse$,
 ];
-export var ListInvitations: StaticOperationSchema = [
+export var ListInvitations$: StaticOperationSchema = [
   9,
   n0,
   _LI,
   { [_h]: ["GET", "/invitations", 200] },
-  () => ListInvitationsRequest,
-  () => ListInvitationsResponse,
+  () => ListInvitationsRequest$,
+  () => ListInvitationsResponse$,
 ];
-export var ListMembers: StaticOperationSchema = [
+export var ListMembers$: StaticOperationSchema = [
   9,
   n0,
   _LMis,
   { [_h]: ["GET", "/members", 200] },
-  () => ListMembersRequest,
-  () => ListMembersResponse,
+  () => ListMembersRequest$,
+  () => ListMembersResponse$,
 ];
-export var ListOrganizationAdminAccounts: StaticOperationSchema = [
+export var ListOrganizationAdminAccounts$: StaticOperationSchema = [
   9,
   n0,
   _LOAA,
   { [_h]: ["GET", "/organization/admin", 200] },
-  () => ListOrganizationAdminAccountsRequest,
-  () => ListOrganizationAdminAccountsResponse,
+  () => ListOrganizationAdminAccountsRequest$,
+  () => ListOrganizationAdminAccountsResponse$,
 ];
-export var ListSecurityControlDefinitions: StaticOperationSchema = [
+export var ListSecurityControlDefinitions$: StaticOperationSchema = [
   9,
   n0,
   _LSCD,
   { [_h]: ["GET", "/securityControls/definitions", 200] },
-  () => ListSecurityControlDefinitionsRequest,
-  () => ListSecurityControlDefinitionsResponse,
+  () => ListSecurityControlDefinitionsRequest$,
+  () => ListSecurityControlDefinitionsResponse$,
 ];
-export var ListStandardsControlAssociations: StaticOperationSchema = [
+export var ListStandardsControlAssociations$: StaticOperationSchema = [
   9,
   n0,
   _LSCA,
   { [_h]: ["GET", "/associations", 200] },
-  () => ListStandardsControlAssociationsRequest,
-  () => ListStandardsControlAssociationsResponse,
+  () => ListStandardsControlAssociationsRequest$,
+  () => ListStandardsControlAssociationsResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var RegisterConnectorV2: StaticOperationSchema = [
+export var RegisterConnectorV2$: StaticOperationSchema = [
   9,
   n0,
   _RCV,
   { [_h]: ["POST", "/connectorsv2/register", 200] },
-  () => RegisterConnectorV2Request,
-  () => RegisterConnectorV2Response,
+  () => RegisterConnectorV2Request$,
+  () => RegisterConnectorV2Response$,
 ];
-export var StartConfigurationPolicyAssociation: StaticOperationSchema = [
+export var StartConfigurationPolicyAssociation$: StaticOperationSchema = [
   9,
   n0,
   _SCPA,
   { [_h]: ["POST", "/configurationPolicyAssociation/associate", 200] },
-  () => StartConfigurationPolicyAssociationRequest,
-  () => StartConfigurationPolicyAssociationResponse,
+  () => StartConfigurationPolicyAssociationRequest$,
+  () => StartConfigurationPolicyAssociationResponse$,
 ];
-export var StartConfigurationPolicyDisassociation: StaticOperationSchema = [
+export var StartConfigurationPolicyDisassociation$: StaticOperationSchema = [
   9,
   n0,
   _SCPD,
   { [_h]: ["POST", "/configurationPolicyAssociation/disassociate", 200] },
-  () => StartConfigurationPolicyDisassociationRequest,
-  () => StartConfigurationPolicyDisassociationResponse,
+  () => StartConfigurationPolicyDisassociationRequest$,
+  () => StartConfigurationPolicyDisassociationResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/tags/{ResourceArn}", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _URn,
   { [_h]: ["DELETE", "/tags/{ResourceArn}", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateActionTarget: StaticOperationSchema = [
+export var UpdateActionTarget$: StaticOperationSchema = [
   9,
   n0,
   _UAT,
   { [_h]: ["PATCH", "/actionTargets/{ActionTargetArn+}", 200] },
-  () => UpdateActionTargetRequest,
-  () => UpdateActionTargetResponse,
+  () => UpdateActionTargetRequest$,
+  () => UpdateActionTargetResponse$,
 ];
-export var UpdateAggregatorV2: StaticOperationSchema = [
+export var UpdateAggregatorV2$: StaticOperationSchema = [
   9,
   n0,
   _UAV,
   { [_h]: ["PATCH", "/aggregatorv2/update/{AggregatorV2Arn+}", 200] },
-  () => UpdateAggregatorV2Request,
-  () => UpdateAggregatorV2Response,
+  () => UpdateAggregatorV2Request$,
+  () => UpdateAggregatorV2Response$,
 ];
-export var UpdateAutomationRuleV2: StaticOperationSchema = [
+export var UpdateAutomationRuleV2$: StaticOperationSchema = [
   9,
   n0,
   _UARV,
   { [_h]: ["PATCH", "/automationrulesv2/{Identifier}", 200] },
-  () => UpdateAutomationRuleV2Request,
-  () => UpdateAutomationRuleV2Response,
+  () => UpdateAutomationRuleV2Request$,
+  () => UpdateAutomationRuleV2Response$,
 ];
-export var UpdateConfigurationPolicy: StaticOperationSchema = [
+export var UpdateConfigurationPolicy$: StaticOperationSchema = [
   9,
   n0,
   _UCP,
   { [_h]: ["PATCH", "/configurationPolicy/{Identifier}", 200] },
-  () => UpdateConfigurationPolicyRequest,
-  () => UpdateConfigurationPolicyResponse,
+  () => UpdateConfigurationPolicyRequest$,
+  () => UpdateConfigurationPolicyResponse$,
 ];
-export var UpdateConnectorV2: StaticOperationSchema = [
+export var UpdateConnectorV2$: StaticOperationSchema = [
   9,
   n0,
   _UCV,
   { [_h]: ["PATCH", "/connectorsv2/{ConnectorId+}", 200] },
-  () => UpdateConnectorV2Request,
-  () => UpdateConnectorV2Response,
+  () => UpdateConnectorV2Request$,
+  () => UpdateConnectorV2Response$,
 ];
-export var UpdateFindingAggregator: StaticOperationSchema = [
+export var UpdateFindingAggregator$: StaticOperationSchema = [
   9,
   n0,
   _UFA,
   { [_h]: ["PATCH", "/findingAggregator/update", 200] },
-  () => UpdateFindingAggregatorRequest,
-  () => UpdateFindingAggregatorResponse,
+  () => UpdateFindingAggregatorRequest$,
+  () => UpdateFindingAggregatorResponse$,
 ];
-export var UpdateFindings: StaticOperationSchema = [
+export var UpdateFindings$: StaticOperationSchema = [
   9,
   n0,
   _UFpd,
   { [_h]: ["PATCH", "/findings", 200] },
-  () => UpdateFindingsRequest,
-  () => UpdateFindingsResponse,
+  () => UpdateFindingsRequest$,
+  () => UpdateFindingsResponse$,
 ];
-export var UpdateInsight: StaticOperationSchema = [
+export var UpdateInsight$: StaticOperationSchema = [
   9,
   n0,
   _UIp,
   { [_h]: ["PATCH", "/insights/{InsightArn+}", 200] },
-  () => UpdateInsightRequest,
-  () => UpdateInsightResponse,
+  () => UpdateInsightRequest$,
+  () => UpdateInsightResponse$,
 ];
-export var UpdateOrganizationConfiguration: StaticOperationSchema = [
+export var UpdateOrganizationConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UOC,
   { [_h]: ["POST", "/organization/configuration", 200] },
-  () => UpdateOrganizationConfigurationRequest,
-  () => UpdateOrganizationConfigurationResponse,
+  () => UpdateOrganizationConfigurationRequest$,
+  () => UpdateOrganizationConfigurationResponse$,
 ];
-export var UpdateSecurityControl: StaticOperationSchema = [
+export var UpdateSecurityControl$: StaticOperationSchema = [
   9,
   n0,
   _USCp,
   { [_h]: ["PATCH", "/securityControl/update", 200] },
-  () => UpdateSecurityControlRequest,
-  () => UpdateSecurityControlResponse,
+  () => UpdateSecurityControlRequest$,
+  () => UpdateSecurityControlResponse$,
 ];
-export var UpdateSecurityHubConfiguration: StaticOperationSchema = [
+export var UpdateSecurityHubConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _USHC,
   { [_h]: ["PATCH", "/accounts", 200] },
-  () => UpdateSecurityHubConfigurationRequest,
-  () => UpdateSecurityHubConfigurationResponse,
+  () => UpdateSecurityHubConfigurationRequest$,
+  () => UpdateSecurityHubConfigurationResponse$,
 ];
-export var UpdateStandardsControl: StaticOperationSchema = [
+export var UpdateStandardsControl$: StaticOperationSchema = [
   9,
   n0,
   _USCpd,
   { [_h]: ["PATCH", "/standards/control/{StandardsControlArn+}", 200] },
-  () => UpdateStandardsControlRequest,
-  () => UpdateStandardsControlResponse,
+  () => UpdateStandardsControlRequest$,
+  () => UpdateStandardsControlResponse$,
 ];

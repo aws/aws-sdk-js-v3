@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateGcmChannelRequest, UpdateGcmChannelResponse } from "../models/models_1";
 import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { UpdateGcmChannel } from "../schemas/schemas_0";
+import { UpdateGcmChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class UpdateGcmChannelCommand extends $Command
   })
   .s("Pinpoint", "UpdateGcmChannel", {})
   .n("PinpointClient", "UpdateGcmChannelCommand")
-  .sc(UpdateGcmChannel)
+  .sc(UpdateGcmChannel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

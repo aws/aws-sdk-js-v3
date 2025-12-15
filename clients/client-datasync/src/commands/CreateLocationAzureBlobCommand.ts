@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateLocationAzureBlobRequest, CreateLocationAzureBlobResponse } from "../models/models_0";
-import { CreateLocationAzureBlob } from "../schemas/schemas_0";
+import { CreateLocationAzureBlob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class CreateLocationAzureBlobCommand extends $Command
   })
   .s("FmrsService", "CreateLocationAzureBlob", {})
   .n("DataSyncClient", "CreateLocationAzureBlobCommand")
-  .sc(CreateLocationAzureBlob)
+  .sc(CreateLocationAzureBlob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

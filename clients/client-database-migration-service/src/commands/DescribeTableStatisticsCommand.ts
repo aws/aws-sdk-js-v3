@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeTableStatisticsMessage, DescribeTableStatisticsResponse } from "../models/models_0";
-import { DescribeTableStatistics } from "../schemas/schemas_0";
+import { DescribeTableStatistics$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -153,7 +153,7 @@ export class DescribeTableStatisticsCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribeTableStatistics", {})
   .n("DatabaseMigrationServiceClient", "DescribeTableStatisticsCommand")
-  .sc(DescribeTableStatistics)
+  .sc(DescribeTableStatistics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

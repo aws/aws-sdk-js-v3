@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeregisterNamespaceInputMessage, DeregisterNamespaceOutputMessage } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DeregisterNamespace } from "../schemas/schemas_0";
+import { DeregisterNamespace$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DeregisterNamespaceCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "DeregisterNamespace", {})
   .n("RedshiftClient", "DeregisterNamespaceCommand")
-  .sc(DeregisterNamespace)
+  .sc(DeregisterNamespace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

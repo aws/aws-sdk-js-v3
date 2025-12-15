@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import type { GetAccessKeyLastUsedRequest, GetAccessKeyLastUsedResponse } from "../models/models_0";
-import { GetAccessKeyLastUsed } from "../schemas/schemas_0";
+import { GetAccessKeyLastUsed$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -80,7 +80,7 @@ export class GetAccessKeyLastUsedCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "GetAccessKeyLastUsed", {})
   .n("IAMClient", "GetAccessKeyLastUsedCommand")
-  .sc(GetAccessKeyLastUsed)
+  .sc(GetAccessKeyLastUsed$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

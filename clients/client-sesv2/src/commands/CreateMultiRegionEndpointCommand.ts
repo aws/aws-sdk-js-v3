@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateMultiRegionEndpointRequest, CreateMultiRegionEndpointResponse } from "../models/models_0";
-import { CreateMultiRegionEndpoint } from "../schemas/schemas_0";
+import { CreateMultiRegionEndpoint$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -105,7 +105,7 @@ export class CreateMultiRegionEndpointCommand extends $Command
   })
   .s("SimpleEmailService_v2", "CreateMultiRegionEndpoint", {})
   .n("SESv2Client", "CreateMultiRegionEndpointCommand")
-  .sc(CreateMultiRegionEndpoint)
+  .sc(CreateMultiRegionEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

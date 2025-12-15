@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteGatewayInput, DeleteGatewayOutput } from "../models/models_0";
-import { DeleteGateway } from "../schemas/schemas_0";
+import { DeleteGateway$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class DeleteGatewayCommand extends $Command
   })
   .s("BackupOnPremises_v20210101", "DeleteGateway", {})
   .n("BackupGatewayClient", "DeleteGatewayCommand")
-  .sc(DeleteGateway)
+  .sc(DeleteGateway$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

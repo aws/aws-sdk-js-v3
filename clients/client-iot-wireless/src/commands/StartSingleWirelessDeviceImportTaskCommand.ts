@@ -9,7 +9,7 @@ import type {
   StartSingleWirelessDeviceImportTaskRequest,
   StartSingleWirelessDeviceImportTaskResponse,
 } from "../models/models_1";
-import { StartSingleWirelessDeviceImportTask } from "../schemas/schemas_0";
+import { StartSingleWirelessDeviceImportTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class StartSingleWirelessDeviceImportTaskCommand extends $Command
   })
   .s("iotwireless", "StartSingleWirelessDeviceImportTask", {})
   .n("IoTWirelessClient", "StartSingleWirelessDeviceImportTaskCommand")
-  .sc(StartSingleWirelessDeviceImportTask)
+  .sc(StartSingleWirelessDeviceImportTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

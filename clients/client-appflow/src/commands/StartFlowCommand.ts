@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartFlowRequest, StartFlowResponse } from "../models/models_0";
-import { StartFlow } from "../schemas/schemas_0";
+import { StartFlow$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class StartFlowCommand extends $Command
   })
   .s("SandstoneConfigurationServiceLambda", "StartFlow", {})
   .n("AppflowClient", "StartFlowCommand")
-  .sc(StartFlow)
+  .sc(StartFlow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

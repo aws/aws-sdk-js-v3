@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisableHostedZoneDNSSECRequest, DisableHostedZoneDNSSECResponse } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { DisableHostedZoneDNSSEC } from "../schemas/schemas_0";
+import { DisableHostedZoneDNSSEC$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class DisableHostedZoneDNSSECCommand extends $Command
   })
   .s("AWSDnsV20130401", "DisableHostedZoneDNSSEC", {})
   .n("Route53Client", "DisableHostedZoneDNSSECCommand")
-  .sc(DisableHostedZoneDNSSEC)
+  .sc(DisableHostedZoneDNSSEC$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -140,25 +140,25 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { CognitoSyncServiceException as __CognitoSyncServiceException } from "../models/CognitoSyncServiceException";
+import { CognitoSyncServiceException } from "../models/CognitoSyncServiceException";
 import {
-  AlreadyStreamedException as __AlreadyStreamedException,
-  ConcurrentModificationException as __ConcurrentModificationException,
-  DuplicateRequestException as __DuplicateRequestException,
-  InternalErrorException as __InternalErrorException,
-  InvalidConfigurationException as __InvalidConfigurationException,
-  InvalidLambdaFunctionOutputException as __InvalidLambdaFunctionOutputException,
-  InvalidParameterException as __InvalidParameterException,
-  LambdaThrottledException as __LambdaThrottledException,
-  LimitExceededException as __LimitExceededException,
-  NotAuthorizedException as __NotAuthorizedException,
-  ResourceConflictException as __ResourceConflictException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  TooManyRequestsException as __TooManyRequestsException,
+  AlreadyStreamedException,
+  ConcurrentModificationException,
+  DuplicateRequestException,
+  InternalErrorException,
+  InvalidConfigurationException,
+  InvalidLambdaFunctionOutputException,
+  InvalidParameterException,
+  LambdaThrottledException,
+  LimitExceededException,
+  NotAuthorizedException,
+  ResourceConflictException,
+  ResourceNotFoundException,
+  TooManyRequestsException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var AlreadyStreamedException: StaticErrorSchema = [
+export var AlreadyStreamedException$: StaticErrorSchema = [
   -3,
   n0,
   _ASE,
@@ -166,11 +166,11 @@ export var AlreadyStreamedException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(AlreadyStreamedException, __AlreadyStreamedException);
-export var BulkPublishRequest: StaticStructureSchema = [3, n0, _BPR, 0, [_IPI], [[0, 1]]];
-export var BulkPublishResponse: StaticStructureSchema = [3, n0, _BPRu, 0, [_IPI], [0]];
-export var CognitoStreams: StaticStructureSchema = [3, n0, _CS, 0, [_SN, _RA, _SS], [0, 0, 0]];
-export var ConcurrentModificationException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(AlreadyStreamedException$, AlreadyStreamedException);
+export var BulkPublishRequest$: StaticStructureSchema = [3, n0, _BPR, 0, [_IPI], [[0, 1]]];
+export var BulkPublishResponse$: StaticStructureSchema = [3, n0, _BPRu, 0, [_IPI], [0]];
+export var CognitoStreams$: StaticStructureSchema = [3, n0, _CS, 0, [_SN, _RA, _SS], [0, 0, 0]];
+export var ConcurrentModificationException$: StaticErrorSchema = [
   -3,
   n0,
   _CME,
@@ -178,8 +178,8 @@ export var ConcurrentModificationException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException, __ConcurrentModificationException);
-export var Dataset: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
+export var Dataset$: StaticStructureSchema = [
   3,
   n0,
   _D,
@@ -187,7 +187,7 @@ export var Dataset: StaticStructureSchema = [
   [_II, _DN, _CD, _LMD, _LMB, _DS, _NR],
   [0, 0, 4, 4, 0, 1, 1],
 ];
-export var DeleteDatasetRequest: StaticStructureSchema = [
+export var DeleteDatasetRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDR,
@@ -199,8 +199,8 @@ export var DeleteDatasetRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteDatasetResponse: StaticStructureSchema = [3, n0, _DDRe, 0, [_D], [() => Dataset]];
-export var DescribeDatasetRequest: StaticStructureSchema = [
+export var DeleteDatasetResponse$: StaticStructureSchema = [3, n0, _DDRe, 0, [_D], [() => Dataset$]];
+export var DescribeDatasetRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDRes,
@@ -212,17 +212,17 @@ export var DescribeDatasetRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeDatasetResponse: StaticStructureSchema = [3, n0, _DDResc, 0, [_D], [() => Dataset]];
-export var DescribeIdentityPoolUsageRequest: StaticStructureSchema = [3, n0, _DIPUR, 0, [_IPI], [[0, 1]]];
-export var DescribeIdentityPoolUsageResponse: StaticStructureSchema = [
+export var DescribeDatasetResponse$: StaticStructureSchema = [3, n0, _DDResc, 0, [_D], [() => Dataset$]];
+export var DescribeIdentityPoolUsageRequest$: StaticStructureSchema = [3, n0, _DIPUR, 0, [_IPI], [[0, 1]]];
+export var DescribeIdentityPoolUsageResponse$: StaticStructureSchema = [
   3,
   n0,
   _DIPURe,
   0,
   [_IPU],
-  [() => IdentityPoolUsage],
+  [() => IdentityPoolUsage$],
 ];
-export var DescribeIdentityUsageRequest: StaticStructureSchema = [
+export var DescribeIdentityUsageRequest$: StaticStructureSchema = [
   3,
   n0,
   _DIUR,
@@ -233,8 +233,8 @@ export var DescribeIdentityUsageRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeIdentityUsageResponse: StaticStructureSchema = [3, n0, _DIURe, 0, [_IU], [() => IdentityUsage]];
-export var DuplicateRequestException: StaticErrorSchema = [
+export var DescribeIdentityUsageResponse$: StaticStructureSchema = [3, n0, _DIURe, 0, [_IU], [() => IdentityUsage$]];
+export var DuplicateRequestException$: StaticErrorSchema = [
   -3,
   n0,
   _DRE,
@@ -242,9 +242,9 @@ export var DuplicateRequestException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(DuplicateRequestException, __DuplicateRequestException);
-export var GetBulkPublishDetailsRequest: StaticStructureSchema = [3, n0, _GBPDR, 0, [_IPI], [[0, 1]]];
-export var GetBulkPublishDetailsResponse: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(DuplicateRequestException$, DuplicateRequestException);
+export var GetBulkPublishDetailsRequest$: StaticStructureSchema = [3, n0, _GBPDR, 0, [_IPI], [[0, 1]]];
+export var GetBulkPublishDetailsResponse$: StaticStructureSchema = [
   3,
   n0,
   _GBPDRe,
@@ -252,20 +252,20 @@ export var GetBulkPublishDetailsResponse: StaticStructureSchema = [
   [_IPI, _BPST, _BPCT, _BPS, _FM],
   [0, 4, 4, 0, 0],
 ];
-export var GetCognitoEventsRequest: StaticStructureSchema = [3, n0, _GCER, 0, [_IPI], [[0, 1]]];
-export var GetCognitoEventsResponse: StaticStructureSchema = [3, n0, _GCERe, 0, [_E], [128 | 0]];
-export var GetIdentityPoolConfigurationRequest: StaticStructureSchema = [3, n0, _GIPCR, 0, [_IPI], [[0, 1]]];
-export var GetIdentityPoolConfigurationResponse: StaticStructureSchema = [
+export var GetCognitoEventsRequest$: StaticStructureSchema = [3, n0, _GCER, 0, [_IPI], [[0, 1]]];
+export var GetCognitoEventsResponse$: StaticStructureSchema = [3, n0, _GCERe, 0, [_E], [128 | 0]];
+export var GetIdentityPoolConfigurationRequest$: StaticStructureSchema = [3, n0, _GIPCR, 0, [_IPI], [[0, 1]]];
+export var GetIdentityPoolConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GIPCRe,
   0,
   [_IPI, _PS, _CS],
-  [0, () => PushSync, () => CognitoStreams],
+  [0, () => PushSync$, () => CognitoStreams$],
 ];
-export var IdentityPoolUsage: StaticStructureSchema = [3, n0, _IPU, 0, [_IPI, _SSC, _DS, _LMD], [0, 1, 1, 4]];
-export var IdentityUsage: StaticStructureSchema = [3, n0, _IU, 0, [_II, _IPI, _LMD, _DC, _DS], [0, 0, 4, 1, 1]];
-export var InternalErrorException: StaticErrorSchema = [
+export var IdentityPoolUsage$: StaticStructureSchema = [3, n0, _IPU, 0, [_IPI, _SSC, _DS, _LMD], [0, 1, 1, 4]];
+export var IdentityUsage$: StaticStructureSchema = [3, n0, _IU, 0, [_II, _IPI, _LMD, _DC, _DS], [0, 0, 4, 1, 1]];
+export var InternalErrorException$: StaticErrorSchema = [
   -3,
   n0,
   _IEE,
@@ -273,8 +273,8 @@ export var InternalErrorException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(InternalErrorException, __InternalErrorException);
-export var InvalidConfigurationException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(InternalErrorException$, InternalErrorException);
+export var InvalidConfigurationException$: StaticErrorSchema = [
   -3,
   n0,
   _ICE,
@@ -282,8 +282,8 @@ export var InvalidConfigurationException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(InvalidConfigurationException, __InvalidConfigurationException);
-export var InvalidLambdaFunctionOutputException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(InvalidConfigurationException$, InvalidConfigurationException);
+export var InvalidLambdaFunctionOutputException$: StaticErrorSchema = [
   -3,
   n0,
   _ILFOE,
@@ -291,8 +291,8 @@ export var InvalidLambdaFunctionOutputException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(InvalidLambdaFunctionOutputException, __InvalidLambdaFunctionOutputException);
-export var InvalidParameterException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(InvalidLambdaFunctionOutputException$, InvalidLambdaFunctionOutputException);
+export var InvalidParameterException$: StaticErrorSchema = [
   -3,
   n0,
   _IPE,
@@ -300,8 +300,8 @@ export var InvalidParameterException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-export var LambdaThrottledException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
+export var LambdaThrottledException$: StaticErrorSchema = [
   -3,
   n0,
   _LTE,
@@ -309,8 +309,8 @@ export var LambdaThrottledException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(LambdaThrottledException, __LambdaThrottledException);
-export var LimitExceededException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(LambdaThrottledException$, LambdaThrottledException);
+export var LimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
@@ -318,8 +318,8 @@ export var LimitExceededException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-export var ListDatasetsRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
+export var ListDatasetsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDR,
@@ -332,8 +332,8 @@ export var ListDatasetsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListDatasetsResponse: StaticStructureSchema = [3, n0, _LDRi, 0, [_Da, _C, _NT], [() => DatasetList, 1, 0]];
-export var ListIdentityPoolUsageRequest: StaticStructureSchema = [
+export var ListDatasetsResponse$: StaticStructureSchema = [3, n0, _LDRi, 0, [_Da, _C, _NT], [() => DatasetList, 1, 0]];
+export var ListIdentityPoolUsageRequest$: StaticStructureSchema = [
   3,
   n0,
   _LIPUR,
@@ -344,7 +344,7 @@ export var ListIdentityPoolUsageRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListIdentityPoolUsageResponse: StaticStructureSchema = [
+export var ListIdentityPoolUsageResponse$: StaticStructureSchema = [
   3,
   n0,
   _LIPURi,
@@ -352,7 +352,7 @@ export var ListIdentityPoolUsageResponse: StaticStructureSchema = [
   [_IPUd, _MR, _C, _NT],
   [() => IdentityPoolUsageList, 1, 1, 0],
 ];
-export var ListRecordsRequest: StaticStructureSchema = [
+export var ListRecordsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRR,
@@ -368,7 +368,7 @@ export var ListRecordsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sST }],
   ],
 ];
-export var ListRecordsResponse: StaticStructureSchema = [
+export var ListRecordsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRRi,
@@ -376,7 +376,7 @@ export var ListRecordsResponse: StaticStructureSchema = [
   [_R, _NT, _C, _DSC, _LMB, _MDN, _DE, _DDARSC, _SST],
   [() => RecordList, 0, 1, 1, 0, 64 | 0, 2, 2, 0],
 ];
-export var NotAuthorizedException: StaticErrorSchema = [
+export var NotAuthorizedException$: StaticErrorSchema = [
   -3,
   n0,
   _NAE,
@@ -384,13 +384,20 @@ export var NotAuthorizedException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(NotAuthorizedException, __NotAuthorizedException);
-export var PushSync: StaticStructureSchema = [3, n0, _PS, 0, [_AA, _RA], [64 | 0, 0]];
-export var _Record: StaticStructureSchema = [3, n0, _Re, 0, [_K, _V, _SC, _LMD, _LMB, _DLMD], [0, 0, 1, 4, 0, 4]];
-export var RecordPatch: StaticStructureSchema = [3, n0, _RP, 0, [_O, _K, _V, _SC, _DLMD], [0, 0, 0, 1, 4]];
-export var RegisterDeviceRequest: StaticStructureSchema = [3, n0, _RDR, 0, [_IPI, _II, _P, _T], [[0, 1], [0, 1], 0, 0]];
-export var RegisterDeviceResponse: StaticStructureSchema = [3, n0, _RDRe, 0, [_DI], [0]];
-export var ResourceConflictException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(NotAuthorizedException$, NotAuthorizedException);
+export var PushSync$: StaticStructureSchema = [3, n0, _PS, 0, [_AA, _RA], [64 | 0, 0]];
+export var _Record$: StaticStructureSchema = [3, n0, _Re, 0, [_K, _V, _SC, _LMD, _LMB, _DLMD], [0, 0, 1, 4, 0, 4]];
+export var RecordPatch$: StaticStructureSchema = [3, n0, _RP, 0, [_O, _K, _V, _SC, _DLMD], [0, 0, 0, 1, 4]];
+export var RegisterDeviceRequest$: StaticStructureSchema = [
+  3,
+  n0,
+  _RDR,
+  0,
+  [_IPI, _II, _P, _T],
+  [[0, 1], [0, 1], 0, 0],
+];
+export var RegisterDeviceResponse$: StaticStructureSchema = [3, n0, _RDRe, 0, [_DI], [0]];
+export var ResourceConflictException$: StaticErrorSchema = [
   -3,
   n0,
   _RCE,
@@ -398,8 +405,8 @@ export var ResourceConflictException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(ResourceConflictException, __ResourceConflictException);
-export var ResourceNotFoundException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(ResourceConflictException$, ResourceConflictException);
+export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
@@ -407,25 +414,25 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var SetCognitoEventsRequest: StaticStructureSchema = [3, n0, _SCER, 0, [_IPI, _E], [[0, 1], 128 | 0]];
-export var SetIdentityPoolConfigurationRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var SetCognitoEventsRequest$: StaticStructureSchema = [3, n0, _SCER, 0, [_IPI, _E], [[0, 1], 128 | 0]];
+export var SetIdentityPoolConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _SIPCR,
   0,
   [_IPI, _PS, _CS],
-  [[0, 1], () => PushSync, () => CognitoStreams],
+  [[0, 1], () => PushSync$, () => CognitoStreams$],
 ];
-export var SetIdentityPoolConfigurationResponse: StaticStructureSchema = [
+export var SetIdentityPoolConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _SIPCRe,
   0,
   [_IPI, _PS, _CS],
-  [0, () => PushSync, () => CognitoStreams],
+  [0, () => PushSync$, () => CognitoStreams$],
 ];
-export var SubscribeToDatasetRequest: StaticStructureSchema = [
+export var SubscribeToDatasetRequest$: StaticStructureSchema = [
   3,
   n0,
   _STDR,
@@ -438,8 +445,8 @@ export var SubscribeToDatasetRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var SubscribeToDatasetResponse: StaticStructureSchema = [3, n0, _STDRu, 0, [], []];
-export var TooManyRequestsException: StaticErrorSchema = [
+export var SubscribeToDatasetResponse$: StaticStructureSchema = [3, n0, _STDRu, 0, [], []];
+export var TooManyRequestsException$: StaticErrorSchema = [
   -3,
   n0,
   _TMRE,
@@ -447,8 +454,8 @@ export var TooManyRequestsException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-export var UnsubscribeFromDatasetRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
+export var UnsubscribeFromDatasetRequest$: StaticStructureSchema = [
   3,
   n0,
   _UFDR,
@@ -461,8 +468,8 @@ export var UnsubscribeFromDatasetRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var UnsubscribeFromDatasetResponse: StaticStructureSchema = [3, n0, _UFDRn, 0, [], []];
-export var UpdateRecordsRequest: StaticStructureSchema = [
+export var UnsubscribeFromDatasetResponse$: StaticStructureSchema = [3, n0, _UFDRn, 0, [], []];
+export var UpdateRecordsRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -470,130 +477,130 @@ export var UpdateRecordsRequest: StaticStructureSchema = [
   [_IPI, _II, _DN, _DI, _RPe, _SST, _CC],
   [[0, 1], [0, 1], [0, 1], 0, () => RecordPatchList, 0, [0, { [_hH]: _xaCC }]],
 ];
-export var UpdateRecordsResponse: StaticStructureSchema = [3, n0, _URRp, 0, [_R], [() => RecordList]];
-export var __Unit = "unit" as const;
-export var CognitoSyncServiceException: StaticErrorSchema = [-3, _sm, "CognitoSyncServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(CognitoSyncServiceException, __CognitoSyncServiceException);
-export var ApplicationArnList = 64 | 0;
-export var DatasetList: StaticListSchema = [1, n0, _DL, 0, () => Dataset];
-export var IdentityPoolUsageList: StaticListSchema = [1, n0, _IPUL, 0, () => IdentityPoolUsage];
-export var MergedDatasetNameList = 64 | 0;
-export var RecordList: StaticListSchema = [1, n0, _RL, 0, () => _Record];
-export var RecordPatchList: StaticListSchema = [1, n0, _RPL, 0, () => RecordPatch];
-export var Events = 128 | 0;
-export var BulkPublish: StaticOperationSchema = [
+export var UpdateRecordsResponse$: StaticStructureSchema = [3, n0, _URRp, 0, [_R], [() => RecordList]];
+var __Unit = "unit" as const;
+export var CognitoSyncServiceException$: StaticErrorSchema = [-3, _sm, "CognitoSyncServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(CognitoSyncServiceException$, CognitoSyncServiceException);
+var ApplicationArnList = 64 | 0;
+var DatasetList: StaticListSchema = [1, n0, _DL, 0, () => Dataset$];
+var IdentityPoolUsageList: StaticListSchema = [1, n0, _IPUL, 0, () => IdentityPoolUsage$];
+var MergedDatasetNameList = 64 | 0;
+var RecordList: StaticListSchema = [1, n0, _RL, 0, () => _Record$];
+var RecordPatchList: StaticListSchema = [1, n0, _RPL, 0, () => RecordPatch$];
+var Events = 128 | 0;
+export var BulkPublish$: StaticOperationSchema = [
   9,
   n0,
   _BP,
   { [_h]: ["POST", "/identitypools/{IdentityPoolId}/bulkpublish", 200] },
-  () => BulkPublishRequest,
-  () => BulkPublishResponse,
+  () => BulkPublishRequest$,
+  () => BulkPublishResponse$,
 ];
-export var DeleteDataset: StaticOperationSchema = [
+export var DeleteDataset$: StaticOperationSchema = [
   9,
   n0,
   _DD,
   { [_h]: ["DELETE", "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}", 200] },
-  () => DeleteDatasetRequest,
-  () => DeleteDatasetResponse,
+  () => DeleteDatasetRequest$,
+  () => DeleteDatasetResponse$,
 ];
-export var DescribeDataset: StaticOperationSchema = [
+export var DescribeDataset$: StaticOperationSchema = [
   9,
   n0,
   _DDe,
   { [_h]: ["GET", "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}", 200] },
-  () => DescribeDatasetRequest,
-  () => DescribeDatasetResponse,
+  () => DescribeDatasetRequest$,
+  () => DescribeDatasetResponse$,
 ];
-export var DescribeIdentityPoolUsage: StaticOperationSchema = [
+export var DescribeIdentityPoolUsage$: StaticOperationSchema = [
   9,
   n0,
   _DIPU,
   { [_h]: ["GET", "/identitypools/{IdentityPoolId}", 200] },
-  () => DescribeIdentityPoolUsageRequest,
-  () => DescribeIdentityPoolUsageResponse,
+  () => DescribeIdentityPoolUsageRequest$,
+  () => DescribeIdentityPoolUsageResponse$,
 ];
-export var DescribeIdentityUsage: StaticOperationSchema = [
+export var DescribeIdentityUsage$: StaticOperationSchema = [
   9,
   n0,
   _DIU,
   { [_h]: ["GET", "/identitypools/{IdentityPoolId}/identities/{IdentityId}", 200] },
-  () => DescribeIdentityUsageRequest,
-  () => DescribeIdentityUsageResponse,
+  () => DescribeIdentityUsageRequest$,
+  () => DescribeIdentityUsageResponse$,
 ];
-export var GetBulkPublishDetails: StaticOperationSchema = [
+export var GetBulkPublishDetails$: StaticOperationSchema = [
   9,
   n0,
   _GBPD,
   { [_h]: ["POST", "/identitypools/{IdentityPoolId}/getBulkPublishDetails", 200] },
-  () => GetBulkPublishDetailsRequest,
-  () => GetBulkPublishDetailsResponse,
+  () => GetBulkPublishDetailsRequest$,
+  () => GetBulkPublishDetailsResponse$,
 ];
-export var GetCognitoEvents: StaticOperationSchema = [
+export var GetCognitoEvents$: StaticOperationSchema = [
   9,
   n0,
   _GCE,
   { [_h]: ["GET", "/identitypools/{IdentityPoolId}/events", 200] },
-  () => GetCognitoEventsRequest,
-  () => GetCognitoEventsResponse,
+  () => GetCognitoEventsRequest$,
+  () => GetCognitoEventsResponse$,
 ];
-export var GetIdentityPoolConfiguration: StaticOperationSchema = [
+export var GetIdentityPoolConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GIPC,
   { [_h]: ["GET", "/identitypools/{IdentityPoolId}/configuration", 200] },
-  () => GetIdentityPoolConfigurationRequest,
-  () => GetIdentityPoolConfigurationResponse,
+  () => GetIdentityPoolConfigurationRequest$,
+  () => GetIdentityPoolConfigurationResponse$,
 ];
-export var ListDatasets: StaticOperationSchema = [
+export var ListDatasets$: StaticOperationSchema = [
   9,
   n0,
   _LD,
   { [_h]: ["GET", "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets", 200] },
-  () => ListDatasetsRequest,
-  () => ListDatasetsResponse,
+  () => ListDatasetsRequest$,
+  () => ListDatasetsResponse$,
 ];
-export var ListIdentityPoolUsage: StaticOperationSchema = [
+export var ListIdentityPoolUsage$: StaticOperationSchema = [
   9,
   n0,
   _LIPU,
   { [_h]: ["GET", "/identitypools", 200] },
-  () => ListIdentityPoolUsageRequest,
-  () => ListIdentityPoolUsageResponse,
+  () => ListIdentityPoolUsageRequest$,
+  () => ListIdentityPoolUsageResponse$,
 ];
-export var ListRecords: StaticOperationSchema = [
+export var ListRecords$: StaticOperationSchema = [
   9,
   n0,
   _LR,
   { [_h]: ["GET", "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/records", 200] },
-  () => ListRecordsRequest,
-  () => ListRecordsResponse,
+  () => ListRecordsRequest$,
+  () => ListRecordsResponse$,
 ];
-export var RegisterDevice: StaticOperationSchema = [
+export var RegisterDevice$: StaticOperationSchema = [
   9,
   n0,
   _RD,
   { [_h]: ["POST", "/identitypools/{IdentityPoolId}/identity/{IdentityId}/device", 200] },
-  () => RegisterDeviceRequest,
-  () => RegisterDeviceResponse,
+  () => RegisterDeviceRequest$,
+  () => RegisterDeviceResponse$,
 ];
-export var SetCognitoEvents: StaticOperationSchema = [
+export var SetCognitoEvents$: StaticOperationSchema = [
   9,
   n0,
   _SCE,
   { [_h]: ["POST", "/identitypools/{IdentityPoolId}/events", 200] },
-  () => SetCognitoEventsRequest,
+  () => SetCognitoEventsRequest$,
   () => __Unit,
 ];
-export var SetIdentityPoolConfiguration: StaticOperationSchema = [
+export var SetIdentityPoolConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _SIPC,
   { [_h]: ["POST", "/identitypools/{IdentityPoolId}/configuration", 200] },
-  () => SetIdentityPoolConfigurationRequest,
-  () => SetIdentityPoolConfigurationResponse,
+  () => SetIdentityPoolConfigurationRequest$,
+  () => SetIdentityPoolConfigurationResponse$,
 ];
-export var SubscribeToDataset: StaticOperationSchema = [
+export var SubscribeToDataset$: StaticOperationSchema = [
   9,
   n0,
   _STD,
@@ -604,10 +611,10 @@ export var SubscribeToDataset: StaticOperationSchema = [
       200,
     ],
   },
-  () => SubscribeToDatasetRequest,
-  () => SubscribeToDatasetResponse,
+  () => SubscribeToDatasetRequest$,
+  () => SubscribeToDatasetResponse$,
 ];
-export var UnsubscribeFromDataset: StaticOperationSchema = [
+export var UnsubscribeFromDataset$: StaticOperationSchema = [
   9,
   n0,
   _UFD,
@@ -618,14 +625,14 @@ export var UnsubscribeFromDataset: StaticOperationSchema = [
       200,
     ],
   },
-  () => UnsubscribeFromDatasetRequest,
-  () => UnsubscribeFromDatasetResponse,
+  () => UnsubscribeFromDatasetRequest$,
+  () => UnsubscribeFromDatasetResponse$,
 ];
-export var UpdateRecords: StaticOperationSchema = [
+export var UpdateRecords$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["POST", "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}", 200] },
-  () => UpdateRecordsRequest,
-  () => UpdateRecordsResponse,
+  () => UpdateRecordsRequest$,
+  () => UpdateRecordsResponse$,
 ];

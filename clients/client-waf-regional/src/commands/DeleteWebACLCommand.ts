@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteWebACLRequest, DeleteWebACLResponse } from "../models/models_0";
-import { DeleteWebACL } from "../schemas/schemas_0";
+import { DeleteWebACL$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -158,7 +158,7 @@ export class DeleteWebACLCommand extends $Command
   })
   .s("AWSWAF_Regional_20161128", "DeleteWebACL", {})
   .n("WAFRegionalClient", "DeleteWebACLCommand")
-  .sc(DeleteWebACL)
+  .sc(DeleteWebACL$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

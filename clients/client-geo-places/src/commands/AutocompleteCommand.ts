@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GeoPlacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoPlacesClient";
 import type { AutocompleteRequest, AutocompleteResponse } from "../models/models_0";
-import { Autocomplete } from "../schemas/schemas_0";
+import { Autocomplete$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -211,7 +211,7 @@ export class AutocompleteCommand extends $Command
   })
   .s("PlacesService", "Autocomplete", {})
   .n("GeoPlacesClient", "AutocompleteCommand")
-  .sc(Autocomplete)
+  .sc(Autocomplete$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

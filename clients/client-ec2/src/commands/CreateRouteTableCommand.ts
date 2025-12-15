@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateRouteTableRequest, CreateRouteTableResult } from "../models/models_1";
-import { CreateRouteTable } from "../schemas/schemas_0";
+import { CreateRouteTable$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -168,7 +168,7 @@ export class CreateRouteTableCommand extends $Command
   })
   .s("AmazonEC2", "CreateRouteTable", {})
   .n("EC2Client", "CreateRouteTableCommand")
-  .sc(CreateRouteTable)
+  .sc(CreateRouteTable$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

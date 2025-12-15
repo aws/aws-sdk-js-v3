@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteReusableDelegationSetRequest, DeleteReusableDelegationSetResponse } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { DeleteReusableDelegationSet } from "../schemas/schemas_0";
+import { DeleteReusableDelegationSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DeleteReusableDelegationSetCommand extends $Command
   })
   .s("AWSDnsV20130401", "DeleteReusableDelegationSet", {})
   .n("Route53Client", "DeleteReusableDelegationSetCommand")
-  .sc(DeleteReusableDelegationSet)
+  .sc(DeleteReusableDelegationSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

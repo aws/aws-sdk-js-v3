@@ -13,7 +13,7 @@ import type {
   GetUserAttributeVerificationCodeRequest,
   GetUserAttributeVerificationCodeResponse,
 } from "../models/models_0";
-import { GetUserAttributeVerificationCode } from "../schemas/schemas_0";
+import { GetUserAttributeVerificationCode$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -179,7 +179,7 @@ export class GetUserAttributeVerificationCodeCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "GetUserAttributeVerificationCode", {})
   .n("CognitoIdentityProviderClient", "GetUserAttributeVerificationCodeCommand")
-  .sc(GetUserAttributeVerificationCode)
+  .sc(GetUserAttributeVerificationCode$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   SetLoadBalancerPoliciesOfListenerInput,
   SetLoadBalancerPoliciesOfListenerOutput,
 } from "../models/models_0";
-import { SetLoadBalancerPoliciesOfListener } from "../schemas/schemas_0";
+import { SetLoadBalancerPoliciesOfListener$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class SetLoadBalancerPoliciesOfListenerCommand extends $Command
   })
   .s("ElasticLoadBalancing_v7", "SetLoadBalancerPoliciesOfListener", {})
   .n("ElasticLoadBalancingClient", "SetLoadBalancerPoliciesOfListenerCommand")
-  .sc(SetLoadBalancerPoliciesOfListener)
+  .sc(SetLoadBalancerPoliciesOfListener$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

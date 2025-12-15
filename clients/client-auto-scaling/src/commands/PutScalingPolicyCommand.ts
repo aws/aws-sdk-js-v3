@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PolicyARNType, PutScalingPolicyType } from "../models/models_0";
-import { PutScalingPolicy } from "../schemas/schemas_0";
+import { PutScalingPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -278,7 +278,7 @@ export class PutScalingPolicyCommand extends $Command
   })
   .s("AutoScaling_2011_01_01", "PutScalingPolicy", {})
   .n("AutoScalingClient", "PutScalingPolicyCommand")
-  .sc(PutScalingPolicy)
+  .sc(PutScalingPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

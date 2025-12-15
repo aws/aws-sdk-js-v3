@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeByoipCidrsRequest, DescribeByoipCidrsResult } from "../models/models_3";
-import { DescribeByoipCidrs } from "../schemas/schemas_0";
+import { DescribeByoipCidrs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DescribeByoipCidrsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeByoipCidrs", {})
   .n("EC2Client", "DescribeByoipCidrsCommand")
-  .sc(DescribeByoipCidrs)
+  .sc(DescribeByoipCidrs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

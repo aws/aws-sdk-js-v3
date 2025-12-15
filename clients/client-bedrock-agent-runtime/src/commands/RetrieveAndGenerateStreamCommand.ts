@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RetrieveAndGenerateStreamRequest, RetrieveAndGenerateStreamResponse } from "../models/models_0";
-import { RetrieveAndGenerateStream } from "../schemas/schemas_0";
+import { RetrieveAndGenerateStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -477,7 +477,7 @@ export class RetrieveAndGenerateStreamCommand extends $Command
     },
   })
   .n("BedrockAgentRuntimeClient", "RetrieveAndGenerateStreamCommand")
-  .sc(RetrieveAndGenerateStream)
+  .sc(RetrieveAndGenerateStream$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

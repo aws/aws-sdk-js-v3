@@ -8,7 +8,7 @@ import type {
   PutDeliverabilityDashboardOptionRequest,
   PutDeliverabilityDashboardOptionResponse,
 } from "../models/models_0";
-import { PutDeliverabilityDashboardOption } from "../schemas/schemas_0";
+import { PutDeliverabilityDashboardOption$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -108,7 +108,7 @@ export class PutDeliverabilityDashboardOptionCommand extends $Command
   })
   .s("SimpleEmailService_v2", "PutDeliverabilityDashboardOption", {})
   .n("SESv2Client", "PutDeliverabilityDashboardOptionCommand")
-  .sc(PutDeliverabilityDashboardOption)
+  .sc(PutDeliverabilityDashboardOption$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

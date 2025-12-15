@@ -8,7 +8,7 @@ import type {
   DisassociateWorkspaceApplicationRequest,
   DisassociateWorkspaceApplicationResult,
 } from "../models/models_0";
-import { DisassociateWorkspaceApplication } from "../schemas/schemas_0";
+import { DisassociateWorkspaceApplication$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -105,7 +105,7 @@ export class DisassociateWorkspaceApplicationCommand extends $Command
   })
   .s("WorkspacesService", "DisassociateWorkspaceApplication", {})
   .n("WorkSpacesClient", "DisassociateWorkspaceApplicationCommand")
-  .sc(DisassociateWorkspaceApplication)
+  .sc(DisassociateWorkspaceApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

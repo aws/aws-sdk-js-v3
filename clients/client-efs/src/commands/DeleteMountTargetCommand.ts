@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteMountTargetRequest } from "../models/models_0";
-import { DeleteMountTarget } from "../schemas/schemas_0";
+import { DeleteMountTarget$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -129,7 +129,7 @@ export class DeleteMountTargetCommand extends $Command
   })
   .s("MagnolioAPIService_v20150201", "DeleteMountTarget", {})
   .n("EFSClient", "DeleteMountTargetCommand")
-  .sc(DeleteMountTarget)
+  .sc(DeleteMountTarget$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

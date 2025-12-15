@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { PutRuntimeLogConfigurationRequest } from "../models/models_0";
-import { PutRuntimeLogConfiguration } from "../schemas/schemas_0";
+import { PutRuntimeLogConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class PutRuntimeLogConfigurationCommand extends $Command
   })
   .s("IotManagedIntegrations", "PutRuntimeLogConfiguration", {})
   .n("IoTManagedIntegrationsClient", "PutRuntimeLogConfigurationCommand")
-  .sc(PutRuntimeLogConfiguration)
+  .sc(PutRuntimeLogConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   DescribeOrderableReplicationInstancesMessage,
   DescribeOrderableReplicationInstancesResponse,
 } from "../models/models_0";
-import { DescribeOrderableReplicationInstances } from "../schemas/schemas_0";
+import { DescribeOrderableReplicationInstances$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class DescribeOrderableReplicationInstancesCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribeOrderableReplicationInstances", {})
   .n("DatabaseMigrationServiceClient", "DescribeOrderableReplicationInstancesCommand")
-  .sc(DescribeOrderableReplicationInstances)
+  .sc(DescribeOrderableReplicationInstances$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

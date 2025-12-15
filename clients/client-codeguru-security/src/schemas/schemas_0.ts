@@ -179,19 +179,19 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { CodeGuruSecurityServiceException as __CodeGuruSecurityServiceException } from "../models/CodeGuruSecurityServiceException";
+import { CodeGuruSecurityServiceException } from "../models/CodeGuruSecurityServiceException";
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var S3Url: StaticSimpleSchema = [0, n0, _SU, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
+var S3Url: StaticSimpleSchema = [0, n0, _SU, 8, 0];
+export var AccessDeniedException$: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
@@ -199,8 +199,8 @@ export var AccessDeniedException: StaticErrorSchema = [
   [_eC, _m, _rI, _rT],
   [0, 0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var AccountFindingsMetric: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var AccountFindingsMetric$: StaticStructureSchema = [
   3,
   n0,
   _AFM,
@@ -208,15 +208,15 @@ export var AccountFindingsMetric: StaticStructureSchema = [
   [_d, _nF, _cF, _oF, _mTTC],
   [
     4,
-    () => FindingMetricsValuePerSeverity,
-    () => FindingMetricsValuePerSeverity,
-    () => FindingMetricsValuePerSeverity,
-    () => FindingMetricsValuePerSeverity,
+    () => FindingMetricsValuePerSeverity$,
+    () => FindingMetricsValuePerSeverity$,
+    () => FindingMetricsValuePerSeverity$,
+    () => FindingMetricsValuePerSeverity$,
   ],
 ];
-export var BatchGetFindingsError: StaticStructureSchema = [3, n0, _BGFE, 0, [_sN, _fI, _eC, _m], [0, 0, 0, 0]];
-export var BatchGetFindingsRequest: StaticStructureSchema = [3, n0, _BGFR, 0, [_fIi], [() => FindingIdentifiers]];
-export var BatchGetFindingsResponse: StaticStructureSchema = [
+export var BatchGetFindingsError$: StaticStructureSchema = [3, n0, _BGFE, 0, [_sN, _fI, _eC, _m], [0, 0, 0, 0]];
+export var BatchGetFindingsRequest$: StaticStructureSchema = [3, n0, _BGFR, 0, [_fIi], [() => FindingIdentifiers]];
+export var BatchGetFindingsResponse$: StaticStructureSchema = [
   3,
   n0,
   _BGFRa,
@@ -224,9 +224,9 @@ export var BatchGetFindingsResponse: StaticStructureSchema = [
   [_f, _fF],
   [() => Findings, () => BatchGetFindingsErrors],
 ];
-export var CategoryWithFindingNum: StaticStructureSchema = [3, n0, _CWFN, 0, [_cN, _fN], [0, 1]];
-export var CodeLine: StaticStructureSchema = [3, n0, _CL, 0, [_n, _co], [1, 0]];
-export var ConflictException: StaticErrorSchema = [
+export var CategoryWithFindingNum$: StaticStructureSchema = [3, n0, _CWFN, 0, [_cN, _fN], [0, 1]];
+export var CodeLine$: StaticStructureSchema = [3, n0, _CL, 0, [_n, _co], [1, 0]];
+export var ConflictException$: StaticErrorSchema = [
   -3,
   n0,
   _CE,
@@ -234,25 +234,25 @@ export var ConflictException: StaticErrorSchema = [
   [_eC, _m, _rI, _rT],
   [0, 0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateScanRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateScanRequest$: StaticStructureSchema = [
   3,
   n0,
   _CSR,
   0,
   [_cT, _rI, _sN, _sT, _aT, _t],
-  [[0, 4], () => ResourceId, 0, 0, 0, 128 | 0],
+  [[0, 4], () => ResourceId$, 0, 0, 0, 128 | 0],
 ];
-export var CreateScanResponse: StaticStructureSchema = [
+export var CreateScanResponse$: StaticStructureSchema = [
   3,
   n0,
   _CSRr,
   0,
   [_sN, _rIu, _rI, _sS, _sNA],
-  [0, 0, () => ResourceId, 0, 0],
+  [0, 0, () => ResourceId$, 0, 0],
 ];
-export var CreateUploadUrlRequest: StaticStructureSchema = [3, n0, _CUUR, 0, [_sN], [0]];
-export var CreateUploadUrlResponse: StaticStructureSchema = [
+export var CreateUploadUrlRequest$: StaticStructureSchema = [3, n0, _CUUR, 0, [_sN], [0]];
+export var CreateUploadUrlResponse$: StaticStructureSchema = [
   3,
   n0,
   _CUURr,
@@ -260,18 +260,25 @@ export var CreateUploadUrlResponse: StaticStructureSchema = [
   [_sU, _rH, _cAI],
   [[() => S3Url, 0], [() => RequestHeaderMap, 0], 0],
 ];
-export var EncryptionConfig: StaticStructureSchema = [3, n0, _EC, 0, [_kKA], [0]];
-export var FilePath: StaticStructureSchema = [3, n0, _FP, 0, [_na, _p, _sL, _eL, _cS], [0, 0, 1, 1, () => CodeSnippet]];
-export var Finding: StaticStructureSchema = [
+export var EncryptionConfig$: StaticStructureSchema = [3, n0, _EC, 0, [_kKA], [0]];
+export var FilePath$: StaticStructureSchema = [
+  3,
+  n0,
+  _FP,
+  0,
+  [_na, _p, _sL, _eL, _cS],
+  [0, 0, 1, 1, () => CodeSnippet],
+];
+export var Finding$: StaticStructureSchema = [
   3,
   n0,
   _F,
   0,
   [_cA, _de, _gI, _i, _uA, _ty, _s, _r, _v, _se, _re, _ti, _dT, _dI, _dN, _rIul],
-  [4, 0, 0, 0, 4, 0, 0, () => Resource, () => Vulnerability, 0, () => Remediation, 0, 64 | 0, 0, 0, 0],
+  [4, 0, 0, 0, 4, 0, 0, () => Resource$, () => Vulnerability$, 0, () => Remediation$, 0, 64 | 0, 0, 0, 0],
 ];
-export var FindingIdentifier: StaticStructureSchema = [3, n0, _FI, 0, [_sN, _fI], [0, 0]];
-export var FindingMetricsValuePerSeverity: StaticStructureSchema = [
+export var FindingIdentifier$: StaticStructureSchema = [3, n0, _FI, 0, [_sN, _fI], [0, 0]];
+export var FindingMetricsValuePerSeverity$: StaticStructureSchema = [
   3,
   n0,
   _FMVPS,
@@ -279,16 +286,16 @@ export var FindingMetricsValuePerSeverity: StaticStructureSchema = [
   [_in, _l, _me, _h, _cr],
   [1, 1, 1, 1, 1],
 ];
-export var GetAccountConfigurationRequest: StaticStructureSchema = [3, n0, _GACR, 0, [], []];
-export var GetAccountConfigurationResponse: StaticStructureSchema = [
+export var GetAccountConfigurationRequest$: StaticStructureSchema = [3, n0, _GACR, 0, [], []];
+export var GetAccountConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GACRe,
   0,
   [_eCn],
-  [() => EncryptionConfig],
+  [() => EncryptionConfig$],
 ];
-export var GetFindingsRequest: StaticStructureSchema = [
+export var GetFindingsRequest$: StaticStructureSchema = [
   3,
   n0,
   _GFR,
@@ -301,10 +308,10 @@ export var GetFindingsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _s }],
   ],
 ];
-export var GetFindingsResponse: StaticStructureSchema = [3, n0, _GFRe, 0, [_f, _nT], [() => Findings, 0]];
-export var GetMetricsSummaryRequest: StaticStructureSchema = [3, n0, _GMSR, 0, [_d], [[4, { [_hQ]: _d }]]];
-export var GetMetricsSummaryResponse: StaticStructureSchema = [3, n0, _GMSRe, 0, [_mS], [() => MetricsSummary]];
-export var GetScanRequest: StaticStructureSchema = [
+export var GetFindingsResponse$: StaticStructureSchema = [3, n0, _GFRe, 0, [_f, _nT], [() => Findings, 0]];
+export var GetMetricsSummaryRequest$: StaticStructureSchema = [3, n0, _GMSR, 0, [_d], [[4, { [_hQ]: _d }]]];
+export var GetMetricsSummaryResponse$: StaticStructureSchema = [3, n0, _GMSRe, 0, [_mS], [() => MetricsSummary$]];
+export var GetScanRequest$: StaticStructureSchema = [
   3,
   n0,
   _GSR,
@@ -315,7 +322,7 @@ export var GetScanRequest: StaticStructureSchema = [
     [0, { [_hQ]: _rIu }],
   ],
 ];
-export var GetScanResponse: StaticStructureSchema = [
+export var GetScanResponse$: StaticStructureSchema = [
   3,
   n0,
   _GSRe,
@@ -323,9 +330,9 @@ export var GetScanResponse: StaticStructureSchema = [
   [_sN, _rIu, _sS, _cA, _aT, _uA, _nOR, _sNA, _eM],
   [0, 0, 0, 4, 0, 4, 1, 0, 0],
 ];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _ser, [_hE]: 500 }, [_e, _m], [0, 0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var ListFindingsMetricsRequest: StaticStructureSchema = [
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _ser, [_hE]: 500 }, [_e, _m], [0, 0]];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var ListFindingsMetricsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LFMR,
@@ -338,7 +345,7 @@ export var ListFindingsMetricsRequest: StaticStructureSchema = [
     [4, { [_hQ]: _eD }],
   ],
 ];
-export var ListFindingsMetricsResponse: StaticStructureSchema = [
+export var ListFindingsMetricsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LFMRi,
@@ -346,7 +353,7 @@ export var ListFindingsMetricsResponse: StaticStructureSchema = [
   [_fM, _nT],
   [() => FindingsMetricList, 0],
 ];
-export var ListScansRequest: StaticStructureSchema = [
+export var ListScansRequest$: StaticStructureSchema = [
   3,
   n0,
   _LSR,
@@ -357,10 +364,10 @@ export var ListScansRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListScansResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_su, _nT], [() => ScanSummaries, 0]];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
-export var MetricsSummary: StaticStructureSchema = [
+export var ListScansResponse$: StaticStructureSchema = [3, n0, _LSRi, 0, [_su, _nT], [() => ScanSummaries, 0]];
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
+export var MetricsSummary$: StaticStructureSchema = [
   3,
   n0,
   _MS,
@@ -368,23 +375,23 @@ export var MetricsSummary: StaticStructureSchema = [
   [_d, _oF, _cWMF, _sWMOF, _sWMOCF],
   [
     4,
-    () => FindingMetricsValuePerSeverity,
+    () => FindingMetricsValuePerSeverity$,
     () => CategoriesWithMostFindings,
     () => ScansWithMostOpenFindings,
     () => ScansWithMostOpenCriticalFindings,
   ],
 ];
-export var Recommendation: StaticStructureSchema = [3, n0, _R, 0, [_te, _u], [0, 0]];
-export var Remediation: StaticStructureSchema = [
+export var Recommendation$: StaticStructureSchema = [3, n0, _R, 0, [_te, _u], [0, 0]];
+export var Remediation$: StaticStructureSchema = [
   3,
   n0,
   _Re,
   0,
   [_rec, _sF],
-  [() => Recommendation, () => SuggestedFixes],
+  [() => Recommendation$, () => SuggestedFixes],
 ];
-export var Resource: StaticStructureSchema = [3, n0, _Res, 0, [_i, _sRI], [0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
+export var Resource$: StaticStructureSchema = [3, n0, _Res, 0, [_i, _sRI], [0, 0]];
+export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
@@ -392,13 +399,13 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   [_eC, _m, _rI, _rT],
   [0, 0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ScanNameWithFindingNum: StaticStructureSchema = [3, n0, _SNWFN, 0, [_sN, _fN], [0, 1]];
-export var ScanSummary: StaticStructureSchema = [3, n0, _SS, 0, [_sS, _cA, _uA, _sN, _rIu, _sNA], [0, 4, 4, 0, 0, 0]];
-export var SuggestedFix: StaticStructureSchema = [3, n0, _SF, 0, [_de, _cod], [0, 0]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [[0, 1], 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ScanNameWithFindingNum$: StaticStructureSchema = [3, n0, _SNWFN, 0, [_sN, _fN], [0, 1]];
+export var ScanSummary$: StaticStructureSchema = [3, n0, _SS, 0, [_sS, _cA, _uA, _sN, _rIu, _sNA], [0, 4, 4, 0, 0, 0]];
+export var SuggestedFix$: StaticStructureSchema = [3, n0, _SF, 0, [_de, _cod], [0, 0]];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [[0, 1], 128 | 0]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var ThrottlingException$: StaticErrorSchema = [
   -3,
   n0,
   _TE,
@@ -406,8 +413,8 @@ export var ThrottlingException: StaticErrorSchema = [
   [_eC, _m, _sC, _qC],
   [0, 0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var UntagResourceRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -418,24 +425,24 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateAccountConfigurationRequest: StaticStructureSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateAccountConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UACR,
   0,
   [_eCn],
-  [() => EncryptionConfig],
+  [() => EncryptionConfig$],
 ];
-export var UpdateAccountConfigurationResponse: StaticStructureSchema = [
+export var UpdateAccountConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _UACRp,
   0,
   [_eCn],
-  [() => EncryptionConfig],
+  [() => EncryptionConfig$],
 ];
-export var ValidationException: StaticErrorSchema = [
+export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VE,
@@ -443,17 +450,17 @@ export var ValidationException: StaticErrorSchema = [
   [_eC, _m, _rea, _fL],
   [0, 0, 0, () => ValidationExceptionFieldList],
 ];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_na, _m], [0, 0]];
-export var Vulnerability: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF, 0, [_na, _m], [0, 0]];
+export var Vulnerability$: StaticStructureSchema = [
   3,
   n0,
   _V,
   0,
   [_rU, _rV, _i, _fP, _iC],
-  [64 | 0, 64 | 0, 0, () => FilePath, 1],
+  [64 | 0, 64 | 0, 0, () => FilePath$, 1],
 ];
-export var CodeGuruSecurityServiceException: StaticErrorSchema = [
+export var CodeGuruSecurityServiceException$: StaticErrorSchema = [
   -3,
   _sm,
   "CodeGuruSecurityServiceException",
@@ -461,126 +468,126 @@ export var CodeGuruSecurityServiceException: StaticErrorSchema = [
   [],
   [],
 ];
-TypeRegistry.for(_sm).registerError(CodeGuruSecurityServiceException, __CodeGuruSecurityServiceException);
-export var BatchGetFindingsErrors: StaticListSchema = [1, n0, _BGFEa, 0, () => BatchGetFindingsError];
-export var CategoriesWithMostFindings: StaticListSchema = [1, n0, _CWMF, 0, () => CategoryWithFindingNum];
-export var CodeSnippet: StaticListSchema = [1, n0, _CS, 0, () => CodeLine];
-export var DetectorTags = 64 | 0;
-export var FindingIdentifiers: StaticListSchema = [1, n0, _FIi, 0, () => FindingIdentifier];
-export var Findings: StaticListSchema = [1, n0, _Fi, 0, () => Finding];
-export var FindingsMetricList: StaticListSchema = [1, n0, _FML, 0, () => AccountFindingsMetric];
-export var ReferenceUrls = 64 | 0;
-export var RelatedVulnerabilities = 64 | 0;
-export var ScanSummaries: StaticListSchema = [1, n0, _SSc, 0, () => ScanSummary];
-export var ScansWithMostOpenCriticalFindings: StaticListSchema = [1, n0, _SWMOCF, 0, () => ScanNameWithFindingNum];
-export var ScansWithMostOpenFindings: StaticListSchema = [1, n0, _SWMOF, 0, () => ScanNameWithFindingNum];
-export var SuggestedFixes: StaticListSchema = [1, n0, _SFu, 0, () => SuggestedFix];
-export var TagKeyList = 64 | 0;
-export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
-export var RequestHeaderMap: StaticMapSchema = [2, n0, _RHM, 8, 0, 0];
-export var TagMap = 128 | 0;
-export var ResourceId: StaticStructureSchema = [3, n0, _RI, 0, [_cAI], [0]];
-export var BatchGetFindings: StaticOperationSchema = [
+TypeRegistry.for(_sm).registerError(CodeGuruSecurityServiceException$, CodeGuruSecurityServiceException);
+var BatchGetFindingsErrors: StaticListSchema = [1, n0, _BGFEa, 0, () => BatchGetFindingsError$];
+var CategoriesWithMostFindings: StaticListSchema = [1, n0, _CWMF, 0, () => CategoryWithFindingNum$];
+var CodeSnippet: StaticListSchema = [1, n0, _CS, 0, () => CodeLine$];
+var DetectorTags = 64 | 0;
+var FindingIdentifiers: StaticListSchema = [1, n0, _FIi, 0, () => FindingIdentifier$];
+var Findings: StaticListSchema = [1, n0, _Fi, 0, () => Finding$];
+var FindingsMetricList: StaticListSchema = [1, n0, _FML, 0, () => AccountFindingsMetric$];
+var ReferenceUrls = 64 | 0;
+var RelatedVulnerabilities = 64 | 0;
+var ScanSummaries: StaticListSchema = [1, n0, _SSc, 0, () => ScanSummary$];
+var ScansWithMostOpenCriticalFindings: StaticListSchema = [1, n0, _SWMOCF, 0, () => ScanNameWithFindingNum$];
+var ScansWithMostOpenFindings: StaticListSchema = [1, n0, _SWMOF, 0, () => ScanNameWithFindingNum$];
+var SuggestedFixes: StaticListSchema = [1, n0, _SFu, 0, () => SuggestedFix$];
+var TagKeyList = 64 | 0;
+var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField$];
+var RequestHeaderMap: StaticMapSchema = [2, n0, _RHM, 8, 0, 0];
+var TagMap = 128 | 0;
+export var ResourceId$: StaticStructureSchema = [3, n0, _RI, 0, [_cAI], [0]];
+export var BatchGetFindings$: StaticOperationSchema = [
   9,
   n0,
   _BGF,
   { [_ht]: ["POST", "/batchGetFindings", 200] },
-  () => BatchGetFindingsRequest,
-  () => BatchGetFindingsResponse,
+  () => BatchGetFindingsRequest$,
+  () => BatchGetFindingsResponse$,
 ];
-export var CreateScan: StaticOperationSchema = [
+export var CreateScan$: StaticOperationSchema = [
   9,
   n0,
   _CSr,
   { [_ht]: ["POST", "/scans", 200] },
-  () => CreateScanRequest,
-  () => CreateScanResponse,
+  () => CreateScanRequest$,
+  () => CreateScanResponse$,
 ];
-export var CreateUploadUrl: StaticOperationSchema = [
+export var CreateUploadUrl$: StaticOperationSchema = [
   9,
   n0,
   _CUU,
   { [_ht]: ["POST", "/uploadUrl", 200] },
-  () => CreateUploadUrlRequest,
-  () => CreateUploadUrlResponse,
+  () => CreateUploadUrlRequest$,
+  () => CreateUploadUrlResponse$,
 ];
-export var GetAccountConfiguration: StaticOperationSchema = [
+export var GetAccountConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GAC,
   { [_ht]: ["GET", "/accountConfiguration/get", 200] },
-  () => GetAccountConfigurationRequest,
-  () => GetAccountConfigurationResponse,
+  () => GetAccountConfigurationRequest$,
+  () => GetAccountConfigurationResponse$,
 ];
-export var GetFindings: StaticOperationSchema = [
+export var GetFindings$: StaticOperationSchema = [
   9,
   n0,
   _GF,
   { [_ht]: ["GET", "/findings/{scanName}", 200] },
-  () => GetFindingsRequest,
-  () => GetFindingsResponse,
+  () => GetFindingsRequest$,
+  () => GetFindingsResponse$,
 ];
-export var GetMetricsSummary: StaticOperationSchema = [
+export var GetMetricsSummary$: StaticOperationSchema = [
   9,
   n0,
   _GMS,
   { [_ht]: ["GET", "/metrics/summary", 200] },
-  () => GetMetricsSummaryRequest,
-  () => GetMetricsSummaryResponse,
+  () => GetMetricsSummaryRequest$,
+  () => GetMetricsSummaryResponse$,
 ];
-export var GetScan: StaticOperationSchema = [
+export var GetScan$: StaticOperationSchema = [
   9,
   n0,
   _GS,
   { [_ht]: ["GET", "/scans/{scanName}", 200] },
-  () => GetScanRequest,
-  () => GetScanResponse,
+  () => GetScanRequest$,
+  () => GetScanResponse$,
 ];
-export var ListFindingsMetrics: StaticOperationSchema = [
+export var ListFindingsMetrics$: StaticOperationSchema = [
   9,
   n0,
   _LFM,
   { [_ht]: ["GET", "/metrics/findings", 200] },
-  () => ListFindingsMetricsRequest,
-  () => ListFindingsMetricsResponse,
+  () => ListFindingsMetricsRequest$,
+  () => ListFindingsMetricsResponse$,
 ];
-export var ListScans: StaticOperationSchema = [
+export var ListScans$: StaticOperationSchema = [
   9,
   n0,
   _LS,
   { [_ht]: ["GET", "/scans", 200] },
-  () => ListScansRequest,
-  () => ListScansResponse,
+  () => ListScansRequest$,
+  () => ListScansResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_ht]: ["GET", "/tags/{resourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_ht]: ["POST", "/tags/{resourceArn}", 204] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_ht]: ["DELETE", "/tags/{resourceArn}", 204] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateAccountConfiguration: StaticOperationSchema = [
+export var UpdateAccountConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UAC,
   { [_ht]: ["PUT", "/updateAccountConfiguration", 200] },
-  () => UpdateAccountConfigurationRequest,
-  () => UpdateAccountConfigurationResponse,
+  () => UpdateAccountConfigurationRequest$,
+  () => UpdateAccountConfigurationResponse$,
 ];

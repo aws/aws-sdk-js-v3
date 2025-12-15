@@ -10,7 +10,7 @@ import type {
 } from "../CloudDirectoryClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DetachObjectRequest, DetachObjectResponse } from "../models/models_0";
-import { DetachObject } from "../schemas/schemas_0";
+import { DetachObject$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -130,7 +130,7 @@ export class DetachObjectCommand extends $Command
   })
   .s("AmazonCloudDirectory_20170111", "DetachObject", {})
   .n("CloudDirectoryClient", "DetachObjectCommand")
-  .sc(DetachObject)
+  .sc(DetachObject$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

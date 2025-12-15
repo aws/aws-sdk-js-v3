@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListLocalDisksInput, ListLocalDisksOutput } from "../models/models_0";
-import { ListLocalDisks } from "../schemas/schemas_0";
+import { ListLocalDisks$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -140,7 +140,7 @@ export class ListLocalDisksCommand extends $Command
   })
   .s("StorageGateway_20130630", "ListLocalDisks", {})
   .n("StorageGatewayClient", "ListLocalDisksCommand")
-  .sc(ListLocalDisks)
+  .sc(ListLocalDisks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

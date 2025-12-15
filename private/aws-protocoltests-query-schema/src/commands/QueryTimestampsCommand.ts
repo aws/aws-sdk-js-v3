@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { QueryTimestampsInput } from "../models/models_0";
 import type { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { QueryTimestamps } from "../schemas/schemas_0";
+import { QueryTimestamps$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,7 +77,7 @@ export class QueryTimestampsCommand extends $Command
   })
   .s("AwsQuery", "QueryTimestamps", {})
   .n("QueryProtocolClient", "QueryTimestampsCommand")
-  .sc(QueryTimestamps)
+  .sc(QueryTimestamps$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

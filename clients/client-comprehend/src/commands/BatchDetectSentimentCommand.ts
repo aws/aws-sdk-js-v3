@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchDetectSentimentRequest, BatchDetectSentimentResponse } from "../models/models_0";
-import { BatchDetectSentiment } from "../schemas/schemas_0";
+import { BatchDetectSentiment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class BatchDetectSentimentCommand extends $Command
   })
   .s("Comprehend_20171127", "BatchDetectSentiment", {})
   .n("ComprehendClient", "BatchDetectSentimentCommand")
-  .sc(BatchDetectSentiment)
+  .sc(BatchDetectSentiment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

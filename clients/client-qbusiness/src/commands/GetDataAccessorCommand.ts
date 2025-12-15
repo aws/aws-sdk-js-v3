@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDataAccessorRequest } from "../models/models_0";
 import type { GetDataAccessorResponse } from "../models/models_1";
 import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
-import { GetDataAccessor } from "../schemas/schemas_0";
+import { GetDataAccessor$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -196,7 +196,7 @@ export class GetDataAccessorCommand extends $Command
   })
   .s("ExpertQ", "GetDataAccessor", {})
   .n("QBusinessClient", "GetDataAccessorCommand")
-  .sc(GetDataAccessor)
+  .sc(GetDataAccessor$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

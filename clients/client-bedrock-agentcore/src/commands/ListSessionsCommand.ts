@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListSessionsInput, ListSessionsOutput } from "../models/models_0";
-import { ListSessions } from "../schemas/schemas_0";
+import { ListSessions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class ListSessionsCommand extends $Command
   })
   .s("AmazonBedrockAgentCore", "ListSessions", {})
   .n("BedrockAgentCoreClient", "ListSessionsCommand")
-  .sc(ListSessions)
+  .sc(ListSessions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UntagResourceInput } from "../models/models_0";
-import { UntagResource } from "../schemas/schemas_0";
+import { UntagResource$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -83,7 +83,7 @@ export class UntagResourceCommand extends $Command
   })
   .s("SimpleWorkflowService", "UntagResource", {})
   .n("SWFClient", "UntagResourceCommand")
-  .sc(UntagResource)
+  .sc(UntagResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

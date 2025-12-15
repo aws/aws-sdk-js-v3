@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeInstanceTopologyRequest, DescribeInstanceTopologyResult } from "../models/models_4";
-import { DescribeInstanceTopology } from "../schemas/schemas_0";
+import { DescribeInstanceTopology$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class DescribeInstanceTopologyCommand extends $Command
   })
   .s("AmazonEC2", "DescribeInstanceTopology", {})
   .n("EC2Client", "DescribeInstanceTopologyCommand")
-  .sc(DescribeInstanceTopology)
+  .sc(DescribeInstanceTopology$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

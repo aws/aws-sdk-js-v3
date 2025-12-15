@@ -9,7 +9,7 @@ import type {
   ListComputationModelDataBindingUsagesRequest,
   ListComputationModelDataBindingUsagesResponse,
 } from "../models/models_0";
-import { ListComputationModelDataBindingUsages } from "../schemas/schemas_0";
+import { ListComputationModelDataBindingUsages$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -130,7 +130,7 @@ export class ListComputationModelDataBindingUsagesCommand extends $Command
   })
   .s("AWSIoTSiteWise", "ListComputationModelDataBindingUsages", {})
   .n("IoTSiteWiseClient", "ListComputationModelDataBindingUsagesCommand")
-  .sc(ListComputationModelDataBindingUsages)
+  .sc(ListComputationModelDataBindingUsages$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

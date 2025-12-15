@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListDataTableValuesRequest, ListDataTableValuesResponse } from "../models/models_2";
-import { ListDataTableValues } from "../schemas/schemas_0";
+import { ListDataTableValues$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -130,7 +130,7 @@ export class ListDataTableValuesCommand extends $Command
   })
   .s("AmazonConnectService", "ListDataTableValues", {})
   .n("ConnectClient", "ListDataTableValuesCommand")
-  .sc(ListDataTableValues)
+  .sc(ListDataTableValues$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

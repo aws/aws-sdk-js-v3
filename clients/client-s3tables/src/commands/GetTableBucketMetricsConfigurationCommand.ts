@@ -9,7 +9,7 @@ import type {
   GetTableBucketMetricsConfigurationResponse,
 } from "../models/models_0";
 import type { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
-import { GetTableBucketMetricsConfiguration } from "../schemas/schemas_0";
+import { GetTableBucketMetricsConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class GetTableBucketMetricsConfigurationCommand extends $Command
   })
   .s("S3TableBuckets", "GetTableBucketMetricsConfiguration", {})
   .n("S3TablesClient", "GetTableBucketMetricsConfigurationCommand")
-  .sc(GetTableBucketMetricsConfiguration)
+  .sc(GetTableBucketMetricsConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

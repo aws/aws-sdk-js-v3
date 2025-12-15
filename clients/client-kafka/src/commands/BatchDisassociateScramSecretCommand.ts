@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
 import type { BatchDisassociateScramSecretRequest, BatchDisassociateScramSecretResponse } from "../models/models_0";
-import { BatchDisassociateScramSecret } from "../schemas/schemas_0";
+import { BatchDisassociateScramSecret$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class BatchDisassociateScramSecretCommand extends $Command
   })
   .s("Kafka", "BatchDisassociateScramSecret", {})
   .n("KafkaClient", "BatchDisassociateScramSecretCommand")
-  .sc(BatchDisassociateScramSecret)
+  .sc(BatchDisassociateScramSecret$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   UpdateSubscriptionsToEventBridgeMessage,
   UpdateSubscriptionsToEventBridgeResponse,
 } from "../models/models_1";
-import { UpdateSubscriptionsToEventBridge } from "../schemas/schemas_0";
+import { UpdateSubscriptionsToEventBridge$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class UpdateSubscriptionsToEventBridgeCommand extends $Command
   })
   .s("AmazonDMSv20160101", "UpdateSubscriptionsToEventBridge", {})
   .n("DatabaseMigrationServiceClient", "UpdateSubscriptionsToEventBridgeCommand")
-  .sc(UpdateSubscriptionsToEventBridge)
+  .sc(UpdateSubscriptionsToEventBridge$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

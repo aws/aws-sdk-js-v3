@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetScheduleGroupInput, GetScheduleGroupOutput } from "../models/models_0";
 import type { SchedulerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchedulerClient";
-import { GetScheduleGroup } from "../schemas/schemas_0";
+import { GetScheduleGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class GetScheduleGroupCommand extends $Command
   })
   .s("AWSChronosService", "GetScheduleGroup", {})
   .n("SchedulerClient", "GetScheduleGroupCommand")
-  .sc(GetScheduleGroup)
+  .sc(GetScheduleGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

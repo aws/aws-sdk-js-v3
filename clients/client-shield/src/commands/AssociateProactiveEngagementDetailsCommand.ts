@@ -8,7 +8,7 @@ import type {
   AssociateProactiveEngagementDetailsRequest,
   AssociateProactiveEngagementDetailsResponse,
 } from "../models/models_0";
-import { AssociateProactiveEngagementDetails } from "../schemas/schemas_0";
+import { AssociateProactiveEngagementDetails$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -103,7 +103,7 @@ export class AssociateProactiveEngagementDetailsCommand extends $Command
   })
   .s("AWSShield_20160616", "AssociateProactiveEngagementDetails", {})
   .n("ShieldClient", "AssociateProactiveEngagementDetailsCommand")
-  .sc(AssociateProactiveEngagementDetails)
+  .sc(AssociateProactiveEngagementDetails$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

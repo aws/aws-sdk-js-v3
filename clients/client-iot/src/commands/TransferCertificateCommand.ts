@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import type { TransferCertificateRequest, TransferCertificateResponse } from "../models/models_2";
-import { TransferCertificate } from "../schemas/schemas_0";
+import { TransferCertificate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,7 +124,7 @@ export class TransferCertificateCommand extends $Command
   })
   .s("AWSIotService", "TransferCertificate", {})
   .n("IoTClient", "TransferCertificateCommand")
-  .sc(TransferCertificate)
+  .sc(TransferCertificate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

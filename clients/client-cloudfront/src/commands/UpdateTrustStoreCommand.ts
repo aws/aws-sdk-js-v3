@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateTrustStoreRequest, UpdateTrustStoreResult } from "../models/models_1";
-import { UpdateTrustStore } from "../schemas/schemas_0";
+import { UpdateTrustStore$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class UpdateTrustStoreCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "UpdateTrustStore", {})
   .n("CloudFrontClient", "UpdateTrustStoreCommand")
-  .sc(UpdateTrustStore)
+  .sc(UpdateTrustStore$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

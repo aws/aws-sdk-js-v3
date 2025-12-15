@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import type { PublishLayerVersionRequest, PublishLayerVersionResponse } from "../models/models_0";
-import { PublishLayerVersion } from "../schemas/schemas_0";
+import { PublishLayerVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -159,7 +159,7 @@ export class PublishLayerVersionCommand extends $Command
   })
   .s("AWSGirApiService", "PublishLayerVersion", {})
   .n("LambdaClient", "PublishLayerVersionCommand")
-  .sc(PublishLayerVersion)
+  .sc(PublishLayerVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

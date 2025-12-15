@@ -8,7 +8,7 @@ import type {
   UpdateApplicationLayerAutomaticResponseRequest,
   UpdateApplicationLayerAutomaticResponseResponse,
 } from "../models/models_0";
-import { UpdateApplicationLayerAutomaticResponse } from "../schemas/schemas_0";
+import { UpdateApplicationLayerAutomaticResponse$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -97,7 +97,7 @@ export class UpdateApplicationLayerAutomaticResponseCommand extends $Command
   })
   .s("AWSShield_20160616", "UpdateApplicationLayerAutomaticResponse", {})
   .n("ShieldClient", "UpdateApplicationLayerAutomaticResponseCommand")
-  .sc(UpdateApplicationLayerAutomaticResponse)
+  .sc(UpdateApplicationLayerAutomaticResponse$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

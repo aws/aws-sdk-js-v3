@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { type InvokeAsyncResponse, InvokeAsyncRequest } from "../models/models_0";
-import { InvokeAsync } from "../schemas/schemas_0";
+import { InvokeAsync$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class InvokeAsyncCommand extends $Command
   })
   .s("AWSGirApiService", "InvokeAsync", {})
   .n("LambdaClient", "InvokeAsyncCommand")
-  .sc(InvokeAsync)
+  .sc(InvokeAsync$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

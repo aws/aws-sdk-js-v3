@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetMasterAccountRequest, GetMasterAccountResponse } from "../models/models_2";
-import { GetMasterAccount } from "../schemas/schemas_0";
+import { GetMasterAccount$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -99,7 +99,7 @@ export class GetMasterAccountCommand extends $Command
   })
   .s("SecurityHubAPIService", "GetMasterAccount", {})
   .n("SecurityHubClient", "GetMasterAccountCommand")
-  .sc(GetMasterAccount)
+  .sc(GetMasterAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

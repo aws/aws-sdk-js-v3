@@ -9,7 +9,7 @@ import type {
   DescribeCapacityReservationTopologyRequest,
   DescribeCapacityReservationTopologyResult,
 } from "../models/models_3";
-import { DescribeCapacityReservationTopology } from "../schemas/schemas_0";
+import { DescribeCapacityReservationTopology$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class DescribeCapacityReservationTopologyCommand extends $Command
   })
   .s("AmazonEC2", "DescribeCapacityReservationTopology", {})
   .n("EC2Client", "DescribeCapacityReservationTopologyCommand")
-  .sc(DescribeCapacityReservationTopology)
+  .sc(DescribeCapacityReservationTopology$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

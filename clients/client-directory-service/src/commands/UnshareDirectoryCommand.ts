@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UnshareDirectoryRequest, UnshareDirectoryResult } from "../models/models_0";
-import { UnshareDirectory } from "../schemas/schemas_0";
+import { UnshareDirectory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class UnshareDirectoryCommand extends $Command
   })
   .s("DirectoryService_20150416", "UnshareDirectory", {})
   .n("DirectoryServiceClient", "UnshareDirectoryCommand")
-  .sc(UnshareDirectory)
+  .sc(UnshareDirectory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

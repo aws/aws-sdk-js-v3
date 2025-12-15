@@ -10,7 +10,7 @@ import type {
 } from "../CloudDirectoryClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListPolicyAttachmentsRequest, ListPolicyAttachmentsResponse } from "../models/models_0";
-import { ListPolicyAttachments } from "../schemas/schemas_0";
+import { ListPolicyAttachments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class ListPolicyAttachmentsCommand extends $Command
   })
   .s("AmazonCloudDirectory_20170111", "ListPolicyAttachments", {})
   .n("CloudDirectoryClient", "ListPolicyAttachmentsCommand")
-  .sc(ListPolicyAttachments)
+  .sc(ListPolicyAttachments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

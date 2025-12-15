@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyInstanceGroupsInput } from "../models/models_0";
-import { ModifyInstanceGroups } from "../schemas/schemas_0";
+import { ModifyInstanceGroups$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class ModifyInstanceGroupsCommand extends $Command
   })
   .s("ElasticMapReduce", "ModifyInstanceGroups", {})
   .n("EMRClient", "ModifyInstanceGroupsCommand")
-  .sc(ModifyInstanceGroups)
+  .sc(ModifyInstanceGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

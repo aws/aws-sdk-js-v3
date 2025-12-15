@@ -10,7 +10,7 @@ import type {
 } from "../BillingconductorClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListBillingGroupCostReportsInput, ListBillingGroupCostReportsOutput } from "../models/models_0";
-import { ListBillingGroupCostReports } from "../schemas/schemas_0";
+import { ListBillingGroupCostReports$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class ListBillingGroupCostReportsCommand extends $Command
   })
   .s("AWSBillingConductor", "ListBillingGroupCostReports", {})
   .n("BillingconductorClient", "ListBillingGroupCostReportsCommand")
-  .sc(ListBillingGroupCostReports)
+  .sc(ListBillingGroupCostReports$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

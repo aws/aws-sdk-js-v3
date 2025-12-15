@@ -8,7 +8,7 @@ import type {
   DescribeMaintenanceWindowExecutionsRequest,
   DescribeMaintenanceWindowExecutionsResult,
 } from "../models/models_0";
-import { DescribeMaintenanceWindowExecutions } from "../schemas/schemas_0";
+import { DescribeMaintenanceWindowExecutions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -103,7 +103,7 @@ export class DescribeMaintenanceWindowExecutionsCommand extends $Command
   })
   .s("AmazonSSM", "DescribeMaintenanceWindowExecutions", {})
   .n("SSMClient", "DescribeMaintenanceWindowExecutionsCommand")
-  .sc(DescribeMaintenanceWindowExecutions)
+  .sc(DescribeMaintenanceWindowExecutions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

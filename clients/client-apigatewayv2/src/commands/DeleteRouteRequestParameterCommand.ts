@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteRouteRequestParameterRequest } from "../models/models_0";
-import { DeleteRouteRequestParameter } from "../schemas/schemas_0";
+import { DeleteRouteRequestParameter$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -79,7 +79,7 @@ export class DeleteRouteRequestParameterCommand extends $Command
   })
   .s("ApiGatewayV2", "DeleteRouteRequestParameter", {})
   .n("ApiGatewayV2Client", "DeleteRouteRequestParameterCommand")
-  .sc(DeleteRouteRequestParameter)
+  .sc(DeleteRouteRequestParameter$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

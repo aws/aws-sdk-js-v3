@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RegisterImageRequest, RegisterImageResult } from "../models/models_7";
-import { RegisterImage } from "../schemas/schemas_0";
+import { RegisterImage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -159,7 +159,7 @@ export class RegisterImageCommand extends $Command
   })
   .s("AmazonEC2", "RegisterImage", {})
   .n("EC2Client", "RegisterImageCommand")
-  .sc(RegisterImage)
+  .sc(RegisterImage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

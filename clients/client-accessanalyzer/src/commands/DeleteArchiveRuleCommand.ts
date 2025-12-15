@@ -10,7 +10,7 @@ import type {
 } from "../AccessAnalyzerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteArchiveRuleRequest } from "../models/models_0";
-import { DeleteArchiveRule } from "../schemas/schemas_0";
+import { DeleteArchiveRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class DeleteArchiveRuleCommand extends $Command
   })
   .s("AccessAnalyzer", "DeleteArchiveRule", {})
   .n("AccessAnalyzerClient", "DeleteArchiveRuleCommand")
-  .sc(DeleteArchiveRule)
+  .sc(DeleteArchiveRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

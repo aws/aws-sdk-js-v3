@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeregisterFromWorkMailRequest, DeregisterFromWorkMailResponse } from "../models/models_0";
-import { DeregisterFromWorkMail } from "../schemas/schemas_0";
+import { DeregisterFromWorkMail$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -94,7 +94,7 @@ export class DeregisterFromWorkMailCommand extends $Command
   })
   .s("WorkMailService", "DeregisterFromWorkMail", {})
   .n("WorkMailClient", "DeregisterFromWorkMailCommand")
-  .sc(DeregisterFromWorkMail)
+  .sc(DeregisterFromWorkMail$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

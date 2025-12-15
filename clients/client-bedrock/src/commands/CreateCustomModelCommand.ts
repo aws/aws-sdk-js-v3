@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateCustomModelRequest, CreateCustomModelResponse } from "../models/models_0";
-import { CreateCustomModel } from "../schemas/schemas_0";
+import { CreateCustomModel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -144,7 +144,7 @@ export class CreateCustomModelCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "CreateCustomModel", {})
   .n("BedrockClient", "CreateCustomModelCommand")
-  .sc(CreateCustomModel)
+  .sc(CreateCustomModel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

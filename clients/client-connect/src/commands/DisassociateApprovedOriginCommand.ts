@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateApprovedOriginRequest } from "../models/models_1";
-import { DisassociateApprovedOrigin } from "../schemas/schemas_0";
+import { DisassociateApprovedOrigin$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class DisassociateApprovedOriginCommand extends $Command
   })
   .s("AmazonConnectService", "DisassociateApprovedOrigin", {})
   .n("ConnectClient", "DisassociateApprovedOriginCommand")
-  .sc(DisassociateApprovedOrigin)
+  .sc(DisassociateApprovedOrigin$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

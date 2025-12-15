@@ -13,7 +13,7 @@ import type {
   PutAppInstanceRetentionSettingsRequest,
   PutAppInstanceRetentionSettingsResponse,
 } from "../models/models_0";
-import { PutAppInstanceRetentionSettings } from "../schemas/schemas_0";
+import { PutAppInstanceRetentionSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class PutAppInstanceRetentionSettingsCommand extends $Command
   })
   .s("ChimeIdentityService", "PutAppInstanceRetentionSettings", {})
   .n("ChimeSDKIdentityClient", "PutAppInstanceRetentionSettingsCommand")
-  .sc(PutAppInstanceRetentionSettings)
+  .sc(PutAppInstanceRetentionSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

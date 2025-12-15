@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
-import { GetIndex } from "../schemas/schemas_0";
+import { GetIndex$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class GetIndexCommand extends $Command
   })
   .s("ResourceExplorer", "GetIndex", {})
   .n("ResourceExplorer2Client", "GetIndexCommand")
-  .sc(GetIndex)
+  .sc(GetIndex$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

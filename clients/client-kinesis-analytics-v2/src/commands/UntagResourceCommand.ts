@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
 import type { UntagResourceRequest, UntagResourceResponse } from "../models/models_0";
-import { UntagResource } from "../schemas/schemas_0";
+import { UntagResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class UntagResourceCommand extends $Command
   })
   .s("KinesisAnalytics_20180523", "UntagResource", {})
   .n("KinesisAnalyticsV2Client", "UntagResourceCommand")
-  .sc(UntagResource)
+  .sc(UntagResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

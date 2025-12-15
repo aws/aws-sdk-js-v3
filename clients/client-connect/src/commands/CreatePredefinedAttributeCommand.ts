@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreatePredefinedAttributeRequest } from "../models/models_0";
-import { CreatePredefinedAttribute } from "../schemas/schemas_0";
+import { CreatePredefinedAttribute$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -125,7 +125,7 @@ export class CreatePredefinedAttributeCommand extends $Command
   })
   .s("AmazonConnectService", "CreatePredefinedAttribute", {})
   .n("ConnectClient", "CreatePredefinedAttributeCommand")
-  .sc(CreatePredefinedAttribute)
+  .sc(CreatePredefinedAttribute$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

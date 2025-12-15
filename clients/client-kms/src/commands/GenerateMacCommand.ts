@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import type { GenerateMacRequest, GenerateMacResponse } from "../models/models_0";
-import { GenerateMac } from "../schemas/schemas_0";
+import { GenerateMac$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -194,7 +194,7 @@ export class GenerateMacCommand extends $Command
   })
   .s("TrentService", "GenerateMac", {})
   .n("KMSClient", "GenerateMacCommand")
-  .sc(GenerateMac)
+  .sc(GenerateMac$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

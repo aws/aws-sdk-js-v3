@@ -13,7 +13,7 @@ import type {
   StartReplicationTaskAssessmentRunMessage,
   StartReplicationTaskAssessmentRunResponse,
 } from "../models/models_1";
-import { StartReplicationTaskAssessmentRun } from "../schemas/schemas_0";
+import { StartReplicationTaskAssessmentRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -170,7 +170,7 @@ export class StartReplicationTaskAssessmentRunCommand extends $Command
   })
   .s("AmazonDMSv20160101", "StartReplicationTaskAssessmentRun", {})
   .n("DatabaseMigrationServiceClient", "StartReplicationTaskAssessmentRunCommand")
-  .sc(StartReplicationTaskAssessmentRun)
+  .sc(StartReplicationTaskAssessmentRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

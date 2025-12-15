@@ -9,7 +9,7 @@ import type {
   ModifyIpamPrefixListResolverTargetRequest,
   ModifyIpamPrefixListResolverTargetResult,
 } from "../models/models_6";
-import { ModifyIpamPrefixListResolverTarget } from "../schemas/schemas_0";
+import { ModifyIpamPrefixListResolverTarget$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class ModifyIpamPrefixListResolverTargetCommand extends $Command
   })
   .s("AmazonEC2", "ModifyIpamPrefixListResolverTarget", {})
   .n("EC2Client", "ModifyIpamPrefixListResolverTargetCommand")
-  .sc(ModifyIpamPrefixListResolverTarget)
+  .sc(ModifyIpamPrefixListResolverTarget$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeExpressionsRequest, DescribeExpressionsResponse } from "../models/models_0";
-import { DescribeExpressions } from "../schemas/schemas_0";
+import { DescribeExpressions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class DescribeExpressionsCommand extends $Command
   })
   .s("A9SearchCloudConfigService2013", "DescribeExpressions", {})
   .n("CloudSearchClient", "DescribeExpressionsCommand")
-  .sc(DescribeExpressions)
+  .sc(DescribeExpressions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
 import type { GetPortfolioSummaryRequest, GetPortfolioSummaryResponse } from "../models/models_0";
-import { GetPortfolioSummary } from "../schemas/schemas_0";
+import { GetPortfolioSummary$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -136,7 +136,7 @@ export class GetPortfolioSummaryCommand extends $Command
   })
   .s("AWSMigrationHubStrategyRecommendation", "GetPortfolioSummary", {})
   .n("MigrationHubStrategyClient", "GetPortfolioSummaryCommand")
-  .sc(GetPortfolioSummary)
+  .sc(GetPortfolioSummary$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

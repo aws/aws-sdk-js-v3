@@ -11,7 +11,7 @@ import type {
   DescribeMultiRegionAccessPointOperationResult,
 } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { DescribeMultiRegionAccessPointOperation } from "../schemas/schemas_0";
+import { DescribeMultiRegionAccessPointOperation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -162,7 +162,7 @@ export class DescribeMultiRegionAccessPointOperationCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "DescribeMultiRegionAccessPointOperation", {})
   .n("S3ControlClient", "DescribeMultiRegionAccessPointOperationCommand")
-  .sc(DescribeMultiRegionAccessPointOperation)
+  .sc(DescribeMultiRegionAccessPointOperation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

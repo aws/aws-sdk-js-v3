@@ -9,7 +9,7 @@ import type {
   PromoteResourceShareCreatedFromPolicyResponse,
 } from "../models/models_0";
 import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
-import { PromoteResourceShareCreatedFromPolicy } from "../schemas/schemas_0";
+import { PromoteResourceShareCreatedFromPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class PromoteResourceShareCreatedFromPolicyCommand extends $Command
   })
   .s("AmazonResourceSharing", "PromoteResourceShareCreatedFromPolicy", {})
   .n("RAMClient", "PromoteResourceShareCreatedFromPolicyCommand")
-  .sc(PromoteResourceShareCreatedFromPolicy)
+  .sc(PromoteResourceShareCreatedFromPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

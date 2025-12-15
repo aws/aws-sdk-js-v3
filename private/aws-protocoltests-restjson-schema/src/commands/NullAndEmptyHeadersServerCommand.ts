@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { NullAndEmptyHeadersServer } from "../schemas/schemas_0";
+import { NullAndEmptyHeadersServer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class NullAndEmptyHeadersServerCommand extends $Command
   })
   .s("RestJson", "NullAndEmptyHeadersServer", {})
   .n("RestJsonProtocolClient", "NullAndEmptyHeadersServerCommand")
-  .sc(NullAndEmptyHeadersServer)
+  .sc(NullAndEmptyHeadersServer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import {
   type ValidateSolFunctionPackageContentOutput,
   ValidateSolFunctionPackageContentInput,
 } from "../models/models_0";
-import { ValidateSolFunctionPackageContent } from "../schemas/schemas_0";
+import { ValidateSolFunctionPackageContent$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
@@ -146,7 +146,7 @@ export class ValidateSolFunctionPackageContentCommand extends $Command
   })
   .s("TNB", "ValidateSolFunctionPackageContent", {})
   .n("TnbClient", "ValidateSolFunctionPackageContentCommand")
-  .sc(ValidateSolFunctionPackageContent)
+  .sc(ValidateSolFunctionPackageContent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

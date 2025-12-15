@@ -9,7 +9,7 @@ import type {
   RegisterInstanceEventNotificationAttributesRequest,
   RegisterInstanceEventNotificationAttributesResult,
 } from "../models/models_7";
-import { RegisterInstanceEventNotificationAttributes } from "../schemas/schemas_0";
+import { RegisterInstanceEventNotificationAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class RegisterInstanceEventNotificationAttributesCommand extends $Command
   })
   .s("AmazonEC2", "RegisterInstanceEventNotificationAttributes", {})
   .n("EC2Client", "RegisterInstanceEventNotificationAttributesCommand")
-  .sc(RegisterInstanceEventNotificationAttributes)
+  .sc(RegisterInstanceEventNotificationAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

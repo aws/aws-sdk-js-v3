@@ -8,7 +8,7 @@ import type {
   DescribeServiceActionExecutionParametersInput,
   DescribeServiceActionExecutionParametersOutput,
 } from "../models/models_0";
-import { DescribeServiceActionExecutionParameters } from "../schemas/schemas_0";
+import { DescribeServiceActionExecutionParameters$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -99,7 +99,7 @@ export class DescribeServiceActionExecutionParametersCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "DescribeServiceActionExecutionParameters", {})
   .n("ServiceCatalogClient", "DescribeServiceActionExecutionParametersCommand")
-  .sc(DescribeServiceActionExecutionParameters)
+  .sc(DescribeServiceActionExecutionParameters$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

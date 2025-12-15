@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdatePrimaryEmailAddressRequest, UpdatePrimaryEmailAddressResponse } from "../models/models_0";
-import { UpdatePrimaryEmailAddress } from "../schemas/schemas_0";
+import { UpdatePrimaryEmailAddress$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -114,7 +114,7 @@ export class UpdatePrimaryEmailAddressCommand extends $Command
   })
   .s("WorkMailService", "UpdatePrimaryEmailAddress", {})
   .n("WorkMailClient", "UpdatePrimaryEmailAddressCommand")
-  .sc(UpdatePrimaryEmailAddress)
+  .sc(UpdatePrimaryEmailAddress$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

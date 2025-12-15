@@ -9,7 +9,7 @@ import type {
   DescribeMatchmakingConfigurationsInput,
   DescribeMatchmakingConfigurationsOutput,
 } from "../models/models_0";
-import { DescribeMatchmakingConfigurations } from "../schemas/schemas_0";
+import { DescribeMatchmakingConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -136,7 +136,7 @@ export class DescribeMatchmakingConfigurationsCommand extends $Command
   })
   .s("GameLift", "DescribeMatchmakingConfigurations", {})
   .n("GameLiftClient", "DescribeMatchmakingConfigurationsCommand")
-  .sc(DescribeMatchmakingConfigurations)
+  .sc(DescribeMatchmakingConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

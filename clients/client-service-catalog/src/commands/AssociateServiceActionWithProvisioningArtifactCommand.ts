@@ -8,7 +8,7 @@ import type {
   AssociateServiceActionWithProvisioningArtifactInput,
   AssociateServiceActionWithProvisioningArtifactOutput,
 } from "../models/models_0";
-import { AssociateServiceActionWithProvisioningArtifact } from "../schemas/schemas_0";
+import { AssociateServiceActionWithProvisioningArtifact$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -98,7 +98,7 @@ export class AssociateServiceActionWithProvisioningArtifactCommand extends $Comm
   })
   .s("AWS242ServiceCatalogService", "AssociateServiceActionWithProvisioningArtifact", {})
   .n("ServiceCatalogClient", "AssociateServiceActionWithProvisioningArtifactCommand")
-  .sc(AssociateServiceActionWithProvisioningArtifact)
+  .sc(AssociateServiceActionWithProvisioningArtifact$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

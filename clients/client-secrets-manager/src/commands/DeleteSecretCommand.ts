@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSecretRequest, DeleteSecretResponse } from "../models/models_0";
-import { DeleteSecret } from "../schemas/schemas_0";
+import { DeleteSecret$ } from "../schemas/schemas_0";
 import type {
   SecretsManagerClientResolvedConfig,
   ServiceInputTypes,
@@ -138,7 +138,7 @@ export class DeleteSecretCommand extends $Command
   })
   .s("secretsmanager", "DeleteSecret", {})
   .n("SecretsManagerClient", "DeleteSecretCommand")
-  .sc(DeleteSecret)
+  .sc(DeleteSecret$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

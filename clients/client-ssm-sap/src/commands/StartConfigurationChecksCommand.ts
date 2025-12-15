@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartConfigurationChecksInput, StartConfigurationChecksOutput } from "../models/models_0";
-import { StartConfigurationChecks } from "../schemas/schemas_0";
+import { StartConfigurationChecks$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
@@ -107,7 +107,7 @@ export class StartConfigurationChecksCommand extends $Command
   })
   .s("SsmSap", "StartConfigurationChecks", {})
   .n("SsmSapClient", "StartConfigurationChecksCommand")
-  .sc(StartConfigurationChecks)
+  .sc(StartConfigurationChecks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

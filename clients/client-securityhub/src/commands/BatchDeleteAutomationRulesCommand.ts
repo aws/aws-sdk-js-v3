@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchDeleteAutomationRulesRequest, BatchDeleteAutomationRulesResponse } from "../models/models_2";
-import { BatchDeleteAutomationRules } from "../schemas/schemas_0";
+import { BatchDeleteAutomationRules$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -130,7 +130,7 @@ export class BatchDeleteAutomationRulesCommand extends $Command
   })
   .s("SecurityHubAPIService", "BatchDeleteAutomationRules", {})
   .n("SecurityHubClient", "BatchDeleteAutomationRulesCommand")
-  .sc(BatchDeleteAutomationRules)
+  .sc(BatchDeleteAutomationRules$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

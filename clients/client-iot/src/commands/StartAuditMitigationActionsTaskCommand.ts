@@ -9,7 +9,7 @@ import type {
   StartAuditMitigationActionsTaskRequest,
   StartAuditMitigationActionsTaskResponse,
 } from "../models/models_2";
-import { StartAuditMitigationActionsTask } from "../schemas/schemas_0";
+import { StartAuditMitigationActionsTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class StartAuditMitigationActionsTaskCommand extends $Command
   })
   .s("AWSIotService", "StartAuditMitigationActionsTask", {})
   .n("IoTClient", "StartAuditMitigationActionsTaskCommand")
-  .sc(StartAuditMitigationActionsTask)
+  .sc(StartAuditMitigationActionsTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

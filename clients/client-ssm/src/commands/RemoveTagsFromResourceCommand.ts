@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RemoveTagsFromResourceRequest, RemoveTagsFromResourceResult } from "../models/models_1";
-import { RemoveTagsFromResource } from "../schemas/schemas_0";
+import { RemoveTagsFromResource$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -88,7 +88,7 @@ export class RemoveTagsFromResourceCommand extends $Command
   })
   .s("AmazonSSM", "RemoveTagsFromResource", {})
   .n("SSMClient", "RemoveTagsFromResourceCommand")
-  .sc(RemoveTagsFromResource)
+  .sc(RemoveTagsFromResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

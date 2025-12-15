@@ -10,7 +10,7 @@ import type {
 } from "../CloudDirectoryClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutSchemaFromJsonRequest, PutSchemaFromJsonResponse } from "../models/models_0";
-import { PutSchemaFromJson } from "../schemas/schemas_0";
+import { PutSchemaFromJson$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class PutSchemaFromJsonCommand extends $Command
   })
   .s("AmazonCloudDirectory_20170111", "PutSchemaFromJson", {})
   .n("CloudDirectoryClient", "PutSchemaFromJsonCommand")
-  .sc(PutSchemaFromJson)
+  .sc(PutSchemaFromJson$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

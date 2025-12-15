@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { ListDiscoveredDevicesRequest, ListDiscoveredDevicesResponse } from "../models/models_0";
-import { ListDiscoveredDevices } from "../schemas/schemas_0";
+import { ListDiscoveredDevices$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class ListDiscoveredDevicesCommand extends $Command
   })
   .s("IotManagedIntegrations", "ListDiscoveredDevices", {})
   .n("IoTManagedIntegrationsClient", "ListDiscoveredDevicesCommand")
-  .sc(ListDiscoveredDevices)
+  .sc(ListDiscoveredDevices$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

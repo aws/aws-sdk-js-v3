@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateAnomalySubscriptionRequest, CreateAnomalySubscriptionResponse } from "../models/models_0";
-import { CreateAnomalySubscription } from "../schemas/schemas_0";
+import { CreateAnomalySubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -170,7 +170,7 @@ export class CreateAnomalySubscriptionCommand extends $Command
   })
   .s("AWSInsightsIndexService", "CreateAnomalySubscription", {})
   .n("CostExplorerClient", "CreateAnomalySubscriptionCommand")
-  .sc(CreateAnomalySubscription)
+  .sc(CreateAnomalySubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

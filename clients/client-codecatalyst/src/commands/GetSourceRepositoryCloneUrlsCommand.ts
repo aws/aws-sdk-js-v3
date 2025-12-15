@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetSourceRepositoryCloneUrlsRequest, GetSourceRepositoryCloneUrlsResponse } from "../models/models_0";
-import { GetSourceRepositoryCloneUrls } from "../schemas/schemas_0";
+import { GetSourceRepositoryCloneUrls$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class GetSourceRepositoryCloneUrlsCommand extends $Command
   })
   .s("CodeCatalyst", "GetSourceRepositoryCloneUrls", {})
   .n("CodeCatalystClient", "GetSourceRepositoryCloneUrlsCommand")
-  .sc(GetSourceRepositoryCloneUrls)
+  .sc(GetSourceRepositoryCloneUrls$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

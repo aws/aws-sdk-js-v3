@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetIntegrationRequest, GetIntegrationResponse } from "../models/models_0";
-import { GetIntegration } from "../schemas/schemas_0";
+import { GetIntegration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -142,7 +142,7 @@ export class GetIntegrationCommand extends $Command
   })
   .s("Logs_20140328", "GetIntegration", {})
   .n("CloudWatchLogsClient", "GetIntegrationCommand")
-  .sc(GetIntegration)
+  .sc(GetIntegration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   ListLifecycleExecutionResourcesRequest,
   ListLifecycleExecutionResourcesResponse,
 } from "../models/models_0";
-import { ListLifecycleExecutionResources } from "../schemas/schemas_0";
+import { ListLifecycleExecutionResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -139,7 +139,7 @@ export class ListLifecycleExecutionResourcesCommand extends $Command
   })
   .s("imagebuilder", "ListLifecycleExecutionResources", {})
   .n("ImagebuilderClient", "ListLifecycleExecutionResourcesCommand")
-  .sc(ListLifecycleExecutionResources)
+  .sc(ListLifecycleExecutionResources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

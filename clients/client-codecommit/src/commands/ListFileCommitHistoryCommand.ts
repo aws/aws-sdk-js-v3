@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListFileCommitHistoryRequest, ListFileCommitHistoryResponse } from "../models/models_0";
-import { ListFileCommitHistory } from "../schemas/schemas_0";
+import { ListFileCommitHistory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -153,7 +153,7 @@ export class ListFileCommitHistoryCommand extends $Command
   })
   .s("CodeCommit_20150413", "ListFileCommitHistory", {})
   .n("CodeCommitClient", "ListFileCommitHistoryCommand")
-  .sc(ListFileCommitHistory)
+  .sc(ListFileCommitHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

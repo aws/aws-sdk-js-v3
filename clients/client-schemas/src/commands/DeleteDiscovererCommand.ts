@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteDiscovererRequest } from "../models/models_0";
-import { DeleteDiscoverer } from "../schemas/schemas_0";
+import { DeleteDiscoverer$ } from "../schemas/schemas_0";
 import type { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
@@ -83,7 +83,7 @@ export class DeleteDiscovererCommand extends $Command
   })
   .s("schemas", "DeleteDiscoverer", {})
   .n("SchemasClient", "DeleteDiscovererCommand")
-  .sc(DeleteDiscoverer)
+  .sc(DeleteDiscoverer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

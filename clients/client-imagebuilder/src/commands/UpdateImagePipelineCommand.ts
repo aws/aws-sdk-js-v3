@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import type { UpdateImagePipelineRequest, UpdateImagePipelineResponse } from "../models/models_0";
-import { UpdateImagePipeline } from "../schemas/schemas_0";
+import { UpdateImagePipeline$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -160,7 +160,7 @@ export class UpdateImagePipelineCommand extends $Command
   })
   .s("imagebuilder", "UpdateImagePipeline", {})
   .n("ImagebuilderClient", "UpdateImagePipelineCommand")
-  .sc(UpdateImagePipeline)
+  .sc(UpdateImagePipeline$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

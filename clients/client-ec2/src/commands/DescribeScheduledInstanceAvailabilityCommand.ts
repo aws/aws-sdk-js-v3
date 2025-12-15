@@ -9,7 +9,7 @@ import type {
   DescribeScheduledInstanceAvailabilityRequest,
   DescribeScheduledInstanceAvailabilityResult,
 } from "../models/models_4";
-import { DescribeScheduledInstanceAvailability } from "../schemas/schemas_0";
+import { DescribeScheduledInstanceAvailability$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class DescribeScheduledInstanceAvailabilityCommand extends $Command
   })
   .s("AmazonEC2", "DescribeScheduledInstanceAvailability", {})
   .n("EC2Client", "DescribeScheduledInstanceAvailabilityCommand")
-  .sc(DescribeScheduledInstanceAvailability)
+  .sc(DescribeScheduledInstanceAvailability$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

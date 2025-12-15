@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchGetRepositoriesInput, BatchGetRepositoriesOutput } from "../models/models_0";
-import { BatchGetRepositories } from "../schemas/schemas_0";
+import { BatchGetRepositories$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -136,7 +136,7 @@ export class BatchGetRepositoriesCommand extends $Command
   })
   .s("CodeCommit_20150413", "BatchGetRepositories", {})
   .n("CodeCommitClient", "BatchGetRepositoriesCommand")
-  .sc(BatchGetRepositories)
+  .sc(BatchGetRepositories$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

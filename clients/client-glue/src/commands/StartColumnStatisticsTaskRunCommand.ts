@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { StartColumnStatisticsTaskRunRequest, StartColumnStatisticsTaskRunResponse } from "../models/models_2";
-import { StartColumnStatisticsTaskRun } from "../schemas/schemas_0";
+import { StartColumnStatisticsTaskRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class StartColumnStatisticsTaskRunCommand extends $Command
   })
   .s("AWSGlue", "StartColumnStatisticsTaskRun", {})
   .n("GlueClient", "StartColumnStatisticsTaskRunCommand")
-  .sc(StartColumnStatisticsTaskRun)
+  .sc(StartColumnStatisticsTaskRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

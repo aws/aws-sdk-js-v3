@@ -8,7 +8,7 @@ import type {
   PutWhatsAppBusinessAccountEventDestinationsInput,
   PutWhatsAppBusinessAccountEventDestinationsOutput,
 } from "../models/models_0";
-import { PutWhatsAppBusinessAccountEventDestinations } from "../schemas/schemas_0";
+import { PutWhatsAppBusinessAccountEventDestinations$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -103,7 +103,7 @@ export class PutWhatsAppBusinessAccountEventDestinationsCommand extends $Command
   })
   .s("SocialMessaging", "PutWhatsAppBusinessAccountEventDestinations", {})
   .n("SocialMessagingClient", "PutWhatsAppBusinessAccountEventDestinationsCommand")
-  .sc(PutWhatsAppBusinessAccountEventDestinations)
+  .sc(PutWhatsAppBusinessAccountEventDestinations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

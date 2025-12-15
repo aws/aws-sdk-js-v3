@@ -8,7 +8,7 @@ import type {
   ListAvailableManagementCidrRangesRequest,
   ListAvailableManagementCidrRangesResult,
 } from "../models/models_0";
-import { ListAvailableManagementCidrRanges } from "../schemas/schemas_0";
+import { ListAvailableManagementCidrRanges$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -96,7 +96,7 @@ export class ListAvailableManagementCidrRangesCommand extends $Command
   })
   .s("WorkspacesService", "ListAvailableManagementCidrRanges", {})
   .n("WorkSpacesClient", "ListAvailableManagementCidrRangesCommand")
-  .sc(ListAvailableManagementCidrRanges)
+  .sc(ListAvailableManagementCidrRanges$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

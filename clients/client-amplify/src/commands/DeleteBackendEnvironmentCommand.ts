@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteBackendEnvironmentRequest, DeleteBackendEnvironmentResult } from "../models/models_0";
-import { DeleteBackendEnvironment } from "../schemas/schemas_0";
+import { DeleteBackendEnvironment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class DeleteBackendEnvironmentCommand extends $Command
   })
   .s("Amplify", "DeleteBackendEnvironment", {})
   .n("AmplifyClient", "DeleteBackendEnvironmentCommand")
-  .sc(DeleteBackendEnvironment)
+  .sc(DeleteBackendEnvironment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

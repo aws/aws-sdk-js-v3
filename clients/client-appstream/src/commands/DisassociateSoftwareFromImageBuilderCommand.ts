@@ -9,7 +9,7 @@ import type {
   DisassociateSoftwareFromImageBuilderRequest,
   DisassociateSoftwareFromImageBuilderResult,
 } from "../models/models_0";
-import { DisassociateSoftwareFromImageBuilder } from "../schemas/schemas_0";
+import { DisassociateSoftwareFromImageBuilder$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DisassociateSoftwareFromImageBuilderCommand extends $Command
   })
   .s("PhotonAdminProxyService", "DisassociateSoftwareFromImageBuilder", {})
   .n("AppStreamClient", "DisassociateSoftwareFromImageBuilderCommand")
-  .sc(DisassociateSoftwareFromImageBuilder)
+  .sc(DisassociateSoftwareFromImageBuilder$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

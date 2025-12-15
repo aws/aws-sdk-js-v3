@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateLinkRequest, UpdateLinkResponse } from "../models/models_0";
 import type { RTBFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RTBFabricClient";
-import { UpdateLink } from "../schemas/schemas_0";
+import { UpdateLink$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class UpdateLinkCommand extends $Command
   })
   .s("RTBFabric", "UpdateLink", {})
   .n("RTBFabricClient", "UpdateLinkCommand")
-  .sc(UpdateLink)
+  .sc(UpdateLink$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

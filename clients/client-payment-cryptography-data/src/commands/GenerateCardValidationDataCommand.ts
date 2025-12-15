@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyDataClient";
-import { GenerateCardValidationData } from "../schemas/schemas_0";
+import { GenerateCardValidationData$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -129,7 +129,7 @@ export class GenerateCardValidationDataCommand extends $Command
   })
   .s("PaymentCryptographyDataPlane", "GenerateCardValidationData", {})
   .n("PaymentCryptographyDataClient", "GenerateCardValidationDataCommand")
-  .sc(GenerateCardValidationData)
+  .sc(GenerateCardValidationData$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

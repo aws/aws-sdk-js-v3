@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: ServiceQuotasClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.servicequotas",
-        serviceTarget: "ServiceQuotasV20190624",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.servicequotas",
+      version: "2019-06-24",
+      serviceTarget: "ServiceQuotasV20190624",
+    },
     serviceId: config?.serviceId ?? "Service Quotas",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

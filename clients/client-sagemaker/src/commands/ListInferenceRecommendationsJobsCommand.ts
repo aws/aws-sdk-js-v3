@@ -9,7 +9,7 @@ import type {
   ListInferenceRecommendationsJobsResponse,
 } from "../models/models_3";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { ListInferenceRecommendationsJobs } from "../schemas/schemas_0";
+import { ListInferenceRecommendationsJobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class ListInferenceRecommendationsJobsCommand extends $Command
   })
   .s("SageMaker", "ListInferenceRecommendationsJobs", {})
   .n("SageMakerClient", "ListInferenceRecommendationsJobsCommand")
-  .sc(ListInferenceRecommendationsJobs)
+  .sc(ListInferenceRecommendationsJobs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

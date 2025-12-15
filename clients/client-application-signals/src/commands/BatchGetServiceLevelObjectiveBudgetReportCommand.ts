@@ -13,7 +13,7 @@ import type {
   BatchGetServiceLevelObjectiveBudgetReportInput,
   BatchGetServiceLevelObjectiveBudgetReportOutput,
 } from "../models/models_0";
-import { BatchGetServiceLevelObjectiveBudgetReport } from "../schemas/schemas_0";
+import { BatchGetServiceLevelObjectiveBudgetReport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -264,7 +264,7 @@ export class BatchGetServiceLevelObjectiveBudgetReportCommand extends $Command
   })
   .s("ApplicationSignals", "BatchGetServiceLevelObjectiveBudgetReport", {})
   .n("ApplicationSignalsClient", "BatchGetServiceLevelObjectiveBudgetReportCommand")
-  .sc(BatchGetServiceLevelObjectiveBudgetReport)
+  .sc(BatchGetServiceLevelObjectiveBudgetReport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

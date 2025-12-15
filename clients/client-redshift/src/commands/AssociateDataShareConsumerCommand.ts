@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateDataShareConsumerMessage, DataShare } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { AssociateDataShareConsumer } from "../schemas/schemas_0";
+import { AssociateDataShareConsumer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class AssociateDataShareConsumerCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "AssociateDataShareConsumer", {})
   .n("RedshiftClient", "AssociateDataShareConsumerCommand")
-  .sc(AssociateDataShareConsumer)
+  .sc(AssociateDataShareConsumer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

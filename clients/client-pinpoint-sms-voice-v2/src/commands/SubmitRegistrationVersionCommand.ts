@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { SubmitRegistrationVersion } from "../schemas/schemas_0";
+import { SubmitRegistrationVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class SubmitRegistrationVersionCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "SubmitRegistrationVersion", {})
   .n("PinpointSMSVoiceV2Client", "SubmitRegistrationVersionCommand")
-  .sc(SubmitRegistrationVersion)
+  .sc(SubmitRegistrationVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

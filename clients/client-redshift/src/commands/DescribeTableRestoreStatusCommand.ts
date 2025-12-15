@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeTableRestoreStatusMessage, TableRestoreStatusMessage } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DescribeTableRestoreStatus } from "../schemas/schemas_0";
+import { DescribeTableRestoreStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class DescribeTableRestoreStatusCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "DescribeTableRestoreStatus", {})
   .n("RedshiftClient", "DescribeTableRestoreStatusCommand")
-  .sc(DescribeTableRestoreStatus)
+  .sc(DescribeTableRestoreStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

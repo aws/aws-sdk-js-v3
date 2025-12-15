@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Method, PutMethodRequest } from "../models/models_0";
-import { PutMethod } from "../schemas/schemas_0";
+import { PutMethod$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -163,7 +163,7 @@ export class PutMethodCommand extends $Command
   })
   .s("BackplaneControlService", "PutMethod", {})
   .n("APIGatewayClient", "PutMethodCommand")
-  .sc(PutMethod)
+  .sc(PutMethod$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

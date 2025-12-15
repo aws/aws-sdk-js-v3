@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: PersonalizeClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.personalize",
-        serviceTarget: "AmazonPersonalize",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.personalize",
+      version: "2018-05-22",
+      serviceTarget: "AmazonPersonalize",
+    },
     serviceId: config?.serviceId ?? "Personalize",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

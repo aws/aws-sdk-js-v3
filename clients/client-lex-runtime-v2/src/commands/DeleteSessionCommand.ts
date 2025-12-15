@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
 import type { DeleteSessionRequest, DeleteSessionResponse } from "../models/models_0";
-import { DeleteSession } from "../schemas/schemas_0";
+import { DeleteSession$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class DeleteSessionCommand extends $Command
   })
   .s("AWSDeepSenseRunTimeServiceApi2_0", "DeleteSession", {})
   .n("LexRuntimeV2Client", "DeleteSessionCommand")
-  .sc(DeleteSession)
+  .sc(DeleteSession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

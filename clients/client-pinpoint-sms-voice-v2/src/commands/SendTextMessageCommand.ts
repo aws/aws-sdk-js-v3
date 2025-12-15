@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { SendTextMessage } from "../schemas/schemas_0";
+import { SendTextMessage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class SendTextMessageCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "SendTextMessage", {})
   .n("PinpointSMSVoiceV2Client", "SendTextMessageCommand")
-  .sc(SendTextMessage)
+  .sc(SendTextMessage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

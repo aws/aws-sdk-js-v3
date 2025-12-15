@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAccessKeyInfoRequest, GetAccessKeyInfoResponse } from "../models/models_0";
-import { GetAccessKeyInfo } from "../schemas/schemas_0";
+import { GetAccessKeyInfo$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
@@ -89,7 +89,7 @@ export class GetAccessKeyInfoCommand extends $Command
   })
   .s("AWSSecurityTokenServiceV20110615", "GetAccessKeyInfo", {})
   .n("STSClient", "GetAccessKeyInfoCommand")
-  .sc(GetAccessKeyInfo)
+  .sc(GetAccessKeyInfo$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListIdentityPoliciesRequest, ListIdentityPoliciesResponse } from "../models/models_0";
-import { ListIdentityPolicies } from "../schemas/schemas_0";
+import { ListIdentityPolicies$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -103,7 +103,7 @@ export class ListIdentityPoliciesCommand extends $Command
   })
   .s("SimpleEmailService", "ListIdentityPolicies", {})
   .n("SESClient", "ListIdentityPoliciesCommand")
-  .sc(ListIdentityPolicies)
+  .sc(ListIdentityPolicies$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

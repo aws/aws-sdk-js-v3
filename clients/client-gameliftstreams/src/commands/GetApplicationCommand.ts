@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GameLiftStreamsClient";
 import type { GetApplicationInput, GetApplicationOutput } from "../models/models_0";
-import { GetApplication } from "../schemas/schemas_0";
+import { GetApplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class GetApplicationCommand extends $Command
   })
   .s("GameLiftStreams", "GetApplication", {})
   .n("GameLiftStreamsClient", "GetApplicationCommand")
-  .sc(GetApplication)
+  .sc(GetApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

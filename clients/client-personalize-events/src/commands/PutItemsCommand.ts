@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PersonalizeEventsClient";
-import { PutItems } from "../schemas/schemas_0";
+import { PutItems$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class PutItemsCommand extends $Command
   })
   .s("AmazonPersonalizeEvents", "PutItems", {})
   .n("PersonalizeEventsClient", "PutItemsCommand")
-  .sc(PutItems)
+  .sc(PutItems$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

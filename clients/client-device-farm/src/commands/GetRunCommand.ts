@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetRunRequest, GetRunResult } from "../models/models_0";
-import { GetRun } from "../schemas/schemas_0";
+import { GetRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -192,7 +192,7 @@ export class GetRunCommand extends $Command
   })
   .s("DeviceFarm_20150623", "GetRun", {})
   .n("DeviceFarmClient", "GetRunCommand")
-  .sc(GetRun)
+  .sc(GetRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

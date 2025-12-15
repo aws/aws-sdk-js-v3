@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateServiceAccessPoliciesRequest, UpdateServiceAccessPoliciesResponse } from "../models/models_0";
-import { UpdateServiceAccessPolicies } from "../schemas/schemas_0";
+import { UpdateServiceAccessPolicies$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class UpdateServiceAccessPoliciesCommand extends $Command
   })
   .s("A9SearchCloudConfigService2013", "UpdateServiceAccessPolicies", {})
   .n("CloudSearchClient", "UpdateServiceAccessPoliciesCommand")
-  .sc(UpdateServiceAccessPolicies)
+  .sc(UpdateServiceAccessPolicies$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

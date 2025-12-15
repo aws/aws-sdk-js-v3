@@ -9,7 +9,7 @@ import type {
   CreateDirectConnectGatewayAssociationProposalRequest,
   CreateDirectConnectGatewayAssociationProposalResult,
 } from "../models/models_0";
-import { CreateDirectConnectGatewayAssociationProposal } from "../schemas/schemas_0";
+import { CreateDirectConnectGatewayAssociationProposal$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class CreateDirectConnectGatewayAssociationProposalCommand extends $Comma
   })
   .s("OvertureService", "CreateDirectConnectGatewayAssociationProposal", {})
   .n("DirectConnectClient", "CreateDirectConnectGatewayAssociationProposalCommand")
-  .sc(CreateDirectConnectGatewayAssociationProposal)
+  .sc(CreateDirectConnectGatewayAssociationProposal$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

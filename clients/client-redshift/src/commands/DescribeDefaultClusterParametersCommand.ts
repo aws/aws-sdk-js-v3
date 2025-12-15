@@ -9,7 +9,7 @@ import type {
   DescribeDefaultClusterParametersResult,
 } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DescribeDefaultClusterParameters } from "../schemas/schemas_0";
+import { DescribeDefaultClusterParameters$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class DescribeDefaultClusterParametersCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "DescribeDefaultClusterParameters", {})
   .n("RedshiftClient", "DescribeDefaultClusterParametersCommand")
-  .sc(DescribeDefaultClusterParameters)
+  .sc(DescribeDefaultClusterParameters$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

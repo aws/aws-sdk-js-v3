@@ -8,7 +8,7 @@ import type {
   PutEmailIdentityConfigurationSetAttributesRequest,
   PutEmailIdentityConfigurationSetAttributesResponse,
 } from "../models/models_0";
-import { PutEmailIdentityConfigurationSetAttributes } from "../schemas/schemas_0";
+import { PutEmailIdentityConfigurationSetAttributes$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -87,7 +87,7 @@ export class PutEmailIdentityConfigurationSetAttributesCommand extends $Command
   })
   .s("SimpleEmailService_v2", "PutEmailIdentityConfigurationSetAttributes", {})
   .n("SESv2Client", "PutEmailIdentityConfigurationSetAttributesCommand")
-  .sc(PutEmailIdentityConfigurationSetAttributes)
+  .sc(PutEmailIdentityConfigurationSetAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

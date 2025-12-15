@@ -10,7 +10,7 @@ import type {
   ListBucketInventoryConfigurationsRequest,
 } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { ListBucketInventoryConfigurations } from "../schemas/schemas_0";
+import { ListBucketInventoryConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -154,7 +154,7 @@ export class ListBucketInventoryConfigurationsCommand extends $Command
   })
   .s("AmazonS3", "ListBucketInventoryConfigurations", {})
   .n("S3Client", "ListBucketInventoryConfigurationsCommand")
-  .sc(ListBucketInventoryConfigurations)
+  .sc(ListBucketInventoryConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

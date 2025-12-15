@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListModelBiasJobDefinitionsRequest, ListModelBiasJobDefinitionsResponse } from "../models/models_3";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { ListModelBiasJobDefinitions } from "../schemas/schemas_0";
+import { ListModelBiasJobDefinitions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class ListModelBiasJobDefinitionsCommand extends $Command
   })
   .s("SageMaker", "ListModelBiasJobDefinitions", {})
   .n("SageMakerClient", "ListModelBiasJobDefinitionsCommand")
-  .sc(ListModelBiasJobDefinitions)
+  .sc(ListModelBiasJobDefinitions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

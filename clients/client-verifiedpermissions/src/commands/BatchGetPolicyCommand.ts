@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchGetPolicyInput, BatchGetPolicyOutput } from "../models/models_0";
-import { BatchGetPolicy } from "../schemas/schemas_0";
+import { BatchGetPolicy$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -196,7 +196,7 @@ export class BatchGetPolicyCommand extends $Command
   })
   .s("VerifiedPermissions", "BatchGetPolicy", {})
   .n("VerifiedPermissionsClient", "BatchGetPolicyCommand")
-  .sc(BatchGetPolicy)
+  .sc(BatchGetPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

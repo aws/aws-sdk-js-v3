@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutInboundDmarcSettingsRequest, PutInboundDmarcSettingsResponse } from "../models/models_0";
-import { PutInboundDmarcSettings } from "../schemas/schemas_0";
+import { PutInboundDmarcSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -80,7 +80,7 @@ export class PutInboundDmarcSettingsCommand extends $Command
   })
   .s("WorkMailService", "PutInboundDmarcSettings", {})
   .n("WorkMailClient", "PutInboundDmarcSettingsCommand")
-  .sc(PutInboundDmarcSettings)
+  .sc(PutInboundDmarcSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

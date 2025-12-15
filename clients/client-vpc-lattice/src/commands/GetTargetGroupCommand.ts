@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetTargetGroupRequest, GetTargetGroupResponse } from "../models/models_0";
-import { GetTargetGroup } from "../schemas/schemas_0";
+import { GetTargetGroup$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -121,7 +121,7 @@ export class GetTargetGroupCommand extends $Command
   })
   .s("MercuryControlPlane", "GetTargetGroup", {})
   .n("VPCLatticeClient", "GetTargetGroupCommand")
-  .sc(GetTargetGroup)
+  .sc(GetTargetGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

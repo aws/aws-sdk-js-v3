@@ -9,7 +9,7 @@ import type {
   GetClassificationExportConfigurationRequest,
   GetClassificationExportConfigurationResponse,
 } from "../models/models_0";
-import { GetClassificationExportConfiguration } from "../schemas/schemas_0";
+import { GetClassificationExportConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class GetClassificationExportConfigurationCommand extends $Command
   })
   .s("Macie2", "GetClassificationExportConfiguration", {})
   .n("Macie2Client", "GetClassificationExportConfigurationCommand")
-  .sc(GetClassificationExportConfiguration)
+  .sc(GetClassificationExportConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

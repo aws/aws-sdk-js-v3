@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { DeleteCustomDomainAssociation } from "../schemas/schemas_0";
+import { DeleteCustomDomainAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class DeleteCustomDomainAssociationCommand extends $Command
   })
   .s("RedshiftServerless", "DeleteCustomDomainAssociation", {})
   .n("RedshiftServerlessClient", "DeleteCustomDomainAssociationCommand")
-  .sc(DeleteCustomDomainAssociation)
+  .sc(DeleteCustomDomainAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

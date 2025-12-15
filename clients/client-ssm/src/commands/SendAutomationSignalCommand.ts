@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SendAutomationSignalRequest, SendAutomationSignalResult } from "../models/models_1";
-import { SendAutomationSignal } from "../schemas/schemas_0";
+import { SendAutomationSignal$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -92,7 +92,7 @@ export class SendAutomationSignalCommand extends $Command
   })
   .s("AmazonSSM", "SendAutomationSignal", {})
   .n("SSMClient", "SendAutomationSignalCommand")
-  .sc(SendAutomationSignal)
+  .sc(SendAutomationSignal$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

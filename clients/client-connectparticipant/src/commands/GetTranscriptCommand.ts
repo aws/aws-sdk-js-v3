@@ -10,7 +10,7 @@ import type {
 } from "../ConnectParticipantClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetTranscriptRequest, GetTranscriptResponse } from "../models/models_0";
-import { GetTranscript } from "../schemas/schemas_0";
+import { GetTranscript$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -178,7 +178,7 @@ export class GetTranscriptCommand extends $Command
   })
   .s("AmazonConnectParticipantServiceLambda", "GetTranscript", {})
   .n("ConnectParticipantClient", "GetTranscriptCommand")
-  .sc(GetTranscript)
+  .sc(GetTranscript$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

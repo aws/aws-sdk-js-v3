@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateResourceShareRequest, DisassociateResourceShareResponse } from "../models/models_0";
 import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
-import { DisassociateResourceShare } from "../schemas/schemas_0";
+import { DisassociateResourceShare$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -134,7 +134,7 @@ export class DisassociateResourceShareCommand extends $Command
   })
   .s("AmazonResourceSharing", "DisassociateResourceShare", {})
   .n("RAMClient", "DisassociateResourceShareCommand")
-  .sc(DisassociateResourceShare)
+  .sc(DisassociateResourceShare$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFlowMonitorClient";
-import { DeleteScope } from "../schemas/schemas_0";
+import { DeleteScope$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class DeleteScopeCommand extends $Command
   })
   .s("NetworkFlowMonitor", "DeleteScope", {})
   .n("NetworkFlowMonitorClient", "DeleteScopeCommand")
-  .sc(DeleteScope)
+  .sc(DeleteScope$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

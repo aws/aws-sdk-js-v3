@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateDBClusterMessage, CreateDBClusterResult } from "../models/models_0";
 import type { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { CreateDBCluster } from "../schemas/schemas_0";
+import { CreateDBCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -280,7 +280,7 @@ export class CreateDBClusterCommand extends $Command
   })
   .s("AmazonRDSv19", "CreateDBCluster", {})
   .n("NeptuneClient", "CreateDBClusterCommand")
-  .sc(CreateDBCluster)
+  .sc(CreateDBCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

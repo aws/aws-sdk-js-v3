@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListVpcIngressConnectionsRequest, ListVpcIngressConnectionsResponse } from "../models/models_0";
-import { ListVpcIngressConnections } from "../schemas/schemas_0";
+import { ListVpcIngressConnections$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class ListVpcIngressConnectionsCommand extends $Command
   })
   .s("AppRunner", "ListVpcIngressConnections", {})
   .n("AppRunnerClient", "ListVpcIngressConnectionsCommand")
-  .sc(ListVpcIngressConnections)
+  .sc(ListVpcIngressConnections$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListTaskDefinitionFamiliesRequest, ListTaskDefinitionFamiliesResponse } from "../models/models_0";
-import { ListTaskDefinitionFamilies } from "../schemas/schemas_0";
+import { ListTaskDefinitionFamilies$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -135,7 +135,7 @@ export class ListTaskDefinitionFamiliesCommand extends $Command
   })
   .s("AmazonEC2ContainerServiceV20141113", "ListTaskDefinitionFamilies", {})
   .n("ECSClient", "ListTaskDefinitionFamiliesCommand")
-  .sc(ListTaskDefinitionFamilies)
+  .sc(ListTaskDefinitionFamilies$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

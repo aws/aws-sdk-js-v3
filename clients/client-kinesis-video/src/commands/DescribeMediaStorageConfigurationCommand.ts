@@ -9,7 +9,7 @@ import type {
   DescribeMediaStorageConfigurationInput,
   DescribeMediaStorageConfigurationOutput,
 } from "../models/models_0";
-import { DescribeMediaStorageConfiguration } from "../schemas/schemas_0";
+import { DescribeMediaStorageConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class DescribeMediaStorageConfigurationCommand extends $Command
   })
   .s("KinesisVideo_20170930", "DescribeMediaStorageConfiguration", {})
   .n("KinesisVideoClient", "DescribeMediaStorageConfigurationCommand")
-  .sc(DescribeMediaStorageConfiguration)
+  .sc(DescribeMediaStorageConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

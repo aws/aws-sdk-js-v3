@@ -9,7 +9,7 @@ import type {
   UpdateAssessmentControlSetStatusRequest,
   UpdateAssessmentControlSetStatusResponse,
 } from "../models/models_0";
-import { UpdateAssessmentControlSetStatus } from "../schemas/schemas_0";
+import { UpdateAssessmentControlSetStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -143,7 +143,7 @@ export class UpdateAssessmentControlSetStatusCommand extends $Command
   })
   .s("BedrockAssessmentManagerLambda", "UpdateAssessmentControlSetStatus", {})
   .n("AuditManagerClient", "UpdateAssessmentControlSetStatusCommand")
-  .sc(UpdateAssessmentControlSetStatus)
+  .sc(UpdateAssessmentControlSetStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

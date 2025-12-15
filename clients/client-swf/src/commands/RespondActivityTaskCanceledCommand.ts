@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RespondActivityTaskCanceledInput } from "../models/models_0";
-import { RespondActivityTaskCanceled } from "../schemas/schemas_0";
+import { RespondActivityTaskCanceled$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -115,7 +115,7 @@ export class RespondActivityTaskCanceledCommand extends $Command
   })
   .s("SimpleWorkflowService", "RespondActivityTaskCanceled", {})
   .n("SWFClient", "RespondActivityTaskCanceledCommand")
-  .sc(RespondActivityTaskCanceled)
+  .sc(RespondActivityTaskCanceled$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

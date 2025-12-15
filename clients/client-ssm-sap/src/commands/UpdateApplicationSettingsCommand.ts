@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateApplicationSettingsInput, UpdateApplicationSettingsOutput } from "../models/models_0";
-import { UpdateApplicationSettings } from "../schemas/schemas_0";
+import { UpdateApplicationSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
@@ -110,7 +110,7 @@ export class UpdateApplicationSettingsCommand extends $Command
   })
   .s("SsmSap", "UpdateApplicationSettings", {})
   .n("SsmSapClient", "UpdateApplicationSettingsCommand")
-  .sc(UpdateApplicationSettings)
+  .sc(UpdateApplicationSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

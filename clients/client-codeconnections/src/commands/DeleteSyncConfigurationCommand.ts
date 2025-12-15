@@ -10,7 +10,7 @@ import type {
 } from "../CodeConnectionsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSyncConfigurationInput, DeleteSyncConfigurationOutput } from "../models/models_0";
-import { DeleteSyncConfiguration } from "../schemas/schemas_0";
+import { DeleteSyncConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DeleteSyncConfigurationCommand extends $Command
   })
   .s("CodeConnections_20231201", "DeleteSyncConfiguration", {})
   .n("CodeConnectionsClient", "DeleteSyncConfigurationCommand")
-  .sc(DeleteSyncConfiguration)
+  .sc(DeleteSyncConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

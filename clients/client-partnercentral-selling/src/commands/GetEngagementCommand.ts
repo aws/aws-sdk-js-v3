@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralSellingClient";
-import { GetEngagement } from "../schemas/schemas_0";
+import { GetEngagement$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -156,7 +156,7 @@ export class GetEngagementCommand extends $Command
   })
   .s("AWSPartnerCentralSelling", "GetEngagement", {})
   .n("PartnerCentralSellingClient", "GetEngagementCommand")
-  .sc(GetEngagement)
+  .sc(GetEngagement$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

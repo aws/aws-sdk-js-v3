@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetSipMediaApplicationRequest, GetSipMediaApplicationResponse } from "../models/models_0";
-import { GetSipMediaApplication } from "../schemas/schemas_0";
+import { GetSipMediaApplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class GetSipMediaApplicationCommand extends $Command
   })
   .s("ChimeSDKTelephonyService", "GetSipMediaApplication", {})
   .n("ChimeSDKVoiceClient", "GetSipMediaApplicationCommand")
-  .sc(GetSipMediaApplication)
+  .sc(GetSipMediaApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

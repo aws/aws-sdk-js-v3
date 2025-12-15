@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetInvocationStepRequest, GetInvocationStepResponse } from "../models/models_0";
-import { GetInvocationStep } from "../schemas/schemas_0";
+import { GetInvocationStep$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class GetInvocationStepCommand extends $Command
   })
   .s("AmazonBedrockAgentRunTimeService", "GetInvocationStep", {})
   .n("BedrockAgentRuntimeClient", "GetInvocationStepCommand")
-  .sc(GetInvocationStep)
+  .sc(GetInvocationStep$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

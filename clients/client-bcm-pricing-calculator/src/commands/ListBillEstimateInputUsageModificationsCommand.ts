@@ -13,7 +13,7 @@ import type {
   ListBillEstimateInputUsageModificationsRequest,
   ListBillEstimateInputUsageModificationsResponse,
 } from "../models/models_0";
-import { ListBillEstimateInputUsageModifications } from "../schemas/schemas_0";
+import { ListBillEstimateInputUsageModifications$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -195,7 +195,7 @@ export class ListBillEstimateInputUsageModificationsCommand extends $Command
   })
   .s("AWSBCMPricingCalculator", "ListBillEstimateInputUsageModifications", {})
   .n("BCMPricingCalculatorClient", "ListBillEstimateInputUsageModificationsCommand")
-  .sc(ListBillEstimateInputUsageModifications)
+  .sc(ListBillEstimateInputUsageModifications$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

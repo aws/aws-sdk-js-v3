@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetLensVersionDifferenceInput, GetLensVersionDifferenceOutput } from "../models/models_0";
-import { GetLensVersionDifference } from "../schemas/schemas_0";
+import { GetLensVersionDifference$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -114,7 +114,7 @@ export class GetLensVersionDifferenceCommand extends $Command
   })
   .s("WellArchitectedApiServiceLambda", "GetLensVersionDifference", {})
   .n("WellArchitectedClient", "GetLensVersionDifferenceCommand")
-  .sc(GetLensVersionDifference)
+  .sc(GetLensVersionDifference$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

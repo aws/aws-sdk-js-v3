@@ -9,7 +9,7 @@ import type {
   CreateMessageTemplateAttachmentResponse,
 } from "../models/models_0";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { CreateMessageTemplateAttachment } from "../schemas/schemas_0";
+import { CreateMessageTemplateAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class CreateMessageTemplateAttachmentCommand extends $Command
   })
   .s("WisdomService", "CreateMessageTemplateAttachment", {})
   .n("QConnectClient", "CreateMessageTemplateAttachmentCommand")
-  .sc(CreateMessageTemplateAttachment)
+  .sc(CreateMessageTemplateAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

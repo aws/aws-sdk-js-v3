@@ -8,7 +8,7 @@ import type {
   GetDataIntegrationFlowExecutionRequest,
   GetDataIntegrationFlowExecutionResponse,
 } from "../models/models_0";
-import { GetDataIntegrationFlowExecution } from "../schemas/schemas_0";
+import { GetDataIntegrationFlowExecution$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupplyChainClientResolvedConfig } from "../SupplyChainClient";
 
 /**
@@ -183,7 +183,7 @@ export class GetDataIntegrationFlowExecutionCommand extends $Command
   })
   .s("GalaxyPublicAPIGateway", "GetDataIntegrationFlowExecution", {})
   .n("SupplyChainClient", "GetDataIntegrationFlowExecutionCommand")
-  .sc(GetDataIntegrationFlowExecution)
+  .sc(GetDataIntegrationFlowExecution$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

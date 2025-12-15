@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetConfigRequest, GetConfigResponse } from "../models/models_0";
-import { GetConfig } from "../schemas/schemas_0";
+import { GetConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class GetConfigCommand extends $Command
   })
   .s("CloudHsmFrontendService", "GetConfig", {})
   .n("CloudHSMClient", "GetConfigCommand")
-  .sc(GetConfig)
+  .sc(GetConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

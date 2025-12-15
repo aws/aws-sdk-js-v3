@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateSecurityGroupRequest, CreateSecurityGroupResult } from "../models/models_1";
-import { CreateSecurityGroup } from "../schemas/schemas_0";
+import { CreateSecurityGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -129,7 +129,7 @@ export class CreateSecurityGroupCommand extends $Command
   })
   .s("AmazonEC2", "CreateSecurityGroup", {})
   .n("EC2Client", "CreateSecurityGroupCommand")
-  .sc(CreateSecurityGroup)
+  .sc(CreateSecurityGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

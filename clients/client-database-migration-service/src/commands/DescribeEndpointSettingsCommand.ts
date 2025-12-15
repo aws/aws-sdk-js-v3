@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeEndpointSettingsMessage, DescribeEndpointSettingsResponse } from "../models/models_0";
-import { DescribeEndpointSettings } from "../schemas/schemas_0";
+import { DescribeEndpointSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DescribeEndpointSettingsCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribeEndpointSettings", {})
   .n("DatabaseMigrationServiceClient", "DescribeEndpointSettingsCommand")
-  .sc(DescribeEndpointSettings)
+  .sc(DescribeEndpointSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

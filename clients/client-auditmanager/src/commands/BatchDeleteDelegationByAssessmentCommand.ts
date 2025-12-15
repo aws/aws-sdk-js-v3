@@ -9,7 +9,7 @@ import type {
   BatchDeleteDelegationByAssessmentRequest,
   BatchDeleteDelegationByAssessmentResponse,
 } from "../models/models_0";
-import { BatchDeleteDelegationByAssessment } from "../schemas/schemas_0";
+import { BatchDeleteDelegationByAssessment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class BatchDeleteDelegationByAssessmentCommand extends $Command
   })
   .s("BedrockAssessmentManagerLambda", "BatchDeleteDelegationByAssessment", {})
   .n("AuditManagerClient", "BatchDeleteDelegationByAssessmentCommand")
-  .sc(BatchDeleteDelegationByAssessment)
+  .sc(BatchDeleteDelegationByAssessment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

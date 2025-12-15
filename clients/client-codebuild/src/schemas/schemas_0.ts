@@ -618,26 +618,26 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { CodeBuildServiceException as __CodeBuildServiceException } from "../models/CodeBuildServiceException";
+import { CodeBuildServiceException } from "../models/CodeBuildServiceException";
 import {
-  AccountLimitExceededException as __AccountLimitExceededException,
-  AccountSuspendedException as __AccountSuspendedException,
-  InvalidInputException as __InvalidInputException,
-  OAuthProviderException as __OAuthProviderException,
-  ResourceAlreadyExistsException as __ResourceAlreadyExistsException,
-  ResourceNotFoundException as __ResourceNotFoundException,
+  AccountLimitExceededException,
+  AccountSuspendedException,
+  InvalidInputException,
+  OAuthProviderException,
+  ResourceAlreadyExistsException,
+  ResourceNotFoundException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var SensitiveNonEmptyString: StaticSimpleSchema = [0, n0, _SNES, 8, 0];
-export var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
-export var AccountLimitExceededException: StaticErrorSchema = [-3, n0, _ALEE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccountLimitExceededException, __AccountLimitExceededException);
-export var AccountSuspendedException: StaticErrorSchema = [-3, n0, _ASE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccountSuspendedException, __AccountSuspendedException);
-export var AutoRetryConfig: StaticStructureSchema = [3, n0, _ARC, 0, [_aRL, _aRN, _nAR, _pAR], [1, 1, 0, 0]];
-export var BatchDeleteBuildsInput: StaticStructureSchema = [3, n0, _BDBI, 0, [_i], [64 | 0]];
-export var BatchDeleteBuildsOutput: StaticStructureSchema = [
+var SensitiveNonEmptyString: StaticSimpleSchema = [0, n0, _SNES, 8, 0];
+var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
+export var AccountLimitExceededException$: StaticErrorSchema = [-3, n0, _ALEE, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(AccountLimitExceededException$, AccountLimitExceededException);
+export var AccountSuspendedException$: StaticErrorSchema = [-3, n0, _ASE, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(AccountSuspendedException$, AccountSuspendedException);
+export var AutoRetryConfig$: StaticStructureSchema = [3, n0, _ARC, 0, [_aRL, _aRN, _nAR, _pAR], [1, 1, 0, 0]];
+export var BatchDeleteBuildsInput$: StaticStructureSchema = [3, n0, _BDBI, 0, [_i], [64 | 0]];
+export var BatchDeleteBuildsOutput$: StaticStructureSchema = [
   3,
   n0,
   _BDBO,
@@ -645,8 +645,8 @@ export var BatchDeleteBuildsOutput: StaticStructureSchema = [
   [_bD, _bND],
   [64 | 0, () => BuildsNotDeleted],
 ];
-export var BatchGetBuildBatchesInput: StaticStructureSchema = [3, n0, _BGBBI, 0, [_i], [64 | 0]];
-export var BatchGetBuildBatchesOutput: StaticStructureSchema = [
+export var BatchGetBuildBatchesInput$: StaticStructureSchema = [3, n0, _BGBBI, 0, [_i], [64 | 0]];
+export var BatchGetBuildBatchesOutput$: StaticStructureSchema = [
   3,
   n0,
   _BGBBO,
@@ -654,10 +654,10 @@ export var BatchGetBuildBatchesOutput: StaticStructureSchema = [
   [_bB, _bBNF],
   [() => BuildBatches, 64 | 0],
 ];
-export var BatchGetBuildsInput: StaticStructureSchema = [3, n0, _BGBI, 0, [_i], [64 | 0]];
-export var BatchGetBuildsOutput: StaticStructureSchema = [3, n0, _BGBO, 0, [_b, _bNF], [() => Builds, 64 | 0]];
-export var BatchGetCommandExecutionsInput: StaticStructureSchema = [3, n0, _BGCEI, 0, [_sI, _cEI], [0, 64 | 0]];
-export var BatchGetCommandExecutionsOutput: StaticStructureSchema = [
+export var BatchGetBuildsInput$: StaticStructureSchema = [3, n0, _BGBI, 0, [_i], [64 | 0]];
+export var BatchGetBuildsOutput$: StaticStructureSchema = [3, n0, _BGBO, 0, [_b, _bNF], [() => Builds, 64 | 0]];
+export var BatchGetCommandExecutionsInput$: StaticStructureSchema = [3, n0, _BGCEI, 0, [_sI, _cEI], [0, 64 | 0]];
+export var BatchGetCommandExecutionsOutput$: StaticStructureSchema = [
   3,
   n0,
   _BGCEO,
@@ -665,12 +665,12 @@ export var BatchGetCommandExecutionsOutput: StaticStructureSchema = [
   [_cE, _cENF],
   [[() => CommandExecutions, 0], 64 | 0],
 ];
-export var BatchGetFleetsInput: StaticStructureSchema = [3, n0, _BGFI, 0, [_n], [64 | 0]];
-export var BatchGetFleetsOutput: StaticStructureSchema = [3, n0, _BGFO, 0, [_f, _fNF], [() => Fleets, 64 | 0]];
-export var BatchGetProjectsInput: StaticStructureSchema = [3, n0, _BGPI, 0, [_n], [64 | 0]];
-export var BatchGetProjectsOutput: StaticStructureSchema = [3, n0, _BGPO, 0, [_p, _pNF], [() => Projects, 64 | 0]];
-export var BatchGetReportGroupsInput: StaticStructureSchema = [3, n0, _BGRGI, 0, [_rGA], [64 | 0]];
-export var BatchGetReportGroupsOutput: StaticStructureSchema = [
+export var BatchGetFleetsInput$: StaticStructureSchema = [3, n0, _BGFI, 0, [_n], [64 | 0]];
+export var BatchGetFleetsOutput$: StaticStructureSchema = [3, n0, _BGFO, 0, [_f, _fNF], [() => Fleets, 64 | 0]];
+export var BatchGetProjectsInput$: StaticStructureSchema = [3, n0, _BGPI, 0, [_n], [64 | 0]];
+export var BatchGetProjectsOutput$: StaticStructureSchema = [3, n0, _BGPO, 0, [_p, _pNF], [() => Projects, 64 | 0]];
+export var BatchGetReportGroupsInput$: StaticStructureSchema = [3, n0, _BGRGI, 0, [_rGA], [64 | 0]];
+export var BatchGetReportGroupsOutput$: StaticStructureSchema = [
   3,
   n0,
   _BGRGO,
@@ -678,12 +678,12 @@ export var BatchGetReportGroupsOutput: StaticStructureSchema = [
   [_rG, _rGNF],
   [() => ReportGroups, 64 | 0],
 ];
-export var BatchGetReportsInput: StaticStructureSchema = [3, n0, _BGRI, 0, [_rA], [64 | 0]];
-export var BatchGetReportsOutput: StaticStructureSchema = [3, n0, _BGRO, 0, [_r, _rNF], [() => Reports, 64 | 0]];
-export var BatchGetSandboxesInput: StaticStructureSchema = [3, n0, _BGSI, 0, [_i], [64 | 0]];
-export var BatchGetSandboxesOutput: StaticStructureSchema = [3, n0, _BGSO, 0, [_s, _sNF], [() => Sandboxes, 64 | 0]];
-export var BatchRestrictions: StaticStructureSchema = [3, n0, _BR, 0, [_mBA, _cTA, _fA], [1, 64 | 0, 64 | 0]];
-export var Build: StaticStructureSchema = [
+export var BatchGetReportsInput$: StaticStructureSchema = [3, n0, _BGRI, 0, [_rA], [64 | 0]];
+export var BatchGetReportsOutput$: StaticStructureSchema = [3, n0, _BGRO, 0, [_r, _rNF], [() => Reports, 64 | 0]];
+export var BatchGetSandboxesInput$: StaticStructureSchema = [3, n0, _BGSI, 0, [_i], [64 | 0]];
+export var BatchGetSandboxesOutput$: StaticStructureSchema = [3, n0, _BGSO, 0, [_s, _sNF], [() => Sandboxes, 64 | 0]];
+export var BatchRestrictions$: StaticStructureSchema = [3, n0, _BR, 0, [_mBA, _cTA, _fA], [1, 64 | 0, 64 | 0]];
+export var Build$: StaticStructureSchema = [
   3,
   n0,
   _B,
@@ -735,31 +735,31 @@ export var Build: StaticStructureSchema = [
     0,
     0,
     () => BuildPhases,
-    () => ProjectSource,
+    () => ProjectSource$,
     () => ProjectSources,
     () => ProjectSecondarySourceVersions,
-    () => BuildArtifacts,
+    () => BuildArtifacts$,
     () => BuildArtifactsList,
-    () => ProjectCache,
-    () => ProjectEnvironment,
+    () => ProjectCache$,
+    () => ProjectEnvironment$,
     0,
-    () => LogsLocation,
+    () => LogsLocation$,
     1,
     1,
     2,
     0,
-    () => VpcConfig,
-    () => NetworkInterface,
+    () => VpcConfig$,
+    () => NetworkInterface$,
     0,
     () => ExportedEnvironmentVariables,
     64 | 0,
     () => ProjectFileSystemLocations,
-    () => DebugSession,
+    () => DebugSession$,
     0,
-    () => AutoRetryConfig,
+    () => AutoRetryConfig$,
   ],
 ];
-export var BuildArtifacts: StaticStructureSchema = [
+export var BuildArtifacts$: StaticStructureSchema = [
   3,
   n0,
   _BA,
@@ -767,7 +767,7 @@ export var BuildArtifacts: StaticStructureSchema = [
   [_lo, _sh, _md, _oAN, _eD, _aI, _bOA],
   [0, 0, 0, 2, 2, 0, 0],
 ];
-export var BuildBatch: StaticStructureSchema = [
+export var BuildBatch$: StaticStructureSchema = [
   3,
   n0,
   _BB,
@@ -816,31 +816,31 @@ export var BuildBatch: StaticStructureSchema = [
     0,
     0,
     () => BuildBatchPhases,
-    () => ProjectSource,
+    () => ProjectSource$,
     () => ProjectSources,
     () => ProjectSecondarySourceVersions,
-    () => BuildArtifacts,
+    () => BuildArtifacts$,
     () => BuildArtifactsList,
-    () => ProjectCache,
-    () => ProjectEnvironment,
+    () => ProjectCache$,
+    () => ProjectEnvironment$,
     0,
-    () => LogsConfig,
+    () => LogsConfig$,
     1,
     1,
     2,
     0,
-    () => VpcConfig,
+    () => VpcConfig$,
     0,
     1,
     () => ProjectFileSystemLocations,
-    () => ProjectBuildBatchConfig,
+    () => ProjectBuildBatchConfig$,
     () => BuildGroups,
     2,
     64 | 0,
   ],
 ];
-export var BuildBatchFilter: StaticStructureSchema = [3, n0, _BBF, 0, [_st], [0]];
-export var BuildBatchPhase: StaticStructureSchema = [
+export var BuildBatchFilter$: StaticStructureSchema = [3, n0, _BBF, 0, [_st], [0]];
+export var BuildBatchPhase$: StaticStructureSchema = [
   3,
   n0,
   _BBP,
@@ -848,16 +848,16 @@ export var BuildBatchPhase: StaticStructureSchema = [
   [_pT, _pS, _sT, _eT, _dIS, _con],
   [0, 0, 4, 4, 1, () => PhaseContexts],
 ];
-export var BuildGroup: StaticStructureSchema = [
+export var BuildGroup$: StaticStructureSchema = [
   3,
   n0,
   _BG,
   0,
   [_ide, _dO, _iF, _cBS, _pBSL],
-  [0, 64 | 0, 2, () => BuildSummary, () => BuildSummaries],
+  [0, 64 | 0, 2, () => BuildSummary$, () => BuildSummaries],
 ];
-export var BuildNotDeleted: StaticStructureSchema = [3, n0, _BND, 0, [_id, _sC], [0, 0]];
-export var BuildPhase: StaticStructureSchema = [
+export var BuildNotDeleted$: StaticStructureSchema = [3, n0, _BND, 0, [_id, _sC], [0, 0]];
+export var BuildPhase$: StaticStructureSchema = [
   3,
   n0,
   _BP,
@@ -865,17 +865,17 @@ export var BuildPhase: StaticStructureSchema = [
   [_pT, _pS, _sT, _eT, _dIS, _con],
   [0, 0, 4, 4, 1, () => PhaseContexts],
 ];
-export var BuildStatusConfig: StaticStructureSchema = [3, n0, _BSC, 0, [_cont, _tU], [0, 0]];
-export var BuildSummary: StaticStructureSchema = [
+export var BuildStatusConfig$: StaticStructureSchema = [3, n0, _BSC, 0, [_cont, _tU], [0, 0]];
+export var BuildSummary$: StaticStructureSchema = [
   3,
   n0,
   _BS,
   0,
   [_a, _rO, _bS, _pA, _sA],
-  [0, 4, 0, () => ResolvedArtifact, () => ResolvedSecondaryArtifacts],
+  [0, 4, 0, () => ResolvedArtifact$, () => ResolvedSecondaryArtifacts],
 ];
-export var CloudWatchLogsConfig: StaticStructureSchema = [3, n0, _CWLC, 0, [_st, _gN, _sN], [0, 0, 0]];
-export var CodeCoverage: StaticStructureSchema = [
+export var CloudWatchLogsConfig$: StaticStructureSchema = [3, n0, _CWLC, 0, [_st, _gN, _sN], [0, 0, 0]];
+export var CodeCoverage$: StaticStructureSchema = [
   3,
   n0,
   _CC,
@@ -883,7 +883,7 @@ export var CodeCoverage: StaticStructureSchema = [
   [_id, _rARN, _fP, _lCP, _lCi, _lM, _bCP, _bCr, _bM, _ex],
   [0, 0, 0, 1, 1, 1, 1, 1, 1, 4],
 ];
-export var CodeCoverageReportSummary: StaticStructureSchema = [
+export var CodeCoverageReportSummary$: StaticStructureSchema = [
   3,
   n0,
   _CCRS,
@@ -891,7 +891,7 @@ export var CodeCoverageReportSummary: StaticStructureSchema = [
   [_lCP, _lCi, _lM, _bCP, _bCr, _bM],
   [1, 1, 1, 1, 1, 1],
 ];
-export var CommandExecution: StaticStructureSchema = [
+export var CommandExecution$: StaticStructureSchema = [
   3,
   n0,
   _CE,
@@ -909,12 +909,12 @@ export var CommandExecution: StaticStructureSchema = [
     0,
     [() => SensitiveNonEmptyString, 0],
     [() => SensitiveNonEmptyString, 0],
-    () => LogsLocation,
+    () => LogsLocation$,
     0,
   ],
 ];
-export var ComputeConfiguration: StaticStructureSchema = [3, n0, _CCo, 0, [_vCp, _me, _d, _mT, _iT], [1, 1, 1, 0, 0]];
-export var CreateFleetInput: StaticStructureSchema = [
+export var ComputeConfiguration$: StaticStructureSchema = [3, n0, _CCo, 0, [_vCp, _me, _d, _mT, _iT], [1, 1, 1, 0, 0]];
+export var CreateFleetInput$: StaticStructureSchema = [
   3,
   n0,
   _CFI,
@@ -925,18 +925,18 @@ export var CreateFleetInput: StaticStructureSchema = [
     1,
     0,
     0,
-    () => ComputeConfiguration,
-    () => ScalingConfigurationInput,
+    () => ComputeConfiguration$,
+    () => ScalingConfigurationInput$,
     0,
-    () => VpcConfig,
-    () => ProxyConfiguration,
+    () => VpcConfig$,
+    () => ProxyConfiguration$,
     0,
     0,
     () => TagList,
   ],
 ];
-export var CreateFleetOutput: StaticStructureSchema = [3, n0, _CFO, 0, [_fl], [() => Fleet]];
-export var CreateProjectInput: StaticStructureSchema = [
+export var CreateFleetOutput$: StaticStructureSchema = [3, n0, _CFO, 0, [_fl], [() => Fleet$]];
+export var CreateProjectInput$: StaticStructureSchema = [
   3,
   n0,
   _CPI,
@@ -968,50 +968,50 @@ export var CreateProjectInput: StaticStructureSchema = [
   [
     0,
     0,
-    () => ProjectSource,
+    () => ProjectSource$,
     () => ProjectSources,
     0,
     () => ProjectSecondarySourceVersions,
-    () => ProjectArtifacts,
+    () => ProjectArtifacts$,
     () => ProjectArtifactsList,
-    () => ProjectCache,
-    () => ProjectEnvironment,
+    () => ProjectCache$,
+    () => ProjectEnvironment$,
     0,
     1,
     1,
     0,
     () => TagList,
-    () => VpcConfig,
+    () => VpcConfig$,
     2,
-    () => LogsConfig,
+    () => LogsConfig$,
     () => ProjectFileSystemLocations,
-    () => ProjectBuildBatchConfig,
+    () => ProjectBuildBatchConfig$,
     1,
     1,
   ],
 ];
-export var CreateProjectOutput: StaticStructureSchema = [3, n0, _CPO, 0, [_pr], [() => Project]];
-export var CreateReportGroupInput: StaticStructureSchema = [
+export var CreateProjectOutput$: StaticStructureSchema = [3, n0, _CPO, 0, [_pr], [() => Project$]];
+export var CreateReportGroupInput$: StaticStructureSchema = [
   3,
   n0,
   _CRGI,
   0,
   [_na, _t, _eCx, _ta],
-  [0, 0, () => ReportExportConfig, () => TagList],
+  [0, 0, () => ReportExportConfig$, () => TagList],
 ];
-export var CreateReportGroupOutput: StaticStructureSchema = [3, n0, _CRGO, 0, [_rGe], [() => ReportGroup]];
-export var CreateWebhookInput: StaticStructureSchema = [
+export var CreateReportGroupOutput$: StaticStructureSchema = [3, n0, _CRGO, 0, [_rGe], [() => ReportGroup$]];
+export var CreateWebhookInput$: StaticStructureSchema = [
   3,
   n0,
   _CWI,
   0,
   [_pN, _bF, _fG, _bT, _mC, _sCco, _pRBP],
-  [0, 0, () => FilterGroups, 0, 2, () => ScopeConfiguration, () => PullRequestBuildPolicy],
+  [0, 0, () => FilterGroups, 0, 2, () => ScopeConfiguration$, () => PullRequestBuildPolicy$],
 ];
-export var CreateWebhookOutput: StaticStructureSchema = [3, n0, _CWO, 0, [_w], [() => Webhook]];
-export var DebugSession: StaticStructureSchema = [3, n0, _DS, 0, [_sE, _sTe], [2, 0]];
-export var DeleteBuildBatchInput: StaticStructureSchema = [3, n0, _DBBI, 0, [_id], [0]];
-export var DeleteBuildBatchOutput: StaticStructureSchema = [
+export var CreateWebhookOutput$: StaticStructureSchema = [3, n0, _CWO, 0, [_w], [() => Webhook$]];
+export var DebugSession$: StaticStructureSchema = [3, n0, _DS, 0, [_sE, _sTe], [2, 0]];
+export var DeleteBuildBatchInput$: StaticStructureSchema = [3, n0, _DBBI, 0, [_id], [0]];
+export var DeleteBuildBatchOutput$: StaticStructureSchema = [
   3,
   n0,
   _DBBO,
@@ -1019,21 +1019,21 @@ export var DeleteBuildBatchOutput: StaticStructureSchema = [
   [_sC, _bD, _bND],
   [0, 64 | 0, () => BuildsNotDeleted],
 ];
-export var DeleteFleetInput: StaticStructureSchema = [3, n0, _DFI, 0, [_a], [0]];
-export var DeleteFleetOutput: StaticStructureSchema = [3, n0, _DFO, 0, [], []];
-export var DeleteProjectInput: StaticStructureSchema = [3, n0, _DPI, 0, [_na], [0]];
-export var DeleteProjectOutput: StaticStructureSchema = [3, n0, _DPO, 0, [], []];
-export var DeleteReportGroupInput: StaticStructureSchema = [3, n0, _DRGI, 0, [_a, _dR], [0, 2]];
-export var DeleteReportGroupOutput: StaticStructureSchema = [3, n0, _DRGO, 0, [], []];
-export var DeleteReportInput: StaticStructureSchema = [3, n0, _DRI, 0, [_a], [0]];
-export var DeleteReportOutput: StaticStructureSchema = [3, n0, _DRO, 0, [], []];
-export var DeleteResourcePolicyInput: StaticStructureSchema = [3, n0, _DRPI, 0, [_rAe], [0]];
-export var DeleteResourcePolicyOutput: StaticStructureSchema = [3, n0, _DRPO, 0, [], []];
-export var DeleteSourceCredentialsInput: StaticStructureSchema = [3, n0, _DSCI, 0, [_a], [0]];
-export var DeleteSourceCredentialsOutput: StaticStructureSchema = [3, n0, _DSCO, 0, [_a], [0]];
-export var DeleteWebhookInput: StaticStructureSchema = [3, n0, _DWI, 0, [_pN], [0]];
-export var DeleteWebhookOutput: StaticStructureSchema = [3, n0, _DWO, 0, [], []];
-export var DescribeCodeCoveragesInput: StaticStructureSchema = [
+export var DeleteFleetInput$: StaticStructureSchema = [3, n0, _DFI, 0, [_a], [0]];
+export var DeleteFleetOutput$: StaticStructureSchema = [3, n0, _DFO, 0, [], []];
+export var DeleteProjectInput$: StaticStructureSchema = [3, n0, _DPI, 0, [_na], [0]];
+export var DeleteProjectOutput$: StaticStructureSchema = [3, n0, _DPO, 0, [], []];
+export var DeleteReportGroupInput$: StaticStructureSchema = [3, n0, _DRGI, 0, [_a, _dR], [0, 2]];
+export var DeleteReportGroupOutput$: StaticStructureSchema = [3, n0, _DRGO, 0, [], []];
+export var DeleteReportInput$: StaticStructureSchema = [3, n0, _DRI, 0, [_a], [0]];
+export var DeleteReportOutput$: StaticStructureSchema = [3, n0, _DRO, 0, [], []];
+export var DeleteResourcePolicyInput$: StaticStructureSchema = [3, n0, _DRPI, 0, [_rAe], [0]];
+export var DeleteResourcePolicyOutput$: StaticStructureSchema = [3, n0, _DRPO, 0, [], []];
+export var DeleteSourceCredentialsInput$: StaticStructureSchema = [3, n0, _DSCI, 0, [_a], [0]];
+export var DeleteSourceCredentialsOutput$: StaticStructureSchema = [3, n0, _DSCO, 0, [_a], [0]];
+export var DeleteWebhookInput$: StaticStructureSchema = [3, n0, _DWI, 0, [_pN], [0]];
+export var DeleteWebhookOutput$: StaticStructureSchema = [3, n0, _DWO, 0, [], []];
+export var DescribeCodeCoveragesInput$: StaticStructureSchema = [
   3,
   n0,
   _DCCI,
@@ -1041,7 +1041,7 @@ export var DescribeCodeCoveragesInput: StaticStructureSchema = [
   [_rAep, _nT, _mR, _sO, _sB, _mLCP, _mLCPa],
   [0, 0, 1, 0, 0, 1, 1],
 ];
-export var DescribeCodeCoveragesOutput: StaticStructureSchema = [
+export var DescribeCodeCoveragesOutput$: StaticStructureSchema = [
   3,
   n0,
   _DCCO,
@@ -1049,30 +1049,30 @@ export var DescribeCodeCoveragesOutput: StaticStructureSchema = [
   [_nT, _cCo],
   [0, () => CodeCoverages],
 ];
-export var DescribeTestCasesInput: StaticStructureSchema = [
+export var DescribeTestCasesInput$: StaticStructureSchema = [
   3,
   n0,
   _DTCI,
   0,
   [_rAep, _nT, _mR, _fi],
-  [0, 0, 1, () => TestCaseFilter],
+  [0, 0, 1, () => TestCaseFilter$],
 ];
-export var DescribeTestCasesOutput: StaticStructureSchema = [3, n0, _DTCO, 0, [_nT, _tC], [0, () => TestCases]];
-export var DockerServer: StaticStructureSchema = [
+export var DescribeTestCasesOutput$: StaticStructureSchema = [3, n0, _DTCO, 0, [_nT, _tC], [0, () => TestCases]];
+export var DockerServer$: StaticStructureSchema = [
   3,
   n0,
   _DSo,
   0,
   [_cT, _sGI, _st],
-  [0, 64 | 0, () => DockerServerStatus],
+  [0, 64 | 0, () => DockerServerStatus$],
 ];
-export var DockerServerStatus: StaticStructureSchema = [3, n0, _DSS, 0, [_st, _m], [0, 0]];
-export var EnvironmentImage: StaticStructureSchema = [3, n0, _EI, 0, [_na, _de, _v], [0, 0, 64 | 0]];
-export var EnvironmentLanguage: StaticStructureSchema = [3, n0, _EL, 0, [_la, _im], [0, () => EnvironmentImages]];
-export var EnvironmentPlatform: StaticStructureSchema = [3, n0, _EP, 0, [_pl, _lan], [0, () => EnvironmentLanguages]];
-export var EnvironmentVariable: StaticStructureSchema = [3, n0, _EV, 0, [_na, _va, _t], [0, 0, 0]];
-export var ExportedEnvironmentVariable: StaticStructureSchema = [3, n0, _EEV, 0, [_na, _va], [0, 0]];
-export var Fleet: StaticStructureSchema = [
+export var DockerServerStatus$: StaticStructureSchema = [3, n0, _DSS, 0, [_st, _m], [0, 0]];
+export var EnvironmentImage$: StaticStructureSchema = [3, n0, _EI, 0, [_na, _de, _v], [0, 0, 64 | 0]];
+export var EnvironmentLanguage$: StaticStructureSchema = [3, n0, _EL, 0, [_la, _im], [0, () => EnvironmentImages]];
+export var EnvironmentPlatform$: StaticStructureSchema = [3, n0, _EP, 0, [_pl, _lan], [0, () => EnvironmentLanguages]];
+export var EnvironmentVariable$: StaticStructureSchema = [3, n0, _EV, 0, [_na, _va, _t], [0, 0, 0]];
+export var ExportedEnvironmentVariable$: StaticStructureSchema = [3, n0, _EEV, 0, [_na, _va], [0, 0]];
+export var Fleet$: StaticStructureSchema = [
   3,
   n0,
   _F,
@@ -1084,35 +1084,35 @@ export var Fleet: StaticStructureSchema = [
     0,
     4,
     4,
-    () => FleetStatus,
+    () => FleetStatus$,
     1,
     0,
     0,
-    () => ComputeConfiguration,
-    () => ScalingConfigurationOutput,
+    () => ComputeConfiguration$,
+    () => ScalingConfigurationOutput$,
     0,
-    () => VpcConfig,
-    () => ProxyConfiguration,
+    () => VpcConfig$,
+    () => ProxyConfiguration$,
     0,
     0,
     () => TagList,
   ],
 ];
-export var FleetProxyRule: StaticStructureSchema = [3, n0, _FPR, 0, [_t, _ef, _ent], [0, 0, 64 | 0]];
-export var FleetStatus: StaticStructureSchema = [3, n0, _FS, 0, [_sC, _cont, _m], [0, 0, 0]];
-export var GetReportGroupTrendInput: StaticStructureSchema = [3, n0, _GRGTI, 0, [_rGAe, _nOR, _tF], [0, 1, 0]];
-export var GetReportGroupTrendOutput: StaticStructureSchema = [
+export var FleetProxyRule$: StaticStructureSchema = [3, n0, _FPR, 0, [_t, _ef, _ent], [0, 0, 64 | 0]];
+export var FleetStatus$: StaticStructureSchema = [3, n0, _FS, 0, [_sC, _cont, _m], [0, 0, 0]];
+export var GetReportGroupTrendInput$: StaticStructureSchema = [3, n0, _GRGTI, 0, [_rGAe, _nOR, _tF], [0, 1, 0]];
+export var GetReportGroupTrendOutput$: StaticStructureSchema = [
   3,
   n0,
   _GRGTO,
   0,
   [_sta, _rD],
-  [() => ReportGroupTrendStats, () => ReportGroupTrendRawDataList],
+  [() => ReportGroupTrendStats$, () => ReportGroupTrendRawDataList],
 ];
-export var GetResourcePolicyInput: StaticStructureSchema = [3, n0, _GRPI, 0, [_rAe], [0]];
-export var GetResourcePolicyOutput: StaticStructureSchema = [3, n0, _GRPO, 0, [_po], [0]];
-export var GitSubmodulesConfig: StaticStructureSchema = [3, n0, _GSC, 0, [_fS], [2]];
-export var ImportSourceCredentialsInput: StaticStructureSchema = [
+export var GetResourcePolicyInput$: StaticStructureSchema = [3, n0, _GRPI, 0, [_rAe], [0]];
+export var GetResourcePolicyOutput$: StaticStructureSchema = [3, n0, _GRPO, 0, [_po], [0]];
+export var GitSubmodulesConfig$: StaticStructureSchema = [3, n0, _GSC, 0, [_fS], [2]];
+export var ImportSourceCredentialsInput$: StaticStructureSchema = [
   3,
   n0,
   _ISCI,
@@ -1120,34 +1120,34 @@ export var ImportSourceCredentialsInput: StaticStructureSchema = [
   [_u, _to, _sTer, _aT, _sOh],
   [0, [() => SensitiveNonEmptyString, 0], 0, 0, 2],
 ];
-export var ImportSourceCredentialsOutput: StaticStructureSchema = [3, n0, _ISCO, 0, [_a], [0]];
-export var InvalidateProjectCacheInput: StaticStructureSchema = [3, n0, _IPCI, 0, [_pN], [0]];
-export var InvalidateProjectCacheOutput: StaticStructureSchema = [3, n0, _IPCO, 0, [], []];
-export var InvalidInputException: StaticErrorSchema = [-3, n0, _IIE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InvalidInputException, __InvalidInputException);
-export var ListBuildBatchesForProjectInput: StaticStructureSchema = [
+export var ImportSourceCredentialsOutput$: StaticStructureSchema = [3, n0, _ISCO, 0, [_a], [0]];
+export var InvalidateProjectCacheInput$: StaticStructureSchema = [3, n0, _IPCI, 0, [_pN], [0]];
+export var InvalidateProjectCacheOutput$: StaticStructureSchema = [3, n0, _IPCO, 0, [], []];
+export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InvalidInputException$, InvalidInputException);
+export var ListBuildBatchesForProjectInput$: StaticStructureSchema = [
   3,
   n0,
   _LBBFPI,
   0,
   [_pN, _fi, _mR, _sO, _nT],
-  [0, () => BuildBatchFilter, 1, 0, 0],
+  [0, () => BuildBatchFilter$, 1, 0, 0],
 ];
-export var ListBuildBatchesForProjectOutput: StaticStructureSchema = [3, n0, _LBBFPO, 0, [_i, _nT], [64 | 0, 0]];
-export var ListBuildBatchesInput: StaticStructureSchema = [
+export var ListBuildBatchesForProjectOutput$: StaticStructureSchema = [3, n0, _LBBFPO, 0, [_i, _nT], [64 | 0, 0]];
+export var ListBuildBatchesInput$: StaticStructureSchema = [
   3,
   n0,
   _LBBI,
   0,
   [_fi, _mR, _sO, _nT],
-  [() => BuildBatchFilter, 1, 0, 0],
+  [() => BuildBatchFilter$, 1, 0, 0],
 ];
-export var ListBuildBatchesOutput: StaticStructureSchema = [3, n0, _LBBO, 0, [_i, _nT], [64 | 0, 0]];
-export var ListBuildsForProjectInput: StaticStructureSchema = [3, n0, _LBFPI, 0, [_pN, _sO, _nT], [0, 0, 0]];
-export var ListBuildsForProjectOutput: StaticStructureSchema = [3, n0, _LBFPO, 0, [_i, _nT], [64 | 0, 0]];
-export var ListBuildsInput: StaticStructureSchema = [3, n0, _LBI, 0, [_sO, _nT], [0, 0]];
-export var ListBuildsOutput: StaticStructureSchema = [3, n0, _LBO, 0, [_i, _nT], [64 | 0, 0]];
-export var ListCommandExecutionsForSandboxInput: StaticStructureSchema = [
+export var ListBuildBatchesOutput$: StaticStructureSchema = [3, n0, _LBBO, 0, [_i, _nT], [64 | 0, 0]];
+export var ListBuildsForProjectInput$: StaticStructureSchema = [3, n0, _LBFPI, 0, [_pN, _sO, _nT], [0, 0, 0]];
+export var ListBuildsForProjectOutput$: StaticStructureSchema = [3, n0, _LBFPO, 0, [_i, _nT], [64 | 0, 0]];
+export var ListBuildsInput$: StaticStructureSchema = [3, n0, _LBI, 0, [_sO, _nT], [0, 0]];
+export var ListBuildsOutput$: StaticStructureSchema = [3, n0, _LBO, 0, [_i, _nT], [64 | 0, 0]];
+export var ListCommandExecutionsForSandboxInput$: StaticStructureSchema = [
   3,
   n0,
   _LCEFSI,
@@ -1155,7 +1155,7 @@ export var ListCommandExecutionsForSandboxInput: StaticStructureSchema = [
   [_sI, _mR, _sO, _nT],
   [0, 1, 0, [() => SensitiveString, 0]],
 ];
-export var ListCommandExecutionsForSandboxOutput: StaticStructureSchema = [
+export var ListCommandExecutionsForSandboxOutput$: StaticStructureSchema = [
   3,
   n0,
   _LCEFSO,
@@ -1163,8 +1163,8 @@ export var ListCommandExecutionsForSandboxOutput: StaticStructureSchema = [
   [_cE, _nT],
   [[() => CommandExecutions, 0], 0],
 ];
-export var ListCuratedEnvironmentImagesInput: StaticStructureSchema = [3, n0, _LCEII, 0, [], []];
-export var ListCuratedEnvironmentImagesOutput: StaticStructureSchema = [
+export var ListCuratedEnvironmentImagesInput$: StaticStructureSchema = [3, n0, _LCEII, 0, [], []];
+export var ListCuratedEnvironmentImagesOutput$: StaticStructureSchema = [
   3,
   n0,
   _LCEIO,
@@ -1172,7 +1172,7 @@ export var ListCuratedEnvironmentImagesOutput: StaticStructureSchema = [
   [_pla],
   [() => EnvironmentPlatforms],
 ];
-export var ListFleetsInput: StaticStructureSchema = [
+export var ListFleetsInput$: StaticStructureSchema = [
   3,
   n0,
   _LFI,
@@ -1180,30 +1180,30 @@ export var ListFleetsInput: StaticStructureSchema = [
   [_nT, _mR, _sO, _sB],
   [[() => SensitiveString, 0], 1, 0, 0],
 ];
-export var ListFleetsOutput: StaticStructureSchema = [3, n0, _LFO, 0, [_nT, _f], [0, 64 | 0]];
-export var ListProjectsInput: StaticStructureSchema = [3, n0, _LPI, 0, [_sB, _sO, _nT], [0, 0, 0]];
-export var ListProjectsOutput: StaticStructureSchema = [3, n0, _LPO, 0, [_nT, _p], [0, 64 | 0]];
-export var ListReportGroupsInput: StaticStructureSchema = [3, n0, _LRGI, 0, [_sO, _sB, _nT, _mR], [0, 0, 0, 1]];
-export var ListReportGroupsOutput: StaticStructureSchema = [3, n0, _LRGO, 0, [_nT, _rG], [0, 64 | 0]];
-export var ListReportsForReportGroupInput: StaticStructureSchema = [
+export var ListFleetsOutput$: StaticStructureSchema = [3, n0, _LFO, 0, [_nT, _f], [0, 64 | 0]];
+export var ListProjectsInput$: StaticStructureSchema = [3, n0, _LPI, 0, [_sB, _sO, _nT], [0, 0, 0]];
+export var ListProjectsOutput$: StaticStructureSchema = [3, n0, _LPO, 0, [_nT, _p], [0, 64 | 0]];
+export var ListReportGroupsInput$: StaticStructureSchema = [3, n0, _LRGI, 0, [_sO, _sB, _nT, _mR], [0, 0, 0, 1]];
+export var ListReportGroupsOutput$: StaticStructureSchema = [3, n0, _LRGO, 0, [_nT, _rG], [0, 64 | 0]];
+export var ListReportsForReportGroupInput$: StaticStructureSchema = [
   3,
   n0,
   _LRFRGI,
   0,
   [_rGAe, _nT, _sO, _mR, _fi],
-  [0, 0, 0, 1, () => ReportFilter],
+  [0, 0, 0, 1, () => ReportFilter$],
 ];
-export var ListReportsForReportGroupOutput: StaticStructureSchema = [3, n0, _LRFRGO, 0, [_nT, _r], [0, 64 | 0]];
-export var ListReportsInput: StaticStructureSchema = [
+export var ListReportsForReportGroupOutput$: StaticStructureSchema = [3, n0, _LRFRGO, 0, [_nT, _r], [0, 64 | 0]];
+export var ListReportsInput$: StaticStructureSchema = [
   3,
   n0,
   _LRI,
   0,
   [_sO, _nT, _mR, _fi],
-  [0, 0, 1, () => ReportFilter],
+  [0, 0, 1, () => ReportFilter$],
 ];
-export var ListReportsOutput: StaticStructureSchema = [3, n0, _LRO, 0, [_nT, _r], [0, 64 | 0]];
-export var ListSandboxesForProjectInput: StaticStructureSchema = [
+export var ListReportsOutput$: StaticStructureSchema = [3, n0, _LRO, 0, [_nT, _r], [0, 64 | 0]];
+export var ListSandboxesForProjectInput$: StaticStructureSchema = [
   3,
   n0,
   _LSFPI,
@@ -1211,15 +1211,15 @@ export var ListSandboxesForProjectInput: StaticStructureSchema = [
   [_pN, _mR, _sO, _nT],
   [0, 1, 0, [() => SensitiveString, 0]],
 ];
-export var ListSandboxesForProjectOutput: StaticStructureSchema = [3, n0, _LSFPO, 0, [_i, _nT], [64 | 0, 0]];
-export var ListSandboxesInput: StaticStructureSchema = [3, n0, _LSI, 0, [_mR, _sO, _nT], [1, 0, 0]];
-export var ListSandboxesOutput: StaticStructureSchema = [3, n0, _LSO, 0, [_i, _nT], [64 | 0, 0]];
-export var ListSharedProjectsInput: StaticStructureSchema = [3, n0, _LSPI, 0, [_sB, _sO, _mR, _nT], [0, 0, 1, 0]];
-export var ListSharedProjectsOutput: StaticStructureSchema = [3, n0, _LSPO, 0, [_nT, _p], [0, 64 | 0]];
-export var ListSharedReportGroupsInput: StaticStructureSchema = [3, n0, _LSRGI, 0, [_sO, _sB, _nT, _mR], [0, 0, 0, 1]];
-export var ListSharedReportGroupsOutput: StaticStructureSchema = [3, n0, _LSRGO, 0, [_nT, _rG], [0, 64 | 0]];
-export var ListSourceCredentialsInput: StaticStructureSchema = [3, n0, _LSCI, 0, [], []];
-export var ListSourceCredentialsOutput: StaticStructureSchema = [
+export var ListSandboxesForProjectOutput$: StaticStructureSchema = [3, n0, _LSFPO, 0, [_i, _nT], [64 | 0, 0]];
+export var ListSandboxesInput$: StaticStructureSchema = [3, n0, _LSI, 0, [_mR, _sO, _nT], [1, 0, 0]];
+export var ListSandboxesOutput$: StaticStructureSchema = [3, n0, _LSO, 0, [_i, _nT], [64 | 0, 0]];
+export var ListSharedProjectsInput$: StaticStructureSchema = [3, n0, _LSPI, 0, [_sB, _sO, _mR, _nT], [0, 0, 1, 0]];
+export var ListSharedProjectsOutput$: StaticStructureSchema = [3, n0, _LSPO, 0, [_nT, _p], [0, 64 | 0]];
+export var ListSharedReportGroupsInput$: StaticStructureSchema = [3, n0, _LSRGI, 0, [_sO, _sB, _nT, _mR], [0, 0, 0, 1]];
+export var ListSharedReportGroupsOutput$: StaticStructureSchema = [3, n0, _LSRGO, 0, [_nT, _rG], [0, 64 | 0]];
+export var ListSourceCredentialsInput$: StaticStructureSchema = [3, n0, _LSCI, 0, [], []];
+export var ListSourceCredentialsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LSCO,
@@ -1227,27 +1227,27 @@ export var ListSourceCredentialsOutput: StaticStructureSchema = [
   [_sCI],
   [() => SourceCredentialsInfos],
 ];
-export var LogsConfig: StaticStructureSchema = [
+export var LogsConfig$: StaticStructureSchema = [
   3,
   n0,
   _LC,
   0,
   [_cWL, _sL],
-  [() => CloudWatchLogsConfig, () => S3LogsConfig],
+  [() => CloudWatchLogsConfig$, () => S3LogsConfig$],
 ];
-export var LogsLocation: StaticStructureSchema = [
+export var LogsLocation$: StaticStructureSchema = [
   3,
   n0,
   _LL,
   0,
   [_gN, _sN, _dL, _sDL, _cWLA, _sLA, _cWL, _sL],
-  [0, 0, 0, 0, 0, 0, () => CloudWatchLogsConfig, () => S3LogsConfig],
+  [0, 0, 0, 0, 0, 0, () => CloudWatchLogsConfig$, () => S3LogsConfig$],
 ];
-export var NetworkInterface: StaticStructureSchema = [3, n0, _NI, 0, [_sIu, _nII], [0, 0]];
-export var OAuthProviderException: StaticErrorSchema = [-3, n0, _OAPE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(OAuthProviderException, __OAuthProviderException);
-export var PhaseContext: StaticStructureSchema = [3, n0, _PC, 0, [_sC, _m], [0, 0]];
-export var Project: StaticStructureSchema = [
+export var NetworkInterface$: StaticStructureSchema = [3, n0, _NI, 0, [_sIu, _nII], [0, 0]];
+export var OAuthProviderException$: StaticErrorSchema = [-3, n0, _OAPE, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(OAuthProviderException$, OAuthProviderException);
+export var PhaseContext$: StaticStructureSchema = [3, n0, _PC, 0, [_sC, _m], [0, 0]];
+export var Project$: StaticStructureSchema = [
   3,
   n0,
   _P,
@@ -1287,14 +1287,14 @@ export var Project: StaticStructureSchema = [
     0,
     0,
     0,
-    () => ProjectSource,
+    () => ProjectSource$,
     () => ProjectSources,
     0,
     () => ProjectSecondarySourceVersions,
-    () => ProjectArtifacts,
+    () => ProjectArtifacts$,
     () => ProjectArtifactsList,
-    () => ProjectCache,
-    () => ProjectEnvironment,
+    () => ProjectCache$,
+    () => ProjectEnvironment$,
     0,
     1,
     1,
@@ -1302,12 +1302,12 @@ export var Project: StaticStructureSchema = [
     () => TagList,
     4,
     4,
-    () => Webhook,
-    () => VpcConfig,
-    () => ProjectBadge,
-    () => LogsConfig,
+    () => Webhook$,
+    () => VpcConfig$,
+    () => ProjectBadge$,
+    () => LogsConfig$,
     () => ProjectFileSystemLocations,
-    () => ProjectBuildBatchConfig,
+    () => ProjectBuildBatchConfig$,
     1,
     0,
     0,
@@ -1315,7 +1315,7 @@ export var Project: StaticStructureSchema = [
     1,
   ],
 ];
-export var ProjectArtifacts: StaticStructureSchema = [
+export var ProjectArtifacts$: StaticStructureSchema = [
   3,
   n0,
   _PA,
@@ -1323,17 +1323,17 @@ export var ProjectArtifacts: StaticStructureSchema = [
   [_t, _lo, _pa, _nTa, _na, _pac, _oAN, _eD, _aI, _bOA],
   [0, 0, 0, 0, 0, 0, 2, 2, 0, 0],
 ];
-export var ProjectBadge: StaticStructureSchema = [3, n0, _PB, 0, [_bE, _bRU], [2, 0]];
-export var ProjectBuildBatchConfig: StaticStructureSchema = [
+export var ProjectBadge$: StaticStructureSchema = [3, n0, _PB, 0, [_bE, _bRU], [2, 0]];
+export var ProjectBuildBatchConfig$: StaticStructureSchema = [
   3,
   n0,
   _PBBC,
   0,
   [_sR, _cA, _re, _tIMi, _bRM],
-  [0, 2, () => BatchRestrictions, 1, 0],
+  [0, 2, () => BatchRestrictions$, 1, 0],
 ];
-export var ProjectCache: StaticStructureSchema = [3, n0, _PCr, 0, [_t, _lo, _mo, _cN], [0, 0, 64 | 0, 0]];
-export var ProjectEnvironment: StaticStructureSchema = [
+export var ProjectCache$: StaticStructureSchema = [3, n0, _PCr, 0, [_t, _lo, _mo, _cN], [0, 0, 64 | 0, 0]];
+export var ProjectEnvironment$: StaticStructureSchema = [
   3,
   n0,
   _PE,
@@ -1343,17 +1343,17 @@ export var ProjectEnvironment: StaticStructureSchema = [
     0,
     0,
     0,
-    () => ComputeConfiguration,
-    () => ProjectFleet,
+    () => ComputeConfiguration$,
+    () => ProjectFleet$,
     () => EnvironmentVariables,
     2,
     0,
-    () => RegistryCredential,
+    () => RegistryCredential$,
     0,
-    () => DockerServer,
+    () => DockerServer$,
   ],
 ];
-export var ProjectFileSystemLocation: StaticStructureSchema = [
+export var ProjectFileSystemLocation$: StaticStructureSchema = [
   3,
   n0,
   _PFSL,
@@ -1361,52 +1361,52 @@ export var ProjectFileSystemLocation: StaticStructureSchema = [
   [_t, _lo, _mP, _ide, _mO],
   [0, 0, 0, 0, 0],
 ];
-export var ProjectFleet: StaticStructureSchema = [3, n0, _PF, 0, [_fAl], [0]];
-export var ProjectSource: StaticStructureSchema = [
+export var ProjectFleet$: StaticStructureSchema = [3, n0, _PF, 0, [_fAl], [0]];
+export var ProjectSource$: StaticStructureSchema = [
   3,
   n0,
   _PS,
   0,
   [_t, _lo, _gCD, _gSC, _bu, _au, _rBS, _bSC, _iS, _sIo],
-  [0, 0, 1, () => GitSubmodulesConfig, 0, () => SourceAuth, 2, () => BuildStatusConfig, 2, 0],
+  [0, 0, 1, () => GitSubmodulesConfig$, 0, () => SourceAuth$, 2, () => BuildStatusConfig$, 2, 0],
 ];
-export var ProjectSourceVersion: StaticStructureSchema = [3, n0, _PSV, 0, [_sIo, _sV], [0, 0]];
-export var ProxyConfiguration: StaticStructureSchema = [3, n0, _PCro, 0, [_dB, _oPR], [0, () => FleetProxyRules]];
-export var PullRequestBuildPolicy: StaticStructureSchema = [3, n0, _PRBP, 0, [_rCA, _aR], [0, 64 | 0]];
-export var PutResourcePolicyInput: StaticStructureSchema = [3, n0, _PRPI, 0, [_po, _rAe], [0, 0]];
-export var PutResourcePolicyOutput: StaticStructureSchema = [3, n0, _PRPO, 0, [_rAe], [0]];
-export var RegistryCredential: StaticStructureSchema = [3, n0, _RC, 0, [_cre, _cPr], [0, 0]];
-export var Report: StaticStructureSchema = [
+export var ProjectSourceVersion$: StaticStructureSchema = [3, n0, _PSV, 0, [_sIo, _sV], [0, 0]];
+export var ProxyConfiguration$: StaticStructureSchema = [3, n0, _PCro, 0, [_dB, _oPR], [0, () => FleetProxyRules]];
+export var PullRequestBuildPolicy$: StaticStructureSchema = [3, n0, _PRBP, 0, [_rCA, _aR], [0, 64 | 0]];
+export var PutResourcePolicyInput$: StaticStructureSchema = [3, n0, _PRPI, 0, [_po, _rAe], [0, 0]];
+export var PutResourcePolicyOutput$: StaticStructureSchema = [3, n0, _PRPO, 0, [_rAe], [0]];
+export var RegistryCredential$: StaticStructureSchema = [3, n0, _RC, 0, [_cre, _cPr], [0, 0]];
+export var Report$: StaticStructureSchema = [
   3,
   n0,
   _R,
   0,
   [_a, _t, _na, _rGAe, _eI, _st, _cr, _ex, _eCx, _tr, _tS, _cCS],
-  [0, 0, 0, 0, 0, 0, 4, 4, () => ReportExportConfig, 2, () => TestReportSummary, () => CodeCoverageReportSummary],
+  [0, 0, 0, 0, 0, 0, 4, 4, () => ReportExportConfig$, 2, () => TestReportSummary$, () => CodeCoverageReportSummary$],
 ];
-export var ReportExportConfig: StaticStructureSchema = [3, n0, _REC, 0, [_eCT, _sD], [0, () => S3ReportExportConfig]];
-export var ReportFilter: StaticStructureSchema = [3, n0, _RF, 0, [_st], [0]];
-export var ReportGroup: StaticStructureSchema = [
+export var ReportExportConfig$: StaticStructureSchema = [3, n0, _REC, 0, [_eCT, _sD], [0, () => S3ReportExportConfig$]];
+export var ReportFilter$: StaticStructureSchema = [3, n0, _RF, 0, [_st], [0]];
+export var ReportGroup$: StaticStructureSchema = [
   3,
   n0,
   _RG,
   0,
   [_a, _na, _t, _eCx, _cr, _lMa, _ta, _st],
-  [0, 0, 0, () => ReportExportConfig, 4, 4, () => TagList, 0],
+  [0, 0, 0, () => ReportExportConfig$, 4, 4, () => TagList, 0],
 ];
-export var ReportGroupTrendStats: StaticStructureSchema = [3, n0, _RGTS, 0, [_av, _ma, _mi], [0, 0, 0]];
-export var ReportWithRawData: StaticStructureSchema = [3, n0, _RWRD, 0, [_rAep, _da], [0, 0]];
-export var ResolvedArtifact: StaticStructureSchema = [3, n0, _RA, 0, [_t, _lo, _ide], [0, 0, 0]];
-export var ResourceAlreadyExistsException: StaticErrorSchema = [-3, n0, _RAEE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException, __ResourceAlreadyExistsException);
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var RetryBuildBatchInput: StaticStructureSchema = [3, n0, _RBBI, 0, [_id, _iTd, _rT], [0, 0, 0]];
-export var RetryBuildBatchOutput: StaticStructureSchema = [3, n0, _RBBO, 0, [_bBu], [() => BuildBatch]];
-export var RetryBuildInput: StaticStructureSchema = [3, n0, _RBI, 0, [_id, _iTd], [0, 0]];
-export var RetryBuildOutput: StaticStructureSchema = [3, n0, _RBO, 0, [_bui], [() => Build]];
-export var S3LogsConfig: StaticStructureSchema = [3, n0, _SLC, 0, [_st, _lo, _eD, _bOA], [0, 0, 2, 0]];
-export var S3ReportExportConfig: StaticStructureSchema = [
+export var ReportGroupTrendStats$: StaticStructureSchema = [3, n0, _RGTS, 0, [_av, _ma, _mi], [0, 0, 0]];
+export var ReportWithRawData$: StaticStructureSchema = [3, n0, _RWRD, 0, [_rAep, _da], [0, 0]];
+export var ResolvedArtifact$: StaticStructureSchema = [3, n0, _RA, 0, [_t, _lo, _ide], [0, 0, 0]];
+export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var RetryBuildBatchInput$: StaticStructureSchema = [3, n0, _RBBI, 0, [_id, _iTd, _rT], [0, 0, 0]];
+export var RetryBuildBatchOutput$: StaticStructureSchema = [3, n0, _RBBO, 0, [_bBu], [() => BuildBatch$]];
+export var RetryBuildInput$: StaticStructureSchema = [3, n0, _RBI, 0, [_id, _iTd], [0, 0]];
+export var RetryBuildOutput$: StaticStructureSchema = [3, n0, _RBO, 0, [_bui], [() => Build$]];
+export var S3LogsConfig$: StaticStructureSchema = [3, n0, _SLC, 0, [_st, _lo, _eD, _bOA], [0, 0, 2, 0]];
+export var S3ReportExportConfig$: StaticStructureSchema = [
   3,
   n0,
   _SREC,
@@ -1414,7 +1414,7 @@ export var S3ReportExportConfig: StaticStructureSchema = [
   [_buc, _bO, _pa, _pac, _eK, _eD],
   [0, 0, 0, 0, 0, 2],
 ];
-export var Sandbox: StaticStructureSchema = [
+export var Sandbox$: StaticStructureSchema = [
   3,
   n0,
   _S,
@@ -1428,30 +1428,30 @@ export var Sandbox: StaticStructureSchema = [
     4,
     4,
     0,
-    () => ProjectSource,
+    () => ProjectSource$,
     0,
     () => ProjectSources,
     () => ProjectSecondarySourceVersions,
-    () => ProjectEnvironment,
+    () => ProjectEnvironment$,
     () => ProjectFileSystemLocations,
     1,
     1,
-    () => VpcConfig,
-    () => LogsConfig,
+    () => VpcConfig$,
+    () => LogsConfig$,
     0,
     0,
-    () => SandboxSession,
+    () => SandboxSession$,
   ],
 ];
-export var SandboxSession: StaticStructureSchema = [
+export var SandboxSession$: StaticStructureSchema = [
   3,
   n0,
   _SSa,
   0,
   [_id, _st, _sT, _eT, _cP, _ph, _rSV, _l, _nI],
-  [0, 0, 4, 4, 0, () => SandboxSessionPhases, 0, () => LogsLocation, () => NetworkInterface],
+  [0, 0, 4, 4, 0, () => SandboxSessionPhases, 0, () => LogsLocation$, () => NetworkInterface$],
 ];
-export var SandboxSessionPhase: StaticStructureSchema = [
+export var SandboxSessionPhase$: StaticStructureSchema = [
   3,
   n0,
   _SSP,
@@ -1459,7 +1459,7 @@ export var SandboxSessionPhase: StaticStructureSchema = [
   [_pT, _pS, _sT, _eT, _dIS, _con],
   [0, 0, 4, 4, 1, () => PhaseContexts],
 ];
-export var ScalingConfigurationInput: StaticStructureSchema = [
+export var ScalingConfigurationInput$: StaticStructureSchema = [
   3,
   n0,
   _SCI,
@@ -1467,7 +1467,7 @@ export var ScalingConfigurationInput: StaticStructureSchema = [
   [_sTc, _tTSC, _mCa],
   [0, () => TargetTrackingScalingConfigurations, 1],
 ];
-export var ScalingConfigurationOutput: StaticStructureSchema = [
+export var ScalingConfigurationOutput$: StaticStructureSchema = [
   3,
   n0,
   _SCO,
@@ -1475,11 +1475,11 @@ export var ScalingConfigurationOutput: StaticStructureSchema = [
   [_sTc, _tTSC, _mCa, _dC],
   [0, () => TargetTrackingScalingConfigurations, 1, 1],
 ];
-export var ScopeConfiguration: StaticStructureSchema = [3, n0, _SC, 0, [_na, _do, _sc], [0, 0, 0]];
-export var SourceAuth: StaticStructureSchema = [3, n0, _SA, 0, [_t, _res], [0, 0]];
-export var SourceCredentialsInfo: StaticStructureSchema = [3, n0, _SCIo, 0, [_a, _sTer, _aT, _res], [0, 0, 0, 0]];
-export var SSMSession: StaticStructureSchema = [3, n0, _SSMS, 0, [_sIe, _tV, _sU], [0, 0, 0]];
-export var StartBuildBatchInput: StaticStructureSchema = [
+export var ScopeConfiguration$: StaticStructureSchema = [3, n0, _SC, 0, [_na, _do, _sc], [0, 0, 0]];
+export var SourceAuth$: StaticStructureSchema = [3, n0, _SA, 0, [_t, _res], [0, 0]];
+export var SourceCredentialsInfo$: StaticStructureSchema = [3, n0, _SCIo, 0, [_a, _sTer, _aT, _res], [0, 0, 0, 0]];
+export var SSMSession$: StaticStructureSchema = [3, n0, _SSMS, 0, [_sIe, _tV, _sU], [0, 0, 0]];
+export var StartBuildBatchInput$: StaticStructureSchema = [
   3,
   n0,
   _SBBI,
@@ -1522,14 +1522,14 @@ export var StartBuildBatchInput: StaticStructureSchema = [
     () => ProjectSources,
     () => ProjectSecondarySourceVersions,
     0,
-    () => ProjectArtifacts,
+    () => ProjectArtifacts$,
     () => ProjectArtifactsList,
     () => EnvironmentVariables,
     0,
     0,
-    () => SourceAuth,
+    () => SourceAuth$,
     1,
-    () => GitSubmodulesConfig,
+    () => GitSubmodulesConfig$,
     0,
     2,
     2,
@@ -1537,22 +1537,22 @@ export var StartBuildBatchInput: StaticStructureSchema = [
     0,
     0,
     0,
-    () => ProjectCache,
+    () => ProjectCache$,
     0,
     2,
     1,
     1,
     0,
     0,
-    () => LogsConfig,
-    () => RegistryCredential,
+    () => LogsConfig$,
+    () => RegistryCredential$,
     0,
-    () => ProjectBuildBatchConfig,
+    () => ProjectBuildBatchConfig$,
     2,
   ],
 ];
-export var StartBuildBatchOutput: StaticStructureSchema = [3, n0, _SBBO, 0, [_bBu], [() => BuildBatch]];
-export var StartBuildInput: StaticStructureSchema = [
+export var StartBuildBatchOutput$: StaticStructureSchema = [3, n0, _SBBO, 0, [_bBu], [() => BuildBatch$]];
+export var StartBuildInput$: StaticStructureSchema = [
   3,
   n0,
   _SBI,
@@ -1597,39 +1597,39 @@ export var StartBuildInput: StaticStructureSchema = [
     () => ProjectSources,
     () => ProjectSecondarySourceVersions,
     0,
-    () => ProjectArtifacts,
+    () => ProjectArtifacts$,
     () => ProjectArtifactsList,
     () => EnvironmentVariables,
     0,
     0,
-    () => SourceAuth,
+    () => SourceAuth$,
     1,
-    () => GitSubmodulesConfig,
+    () => GitSubmodulesConfig$,
     0,
     2,
     2,
-    () => BuildStatusConfig,
+    () => BuildStatusConfig$,
     0,
     0,
     0,
     0,
-    () => ProjectCache,
+    () => ProjectCache$,
     0,
     2,
     1,
     1,
     0,
     0,
-    () => LogsConfig,
-    () => RegistryCredential,
+    () => LogsConfig$,
+    () => RegistryCredential$,
     0,
     2,
-    () => ProjectFleet,
+    () => ProjectFleet$,
     1,
   ],
 ];
-export var StartBuildOutput: StaticStructureSchema = [3, n0, _SBO, 0, [_bui], [() => Build]];
-export var StartCommandExecutionInput: StaticStructureSchema = [
+export var StartBuildOutput$: StaticStructureSchema = [3, n0, _SBO, 0, [_bui], [() => Build$]];
+export var StartCommandExecutionInput$: StaticStructureSchema = [
   3,
   n0,
   _SCEI,
@@ -1637,27 +1637,27 @@ export var StartCommandExecutionInput: StaticStructureSchema = [
   [_sI, _com, _t],
   [0, [() => SensitiveNonEmptyString, 0], 0],
 ];
-export var StartCommandExecutionOutput: StaticStructureSchema = [
+export var StartCommandExecutionOutput$: StaticStructureSchema = [
   3,
   n0,
   _SCEO,
   0,
   [_cEo],
-  [[() => CommandExecution, 0]],
+  [[() => CommandExecution$, 0]],
 ];
-export var StartSandboxConnectionInput: StaticStructureSchema = [3, n0, _SSCI, 0, [_sI], [0]];
-export var StartSandboxConnectionOutput: StaticStructureSchema = [3, n0, _SSCO, 0, [_sSs], [() => SSMSession]];
-export var StartSandboxInput: StaticStructureSchema = [3, n0, _SSI, 0, [_pN, _iTd], [0, [() => SensitiveString, 0]]];
-export var StartSandboxOutput: StaticStructureSchema = [3, n0, _SSO, 0, [_sa], [() => Sandbox]];
-export var StopBuildBatchInput: StaticStructureSchema = [3, n0, _SBBIt, 0, [_id], [0]];
-export var StopBuildBatchOutput: StaticStructureSchema = [3, n0, _SBBOt, 0, [_bBu], [() => BuildBatch]];
-export var StopBuildInput: StaticStructureSchema = [3, n0, _SBIt, 0, [_id], [0]];
-export var StopBuildOutput: StaticStructureSchema = [3, n0, _SBOt, 0, [_bui], [() => Build]];
-export var StopSandboxInput: StaticStructureSchema = [3, n0, _SSIt, 0, [_id], [0]];
-export var StopSandboxOutput: StaticStructureSchema = [3, n0, _SSOt, 0, [_sa], [() => Sandbox]];
-export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_k, _va], [0, 0]];
-export var TargetTrackingScalingConfiguration: StaticStructureSchema = [3, n0, _TTSC, 0, [_mTe, _tVa], [0, 1]];
-export var TestCase: StaticStructureSchema = [
+export var StartSandboxConnectionInput$: StaticStructureSchema = [3, n0, _SSCI, 0, [_sI], [0]];
+export var StartSandboxConnectionOutput$: StaticStructureSchema = [3, n0, _SSCO, 0, [_sSs], [() => SSMSession$]];
+export var StartSandboxInput$: StaticStructureSchema = [3, n0, _SSI, 0, [_pN, _iTd], [0, [() => SensitiveString, 0]]];
+export var StartSandboxOutput$: StaticStructureSchema = [3, n0, _SSO, 0, [_sa], [() => Sandbox$]];
+export var StopBuildBatchInput$: StaticStructureSchema = [3, n0, _SBBIt, 0, [_id], [0]];
+export var StopBuildBatchOutput$: StaticStructureSchema = [3, n0, _SBBOt, 0, [_bBu], [() => BuildBatch$]];
+export var StopBuildInput$: StaticStructureSchema = [3, n0, _SBIt, 0, [_id], [0]];
+export var StopBuildOutput$: StaticStructureSchema = [3, n0, _SBOt, 0, [_bui], [() => Build$]];
+export var StopSandboxInput$: StaticStructureSchema = [3, n0, _SSIt, 0, [_id], [0]];
+export var StopSandboxOutput$: StaticStructureSchema = [3, n0, _SSOt, 0, [_sa], [() => Sandbox$]];
+export var Tag$: StaticStructureSchema = [3, n0, _T, 0, [_k, _va], [0, 0]];
+export var TargetTrackingScalingConfiguration$: StaticStructureSchema = [3, n0, _TTSC, 0, [_mTe, _tVa], [0, 1]];
+export var TestCase$: StaticStructureSchema = [
   3,
   n0,
   _TC,
@@ -1665,9 +1665,9 @@ export var TestCase: StaticStructureSchema = [
   [_rAep, _tRDP, _pre, _na, _st, _dINS, _m, _ex, _tSN],
   [0, 0, 0, 0, 0, 1, 0, 4, 0],
 ];
-export var TestCaseFilter: StaticStructureSchema = [3, n0, _TCF, 0, [_st, _ke], [0, 0]];
-export var TestReportSummary: StaticStructureSchema = [3, n0, _TRS, 0, [_tot, _sCt, _dINS], [1, 128 | 1, 1]];
-export var UpdateFleetInput: StaticStructureSchema = [
+export var TestCaseFilter$: StaticStructureSchema = [3, n0, _TCF, 0, [_st, _ke], [0, 0]];
+export var TestReportSummary$: StaticStructureSchema = [3, n0, _TRS, 0, [_tot, _sCt, _dINS], [1, 128 | 1, 1]];
+export var UpdateFleetInput$: StaticStructureSchema = [
   3,
   n0,
   _UFI,
@@ -1678,18 +1678,18 @@ export var UpdateFleetInput: StaticStructureSchema = [
     1,
     0,
     0,
-    () => ComputeConfiguration,
-    () => ScalingConfigurationInput,
+    () => ComputeConfiguration$,
+    () => ScalingConfigurationInput$,
     0,
-    () => VpcConfig,
-    () => ProxyConfiguration,
+    () => VpcConfig$,
+    () => ProxyConfiguration$,
     0,
     0,
     () => TagList,
   ],
 ];
-export var UpdateFleetOutput: StaticStructureSchema = [3, n0, _UFO, 0, [_fl], [() => Fleet]];
-export var UpdateProjectInput: StaticStructureSchema = [
+export var UpdateFleetOutput$: StaticStructureSchema = [3, n0, _UFO, 0, [_fl], [() => Fleet$]];
+export var UpdateProjectInput$: StaticStructureSchema = [
   3,
   n0,
   _UPI,
@@ -1721,452 +1721,501 @@ export var UpdateProjectInput: StaticStructureSchema = [
   [
     0,
     0,
-    () => ProjectSource,
+    () => ProjectSource$,
     () => ProjectSources,
     0,
     () => ProjectSecondarySourceVersions,
-    () => ProjectArtifacts,
+    () => ProjectArtifacts$,
     () => ProjectArtifactsList,
-    () => ProjectCache,
-    () => ProjectEnvironment,
+    () => ProjectCache$,
+    () => ProjectEnvironment$,
     0,
     1,
     1,
     0,
     () => TagList,
-    () => VpcConfig,
+    () => VpcConfig$,
     2,
-    () => LogsConfig,
+    () => LogsConfig$,
     () => ProjectFileSystemLocations,
-    () => ProjectBuildBatchConfig,
+    () => ProjectBuildBatchConfig$,
     1,
     1,
   ],
 ];
-export var UpdateProjectOutput: StaticStructureSchema = [3, n0, _UPO, 0, [_pr], [() => Project]];
-export var UpdateProjectVisibilityInput: StaticStructureSchema = [3, n0, _UPVI, 0, [_pAr, _pV, _rAR], [0, 0, 0]];
-export var UpdateProjectVisibilityOutput: StaticStructureSchema = [3, n0, _UPVO, 0, [_pAr, _pPA, _pV], [0, 0, 0]];
-export var UpdateReportGroupInput: StaticStructureSchema = [
+export var UpdateProjectOutput$: StaticStructureSchema = [3, n0, _UPO, 0, [_pr], [() => Project$]];
+export var UpdateProjectVisibilityInput$: StaticStructureSchema = [3, n0, _UPVI, 0, [_pAr, _pV, _rAR], [0, 0, 0]];
+export var UpdateProjectVisibilityOutput$: StaticStructureSchema = [3, n0, _UPVO, 0, [_pAr, _pPA, _pV], [0, 0, 0]];
+export var UpdateReportGroupInput$: StaticStructureSchema = [
   3,
   n0,
   _URGI,
   0,
   [_a, _eCx, _ta],
-  [0, () => ReportExportConfig, () => TagList],
+  [0, () => ReportExportConfig$, () => TagList],
 ];
-export var UpdateReportGroupOutput: StaticStructureSchema = [3, n0, _URGO, 0, [_rGe], [() => ReportGroup]];
-export var UpdateWebhookInput: StaticStructureSchema = [
+export var UpdateReportGroupOutput$: StaticStructureSchema = [3, n0, _URGO, 0, [_rGe], [() => ReportGroup$]];
+export var UpdateWebhookInput$: StaticStructureSchema = [
   3,
   n0,
   _UWI,
   0,
   [_pN, _bF, _rS, _fG, _bT, _pRBP],
-  [0, 0, 2, () => FilterGroups, 0, () => PullRequestBuildPolicy],
+  [0, 0, 2, () => FilterGroups, 0, () => PullRequestBuildPolicy$],
 ];
-export var UpdateWebhookOutput: StaticStructureSchema = [3, n0, _UWO, 0, [_w], [() => Webhook]];
-export var VpcConfig: StaticStructureSchema = [3, n0, _VC, 0, [_vI, _su, _sGI], [0, 64 | 0, 64 | 0]];
-export var Webhook: StaticStructureSchema = [
+export var UpdateWebhookOutput$: StaticStructureSchema = [3, n0, _UWO, 0, [_w], [() => Webhook$]];
+export var VpcConfig$: StaticStructureSchema = [3, n0, _VC, 0, [_vI, _su, _sGI], [0, 64 | 0, 64 | 0]];
+export var Webhook$: StaticStructureSchema = [
   3,
   n0,
   _W,
   0,
   [_ur, _pU, _se, _bF, _fG, _bT, _mC, _lMS, _sCco, _st, _sM, _pRBP],
-  [0, 0, 0, 0, () => FilterGroups, 0, 2, 4, () => ScopeConfiguration, 0, 0, () => PullRequestBuildPolicy],
+  [0, 0, 0, 0, () => FilterGroups, 0, 2, 4, () => ScopeConfiguration$, 0, 0, () => PullRequestBuildPolicy$],
 ];
-export var WebhookFilter: StaticStructureSchema = [3, n0, _WF, 0, [_t, _pat, _eMP], [0, 0, 2]];
-export var CodeBuildServiceException: StaticErrorSchema = [-3, _sm, "CodeBuildServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(CodeBuildServiceException, __CodeBuildServiceException);
-export var BuildArtifactsList: StaticListSchema = [1, n0, _BAL, 0, () => BuildArtifacts];
-export var BuildBatches: StaticListSchema = [1, n0, _BBu, 0, () => BuildBatch];
-export var BuildBatchIds = 64 | 0;
-export var BuildBatchPhases: StaticListSchema = [1, n0, _BBPu, 0, () => BuildBatchPhase];
-export var BuildGroups: StaticListSchema = [1, n0, _BGu, 0, () => BuildGroup];
-export var BuildIds = 64 | 0;
-export var BuildPhases: StaticListSchema = [1, n0, _BPu, 0, () => BuildPhase];
-export var BuildReportArns = 64 | 0;
-export var Builds: StaticListSchema = [1, n0, _Bu, 0, () => Build];
-export var BuildsNotDeleted: StaticListSchema = [1, n0, _BNDu, 0, () => BuildNotDeleted];
-export var BuildSummaries: StaticListSchema = [1, n0, _BSu, 0, () => BuildSummary];
-export var CodeCoverages: StaticListSchema = [1, n0, _CCod, 0, () => CodeCoverage];
-export var CommandExecutionIds = 64 | 0;
-export var CommandExecutions: StaticListSchema = [1, n0, _CEo, 0, [() => CommandExecution, 0]];
-export var ComputeTypesAllowed = 64 | 0;
-export var EnvironmentImages: StaticListSchema = [1, n0, _EIn, 0, () => EnvironmentImage];
-export var EnvironmentLanguages: StaticListSchema = [1, n0, _ELn, 0, () => EnvironmentLanguage];
-export var EnvironmentPlatforms: StaticListSchema = [1, n0, _EPn, 0, () => EnvironmentPlatform];
-export var EnvironmentVariables: StaticListSchema = [1, n0, _EVn, 0, () => EnvironmentVariable];
-export var ExportedEnvironmentVariables: StaticListSchema = [1, n0, _EEVx, 0, () => ExportedEnvironmentVariable];
-export var FilterGroup: StaticListSchema = [1, n0, _FGi, 0, () => WebhookFilter];
-export var FilterGroups: StaticListSchema = [1, n0, _FG, 0, () => FilterGroup];
-export var FleetArns = 64 | 0;
-export var FleetNames = 64 | 0;
-export var FleetProxyRuleEntities = 64 | 0;
-export var FleetProxyRules: StaticListSchema = [1, n0, _FPRl, 0, () => FleetProxyRule];
-export var Fleets: StaticListSchema = [1, n0, _Fl, 0, () => Fleet];
-export var FleetsAllowed = 64 | 0;
-export var Identifiers = 64 | 0;
-export var ImageVersions = 64 | 0;
-export var PhaseContexts: StaticListSchema = [1, n0, _PCh, 0, () => PhaseContext];
-export var ProjectArns = 64 | 0;
-export var ProjectArtifactsList: StaticListSchema = [1, n0, _PAL, 0, () => ProjectArtifacts];
-export var ProjectCacheModes = 64 | 0;
-export var ProjectFileSystemLocations: StaticListSchema = [1, n0, _PFSLr, 0, () => ProjectFileSystemLocation];
-export var ProjectNames = 64 | 0;
-export var Projects: StaticListSchema = [1, n0, _Pr, 0, () => Project];
-export var ProjectSecondarySourceVersions: StaticListSchema = [1, n0, _PSSV, 0, () => ProjectSourceVersion];
-export var ProjectSources: StaticListSchema = [1, n0, _PSr, 0, () => ProjectSource];
-export var PullRequestBuildApproverRoles = 64 | 0;
-export var ReportArns = 64 | 0;
-export var ReportGroupArns = 64 | 0;
-export var ReportGroups: StaticListSchema = [1, n0, _RGe, 0, () => ReportGroup];
-export var ReportGroupTrendRawDataList: StaticListSchema = [1, n0, _RGTRDL, 0, () => ReportWithRawData];
-export var Reports: StaticListSchema = [1, n0, _Re, 0, () => Report];
-export var ResolvedSecondaryArtifacts: StaticListSchema = [1, n0, _RSA, 0, () => ResolvedArtifact];
-export var Sandboxes: StaticListSchema = [1, n0, _Sa, 0, () => Sandbox];
-export var SandboxIds = 64 | 0;
-export var SandboxSessionPhases: StaticListSchema = [1, n0, _SSPa, 0, () => SandboxSessionPhase];
-export var SecurityGroupIds = 64 | 0;
-export var SourceCredentialsInfos: StaticListSchema = [1, n0, _SCIou, 0, () => SourceCredentialsInfo];
-export var Subnets = 64 | 0;
-export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
-export var TargetTrackingScalingConfigurations: StaticListSchema = [
+export var WebhookFilter$: StaticStructureSchema = [3, n0, _WF, 0, [_t, _pat, _eMP], [0, 0, 2]];
+export var CodeBuildServiceException$: StaticErrorSchema = [-3, _sm, "CodeBuildServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(CodeBuildServiceException$, CodeBuildServiceException);
+var BuildArtifactsList: StaticListSchema = [1, n0, _BAL, 0, () => BuildArtifacts$];
+var BuildBatches: StaticListSchema = [1, n0, _BBu, 0, () => BuildBatch$];
+var BuildBatchIds = 64 | 0;
+var BuildBatchPhases: StaticListSchema = [1, n0, _BBPu, 0, () => BuildBatchPhase$];
+var BuildGroups: StaticListSchema = [1, n0, _BGu, 0, () => BuildGroup$];
+var BuildIds = 64 | 0;
+var BuildPhases: StaticListSchema = [1, n0, _BPu, 0, () => BuildPhase$];
+var BuildReportArns = 64 | 0;
+var Builds: StaticListSchema = [1, n0, _Bu, 0, () => Build$];
+var BuildsNotDeleted: StaticListSchema = [1, n0, _BNDu, 0, () => BuildNotDeleted$];
+var BuildSummaries: StaticListSchema = [1, n0, _BSu, 0, () => BuildSummary$];
+var CodeCoverages: StaticListSchema = [1, n0, _CCod, 0, () => CodeCoverage$];
+var CommandExecutionIds = 64 | 0;
+var CommandExecutions: StaticListSchema = [1, n0, _CEo, 0, [() => CommandExecution$, 0]];
+var ComputeTypesAllowed = 64 | 0;
+var EnvironmentImages: StaticListSchema = [1, n0, _EIn, 0, () => EnvironmentImage$];
+var EnvironmentLanguages: StaticListSchema = [1, n0, _ELn, 0, () => EnvironmentLanguage$];
+var EnvironmentPlatforms: StaticListSchema = [1, n0, _EPn, 0, () => EnvironmentPlatform$];
+var EnvironmentVariables: StaticListSchema = [1, n0, _EVn, 0, () => EnvironmentVariable$];
+var ExportedEnvironmentVariables: StaticListSchema = [1, n0, _EEVx, 0, () => ExportedEnvironmentVariable$];
+var FilterGroup: StaticListSchema = [1, n0, _FGi, 0, () => WebhookFilter$];
+var FilterGroups: StaticListSchema = [1, n0, _FG, 0, () => FilterGroup];
+var FleetArns = 64 | 0;
+var FleetNames = 64 | 0;
+var FleetProxyRuleEntities = 64 | 0;
+var FleetProxyRules: StaticListSchema = [1, n0, _FPRl, 0, () => FleetProxyRule$];
+var Fleets: StaticListSchema = [1, n0, _Fl, 0, () => Fleet$];
+var FleetsAllowed = 64 | 0;
+var Identifiers = 64 | 0;
+var ImageVersions = 64 | 0;
+var PhaseContexts: StaticListSchema = [1, n0, _PCh, 0, () => PhaseContext$];
+var ProjectArns = 64 | 0;
+var ProjectArtifactsList: StaticListSchema = [1, n0, _PAL, 0, () => ProjectArtifacts$];
+var ProjectCacheModes = 64 | 0;
+var ProjectFileSystemLocations: StaticListSchema = [1, n0, _PFSLr, 0, () => ProjectFileSystemLocation$];
+var ProjectNames = 64 | 0;
+var Projects: StaticListSchema = [1, n0, _Pr, 0, () => Project$];
+var ProjectSecondarySourceVersions: StaticListSchema = [1, n0, _PSSV, 0, () => ProjectSourceVersion$];
+var ProjectSources: StaticListSchema = [1, n0, _PSr, 0, () => ProjectSource$];
+var PullRequestBuildApproverRoles = 64 | 0;
+var ReportArns = 64 | 0;
+var ReportGroupArns = 64 | 0;
+var ReportGroups: StaticListSchema = [1, n0, _RGe, 0, () => ReportGroup$];
+var ReportGroupTrendRawDataList: StaticListSchema = [1, n0, _RGTRDL, 0, () => ReportWithRawData$];
+var Reports: StaticListSchema = [1, n0, _Re, 0, () => Report$];
+var ResolvedSecondaryArtifacts: StaticListSchema = [1, n0, _RSA, 0, () => ResolvedArtifact$];
+var Sandboxes: StaticListSchema = [1, n0, _Sa, 0, () => Sandbox$];
+var SandboxIds = 64 | 0;
+var SandboxSessionPhases: StaticListSchema = [1, n0, _SSPa, 0, () => SandboxSessionPhase$];
+var SecurityGroupIds = 64 | 0;
+var SourceCredentialsInfos: StaticListSchema = [1, n0, _SCIou, 0, () => SourceCredentialsInfo$];
+var Subnets = 64 | 0;
+var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
+var TargetTrackingScalingConfigurations: StaticListSchema = [
   1,
   n0,
   _TTSCa,
   0,
-  () => TargetTrackingScalingConfiguration,
+  () => TargetTrackingScalingConfiguration$,
 ];
-export var TestCases: StaticListSchema = [1, n0, _TCe, 0, () => TestCase];
-export var ReportStatusCounts = 128 | 1;
-export var BatchDeleteBuilds: StaticOperationSchema = [
+var TestCases: StaticListSchema = [1, n0, _TCe, 0, () => TestCase$];
+var ReportStatusCounts = 128 | 1;
+export var BatchDeleteBuilds$: StaticOperationSchema = [
   9,
   n0,
   _BDB,
   0,
-  () => BatchDeleteBuildsInput,
-  () => BatchDeleteBuildsOutput,
+  () => BatchDeleteBuildsInput$,
+  () => BatchDeleteBuildsOutput$,
 ];
-export var BatchGetBuildBatches: StaticOperationSchema = [
+export var BatchGetBuildBatches$: StaticOperationSchema = [
   9,
   n0,
   _BGBB,
   0,
-  () => BatchGetBuildBatchesInput,
-  () => BatchGetBuildBatchesOutput,
+  () => BatchGetBuildBatchesInput$,
+  () => BatchGetBuildBatchesOutput$,
 ];
-export var BatchGetBuilds: StaticOperationSchema = [
+export var BatchGetBuilds$: StaticOperationSchema = [
   9,
   n0,
   _BGB,
   0,
-  () => BatchGetBuildsInput,
-  () => BatchGetBuildsOutput,
+  () => BatchGetBuildsInput$,
+  () => BatchGetBuildsOutput$,
 ];
-export var BatchGetCommandExecutions: StaticOperationSchema = [
+export var BatchGetCommandExecutions$: StaticOperationSchema = [
   9,
   n0,
   _BGCE,
   0,
-  () => BatchGetCommandExecutionsInput,
-  () => BatchGetCommandExecutionsOutput,
+  () => BatchGetCommandExecutionsInput$,
+  () => BatchGetCommandExecutionsOutput$,
 ];
-export var BatchGetFleets: StaticOperationSchema = [
+export var BatchGetFleets$: StaticOperationSchema = [
   9,
   n0,
   _BGF,
   0,
-  () => BatchGetFleetsInput,
-  () => BatchGetFleetsOutput,
+  () => BatchGetFleetsInput$,
+  () => BatchGetFleetsOutput$,
 ];
-export var BatchGetProjects: StaticOperationSchema = [
+export var BatchGetProjects$: StaticOperationSchema = [
   9,
   n0,
   _BGP,
   0,
-  () => BatchGetProjectsInput,
-  () => BatchGetProjectsOutput,
+  () => BatchGetProjectsInput$,
+  () => BatchGetProjectsOutput$,
 ];
-export var BatchGetReportGroups: StaticOperationSchema = [
+export var BatchGetReportGroups$: StaticOperationSchema = [
   9,
   n0,
   _BGRG,
   0,
-  () => BatchGetReportGroupsInput,
-  () => BatchGetReportGroupsOutput,
+  () => BatchGetReportGroupsInput$,
+  () => BatchGetReportGroupsOutput$,
 ];
-export var BatchGetReports: StaticOperationSchema = [
+export var BatchGetReports$: StaticOperationSchema = [
   9,
   n0,
   _BGR,
   0,
-  () => BatchGetReportsInput,
-  () => BatchGetReportsOutput,
+  () => BatchGetReportsInput$,
+  () => BatchGetReportsOutput$,
 ];
-export var BatchGetSandboxes: StaticOperationSchema = [
+export var BatchGetSandboxes$: StaticOperationSchema = [
   9,
   n0,
   _BGS,
   0,
-  () => BatchGetSandboxesInput,
-  () => BatchGetSandboxesOutput,
+  () => BatchGetSandboxesInput$,
+  () => BatchGetSandboxesOutput$,
 ];
-export var CreateFleet: StaticOperationSchema = [9, n0, _CF, 0, () => CreateFleetInput, () => CreateFleetOutput];
-export var CreateProject: StaticOperationSchema = [9, n0, _CP, 0, () => CreateProjectInput, () => CreateProjectOutput];
-export var CreateReportGroup: StaticOperationSchema = [
+export var CreateFleet$: StaticOperationSchema = [9, n0, _CF, 0, () => CreateFleetInput$, () => CreateFleetOutput$];
+export var CreateProject$: StaticOperationSchema = [
+  9,
+  n0,
+  _CP,
+  0,
+  () => CreateProjectInput$,
+  () => CreateProjectOutput$,
+];
+export var CreateReportGroup$: StaticOperationSchema = [
   9,
   n0,
   _CRG,
   0,
-  () => CreateReportGroupInput,
-  () => CreateReportGroupOutput,
+  () => CreateReportGroupInput$,
+  () => CreateReportGroupOutput$,
 ];
-export var CreateWebhook: StaticOperationSchema = [9, n0, _CW, 0, () => CreateWebhookInput, () => CreateWebhookOutput];
-export var DeleteBuildBatch: StaticOperationSchema = [
+export var CreateWebhook$: StaticOperationSchema = [
+  9,
+  n0,
+  _CW,
+  0,
+  () => CreateWebhookInput$,
+  () => CreateWebhookOutput$,
+];
+export var DeleteBuildBatch$: StaticOperationSchema = [
   9,
   n0,
   _DBB,
   0,
-  () => DeleteBuildBatchInput,
-  () => DeleteBuildBatchOutput,
+  () => DeleteBuildBatchInput$,
+  () => DeleteBuildBatchOutput$,
 ];
-export var DeleteFleet: StaticOperationSchema = [9, n0, _DF, 0, () => DeleteFleetInput, () => DeleteFleetOutput];
-export var DeleteProject: StaticOperationSchema = [9, n0, _DP, 0, () => DeleteProjectInput, () => DeleteProjectOutput];
-export var DeleteReport: StaticOperationSchema = [9, n0, _DR, 0, () => DeleteReportInput, () => DeleteReportOutput];
-export var DeleteReportGroup: StaticOperationSchema = [
+export var DeleteFleet$: StaticOperationSchema = [9, n0, _DF, 0, () => DeleteFleetInput$, () => DeleteFleetOutput$];
+export var DeleteProject$: StaticOperationSchema = [
+  9,
+  n0,
+  _DP,
+  0,
+  () => DeleteProjectInput$,
+  () => DeleteProjectOutput$,
+];
+export var DeleteReport$: StaticOperationSchema = [9, n0, _DR, 0, () => DeleteReportInput$, () => DeleteReportOutput$];
+export var DeleteReportGroup$: StaticOperationSchema = [
   9,
   n0,
   _DRG,
   0,
-  () => DeleteReportGroupInput,
-  () => DeleteReportGroupOutput,
+  () => DeleteReportGroupInput$,
+  () => DeleteReportGroupOutput$,
 ];
-export var DeleteResourcePolicy: StaticOperationSchema = [
+export var DeleteResourcePolicy$: StaticOperationSchema = [
   9,
   n0,
   _DRP,
   0,
-  () => DeleteResourcePolicyInput,
-  () => DeleteResourcePolicyOutput,
+  () => DeleteResourcePolicyInput$,
+  () => DeleteResourcePolicyOutput$,
 ];
-export var DeleteSourceCredentials: StaticOperationSchema = [
+export var DeleteSourceCredentials$: StaticOperationSchema = [
   9,
   n0,
   _DSC,
   0,
-  () => DeleteSourceCredentialsInput,
-  () => DeleteSourceCredentialsOutput,
+  () => DeleteSourceCredentialsInput$,
+  () => DeleteSourceCredentialsOutput$,
 ];
-export var DeleteWebhook: StaticOperationSchema = [9, n0, _DW, 0, () => DeleteWebhookInput, () => DeleteWebhookOutput];
-export var DescribeCodeCoverages: StaticOperationSchema = [
+export var DeleteWebhook$: StaticOperationSchema = [
+  9,
+  n0,
+  _DW,
+  0,
+  () => DeleteWebhookInput$,
+  () => DeleteWebhookOutput$,
+];
+export var DescribeCodeCoverages$: StaticOperationSchema = [
   9,
   n0,
   _DCC,
   0,
-  () => DescribeCodeCoveragesInput,
-  () => DescribeCodeCoveragesOutput,
+  () => DescribeCodeCoveragesInput$,
+  () => DescribeCodeCoveragesOutput$,
 ];
-export var DescribeTestCases: StaticOperationSchema = [
+export var DescribeTestCases$: StaticOperationSchema = [
   9,
   n0,
   _DTC,
   0,
-  () => DescribeTestCasesInput,
-  () => DescribeTestCasesOutput,
+  () => DescribeTestCasesInput$,
+  () => DescribeTestCasesOutput$,
 ];
-export var GetReportGroupTrend: StaticOperationSchema = [
+export var GetReportGroupTrend$: StaticOperationSchema = [
   9,
   n0,
   _GRGT,
   0,
-  () => GetReportGroupTrendInput,
-  () => GetReportGroupTrendOutput,
+  () => GetReportGroupTrendInput$,
+  () => GetReportGroupTrendOutput$,
 ];
-export var GetResourcePolicy: StaticOperationSchema = [
+export var GetResourcePolicy$: StaticOperationSchema = [
   9,
   n0,
   _GRP,
   0,
-  () => GetResourcePolicyInput,
-  () => GetResourcePolicyOutput,
+  () => GetResourcePolicyInput$,
+  () => GetResourcePolicyOutput$,
 ];
-export var ImportSourceCredentials: StaticOperationSchema = [
+export var ImportSourceCredentials$: StaticOperationSchema = [
   9,
   n0,
   _ISC,
   0,
-  () => ImportSourceCredentialsInput,
-  () => ImportSourceCredentialsOutput,
+  () => ImportSourceCredentialsInput$,
+  () => ImportSourceCredentialsOutput$,
 ];
-export var InvalidateProjectCache: StaticOperationSchema = [
+export var InvalidateProjectCache$: StaticOperationSchema = [
   9,
   n0,
   _IPC,
   0,
-  () => InvalidateProjectCacheInput,
-  () => InvalidateProjectCacheOutput,
+  () => InvalidateProjectCacheInput$,
+  () => InvalidateProjectCacheOutput$,
 ];
-export var ListBuildBatches: StaticOperationSchema = [
+export var ListBuildBatches$: StaticOperationSchema = [
   9,
   n0,
   _LBB,
   0,
-  () => ListBuildBatchesInput,
-  () => ListBuildBatchesOutput,
+  () => ListBuildBatchesInput$,
+  () => ListBuildBatchesOutput$,
 ];
-export var ListBuildBatchesForProject: StaticOperationSchema = [
+export var ListBuildBatchesForProject$: StaticOperationSchema = [
   9,
   n0,
   _LBBFP,
   0,
-  () => ListBuildBatchesForProjectInput,
-  () => ListBuildBatchesForProjectOutput,
+  () => ListBuildBatchesForProjectInput$,
+  () => ListBuildBatchesForProjectOutput$,
 ];
-export var ListBuilds: StaticOperationSchema = [9, n0, _LB, 0, () => ListBuildsInput, () => ListBuildsOutput];
-export var ListBuildsForProject: StaticOperationSchema = [
+export var ListBuilds$: StaticOperationSchema = [9, n0, _LB, 0, () => ListBuildsInput$, () => ListBuildsOutput$];
+export var ListBuildsForProject$: StaticOperationSchema = [
   9,
   n0,
   _LBFP,
   0,
-  () => ListBuildsForProjectInput,
-  () => ListBuildsForProjectOutput,
+  () => ListBuildsForProjectInput$,
+  () => ListBuildsForProjectOutput$,
 ];
-export var ListCommandExecutionsForSandbox: StaticOperationSchema = [
+export var ListCommandExecutionsForSandbox$: StaticOperationSchema = [
   9,
   n0,
   _LCEFS,
   0,
-  () => ListCommandExecutionsForSandboxInput,
-  () => ListCommandExecutionsForSandboxOutput,
+  () => ListCommandExecutionsForSandboxInput$,
+  () => ListCommandExecutionsForSandboxOutput$,
 ];
-export var ListCuratedEnvironmentImages: StaticOperationSchema = [
+export var ListCuratedEnvironmentImages$: StaticOperationSchema = [
   9,
   n0,
   _LCEI,
   0,
-  () => ListCuratedEnvironmentImagesInput,
-  () => ListCuratedEnvironmentImagesOutput,
+  () => ListCuratedEnvironmentImagesInput$,
+  () => ListCuratedEnvironmentImagesOutput$,
 ];
-export var ListFleets: StaticOperationSchema = [9, n0, _LF, 0, () => ListFleetsInput, () => ListFleetsOutput];
-export var ListProjects: StaticOperationSchema = [9, n0, _LP, 0, () => ListProjectsInput, () => ListProjectsOutput];
-export var ListReportGroups: StaticOperationSchema = [
+export var ListFleets$: StaticOperationSchema = [9, n0, _LF, 0, () => ListFleetsInput$, () => ListFleetsOutput$];
+export var ListProjects$: StaticOperationSchema = [9, n0, _LP, 0, () => ListProjectsInput$, () => ListProjectsOutput$];
+export var ListReportGroups$: StaticOperationSchema = [
   9,
   n0,
   _LRG,
   0,
-  () => ListReportGroupsInput,
-  () => ListReportGroupsOutput,
+  () => ListReportGroupsInput$,
+  () => ListReportGroupsOutput$,
 ];
-export var ListReports: StaticOperationSchema = [9, n0, _LR, 0, () => ListReportsInput, () => ListReportsOutput];
-export var ListReportsForReportGroup: StaticOperationSchema = [
+export var ListReports$: StaticOperationSchema = [9, n0, _LR, 0, () => ListReportsInput$, () => ListReportsOutput$];
+export var ListReportsForReportGroup$: StaticOperationSchema = [
   9,
   n0,
   _LRFRG,
   0,
-  () => ListReportsForReportGroupInput,
-  () => ListReportsForReportGroupOutput,
+  () => ListReportsForReportGroupInput$,
+  () => ListReportsForReportGroupOutput$,
 ];
-export var ListSandboxes: StaticOperationSchema = [9, n0, _LS, 0, () => ListSandboxesInput, () => ListSandboxesOutput];
-export var ListSandboxesForProject: StaticOperationSchema = [
+export var ListSandboxes$: StaticOperationSchema = [
+  9,
+  n0,
+  _LS,
+  0,
+  () => ListSandboxesInput$,
+  () => ListSandboxesOutput$,
+];
+export var ListSandboxesForProject$: StaticOperationSchema = [
   9,
   n0,
   _LSFP,
   0,
-  () => ListSandboxesForProjectInput,
-  () => ListSandboxesForProjectOutput,
+  () => ListSandboxesForProjectInput$,
+  () => ListSandboxesForProjectOutput$,
 ];
-export var ListSharedProjects: StaticOperationSchema = [
+export var ListSharedProjects$: StaticOperationSchema = [
   9,
   n0,
   _LSP,
   0,
-  () => ListSharedProjectsInput,
-  () => ListSharedProjectsOutput,
+  () => ListSharedProjectsInput$,
+  () => ListSharedProjectsOutput$,
 ];
-export var ListSharedReportGroups: StaticOperationSchema = [
+export var ListSharedReportGroups$: StaticOperationSchema = [
   9,
   n0,
   _LSRG,
   0,
-  () => ListSharedReportGroupsInput,
-  () => ListSharedReportGroupsOutput,
+  () => ListSharedReportGroupsInput$,
+  () => ListSharedReportGroupsOutput$,
 ];
-export var ListSourceCredentials: StaticOperationSchema = [
+export var ListSourceCredentials$: StaticOperationSchema = [
   9,
   n0,
   _LSC,
   0,
-  () => ListSourceCredentialsInput,
-  () => ListSourceCredentialsOutput,
+  () => ListSourceCredentialsInput$,
+  () => ListSourceCredentialsOutput$,
 ];
-export var PutResourcePolicy: StaticOperationSchema = [
+export var PutResourcePolicy$: StaticOperationSchema = [
   9,
   n0,
   _PRP,
   0,
-  () => PutResourcePolicyInput,
-  () => PutResourcePolicyOutput,
+  () => PutResourcePolicyInput$,
+  () => PutResourcePolicyOutput$,
 ];
-export var RetryBuild: StaticOperationSchema = [9, n0, _RB, 0, () => RetryBuildInput, () => RetryBuildOutput];
-export var RetryBuildBatch: StaticOperationSchema = [
+export var RetryBuild$: StaticOperationSchema = [9, n0, _RB, 0, () => RetryBuildInput$, () => RetryBuildOutput$];
+export var RetryBuildBatch$: StaticOperationSchema = [
   9,
   n0,
   _RBB,
   0,
-  () => RetryBuildBatchInput,
-  () => RetryBuildBatchOutput,
+  () => RetryBuildBatchInput$,
+  () => RetryBuildBatchOutput$,
 ];
-export var StartBuild: StaticOperationSchema = [9, n0, _SB, 0, () => StartBuildInput, () => StartBuildOutput];
-export var StartBuildBatch: StaticOperationSchema = [
+export var StartBuild$: StaticOperationSchema = [9, n0, _SB, 0, () => StartBuildInput$, () => StartBuildOutput$];
+export var StartBuildBatch$: StaticOperationSchema = [
   9,
   n0,
   _SBB,
   0,
-  () => StartBuildBatchInput,
-  () => StartBuildBatchOutput,
+  () => StartBuildBatchInput$,
+  () => StartBuildBatchOutput$,
 ];
-export var StartCommandExecution: StaticOperationSchema = [
+export var StartCommandExecution$: StaticOperationSchema = [
   9,
   n0,
   _SCE,
   0,
-  () => StartCommandExecutionInput,
-  () => StartCommandExecutionOutput,
+  () => StartCommandExecutionInput$,
+  () => StartCommandExecutionOutput$,
 ];
-export var StartSandbox: StaticOperationSchema = [9, n0, _SSt, 0, () => StartSandboxInput, () => StartSandboxOutput];
-export var StartSandboxConnection: StaticOperationSchema = [
+export var StartSandbox$: StaticOperationSchema = [9, n0, _SSt, 0, () => StartSandboxInput$, () => StartSandboxOutput$];
+export var StartSandboxConnection$: StaticOperationSchema = [
   9,
   n0,
   _SSC,
   0,
-  () => StartSandboxConnectionInput,
-  () => StartSandboxConnectionOutput,
+  () => StartSandboxConnectionInput$,
+  () => StartSandboxConnectionOutput$,
 ];
-export var StopBuild: StaticOperationSchema = [9, n0, _SBt, 0, () => StopBuildInput, () => StopBuildOutput];
-export var StopBuildBatch: StaticOperationSchema = [
+export var StopBuild$: StaticOperationSchema = [9, n0, _SBt, 0, () => StopBuildInput$, () => StopBuildOutput$];
+export var StopBuildBatch$: StaticOperationSchema = [
   9,
   n0,
   _SBBt,
   0,
-  () => StopBuildBatchInput,
-  () => StopBuildBatchOutput,
+  () => StopBuildBatchInput$,
+  () => StopBuildBatchOutput$,
 ];
-export var StopSandbox: StaticOperationSchema = [9, n0, _SSto, 0, () => StopSandboxInput, () => StopSandboxOutput];
-export var UpdateFleet: StaticOperationSchema = [9, n0, _UF, 0, () => UpdateFleetInput, () => UpdateFleetOutput];
-export var UpdateProject: StaticOperationSchema = [9, n0, _UP, 0, () => UpdateProjectInput, () => UpdateProjectOutput];
-export var UpdateProjectVisibility: StaticOperationSchema = [
+export var StopSandbox$: StaticOperationSchema = [9, n0, _SSto, 0, () => StopSandboxInput$, () => StopSandboxOutput$];
+export var UpdateFleet$: StaticOperationSchema = [9, n0, _UF, 0, () => UpdateFleetInput$, () => UpdateFleetOutput$];
+export var UpdateProject$: StaticOperationSchema = [
+  9,
+  n0,
+  _UP,
+  0,
+  () => UpdateProjectInput$,
+  () => UpdateProjectOutput$,
+];
+export var UpdateProjectVisibility$: StaticOperationSchema = [
   9,
   n0,
   _UPV,
   0,
-  () => UpdateProjectVisibilityInput,
-  () => UpdateProjectVisibilityOutput,
+  () => UpdateProjectVisibilityInput$,
+  () => UpdateProjectVisibilityOutput$,
 ];
-export var UpdateReportGroup: StaticOperationSchema = [
+export var UpdateReportGroup$: StaticOperationSchema = [
   9,
   n0,
   _URG,
   0,
-  () => UpdateReportGroupInput,
-  () => UpdateReportGroupOutput,
+  () => UpdateReportGroupInput$,
+  () => UpdateReportGroupOutput$,
 ];
-export var UpdateWebhook: StaticOperationSchema = [9, n0, _UW, 0, () => UpdateWebhookInput, () => UpdateWebhookOutput];
+export var UpdateWebhook$: StaticOperationSchema = [
+  9,
+  n0,
+  _UW,
+  0,
+  () => UpdateWebhookInput$,
+  () => UpdateWebhookOutput$,
+];

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceGroupsClient";
-import { GetAccountSettings } from "../schemas/schemas_0";
+import { GetAccountSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class GetAccountSettingsCommand extends $Command
   })
   .s("Ardi", "GetAccountSettings", {})
   .n("ResourceGroupsClient", "GetAccountSettingsCommand")
-  .sc(GetAccountSettings)
+  .sc(GetAccountSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

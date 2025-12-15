@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RejectSharedDirectoryRequest, RejectSharedDirectoryResult } from "../models/models_0";
-import { RejectSharedDirectory } from "../schemas/schemas_0";
+import { RejectSharedDirectory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class RejectSharedDirectoryCommand extends $Command
   })
   .s("DirectoryService_20150416", "RejectSharedDirectory", {})
   .n("DirectoryServiceClient", "RejectSharedDirectoryCommand")
-  .sc(RejectSharedDirectory)
+  .sc(RejectSharedDirectory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

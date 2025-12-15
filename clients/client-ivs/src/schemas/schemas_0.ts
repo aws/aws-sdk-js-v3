@@ -273,29 +273,29 @@ import type {
 } from "@smithy/types";
 
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ChannelNotBroadcasting as __ChannelNotBroadcasting,
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  PendingVerification as __PendingVerification,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  StreamUnavailable as __StreamUnavailable,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ChannelNotBroadcasting,
+  ConflictException,
+  InternalServerException,
+  PendingVerification,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  StreamUnavailable,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
-import { IvsServiceException as __IvsServiceException } from "../models/IvsServiceException";
+import { IvsServiceException } from "../models/IvsServiceException";
 
 /* eslint no-var: 0 */
-export var SrtPassphrase: StaticSimpleSchema = [0, n0, _SP, 8, 0];
-export var StreamKeyValue: StaticSimpleSchema = [0, n0, _SKV, 8, 0];
-export var StreamMetadata: StaticSimpleSchema = [0, n0, _SM, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_eM], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var AudioConfiguration: StaticStructureSchema = [3, n0, _AC, 0, [_co, _tB, _sR, _ch, _t], [0, 1, 1, 1, 0]];
-export var BatchError: StaticStructureSchema = [3, n0, _BE, 0, [_a, _cod, _m], [0, 0, 0]];
-export var BatchGetChannelRequest: StaticStructureSchema = [3, n0, _BGCR, 0, [_ar], [64 | 0]];
-export var BatchGetChannelResponse: StaticStructureSchema = [
+var SrtPassphrase: StaticSimpleSchema = [0, n0, _SP, 8, 0];
+var StreamKeyValue: StaticSimpleSchema = [0, n0, _SKV, 8, 0];
+var StreamMetadata: StaticSimpleSchema = [0, n0, _SM, 8, 0];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_eM], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var AudioConfiguration$: StaticStructureSchema = [3, n0, _AC, 0, [_co, _tB, _sR, _ch, _t], [0, 1, 1, 1, 0]];
+export var BatchError$: StaticStructureSchema = [3, n0, _BE, 0, [_a, _cod, _m], [0, 0, 0]];
+export var BatchGetChannelRequest$: StaticStructureSchema = [3, n0, _BGCR, 0, [_ar], [64 | 0]];
+export var BatchGetChannelResponse$: StaticStructureSchema = [
   3,
   n0,
   _BGCRa,
@@ -303,8 +303,8 @@ export var BatchGetChannelResponse: StaticStructureSchema = [
   [_ch, _er],
   [[() => Channels, 0], () => BatchErrors],
 ];
-export var BatchGetStreamKeyRequest: StaticStructureSchema = [3, n0, _BGSKR, 0, [_ar], [64 | 0]];
-export var BatchGetStreamKeyResponse: StaticStructureSchema = [
+export var BatchGetStreamKeyRequest$: StaticStructureSchema = [3, n0, _BGSKR, 0, [_ar], [64 | 0]];
+export var BatchGetStreamKeyResponse$: StaticStructureSchema = [
   3,
   n0,
   _BGSKRa,
@@ -312,7 +312,7 @@ export var BatchGetStreamKeyResponse: StaticStructureSchema = [
   [_sK, _er],
   [[() => StreamKeys, 0], () => BatchErrors],
 ];
-export var BatchStartViewerSessionRevocationError: StaticStructureSchema = [
+export var BatchStartViewerSessionRevocationError$: StaticStructureSchema = [
   3,
   n0,
   _BSVSRE,
@@ -320,7 +320,7 @@ export var BatchStartViewerSessionRevocationError: StaticStructureSchema = [
   [_cA, _vI, _cod, _m],
   [0, 0, 0, 0],
 ];
-export var BatchStartViewerSessionRevocationRequest: StaticStructureSchema = [
+export var BatchStartViewerSessionRevocationRequest$: StaticStructureSchema = [
   3,
   n0,
   _BSVSRR,
@@ -328,7 +328,7 @@ export var BatchStartViewerSessionRevocationRequest: StaticStructureSchema = [
   [_vS],
   [() => BatchStartViewerSessionRevocationViewerSessionList],
 ];
-export var BatchStartViewerSessionRevocationResponse: StaticStructureSchema = [
+export var BatchStartViewerSessionRevocationResponse$: StaticStructureSchema = [
   3,
   n0,
   _BSVSRRa,
@@ -336,7 +336,7 @@ export var BatchStartViewerSessionRevocationResponse: StaticStructureSchema = [
   [_er],
   [() => BatchStartViewerSessionRevocationErrors],
 ];
-export var BatchStartViewerSessionRevocationViewerSession: StaticStructureSchema = [
+export var BatchStartViewerSessionRevocationViewerSession$: StaticStructureSchema = [
   3,
   n0,
   _BSVSRVS,
@@ -344,17 +344,17 @@ export var BatchStartViewerSessionRevocationViewerSession: StaticStructureSchema
   [_cA, _vI, _vSVLTOET],
   [0, 0, 1],
 ];
-export var Channel: StaticStructureSchema = [
+export var Channel$: StaticStructureSchema = [
   3,
   n0,
   _C,
   0,
   [_a, _n, _lM, _ty, _rCA, _iE, _pU, _au, _ta, _iI, _p, _s, _pRPA, _mIC, _cF],
-  [0, 0, 0, 0, 0, 0, 0, 2, 128 | 0, 2, 0, [() => Srt, 0], 0, () => MultitrackInputConfiguration, 0],
+  [0, 0, 0, 0, 0, 0, 0, 2, 128 | 0, 2, 0, [() => Srt$, 0], 0, () => MultitrackInputConfiguration$, 0],
 ];
-export var ChannelNotBroadcasting: StaticErrorSchema = [-3, n0, _CNB, { [_e]: _c, [_hE]: 404 }, [_eM], [0]];
-TypeRegistry.for(n0).registerError(ChannelNotBroadcasting, __ChannelNotBroadcasting);
-export var ChannelSummary: StaticStructureSchema = [
+export var ChannelNotBroadcasting$: StaticErrorSchema = [-3, n0, _CNB, { [_e]: _c, [_hE]: 404 }, [_eM], [0]];
+TypeRegistry.for(n0).registerError(ChannelNotBroadcasting$, ChannelNotBroadcasting);
+export var ChannelSummary$: StaticStructureSchema = [
   3,
   n0,
   _CS,
@@ -362,28 +362,28 @@ export var ChannelSummary: StaticStructureSchema = [
   [_a, _n, _lM, _au, _rCA, _ta, _iI, _ty, _p, _pRPA],
   [0, 0, 0, 2, 0, 128 | 0, 2, 0, 0, 0],
 ];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_eM], [0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateChannelRequest: StaticStructureSchema = [
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_eM], [0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateChannelRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCR,
   0,
   [_n, _lM, _ty, _au, _rCA, _ta, _iI, _p, _pRPA, _mIC, _cF],
-  [0, 0, 0, 2, 0, 128 | 0, 2, 0, 0, () => MultitrackInputConfiguration, 0],
+  [0, 0, 0, 2, 0, 128 | 0, 2, 0, 0, () => MultitrackInputConfiguration$, 0],
 ];
-export var CreateChannelResponse: StaticStructureSchema = [
+export var CreateChannelResponse$: StaticStructureSchema = [
   3,
   n0,
   _CCRr,
   0,
   [_cha, _sKt],
   [
-    [() => Channel, 0],
-    [() => StreamKey, 0],
+    [() => Channel$, 0],
+    [() => StreamKey$, 0],
   ],
 ];
-export var CreatePlaybackRestrictionPolicyRequest: StaticStructureSchema = [
+export var CreatePlaybackRestrictionPolicyRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPRPR,
@@ -391,78 +391,85 @@ export var CreatePlaybackRestrictionPolicyRequest: StaticStructureSchema = [
   [_aC, _aO, _eSOE, _n, _ta],
   [64 | 0, 64 | 0, 2, 0, 128 | 0],
 ];
-export var CreatePlaybackRestrictionPolicyResponse: StaticStructureSchema = [
+export var CreatePlaybackRestrictionPolicyResponse$: StaticStructureSchema = [
   3,
   n0,
   _CPRPRr,
   0,
   [_pRP],
-  [() => PlaybackRestrictionPolicy],
+  [() => PlaybackRestrictionPolicy$],
 ];
-export var CreateRecordingConfigurationRequest: StaticStructureSchema = [
+export var CreateRecordingConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRCR,
   0,
   [_n, _dC, _ta, _tC, _rRWS, _rC],
-  [0, () => DestinationConfiguration, 128 | 0, () => ThumbnailConfiguration, 1, () => RenditionConfiguration],
+  [0, () => DestinationConfiguration$, 128 | 0, () => ThumbnailConfiguration$, 1, () => RenditionConfiguration$],
 ];
-export var CreateRecordingConfigurationResponse: StaticStructureSchema = [
+export var CreateRecordingConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _CRCRr,
   0,
   [_rCe],
-  [() => RecordingConfiguration],
+  [() => RecordingConfiguration$],
 ];
-export var CreateStreamKeyRequest: StaticStructureSchema = [3, n0, _CSKR, 0, [_cA, _ta], [0, 128 | 0]];
-export var CreateStreamKeyResponse: StaticStructureSchema = [3, n0, _CSKRr, 0, [_sKt], [[() => StreamKey, 0]]];
-export var DeleteChannelRequest: StaticStructureSchema = [3, n0, _DCR, 0, [_a], [0]];
-export var DeletePlaybackKeyPairRequest: StaticStructureSchema = [3, n0, _DPKPR, 0, [_a], [0]];
-export var DeletePlaybackKeyPairResponse: StaticStructureSchema = [3, n0, _DPKPRe, 0, [], []];
-export var DeletePlaybackRestrictionPolicyRequest: StaticStructureSchema = [3, n0, _DPRPR, 0, [_a], [0]];
-export var DeleteRecordingConfigurationRequest: StaticStructureSchema = [3, n0, _DRCR, 0, [_a], [0]];
-export var DeleteStreamKeyRequest: StaticStructureSchema = [3, n0, _DSKR, 0, [_a], [0]];
-export var DestinationConfiguration: StaticStructureSchema = [3, n0, _DC, 0, [_s_], [() => S3DestinationConfiguration]];
-export var GetChannelRequest: StaticStructureSchema = [3, n0, _GCR, 0, [_a], [0]];
-export var GetChannelResponse: StaticStructureSchema = [3, n0, _GCRe, 0, [_cha], [[() => Channel, 0]]];
-export var GetPlaybackKeyPairRequest: StaticStructureSchema = [3, n0, _GPKPR, 0, [_a], [0]];
-export var GetPlaybackKeyPairResponse: StaticStructureSchema = [3, n0, _GPKPRe, 0, [_kP], [() => PlaybackKeyPair]];
-export var GetPlaybackRestrictionPolicyRequest: StaticStructureSchema = [3, n0, _GPRPR, 0, [_a], [0]];
-export var GetPlaybackRestrictionPolicyResponse: StaticStructureSchema = [
+export var CreateStreamKeyRequest$: StaticStructureSchema = [3, n0, _CSKR, 0, [_cA, _ta], [0, 128 | 0]];
+export var CreateStreamKeyResponse$: StaticStructureSchema = [3, n0, _CSKRr, 0, [_sKt], [[() => StreamKey$, 0]]];
+export var DeleteChannelRequest$: StaticStructureSchema = [3, n0, _DCR, 0, [_a], [0]];
+export var DeletePlaybackKeyPairRequest$: StaticStructureSchema = [3, n0, _DPKPR, 0, [_a], [0]];
+export var DeletePlaybackKeyPairResponse$: StaticStructureSchema = [3, n0, _DPKPRe, 0, [], []];
+export var DeletePlaybackRestrictionPolicyRequest$: StaticStructureSchema = [3, n0, _DPRPR, 0, [_a], [0]];
+export var DeleteRecordingConfigurationRequest$: StaticStructureSchema = [3, n0, _DRCR, 0, [_a], [0]];
+export var DeleteStreamKeyRequest$: StaticStructureSchema = [3, n0, _DSKR, 0, [_a], [0]];
+export var DestinationConfiguration$: StaticStructureSchema = [
+  3,
+  n0,
+  _DC,
+  0,
+  [_s_],
+  [() => S3DestinationConfiguration$],
+];
+export var GetChannelRequest$: StaticStructureSchema = [3, n0, _GCR, 0, [_a], [0]];
+export var GetChannelResponse$: StaticStructureSchema = [3, n0, _GCRe, 0, [_cha], [[() => Channel$, 0]]];
+export var GetPlaybackKeyPairRequest$: StaticStructureSchema = [3, n0, _GPKPR, 0, [_a], [0]];
+export var GetPlaybackKeyPairResponse$: StaticStructureSchema = [3, n0, _GPKPRe, 0, [_kP], [() => PlaybackKeyPair$]];
+export var GetPlaybackRestrictionPolicyRequest$: StaticStructureSchema = [3, n0, _GPRPR, 0, [_a], [0]];
+export var GetPlaybackRestrictionPolicyResponse$: StaticStructureSchema = [
   3,
   n0,
   _GPRPRe,
   0,
   [_pRP],
-  [() => PlaybackRestrictionPolicy],
+  [() => PlaybackRestrictionPolicy$],
 ];
-export var GetRecordingConfigurationRequest: StaticStructureSchema = [3, n0, _GRCR, 0, [_a], [0]];
-export var GetRecordingConfigurationResponse: StaticStructureSchema = [
+export var GetRecordingConfigurationRequest$: StaticStructureSchema = [3, n0, _GRCR, 0, [_a], [0]];
+export var GetRecordingConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GRCRe,
   0,
   [_rCe],
-  [() => RecordingConfiguration],
+  [() => RecordingConfiguration$],
 ];
-export var GetStreamKeyRequest: StaticStructureSchema = [3, n0, _GSKR, 0, [_a], [0]];
-export var GetStreamKeyResponse: StaticStructureSchema = [3, n0, _GSKRe, 0, [_sKt], [[() => StreamKey, 0]]];
-export var GetStreamRequest: StaticStructureSchema = [3, n0, _GSR, 0, [_cA], [0]];
-export var GetStreamResponse: StaticStructureSchema = [3, n0, _GSRe, 0, [_st], [() => _Stream]];
-export var GetStreamSessionRequest: StaticStructureSchema = [3, n0, _GSSR, 0, [_cA, _sI], [0, 0]];
-export var GetStreamSessionResponse: StaticStructureSchema = [3, n0, _GSSRe, 0, [_sS], [[() => StreamSession, 0]]];
-export var ImportPlaybackKeyPairRequest: StaticStructureSchema = [3, n0, _IPKPR, 0, [_pKM, _n, _ta], [0, 0, 128 | 0]];
-export var ImportPlaybackKeyPairResponse: StaticStructureSchema = [3, n0, _IPKPRm, 0, [_kP], [() => PlaybackKeyPair]];
-export var IngestConfiguration: StaticStructureSchema = [
+export var GetStreamKeyRequest$: StaticStructureSchema = [3, n0, _GSKR, 0, [_a], [0]];
+export var GetStreamKeyResponse$: StaticStructureSchema = [3, n0, _GSKRe, 0, [_sKt], [[() => StreamKey$, 0]]];
+export var GetStreamRequest$: StaticStructureSchema = [3, n0, _GSR, 0, [_cA], [0]];
+export var GetStreamResponse$: StaticStructureSchema = [3, n0, _GSRe, 0, [_st], [() => _Stream$]];
+export var GetStreamSessionRequest$: StaticStructureSchema = [3, n0, _GSSR, 0, [_cA, _sI], [0, 0]];
+export var GetStreamSessionResponse$: StaticStructureSchema = [3, n0, _GSSRe, 0, [_sS], [[() => StreamSession$, 0]]];
+export var ImportPlaybackKeyPairRequest$: StaticStructureSchema = [3, n0, _IPKPR, 0, [_pKM, _n, _ta], [0, 0, 128 | 0]];
+export var ImportPlaybackKeyPairResponse$: StaticStructureSchema = [3, n0, _IPKPRm, 0, [_kP], [() => PlaybackKeyPair$]];
+export var IngestConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _IC,
   0,
   [_v, _aud],
-  [() => VideoConfiguration, () => AudioConfiguration],
+  [() => VideoConfiguration$, () => AudioConfiguration$],
 ];
-export var IngestConfigurations: StaticStructureSchema = [
+export var IngestConfigurations$: StaticStructureSchema = [
   3,
   n0,
   _ICn,
@@ -470,9 +477,9 @@ export var IngestConfigurations: StaticStructureSchema = [
   [_vC, _aCu],
   [() => VideoConfigurationList, () => AudioConfigurationList],
 ];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_eM], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var ListChannelsRequest: StaticStructureSchema = [
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_eM], [0]];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var ListChannelsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCR,
@@ -480,9 +487,9 @@ export var ListChannelsRequest: StaticStructureSchema = [
   [_fBN, _fBRCA, _fBPRPA, _nT, _mR],
   [0, 0, 0, 0, 1],
 ];
-export var ListChannelsResponse: StaticStructureSchema = [3, n0, _LCRi, 0, [_ch, _nT], [() => ChannelList, 0]];
-export var ListPlaybackKeyPairsRequest: StaticStructureSchema = [3, n0, _LPKPR, 0, [_nT, _mR], [0, 1]];
-export var ListPlaybackKeyPairsResponse: StaticStructureSchema = [
+export var ListChannelsResponse$: StaticStructureSchema = [3, n0, _LCRi, 0, [_ch, _nT], [() => ChannelList, 0]];
+export var ListPlaybackKeyPairsRequest$: StaticStructureSchema = [3, n0, _LPKPR, 0, [_nT, _mR], [0, 1]];
+export var ListPlaybackKeyPairsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LPKPRi,
@@ -490,8 +497,8 @@ export var ListPlaybackKeyPairsResponse: StaticStructureSchema = [
   [_kPe, _nT],
   [() => PlaybackKeyPairList, 0],
 ];
-export var ListPlaybackRestrictionPoliciesRequest: StaticStructureSchema = [3, n0, _LPRPR, 0, [_nT, _mR], [0, 1]];
-export var ListPlaybackRestrictionPoliciesResponse: StaticStructureSchema = [
+export var ListPlaybackRestrictionPoliciesRequest$: StaticStructureSchema = [3, n0, _LPRPR, 0, [_nT, _mR], [0, 1]];
+export var ListPlaybackRestrictionPoliciesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LPRPRi,
@@ -499,8 +506,8 @@ export var ListPlaybackRestrictionPoliciesResponse: StaticStructureSchema = [
   [_pRPl, _nT],
   [() => PlaybackRestrictionPolicyList, 0],
 ];
-export var ListRecordingConfigurationsRequest: StaticStructureSchema = [3, n0, _LRCR, 0, [_nT, _mR], [0, 1]];
-export var ListRecordingConfigurationsResponse: StaticStructureSchema = [
+export var ListRecordingConfigurationsRequest$: StaticStructureSchema = [3, n0, _LRCR, 0, [_nT, _mR], [0, 1]];
+export var ListRecordingConfigurationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRCRi,
@@ -508,10 +515,10 @@ export var ListRecordingConfigurationsResponse: StaticStructureSchema = [
   [_rCec, _nT],
   [() => RecordingConfigurationList, 0],
 ];
-export var ListStreamKeysRequest: StaticStructureSchema = [3, n0, _LSKR, 0, [_cA, _nT, _mR], [0, 0, 1]];
-export var ListStreamKeysResponse: StaticStructureSchema = [3, n0, _LSKRi, 0, [_sK, _nT], [() => StreamKeyList, 0]];
-export var ListStreamSessionsRequest: StaticStructureSchema = [3, n0, _LSSR, 0, [_cA, _nT, _mR], [0, 0, 1]];
-export var ListStreamSessionsResponse: StaticStructureSchema = [
+export var ListStreamKeysRequest$: StaticStructureSchema = [3, n0, _LSKR, 0, [_cA, _nT, _mR], [0, 0, 1]];
+export var ListStreamKeysResponse$: StaticStructureSchema = [3, n0, _LSKRi, 0, [_sK, _nT], [() => StreamKeyList, 0]];
+export var ListStreamSessionsRequest$: StaticStructureSchema = [3, n0, _LSSR, 0, [_cA, _nT, _mR], [0, 0, 1]];
+export var ListStreamSessionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LSSRi,
@@ -519,16 +526,16 @@ export var ListStreamSessionsResponse: StaticStructureSchema = [
   [_sSt, _nT],
   [() => StreamSessionList, 0],
 ];
-export var ListStreamsRequest: StaticStructureSchema = [3, n0, _LSR, 0, [_fB, _nT, _mR], [() => StreamFilters, 0, 1]];
-export var ListStreamsResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_str, _nT], [() => StreamList, 0]];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [128 | 0]];
-export var MultitrackInputConfiguration: StaticStructureSchema = [3, n0, _MIC, 0, [_en, _po, _mRa], [2, 0, 0]];
-export var PendingVerification: StaticErrorSchema = [-3, n0, _PV, { [_e]: _c, [_hE]: 403 }, [_eM], [0]];
-TypeRegistry.for(n0).registerError(PendingVerification, __PendingVerification);
-export var PlaybackKeyPair: StaticStructureSchema = [3, n0, _PKP, 0, [_a, _n, _f, _ta], [0, 0, 0, 128 | 0]];
-export var PlaybackKeyPairSummary: StaticStructureSchema = [3, n0, _PKPS, 0, [_a, _n, _ta], [0, 0, 128 | 0]];
-export var PlaybackRestrictionPolicy: StaticStructureSchema = [
+export var ListStreamsRequest$: StaticStructureSchema = [3, n0, _LSR, 0, [_fB, _nT, _mR], [() => StreamFilters$, 0, 1]];
+export var ListStreamsResponse$: StaticStructureSchema = [3, n0, _LSRi, 0, [_str, _nT], [() => StreamList, 0]];
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [128 | 0]];
+export var MultitrackInputConfiguration$: StaticStructureSchema = [3, n0, _MIC, 0, [_en, _po, _mRa], [2, 0, 0]];
+export var PendingVerification$: StaticErrorSchema = [-3, n0, _PV, { [_e]: _c, [_hE]: 403 }, [_eM], [0]];
+TypeRegistry.for(n0).registerError(PendingVerification$, PendingVerification);
+export var PlaybackKeyPair$: StaticStructureSchema = [3, n0, _PKP, 0, [_a, _n, _f, _ta], [0, 0, 0, 128 | 0]];
+export var PlaybackKeyPairSummary$: StaticStructureSchema = [3, n0, _PKPS, 0, [_a, _n, _ta], [0, 0, 128 | 0]];
+export var PlaybackRestrictionPolicy$: StaticStructureSchema = [
   3,
   n0,
   _PRP,
@@ -536,7 +543,7 @@ export var PlaybackRestrictionPolicy: StaticStructureSchema = [
   [_a, _aC, _aO, _eSOE, _n, _ta],
   [0, 64 | 0, 64 | 0, 2, 0, 128 | 0],
 ];
-export var PlaybackRestrictionPolicySummary: StaticStructureSchema = [
+export var PlaybackRestrictionPolicySummary$: StaticStructureSchema = [
   3,
   n0,
   _PRPS,
@@ -544,31 +551,31 @@ export var PlaybackRestrictionPolicySummary: StaticStructureSchema = [
   [_a, _aC, _aO, _eSOE, _n, _ta],
   [0, 64 | 0, 64 | 0, 2, 0, 128 | 0],
 ];
-export var PutMetadataRequest: StaticStructureSchema = [3, n0, _PMR, 0, [_cA, _me], [0, [() => StreamMetadata, 0]]];
-export var RecordingConfiguration: StaticStructureSchema = [
+export var PutMetadataRequest$: StaticStructureSchema = [3, n0, _PMR, 0, [_cA, _me], [0, [() => StreamMetadata, 0]]];
+export var RecordingConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RC,
   0,
   [_a, _n, _dC, _sta, _ta, _tC, _rRWS, _rC],
-  [0, 0, () => DestinationConfiguration, 0, 128 | 0, () => ThumbnailConfiguration, 1, () => RenditionConfiguration],
+  [0, 0, () => DestinationConfiguration$, 0, 128 | 0, () => ThumbnailConfiguration$, 1, () => RenditionConfiguration$],
 ];
-export var RecordingConfigurationSummary: StaticStructureSchema = [
+export var RecordingConfigurationSummary$: StaticStructureSchema = [
   3,
   n0,
   _RCS,
   0,
   [_a, _n, _dC, _sta, _ta],
-  [0, 0, () => DestinationConfiguration, 0, 128 | 0],
+  [0, 0, () => DestinationConfiguration$, 0, 128 | 0],
 ];
-export var RenditionConfiguration: StaticStructureSchema = [3, n0, _RCe, 0, [_rS, _r], [0, 64 | 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_eM], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var S3DestinationConfiguration: StaticStructureSchema = [3, n0, _SDC, 0, [_bN], [0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_eM], [0]];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var Srt: StaticStructureSchema = [3, n0, _S, 0, [_end, _pa], [0, [() => SrtPassphrase, 0]]];
-export var StartViewerSessionRevocationRequest: StaticStructureSchema = [
+export var RenditionConfiguration$: StaticStructureSchema = [3, n0, _RCe, 0, [_rS, _r], [0, 64 | 0]];
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_eM], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var S3DestinationConfiguration$: StaticStructureSchema = [3, n0, _SDC, 0, [_bN], [0]];
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_eM], [0]];
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var Srt$: StaticStructureSchema = [3, n0, _S, 0, [_end, _pa], [0, [() => SrtPassphrase, 0]]];
+export var StartViewerSessionRevocationRequest$: StaticStructureSchema = [
   3,
   n0,
   _SVSRR,
@@ -576,10 +583,10 @@ export var StartViewerSessionRevocationRequest: StaticStructureSchema = [
   [_cA, _vI, _vSVLTOET],
   [0, 0, 1],
 ];
-export var StartViewerSessionRevocationResponse: StaticStructureSchema = [3, n0, _SVSRRt, 0, [], []];
-export var StopStreamRequest: StaticStructureSchema = [3, n0, _SSR, 0, [_cA], [0]];
-export var StopStreamResponse: StaticStructureSchema = [3, n0, _SSRt, 0, [], []];
-export var _Stream: StaticStructureSchema = [
+export var StartViewerSessionRevocationResponse$: StaticStructureSchema = [3, n0, _SVSRRt, 0, [], []];
+export var StopStreamRequest$: StaticStructureSchema = [3, n0, _SSR, 0, [_cA], [0]];
+export var StopStreamResponse$: StaticStructureSchema = [3, n0, _SSRt, 0, [], []];
+export var _Stream$: StaticStructureSchema = [
   3,
   n0,
   _St,
@@ -587,9 +594,9 @@ export var _Stream: StaticStructureSchema = [
   [_cA, _sI, _pU, _sT, _sta, _h, _vCi],
   [0, 0, 0, 5, 0, 0, 1],
 ];
-export var StreamEvent: StaticStructureSchema = [3, n0, _SE, 0, [_n, _ty, _eT, _cod], [0, 0, 5, 0]];
-export var StreamFilters: StaticStructureSchema = [3, n0, _SF, 0, [_h], [0]];
-export var StreamKey: StaticStructureSchema = [
+export var StreamEvent$: StaticStructureSchema = [3, n0, _SE, 0, [_n, _ty, _eT, _cod], [0, 0, 5, 0]];
+export var StreamFilters$: StaticStructureSchema = [3, n0, _SF, 0, [_h], [0]];
+export var StreamKey$: StaticStructureSchema = [
   3,
   n0,
   _SK,
@@ -597,8 +604,8 @@ export var StreamKey: StaticStructureSchema = [
   [_a, _va, _cA, _ta],
   [0, [() => StreamKeyValue, 0], 0, 128 | 0],
 ];
-export var StreamKeySummary: StaticStructureSchema = [3, n0, _SKS, 0, [_a, _cA, _ta], [0, 0, 128 | 0]];
-export var StreamSession: StaticStructureSchema = [
+export var StreamKeySummary$: StaticStructureSchema = [3, n0, _SKS, 0, [_a, _cA, _ta], [0, 0, 128 | 0]];
+export var StreamSession$: StaticStructureSchema = [
   3,
   n0,
   _SS,
@@ -608,23 +615,30 @@ export var StreamSession: StaticStructureSchema = [
     0,
     5,
     5,
-    [() => Channel, 0],
-    () => IngestConfiguration,
-    () => IngestConfigurations,
-    () => RecordingConfiguration,
+    [() => Channel$, 0],
+    () => IngestConfiguration$,
+    () => IngestConfigurations$,
+    () => RecordingConfiguration$,
     () => StreamEvents,
   ],
 ];
-export var StreamSessionSummary: StaticStructureSchema = [3, n0, _SSS, 0, [_sI, _sT, _eTn, _hEE], [0, 5, 5, 2]];
-export var StreamSummary: StaticStructureSchema = [3, n0, _SSt, 0, [_cA, _sI, _sta, _h, _vCi, _sT], [0, 0, 0, 0, 1, 5]];
-export var StreamUnavailable: StaticErrorSchema = [-3, n0, _SU, { [_e]: _se, [_hE]: 503 }, [_eM], [0]];
-TypeRegistry.for(n0).registerError(StreamUnavailable, __StreamUnavailable);
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _ta], [[0, 1], 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_eM], [0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var ThumbnailConfiguration: StaticStructureSchema = [3, n0, _TC, 0, [_rM, _tIS, _re, _sto], [0, 1, 0, 64 | 0]];
-export var UntagResourceRequest: StaticStructureSchema = [
+export var StreamSessionSummary$: StaticStructureSchema = [3, n0, _SSS, 0, [_sI, _sT, _eTn, _hEE], [0, 5, 5, 2]];
+export var StreamSummary$: StaticStructureSchema = [
+  3,
+  n0,
+  _SSt,
+  0,
+  [_cA, _sI, _sta, _h, _vCi, _sT],
+  [0, 0, 0, 0, 1, 5],
+];
+export var StreamUnavailable$: StaticErrorSchema = [-3, n0, _SU, { [_e]: _se, [_hE]: 503 }, [_eM], [0]];
+TypeRegistry.for(n0).registerError(StreamUnavailable$, StreamUnavailable);
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _ta], [[0, 1], 128 | 0]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_eM], [0]];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var ThumbnailConfiguration$: StaticStructureSchema = [3, n0, _TC, 0, [_rM, _tIS, _re, _sto], [0, 1, 0, 64 | 0]];
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -635,17 +649,17 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateChannelRequest: StaticStructureSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateChannelRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCR,
   0,
   [_a, _n, _lM, _ty, _au, _rCA, _iI, _p, _pRPA, _mIC, _cF],
-  [0, 0, 0, 0, 2, 0, 2, 0, 0, () => MultitrackInputConfiguration, 0],
+  [0, 0, 0, 0, 2, 0, 2, 0, 0, () => MultitrackInputConfiguration$, 0],
 ];
-export var UpdateChannelResponse: StaticStructureSchema = [3, n0, _UCRp, 0, [_cha], [[() => Channel, 0]]];
-export var UpdatePlaybackRestrictionPolicyRequest: StaticStructureSchema = [
+export var UpdateChannelResponse$: StaticStructureSchema = [3, n0, _UCRp, 0, [_cha], [[() => Channel$, 0]]];
+export var UpdatePlaybackRestrictionPolicyRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPRPR,
@@ -653,17 +667,17 @@ export var UpdatePlaybackRestrictionPolicyRequest: StaticStructureSchema = [
   [_a, _aC, _aO, _eSOE, _n],
   [0, 64 | 0, 64 | 0, 2, 0],
 ];
-export var UpdatePlaybackRestrictionPolicyResponse: StaticStructureSchema = [
+export var UpdatePlaybackRestrictionPolicyResponse$: StaticStructureSchema = [
   3,
   n0,
   _UPRPRp,
   0,
   [_pRP],
-  [() => PlaybackRestrictionPolicy],
+  [() => PlaybackRestrictionPolicy$],
 ];
-export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_eM], [0]];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var VideoConfiguration: StaticStructureSchema = [
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_eM], [0]];
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var VideoConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _VC,
@@ -671,321 +685,321 @@ export var VideoConfiguration: StaticStructureSchema = [
   [_aP, _aL, _co, _enc, _tB, _tF, _vH, _vW, _l, _t, _pr],
   [0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0],
 ];
-export var __Unit = "unit" as const;
-export var IvsServiceException: StaticErrorSchema = [-3, _sm, "IvsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(IvsServiceException, __IvsServiceException);
-export var AudioConfigurationList: StaticListSchema = [1, n0, _ACL, 0, () => AudioConfiguration];
-export var BatchErrors: StaticListSchema = [1, n0, _BEa, 0, () => BatchError];
-export var BatchStartViewerSessionRevocationErrors: StaticListSchema = [
+var __Unit = "unit" as const;
+export var IvsServiceException$: StaticErrorSchema = [-3, _sm, "IvsServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(IvsServiceException$, IvsServiceException);
+var AudioConfigurationList: StaticListSchema = [1, n0, _ACL, 0, () => AudioConfiguration$];
+var BatchErrors: StaticListSchema = [1, n0, _BEa, 0, () => BatchError$];
+var BatchStartViewerSessionRevocationErrors: StaticListSchema = [
   1,
   n0,
   _BSVSREa,
   0,
-  () => BatchStartViewerSessionRevocationError,
+  () => BatchStartViewerSessionRevocationError$,
 ];
-export var BatchStartViewerSessionRevocationViewerSessionList: StaticListSchema = [
+var BatchStartViewerSessionRevocationViewerSessionList: StaticListSchema = [
   1,
   n0,
   _BSVSRVSL,
   0,
-  () => BatchStartViewerSessionRevocationViewerSession,
+  () => BatchStartViewerSessionRevocationViewerSession$,
 ];
-export var ChannelArnList = 64 | 0;
-export var ChannelList: StaticListSchema = [1, n0, _CL, 0, () => ChannelSummary];
-export var Channels: StaticListSchema = [1, n0, _Ch, 0, [() => Channel, 0]];
-export var PlaybackKeyPairList: StaticListSchema = [1, n0, _PKPL, 0, () => PlaybackKeyPairSummary];
-export var PlaybackRestrictionPolicyAllowedCountryList = 64 | 0;
-export var PlaybackRestrictionPolicyAllowedOriginList = 64 | 0;
-export var PlaybackRestrictionPolicyList: StaticListSchema = [1, n0, _PRPL, 0, () => PlaybackRestrictionPolicySummary];
-export var RecordingConfigurationList: StaticListSchema = [1, n0, _RCL, 0, () => RecordingConfigurationSummary];
-export var RenditionConfigurationRenditionList = 64 | 0;
-export var StreamEvents: StaticListSchema = [1, n0, _SEt, 0, () => StreamEvent];
-export var StreamKeyArnList = 64 | 0;
-export var StreamKeyList: StaticListSchema = [1, n0, _SKL, 0, () => StreamKeySummary];
-export var StreamKeys: StaticListSchema = [1, n0, _SKt, 0, [() => StreamKey, 0]];
-export var StreamList: StaticListSchema = [1, n0, _SL, 0, () => StreamSummary];
-export var StreamSessionList: StaticListSchema = [1, n0, _SSL, 0, () => StreamSessionSummary];
-export var TagKeyList = 64 | 0;
-export var ThumbnailConfigurationStorageList = 64 | 0;
-export var VideoConfigurationList: StaticListSchema = [1, n0, _VCL, 0, () => VideoConfiguration];
-export var Tags = 128 | 0;
-export var BatchGetChannel: StaticOperationSchema = [
+var ChannelArnList = 64 | 0;
+var ChannelList: StaticListSchema = [1, n0, _CL, 0, () => ChannelSummary$];
+var Channels: StaticListSchema = [1, n0, _Ch, 0, [() => Channel$, 0]];
+var PlaybackKeyPairList: StaticListSchema = [1, n0, _PKPL, 0, () => PlaybackKeyPairSummary$];
+var PlaybackRestrictionPolicyAllowedCountryList = 64 | 0;
+var PlaybackRestrictionPolicyAllowedOriginList = 64 | 0;
+var PlaybackRestrictionPolicyList: StaticListSchema = [1, n0, _PRPL, 0, () => PlaybackRestrictionPolicySummary$];
+var RecordingConfigurationList: StaticListSchema = [1, n0, _RCL, 0, () => RecordingConfigurationSummary$];
+var RenditionConfigurationRenditionList = 64 | 0;
+var StreamEvents: StaticListSchema = [1, n0, _SEt, 0, () => StreamEvent$];
+var StreamKeyArnList = 64 | 0;
+var StreamKeyList: StaticListSchema = [1, n0, _SKL, 0, () => StreamKeySummary$];
+var StreamKeys: StaticListSchema = [1, n0, _SKt, 0, [() => StreamKey$, 0]];
+var StreamList: StaticListSchema = [1, n0, _SL, 0, () => StreamSummary$];
+var StreamSessionList: StaticListSchema = [1, n0, _SSL, 0, () => StreamSessionSummary$];
+var TagKeyList = 64 | 0;
+var ThumbnailConfigurationStorageList = 64 | 0;
+var VideoConfigurationList: StaticListSchema = [1, n0, _VCL, 0, () => VideoConfiguration$];
+var Tags = 128 | 0;
+export var BatchGetChannel$: StaticOperationSchema = [
   9,
   n0,
   _BGC,
   { [_ht]: ["POST", "/BatchGetChannel", 200] },
-  () => BatchGetChannelRequest,
-  () => BatchGetChannelResponse,
+  () => BatchGetChannelRequest$,
+  () => BatchGetChannelResponse$,
 ];
-export var BatchGetStreamKey: StaticOperationSchema = [
+export var BatchGetStreamKey$: StaticOperationSchema = [
   9,
   n0,
   _BGSK,
   { [_ht]: ["POST", "/BatchGetStreamKey", 200] },
-  () => BatchGetStreamKeyRequest,
-  () => BatchGetStreamKeyResponse,
+  () => BatchGetStreamKeyRequest$,
+  () => BatchGetStreamKeyResponse$,
 ];
-export var BatchStartViewerSessionRevocation: StaticOperationSchema = [
+export var BatchStartViewerSessionRevocation$: StaticOperationSchema = [
   9,
   n0,
   _BSVSR,
   { [_ht]: ["POST", "/BatchStartViewerSessionRevocation", 200] },
-  () => BatchStartViewerSessionRevocationRequest,
-  () => BatchStartViewerSessionRevocationResponse,
+  () => BatchStartViewerSessionRevocationRequest$,
+  () => BatchStartViewerSessionRevocationResponse$,
 ];
-export var CreateChannel: StaticOperationSchema = [
+export var CreateChannel$: StaticOperationSchema = [
   9,
   n0,
   _CC,
   { [_ht]: ["POST", "/CreateChannel", 200] },
-  () => CreateChannelRequest,
-  () => CreateChannelResponse,
+  () => CreateChannelRequest$,
+  () => CreateChannelResponse$,
 ];
-export var CreatePlaybackRestrictionPolicy: StaticOperationSchema = [
+export var CreatePlaybackRestrictionPolicy$: StaticOperationSchema = [
   9,
   n0,
   _CPRP,
   { [_ht]: ["POST", "/CreatePlaybackRestrictionPolicy", 200] },
-  () => CreatePlaybackRestrictionPolicyRequest,
-  () => CreatePlaybackRestrictionPolicyResponse,
+  () => CreatePlaybackRestrictionPolicyRequest$,
+  () => CreatePlaybackRestrictionPolicyResponse$,
 ];
-export var CreateRecordingConfiguration: StaticOperationSchema = [
+export var CreateRecordingConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _CRC,
   { [_ht]: ["POST", "/CreateRecordingConfiguration", 200] },
-  () => CreateRecordingConfigurationRequest,
-  () => CreateRecordingConfigurationResponse,
+  () => CreateRecordingConfigurationRequest$,
+  () => CreateRecordingConfigurationResponse$,
 ];
-export var CreateStreamKey: StaticOperationSchema = [
+export var CreateStreamKey$: StaticOperationSchema = [
   9,
   n0,
   _CSK,
   { [_ht]: ["POST", "/CreateStreamKey", 200] },
-  () => CreateStreamKeyRequest,
-  () => CreateStreamKeyResponse,
+  () => CreateStreamKeyRequest$,
+  () => CreateStreamKeyResponse$,
 ];
-export var DeleteChannel: StaticOperationSchema = [
+export var DeleteChannel$: StaticOperationSchema = [
   9,
   n0,
   _DCe,
   { [_ht]: ["POST", "/DeleteChannel", 204] },
-  () => DeleteChannelRequest,
+  () => DeleteChannelRequest$,
   () => __Unit,
 ];
-export var DeletePlaybackKeyPair: StaticOperationSchema = [
+export var DeletePlaybackKeyPair$: StaticOperationSchema = [
   9,
   n0,
   _DPKP,
   { [_ht]: ["POST", "/DeletePlaybackKeyPair", 200] },
-  () => DeletePlaybackKeyPairRequest,
-  () => DeletePlaybackKeyPairResponse,
+  () => DeletePlaybackKeyPairRequest$,
+  () => DeletePlaybackKeyPairResponse$,
 ];
-export var DeletePlaybackRestrictionPolicy: StaticOperationSchema = [
+export var DeletePlaybackRestrictionPolicy$: StaticOperationSchema = [
   9,
   n0,
   _DPRP,
   { [_ht]: ["POST", "/DeletePlaybackRestrictionPolicy", 204] },
-  () => DeletePlaybackRestrictionPolicyRequest,
+  () => DeletePlaybackRestrictionPolicyRequest$,
   () => __Unit,
 ];
-export var DeleteRecordingConfiguration: StaticOperationSchema = [
+export var DeleteRecordingConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DRC,
   { [_ht]: ["POST", "/DeleteRecordingConfiguration", 204] },
-  () => DeleteRecordingConfigurationRequest,
+  () => DeleteRecordingConfigurationRequest$,
   () => __Unit,
 ];
-export var DeleteStreamKey: StaticOperationSchema = [
+export var DeleteStreamKey$: StaticOperationSchema = [
   9,
   n0,
   _DSK,
   { [_ht]: ["POST", "/DeleteStreamKey", 204] },
-  () => DeleteStreamKeyRequest,
+  () => DeleteStreamKeyRequest$,
   () => __Unit,
 ];
-export var GetChannel: StaticOperationSchema = [
+export var GetChannel$: StaticOperationSchema = [
   9,
   n0,
   _GC,
   { [_ht]: ["POST", "/GetChannel", 200] },
-  () => GetChannelRequest,
-  () => GetChannelResponse,
+  () => GetChannelRequest$,
+  () => GetChannelResponse$,
 ];
-export var GetPlaybackKeyPair: StaticOperationSchema = [
+export var GetPlaybackKeyPair$: StaticOperationSchema = [
   9,
   n0,
   _GPKP,
   { [_ht]: ["POST", "/GetPlaybackKeyPair", 200] },
-  () => GetPlaybackKeyPairRequest,
-  () => GetPlaybackKeyPairResponse,
+  () => GetPlaybackKeyPairRequest$,
+  () => GetPlaybackKeyPairResponse$,
 ];
-export var GetPlaybackRestrictionPolicy: StaticOperationSchema = [
+export var GetPlaybackRestrictionPolicy$: StaticOperationSchema = [
   9,
   n0,
   _GPRP,
   { [_ht]: ["POST", "/GetPlaybackRestrictionPolicy", 200] },
-  () => GetPlaybackRestrictionPolicyRequest,
-  () => GetPlaybackRestrictionPolicyResponse,
+  () => GetPlaybackRestrictionPolicyRequest$,
+  () => GetPlaybackRestrictionPolicyResponse$,
 ];
-export var GetRecordingConfiguration: StaticOperationSchema = [
+export var GetRecordingConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GRC,
   { [_ht]: ["POST", "/GetRecordingConfiguration", 200] },
-  () => GetRecordingConfigurationRequest,
-  () => GetRecordingConfigurationResponse,
+  () => GetRecordingConfigurationRequest$,
+  () => GetRecordingConfigurationResponse$,
 ];
-export var GetStream: StaticOperationSchema = [
+export var GetStream$: StaticOperationSchema = [
   9,
   n0,
   _GS,
   { [_ht]: ["POST", "/GetStream", 200] },
-  () => GetStreamRequest,
-  () => GetStreamResponse,
+  () => GetStreamRequest$,
+  () => GetStreamResponse$,
 ];
-export var GetStreamKey: StaticOperationSchema = [
+export var GetStreamKey$: StaticOperationSchema = [
   9,
   n0,
   _GSK,
   { [_ht]: ["POST", "/GetStreamKey", 200] },
-  () => GetStreamKeyRequest,
-  () => GetStreamKeyResponse,
+  () => GetStreamKeyRequest$,
+  () => GetStreamKeyResponse$,
 ];
-export var GetStreamSession: StaticOperationSchema = [
+export var GetStreamSession$: StaticOperationSchema = [
   9,
   n0,
   _GSS,
   { [_ht]: ["POST", "/GetStreamSession", 200] },
-  () => GetStreamSessionRequest,
-  () => GetStreamSessionResponse,
+  () => GetStreamSessionRequest$,
+  () => GetStreamSessionResponse$,
 ];
-export var ImportPlaybackKeyPair: StaticOperationSchema = [
+export var ImportPlaybackKeyPair$: StaticOperationSchema = [
   9,
   n0,
   _IPKP,
   { [_ht]: ["POST", "/ImportPlaybackKeyPair", 200] },
-  () => ImportPlaybackKeyPairRequest,
-  () => ImportPlaybackKeyPairResponse,
+  () => ImportPlaybackKeyPairRequest$,
+  () => ImportPlaybackKeyPairResponse$,
 ];
-export var ListChannels: StaticOperationSchema = [
+export var ListChannels$: StaticOperationSchema = [
   9,
   n0,
   _LC,
   { [_ht]: ["POST", "/ListChannels", 200] },
-  () => ListChannelsRequest,
-  () => ListChannelsResponse,
+  () => ListChannelsRequest$,
+  () => ListChannelsResponse$,
 ];
-export var ListPlaybackKeyPairs: StaticOperationSchema = [
+export var ListPlaybackKeyPairs$: StaticOperationSchema = [
   9,
   n0,
   _LPKP,
   { [_ht]: ["POST", "/ListPlaybackKeyPairs", 200] },
-  () => ListPlaybackKeyPairsRequest,
-  () => ListPlaybackKeyPairsResponse,
+  () => ListPlaybackKeyPairsRequest$,
+  () => ListPlaybackKeyPairsResponse$,
 ];
-export var ListPlaybackRestrictionPolicies: StaticOperationSchema = [
+export var ListPlaybackRestrictionPolicies$: StaticOperationSchema = [
   9,
   n0,
   _LPRP,
   { [_ht]: ["POST", "/ListPlaybackRestrictionPolicies", 200] },
-  () => ListPlaybackRestrictionPoliciesRequest,
-  () => ListPlaybackRestrictionPoliciesResponse,
+  () => ListPlaybackRestrictionPoliciesRequest$,
+  () => ListPlaybackRestrictionPoliciesResponse$,
 ];
-export var ListRecordingConfigurations: StaticOperationSchema = [
+export var ListRecordingConfigurations$: StaticOperationSchema = [
   9,
   n0,
   _LRC,
   { [_ht]: ["POST", "/ListRecordingConfigurations", 200] },
-  () => ListRecordingConfigurationsRequest,
-  () => ListRecordingConfigurationsResponse,
+  () => ListRecordingConfigurationsRequest$,
+  () => ListRecordingConfigurationsResponse$,
 ];
-export var ListStreamKeys: StaticOperationSchema = [
+export var ListStreamKeys$: StaticOperationSchema = [
   9,
   n0,
   _LSK,
   { [_ht]: ["POST", "/ListStreamKeys", 200] },
-  () => ListStreamKeysRequest,
-  () => ListStreamKeysResponse,
+  () => ListStreamKeysRequest$,
+  () => ListStreamKeysResponse$,
 ];
-export var ListStreams: StaticOperationSchema = [
+export var ListStreams$: StaticOperationSchema = [
   9,
   n0,
   _LS,
   { [_ht]: ["POST", "/ListStreams", 200] },
-  () => ListStreamsRequest,
-  () => ListStreamsResponse,
+  () => ListStreamsRequest$,
+  () => ListStreamsResponse$,
 ];
-export var ListStreamSessions: StaticOperationSchema = [
+export var ListStreamSessions$: StaticOperationSchema = [
   9,
   n0,
   _LSS,
   { [_ht]: ["POST", "/ListStreamSessions", 200] },
-  () => ListStreamSessionsRequest,
-  () => ListStreamSessionsResponse,
+  () => ListStreamSessionsRequest$,
+  () => ListStreamSessionsResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_ht]: ["GET", "/tags/{resourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var PutMetadata: StaticOperationSchema = [
+export var PutMetadata$: StaticOperationSchema = [
   9,
   n0,
   _PM,
   { [_ht]: ["POST", "/PutMetadata", 204] },
-  () => PutMetadataRequest,
+  () => PutMetadataRequest$,
   () => __Unit,
 ];
-export var StartViewerSessionRevocation: StaticOperationSchema = [
+export var StartViewerSessionRevocation$: StaticOperationSchema = [
   9,
   n0,
   _SVSR,
   { [_ht]: ["POST", "/StartViewerSessionRevocation", 200] },
-  () => StartViewerSessionRevocationRequest,
-  () => StartViewerSessionRevocationResponse,
+  () => StartViewerSessionRevocationRequest$,
+  () => StartViewerSessionRevocationResponse$,
 ];
-export var StopStream: StaticOperationSchema = [
+export var StopStream$: StaticOperationSchema = [
   9,
   n0,
   _SSto,
   { [_ht]: ["POST", "/StopStream", 200] },
-  () => StopStreamRequest,
-  () => StopStreamResponse,
+  () => StopStreamRequest$,
+  () => StopStreamResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_ht]: ["POST", "/tags/{resourceArn}", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_ht]: ["DELETE", "/tags/{resourceArn}", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateChannel: StaticOperationSchema = [
+export var UpdateChannel$: StaticOperationSchema = [
   9,
   n0,
   _UC,
   { [_ht]: ["POST", "/UpdateChannel", 200] },
-  () => UpdateChannelRequest,
-  () => UpdateChannelResponse,
+  () => UpdateChannelRequest$,
+  () => UpdateChannelResponse$,
 ];
-export var UpdatePlaybackRestrictionPolicy: StaticOperationSchema = [
+export var UpdatePlaybackRestrictionPolicy$: StaticOperationSchema = [
   9,
   n0,
   _UPRP,
   { [_ht]: ["POST", "/UpdatePlaybackRestrictionPolicy", 200] },
-  () => UpdatePlaybackRestrictionPolicyRequest,
-  () => UpdatePlaybackRestrictionPolicyResponse,
+  () => UpdatePlaybackRestrictionPolicyRequest$,
+  () => UpdatePlaybackRestrictionPolicyResponse$,
 ];

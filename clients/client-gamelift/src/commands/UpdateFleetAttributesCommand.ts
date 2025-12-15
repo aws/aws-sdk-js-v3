@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import type { UpdateFleetAttributesInput, UpdateFleetAttributesOutput } from "../models/models_0";
-import { UpdateFleetAttributes } from "../schemas/schemas_0";
+import { UpdateFleetAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -136,7 +136,7 @@ export class UpdateFleetAttributesCommand extends $Command
   })
   .s("GameLift", "UpdateFleetAttributes", {})
   .n("GameLiftClient", "UpdateFleetAttributesCommand")
-  .sc(UpdateFleetAttributes)
+  .sc(UpdateFleetAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: BedrockDataAutomationRuntimeClientConfi
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.bedrockdataautomationruntime",
-        serviceTarget: "AmazonBedrockKeystoneRuntimeService",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.bedrockdataautomationruntime",
+      version: "2024-06-13",
+      serviceTarget: "AmazonBedrockKeystoneRuntimeService",
+    },
     serviceId: config?.serviceId ?? "Bedrock Data Automation Runtime",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

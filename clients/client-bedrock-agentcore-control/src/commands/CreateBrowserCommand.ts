@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateBrowserRequest, CreateBrowserResponse } from "../models/models_0";
-import { CreateBrowser } from "../schemas/schemas_0";
+import { CreateBrowser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class CreateBrowserCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "CreateBrowser", {})
   .n("BedrockAgentCoreControlClient", "CreateBrowserCommand")
-  .sc(CreateBrowser)
+  .sc(CreateBrowser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

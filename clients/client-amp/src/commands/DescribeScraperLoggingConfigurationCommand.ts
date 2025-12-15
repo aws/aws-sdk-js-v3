@@ -9,7 +9,7 @@ import type {
   DescribeScraperLoggingConfigurationRequest,
   DescribeScraperLoggingConfigurationResponse,
 } from "../models/models_0";
-import { DescribeScraperLoggingConfiguration } from "../schemas/schemas_0";
+import { DescribeScraperLoggingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class DescribeScraperLoggingConfigurationCommand extends $Command
   })
   .s("AmazonPrometheusService", "DescribeScraperLoggingConfiguration", {})
   .n("AmpClient", "DescribeScraperLoggingConfigurationCommand")
-  .sc(DescribeScraperLoggingConfiguration)
+  .sc(DescribeScraperLoggingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

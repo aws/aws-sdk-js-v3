@@ -9,7 +9,7 @@ import type {
   ModifyVpcEndpointServicePayerResponsibilityRequest,
   ModifyVpcEndpointServicePayerResponsibilityResult,
 } from "../models/models_7";
-import { ModifyVpcEndpointServicePayerResponsibility } from "../schemas/schemas_0";
+import { ModifyVpcEndpointServicePayerResponsibility$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -81,7 +81,7 @@ export class ModifyVpcEndpointServicePayerResponsibilityCommand extends $Command
   })
   .s("AmazonEC2", "ModifyVpcEndpointServicePayerResponsibility", {})
   .n("EC2Client", "ModifyVpcEndpointServicePayerResponsibilityCommand")
-  .sc(ModifyVpcEndpointServicePayerResponsibility)
+  .sc(ModifyVpcEndpointServicePayerResponsibility$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

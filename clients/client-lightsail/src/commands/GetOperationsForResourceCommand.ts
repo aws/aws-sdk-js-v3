@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { GetOperationsForResourceRequest, GetOperationsForResourceResult } from "../models/models_1";
-import { GetOperationsForResource } from "../schemas/schemas_0";
+import { GetOperationsForResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class GetOperationsForResourceCommand extends $Command
   })
   .s("Lightsail_20161128", "GetOperationsForResource", {})
   .n("LightsailClient", "GetOperationsForResourceCommand")
-  .sc(GetOperationsForResource)
+  .sc(GetOperationsForResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

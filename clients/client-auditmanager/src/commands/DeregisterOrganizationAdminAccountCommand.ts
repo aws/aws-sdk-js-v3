@@ -9,7 +9,7 @@ import type {
   DeregisterOrganizationAdminAccountRequest,
   DeregisterOrganizationAdminAccountResponse,
 } from "../models/models_0";
-import { DeregisterOrganizationAdminAccount } from "../schemas/schemas_0";
+import { DeregisterOrganizationAdminAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -149,7 +149,7 @@ export class DeregisterOrganizationAdminAccountCommand extends $Command
   })
   .s("BedrockAssessmentManagerLambda", "DeregisterOrganizationAdminAccount", {})
   .n("AuditManagerClient", "DeregisterOrganizationAdminAccountCommand")
-  .sc(DeregisterOrganizationAdminAccount)
+  .sc(DeregisterOrganizationAdminAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

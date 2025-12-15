@@ -8,7 +8,7 @@ import type {
   DescribeConnectionAliasPermissionsRequest,
   DescribeConnectionAliasPermissionsResult,
 } from "../models/models_0";
-import { DescribeConnectionAliasPermissions } from "../schemas/schemas_0";
+import { DescribeConnectionAliasPermissions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -102,7 +102,7 @@ export class DescribeConnectionAliasPermissionsCommand extends $Command
   })
   .s("WorkspacesService", "DescribeConnectionAliasPermissions", {})
   .n("WorkSpacesClient", "DescribeConnectionAliasPermissionsCommand")
-  .sc(DescribeConnectionAliasPermissions)
+  .sc(DescribeConnectionAliasPermissions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

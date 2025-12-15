@@ -9,7 +9,7 @@ import type {
   StartSoftwareDeploymentToImageBuilderRequest,
   StartSoftwareDeploymentToImageBuilderResult,
 } from "../models/models_0";
-import { StartSoftwareDeploymentToImageBuilder } from "../schemas/schemas_0";
+import { StartSoftwareDeploymentToImageBuilder$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class StartSoftwareDeploymentToImageBuilderCommand extends $Command
   })
   .s("PhotonAdminProxyService", "StartSoftwareDeploymentToImageBuilder", {})
   .n("AppStreamClient", "StartSoftwareDeploymentToImageBuilderCommand")
-  .sc(StartSoftwareDeploymentToImageBuilder)
+  .sc(StartSoftwareDeploymentToImageBuilder$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DeleteVpcBlockPublicAccessExclusionRequest,
   DeleteVpcBlockPublicAccessExclusionResult,
 } from "../models/models_3";
-import { DeleteVpcBlockPublicAccessExclusion } from "../schemas/schemas_0";
+import { DeleteVpcBlockPublicAccessExclusion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DeleteVpcBlockPublicAccessExclusionCommand extends $Command
   })
   .s("AmazonEC2", "DeleteVpcBlockPublicAccessExclusion", {})
   .n("EC2Client", "DeleteVpcBlockPublicAccessExclusionCommand")
-  .sc(DeleteVpcBlockPublicAccessExclusion)
+  .sc(DeleteVpcBlockPublicAccessExclusion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

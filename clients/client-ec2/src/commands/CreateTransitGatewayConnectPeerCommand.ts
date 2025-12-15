@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateTransitGatewayConnectPeerRequest, CreateTransitGatewayConnectPeerResult } from "../models/models_2";
-import { CreateTransitGatewayConnectPeer } from "../schemas/schemas_0";
+import { CreateTransitGatewayConnectPeer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,7 +127,7 @@ export class CreateTransitGatewayConnectPeerCommand extends $Command
   })
   .s("AmazonEC2", "CreateTransitGatewayConnectPeer", {})
   .n("EC2Client", "CreateTransitGatewayConnectPeerCommand")
-  .sc(CreateTransitGatewayConnectPeer)
+  .sc(CreateTransitGatewayConnectPeer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

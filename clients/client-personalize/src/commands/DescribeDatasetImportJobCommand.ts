@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeDatasetImportJobRequest, DescribeDatasetImportJobResponse } from "../models/models_0";
 import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { DescribeDatasetImportJob } from "../schemas/schemas_0";
+import { DescribeDatasetImportJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DescribeDatasetImportJobCommand extends $Command
   })
   .s("AmazonPersonalize", "DescribeDatasetImportJob", {})
   .n("PersonalizeClient", "DescribeDatasetImportJobCommand")
-  .sc(DescribeDatasetImportJob)
+  .sc(DescribeDatasetImportJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

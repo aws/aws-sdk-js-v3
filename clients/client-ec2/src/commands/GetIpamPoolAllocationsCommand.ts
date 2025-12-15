@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetIpamPoolAllocationsRequest, GetIpamPoolAllocationsResult } from "../models/models_6";
-import { GetIpamPoolAllocations } from "../schemas/schemas_0";
+import { GetIpamPoolAllocations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class GetIpamPoolAllocationsCommand extends $Command
   })
   .s("AmazonEC2", "GetIpamPoolAllocations", {})
   .n("EC2Client", "GetIpamPoolAllocationsCommand")
-  .sc(GetIpamPoolAllocations)
+  .sc(GetIpamPoolAllocations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

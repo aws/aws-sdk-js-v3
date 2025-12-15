@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationInsightsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListLogPatternsRequest, ListLogPatternsResponse } from "../models/models_0";
-import { ListLogPatterns } from "../schemas/schemas_0";
+import { ListLogPatterns$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class ListLogPatternsCommand extends $Command
   })
   .s("EC2WindowsBarleyService", "ListLogPatterns", {})
   .n("ApplicationInsightsClient", "ListLogPatternsCommand")
-  .sc(ListLogPatterns)
+  .sc(ListLogPatterns$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

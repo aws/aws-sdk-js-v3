@@ -9,7 +9,7 @@ import type {
   DescribeVpcEndpointServicePermissionsRequest,
   DescribeVpcEndpointServicePermissionsResult,
 } from "../models/models_5";
-import { DescribeVpcEndpointServicePermissions } from "../schemas/schemas_0";
+import { DescribeVpcEndpointServicePermissions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class DescribeVpcEndpointServicePermissionsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeVpcEndpointServicePermissions", {})
   .n("EC2Client", "DescribeVpcEndpointServicePermissionsCommand")
-  .sc(DescribeVpcEndpointServicePermissions)
+  .sc(DescribeVpcEndpointServicePermissions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

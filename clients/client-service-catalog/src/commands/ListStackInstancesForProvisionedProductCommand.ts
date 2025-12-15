@@ -8,7 +8,7 @@ import type {
   ListStackInstancesForProvisionedProductInput,
   ListStackInstancesForProvisionedProductOutput,
 } from "../models/models_0";
-import { ListStackInstancesForProvisionedProduct } from "../schemas/schemas_0";
+import { ListStackInstancesForProvisionedProduct$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -99,7 +99,7 @@ export class ListStackInstancesForProvisionedProductCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "ListStackInstancesForProvisionedProduct", {})
   .n("ServiceCatalogClient", "ListStackInstancesForProvisionedProductCommand")
-  .sc(ListStackInstancesForProvisionedProduct)
+  .sc(ListStackInstancesForProvisionedProduct$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

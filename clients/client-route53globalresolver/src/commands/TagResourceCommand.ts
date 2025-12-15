@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53GlobalResolverClient";
-import { TagResource } from "../schemas/schemas_0";
+import { TagResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class TagResourceCommand extends $Command
   })
   .s("EC2DNSGlobalResolverCustomerAPI", "TagResource", {})
   .n("Route53GlobalResolverClient", "TagResourceCommand")
-  .sc(TagResource)
+  .sc(TagResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

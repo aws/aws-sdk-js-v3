@@ -11,7 +11,7 @@ import type {
   StartMedicalStreamTranscriptionRequest,
   StartMedicalStreamTranscriptionResponse,
 } from "../models/models_0";
-import { StartMedicalStreamTranscription } from "../schemas/schemas_0";
+import { StartMedicalStreamTranscription$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -237,7 +237,7 @@ export class StartMedicalStreamTranscriptionCommand extends $Command
     },
   })
   .n("TranscribeStreamingClient", "StartMedicalStreamTranscriptionCommand")
-  .sc(StartMedicalStreamTranscription)
+  .sc(StartMedicalStreamTranscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

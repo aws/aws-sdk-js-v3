@@ -9,7 +9,7 @@ import type {
   DescribeOrganizationResourceCollectionHealthRequest,
   DescribeOrganizationResourceCollectionHealthResponse,
 } from "../models/models_0";
-import { DescribeOrganizationResourceCollectionHealth } from "../schemas/schemas_0";
+import { DescribeOrganizationResourceCollectionHealth$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -147,7 +147,7 @@ export class DescribeOrganizationResourceCollectionHealthCommand extends $Comman
   })
   .s("CapstoneControlPlaneService", "DescribeOrganizationResourceCollectionHealth", {})
   .n("DevOpsGuruClient", "DescribeOrganizationResourceCollectionHealthCommand")
-  .sc(DescribeOrganizationResourceCollectionHealth)
+  .sc(DescribeOrganizationResourceCollectionHealth$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

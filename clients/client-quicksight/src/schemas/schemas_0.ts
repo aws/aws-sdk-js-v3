@@ -3490,69 +3490,69 @@ import type {
 } from "@smithy/types";
 
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConcurrentUpdatingException as __ConcurrentUpdatingException,
-  ConflictException as __ConflictException,
-  CustomerManagedKeyUnavailableException as __CustomerManagedKeyUnavailableException,
-  DomainNotWhitelistedException as __DomainNotWhitelistedException,
-  IdentityTypeNotSupportedException as __IdentityTypeNotSupportedException,
-  InternalFailureException as __InternalFailureException,
-  InternalServerException as __InternalServerException,
-  InvalidDataSetParameterValueException as __InvalidDataSetParameterValueException,
-  InvalidNextTokenException as __InvalidNextTokenException,
-  InvalidParameterValueException as __InvalidParameterValueException,
-  InvalidRequestException as __InvalidRequestException,
-  LimitExceededException as __LimitExceededException,
-  PreconditionNotMetException as __PreconditionNotMetException,
-  QuickSightUserNotFoundException as __QuickSightUserNotFoundException,
-  ResourceExistsException as __ResourceExistsException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ResourceUnavailableException as __ResourceUnavailableException,
-  SessionLifetimeInMinutesInvalidException as __SessionLifetimeInMinutesInvalidException,
-  ThrottlingException as __ThrottlingException,
-  UnsupportedPricingPlanException as __UnsupportedPricingPlanException,
-  UnsupportedUserEditionException as __UnsupportedUserEditionException,
+  AccessDeniedException,
+  ConcurrentUpdatingException,
+  ConflictException,
+  CustomerManagedKeyUnavailableException,
+  DomainNotWhitelistedException,
+  IdentityTypeNotSupportedException,
+  InternalFailureException,
+  InternalServerException,
+  InvalidDataSetParameterValueException,
+  InvalidNextTokenException,
+  InvalidParameterValueException,
+  InvalidRequestException,
+  LimitExceededException,
+  PreconditionNotMetException,
+  QuickSightUserNotFoundException,
+  ResourceExistsException,
+  ResourceNotFoundException,
+  ResourceUnavailableException,
+  SessionLifetimeInMinutesInvalidException,
+  ThrottlingException,
+  UnsupportedPricingPlanException,
+  UnsupportedUserEditionException,
 } from "../models/errors";
-import { QuickSightServiceException as __QuickSightServiceException } from "../models/QuickSightServiceException";
+import { QuickSightServiceException } from "../models/QuickSightServiceException";
 
 /* eslint no-var: 0 */
-export var ActionConnectorDescription: StaticSimpleSchema = [0, n0, _ACD, 8, 0];
-export var ActionConnectorName: StaticSimpleSchema = [0, n0, _ACN, 8, 0];
-export var ActionPassword: StaticSimpleSchema = [0, n0, _AP, 8, 0];
-export var ActionUserName: StaticSimpleSchema = [0, n0, _AUN, 8, 0];
-export var APIKey: StaticSimpleSchema = [0, n0, _APIK, 8, 0];
-export var AssetBundleImportBodyBlob: StaticSimpleSchema = [0, n0, _ABIBB, 8, 21];
-export var CalculatedFieldExpression: StaticSimpleSchema = [0, n0, _CFE, 8, 0];
-export var ClientSecret: StaticSimpleSchema = [0, n0, _CS, 8, 0];
-export var ColumnDescriptiveText: StaticSimpleSchema = [0, n0, _CDT, 8, 0];
-export var CustomInstructionsString: StaticSimpleSchema = [0, n0, _CIS, 8, 0];
-export var DataSetCalculatedFieldExpression: StaticSimpleSchema = [0, n0, _DSCFE, 8, 0];
-export var DataSetStringFilterStaticValue: StaticSimpleSchema = [0, n0, _DSSFSV, 8, 0];
-export var Email: StaticSimpleSchema = [0, n0, _E, 8, 0];
-export var EmbeddingUrl: StaticSimpleSchema = [0, n0, _EU, 8, 0];
-export var Expression: StaticSimpleSchema = [0, n0, _Ex, 8, 0];
-export var FieldValue: StaticSimpleSchema = [0, n0, _FV, 8, 0];
-export var JoinOperationOnClause: StaticSimpleSchema = [0, n0, _JOOC, 8, 0];
-export var NullString: StaticSimpleSchema = [0, n0, _NS, 8, 0];
-export var Prefix: StaticSimpleSchema = [0, n0, _P, 8, 0];
-export var PrivateKey: StaticSimpleSchema = [0, n0, _PK, 8, 0];
-export var PrivateKeyPassphrase: StaticSimpleSchema = [0, n0, _PKP, 8, 0];
-export var QAQueryText: StaticSimpleSchema = [0, n0, _QAQT, 8, 0];
-export var SensitiveDouble: StaticSimpleSchema = [0, n0, _SD, 8, 1];
-export var SensitiveDoubleObject: StaticSimpleSchema = [0, n0, _SDO, 8, 1];
-export var SensitiveLong: StaticSimpleSchema = [0, n0, _SL, 8, 1];
-export var SensitiveLongObject: StaticSimpleSchema = [0, n0, _SLO, 8, 1];
-export var SensitiveS3Uri: StaticSimpleSchema = [0, n0, _SSU, 8, 0];
-export var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
-export var SensitiveStringObject: StaticSimpleSchema = [0, n0, _SSO, 8, 0];
-export var SensitiveTimestamp: StaticSimpleSchema = [0, n0, _ST, 8, 4];
-export var SessionTagValue: StaticSimpleSchema = [0, n0, _STV, 8, 0];
-export var SqlQuery: StaticSimpleSchema = [0, n0, _SQ, 8, 0];
-export var Suffix: StaticSimpleSchema = [0, n0, _S, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 401 }, [_M, _RI], [0, 0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var AccountCustomization: StaticStructureSchema = [3, n0, _AC, 0, [_DT, _DECT], [0, 0]];
-export var AccountInfo: StaticStructureSchema = [
+var ActionConnectorDescription: StaticSimpleSchema = [0, n0, _ACD, 8, 0];
+var ActionConnectorName: StaticSimpleSchema = [0, n0, _ACN, 8, 0];
+var ActionPassword: StaticSimpleSchema = [0, n0, _AP, 8, 0];
+var ActionUserName: StaticSimpleSchema = [0, n0, _AUN, 8, 0];
+var APIKey: StaticSimpleSchema = [0, n0, _APIK, 8, 0];
+var AssetBundleImportBodyBlob: StaticSimpleSchema = [0, n0, _ABIBB, 8, 21];
+var CalculatedFieldExpression: StaticSimpleSchema = [0, n0, _CFE, 8, 0];
+var ClientSecret: StaticSimpleSchema = [0, n0, _CS, 8, 0];
+var ColumnDescriptiveText: StaticSimpleSchema = [0, n0, _CDT, 8, 0];
+var CustomInstructionsString: StaticSimpleSchema = [0, n0, _CIS, 8, 0];
+var DataSetCalculatedFieldExpression: StaticSimpleSchema = [0, n0, _DSCFE, 8, 0];
+var DataSetStringFilterStaticValue: StaticSimpleSchema = [0, n0, _DSSFSV, 8, 0];
+var Email: StaticSimpleSchema = [0, n0, _E, 8, 0];
+var EmbeddingUrl: StaticSimpleSchema = [0, n0, _EU, 8, 0];
+var Expression: StaticSimpleSchema = [0, n0, _Ex, 8, 0];
+var FieldValue: StaticSimpleSchema = [0, n0, _FV, 8, 0];
+var JoinOperationOnClause: StaticSimpleSchema = [0, n0, _JOOC, 8, 0];
+var NullString: StaticSimpleSchema = [0, n0, _NS, 8, 0];
+var Prefix: StaticSimpleSchema = [0, n0, _P, 8, 0];
+var PrivateKey: StaticSimpleSchema = [0, n0, _PK, 8, 0];
+var PrivateKeyPassphrase: StaticSimpleSchema = [0, n0, _PKP, 8, 0];
+var QAQueryText: StaticSimpleSchema = [0, n0, _QAQT, 8, 0];
+var SensitiveDouble: StaticSimpleSchema = [0, n0, _SD, 8, 1];
+var SensitiveDoubleObject: StaticSimpleSchema = [0, n0, _SDO, 8, 1];
+var SensitiveLong: StaticSimpleSchema = [0, n0, _SL, 8, 1];
+var SensitiveLongObject: StaticSimpleSchema = [0, n0, _SLO, 8, 1];
+var SensitiveS3Uri: StaticSimpleSchema = [0, n0, _SSU, 8, 0];
+var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
+var SensitiveStringObject: StaticSimpleSchema = [0, n0, _SSO, 8, 0];
+var SensitiveTimestamp: StaticSimpleSchema = [0, n0, _ST, 8, 4];
+var SessionTagValue: StaticSimpleSchema = [0, n0, _STV, 8, 0];
+var SqlQuery: StaticSimpleSchema = [0, n0, _SQ, 8, 0];
+var Suffix: StaticSimpleSchema = [0, n0, _S, 8, 0];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 401 }, [_M, _RI], [0, 0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var AccountCustomization$: StaticStructureSchema = [3, n0, _AC, 0, [_DT, _DECT], [0, 0]];
+export var AccountInfo$: StaticStructureSchema = [
   3,
   n0,
   _AI,
@@ -3560,7 +3560,7 @@ export var AccountInfo: StaticStructureSchema = [
   [_AN, _Ed, _NE, _AT, _ASS, _IAMICIA],
   [0, 0, 0, 0, 0, 0],
 ];
-export var AccountSettings: StaticStructureSchema = [
+export var AccountSettings$: StaticStructureSchema = [
   3,
   n0,
   _AS,
@@ -3568,7 +3568,7 @@ export var AccountSettings: StaticStructureSchema = [
   [_AN, _Ed, _DN, _NE, _PSE, _TPE],
   [0, 0, 0, 0, 2, 2],
 ];
-export var ActionConnector: StaticStructureSchema = [
+export var ActionConnector$: StaticStructureSchema = [
   3,
   n0,
   _ACc,
@@ -3582,84 +3582,84 @@ export var ActionConnector: StaticStructureSchema = [
     4,
     4,
     0,
-    () => ActionConnectorError,
+    () => ActionConnectorError$,
     [() => ActionConnectorDescription, 0],
-    [() => ReadAuthConfig, 0],
+    [() => ReadAuthConfig$, 0],
     64 | 0,
     0,
   ],
 ];
-export var ActionConnectorError: StaticStructureSchema = [3, n0, _ACE, 0, [_M, _T], [0, 0]];
-export var ActionConnectorSearchFilter: StaticStructureSchema = [3, n0, _ACSF, 0, [_N, _O, _V], [0, 0, 0]];
-export var ActionConnectorSummary: StaticStructureSchema = [
+export var ActionConnectorError$: StaticStructureSchema = [3, n0, _ACE, 0, [_M, _T], [0, 0]];
+export var ActionConnectorSearchFilter$: StaticStructureSchema = [3, n0, _ACSF, 0, [_N, _O, _V], [0, 0, 0]];
+export var ActionConnectorSummary$: StaticStructureSchema = [
   3,
   n0,
   _ACS,
   0,
   [_A, _ACI, _T, _N, _CT, _LUT, _St, _Er],
-  [0, 0, 0, [() => ActionConnectorName, 0], 4, 4, 0, () => ActionConnectorError],
+  [0, 0, 0, [() => ActionConnectorName, 0], 4, 4, 0, () => ActionConnectorError$],
 ];
-export var ActiveIAMPolicyAssignment: StaticStructureSchema = [3, n0, _AIAMPA, 0, [_ANs, _PA], [0, 0]];
-export var AdHocFilteringOption: StaticStructureSchema = [3, n0, _AHFO, 0, [_ASv], [0]];
-export var AggFunction: StaticStructureSchema = [3, n0, _AF, 0, [_Ag, _AFP, _Pe, _PF], [0, 128 | 0, 0, 0]];
-export var AggregateOperation: StaticStructureSchema = [
+export var ActiveIAMPolicyAssignment$: StaticStructureSchema = [3, n0, _AIAMPA, 0, [_ANs, _PA], [0, 0]];
+export var AdHocFilteringOption$: StaticStructureSchema = [3, n0, _AHFO, 0, [_ASv], [0]];
+export var AggFunction$: StaticStructureSchema = [3, n0, _AF, 0, [_Ag, _AFP, _Pe, _PF], [0, 128 | 0, 0, 0]];
+export var AggregateOperation$: StaticStructureSchema = [
   3,
   n0,
   _AO,
   0,
   [_Al, _So, _GBCN, _Agg],
-  [0, () => TransformOperationSource, 64 | 0, () => AggregationList],
+  [0, () => TransformOperationSource$, 64 | 0, () => AggregationList],
 ];
-export var Aggregation: StaticStructureSchema = [
+export var Aggregation$: StaticStructureSchema = [
   3,
   n0,
   _Ag,
   0,
   [_AFg, _NCN, _NCI],
-  [() => DataPrepAggregationFunction, 0, 0],
+  [() => DataPrepAggregationFunction$, 0, 0],
 ];
-export var AggregationFunction: StaticStructureSchema = [
+export var AggregationFunction$: StaticStructureSchema = [
   3,
   n0,
   _AFg,
   0,
   [_NAF, _CAF, _DAF, _AAF],
-  [() => NumericalAggregationFunction, 0, 0, () => AttributeAggregationFunction],
+  [() => NumericalAggregationFunction$, 0, 0, () => AttributeAggregationFunction$],
 ];
-export var AggregationPartitionBy: StaticStructureSchema = [3, n0, _APB, 0, [_FN, _TG], [0, 0]];
-export var AggregationSortConfiguration: StaticStructureSchema = [
+export var AggregationPartitionBy$: StaticStructureSchema = [3, n0, _APB, 0, [_FN, _TG], [0, 0]];
+export var AggregationSortConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ASC,
   0,
   [_C, _SDo, _AFg],
-  [() => ColumnIdentifier, 0, () => AggregationFunction],
+  [() => ColumnIdentifier$, 0, () => AggregationFunction$],
 ];
-export var AllSheetsFilterScopeConfiguration: StaticStructureSchema = [3, n0, _ASFSC, 0, [], []];
-export var AmazonElasticsearchParameters: StaticStructureSchema = [3, n0, _AEP, 0, [_Do], [0]];
-export var AmazonOpenSearchParameters: StaticStructureSchema = [3, n0, _AOSP, 0, [_Do], [0]];
-export var AmazonQInQuickSightConsoleConfigurations: StaticStructureSchema = [
+export var AllSheetsFilterScopeConfiguration$: StaticStructureSchema = [3, n0, _ASFSC, 0, [], []];
+export var AmazonElasticsearchParameters$: StaticStructureSchema = [3, n0, _AEP, 0, [_Do], [0]];
+export var AmazonOpenSearchParameters$: StaticStructureSchema = [3, n0, _AOSP, 0, [_Do], [0]];
+export var AmazonQInQuickSightConsoleConfigurations$: StaticStructureSchema = [
   3,
   n0,
   _AQIQSCC,
   0,
   [_DQA, _GA, _ES, _DS],
   [
-    () => DataQnAConfigurations,
-    () => GenerativeAuthoringConfigurations,
-    () => ExecutiveSummaryConfigurations,
-    () => DataStoriesConfigurations,
+    () => DataQnAConfigurations$,
+    () => GenerativeAuthoringConfigurations$,
+    () => ExecutiveSummaryConfigurations$,
+    () => DataStoriesConfigurations$,
   ],
 ];
-export var AmazonQInQuickSightDashboardConfigurations: StaticStructureSchema = [
+export var AmazonQInQuickSightDashboardConfigurations$: StaticStructureSchema = [
   3,
   n0,
   _AQIQSDC,
   0,
   [_ES],
-  [() => ExecutiveSummaryConfigurations],
+  [() => ExecutiveSummaryConfigurations$],
 ];
-export var Analysis: StaticStructureSchema = [
+export var Analysis$: StaticStructureSchema = [
   3,
   n0,
   _An,
@@ -3667,8 +3667,8 @@ export var Analysis: StaticStructureSchema = [
   [_AIn, _A, _N, _St, _Err, _DSA, _TA, _CT, _LUT, _Sh],
   [0, 0, 0, 0, () => AnalysisErrorList, 64 | 0, 0, 4, 4, () => SheetList],
 ];
-export var AnalysisDefaults: StaticStructureSchema = [3, n0, _AD, 0, [_DNSC], [() => DefaultNewSheetConfiguration]];
-export var AnalysisDefinition: StaticStructureSchema = [
+export var AnalysisDefaults$: StaticStructureSchema = [3, n0, _AD, 0, [_DNSC], [() => DefaultNewSheetConfiguration$]];
+export var AnalysisDefinition$: StaticStructureSchema = [
   3,
   n0,
   _ADn,
@@ -3681,16 +3681,16 @@ export var AnalysisDefinition: StaticStructureSchema = [
     [() => ParameterDeclarationList, 0],
     [() => FilterGroupList, 0],
     [() => ColumnConfigurationList, 0],
-    () => AnalysisDefaults,
-    () => AssetOptions,
-    () => QueryExecutionOptions,
+    () => AnalysisDefaults$,
+    () => AssetOptions$,
+    () => QueryExecutionOptions$,
     () => StaticFileList,
   ],
 ];
-export var AnalysisError: StaticStructureSchema = [3, n0, _AE, 0, [_T, _M, _VE], [0, 0, () => EntityList]];
-export var AnalysisSearchFilter: StaticStructureSchema = [3, n0, _ASF, 0, [_O, _N, _V], [0, 0, 0]];
-export var AnalysisSourceEntity: StaticStructureSchema = [3, n0, _ASE, 0, [_STo], [() => AnalysisSourceTemplate]];
-export var AnalysisSourceTemplate: StaticStructureSchema = [
+export var AnalysisError$: StaticStructureSchema = [3, n0, _AE, 0, [_T, _M, _VE], [0, 0, () => EntityList]];
+export var AnalysisSearchFilter$: StaticStructureSchema = [3, n0, _ASF, 0, [_O, _N, _V], [0, 0, 0]];
+export var AnalysisSourceEntity$: StaticStructureSchema = [3, n0, _ASE, 0, [_STo], [() => AnalysisSourceTemplate$]];
+export var AnalysisSourceTemplate$: StaticStructureSchema = [
   3,
   n0,
   _AST,
@@ -3698,7 +3698,7 @@ export var AnalysisSourceTemplate: StaticStructureSchema = [
   [_DSR, _A],
   [() => DataSetReferenceList, 0],
 ];
-export var AnalysisSummary: StaticStructureSchema = [
+export var AnalysisSummary$: StaticStructureSchema = [
   3,
   n0,
   _ASn,
@@ -3706,48 +3706,48 @@ export var AnalysisSummary: StaticStructureSchema = [
   [_A, _AIn, _N, _St, _CT, _LUT],
   [0, 0, 0, 0, 4, 4],
 ];
-export var Anchor: StaticStructureSchema = [3, n0, _Anc, 0, [_ATn, _TG, _Of], [0, 0, 1]];
-export var AnchorDateConfiguration: StaticStructureSchema = [3, n0, _ADC, 0, [_AOn, _PN], [0, 0]];
-export var AnonymousUserDashboardEmbeddingConfiguration: StaticStructureSchema = [
+export var Anchor$: StaticStructureSchema = [3, n0, _Anc, 0, [_ATn, _TG, _Of], [0, 0, 1]];
+export var AnchorDateConfiguration$: StaticStructureSchema = [3, n0, _ADC, 0, [_AOn, _PN], [0, 0]];
+export var AnonymousUserDashboardEmbeddingConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _AUDEC,
   0,
   [_IDI, _EF, _DF, _FC],
-  [0, 64 | 0, 64 | 0, () => AnonymousUserDashboardFeatureConfigurations],
+  [0, 64 | 0, 64 | 0, () => AnonymousUserDashboardFeatureConfigurations$],
 ];
-export var AnonymousUserDashboardFeatureConfigurations: StaticStructureSchema = [
+export var AnonymousUserDashboardFeatureConfigurations$: StaticStructureSchema = [
   3,
   n0,
   _AUDFC,
   0,
   [_SV],
-  [() => SharedViewConfigurations],
+  [() => SharedViewConfigurations$],
 ];
-export var AnonymousUserDashboardVisualEmbeddingConfiguration: StaticStructureSchema = [
+export var AnonymousUserDashboardVisualEmbeddingConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _AUDVEC,
   0,
   [_IDVI],
-  [() => DashboardVisualId],
+  [() => DashboardVisualId$],
 ];
-export var AnonymousUserEmbeddingExperienceConfiguration: StaticStructureSchema = [
+export var AnonymousUserEmbeddingExperienceConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _AUEEC,
   0,
   [_Da, _DV, _QSB, _GQA],
   [
-    () => AnonymousUserDashboardEmbeddingConfiguration,
-    () => AnonymousUserDashboardVisualEmbeddingConfiguration,
-    () => AnonymousUserQSearchBarEmbeddingConfiguration,
-    () => AnonymousUserGenerativeQnAEmbeddingConfiguration,
+    () => AnonymousUserDashboardEmbeddingConfiguration$,
+    () => AnonymousUserDashboardVisualEmbeddingConfiguration$,
+    () => AnonymousUserQSearchBarEmbeddingConfiguration$,
+    () => AnonymousUserGenerativeQnAEmbeddingConfiguration$,
   ],
 ];
-export var AnonymousUserGenerativeQnAEmbeddingConfiguration: StaticStructureSchema = [3, n0, _AUGQAEC, 0, [_ITI], [0]];
-export var AnonymousUserQSearchBarEmbeddingConfiguration: StaticStructureSchema = [3, n0, _AUQSBEC, 0, [_ITI], [0]];
-export var AnonymousUserSnapshotJobResult: StaticStructureSchema = [
+export var AnonymousUserGenerativeQnAEmbeddingConfiguration$: StaticStructureSchema = [3, n0, _AUGQAEC, 0, [_ITI], [0]];
+export var AnonymousUserQSearchBarEmbeddingConfiguration$: StaticStructureSchema = [3, n0, _AUQSBEC, 0, [_ITI], [0]];
+export var AnonymousUserSnapshotJobResult$: StaticStructureSchema = [
   3,
   n0,
   _AUSJR,
@@ -3755,7 +3755,7 @@ export var AnonymousUserSnapshotJobResult: StaticStructureSchema = [
   [_FGi],
   [[() => SnapshotJobResultFileGroupList, 0]],
 ];
-export var APIKeyConnectionMetadata: StaticStructureSchema = [
+export var APIKeyConnectionMetadata$: StaticStructureSchema = [
   3,
   n0,
   _APIKCM,
@@ -3763,35 +3763,35 @@ export var APIKeyConnectionMetadata: StaticStructureSchema = [
   [_BE, _AK, _E],
   [0, [() => APIKey, 0], [() => Email, 0]],
 ];
-export var AppendedColumn: StaticStructureSchema = [3, n0, _ACp, 0, [_CN, _NCI], [0, 0]];
-export var AppendOperation: StaticStructureSchema = [
+export var AppendedColumn$: StaticStructureSchema = [3, n0, _ACp, 0, [_CN, _NCI], [0, 0]];
+export var AppendOperation$: StaticStructureSchema = [
   3,
   n0,
   _AOp,
   0,
   [_Al, _FS, _SSe, _ACpp],
-  [0, () => TransformOperationSource, () => TransformOperationSource, () => AppendedColumnList],
+  [0, () => TransformOperationSource$, () => TransformOperationSource$, () => AppendedColumnList],
 ];
-export var ApplicationTheme: StaticStructureSchema = [
+export var ApplicationTheme$: StaticStructureSchema = [
   3,
   n0,
   _ATp,
   0,
   [_BCP, _CAP, _BES],
-  [() => BrandColorPalette, () => ContextualAccentPalette, () => BrandElementStyle],
+  [() => BrandColorPalette$, () => ContextualAccentPalette$, () => BrandElementStyle$],
 ];
-export var ArcAxisConfiguration: StaticStructureSchema = [3, n0, _AAC, 0, [_R, _RR], [() => ArcAxisDisplayRange, 1]];
-export var ArcAxisDisplayRange: StaticStructureSchema = [3, n0, _AADR, 0, [_Mi, _Ma], [1, 1]];
-export var ArcConfiguration: StaticStructureSchema = [3, n0, _ACr, 0, [_AA, _ATr], [1, 0]];
-export var ArcOptions: StaticStructureSchema = [3, n0, _AOr, 0, [_ATr], [0]];
-export var AssetBundleCloudFormationOverridePropertyConfiguration: StaticStructureSchema = [
+export var ArcAxisConfiguration$: StaticStructureSchema = [3, n0, _AAC, 0, [_R, _RR], [() => ArcAxisDisplayRange$, 1]];
+export var ArcAxisDisplayRange$: StaticStructureSchema = [3, n0, _AADR, 0, [_Mi, _Ma], [1, 1]];
+export var ArcConfiguration$: StaticStructureSchema = [3, n0, _ACr, 0, [_AA, _ATr], [1, 0]];
+export var ArcOptions$: StaticStructureSchema = [3, n0, _AOr, 0, [_ATr], [0]];
+export var AssetBundleCloudFormationOverridePropertyConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ABCFOPC,
   0,
   [_RIOC, _VPCC, _RS, _DSa, _DSat, _Th, _Ana, _Das, _F],
   [
-    () => AssetBundleExportJobResourceIdOverrideConfiguration,
+    () => AssetBundleExportJobResourceIdOverrideConfiguration$,
     () => AssetBundleExportJobVPCConnectionOverridePropertiesList,
     () => AssetBundleExportJobRefreshScheduleOverridePropertiesList,
     () => AssetBundleExportJobDataSourceOverridePropertiesList,
@@ -3802,7 +3802,7 @@ export var AssetBundleCloudFormationOverridePropertyConfiguration: StaticStructu
     () => AssetBundleExportJobFolderOverridePropertiesList,
   ],
 ];
-export var AssetBundleExportJobAnalysisOverrideProperties: StaticStructureSchema = [
+export var AssetBundleExportJobAnalysisOverrideProperties$: StaticStructureSchema = [
   3,
   n0,
   _ABEJAOP,
@@ -3810,7 +3810,7 @@ export var AssetBundleExportJobAnalysisOverrideProperties: StaticStructureSchema
   [_A, _Pr],
   [0, 64 | 0],
 ];
-export var AssetBundleExportJobDashboardOverrideProperties: StaticStructureSchema = [
+export var AssetBundleExportJobDashboardOverrideProperties$: StaticStructureSchema = [
   3,
   n0,
   _ABEJDOP,
@@ -3818,7 +3818,7 @@ export var AssetBundleExportJobDashboardOverrideProperties: StaticStructureSchem
   [_A, _Pr],
   [0, 64 | 0],
 ];
-export var AssetBundleExportJobDataSetOverrideProperties: StaticStructureSchema = [
+export var AssetBundleExportJobDataSetOverrideProperties$: StaticStructureSchema = [
   3,
   n0,
   _ABEJDSOP,
@@ -3826,7 +3826,7 @@ export var AssetBundleExportJobDataSetOverrideProperties: StaticStructureSchema 
   [_A, _Pr],
   [0, 64 | 0],
 ];
-export var AssetBundleExportJobDataSourceOverrideProperties: StaticStructureSchema = [
+export var AssetBundleExportJobDataSourceOverrideProperties$: StaticStructureSchema = [
   3,
   n0,
   _ABEJDSOPs,
@@ -3834,8 +3834,8 @@ export var AssetBundleExportJobDataSourceOverrideProperties: StaticStructureSche
   [_A, _Pr],
   [0, 64 | 0],
 ];
-export var AssetBundleExportJobError: StaticStructureSchema = [3, n0, _ABEJE, 0, [_A, _T, _M], [0, 0, 0]];
-export var AssetBundleExportJobFolderOverrideProperties: StaticStructureSchema = [
+export var AssetBundleExportJobError$: StaticStructureSchema = [3, n0, _ABEJE, 0, [_A, _T, _M], [0, 0, 0]];
+export var AssetBundleExportJobFolderOverrideProperties$: StaticStructureSchema = [
   3,
   n0,
   _ABEJFOP,
@@ -3843,7 +3843,7 @@ export var AssetBundleExportJobFolderOverrideProperties: StaticStructureSchema =
   [_A, _Pr],
   [0, 64 | 0],
 ];
-export var AssetBundleExportJobRefreshScheduleOverrideProperties: StaticStructureSchema = [
+export var AssetBundleExportJobRefreshScheduleOverrideProperties$: StaticStructureSchema = [
   3,
   n0,
   _ABEJRSOP,
@@ -3851,7 +3851,7 @@ export var AssetBundleExportJobRefreshScheduleOverrideProperties: StaticStructur
   [_A, _Pr],
   [0, 64 | 0],
 ];
-export var AssetBundleExportJobResourceIdOverrideConfiguration: StaticStructureSchema = [
+export var AssetBundleExportJobResourceIdOverrideConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ABEJRIOC,
@@ -3859,7 +3859,7 @@ export var AssetBundleExportJobResourceIdOverrideConfiguration: StaticStructureS
   [_PFAR],
   [2],
 ];
-export var AssetBundleExportJobSummary: StaticStructureSchema = [
+export var AssetBundleExportJobSummary$: StaticStructureSchema = [
   3,
   n0,
   _ABEJS,
@@ -3867,7 +3867,7 @@ export var AssetBundleExportJobSummary: StaticStructureSchema = [
   [_JS, _A, _CT, _ABEJI, _IAD, _EFx, _IP, _IT],
   [0, 0, 4, 0, 2, 0, 2, 2],
 ];
-export var AssetBundleExportJobThemeOverrideProperties: StaticStructureSchema = [
+export var AssetBundleExportJobThemeOverrideProperties$: StaticStructureSchema = [
   3,
   n0,
   _ABEJTOP,
@@ -3875,8 +3875,8 @@ export var AssetBundleExportJobThemeOverrideProperties: StaticStructureSchema = 
   [_A, _Pr],
   [0, 64 | 0],
 ];
-export var AssetBundleExportJobValidationStrategy: StaticStructureSchema = [3, n0, _ABEJVS, 0, [_SMFAR], [2]];
-export var AssetBundleExportJobVPCConnectionOverrideProperties: StaticStructureSchema = [
+export var AssetBundleExportJobValidationStrategy$: StaticStructureSchema = [3, n0, _ABEJVS, 0, [_SMFAR], [2]];
+export var AssetBundleExportJobVPCConnectionOverrideProperties$: StaticStructureSchema = [
   3,
   n0,
   _ABEJVPCCOP,
@@ -3884,8 +3884,8 @@ export var AssetBundleExportJobVPCConnectionOverrideProperties: StaticStructureS
   [_A, _Pr],
   [0, 64 | 0],
 ];
-export var AssetBundleExportJobWarning: StaticStructureSchema = [3, n0, _ABEJW, 0, [_A, _M], [0, 0]];
-export var AssetBundleImportJobAnalysisOverrideParameters: StaticStructureSchema = [
+export var AssetBundleExportJobWarning$: StaticStructureSchema = [3, n0, _ABEJW, 0, [_A, _M], [0, 0]];
+export var AssetBundleImportJobAnalysisOverrideParameters$: StaticStructureSchema = [
   3,
   n0,
   _ABIJAOP,
@@ -3893,15 +3893,15 @@ export var AssetBundleImportJobAnalysisOverrideParameters: StaticStructureSchema
   [_AIn, _N],
   [0, 0],
 ];
-export var AssetBundleImportJobAnalysisOverridePermissions: StaticStructureSchema = [
+export var AssetBundleImportJobAnalysisOverridePermissions$: StaticStructureSchema = [
   3,
   n0,
   _ABIJAOPs,
   0,
   [_AIna, _Per],
-  [64 | 0, () => AssetBundleResourcePermissions],
+  [64 | 0, () => AssetBundleResourcePermissions$],
 ];
-export var AssetBundleImportJobAnalysisOverrideTags: StaticStructureSchema = [
+export var AssetBundleImportJobAnalysisOverrideTags$: StaticStructureSchema = [
   3,
   n0,
   _ABIJAOT,
@@ -3909,7 +3909,7 @@ export var AssetBundleImportJobAnalysisOverrideTags: StaticStructureSchema = [
   [_AIna, _Ta],
   [64 | 0, () => TagList],
 ];
-export var AssetBundleImportJobDashboardOverrideParameters: StaticStructureSchema = [
+export var AssetBundleImportJobDashboardOverrideParameters$: StaticStructureSchema = [
   3,
   n0,
   _ABIJDOP,
@@ -3917,15 +3917,15 @@ export var AssetBundleImportJobDashboardOverrideParameters: StaticStructureSchem
   [_DI, _N],
   [0, 0],
 ];
-export var AssetBundleImportJobDashboardOverridePermissions: StaticStructureSchema = [
+export var AssetBundleImportJobDashboardOverridePermissions$: StaticStructureSchema = [
   3,
   n0,
   _ABIJDOPs,
   0,
   [_DIa, _Per, _LSC],
-  [64 | 0, () => AssetBundleResourcePermissions, () => AssetBundleResourceLinkSharingConfiguration],
+  [64 | 0, () => AssetBundleResourcePermissions$, () => AssetBundleResourceLinkSharingConfiguration$],
 ];
-export var AssetBundleImportJobDashboardOverrideTags: StaticStructureSchema = [
+export var AssetBundleImportJobDashboardOverrideTags$: StaticStructureSchema = [
   3,
   n0,
   _ABIJDOT,
@@ -3933,23 +3933,23 @@ export var AssetBundleImportJobDashboardOverrideTags: StaticStructureSchema = [
   [_DIa, _Ta],
   [64 | 0, () => TagList],
 ];
-export var AssetBundleImportJobDataSetOverrideParameters: StaticStructureSchema = [
+export var AssetBundleImportJobDataSetOverrideParameters$: StaticStructureSchema = [
   3,
   n0,
   _ABIJDSOP,
   0,
   [_DSI, _N, _DSRP],
-  [0, 0, () => DataSetRefreshProperties],
+  [0, 0, () => DataSetRefreshProperties$],
 ];
-export var AssetBundleImportJobDataSetOverridePermissions: StaticStructureSchema = [
+export var AssetBundleImportJobDataSetOverridePermissions$: StaticStructureSchema = [
   3,
   n0,
   _ABIJDSOPs,
   0,
   [_DSIa, _Per],
-  [64 | 0, () => AssetBundleResourcePermissions],
+  [64 | 0, () => AssetBundleResourcePermissions$],
 ];
-export var AssetBundleImportJobDataSetOverrideTags: StaticStructureSchema = [
+export var AssetBundleImportJobDataSetOverrideTags$: StaticStructureSchema = [
   3,
   n0,
   _ABIJDSOT,
@@ -3957,7 +3957,7 @@ export var AssetBundleImportJobDataSetOverrideTags: StaticStructureSchema = [
   [_DSIa, _Ta],
   [64 | 0, () => TagList],
 ];
-export var AssetBundleImportJobDataSourceCredentialPair: StaticStructureSchema = [
+export var AssetBundleImportJobDataSourceCredentialPair$: StaticStructureSchema = [
   3,
   n0,
   _ABIJDSCP,
@@ -3965,15 +3965,15 @@ export var AssetBundleImportJobDataSourceCredentialPair: StaticStructureSchema =
   [_U, _Pa],
   [0, 0],
 ];
-export var AssetBundleImportJobDataSourceCredentials: StaticStructureSchema = [
+export var AssetBundleImportJobDataSourceCredentials$: StaticStructureSchema = [
   3,
   n0,
   _ABIJDSC,
   0,
   [_CP, _SA],
-  [[() => AssetBundleImportJobDataSourceCredentialPair, 0], 0],
+  [[() => AssetBundleImportJobDataSourceCredentialPair$, 0], 0],
 ];
-export var AssetBundleImportJobDataSourceOverrideParameters: StaticStructureSchema = [
+export var AssetBundleImportJobDataSourceOverrideParameters$: StaticStructureSchema = [
   3,
   n0,
   _ABIJDSOPss,
@@ -3982,21 +3982,21 @@ export var AssetBundleImportJobDataSourceOverrideParameters: StaticStructureSche
   [
     0,
     0,
-    () => DataSourceParameters,
-    () => VpcConnectionProperties,
-    () => SslProperties,
-    [() => AssetBundleImportJobDataSourceCredentials, 0],
+    () => DataSourceParameters$,
+    () => VpcConnectionProperties$,
+    () => SslProperties$,
+    [() => AssetBundleImportJobDataSourceCredentials$, 0],
   ],
 ];
-export var AssetBundleImportJobDataSourceOverridePermissions: StaticStructureSchema = [
+export var AssetBundleImportJobDataSourceOverridePermissions$: StaticStructureSchema = [
   3,
   n0,
   _ABIJDSOPsse,
   0,
   [_DSIata, _Per],
-  [64 | 0, () => AssetBundleResourcePermissions],
+  [64 | 0, () => AssetBundleResourcePermissions$],
 ];
-export var AssetBundleImportJobDataSourceOverrideTags: StaticStructureSchema = [
+export var AssetBundleImportJobDataSourceOverrideTags$: StaticStructureSchema = [
   3,
   n0,
   _ABIJDSOTs,
@@ -4004,8 +4004,8 @@ export var AssetBundleImportJobDataSourceOverrideTags: StaticStructureSchema = [
   [_DSIata, _Ta],
   [64 | 0, () => TagList],
 ];
-export var AssetBundleImportJobError: StaticStructureSchema = [3, n0, _ABIJE, 0, [_A, _T, _M], [0, 0, 0]];
-export var AssetBundleImportJobFolderOverrideParameters: StaticStructureSchema = [
+export var AssetBundleImportJobError$: StaticStructureSchema = [3, n0, _ABIJE, 0, [_A, _T, _M], [0, 0, 0]];
+export var AssetBundleImportJobFolderOverrideParameters$: StaticStructureSchema = [
   3,
   n0,
   _ABIJFOP,
@@ -4013,15 +4013,15 @@ export var AssetBundleImportJobFolderOverrideParameters: StaticStructureSchema =
   [_FI, _N, _PFA],
   [0, 0, 0],
 ];
-export var AssetBundleImportJobFolderOverridePermissions: StaticStructureSchema = [
+export var AssetBundleImportJobFolderOverridePermissions$: StaticStructureSchema = [
   3,
   n0,
   _ABIJFOPs,
   0,
   [_FIo, _Per],
-  [64 | 0, () => AssetBundleResourcePermissions],
+  [64 | 0, () => AssetBundleResourcePermissions$],
 ];
-export var AssetBundleImportJobFolderOverrideTags: StaticStructureSchema = [
+export var AssetBundleImportJobFolderOverrideTags$: StaticStructureSchema = [
   3,
   n0,
   _ABIJFOT,
@@ -4029,14 +4029,14 @@ export var AssetBundleImportJobFolderOverrideTags: StaticStructureSchema = [
   [_FIo, _Ta],
   [64 | 0, () => TagList],
 ];
-export var AssetBundleImportJobOverrideParameters: StaticStructureSchema = [
+export var AssetBundleImportJobOverrideParameters$: StaticStructureSchema = [
   3,
   n0,
   _ABIJOP,
   0,
   [_RIOC, _VPCC, _RS, _DSa, _DSat, _Th, _Ana, _Das, _F],
   [
-    () => AssetBundleImportJobResourceIdOverrideConfiguration,
+    () => AssetBundleImportJobResourceIdOverrideConfiguration$,
     () => AssetBundleImportJobVPCConnectionOverrideParametersList,
     () => AssetBundleImportJobRefreshScheduleOverrideParametersList,
     [() => AssetBundleImportJobDataSourceOverrideParametersList, 0],
@@ -4047,7 +4047,7 @@ export var AssetBundleImportJobOverrideParameters: StaticStructureSchema = [
     () => AssetBundleImportJobFolderOverrideParametersList,
   ],
 ];
-export var AssetBundleImportJobOverridePermissions: StaticStructureSchema = [
+export var AssetBundleImportJobOverridePermissions$: StaticStructureSchema = [
   3,
   n0,
   _ABIJOPs,
@@ -4062,7 +4062,7 @@ export var AssetBundleImportJobOverridePermissions: StaticStructureSchema = [
     () => AssetBundleImportJobFolderOverridePermissionsList,
   ],
 ];
-export var AssetBundleImportJobOverrideTags: StaticStructureSchema = [
+export var AssetBundleImportJobOverrideTags$: StaticStructureSchema = [
   3,
   n0,
   _ABIJOT,
@@ -4078,8 +4078,8 @@ export var AssetBundleImportJobOverrideTags: StaticStructureSchema = [
     () => AssetBundleImportJobFolderOverrideTagsList,
   ],
 ];
-export var AssetBundleImportJobOverrideValidationStrategy: StaticStructureSchema = [3, n0, _ABIJOVS, 0, [_SMFAR], [2]];
-export var AssetBundleImportJobRefreshScheduleOverrideParameters: StaticStructureSchema = [
+export var AssetBundleImportJobOverrideValidationStrategy$: StaticStructureSchema = [3, n0, _ABIJOVS, 0, [_SMFAR], [2]];
+export var AssetBundleImportJobRefreshScheduleOverrideParameters$: StaticStructureSchema = [
   3,
   n0,
   _ABIJRSOP,
@@ -4087,7 +4087,7 @@ export var AssetBundleImportJobRefreshScheduleOverrideParameters: StaticStructur
   [_DSI, _SI, _SADT],
   [0, 0, 4],
 ];
-export var AssetBundleImportJobResourceIdOverrideConfiguration: StaticStructureSchema = [
+export var AssetBundleImportJobResourceIdOverrideConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ABIJRIOC,
@@ -4095,7 +4095,7 @@ export var AssetBundleImportJobResourceIdOverrideConfiguration: StaticStructureS
   [_PFAR],
   [0],
 ];
-export var AssetBundleImportJobSummary: StaticStructureSchema = [
+export var AssetBundleImportJobSummary$: StaticStructureSchema = [
   3,
   n0,
   _ABIJS,
@@ -4103,16 +4103,23 @@ export var AssetBundleImportJobSummary: StaticStructureSchema = [
   [_JS, _A, _CT, _ABIJI, _FA],
   [0, 0, 4, 0, 0],
 ];
-export var AssetBundleImportJobThemeOverrideParameters: StaticStructureSchema = [3, n0, _ABIJTOP, 0, [_TI, _N], [0, 0]];
-export var AssetBundleImportJobThemeOverridePermissions: StaticStructureSchema = [
+export var AssetBundleImportJobThemeOverrideParameters$: StaticStructureSchema = [
+  3,
+  n0,
+  _ABIJTOP,
+  0,
+  [_TI, _N],
+  [0, 0],
+];
+export var AssetBundleImportJobThemeOverridePermissions$: StaticStructureSchema = [
   3,
   n0,
   _ABIJTOPs,
   0,
   [_TIh, _Per],
-  [64 | 0, () => AssetBundleResourcePermissions],
+  [64 | 0, () => AssetBundleResourcePermissions$],
 ];
-export var AssetBundleImportJobThemeOverrideTags: StaticStructureSchema = [
+export var AssetBundleImportJobThemeOverrideTags$: StaticStructureSchema = [
   3,
   n0,
   _ABIJTOT,
@@ -4120,7 +4127,7 @@ export var AssetBundleImportJobThemeOverrideTags: StaticStructureSchema = [
   [_TIh, _Ta],
   [64 | 0, () => TagList],
 ];
-export var AssetBundleImportJobVPCConnectionOverrideParameters: StaticStructureSchema = [
+export var AssetBundleImportJobVPCConnectionOverrideParameters$: StaticStructureSchema = [
   3,
   n0,
   _ABIJVPCCOP,
@@ -4128,7 +4135,7 @@ export var AssetBundleImportJobVPCConnectionOverrideParameters: StaticStructureS
   [_VPCCI, _N, _SIu, _SGI, _DR, _RA],
   [0, 0, 64 | 0, 64 | 0, 64 | 0, 0],
 ];
-export var AssetBundleImportJobVPCConnectionOverrideTags: StaticStructureSchema = [
+export var AssetBundleImportJobVPCConnectionOverrideTags$: StaticStructureSchema = [
   3,
   n0,
   _ABIJVPCCOT,
@@ -4136,8 +4143,8 @@ export var AssetBundleImportJobVPCConnectionOverrideTags: StaticStructureSchema 
   [_VPCCIo, _Ta],
   [64 | 0, () => TagList],
 ];
-export var AssetBundleImportJobWarning: StaticStructureSchema = [3, n0, _ABIJW, 0, [_A, _M], [0, 0]];
-export var AssetBundleImportSource: StaticStructureSchema = [
+export var AssetBundleImportJobWarning$: StaticStructureSchema = [3, n0, _ABIJW, 0, [_A, _M], [0, 0]];
+export var AssetBundleImportSource$: StaticStructureSchema = [
   3,
   n0,
   _ABIS,
@@ -4145,7 +4152,7 @@ export var AssetBundleImportSource: StaticStructureSchema = [
   [_B, _SU],
   [[() => AssetBundleImportBodyBlob, 0], 0],
 ];
-export var AssetBundleImportSourceDescription: StaticStructureSchema = [
+export var AssetBundleImportSourceDescription$: StaticStructureSchema = [
   3,
   n0,
   _ABISD,
@@ -4153,36 +4160,36 @@ export var AssetBundleImportSourceDescription: StaticStructureSchema = [
   [_B, _SU],
   [[() => SensitiveS3Uri, 0], 0],
 ];
-export var AssetBundleResourceLinkSharingConfiguration: StaticStructureSchema = [
+export var AssetBundleResourceLinkSharingConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ABRLSC,
   0,
   [_Per],
-  [() => AssetBundleResourcePermissions],
+  [() => AssetBundleResourcePermissions$],
 ];
-export var AssetBundleResourcePermissions: StaticStructureSchema = [3, n0, _ABRP, 0, [_Pri, _Ac], [64 | 0, 64 | 0]];
-export var AssetOptions: StaticStructureSchema = [
+export var AssetBundleResourcePermissions$: StaticStructureSchema = [3, n0, _ABRP, 0, [_Pri, _Ac], [64 | 0, 64 | 0]];
+export var AssetOptions$: StaticStructureSchema = [
   3,
   n0,
   _AOs,
   0,
   [_Ti, _WS, _QBIS, _EDSA, _CAD],
-  [0, 0, 0, 64 | 0, () => VisualCustomActionDefaults],
+  [0, 0, 0, 64 | 0, () => VisualCustomActionDefaults$],
 ];
-export var AthenaParameters: StaticStructureSchema = [
+export var AthenaParameters$: StaticStructureSchema = [
   3,
   n0,
   _APt,
   0,
   [_WG, _RA, _ICC],
-  [0, 0, () => IdentityCenterConfiguration],
+  [0, 0, () => IdentityCenterConfiguration$],
 ];
-export var AttributeAggregationFunction: StaticStructureSchema = [3, n0, _AAF, 0, [_SAA, _VFMV], [0, 0]];
-export var AuroraParameters: StaticStructureSchema = [3, n0, _APu, 0, [_H, _Po, _Dat], [0, 1, 0]];
-export var AuroraPostgreSqlParameters: StaticStructureSchema = [3, n0, _APSP, 0, [_H, _Po, _Dat], [0, 1, 0]];
-export var AuthConfig: StaticStructureSchema = [3, n0, _ACut, 0, [_AT, _AM], [0, [() => AuthenticationMetadata, 0]]];
-export var AuthorizationCodeGrantDetails: StaticStructureSchema = [
+export var AttributeAggregationFunction$: StaticStructureSchema = [3, n0, _AAF, 0, [_SAA, _VFMV], [0, 0]];
+export var AuroraParameters$: StaticStructureSchema = [3, n0, _APu, 0, [_H, _Po, _Dat], [0, 1, 0]];
+export var AuroraPostgreSqlParameters$: StaticStructureSchema = [3, n0, _APSP, 0, [_H, _Po, _Dat], [0, 1, 0]];
+export var AuthConfig$: StaticStructureSchema = [3, n0, _ACut, 0, [_AT, _AM], [0, [() => AuthenticationMetadata$, 0]]];
+export var AuthorizationCodeGrantDetails$: StaticStructureSchema = [
   3,
   n0,
   _ACGD,
@@ -4190,70 +4197,70 @@ export var AuthorizationCodeGrantDetails: StaticStructureSchema = [
   [_CI, _CS, _TE, _AEu],
   [0, [() => ClientSecret, 0], 0, 0],
 ];
-export var AuthorizationCodeGrantMetadata: StaticStructureSchema = [
+export var AuthorizationCodeGrantMetadata$: StaticStructureSchema = [
   3,
   n0,
   _ACGM,
   0,
   [_BE, _RU, _ACGCS, _ACGCD],
-  [0, 0, 0, [() => AuthorizationCodeGrantCredentialsDetails, 0]],
+  [0, 0, 0, [() => AuthorizationCodeGrantCredentialsDetails$, 0]],
 ];
-export var AuthorizedTargetsByService: StaticStructureSchema = [3, n0, _ATBS, 0, [_Se, _ATu], [0, 64 | 0]];
-export var AwsIotAnalyticsParameters: StaticStructureSchema = [3, n0, _AIAP, 0, [_DSN], [0]];
-export var AxisDataOptions: StaticStructureSchema = [
+export var AuthorizedTargetsByService$: StaticStructureSchema = [3, n0, _ATBS, 0, [_Se, _ATu], [0, 64 | 0]];
+export var AwsIotAnalyticsParameters$: StaticStructureSchema = [3, n0, _AIAP, 0, [_DSN], [0]];
+export var AxisDataOptions$: StaticStructureSchema = [
   3,
   n0,
   _ADO,
   0,
   [_NAO, _DAO],
-  [() => NumericAxisOptions, () => DateAxisOptions],
+  [() => NumericAxisOptions$, () => DateAxisOptions$],
 ];
-export var AxisDisplayDataDrivenRange: StaticStructureSchema = [3, n0, _ADDDR, 0, [], []];
-export var AxisDisplayMinMaxRange: StaticStructureSchema = [3, n0, _ADMMR, 0, [_Min, _Max], [1, 1]];
-export var AxisDisplayOptions: StaticStructureSchema = [
+export var AxisDisplayDataDrivenRange$: StaticStructureSchema = [3, n0, _ADDDR, 0, [], []];
+export var AxisDisplayMinMaxRange$: StaticStructureSchema = [3, n0, _ADMMR, 0, [_Min, _Max], [1, 1]];
+export var AxisDisplayOptions$: StaticStructureSchema = [
   3,
   n0,
   _ADOx,
   0,
   [_TLO, _ALV, _GLV, _DO, _SO, _AOx],
-  [() => AxisTickLabelOptions, 0, 0, () => AxisDataOptions, () => ScrollBarOptions, 0],
+  [() => AxisTickLabelOptions$, 0, 0, () => AxisDataOptions$, () => ScrollBarOptions$, 0],
 ];
-export var AxisDisplayRange: StaticStructureSchema = [
+export var AxisDisplayRange$: StaticStructureSchema = [
   3,
   n0,
   _ADR,
   0,
   [_MM, _DD],
-  [() => AxisDisplayMinMaxRange, () => AxisDisplayDataDrivenRange],
+  [() => AxisDisplayMinMaxRange$, () => AxisDisplayDataDrivenRange$],
 ];
-export var AxisLabelOptions: StaticStructureSchema = [
+export var AxisLabelOptions$: StaticStructureSchema = [
   3,
   n0,
   _ALO,
   0,
   [_FCo, _CL, _ATpp],
-  [() => FontConfiguration, 0, () => AxisLabelReferenceOptions],
+  [() => FontConfiguration$, 0, () => AxisLabelReferenceOptions$],
 ];
-export var AxisLabelReferenceOptions: StaticStructureSchema = [
+export var AxisLabelReferenceOptions$: StaticStructureSchema = [
   3,
   n0,
   _ALRO,
   0,
   [_FIi, _C],
-  [0, () => ColumnIdentifier],
+  [0, () => ColumnIdentifier$],
 ];
-export var AxisLinearScale: StaticStructureSchema = [3, n0, _ALS, 0, [_SC, _SSt], [1, 1]];
-export var AxisLogarithmicScale: StaticStructureSchema = [3, n0, _ALSx, 0, [_Ba], [1]];
-export var AxisScale: StaticStructureSchema = [
+export var AxisLinearScale$: StaticStructureSchema = [3, n0, _ALS, 0, [_SC, _SSt], [1, 1]];
+export var AxisLogarithmicScale$: StaticStructureSchema = [3, n0, _ALSx, 0, [_Ba], [1]];
+export var AxisScale$: StaticStructureSchema = [
   3,
   n0,
   _ASx,
   0,
   [_L, _Lo],
-  [() => AxisLinearScale, () => AxisLogarithmicScale],
+  [() => AxisLinearScale$, () => AxisLogarithmicScale$],
 ];
-export var AxisTickLabelOptions: StaticStructureSchema = [3, n0, _ATLO, 0, [_LO, _RAo], [() => LabelOptions, 1]];
-export var BarChartAggregatedFieldWells: StaticStructureSchema = [
+export var AxisTickLabelOptions$: StaticStructureSchema = [3, n0, _ATLO, 0, [_LO, _RAo], [() => LabelOptions$, 1]];
+export var BarChartAggregatedFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _BCAFW,
@@ -4261,59 +4268,59 @@ export var BarChartAggregatedFieldWells: StaticStructureSchema = [
   [_Ca, _Va, _Co, _SM],
   [() => DimensionFieldList, () => MeasureFieldList, () => DimensionFieldList, () => SmallMultiplesDimensionFieldList],
 ];
-export var BarChartConfiguration: StaticStructureSchema = [
+export var BarChartConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _BCC,
   0,
   [_FW, _SCo, _Or, _BA, _VP, _SMO, _CA, _CLO, _VA, _VLO, _CLOo, _DSS, _Ser, _Le, _DL, _To, _RL, _CADo, _I],
   [
-    () => BarChartFieldWells,
-    () => BarChartSortConfiguration,
+    () => BarChartFieldWells$,
+    () => BarChartSortConfiguration$,
     0,
     0,
-    () => VisualPalette,
-    () => SmallMultiplesOptions,
-    () => AxisDisplayOptions,
-    () => ChartAxisLabelOptions,
-    () => AxisDisplayOptions,
-    () => ChartAxisLabelOptions,
-    () => ChartAxisLabelOptions,
-    () => BarChartDefaultSeriesSettings,
+    () => VisualPalette$,
+    () => SmallMultiplesOptions$,
+    () => AxisDisplayOptions$,
+    () => ChartAxisLabelOptions$,
+    () => AxisDisplayOptions$,
+    () => ChartAxisLabelOptions$,
+    () => ChartAxisLabelOptions$,
+    () => BarChartDefaultSeriesSettings$,
     () => BarSeriesItemList,
-    () => LegendOptions,
-    () => DataLabelOptions,
-    () => TooltipOptions,
+    () => LegendOptions$,
+    () => DataLabelOptions$,
+    () => TooltipOptions$,
     () => ReferenceLineList,
     () => ContributionAnalysisDefaultList,
-    () => VisualInteractionOptions,
+    () => VisualInteractionOptions$,
   ],
 ];
-export var BarChartDefaultSeriesSettings: StaticStructureSchema = [
+export var BarChartDefaultSeriesSettings$: StaticStructureSchema = [
   3,
   n0,
   _BCDSS,
   0,
   [_DSe, _BS],
-  [() => DecalSettings, () => BorderSettings],
+  [() => DecalSettings$, () => BorderSettings$],
 ];
-export var BarChartFieldWells: StaticStructureSchema = [
+export var BarChartFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _BCFW,
   0,
   [_BCAFW],
-  [() => BarChartAggregatedFieldWells],
+  [() => BarChartAggregatedFieldWells$],
 ];
-export var BarChartSeriesSettings: StaticStructureSchema = [
+export var BarChartSeriesSettings$: StaticStructureSchema = [
   3,
   n0,
   _BCSS,
   0,
   [_DSe, _BS],
-  [() => DecalSettings, () => BorderSettings],
+  [() => DecalSettings$, () => BorderSettings$],
 ];
-export var BarChartSortConfiguration: StaticStructureSchema = [
+export var BarChartSortConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _BCSC,
@@ -4321,14 +4328,14 @@ export var BarChartSortConfiguration: StaticStructureSchema = [
   [_CSa, _CIL, _CSo, _CILo, _SMS, _SMLC],
   [
     () => FieldSortOptionsList,
-    () => ItemsLimitConfiguration,
+    () => ItemsLimitConfiguration$,
     () => FieldSortOptionsList,
-    () => ItemsLimitConfiguration,
+    () => ItemsLimitConfiguration$,
     () => FieldSortOptionsList,
-    () => ItemsLimitConfiguration,
+    () => ItemsLimitConfiguration$,
   ],
 ];
-export var BarChartVisual: StaticStructureSchema = [
+export var BarChartVisual$: StaticStructureSchema = [
   3,
   n0,
   _BCV,
@@ -4336,23 +4343,23 @@ export var BarChartVisual: StaticStructureSchema = [
   [_VI, _Tit, _Su, _CCh, _Ac, _CH, _VCAT],
   [
     0,
-    () => VisualTitleLabelOptions,
-    () => VisualSubtitleLabelOptions,
-    () => BarChartConfiguration,
+    () => VisualTitleLabelOptions$,
+    () => VisualSubtitleLabelOptions$,
+    () => BarChartConfiguration$,
     () => VisualCustomActionList,
     () => ColumnHierarchyList,
     0,
   ],
 ];
-export var BarSeriesItem: StaticStructureSchema = [
+export var BarSeriesItem$: StaticStructureSchema = [
   3,
   n0,
   _BSI,
   0,
   [_FBSI, _DFBSI],
-  [() => FieldBarSeriesItem, () => DataFieldBarSeriesItem],
+  [() => FieldBarSeriesItem$, () => DataFieldBarSeriesItem$],
 ];
-export var BasicAuthConnectionMetadata: StaticStructureSchema = [
+export var BasicAuthConnectionMetadata$: StaticStructureSchema = [
   3,
   n0,
   _BACM,
@@ -4360,7 +4367,7 @@ export var BasicAuthConnectionMetadata: StaticStructureSchema = [
   [_BE, _U, _Pa],
   [0, [() => ActionUserName, 0], [() => ActionPassword, 0]],
 ];
-export var BatchCreateTopicReviewedAnswerRequest: StaticStructureSchema = [
+export var BatchCreateTopicReviewedAnswerRequest$: StaticStructureSchema = [
   3,
   n0,
   _BCTRAR,
@@ -4372,7 +4379,7 @@ export var BatchCreateTopicReviewedAnswerRequest: StaticStructureSchema = [
     [() => CreateTopicReviewedAnswers, 0],
   ],
 ];
-export var BatchCreateTopicReviewedAnswerResponse: StaticStructureSchema = [
+export var BatchCreateTopicReviewedAnswerResponse$: StaticStructureSchema = [
   3,
   n0,
   _BCTRARa,
@@ -4380,7 +4387,7 @@ export var BatchCreateTopicReviewedAnswerResponse: StaticStructureSchema = [
   [_TIo, _TAo, _SAu, _IA, _St, _RI],
   [0, 0, () => SucceededTopicReviewedAnswers, () => InvalidTopicReviewedAnswers, [1, 32], 0],
 ];
-export var BatchDeleteTopicReviewedAnswerRequest: StaticStructureSchema = [
+export var BatchDeleteTopicReviewedAnswerRequest$: StaticStructureSchema = [
   3,
   n0,
   _BDTRAR,
@@ -4388,7 +4395,7 @@ export var BatchDeleteTopicReviewedAnswerRequest: StaticStructureSchema = [
   [_AAI, _TIo, _AIns],
   [[0, 1], [0, 1], 64 | 0],
 ];
-export var BatchDeleteTopicReviewedAnswerResponse: StaticStructureSchema = [
+export var BatchDeleteTopicReviewedAnswerResponse$: StaticStructureSchema = [
   3,
   n0,
   _BDTRARa,
@@ -4396,10 +4403,10 @@ export var BatchDeleteTopicReviewedAnswerResponse: StaticStructureSchema = [
   [_TIo, _TAo, _SAu, _IA, _RI, _St],
   [0, 0, () => SucceededTopicReviewedAnswers, () => InvalidTopicReviewedAnswers, 0, [1, 32]],
 ];
-export var BigQueryParameters: StaticStructureSchema = [3, n0, _BQP, 0, [_PI, _DSRa], [0, 0]];
-export var BinCountOptions: StaticStructureSchema = [3, n0, _BCO, 0, [_V], [1]];
-export var BinWidthOptions: StaticStructureSchema = [3, n0, _BWO, 0, [_V, _BCL], [1, 1]];
-export var BodySectionConfiguration: StaticStructureSchema = [
+export var BigQueryParameters$: StaticStructureSchema = [3, n0, _BQP, 0, [_PI, _DSRa], [0, 0]];
+export var BinCountOptions$: StaticStructureSchema = [3, n0, _BCO, 0, [_V], [1]];
+export var BinWidthOptions$: StaticStructureSchema = [3, n0, _BWO, 0, [_V, _BCL], [1, 1]];
+export var BodySectionConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _BSC,
@@ -4407,57 +4414,57 @@ export var BodySectionConfiguration: StaticStructureSchema = [
   [_SIe, _Con, _Sty, _PBC, _RC],
   [
     0,
-    () => BodySectionContent,
-    () => SectionStyle,
-    () => SectionPageBreakConfiguration,
-    () => BodySectionRepeatConfiguration,
+    () => BodySectionContent$,
+    () => SectionStyle$,
+    () => SectionPageBreakConfiguration$,
+    () => BodySectionRepeatConfiguration$,
   ],
 ];
-export var BodySectionContent: StaticStructureSchema = [3, n0, _BSCo, 0, [_La], [() => SectionLayoutConfiguration]];
-export var BodySectionDynamicCategoryDimensionConfiguration: StaticStructureSchema = [
+export var BodySectionContent$: StaticStructureSchema = [3, n0, _BSCo, 0, [_La], [() => SectionLayoutConfiguration$]];
+export var BodySectionDynamicCategoryDimensionConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _BSDCDC,
   0,
   [_C, _Li, _SBM],
-  [() => ColumnIdentifier, 1, () => BodySectionDynamicDimensionSortConfigurationList],
+  [() => ColumnIdentifier$, 1, () => BodySectionDynamicDimensionSortConfigurationList],
 ];
-export var BodySectionDynamicNumericDimensionConfiguration: StaticStructureSchema = [
+export var BodySectionDynamicNumericDimensionConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _BSDNDC,
   0,
   [_C, _Li, _SBM],
-  [() => ColumnIdentifier, 1, () => BodySectionDynamicDimensionSortConfigurationList],
+  [() => ColumnIdentifier$, 1, () => BodySectionDynamicDimensionSortConfigurationList],
 ];
-export var BodySectionRepeatConfiguration: StaticStructureSchema = [
+export var BodySectionRepeatConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _BSRC,
   0,
   [_DC, _PBC, _NRV],
-  [() => BodySectionRepeatDimensionConfigurationList, () => BodySectionRepeatPageBreakConfiguration, 64 | 0],
+  [() => BodySectionRepeatDimensionConfigurationList, () => BodySectionRepeatPageBreakConfiguration$, 64 | 0],
 ];
-export var BodySectionRepeatDimensionConfiguration: StaticStructureSchema = [
+export var BodySectionRepeatDimensionConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _BSRDC,
   0,
   [_DCDC, _DNDC],
-  [() => BodySectionDynamicCategoryDimensionConfiguration, () => BodySectionDynamicNumericDimensionConfiguration],
+  [() => BodySectionDynamicCategoryDimensionConfiguration$, () => BodySectionDynamicNumericDimensionConfiguration$],
 ];
-export var BodySectionRepeatPageBreakConfiguration: StaticStructureSchema = [
+export var BodySectionRepeatPageBreakConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _BSRPBC,
   0,
   [_Af],
-  [() => SectionAfterPageBreak],
+  [() => SectionAfterPageBreak$],
 ];
-export var BookmarksConfigurations: StaticStructureSchema = [3, n0, _BC, 0, [_En], [2]];
-export var BorderSettings: StaticStructureSchema = [3, n0, _BS, 0, [_BV, _BW, _BCo], [0, 0, 0]];
-export var BorderStyle: StaticStructureSchema = [3, n0, _BSo, 0, [_Col, _Sho, _W], [0, 2, 0]];
-export var BoxPlotAggregatedFieldWells: StaticStructureSchema = [
+export var BookmarksConfigurations$: StaticStructureSchema = [3, n0, _BC, 0, [_En], [2]];
+export var BorderSettings$: StaticStructureSchema = [3, n0, _BS, 0, [_BV, _BW, _BCo], [0, 0, 0]];
+export var BorderStyle$: StaticStructureSchema = [3, n0, _BSo, 0, [_Col, _Sho, _W], [0, 2, 0]];
+export var BoxPlotAggregatedFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _BPAFW,
@@ -4465,46 +4472,53 @@ export var BoxPlotAggregatedFieldWells: StaticStructureSchema = [
   [_GB, _Va],
   [() => BoxPlotDimensionFieldList, () => BoxPlotMeasureFieldList],
 ];
-export var BoxPlotChartConfiguration: StaticStructureSchema = [
+export var BoxPlotChartConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _BPCC,
   0,
   [_FW, _SCo, _BPO, _CA, _CLO, _PYADO, _PYALO, _Le, _To, _RL, _VP, _I],
   [
-    () => BoxPlotFieldWells,
-    () => BoxPlotSortConfiguration,
-    () => BoxPlotOptions,
-    () => AxisDisplayOptions,
-    () => ChartAxisLabelOptions,
-    () => AxisDisplayOptions,
-    () => ChartAxisLabelOptions,
-    () => LegendOptions,
-    () => TooltipOptions,
+    () => BoxPlotFieldWells$,
+    () => BoxPlotSortConfiguration$,
+    () => BoxPlotOptions$,
+    () => AxisDisplayOptions$,
+    () => ChartAxisLabelOptions$,
+    () => AxisDisplayOptions$,
+    () => ChartAxisLabelOptions$,
+    () => LegendOptions$,
+    () => TooltipOptions$,
     () => ReferenceLineList,
-    () => VisualPalette,
-    () => VisualInteractionOptions,
+    () => VisualPalette$,
+    () => VisualInteractionOptions$,
   ],
 ];
-export var BoxPlotFieldWells: StaticStructureSchema = [3, n0, _BPFW, 0, [_BPAFW], [() => BoxPlotAggregatedFieldWells]];
-export var BoxPlotOptions: StaticStructureSchema = [
+export var BoxPlotFieldWells$: StaticStructureSchema = [
+  3,
+  n0,
+  _BPFW,
+  0,
+  [_BPAFW],
+  [() => BoxPlotAggregatedFieldWells$],
+];
+export var BoxPlotOptions$: StaticStructureSchema = [
   3,
   n0,
   _BPO,
   0,
   [_SOt, _OV, _ADPV],
-  [() => BoxPlotStyleOptions, 0, 0],
+  [() => BoxPlotStyleOptions$, 0, 0],
 ];
-export var BoxPlotSortConfiguration: StaticStructureSchema = [
+export var BoxPlotSortConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _BPSC,
   0,
   [_CSa, _PC],
-  [() => FieldSortOptionsList, () => PaginationConfiguration],
+  [() => FieldSortOptionsList, () => PaginationConfiguration$],
 ];
-export var BoxPlotStyleOptions: StaticStructureSchema = [3, n0, _BPSO, 0, [_FSi], [0]];
-export var BoxPlotVisual: StaticStructureSchema = [
+export var BoxPlotStyleOptions$: StaticStructureSchema = [3, n0, _BPSO, 0, [_FSi], [0]];
+export var BoxPlotVisual$: StaticStructureSchema = [
   3,
   n0,
   _BPV,
@@ -4512,50 +4526,50 @@ export var BoxPlotVisual: StaticStructureSchema = [
   [_VI, _Tit, _Su, _CCh, _Ac, _CH, _VCAT],
   [
     0,
-    () => VisualTitleLabelOptions,
-    () => VisualSubtitleLabelOptions,
-    () => BoxPlotChartConfiguration,
+    () => VisualTitleLabelOptions$,
+    () => VisualSubtitleLabelOptions$,
+    () => BoxPlotChartConfiguration$,
     () => VisualCustomActionList,
     () => ColumnHierarchyList,
     0,
   ],
 ];
-export var BrandColorPalette: StaticStructureSchema = [
+export var BrandColorPalette$: StaticStructureSchema = [
   3,
   n0,
   _BCP,
   0,
   [_Prim, _Sec, _Acc, _Me, _Di, _Suc, _In, _Wa, _Dan],
   [
-    () => Palette,
-    () => Palette,
-    () => Palette,
-    () => Palette,
-    () => Palette,
-    () => Palette,
-    () => Palette,
-    () => Palette,
-    () => Palette,
+    () => Palette$,
+    () => Palette$,
+    () => Palette$,
+    () => Palette$,
+    () => Palette$,
+    () => Palette$,
+    () => Palette$,
+    () => Palette$,
+    () => Palette$,
   ],
 ];
-export var BrandDefinition: StaticStructureSchema = [
+export var BrandDefinition$: StaticStructureSchema = [
   3,
   n0,
   _BD,
   0,
   [_BN, _D, _ATp, _LC],
-  [0, 0, () => ApplicationTheme, () => LogoConfiguration],
+  [0, 0, () => ApplicationTheme$, () => LogoConfiguration$],
 ];
-export var BrandDetail: StaticStructureSchema = [
+export var BrandDetail$: StaticStructureSchema = [
   3,
   n0,
   _BDr,
   0,
   [_BI, _A, _BSr, _CT, _LUT, _VIe, _VS, _Err, _Log],
-  [0, 0, 0, 4, 4, 0, 0, 64 | 0, () => Logo],
+  [0, 0, 0, 4, 4, 0, 0, 64 | 0, () => Logo$],
 ];
-export var BrandElementStyle: StaticStructureSchema = [3, n0, _BES, 0, [_NSa], [() => NavbarStyle]];
-export var BrandSummary: StaticStructureSchema = [
+export var BrandElementStyle$: StaticStructureSchema = [3, n0, _BES, 0, [_NSa], [() => NavbarStyle$]];
+export var BrandSummary$: StaticStructureSchema = [
   3,
   n0,
   _BSra,
@@ -4563,7 +4577,7 @@ export var BrandSummary: StaticStructureSchema = [
   [_A, _BI, _BN, _D, _BSr, _CT, _LUT],
   [0, 0, 0, 0, 0, 4, 4],
 ];
-export var CalculatedColumn: StaticStructureSchema = [
+export var CalculatedColumn$: StaticStructureSchema = [
   3,
   n0,
   _CCa,
@@ -4571,7 +4585,7 @@ export var CalculatedColumn: StaticStructureSchema = [
   [_CN, _CIo, _Ex],
   [0, 0, [() => DataSetCalculatedFieldExpression, 0]],
 ];
-export var CalculatedField: StaticStructureSchema = [
+export var CalculatedField$: StaticStructureSchema = [
   3,
   n0,
   _CFa,
@@ -4579,8 +4593,8 @@ export var CalculatedField: StaticStructureSchema = [
   [_DSIatae, _N, _Ex],
   [0, 0, [() => CalculatedFieldExpression, 0]],
 ];
-export var CalculatedMeasureField: StaticStructureSchema = [3, n0, _CMF, 0, [_FIi, _Ex], [0, [() => Expression, 0]]];
-export var CancelIngestionRequest: StaticStructureSchema = [
+export var CalculatedMeasureField$: StaticStructureSchema = [3, n0, _CMF, 0, [_FIi, _Ex], [0, [() => Expression, 0]]];
+export var CancelIngestionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CIR,
@@ -4592,8 +4606,8 @@ export var CancelIngestionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var CancelIngestionResponse: StaticStructureSchema = [3, n0, _CIRa, 0, [_A, _II, _RI, _St], [0, 0, 0, [1, 32]]];
-export var Capabilities: StaticStructureSchema = [
+export var CancelIngestionResponse$: StaticStructureSchema = [3, n0, _CIRa, 0, [_A, _II, _RI, _St], [0, 0, 0, [1, 32]]];
+export var Capabilities$: StaticStructureSchema = [
   3,
   n0,
   _Cap,
@@ -4639,7 +4653,7 @@ export var Capabilities: StaticStructureSchema = [
   ],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var CascadingControlConfiguration: StaticStructureSchema = [
+export var CascadingControlConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _CCC,
@@ -4647,66 +4661,73 @@ export var CascadingControlConfiguration: StaticStructureSchema = [
   [_SCou],
   [() => CascadingControlSourceList],
 ];
-export var CascadingControlSource: StaticStructureSchema = [3, n0, _CCS, 0, [_SSCI, _CTM], [0, () => ColumnIdentifier]];
-export var CastColumnTypeOperation: StaticStructureSchema = [3, n0, _CCTO, 0, [_CN, _NCT, _STu, _Fo], [0, 0, 0, 0]];
-export var CastColumnTypesOperation: StaticStructureSchema = [
+export var CascadingControlSource$: StaticStructureSchema = [
+  3,
+  n0,
+  _CCS,
+  0,
+  [_SSCI, _CTM],
+  [0, () => ColumnIdentifier$],
+];
+export var CastColumnTypeOperation$: StaticStructureSchema = [3, n0, _CCTO, 0, [_CN, _NCT, _STu, _Fo], [0, 0, 0, 0]];
+export var CastColumnTypesOperation$: StaticStructureSchema = [
   3,
   n0,
   _CCTOa,
   0,
   [_Al, _So, _CCTOas],
-  [0, () => TransformOperationSource, () => CastColumnTypeOperationList],
+  [0, () => TransformOperationSource$, () => CastColumnTypeOperationList],
 ];
-export var CategoricalDimensionField: StaticStructureSchema = [
+export var CategoricalDimensionField$: StaticStructureSchema = [
   3,
   n0,
   _CDF,
   0,
   [_FIi, _C, _HI, _FCor],
-  [0, () => ColumnIdentifier, 0, [() => StringFormatConfiguration, 0]],
+  [0, () => ColumnIdentifier$, 0, [() => StringFormatConfiguration$, 0]],
 ];
-export var CategoricalMeasureField: StaticStructureSchema = [
+export var CategoricalMeasureField$: StaticStructureSchema = [
   3,
   n0,
   _CMFa,
   0,
   [_FIi, _C, _AFg, _FCor],
-  [0, () => ColumnIdentifier, 0, [() => StringFormatConfiguration, 0]],
+  [0, () => ColumnIdentifier$, 0, [() => StringFormatConfiguration$, 0]],
 ];
-export var CategoryDrillDownFilter: StaticStructureSchema = [
+export var CategoryDrillDownFilter$: StaticStructureSchema = [
   3,
   n0,
   _CDDF,
   0,
   [_C, _CV],
-  [() => ColumnIdentifier, 64 | 0],
+  [() => ColumnIdentifier$, 64 | 0],
 ];
-export var CategoryFilter: StaticStructureSchema = [
+export var CategoryFilter$: StaticStructureSchema = [
   3,
   n0,
   _CFat,
   0,
   [_FIil, _C, _Conf, _DFCC],
-  [0, () => ColumnIdentifier, () => CategoryFilterConfiguration, () => DefaultFilterControlConfiguration],
+  [0, () => ColumnIdentifier$, () => CategoryFilterConfiguration$, () => DefaultFilterControlConfiguration$],
 ];
-export var CategoryFilterConfiguration: StaticStructureSchema = [
+export var CategoryFilterConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _CFC,
   0,
   [_FLC, _CFLC, _CFCu],
-  [() => FilterListConfiguration, () => CustomFilterListConfiguration, () => CustomFilterConfiguration],
+  [() => FilterListConfiguration$, () => CustomFilterListConfiguration$, () => CustomFilterConfiguration$],
 ];
-export var CategoryInnerFilter: StaticStructureSchema = [
+export var CategoryInnerFilter$: StaticStructureSchema = [
   3,
   n0,
   _CIF,
   0,
   [_C, _Conf, _DFCC],
-  [() => ColumnIdentifier, () => CategoryFilterConfiguration, () => DefaultFilterControlConfiguration],
+  [() => ColumnIdentifier$, () => CategoryFilterConfiguration$, () => DefaultFilterControlConfiguration$],
 ];
-export var CellValueSynonym: StaticStructureSchema = [3, n0, _CVS, 0, [_CVe, _Sy], [0, 64 | 0]];
-export var ChartAxisLabelOptions: StaticStructureSchema = [
+export var CellValueSynonym$: StaticStructureSchema = [3, n0, _CVS, 0, [_CVe, _Sy], [0, 64 | 0]];
+export var ChartAxisLabelOptions$: StaticStructureSchema = [
   3,
   n0,
   _CALO,
@@ -4714,7 +4735,7 @@ export var ChartAxisLabelOptions: StaticStructureSchema = [
   [_Vi, _SIV, _ALO],
   [0, 0, () => AxisLabelOptionsList],
 ];
-export var ClientCredentialsGrantDetails: StaticStructureSchema = [
+export var ClientCredentialsGrantDetails$: StaticStructureSchema = [
   3,
   n0,
   _CCGD,
@@ -4722,45 +4743,45 @@ export var ClientCredentialsGrantDetails: StaticStructureSchema = [
   [_CI, _CS, _TE],
   [0, [() => ClientSecret, 0], 0],
 ];
-export var ClientCredentialsGrantMetadata: StaticStructureSchema = [
+export var ClientCredentialsGrantMetadata$: StaticStructureSchema = [
   3,
   n0,
   _CCGM,
   0,
   [_BE, _CCSl, _CCD],
-  [0, 0, [() => ClientCredentialsDetails, 0]],
+  [0, 0, [() => ClientCredentialsDetails$, 0]],
 ];
-export var ClusterMarker: StaticStructureSchema = [3, n0, _CM, 0, [_SCM], [() => SimpleClusterMarker]];
-export var ClusterMarkerConfiguration: StaticStructureSchema = [3, n0, _CMC, 0, [_CM], [() => ClusterMarker]];
-export var CollectiveConstant: StaticStructureSchema = [3, n0, _CCo, 0, [_VL], [64 | 0]];
-export var CollectiveConstantEntry: StaticStructureSchema = [3, n0, _CCE, 0, [_CTo, _V], [0, 0]];
-export var ColorScale: StaticStructureSchema = [
+export var ClusterMarker$: StaticStructureSchema = [3, n0, _CM, 0, [_SCM], [() => SimpleClusterMarker$]];
+export var ClusterMarkerConfiguration$: StaticStructureSchema = [3, n0, _CMC, 0, [_CM], [() => ClusterMarker$]];
+export var CollectiveConstant$: StaticStructureSchema = [3, n0, _CCo, 0, [_VL], [64 | 0]];
+export var CollectiveConstantEntry$: StaticStructureSchema = [3, n0, _CCE, 0, [_CTo, _V], [0, 0]];
+export var ColorScale$: StaticStructureSchema = [
   3,
   n0,
   _CSol,
   0,
   [_Co, _CFT, _NVC],
-  [() => ColorScaleColorList, 0, () => DataColor],
+  [() => ColorScaleColorList, 0, () => DataColor$],
 ];
-export var ColorsConfiguration: StaticStructureSchema = [3, n0, _CCol, 0, [_CCu], [[() => CustomColorsList, 0]]];
-export var ColumnConfiguration: StaticStructureSchema = [
+export var ColorsConfiguration$: StaticStructureSchema = [3, n0, _CCol, 0, [_CCu], [[() => CustomColorsList, 0]]];
+export var ColumnConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _CColu,
   0,
   [_C, _FCor, _Ro, _CCol, _DSC],
   [
-    () => ColumnIdentifier,
-    [() => FormatConfiguration, 0],
+    () => ColumnIdentifier$,
+    [() => FormatConfiguration$, 0],
     0,
-    [() => ColorsConfiguration, 0],
-    () => DecalSettingsConfiguration,
+    [() => ColorsConfiguration$, 0],
+    () => DecalSettingsConfiguration$,
   ],
 ];
-export var ColumnDescription: StaticStructureSchema = [3, n0, _CD, 0, [_Te], [[() => ColumnDescriptiveText, 0]]];
-export var ColumnGroup: StaticStructureSchema = [3, n0, _CG, 0, [_GSCG], [() => GeoSpatialColumnGroup]];
-export var ColumnGroupColumnSchema: StaticStructureSchema = [3, n0, _CGCS, 0, [_N], [0]];
-export var ColumnGroupSchema: StaticStructureSchema = [
+export var ColumnDescription$: StaticStructureSchema = [3, n0, _CD, 0, [_Te], [[() => ColumnDescriptiveText, 0]]];
+export var ColumnGroup$: StaticStructureSchema = [3, n0, _CG, 0, [_GSCG], [() => GeoSpatialColumnGroup$]];
+export var ColumnGroupColumnSchema$: StaticStructureSchema = [3, n0, _CGCS, 0, [_N], [0]];
+export var ColumnGroupSchema$: StaticStructureSchema = [
   3,
   n0,
   _CGS,
@@ -4768,36 +4789,36 @@ export var ColumnGroupSchema: StaticStructureSchema = [
   [_N, _CGCSL],
   [0, () => ColumnGroupColumnSchemaList],
 ];
-export var ColumnHierarchy: StaticStructureSchema = [
+export var ColumnHierarchy$: StaticStructureSchema = [
   3,
   n0,
   _CHo,
   0,
   [_EH, _DTH, _PH],
-  [() => ExplicitHierarchy, () => DateTimeHierarchy, () => PredefinedHierarchy],
+  [() => ExplicitHierarchy$, () => DateTimeHierarchy$, () => PredefinedHierarchy$],
 ];
-export var ColumnIdentifier: StaticStructureSchema = [3, n0, _CIol, 0, [_DSIatae, _CN], [0, 0]];
-export var ColumnLevelPermissionRule: StaticStructureSchema = [3, n0, _CLPR, 0, [_Pri, _CNo], [64 | 0, 64 | 0]];
-export var ColumnSchema: StaticStructureSchema = [3, n0, _CSolu, 0, [_N, _DTa, _GR], [0, 0, 0]];
-export var ColumnSort: StaticStructureSchema = [
+export var ColumnIdentifier$: StaticStructureSchema = [3, n0, _CIol, 0, [_DSIatae, _CN], [0, 0]];
+export var ColumnLevelPermissionRule$: StaticStructureSchema = [3, n0, _CLPR, 0, [_Pri, _CNo], [64 | 0, 64 | 0]];
+export var ColumnSchema$: StaticStructureSchema = [3, n0, _CSolu, 0, [_N, _DTa, _GR], [0, 0, 0]];
+export var ColumnSort$: StaticStructureSchema = [
   3,
   n0,
   _CSolum,
   0,
   [_SB, _Dir, _AFg],
-  [() => ColumnIdentifier, 0, () => AggregationFunction],
+  [() => ColumnIdentifier$, 0, () => AggregationFunction$],
 ];
-export var ColumnTag: StaticStructureSchema = [3, n0, _CTol, 0, [_CGR, _CD], [0, [() => ColumnDescription, 0]]];
-export var ColumnTooltipItem: StaticStructureSchema = [
+export var ColumnTag$: StaticStructureSchema = [3, n0, _CTol, 0, [_CGR, _CD], [0, [() => ColumnDescription$, 0]]];
+export var ColumnTooltipItem$: StaticStructureSchema = [
   3,
   n0,
   _CTI,
   0,
   [_C, _Lab, _Vi, _Ag, _TT],
-  [() => ColumnIdentifier, 0, 0, () => AggregationFunction, 0],
+  [() => ColumnIdentifier$, 0, 0, () => AggregationFunction$, 0],
 ];
-export var ColumnToUnpivot: StaticStructureSchema = [3, n0, _CTU, 0, [_CN, _NV], [0, 0]];
-export var ComboChartAggregatedFieldWells: StaticStructureSchema = [
+export var ColumnToUnpivot$: StaticStructureSchema = [3, n0, _CTU, 0, [_CN, _NV], [0, 0]];
+export var ComboChartAggregatedFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _CCAFW,
@@ -4805,7 +4826,7 @@ export var ComboChartAggregatedFieldWells: StaticStructureSchema = [
   [_Ca, _BVa, _Co, _LV],
   [() => DimensionFieldList, () => MeasureFieldList, () => DimensionFieldList, () => MeasureFieldList],
 ];
-export var ComboChartConfiguration: StaticStructureSchema = [
+export var ComboChartConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _CCCo,
@@ -4833,53 +4854,53 @@ export var ComboChartConfiguration: StaticStructureSchema = [
     _I,
   ],
   [
-    () => ComboChartFieldWells,
-    () => ComboChartSortConfiguration,
+    () => ComboChartFieldWells$,
+    () => ComboChartSortConfiguration$,
     0,
-    () => AxisDisplayOptions,
-    () => ChartAxisLabelOptions,
-    () => AxisDisplayOptions,
-    () => ChartAxisLabelOptions,
-    () => AxisDisplayOptions,
-    () => ChartAxisLabelOptions,
-    () => SingleAxisOptions,
-    () => ChartAxisLabelOptions,
-    () => ComboChartDefaultSeriesSettings,
+    () => AxisDisplayOptions$,
+    () => ChartAxisLabelOptions$,
+    () => AxisDisplayOptions$,
+    () => ChartAxisLabelOptions$,
+    () => AxisDisplayOptions$,
+    () => ChartAxisLabelOptions$,
+    () => SingleAxisOptions$,
+    () => ChartAxisLabelOptions$,
+    () => ComboChartDefaultSeriesSettings$,
     () => ComboSeriesItemList,
-    () => LegendOptions,
-    () => DataLabelOptions,
-    () => DataLabelOptions,
-    () => TooltipOptions,
+    () => LegendOptions$,
+    () => DataLabelOptions$,
+    () => DataLabelOptions$,
+    () => TooltipOptions$,
     () => ReferenceLineList,
-    () => VisualPalette,
-    () => VisualInteractionOptions,
+    () => VisualPalette$,
+    () => VisualInteractionOptions$,
   ],
 ];
-export var ComboChartDefaultSeriesSettings: StaticStructureSchema = [
+export var ComboChartDefaultSeriesSettings$: StaticStructureSchema = [
   3,
   n0,
   _CCDSS,
   0,
   [_LSS, _MSS, _DSe, _BS],
-  [() => LineChartLineStyleSettings, () => LineChartMarkerStyleSettings, () => DecalSettings, () => BorderSettings],
+  [() => LineChartLineStyleSettings$, () => LineChartMarkerStyleSettings$, () => DecalSettings$, () => BorderSettings$],
 ];
-export var ComboChartFieldWells: StaticStructureSchema = [
+export var ComboChartFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _CCFW,
   0,
   [_CCAFW],
-  [() => ComboChartAggregatedFieldWells],
+  [() => ComboChartAggregatedFieldWells$],
 ];
-export var ComboChartSeriesSettings: StaticStructureSchema = [
+export var ComboChartSeriesSettings$: StaticStructureSchema = [
   3,
   n0,
   _CCSS,
   0,
   [_LSS, _MSS, _DSe, _BS],
-  [() => LineChartLineStyleSettings, () => LineChartMarkerStyleSettings, () => DecalSettings, () => BorderSettings],
+  [() => LineChartLineStyleSettings$, () => LineChartMarkerStyleSettings$, () => DecalSettings$, () => BorderSettings$],
 ];
-export var ComboChartSortConfiguration: StaticStructureSchema = [
+export var ComboChartSortConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _CCSC,
@@ -4887,12 +4908,12 @@ export var ComboChartSortConfiguration: StaticStructureSchema = [
   [_CSa, _CIL, _CSo, _CILo],
   [
     () => FieldSortOptionsList,
-    () => ItemsLimitConfiguration,
+    () => ItemsLimitConfiguration$,
     () => FieldSortOptionsList,
-    () => ItemsLimitConfiguration,
+    () => ItemsLimitConfiguration$,
   ],
 ];
-export var ComboChartVisual: StaticStructureSchema = [
+export var ComboChartVisual$: StaticStructureSchema = [
   3,
   n0,
   _CCV,
@@ -4900,72 +4921,79 @@ export var ComboChartVisual: StaticStructureSchema = [
   [_VI, _Tit, _Su, _CCh, _Ac, _CH, _VCAT],
   [
     0,
-    () => VisualTitleLabelOptions,
-    () => VisualSubtitleLabelOptions,
-    () => ComboChartConfiguration,
+    () => VisualTitleLabelOptions$,
+    () => VisualSubtitleLabelOptions$,
+    () => ComboChartConfiguration$,
     () => VisualCustomActionList,
     () => ColumnHierarchyList,
     0,
   ],
 ];
-export var ComboSeriesItem: StaticStructureSchema = [
+export var ComboSeriesItem$: StaticStructureSchema = [
   3,
   n0,
   _CSI,
   0,
   [_FCSI, _DFCSI],
-  [() => FieldComboSeriesItem, () => DataFieldComboSeriesItem],
+  [() => FieldComboSeriesItem$, () => DataFieldComboSeriesItem$],
 ];
-export var ComparativeOrder: StaticStructureSchema = [3, n0, _CO, 0, [_UO, _SOp, _TUSV], [0, 64 | 0, 0]];
-export var ComparisonConfiguration: StaticStructureSchema = [
+export var ComparativeOrder$: StaticStructureSchema = [3, n0, _CO, 0, [_UO, _SOp, _TUSV], [0, 64 | 0, 0]];
+export var ComparisonConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _CCom,
   0,
   [_CMo, _CFo],
-  [0, () => ComparisonFormatConfiguration],
+  [0, () => ComparisonFormatConfiguration$],
 ];
-export var ComparisonFormatConfiguration: StaticStructureSchema = [
+export var ComparisonFormatConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _CFCo,
   0,
   [_NDFC, _PDFC],
-  [() => NumberDisplayFormatConfiguration, () => PercentageDisplayFormatConfiguration],
+  [() => NumberDisplayFormatConfiguration$, () => PercentageDisplayFormatConfiguration$],
 ];
-export var Computation: StaticStructureSchema = [
+export var Computation$: StaticStructureSchema = [
   3,
   n0,
   _Com,
   0,
   [_TBR, _TBM, _TAot, _MMa, _MC, _POP, _PTD, _GRr, _UV, _For],
   [
-    () => TopBottomRankedComputation,
-    () => TopBottomMoversComputation,
-    () => TotalAggregationComputation,
-    () => MaximumMinimumComputation,
-    () => MetricComparisonComputation,
-    () => PeriodOverPeriodComputation,
-    () => PeriodToDateComputation,
-    () => GrowthRateComputation,
-    () => UniqueValuesComputation,
-    () => ForecastComputation,
+    () => TopBottomRankedComputation$,
+    () => TopBottomMoversComputation$,
+    () => TotalAggregationComputation$,
+    () => MaximumMinimumComputation$,
+    () => MetricComparisonComputation$,
+    () => PeriodOverPeriodComputation$,
+    () => PeriodToDateComputation$,
+    () => GrowthRateComputation$,
+    () => UniqueValuesComputation$,
+    () => ForecastComputation$,
   ],
 ];
-export var ConcurrentUpdatingException: StaticErrorSchema = [-3, n0, _CUE, { [_e]: _s, [_hE]: 500 }, [_M, _RI], [0, 0]];
-TypeRegistry.for(n0).registerError(ConcurrentUpdatingException, __ConcurrentUpdatingException);
-export var ConditionalFormattingColor: StaticStructureSchema = [
+export var ConcurrentUpdatingException$: StaticErrorSchema = [
+  -3,
+  n0,
+  _CUE,
+  { [_e]: _s, [_hE]: 500 },
+  [_M, _RI],
+  [0, 0],
+];
+TypeRegistry.for(n0).registerError(ConcurrentUpdatingException$, ConcurrentUpdatingException);
+export var ConditionalFormattingColor$: StaticStructureSchema = [
   3,
   n0,
   _CFCon,
   0,
   [_Sol, _G],
   [
-    [() => ConditionalFormattingSolidColor, 0],
-    [() => ConditionalFormattingGradientColor, 0],
+    [() => ConditionalFormattingSolidColor$, 0],
+    [() => ConditionalFormattingGradientColor$, 0],
   ],
 ];
-export var ConditionalFormattingCustomIconCondition: StaticStructureSchema = [
+export var ConditionalFormattingCustomIconCondition$: StaticStructureSchema = [
   3,
   n0,
   _CFCIC,
@@ -4973,33 +5001,33 @@ export var ConditionalFormattingCustomIconCondition: StaticStructureSchema = [
   [_Ex, _IO, _Col, _DCi],
   [
     [() => Expression, 0],
-    () => ConditionalFormattingCustomIconOptions,
+    () => ConditionalFormattingCustomIconOptions$,
     0,
-    () => ConditionalFormattingIconDisplayConfiguration,
+    () => ConditionalFormattingIconDisplayConfiguration$,
   ],
 ];
-export var ConditionalFormattingCustomIconOptions: StaticStructureSchema = [3, n0, _CFCIO, 0, [_Ic, _UI], [0, 0]];
-export var ConditionalFormattingGradientColor: StaticStructureSchema = [
+export var ConditionalFormattingCustomIconOptions$: StaticStructureSchema = [3, n0, _CFCIO, 0, [_Ic, _UI], [0, 0]];
+export var ConditionalFormattingGradientColor$: StaticStructureSchema = [
   3,
   n0,
   _CFGC,
   0,
   [_Ex, _Col],
-  [[() => Expression, 0], () => GradientColor],
+  [[() => Expression, 0], () => GradientColor$],
 ];
-export var ConditionalFormattingIcon: StaticStructureSchema = [
+export var ConditionalFormattingIcon$: StaticStructureSchema = [
   3,
   n0,
   _CFI,
   0,
   [_IS, _CCus],
   [
-    [() => ConditionalFormattingIconSet, 0],
-    [() => ConditionalFormattingCustomIconCondition, 0],
+    [() => ConditionalFormattingIconSet$, 0],
+    [() => ConditionalFormattingCustomIconCondition$, 0],
   ],
 ];
-export var ConditionalFormattingIconDisplayConfiguration: StaticStructureSchema = [3, n0, _CFIDC, 0, [_IDO], [0]];
-export var ConditionalFormattingIconSet: StaticStructureSchema = [
+export var ConditionalFormattingIconDisplayConfiguration$: StaticStructureSchema = [3, n0, _CFIDC, 0, [_IDO], [0]];
+export var ConditionalFormattingIconSet$: StaticStructureSchema = [
   3,
   n0,
   _CFIS,
@@ -5007,7 +5035,7 @@ export var ConditionalFormattingIconSet: StaticStructureSchema = [
   [_Ex, _IST],
   [[() => Expression, 0], 0],
 ];
-export var ConditionalFormattingSolidColor: StaticStructureSchema = [
+export var ConditionalFormattingSolidColor$: StaticStructureSchema = [
   3,
   n0,
   _CFSC,
@@ -5015,19 +5043,19 @@ export var ConditionalFormattingSolidColor: StaticStructureSchema = [
   [_Ex, _Col],
   [[() => Expression, 0], 0],
 ];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M, _RI], [0, 0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var ConfluenceParameters: StaticStructureSchema = [3, n0, _CPo, 0, [_CU], [0]];
-export var ContextMenuOption: StaticStructureSchema = [3, n0, _CMO, 0, [_ASv], [0]];
-export var ContextualAccentPalette: StaticStructureSchema = [
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M, _RI], [0, 0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var ConfluenceParameters$: StaticStructureSchema = [3, n0, _CPo, 0, [_CU], [0]];
+export var ContextMenuOption$: StaticStructureSchema = [3, n0, _CMO, 0, [_ASv], [0]];
+export var ContextualAccentPalette$: StaticStructureSchema = [
   3,
   n0,
   _CAP,
   0,
   [_Conn, _Vis, _Ins, _Aut],
-  [() => Palette, () => Palette, () => Palette, () => Palette],
+  [() => Palette$, () => Palette$, () => Palette$, () => Palette$],
 ];
-export var ContributionAnalysisDefault: StaticStructureSchema = [
+export var ContributionAnalysisDefault$: StaticStructureSchema = [
   3,
   n0,
   _CADon,
@@ -5035,33 +5063,33 @@ export var ContributionAnalysisDefault: StaticStructureSchema = [
   [_MFI, _CDo],
   [0, () => ContributorDimensionList],
 ];
-export var ContributionAnalysisFactor: StaticStructureSchema = [3, n0, _CAFo, 0, [_FN], [0]];
-export var ContributionAnalysisTimeRanges: StaticStructureSchema = [
+export var ContributionAnalysisFactor$: StaticStructureSchema = [3, n0, _CAFo, 0, [_FN], [0]];
+export var ContributionAnalysisTimeRanges$: StaticStructureSchema = [
   3,
   n0,
   _CATR,
   0,
   [_SR, _ER],
-  [() => TopicIRFilterOption, () => TopicIRFilterOption],
+  [() => TopicIRFilterOption$, () => TopicIRFilterOption$],
 ];
-export var Coordinate: StaticStructureSchema = [3, n0, _Coo, 0, [_Lat, _Lon], [1, 1]];
-export var CreateAccountCustomizationRequest: StaticStructureSchema = [
+export var Coordinate$: StaticStructureSchema = [3, n0, _Coo, 0, [_Lat, _Lon], [1, 1]];
+export var CreateAccountCustomizationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CACR,
   0,
   [_AAI, _Na, _AC, _Ta],
-  [[0, 1], [0, { [_hQ]: _n }], () => AccountCustomization, () => TagList],
+  [[0, 1], [0, { [_hQ]: _n }], () => AccountCustomization$, () => TagList],
 ];
-export var CreateAccountCustomizationResponse: StaticStructureSchema = [
+export var CreateAccountCustomizationResponse$: StaticStructureSchema = [
   3,
   n0,
   _CACRr,
   0,
   [_A, _AAI, _Na, _AC, _RI, _St],
-  [0, 0, 0, () => AccountCustomization, 0, [1, 32]],
+  [0, 0, 0, () => AccountCustomization$, 0, [1, 32]],
 ];
-export var CreateAccountSubscriptionRequest: StaticStructureSchema = [
+export var CreateAccountSubscriptionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CASR,
@@ -5069,15 +5097,15 @@ export var CreateAccountSubscriptionRequest: StaticStructureSchema = [
   [_Ed, _AMu, _AAI, _AN, _NE, _ADN, _Rea, _DIi, _AG, _AGu, _RG, _APG, _APGu, _RPG, _FNi, _LN, _EAm, _CNon, _IAMICIA],
   [0, 0, [0, 1], 0, 0, 0, 0, 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 0, 0],
 ];
-export var CreateAccountSubscriptionResponse: StaticStructureSchema = [
+export var CreateAccountSubscriptionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CASRr,
   0,
   [_SRi, _St, _RI],
-  [() => SignupResponse, [1, 32], 0],
+  [() => SignupResponse$, [1, 32], 0],
 ];
-export var CreateActionConnectorRequest: StaticStructureSchema = [
+export var CreateActionConnectorRequest$: StaticStructureSchema = [
   3,
   n0,
   _CACRre,
@@ -5088,14 +5116,14 @@ export var CreateActionConnectorRequest: StaticStructureSchema = [
     0,
     [() => ActionConnectorName, 0],
     0,
-    [() => AuthConfig, 0],
+    [() => AuthConfig$, 0],
     [() => ActionConnectorDescription, 0],
     () => ResourcePermissionList,
     0,
     () => TagList,
   ],
 ];
-export var CreateActionConnectorResponse: StaticStructureSchema = [
+export var CreateActionConnectorResponse$: StaticStructureSchema = [
   3,
   n0,
   _CACRrea,
@@ -5103,7 +5131,7 @@ export var CreateActionConnectorResponse: StaticStructureSchema = [
   [_A, _CSr, _ACI, _RI, _St],
   [0, 0, 0, 0, [1, 32]],
 ];
-export var CreateAnalysisRequest: StaticStructureSchema = [
+export var CreateAnalysisRequest$: StaticStructureSchema = [
   3,
   n0,
   _CAR,
@@ -5113,17 +5141,17 @@ export var CreateAnalysisRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     0,
-    [() => _Parameters, 0],
+    [() => _Parameters$, 0],
     () => ResourcePermissionList,
-    () => AnalysisSourceEntity,
+    () => AnalysisSourceEntity$,
     0,
     () => TagList,
-    [() => AnalysisDefinition, 0],
-    () => ValidationStrategy,
+    [() => AnalysisDefinition$, 0],
+    () => ValidationStrategy$,
     64 | 0,
   ],
 ];
-export var CreateAnalysisResponse: StaticStructureSchema = [
+export var CreateAnalysisResponse$: StaticStructureSchema = [
   3,
   n0,
   _CARr,
@@ -5131,40 +5159,40 @@ export var CreateAnalysisResponse: StaticStructureSchema = [
   [_A, _AIn, _CSr, _St, _RI],
   [0, 0, 0, [1, 32], 0],
 ];
-export var CreateBrandRequest: StaticStructureSchema = [
+export var CreateBrandRequest$: StaticStructureSchema = [
   3,
   n0,
   _CBR,
   0,
   [_AAI, _BI, _BD, _Ta],
-  [[0, 1], [0, 1], () => BrandDefinition, () => TagList],
+  [[0, 1], [0, 1], () => BrandDefinition$, () => TagList],
 ];
-export var CreateBrandResponse: StaticStructureSchema = [
+export var CreateBrandResponse$: StaticStructureSchema = [
   3,
   n0,
   _CBRr,
   0,
   [_RI, _BDr, _BD],
-  [0, () => BrandDetail, () => BrandDefinition],
+  [0, () => BrandDetail$, () => BrandDefinition$],
 ];
-export var CreateColumnsOperation: StaticStructureSchema = [
+export var CreateColumnsOperation$: StaticStructureSchema = [
   3,
   n0,
   _CCO,
   0,
   [_Al, _So, _Colu],
-  [0, () => TransformOperationSource, [() => CalculatedColumnList, 0]],
+  [0, () => TransformOperationSource$, [() => CalculatedColumnList, 0]],
 ];
-export var CreateCustomPermissionsRequest: StaticStructureSchema = [
+export var CreateCustomPermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCPR,
   0,
   [_AAI, _CPN, _Cap, _Ta],
-  [[0, 1], 0, () => Capabilities, () => TagList],
+  [[0, 1], 0, () => Capabilities$, () => TagList],
 ];
-export var CreateCustomPermissionsResponse: StaticStructureSchema = [3, n0, _CCPRr, 0, [_St, _A, _RI], [1, 0, 0]];
-export var CreateDashboardRequest: StaticStructureSchema = [
+export var CreateCustomPermissionsResponse$: StaticStructureSchema = [3, n0, _CCPRr, 0, [_St, _A, _RI], [1, 0, 0]];
+export var CreateDashboardRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDR,
@@ -5174,21 +5202,21 @@ export var CreateDashboardRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     0,
-    [() => _Parameters, 0],
+    [() => _Parameters$, 0],
     () => ResourcePermissionList,
-    () => DashboardSourceEntity,
+    () => DashboardSourceEntity$,
     () => TagList,
     0,
-    () => DashboardPublishOptions,
+    () => DashboardPublishOptions$,
     0,
-    [() => DashboardVersionDefinition, 0],
-    () => ValidationStrategy,
+    [() => DashboardVersionDefinition$, 0],
+    () => ValidationStrategy$,
     64 | 0,
-    () => LinkSharingConfiguration,
+    () => LinkSharingConfiguration$,
     64 | 0,
   ],
 ];
-export var CreateDashboardResponse: StaticStructureSchema = [
+export var CreateDashboardResponse$: StaticStructureSchema = [
   3,
   n0,
   _CDRr,
@@ -5196,7 +5224,7 @@ export var CreateDashboardResponse: StaticStructureSchema = [
   [_A, _VAe, _DI, _CSr, _St, _RI],
   [0, 0, 0, 0, [1, 32], 0],
 ];
-export var CreateDataSetRequest: StaticStructureSchema = [
+export var CreateDataSetRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDSR,
@@ -5233,20 +5261,20 @@ export var CreateDataSetRequest: StaticStructureSchema = [
     () => ColumnGroupList,
     () => FieldFolderMap,
     () => ResourcePermissionList,
-    () => RowLevelPermissionDataSet,
-    [() => RowLevelPermissionTagConfiguration, 0],
+    () => RowLevelPermissionDataSet$,
+    [() => RowLevelPermissionTagConfiguration$, 0],
     () => ColumnLevelPermissionRuleList,
     () => TagList,
-    () => DataSetUsageConfiguration,
+    () => DataSetUsageConfiguration$,
     () => DatasetParameterList,
     64 | 0,
-    () => PerformanceConfiguration,
+    () => PerformanceConfiguration$,
     0,
-    [() => DataPrepConfiguration, 0],
-    [() => SemanticModelConfiguration, 0],
+    [() => DataPrepConfiguration$, 0],
+    [() => SemanticModelConfiguration$, 0],
   ],
 ];
-export var CreateDataSetResponse: StaticStructureSchema = [
+export var CreateDataSetResponse$: StaticStructureSchema = [
   3,
   n0,
   _CDSRr,
@@ -5254,7 +5282,7 @@ export var CreateDataSetResponse: StaticStructureSchema = [
   [_A, _DSI, _IAn, _II, _RI, _St],
   [0, 0, 0, 0, 0, [1, 32]],
 ];
-export var CreateDataSourceRequest: StaticStructureSchema = [
+export var CreateDataSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDSRre,
@@ -5265,16 +5293,16 @@ export var CreateDataSourceRequest: StaticStructureSchema = [
     0,
     0,
     0,
-    () => DataSourceParameters,
-    [() => DataSourceCredentials, 0],
+    () => DataSourceParameters$,
+    [() => DataSourceCredentials$, 0],
     () => ResourcePermissionList,
-    () => VpcConnectionProperties,
-    () => SslProperties,
+    () => VpcConnectionProperties$,
+    () => SslProperties$,
     () => TagList,
     64 | 0,
   ],
 ];
-export var CreateDataSourceResponse: StaticStructureSchema = [
+export var CreateDataSourceResponse$: StaticStructureSchema = [
   3,
   n0,
   _CDSRrea,
@@ -5282,7 +5310,7 @@ export var CreateDataSourceResponse: StaticStructureSchema = [
   [_A, _DSIat, _CSr, _RI, _St],
   [0, 0, 0, 0, [1, 32]],
 ];
-export var CreateFolderMembershipRequest: StaticStructureSchema = [
+export var CreateFolderMembershipRequest$: StaticStructureSchema = [
   3,
   n0,
   _CFMR,
@@ -5295,15 +5323,15 @@ export var CreateFolderMembershipRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var CreateFolderMembershipResponse: StaticStructureSchema = [
+export var CreateFolderMembershipResponse$: StaticStructureSchema = [
   3,
   n0,
   _CFMRr,
   0,
   [_St, _FM, _RI],
-  [1, () => FolderMember, 0],
+  [1, () => FolderMember$, 0],
 ];
-export var CreateFolderRequest: StaticStructureSchema = [
+export var CreateFolderRequest$: StaticStructureSchema = [
   3,
   n0,
   _CFR,
@@ -5311,8 +5339,8 @@ export var CreateFolderRequest: StaticStructureSchema = [
   [_AAI, _FI, _N, _FT, _PFA, _Per, _Ta, _SMh],
   [[0, 1], [0, 1], 0, 0, 0, () => ResourcePermissionList, () => TagList, 0],
 ];
-export var CreateFolderResponse: StaticStructureSchema = [3, n0, _CFRr, 0, [_St, _A, _FI, _RI], [[1, 32], 0, 0, 0]];
-export var CreateGroupMembershipRequest: StaticStructureSchema = [
+export var CreateFolderResponse$: StaticStructureSchema = [3, n0, _CFRr, 0, [_St, _A, _FI, _RI], [[1, 32], 0, 0, 0]];
+export var CreateGroupMembershipRequest$: StaticStructureSchema = [
   3,
   n0,
   _CGMR,
@@ -5325,17 +5353,24 @@ export var CreateGroupMembershipRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var CreateGroupMembershipResponse: StaticStructureSchema = [
+export var CreateGroupMembershipResponse$: StaticStructureSchema = [
   3,
   n0,
   _CGMRr,
   0,
   [_GM, _RI, _St],
-  [() => GroupMember, 0, [1, 32]],
+  [() => GroupMember$, 0, [1, 32]],
 ];
-export var CreateGroupRequest: StaticStructureSchema = [3, n0, _CGRr, 0, [_GN, _D, _AAI, _Na], [0, 0, [0, 1], [0, 1]]];
-export var CreateGroupResponse: StaticStructureSchema = [3, n0, _CGRre, 0, [_Gr, _RI, _St], [() => Group, 0, [1, 32]]];
-export var CreateIAMPolicyAssignmentRequest: StaticStructureSchema = [
+export var CreateGroupRequest$: StaticStructureSchema = [3, n0, _CGRr, 0, [_GN, _D, _AAI, _Na], [0, 0, [0, 1], [0, 1]]];
+export var CreateGroupResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _CGRre,
+  0,
+  [_Gr, _RI, _St],
+  [() => Group$, 0, [1, 32]],
+];
+export var CreateIAMPolicyAssignmentRequest$: StaticStructureSchema = [
   3,
   n0,
   _CIAMPAR,
@@ -5343,7 +5378,7 @@ export var CreateIAMPolicyAssignmentRequest: StaticStructureSchema = [
   [_AAI, _ANs, _ASs, _PA, _Id, _Na],
   [[0, 1], 0, 0, 0, [2, n0, _IMd, 0, 0, 64 | 0], [0, 1]],
 ];
-export var CreateIAMPolicyAssignmentResponse: StaticStructureSchema = [
+export var CreateIAMPolicyAssignmentResponse$: StaticStructureSchema = [
   3,
   n0,
   _CIAMPARr,
@@ -5351,7 +5386,7 @@ export var CreateIAMPolicyAssignmentResponse: StaticStructureSchema = [
   [_ANs, _AIs, _ASs, _PA, _Id, _RI, _St],
   [0, 0, 0, 0, [2, n0, _IMd, 0, 0, 64 | 0], 0, [1, 32]],
 ];
-export var CreateIngestionRequest: StaticStructureSchema = [
+export var CreateIngestionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CIRr,
@@ -5359,7 +5394,7 @@ export var CreateIngestionRequest: StaticStructureSchema = [
   [_DSI, _II, _AAI, _ITn],
   [[0, 1], [0, 1], [0, 1], 0],
 ];
-export var CreateIngestionResponse: StaticStructureSchema = [
+export var CreateIngestionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CIRre,
@@ -5367,7 +5402,7 @@ export var CreateIngestionResponse: StaticStructureSchema = [
   [_A, _II, _ISn, _RI, _St],
   [0, 0, 0, 0, [1, 32]],
 ];
-export var CreateNamespaceRequest: StaticStructureSchema = [
+export var CreateNamespaceRequest$: StaticStructureSchema = [
   3,
   n0,
   _CNR,
@@ -5375,7 +5410,7 @@ export var CreateNamespaceRequest: StaticStructureSchema = [
   [_AAI, _Na, _ISd, _Ta],
   [[0, 1], 0, 0, () => TagList],
 ];
-export var CreateNamespaceResponse: StaticStructureSchema = [
+export var CreateNamespaceResponse$: StaticStructureSchema = [
   3,
   n0,
   _CNRr,
@@ -5383,15 +5418,15 @@ export var CreateNamespaceResponse: StaticStructureSchema = [
   [_A, _N, _CR, _CSr, _ISd, _RI, _St],
   [0, 0, 0, 0, 0, 0, [1, 32]],
 ];
-export var CreateRefreshScheduleRequest: StaticStructureSchema = [
+export var CreateRefreshScheduleRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRSR,
   0,
   [_DSI, _AAI, _Sc],
-  [[0, 1], [0, 1], () => RefreshSchedule],
+  [[0, 1], [0, 1], () => RefreshSchedule$],
 ];
-export var CreateRefreshScheduleResponse: StaticStructureSchema = [
+export var CreateRefreshScheduleResponse$: StaticStructureSchema = [
   3,
   n0,
   _CRSRr,
@@ -5399,7 +5434,7 @@ export var CreateRefreshScheduleResponse: StaticStructureSchema = [
   [_St, _RI, _SI, _A],
   [[1, 32], 0, 0, 0],
 ];
-export var CreateRoleMembershipRequest: StaticStructureSchema = [
+export var CreateRoleMembershipRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRMR,
@@ -5412,8 +5447,8 @@ export var CreateRoleMembershipRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var CreateRoleMembershipResponse: StaticStructureSchema = [3, n0, _CRMRr, 0, [_RI, _St], [0, [1, 32]]];
-export var CreateTemplateAliasRequest: StaticStructureSchema = [
+export var CreateRoleMembershipResponse$: StaticStructureSchema = [3, n0, _CRMRr, 0, [_RI, _St], [0, [1, 32]]];
+export var CreateTemplateAliasRequest$: StaticStructureSchema = [
   3,
   n0,
   _CTAR,
@@ -5421,15 +5456,15 @@ export var CreateTemplateAliasRequest: StaticStructureSchema = [
   [_AAI, _TIe, _ANl, _TVN],
   [[0, 1], [0, 1], [0, 1], 1],
 ];
-export var CreateTemplateAliasResponse: StaticStructureSchema = [
+export var CreateTemplateAliasResponse$: StaticStructureSchema = [
   3,
   n0,
   _CTARr,
   0,
   [_TAe, _St, _RI],
-  [() => TemplateAlias, [1, 32], 0],
+  [() => TemplateAlias$, [1, 32], 0],
 ];
-export var CreateTemplateRequest: StaticStructureSchema = [
+export var CreateTemplateRequest$: StaticStructureSchema = [
   3,
   n0,
   _CTR,
@@ -5440,14 +5475,14 @@ export var CreateTemplateRequest: StaticStructureSchema = [
     [0, 1],
     0,
     () => ResourcePermissionList,
-    () => TemplateSourceEntity,
+    () => TemplateSourceEntity$,
     () => TagList,
     0,
-    [() => TemplateVersionDefinition, 0],
-    () => ValidationStrategy,
+    [() => TemplateVersionDefinition$, 0],
+    () => ValidationStrategy$,
   ],
 ];
-export var CreateTemplateResponse: StaticStructureSchema = [
+export var CreateTemplateResponse$: StaticStructureSchema = [
   3,
   n0,
   _CTRr,
@@ -5455,7 +5490,7 @@ export var CreateTemplateResponse: StaticStructureSchema = [
   [_A, _VAe, _TIe, _CSr, _St, _RI],
   [0, 0, 0, 0, [1, 32], 0],
 ];
-export var CreateThemeAliasRequest: StaticStructureSchema = [
+export var CreateThemeAliasRequest$: StaticStructureSchema = [
   3,
   n0,
   _CTARre,
@@ -5463,23 +5498,23 @@ export var CreateThemeAliasRequest: StaticStructureSchema = [
   [_AAI, _TI, _ANl, _TVNh],
   [[0, 1], [0, 1], [0, 1], 1],
 ];
-export var CreateThemeAliasResponse: StaticStructureSchema = [
+export var CreateThemeAliasResponse$: StaticStructureSchema = [
   3,
   n0,
   _CTARrea,
   0,
   [_TAh, _St, _RI],
-  [() => ThemeAlias, [1, 32], 0],
+  [() => ThemeAlias$, [1, 32], 0],
 ];
-export var CreateThemeRequest: StaticStructureSchema = [
+export var CreateThemeRequest$: StaticStructureSchema = [
   3,
   n0,
   _CTRre,
   0,
   [_AAI, _TI, _N, _BTI, _VD, _Conf, _Per, _Ta],
-  [[0, 1], [0, 1], 0, 0, 0, () => ThemeConfiguration, () => ResourcePermissionList, () => TagList],
+  [[0, 1], [0, 1], 0, 0, 0, () => ThemeConfiguration$, () => ResourcePermissionList, () => TagList],
 ];
-export var CreateThemeResponse: StaticStructureSchema = [
+export var CreateThemeResponse$: StaticStructureSchema = [
   3,
   n0,
   _CTRrea,
@@ -5487,15 +5522,15 @@ export var CreateThemeResponse: StaticStructureSchema = [
   [_A, _VAe, _TI, _CSr, _St, _RI],
   [0, 0, 0, 0, [1, 32], 0],
 ];
-export var CreateTopicRefreshScheduleRequest: StaticStructureSchema = [
+export var CreateTopicRefreshScheduleRequest$: StaticStructureSchema = [
   3,
   n0,
   _CTRSR,
   0,
   [_AAI, _TIo, _DA, _DNa, _RSe],
-  [[0, 1], [0, 1], 0, 0, () => TopicRefreshSchedule],
+  [[0, 1], [0, 1], 0, 0, () => TopicRefreshSchedule$],
 ];
-export var CreateTopicRefreshScheduleResponse: StaticStructureSchema = [
+export var CreateTopicRefreshScheduleResponse$: StaticStructureSchema = [
   3,
   n0,
   _CTRSRr,
@@ -5503,15 +5538,15 @@ export var CreateTopicRefreshScheduleResponse: StaticStructureSchema = [
   [_TIo, _TAo, _DA, _St, _RI],
   [0, 0, 0, [1, 32], 0],
 ];
-export var CreateTopicRequest: StaticStructureSchema = [
+export var CreateTopicRequest$: StaticStructureSchema = [
   3,
   n0,
   _CTRreat,
   0,
   [_AAI, _TIo, _Top, _Ta, _FAo, _CIu],
-  [[0, 1], 0, [() => TopicDetails, 0], () => TagList, 64 | 0, [() => CustomInstructions, 0]],
+  [[0, 1], 0, [() => TopicDetails$, 0], () => TagList, 64 | 0, [() => CustomInstructions$, 0]],
 ];
-export var CreateTopicResponse: StaticStructureSchema = [
+export var CreateTopicResponse$: StaticStructureSchema = [
   3,
   n0,
   _CTRreate,
@@ -5519,15 +5554,15 @@ export var CreateTopicResponse: StaticStructureSchema = [
   [_A, _TIo, _RAe, _RI, _St],
   [0, 0, 0, 0, [1, 32]],
 ];
-export var CreateTopicReviewedAnswer: StaticStructureSchema = [
+export var CreateTopicReviewedAnswer$: StaticStructureSchema = [
   3,
   n0,
   _CTRA,
   0,
   [_AInsw, _DA, _Q, _Mir, _PV, _Tem],
-  [0, 0, 0, [() => TopicIR, 0], [() => TopicVisual, 0], () => TopicTemplate],
+  [0, 0, 0, [() => TopicIR$, 0], [() => TopicVisual$, 0], () => TopicTemplate$],
 ];
-export var CreateVPCConnectionRequest: StaticStructureSchema = [
+export var CreateVPCConnectionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CVPCCR,
@@ -5535,7 +5570,7 @@ export var CreateVPCConnectionRequest: StaticStructureSchema = [
   [_AAI, _VPCCI, _N, _SIu, _SGI, _DR, _RA, _Ta],
   [[0, 1], 0, 0, 64 | 0, 64 | 0, 64 | 0, 0, () => TagList],
 ];
-export var CreateVPCConnectionResponse: StaticStructureSchema = [
+export var CreateVPCConnectionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CVPCCRr,
@@ -5543,7 +5578,7 @@ export var CreateVPCConnectionResponse: StaticStructureSchema = [
   [_A, _VPCCI, _CSr, _ASv, _RI, _St],
   [0, 0, 0, 0, 0, [1, 32]],
 ];
-export var CredentialPair: StaticStructureSchema = [
+export var CredentialPair$: StaticStructureSchema = [
   3,
   n0,
   _CP,
@@ -5551,7 +5586,7 @@ export var CredentialPair: StaticStructureSchema = [
   [_U, _Pa, _ADSP],
   [0, 0, () => DataSourceParametersList],
 ];
-export var CurrencyDisplayFormatConfiguration: StaticStructureSchema = [
+export var CurrencyDisplayFormatConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _CDFC,
@@ -5560,31 +5595,31 @@ export var CurrencyDisplayFormatConfiguration: StaticStructureSchema = [
   [
     [() => Prefix, 0],
     [() => Suffix, 0],
-    () => NumericSeparatorConfiguration,
+    () => NumericSeparatorConfiguration$,
     0,
-    () => DecimalPlacesConfiguration,
+    () => DecimalPlacesConfiguration$,
     0,
-    () => NegativeValueConfiguration,
-    [() => NullValueFormatConfiguration, 0],
+    () => NegativeValueConfiguration$,
+    [() => NullValueFormatConfiguration$, 0],
   ],
 ];
-export var CustomActionFilterOperation: StaticStructureSchema = [
+export var CustomActionFilterOperation$: StaticStructureSchema = [
   3,
   n0,
   _CAFO,
   0,
   [_SFC, _TVC],
-  [() => FilterOperationSelectedFieldsConfiguration, () => FilterOperationTargetVisualsConfiguration],
+  [() => FilterOperationSelectedFieldsConfiguration$, () => FilterOperationTargetVisualsConfiguration$],
 ];
-export var CustomActionNavigationOperation: StaticStructureSchema = [
+export var CustomActionNavigationOperation$: StaticStructureSchema = [
   3,
   n0,
   _CANO,
   0,
   [_LNC],
-  [() => LocalNavigationConfiguration],
+  [() => LocalNavigationConfiguration$],
 ];
-export var CustomActionSetParametersOperation: StaticStructureSchema = [
+export var CustomActionSetParametersOperation$: StaticStructureSchema = [
   3,
   n0,
   _CASPO,
@@ -5592,18 +5627,18 @@ export var CustomActionSetParametersOperation: StaticStructureSchema = [
   [_PVC],
   [() => SetParameterValueConfigurationList],
 ];
-export var CustomActionURLOperation: StaticStructureSchema = [3, n0, _CAURLO, 0, [_URLT, _URLTa], [0, 0]];
-export var CustomColor: StaticStructureSchema = [3, n0, _CCust, 0, [_FV, _Col, _SVp], [[() => FieldValue, 0], 0, 0]];
-export var CustomConnectionParameters: StaticStructureSchema = [3, n0, _CCP, 0, [_CTon], [0]];
-export var CustomContentConfiguration: StaticStructureSchema = [
+export var CustomActionURLOperation$: StaticStructureSchema = [3, n0, _CAURLO, 0, [_URLT, _URLTa], [0, 0]];
+export var CustomColor$: StaticStructureSchema = [3, n0, _CCust, 0, [_FV, _Col, _SVp], [[() => FieldValue, 0], 0, 0]];
+export var CustomConnectionParameters$: StaticStructureSchema = [3, n0, _CCP, 0, [_CTon], [0]];
+export var CustomContentConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _CCCu,
   0,
   [_CUo, _CTont, _ISm, _I],
-  [0, 0, 0, () => VisualInteractionOptions],
+  [0, 0, 0, () => VisualInteractionOptions$],
 ];
-export var CustomContentVisual: StaticStructureSchema = [
+export var CustomContentVisual$: StaticStructureSchema = [
   3,
   n0,
   _CCVu,
@@ -5611,15 +5646,15 @@ export var CustomContentVisual: StaticStructureSchema = [
   [_VI, _Tit, _Su, _CCh, _Ac, _DSIatae, _VCAT],
   [
     0,
-    () => VisualTitleLabelOptions,
-    () => VisualSubtitleLabelOptions,
-    () => CustomContentConfiguration,
+    () => VisualTitleLabelOptions$,
+    () => VisualSubtitleLabelOptions$,
+    () => CustomContentConfiguration$,
     () => VisualCustomActionList,
     0,
     0,
   ],
 ];
-export var CustomerManagedKeyUnavailableException: StaticErrorSchema = [
+export var CustomerManagedKeyUnavailableException$: StaticErrorSchema = [
   -3,
   n0,
   _CMKUE,
@@ -5627,8 +5662,8 @@ export var CustomerManagedKeyUnavailableException: StaticErrorSchema = [
   [_M, _RI],
   [0, 0],
 ];
-TypeRegistry.for(n0).registerError(CustomerManagedKeyUnavailableException, __CustomerManagedKeyUnavailableException);
-export var CustomFilterConfiguration: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(CustomerManagedKeyUnavailableException$, CustomerManagedKeyUnavailableException);
+export var CustomFilterConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _CFCu,
@@ -5636,7 +5671,7 @@ export var CustomFilterConfiguration: StaticStructureSchema = [
   [_MO, _CVa, _SAOe, _PN, _NO],
   [0, 0, 0, 0, 0],
 ];
-export var CustomFilterListConfiguration: StaticStructureSchema = [
+export var CustomFilterListConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _CFLC,
@@ -5644,9 +5679,9 @@ export var CustomFilterListConfiguration: StaticStructureSchema = [
   [_MO, _CV, _SAOe, _NO],
   [0, 64 | 0, 0, 0],
 ];
-export var CustomInstructions: StaticStructureSchema = [3, n0, _CIu, 0, [_CIS], [[() => CustomInstructionsString, 0]]];
-export var CustomNarrativeOptions: StaticStructureSchema = [3, n0, _CNO, 0, [_Nar], [0]];
-export var CustomParameterValues: StaticStructureSchema = [
+export var CustomInstructions$: StaticStructureSchema = [3, n0, _CIu, 0, [_CIS], [[() => CustomInstructionsString, 0]]];
+export var CustomNarrativeOptions$: StaticStructureSchema = [3, n0, _CNO, 0, [_Nar], [0]];
+export var CustomParameterValues$: StaticStructureSchema = [
   3,
   n0,
   _CPV,
@@ -5659,8 +5694,8 @@ export var CustomParameterValues: StaticStructureSchema = [
     [() => DateTimeDefaultValueList, 0],
   ],
 ];
-export var CustomPermissions: StaticStructureSchema = [3, n0, _CPu, 0, [_A, _CPN, _Cap], [0, 0, () => Capabilities]];
-export var CustomSql: StaticStructureSchema = [
+export var CustomPermissions$: StaticStructureSchema = [3, n0, _CPu, 0, [_A, _CPN, _Cap], [0, 0, () => Capabilities$]];
+export var CustomSql$: StaticStructureSchema = [
   3,
   n0,
   _CSu,
@@ -5668,58 +5703,58 @@ export var CustomSql: StaticStructureSchema = [
   [_DSAa, _N, _SQ, _Colu],
   [0, 0, [() => SqlQuery, 0], () => InputColumnList],
 ];
-export var CustomValuesConfiguration: StaticStructureSchema = [
+export var CustomValuesConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _CVC,
   0,
   [_INV, _CVu],
-  [2, [() => CustomParameterValues, 0]],
+  [2, [() => CustomParameterValues$, 0]],
 ];
-export var Dashboard: StaticStructureSchema = [
+export var Dashboard$: StaticStructureSchema = [
   3,
   n0,
   _Da,
   0,
   [_DI, _A, _N, _Ve, _CT, _LPT, _LUT, _LE],
-  [0, 0, 0, () => DashboardVersion, 4, 4, 4, 64 | 0],
+  [0, 0, 0, () => DashboardVersion$, 4, 4, 4, 64 | 0],
 ];
-export var DashboardCustomizationVisualOptions: StaticStructureSchema = [
+export var DashboardCustomizationVisualOptions$: StaticStructureSchema = [
   3,
   n0,
   _DCVO,
   0,
   [_FCi],
-  [() => VisualCustomizationFieldsConfiguration],
+  [() => VisualCustomizationFieldsConfiguration$],
 ];
-export var DashboardError: StaticStructureSchema = [3, n0, _DE, 0, [_T, _M, _VE], [0, 0, () => EntityList]];
-export var DashboardPublishOptions: StaticStructureSchema = [
+export var DashboardError$: StaticStructureSchema = [3, n0, _DE, 0, [_T, _M, _VE], [0, 0, () => EntityList]];
+export var DashboardPublishOptions$: StaticStructureSchema = [
   3,
   n0,
   _DPO,
   0,
   [_AHFO, _ETCSVO, _SCO, _VPO, _SLEMO, _VMO, _VASO, _EWHFO, _DPDUDO, _DPMLO, _DPTO, _DQAEO, _QSAO, _ESO, _DSSO],
   [
-    () => AdHocFilteringOption,
-    () => ExportToCSVOption,
-    () => SheetControlsOption,
-    () => DashboardVisualPublishOptions,
-    () => SheetLayoutElementMaximizationOption,
-    () => VisualMenuOption,
-    () => VisualAxisSortOption,
-    () => ExportWithHiddenFieldsOption,
-    () => DataPointDrillUpDownOption,
-    () => DataPointMenuLabelOption,
-    () => DataPointTooltipOption,
-    () => DataQAEnabledOption,
-    () => QuickSuiteActionsOption,
-    () => ExecutiveSummaryOption,
-    () => DataStoriesSharingOption,
+    () => AdHocFilteringOption$,
+    () => ExportToCSVOption$,
+    () => SheetControlsOption$,
+    () => DashboardVisualPublishOptions$,
+    () => SheetLayoutElementMaximizationOption$,
+    () => VisualMenuOption$,
+    () => VisualAxisSortOption$,
+    () => ExportWithHiddenFieldsOption$,
+    () => DataPointDrillUpDownOption$,
+    () => DataPointMenuLabelOption$,
+    () => DataPointTooltipOption$,
+    () => DataQAEnabledOption$,
+    () => QuickSuiteActionsOption$,
+    () => ExecutiveSummaryOption$,
+    () => DataStoriesSharingOption$,
   ],
 ];
-export var DashboardSearchFilter: StaticStructureSchema = [3, n0, _DSF, 0, [_O, _N, _V], [0, 0, 0]];
-export var DashboardSourceEntity: StaticStructureSchema = [3, n0, _DSE, 0, [_STo], [() => DashboardSourceTemplate]];
-export var DashboardSourceTemplate: StaticStructureSchema = [
+export var DashboardSearchFilter$: StaticStructureSchema = [3, n0, _DSF, 0, [_O, _N, _V], [0, 0, 0]];
+export var DashboardSourceEntity$: StaticStructureSchema = [3, n0, _DSE, 0, [_STo], [() => DashboardSourceTemplate$]];
+export var DashboardSourceTemplate$: StaticStructureSchema = [
   3,
   n0,
   _DST,
@@ -5727,7 +5762,7 @@ export var DashboardSourceTemplate: StaticStructureSchema = [
   [_DSR, _A],
   [() => DataSetReferenceList, 0],
 ];
-export var DashboardSummary: StaticStructureSchema = [
+export var DashboardSummary$: StaticStructureSchema = [
   3,
   n0,
   _DSas,
@@ -5735,7 +5770,7 @@ export var DashboardSummary: StaticStructureSchema = [
   [_A, _DI, _N, _CT, _LUT, _PVN, _LPT],
   [0, 0, 0, 4, 4, 1, 4],
 ];
-export var DashboardVersion: StaticStructureSchema = [
+export var DashboardVersion$: StaticStructureSchema = [
   3,
   n0,
   _DVa,
@@ -5743,7 +5778,7 @@ export var DashboardVersion: StaticStructureSchema = [
   [_CT, _Err, _VN, _St, _A, _SEA, _DSA, _D, _TA, _Sh],
   [4, () => DashboardErrorList, 1, 0, 0, 0, 64 | 0, 0, 0, () => SheetList],
 ];
-export var DashboardVersionDefinition: StaticStructureSchema = [
+export var DashboardVersionDefinition$: StaticStructureSchema = [
   3,
   n0,
   _DVD,
@@ -5756,12 +5791,12 @@ export var DashboardVersionDefinition: StaticStructureSchema = [
     [() => ParameterDeclarationList, 0],
     [() => FilterGroupList, 0],
     [() => ColumnConfigurationList, 0],
-    () => AnalysisDefaults,
-    () => AssetOptions,
+    () => AnalysisDefaults$,
+    () => AssetOptions$,
     () => StaticFileList,
   ],
 ];
-export var DashboardVersionSummary: StaticStructureSchema = [
+export var DashboardVersionSummary$: StaticStructureSchema = [
   3,
   n0,
   _DVS,
@@ -5769,16 +5804,16 @@ export var DashboardVersionSummary: StaticStructureSchema = [
   [_A, _CT, _VN, _St, _SEA, _D],
   [0, 4, 1, 0, 0, 0],
 ];
-export var DashboardVisualId: StaticStructureSchema = [3, n0, _DVI, 0, [_DI, _SIh, _VI], [0, 0, 0]];
-export var DashboardVisualPublishOptions: StaticStructureSchema = [
+export var DashboardVisualId$: StaticStructureSchema = [3, n0, _DVI, 0, [_DI, _SIh, _VI], [0, 0, 0]];
+export var DashboardVisualPublishOptions$: StaticStructureSchema = [
   3,
   n0,
   _DVPO,
   0,
   [_EHFO],
-  [() => ExportHiddenFieldsOption],
+  [() => ExportHiddenFieldsOption$],
 ];
-export var DashboardVisualResult: StaticStructureSchema = [
+export var DashboardVisualResult$: StaticStructureSchema = [
   3,
   n0,
   _DVR,
@@ -5786,59 +5821,59 @@ export var DashboardVisualResult: StaticStructureSchema = [
   [_DI, _DNas, _SIh, _SN, _VI, _VT, _VSi, _DU],
   [0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var DataAggregation: StaticStructureSchema = [3, n0, _DAa, 0, [_DRDG, _DDCN], [0, 0]];
-export var DataBarsOptions: StaticStructureSchema = [3, n0, _DBO, 0, [_FIi, _PCo, _NC], [0, 0, 0]];
-export var DatabricksParameters: StaticStructureSchema = [3, n0, _DPa, 0, [_H, _Po, _SEP], [0, 1, 0]];
-export var DataColor: StaticStructureSchema = [3, n0, _DCa, 0, [_Col, _DVat], [0, 1]];
-export var DataColorPalette: StaticStructureSchema = [3, n0, _DCP, 0, [_Co, _MMG, _EFC], [64 | 0, 64 | 0, 0]];
-export var DataFieldBarSeriesItem: StaticStructureSchema = [
+export var DataAggregation$: StaticStructureSchema = [3, n0, _DAa, 0, [_DRDG, _DDCN], [0, 0]];
+export var DataBarsOptions$: StaticStructureSchema = [3, n0, _DBO, 0, [_FIi, _PCo, _NC], [0, 0, 0]];
+export var DatabricksParameters$: StaticStructureSchema = [3, n0, _DPa, 0, [_H, _Po, _SEP], [0, 1, 0]];
+export var DataColor$: StaticStructureSchema = [3, n0, _DCa, 0, [_Col, _DVat], [0, 1]];
+export var DataColorPalette$: StaticStructureSchema = [3, n0, _DCP, 0, [_Co, _MMG, _EFC], [64 | 0, 64 | 0, 0]];
+export var DataFieldBarSeriesItem$: StaticStructureSchema = [
   3,
   n0,
   _DFBSI,
   0,
   [_FIi, _FV, _Set],
-  [0, () => SensitiveString, () => BarChartSeriesSettings],
+  [0, () => SensitiveString, () => BarChartSeriesSettings$],
 ];
-export var DataFieldComboSeriesItem: StaticStructureSchema = [
+export var DataFieldComboSeriesItem$: StaticStructureSchema = [
   3,
   n0,
   _DFCSI,
   0,
   [_FIi, _FV, _Set],
-  [0, () => SensitiveString, () => ComboChartSeriesSettings],
+  [0, () => SensitiveString, () => ComboChartSeriesSettings$],
 ];
-export var DataFieldSeriesItem: StaticStructureSchema = [
+export var DataFieldSeriesItem$: StaticStructureSchema = [
   3,
   n0,
   _DFSI,
   0,
   [_FIi, _FV, _AB, _Set],
-  [0, () => SensitiveString, 0, () => LineChartSeriesSettings],
+  [0, () => SensitiveString, 0, () => LineChartSeriesSettings$],
 ];
-export var DataLabelOptions: StaticStructureSchema = [
+export var DataLabelOptions$: StaticStructureSchema = [
   3,
   n0,
   _DLO,
   0,
   [_Vi, _CLV, _MLV, _DLT, _Pos, _LCa, _LFC, _LCab, _Ov, _TV],
-  [0, 0, 0, () => DataLabelTypes, 0, 0, () => FontConfiguration, 0, 0, 0],
+  [0, 0, 0, () => DataLabelTypes, 0, 0, () => FontConfiguration$, 0, 0, 0],
 ];
-export var DataLabelType: StaticStructureSchema = [
+export var DataLabelType$: StaticStructureSchema = [
   3,
   n0,
   _DLTa,
   0,
   [_FLT, _DPLT, _RELT, _MLT, _MLTa],
   [
-    () => FieldLabelType,
-    () => DataPathLabelType,
-    () => RangeEndsLabelType,
-    () => MinimumLabelType,
-    () => MaximumLabelType,
+    () => FieldLabelType$,
+    () => DataPathLabelType$,
+    () => RangeEndsLabelType$,
+    () => MinimumLabelType$,
+    () => MaximumLabelType$,
   ],
 ];
-export var DataPathColor: StaticStructureSchema = [3, n0, _DPCa, 0, [_El, _Col, _TG], [() => DataPathValue, 0, 0]];
-export var DataPathLabelType: StaticStructureSchema = [
+export var DataPathColor$: StaticStructureSchema = [3, n0, _DPCa, 0, [_El, _Col, _TG], [() => DataPathValue$, 0, 0]];
+export var DataPathLabelType$: StaticStructureSchema = [
   3,
   n0,
   _DPLT,
@@ -5846,28 +5881,28 @@ export var DataPathLabelType: StaticStructureSchema = [
   [_FIi, _FV, _Vi],
   [0, [() => FieldValue, 0], 0],
 ];
-export var DataPathSort: StaticStructureSchema = [3, n0, _DPS, 0, [_Dir, _SPo], [0, [() => DataPathValueList, 0]]];
-export var DataPathType: StaticStructureSchema = [3, n0, _DPT, 0, [_PTDPT], [0]];
-export var DataPathValue: StaticStructureSchema = [
+export var DataPathSort$: StaticStructureSchema = [3, n0, _DPS, 0, [_Dir, _SPo], [0, [() => DataPathValueList, 0]]];
+export var DataPathType$: StaticStructureSchema = [3, n0, _DPT, 0, [_PTDPT], [0]];
+export var DataPathValue$: StaticStructureSchema = [
   3,
   n0,
   _DPV,
   0,
   [_FIi, _FV, _DPT],
-  [0, [() => FieldValue, 0], () => DataPathType],
+  [0, [() => FieldValue, 0], () => DataPathType$],
 ];
-export var DataPointDrillUpDownOption: StaticStructureSchema = [3, n0, _DPDUDO, 0, [_ASv], [0]];
-export var DataPointMenuLabelOption: StaticStructureSchema = [3, n0, _DPMLO, 0, [_ASv], [0]];
-export var DataPointTooltipOption: StaticStructureSchema = [3, n0, _DPTO, 0, [_ASv], [0]];
-export var DataPrepAggregationFunction: StaticStructureSchema = [
+export var DataPointDrillUpDownOption$: StaticStructureSchema = [3, n0, _DPDUDO, 0, [_ASv], [0]];
+export var DataPointMenuLabelOption$: StaticStructureSchema = [3, n0, _DPMLO, 0, [_ASv], [0]];
+export var DataPointTooltipOption$: StaticStructureSchema = [3, n0, _DPTO, 0, [_ASv], [0]];
+export var DataPrepAggregationFunction$: StaticStructureSchema = [
   3,
   n0,
   _DPAF,
   0,
   [_SAi, _LA],
-  [() => DataPrepSimpleAggregationFunction, () => DataPrepListAggregationFunction],
+  [() => DataPrepSimpleAggregationFunction$, () => DataPrepListAggregationFunction$],
 ];
-export var DataPrepConfiguration: StaticStructureSchema = [
+export var DataPrepConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _DPC,
@@ -5875,11 +5910,11 @@ export var DataPrepConfiguration: StaticStructureSchema = [
   [_STM, _TSM, _DTM],
   [() => SourceTableMap, [() => TransformStepMap, 0], () => DestinationTableMap],
 ];
-export var DataPrepListAggregationFunction: StaticStructureSchema = [3, n0, _DPLAF, 0, [_ICN, _Sep, _Dis], [0, 0, 2]];
-export var DataPrepSimpleAggregationFunction: StaticStructureSchema = [3, n0, _DPSAF, 0, [_ICN, _FTu], [0, 0]];
-export var DataQAEnabledOption: StaticStructureSchema = [3, n0, _DQAEO, 0, [_ASv], [0]];
-export var DataQnAConfigurations: StaticStructureSchema = [3, n0, _DQAC, 0, [_En], [2]];
-export var DataSet: StaticStructureSchema = [
+export var DataPrepListAggregationFunction$: StaticStructureSchema = [3, n0, _DPLAF, 0, [_ICN, _Sep, _Dis], [0, 0, 2]];
+export var DataPrepSimpleAggregationFunction$: StaticStructureSchema = [3, n0, _DPSAF, 0, [_ICN, _FTu], [0, 0]];
+export var DataQAEnabledOption$: StaticStructureSchema = [3, n0, _DQAEO, 0, [_ASv], [0]];
+export var DataQnAConfigurations$: StaticStructureSchema = [3, n0, _DQAC, 0, [_En], [2]];
+export var DataSet$: StaticStructureSchema = [
   3,
   n0,
   _DSata,
@@ -5920,53 +5955,60 @@ export var DataSet: StaticStructureSchema = [
     1,
     () => ColumnGroupList,
     () => FieldFolderMap,
-    () => RowLevelPermissionDataSet,
-    [() => RowLevelPermissionTagConfiguration, 0],
+    () => RowLevelPermissionDataSet$,
+    [() => RowLevelPermissionTagConfiguration$, 0],
     () => ColumnLevelPermissionRuleList,
-    () => DataSetUsageConfiguration,
+    () => DataSetUsageConfiguration$,
     () => DatasetParameterList,
-    () => PerformanceConfiguration,
+    () => PerformanceConfiguration$,
     0,
-    [() => DataPrepConfiguration, 0],
-    [() => SemanticModelConfiguration, 0],
+    [() => DataPrepConfiguration$, 0],
+    [() => SemanticModelConfiguration$, 0],
   ],
 ];
-export var DataSetColumnIdMapping: StaticStructureSchema = [3, n0, _DSCIM, 0, [_SCI, _TCI], [0, 0]];
-export var DataSetConfiguration: StaticStructureSchema = [
+export var DataSetColumnIdMapping$: StaticStructureSchema = [3, n0, _DSCIM, 0, [_SCI, _TCI], [0, 0]];
+export var DataSetConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _DSCa,
   0,
   [_Pl, _DSSa, _CGSL],
-  [0, () => DataSetSchema, () => ColumnGroupSchemaList],
+  [0, () => DataSetSchema$, () => ColumnGroupSchemaList],
 ];
-export var DataSetDateComparisonFilterCondition: StaticStructureSchema = [
+export var DataSetDateComparisonFilterCondition$: StaticStructureSchema = [
   3,
   n0,
   _DSDCFC,
   0,
   [_O, _V],
-  [0, [() => DataSetDateFilterValue, 0]],
+  [0, [() => DataSetDateFilterValue$, 0]],
 ];
-export var DataSetDateFilterCondition: StaticStructureSchema = [
+export var DataSetDateFilterCondition$: StaticStructureSchema = [
   3,
   n0,
   _DSDFC,
   0,
   [_CN, _CFCom, _RFC],
-  [0, [() => DataSetDateComparisonFilterCondition, 0], [() => DataSetDateRangeFilterCondition, 0]],
+  [0, [() => DataSetDateComparisonFilterCondition$, 0], [() => DataSetDateRangeFilterCondition$, 0]],
 ];
-export var DataSetDateFilterValue: StaticStructureSchema = [3, n0, _DSDFV, 0, [_SVta], [[() => SensitiveTimestamp, 0]]];
-export var DataSetDateRangeFilterCondition: StaticStructureSchema = [
+export var DataSetDateFilterValue$: StaticStructureSchema = [
+  3,
+  n0,
+  _DSDFV,
+  0,
+  [_SVta],
+  [[() => SensitiveTimestamp, 0]],
+];
+export var DataSetDateRangeFilterCondition$: StaticStructureSchema = [
   3,
   n0,
   _DSDRFC,
   0,
   [_RM, _RMa, _IMn, _IMnc],
-  [[() => DataSetDateFilterValue, 0], [() => DataSetDateFilterValue, 0], 2, 2],
+  [[() => DataSetDateFilterValue$, 0], [() => DataSetDateFilterValue$, 0], 2, 2],
 ];
-export var DataSetIdentifierDeclaration: StaticStructureSchema = [3, n0, _DSIDa, 0, [_Ide, _DSAat], [0, 0]];
-export var DatasetMetadata: StaticStructureSchema = [
+export var DataSetIdentifierDeclaration$: StaticStructureSchema = [3, n0, _DSIDa, 0, [_Ide, _DSAat], [0, 0]];
+export var DatasetMetadata$: StaticStructureSchema = [
   3,
   n0,
   _DM,
@@ -5976,79 +6018,86 @@ export var DatasetMetadata: StaticStructureSchema = [
     0,
     0,
     0,
-    () => DataAggregation,
+    () => DataAggregation$,
     [() => TopicFilters, 0],
     [() => TopicColumns, 0],
     [() => TopicCalculatedFields, 0],
     () => TopicNamedEntities,
   ],
 ];
-export var DataSetNumericComparisonFilterCondition: StaticStructureSchema = [
+export var DataSetNumericComparisonFilterCondition$: StaticStructureSchema = [
   3,
   n0,
   _DSNCFC,
   0,
   [_O, _V],
-  [0, [() => DataSetNumericFilterValue, 0]],
+  [0, [() => DataSetNumericFilterValue$, 0]],
 ];
-export var DataSetNumericFilterCondition: StaticStructureSchema = [
+export var DataSetNumericFilterCondition$: StaticStructureSchema = [
   3,
   n0,
   _DSNFC,
   0,
   [_CN, _CFCom, _RFC],
-  [0, [() => DataSetNumericComparisonFilterCondition, 0], [() => DataSetNumericRangeFilterCondition, 0]],
+  [0, [() => DataSetNumericComparisonFilterCondition$, 0], [() => DataSetNumericRangeFilterCondition$, 0]],
 ];
-export var DataSetNumericFilterValue: StaticStructureSchema = [3, n0, _DSNFV, 0, [_SVta], [[() => SensitiveDouble, 0]]];
-export var DataSetNumericRangeFilterCondition: StaticStructureSchema = [
+export var DataSetNumericFilterValue$: StaticStructureSchema = [
+  3,
+  n0,
+  _DSNFV,
+  0,
+  [_SVta],
+  [[() => SensitiveDouble, 0]],
+];
+export var DataSetNumericRangeFilterCondition$: StaticStructureSchema = [
   3,
   n0,
   _DSNRFC,
   0,
   [_RM, _RMa, _IMn, _IMnc],
-  [[() => DataSetNumericFilterValue, 0], [() => DataSetNumericFilterValue, 0], 2, 2],
+  [[() => DataSetNumericFilterValue$, 0], [() => DataSetNumericFilterValue$, 0], 2, 2],
 ];
-export var DatasetParameter: StaticStructureSchema = [
+export var DatasetParameter$: StaticStructureSchema = [
   3,
   n0,
   _DPat,
   0,
   [_SDP, _DDP, _IDP, _DTDP],
   [
-    () => StringDatasetParameter,
-    () => DecimalDatasetParameter,
-    () => IntegerDatasetParameter,
-    () => DateTimeDatasetParameter,
+    () => StringDatasetParameter$,
+    () => DecimalDatasetParameter$,
+    () => IntegerDatasetParameter$,
+    () => DateTimeDatasetParameter$,
   ],
 ];
-export var DataSetReference: StaticStructureSchema = [3, n0, _DSRat, 0, [_DSPa, _DSAat], [0, 0]];
-export var DataSetRefreshProperties: StaticStructureSchema = [
+export var DataSetReference$: StaticStructureSchema = [3, n0, _DSRat, 0, [_DSPa, _DSAat], [0, 0]];
+export var DataSetRefreshProperties$: StaticStructureSchema = [
   3,
   n0,
   _DSRP,
   0,
   [_RCe, _FCa],
-  [() => RefreshConfiguration, () => RefreshFailureConfiguration],
+  [() => RefreshConfiguration$, () => RefreshFailureConfiguration$],
 ];
-export var DataSetSchema: StaticStructureSchema = [3, n0, _DSSa, 0, [_CSL], [() => ColumnSchemaList]];
-export var DataSetSearchFilter: StaticStructureSchema = [3, n0, _DSSF, 0, [_O, _N, _V], [0, 0, 0]];
-export var DataSetStringComparisonFilterCondition: StaticStructureSchema = [
+export var DataSetSchema$: StaticStructureSchema = [3, n0, _DSSa, 0, [_CSL], [() => ColumnSchemaList]];
+export var DataSetSearchFilter$: StaticStructureSchema = [3, n0, _DSSF, 0, [_O, _N, _V], [0, 0, 0]];
+export var DataSetStringComparisonFilterCondition$: StaticStructureSchema = [
   3,
   n0,
   _DSSCFC,
   0,
   [_O, _V],
-  [0, [() => DataSetStringFilterValue, 0]],
+  [0, [() => DataSetStringFilterValue$, 0]],
 ];
-export var DataSetStringFilterCondition: StaticStructureSchema = [
+export var DataSetStringFilterCondition$: StaticStructureSchema = [
   3,
   n0,
   _DSSFC,
   0,
   [_CN, _CFCom, _LFCi],
-  [0, [() => DataSetStringComparisonFilterCondition, 0], [() => DataSetStringListFilterCondition, 0]],
+  [0, [() => DataSetStringComparisonFilterCondition$, 0], [() => DataSetStringListFilterCondition$, 0]],
 ];
-export var DataSetStringFilterValue: StaticStructureSchema = [
+export var DataSetStringFilterValue$: StaticStructureSchema = [
   3,
   n0,
   _DSSFV,
@@ -6056,15 +6105,15 @@ export var DataSetStringFilterValue: StaticStructureSchema = [
   [_SVta],
   [[() => DataSetStringFilterStaticValue, 0]],
 ];
-export var DataSetStringListFilterCondition: StaticStructureSchema = [
+export var DataSetStringListFilterCondition$: StaticStructureSchema = [
   3,
   n0,
   _DSSLFC,
   0,
   [_O, _Va],
-  [0, [() => DataSetStringListFilterValue, 0]],
+  [0, [() => DataSetStringListFilterValue$, 0]],
 ];
-export var DataSetStringListFilterValue: StaticStructureSchema = [
+export var DataSetStringListFilterValue$: StaticStructureSchema = [
   3,
   n0,
   _DSSLFV,
@@ -6072,16 +6121,16 @@ export var DataSetStringListFilterValue: StaticStructureSchema = [
   [_SVtat],
   [[() => DataSetStringFilterStaticValueList, 0]],
 ];
-export var DataSetSummary: StaticStructureSchema = [
+export var DataSetSummary$: StaticStructureSchema = [
   3,
   n0,
   _DSSat,
   0,
   [_A, _DSI, _N, _CT, _LUT, _IM, _RLPDS, _RLPDSM, _RLPTCA, _CLPRA, _UA],
-  [0, 0, 0, 4, 4, 0, () => RowLevelPermissionDataSet, () => RowLevelPermissionDataSetMap, 2, 2, 0],
+  [0, 0, 0, 4, 4, 0, () => RowLevelPermissionDataSet$, () => RowLevelPermissionDataSetMap, 2, 2, 0],
 ];
-export var DataSetUsageConfiguration: StaticStructureSchema = [3, n0, _DSUC, 0, [_DUADQS, _DUAIS], [2, 2]];
-export var DataSource: StaticStructureSchema = [
+export var DataSetUsageConfiguration$: StaticStructureSchema = [3, n0, _DSUC, 0, [_DUADQS, _DUAIS], [2, 2]];
+export var DataSource$: StaticStructureSchema = [
   3,
   n0,
   _DSatao,
@@ -6095,25 +6144,25 @@ export var DataSource: StaticStructureSchema = [
     0,
     4,
     4,
-    () => DataSourceParameters,
+    () => DataSourceParameters$,
     () => DataSourceParametersList,
-    () => VpcConnectionProperties,
-    () => SslProperties,
-    () => DataSourceErrorInfo,
+    () => VpcConnectionProperties$,
+    () => SslProperties$,
+    () => DataSourceErrorInfo$,
     0,
   ],
 ];
-export var DataSourceCredentials: StaticStructureSchema = [
+export var DataSourceCredentials$: StaticStructureSchema = [
   3,
   n0,
   _DSCat,
   8,
   [_CP, _CSA, _SA, _KPC, _WPC],
-  [() => CredentialPair, 0, 0, [() => KeyPairCredentials, 0], () => WebProxyCredentials],
+  [() => CredentialPair$, 0, 0, [() => KeyPairCredentials$, 0], () => WebProxyCredentials$],
 ];
-export var DataSourceErrorInfo: StaticStructureSchema = [3, n0, _DSEI, 0, [_T, _M], [0, 0]];
-export var DataSourceSearchFilter: StaticStructureSchema = [3, n0, _DSSFa, 0, [_O, _N, _V], [0, 0, 0]];
-export var DataSourceSummary: StaticStructureSchema = [
+export var DataSourceErrorInfo$: StaticStructureSchema = [3, n0, _DSEI, 0, [_T, _M], [0, 0]];
+export var DataSourceSearchFilter$: StaticStructureSchema = [3, n0, _DSSFa, 0, [_O, _N, _V], [0, 0, 0]];
+export var DataSourceSummary$: StaticStructureSchema = [
   3,
   n0,
   _DSSata,
@@ -6121,52 +6170,52 @@ export var DataSourceSummary: StaticStructureSchema = [
   [_A, _DSIat, _N, _T, _CT, _LUT],
   [0, 0, 0, 0, 4, 4],
 ];
-export var DataStoriesConfigurations: StaticStructureSchema = [3, n0, _DSCata, 0, [_En], [2]];
-export var DataStoriesSharingOption: StaticStructureSchema = [3, n0, _DSSO, 0, [_ASv], [0]];
-export var DateAxisOptions: StaticStructureSchema = [3, n0, _DAO, 0, [_MDV], [0]];
-export var DateDimensionField: StaticStructureSchema = [
+export var DataStoriesConfigurations$: StaticStructureSchema = [3, n0, _DSCata, 0, [_En], [2]];
+export var DataStoriesSharingOption$: StaticStructureSchema = [3, n0, _DSSO, 0, [_ASv], [0]];
+export var DateAxisOptions$: StaticStructureSchema = [3, n0, _DAO, 0, [_MDV], [0]];
+export var DateDimensionField$: StaticStructureSchema = [
   3,
   n0,
   _DDF,
   0,
   [_FIi, _C, _DG, _HI, _FCor],
-  [0, () => ColumnIdentifier, 0, 0, [() => DateTimeFormatConfiguration, 0]],
+  [0, () => ColumnIdentifier$, 0, 0, [() => DateTimeFormatConfiguration$, 0]],
 ];
-export var DateMeasureField: StaticStructureSchema = [
+export var DateMeasureField$: StaticStructureSchema = [
   3,
   n0,
   _DMF,
   0,
   [_FIi, _C, _AFg, _FCor],
-  [0, () => ColumnIdentifier, 0, [() => DateTimeFormatConfiguration, 0]],
+  [0, () => ColumnIdentifier$, 0, [() => DateTimeFormatConfiguration$, 0]],
 ];
-export var DateTimeDatasetParameter: StaticStructureSchema = [
+export var DateTimeDatasetParameter$: StaticStructureSchema = [
   3,
   n0,
   _DTDP,
   0,
   [_Id_, _N, _VTa, _TG, _DVef],
-  [0, 0, 0, 0, () => DateTimeDatasetParameterDefaultValues],
+  [0, 0, 0, 0, () => DateTimeDatasetParameterDefaultValues$],
 ];
-export var DateTimeDatasetParameterDefaultValues: StaticStructureSchema = [3, n0, _DTDPDV, 0, [_SVtat], [64 | 4]];
-export var DateTimeDefaultValues: StaticStructureSchema = [
+export var DateTimeDatasetParameterDefaultValues$: StaticStructureSchema = [3, n0, _DTDPDV, 0, [_SVtat], [64 | 4]];
+export var DateTimeDefaultValues$: StaticStructureSchema = [
   3,
   n0,
   _DTDV,
   0,
   [_DVy, _SVtat, _RD],
-  [() => DynamicDefaultValue, [() => DateTimeDefaultValueList, 0], [() => RollingDateConfiguration, 0]],
+  [() => DynamicDefaultValue$, [() => DateTimeDefaultValueList, 0], [() => RollingDateConfiguration$, 0]],
 ];
-export var DateTimeFormatConfiguration: StaticStructureSchema = [
+export var DateTimeFormatConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _DTFC,
   0,
   [_DTF, _NVFC, _NFC],
-  [0, [() => NullValueFormatConfiguration, 0], [() => NumericFormatConfiguration, 0]],
+  [0, [() => NullValueFormatConfiguration$, 0], [() => NumericFormatConfiguration$, 0]],
 ];
-export var DateTimeHierarchy: StaticStructureSchema = [3, n0, _DTH, 0, [_HI, _DDFr], [0, () => DrillDownFilterList]];
-export var DateTimeParameter: StaticStructureSchema = [
+export var DateTimeHierarchy$: StaticStructureSchema = [3, n0, _DTH, 0, [_HI, _DDFr], [0, () => DrillDownFilterList]];
+export var DateTimeParameter$: StaticStructureSchema = [
   3,
   n0,
   _DTP,
@@ -6174,7 +6223,7 @@ export var DateTimeParameter: StaticStructureSchema = [
   [_N, _Va],
   [0, [() => SensitiveTimestampList, 0]],
 ];
-export var DateTimeParameterDeclaration: StaticStructureSchema = [
+export var DateTimeParameterDeclaration$: StaticStructureSchema = [
   3,
   n0,
   _DTPD,
@@ -6182,21 +6231,21 @@ export var DateTimeParameterDeclaration: StaticStructureSchema = [
   [_N, _DVef, _TG, _VWU, _MDSP],
   [
     0,
-    [() => DateTimeDefaultValues, 0],
+    [() => DateTimeDefaultValues$, 0],
     0,
-    [() => DateTimeValueWhenUnsetConfiguration, 0],
+    [() => DateTimeValueWhenUnsetConfiguration$, 0],
     () => MappedDataSetParameters,
   ],
 ];
-export var DateTimePickerControlDisplayOptions: StaticStructureSchema = [
+export var DateTimePickerControlDisplayOptions$: StaticStructureSchema = [
   3,
   n0,
   _DTPCDO,
   0,
   [_TO, _DTF, _IILO, _HTV, _DIV],
-  [() => LabelOptions, 0, () => SheetControlInfoIconLabelOptions, 0, 0],
+  [() => LabelOptions$, 0, () => SheetControlInfoIconLabelOptions$, 0, 0],
 ];
-export var DateTimeValueWhenUnsetConfiguration: StaticStructureSchema = [
+export var DateTimeValueWhenUnsetConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _DTVWUC,
@@ -6204,36 +6253,42 @@ export var DateTimeValueWhenUnsetConfiguration: StaticStructureSchema = [
   [_VWUO, _CVus],
   [0, [() => SensitiveTimestamp, 0]],
 ];
-export var DecalSettings: StaticStructureSchema = [3, n0, _DSe, 0, [_EV, _DVec, _DCe, _DPTe, _DSTe], [0, 0, 0, 0, 0]];
-export var DecalSettingsConfiguration: StaticStructureSchema = [3, n0, _DSC, 0, [_CDS], [() => DecalSettingsList]];
-export var DecimalDatasetParameter: StaticStructureSchema = [
+export var DecalSettings$: StaticStructureSchema = [3, n0, _DSe, 0, [_EV, _DVec, _DCe, _DPTe, _DSTe], [0, 0, 0, 0, 0]];
+export var DecalSettingsConfiguration$: StaticStructureSchema = [3, n0, _DSC, 0, [_CDS], [() => DecalSettingsList]];
+export var DecimalDatasetParameter$: StaticStructureSchema = [
   3,
   n0,
   _DDP,
   0,
   [_Id_, _N, _VTa, _DVef],
-  [0, 0, 0, () => DecimalDatasetParameterDefaultValues],
+  [0, 0, 0, () => DecimalDatasetParameterDefaultValues$],
 ];
-export var DecimalDatasetParameterDefaultValues: StaticStructureSchema = [3, n0, _DDPDV, 0, [_SVtat], [64 | 1]];
-export var DecimalDefaultValues: StaticStructureSchema = [
+export var DecimalDatasetParameterDefaultValues$: StaticStructureSchema = [3, n0, _DDPDV, 0, [_SVtat], [64 | 1]];
+export var DecimalDefaultValues$: StaticStructureSchema = [
   3,
   n0,
   _DDV,
   0,
   [_DVy, _SVtat],
-  [() => DynamicDefaultValue, [() => DecimalDefaultValueList, 0]],
+  [() => DynamicDefaultValue$, [() => DecimalDefaultValueList, 0]],
 ];
-export var DecimalParameter: StaticStructureSchema = [3, n0, _DPe, 0, [_N, _Va], [0, [() => SensitiveDoubleList, 0]]];
-export var DecimalParameterDeclaration: StaticStructureSchema = [
+export var DecimalParameter$: StaticStructureSchema = [3, n0, _DPe, 0, [_N, _Va], [0, [() => SensitiveDoubleList, 0]]];
+export var DecimalParameterDeclaration$: StaticStructureSchema = [
   3,
   n0,
   _DPD,
   0,
   [_PVT, _N, _DVef, _VWU, _MDSP],
-  [0, 0, [() => DecimalDefaultValues, 0], [() => DecimalValueWhenUnsetConfiguration, 0], () => MappedDataSetParameters],
+  [
+    0,
+    0,
+    [() => DecimalDefaultValues$, 0],
+    [() => DecimalValueWhenUnsetConfiguration$, 0],
+    () => MappedDataSetParameters,
+  ],
 ];
-export var DecimalPlacesConfiguration: StaticStructureSchema = [3, n0, _DPCe, 0, [_DPec], [1]];
-export var DecimalValueWhenUnsetConfiguration: StaticStructureSchema = [
+export var DecimalPlacesConfiguration$: StaticStructureSchema = [3, n0, _DPCe, 0, [_DPec], [1]];
+export var DecimalValueWhenUnsetConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _DVWUC,
@@ -6241,136 +6296,136 @@ export var DecimalValueWhenUnsetConfiguration: StaticStructureSchema = [
   [_VWUO, _CVus],
   [0, [() => SensitiveDouble, 0]],
 ];
-export var DefaultDateTimePickerControlOptions: StaticStructureSchema = [
+export var DefaultDateTimePickerControlOptions$: StaticStructureSchema = [
   3,
   n0,
   _DDTPCO,
   0,
   [_T, _DOi, _CMom],
-  [0, () => DateTimePickerControlDisplayOptions, 0],
+  [0, () => DateTimePickerControlDisplayOptions$, 0],
 ];
-export var DefaultFilterControlConfiguration: StaticStructureSchema = [
+export var DefaultFilterControlConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _DFCC,
   0,
   [_Tit, _COo],
-  [0, () => DefaultFilterControlOptions],
+  [0, () => DefaultFilterControlOptions$],
 ];
-export var DefaultFilterControlOptions: StaticStructureSchema = [
+export var DefaultFilterControlOptions$: StaticStructureSchema = [
   3,
   n0,
   _DFCO,
   0,
   [_DDTPO, _DLOe, _DDO, _DTFO, _DTAO, _DSO, _DRDTO],
   [
-    () => DefaultDateTimePickerControlOptions,
-    () => DefaultFilterListControlOptions,
-    () => DefaultFilterDropDownControlOptions,
-    () => DefaultTextFieldControlOptions,
-    () => DefaultTextAreaControlOptions,
-    () => DefaultSliderControlOptions,
-    () => DefaultRelativeDateTimeControlOptions,
+    () => DefaultDateTimePickerControlOptions$,
+    () => DefaultFilterListControlOptions$,
+    () => DefaultFilterDropDownControlOptions$,
+    () => DefaultTextFieldControlOptions$,
+    () => DefaultTextAreaControlOptions$,
+    () => DefaultSliderControlOptions$,
+    () => DefaultRelativeDateTimeControlOptions$,
   ],
 ];
-export var DefaultFilterDropDownControlOptions: StaticStructureSchema = [
+export var DefaultFilterDropDownControlOptions$: StaticStructureSchema = [
   3,
   n0,
   _DFDDCO,
   0,
   [_DOi, _T, _SVe, _CMom],
-  [() => DropDownControlDisplayOptions, 0, () => FilterSelectableValues, 0],
+  [() => DropDownControlDisplayOptions$, 0, () => FilterSelectableValues$, 0],
 ];
-export var DefaultFilterListControlOptions: StaticStructureSchema = [
+export var DefaultFilterListControlOptions$: StaticStructureSchema = [
   3,
   n0,
   _DFLCO,
   0,
   [_DOi, _T, _SVe],
-  [() => ListControlDisplayOptions, 0, () => FilterSelectableValues],
+  [() => ListControlDisplayOptions$, 0, () => FilterSelectableValues$],
 ];
-export var DefaultFormatting: StaticStructureSchema = [3, n0, _DFe, 0, [_DFi, _DFO], [0, () => DisplayFormatOptions]];
-export var DefaultFreeFormLayoutConfiguration: StaticStructureSchema = [
+export var DefaultFormatting$: StaticStructureSchema = [3, n0, _DFe, 0, [_DFi, _DFO], [0, () => DisplayFormatOptions$]];
+export var DefaultFreeFormLayoutConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _DFFLC,
   0,
   [_CSO],
-  [() => FreeFormLayoutCanvasSizeOptions],
+  [() => FreeFormLayoutCanvasSizeOptions$],
 ];
-export var DefaultGridLayoutConfiguration: StaticStructureSchema = [
+export var DefaultGridLayoutConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _DGLC,
   0,
   [_CSO],
-  [() => GridLayoutCanvasSizeOptions],
+  [() => GridLayoutCanvasSizeOptions$],
 ];
-export var DefaultInteractiveLayoutConfiguration: StaticStructureSchema = [
+export var DefaultInteractiveLayoutConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _DILC,
   0,
   [_Gri, _FFr],
-  [() => DefaultGridLayoutConfiguration, () => DefaultFreeFormLayoutConfiguration],
+  [() => DefaultGridLayoutConfiguration$, () => DefaultFreeFormLayoutConfiguration$],
 ];
-export var DefaultNewSheetConfiguration: StaticStructureSchema = [
+export var DefaultNewSheetConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _DNSC,
   0,
   [_ILC, _PLC, _SCT],
-  [() => DefaultInteractiveLayoutConfiguration, () => DefaultPaginatedLayoutConfiguration, 0],
+  [() => DefaultInteractiveLayoutConfiguration$, () => DefaultPaginatedLayoutConfiguration$, 0],
 ];
-export var DefaultPaginatedLayoutConfiguration: StaticStructureSchema = [
+export var DefaultPaginatedLayoutConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _DPLC,
   0,
   [_SBe],
-  [() => DefaultSectionBasedLayoutConfiguration],
+  [() => DefaultSectionBasedLayoutConfiguration$],
 ];
-export var DefaultRelativeDateTimeControlOptions: StaticStructureSchema = [
+export var DefaultRelativeDateTimeControlOptions$: StaticStructureSchema = [
   3,
   n0,
   _DRDTCO,
   0,
   [_DOi, _CMom],
-  [() => RelativeDateTimeControlDisplayOptions, 0],
+  [() => RelativeDateTimeControlDisplayOptions$, 0],
 ];
-export var DefaultSectionBasedLayoutConfiguration: StaticStructureSchema = [
+export var DefaultSectionBasedLayoutConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _DSBLC,
   0,
   [_CSO],
-  [() => SectionBasedLayoutCanvasSizeOptions],
+  [() => SectionBasedLayoutCanvasSizeOptions$],
 ];
-export var DefaultSliderControlOptions: StaticStructureSchema = [
+export var DefaultSliderControlOptions$: StaticStructureSchema = [
   3,
   n0,
   _DSCO,
   0,
   [_DOi, _T, _MV, _MVi, _SSt],
-  [() => SliderControlDisplayOptions, 0, 1, 1, 1],
+  [() => SliderControlDisplayOptions$, 0, 1, 1, 1],
 ];
-export var DefaultTextAreaControlOptions: StaticStructureSchema = [
+export var DefaultTextAreaControlOptions$: StaticStructureSchema = [
   3,
   n0,
   _DTACO,
   0,
   [_Del, _DOi],
-  [0, () => TextAreaControlDisplayOptions],
+  [0, () => TextAreaControlDisplayOptions$],
 ];
-export var DefaultTextFieldControlOptions: StaticStructureSchema = [
+export var DefaultTextFieldControlOptions$: StaticStructureSchema = [
   3,
   n0,
   _DTFCO,
   0,
   [_DOi],
-  [() => TextFieldControlDisplayOptions],
+  [() => TextFieldControlDisplayOptions$],
 ];
-export var DeleteAccountCustomizationRequest: StaticStructureSchema = [
+export var DeleteAccountCustomizationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DACR,
@@ -6381,12 +6436,12 @@ export var DeleteAccountCustomizationRequest: StaticStructureSchema = [
     [0, { [_hQ]: _n }],
   ],
 ];
-export var DeleteAccountCustomizationResponse: StaticStructureSchema = [3, n0, _DACRe, 0, [_RI, _St], [0, [1, 32]]];
-export var DeleteAccountCustomPermissionRequest: StaticStructureSchema = [3, n0, _DACPR, 0, [_AAI], [[0, 1]]];
-export var DeleteAccountCustomPermissionResponse: StaticStructureSchema = [3, n0, _DACPRe, 0, [_RI, _St], [0, 1]];
-export var DeleteAccountSubscriptionRequest: StaticStructureSchema = [3, n0, _DASR, 0, [_AAI], [[0, 1]]];
-export var DeleteAccountSubscriptionResponse: StaticStructureSchema = [3, n0, _DASRe, 0, [_RI, _St], [0, [1, 32]]];
-export var DeleteActionConnectorRequest: StaticStructureSchema = [
+export var DeleteAccountCustomizationResponse$: StaticStructureSchema = [3, n0, _DACRe, 0, [_RI, _St], [0, [1, 32]]];
+export var DeleteAccountCustomPermissionRequest$: StaticStructureSchema = [3, n0, _DACPR, 0, [_AAI], [[0, 1]]];
+export var DeleteAccountCustomPermissionResponse$: StaticStructureSchema = [3, n0, _DACPRe, 0, [_RI, _St], [0, 1]];
+export var DeleteAccountSubscriptionRequest$: StaticStructureSchema = [3, n0, _DASR, 0, [_AAI], [[0, 1]]];
+export var DeleteAccountSubscriptionResponse$: StaticStructureSchema = [3, n0, _DASRe, 0, [_RI, _St], [0, [1, 32]]];
+export var DeleteActionConnectorRequest$: StaticStructureSchema = [
   3,
   n0,
   _DACRel,
@@ -6397,7 +6452,7 @@ export var DeleteActionConnectorRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteActionConnectorResponse: StaticStructureSchema = [
+export var DeleteActionConnectorResponse$: StaticStructureSchema = [
   3,
   n0,
   _DACRele,
@@ -6405,7 +6460,7 @@ export var DeleteActionConnectorResponse: StaticStructureSchema = [
   [_A, _ACI, _RI, _St],
   [0, 0, 0, [1, 32]],
 ];
-export var DeleteAnalysisRequest: StaticStructureSchema = [
+export var DeleteAnalysisRequest$: StaticStructureSchema = [
   3,
   n0,
   _DAR,
@@ -6418,7 +6473,7 @@ export var DeleteAnalysisRequest: StaticStructureSchema = [
     [2, { [_hQ]: _fdwr }],
   ],
 ];
-export var DeleteAnalysisResponse: StaticStructureSchema = [
+export var DeleteAnalysisResponse$: StaticStructureSchema = [
   3,
   n0,
   _DARe,
@@ -6426,9 +6481,9 @@ export var DeleteAnalysisResponse: StaticStructureSchema = [
   [_St, _A, _AIn, _DTe, _RI],
   [[1, 32], 0, 0, 4, 0],
 ];
-export var DeleteBrandAssignmentRequest: StaticStructureSchema = [3, n0, _DBAR, 0, [_AAI], [[0, 1]]];
-export var DeleteBrandAssignmentResponse: StaticStructureSchema = [3, n0, _DBARe, 0, [_RI], [0]];
-export var DeleteBrandRequest: StaticStructureSchema = [
+export var DeleteBrandAssignmentRequest$: StaticStructureSchema = [3, n0, _DBAR, 0, [_AAI], [[0, 1]]];
+export var DeleteBrandAssignmentResponse$: StaticStructureSchema = [3, n0, _DBARe, 0, [_RI], [0]];
+export var DeleteBrandRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBR,
@@ -6439,8 +6494,8 @@ export var DeleteBrandRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteBrandResponse: StaticStructureSchema = [3, n0, _DBRe, 0, [_RI], [0]];
-export var DeleteCustomPermissionsRequest: StaticStructureSchema = [
+export var DeleteBrandResponse$: StaticStructureSchema = [3, n0, _DBRe, 0, [_RI], [0]];
+export var DeleteCustomPermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCPR,
@@ -6451,8 +6506,8 @@ export var DeleteCustomPermissionsRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteCustomPermissionsResponse: StaticStructureSchema = [3, n0, _DCPRe, 0, [_St, _A, _RI], [1, 0, 0]];
-export var DeleteDashboardRequest: StaticStructureSchema = [
+export var DeleteCustomPermissionsResponse$: StaticStructureSchema = [3, n0, _DCPRe, 0, [_St, _A, _RI], [1, 0, 0]];
+export var DeleteDashboardRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDR,
@@ -6464,8 +6519,8 @@ export var DeleteDashboardRequest: StaticStructureSchema = [
     [1, { [_hQ]: _vn }],
   ],
 ];
-export var DeleteDashboardResponse: StaticStructureSchema = [3, n0, _DDRe, 0, [_St, _A, _DI, _RI], [[1, 32], 0, 0, 0]];
-export var DeleteDataSetRefreshPropertiesRequest: StaticStructureSchema = [
+export var DeleteDashboardResponse$: StaticStructureSchema = [3, n0, _DDRe, 0, [_St, _A, _DI, _RI], [[1, 32], 0, 0, 0]];
+export var DeleteDataSetRefreshPropertiesRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDSRPR,
@@ -6476,7 +6531,7 @@ export var DeleteDataSetRefreshPropertiesRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteDataSetRefreshPropertiesResponse: StaticStructureSchema = [
+export var DeleteDataSetRefreshPropertiesResponse$: StaticStructureSchema = [
   3,
   n0,
   _DDSRPRe,
@@ -6484,7 +6539,7 @@ export var DeleteDataSetRefreshPropertiesResponse: StaticStructureSchema = [
   [_RI, _St],
   [0, [1, 32]],
 ];
-export var DeleteDataSetRequest: StaticStructureSchema = [
+export var DeleteDataSetRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDSR,
@@ -6495,8 +6550,8 @@ export var DeleteDataSetRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteDataSetResponse: StaticStructureSchema = [3, n0, _DDSRe, 0, [_A, _DSI, _RI, _St], [0, 0, 0, [1, 32]]];
-export var DeleteDataSourceRequest: StaticStructureSchema = [
+export var DeleteDataSetResponse$: StaticStructureSchema = [3, n0, _DDSRe, 0, [_A, _DSI, _RI, _St], [0, 0, 0, [1, 32]]];
+export var DeleteDataSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDSRel,
@@ -6507,7 +6562,7 @@ export var DeleteDataSourceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteDataSourceResponse: StaticStructureSchema = [
+export var DeleteDataSourceResponse$: StaticStructureSchema = [
   3,
   n0,
   _DDSRele,
@@ -6515,7 +6570,7 @@ export var DeleteDataSourceResponse: StaticStructureSchema = [
   [_A, _DSIat, _RI, _St],
   [0, 0, 0, [1, 32]],
 ];
-export var DeleteDefaultQBusinessApplicationRequest: StaticStructureSchema = [
+export var DeleteDefaultQBusinessApplicationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDQBAR,
@@ -6526,7 +6581,7 @@ export var DeleteDefaultQBusinessApplicationRequest: StaticStructureSchema = [
     [0, { [_hQ]: _n }],
   ],
 ];
-export var DeleteDefaultQBusinessApplicationResponse: StaticStructureSchema = [
+export var DeleteDefaultQBusinessApplicationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DDQBARe,
@@ -6534,7 +6589,7 @@ export var DeleteDefaultQBusinessApplicationResponse: StaticStructureSchema = [
   [_RI, _St],
   [0, [1, 32]],
 ];
-export var DeleteFolderMembershipRequest: StaticStructureSchema = [
+export var DeleteFolderMembershipRequest$: StaticStructureSchema = [
   3,
   n0,
   _DFMR,
@@ -6547,8 +6602,8 @@ export var DeleteFolderMembershipRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteFolderMembershipResponse: StaticStructureSchema = [3, n0, _DFMRe, 0, [_St, _RI], [1, 0]];
-export var DeleteFolderRequest: StaticStructureSchema = [
+export var DeleteFolderMembershipResponse$: StaticStructureSchema = [3, n0, _DFMRe, 0, [_St, _RI], [1, 0]];
+export var DeleteFolderRequest$: StaticStructureSchema = [
   3,
   n0,
   _DFR,
@@ -6559,8 +6614,8 @@ export var DeleteFolderRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteFolderResponse: StaticStructureSchema = [3, n0, _DFRe, 0, [_St, _A, _FI, _RI], [[1, 32], 0, 0, 0]];
-export var DeleteGroupMembershipRequest: StaticStructureSchema = [
+export var DeleteFolderResponse$: StaticStructureSchema = [3, n0, _DFRe, 0, [_St, _A, _FI, _RI], [[1, 32], 0, 0, 0]];
+export var DeleteGroupMembershipRequest$: StaticStructureSchema = [
   3,
   n0,
   _DGMR,
@@ -6573,8 +6628,8 @@ export var DeleteGroupMembershipRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteGroupMembershipResponse: StaticStructureSchema = [3, n0, _DGMRe, 0, [_RI, _St], [0, [1, 32]]];
-export var DeleteGroupRequest: StaticStructureSchema = [
+export var DeleteGroupMembershipResponse$: StaticStructureSchema = [3, n0, _DGMRe, 0, [_RI, _St], [0, [1, 32]]];
+export var DeleteGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _DGR,
@@ -6586,8 +6641,8 @@ export var DeleteGroupRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteGroupResponse: StaticStructureSchema = [3, n0, _DGRe, 0, [_RI, _St], [0, [1, 32]]];
-export var DeleteIAMPolicyAssignmentRequest: StaticStructureSchema = [
+export var DeleteGroupResponse$: StaticStructureSchema = [3, n0, _DGRe, 0, [_RI, _St], [0, [1, 32]]];
+export var DeleteIAMPolicyAssignmentRequest$: StaticStructureSchema = [
   3,
   n0,
   _DIAMPAR,
@@ -6599,7 +6654,7 @@ export var DeleteIAMPolicyAssignmentRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteIAMPolicyAssignmentResponse: StaticStructureSchema = [
+export var DeleteIAMPolicyAssignmentResponse$: StaticStructureSchema = [
   3,
   n0,
   _DIAMPARe,
@@ -6607,7 +6662,7 @@ export var DeleteIAMPolicyAssignmentResponse: StaticStructureSchema = [
   [_ANs, _RI, _St],
   [0, 0, [1, 32]],
 ];
-export var DeleteIdentityPropagationConfigRequest: StaticStructureSchema = [
+export var DeleteIdentityPropagationConfigRequest$: StaticStructureSchema = [
   3,
   n0,
   _DIPCR,
@@ -6618,7 +6673,7 @@ export var DeleteIdentityPropagationConfigRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteIdentityPropagationConfigResponse: StaticStructureSchema = [
+export var DeleteIdentityPropagationConfigResponse$: StaticStructureSchema = [
   3,
   n0,
   _DIPCRe,
@@ -6626,7 +6681,7 @@ export var DeleteIdentityPropagationConfigResponse: StaticStructureSchema = [
   [_RI, _St],
   [0, [1, 32]],
 ];
-export var DeleteNamespaceRequest: StaticStructureSchema = [
+export var DeleteNamespaceRequest$: StaticStructureSchema = [
   3,
   n0,
   _DNR,
@@ -6637,8 +6692,8 @@ export var DeleteNamespaceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteNamespaceResponse: StaticStructureSchema = [3, n0, _DNRe, 0, [_RI, _St], [0, [1, 32]]];
-export var DeleteRefreshScheduleRequest: StaticStructureSchema = [
+export var DeleteNamespaceResponse$: StaticStructureSchema = [3, n0, _DNRe, 0, [_RI, _St], [0, [1, 32]]];
+export var DeleteRefreshScheduleRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRSR,
@@ -6650,7 +6705,7 @@ export var DeleteRefreshScheduleRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteRefreshScheduleResponse: StaticStructureSchema = [
+export var DeleteRefreshScheduleResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRSRe,
@@ -6658,7 +6713,7 @@ export var DeleteRefreshScheduleResponse: StaticStructureSchema = [
   [_St, _RI, _SI, _A],
   [[1, 32], 0, 0, 0],
 ];
-export var DeleteRoleCustomPermissionRequest: StaticStructureSchema = [
+export var DeleteRoleCustomPermissionRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRCPR,
@@ -6670,8 +6725,8 @@ export var DeleteRoleCustomPermissionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteRoleCustomPermissionResponse: StaticStructureSchema = [3, n0, _DRCPRe, 0, [_RI, _St], [0, 1]];
-export var DeleteRoleMembershipRequest: StaticStructureSchema = [
+export var DeleteRoleCustomPermissionResponse$: StaticStructureSchema = [3, n0, _DRCPRe, 0, [_RI, _St], [0, 1]];
+export var DeleteRoleMembershipRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRMR,
@@ -6684,8 +6739,8 @@ export var DeleteRoleMembershipRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteRoleMembershipResponse: StaticStructureSchema = [3, n0, _DRMRe, 0, [_RI, _St], [0, [1, 32]]];
-export var DeleteTemplateAliasRequest: StaticStructureSchema = [
+export var DeleteRoleMembershipResponse$: StaticStructureSchema = [3, n0, _DRMRe, 0, [_RI, _St], [0, [1, 32]]];
+export var DeleteTemplateAliasRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTAR,
@@ -6697,7 +6752,7 @@ export var DeleteTemplateAliasRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteTemplateAliasResponse: StaticStructureSchema = [
+export var DeleteTemplateAliasResponse$: StaticStructureSchema = [
   3,
   n0,
   _DTARe,
@@ -6705,7 +6760,7 @@ export var DeleteTemplateAliasResponse: StaticStructureSchema = [
   [_St, _TIe, _ANl, _A, _RI],
   [[1, 32], 0, 0, 0, 0],
 ];
-export var DeleteTemplateRequest: StaticStructureSchema = [
+export var DeleteTemplateRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTR,
@@ -6717,8 +6772,8 @@ export var DeleteTemplateRequest: StaticStructureSchema = [
     [1, { [_hQ]: _vn }],
   ],
 ];
-export var DeleteTemplateResponse: StaticStructureSchema = [3, n0, _DTRe, 0, [_RI, _A, _TIe, _St], [0, 0, 0, [1, 32]]];
-export var DeleteThemeAliasRequest: StaticStructureSchema = [
+export var DeleteTemplateResponse$: StaticStructureSchema = [3, n0, _DTRe, 0, [_RI, _A, _TIe, _St], [0, 0, 0, [1, 32]]];
+export var DeleteThemeAliasRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTARel,
@@ -6730,7 +6785,7 @@ export var DeleteThemeAliasRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteThemeAliasResponse: StaticStructureSchema = [
+export var DeleteThemeAliasResponse$: StaticStructureSchema = [
   3,
   n0,
   _DTARele,
@@ -6738,7 +6793,7 @@ export var DeleteThemeAliasResponse: StaticStructureSchema = [
   [_ANl, _A, _RI, _St, _TI],
   [0, 0, 0, [1, 32], 0],
 ];
-export var DeleteThemeRequest: StaticStructureSchema = [
+export var DeleteThemeRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTRel,
@@ -6750,8 +6805,8 @@ export var DeleteThemeRequest: StaticStructureSchema = [
     [1, { [_hQ]: _vn }],
   ],
 ];
-export var DeleteThemeResponse: StaticStructureSchema = [3, n0, _DTRele, 0, [_A, _RI, _St, _TI], [0, 0, [1, 32], 0]];
-export var DeleteTopicRefreshScheduleRequest: StaticStructureSchema = [
+export var DeleteThemeResponse$: StaticStructureSchema = [3, n0, _DTRele, 0, [_A, _RI, _St, _TI], [0, 0, [1, 32], 0]];
+export var DeleteTopicRefreshScheduleRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTRSR,
@@ -6763,7 +6818,7 @@ export var DeleteTopicRefreshScheduleRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteTopicRefreshScheduleResponse: StaticStructureSchema = [
+export var DeleteTopicRefreshScheduleResponse$: StaticStructureSchema = [
   3,
   n0,
   _DTRSRe,
@@ -6771,7 +6826,7 @@ export var DeleteTopicRefreshScheduleResponse: StaticStructureSchema = [
   [_TIo, _TAo, _DA, _St, _RI],
   [0, 0, 0, [1, 32], 0],
 ];
-export var DeleteTopicRequest: StaticStructureSchema = [
+export var DeleteTopicRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTRelet,
@@ -6782,8 +6837,15 @@ export var DeleteTopicRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteTopicResponse: StaticStructureSchema = [3, n0, _DTRelete, 0, [_A, _TIo, _RI, _St], [0, 0, 0, [1, 32]]];
-export var DeleteUserByPrincipalIdRequest: StaticStructureSchema = [
+export var DeleteTopicResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _DTRelete,
+  0,
+  [_A, _TIo, _RI, _St],
+  [0, 0, 0, [1, 32]],
+];
+export var DeleteUserByPrincipalIdRequest$: StaticStructureSchema = [
   3,
   n0,
   _DUBPIR,
@@ -6795,8 +6857,8 @@ export var DeleteUserByPrincipalIdRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteUserByPrincipalIdResponse: StaticStructureSchema = [3, n0, _DUBPIRe, 0, [_RI, _St], [0, [1, 32]]];
-export var DeleteUserCustomPermissionRequest: StaticStructureSchema = [
+export var DeleteUserByPrincipalIdResponse$: StaticStructureSchema = [3, n0, _DUBPIRe, 0, [_RI, _St], [0, [1, 32]]];
+export var DeleteUserCustomPermissionRequest$: StaticStructureSchema = [
   3,
   n0,
   _DUCPR,
@@ -6808,8 +6870,8 @@ export var DeleteUserCustomPermissionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteUserCustomPermissionResponse: StaticStructureSchema = [3, n0, _DUCPRe, 0, [_RI, _St], [0, [1, 32]]];
-export var DeleteUserRequest: StaticStructureSchema = [
+export var DeleteUserCustomPermissionResponse$: StaticStructureSchema = [3, n0, _DUCPRe, 0, [_RI, _St], [0, [1, 32]]];
+export var DeleteUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _DUR,
@@ -6821,8 +6883,8 @@ export var DeleteUserRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteUserResponse: StaticStructureSchema = [3, n0, _DURe, 0, [_RI, _St], [0, [1, 32]]];
-export var DeleteVPCConnectionRequest: StaticStructureSchema = [
+export var DeleteUserResponse$: StaticStructureSchema = [3, n0, _DURe, 0, [_RI, _St], [0, [1, 32]]];
+export var DeleteVPCConnectionRequest$: StaticStructureSchema = [
   3,
   n0,
   _DVPCCR,
@@ -6833,7 +6895,7 @@ export var DeleteVPCConnectionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteVPCConnectionResponse: StaticStructureSchema = [
+export var DeleteVPCConnectionResponse$: StaticStructureSchema = [
   3,
   n0,
   _DVPCCRe,
@@ -6841,7 +6903,7 @@ export var DeleteVPCConnectionResponse: StaticStructureSchema = [
   [_A, _VPCCI, _DSel, _ASv, _RI, _St],
   [0, 0, 0, 0, 0, [1, 32]],
 ];
-export var DescribeAccountCustomizationRequest: StaticStructureSchema = [
+export var DescribeAccountCustomizationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DACRes,
@@ -6853,16 +6915,16 @@ export var DescribeAccountCustomizationRequest: StaticStructureSchema = [
     [2, { [_hQ]: _r }],
   ],
 ];
-export var DescribeAccountCustomizationResponse: StaticStructureSchema = [
+export var DescribeAccountCustomizationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DACResc,
   0,
   [_A, _AAI, _Na, _AC, _RI, _St],
-  [0, 0, 0, () => AccountCustomization, 0, [1, 32]],
+  [0, 0, 0, () => AccountCustomization$, 0, [1, 32]],
 ];
-export var DescribeAccountCustomPermissionRequest: StaticStructureSchema = [3, n0, _DACPRes, 0, [_AAI], [[0, 1]]];
-export var DescribeAccountCustomPermissionResponse: StaticStructureSchema = [
+export var DescribeAccountCustomPermissionRequest$: StaticStructureSchema = [3, n0, _DACPRes, 0, [_AAI], [[0, 1]]];
+export var DescribeAccountCustomPermissionResponse$: StaticStructureSchema = [
   3,
   n0,
   _DACPResc,
@@ -6870,25 +6932,25 @@ export var DescribeAccountCustomPermissionResponse: StaticStructureSchema = [
   [_CPN, _RI, _St],
   [0, 0, 1],
 ];
-export var DescribeAccountSettingsRequest: StaticStructureSchema = [3, n0, _DASRes, 0, [_AAI], [[0, 1]]];
-export var DescribeAccountSettingsResponse: StaticStructureSchema = [
+export var DescribeAccountSettingsRequest$: StaticStructureSchema = [3, n0, _DASRes, 0, [_AAI], [[0, 1]]];
+export var DescribeAccountSettingsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DASResc,
   0,
   [_AS, _RI, _St],
-  [() => AccountSettings, 0, [1, 32]],
+  [() => AccountSettings$, 0, [1, 32]],
 ];
-export var DescribeAccountSubscriptionRequest: StaticStructureSchema = [3, n0, _DASRescr, 0, [_AAI], [[0, 1]]];
-export var DescribeAccountSubscriptionResponse: StaticStructureSchema = [
+export var DescribeAccountSubscriptionRequest$: StaticStructureSchema = [3, n0, _DASRescr, 0, [_AAI], [[0, 1]]];
+export var DescribeAccountSubscriptionResponse$: StaticStructureSchema = [
   3,
   n0,
   _DASRescri,
   0,
   [_AI, _St, _RI],
-  [() => AccountInfo, [1, 32], 0],
+  [() => AccountInfo$, [1, 32], 0],
 ];
-export var DescribeActionConnectorPermissionsRequest: StaticStructureSchema = [
+export var DescribeActionConnectorPermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DACPRescr,
@@ -6899,7 +6961,7 @@ export var DescribeActionConnectorPermissionsRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeActionConnectorPermissionsResponse: StaticStructureSchema = [
+export var DescribeActionConnectorPermissionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DACPRescri,
@@ -6907,7 +6969,7 @@ export var DescribeActionConnectorPermissionsResponse: StaticStructureSchema = [
   [_A, _ACI, _Per, _RI, _St],
   [0, 0, () => ResourcePermissionList, 0, [1, 32]],
 ];
-export var DescribeActionConnectorRequest: StaticStructureSchema = [
+export var DescribeActionConnectorRequest$: StaticStructureSchema = [
   3,
   n0,
   _DACRescr,
@@ -6918,15 +6980,15 @@ export var DescribeActionConnectorRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeActionConnectorResponse: StaticStructureSchema = [
+export var DescribeActionConnectorResponse$: StaticStructureSchema = [
   3,
   n0,
   _DACRescri,
   0,
   [_ACc, _RI, _St],
-  [[() => ActionConnector, 0], 0, [1, 32]],
+  [[() => ActionConnector$, 0], 0, [1, 32]],
 ];
-export var DescribeAnalysisDefinitionRequest: StaticStructureSchema = [
+export var DescribeAnalysisDefinitionRequest$: StaticStructureSchema = [
   3,
   n0,
   _DADR,
@@ -6937,15 +6999,15 @@ export var DescribeAnalysisDefinitionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeAnalysisDefinitionResponse: StaticStructureSchema = [
+export var DescribeAnalysisDefinitionResponse$: StaticStructureSchema = [
   3,
   n0,
   _DADRe,
   0,
   [_AIn, _N, _Err, _RSes, _TA, _De, _St, _RI],
-  [0, 0, () => AnalysisErrorList, 0, 0, [() => AnalysisDefinition, 0], [1, 32], 0],
+  [0, 0, () => AnalysisErrorList, 0, 0, [() => AnalysisDefinition$, 0], [1, 32], 0],
 ];
-export var DescribeAnalysisPermissionsRequest: StaticStructureSchema = [
+export var DescribeAnalysisPermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DAPR,
@@ -6956,7 +7018,7 @@ export var DescribeAnalysisPermissionsRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeAnalysisPermissionsResponse: StaticStructureSchema = [
+export var DescribeAnalysisPermissionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DAPRe,
@@ -6964,7 +7026,7 @@ export var DescribeAnalysisPermissionsResponse: StaticStructureSchema = [
   [_AIn, _AAn, _Per, _St, _RI],
   [0, 0, () => UpdateResourcePermissionList, [1, 32], 0],
 ];
-export var DescribeAnalysisRequest: StaticStructureSchema = [
+export var DescribeAnalysisRequest$: StaticStructureSchema = [
   3,
   n0,
   _DARes,
@@ -6975,15 +7037,15 @@ export var DescribeAnalysisRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeAnalysisResponse: StaticStructureSchema = [
+export var DescribeAnalysisResponse$: StaticStructureSchema = [
   3,
   n0,
   _DAResc,
   0,
   [_An, _St, _RI],
-  [() => Analysis, [1, 32], 0],
+  [() => Analysis$, [1, 32], 0],
 ];
-export var DescribeAssetBundleExportJobRequest: StaticStructureSchema = [
+export var DescribeAssetBundleExportJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _DABEJR,
@@ -6994,7 +7056,7 @@ export var DescribeAssetBundleExportJobRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeAssetBundleExportJobResponse: StaticStructureSchema = [
+export var DescribeAssetBundleExportJobResponse$: StaticStructureSchema = [
   3,
   n0,
   _DABEJRe,
@@ -7011,18 +7073,18 @@ export var DescribeAssetBundleExportJobResponse: StaticStructureSchema = [
     64 | 0,
     2,
     0,
-    () => AssetBundleCloudFormationOverridePropertyConfiguration,
+    () => AssetBundleCloudFormationOverridePropertyConfiguration$,
     0,
     [1, 32],
     2,
     2,
-    () => AssetBundleExportJobValidationStrategy,
+    () => AssetBundleExportJobValidationStrategy$,
     () => AssetBundleExportJobWarningList,
     2,
     0,
   ],
 ];
-export var DescribeAssetBundleImportJobRequest: StaticStructureSchema = [
+export var DescribeAssetBundleImportJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _DABIJR,
@@ -7033,7 +7095,7 @@ export var DescribeAssetBundleImportJobRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeAssetBundleImportJobResponse: StaticStructureSchema = [
+export var DescribeAssetBundleImportJobResponse$: StaticStructureSchema = [
   3,
   n0,
   _DABIJRe,
@@ -7047,20 +7109,20 @@ export var DescribeAssetBundleImportJobResponse: StaticStructureSchema = [
     4,
     0,
     0,
-    [() => AssetBundleImportSourceDescription, 0],
-    [() => AssetBundleImportJobOverrideParameters, 0],
+    [() => AssetBundleImportSourceDescription$, 0],
+    [() => AssetBundleImportJobOverrideParameters$, 0],
     0,
     0,
     [1, 32],
-    () => AssetBundleImportJobOverridePermissions,
-    () => AssetBundleImportJobOverrideTags,
-    () => AssetBundleImportJobOverrideValidationStrategy,
+    () => AssetBundleImportJobOverridePermissions$,
+    () => AssetBundleImportJobOverrideTags$,
+    () => AssetBundleImportJobOverrideValidationStrategy$,
     () => AssetBundleImportJobWarningList,
   ],
 ];
-export var DescribeBrandAssignmentRequest: StaticStructureSchema = [3, n0, _DBARes, 0, [_AAI], [[0, 1]]];
-export var DescribeBrandAssignmentResponse: StaticStructureSchema = [3, n0, _DBAResc, 0, [_RI, _BAr], [0, 0]];
-export var DescribeBrandPublishedVersionRequest: StaticStructureSchema = [
+export var DescribeBrandAssignmentRequest$: StaticStructureSchema = [3, n0, _DBARes, 0, [_AAI], [[0, 1]]];
+export var DescribeBrandAssignmentResponse$: StaticStructureSchema = [3, n0, _DBAResc, 0, [_RI, _BAr], [0, 0]];
+export var DescribeBrandPublishedVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBPVR,
@@ -7071,15 +7133,15 @@ export var DescribeBrandPublishedVersionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeBrandPublishedVersionResponse: StaticStructureSchema = [
+export var DescribeBrandPublishedVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _DBPVRe,
   0,
   [_RI, _BDr, _BD],
-  [0, () => BrandDetail, () => BrandDefinition],
+  [0, () => BrandDetail$, () => BrandDefinition$],
 ];
-export var DescribeBrandRequest: StaticStructureSchema = [
+export var DescribeBrandRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBRes,
@@ -7091,15 +7153,15 @@ export var DescribeBrandRequest: StaticStructureSchema = [
     [0, { [_hQ]: _vI }],
   ],
 ];
-export var DescribeBrandResponse: StaticStructureSchema = [
+export var DescribeBrandResponse$: StaticStructureSchema = [
   3,
   n0,
   _DBResc,
   0,
   [_RI, _BDr, _BD],
-  [0, () => BrandDetail, () => BrandDefinition],
+  [0, () => BrandDetail$, () => BrandDefinition$],
 ];
-export var DescribeCustomPermissionsRequest: StaticStructureSchema = [
+export var DescribeCustomPermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCPRes,
@@ -7110,15 +7172,15 @@ export var DescribeCustomPermissionsRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeCustomPermissionsResponse: StaticStructureSchema = [
+export var DescribeCustomPermissionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DCPResc,
   0,
   [_St, _CPu, _RI],
-  [1, () => CustomPermissions, 0],
+  [1, () => CustomPermissions$, 0],
 ];
-export var DescribeDashboardDefinitionRequest: StaticStructureSchema = [
+export var DescribeDashboardDefinitionRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDDR,
@@ -7131,7 +7193,7 @@ export var DescribeDashboardDefinitionRequest: StaticStructureSchema = [
     [0, { [_hQ]: _an }],
   ],
 ];
-export var DescribeDashboardDefinitionResponse: StaticStructureSchema = [
+export var DescribeDashboardDefinitionResponse$: StaticStructureSchema = [
   3,
   n0,
   _DDDRe,
@@ -7143,13 +7205,13 @@ export var DescribeDashboardDefinitionResponse: StaticStructureSchema = [
     0,
     0,
     0,
-    [() => DashboardVersionDefinition, 0],
+    [() => DashboardVersionDefinition$, 0],
     [1, 32],
     0,
-    () => DashboardPublishOptions,
+    () => DashboardPublishOptions$,
   ],
 ];
-export var DescribeDashboardPermissionsRequest: StaticStructureSchema = [
+export var DescribeDashboardPermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDPR,
@@ -7160,15 +7222,15 @@ export var DescribeDashboardPermissionsRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeDashboardPermissionsResponse: StaticStructureSchema = [
+export var DescribeDashboardPermissionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DDPRe,
   0,
   [_DI, _DAas, _Per, _St, _RI, _LSC],
-  [0, 0, () => UpdateResourcePermissionList, [1, 32], 0, () => LinkSharingConfiguration],
+  [0, 0, () => UpdateResourcePermissionList, [1, 32], 0, () => LinkSharingConfiguration$],
 ];
-export var DescribeDashboardRequest: StaticStructureSchema = [
+export var DescribeDashboardRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDRes,
@@ -7181,15 +7243,15 @@ export var DescribeDashboardRequest: StaticStructureSchema = [
     [0, { [_hQ]: _an }],
   ],
 ];
-export var DescribeDashboardResponse: StaticStructureSchema = [
+export var DescribeDashboardResponse$: StaticStructureSchema = [
   3,
   n0,
   _DDResc,
   0,
   [_Da, _St, _RI],
-  [() => Dashboard, [1, 32], 0],
+  [() => Dashboard$, [1, 32], 0],
 ];
-export var DescribeDashboardSnapshotJobRequest: StaticStructureSchema = [
+export var DescribeDashboardSnapshotJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDSJR,
@@ -7201,15 +7263,15 @@ export var DescribeDashboardSnapshotJobRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeDashboardSnapshotJobResponse: StaticStructureSchema = [
+export var DescribeDashboardSnapshotJobResponse$: StaticStructureSchema = [
   3,
   n0,
   _DDSJRe,
   0,
   [_AAI, _DI, _SJI, _UC, _SCn, _A, _JS, _CT, _LUT, _RI, _St],
-  [0, 0, 0, () => SnapshotUserConfigurationRedacted, [() => SnapshotConfiguration, 0], 0, 0, 4, 4, 0, 1],
+  [0, 0, 0, () => SnapshotUserConfigurationRedacted$, [() => SnapshotConfiguration$, 0], 0, 0, 4, 4, 0, 1],
 ];
-export var DescribeDashboardSnapshotJobResultRequest: StaticStructureSchema = [
+export var DescribeDashboardSnapshotJobResultRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDSJRR,
@@ -7221,16 +7283,16 @@ export var DescribeDashboardSnapshotJobResultRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeDashboardSnapshotJobResultResponse: StaticStructureSchema = [
+export var DescribeDashboardSnapshotJobResultResponse$: StaticStructureSchema = [
   3,
   n0,
   _DDSJRRe,
   0,
   [_A, _JS, _CT, _LUT, _Resu, _EI, _RI, _St],
-  [0, 0, 4, 4, [() => SnapshotJobResult, 0], () => SnapshotJobErrorInfo, 0, [1, 32]],
+  [0, 0, 4, 4, [() => SnapshotJobResult$, 0], () => SnapshotJobErrorInfo$, 0, [1, 32]],
 ];
-export var DescribeDashboardsQAConfigurationRequest: StaticStructureSchema = [3, n0, _DDQACR, 0, [_AAI], [[0, 1]]];
-export var DescribeDashboardsQAConfigurationResponse: StaticStructureSchema = [
+export var DescribeDashboardsQAConfigurationRequest$: StaticStructureSchema = [3, n0, _DDQACR, 0, [_AAI], [[0, 1]]];
+export var DescribeDashboardsQAConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DDQACRe,
@@ -7238,7 +7300,7 @@ export var DescribeDashboardsQAConfigurationResponse: StaticStructureSchema = [
   [_DQAS, _RI, _St],
   [0, 0, [1, 32]],
 ];
-export var DescribeDataSetPermissionsRequest: StaticStructureSchema = [
+export var DescribeDataSetPermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDSPR,
@@ -7249,7 +7311,7 @@ export var DescribeDataSetPermissionsRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeDataSetPermissionsResponse: StaticStructureSchema = [
+export var DescribeDataSetPermissionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DDSPRe,
@@ -7257,7 +7319,7 @@ export var DescribeDataSetPermissionsResponse: StaticStructureSchema = [
   [_DSAat, _DSI, _Per, _RI, _St],
   [0, 0, () => ResourcePermissionList, 0, [1, 32]],
 ];
-export var DescribeDataSetRefreshPropertiesRequest: StaticStructureSchema = [
+export var DescribeDataSetRefreshPropertiesRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDSRPRes,
@@ -7268,15 +7330,15 @@ export var DescribeDataSetRefreshPropertiesRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeDataSetRefreshPropertiesResponse: StaticStructureSchema = [
+export var DescribeDataSetRefreshPropertiesResponse$: StaticStructureSchema = [
   3,
   n0,
   _DDSRPResc,
   0,
   [_RI, _St, _DSRP],
-  [0, [1, 32], () => DataSetRefreshProperties],
+  [0, [1, 32], () => DataSetRefreshProperties$],
 ];
-export var DescribeDataSetRequest: StaticStructureSchema = [
+export var DescribeDataSetRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDSRes,
@@ -7287,15 +7349,15 @@ export var DescribeDataSetRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeDataSetResponse: StaticStructureSchema = [
+export var DescribeDataSetResponse$: StaticStructureSchema = [
   3,
   n0,
   _DDSResc,
   0,
   [_DSata, _RI, _St],
-  [[() => DataSet, 0], 0, [1, 32]],
+  [[() => DataSet$, 0], 0, [1, 32]],
 ];
-export var DescribeDataSourcePermissionsRequest: StaticStructureSchema = [
+export var DescribeDataSourcePermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDSPRes,
@@ -7306,7 +7368,7 @@ export var DescribeDataSourcePermissionsRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeDataSourcePermissionsResponse: StaticStructureSchema = [
+export var DescribeDataSourcePermissionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DDSPResc,
@@ -7314,7 +7376,7 @@ export var DescribeDataSourcePermissionsResponse: StaticStructureSchema = [
   [_DSAa, _DSIat, _Per, _RI, _St],
   [0, 0, () => ResourcePermissionList, 0, [1, 32]],
 ];
-export var DescribeDataSourceRequest: StaticStructureSchema = [
+export var DescribeDataSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDSRescr,
@@ -7325,15 +7387,15 @@ export var DescribeDataSourceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeDataSourceResponse: StaticStructureSchema = [
+export var DescribeDataSourceResponse$: StaticStructureSchema = [
   3,
   n0,
   _DDSRescri,
   0,
   [_DSatao, _RI, _St],
-  [() => DataSource, 0, [1, 32]],
+  [() => DataSource$, 0, [1, 32]],
 ];
-export var DescribeDefaultQBusinessApplicationRequest: StaticStructureSchema = [
+export var DescribeDefaultQBusinessApplicationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDQBARes,
@@ -7344,7 +7406,7 @@ export var DescribeDefaultQBusinessApplicationRequest: StaticStructureSchema = [
     [0, { [_hQ]: _n }],
   ],
 ];
-export var DescribeDefaultQBusinessApplicationResponse: StaticStructureSchema = [
+export var DescribeDefaultQBusinessApplicationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DDQBAResc,
@@ -7352,7 +7414,7 @@ export var DescribeDefaultQBusinessApplicationResponse: StaticStructureSchema = 
   [_RI, _St, _AIp],
   [0, [1, 32], 0],
 ];
-export var DescribeFolderPermissionsRequest: StaticStructureSchema = [
+export var DescribeFolderPermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DFPR,
@@ -7366,7 +7428,7 @@ export var DescribeFolderPermissionsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nt }],
   ],
 ];
-export var DescribeFolderPermissionsResponse: StaticStructureSchema = [
+export var DescribeFolderPermissionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DFPRe,
@@ -7374,7 +7436,7 @@ export var DescribeFolderPermissionsResponse: StaticStructureSchema = [
   [_St, _FI, _A, _Per, _RI, _NT],
   [[1, 32], 0, 0, () => ResourcePermissionList, 0, 0],
 ];
-export var DescribeFolderRequest: StaticStructureSchema = [
+export var DescribeFolderRequest$: StaticStructureSchema = [
   3,
   n0,
   _DFRes,
@@ -7385,7 +7447,7 @@ export var DescribeFolderRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeFolderResolvedPermissionsRequest: StaticStructureSchema = [
+export var DescribeFolderResolvedPermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DFRPR,
@@ -7399,7 +7461,7 @@ export var DescribeFolderResolvedPermissionsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nt }],
   ],
 ];
-export var DescribeFolderResolvedPermissionsResponse: StaticStructureSchema = [
+export var DescribeFolderResolvedPermissionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DFRPRe,
@@ -7407,15 +7469,15 @@ export var DescribeFolderResolvedPermissionsResponse: StaticStructureSchema = [
   [_St, _FI, _A, _Per, _RI, _NT],
   [[1, 32], 0, 0, () => ResourcePermissionList, 0, 0],
 ];
-export var DescribeFolderResponse: StaticStructureSchema = [
+export var DescribeFolderResponse$: StaticStructureSchema = [
   3,
   n0,
   _DFResc,
   0,
   [_St, _Fol, _RI],
-  [[1, 32], () => Folder, 0],
+  [[1, 32], () => Folder$, 0],
 ];
-export var DescribeGroupMembershipRequest: StaticStructureSchema = [
+export var DescribeGroupMembershipRequest$: StaticStructureSchema = [
   3,
   n0,
   _DGMRes,
@@ -7428,15 +7490,15 @@ export var DescribeGroupMembershipRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeGroupMembershipResponse: StaticStructureSchema = [
+export var DescribeGroupMembershipResponse$: StaticStructureSchema = [
   3,
   n0,
   _DGMResc,
   0,
   [_GM, _RI, _St],
-  [() => GroupMember, 0, [1, 32]],
+  [() => GroupMember$, 0, [1, 32]],
 ];
-export var DescribeGroupRequest: StaticStructureSchema = [
+export var DescribeGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _DGRes,
@@ -7448,15 +7510,15 @@ export var DescribeGroupRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeGroupResponse: StaticStructureSchema = [
+export var DescribeGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _DGResc,
   0,
   [_Gr, _RI, _St],
-  [() => Group, 0, [1, 32]],
+  [() => Group$, 0, [1, 32]],
 ];
-export var DescribeIAMPolicyAssignmentRequest: StaticStructureSchema = [
+export var DescribeIAMPolicyAssignmentRequest$: StaticStructureSchema = [
   3,
   n0,
   _DIAMPARes,
@@ -7468,15 +7530,15 @@ export var DescribeIAMPolicyAssignmentRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeIAMPolicyAssignmentResponse: StaticStructureSchema = [
+export var DescribeIAMPolicyAssignmentResponse$: StaticStructureSchema = [
   3,
   n0,
   _DIAMPAResc,
   0,
   [_IAMPA, _RI, _St],
-  [() => IAMPolicyAssignment, 0, [1, 32]],
+  [() => IAMPolicyAssignment$, 0, [1, 32]],
 ];
-export var DescribeIngestionRequest: StaticStructureSchema = [
+export var DescribeIngestionRequest$: StaticStructureSchema = [
   3,
   n0,
   _DIR,
@@ -7488,16 +7550,16 @@ export var DescribeIngestionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeIngestionResponse: StaticStructureSchema = [
+export var DescribeIngestionResponse$: StaticStructureSchema = [
   3,
   n0,
   _DIRe,
   0,
   [_Ing, _RI, _St],
-  [() => Ingestion, 0, [1, 32]],
+  [() => Ingestion$, 0, [1, 32]],
 ];
-export var DescribeIpRestrictionRequest: StaticStructureSchema = [3, n0, _DIRR, 0, [_AAI], [[0, 1]]];
-export var DescribeIpRestrictionResponse: StaticStructureSchema = [
+export var DescribeIpRestrictionRequest$: StaticStructureSchema = [3, n0, _DIRR, 0, [_AAI], [[0, 1]]];
+export var DescribeIpRestrictionResponse$: StaticStructureSchema = [
   3,
   n0,
   _DIRRe,
@@ -7505,7 +7567,7 @@ export var DescribeIpRestrictionResponse: StaticStructureSchema = [
   [_AAI, _IRRM, _VIRRM, _VEIRRM, _En, _RI, _St],
   [0, 128 | 0, 128 | 0, 128 | 0, 2, 0, [1, 32]],
 ];
-export var DescribeKeyRegistrationRequest: StaticStructureSchema = [
+export var DescribeKeyRegistrationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DKRR,
@@ -7516,15 +7578,15 @@ export var DescribeKeyRegistrationRequest: StaticStructureSchema = [
     [2, { [_hQ]: _dko }],
   ],
 ];
-export var DescribeKeyRegistrationResponse: StaticStructureSchema = [
+export var DescribeKeyRegistrationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DKRRe,
   0,
   [_AAI, _KR, _QDK, _RI, _St],
-  [0, () => KeyRegistration, () => QDataKey, 0, 1],
+  [0, () => KeyRegistration, () => QDataKey$, 0, 1],
 ];
-export var DescribeNamespaceRequest: StaticStructureSchema = [
+export var DescribeNamespaceRequest$: StaticStructureSchema = [
   3,
   n0,
   _DNRes,
@@ -7535,16 +7597,16 @@ export var DescribeNamespaceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeNamespaceResponse: StaticStructureSchema = [
+export var DescribeNamespaceResponse$: StaticStructureSchema = [
   3,
   n0,
   _DNResc,
   0,
   [_Na, _RI, _St],
-  [() => NamespaceInfoV2, 0, [1, 32]],
+  [() => NamespaceInfoV2$, 0, [1, 32]],
 ];
-export var DescribeQPersonalizationConfigurationRequest: StaticStructureSchema = [3, n0, _DQPCR, 0, [_AAI], [[0, 1]]];
-export var DescribeQPersonalizationConfigurationResponse: StaticStructureSchema = [
+export var DescribeQPersonalizationConfigurationRequest$: StaticStructureSchema = [3, n0, _DQPCR, 0, [_AAI], [[0, 1]]];
+export var DescribeQPersonalizationConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DQPCRe,
@@ -7552,7 +7614,7 @@ export var DescribeQPersonalizationConfigurationResponse: StaticStructureSchema 
   [_PM, _RI, _St],
   [0, 0, [1, 32]],
 ];
-export var DescribeQuickSightQSearchConfigurationRequest: StaticStructureSchema = [
+export var DescribeQuickSightQSearchConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DQSQSCR,
@@ -7560,7 +7622,7 @@ export var DescribeQuickSightQSearchConfigurationRequest: StaticStructureSchema 
   [_AAI],
   [[0, 1]],
 ];
-export var DescribeQuickSightQSearchConfigurationResponse: StaticStructureSchema = [
+export var DescribeQuickSightQSearchConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DQSQSCRe,
@@ -7568,7 +7630,7 @@ export var DescribeQuickSightQSearchConfigurationResponse: StaticStructureSchema
   [_QSS, _RI, _St],
   [0, 0, [1, 32]],
 ];
-export var DescribeRefreshScheduleRequest: StaticStructureSchema = [
+export var DescribeRefreshScheduleRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRSRes,
@@ -7580,15 +7642,15 @@ export var DescribeRefreshScheduleRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeRefreshScheduleResponse: StaticStructureSchema = [
+export var DescribeRefreshScheduleResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRSResc,
   0,
   [_RSe, _St, _RI, _A],
-  [() => RefreshSchedule, [1, 32], 0, 0],
+  [() => RefreshSchedule$, [1, 32], 0, 0],
 ];
-export var DescribeRoleCustomPermissionRequest: StaticStructureSchema = [
+export var DescribeRoleCustomPermissionRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRCPRes,
@@ -7600,7 +7662,7 @@ export var DescribeRoleCustomPermissionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeRoleCustomPermissionResponse: StaticStructureSchema = [
+export var DescribeRoleCustomPermissionResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRCPResc,
@@ -7608,7 +7670,7 @@ export var DescribeRoleCustomPermissionResponse: StaticStructureSchema = [
   [_CPN, _RI, _St],
   [0, 0, 1],
 ];
-export var DescribeTemplateAliasRequest: StaticStructureSchema = [
+export var DescribeTemplateAliasRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTARes,
@@ -7620,15 +7682,15 @@ export var DescribeTemplateAliasRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeTemplateAliasResponse: StaticStructureSchema = [
+export var DescribeTemplateAliasResponse$: StaticStructureSchema = [
   3,
   n0,
   _DTAResc,
   0,
   [_TAe, _St, _RI],
-  [() => TemplateAlias, [1, 32], 0],
+  [() => TemplateAlias$, [1, 32], 0],
 ];
-export var DescribeTemplateDefinitionRequest: StaticStructureSchema = [
+export var DescribeTemplateDefinitionRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTDR,
@@ -7641,15 +7703,15 @@ export var DescribeTemplateDefinitionRequest: StaticStructureSchema = [
     [0, { [_hQ]: _an }],
   ],
 ];
-export var DescribeTemplateDefinitionResponse: StaticStructureSchema = [
+export var DescribeTemplateDefinitionResponse$: StaticStructureSchema = [
   3,
   n0,
   _DTDRe,
   0,
   [_N, _TIe, _Err, _RSes, _TA, _De, _St, _RI],
-  [0, 0, () => TemplateErrorList, 0, 0, [() => TemplateVersionDefinition, 0], [1, 32], 0],
+  [0, 0, () => TemplateErrorList, 0, 0, [() => TemplateVersionDefinition$, 0], [1, 32], 0],
 ];
-export var DescribeTemplatePermissionsRequest: StaticStructureSchema = [
+export var DescribeTemplatePermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTPR,
@@ -7660,7 +7722,7 @@ export var DescribeTemplatePermissionsRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeTemplatePermissionsResponse: StaticStructureSchema = [
+export var DescribeTemplatePermissionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DTPRe,
@@ -7668,7 +7730,7 @@ export var DescribeTemplatePermissionsResponse: StaticStructureSchema = [
   [_TIe, _TAem, _Per, _RI, _St],
   [0, 0, () => UpdateResourcePermissionList, 0, [1, 32]],
 ];
-export var DescribeTemplateRequest: StaticStructureSchema = [
+export var DescribeTemplateRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTRes,
@@ -7681,15 +7743,15 @@ export var DescribeTemplateRequest: StaticStructureSchema = [
     [0, { [_hQ]: _an }],
   ],
 ];
-export var DescribeTemplateResponse: StaticStructureSchema = [
+export var DescribeTemplateResponse$: StaticStructureSchema = [
   3,
   n0,
   _DTResc,
   0,
   [_Tem, _St, _RI],
-  [() => Template, [1, 32], 0],
+  [() => Template$, [1, 32], 0],
 ];
-export var DescribeThemeAliasRequest: StaticStructureSchema = [
+export var DescribeThemeAliasRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTARescr,
@@ -7701,15 +7763,15 @@ export var DescribeThemeAliasRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeThemeAliasResponse: StaticStructureSchema = [
+export var DescribeThemeAliasResponse$: StaticStructureSchema = [
   3,
   n0,
   _DTARescri,
   0,
   [_TAh, _St, _RI],
-  [() => ThemeAlias, [1, 32], 0],
+  [() => ThemeAlias$, [1, 32], 0],
 ];
-export var DescribeThemePermissionsRequest: StaticStructureSchema = [
+export var DescribeThemePermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTPRes,
@@ -7720,7 +7782,7 @@ export var DescribeThemePermissionsRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeThemePermissionsResponse: StaticStructureSchema = [
+export var DescribeThemePermissionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DTPResc,
@@ -7728,7 +7790,7 @@ export var DescribeThemePermissionsResponse: StaticStructureSchema = [
   [_TI, _TA, _Per, _RI, _St],
   [0, 0, () => UpdateResourcePermissionList, 0, [1, 32]],
 ];
-export var DescribeThemeRequest: StaticStructureSchema = [
+export var DescribeThemeRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTRescr,
@@ -7741,15 +7803,15 @@ export var DescribeThemeRequest: StaticStructureSchema = [
     [0, { [_hQ]: _an }],
   ],
 ];
-export var DescribeThemeResponse: StaticStructureSchema = [
+export var DescribeThemeResponse$: StaticStructureSchema = [
   3,
   n0,
   _DTRescri,
   0,
   [_The, _St, _RI],
-  [() => Theme, [1, 32], 0],
+  [() => Theme$, [1, 32], 0],
 ];
-export var DescribeTopicPermissionsRequest: StaticStructureSchema = [
+export var DescribeTopicPermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTPRescr,
@@ -7760,7 +7822,7 @@ export var DescribeTopicPermissionsRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeTopicPermissionsResponse: StaticStructureSchema = [
+export var DescribeTopicPermissionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DTPRescri,
@@ -7768,7 +7830,7 @@ export var DescribeTopicPermissionsResponse: StaticStructureSchema = [
   [_TIo, _TAo, _Per, _St, _RI],
   [0, 0, () => ResourcePermissionList, [1, 32], 0],
 ];
-export var DescribeTopicRefreshRequest: StaticStructureSchema = [
+export var DescribeTopicRefreshRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTRR,
@@ -7780,15 +7842,15 @@ export var DescribeTopicRefreshRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeTopicRefreshResponse: StaticStructureSchema = [
+export var DescribeTopicRefreshResponse$: StaticStructureSchema = [
   3,
   n0,
   _DTRRe,
   0,
   [_RDe, _RI, _St],
-  [() => TopicRefreshDetails, 0, [1, 32]],
+  [() => TopicRefreshDetails$, 0, [1, 32]],
 ];
-export var DescribeTopicRefreshScheduleRequest: StaticStructureSchema = [
+export var DescribeTopicRefreshScheduleRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTRSRes,
@@ -7800,15 +7862,15 @@ export var DescribeTopicRefreshScheduleRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeTopicRefreshScheduleResponse: StaticStructureSchema = [
+export var DescribeTopicRefreshScheduleResponse$: StaticStructureSchema = [
   3,
   n0,
   _DTRSResc,
   0,
   [_TIo, _TAo, _DA, _RSe, _St, _RI],
-  [0, 0, 0, () => TopicRefreshSchedule, [1, 32], 0],
+  [0, 0, 0, () => TopicRefreshSchedule$, [1, 32], 0],
 ];
-export var DescribeTopicRequest: StaticStructureSchema = [
+export var DescribeTopicRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTRescrib,
@@ -7819,15 +7881,15 @@ export var DescribeTopicRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeTopicResponse: StaticStructureSchema = [
+export var DescribeTopicResponse$: StaticStructureSchema = [
   3,
   n0,
   _DTRescribe,
   0,
   [_A, _TIo, _Top, _RI, _St, _CIu],
-  [0, 0, [() => TopicDetails, 0], 0, [1, 32], [() => CustomInstructions, 0]],
+  [0, 0, [() => TopicDetails$, 0], 0, [1, 32], [() => CustomInstructions$, 0]],
 ];
-export var DescribeUserRequest: StaticStructureSchema = [
+export var DescribeUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _DURes,
@@ -7839,8 +7901,15 @@ export var DescribeUserRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeUserResponse: StaticStructureSchema = [3, n0, _DUResc, 0, [_Us, _RI, _St], [() => User, 0, [1, 32]]];
-export var DescribeVPCConnectionRequest: StaticStructureSchema = [
+export var DescribeUserResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _DUResc,
+  0,
+  [_Us, _RI, _St],
+  [() => User$, 0, [1, 32]],
+];
+export var DescribeVPCConnectionRequest$: StaticStructureSchema = [
   3,
   n0,
   _DVPCCRes,
@@ -7851,45 +7920,45 @@ export var DescribeVPCConnectionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeVPCConnectionResponse: StaticStructureSchema = [
+export var DescribeVPCConnectionResponse$: StaticStructureSchema = [
   3,
   n0,
   _DVPCCResc,
   0,
   [_VPCCo, _RI, _St],
-  [() => VPCConnection, 0, 1],
+  [() => VPCConnection$, 0, 1],
 ];
-export var DestinationParameterValueConfiguration: StaticStructureSchema = [
+export var DestinationParameterValueConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _DPVC,
   0,
   [_CVC, _SAVO, _SPN, _SFo, _SCour],
-  [[() => CustomValuesConfiguration, 0], 0, 0, 0, () => ColumnIdentifier],
+  [[() => CustomValuesConfiguration$, 0], 0, 0, 0, () => ColumnIdentifier$],
 ];
-export var DestinationTable: StaticStructureSchema = [3, n0, _DTes, 0, [_Al, _So], [0, () => DestinationTableSource]];
-export var DestinationTableSource: StaticStructureSchema = [3, n0, _DTS, 0, [_TOI], [0]];
-export var DimensionField: StaticStructureSchema = [
+export var DestinationTable$: StaticStructureSchema = [3, n0, _DTes, 0, [_Al, _So], [0, () => DestinationTableSource$]];
+export var DestinationTableSource$: StaticStructureSchema = [3, n0, _DTS, 0, [_TOI], [0]];
+export var DimensionField$: StaticStructureSchema = [
   3,
   n0,
   _DFim,
   0,
   [_NDF, _CDF, _DDF],
   [
-    [() => NumericalDimensionField, 0],
-    [() => CategoricalDimensionField, 0],
-    [() => DateDimensionField, 0],
+    [() => NumericalDimensionField$, 0],
+    [() => CategoricalDimensionField$, 0],
+    [() => DateDimensionField$, 0],
   ],
 ];
-export var DisplayFormatOptions: StaticStructureSchema = [
+export var DisplayFormatOptions$: StaticStructureSchema = [
   3,
   n0,
   _DFO,
   0,
   [_UBCF, _BCF, _DFa, _DSec, _GS, _UG, _FD, _P, _S, _US, _NF, _CSur],
-  [2, 0, 0, 0, 0, 2, 1, 0, 0, 0, () => NegativeFormat, 0],
+  [2, 0, 0, 0, 0, 2, 1, 0, 0, 0, () => NegativeFormat$, 0],
 ];
-export var DomainNotWhitelistedException: StaticErrorSchema = [
+export var DomainNotWhitelistedException$: StaticErrorSchema = [
   -3,
   n0,
   _DNWE,
@@ -7897,41 +7966,41 @@ export var DomainNotWhitelistedException: StaticErrorSchema = [
   [_M, _RI],
   [0, 0],
 ];
-TypeRegistry.for(n0).registerError(DomainNotWhitelistedException, __DomainNotWhitelistedException);
-export var DonutCenterOptions: StaticStructureSchema = [3, n0, _DCO, 0, [_LVa], [0]];
-export var DonutOptions: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(DomainNotWhitelistedException$, DomainNotWhitelistedException);
+export var DonutCenterOptions$: StaticStructureSchema = [3, n0, _DCO, 0, [_LVa], [0]];
+export var DonutOptions$: StaticStructureSchema = [
   3,
   n0,
   _DOo,
   0,
   [_AOr, _DCO],
-  [() => ArcOptions, () => DonutCenterOptions],
+  [() => ArcOptions$, () => DonutCenterOptions$],
 ];
-export var DrillDownFilter: StaticStructureSchema = [
+export var DrillDownFilter$: StaticStructureSchema = [
   3,
   n0,
   _DDFri,
   0,
   [_NEF, _CFat, _TRF],
-  [() => NumericEqualityDrillDownFilter, () => CategoryDrillDownFilter, () => TimeRangeDrillDownFilter],
+  [() => NumericEqualityDrillDownFilter$, () => CategoryDrillDownFilter$, () => TimeRangeDrillDownFilter$],
 ];
-export var DropDownControlDisplayOptions: StaticStructureSchema = [
+export var DropDownControlDisplayOptions$: StaticStructureSchema = [
   3,
   n0,
   _DDCDO,
   0,
   [_SAOe, _TO, _IILO],
-  [() => ListControlSelectAllOptions, () => LabelOptions, () => SheetControlInfoIconLabelOptions],
+  [() => ListControlSelectAllOptions$, () => LabelOptions$, () => SheetControlInfoIconLabelOptions$],
 ];
-export var DynamicDefaultValue: StaticStructureSchema = [
+export var DynamicDefaultValue$: StaticStructureSchema = [
   3,
   n0,
   _DDVy,
   0,
   [_UNC, _GNC, _DVC],
-  [() => ColumnIdentifier, () => ColumnIdentifier, () => ColumnIdentifier],
+  [() => ColumnIdentifier$, () => ColumnIdentifier$, () => ColumnIdentifier$],
 ];
-export var EmptyVisual: StaticStructureSchema = [
+export var EmptyVisual$: StaticStructureSchema = [
   3,
   n0,
   _EVm,
@@ -7939,13 +8008,13 @@ export var EmptyVisual: StaticStructureSchema = [
   [_VI, _DSIatae, _Ac],
   [0, 0, () => VisualCustomActionList],
 ];
-export var Entity: StaticStructureSchema = [3, n0, _Ent, 0, [_Pat], [0]];
-export var ErrorInfo: StaticStructureSchema = [3, n0, _EI, 0, [_T, _M], [0, 0]];
-export var ExasolParameters: StaticStructureSchema = [3, n0, _EP, 0, [_H, _Po], [0, 1]];
-export var ExcludePeriodConfiguration: StaticStructureSchema = [3, n0, _EPC, 0, [_Am, _Gra, _St], [1, 0, 0]];
-export var ExecutiveSummaryConfigurations: StaticStructureSchema = [3, n0, _ESC, 0, [_En], [2]];
-export var ExecutiveSummaryOption: StaticStructureSchema = [3, n0, _ESO, 0, [_ASv], [0]];
-export var ExplicitHierarchy: StaticStructureSchema = [
+export var Entity$: StaticStructureSchema = [3, n0, _Ent, 0, [_Pat], [0]];
+export var ErrorInfo$: StaticStructureSchema = [3, n0, _EI, 0, [_T, _M], [0, 0]];
+export var ExasolParameters$: StaticStructureSchema = [3, n0, _EP, 0, [_H, _Po], [0, 1]];
+export var ExcludePeriodConfiguration$: StaticStructureSchema = [3, n0, _EPC, 0, [_Am, _Gra, _St], [1, 0, 0]];
+export var ExecutiveSummaryConfigurations$: StaticStructureSchema = [3, n0, _ESC, 0, [_En], [2]];
+export var ExecutiveSummaryOption$: StaticStructureSchema = [3, n0, _ESO, 0, [_ASv], [0]];
+export var ExplicitHierarchy$: StaticStructureSchema = [
   3,
   n0,
   _EH,
@@ -7953,48 +8022,55 @@ export var ExplicitHierarchy: StaticStructureSchema = [
   [_HI, _Colu, _DDFr],
   [0, () => ExplicitHierarchyColumnList, () => DrillDownFilterList],
 ];
-export var ExportHiddenFieldsOption: StaticStructureSchema = [3, n0, _EHFO, 0, [_ASv], [0]];
-export var ExportToCSVOption: StaticStructureSchema = [3, n0, _ETCSVO, 0, [_ASv], [0]];
-export var ExportWithHiddenFieldsOption: StaticStructureSchema = [3, n0, _EWHFO, 0, [_ASv], [0]];
-export var FailedKeyRegistrationEntry: StaticStructureSchema = [3, n0, _FKRE, 0, [_KA, _M, _SCt, _SFe], [0, 0, 1, 2]];
-export var FieldBarSeriesItem: StaticStructureSchema = [
+export var ExportHiddenFieldsOption$: StaticStructureSchema = [3, n0, _EHFO, 0, [_ASv], [0]];
+export var ExportToCSVOption$: StaticStructureSchema = [3, n0, _ETCSVO, 0, [_ASv], [0]];
+export var ExportWithHiddenFieldsOption$: StaticStructureSchema = [3, n0, _EWHFO, 0, [_ASv], [0]];
+export var FailedKeyRegistrationEntry$: StaticStructureSchema = [3, n0, _FKRE, 0, [_KA, _M, _SCt, _SFe], [0, 0, 1, 2]];
+export var FieldBarSeriesItem$: StaticStructureSchema = [
   3,
   n0,
   _FBSI,
   0,
   [_FIi, _Set],
-  [0, () => BarChartSeriesSettings],
+  [0, () => BarChartSeriesSettings$],
 ];
-export var FieldBasedTooltip: StaticStructureSchema = [3, n0, _FBT, 0, [_AV, _TTT, _TF], [0, 0, () => TooltipItemList]];
-export var FieldComboSeriesItem: StaticStructureSchema = [
+export var FieldBasedTooltip$: StaticStructureSchema = [
+  3,
+  n0,
+  _FBT,
+  0,
+  [_AV, _TTT, _TF],
+  [0, 0, () => TooltipItemList],
+];
+export var FieldComboSeriesItem$: StaticStructureSchema = [
   3,
   n0,
   _FCSI,
   0,
   [_FIi, _Set],
-  [0, () => ComboChartSeriesSettings],
+  [0, () => ComboChartSeriesSettings$],
 ];
-export var FieldFolder: StaticStructureSchema = [3, n0, _FFi, 0, [_d, _co], [0, 64 | 0]];
-export var FieldLabelType: StaticStructureSchema = [3, n0, _FLT, 0, [_FIi, _Vi], [0, 0]];
-export var FieldSeriesItem: StaticStructureSchema = [
+export var FieldFolder$: StaticStructureSchema = [3, n0, _FFi, 0, [_d, _co], [0, 64 | 0]];
+export var FieldLabelType$: StaticStructureSchema = [3, n0, _FLT, 0, [_FIi, _Vi], [0, 0]];
+export var FieldSeriesItem$: StaticStructureSchema = [
   3,
   n0,
   _FSI,
   0,
   [_FIi, _AB, _Set],
-  [0, 0, () => LineChartSeriesSettings],
+  [0, 0, () => LineChartSeriesSettings$],
 ];
-export var FieldSort: StaticStructureSchema = [3, n0, _FSie, 0, [_FIi, _Dir], [0, 0]];
-export var FieldSortOptions: StaticStructureSchema = [
+export var FieldSort$: StaticStructureSchema = [3, n0, _FSie, 0, [_FIi, _Dir], [0, 0]];
+export var FieldSortOptions$: StaticStructureSchema = [
   3,
   n0,
   _FSO,
   0,
   [_FSie, _CSolum],
-  [() => FieldSort, () => ColumnSort],
+  [() => FieldSort$, () => ColumnSort$],
 ];
-export var FieldTooltipItem: StaticStructureSchema = [3, n0, _FTI, 0, [_FIi, _Lab, _Vi, _TT], [0, 0, 0, 0]];
-export var FilledMapAggregatedFieldWells: StaticStructureSchema = [
+export var FieldTooltipItem$: StaticStructureSchema = [3, n0, _FTI, 0, [_FIi, _Lab, _Vi, _TT], [0, 0, 0, 0]];
+export var FilledMapAggregatedFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _FMAFW,
@@ -8002,7 +8078,7 @@ export var FilledMapAggregatedFieldWells: StaticStructureSchema = [
   [_Ge, _Va],
   [() => FilledMapDimensionFieldList, () => FilledMapMeasureFieldList],
 ];
-export var FilledMapConditionalFormatting: StaticStructureSchema = [
+export var FilledMapConditionalFormatting$: StaticStructureSchema = [
   3,
   n0,
   _FMCF,
@@ -8010,48 +8086,48 @@ export var FilledMapConditionalFormatting: StaticStructureSchema = [
   [_CFO],
   [() => FilledMapConditionalFormattingOptionList],
 ];
-export var FilledMapConditionalFormattingOption: StaticStructureSchema = [
+export var FilledMapConditionalFormattingOption$: StaticStructureSchema = [
   3,
   n0,
   _FMCFO,
   0,
   [_Sha],
-  [() => FilledMapShapeConditionalFormatting],
+  [() => FilledMapShapeConditionalFormatting$],
 ];
-export var FilledMapConfiguration: StaticStructureSchema = [
+export var FilledMapConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _FMC,
   0,
   [_FW, _SCo, _Le, _To, _WO, _MSO, _I],
   [
-    () => FilledMapFieldWells,
-    () => FilledMapSortConfiguration,
-    () => LegendOptions,
-    () => TooltipOptions,
-    () => GeospatialWindowOptions,
-    () => GeospatialMapStyleOptions,
-    () => VisualInteractionOptions,
+    () => FilledMapFieldWells$,
+    () => FilledMapSortConfiguration$,
+    () => LegendOptions$,
+    () => TooltipOptions$,
+    () => GeospatialWindowOptions$,
+    () => GeospatialMapStyleOptions$,
+    () => VisualInteractionOptions$,
   ],
 ];
-export var FilledMapFieldWells: StaticStructureSchema = [
+export var FilledMapFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _FMFW,
   0,
   [_FMAFW],
-  [() => FilledMapAggregatedFieldWells],
+  [() => FilledMapAggregatedFieldWells$],
 ];
-export var FilledMapShapeConditionalFormatting: StaticStructureSchema = [
+export var FilledMapShapeConditionalFormatting$: StaticStructureSchema = [
   3,
   n0,
   _FMSCF,
   0,
   [_FIi, _Fo],
-  [0, () => ShapeConditionalFormat],
+  [0, () => ShapeConditionalFormat$],
 ];
-export var FilledMapSortConfiguration: StaticStructureSchema = [3, n0, _FMSC, 0, [_CSa], [() => FieldSortOptionsList]];
-export var FilledMapVisual: StaticStructureSchema = [
+export var FilledMapSortConfiguration$: StaticStructureSchema = [3, n0, _FMSC, 0, [_CSa], [() => FieldSortOptionsList]];
+export var FilledMapVisual$: StaticStructureSchema = [
   3,
   n0,
   _FMV,
@@ -8059,68 +8135,68 @@ export var FilledMapVisual: StaticStructureSchema = [
   [_VI, _Tit, _Su, _CCh, _CFon, _CH, _Ac, _VCAT, _GP],
   [
     0,
-    () => VisualTitleLabelOptions,
-    () => VisualSubtitleLabelOptions,
-    () => FilledMapConfiguration,
-    () => FilledMapConditionalFormatting,
+    () => VisualTitleLabelOptions$,
+    () => VisualSubtitleLabelOptions$,
+    () => FilledMapConfiguration$,
+    () => FilledMapConditionalFormatting$,
     () => ColumnHierarchyList,
     () => VisualCustomActionList,
     0,
     () => GeocodePreferenceList,
   ],
 ];
-export var Filter: StaticStructureSchema = [
+export var Filter$: StaticStructureSchema = [
   3,
   n0,
   _Fil,
   0,
   [_CFat, _NRF, _NEF, _TEF, _TRF, _RDF, _TBF, _NFe],
   [
-    () => CategoryFilter,
-    () => NumericRangeFilter,
-    () => NumericEqualityFilter,
-    [() => TimeEqualityFilter, 0],
-    [() => TimeRangeFilter, 0],
-    () => RelativeDatesFilter,
-    () => TopBottomFilter,
-    () => NestedFilter,
+    () => CategoryFilter$,
+    () => NumericRangeFilter$,
+    () => NumericEqualityFilter$,
+    [() => TimeEqualityFilter$, 0],
+    [() => TimeRangeFilter$, 0],
+    () => RelativeDatesFilter$,
+    () => TopBottomFilter$,
+    () => NestedFilter$,
   ],
 ];
-export var FilterAggMetrics: StaticStructureSchema = [3, n0, _FAM, 0, [_MOe, _Fu, _SDo], [() => Identifier, 0, 0]];
-export var FilterControl: StaticStructureSchema = [
+export var FilterAggMetrics$: StaticStructureSchema = [3, n0, _FAM, 0, [_MOe, _Fu, _SDo], [() => Identifier$, 0, 0]];
+export var FilterControl$: StaticStructureSchema = [
   3,
   n0,
   _FCil,
   0,
   [_DTPa, _Lis, _Dr, _TFe, _TAex, _Sl, _RDT, _CSro],
   [
-    () => FilterDateTimePickerControl,
-    () => FilterListControl,
-    () => FilterDropDownControl,
-    () => FilterTextFieldControl,
-    () => FilterTextAreaControl,
-    () => FilterSliderControl,
-    () => FilterRelativeDateTimeControl,
-    () => FilterCrossSheetControl,
+    () => FilterDateTimePickerControl$,
+    () => FilterListControl$,
+    () => FilterDropDownControl$,
+    () => FilterTextFieldControl$,
+    () => FilterTextAreaControl$,
+    () => FilterSliderControl$,
+    () => FilterRelativeDateTimeControl$,
+    () => FilterCrossSheetControl$,
   ],
 ];
-export var FilterCrossSheetControl: StaticStructureSchema = [
+export var FilterCrossSheetControl$: StaticStructureSchema = [
   3,
   n0,
   _FCSC,
   0,
   [_FCI, _SFI, _CCC],
-  [0, 0, () => CascadingControlConfiguration],
+  [0, 0, () => CascadingControlConfiguration$],
 ];
-export var FilterDateTimePickerControl: StaticStructureSchema = [
+export var FilterDateTimePickerControl$: StaticStructureSchema = [
   3,
   n0,
   _FDTPC,
   0,
   [_FCI, _Tit, _SFI, _DOi, _T, _CMom],
-  [0, 0, 0, () => DateTimePickerControlDisplayOptions, 0, 0],
+  [0, 0, 0, () => DateTimePickerControlDisplayOptions$, 0, 0],
 ];
-export var FilterDropDownControl: StaticStructureSchema = [
+export var FilterDropDownControl$: StaticStructureSchema = [
   3,
   n0,
   _FDDC,
@@ -8130,31 +8206,38 @@ export var FilterDropDownControl: StaticStructureSchema = [
     0,
     0,
     0,
-    () => DropDownControlDisplayOptions,
+    () => DropDownControlDisplayOptions$,
     0,
-    () => FilterSelectableValues,
-    () => CascadingControlConfiguration,
+    () => FilterSelectableValues$,
+    () => CascadingControlConfiguration$,
     0,
   ],
 ];
-export var FilterGroup: StaticStructureSchema = [
+export var FilterGroup$: StaticStructureSchema = [
   3,
   n0,
   _FGil,
   0,
   [_FGI, _Fi, _SCc, _St, _CDr],
-  [0, [() => FilterList, 0], () => FilterScopeConfiguration, 0, 0],
+  [0, [() => FilterList, 0], () => FilterScopeConfiguration$, 0, 0],
 ];
-export var FilterListConfiguration: StaticStructureSchema = [3, n0, _FLC, 0, [_MO, _CV, _SAOe, _NO], [0, 64 | 0, 0, 0]];
-export var FilterListControl: StaticStructureSchema = [
+export var FilterListConfiguration$: StaticStructureSchema = [
+  3,
+  n0,
+  _FLC,
+  0,
+  [_MO, _CV, _SAOe, _NO],
+  [0, 64 | 0, 0, 0],
+];
+export var FilterListControl$: StaticStructureSchema = [
   3,
   n0,
   _FLCi,
   0,
   [_FCI, _Tit, _SFI, _DOi, _T, _SVe, _CCC],
-  [0, 0, 0, () => ListControlDisplayOptions, 0, () => FilterSelectableValues, () => CascadingControlConfiguration],
+  [0, 0, 0, () => ListControlDisplayOptions$, 0, () => FilterSelectableValues$, () => CascadingControlConfiguration$],
 ];
-export var FilterOperation: StaticStructureSchema = [
+export var FilterOperation$: StaticStructureSchema = [
   3,
   n0,
   _FO,
@@ -8162,12 +8245,12 @@ export var FilterOperation: StaticStructureSchema = [
   [_CEo, _SFCt, _NFCu, _DFC],
   [
     [() => Expression, 0],
-    [() => DataSetStringFilterCondition, 0],
-    [() => DataSetNumericFilterCondition, 0],
-    [() => DataSetDateFilterCondition, 0],
+    [() => DataSetStringFilterCondition$, 0],
+    [() => DataSetNumericFilterCondition$, 0],
+    [() => DataSetDateFilterCondition$, 0],
   ],
 ];
-export var FilterOperationSelectedFieldsConfiguration: StaticStructureSchema = [
+export var FilterOperationSelectedFieldsConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _FOSFC,
@@ -8175,64 +8258,64 @@ export var FilterOperationSelectedFieldsConfiguration: StaticStructureSchema = [
   [_SFel, _SFO, _SCel],
   [64 | 0, 0, () => CustomActionColumnList],
 ];
-export var FilterOperationTargetVisualsConfiguration: StaticStructureSchema = [
+export var FilterOperationTargetVisualsConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _FOTVC,
   0,
   [_SSTVC],
-  [() => SameSheetTargetVisualConfiguration],
+  [() => SameSheetTargetVisualConfiguration$],
 ];
-export var FilterRelativeDateTimeControl: StaticStructureSchema = [
+export var FilterRelativeDateTimeControl$: StaticStructureSchema = [
   3,
   n0,
   _FRDTC,
   0,
   [_FCI, _Tit, _SFI, _DOi, _CMom],
-  [0, 0, 0, () => RelativeDateTimeControlDisplayOptions, 0],
+  [0, 0, 0, () => RelativeDateTimeControlDisplayOptions$, 0],
 ];
-export var FilterScopeConfiguration: StaticStructureSchema = [
+export var FilterScopeConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _FSC,
   0,
   [_SSel, _ASl],
-  [() => SelectedSheetsFilterScopeConfiguration, () => AllSheetsFilterScopeConfiguration],
+  [() => SelectedSheetsFilterScopeConfiguration$, () => AllSheetsFilterScopeConfiguration$],
 ];
-export var FilterSelectableValues: StaticStructureSchema = [3, n0, _FSV, 0, [_Va], [64 | 0]];
-export var FilterSliderControl: StaticStructureSchema = [
+export var FilterSelectableValues$: StaticStructureSchema = [3, n0, _FSV, 0, [_Va], [64 | 0]];
+export var FilterSliderControl$: StaticStructureSchema = [
   3,
   n0,
   _FSCi,
   0,
   [_FCI, _Tit, _SFI, _DOi, _T, _MV, _MVi, _SSt],
-  [0, 0, 0, () => SliderControlDisplayOptions, 0, 1, 1, 1],
+  [0, 0, 0, () => SliderControlDisplayOptions$, 0, 1, 1, 1],
 ];
-export var FiltersOperation: StaticStructureSchema = [
+export var FiltersOperation$: StaticStructureSchema = [
   3,
   n0,
   _FOi,
   0,
   [_Al, _So, _FOil],
-  [0, () => TransformOperationSource, [() => FilterOperationList, 0]],
+  [0, () => TransformOperationSource$, [() => FilterOperationList, 0]],
 ];
-export var FilterTextAreaControl: StaticStructureSchema = [
+export var FilterTextAreaControl$: StaticStructureSchema = [
   3,
   n0,
   _FTAC,
   0,
   [_FCI, _Tit, _SFI, _Del, _DOi],
-  [0, 0, 0, 0, () => TextAreaControlDisplayOptions],
+  [0, 0, 0, 0, () => TextAreaControlDisplayOptions$],
 ];
-export var FilterTextFieldControl: StaticStructureSchema = [
+export var FilterTextFieldControl$: StaticStructureSchema = [
   3,
   n0,
   _FTFC,
   0,
   [_FCI, _Tit, _SFI, _DOi],
-  [0, 0, 0, () => TextFieldControlDisplayOptions],
+  [0, 0, 0, () => TextFieldControlDisplayOptions$],
 ];
-export var FlowSummary: StaticStructureSchema = [
+export var FlowSummary$: StaticStructureSchema = [
   3,
   n0,
   _FSl,
@@ -8240,7 +8323,7 @@ export var FlowSummary: StaticStructureSchema = [
   [_A, _FIl, _N, _D, _CT, _CB, _LUT, _LUB, _PS, _RCu, _UCs, _LPB, _LPA],
   [0, 0, 0, 0, 4, 0, 4, 0, 0, 1, 1, 0, 4],
 ];
-export var Folder: StaticStructureSchema = [
+export var Folder$: StaticStructureSchema = [
   3,
   n0,
   _Fol,
@@ -8248,9 +8331,9 @@ export var Folder: StaticStructureSchema = [
   [_FI, _A, _N, _FT, _FP, _CT, _LUT, _SMh],
   [0, 0, 0, 0, 64 | 0, 4, 4, 0],
 ];
-export var FolderMember: StaticStructureSchema = [3, n0, _FM, 0, [_MI, _MT], [0, 0]];
-export var FolderSearchFilter: StaticStructureSchema = [3, n0, _FSF, 0, [_O, _N, _V], [0, 0, 0]];
-export var FolderSummary: StaticStructureSchema = [
+export var FolderMember$: StaticStructureSchema = [3, n0, _FM, 0, [_MI, _MT], [0, 0]];
+export var FolderSearchFilter$: StaticStructureSchema = [3, n0, _FSF, 0, [_O, _N, _V], [0, 0, 0]];
+export var FolderSummary$: StaticStructureSchema = [
   3,
   n0,
   _FSo,
@@ -8258,70 +8341,70 @@ export var FolderSummary: StaticStructureSchema = [
   [_A, _FI, _N, _FT, _CT, _LUT, _SMh],
   [0, 0, 0, 0, 4, 4, 0],
 ];
-export var Font: StaticStructureSchema = [3, n0, _Fon, 0, [_FFo], [0]];
-export var FontConfiguration: StaticStructureSchema = [
+export var Font$: StaticStructureSchema = [3, n0, _Fon, 0, [_FFo], [0]];
+export var FontConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _FCo,
   0,
   [_FSon, _FDo, _FCon, _FWo, _FSont, _FFo],
-  [() => FontSize, 0, 0, () => FontWeight, 0, 0],
+  [() => FontSize$, 0, 0, () => FontWeight$, 0, 0],
 ];
-export var FontSize: StaticStructureSchema = [3, n0, _FSon, 0, [_Rel, _Ab], [0, 0]];
-export var FontWeight: StaticStructureSchema = [3, n0, _FWo, 0, [_N], [0]];
-export var ForecastComputation: StaticStructureSchema = [
+export var FontSize$: StaticStructureSchema = [3, n0, _FSon, 0, [_Rel, _Ab], [0, 0]];
+export var FontWeight$: StaticStructureSchema = [3, n0, _FWo, 0, [_N], [0]];
+export var ForecastComputation$: StaticStructureSchema = [
   3,
   n0,
   _FCore,
   0,
   [_CIom, _N, _Tim, _V, _PFe, _PB, _UB, _LB, _PIre, _Sea, _CSV],
-  [0, 0, () => DimensionField, () => MeasureField, 1, 1, 1, 1, 1, 0, 1],
+  [0, 0, () => DimensionField$, () => MeasureField$, 1, 1, 1, 1, 1, 0, 1],
 ];
-export var ForecastConfiguration: StaticStructureSchema = [
+export var ForecastConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _FCorec,
   0,
   [_FPo, _Sce],
-  [() => TimeBasedForecastProperties, () => ForecastScenario],
+  [() => TimeBasedForecastProperties$, () => ForecastScenario$],
 ];
-export var ForecastScenario: StaticStructureSchema = [
+export var ForecastScenario$: StaticStructureSchema = [
   3,
   n0,
   _FSor,
   0,
   [_WIPS, _WIRS],
-  [() => WhatIfPointScenario, () => WhatIfRangeScenario],
+  [() => WhatIfPointScenario$, () => WhatIfRangeScenario$],
 ];
-export var FormatConfiguration: StaticStructureSchema = [
+export var FormatConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _FCor,
   0,
   [_SFCtr, _NFCum, _DTFC],
   [
-    [() => StringFormatConfiguration, 0],
-    [() => NumberFormatConfiguration, 0],
-    [() => DateTimeFormatConfiguration, 0],
+    [() => StringFormatConfiguration$, 0],
+    [() => NumberFormatConfiguration$, 0],
+    [() => DateTimeFormatConfiguration$, 0],
   ],
 ];
-export var FreeFormLayoutCanvasSizeOptions: StaticStructureSchema = [
+export var FreeFormLayoutCanvasSizeOptions$: StaticStructureSchema = [
   3,
   n0,
   _FFLCSO,
   0,
   [_SCSO],
-  [() => FreeFormLayoutScreenCanvasSizeOptions],
+  [() => FreeFormLayoutScreenCanvasSizeOptions$],
 ];
-export var FreeFormLayoutConfiguration: StaticStructureSchema = [
+export var FreeFormLayoutConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _FFLC,
   0,
   [_Ele, _CSO],
-  [() => FreeFromLayoutElementList, () => FreeFormLayoutCanvasSizeOptions],
+  [() => FreeFromLayoutElementList, () => FreeFormLayoutCanvasSizeOptions$],
 ];
-export var FreeFormLayoutElement: StaticStructureSchema = [
+export var FreeFormLayoutElement$: StaticStructureSchema = [
   3,
   n0,
   _FFLE,
@@ -8336,18 +8419,18 @@ export var FreeFormLayoutElement: StaticStructureSchema = [
     0,
     0,
     () => SheetElementRenderingRuleList,
-    () => FreeFormLayoutElementBorderStyle,
-    () => FreeFormLayoutElementBorderStyle,
-    () => FreeFormLayoutElementBackgroundStyle,
-    () => LoadingAnimation,
+    () => FreeFormLayoutElementBorderStyle$,
+    () => FreeFormLayoutElementBorderStyle$,
+    () => FreeFormLayoutElementBackgroundStyle$,
+    () => LoadingAnimation$,
     0,
     0,
   ],
 ];
-export var FreeFormLayoutElementBackgroundStyle: StaticStructureSchema = [3, n0, _FFLEBS, 0, [_Vi, _Col], [0, 0]];
-export var FreeFormLayoutElementBorderStyle: StaticStructureSchema = [3, n0, _FFLEBSr, 0, [_Vi, _Col, _W], [0, 0, 0]];
-export var FreeFormLayoutScreenCanvasSizeOptions: StaticStructureSchema = [3, n0, _FFLSCSO, 0, [_OVPW], [0]];
-export var FreeFormSectionLayoutConfiguration: StaticStructureSchema = [
+export var FreeFormLayoutElementBackgroundStyle$: StaticStructureSchema = [3, n0, _FFLEBS, 0, [_Vi, _Col], [0, 0]];
+export var FreeFormLayoutElementBorderStyle$: StaticStructureSchema = [3, n0, _FFLEBSr, 0, [_Vi, _Col, _W], [0, 0, 0]];
+export var FreeFormLayoutScreenCanvasSizeOptions$: StaticStructureSchema = [3, n0, _FFLSCSO, 0, [_OVPW], [0]];
+export var FreeFormSectionLayoutConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _FFSLC,
@@ -8355,7 +8438,7 @@ export var FreeFormSectionLayoutConfiguration: StaticStructureSchema = [
   [_Ele],
   [() => FreeFromLayoutElementList],
 ];
-export var FunnelChartAggregatedFieldWells: StaticStructureSchema = [
+export var FunnelChartAggregatedFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _FCAFW,
@@ -8363,48 +8446,48 @@ export var FunnelChartAggregatedFieldWells: StaticStructureSchema = [
   [_Ca, _Va],
   [() => FunnelChartDimensionFieldList, () => FunnelChartMeasureFieldList],
 ];
-export var FunnelChartConfiguration: StaticStructureSchema = [
+export var FunnelChartConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _FCC,
   0,
   [_FW, _SCo, _CLO, _VLO, _To, _DLO, _VP, _I],
   [
-    () => FunnelChartFieldWells,
-    () => FunnelChartSortConfiguration,
-    () => ChartAxisLabelOptions,
-    () => ChartAxisLabelOptions,
-    () => TooltipOptions,
-    () => FunnelChartDataLabelOptions,
-    () => VisualPalette,
-    () => VisualInteractionOptions,
+    () => FunnelChartFieldWells$,
+    () => FunnelChartSortConfiguration$,
+    () => ChartAxisLabelOptions$,
+    () => ChartAxisLabelOptions$,
+    () => TooltipOptions$,
+    () => FunnelChartDataLabelOptions$,
+    () => VisualPalette$,
+    () => VisualInteractionOptions$,
   ],
 ];
-export var FunnelChartDataLabelOptions: StaticStructureSchema = [
+export var FunnelChartDataLabelOptions$: StaticStructureSchema = [
   3,
   n0,
   _FCDLO,
   0,
   [_Vi, _CLV, _MLV, _Pos, _LFC, _LCab, _MDLS],
-  [0, 0, 0, 0, () => FontConfiguration, 0, 0],
+  [0, 0, 0, 0, () => FontConfiguration$, 0, 0],
 ];
-export var FunnelChartFieldWells: StaticStructureSchema = [
+export var FunnelChartFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _FCFW,
   0,
   [_FCAFW],
-  [() => FunnelChartAggregatedFieldWells],
+  [() => FunnelChartAggregatedFieldWells$],
 ];
-export var FunnelChartSortConfiguration: StaticStructureSchema = [
+export var FunnelChartSortConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _FCSCu,
   0,
   [_CSa, _CIL],
-  [() => FieldSortOptionsList, () => ItemsLimitConfiguration],
+  [() => FieldSortOptionsList, () => ItemsLimitConfiguration$],
 ];
-export var FunnelChartVisual: StaticStructureSchema = [
+export var FunnelChartVisual$: StaticStructureSchema = [
   3,
   n0,
   _FCV,
@@ -8412,24 +8495,24 @@ export var FunnelChartVisual: StaticStructureSchema = [
   [_VI, _Tit, _Su, _CCh, _Ac, _CH, _VCAT],
   [
     0,
-    () => VisualTitleLabelOptions,
-    () => VisualSubtitleLabelOptions,
-    () => FunnelChartConfiguration,
+    () => VisualTitleLabelOptions$,
+    () => VisualSubtitleLabelOptions$,
+    () => FunnelChartConfiguration$,
     () => VisualCustomActionList,
     () => ColumnHierarchyList,
     0,
   ],
 ];
-export var GaugeChartArcConditionalFormatting: StaticStructureSchema = [
+export var GaugeChartArcConditionalFormatting$: StaticStructureSchema = [
   3,
   n0,
   _GCACF,
   0,
   [_FCoreg],
-  [() => ConditionalFormattingColor],
+  [() => ConditionalFormattingColor$],
 ];
-export var GaugeChartColorConfiguration: StaticStructureSchema = [3, n0, _GCCC, 0, [_FCoreg, _BCa], [0, 0]];
-export var GaugeChartConditionalFormatting: StaticStructureSchema = [
+export var GaugeChartColorConfiguration$: StaticStructureSchema = [3, n0, _GCCC, 0, [_FCoreg, _BCa], [0, 0]];
+export var GaugeChartConditionalFormatting$: StaticStructureSchema = [
   3,
   n0,
   _GCCF,
@@ -8437,31 +8520,31 @@ export var GaugeChartConditionalFormatting: StaticStructureSchema = [
   [_CFO],
   [() => GaugeChartConditionalFormattingOptionList],
 ];
-export var GaugeChartConditionalFormattingOption: StaticStructureSchema = [
+export var GaugeChartConditionalFormattingOption$: StaticStructureSchema = [
   3,
   n0,
   _GCCFO,
   0,
   [_PVr, _Ar],
-  [() => GaugeChartPrimaryValueConditionalFormatting, () => GaugeChartArcConditionalFormatting],
+  [() => GaugeChartPrimaryValueConditionalFormatting$, () => GaugeChartArcConditionalFormatting$],
 ];
-export var GaugeChartConfiguration: StaticStructureSchema = [
+export var GaugeChartConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _GCC,
   0,
   [_FW, _GCO, _DL, _TOo, _VP, _CColo, _I],
   [
-    () => GaugeChartFieldWells,
-    () => GaugeChartOptions,
-    () => DataLabelOptions,
-    () => TooltipOptions,
-    () => VisualPalette,
-    () => GaugeChartColorConfiguration,
-    () => VisualInteractionOptions,
+    () => GaugeChartFieldWells$,
+    () => GaugeChartOptions$,
+    () => DataLabelOptions$,
+    () => TooltipOptions$,
+    () => VisualPalette$,
+    () => GaugeChartColorConfiguration$,
+    () => VisualInteractionOptions$,
   ],
 ];
-export var GaugeChartFieldWells: StaticStructureSchema = [
+export var GaugeChartFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _GCFW,
@@ -8469,23 +8552,23 @@ export var GaugeChartFieldWells: StaticStructureSchema = [
   [_Va, _TVa],
   [() => MeasureFieldList, () => MeasureFieldList],
 ];
-export var GaugeChartOptions: StaticStructureSchema = [
+export var GaugeChartOptions$: StaticStructureSchema = [
   3,
   n0,
   _GCO,
   0,
   [_PVDT, _Comp, _AAr, _Ar, _PVFC],
-  [0, () => ComparisonConfiguration, () => ArcAxisConfiguration, () => ArcConfiguration, () => FontConfiguration],
+  [0, () => ComparisonConfiguration$, () => ArcAxisConfiguration$, () => ArcConfiguration$, () => FontConfiguration$],
 ];
-export var GaugeChartPrimaryValueConditionalFormatting: StaticStructureSchema = [
+export var GaugeChartPrimaryValueConditionalFormatting$: StaticStructureSchema = [
   3,
   n0,
   _GCPVCF,
   0,
   [_TC, _Ic],
-  [() => ConditionalFormattingColor, () => ConditionalFormattingIcon],
+  [() => ConditionalFormattingColor$, () => ConditionalFormattingIcon$],
 ];
-export var GaugeChartVisual: StaticStructureSchema = [
+export var GaugeChartVisual$: StaticStructureSchema = [
   3,
   n0,
   _GCV,
@@ -8493,15 +8576,15 @@ export var GaugeChartVisual: StaticStructureSchema = [
   [_VI, _Tit, _Su, _CCh, _CFon, _Ac, _VCAT],
   [
     0,
-    () => VisualTitleLabelOptions,
-    () => VisualSubtitleLabelOptions,
-    () => GaugeChartConfiguration,
-    () => GaugeChartConditionalFormatting,
+    () => VisualTitleLabelOptions$,
+    () => VisualSubtitleLabelOptions$,
+    () => GaugeChartConfiguration$,
+    () => GaugeChartConditionalFormatting$,
     () => VisualCustomActionList,
     0,
   ],
 ];
-export var GeneratedAnswerResult: StaticStructureSchema = [
+export var GeneratedAnswerResult$: StaticStructureSchema = [
   3,
   n0,
   _GAR,
@@ -8509,15 +8592,15 @@ export var GeneratedAnswerResult: StaticStructureSchema = [
   [_QT, _ASns, _TIo, _TN, _Rest, _QI, _AInsw, _QU],
   [[() => QAQueryText, 0], 0, 0, 0, [() => QAQueryText, 0], 0, 0, 0],
 ];
-export var GenerateEmbedUrlForAnonymousUserRequest: StaticStructureSchema = [
+export var GenerateEmbedUrlForAnonymousUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _GEUFAUR,
   0,
   [_AAI, _SLIM, _Na, _STe, _ARA, _EC, _ADl],
-  [[0, 1], 1, 0, [() => SessionTagList, 0], 64 | 0, () => AnonymousUserEmbeddingExperienceConfiguration, 64 | 0],
+  [[0, 1], 1, 0, [() => SessionTagList, 0], 64 | 0, () => AnonymousUserEmbeddingExperienceConfiguration$, 64 | 0],
 ];
-export var GenerateEmbedUrlForAnonymousUserResponse: StaticStructureSchema = [
+export var GenerateEmbedUrlForAnonymousUserResponse$: StaticStructureSchema = [
   3,
   n0,
   _GEUFAURe,
@@ -8525,15 +8608,15 @@ export var GenerateEmbedUrlForAnonymousUserResponse: StaticStructureSchema = [
   [_EUm, _St, _RI, _AUA],
   [[() => EmbeddingUrl, 0], [1, 32], 0, 0],
 ];
-export var GenerateEmbedUrlForRegisteredUserRequest: StaticStructureSchema = [
+export var GenerateEmbedUrlForRegisteredUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _GEUFRUR,
   0,
   [_AAI, _SLIM, _UAs, _EC, _ADl],
-  [[0, 1], 1, 0, () => RegisteredUserEmbeddingExperienceConfiguration, 64 | 0],
+  [[0, 1], 1, 0, () => RegisteredUserEmbeddingExperienceConfiguration$, 64 | 0],
 ];
-export var GenerateEmbedUrlForRegisteredUserResponse: StaticStructureSchema = [
+export var GenerateEmbedUrlForRegisteredUserResponse$: StaticStructureSchema = [
   3,
   n0,
   _GEUFRURe,
@@ -8541,15 +8624,15 @@ export var GenerateEmbedUrlForRegisteredUserResponse: StaticStructureSchema = [
   [_EUm, _St, _RI],
   [[() => EmbeddingUrl, 0], [1, 32], 0],
 ];
-export var GenerateEmbedUrlForRegisteredUserWithIdentityRequest: StaticStructureSchema = [
+export var GenerateEmbedUrlForRegisteredUserWithIdentityRequest$: StaticStructureSchema = [
   3,
   n0,
   _GEUFRUWIR,
   0,
   [_AAI, _SLIM, _EC, _ADl],
-  [[0, 1], 1, () => RegisteredUserEmbeddingExperienceConfiguration, 64 | 0],
+  [[0, 1], 1, () => RegisteredUserEmbeddingExperienceConfiguration$, 64 | 0],
 ];
-export var GenerateEmbedUrlForRegisteredUserWithIdentityResponse: StaticStructureSchema = [
+export var GenerateEmbedUrlForRegisteredUserWithIdentityResponse$: StaticStructureSchema = [
   3,
   n0,
   _GEUFRUWIRe,
@@ -8557,62 +8640,69 @@ export var GenerateEmbedUrlForRegisteredUserWithIdentityResponse: StaticStructur
   [_EUm, _St, _RI],
   [[() => EmbeddingUrl, 0], [1, 32], 0],
 ];
-export var GenerativeAuthoringConfigurations: StaticStructureSchema = [3, n0, _GAC, 0, [_En], [2]];
-export var GeocodePreference: StaticStructureSchema = [
+export var GenerativeAuthoringConfigurations$: StaticStructureSchema = [3, n0, _GAC, 0, [_En], [2]];
+export var GeocodePreference$: StaticStructureSchema = [
   3,
   n0,
   _GPe,
   0,
   [_RK, _Pre],
-  [() => GeocoderHierarchy, () => GeocodePreferenceValue],
+  [() => GeocoderHierarchy$, () => GeocodePreferenceValue$],
 ];
-export var GeocoderHierarchy: StaticStructureSchema = [3, n0, _GH, 0, [_Cou, _Sta, _Coun, _Ci, _PCos], [0, 0, 0, 0, 0]];
-export var GeospatialCategoricalColor: StaticStructureSchema = [
+export var GeocoderHierarchy$: StaticStructureSchema = [
+  3,
+  n0,
+  _GH,
+  0,
+  [_Cou, _Sta, _Coun, _Ci, _PCos],
+  [0, 0, 0, 0, 0],
+];
+export var GeospatialCategoricalColor$: StaticStructureSchema = [
   3,
   n0,
   _GCCe,
   0,
   [_CDC, _NDV, _NDS, _DOe],
-  [() => GeospatialCategoricalDataColorList, 0, () => GeospatialNullDataSettings, 1],
+  [() => GeospatialCategoricalDataColorList, 0, () => GeospatialNullDataSettings$, 1],
 ];
-export var GeospatialCategoricalDataColor: StaticStructureSchema = [3, n0, _GCDC, 0, [_Col, _DVat], [0, 0]];
-export var GeospatialCircleRadius: StaticStructureSchema = [3, n0, _GCR, 0, [_Ra], [1]];
-export var GeospatialCircleSymbolStyle: StaticStructureSchema = [
+export var GeospatialCategoricalDataColor$: StaticStructureSchema = [3, n0, _GCDC, 0, [_Col, _DVat], [0, 0]];
+export var GeospatialCircleRadius$: StaticStructureSchema = [3, n0, _GCR, 0, [_Ra], [1]];
+export var GeospatialCircleSymbolStyle$: StaticStructureSchema = [
   3,
   n0,
   _GCSS,
   0,
   [_FCill, _SCtr, _SW, _CRi],
-  [() => GeospatialColor, () => GeospatialColor, () => GeospatialLineWidth, () => GeospatialCircleRadius],
+  [() => GeospatialColor$, () => GeospatialColor$, () => GeospatialLineWidth$, () => GeospatialCircleRadius$],
 ];
-export var GeospatialColor: StaticStructureSchema = [
+export var GeospatialColor$: StaticStructureSchema = [
   3,
   n0,
   _GC,
   0,
   [_Sol, _G, _Cat],
-  [() => GeospatialSolidColor, () => GeospatialGradientColor, () => GeospatialCategoricalColor],
+  [() => GeospatialSolidColor$, () => GeospatialGradientColor$, () => GeospatialCategoricalColor$],
 ];
-export var GeoSpatialColumnGroup: StaticStructureSchema = [3, n0, _GSCG, 0, [_N, _CCou, _Colu], [0, 0, 64 | 0]];
-export var GeospatialCoordinateBounds: StaticStructureSchema = [3, n0, _GCB, 0, [_No, _Sou, _We, _Ea], [1, 1, 1, 1]];
-export var GeospatialDataSourceItem: StaticStructureSchema = [
+export var GeoSpatialColumnGroup$: StaticStructureSchema = [3, n0, _GSCG, 0, [_N, _CCou, _Colu], [0, 0, 64 | 0]];
+export var GeospatialCoordinateBounds$: StaticStructureSchema = [3, n0, _GCB, 0, [_No, _Sou, _We, _Ea], [1, 1, 1, 1]];
+export var GeospatialDataSourceItem$: StaticStructureSchema = [
   3,
   n0,
   _GDSI,
   0,
   [_SFDS],
-  [() => GeospatialStaticFileSource],
+  [() => GeospatialStaticFileSource$],
 ];
-export var GeospatialGradientColor: StaticStructureSchema = [
+export var GeospatialGradientColor$: StaticStructureSchema = [
   3,
   n0,
   _GGC,
   0,
   [_SCte, _NDV, _NDS, _DOe],
-  [() => GeospatialGradientStepColorList, 0, () => GeospatialNullDataSettings, 1],
+  [() => GeospatialGradientStepColorList, 0, () => GeospatialNullDataSettings$, 1],
 ];
-export var GeospatialGradientStepColor: StaticStructureSchema = [3, n0, _GGSC, 0, [_Col, _DVat], [0, 1]];
-export var GeospatialHeatmapColorScale: StaticStructureSchema = [
+export var GeospatialGradientStepColor$: StaticStructureSchema = [3, n0, _GGSC, 0, [_Col, _DVat], [0, 1]];
+export var GeospatialHeatmapColorScale$: StaticStructureSchema = [
   3,
   n0,
   _GHCS,
@@ -8620,16 +8710,16 @@ export var GeospatialHeatmapColorScale: StaticStructureSchema = [
   [_Co],
   [() => GeospatialHeatmapDataColorList],
 ];
-export var GeospatialHeatmapConfiguration: StaticStructureSchema = [
+export var GeospatialHeatmapConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _GHC,
   0,
   [_HC],
-  [() => GeospatialHeatmapColorScale],
+  [() => GeospatialHeatmapColorScale$],
 ];
-export var GeospatialHeatmapDataColor: StaticStructureSchema = [3, n0, _GHDC, 0, [_Col], [0]];
-export var GeospatialLayerColorField: StaticStructureSchema = [
+export var GeospatialHeatmapDataColor$: StaticStructureSchema = [3, n0, _GHDC, 0, [_Col], [0]];
+export var GeospatialLayerColorField$: StaticStructureSchema = [
   3,
   n0,
   _GLCF,
@@ -8640,15 +8730,15 @@ export var GeospatialLayerColorField: StaticStructureSchema = [
     [() => GeospatialLayerMeasureFieldList, 0],
   ],
 ];
-export var GeospatialLayerDefinition: StaticStructureSchema = [
+export var GeospatialLayerDefinition$: StaticStructureSchema = [
   3,
   n0,
   _GLD,
   0,
   [_PL, _LL, _PLo],
-  [() => GeospatialPointLayer, () => GeospatialLineLayer, () => GeospatialPolygonLayer],
+  [() => GeospatialPointLayer$, () => GeospatialLineLayer$, () => GeospatialPolygonLayer$],
 ];
-export var GeospatialLayerItem: StaticStructureSchema = [
+export var GeospatialLayerItem$: StaticStructureSchema = [
   3,
   n0,
   _GLI,
@@ -8657,49 +8747,49 @@ export var GeospatialLayerItem: StaticStructureSchema = [
   [
     0,
     0,
-    () => GeospatialDataSourceItem,
+    () => GeospatialDataSourceItem$,
     0,
     0,
-    () => GeospatialLayerDefinition,
-    () => TooltipOptions,
-    () => GeospatialLayerJoinDefinition,
+    () => GeospatialLayerDefinition$,
+    () => TooltipOptions$,
+    () => GeospatialLayerJoinDefinition$,
     () => LayerCustomActionList,
   ],
 ];
-export var GeospatialLayerJoinDefinition: StaticStructureSchema = [
+export var GeospatialLayerJoinDefinition$: StaticStructureSchema = [
   3,
   n0,
   _GLJD,
   0,
   [_SKF, _DKF, _CFol],
-  [0, () => UnaggregatedField, () => GeospatialLayerColorField],
+  [0, () => UnaggregatedField$, () => GeospatialLayerColorField$],
 ];
-export var GeospatialLayerMapConfiguration: StaticStructureSchema = [
+export var GeospatialLayerMapConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _GLMC,
   0,
   [_Le, _ML, _MS, _MSa, _I],
   [
-    () => LegendOptions,
+    () => LegendOptions$,
     () => GeospatialMapLayerList,
-    () => GeospatialMapState,
-    () => GeospatialMapStyle,
-    () => VisualInteractionOptions,
+    () => GeospatialMapState$,
+    () => GeospatialMapStyle$,
+    () => VisualInteractionOptions$,
   ],
 ];
-export var GeospatialLineLayer: StaticStructureSchema = [3, n0, _GLL, 0, [_Sty], [() => GeospatialLineStyle]];
-export var GeospatialLineStyle: StaticStructureSchema = [3, n0, _GLS, 0, [_LSSi], [() => GeospatialLineSymbolStyle]];
-export var GeospatialLineSymbolStyle: StaticStructureSchema = [
+export var GeospatialLineLayer$: StaticStructureSchema = [3, n0, _GLL, 0, [_Sty], [() => GeospatialLineStyle$]];
+export var GeospatialLineStyle$: StaticStructureSchema = [3, n0, _GLS, 0, [_LSSi], [() => GeospatialLineSymbolStyle$]];
+export var GeospatialLineSymbolStyle$: StaticStructureSchema = [
   3,
   n0,
   _GLSS,
   0,
   [_FCill, _LW],
-  [() => GeospatialColor, () => GeospatialLineWidth],
+  [() => GeospatialColor$, () => GeospatialLineWidth$],
 ];
-export var GeospatialLineWidth: StaticStructureSchema = [3, n0, _GLW, 0, [_LW], [1]];
-export var GeospatialMapAggregatedFieldWells: StaticStructureSchema = [
+export var GeospatialLineWidth$: StaticStructureSchema = [3, n0, _GLW, 0, [_LW], [1]];
+export var GeospatialMapAggregatedFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _GMAFW,
@@ -8707,42 +8797,42 @@ export var GeospatialMapAggregatedFieldWells: StaticStructureSchema = [
   [_Ge, _Va, _Co],
   [() => DimensionFieldList, () => MeasureFieldList, () => DimensionFieldList],
 ];
-export var GeospatialMapConfiguration: StaticStructureSchema = [
+export var GeospatialMapConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _GMC,
   0,
   [_FW, _Le, _To, _WO, _MSO, _PSO, _VP, _I],
   [
-    () => GeospatialMapFieldWells,
-    () => LegendOptions,
-    () => TooltipOptions,
-    () => GeospatialWindowOptions,
-    () => GeospatialMapStyleOptions,
-    () => GeospatialPointStyleOptions,
-    () => VisualPalette,
-    () => VisualInteractionOptions,
+    () => GeospatialMapFieldWells$,
+    () => LegendOptions$,
+    () => TooltipOptions$,
+    () => GeospatialWindowOptions$,
+    () => GeospatialMapStyleOptions$,
+    () => GeospatialPointStyleOptions$,
+    () => VisualPalette$,
+    () => VisualInteractionOptions$,
   ],
 ];
-export var GeospatialMapFieldWells: StaticStructureSchema = [
+export var GeospatialMapFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _GMFW,
   0,
   [_GMAFW],
-  [() => GeospatialMapAggregatedFieldWells],
+  [() => GeospatialMapAggregatedFieldWells$],
 ];
-export var GeospatialMapState: StaticStructureSchema = [
+export var GeospatialMapState$: StaticStructureSchema = [
   3,
   n0,
   _GMS,
   0,
   [_Bo, _MNa],
-  [() => GeospatialCoordinateBounds, 0],
+  [() => GeospatialCoordinateBounds$, 0],
 ];
-export var GeospatialMapStyle: StaticStructureSchema = [3, n0, _GMSe, 0, [_BMS, _BCa, _BMV], [0, 0, 0]];
-export var GeospatialMapStyleOptions: StaticStructureSchema = [3, n0, _GMSO, 0, [_BMS], [0]];
-export var GeospatialMapVisual: StaticStructureSchema = [
+export var GeospatialMapStyle$: StaticStructureSchema = [3, n0, _GMSe, 0, [_BMS, _BCa, _BMV], [0, 0, 0]];
+export var GeospatialMapStyleOptions$: StaticStructureSchema = [3, n0, _GMSO, 0, [_BMS], [0]];
+export var GeospatialMapVisual$: StaticStructureSchema = [
   3,
   n0,
   _GMV,
@@ -8750,62 +8840,69 @@ export var GeospatialMapVisual: StaticStructureSchema = [
   [_VI, _Tit, _Su, _CCh, _CH, _Ac, _VCAT, _GP],
   [
     0,
-    () => VisualTitleLabelOptions,
-    () => VisualSubtitleLabelOptions,
-    () => GeospatialMapConfiguration,
+    () => VisualTitleLabelOptions$,
+    () => VisualSubtitleLabelOptions$,
+    () => GeospatialMapConfiguration$,
     () => ColumnHierarchyList,
     () => VisualCustomActionList,
     0,
     () => GeocodePreferenceList,
   ],
 ];
-export var GeospatialNullDataSettings: StaticStructureSchema = [
+export var GeospatialNullDataSettings$: StaticStructureSchema = [
   3,
   n0,
   _GNDS,
   0,
   [_SSy],
-  [() => GeospatialNullSymbolStyle],
+  [() => GeospatialNullSymbolStyle$],
 ];
-export var GeospatialNullSymbolStyle: StaticStructureSchema = [3, n0, _GNSS, 0, [_FCill, _SCtr, _SW], [0, 0, 1]];
-export var GeospatialPointLayer: StaticStructureSchema = [3, n0, _GPL, 0, [_Sty], [() => GeospatialPointStyle]];
-export var GeospatialPointStyle: StaticStructureSchema = [3, n0, _GPS, 0, [_CSS], [() => GeospatialCircleSymbolStyle]];
-export var GeospatialPointStyleOptions: StaticStructureSchema = [
+export var GeospatialNullSymbolStyle$: StaticStructureSchema = [3, n0, _GNSS, 0, [_FCill, _SCtr, _SW], [0, 0, 1]];
+export var GeospatialPointLayer$: StaticStructureSchema = [3, n0, _GPL, 0, [_Sty], [() => GeospatialPointStyle$]];
+export var GeospatialPointStyle$: StaticStructureSchema = [
+  3,
+  n0,
+  _GPS,
+  0,
+  [_CSS],
+  [() => GeospatialCircleSymbolStyle$],
+];
+export var GeospatialPointStyleOptions$: StaticStructureSchema = [
   3,
   n0,
   _GPSO,
   0,
   [_SPS, _CMC, _HCe],
-  [0, () => ClusterMarkerConfiguration, () => GeospatialHeatmapConfiguration],
+  [0, () => ClusterMarkerConfiguration$, () => GeospatialHeatmapConfiguration$],
 ];
-export var GeospatialPolygonLayer: StaticStructureSchema = [3, n0, _GPLe, 0, [_Sty], [() => GeospatialPolygonStyle]];
-export var GeospatialPolygonStyle: StaticStructureSchema = [
+export var GeospatialPolygonLayer$: StaticStructureSchema = [3, n0, _GPLe, 0, [_Sty], [() => GeospatialPolygonStyle$]];
+export var GeospatialPolygonStyle$: StaticStructureSchema = [
   3,
   n0,
   _GPSe,
   0,
   [_PSS],
-  [() => GeospatialPolygonSymbolStyle],
+  [() => GeospatialPolygonSymbolStyle$],
 ];
-export var GeospatialPolygonSymbolStyle: StaticStructureSchema = [
+export var GeospatialPolygonSymbolStyle$: StaticStructureSchema = [
   3,
   n0,
   _GPSS,
   0,
   [_FCill, _SCtr, _SW],
-  [() => GeospatialColor, () => GeospatialColor, () => GeospatialLineWidth],
+  [() => GeospatialColor$, () => GeospatialColor$, () => GeospatialLineWidth$],
 ];
-export var GeospatialSolidColor: StaticStructureSchema = [3, n0, _GSC, 0, [_Col, _Sta], [0, 0]];
-export var GeospatialStaticFileSource: StaticStructureSchema = [3, n0, _GSFS, 0, [_SFIt], [0]];
-export var GeospatialWindowOptions: StaticStructureSchema = [
+export var GeospatialSolidColor$: StaticStructureSchema = [3, n0, _GSC, 0, [_Col, _Sta], [0, 0]];
+export var GeospatialStaticFileSource$: StaticStructureSchema = [3, n0, _GSFS, 0, [_SFIt], [0]];
+export var GeospatialWindowOptions$: StaticStructureSchema = [
   3,
   n0,
   _GWO,
   0,
   [_Bo, _MZM],
-  [() => GeospatialCoordinateBounds, 0],
+  [() => GeospatialCoordinateBounds$, 0],
 ];
-export var GetDashboardEmbedUrlRequest: StaticStructureSchema = [
+export var GetDashboardEmbedUrlRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDEUR,
@@ -8824,7 +8921,7 @@ export var GetDashboardEmbedUrlRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _adi }],
   ],
 ];
-export var GetDashboardEmbedUrlResponse: StaticStructureSchema = [
+export var GetDashboardEmbedUrlResponse$: StaticStructureSchema = [
   3,
   n0,
   _GDEURe,
@@ -8832,7 +8929,7 @@ export var GetDashboardEmbedUrlResponse: StaticStructureSchema = [
   [_EUm, _St, _RI],
   [[() => EmbeddingUrl, 0], [1, 32], 0],
 ];
-export var GetFlowMetadataInput: StaticStructureSchema = [
+export var GetFlowMetadataInput$: StaticStructureSchema = [
   3,
   n0,
   _GFMI,
@@ -8843,7 +8940,7 @@ export var GetFlowMetadataInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetFlowMetadataOutput: StaticStructureSchema = [
+export var GetFlowMetadataOutput$: StaticStructureSchema = [
   3,
   n0,
   _GFMO,
@@ -8851,7 +8948,7 @@ export var GetFlowMetadataOutput: StaticStructureSchema = [
   [_A, _FIl, _N, _D, _PS, _UCs, _RCu, _CT, _LUT, _RI, _St],
   [0, 0, 0, 0, 0, 1, 1, 4, 4, 0, [1, 32]],
 ];
-export var GetFlowPermissionsInput: StaticStructureSchema = [
+export var GetFlowPermissionsInput$: StaticStructureSchema = [
   3,
   n0,
   _GFPI,
@@ -8862,7 +8959,7 @@ export var GetFlowPermissionsInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetFlowPermissionsOutput: StaticStructureSchema = [
+export var GetFlowPermissionsOutput$: StaticStructureSchema = [
   3,
   n0,
   _GFPO,
@@ -8870,16 +8967,16 @@ export var GetFlowPermissionsOutput: StaticStructureSchema = [
   [_A, _FIl, _Per, _RI, _St],
   [0, 0, () => PermissionsList, 0, [1, 32]],
 ];
-export var GetIdentityContextRequest: StaticStructureSchema = [
+export var GetIdentityContextRequest$: StaticStructureSchema = [
   3,
   n0,
   _GICR,
   0,
   [_AAI, _UIs, _Na, _SEAe],
-  [[0, 1], [() => UserIdentifier, 0], 0, 4],
+  [[0, 1], [() => UserIdentifier$, 0], 0, 4],
 ];
-export var GetIdentityContextResponse: StaticStructureSchema = [3, n0, _GICRe, 0, [_St, _RI, _Cont], [[1, 32], 0, 0]];
-export var GetSessionEmbedUrlRequest: StaticStructureSchema = [
+export var GetIdentityContextResponse$: StaticStructureSchema = [3, n0, _GICRe, 0, [_St, _RI, _Cont], [[1, 32], 0, 0]];
+export var GetSessionEmbedUrlRequest$: StaticStructureSchema = [
   3,
   n0,
   _GSEUR,
@@ -8892,7 +8989,7 @@ export var GetSessionEmbedUrlRequest: StaticStructureSchema = [
     [0, { [_hQ]: _ua }],
   ],
 ];
-export var GetSessionEmbedUrlResponse: StaticStructureSchema = [
+export var GetSessionEmbedUrlResponse$: StaticStructureSchema = [
   3,
   n0,
   _GSEURe,
@@ -8900,33 +8997,33 @@ export var GetSessionEmbedUrlResponse: StaticStructureSchema = [
   [_EUm, _St, _RI],
   [[() => EmbeddingUrl, 0], [1, 32], 0],
 ];
-export var GlobalTableBorderOptions: StaticStructureSchema = [
+export var GlobalTableBorderOptions$: StaticStructureSchema = [
   3,
   n0,
   _GTBO,
   0,
   [_UBn, _SSB],
-  [() => TableBorderOptions, () => TableSideBorderOptions],
+  [() => TableBorderOptions$, () => TableSideBorderOptions$],
 ];
-export var GradientColor: StaticStructureSchema = [3, n0, _GCr, 0, [_Sto], [() => GradientStopList]];
-export var GradientStop: StaticStructureSchema = [3, n0, _GSr, 0, [_GO, _DVat, _Col], [1, 1, 0]];
-export var GridLayoutCanvasSizeOptions: StaticStructureSchema = [
+export var GradientColor$: StaticStructureSchema = [3, n0, _GCr, 0, [_Sto], [() => GradientStopList]];
+export var GradientStop$: StaticStructureSchema = [3, n0, _GSr, 0, [_GO, _DVat, _Col], [1, 1, 0]];
+export var GridLayoutCanvasSizeOptions$: StaticStructureSchema = [
   3,
   n0,
   _GLCSO,
   0,
   [_SCSO],
-  [() => GridLayoutScreenCanvasSizeOptions],
+  [() => GridLayoutScreenCanvasSizeOptions$],
 ];
-export var GridLayoutConfiguration: StaticStructureSchema = [
+export var GridLayoutConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _GLC,
   0,
   [_Ele, _CSO],
-  [() => GridLayoutElementList, () => GridLayoutCanvasSizeOptions],
+  [() => GridLayoutElementList, () => GridLayoutCanvasSizeOptions$],
 ];
-export var GridLayoutElement: StaticStructureSchema = [
+export var GridLayoutElement$: StaticStructureSchema = [
   3,
   n0,
   _GLE,
@@ -8939,38 +9036,38 @@ export var GridLayoutElement: StaticStructureSchema = [
     1,
     1,
     1,
-    () => GridLayoutElementBorderStyle,
-    () => GridLayoutElementBorderStyle,
-    () => GridLayoutElementBackgroundStyle,
-    () => LoadingAnimation,
+    () => GridLayoutElementBorderStyle$,
+    () => GridLayoutElementBorderStyle$,
+    () => GridLayoutElementBackgroundStyle$,
+    () => LoadingAnimation$,
     0,
     0,
   ],
 ];
-export var GridLayoutElementBackgroundStyle: StaticStructureSchema = [3, n0, _GLEBS, 0, [_Vi, _Col], [0, 0]];
-export var GridLayoutElementBorderStyle: StaticStructureSchema = [3, n0, _GLEBSr, 0, [_Vi, _Col, _W], [0, 0, 0]];
-export var GridLayoutScreenCanvasSizeOptions: StaticStructureSchema = [3, n0, _GLSCSO, 0, [_RO, _OVPW], [0, 0]];
-export var Group: StaticStructureSchema = [3, n0, _Gr, 0, [_A, _GN, _D, _PIr], [0, 0, 0, 0]];
-export var GroupMember: StaticStructureSchema = [3, n0, _GM, 0, [_A, _MN], [0, 0]];
-export var GroupSearchFilter: StaticStructureSchema = [3, n0, _GSF, 0, [_O, _N, _V], [0, 0, 0]];
-export var GrowthRateComputation: StaticStructureSchema = [
+export var GridLayoutElementBackgroundStyle$: StaticStructureSchema = [3, n0, _GLEBS, 0, [_Vi, _Col], [0, 0]];
+export var GridLayoutElementBorderStyle$: StaticStructureSchema = [3, n0, _GLEBSr, 0, [_Vi, _Col, _W], [0, 0, 0]];
+export var GridLayoutScreenCanvasSizeOptions$: StaticStructureSchema = [3, n0, _GLSCSO, 0, [_RO, _OVPW], [0, 0]];
+export var Group$: StaticStructureSchema = [3, n0, _Gr, 0, [_A, _GN, _D, _PIr], [0, 0, 0, 0]];
+export var GroupMember$: StaticStructureSchema = [3, n0, _GM, 0, [_A, _MN], [0, 0]];
+export var GroupSearchFilter$: StaticStructureSchema = [3, n0, _GSF, 0, [_O, _N, _V], [0, 0, 0]];
+export var GrowthRateComputation$: StaticStructureSchema = [
   3,
   n0,
   _GRC,
   0,
   [_CIom, _N, _Tim, _V, _PSe],
-  [0, 0, () => DimensionField, () => MeasureField, 1],
+  [0, 0, () => DimensionField$, () => MeasureField$, 1],
 ];
-export var GutterStyle: StaticStructureSchema = [3, n0, _GSu, 0, [_Sho], [2]];
-export var HeaderFooterSectionConfiguration: StaticStructureSchema = [
+export var GutterStyle$: StaticStructureSchema = [3, n0, _GSu, 0, [_Sho], [2]];
+export var HeaderFooterSectionConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _HFSC,
   0,
   [_SIe, _La, _Sty],
-  [0, () => SectionLayoutConfiguration, () => SectionStyle],
+  [0, () => SectionLayoutConfiguration$, () => SectionStyle$],
 ];
-export var HeatMapAggregatedFieldWells: StaticStructureSchema = [
+export var HeatMapAggregatedFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _HMAFW,
@@ -8978,28 +9075,35 @@ export var HeatMapAggregatedFieldWells: StaticStructureSchema = [
   [_Row, _Colu, _Va],
   [() => HeatMapDimensionFieldList, () => HeatMapDimensionFieldList, () => HeatMapMeasureFieldList],
 ];
-export var HeatMapConfiguration: StaticStructureSchema = [
+export var HeatMapConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _HMC,
   0,
   [_FW, _SCo, _RADO, _RLO, _CADO, _CLOol, _CSol, _Le, _DL, _To, _I],
   [
-    () => HeatMapFieldWells,
-    () => HeatMapSortConfiguration,
-    () => AxisDisplayOptions,
-    () => ChartAxisLabelOptions,
-    () => AxisDisplayOptions,
-    () => ChartAxisLabelOptions,
-    () => ColorScale,
-    () => LegendOptions,
-    () => DataLabelOptions,
-    () => TooltipOptions,
-    () => VisualInteractionOptions,
+    () => HeatMapFieldWells$,
+    () => HeatMapSortConfiguration$,
+    () => AxisDisplayOptions$,
+    () => ChartAxisLabelOptions$,
+    () => AxisDisplayOptions$,
+    () => ChartAxisLabelOptions$,
+    () => ColorScale$,
+    () => LegendOptions$,
+    () => DataLabelOptions$,
+    () => TooltipOptions$,
+    () => VisualInteractionOptions$,
   ],
 ];
-export var HeatMapFieldWells: StaticStructureSchema = [3, n0, _HMFW, 0, [_HMAFW], [() => HeatMapAggregatedFieldWells]];
-export var HeatMapSortConfiguration: StaticStructureSchema = [
+export var HeatMapFieldWells$: StaticStructureSchema = [
+  3,
+  n0,
+  _HMFW,
+  0,
+  [_HMAFW],
+  [() => HeatMapAggregatedFieldWells$],
+];
+export var HeatMapSortConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _HMSC,
@@ -9008,11 +9112,11 @@ export var HeatMapSortConfiguration: StaticStructureSchema = [
   [
     () => FieldSortOptionsList,
     () => FieldSortOptionsList,
-    () => ItemsLimitConfiguration,
-    () => ItemsLimitConfiguration,
+    () => ItemsLimitConfiguration$,
+    () => ItemsLimitConfiguration$,
   ],
 ];
-export var HeatMapVisual: StaticStructureSchema = [
+export var HeatMapVisual$: StaticStructureSchema = [
   3,
   n0,
   _HMV,
@@ -9020,15 +9124,15 @@ export var HeatMapVisual: StaticStructureSchema = [
   [_VI, _Tit, _Su, _CCh, _CH, _Ac, _VCAT],
   [
     0,
-    () => VisualTitleLabelOptions,
-    () => VisualSubtitleLabelOptions,
-    () => HeatMapConfiguration,
+    () => VisualTitleLabelOptions$,
+    () => VisualSubtitleLabelOptions$,
+    () => HeatMapConfiguration$,
     () => ColumnHierarchyList,
     () => VisualCustomActionList,
     0,
   ],
 ];
-export var HistogramAggregatedFieldWells: StaticStructureSchema = [
+export var HistogramAggregatedFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _HAFW,
@@ -9036,41 +9140,41 @@ export var HistogramAggregatedFieldWells: StaticStructureSchema = [
   [_Va],
   [() => HistogramMeasureFieldList],
 ];
-export var HistogramBinOptions: StaticStructureSchema = [
+export var HistogramBinOptions$: StaticStructureSchema = [
   3,
   n0,
   _HBO,
   0,
   [_SBT, _BCi, _BWi, _SVtar],
-  [0, () => BinCountOptions, () => BinWidthOptions, 1],
+  [0, () => BinCountOptions$, () => BinWidthOptions$, 1],
 ];
-export var HistogramConfiguration: StaticStructureSchema = [
+export var HistogramConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _HCi,
   0,
   [_FW, _XADO, _XALO, _YADO, _BO, _DL, _To, _VP, _I],
   [
-    () => HistogramFieldWells,
-    () => AxisDisplayOptions,
-    () => ChartAxisLabelOptions,
-    () => AxisDisplayOptions,
-    () => HistogramBinOptions,
-    () => DataLabelOptions,
-    () => TooltipOptions,
-    () => VisualPalette,
-    () => VisualInteractionOptions,
+    () => HistogramFieldWells$,
+    () => AxisDisplayOptions$,
+    () => ChartAxisLabelOptions$,
+    () => AxisDisplayOptions$,
+    () => HistogramBinOptions$,
+    () => DataLabelOptions$,
+    () => TooltipOptions$,
+    () => VisualPalette$,
+    () => VisualInteractionOptions$,
   ],
 ];
-export var HistogramFieldWells: StaticStructureSchema = [
+export var HistogramFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _HFW,
   0,
   [_HAFW],
-  [() => HistogramAggregatedFieldWells],
+  [() => HistogramAggregatedFieldWells$],
 ];
-export var HistogramVisual: StaticStructureSchema = [
+export var HistogramVisual$: StaticStructureSchema = [
   3,
   n0,
   _HV,
@@ -9078,15 +9182,15 @@ export var HistogramVisual: StaticStructureSchema = [
   [_VI, _Tit, _Su, _CCh, _Ac, _VCAT],
   [
     0,
-    () => VisualTitleLabelOptions,
-    () => VisualSubtitleLabelOptions,
-    () => HistogramConfiguration,
+    () => VisualTitleLabelOptions$,
+    () => VisualSubtitleLabelOptions$,
+    () => HistogramConfiguration$,
     () => VisualCustomActionList,
     0,
   ],
 ];
-export var IAMConnectionMetadata: StaticStructureSchema = [3, n0, _IAMCM, 0, [_RA], [0]];
-export var IAMPolicyAssignment: StaticStructureSchema = [
+export var IAMConnectionMetadata$: StaticStructureSchema = [3, n0, _IAMCM, 0, [_RA], [0]];
+export var IAMPolicyAssignment$: StaticStructureSchema = [
   3,
   n0,
   _IAMPA,
@@ -9094,10 +9198,10 @@ export var IAMPolicyAssignment: StaticStructureSchema = [
   [_AAI, _AIs, _ANs, _PA, _Id, _ASs],
   [0, 0, 0, 0, [2, n0, _IMd, 0, 0, 64 | 0], 0],
 ];
-export var IAMPolicyAssignmentSummary: StaticStructureSchema = [3, n0, _IAMPAS, 0, [_ANs, _ASs], [0, 0]];
-export var Identifier: StaticStructureSchema = [3, n0, _Ide, 0, [_Iden], [0]];
-export var IdentityCenterConfiguration: StaticStructureSchema = [3, n0, _ICC, 0, [_EIP], [2]];
-export var IdentityTypeNotSupportedException: StaticErrorSchema = [
+export var IAMPolicyAssignmentSummary$: StaticStructureSchema = [3, n0, _IAMPAS, 0, [_ANs, _ASs], [0, 0]];
+export var Identifier$: StaticStructureSchema = [3, n0, _Ide, 0, [_Iden], [0]];
+export var IdentityCenterConfiguration$: StaticStructureSchema = [3, n0, _ICC, 0, [_EIP], [2]];
+export var IdentityTypeNotSupportedException$: StaticErrorSchema = [
   -3,
   n0,
   _ITNSE,
@@ -9105,10 +9209,10 @@ export var IdentityTypeNotSupportedException: StaticErrorSchema = [
   [_M, _RI],
   [0, 0],
 ];
-TypeRegistry.for(n0).registerError(IdentityTypeNotSupportedException, __IdentityTypeNotSupportedException);
-export var Image: StaticStructureSchema = [3, n0, _Im, 0, [_So, _GIU], [() => ImageSource, 0]];
-export var ImageConfiguration: StaticStructureSchema = [3, n0, _IC, 0, [_So], [() => ImageSource]];
-export var ImageCustomAction: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(IdentityTypeNotSupportedException$, IdentityTypeNotSupportedException);
+export var Image$: StaticStructureSchema = [3, n0, _Im, 0, [_So, _GIU], [() => ImageSource$, 0]];
+export var ImageConfiguration$: StaticStructureSchema = [3, n0, _IC, 0, [_So], [() => ImageSource$]];
+export var ImageCustomAction$: StaticStructureSchema = [
   3,
   n0,
   _ICA,
@@ -9116,36 +9220,36 @@ export var ImageCustomAction: StaticStructureSchema = [
   [_CAI, _N, _St, _Tr, _AOc],
   [0, 0, 0, 0, () => ImageCustomActionOperationList],
 ];
-export var ImageCustomActionOperation: StaticStructureSchema = [
+export var ImageCustomActionOperation$: StaticStructureSchema = [
   3,
   n0,
   _ICAO,
   0,
   [_NOa, _URLO, _SPO],
-  [() => CustomActionNavigationOperation, () => CustomActionURLOperation, () => CustomActionSetParametersOperation],
+  [() => CustomActionNavigationOperation$, () => CustomActionURLOperation$, () => CustomActionSetParametersOperation$],
 ];
-export var ImageInteractionOptions: StaticStructureSchema = [3, n0, _IIO, 0, [_IMO], [() => ImageMenuOption]];
-export var ImageMenuOption: StaticStructureSchema = [3, n0, _IMO, 0, [_ASv], [0]];
-export var ImageSet: StaticStructureSchema = [
+export var ImageInteractionOptions$: StaticStructureSchema = [3, n0, _IIO, 0, [_IMO], [() => ImageMenuOption$]];
+export var ImageMenuOption$: StaticStructureSchema = [3, n0, _IMO, 0, [_ASv], [0]];
+export var ImageSet$: StaticStructureSchema = [
   3,
   n0,
   _ISma,
   0,
   [_Ori, _Hei, _Heig],
-  [() => Image, () => Image, () => Image],
+  [() => Image$, () => Image$, () => Image$],
 ];
-export var ImageSetConfiguration: StaticStructureSchema = [3, n0, _ISC, 0, [_Ori], [() => ImageConfiguration]];
-export var ImageStaticFile: StaticStructureSchema = [3, n0, _ISF, 0, [_SFIt, _So], [0, () => StaticFileSource]];
-export var ImpalaParameters: StaticStructureSchema = [3, n0, _IPm, 0, [_H, _Po, _Dat, _SEP], [0, 1, 0, 0]];
-export var ImportTableOperation: StaticStructureSchema = [
+export var ImageSetConfiguration$: StaticStructureSchema = [3, n0, _ISC, 0, [_Ori], [() => ImageConfiguration$]];
+export var ImageStaticFile$: StaticStructureSchema = [3, n0, _ISF, 0, [_SFIt, _So], [0, () => StaticFileSource$]];
+export var ImpalaParameters$: StaticStructureSchema = [3, n0, _IPm, 0, [_H, _Po, _Dat, _SEP], [0, 1, 0, 0]];
+export var ImportTableOperation$: StaticStructureSchema = [
   3,
   n0,
   _ITO,
   0,
   [_Al, _So],
-  [0, () => ImportTableOperationSource],
+  [0, () => ImportTableOperationSource$],
 ];
-export var ImportTableOperationSource: StaticStructureSchema = [
+export var ImportTableOperationSource$: StaticStructureSchema = [
   3,
   n0,
   _ITOS,
@@ -9153,26 +9257,26 @@ export var ImportTableOperationSource: StaticStructureSchema = [
   [_STI, _CIM],
   [0, () => DataSetColumnIdMappingList],
 ];
-export var IncrementalRefresh: StaticStructureSchema = [3, n0, _IR, 0, [_LWo], [() => LookbackWindow]];
-export var Ingestion: StaticStructureSchema = [
+export var IncrementalRefresh$: StaticStructureSchema = [3, n0, _IR, 0, [_LWo], [() => LookbackWindow$]];
+export var Ingestion$: StaticStructureSchema = [
   3,
   n0,
   _Ing,
   0,
   [_A, _II, _ISn, _EI, _RIow, _QIu, _CT, _ITIS, _ISIB, _RSeq, _RT],
-  [0, 0, 0, () => ErrorInfo, () => RowInfo, () => QueueInfo, 4, 1, 1, 0, 0],
+  [0, 0, 0, () => ErrorInfo$, () => RowInfo$, () => QueueInfo$, 4, 1, 1, 0, 0],
 ];
-export var InnerFilter: StaticStructureSchema = [3, n0, _IF, 0, [_CIF], [() => CategoryInnerFilter]];
-export var InputColumn: StaticStructureSchema = [3, n0, _ICn, 0, [_N, _Id_, _T, _STu], [0, 0, 0, 0]];
-export var InsightConfiguration: StaticStructureSchema = [
+export var InnerFilter$: StaticStructureSchema = [3, n0, _IF, 0, [_CIF], [() => CategoryInnerFilter$]];
+export var InputColumn$: StaticStructureSchema = [3, n0, _ICn, 0, [_N, _Id_, _T, _STu], [0, 0, 0, 0]];
+export var InsightConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ICns,
   0,
   [_Compu, _CNu, _I],
-  [() => ComputationList, () => CustomNarrativeOptions, () => VisualInteractionOptions],
+  [() => ComputationList, () => CustomNarrativeOptions$, () => VisualInteractionOptions$],
 ];
-export var InsightVisual: StaticStructureSchema = [
+export var InsightVisual$: StaticStructureSchema = [
   3,
   n0,
   _IVn,
@@ -9180,41 +9284,47 @@ export var InsightVisual: StaticStructureSchema = [
   [_VI, _Tit, _Su, _ICns, _Ac, _DSIatae, _VCAT],
   [
     0,
-    () => VisualTitleLabelOptions,
-    () => VisualSubtitleLabelOptions,
-    () => InsightConfiguration,
+    () => VisualTitleLabelOptions$,
+    () => VisualSubtitleLabelOptions$,
+    () => InsightConfiguration$,
     () => VisualCustomActionList,
     0,
     0,
   ],
 ];
-export var IntegerDatasetParameter: StaticStructureSchema = [
+export var IntegerDatasetParameter$: StaticStructureSchema = [
   3,
   n0,
   _IDP,
   0,
   [_Id_, _N, _VTa, _DVef],
-  [0, 0, 0, () => IntegerDatasetParameterDefaultValues],
+  [0, 0, 0, () => IntegerDatasetParameterDefaultValues$],
 ];
-export var IntegerDatasetParameterDefaultValues: StaticStructureSchema = [3, n0, _IDPDV, 0, [_SVtat], [64 | 1]];
-export var IntegerDefaultValues: StaticStructureSchema = [
+export var IntegerDatasetParameterDefaultValues$: StaticStructureSchema = [3, n0, _IDPDV, 0, [_SVtat], [64 | 1]];
+export var IntegerDefaultValues$: StaticStructureSchema = [
   3,
   n0,
   _IDV,
   0,
   [_DVy, _SVtat],
-  [() => DynamicDefaultValue, [() => IntegerDefaultValueList, 0]],
+  [() => DynamicDefaultValue$, [() => IntegerDefaultValueList, 0]],
 ];
-export var IntegerParameter: StaticStructureSchema = [3, n0, _IPn, 0, [_N, _Va], [0, [() => SensitiveLongList, 0]]];
-export var IntegerParameterDeclaration: StaticStructureSchema = [
+export var IntegerParameter$: StaticStructureSchema = [3, n0, _IPn, 0, [_N, _Va], [0, [() => SensitiveLongList, 0]]];
+export var IntegerParameterDeclaration$: StaticStructureSchema = [
   3,
   n0,
   _IPD,
   0,
   [_PVT, _N, _DVef, _VWU, _MDSP],
-  [0, 0, [() => IntegerDefaultValues, 0], [() => IntegerValueWhenUnsetConfiguration, 0], () => MappedDataSetParameters],
+  [
+    0,
+    0,
+    [() => IntegerDefaultValues$, 0],
+    [() => IntegerValueWhenUnsetConfiguration$, 0],
+    () => MappedDataSetParameters,
+  ],
 ];
-export var IntegerValueWhenUnsetConfiguration: StaticStructureSchema = [
+export var IntegerValueWhenUnsetConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _IVWUC,
@@ -9222,11 +9332,11 @@ export var IntegerValueWhenUnsetConfiguration: StaticStructureSchema = [
   [_VWUO, _CVus],
   [0, [() => SensitiveLong, 0]],
 ];
-export var InternalFailureException: StaticErrorSchema = [-3, n0, _IFE, { [_e]: _s, [_hE]: 500 }, [_M, _RI], [0, 0]];
-TypeRegistry.for(n0).registerError(InternalFailureException, __InternalFailureException);
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var InvalidDataSetParameterValueException: StaticErrorSchema = [
+export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE, { [_e]: _s, [_hE]: 500 }, [_M, _RI], [0, 0]];
+TypeRegistry.for(n0).registerError(InternalFailureException$, InternalFailureException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var InvalidDataSetParameterValueException$: StaticErrorSchema = [
   -3,
   n0,
   _IDSPVE,
@@ -9234,10 +9344,10 @@ export var InvalidDataSetParameterValueException: StaticErrorSchema = [
   [_M, _RI],
   [0, 0],
 ];
-TypeRegistry.for(n0).registerError(InvalidDataSetParameterValueException, __InvalidDataSetParameterValueException);
-export var InvalidNextTokenException: StaticErrorSchema = [-3, n0, _INTE, { [_e]: _c, [_hE]: 400 }, [_M, _RI], [0, 0]];
-TypeRegistry.for(n0).registerError(InvalidNextTokenException, __InvalidNextTokenException);
-export var InvalidParameterValueException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(InvalidDataSetParameterValueException$, InvalidDataSetParameterValueException);
+export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE, { [_e]: _c, [_hE]: 400 }, [_M, _RI], [0, 0]];
+TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
+export var InvalidParameterValueException$: StaticErrorSchema = [
   -3,
   n0,
   _IPVE,
@@ -9245,22 +9355,22 @@ export var InvalidParameterValueException: StaticErrorSchema = [
   [_M, _RI],
   [0, 0],
 ];
-TypeRegistry.for(n0).registerError(InvalidParameterValueException, __InvalidParameterValueException);
-export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c, [_hE]: 400 }, [_M, _RI], [0, 0]];
-TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-export var InvalidTopicReviewedAnswer: StaticStructureSchema = [3, n0, _ITRA, 0, [_AInsw, _Er], [0, 0]];
-export var ItemsLimitConfiguration: StaticStructureSchema = [3, n0, _ILCt, 0, [_IL, _OCt], [1, 0]];
-export var JiraParameters: StaticStructureSchema = [3, n0, _JP, 0, [_SBU], [0]];
-export var JoinInstruction: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InvalidParameterValueException$, InvalidParameterValueException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c, [_hE]: 400 }, [_M, _RI], [0, 0]];
+TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
+export var InvalidTopicReviewedAnswer$: StaticStructureSchema = [3, n0, _ITRA, 0, [_AInsw, _Er], [0, 0]];
+export var ItemsLimitConfiguration$: StaticStructureSchema = [3, n0, _ILCt, 0, [_IL, _OCt], [1, 0]];
+export var JiraParameters$: StaticStructureSchema = [3, n0, _JP, 0, [_SBU], [0]];
+export var JoinInstruction$: StaticStructureSchema = [
   3,
   n0,
   _JI,
   0,
   [_LOe, _ROi, _LJKP, _RJKP, _T, _OCn],
-  [0, 0, () => JoinKeyProperties, () => JoinKeyProperties, 0, 0],
+  [0, 0, () => JoinKeyProperties$, () => JoinKeyProperties$, 0, 0],
 ];
-export var JoinKeyProperties: StaticStructureSchema = [3, n0, _JKP, 0, [_UK], [2]];
-export var JoinOperandProperties: StaticStructureSchema = [
+export var JoinKeyProperties$: StaticStructureSchema = [3, n0, _JKP, 0, [_UK], [2]];
+export var JoinOperandProperties$: StaticStructureSchema = [
   3,
   n0,
   _JOP,
@@ -9268,7 +9378,7 @@ export var JoinOperandProperties: StaticStructureSchema = [
   [_OCNO],
   [() => OutputColumnNameOverrideList],
 ];
-export var JoinOperation: StaticStructureSchema = [
+export var JoinOperation$: StaticStructureSchema = [
   3,
   n0,
   _JO,
@@ -9276,15 +9386,15 @@ export var JoinOperation: StaticStructureSchema = [
   [_Al, _LOe, _ROi, _T, _OCn, _LOP, _ROP],
   [
     0,
-    () => TransformOperationSource,
-    () => TransformOperationSource,
+    () => TransformOperationSource$,
+    () => TransformOperationSource$,
     0,
     [() => JoinOperationOnClause, 0],
-    () => JoinOperandProperties,
-    () => JoinOperandProperties,
+    () => JoinOperandProperties$,
+    () => JoinOperandProperties$,
   ],
 ];
-export var KeyPairCredentials: StaticStructureSchema = [
+export var KeyPairCredentials$: StaticStructureSchema = [
   3,
   n0,
   _KPC,
@@ -9292,23 +9402,23 @@ export var KeyPairCredentials: StaticStructureSchema = [
   [_KPU, _PK, _PKP],
   [0, [() => PrivateKey, 0], [() => PrivateKeyPassphrase, 0]],
 ];
-export var KPIActualValueConditionalFormatting: StaticStructureSchema = [
+export var KPIActualValueConditionalFormatting$: StaticStructureSchema = [
   3,
   n0,
   _KPIAVCF,
   0,
   [_TC, _Ic],
-  [() => ConditionalFormattingColor, () => ConditionalFormattingIcon],
+  [() => ConditionalFormattingColor$, () => ConditionalFormattingIcon$],
 ];
-export var KPIComparisonValueConditionalFormatting: StaticStructureSchema = [
+export var KPIComparisonValueConditionalFormatting$: StaticStructureSchema = [
   3,
   n0,
   _KPICVCF,
   0,
   [_TC, _Ic],
-  [() => ConditionalFormattingColor, () => ConditionalFormattingIcon],
+  [() => ConditionalFormattingColor$, () => ConditionalFormattingIcon$],
 ];
-export var KPIConditionalFormatting: StaticStructureSchema = [
+export var KPIConditionalFormatting$: StaticStructureSchema = [
   3,
   n0,
   _KPICF,
@@ -9316,28 +9426,28 @@ export var KPIConditionalFormatting: StaticStructureSchema = [
   [_CFO],
   [() => KPIConditionalFormattingOptionList],
 ];
-export var KPIConditionalFormattingOption: StaticStructureSchema = [
+export var KPIConditionalFormattingOption$: StaticStructureSchema = [
   3,
   n0,
   _KPICFO,
   0,
   [_PVr, _PBr, _AVc, _CVo],
   [
-    () => KPIPrimaryValueConditionalFormatting,
-    () => KPIProgressBarConditionalFormatting,
-    () => KPIActualValueConditionalFormatting,
-    () => KPIComparisonValueConditionalFormatting,
+    () => KPIPrimaryValueConditionalFormatting$,
+    () => KPIProgressBarConditionalFormatting$,
+    () => KPIActualValueConditionalFormatting$,
+    () => KPIComparisonValueConditionalFormatting$,
   ],
 ];
-export var KPIConfiguration: StaticStructureSchema = [
+export var KPIConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _KPIC,
   0,
   [_FW, _SCo, _KPIO, _I],
-  [() => KPIFieldWells, () => KPISortConfiguration, () => KPIOptions, () => VisualInteractionOptions],
+  [() => KPIFieldWells$, () => KPISortConfiguration$, () => KPIOptions$, () => VisualInteractionOptions$],
 ];
-export var KPIFieldWells: StaticStructureSchema = [
+export var KPIFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _KPIFW,
@@ -9345,43 +9455,43 @@ export var KPIFieldWells: StaticStructureSchema = [
   [_Va, _TVa, _TGr],
   [() => MeasureFieldList, () => MeasureFieldList, () => DimensionFieldList],
 ];
-export var KPIOptions: StaticStructureSchema = [
+export var KPIOptions$: StaticStructureSchema = [
   3,
   n0,
   _KPIO,
   0,
   [_PBr, _TAr, _SVec, _Comp, _PVDT, _PVFC, _SVFC, _Spa, _VLOi],
   [
-    () => ProgressBarOptions,
-    () => TrendArrowOptions,
-    () => SecondaryValueOptions,
-    () => ComparisonConfiguration,
+    () => ProgressBarOptions$,
+    () => TrendArrowOptions$,
+    () => SecondaryValueOptions$,
+    () => ComparisonConfiguration$,
     0,
-    () => FontConfiguration,
-    () => FontConfiguration,
-    () => KPISparklineOptions,
-    () => KPIVisualLayoutOptions,
+    () => FontConfiguration$,
+    () => FontConfiguration$,
+    () => KPISparklineOptions$,
+    () => KPIVisualLayoutOptions$,
   ],
 ];
-export var KPIPrimaryValueConditionalFormatting: StaticStructureSchema = [
+export var KPIPrimaryValueConditionalFormatting$: StaticStructureSchema = [
   3,
   n0,
   _KPIPVCF,
   0,
   [_TC, _Ic],
-  [() => ConditionalFormattingColor, () => ConditionalFormattingIcon],
+  [() => ConditionalFormattingColor$, () => ConditionalFormattingIcon$],
 ];
-export var KPIProgressBarConditionalFormatting: StaticStructureSchema = [
+export var KPIProgressBarConditionalFormatting$: StaticStructureSchema = [
   3,
   n0,
   _KPIPBCF,
   0,
   [_FCoreg],
-  [() => ConditionalFormattingColor],
+  [() => ConditionalFormattingColor$],
 ];
-export var KPISortConfiguration: StaticStructureSchema = [3, n0, _KPISC, 0, [_TGS], [() => FieldSortOptionsList]];
-export var KPISparklineOptions: StaticStructureSchema = [3, n0, _KPISO, 0, [_Vi, _T, _Col, _TVo], [0, 0, 0, 0]];
-export var KPIVisual: StaticStructureSchema = [
+export var KPISortConfiguration$: StaticStructureSchema = [3, n0, _KPISC, 0, [_TGS], [() => FieldSortOptionsList]];
+export var KPISparklineOptions$: StaticStructureSchema = [3, n0, _KPISO, 0, [_Vi, _T, _Col, _TVo], [0, 0, 0, 0]];
+export var KPIVisual$: StaticStructureSchema = [
   3,
   n0,
   _KPIV,
@@ -9389,19 +9499,26 @@ export var KPIVisual: StaticStructureSchema = [
   [_VI, _Tit, _Su, _CCh, _CFon, _Ac, _CH, _VCAT],
   [
     0,
-    () => VisualTitleLabelOptions,
-    () => VisualSubtitleLabelOptions,
-    () => KPIConfiguration,
-    () => KPIConditionalFormatting,
+    () => VisualTitleLabelOptions$,
+    () => VisualSubtitleLabelOptions$,
+    () => KPIConfiguration$,
+    () => KPIConditionalFormatting$,
     () => VisualCustomActionList,
     () => ColumnHierarchyList,
     0,
   ],
 ];
-export var KPIVisualLayoutOptions: StaticStructureSchema = [3, n0, _KPIVLO, 0, [_SLt], [() => KPIVisualStandardLayout]];
-export var KPIVisualStandardLayout: StaticStructureSchema = [3, n0, _KPIVSL, 0, [_T], [0]];
-export var LabelOptions: StaticStructureSchema = [3, n0, _LO, 0, [_Vi, _FCo, _CL], [0, () => FontConfiguration, 0]];
-export var LayerCustomAction: StaticStructureSchema = [
+export var KPIVisualLayoutOptions$: StaticStructureSchema = [
+  3,
+  n0,
+  _KPIVLO,
+  0,
+  [_SLt],
+  [() => KPIVisualStandardLayout$],
+];
+export var KPIVisualStandardLayout$: StaticStructureSchema = [3, n0, _KPIVSL, 0, [_T], [0]];
+export var LabelOptions$: StaticStructureSchema = [3, n0, _LO, 0, [_Vi, _FCo, _CL], [0, () => FontConfiguration$, 0]];
+export var LayerCustomAction$: StaticStructureSchema = [
   3,
   n0,
   _LCA,
@@ -9409,45 +9526,45 @@ export var LayerCustomAction: StaticStructureSchema = [
   [_CAI, _N, _St, _Tr, _AOc],
   [0, 0, 0, 0, () => LayerCustomActionOperationList],
 ];
-export var LayerCustomActionOperation: StaticStructureSchema = [
+export var LayerCustomActionOperation$: StaticStructureSchema = [
   3,
   n0,
   _LCAO,
   0,
   [_FO, _NOa, _URLO, _SPO],
   [
-    () => CustomActionFilterOperation,
-    () => CustomActionNavigationOperation,
-    () => CustomActionURLOperation,
-    () => CustomActionSetParametersOperation,
+    () => CustomActionFilterOperation$,
+    () => CustomActionNavigationOperation$,
+    () => CustomActionURLOperation$,
+    () => CustomActionSetParametersOperation$,
   ],
 ];
-export var LayerMapVisual: StaticStructureSchema = [
+export var LayerMapVisual$: StaticStructureSchema = [
   3,
   n0,
   _LMV,
   0,
   [_VI, _Tit, _Su, _CCh, _DSIatae, _VCAT],
-  [0, () => VisualTitleLabelOptions, () => VisualSubtitleLabelOptions, () => GeospatialLayerMapConfiguration, 0, 0],
+  [0, () => VisualTitleLabelOptions$, () => VisualSubtitleLabelOptions$, () => GeospatialLayerMapConfiguration$, 0, 0],
 ];
-export var Layout: StaticStructureSchema = [3, n0, _La, 0, [_Conf], [() => LayoutConfiguration]];
-export var LayoutConfiguration: StaticStructureSchema = [
+export var Layout$: StaticStructureSchema = [3, n0, _La, 0, [_Conf], [() => LayoutConfiguration$]];
+export var LayoutConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _LCay,
   0,
   [_GL, _FFL, _SBL],
-  [() => GridLayoutConfiguration, () => FreeFormLayoutConfiguration, () => SectionBasedLayoutConfiguration],
+  [() => GridLayoutConfiguration$, () => FreeFormLayoutConfiguration$, () => SectionBasedLayoutConfiguration$],
 ];
-export var LegendOptions: StaticStructureSchema = [
+export var LegendOptions$: StaticStructureSchema = [
   3,
   n0,
   _LOeg,
   0,
   [_Vi, _Tit, _Pos, _W, _He, _VFC],
-  [0, () => LabelOptions, 0, 0, 0, () => FontConfiguration],
+  [0, () => LabelOptions$, 0, 0, 0, () => FontConfiguration$],
 ];
-export var LimitExceededException: StaticErrorSchema = [
+export var LimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
@@ -9455,8 +9572,8 @@ export var LimitExceededException: StaticErrorSchema = [
   [_M, _RTe, _RI],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-export var LineChartAggregatedFieldWells: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
+export var LineChartAggregatedFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _LCAFW,
@@ -9464,7 +9581,7 @@ export var LineChartAggregatedFieldWells: StaticStructureSchema = [
   [_Ca, _Va, _Co, _SM],
   [() => DimensionFieldList, () => MeasureFieldList, () => DimensionFieldList, () => SmallMultiplesDimensionFieldList],
 ];
-export var LineChartConfiguration: StaticStructureSchema = [
+export var LineChartConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _LCC,
@@ -9493,47 +9610,54 @@ export var LineChartConfiguration: StaticStructureSchema = [
     _I,
   ],
   [
-    () => LineChartFieldWells,
-    () => LineChartSortConfiguration,
+    () => LineChartFieldWells$,
+    () => LineChartSortConfiguration$,
     () => ForecastConfigurationList,
     0,
-    () => SmallMultiplesOptions,
-    () => AxisDisplayOptions,
-    () => ChartAxisLabelOptions,
-    () => LineSeriesAxisDisplayOptions,
-    () => ChartAxisLabelOptions,
-    () => LineSeriesAxisDisplayOptions,
-    () => ChartAxisLabelOptions,
-    () => SingleAxisOptions,
-    () => LineChartDefaultSeriesSettings,
+    () => SmallMultiplesOptions$,
+    () => AxisDisplayOptions$,
+    () => ChartAxisLabelOptions$,
+    () => LineSeriesAxisDisplayOptions$,
+    () => ChartAxisLabelOptions$,
+    () => LineSeriesAxisDisplayOptions$,
+    () => ChartAxisLabelOptions$,
+    () => SingleAxisOptions$,
+    () => LineChartDefaultSeriesSettings$,
     () => SeriesItemList,
-    () => LegendOptions,
-    () => DataLabelOptions,
+    () => LegendOptions$,
+    () => DataLabelOptions$,
     () => ReferenceLineList,
-    () => TooltipOptions,
+    () => TooltipOptions$,
     () => ContributionAnalysisDefaultList,
-    () => VisualPalette,
-    () => VisualInteractionOptions,
+    () => VisualPalette$,
+    () => VisualInteractionOptions$,
   ],
 ];
-export var LineChartDefaultSeriesSettings: StaticStructureSchema = [
+export var LineChartDefaultSeriesSettings$: StaticStructureSchema = [
   3,
   n0,
   _LCDSS,
   0,
   [_AB, _LSS, _MSS, _DSe],
-  [0, () => LineChartLineStyleSettings, () => LineChartMarkerStyleSettings, () => DecalSettings],
+  [0, () => LineChartLineStyleSettings$, () => LineChartMarkerStyleSettings$, () => DecalSettings$],
 ];
-export var LineChartFieldWells: StaticStructureSchema = [
+export var LineChartFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _LCFW,
   0,
   [_LCAFW],
-  [() => LineChartAggregatedFieldWells],
+  [() => LineChartAggregatedFieldWells$],
 ];
-export var LineChartLineStyleSettings: StaticStructureSchema = [3, n0, _LCLSS, 0, [_LVi, _LIi, _LS, _LW], [0, 0, 0, 0]];
-export var LineChartMarkerStyleSettings: StaticStructureSchema = [
+export var LineChartLineStyleSettings$: StaticStructureSchema = [
+  3,
+  n0,
+  _LCLSS,
+  0,
+  [_LVi, _LIi, _LS, _LW],
+  [0, 0, 0, 0],
+];
+export var LineChartMarkerStyleSettings$: StaticStructureSchema = [
   3,
   n0,
   _LCMSS,
@@ -9541,15 +9665,15 @@ export var LineChartMarkerStyleSettings: StaticStructureSchema = [
   [_MVa, _MSar, _MSark, _MCa],
   [0, 0, 0, 0],
 ];
-export var LineChartSeriesSettings: StaticStructureSchema = [
+export var LineChartSeriesSettings$: StaticStructureSchema = [
   3,
   n0,
   _LCSS,
   0,
   [_LSS, _MSS, _DSe],
-  [() => LineChartLineStyleSettings, () => LineChartMarkerStyleSettings, () => DecalSettings],
+  [() => LineChartLineStyleSettings$, () => LineChartMarkerStyleSettings$, () => DecalSettings$],
 ];
-export var LineChartSortConfiguration: StaticStructureSchema = [
+export var LineChartSortConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _LCSC,
@@ -9557,13 +9681,13 @@ export var LineChartSortConfiguration: StaticStructureSchema = [
   [_CSa, _CILC, _CILCo, _SMS, _SMLC],
   [
     () => FieldSortOptionsList,
-    () => ItemsLimitConfiguration,
-    () => ItemsLimitConfiguration,
+    () => ItemsLimitConfiguration$,
+    () => ItemsLimitConfiguration$,
     () => FieldSortOptionsList,
-    () => ItemsLimitConfiguration,
+    () => ItemsLimitConfiguration$,
   ],
 ];
-export var LineChartVisual: StaticStructureSchema = [
+export var LineChartVisual$: StaticStructureSchema = [
   3,
   n0,
   _LCV,
@@ -9571,24 +9695,24 @@ export var LineChartVisual: StaticStructureSchema = [
   [_VI, _Tit, _Su, _CCh, _Ac, _CH, _VCAT],
   [
     0,
-    () => VisualTitleLabelOptions,
-    () => VisualSubtitleLabelOptions,
-    () => LineChartConfiguration,
+    () => VisualTitleLabelOptions$,
+    () => VisualSubtitleLabelOptions$,
+    () => LineChartConfiguration$,
     () => VisualCustomActionList,
     () => ColumnHierarchyList,
     0,
   ],
 ];
-export var LineSeriesAxisDisplayOptions: StaticStructureSchema = [
+export var LineSeriesAxisDisplayOptions$: StaticStructureSchema = [
   3,
   n0,
   _LSADO,
   0,
   [_AOxi, _MDC],
-  [() => AxisDisplayOptions, () => MissingDataConfigurationList],
+  [() => AxisDisplayOptions$, () => MissingDataConfigurationList],
 ];
-export var LinkSharingConfiguration: StaticStructureSchema = [3, n0, _LSC, 0, [_Per], [() => ResourcePermissionList]];
-export var ListActionConnectorsRequest: StaticStructureSchema = [
+export var LinkSharingConfiguration$: StaticStructureSchema = [3, n0, _LSC, 0, [_Per], [() => ResourcePermissionList]];
+export var ListActionConnectorsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LACR,
@@ -9600,7 +9724,7 @@ export var ListActionConnectorsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nt }],
   ],
 ];
-export var ListActionConnectorsResponse: StaticStructureSchema = [
+export var ListActionConnectorsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LACRi,
@@ -9608,7 +9732,7 @@ export var ListActionConnectorsResponse: StaticStructureSchema = [
   [_ACSc, _NT, _RI, _St],
   [[() => ActionConnectorSummaryList, 0], 0, 0, [1, 32]],
 ];
-export var ListAnalysesRequest: StaticStructureSchema = [
+export var ListAnalysesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAR,
@@ -9620,7 +9744,7 @@ export var ListAnalysesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mr }],
   ],
 ];
-export var ListAnalysesResponse: StaticStructureSchema = [
+export var ListAnalysesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LARi,
@@ -9628,7 +9752,7 @@ export var ListAnalysesResponse: StaticStructureSchema = [
   [_ASL, _NT, _St, _RI],
   [() => AnalysisSummaryList, 0, [1, 32], 0],
 ];
-export var ListAssetBundleExportJobsRequest: StaticStructureSchema = [
+export var ListAssetBundleExportJobsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LABEJR,
@@ -9640,7 +9764,7 @@ export var ListAssetBundleExportJobsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mr }],
   ],
 ];
-export var ListAssetBundleExportJobsResponse: StaticStructureSchema = [
+export var ListAssetBundleExportJobsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LABEJRi,
@@ -9648,7 +9772,7 @@ export var ListAssetBundleExportJobsResponse: StaticStructureSchema = [
   [_ABEJSL, _NT, _RI, _St],
   [() => AssetBundleExportJobSummaryList, 0, 0, [1, 32]],
 ];
-export var ListAssetBundleImportJobsRequest: StaticStructureSchema = [
+export var ListAssetBundleImportJobsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LABIJR,
@@ -9660,7 +9784,7 @@ export var ListAssetBundleImportJobsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mr }],
   ],
 ];
-export var ListAssetBundleImportJobsResponse: StaticStructureSchema = [
+export var ListAssetBundleImportJobsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LABIJRi,
@@ -9668,7 +9792,7 @@ export var ListAssetBundleImportJobsResponse: StaticStructureSchema = [
   [_ABIJSL, _NT, _RI, _St],
   [() => AssetBundleImportJobSummaryList, 0, 0, [1, 32]],
 ];
-export var ListBrandsRequest: StaticStructureSchema = [
+export var ListBrandsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LBR,
@@ -9680,23 +9804,23 @@ export var ListBrandsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nt }],
   ],
 ];
-export var ListBrandsResponse: StaticStructureSchema = [3, n0, _LBRi, 0, [_NT, _Br], [0, () => BrandSummaryList]];
-export var ListControlDisplayOptions: StaticStructureSchema = [
+export var ListBrandsResponse$: StaticStructureSchema = [3, n0, _LBRi, 0, [_NT, _Br], [0, () => BrandSummaryList]];
+export var ListControlDisplayOptions$: StaticStructureSchema = [
   3,
   n0,
   _LCDO,
   0,
   [_SOe, _SAOe, _TO, _IILO],
   [
-    () => ListControlSearchOptions,
-    () => ListControlSelectAllOptions,
-    () => LabelOptions,
-    () => SheetControlInfoIconLabelOptions,
+    () => ListControlSearchOptions$,
+    () => ListControlSelectAllOptions$,
+    () => LabelOptions$,
+    () => SheetControlInfoIconLabelOptions$,
   ],
 ];
-export var ListControlSearchOptions: StaticStructureSchema = [3, n0, _LCSO, 0, [_Vi], [0]];
-export var ListControlSelectAllOptions: StaticStructureSchema = [3, n0, _LCSAO, 0, [_Vi], [0]];
-export var ListCustomPermissionsRequest: StaticStructureSchema = [
+export var ListControlSearchOptions$: StaticStructureSchema = [3, n0, _LCSO, 0, [_Vi], [0]];
+export var ListControlSelectAllOptions$: StaticStructureSchema = [3, n0, _LCSAO, 0, [_Vi], [0]];
+export var ListCustomPermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCPR,
@@ -9708,7 +9832,7 @@ export var ListCustomPermissionsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nt }],
   ],
 ];
-export var ListCustomPermissionsResponse: StaticStructureSchema = [
+export var ListCustomPermissionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCPRi,
@@ -9716,7 +9840,7 @@ export var ListCustomPermissionsResponse: StaticStructureSchema = [
   [_St, _CPL, _NT, _RI],
   [[1, 32], () => CustomPermissionsList, 0, 0],
 ];
-export var ListDashboardsRequest: StaticStructureSchema = [
+export var ListDashboardsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDR,
@@ -9728,7 +9852,7 @@ export var ListDashboardsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mr }],
   ],
 ];
-export var ListDashboardsResponse: StaticStructureSchema = [
+export var ListDashboardsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LDRi,
@@ -9736,7 +9860,7 @@ export var ListDashboardsResponse: StaticStructureSchema = [
   [_DSL, _NT, _St, _RI],
   [() => DashboardSummaryList, 0, [1, 32], 0],
 ];
-export var ListDashboardVersionsRequest: StaticStructureSchema = [
+export var ListDashboardVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDVR,
@@ -9749,7 +9873,7 @@ export var ListDashboardVersionsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mr }],
   ],
 ];
-export var ListDashboardVersionsResponse: StaticStructureSchema = [
+export var ListDashboardVersionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LDVRi,
@@ -9757,7 +9881,7 @@ export var ListDashboardVersionsResponse: StaticStructureSchema = [
   [_DVSL, _NT, _St, _RI],
   [() => DashboardVersionSummaryList, 0, [1, 32], 0],
 ];
-export var ListDataSetsRequest: StaticStructureSchema = [
+export var ListDataSetsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDSR,
@@ -9769,7 +9893,7 @@ export var ListDataSetsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mr }],
   ],
 ];
-export var ListDataSetsResponse: StaticStructureSchema = [
+export var ListDataSetsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LDSRi,
@@ -9777,7 +9901,7 @@ export var ListDataSetsResponse: StaticStructureSchema = [
   [_DSSatae, _NT, _RI, _St],
   [() => DataSetSummaryList, 0, 0, [1, 32]],
 ];
-export var ListDataSourcesRequest: StaticStructureSchema = [
+export var ListDataSourcesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDSRis,
@@ -9789,7 +9913,7 @@ export var ListDataSourcesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mr }],
   ],
 ];
-export var ListDataSourcesResponse: StaticStructureSchema = [
+export var ListDataSourcesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LDSRist,
@@ -9797,7 +9921,7 @@ export var ListDataSourcesResponse: StaticStructureSchema = [
   [_DSa, _NT, _RI, _St],
   [() => DataSourceList, 0, 0, [1, 32]],
 ];
-export var ListFlowsInput: StaticStructureSchema = [
+export var ListFlowsInput$: StaticStructureSchema = [
   3,
   n0,
   _LFI,
@@ -9809,7 +9933,7 @@ export var ListFlowsInput: StaticStructureSchema = [
     [1, { [_hQ]: _mr }],
   ],
 ];
-export var ListFlowsOutput: StaticStructureSchema = [
+export var ListFlowsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LFO,
@@ -9817,7 +9941,7 @@ export var ListFlowsOutput: StaticStructureSchema = [
   [_FSL, _NT, _RI, _St],
   [() => FlowSummaryList, 0, 0, [1, 32]],
 ];
-export var ListFolderMembersRequest: StaticStructureSchema = [
+export var ListFolderMembersRequest$: StaticStructureSchema = [
   3,
   n0,
   _LFMR,
@@ -9830,7 +9954,7 @@ export var ListFolderMembersRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mr }],
   ],
 ];
-export var ListFolderMembersResponse: StaticStructureSchema = [
+export var ListFolderMembersResponse$: StaticStructureSchema = [
   3,
   n0,
   _LFMRi,
@@ -9838,7 +9962,7 @@ export var ListFolderMembersResponse: StaticStructureSchema = [
   [_St, _FML, _NT, _RI],
   [[1, 32], () => FolderMemberList, 0, 0],
 ];
-export var ListFoldersForResourceRequest: StaticStructureSchema = [
+export var ListFoldersForResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _LFFRR,
@@ -9851,7 +9975,7 @@ export var ListFoldersForResourceRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mr }],
   ],
 ];
-export var ListFoldersForResourceResponse: StaticStructureSchema = [
+export var ListFoldersForResourceResponse$: StaticStructureSchema = [
   3,
   n0,
   _LFFRRi,
@@ -9859,7 +9983,7 @@ export var ListFoldersForResourceResponse: StaticStructureSchema = [
   [_St, _F, _NT, _RI],
   [[1, 32], 64 | 0, 0, 0],
 ];
-export var ListFoldersRequest: StaticStructureSchema = [
+export var ListFoldersRequest$: StaticStructureSchema = [
   3,
   n0,
   _LFR,
@@ -9871,7 +9995,7 @@ export var ListFoldersRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mr }],
   ],
 ];
-export var ListFoldersResponse: StaticStructureSchema = [
+export var ListFoldersResponse$: StaticStructureSchema = [
   3,
   n0,
   _LFRi,
@@ -9879,7 +10003,7 @@ export var ListFoldersResponse: StaticStructureSchema = [
   [_St, _FSLo, _NT, _RI],
   [[1, 32], () => FolderSummaryList, 0, 0],
 ];
-export var ListGroupMembershipsRequest: StaticStructureSchema = [
+export var ListGroupMembershipsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LGMR,
@@ -9893,7 +10017,7 @@ export var ListGroupMembershipsRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var ListGroupMembershipsResponse: StaticStructureSchema = [
+export var ListGroupMembershipsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LGMRi,
@@ -9901,7 +10025,7 @@ export var ListGroupMembershipsResponse: StaticStructureSchema = [
   [_GML, _NT, _RI, _St],
   [() => GroupMemberList, 0, 0, [1, 32]],
 ];
-export var ListGroupsRequest: StaticStructureSchema = [
+export var ListGroupsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LGR,
@@ -9914,7 +10038,7 @@ export var ListGroupsRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var ListGroupsResponse: StaticStructureSchema = [
+export var ListGroupsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LGRi,
@@ -9922,7 +10046,7 @@ export var ListGroupsResponse: StaticStructureSchema = [
   [_GLr, _NT, _RI, _St],
   [() => GroupList, 0, 0, [1, 32]],
 ];
-export var ListIAMPolicyAssignmentsForUserRequest: StaticStructureSchema = [
+export var ListIAMPolicyAssignmentsForUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _LIAMPAFUR,
@@ -9936,7 +10060,7 @@ export var ListIAMPolicyAssignmentsForUserRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var ListIAMPolicyAssignmentsForUserResponse: StaticStructureSchema = [
+export var ListIAMPolicyAssignmentsForUserResponse$: StaticStructureSchema = [
   3,
   n0,
   _LIAMPAFURi,
@@ -9944,7 +10068,7 @@ export var ListIAMPolicyAssignmentsForUserResponse: StaticStructureSchema = [
   [_AAc, _RI, _NT, _St],
   [() => ActiveIAMPolicyAssignmentList, 0, 0, [1, 32]],
 ];
-export var ListIAMPolicyAssignmentsRequest: StaticStructureSchema = [
+export var ListIAMPolicyAssignmentsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LIAMPAR,
@@ -9958,7 +10082,7 @@ export var ListIAMPolicyAssignmentsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mr }],
   ],
 ];
-export var ListIAMPolicyAssignmentsResponse: StaticStructureSchema = [
+export var ListIAMPolicyAssignmentsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LIAMPARi,
@@ -9966,7 +10090,7 @@ export var ListIAMPolicyAssignmentsResponse: StaticStructureSchema = [
   [_IAMPAo, _NT, _RI, _St],
   [() => IAMPolicyAssignmentSummaryList, 0, 0, [1, 32]],
 ];
-export var ListIdentityPropagationConfigsRequest: StaticStructureSchema = [
+export var ListIdentityPropagationConfigsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LIPCR,
@@ -9978,7 +10102,7 @@ export var ListIdentityPropagationConfigsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nt }],
   ],
 ];
-export var ListIdentityPropagationConfigsResponse: StaticStructureSchema = [
+export var ListIdentityPropagationConfigsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LIPCRi,
@@ -9986,7 +10110,7 @@ export var ListIdentityPropagationConfigsResponse: StaticStructureSchema = [
   [_Serv, _NT, _St, _RI],
   [() => AuthorizedTargetsByServices, 0, [1, 32], 0],
 ];
-export var ListIngestionsRequest: StaticStructureSchema = [
+export var ListIngestionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LIR,
@@ -9999,7 +10123,7 @@ export var ListIngestionsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mr }],
   ],
 ];
-export var ListIngestionsResponse: StaticStructureSchema = [
+export var ListIngestionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LIRi,
@@ -10007,7 +10131,7 @@ export var ListIngestionsResponse: StaticStructureSchema = [
   [_Inge, _NT, _RI, _St],
   [() => Ingestions, 0, 0, [1, 32]],
 ];
-export var ListNamespacesRequest: StaticStructureSchema = [
+export var ListNamespacesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LNR,
@@ -10019,7 +10143,7 @@ export var ListNamespacesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mr }],
   ],
 ];
-export var ListNamespacesResponse: StaticStructureSchema = [
+export var ListNamespacesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LNRi,
@@ -10027,7 +10151,7 @@ export var ListNamespacesResponse: StaticStructureSchema = [
   [_Nam, _NT, _RI, _St],
   [() => Namespaces, 0, 0, [1, 32]],
 ];
-export var ListRefreshSchedulesRequest: StaticStructureSchema = [
+export var ListRefreshSchedulesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRSR,
@@ -10038,7 +10162,7 @@ export var ListRefreshSchedulesRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var ListRefreshSchedulesResponse: StaticStructureSchema = [
+export var ListRefreshSchedulesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRSRi,
@@ -10046,7 +10170,7 @@ export var ListRefreshSchedulesResponse: StaticStructureSchema = [
   [_RS, _St, _RI],
   [() => RefreshSchedules, [1, 32], 0],
 ];
-export var ListRoleMembershipsRequest: StaticStructureSchema = [
+export var ListRoleMembershipsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRMR,
@@ -10060,7 +10184,7 @@ export var ListRoleMembershipsRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var ListRoleMembershipsResponse: StaticStructureSchema = [
+export var ListRoleMembershipsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRMRi,
@@ -10068,8 +10192,8 @@ export var ListRoleMembershipsResponse: StaticStructureSchema = [
   [_MLe, _NT, _RI, _St],
   [64 | 0, 0, 0, [1, 32]],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RAeso], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RAeso], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [
   3,
   n0,
   _LTFRRi,
@@ -10077,7 +10201,7 @@ export var ListTagsForResourceResponse: StaticStructureSchema = [
   [_Ta, _RI, _St],
   [() => TagList, 0, [1, 32]],
 ];
-export var ListTemplateAliasesRequest: StaticStructureSchema = [
+export var ListTemplateAliasesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LTAR,
@@ -10090,7 +10214,7 @@ export var ListTemplateAliasesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mr_ }],
   ],
 ];
-export var ListTemplateAliasesResponse: StaticStructureSchema = [
+export var ListTemplateAliasesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LTARi,
@@ -10098,7 +10222,7 @@ export var ListTemplateAliasesResponse: StaticStructureSchema = [
   [_TAL, _St, _RI, _NT],
   [() => TemplateAliasList, [1, 32], 0, 0],
 ];
-export var ListTemplatesRequest: StaticStructureSchema = [
+export var ListTemplatesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LTR,
@@ -10110,7 +10234,7 @@ export var ListTemplatesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mr_ }],
   ],
 ];
-export var ListTemplatesResponse: StaticStructureSchema = [
+export var ListTemplatesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LTRi,
@@ -10118,7 +10242,7 @@ export var ListTemplatesResponse: StaticStructureSchema = [
   [_TSL, _NT, _St, _RI],
   [() => TemplateSummaryList, 0, [1, 32], 0],
 ];
-export var ListTemplateVersionsRequest: StaticStructureSchema = [
+export var ListTemplateVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LTVR,
@@ -10131,7 +10255,7 @@ export var ListTemplateVersionsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mr }],
   ],
 ];
-export var ListTemplateVersionsResponse: StaticStructureSchema = [
+export var ListTemplateVersionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LTVRi,
@@ -10139,7 +10263,7 @@ export var ListTemplateVersionsResponse: StaticStructureSchema = [
   [_TVSL, _NT, _St, _RI],
   [() => TemplateVersionSummaryList, 0, [1, 32], 0],
 ];
-export var ListThemeAliasesRequest: StaticStructureSchema = [
+export var ListThemeAliasesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LTARis,
@@ -10152,7 +10276,7 @@ export var ListThemeAliasesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mr_ }],
   ],
 ];
-export var ListThemeAliasesResponse: StaticStructureSchema = [
+export var ListThemeAliasesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LTARist,
@@ -10160,7 +10284,7 @@ export var ListThemeAliasesResponse: StaticStructureSchema = [
   [_TALh, _St, _RI, _NT],
   [() => ThemeAliasList, [1, 32], 0, 0],
 ];
-export var ListThemesRequest: StaticStructureSchema = [
+export var ListThemesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LTRis,
@@ -10173,7 +10297,7 @@ export var ListThemesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _t }],
   ],
 ];
-export var ListThemesResponse: StaticStructureSchema = [
+export var ListThemesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LTRist,
@@ -10181,7 +10305,7 @@ export var ListThemesResponse: StaticStructureSchema = [
   [_TSLh, _NT, _St, _RI],
   [() => ThemeSummaryList, 0, [1, 32], 0],
 ];
-export var ListThemeVersionsRequest: StaticStructureSchema = [
+export var ListThemeVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LTVRis,
@@ -10194,7 +10318,7 @@ export var ListThemeVersionsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mr }],
   ],
 ];
-export var ListThemeVersionsResponse: StaticStructureSchema = [
+export var ListThemeVersionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LTVRist,
@@ -10202,7 +10326,7 @@ export var ListThemeVersionsResponse: StaticStructureSchema = [
   [_TVSLh, _NT, _St, _RI],
   [() => ThemeVersionSummaryList, 0, [1, 32], 0],
 ];
-export var ListTopicRefreshSchedulesRequest: StaticStructureSchema = [
+export var ListTopicRefreshSchedulesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LTRSR,
@@ -10213,7 +10337,7 @@ export var ListTopicRefreshSchedulesRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var ListTopicRefreshSchedulesResponse: StaticStructureSchema = [
+export var ListTopicRefreshSchedulesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LTRSRi,
@@ -10221,7 +10345,7 @@ export var ListTopicRefreshSchedulesResponse: StaticStructureSchema = [
   [_TIo, _TAo, _RS, _St, _RI],
   [0, 0, () => TopicRefreshScheduleSummaries, [1, 32], 0],
 ];
-export var ListTopicReviewedAnswersRequest: StaticStructureSchema = [
+export var ListTopicReviewedAnswersRequest$: StaticStructureSchema = [
   3,
   n0,
   _LTRAR,
@@ -10232,7 +10356,7 @@ export var ListTopicReviewedAnswersRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var ListTopicReviewedAnswersResponse: StaticStructureSchema = [
+export var ListTopicReviewedAnswersResponse$: StaticStructureSchema = [
   3,
   n0,
   _LTRARi,
@@ -10240,7 +10364,7 @@ export var ListTopicReviewedAnswersResponse: StaticStructureSchema = [
   [_TIo, _TAo, _Ans, _St, _RI],
   [0, 0, [() => TopicReviewedAnswers, 0], [1, 32], 0],
 ];
-export var ListTopicsRequest: StaticStructureSchema = [
+export var ListTopicsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LTRisto,
@@ -10252,7 +10376,7 @@ export var ListTopicsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mr }],
   ],
 ];
-export var ListTopicsResponse: StaticStructureSchema = [
+export var ListTopicsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LTRistop,
@@ -10260,7 +10384,7 @@ export var ListTopicsResponse: StaticStructureSchema = [
   [_TS, _NT, _RI, _St],
   [() => TopicSummaries, 0, 0, [1, 32]],
 ];
-export var ListUserGroupsRequest: StaticStructureSchema = [
+export var ListUserGroupsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LUGR,
@@ -10274,7 +10398,7 @@ export var ListUserGroupsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mr }],
   ],
 ];
-export var ListUserGroupsResponse: StaticStructureSchema = [
+export var ListUserGroupsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LUGRi,
@@ -10282,7 +10406,7 @@ export var ListUserGroupsResponse: StaticStructureSchema = [
   [_GLr, _NT, _RI, _St],
   [() => GroupList, 0, 0, [1, 32]],
 ];
-export var ListUsersRequest: StaticStructureSchema = [
+export var ListUsersRequest$: StaticStructureSchema = [
   3,
   n0,
   _LUR,
@@ -10295,7 +10419,7 @@ export var ListUsersRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var ListUsersResponse: StaticStructureSchema = [
+export var ListUsersResponse$: StaticStructureSchema = [
   3,
   n0,
   _LURi,
@@ -10303,7 +10427,7 @@ export var ListUsersResponse: StaticStructureSchema = [
   [_UL, _NT, _RI, _St],
   [() => UserList, 0, 0, [1, 32]],
 ];
-export var ListVPCConnectionsRequest: StaticStructureSchema = [
+export var ListVPCConnectionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LVPCCR,
@@ -10315,7 +10439,7 @@ export var ListVPCConnectionsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mr }],
   ],
 ];
-export var ListVPCConnectionsResponse: StaticStructureSchema = [
+export var ListVPCConnectionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LVPCCRi,
@@ -10323,107 +10447,107 @@ export var ListVPCConnectionsResponse: StaticStructureSchema = [
   [_VPCCS, _NT, _RI, _St],
   [() => VPCConnectionSummaryList, 0, 0, [1, 32]],
 ];
-export var LoadingAnimation: StaticStructureSchema = [3, n0, _LAo, 0, [_Vi], [0]];
-export var LocalNavigationConfiguration: StaticStructureSchema = [3, n0, _LNC, 0, [_TSI], [0]];
-export var LogicalTable: StaticStructureSchema = [
+export var LoadingAnimation$: StaticStructureSchema = [3, n0, _LAo, 0, [_Vi], [0]];
+export var LocalNavigationConfiguration$: StaticStructureSchema = [3, n0, _LNC, 0, [_TSI], [0]];
+export var LogicalTable$: StaticStructureSchema = [
   3,
   n0,
   _LTo,
   0,
   [_Al, _DTat, _So],
-  [0, [() => TransformOperationList, 0], () => LogicalTableSource],
+  [0, [() => TransformOperationList, 0], () => LogicalTableSource$],
 ];
-export var LogicalTableSource: StaticStructureSchema = [
+export var LogicalTableSource$: StaticStructureSchema = [
   3,
   n0,
   _LTS,
   0,
   [_JI, _PTI, _DSAat],
-  [() => JoinInstruction, 0, 0],
+  [() => JoinInstruction$, 0, 0],
 ];
-export var Logo: StaticStructureSchema = [3, n0, _Log, 0, [_ATl, _LSo], [0, () => LogoSet]];
-export var LogoConfiguration: StaticStructureSchema = [3, n0, _LC, 0, [_ATl, _LSo], [0, () => LogoSetConfiguration]];
-export var LogoSet: StaticStructureSchema = [3, n0, _LSo, 0, [_Prim, _Fa], [() => ImageSet, () => ImageSet]];
-export var LogoSetConfiguration: StaticStructureSchema = [
+export var Logo$: StaticStructureSchema = [3, n0, _Log, 0, [_ATl, _LSo], [0, () => LogoSet$]];
+export var LogoConfiguration$: StaticStructureSchema = [3, n0, _LC, 0, [_ATl, _LSo], [0, () => LogoSetConfiguration$]];
+export var LogoSet$: StaticStructureSchema = [3, n0, _LSo, 0, [_Prim, _Fa], [() => ImageSet$, () => ImageSet$]];
+export var LogoSetConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _LSCo,
   0,
   [_Prim, _Fa],
-  [() => ImageSetConfiguration, () => ImageSetConfiguration],
+  [() => ImageSetConfiguration$, () => ImageSetConfiguration$],
 ];
-export var LongFormatText: StaticStructureSchema = [3, n0, _LFT, 0, [_PT, _RTi], [0, 0]];
-export var LookbackWindow: StaticStructureSchema = [3, n0, _LWo, 0, [_CN, _Si, _SUi], [0, 1, 0]];
-export var ManifestFileLocation: StaticStructureSchema = [3, n0, _MFL, 0, [_Bu, _K], [0, 0]];
-export var MappedDataSetParameter: StaticStructureSchema = [3, n0, _MDSPa, 0, [_DSIatae, _DSPN], [0, 0]];
-export var MarginStyle: StaticStructureSchema = [3, n0, _MSarg, 0, [_Sho], [2]];
-export var MariaDbParameters: StaticStructureSchema = [3, n0, _MDP, 0, [_H, _Po, _Dat], [0, 1, 0]];
-export var MaximumLabelType: StaticStructureSchema = [3, n0, _MLTa, 0, [_Vi], [0]];
-export var MaximumMinimumComputation: StaticStructureSchema = [
+export var LongFormatText$: StaticStructureSchema = [3, n0, _LFT, 0, [_PT, _RTi], [0, 0]];
+export var LookbackWindow$: StaticStructureSchema = [3, n0, _LWo, 0, [_CN, _Si, _SUi], [0, 1, 0]];
+export var ManifestFileLocation$: StaticStructureSchema = [3, n0, _MFL, 0, [_Bu, _K], [0, 0]];
+export var MappedDataSetParameter$: StaticStructureSchema = [3, n0, _MDSPa, 0, [_DSIatae, _DSPN], [0, 0]];
+export var MarginStyle$: StaticStructureSchema = [3, n0, _MSarg, 0, [_Sho], [2]];
+export var MariaDbParameters$: StaticStructureSchema = [3, n0, _MDP, 0, [_H, _Po, _Dat], [0, 1, 0]];
+export var MaximumLabelType$: StaticStructureSchema = [3, n0, _MLTa, 0, [_Vi], [0]];
+export var MaximumMinimumComputation$: StaticStructureSchema = [
   3,
   n0,
   _MMC,
   0,
   [_CIom, _N, _Tim, _V, _T],
-  [0, 0, () => DimensionField, () => MeasureField, 0],
+  [0, 0, () => DimensionField$, () => MeasureField$, 0],
 ];
-export var MeasureField: StaticStructureSchema = [
+export var MeasureField$: StaticStructureSchema = [
   3,
   n0,
   _MF,
   0,
   [_NMF, _CMFa, _DMF, _CMF],
   [
-    [() => NumericalMeasureField, 0],
-    [() => CategoricalMeasureField, 0],
-    [() => DateMeasureField, 0],
-    [() => CalculatedMeasureField, 0],
+    [() => NumericalMeasureField$, 0],
+    [() => CategoricalMeasureField$, 0],
+    [() => DateMeasureField$, 0],
+    [() => CalculatedMeasureField$, 0],
   ],
 ];
-export var MemberIdArnPair: StaticStructureSchema = [3, n0, _MIAP, 0, [_MI, _MA], [0, 0]];
-export var MetricComparisonComputation: StaticStructureSchema = [
+export var MemberIdArnPair$: StaticStructureSchema = [3, n0, _MIAP, 0, [_MI, _MA], [0, 0]];
+export var MetricComparisonComputation$: StaticStructureSchema = [
   3,
   n0,
   _MCC,
   0,
   [_CIom, _N, _Tim, _FVr, _TVar],
-  [0, 0, () => DimensionField, () => MeasureField, () => MeasureField],
+  [0, 0, () => DimensionField$, () => MeasureField$, () => MeasureField$],
 ];
-export var MinimumLabelType: StaticStructureSchema = [3, n0, _MLT, 0, [_Vi], [0]];
-export var MissingDataConfiguration: StaticStructureSchema = [3, n0, _MDCi, 0, [_TOr], [0]];
-export var MySqlParameters: StaticStructureSchema = [3, n0, _MSP, 0, [_H, _Po, _Dat], [0, 1, 0]];
-export var NamedEntityDefinition: StaticStructureSchema = [
+export var MinimumLabelType$: StaticStructureSchema = [3, n0, _MLT, 0, [_Vi], [0]];
+export var MissingDataConfiguration$: StaticStructureSchema = [3, n0, _MDCi, 0, [_TOr], [0]];
+export var MySqlParameters$: StaticStructureSchema = [3, n0, _MSP, 0, [_H, _Po, _Dat], [0, 1, 0]];
+export var NamedEntityDefinition$: StaticStructureSchema = [
   3,
   n0,
   _NED,
   0,
   [_FN, _PNr, _PRr, _PU, _Met],
-  [0, 0, 0, 0, () => NamedEntityDefinitionMetric],
+  [0, 0, 0, 0, () => NamedEntityDefinitionMetric$],
 ];
-export var NamedEntityDefinitionMetric: StaticStructureSchema = [3, n0, _NEDM, 0, [_Ag, _AFP], [0, 128 | 0]];
-export var NamedEntityRef: StaticStructureSchema = [3, n0, _NER, 0, [_NEN], [0]];
-export var NamespaceError: StaticStructureSchema = [3, n0, _NEam, 0, [_T, _M], [0, 0]];
-export var NamespaceInfoV2: StaticStructureSchema = [
+export var NamedEntityDefinitionMetric$: StaticStructureSchema = [3, n0, _NEDM, 0, [_Ag, _AFP], [0, 128 | 0]];
+export var NamedEntityRef$: StaticStructureSchema = [3, n0, _NER, 0, [_NEN], [0]];
+export var NamespaceError$: StaticStructureSchema = [3, n0, _NEam, 0, [_T, _M], [0, 0]];
+export var NamespaceInfoV2$: StaticStructureSchema = [
   3,
   n0,
   _NIV,
   0,
   [_N, _A, _CR, _CSr, _ISd, _NEam, _IICAA, _IICIA],
-  [0, 0, 0, 0, 0, () => NamespaceError, 0, 0],
+  [0, 0, 0, 0, 0, () => NamespaceError$, 0, 0],
 ];
-export var NavbarStyle: StaticStructureSchema = [3, n0, _NSa, 0, [_GNl, _CNont], [() => Palette, () => Palette]];
-export var NegativeFormat: StaticStructureSchema = [3, n0, _NF, 0, [_P, _S], [0, 0]];
-export var NegativeValueConfiguration: StaticStructureSchema = [3, n0, _NVCe, 0, [_DMi], [0]];
-export var NestedFilter: StaticStructureSchema = [
+export var NavbarStyle$: StaticStructureSchema = [3, n0, _NSa, 0, [_GNl, _CNont], [() => Palette$, () => Palette$]];
+export var NegativeFormat$: StaticStructureSchema = [3, n0, _NF, 0, [_P, _S], [0, 0]];
+export var NegativeValueConfiguration$: StaticStructureSchema = [3, n0, _NVCe, 0, [_DMi], [0]];
+export var NestedFilter$: StaticStructureSchema = [
   3,
   n0,
   _NFe,
   0,
   [_FIil, _C, _IIS, _IF],
-  [0, () => ColumnIdentifier, 2, () => InnerFilter],
+  [0, () => ColumnIdentifier$, 2, () => InnerFilter$],
 ];
-export var NetworkInterface: StaticStructureSchema = [3, n0, _NI, 0, [_SIub, _AZ, _EM, _St, _NII], [0, 0, 0, 0, 0]];
-export var NewDefaultValues: StaticStructureSchema = [
+export var NetworkInterface$: StaticStructureSchema = [3, n0, _NI, 0, [_SIub, _AZ, _EM, _St, _NII], [0, 0, 0, 0, 0]];
+export var NewDefaultValues$: StaticStructureSchema = [
   3,
   n0,
   _NDVe,
@@ -10431,9 +10555,9 @@ export var NewDefaultValues: StaticStructureSchema = [
   [_SSV, _DSV, _DTSV, _ISV],
   [64 | 0, 64 | 1, 64 | 4, 64 | 1],
 ];
-export var NoneConnectionMetadata: StaticStructureSchema = [3, n0, _NCM, 0, [_BE], [0]];
-export var NullValueFormatConfiguration: StaticStructureSchema = [3, n0, _NVFC, 0, [_NS], [[() => NullString, 0]]];
-export var NumberDisplayFormatConfiguration: StaticStructureSchema = [
+export var NoneConnectionMetadata$: StaticStructureSchema = [3, n0, _NCM, 0, [_BE], [0]];
+export var NullValueFormatConfiguration$: StaticStructureSchema = [3, n0, _NVFC, 0, [_NS], [[() => NullString, 0]]];
+export var NumberDisplayFormatConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _NDFC,
@@ -10442,82 +10566,82 @@ export var NumberDisplayFormatConfiguration: StaticStructureSchema = [
   [
     [() => Prefix, 0],
     [() => Suffix, 0],
-    () => NumericSeparatorConfiguration,
-    () => DecimalPlacesConfiguration,
+    () => NumericSeparatorConfiguration$,
+    () => DecimalPlacesConfiguration$,
     0,
-    () => NegativeValueConfiguration,
-    [() => NullValueFormatConfiguration, 0],
+    () => NegativeValueConfiguration$,
+    [() => NullValueFormatConfiguration$, 0],
   ],
 ];
-export var NumberFormatConfiguration: StaticStructureSchema = [
+export var NumberFormatConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _NFCum,
   0,
   [_FCor],
-  [[() => NumericFormatConfiguration, 0]],
+  [[() => NumericFormatConfiguration$, 0]],
 ];
-export var NumericalAggregationFunction: StaticStructureSchema = [
+export var NumericalAggregationFunction$: StaticStructureSchema = [
   3,
   n0,
   _NAF,
   0,
   [_SNA, _PAe],
-  [0, () => PercentileAggregation],
+  [0, () => PercentileAggregation$],
 ];
-export var NumericalDimensionField: StaticStructureSchema = [
+export var NumericalDimensionField$: StaticStructureSchema = [
   3,
   n0,
   _NDF,
   0,
   [_FIi, _C, _HI, _FCor],
-  [0, () => ColumnIdentifier, 0, [() => NumberFormatConfiguration, 0]],
+  [0, () => ColumnIdentifier$, 0, [() => NumberFormatConfiguration$, 0]],
 ];
-export var NumericalMeasureField: StaticStructureSchema = [
+export var NumericalMeasureField$: StaticStructureSchema = [
   3,
   n0,
   _NMF,
   0,
   [_FIi, _C, _AFg, _FCor],
-  [0, () => ColumnIdentifier, () => NumericalAggregationFunction, [() => NumberFormatConfiguration, 0]],
+  [0, () => ColumnIdentifier$, () => NumericalAggregationFunction$, [() => NumberFormatConfiguration$, 0]],
 ];
-export var NumericAxisOptions: StaticStructureSchema = [
+export var NumericAxisOptions$: StaticStructureSchema = [
   3,
   n0,
   _NAO,
   0,
   [_Sca, _R],
-  [() => AxisScale, () => AxisDisplayRange],
+  [() => AxisScale$, () => AxisDisplayRange$],
 ];
-export var NumericEqualityDrillDownFilter: StaticStructureSchema = [
+export var NumericEqualityDrillDownFilter$: StaticStructureSchema = [
   3,
   n0,
   _NEDDF,
   0,
   [_C, _V],
-  [() => ColumnIdentifier, 1],
+  [() => ColumnIdentifier$, 1],
 ];
-export var NumericEqualityFilter: StaticStructureSchema = [
+export var NumericEqualityFilter$: StaticStructureSchema = [
   3,
   n0,
   _NEF,
   0,
   [_FIil, _C, _V, _SAOe, _MO, _AFg, _PN, _NO, _DFCC],
-  [0, () => ColumnIdentifier, 1, 0, 0, () => AggregationFunction, 0, 0, () => DefaultFilterControlConfiguration],
+  [0, () => ColumnIdentifier$, 1, 0, 0, () => AggregationFunction$, 0, 0, () => DefaultFilterControlConfiguration$],
 ];
-export var NumericFormatConfiguration: StaticStructureSchema = [
+export var NumericFormatConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _NFC,
   0,
   [_NDFC, _CDFC, _PDFC],
   [
-    [() => NumberDisplayFormatConfiguration, 0],
-    [() => CurrencyDisplayFormatConfiguration, 0],
-    [() => PercentageDisplayFormatConfiguration, 0],
+    [() => NumberDisplayFormatConfiguration$, 0],
+    [() => CurrencyDisplayFormatConfiguration$, 0],
+    [() => PercentageDisplayFormatConfiguration$, 0],
   ],
 ];
-export var NumericRangeFilter: StaticStructureSchema = [
+export var NumericRangeFilter$: StaticStructureSchema = [
   3,
   n0,
   _NRF,
@@ -10525,36 +10649,36 @@ export var NumericRangeFilter: StaticStructureSchema = [
   [_FIil, _C, _IMn, _IMnc, _RM, _RMa, _SAOe, _AFg, _NO, _DFCC],
   [
     0,
-    () => ColumnIdentifier,
+    () => ColumnIdentifier$,
     2,
     2,
-    () => NumericRangeFilterValue,
-    () => NumericRangeFilterValue,
+    () => NumericRangeFilterValue$,
+    () => NumericRangeFilterValue$,
     0,
-    () => AggregationFunction,
+    () => AggregationFunction$,
     0,
-    () => DefaultFilterControlConfiguration,
+    () => DefaultFilterControlConfiguration$,
   ],
 ];
-export var NumericRangeFilterValue: StaticStructureSchema = [3, n0, _NRFV, 0, [_SVta, _Para], [1, 0]];
-export var NumericSeparatorConfiguration: StaticStructureSchema = [
+export var NumericRangeFilterValue$: StaticStructureSchema = [3, n0, _NRFV, 0, [_SVta, _Para], [1, 0]];
+export var NumericSeparatorConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _NSC,
   0,
   [_DSec, _TSh],
-  [0, () => ThousandSeparatorOptions],
+  [0, () => ThousandSeparatorOptions$],
 ];
-export var OAuthParameters: StaticStructureSchema = [
+export var OAuthParameters$: StaticStructureSchema = [
   3,
   n0,
   _OAP,
   0,
   [_TPU, _OAS, _IPVCP, _IPRU],
-  [0, 0, () => VpcConnectionProperties, 0],
+  [0, 0, () => VpcConnectionProperties$, 0],
 ];
-export var OracleParameters: StaticStructureSchema = [3, n0, _OPr, 0, [_H, _Po, _Dat, _USN], [0, 1, 0, 2]];
-export var OutputColumn: StaticStructureSchema = [
+export var OracleParameters$: StaticStructureSchema = [3, n0, _OPr, 0, [_H, _Po, _Dat, _USN], [0, 1, 0, 2]];
+export var OutputColumn$: StaticStructureSchema = [
   3,
   n0,
   _OCu,
@@ -10562,70 +10686,70 @@ export var OutputColumn: StaticStructureSchema = [
   [_N, _Id_, _D, _T, _STu],
   [0, 0, [() => ColumnDescriptiveText, 0], 0, 0],
 ];
-export var OutputColumnNameOverride: StaticStructureSchema = [3, n0, _OCNOu, 0, [_SCN, _OCN], [0, 0]];
-export var OverrideDatasetParameterOperation: StaticStructureSchema = [
+export var OutputColumnNameOverride$: StaticStructureSchema = [3, n0, _OCNOu, 0, [_SCN, _OCN], [0, 0]];
+export var OverrideDatasetParameterOperation$: StaticStructureSchema = [
   3,
   n0,
   _ODPO,
   0,
   [_PN, _NPN, _NDVe],
-  [0, 0, () => NewDefaultValues],
+  [0, 0, () => NewDefaultValues$],
 ];
-export var PaginationConfiguration: StaticStructureSchema = [3, n0, _PC, 0, [_PSa, _PNa], [1, 1]];
-export var Palette: StaticStructureSchema = [3, n0, _Pal, 0, [_Fore, _Bac], [0, 0]];
-export var PanelConfiguration: StaticStructureSchema = [
+export var PaginationConfiguration$: StaticStructureSchema = [3, n0, _PC, 0, [_PSa, _PNa], [1, 1]];
+export var Palette$: StaticStructureSchema = [3, n0, _Pal, 0, [_Fore, _Bac], [0, 0]];
+export var PanelConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _PCa,
   0,
   [_Tit, _BV, _BT, _BSo, _BCo, _GV, _GSut, _BVac, _BCa],
-  [() => PanelTitleOptions, 0, 0, 0, 0, 0, 0, 0, 0],
+  [() => PanelTitleOptions$, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var PanelTitleOptions: StaticStructureSchema = [
+export var PanelTitleOptions$: StaticStructureSchema = [
   3,
   n0,
   _PTO,
   0,
   [_Vi, _FCo, _HTA],
-  [0, () => FontConfiguration, 0],
+  [0, () => FontConfiguration$, 0],
 ];
-export var ParameterControl: StaticStructureSchema = [
+export var ParameterControl$: StaticStructureSchema = [
   3,
   n0,
   _PCar,
   0,
   [_DTPa, _Lis, _Dr, _TFe, _TAex, _Sl],
   [
-    () => ParameterDateTimePickerControl,
-    () => ParameterListControl,
-    () => ParameterDropDownControl,
-    () => ParameterTextFieldControl,
-    () => ParameterTextAreaControl,
-    () => ParameterSliderControl,
+    () => ParameterDateTimePickerControl$,
+    () => ParameterListControl$,
+    () => ParameterDropDownControl$,
+    () => ParameterTextFieldControl$,
+    () => ParameterTextAreaControl$,
+    () => ParameterSliderControl$,
   ],
 ];
-export var ParameterDateTimePickerControl: StaticStructureSchema = [
+export var ParameterDateTimePickerControl$: StaticStructureSchema = [
   3,
   n0,
   _PDTPC,
   0,
   [_PCI, _Tit, _SPN, _DOi],
-  [0, 0, 0, () => DateTimePickerControlDisplayOptions],
+  [0, 0, 0, () => DateTimePickerControlDisplayOptions$],
 ];
-export var ParameterDeclaration: StaticStructureSchema = [
+export var ParameterDeclaration$: StaticStructureSchema = [
   3,
   n0,
   _PDa,
   0,
   [_SPD, _DPD, _IPD, _DTPD],
   [
-    [() => StringParameterDeclaration, 0],
-    [() => DecimalParameterDeclaration, 0],
-    [() => IntegerParameterDeclaration, 0],
-    [() => DateTimeParameterDeclaration, 0],
+    [() => StringParameterDeclaration$, 0],
+    [() => DecimalParameterDeclaration$, 0],
+    [() => IntegerParameterDeclaration$, 0],
+    [() => DateTimeParameterDeclaration$, 0],
   ],
 ];
-export var ParameterDropDownControl: StaticStructureSchema = [
+export var ParameterDropDownControl$: StaticStructureSchema = [
   3,
   n0,
   _PDDC,
@@ -10635,22 +10759,30 @@ export var ParameterDropDownControl: StaticStructureSchema = [
     0,
     0,
     0,
-    () => DropDownControlDisplayOptions,
+    () => DropDownControlDisplayOptions$,
     0,
-    () => ParameterSelectableValues,
-    () => CascadingControlConfiguration,
+    () => ParameterSelectableValues$,
+    () => CascadingControlConfiguration$,
     0,
   ],
 ];
-export var ParameterListControl: StaticStructureSchema = [
+export var ParameterListControl$: StaticStructureSchema = [
   3,
   n0,
   _PLCa,
   0,
   [_PCI, _Tit, _SPN, _DOi, _T, _SVe, _CCC],
-  [0, 0, 0, () => ListControlDisplayOptions, 0, () => ParameterSelectableValues, () => CascadingControlConfiguration],
+  [
+    0,
+    0,
+    0,
+    () => ListControlDisplayOptions$,
+    0,
+    () => ParameterSelectableValues$,
+    () => CascadingControlConfiguration$,
+  ],
 ];
-export var _Parameters: StaticStructureSchema = [
+export var _Parameters$: StaticStructureSchema = [
   3,
   n0,
   _Par,
@@ -10663,40 +10795,40 @@ export var _Parameters: StaticStructureSchema = [
     [() => DateTimeParameterList, 0],
   ],
 ];
-export var ParameterSelectableValues: StaticStructureSchema = [
+export var ParameterSelectableValues$: StaticStructureSchema = [
   3,
   n0,
   _PSV,
   0,
   [_Va, _LTDSC],
-  [64 | 0, () => ColumnIdentifier],
+  [64 | 0, () => ColumnIdentifier$],
 ];
-export var ParameterSliderControl: StaticStructureSchema = [
+export var ParameterSliderControl$: StaticStructureSchema = [
   3,
   n0,
   _PSC,
   0,
   [_PCI, _Tit, _SPN, _DOi, _MV, _MVi, _SSt],
-  [0, 0, 0, () => SliderControlDisplayOptions, 1, 1, 1],
+  [0, 0, 0, () => SliderControlDisplayOptions$, 1, 1, 1],
 ];
-export var ParameterTextAreaControl: StaticStructureSchema = [
+export var ParameterTextAreaControl$: StaticStructureSchema = [
   3,
   n0,
   _PTAC,
   0,
   [_PCI, _Tit, _SPN, _Del, _DOi],
-  [0, 0, 0, 0, () => TextAreaControlDisplayOptions],
+  [0, 0, 0, 0, () => TextAreaControlDisplayOptions$],
 ];
-export var ParameterTextFieldControl: StaticStructureSchema = [
+export var ParameterTextFieldControl$: StaticStructureSchema = [
   3,
   n0,
   _PTFC,
   0,
   [_PCI, _Tit, _SPN, _DOi],
-  [0, 0, 0, () => TextFieldControlDisplayOptions],
+  [0, 0, 0, () => TextFieldControlDisplayOptions$],
 ];
-export var ParentDataSet: StaticStructureSchema = [3, n0, _PDS, 0, [_DSAat, _ICnp], [0, () => InputColumnList]];
-export var PercentageDisplayFormatConfiguration: StaticStructureSchema = [
+export var ParentDataSet$: StaticStructureSchema = [3, n0, _PDS, 0, [_DSAat, _ICnp], [0, () => InputColumnList]];
+export var PercentageDisplayFormatConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _PDFC,
@@ -10705,33 +10837,33 @@ export var PercentageDisplayFormatConfiguration: StaticStructureSchema = [
   [
     [() => Prefix, 0],
     [() => Suffix, 0],
-    () => NumericSeparatorConfiguration,
-    () => DecimalPlacesConfiguration,
-    () => NegativeValueConfiguration,
-    [() => NullValueFormatConfiguration, 0],
+    () => NumericSeparatorConfiguration$,
+    () => DecimalPlacesConfiguration$,
+    () => NegativeValueConfiguration$,
+    [() => NullValueFormatConfiguration$, 0],
   ],
 ];
-export var PercentileAggregation: StaticStructureSchema = [3, n0, _PAe, 0, [_PVe], [1]];
-export var PercentVisibleRange: StaticStructureSchema = [3, n0, _PVR, 0, [_Fr, _To_], [1, 1]];
-export var PerformanceConfiguration: StaticStructureSchema = [3, n0, _PCe, 0, [_UKn], [() => UniqueKeyList]];
-export var PeriodOverPeriodComputation: StaticStructureSchema = [
+export var PercentileAggregation$: StaticStructureSchema = [3, n0, _PAe, 0, [_PVe], [1]];
+export var PercentVisibleRange$: StaticStructureSchema = [3, n0, _PVR, 0, [_Fr, _To_], [1, 1]];
+export var PerformanceConfiguration$: StaticStructureSchema = [3, n0, _PCe, 0, [_UKn], [() => UniqueKeyList]];
+export var PeriodOverPeriodComputation$: StaticStructureSchema = [
   3,
   n0,
   _POPC,
   0,
   [_CIom, _N, _Tim, _V],
-  [0, 0, () => DimensionField, () => MeasureField],
+  [0, 0, () => DimensionField$, () => MeasureField$],
 ];
-export var PeriodToDateComputation: StaticStructureSchema = [
+export var PeriodToDateComputation$: StaticStructureSchema = [
   3,
   n0,
   _PTDC,
   0,
   [_CIom, _N, _Tim, _V, _PTG],
-  [0, 0, () => DimensionField, () => MeasureField, 0],
+  [0, 0, () => DimensionField$, () => MeasureField$, 0],
 ];
-export var Permission: StaticStructureSchema = [3, n0, _Perm, 0, [_Ac, _Prin], [64 | 0, 0]];
-export var PieChartAggregatedFieldWells: StaticStructureSchema = [
+export var Permission$: StaticStructureSchema = [3, n0, _Perm, 0, [_Ac, _Prin], [64 | 0, 0]];
+export var PieChartAggregatedFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _PCAFW,
@@ -10739,36 +10871,36 @@ export var PieChartAggregatedFieldWells: StaticStructureSchema = [
   [_Ca, _Va, _SM],
   [() => DimensionFieldList, () => MeasureFieldList, () => SmallMultiplesDimensionFieldList],
 ];
-export var PieChartConfiguration: StaticStructureSchema = [
+export var PieChartConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _PCC,
   0,
   [_FW, _SCo, _DOo, _SMO, _CLO, _VLO, _Le, _DL, _To, _VP, _CADo, _I],
   [
-    () => PieChartFieldWells,
-    () => PieChartSortConfiguration,
-    () => DonutOptions,
-    () => SmallMultiplesOptions,
-    () => ChartAxisLabelOptions,
-    () => ChartAxisLabelOptions,
-    () => LegendOptions,
-    () => DataLabelOptions,
-    () => TooltipOptions,
-    () => VisualPalette,
+    () => PieChartFieldWells$,
+    () => PieChartSortConfiguration$,
+    () => DonutOptions$,
+    () => SmallMultiplesOptions$,
+    () => ChartAxisLabelOptions$,
+    () => ChartAxisLabelOptions$,
+    () => LegendOptions$,
+    () => DataLabelOptions$,
+    () => TooltipOptions$,
+    () => VisualPalette$,
     () => ContributionAnalysisDefaultList,
-    () => VisualInteractionOptions,
+    () => VisualInteractionOptions$,
   ],
 ];
-export var PieChartFieldWells: StaticStructureSchema = [
+export var PieChartFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _PCFW,
   0,
   [_PCAFW],
-  [() => PieChartAggregatedFieldWells],
+  [() => PieChartAggregatedFieldWells$],
 ];
-export var PieChartSortConfiguration: StaticStructureSchema = [
+export var PieChartSortConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _PCSC,
@@ -10776,12 +10908,12 @@ export var PieChartSortConfiguration: StaticStructureSchema = [
   [_CSa, _CIL, _SMS, _SMLC],
   [
     () => FieldSortOptionsList,
-    () => ItemsLimitConfiguration,
+    () => ItemsLimitConfiguration$,
     () => FieldSortOptionsList,
-    () => ItemsLimitConfiguration,
+    () => ItemsLimitConfiguration$,
   ],
 ];
-export var PieChartVisual: StaticStructureSchema = [
+export var PieChartVisual$: StaticStructureSchema = [
   3,
   n0,
   _PCV,
@@ -10789,26 +10921,26 @@ export var PieChartVisual: StaticStructureSchema = [
   [_VI, _Tit, _Su, _CCh, _Ac, _CH, _VCAT],
   [
     0,
-    () => VisualTitleLabelOptions,
-    () => VisualSubtitleLabelOptions,
-    () => PieChartConfiguration,
+    () => VisualTitleLabelOptions$,
+    () => VisualSubtitleLabelOptions$,
+    () => PieChartConfiguration$,
     () => VisualCustomActionList,
     () => ColumnHierarchyList,
     0,
   ],
 ];
-export var PivotConfiguration: StaticStructureSchema = [3, n0, _PCi, 0, [_LCN, _PLi], [0, () => PivotedLabelList]];
-export var PivotedLabel: StaticStructureSchema = [3, n0, _PLiv, 0, [_LNa, _NCN, _NCI], [0, 0, 0]];
-export var PivotFieldSortOptions: StaticStructureSchema = [3, n0, _PFSO, 0, [_FIi, _SB], [0, () => PivotTableSortBy]];
-export var PivotOperation: StaticStructureSchema = [
+export var PivotConfiguration$: StaticStructureSchema = [3, n0, _PCi, 0, [_LCN, _PLi], [0, () => PivotedLabelList]];
+export var PivotedLabel$: StaticStructureSchema = [3, n0, _PLiv, 0, [_LNa, _NCN, _NCI], [0, 0, 0]];
+export var PivotFieldSortOptions$: StaticStructureSchema = [3, n0, _PFSO, 0, [_FIi, _SB], [0, () => PivotTableSortBy$]];
+export var PivotOperation$: StaticStructureSchema = [
   3,
   n0,
   _PO,
   0,
   [_Al, _So, _GBCN, _VCC, _PCi],
-  [0, () => TransformOperationSource, 64 | 0, () => ValueColumnConfiguration, () => PivotConfiguration],
+  [0, () => TransformOperationSource$, 64 | 0, () => ValueColumnConfiguration$, () => PivotConfiguration$],
 ];
-export var PivotTableAggregatedFieldWells: StaticStructureSchema = [
+export var PivotTableAggregatedFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _PTAFW,
@@ -10816,7 +10948,7 @@ export var PivotTableAggregatedFieldWells: StaticStructureSchema = [
   [_Row, _Colu, _Va],
   [() => PivotTableDimensionList, () => PivotTableDimensionList, () => PivotMeasureFieldList],
 ];
-export var PivotTableCellConditionalFormatting: StaticStructureSchema = [
+export var PivotTableCellConditionalFormatting$: StaticStructureSchema = [
   3,
   n0,
   _PTCCF,
@@ -10824,12 +10956,12 @@ export var PivotTableCellConditionalFormatting: StaticStructureSchema = [
   [_FIi, _TFex, _Sco, _Scop],
   [
     0,
-    () => TextConditionalFormat,
-    () => PivotTableConditionalFormattingScope,
+    () => TextConditionalFormat$,
+    () => PivotTableConditionalFormattingScope$,
     () => PivotTableConditionalFormattingScopeList,
   ],
 ];
-export var PivotTableConditionalFormatting: StaticStructureSchema = [
+export var PivotTableConditionalFormatting$: StaticStructureSchema = [
   3,
   n0,
   _PTCF,
@@ -10837,33 +10969,33 @@ export var PivotTableConditionalFormatting: StaticStructureSchema = [
   [_CFO],
   [() => PivotTableConditionalFormattingOptionList],
 ];
-export var PivotTableConditionalFormattingOption: StaticStructureSchema = [
+export var PivotTableConditionalFormattingOption$: StaticStructureSchema = [
   3,
   n0,
   _PTCFO,
   0,
   [_Ce],
-  [() => PivotTableCellConditionalFormatting],
+  [() => PivotTableCellConditionalFormatting$],
 ];
-export var PivotTableConditionalFormattingScope: StaticStructureSchema = [3, n0, _PTCFS, 0, [_Ro], [0]];
-export var PivotTableConfiguration: StaticStructureSchema = [
+export var PivotTableConditionalFormattingScope$: StaticStructureSchema = [3, n0, _PTCFS, 0, [_Ro], [0]];
+export var PivotTableConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _PTC,
   0,
   [_FW, _SCo, _TOa, _TOot, _FOie, _PRO, _DCVO, _I],
   [
-    () => PivotTableFieldWells,
-    () => PivotTableSortConfiguration,
-    () => PivotTableOptions,
-    () => PivotTableTotalOptions,
-    () => PivotTableFieldOptions,
-    () => PivotTablePaginatedReportOptions,
-    () => DashboardCustomizationVisualOptions,
-    () => VisualInteractionOptions,
+    () => PivotTableFieldWells$,
+    () => PivotTableSortConfiguration$,
+    () => PivotTableOptions$,
+    () => PivotTableTotalOptions$,
+    () => PivotTableFieldOptions$,
+    () => PivotTablePaginatedReportOptions$,
+    () => DashboardCustomizationVisualOptions$,
+    () => VisualInteractionOptions$,
   ],
 ];
-export var PivotTableDataPathOption: StaticStructureSchema = [
+export var PivotTableDataPathOption$: StaticStructureSchema = [
   3,
   n0,
   _PTDPO,
@@ -10871,15 +11003,15 @@ export var PivotTableDataPathOption: StaticStructureSchema = [
   [_DPL, _W],
   [() => DataPathValueList, 0],
 ];
-export var PivotTableFieldCollapseStateOption: StaticStructureSchema = [
+export var PivotTableFieldCollapseStateOption$: StaticStructureSchema = [
   3,
   n0,
   _PTFCSO,
   0,
   [_Tar, _Sta],
-  [() => PivotTableFieldCollapseStateTarget, 0],
+  [() => PivotTableFieldCollapseStateTarget$, 0],
 ];
-export var PivotTableFieldCollapseStateTarget: StaticStructureSchema = [
+export var PivotTableFieldCollapseStateTarget$: StaticStructureSchema = [
   3,
   n0,
   _PTFCST,
@@ -10887,8 +11019,8 @@ export var PivotTableFieldCollapseStateTarget: StaticStructureSchema = [
   [_FIi, _FDPV],
   [0, [() => DataPathValueList, 0]],
 ];
-export var PivotTableFieldOption: StaticStructureSchema = [3, n0, _PTFO, 0, [_FIi, _CL, _Vi], [0, 0, 0]];
-export var PivotTableFieldOptions: StaticStructureSchema = [
+export var PivotTableFieldOption$: StaticStructureSchema = [3, n0, _PTFO, 0, [_FIi, _CL, _Vi], [0, 0, 0]];
+export var PivotTableFieldOptions$: StaticStructureSchema = [
   3,
   n0,
   _PTFOi,
@@ -10896,16 +11028,16 @@ export var PivotTableFieldOptions: StaticStructureSchema = [
   [_SFO, _DPOa, _CSOo],
   [() => PivotTableFieldOptionList, () => PivotTableDataPathOptionList, () => PivotTableFieldCollapseStateOptionList],
 ];
-export var PivotTableFieldSubtotalOptions: StaticStructureSchema = [3, n0, _PTFSO, 0, [_FIi], [0]];
-export var PivotTableFieldWells: StaticStructureSchema = [
+export var PivotTableFieldSubtotalOptions$: StaticStructureSchema = [3, n0, _PTFSO, 0, [_FIi], [0]];
+export var PivotTableFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _PTFW,
   0,
   [_PTAFW],
-  [() => PivotTableAggregatedFieldWells],
+  [() => PivotTableAggregatedFieldWells$],
 ];
-export var PivotTableOptions: StaticStructureSchema = [
+export var PivotTableOptions$: StaticStructureSchema = [
   3,
   n0,
   _PTOi,
@@ -10916,28 +11048,28 @@ export var PivotTableOptions: StaticStructureSchema = [
     0,
     0,
     0,
-    () => TableCellStyle,
-    () => TableCellStyle,
-    () => TableCellStyle,
-    () => TableCellStyle,
-    () => RowAlternateColorOptions,
+    () => TableCellStyle$,
+    () => TableCellStyle$,
+    () => TableCellStyle$,
+    () => TableCellStyle$,
+    () => RowAlternateColorOptions$,
     0,
     0,
-    () => PivotTableRowsLabelOptions,
+    () => PivotTableRowsLabelOptions$,
     0,
   ],
 ];
-export var PivotTablePaginatedReportOptions: StaticStructureSchema = [3, n0, _PTPRO, 0, [_VOV, _OCHV], [0, 0]];
-export var PivotTableRowsLabelOptions: StaticStructureSchema = [3, n0, _PTRLO, 0, [_Vi, _CL], [0, 0]];
-export var PivotTableSortBy: StaticStructureSchema = [
+export var PivotTablePaginatedReportOptions$: StaticStructureSchema = [3, n0, _PTPRO, 0, [_VOV, _OCHV], [0, 0]];
+export var PivotTableRowsLabelOptions$: StaticStructureSchema = [3, n0, _PTRLO, 0, [_Vi, _CL], [0, 0]];
+export var PivotTableSortBy$: StaticStructureSchema = [
   3,
   n0,
   _PTSB,
   0,
   [_Fie, _C, _DPata],
-  [() => FieldSort, () => ColumnSort, [() => DataPathSort, 0]],
+  [() => FieldSort$, () => ColumnSort$, [() => DataPathSort$, 0]],
 ];
-export var PivotTableSortConfiguration: StaticStructureSchema = [
+export var PivotTableSortConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _PTSC,
@@ -10945,15 +11077,15 @@ export var PivotTableSortConfiguration: StaticStructureSchema = [
   [_FSO],
   [() => PivotFieldSortOptionsList],
 ];
-export var PivotTableTotalOptions: StaticStructureSchema = [
+export var PivotTableTotalOptions$: StaticStructureSchema = [
   3,
   n0,
   _PTTO,
   0,
   [_RSO, _CSOol, _RTO, _CTO],
-  [() => SubtotalOptions, () => SubtotalOptions, () => PivotTotalOptions, () => PivotTotalOptions],
+  [() => SubtotalOptions$, () => SubtotalOptions$, () => PivotTotalOptions$, () => PivotTotalOptions$],
 ];
-export var PivotTableVisual: StaticStructureSchema = [
+export var PivotTableVisual$: StaticStructureSchema = [
   3,
   n0,
   _PTV,
@@ -10961,23 +11093,23 @@ export var PivotTableVisual: StaticStructureSchema = [
   [_VI, _Tit, _Su, _CCh, _CFon, _Ac, _VCAT],
   [
     0,
-    () => VisualTitleLabelOptions,
-    () => VisualSubtitleLabelOptions,
-    () => PivotTableConfiguration,
-    () => PivotTableConditionalFormatting,
+    () => VisualTitleLabelOptions$,
+    () => VisualSubtitleLabelOptions$,
+    () => PivotTableConfiguration$,
+    () => PivotTableConditionalFormatting$,
     () => VisualCustomActionList,
     0,
   ],
 ];
-export var PivotTotalOptions: StaticStructureSchema = [
+export var PivotTotalOptions$: StaticStructureSchema = [
   3,
   n0,
   _PTOiv,
   0,
   [_TV, _Pla, _SSc, _CL, _TCS, _VCS, _MHCS, _TAO],
-  [0, 0, 0, 0, () => TableCellStyle, () => TableCellStyle, () => TableCellStyle, () => TotalAggregationOptionList],
+  [0, 0, 0, 0, () => TableCellStyle$, () => TableCellStyle$, () => TableCellStyle$, () => TotalAggregationOptionList],
 ];
-export var PluginVisual: StaticStructureSchema = [
+export var PluginVisual$: StaticStructureSchema = [
   3,
   n0,
   _PVl,
@@ -10986,22 +11118,22 @@ export var PluginVisual: StaticStructureSchema = [
   [
     0,
     0,
-    () => VisualTitleLabelOptions,
-    () => VisualSubtitleLabelOptions,
-    () => PluginVisualConfiguration,
+    () => VisualTitleLabelOptions$,
+    () => VisualSubtitleLabelOptions$,
+    () => PluginVisualConfiguration$,
     () => VisualCustomActionList,
     0,
   ],
 ];
-export var PluginVisualConfiguration: StaticStructureSchema = [
+export var PluginVisualConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _PVCl,
   0,
   [_FW, _VO, _SCo],
-  [() => PluginVisualFieldWells, () => PluginVisualOptions, () => PluginVisualSortConfiguration],
+  [() => PluginVisualFieldWells, () => PluginVisualOptions$, () => PluginVisualSortConfiguration$],
 ];
-export var PluginVisualFieldWell: StaticStructureSchema = [
+export var PluginVisualFieldWell$: StaticStructureSchema = [
   3,
   n0,
   _PVFW,
@@ -11009,27 +11141,27 @@ export var PluginVisualFieldWell: StaticStructureSchema = [
   [_ANx, _Dim, _Mea, _Un],
   [0, () => DimensionFieldList, () => MeasureFieldList, () => UnaggregatedFieldList],
 ];
-export var PluginVisualItemsLimitConfiguration: StaticStructureSchema = [3, n0, _PVILC, 0, [_IL], [1]];
-export var PluginVisualOptions: StaticStructureSchema = [3, n0, _PVO, 0, [_VPi], [() => PluginVisualPropertiesList]];
-export var PluginVisualProperty: StaticStructureSchema = [3, n0, _PVP, 0, [_N, _V], [0, 0]];
-export var PluginVisualSortConfiguration: StaticStructureSchema = [
+export var PluginVisualItemsLimitConfiguration$: StaticStructureSchema = [3, n0, _PVILC, 0, [_IL], [1]];
+export var PluginVisualOptions$: StaticStructureSchema = [3, n0, _PVO, 0, [_VPi], [() => PluginVisualPropertiesList]];
+export var PluginVisualProperty$: StaticStructureSchema = [3, n0, _PVP, 0, [_N, _V], [0, 0]];
+export var PluginVisualSortConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _PVSC,
   0,
   [_PVTQS],
-  [() => PluginVisualTableQuerySort],
+  [() => PluginVisualTableQuerySort$],
 ];
-export var PluginVisualTableQuerySort: StaticStructureSchema = [
+export var PluginVisualTableQuerySort$: StaticStructureSchema = [
   3,
   n0,
   _PVTQS,
   0,
   [_RSow, _ILCt],
-  [() => RowSortList, () => PluginVisualItemsLimitConfiguration],
+  [() => RowSortList, () => PluginVisualItemsLimitConfiguration$],
 ];
-export var PostgreSqlParameters: StaticStructureSchema = [3, n0, _PSP, 0, [_H, _Po, _Dat], [0, 1, 0]];
-export var PreconditionNotMetException: StaticErrorSchema = [
+export var PostgreSqlParameters$: StaticStructureSchema = [3, n0, _PSP, 0, [_H, _Po, _Dat], [0, 1, 0]];
+export var PreconditionNotMetException$: StaticErrorSchema = [
   -3,
   n0,
   _PNME,
@@ -11037,8 +11169,8 @@ export var PreconditionNotMetException: StaticErrorSchema = [
   [_M, _RI],
   [0, 0],
 ];
-TypeRegistry.for(n0).registerError(PreconditionNotMetException, __PreconditionNotMetException);
-export var PredefinedHierarchy: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(PreconditionNotMetException$, PreconditionNotMetException);
+export var PredefinedHierarchy$: StaticStructureSchema = [
   3,
   n0,
   _PH,
@@ -11046,7 +11178,7 @@ export var PredefinedHierarchy: StaticStructureSchema = [
   [_HI, _Colu, _DDFr],
   [0, () => PredefinedHierarchyColumnList, () => DrillDownFilterList],
 ];
-export var PredictQAResultsRequest: StaticStructureSchema = [
+export var PredictQAResultsRequest$: StaticStructureSchema = [
   3,
   n0,
   _PQARR,
@@ -11054,46 +11186,46 @@ export var PredictQAResultsRequest: StaticStructureSchema = [
   [_AAI, _QTu, _IQSQI, _IGA, _MTTC],
   [[0, 1], [() => QAQueryText, 0], 0, 0, 1],
 ];
-export var PredictQAResultsResponse: StaticStructureSchema = [
+export var PredictQAResultsResponse$: StaticStructureSchema = [
   3,
   n0,
   _PQARRr,
   0,
   [_PRri, _AR, _RI, _St],
-  [[() => QAResult, 0], [() => QAResults, 0], 0, [1, 32]],
+  [[() => QAResult$, 0], [() => QAResults, 0], 0, [1, 32]],
 ];
-export var PrestoParameters: StaticStructureSchema = [3, n0, _PP, 0, [_H, _Po, _Cata], [0, 1, 0]];
-export var ProgressBarOptions: StaticStructureSchema = [3, n0, _PBO, 0, [_Vi], [0]];
-export var ProjectOperation: StaticStructureSchema = [
+export var PrestoParameters$: StaticStructureSchema = [3, n0, _PP, 0, [_H, _Po, _Cata], [0, 1, 0]];
+export var ProgressBarOptions$: StaticStructureSchema = [3, n0, _PBO, 0, [_Vi], [0]];
+export var ProjectOperation$: StaticStructureSchema = [
   3,
   n0,
   _POr,
   0,
   [_Al, _So, _PCr],
-  [0, () => TransformOperationSource, 64 | 0],
+  [0, () => TransformOperationSource$, 64 | 0],
 ];
-export var PutDataSetRefreshPropertiesRequest: StaticStructureSchema = [
+export var PutDataSetRefreshPropertiesRequest$: StaticStructureSchema = [
   3,
   n0,
   _PDSRPR,
   0,
   [_AAI, _DSI, _DSRP],
-  [[0, 1], [0, 1], () => DataSetRefreshProperties],
+  [[0, 1], [0, 1], () => DataSetRefreshProperties$],
 ];
-export var PutDataSetRefreshPropertiesResponse: StaticStructureSchema = [3, n0, _PDSRPRu, 0, [_RI, _St], [0, [1, 32]]];
-export var QAResult: StaticStructureSchema = [
+export var PutDataSetRefreshPropertiesResponse$: StaticStructureSchema = [3, n0, _PDSRPRu, 0, [_RI, _St], [0, [1, 32]]];
+export var QAResult$: StaticStructureSchema = [
   3,
   n0,
   _QAR,
   0,
   [_RTes, _DV, _GAe],
-  [0, () => DashboardVisualResult, [() => GeneratedAnswerResult, 0]],
+  [0, () => DashboardVisualResult$, [() => GeneratedAnswerResult$, 0]],
 ];
-export var QBusinessParameters: StaticStructureSchema = [3, n0, _QBP, 0, [_AAp], [0]];
-export var QDataKey: StaticStructureSchema = [3, n0, _QDK, 0, [_QDKA, _QDKT], [0, 0]];
-export var QueryExecutionOptions: StaticStructureSchema = [3, n0, _QEO, 0, [_QEM], [0]];
-export var QueueInfo: StaticStructureSchema = [3, n0, _QIu, 0, [_WOI, _QIue], [0, 0]];
-export var QuickSightUserNotFoundException: StaticErrorSchema = [
+export var QBusinessParameters$: StaticStructureSchema = [3, n0, _QBP, 0, [_AAp], [0]];
+export var QDataKey$: StaticStructureSchema = [3, n0, _QDK, 0, [_QDKA, _QDKT], [0, 0]];
+export var QueryExecutionOptions$: StaticStructureSchema = [3, n0, _QEO, 0, [_QEM], [0]];
+export var QueueInfo$: StaticStructureSchema = [3, n0, _QIu, 0, [_WOI, _QIue], [0, 0]];
+export var QuickSightUserNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _QSUNFE,
@@ -11101,9 +11233,9 @@ export var QuickSightUserNotFoundException: StaticErrorSchema = [
   [_M, _RI],
   [0, 0],
 ];
-TypeRegistry.for(n0).registerError(QuickSightUserNotFoundException, __QuickSightUserNotFoundException);
-export var QuickSuiteActionsOption: StaticStructureSchema = [3, n0, _QSAO, 0, [_ASv], [0]];
-export var RadarChartAggregatedFieldWells: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(QuickSightUserNotFoundException$, QuickSightUserNotFoundException);
+export var QuickSuiteActionsOption$: StaticStructureSchema = [3, n0, _QSAO, 0, [_ASv], [0]];
+export var RadarChartAggregatedFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _RCAFW,
@@ -11111,49 +11243,49 @@ export var RadarChartAggregatedFieldWells: StaticStructureSchema = [
   [_Ca, _Col, _Va],
   [() => RadarChartCategoryFieldList, () => RadarChartColorFieldList, () => RadarChartValuesFieldList],
 ];
-export var RadarChartAreaStyleSettings: StaticStructureSchema = [3, n0, _RCASS, 0, [_Vi], [0]];
-export var RadarChartConfiguration: StaticStructureSchema = [
+export var RadarChartAreaStyleSettings$: StaticStructureSchema = [3, n0, _RCASS, 0, [_Vi], [0]];
+export var RadarChartConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RCC,
   0,
   [_FW, _SCo, _Sha, _BSS, _SAt, _VP, _ABCV, _ABEC, _ABOC, _CA, _CLO, _CAo, _CLOo, _Le, _ARS, _I],
   [
-    () => RadarChartFieldWells,
-    () => RadarChartSortConfiguration,
+    () => RadarChartFieldWells$,
+    () => RadarChartSortConfiguration$,
     0,
-    () => RadarChartSeriesSettings,
+    () => RadarChartSeriesSettings$,
     1,
-    () => VisualPalette,
+    () => VisualPalette$,
     0,
     0,
     0,
-    () => AxisDisplayOptions,
-    () => ChartAxisLabelOptions,
-    () => AxisDisplayOptions,
-    () => ChartAxisLabelOptions,
-    () => LegendOptions,
+    () => AxisDisplayOptions$,
+    () => ChartAxisLabelOptions$,
+    () => AxisDisplayOptions$,
+    () => ChartAxisLabelOptions$,
+    () => LegendOptions$,
     0,
-    () => VisualInteractionOptions,
+    () => VisualInteractionOptions$,
   ],
 ];
-export var RadarChartFieldWells: StaticStructureSchema = [
+export var RadarChartFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _RCFW,
   0,
   [_RCAFW],
-  [() => RadarChartAggregatedFieldWells],
+  [() => RadarChartAggregatedFieldWells$],
 ];
-export var RadarChartSeriesSettings: StaticStructureSchema = [
+export var RadarChartSeriesSettings$: StaticStructureSchema = [
   3,
   n0,
   _RCSS,
   0,
   [_ASSr],
-  [() => RadarChartAreaStyleSettings],
+  [() => RadarChartAreaStyleSettings$],
 ];
-export var RadarChartSortConfiguration: StaticStructureSchema = [
+export var RadarChartSortConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RCSC,
@@ -11161,12 +11293,12 @@ export var RadarChartSortConfiguration: StaticStructureSchema = [
   [_CSa, _CIL, _CSo, _CILo],
   [
     () => FieldSortOptionsList,
-    () => ItemsLimitConfiguration,
+    () => ItemsLimitConfiguration$,
     () => FieldSortOptionsList,
-    () => ItemsLimitConfiguration,
+    () => ItemsLimitConfiguration$,
   ],
 ];
-export var RadarChartVisual: StaticStructureSchema = [
+export var RadarChartVisual$: StaticStructureSchema = [
   3,
   n0,
   _RCV,
@@ -11174,36 +11306,43 @@ export var RadarChartVisual: StaticStructureSchema = [
   [_VI, _Tit, _Su, _CCh, _Ac, _CH, _VCAT],
   [
     0,
-    () => VisualTitleLabelOptions,
-    () => VisualSubtitleLabelOptions,
-    () => RadarChartConfiguration,
+    () => VisualTitleLabelOptions$,
+    () => VisualSubtitleLabelOptions$,
+    () => RadarChartConfiguration$,
     () => VisualCustomActionList,
     () => ColumnHierarchyList,
     0,
   ],
 ];
-export var RangeConstant: StaticStructureSchema = [3, n0, _RCa, 0, [_Min, _Max], [0, 0]];
-export var RangeEndsLabelType: StaticStructureSchema = [3, n0, _RELT, 0, [_Vi], [0]];
-export var RdsParameters: StaticStructureSchema = [3, n0, _RP, 0, [_IIn, _Dat], [0, 0]];
-export var ReadAPIKeyConnectionMetadata: StaticStructureSchema = [3, n0, _RAPIKCM, 0, [_BE, _E], [0, [() => Email, 0]]];
-export var ReadAuthConfig: StaticStructureSchema = [
+export var RangeConstant$: StaticStructureSchema = [3, n0, _RCa, 0, [_Min, _Max], [0, 0]];
+export var RangeEndsLabelType$: StaticStructureSchema = [3, n0, _RELT, 0, [_Vi], [0]];
+export var RdsParameters$: StaticStructureSchema = [3, n0, _RP, 0, [_IIn, _Dat], [0, 0]];
+export var ReadAPIKeyConnectionMetadata$: StaticStructureSchema = [
+  3,
+  n0,
+  _RAPIKCM,
+  0,
+  [_BE, _E],
+  [0, [() => Email, 0]],
+];
+export var ReadAuthConfig$: StaticStructureSchema = [
   3,
   n0,
   _RAC,
   0,
   [_AT, _AM],
-  [0, [() => ReadAuthenticationMetadata, 0]],
+  [0, [() => ReadAuthenticationMetadata$, 0]],
 ];
-export var ReadAuthorizationCodeGrantDetails: StaticStructureSchema = [3, n0, _RACGD, 0, [_CI, _TE, _AEu], [0, 0, 0]];
-export var ReadAuthorizationCodeGrantMetadata: StaticStructureSchema = [
+export var ReadAuthorizationCodeGrantDetails$: StaticStructureSchema = [3, n0, _RACGD, 0, [_CI, _TE, _AEu], [0, 0, 0]];
+export var ReadAuthorizationCodeGrantMetadata$: StaticStructureSchema = [
   3,
   n0,
   _RACGM,
   0,
   [_BE, _RU, _RACGCD, _ACGCS],
-  [0, 0, () => ReadAuthorizationCodeGrantCredentialsDetails, 0],
+  [0, 0, () => ReadAuthorizationCodeGrantCredentialsDetails$, 0],
 ];
-export var ReadBasicAuthConnectionMetadata: StaticStructureSchema = [
+export var ReadBasicAuthConnectionMetadata$: StaticStructureSchema = [
   3,
   n0,
   _RBACM,
@@ -11211,19 +11350,19 @@ export var ReadBasicAuthConnectionMetadata: StaticStructureSchema = [
   [_BE, _U],
   [0, [() => ActionUserName, 0]],
 ];
-export var ReadClientCredentialsGrantDetails: StaticStructureSchema = [3, n0, _RCCGD, 0, [_CI, _TE], [0, 0]];
-export var ReadClientCredentialsGrantMetadata: StaticStructureSchema = [
+export var ReadClientCredentialsGrantDetails$: StaticStructureSchema = [3, n0, _RCCGD, 0, [_CI, _TE], [0, 0]];
+export var ReadClientCredentialsGrantMetadata$: StaticStructureSchema = [
   3,
   n0,
   _RCCGM,
   0,
   [_BE, _RCCD, _CCSl],
-  [0, () => ReadClientCredentialsDetails, 0],
+  [0, () => ReadClientCredentialsDetails$, 0],
 ];
-export var ReadIamConnectionMetadata: StaticStructureSchema = [3, n0, _RICM, 0, [_RA, _SAo], [0, 0]];
-export var ReadNoneConnectionMetadata: StaticStructureSchema = [3, n0, _RNCM, 0, [_BE], [0]];
-export var RecentSnapshotsConfigurations: StaticStructureSchema = [3, n0, _RSC, 0, [_En], [2]];
-export var RedshiftIAMParameters: StaticStructureSchema = [
+export var ReadIamConnectionMetadata$: StaticStructureSchema = [3, n0, _RICM, 0, [_RA, _SAo], [0, 0]];
+export var ReadNoneConnectionMetadata$: StaticStructureSchema = [3, n0, _RNCM, 0, [_BE], [0]];
+export var RecentSnapshotsConfigurations$: StaticStructureSchema = [3, n0, _RSC, 0, [_En], [2]];
+export var RedshiftIAMParameters$: StaticStructureSchema = [
   3,
   n0,
   _RIAMP,
@@ -11231,15 +11370,15 @@ export var RedshiftIAMParameters: StaticStructureSchema = [
   [_RA, _DUa, _DGa, _ACDU],
   [0, 0, 64 | 0, 2],
 ];
-export var RedshiftParameters: StaticStructureSchema = [
+export var RedshiftParameters$: StaticStructureSchema = [
   3,
   n0,
   _RPe,
   0,
   [_H, _Po, _Dat, _CIl, _IAMP, _ICC],
-  [0, 1, 0, 0, () => RedshiftIAMParameters, () => IdentityCenterConfiguration],
+  [0, 1, 0, 0, () => RedshiftIAMParameters$, () => IdentityCenterConfiguration$],
 ];
-export var ReferenceLine: StaticStructureSchema = [
+export var ReferenceLine$: StaticStructureSchema = [
   3,
   n0,
   _RLe,
@@ -11247,44 +11386,44 @@ export var ReferenceLine: StaticStructureSchema = [
   [_St, _DCat, _SCty, _LCabe],
   [
     0,
-    () => ReferenceLineDataConfiguration,
-    () => ReferenceLineStyleConfiguration,
-    () => ReferenceLineLabelConfiguration,
+    () => ReferenceLineDataConfiguration$,
+    () => ReferenceLineStyleConfiguration$,
+    () => ReferenceLineLabelConfiguration$,
   ],
 ];
-export var ReferenceLineCustomLabelConfiguration: StaticStructureSchema = [3, n0, _RLCLC, 0, [_CL], [0]];
-export var ReferenceLineDataConfiguration: StaticStructureSchema = [
+export var ReferenceLineCustomLabelConfiguration$: StaticStructureSchema = [3, n0, _RLCLC, 0, [_CL], [0]];
+export var ReferenceLineDataConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RLDC,
   0,
   [_SCta, _DCy, _AB, _STer],
-  [() => ReferenceLineStaticDataConfiguration, () => ReferenceLineDynamicDataConfiguration, 0, 0],
+  [() => ReferenceLineStaticDataConfiguration$, () => ReferenceLineDynamicDataConfiguration$, 0, 0],
 ];
-export var ReferenceLineDynamicDataConfiguration: StaticStructureSchema = [
+export var ReferenceLineDynamicDataConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RLDDC,
   0,
   [_C, _MAF, _Cal],
-  [() => ColumnIdentifier, () => AggregationFunction, () => NumericalAggregationFunction],
+  [() => ColumnIdentifier$, () => AggregationFunction$, () => NumericalAggregationFunction$],
 ];
-export var ReferenceLineLabelConfiguration: StaticStructureSchema = [
+export var ReferenceLineLabelConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RLLC,
   0,
   [_VLC, _CLC, _FCo, _FCon, _HP, _VPe],
   [
-    () => ReferenceLineValueLabelConfiguration,
-    () => ReferenceLineCustomLabelConfiguration,
-    () => FontConfiguration,
+    () => ReferenceLineValueLabelConfiguration$,
+    () => ReferenceLineCustomLabelConfiguration$,
+    () => FontConfiguration$,
     0,
     0,
     0,
   ],
 ];
-export var ReferenceLineStaticDataConfiguration: StaticStructureSchema = [
+export var ReferenceLineStaticDataConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RLSDC,
@@ -11292,116 +11431,123 @@ export var ReferenceLineStaticDataConfiguration: StaticStructureSchema = [
   [_V],
   [[() => SensitiveDouble, 0]],
 ];
-export var ReferenceLineStyleConfiguration: StaticStructureSchema = [3, n0, _RLSC, 0, [_Patt, _Col], [0, 0]];
-export var ReferenceLineValueLabelConfiguration: StaticStructureSchema = [
+export var ReferenceLineStyleConfiguration$: StaticStructureSchema = [3, n0, _RLSC, 0, [_Patt, _Col], [0, 0]];
+export var ReferenceLineValueLabelConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RLVLC,
   0,
   [_RPel, _FCor],
-  [0, [() => NumericFormatConfiguration, 0]],
+  [0, [() => NumericFormatConfiguration$, 0]],
 ];
-export var RefreshConfiguration: StaticStructureSchema = [3, n0, _RCe, 0, [_IR], [() => IncrementalRefresh]];
-export var RefreshFailureConfiguration: StaticStructureSchema = [
+export var RefreshConfiguration$: StaticStructureSchema = [3, n0, _RCe, 0, [_IR], [() => IncrementalRefresh$]];
+export var RefreshFailureConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RFCe,
   0,
   [_EAma],
-  [() => RefreshFailureEmailAlert],
+  [() => RefreshFailureEmailAlert$],
 ];
-export var RefreshFailureEmailAlert: StaticStructureSchema = [3, n0, _RFEA, 0, [_ASle], [0]];
-export var RefreshFrequency: StaticStructureSchema = [
+export var RefreshFailureEmailAlert$: StaticStructureSchema = [3, n0, _RFEA, 0, [_ASle], [0]];
+export var RefreshFrequency$: StaticStructureSchema = [
   3,
   n0,
   _RF,
   0,
   [_Int, _ROD, _Ti, _TOTD],
-  [0, () => ScheduleRefreshOnEntity, 0, 0],
+  [0, () => ScheduleRefreshOnEntity$, 0, 0],
 ];
-export var RefreshSchedule: StaticStructureSchema = [
+export var RefreshSchedule$: StaticStructureSchema = [
   3,
   n0,
   _RSe,
   0,
   [_SI, _SFc, _SADT, _RTef, _A],
-  [0, () => RefreshFrequency, 4, 0, 0],
+  [0, () => RefreshFrequency$, 4, 0, 0],
 ];
-export var RegisteredCustomerManagedKey: StaticStructureSchema = [3, n0, _RCMK, 0, [_KA, _DK], [0, 2]];
-export var RegisteredUserConsoleFeatureConfigurations: StaticStructureSchema = [
+export var RegisteredCustomerManagedKey$: StaticStructureSchema = [3, n0, _RCMK, 0, [_KA, _DK], [0, 2]];
+export var RegisteredUserConsoleFeatureConfigurations$: StaticStructureSchema = [
   3,
   n0,
   _RUCFC,
   0,
   [_SPta, _SV, _AQIQS, _Sch, _RSec, _TAhr],
   [
-    () => StatePersistenceConfigurations,
-    () => SharedViewConfigurations,
-    () => AmazonQInQuickSightConsoleConfigurations,
-    () => SchedulesConfigurations,
-    () => RecentSnapshotsConfigurations,
-    () => ThresholdAlertsConfigurations,
+    () => StatePersistenceConfigurations$,
+    () => SharedViewConfigurations$,
+    () => AmazonQInQuickSightConsoleConfigurations$,
+    () => SchedulesConfigurations$,
+    () => RecentSnapshotsConfigurations$,
+    () => ThresholdAlertsConfigurations$,
   ],
 ];
-export var RegisteredUserDashboardEmbeddingConfiguration: StaticStructureSchema = [
+export var RegisteredUserDashboardEmbeddingConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RUDEC,
   0,
   [_IDI, _FC],
-  [0, () => RegisteredUserDashboardFeatureConfigurations],
+  [0, () => RegisteredUserDashboardFeatureConfigurations$],
 ];
-export var RegisteredUserDashboardFeatureConfigurations: StaticStructureSchema = [
+export var RegisteredUserDashboardFeatureConfigurations$: StaticStructureSchema = [
   3,
   n0,
   _RUDFC,
   0,
   [_SPta, _SV, _Boo, _AQIQS, _Sch, _RSec, _TAhr],
   [
-    () => StatePersistenceConfigurations,
-    () => SharedViewConfigurations,
-    () => BookmarksConfigurations,
-    () => AmazonQInQuickSightDashboardConfigurations,
-    () => SchedulesConfigurations,
-    () => RecentSnapshotsConfigurations,
-    () => ThresholdAlertsConfigurations,
+    () => StatePersistenceConfigurations$,
+    () => SharedViewConfigurations$,
+    () => BookmarksConfigurations$,
+    () => AmazonQInQuickSightDashboardConfigurations$,
+    () => SchedulesConfigurations$,
+    () => RecentSnapshotsConfigurations$,
+    () => ThresholdAlertsConfigurations$,
   ],
 ];
-export var RegisteredUserDashboardVisualEmbeddingConfiguration: StaticStructureSchema = [
+export var RegisteredUserDashboardVisualEmbeddingConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RUDVEC,
   0,
   [_IDVI],
-  [() => DashboardVisualId],
+  [() => DashboardVisualId$],
 ];
-export var RegisteredUserEmbeddingExperienceConfiguration: StaticStructureSchema = [
+export var RegisteredUserEmbeddingExperienceConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RUEEC,
   0,
   [_Da, _QSC, _QSB, _DV, _GQA, _QC],
   [
-    () => RegisteredUserDashboardEmbeddingConfiguration,
-    () => RegisteredUserQuickSightConsoleEmbeddingConfiguration,
-    () => RegisteredUserQSearchBarEmbeddingConfiguration,
-    () => RegisteredUserDashboardVisualEmbeddingConfiguration,
-    () => RegisteredUserGenerativeQnAEmbeddingConfiguration,
-    () => RegisteredUserQuickChatEmbeddingConfiguration,
+    () => RegisteredUserDashboardEmbeddingConfiguration$,
+    () => RegisteredUserQuickSightConsoleEmbeddingConfiguration$,
+    () => RegisteredUserQSearchBarEmbeddingConfiguration$,
+    () => RegisteredUserDashboardVisualEmbeddingConfiguration$,
+    () => RegisteredUserGenerativeQnAEmbeddingConfiguration$,
+    () => RegisteredUserQuickChatEmbeddingConfiguration$,
   ],
 ];
-export var RegisteredUserGenerativeQnAEmbeddingConfiguration: StaticStructureSchema = [3, n0, _RUGQAEC, 0, [_ITI], [0]];
-export var RegisteredUserQSearchBarEmbeddingConfiguration: StaticStructureSchema = [3, n0, _RUQSBEC, 0, [_ITI], [0]];
-export var RegisteredUserQuickChatEmbeddingConfiguration: StaticStructureSchema = [3, n0, _RUQCEC, 0, [], []];
-export var RegisteredUserQuickSightConsoleEmbeddingConfiguration: StaticStructureSchema = [
+export var RegisteredUserGenerativeQnAEmbeddingConfiguration$: StaticStructureSchema = [
+  3,
+  n0,
+  _RUGQAEC,
+  0,
+  [_ITI],
+  [0],
+];
+export var RegisteredUserQSearchBarEmbeddingConfiguration$: StaticStructureSchema = [3, n0, _RUQSBEC, 0, [_ITI], [0]];
+export var RegisteredUserQuickChatEmbeddingConfiguration$: StaticStructureSchema = [3, n0, _RUQCEC, 0, [], []];
+export var RegisteredUserQuickSightConsoleEmbeddingConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RUQSCEC,
   0,
   [_IPni, _FC],
-  [0, () => RegisteredUserConsoleFeatureConfigurations],
+  [0, () => RegisteredUserConsoleFeatureConfigurations$],
 ];
-export var RegisteredUserSnapshotJobResult: StaticStructureSchema = [
+export var RegisteredUserSnapshotJobResult$: StaticStructureSchema = [
   3,
   n0,
   _RUSJR,
@@ -11409,7 +11555,7 @@ export var RegisteredUserSnapshotJobResult: StaticStructureSchema = [
   [_FGi],
   [[() => SnapshotJobResultFileGroupList, 0]],
 ];
-export var RegisterUserRequest: StaticStructureSchema = [
+export var RegisterUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _RUR,
@@ -11417,15 +11563,15 @@ export var RegisterUserRequest: StaticStructureSchema = [
   [_ITd, _E, _UR, _IAa, _SNe, _AAI, _Na, _UN, _CPN, _ELFPT, _CFPU, _ELI, _Ta],
   [0, 0, 0, 0, 0, [0, 1], [0, 1], 0, 0, 0, 0, 0, () => TagList],
 ];
-export var RegisterUserResponse: StaticStructureSchema = [
+export var RegisterUserResponse$: StaticStructureSchema = [
   3,
   n0,
   _RURe,
   0,
   [_Us, _UIU, _RI, _St],
-  [() => User, 0, 0, [1, 32]],
+  [() => User$, 0, 0, [1, 32]],
 ];
-export var RelationalTable: StaticStructureSchema = [
+export var RelationalTable$: StaticStructureSchema = [
   3,
   n0,
   _RTel,
@@ -11433,7 +11579,7 @@ export var RelationalTable: StaticStructureSchema = [
   [_DSAa, _Cata, _Sche, _N, _ICnp],
   [0, 0, 0, 0, () => InputColumnList],
 ];
-export var RelativeDatesFilter: StaticStructureSchema = [
+export var RelativeDatesFilter$: StaticStructureSchema = [
   3,
   n0,
   _RDF,
@@ -11441,36 +11587,36 @@ export var RelativeDatesFilter: StaticStructureSchema = [
   [_FIil, _C, _ADC, _MG, _TG, _RDTe, _RDV, _PN, _NO, _EPC, _DFCC],
   [
     0,
-    () => ColumnIdentifier,
-    () => AnchorDateConfiguration,
+    () => ColumnIdentifier$,
+    () => AnchorDateConfiguration$,
     0,
     0,
     0,
     1,
     0,
     0,
-    () => ExcludePeriodConfiguration,
-    () => DefaultFilterControlConfiguration,
+    () => ExcludePeriodConfiguration$,
+    () => DefaultFilterControlConfiguration$,
   ],
 ];
-export var RelativeDateTimeControlDisplayOptions: StaticStructureSchema = [
+export var RelativeDateTimeControlDisplayOptions$: StaticStructureSchema = [
   3,
   n0,
   _RDTCDO,
   0,
   [_TO, _DTF, _IILO],
-  [() => LabelOptions, 0, () => SheetControlInfoIconLabelOptions],
+  [() => LabelOptions$, 0, () => SheetControlInfoIconLabelOptions$],
 ];
-export var RenameColumnOperation: StaticStructureSchema = [3, n0, _RCO, 0, [_CN, _NCN], [0, 0]];
-export var RenameColumnsOperation: StaticStructureSchema = [
+export var RenameColumnOperation$: StaticStructureSchema = [3, n0, _RCO, 0, [_CN, _NCN], [0, 0]];
+export var RenameColumnsOperation$: StaticStructureSchema = [
   3,
   n0,
   _RCOe,
   0,
   [_Al, _So, _RCOen],
-  [0, () => TransformOperationSource, () => RenameColumnOperationList],
+  [0, () => TransformOperationSource$, () => RenameColumnOperationList],
 ];
-export var ResourceExistsException: StaticErrorSchema = [
+export var ResourceExistsException$: StaticErrorSchema = [
   -3,
   n0,
   _REE,
@@ -11478,8 +11624,8 @@ export var ResourceExistsException: StaticErrorSchema = [
   [_M, _RTe, _RI],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ResourceExistsException, __ResourceExistsException);
-export var ResourceNotFoundException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(ResourceExistsException$, ResourceExistsException);
+export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
@@ -11487,9 +11633,9 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   [_M, _RTe, _RI],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ResourcePermission: StaticStructureSchema = [3, n0, _RPes, 0, [_Prin, _Ac], [0, 64 | 0]];
-export var ResourceUnavailableException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourcePermission$: StaticStructureSchema = [3, n0, _RPes, 0, [_Prin, _Ac], [0, 64 | 0]];
+export var ResourceUnavailableException$: StaticErrorSchema = [
   -3,
   n0,
   _RUE,
@@ -11497,8 +11643,8 @@ export var ResourceUnavailableException: StaticErrorSchema = [
   [_M, _RTe, _RI],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ResourceUnavailableException, __ResourceUnavailableException);
-export var RestoreAnalysisRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ResourceUnavailableException$, ResourceUnavailableException);
+export var RestoreAnalysisRequest$: StaticStructureSchema = [
   3,
   n0,
   _RAR,
@@ -11510,7 +11656,7 @@ export var RestoreAnalysisRequest: StaticStructureSchema = [
     [2, { [_hQ]: _rtf }],
   ],
 ];
-export var RestoreAnalysisResponse: StaticStructureSchema = [
+export var RestoreAnalysisResponse$: StaticStructureSchema = [
   3,
   n0,
   _RARe,
@@ -11518,7 +11664,7 @@ export var RestoreAnalysisResponse: StaticStructureSchema = [
   [_St, _A, _AIn, _RI, _RFFA],
   [[1, 32], 0, 0, 0, 64 | 0],
 ];
-export var RollingDateConfiguration: StaticStructureSchema = [
+export var RollingDateConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RDC,
@@ -11526,17 +11672,17 @@ export var RollingDateConfiguration: StaticStructureSchema = [
   [_DSIatae, _Ex],
   [0, [() => Expression, 0]],
 ];
-export var RowAlternateColorOptions: StaticStructureSchema = [3, n0, _RACO, 0, [_St, _RACo, _UPBC], [0, 64 | 0, 0]];
-export var RowInfo: StaticStructureSchema = [3, n0, _RIow, 0, [_RIows, _RDo, _TRID], [1, 1, 1]];
-export var RowLevelPermissionConfiguration: StaticStructureSchema = [
+export var RowAlternateColorOptions$: StaticStructureSchema = [3, n0, _RACO, 0, [_St, _RACo, _UPBC], [0, 64 | 0, 0]];
+export var RowInfo$: StaticStructureSchema = [3, n0, _RIow, 0, [_RIows, _RDo, _TRID], [1, 1, 1]];
+export var RowLevelPermissionConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RLPC,
   0,
   [_TCa, _RLPDS],
-  [[() => RowLevelPermissionTagConfiguration, 0], () => RowLevelPermissionDataSet],
+  [[() => RowLevelPermissionTagConfiguration$, 0], () => RowLevelPermissionDataSet$],
 ];
-export var RowLevelPermissionDataSet: StaticStructureSchema = [
+export var RowLevelPermissionDataSet$: StaticStructureSchema = [
   3,
   n0,
   _RLPDS,
@@ -11544,7 +11690,7 @@ export var RowLevelPermissionDataSet: StaticStructureSchema = [
   [_Na, _A, _PPe, _FVo, _St],
   [0, 0, 0, 0, 0],
 ];
-export var RowLevelPermissionTagConfiguration: StaticStructureSchema = [
+export var RowLevelPermissionTagConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RLPTC,
@@ -11552,7 +11698,7 @@ export var RowLevelPermissionTagConfiguration: StaticStructureSchema = [
   [_St, _TR, _TRC],
   [0, [() => RowLevelPermissionTagRuleList, 0], [1, n0, _RLPTRCL, 0, 64 | 0]],
 ];
-export var RowLevelPermissionTagRule: StaticStructureSchema = [
+export var RowLevelPermissionTagRule$: StaticStructureSchema = [
   3,
   n0,
   _RLPTR,
@@ -11560,18 +11706,18 @@ export var RowLevelPermissionTagRule: StaticStructureSchema = [
   [_TK, _CN, _TMVD, _MAV],
   [0, 0, 0, [() => SessionTagValue, 0]],
 ];
-export var S3BucketConfiguration: StaticStructureSchema = [3, n0, _SBC, 0, [_BNu, _BP, _BRu], [0, 0, 0]];
-export var S3KnowledgeBaseParameters: StaticStructureSchema = [3, n0, _SKBP, 0, [_RA, _BU, _MFLe], [0, 0, 0]];
-export var S3Parameters: StaticStructureSchema = [3, n0, _SPa, 0, [_MFL, _RA], [() => ManifestFileLocation, 0]];
-export var S3Source: StaticStructureSchema = [
+export var S3BucketConfiguration$: StaticStructureSchema = [3, n0, _SBC, 0, [_BNu, _BP, _BRu], [0, 0, 0]];
+export var S3KnowledgeBaseParameters$: StaticStructureSchema = [3, n0, _SKBP, 0, [_RA, _BU, _MFLe], [0, 0, 0]];
+export var S3Parameters$: StaticStructureSchema = [3, n0, _SPa, 0, [_MFL, _RA], [() => ManifestFileLocation$, 0]];
+export var S3Source$: StaticStructureSchema = [
   3,
   n0,
   _SSo,
   0,
   [_DSAa, _USp, _ICnp],
-  [0, () => UploadSettings, () => InputColumnList],
+  [0, () => UploadSettings$, () => InputColumnList],
 ];
-export var SaaSTable: StaticStructureSchema = [
+export var SaaSTable$: StaticStructureSchema = [
   3,
   n0,
   _SST,
@@ -11579,8 +11725,8 @@ export var SaaSTable: StaticStructureSchema = [
   [_DSAa, _TP, _ICnp],
   [0, () => TablePathElementList, () => InputColumnList],
 ];
-export var SameSheetTargetVisualConfiguration: StaticStructureSchema = [3, n0, _SSTVC, 0, [_TVarg, _TVO], [64 | 0, 0]];
-export var SankeyDiagramAggregatedFieldWells: StaticStructureSchema = [
+export var SameSheetTargetVisualConfiguration$: StaticStructureSchema = [3, n0, _SSTVC, 0, [_TVarg, _TVO], [64 | 0, 0]];
+export var SankeyDiagramAggregatedFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _SDAFW,
@@ -11588,36 +11734,36 @@ export var SankeyDiagramAggregatedFieldWells: StaticStructureSchema = [
   [_So, _Des, _Wei],
   [() => DimensionFieldList, () => DimensionFieldList, () => MeasureFieldList],
 ];
-export var SankeyDiagramChartConfiguration: StaticStructureSchema = [
+export var SankeyDiagramChartConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SDCC,
   0,
   [_FW, _SCo, _DL, _I],
   [
-    () => SankeyDiagramFieldWells,
-    () => SankeyDiagramSortConfiguration,
-    () => DataLabelOptions,
-    () => VisualInteractionOptions,
+    () => SankeyDiagramFieldWells$,
+    () => SankeyDiagramSortConfiguration$,
+    () => DataLabelOptions$,
+    () => VisualInteractionOptions$,
   ],
 ];
-export var SankeyDiagramFieldWells: StaticStructureSchema = [
+export var SankeyDiagramFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _SDFW,
   0,
   [_SDAFW],
-  [() => SankeyDiagramAggregatedFieldWells],
+  [() => SankeyDiagramAggregatedFieldWells$],
 ];
-export var SankeyDiagramSortConfiguration: StaticStructureSchema = [
+export var SankeyDiagramSortConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SDSC,
   0,
   [_WSe, _SIL, _DIL],
-  [() => FieldSortOptionsList, () => ItemsLimitConfiguration, () => ItemsLimitConfiguration],
+  [() => FieldSortOptionsList, () => ItemsLimitConfiguration$, () => ItemsLimitConfiguration$],
 ];
-export var SankeyDiagramVisual: StaticStructureSchema = [
+export var SankeyDiagramVisual$: StaticStructureSchema = [
   3,
   n0,
   _SDV,
@@ -11625,14 +11771,14 @@ export var SankeyDiagramVisual: StaticStructureSchema = [
   [_VI, _Tit, _Su, _CCh, _Ac, _VCAT],
   [
     0,
-    () => VisualTitleLabelOptions,
-    () => VisualSubtitleLabelOptions,
-    () => SankeyDiagramChartConfiguration,
+    () => VisualTitleLabelOptions$,
+    () => VisualSubtitleLabelOptions$,
+    () => SankeyDiagramChartConfiguration$,
     () => VisualCustomActionList,
     0,
   ],
 ];
-export var ScatterPlotCategoricallyAggregatedFieldWells: StaticStructureSchema = [
+export var ScatterPlotCategoricallyAggregatedFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _SPCAFW,
@@ -11646,43 +11792,43 @@ export var ScatterPlotCategoricallyAggregatedFieldWells: StaticStructureSchema =
     () => DimensionFieldList,
   ],
 ];
-export var ScatterPlotConfiguration: StaticStructureSchema = [
+export var ScatterPlotConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SPC,
   0,
   [_FW, _SCo, _XALO, _XADO, _YALO, _YADO, _Le, _DL, _To, _VP, _I],
   [
-    () => ScatterPlotFieldWells,
-    () => ScatterPlotSortConfiguration,
-    () => ChartAxisLabelOptions,
-    () => AxisDisplayOptions,
-    () => ChartAxisLabelOptions,
-    () => AxisDisplayOptions,
-    () => LegendOptions,
-    () => DataLabelOptions,
-    () => TooltipOptions,
-    () => VisualPalette,
-    () => VisualInteractionOptions,
+    () => ScatterPlotFieldWells$,
+    () => ScatterPlotSortConfiguration$,
+    () => ChartAxisLabelOptions$,
+    () => AxisDisplayOptions$,
+    () => ChartAxisLabelOptions$,
+    () => AxisDisplayOptions$,
+    () => LegendOptions$,
+    () => DataLabelOptions$,
+    () => TooltipOptions$,
+    () => VisualPalette$,
+    () => VisualInteractionOptions$,
   ],
 ];
-export var ScatterPlotFieldWells: StaticStructureSchema = [
+export var ScatterPlotFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _SPFW,
   0,
   [_SPCAFW, _SPUFW],
-  [() => ScatterPlotCategoricallyAggregatedFieldWells, () => ScatterPlotUnaggregatedFieldWells],
+  [() => ScatterPlotCategoricallyAggregatedFieldWells$, () => ScatterPlotUnaggregatedFieldWells$],
 ];
-export var ScatterPlotSortConfiguration: StaticStructureSchema = [
+export var ScatterPlotSortConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SPSC,
   0,
   [_SPLC],
-  [() => ItemsLimitConfiguration],
+  [() => ItemsLimitConfiguration$],
 ];
-export var ScatterPlotUnaggregatedFieldWells: StaticStructureSchema = [
+export var ScatterPlotUnaggregatedFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _SPUFW,
@@ -11696,7 +11842,7 @@ export var ScatterPlotUnaggregatedFieldWells: StaticStructureSchema = [
     () => DimensionFieldList,
   ],
 ];
-export var ScatterPlotVisual: StaticStructureSchema = [
+export var ScatterPlotVisual$: StaticStructureSchema = [
   3,
   n0,
   _SPV,
@@ -11704,18 +11850,18 @@ export var ScatterPlotVisual: StaticStructureSchema = [
   [_VI, _Tit, _Su, _CCh, _Ac, _CH, _VCAT],
   [
     0,
-    () => VisualTitleLabelOptions,
-    () => VisualSubtitleLabelOptions,
-    () => ScatterPlotConfiguration,
+    () => VisualTitleLabelOptions$,
+    () => VisualSubtitleLabelOptions$,
+    () => ScatterPlotConfiguration$,
     () => VisualCustomActionList,
     () => ColumnHierarchyList,
     0,
   ],
 ];
-export var ScheduleRefreshOnEntity: StaticStructureSchema = [3, n0, _SROE, 0, [_DOW, _DOM], [0, 0]];
-export var SchedulesConfigurations: StaticStructureSchema = [3, n0, _SCch, 0, [_En], [2]];
-export var ScrollBarOptions: StaticStructureSchema = [3, n0, _SBO, 0, [_Vi, _VR], [0, () => VisibleRangeOptions]];
-export var SearchActionConnectorsRequest: StaticStructureSchema = [
+export var ScheduleRefreshOnEntity$: StaticStructureSchema = [3, n0, _SROE, 0, [_DOW, _DOM], [0, 0]];
+export var SchedulesConfigurations$: StaticStructureSchema = [3, n0, _SCch, 0, [_En], [2]];
+export var ScrollBarOptions$: StaticStructureSchema = [3, n0, _SBO, 0, [_Vi, _VR], [0, () => VisibleRangeOptions$]];
+export var SearchActionConnectorsRequest$: StaticStructureSchema = [
   3,
   n0,
   _SACR,
@@ -11723,7 +11869,7 @@ export var SearchActionConnectorsRequest: StaticStructureSchema = [
   [_AAI, _MR, _NT, _Fi],
   [[0, 1], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }], () => ActionConnectorSearchFilterList],
 ];
-export var SearchActionConnectorsResponse: StaticStructureSchema = [
+export var SearchActionConnectorsResponse$: StaticStructureSchema = [
   3,
   n0,
   _SACRe,
@@ -11731,7 +11877,7 @@ export var SearchActionConnectorsResponse: StaticStructureSchema = [
   [_NT, _RI, _St, _ACSc],
   [0, 0, [1, 32], [() => ActionConnectorSummaryList, 0]],
 ];
-export var SearchAnalysesRequest: StaticStructureSchema = [
+export var SearchAnalysesRequest$: StaticStructureSchema = [
   3,
   n0,
   _SAR,
@@ -11739,7 +11885,7 @@ export var SearchAnalysesRequest: StaticStructureSchema = [
   [_AAI, _Fi, _NT, _MR],
   [[0, 1], () => AnalysisSearchFilterList, 0, 1],
 ];
-export var SearchAnalysesResponse: StaticStructureSchema = [
+export var SearchAnalysesResponse$: StaticStructureSchema = [
   3,
   n0,
   _SARe,
@@ -11747,7 +11893,7 @@ export var SearchAnalysesResponse: StaticStructureSchema = [
   [_ASL, _NT, _St, _RI],
   [() => AnalysisSummaryList, 0, [1, 32], 0],
 ];
-export var SearchDashboardsRequest: StaticStructureSchema = [
+export var SearchDashboardsRequest$: StaticStructureSchema = [
   3,
   n0,
   _SDR,
@@ -11755,7 +11901,7 @@ export var SearchDashboardsRequest: StaticStructureSchema = [
   [_AAI, _Fi, _NT, _MR],
   [[0, 1], () => DashboardSearchFilterList, 0, 1],
 ];
-export var SearchDashboardsResponse: StaticStructureSchema = [
+export var SearchDashboardsResponse$: StaticStructureSchema = [
   3,
   n0,
   _SDRe,
@@ -11763,7 +11909,7 @@ export var SearchDashboardsResponse: StaticStructureSchema = [
   [_DSL, _NT, _St, _RI],
   [() => DashboardSummaryList, 0, [1, 32], 0],
 ];
-export var SearchDataSetsRequest: StaticStructureSchema = [
+export var SearchDataSetsRequest$: StaticStructureSchema = [
   3,
   n0,
   _SDSR,
@@ -11771,7 +11917,7 @@ export var SearchDataSetsRequest: StaticStructureSchema = [
   [_AAI, _Fi, _NT, _MR],
   [[0, 1], () => DataSetSearchFilterList, 0, 1],
 ];
-export var SearchDataSetsResponse: StaticStructureSchema = [
+export var SearchDataSetsResponse$: StaticStructureSchema = [
   3,
   n0,
   _SDSRe,
@@ -11779,7 +11925,7 @@ export var SearchDataSetsResponse: StaticStructureSchema = [
   [_DSSatae, _NT, _St, _RI],
   [() => DataSetSummaryList, 0, [1, 32], 0],
 ];
-export var SearchDataSourcesRequest: StaticStructureSchema = [
+export var SearchDataSourcesRequest$: StaticStructureSchema = [
   3,
   n0,
   _SDSRea,
@@ -11787,7 +11933,7 @@ export var SearchDataSourcesRequest: StaticStructureSchema = [
   [_AAI, _Fi, _NT, _MR],
   [[0, 1], () => DataSourceSearchFilterList, 0, 1],
 ];
-export var SearchDataSourcesResponse: StaticStructureSchema = [
+export var SearchDataSourcesResponse$: StaticStructureSchema = [
   3,
   n0,
   _SDSRear,
@@ -11795,8 +11941,8 @@ export var SearchDataSourcesResponse: StaticStructureSchema = [
   [_DSSatao, _NT, _St, _RI],
   [() => DataSourceSummaryList, 0, [1, 32], 0],
 ];
-export var SearchFlowsFilter: StaticStructureSchema = [3, n0, _SFF, 0, [_N, _O, _V], [0, 0, 0]];
-export var SearchFlowsInput: StaticStructureSchema = [
+export var SearchFlowsFilter$: StaticStructureSchema = [3, n0, _SFF, 0, [_N, _O, _V], [0, 0, 0]];
+export var SearchFlowsInput$: StaticStructureSchema = [
   3,
   n0,
   _SFIe,
@@ -11804,7 +11950,7 @@ export var SearchFlowsInput: StaticStructureSchema = [
   [_AAI, _Fi, _NT, _MR],
   [[0, 1], () => SearchFlowsFilterList, 0, 1],
 ];
-export var SearchFlowsOutput: StaticStructureSchema = [
+export var SearchFlowsOutput$: StaticStructureSchema = [
   3,
   n0,
   _SFOe,
@@ -11812,7 +11958,7 @@ export var SearchFlowsOutput: StaticStructureSchema = [
   [_FSL, _NT, _RI, _St],
   [() => FlowSummaryList, 0, 0, [1, 32]],
 ];
-export var SearchFoldersRequest: StaticStructureSchema = [
+export var SearchFoldersRequest$: StaticStructureSchema = [
   3,
   n0,
   _SFR,
@@ -11820,7 +11966,7 @@ export var SearchFoldersRequest: StaticStructureSchema = [
   [_AAI, _Fi, _NT, _MR],
   [[0, 1], () => FolderSearchFilterList, 0, 1],
 ];
-export var SearchFoldersResponse: StaticStructureSchema = [
+export var SearchFoldersResponse$: StaticStructureSchema = [
   3,
   n0,
   _SFRe,
@@ -11828,7 +11974,7 @@ export var SearchFoldersResponse: StaticStructureSchema = [
   [_St, _FSLo, _NT, _RI],
   [[1, 32], () => FolderSummaryList, 0, 0],
 ];
-export var SearchGroupsRequest: StaticStructureSchema = [
+export var SearchGroupsRequest$: StaticStructureSchema = [
   3,
   n0,
   _SGR,
@@ -11836,7 +11982,7 @@ export var SearchGroupsRequest: StaticStructureSchema = [
   [_AAI, _NT, _MR, _Na, _Fi],
   [[0, 1], [0, { [_hQ]: _nt }], [1, { [_hQ]: _mr }], [0, 1], () => GroupSearchFilterList],
 ];
-export var SearchGroupsResponse: StaticStructureSchema = [
+export var SearchGroupsResponse$: StaticStructureSchema = [
   3,
   n0,
   _SGRe,
@@ -11844,7 +11990,7 @@ export var SearchGroupsResponse: StaticStructureSchema = [
   [_GLr, _NT, _RI, _St],
   [() => GroupList, 0, 0, [1, 32]],
 ];
-export var SearchTopicsRequest: StaticStructureSchema = [
+export var SearchTopicsRequest$: StaticStructureSchema = [
   3,
   n0,
   _STR,
@@ -11852,7 +11998,7 @@ export var SearchTopicsRequest: StaticStructureSchema = [
   [_AAI, _Fi, _NT, _MR],
   [[0, 1], () => TopicSearchFilterList, 0, 1],
 ];
-export var SearchTopicsResponse: StaticStructureSchema = [
+export var SearchTopicsResponse$: StaticStructureSchema = [
   3,
   n0,
   _STRe,
@@ -11860,17 +12006,17 @@ export var SearchTopicsResponse: StaticStructureSchema = [
   [_TSLo, _NT, _St, _RI],
   [() => TopicSummaries, 0, [1, 32], 0],
 ];
-export var SecondaryValueOptions: StaticStructureSchema = [3, n0, _SVO, 0, [_Vi], [0]];
-export var SectionAfterPageBreak: StaticStructureSchema = [3, n0, _SAPB, 0, [_St], [0]];
-export var SectionBasedLayoutCanvasSizeOptions: StaticStructureSchema = [
+export var SecondaryValueOptions$: StaticStructureSchema = [3, n0, _SVO, 0, [_Vi], [0]];
+export var SectionAfterPageBreak$: StaticStructureSchema = [3, n0, _SAPB, 0, [_St], [0]];
+export var SectionBasedLayoutCanvasSizeOptions$: StaticStructureSchema = [
   3,
   n0,
   _SBLCSO,
   0,
   [_PCSO],
-  [() => SectionBasedLayoutPaperCanvasSizeOptions],
+  [() => SectionBasedLayoutPaperCanvasSizeOptions$],
 ];
-export var SectionBasedLayoutConfiguration: StaticStructureSchema = [
+export var SectionBasedLayoutConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SBLC,
@@ -11880,35 +12026,35 @@ export var SectionBasedLayoutConfiguration: StaticStructureSchema = [
     () => HeaderFooterSectionConfigurationList,
     () => BodySectionConfigurationList,
     () => HeaderFooterSectionConfigurationList,
-    () => SectionBasedLayoutCanvasSizeOptions,
+    () => SectionBasedLayoutCanvasSizeOptions$,
   ],
 ];
-export var SectionBasedLayoutPaperCanvasSizeOptions: StaticStructureSchema = [
+export var SectionBasedLayoutPaperCanvasSizeOptions$: StaticStructureSchema = [
   3,
   n0,
   _SBLPCSO,
   0,
   [_PSap, _POa, _PMa],
-  [0, 0, () => Spacing],
+  [0, 0, () => Spacing$],
 ];
-export var SectionLayoutConfiguration: StaticStructureSchema = [
+export var SectionLayoutConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SLC,
   0,
   [_FFL],
-  [() => FreeFormSectionLayoutConfiguration],
+  [() => FreeFormSectionLayoutConfiguration$],
 ];
-export var SectionPageBreakConfiguration: StaticStructureSchema = [
+export var SectionPageBreakConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SPBC,
   0,
   [_Af],
-  [() => SectionAfterPageBreak],
+  [() => SectionAfterPageBreak$],
 ];
-export var SectionStyle: StaticStructureSchema = [3, n0, _SSec, 0, [_He, _Pad], [0, () => Spacing]];
-export var SelectedSheetsFilterScopeConfiguration: StaticStructureSchema = [
+export var SectionStyle$: StaticStructureSchema = [3, n0, _SSec, 0, [_He, _Pad], [0, () => Spacing$]];
+export var SelectedSheetsFilterScopeConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SSFSC,
@@ -11916,17 +12062,17 @@ export var SelectedSheetsFilterScopeConfiguration: StaticStructureSchema = [
   [_SVSC],
   [() => SheetVisualScopingConfigurations],
 ];
-export var SemanticEntityType: StaticStructureSchema = [3, n0, _SET, 0, [_TNy, _STN, _TPy], [0, 0, 128 | 0]];
-export var SemanticModelConfiguration: StaticStructureSchema = [3, n0, _SMC, 0, [_TM], [[() => SemanticTableMap, 0]]];
-export var SemanticTable: StaticStructureSchema = [
+export var SemanticEntityType$: StaticStructureSchema = [3, n0, _SET, 0, [_TNy, _STN, _TPy], [0, 0, 128 | 0]];
+export var SemanticModelConfiguration$: StaticStructureSchema = [3, n0, _SMC, 0, [_TM], [[() => SemanticTableMap, 0]]];
+export var SemanticTable$: StaticStructureSchema = [
   3,
   n0,
   _STem,
   0,
   [_Al, _DTI, _RLPC],
-  [0, 0, [() => RowLevelPermissionConfiguration, 0]],
+  [0, 0, [() => RowLevelPermissionConfiguration$, 0]],
 ];
-export var SemanticType: StaticStructureSchema = [
+export var SemanticType$: StaticStructureSchema = [
   3,
   n0,
   _STema,
@@ -11942,16 +12088,16 @@ export var SemanticType: StaticStructureSchema = [
     [() => SensitiveStringList, 0],
   ],
 ];
-export var SeriesItem: StaticStructureSchema = [
+export var SeriesItem$: StaticStructureSchema = [
   3,
   n0,
   _SIer,
   0,
   [_FSI, _DFSI],
-  [() => FieldSeriesItem, () => DataFieldSeriesItem],
+  [() => FieldSeriesItem$, () => DataFieldSeriesItem$],
 ];
-export var ServiceNowParameters: StaticStructureSchema = [3, n0, _SNP, 0, [_SBU], [0]];
-export var SessionLifetimeInMinutesInvalidException: StaticErrorSchema = [
+export var ServiceNowParameters$: StaticStructureSchema = [3, n0, _SNP, 0, [_SBU], [0]];
+export var SessionLifetimeInMinutesInvalidException$: StaticErrorSchema = [
   -3,
   n0,
   _SLIMIE,
@@ -11959,49 +12105,46 @@ export var SessionLifetimeInMinutesInvalidException: StaticErrorSchema = [
   [_M, _RI],
   [0, 0],
 ];
-TypeRegistry.for(n0).registerError(
-  SessionLifetimeInMinutesInvalidException,
-  __SessionLifetimeInMinutesInvalidException
-);
-export var SessionTag: StaticStructureSchema = [3, n0, _STes, 0, [_K, _V], [0, [() => SessionTagValue, 0]]];
-export var SetParameterValueConfiguration: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(SessionLifetimeInMinutesInvalidException$, SessionLifetimeInMinutesInvalidException);
+export var SessionTag$: StaticStructureSchema = [3, n0, _STes, 0, [_K, _V], [0, [() => SessionTagValue, 0]]];
+export var SetParameterValueConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SPVC,
   0,
   [_DPN, _V],
-  [0, [() => DestinationParameterValueConfiguration, 0]],
+  [0, [() => DestinationParameterValueConfiguration$, 0]],
 ];
-export var ShapeConditionalFormat: StaticStructureSchema = [
+export var ShapeConditionalFormat$: StaticStructureSchema = [
   3,
   n0,
   _SCF,
   0,
   [_BCa],
-  [[() => ConditionalFormattingColor, 0]],
+  [[() => ConditionalFormattingColor$, 0]],
 ];
-export var SharedViewConfigurations: StaticStructureSchema = [3, n0, _SVC, 0, [_En], [2]];
-export var Sheet: StaticStructureSchema = [3, n0, _She, 0, [_SIh, _N, _Ima], [0, 0, () => SheetImageList]];
-export var SheetBackgroundStyle: StaticStructureSchema = [3, n0, _SBSh, 0, [_Col, _G], [0, 0]];
-export var SheetControlInfoIconLabelOptions: StaticStructureSchema = [3, n0, _SCIILO, 0, [_Vi, _IIT], [0, 0]];
-export var SheetControlLayout: StaticStructureSchema = [
+export var SharedViewConfigurations$: StaticStructureSchema = [3, n0, _SVC, 0, [_En], [2]];
+export var Sheet$: StaticStructureSchema = [3, n0, _She, 0, [_SIh, _N, _Ima], [0, 0, () => SheetImageList]];
+export var SheetBackgroundStyle$: StaticStructureSchema = [3, n0, _SBSh, 0, [_Col, _G], [0, 0]];
+export var SheetControlInfoIconLabelOptions$: StaticStructureSchema = [3, n0, _SCIILO, 0, [_Vi, _IIT], [0, 0]];
+export var SheetControlLayout$: StaticStructureSchema = [
   3,
   n0,
   _SCL,
   0,
   [_Conf],
-  [() => SheetControlLayoutConfiguration],
+  [() => SheetControlLayoutConfiguration$],
 ];
-export var SheetControlLayoutConfiguration: StaticStructureSchema = [
+export var SheetControlLayoutConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SCLC,
   0,
   [_GL],
-  [() => GridLayoutConfiguration],
+  [() => GridLayoutConfiguration$],
 ];
-export var SheetControlsOption: StaticStructureSchema = [3, n0, _SCO, 0, [_VSis], [0]];
-export var SheetDefinition: StaticStructureSchema = [
+export var SheetControlsOption$: StaticStructureSchema = [3, n0, _SCO, 0, [_VSis], [0]];
+export var SheetDefinition$: StaticStructureSchema = [
   3,
   n0,
   _SDhe,
@@ -12020,19 +12163,19 @@ export var SheetDefinition: StaticStructureSchema = [
     () => LayoutList,
     () => SheetControlLayoutList,
     0,
-    () => VisualCustomActionDefaults,
+    () => VisualCustomActionDefaults$,
   ],
 ];
-export var SheetElementConfigurationOverrides: StaticStructureSchema = [3, n0, _SECO, 0, [_Vi], [0]];
-export var SheetElementRenderingRule: StaticStructureSchema = [
+export var SheetElementConfigurationOverrides$: StaticStructureSchema = [3, n0, _SECO, 0, [_Vi], [0]];
+export var SheetElementRenderingRule$: StaticStructureSchema = [
   3,
   n0,
   _SERR,
   0,
   [_Ex, _COon],
-  [[() => Expression, 0], () => SheetElementConfigurationOverrides],
+  [[() => Expression, 0], () => SheetElementConfigurationOverrides$],
 ];
-export var SheetImage: StaticStructureSchema = [
+export var SheetImage$: StaticStructureSchema = [
   3,
   n0,
   _SIhe,
@@ -12040,44 +12183,44 @@ export var SheetImage: StaticStructureSchema = [
   [_SII, _So, _Scal, _To, _ICAT, _I, _Ac],
   [
     0,
-    () => SheetImageSource,
-    () => SheetImageScalingConfiguration,
-    () => SheetImageTooltipConfiguration,
+    () => SheetImageSource$,
+    () => SheetImageScalingConfiguration$,
+    () => SheetImageTooltipConfiguration$,
     0,
-    () => ImageInteractionOptions,
+    () => ImageInteractionOptions$,
     () => ImageCustomActionList,
   ],
 ];
-export var SheetImageScalingConfiguration: StaticStructureSchema = [3, n0, _SISC, 0, [_STc], [0]];
-export var SheetImageSource: StaticStructureSchema = [3, n0, _SIS, 0, [_SISFS], [() => SheetImageStaticFileSource]];
-export var SheetImageStaticFileSource: StaticStructureSchema = [3, n0, _SISFS, 0, [_SFIt], [0]];
-export var SheetImageTooltipConfiguration: StaticStructureSchema = [
+export var SheetImageScalingConfiguration$: StaticStructureSchema = [3, n0, _SISC, 0, [_STc], [0]];
+export var SheetImageSource$: StaticStructureSchema = [3, n0, _SIS, 0, [_SISFS], [() => SheetImageStaticFileSource$]];
+export var SheetImageStaticFileSource$: StaticStructureSchema = [3, n0, _SISFS, 0, [_SFIt], [0]];
+export var SheetImageTooltipConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SITC,
   0,
   [_TTo, _Vi],
-  [() => SheetImageTooltipText, 0],
+  [() => SheetImageTooltipText$, 0],
 ];
-export var SheetImageTooltipText: StaticStructureSchema = [3, n0, _SITT, 0, [_PT], [0]];
-export var SheetLayoutElementMaximizationOption: StaticStructureSchema = [3, n0, _SLEMO, 0, [_ASv], [0]];
-export var SheetStyle: StaticStructureSchema = [
+export var SheetImageTooltipText$: StaticStructureSchema = [3, n0, _SITT, 0, [_PT], [0]];
+export var SheetLayoutElementMaximizationOption$: StaticStructureSchema = [3, n0, _SLEMO, 0, [_ASv], [0]];
+export var SheetStyle$: StaticStructureSchema = [
   3,
   n0,
   _SSh,
   0,
   [_Til, _TL, _Bac],
-  [() => TileStyle, () => TileLayoutStyle, () => SheetBackgroundStyle],
+  [() => TileStyle$, () => TileLayoutStyle$, () => SheetBackgroundStyle$],
 ];
-export var SheetTextBox: StaticStructureSchema = [
+export var SheetTextBox$: StaticStructureSchema = [
   3,
   n0,
   _STB,
   0,
   [_STBI, _Con, _I],
-  [0, 0, () => TextBoxInteractionOptions],
+  [0, 0, () => TextBoxInteractionOptions$],
 ];
-export var SheetVisualScopingConfiguration: StaticStructureSchema = [
+export var SheetVisualScopingConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SVSCh,
@@ -12085,39 +12228,39 @@ export var SheetVisualScopingConfiguration: StaticStructureSchema = [
   [_SIh, _Sco, _VIi],
   [0, 0, 64 | 0],
 ];
-export var ShortFormatText: StaticStructureSchema = [3, n0, _SFT, 0, [_PT, _RTi], [0, 0]];
-export var SignupResponse: StaticStructureSchema = [3, n0, _SRi, 0, [_IAMU, _uLN, _aN, _dT], [2, 0, 0, 0]];
-export var SimpleClusterMarker: StaticStructureSchema = [3, n0, _SCM, 0, [_Col], [0]];
-export var SingleAxisOptions: StaticStructureSchema = [3, n0, _SAO, 0, [_YAO], [() => YAxisOptions]];
-export var SliderControlDisplayOptions: StaticStructureSchema = [
+export var ShortFormatText$: StaticStructureSchema = [3, n0, _SFT, 0, [_PT, _RTi], [0, 0]];
+export var SignupResponse$: StaticStructureSchema = [3, n0, _SRi, 0, [_IAMU, _uLN, _aN, _dT], [2, 0, 0, 0]];
+export var SimpleClusterMarker$: StaticStructureSchema = [3, n0, _SCM, 0, [_Col], [0]];
+export var SingleAxisOptions$: StaticStructureSchema = [3, n0, _SAO, 0, [_YAO], [() => YAxisOptions$]];
+export var SliderControlDisplayOptions$: StaticStructureSchema = [
   3,
   n0,
   _SCDO,
   0,
   [_TO, _IILO],
-  [() => LabelOptions, () => SheetControlInfoIconLabelOptions],
+  [() => LabelOptions$, () => SheetControlInfoIconLabelOptions$],
 ];
-export var Slot: StaticStructureSchema = [3, n0, _Slo, 0, [_SIl, _VI], [0, 0]];
-export var SmallMultiplesAxisProperties: StaticStructureSchema = [3, n0, _SMAP, 0, [_Sca, _Pla], [0, 0]];
-export var SmallMultiplesOptions: StaticStructureSchema = [
+export var Slot$: StaticStructureSchema = [3, n0, _Slo, 0, [_SIl, _VI], [0, 0]];
+export var SmallMultiplesAxisProperties$: StaticStructureSchema = [3, n0, _SMAP, 0, [_Sca, _Pla], [0, 0]];
+export var SmallMultiplesOptions$: StaticStructureSchema = [
   3,
   n0,
   _SMO,
   0,
   [_MVR, _MVC, _PCa, _XA, _YA],
-  [1, 1, () => PanelConfiguration, () => SmallMultiplesAxisProperties, () => SmallMultiplesAxisProperties],
+  [1, 1, () => PanelConfiguration$, () => SmallMultiplesAxisProperties$, () => SmallMultiplesAxisProperties$],
 ];
-export var SnapshotAnonymousUser: StaticStructureSchema = [3, n0, _SAU, 0, [_RLPT], [[() => SessionTagList, 0]]];
-export var SnapshotAnonymousUserRedacted: StaticStructureSchema = [3, n0, _SAUR, 0, [_RLPTK], [64 | 0]];
-export var SnapshotConfiguration: StaticStructureSchema = [
+export var SnapshotAnonymousUser$: StaticStructureSchema = [3, n0, _SAU, 0, [_RLPT], [[() => SessionTagList, 0]]];
+export var SnapshotAnonymousUserRedacted$: StaticStructureSchema = [3, n0, _SAUR, 0, [_RLPTK], [64 | 0]];
+export var SnapshotConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SCn,
   0,
   [_FGi, _DCes, _Par],
-  [() => SnapshotFileGroupList, () => SnapshotDestinationConfiguration, [() => _Parameters, 0]],
+  [() => SnapshotFileGroupList, () => SnapshotDestinationConfiguration$, [() => _Parameters$, 0]],
 ];
-export var SnapshotDestinationConfiguration: StaticStructureSchema = [
+export var SnapshotDestinationConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SDC,
@@ -12125,7 +12268,7 @@ export var SnapshotDestinationConfiguration: StaticStructureSchema = [
   [_SDe],
   [() => SnapshotS3DestinationConfigurationList],
 ];
-export var SnapshotFile: StaticStructureSchema = [
+export var SnapshotFile$: StaticStructureSchema = [
   3,
   n0,
   _SFn,
@@ -12133,10 +12276,10 @@ export var SnapshotFile: StaticStructureSchema = [
   [_SShe, _FTo],
   [() => SnapshotFileSheetSelectionList, 0],
 ];
-export var SnapshotFileGroup: StaticStructureSchema = [3, n0, _SFG, 0, [_File], [() => SnapshotFileList]];
-export var SnapshotFileSheetSelection: StaticStructureSchema = [3, n0, _SFSS, 0, [_SIh, _SSele, _VIi], [0, 0, 64 | 0]];
-export var SnapshotJobErrorInfo: StaticStructureSchema = [3, n0, _SJEI, 0, [_EM, _ETr], [0, 0]];
-export var SnapshotJobResult: StaticStructureSchema = [
+export var SnapshotFileGroup$: StaticStructureSchema = [3, n0, _SFG, 0, [_File], [() => SnapshotFileList]];
+export var SnapshotFileSheetSelection$: StaticStructureSchema = [3, n0, _SFSS, 0, [_SIh, _SSele, _VIi], [0, 0, 64 | 0]];
+export var SnapshotJobErrorInfo$: StaticStructureSchema = [3, n0, _SJEI, 0, [_EM, _ETr], [0, 0]];
+export var SnapshotJobResult$: StaticStructureSchema = [
   3,
   n0,
   _SJR,
@@ -12147,8 +12290,8 @@ export var SnapshotJobResult: StaticStructureSchema = [
     [() => RegisteredUserSnapshotJobResultList, 0],
   ],
 ];
-export var SnapshotJobResultErrorInfo: StaticStructureSchema = [3, n0, _SJREI, 0, [_EM, _ETr], [0, 0]];
-export var SnapshotJobResultFileGroup: StaticStructureSchema = [
+export var SnapshotJobResultErrorInfo$: StaticStructureSchema = [3, n0, _SJREI, 0, [_EM, _ETr], [0, 0]];
+export var SnapshotJobResultFileGroup$: StaticStructureSchema = [
   3,
   n0,
   _SJRFG,
@@ -12156,23 +12299,23 @@ export var SnapshotJobResultFileGroup: StaticStructureSchema = [
   [_File, _SRe],
   [() => SnapshotFileList, [() => SnapshotJobS3ResultList, 0]],
 ];
-export var SnapshotJobS3Result: StaticStructureSchema = [
+export var SnapshotJobS3Result$: StaticStructureSchema = [
   3,
   n0,
   _SJSR,
   0,
   [_SDCe, _SU, _EI],
-  [() => SnapshotS3DestinationConfiguration, [() => SensitiveS3Uri, 0], () => SnapshotJobResultErrorInfoList],
+  [() => SnapshotS3DestinationConfiguration$, [() => SensitiveS3Uri, 0], () => SnapshotJobResultErrorInfoList],
 ];
-export var SnapshotS3DestinationConfiguration: StaticStructureSchema = [
+export var SnapshotS3DestinationConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SSDC,
   0,
   [_BCu],
-  [() => S3BucketConfiguration],
+  [() => S3BucketConfiguration$],
 ];
-export var SnapshotUserConfiguration: StaticStructureSchema = [
+export var SnapshotUserConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SUC,
@@ -12180,7 +12323,7 @@ export var SnapshotUserConfiguration: StaticStructureSchema = [
   [_AU],
   [[() => SnapshotAnonymousUserList, 0]],
 ];
-export var SnapshotUserConfigurationRedacted: StaticStructureSchema = [
+export var SnapshotUserConfigurationRedacted$: StaticStructureSchema = [
   3,
   n0,
   _SUCR,
@@ -12188,29 +12331,29 @@ export var SnapshotUserConfigurationRedacted: StaticStructureSchema = [
   [_AU],
   [() => SnapshotAnonymousUserRedactedList],
 ];
-export var SnowflakeParameters: StaticStructureSchema = [
+export var SnowflakeParameters$: StaticStructureSchema = [
   3,
   n0,
   _SPn,
   0,
   [_H, _Dat, _Ware, _AT, _DACRa, _OAP],
-  [0, 0, 0, 0, 0, () => OAuthParameters],
+  [0, 0, 0, 0, 0, () => OAuthParameters$],
 ];
-export var SourceTable: StaticStructureSchema = [3, n0, _STou, 0, [_PTI, _DSata], [0, () => ParentDataSet]];
-export var Spacing: StaticStructureSchema = [3, n0, _Spac, 0, [_Top_, _Bot, _Lef, _Ri], [0, 0, 0, 0]];
-export var SparkParameters: StaticStructureSchema = [3, n0, _SPp, 0, [_H, _Po], [0, 1]];
-export var SpatialStaticFile: StaticStructureSchema = [3, n0, _SSF, 0, [_SFIt, _So], [0, () => StaticFileSource]];
-export var SqlServerParameters: StaticStructureSchema = [3, n0, _SSP, 0, [_H, _Po, _Dat], [0, 1, 0]];
-export var SslProperties: StaticStructureSchema = [3, n0, _SP, 0, [_DSi], [2]];
-export var StarburstParameters: StaticStructureSchema = [
+export var SourceTable$: StaticStructureSchema = [3, n0, _STou, 0, [_PTI, _DSata], [0, () => ParentDataSet$]];
+export var Spacing$: StaticStructureSchema = [3, n0, _Spac, 0, [_Top_, _Bot, _Lef, _Ri], [0, 0, 0, 0]];
+export var SparkParameters$: StaticStructureSchema = [3, n0, _SPp, 0, [_H, _Po], [0, 1]];
+export var SpatialStaticFile$: StaticStructureSchema = [3, n0, _SSF, 0, [_SFIt, _So], [0, () => StaticFileSource$]];
+export var SqlServerParameters$: StaticStructureSchema = [3, n0, _SSP, 0, [_H, _Po, _Dat], [0, 1, 0]];
+export var SslProperties$: StaticStructureSchema = [3, n0, _SP, 0, [_DSi], [2]];
+export var StarburstParameters$: StaticStructureSchema = [
   3,
   n0,
   _SPtar,
   0,
   [_H, _Po, _Cata, _PTr, _DACRa, _AT, _OAP],
-  [0, 1, 0, 0, 0, 0, () => OAuthParameters],
+  [0, 1, 0, 0, 0, 0, () => OAuthParameters$],
 ];
-export var StartAssetBundleExportJobRequest: StaticStructureSchema = [
+export var StartAssetBundleExportJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _SABEJR,
@@ -12222,15 +12365,15 @@ export var StartAssetBundleExportJobRequest: StaticStructureSchema = [
     64 | 0,
     2,
     0,
-    () => AssetBundleCloudFormationOverridePropertyConfiguration,
+    () => AssetBundleCloudFormationOverridePropertyConfiguration$,
     2,
     2,
-    () => AssetBundleExportJobValidationStrategy,
+    () => AssetBundleExportJobValidationStrategy$,
     2,
     0,
   ],
 ];
-export var StartAssetBundleExportJobResponse: StaticStructureSchema = [
+export var StartAssetBundleExportJobResponse$: StaticStructureSchema = [
   3,
   n0,
   _SABEJRt,
@@ -12238,7 +12381,7 @@ export var StartAssetBundleExportJobResponse: StaticStructureSchema = [
   [_A, _ABEJI, _RI, _St],
   [0, 0, 0, [1, 32]],
 ];
-export var StartAssetBundleImportJobRequest: StaticStructureSchema = [
+export var StartAssetBundleImportJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _SABIJR,
@@ -12247,15 +12390,15 @@ export var StartAssetBundleImportJobRequest: StaticStructureSchema = [
   [
     [0, 1],
     0,
-    [() => AssetBundleImportSource, 0],
-    [() => AssetBundleImportJobOverrideParameters, 0],
+    [() => AssetBundleImportSource$, 0],
+    [() => AssetBundleImportJobOverrideParameters$, 0],
     0,
-    () => AssetBundleImportJobOverridePermissions,
-    () => AssetBundleImportJobOverrideTags,
-    () => AssetBundleImportJobOverrideValidationStrategy,
+    () => AssetBundleImportJobOverridePermissions$,
+    () => AssetBundleImportJobOverrideTags$,
+    () => AssetBundleImportJobOverrideValidationStrategy$,
   ],
 ];
-export var StartAssetBundleImportJobResponse: StaticStructureSchema = [
+export var StartAssetBundleImportJobResponse$: StaticStructureSchema = [
   3,
   n0,
   _SABIJRt,
@@ -12263,15 +12406,15 @@ export var StartAssetBundleImportJobResponse: StaticStructureSchema = [
   [_A, _ABIJI, _RI, _St],
   [0, 0, 0, [1, 32]],
 ];
-export var StartDashboardSnapshotJobRequest: StaticStructureSchema = [
+export var StartDashboardSnapshotJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _SDSJR,
   0,
   [_AAI, _DI, _SJI, _UC, _SCn],
-  [[0, 1], [0, 1], 0, [() => SnapshotUserConfiguration, 0], [() => SnapshotConfiguration, 0]],
+  [[0, 1], [0, 1], 0, [() => SnapshotUserConfiguration$, 0], [() => SnapshotConfiguration$, 0]],
 ];
-export var StartDashboardSnapshotJobResponse: StaticStructureSchema = [
+export var StartDashboardSnapshotJobResponse$: StaticStructureSchema = [
   3,
   n0,
   _SDSJRt,
@@ -12279,7 +12422,7 @@ export var StartDashboardSnapshotJobResponse: StaticStructureSchema = [
   [_A, _SJI, _RI, _St],
   [0, 0, 0, [1, 32]],
 ];
-export var StartDashboardSnapshotJobScheduleRequest: StaticStructureSchema = [
+export var StartDashboardSnapshotJobScheduleRequest$: StaticStructureSchema = [
   3,
   n0,
   _SDSJSR,
@@ -12291,7 +12434,7 @@ export var StartDashboardSnapshotJobScheduleRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var StartDashboardSnapshotJobScheduleResponse: StaticStructureSchema = [
+export var StartDashboardSnapshotJobScheduleResponse$: StaticStructureSchema = [
   3,
   n0,
   _SDSJSRt,
@@ -12299,63 +12442,63 @@ export var StartDashboardSnapshotJobScheduleResponse: StaticStructureSchema = [
   [_RI, _St],
   [0, [1, 32]],
 ];
-export var StatePersistenceConfigurations: StaticStructureSchema = [3, n0, _SPCt, 0, [_En], [2]];
-export var StaticFile: StaticStructureSchema = [
+export var StatePersistenceConfigurations$: StaticStructureSchema = [3, n0, _SPCt, 0, [_En], [2]];
+export var StaticFile$: StaticStructureSchema = [
   3,
   n0,
   _SFt,
   0,
   [_ISF, _SSF],
-  [() => ImageStaticFile, () => SpatialStaticFile],
+  [() => ImageStaticFile$, () => SpatialStaticFile$],
 ];
-export var StaticFileS3SourceOptions: StaticStructureSchema = [3, n0, _SFSSO, 0, [_BNu, _OK, _Reg], [0, 0, 0]];
-export var StaticFileSource: StaticStructureSchema = [
+export var StaticFileS3SourceOptions$: StaticStructureSchema = [3, n0, _SFSSO, 0, [_BNu, _OK, _Reg], [0, 0, 0]];
+export var StaticFileSource$: StaticStructureSchema = [
   3,
   n0,
   _SFS,
   0,
   [_UOr, _SOpt],
-  [() => StaticFileUrlSourceOptions, () => StaticFileS3SourceOptions],
+  [() => StaticFileUrlSourceOptions$, () => StaticFileS3SourceOptions$],
 ];
-export var StaticFileUrlSourceOptions: StaticStructureSchema = [3, n0, _SFUSO, 0, [_Ur], [0]];
-export var StringDatasetParameter: StaticStructureSchema = [
+export var StaticFileUrlSourceOptions$: StaticStructureSchema = [3, n0, _SFUSO, 0, [_Ur], [0]];
+export var StringDatasetParameter$: StaticStructureSchema = [
   3,
   n0,
   _SDP,
   0,
   [_Id_, _N, _VTa, _DVef],
-  [0, 0, 0, () => StringDatasetParameterDefaultValues],
+  [0, 0, 0, () => StringDatasetParameterDefaultValues$],
 ];
-export var StringDatasetParameterDefaultValues: StaticStructureSchema = [3, n0, _SDPDV, 0, [_SVtat], [64 | 0]];
-export var StringDefaultValues: StaticStructureSchema = [
+export var StringDatasetParameterDefaultValues$: StaticStructureSchema = [3, n0, _SDPDV, 0, [_SVtat], [64 | 0]];
+export var StringDefaultValues$: StaticStructureSchema = [
   3,
   n0,
   _SDVt,
   0,
   [_DVy, _SVtat],
-  [() => DynamicDefaultValue, [() => StringDefaultValueList, 0]],
+  [() => DynamicDefaultValue$, [() => StringDefaultValueList, 0]],
 ];
-export var StringFormatConfiguration: StaticStructureSchema = [
+export var StringFormatConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SFCtr,
   0,
   [_NVFC, _NFC],
   [
-    [() => NullValueFormatConfiguration, 0],
-    [() => NumericFormatConfiguration, 0],
+    [() => NullValueFormatConfiguration$, 0],
+    [() => NumericFormatConfiguration$, 0],
   ],
 ];
-export var StringParameter: StaticStructureSchema = [3, n0, _SPtr, 0, [_N, _Va], [0, [() => SensitiveStringList, 0]]];
-export var StringParameterDeclaration: StaticStructureSchema = [
+export var StringParameter$: StaticStructureSchema = [3, n0, _SPtr, 0, [_N, _Va], [0, [() => SensitiveStringList, 0]]];
+export var StringParameterDeclaration$: StaticStructureSchema = [
   3,
   n0,
   _SPD,
   0,
   [_PVT, _N, _DVef, _VWU, _MDSP],
-  [0, 0, [() => StringDefaultValues, 0], [() => StringValueWhenUnsetConfiguration, 0], () => MappedDataSetParameters],
+  [0, 0, [() => StringDefaultValues$, 0], [() => StringValueWhenUnsetConfiguration$, 0], () => MappedDataSetParameters],
 ];
-export var StringValueWhenUnsetConfiguration: StaticStructureSchema = [
+export var StringValueWhenUnsetConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SVWUC,
@@ -12363,7 +12506,7 @@ export var StringValueWhenUnsetConfiguration: StaticStructureSchema = [
   [_VWUO, _CVus],
   [0, [() => SensitiveString, 0]],
 ];
-export var SubtotalOptions: StaticStructureSchema = [
+export var SubtotalOptions$: StaticStructureSchema = [
   3,
   n0,
   _SOu,
@@ -12374,15 +12517,15 @@ export var SubtotalOptions: StaticStructureSchema = [
     0,
     0,
     () => PivotTableFieldSubtotalOptionsList,
-    () => TableCellStyle,
-    () => TableCellStyle,
-    () => TableCellStyle,
+    () => TableCellStyle$,
+    () => TableCellStyle$,
+    () => TableCellStyle$,
     () => TableStyleTargetList,
   ],
 ];
-export var SucceededTopicReviewedAnswer: StaticStructureSchema = [3, n0, _STRA, 0, [_AInsw], [0]];
-export var SuccessfulKeyRegistrationEntry: StaticStructureSchema = [3, n0, _SKRE, 0, [_KA, _SCt], [0, 1]];
-export var TableAggregatedFieldWells: StaticStructureSchema = [
+export var SucceededTopicReviewedAnswer$: StaticStructureSchema = [3, n0, _STRA, 0, [_AInsw], [0]];
+export var SuccessfulKeyRegistrationEntry$: StaticStructureSchema = [3, n0, _SKRE, 0, [_KA, _SCt], [0, 1]];
+export var TableAggregatedFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _TAFW,
@@ -12390,25 +12533,25 @@ export var TableAggregatedFieldWells: StaticStructureSchema = [
   [_GB, _Va],
   [() => DimensionFieldList, () => MeasureFieldList],
 ];
-export var TableBorderOptions: StaticStructureSchema = [3, n0, _TBO, 0, [_Col, _Thi, _Sty], [0, 1, 0]];
-export var TableCellConditionalFormatting: StaticStructureSchema = [
+export var TableBorderOptions$: StaticStructureSchema = [3, n0, _TBO, 0, [_Col, _Thi, _Sty], [0, 1, 0]];
+export var TableCellConditionalFormatting$: StaticStructureSchema = [
   3,
   n0,
   _TCCF,
   0,
   [_FIi, _TFex],
-  [0, () => TextConditionalFormat],
+  [0, () => TextConditionalFormat$],
 ];
-export var TableCellImageSizingConfiguration: StaticStructureSchema = [3, n0, _TCISC, 0, [_TCISCa], [0]];
-export var TableCellStyle: StaticStructureSchema = [
+export var TableCellImageSizingConfiguration$: StaticStructureSchema = [3, n0, _TCISC, 0, [_TCISCa], [0]];
+export var TableCellStyle$: StaticStructureSchema = [
   3,
   n0,
   _TCSa,
   0,
   [_Vi, _FCo, _TW, _HTA, _VTA, _BCa, _He, _Bor],
-  [0, () => FontConfiguration, 0, 0, 0, 0, 1, () => GlobalTableBorderOptions],
+  [0, () => FontConfiguration$, 0, 0, 0, 0, 1, () => GlobalTableBorderOptions$],
 ];
-export var TableConditionalFormatting: StaticStructureSchema = [
+export var TableConditionalFormatting$: StaticStructureSchema = [
   3,
   n0,
   _TCF,
@@ -12416,142 +12559,142 @@ export var TableConditionalFormatting: StaticStructureSchema = [
   [_CFO],
   [() => TableConditionalFormattingOptionList],
 ];
-export var TableConditionalFormattingOption: StaticStructureSchema = [
+export var TableConditionalFormattingOption$: StaticStructureSchema = [
   3,
   n0,
   _TCFO,
   0,
   [_Ce, _Row_],
-  [() => TableCellConditionalFormatting, () => TableRowConditionalFormatting],
+  [() => TableCellConditionalFormatting$, () => TableRowConditionalFormatting$],
 ];
-export var TableConfiguration: StaticStructureSchema = [
+export var TableConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _TCab,
   0,
   [_FW, _SCo, _TOa, _TOot, _FOie, _PRO, _TIV, _DCVO, _I],
   [
-    () => TableFieldWells,
-    () => TableSortConfiguration,
-    () => TableOptions,
-    () => TotalOptions,
-    () => TableFieldOptions,
-    () => TablePaginatedReportOptions,
+    () => TableFieldWells$,
+    () => TableSortConfiguration$,
+    () => TableOptions$,
+    () => TotalOptions$,
+    () => TableFieldOptions$,
+    () => TablePaginatedReportOptions$,
     () => TableInlineVisualizationList,
-    () => DashboardCustomizationVisualOptions,
-    () => VisualInteractionOptions,
+    () => DashboardCustomizationVisualOptions$,
+    () => VisualInteractionOptions$,
   ],
 ];
-export var TableFieldCustomIconContent: StaticStructureSchema = [3, n0, _TFCIC, 0, [_Ic], [0]];
-export var TableFieldCustomTextContent: StaticStructureSchema = [
+export var TableFieldCustomIconContent$: StaticStructureSchema = [3, n0, _TFCIC, 0, [_Ic], [0]];
+export var TableFieldCustomTextContent$: StaticStructureSchema = [
   3,
   n0,
   _TFCTC,
   0,
   [_V, _FCo],
-  [0, () => FontConfiguration],
+  [0, () => FontConfiguration$],
 ];
-export var TableFieldImageConfiguration: StaticStructureSchema = [
+export var TableFieldImageConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _TFIC,
   0,
   [_SOi],
-  [() => TableCellImageSizingConfiguration],
+  [() => TableCellImageSizingConfiguration$],
 ];
-export var TableFieldLinkConfiguration: StaticStructureSchema = [
+export var TableFieldLinkConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _TFLC,
   0,
   [_Tar, _Con],
-  [0, () => TableFieldLinkContentConfiguration],
+  [0, () => TableFieldLinkContentConfiguration$],
 ];
-export var TableFieldLinkContentConfiguration: StaticStructureSchema = [
+export var TableFieldLinkContentConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _TFLCC,
   0,
   [_CTC, _CIC],
-  [() => TableFieldCustomTextContent, () => TableFieldCustomIconContent],
+  [() => TableFieldCustomTextContent$, () => TableFieldCustomIconContent$],
 ];
-export var TableFieldOption: StaticStructureSchema = [
+export var TableFieldOption$: StaticStructureSchema = [
   3,
   n0,
   _TFO,
   0,
   [_FIi, _W, _CL, _Vi, _URLS],
-  [0, 0, 0, 0, () => TableFieldURLConfiguration],
+  [0, 0, 0, 0, () => TableFieldURLConfiguration$],
 ];
-export var TableFieldOptions: StaticStructureSchema = [
+export var TableFieldOptions$: StaticStructureSchema = [
   3,
   n0,
   _TFOa,
   0,
   [_SFO, _Ord, _PFO, _TTO],
-  [() => TableFieldOptionList, 64 | 0, () => TablePinnedFieldOptions, () => TransposedTableOptionList],
+  [() => TableFieldOptionList, 64 | 0, () => TablePinnedFieldOptions$, () => TransposedTableOptionList],
 ];
-export var TableFieldURLConfiguration: StaticStructureSchema = [
+export var TableFieldURLConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _TFURLC,
   0,
   [_LCi, _IC],
-  [() => TableFieldLinkConfiguration, () => TableFieldImageConfiguration],
+  [() => TableFieldLinkConfiguration$, () => TableFieldImageConfiguration$],
 ];
-export var TableFieldWells: StaticStructureSchema = [
+export var TableFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _TFW,
   0,
   [_TAFW, _TUFW],
-  [() => TableAggregatedFieldWells, () => TableUnaggregatedFieldWells],
+  [() => TableAggregatedFieldWells$, () => TableUnaggregatedFieldWells$],
 ];
-export var TableInlineVisualization: StaticStructureSchema = [3, n0, _TIVa, 0, [_DB], [() => DataBarsOptions]];
-export var TableOptions: StaticStructureSchema = [
+export var TableInlineVisualization$: StaticStructureSchema = [3, n0, _TIVa, 0, [_DB], [() => DataBarsOptions$]];
+export var TableOptions$: StaticStructureSchema = [
   3,
   n0,
   _TOa,
   0,
   [_Or, _HSe, _CSe, _RACO],
-  [0, () => TableCellStyle, () => TableCellStyle, () => RowAlternateColorOptions],
+  [0, () => TableCellStyle$, () => TableCellStyle$, () => RowAlternateColorOptions$],
 ];
-export var TablePaginatedReportOptions: StaticStructureSchema = [3, n0, _TPRO, 0, [_VOV, _OCHV], [0, 0]];
-export var TablePathElement: StaticStructureSchema = [3, n0, _TPEa, 0, [_N, _Id_], [0, 0]];
-export var TablePinnedFieldOptions: StaticStructureSchema = [3, n0, _TPFO, 0, [_PLF], [64 | 0]];
-export var TableRowConditionalFormatting: StaticStructureSchema = [
+export var TablePaginatedReportOptions$: StaticStructureSchema = [3, n0, _TPRO, 0, [_VOV, _OCHV], [0, 0]];
+export var TablePathElement$: StaticStructureSchema = [3, n0, _TPEa, 0, [_N, _Id_], [0, 0]];
+export var TablePinnedFieldOptions$: StaticStructureSchema = [3, n0, _TPFO, 0, [_PLF], [64 | 0]];
+export var TableRowConditionalFormatting$: StaticStructureSchema = [
   3,
   n0,
   _TRCF,
   0,
   [_BCa, _TC],
-  [() => ConditionalFormattingColor, () => ConditionalFormattingColor],
+  [() => ConditionalFormattingColor$, () => ConditionalFormattingColor$],
 ];
-export var TableSideBorderOptions: StaticStructureSchema = [
+export var TableSideBorderOptions$: StaticStructureSchema = [
   3,
   n0,
   _TSBO,
   0,
   [_IVnn, _IH, _Lef, _Ri, _Top_, _Bot],
   [
-    () => TableBorderOptions,
-    () => TableBorderOptions,
-    () => TableBorderOptions,
-    () => TableBorderOptions,
-    () => TableBorderOptions,
-    () => TableBorderOptions,
+    () => TableBorderOptions$,
+    () => TableBorderOptions$,
+    () => TableBorderOptions$,
+    () => TableBorderOptions$,
+    () => TableBorderOptions$,
+    () => TableBorderOptions$,
   ],
 ];
-export var TableSortConfiguration: StaticStructureSchema = [
+export var TableSortConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _TSC,
   0,
   [_RSow, _PC],
-  [() => RowSortList, () => PaginationConfiguration],
+  [() => RowSortList, () => PaginationConfiguration$],
 ];
-export var TableStyleTarget: StaticStructureSchema = [3, n0, _TST, 0, [_CTe], [0]];
-export var TableUnaggregatedFieldWells: StaticStructureSchema = [
+export var TableStyleTarget$: StaticStructureSchema = [3, n0, _TST, 0, [_CTe], [0]];
+export var TableUnaggregatedFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _TUFW,
@@ -12559,7 +12702,7 @@ export var TableUnaggregatedFieldWells: StaticStructureSchema = [
   [_Va],
   [() => TableUnaggregatedFieldList],
 ];
-export var TableVisual: StaticStructureSchema = [
+export var TableVisual$: StaticStructureSchema = [
   3,
   n0,
   _TVab,
@@ -12567,29 +12710,29 @@ export var TableVisual: StaticStructureSchema = [
   [_VI, _Tit, _Su, _CCh, _CFon, _Ac, _VCAT],
   [
     0,
-    () => VisualTitleLabelOptions,
-    () => VisualSubtitleLabelOptions,
-    () => TableConfiguration,
-    () => TableConditionalFormatting,
+    () => VisualTitleLabelOptions$,
+    () => VisualSubtitleLabelOptions$,
+    () => TableConfiguration$,
+    () => TableConditionalFormatting$,
     () => VisualCustomActionList,
     0,
   ],
 ];
-export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
-export var TagColumnOperation: StaticStructureSchema = [3, n0, _TCO, 0, [_CN, _Ta], [0, [() => ColumnTagList, 0]]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RAeso, _Ta], [[0, 1], () => TagList]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [_RI, _St], [0, [1, 32]]];
-export var Template: StaticStructureSchema = [
+export var Tag$: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
+export var TagColumnOperation$: StaticStructureSchema = [3, n0, _TCO, 0, [_CN, _Ta], [0, [() => ColumnTagList, 0]]];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_RAeso, _Ta], [[0, 1], () => TagList]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [_RI, _St], [0, [1, 32]]];
+export var Template$: StaticStructureSchema = [
   3,
   n0,
   _Tem,
   0,
   [_A, _N, _Ve, _TIe, _LUT, _CT],
-  [0, 0, () => TemplateVersion, 0, 4, 4],
+  [0, 0, () => TemplateVersion$, 0, 4, 4],
 ];
-export var TemplateAlias: StaticStructureSchema = [3, n0, _TAe, 0, [_ANl, _A, _TVN], [0, 0, 1]];
-export var TemplateError: StaticStructureSchema = [3, n0, _TEe, 0, [_T, _M, _VE], [0, 0, () => EntityList]];
-export var TemplateSourceAnalysis: StaticStructureSchema = [
+export var TemplateAlias$: StaticStructureSchema = [3, n0, _TAe, 0, [_ANl, _A, _TVN], [0, 0, 1]];
+export var TemplateError$: StaticStructureSchema = [3, n0, _TEe, 0, [_T, _M, _VE], [0, 0, () => EntityList]];
+export var TemplateSourceAnalysis$: StaticStructureSchema = [
   3,
   n0,
   _TSA,
@@ -12597,16 +12740,16 @@ export var TemplateSourceAnalysis: StaticStructureSchema = [
   [_A, _DSR],
   [0, () => DataSetReferenceList],
 ];
-export var TemplateSourceEntity: StaticStructureSchema = [
+export var TemplateSourceEntity$: StaticStructureSchema = [
   3,
   n0,
   _TSE,
   0,
   [_SAou, _STo],
-  [() => TemplateSourceAnalysis, () => TemplateSourceTemplate],
+  [() => TemplateSourceAnalysis$, () => TemplateSourceTemplate$],
 ];
-export var TemplateSourceTemplate: StaticStructureSchema = [3, n0, _TSTe, 0, [_A], [0]];
-export var TemplateSummary: StaticStructureSchema = [
+export var TemplateSourceTemplate$: StaticStructureSchema = [3, n0, _TSTe, 0, [_A], [0]];
+export var TemplateSummary$: StaticStructureSchema = [
   3,
   n0,
   _TSe,
@@ -12614,7 +12757,7 @@ export var TemplateSummary: StaticStructureSchema = [
   [_A, _TIe, _N, _LVN, _CT, _LUT],
   [0, 0, 0, 1, 4, 4],
 ];
-export var TemplateVersion: StaticStructureSchema = [
+export var TemplateVersion$: StaticStructureSchema = [
   3,
   n0,
   _TVe,
@@ -12622,7 +12765,7 @@ export var TemplateVersion: StaticStructureSchema = [
   [_CT, _Err, _VN, _St, _DSCatae, _D, _SEA, _TA, _Sh],
   [4, () => TemplateErrorList, 1, 0, () => DataSetConfigurationList, 0, 0, 0, () => SheetList],
 ];
-export var TemplateVersionDefinition: StaticStructureSchema = [
+export var TemplateVersionDefinition$: StaticStructureSchema = [
   3,
   n0,
   _TVD,
@@ -12635,87 +12778,87 @@ export var TemplateVersionDefinition: StaticStructureSchema = [
     [() => ParameterDeclarationList, 0],
     [() => FilterGroupList, 0],
     [() => ColumnConfigurationList, 0],
-    () => AnalysisDefaults,
-    () => AssetOptions,
-    () => QueryExecutionOptions,
+    () => AnalysisDefaults$,
+    () => AssetOptions$,
+    () => QueryExecutionOptions$,
     () => StaticFileList,
   ],
 ];
-export var TemplateVersionSummary: StaticStructureSchema = [3, n0, _TVS, 0, [_A, _VN, _CT, _St, _D], [0, 1, 4, 0, 0]];
-export var TeradataParameters: StaticStructureSchema = [3, n0, _TPe, 0, [_H, _Po, _Dat], [0, 1, 0]];
-export var TextAreaControlDisplayOptions: StaticStructureSchema = [
+export var TemplateVersionSummary$: StaticStructureSchema = [3, n0, _TVS, 0, [_A, _VN, _CT, _St, _D], [0, 1, 4, 0, 0]];
+export var TeradataParameters$: StaticStructureSchema = [3, n0, _TPe, 0, [_H, _Po, _Dat], [0, 1, 0]];
+export var TextAreaControlDisplayOptions$: StaticStructureSchema = [
   3,
   n0,
   _TACDO,
   0,
   [_TO, _POl, _IILO],
-  [() => LabelOptions, () => TextControlPlaceholderOptions, () => SheetControlInfoIconLabelOptions],
+  [() => LabelOptions$, () => TextControlPlaceholderOptions$, () => SheetControlInfoIconLabelOptions$],
 ];
-export var TextBoxInteractionOptions: StaticStructureSchema = [3, n0, _TBIO, 0, [_TBMO], [() => TextBoxMenuOption]];
-export var TextBoxMenuOption: StaticStructureSchema = [3, n0, _TBMO, 0, [_ASv], [0]];
-export var TextConditionalFormat: StaticStructureSchema = [
+export var TextBoxInteractionOptions$: StaticStructureSchema = [3, n0, _TBIO, 0, [_TBMO], [() => TextBoxMenuOption$]];
+export var TextBoxMenuOption$: StaticStructureSchema = [3, n0, _TBMO, 0, [_ASv], [0]];
+export var TextConditionalFormat$: StaticStructureSchema = [
   3,
   n0,
   _TCFe,
   0,
   [_BCa, _TC, _Ic],
   [
-    [() => ConditionalFormattingColor, 0],
-    [() => ConditionalFormattingColor, 0],
-    [() => ConditionalFormattingIcon, 0],
+    [() => ConditionalFormattingColor$, 0],
+    [() => ConditionalFormattingColor$, 0],
+    [() => ConditionalFormattingIcon$, 0],
   ],
 ];
-export var TextControlPlaceholderOptions: StaticStructureSchema = [3, n0, _TCPO, 0, [_Vi], [0]];
-export var TextFieldControlDisplayOptions: StaticStructureSchema = [
+export var TextControlPlaceholderOptions$: StaticStructureSchema = [3, n0, _TCPO, 0, [_Vi], [0]];
+export var TextFieldControlDisplayOptions$: StaticStructureSchema = [
   3,
   n0,
   _TFCDO,
   0,
   [_TO, _POl, _IILO],
-  [() => LabelOptions, () => TextControlPlaceholderOptions, () => SheetControlInfoIconLabelOptions],
+  [() => LabelOptions$, () => TextControlPlaceholderOptions$, () => SheetControlInfoIconLabelOptions$],
 ];
-export var Theme: StaticStructureSchema = [
+export var Theme$: StaticStructureSchema = [
   3,
   n0,
   _The,
   0,
   [_A, _N, _TI, _Ve, _CT, _LUT, _T],
-  [0, 0, 0, () => ThemeVersion, 4, 4, 0],
+  [0, 0, 0, () => ThemeVersion$, 4, 4, 0],
 ];
-export var ThemeAlias: StaticStructureSchema = [3, n0, _TAh, 0, [_A, _ANl, _TVNh], [0, 0, 1]];
-export var ThemeConfiguration: StaticStructureSchema = [
+export var ThemeAlias$: StaticStructureSchema = [3, n0, _TAh, 0, [_A, _ANl, _TVNh], [0, 0, 1]];
+export var ThemeConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _TCh,
   0,
   [_DCP, _UICP, _She, _Ty],
-  [() => DataColorPalette, () => UIColorPalette, () => SheetStyle, () => Typography],
+  [() => DataColorPalette$, () => UIColorPalette$, () => SheetStyle$, () => Typography$],
 ];
-export var ThemeError: StaticStructureSchema = [3, n0, _TEh, 0, [_T, _M], [0, 0]];
-export var ThemeSummary: StaticStructureSchema = [3, n0, _TShe, 0, [_A, _N, _TI, _LVN, _CT, _LUT], [0, 0, 0, 1, 4, 4]];
-export var ThemeVersion: StaticStructureSchema = [
+export var ThemeError$: StaticStructureSchema = [3, n0, _TEh, 0, [_T, _M], [0, 0]];
+export var ThemeSummary$: StaticStructureSchema = [3, n0, _TShe, 0, [_A, _N, _TI, _LVN, _CT, _LUT], [0, 0, 0, 1, 4, 4]];
+export var ThemeVersion$: StaticStructureSchema = [
   3,
   n0,
   _TVh,
   0,
   [_VN, _A, _D, _BTI, _CT, _Conf, _Err, _St],
-  [1, 0, 0, 0, 4, () => ThemeConfiguration, () => ThemeErrorList, 0],
+  [1, 0, 0, 0, 4, () => ThemeConfiguration$, () => ThemeErrorList, 0],
 ];
-export var ThemeVersionSummary: StaticStructureSchema = [3, n0, _TVSh, 0, [_VN, _A, _D, _CT, _St], [1, 0, 0, 4, 0]];
-export var ThousandSeparatorOptions: StaticStructureSchema = [3, n0, _TSO, 0, [_Sym, _Vi, _GSro], [0, 0, 0]];
-export var ThresholdAlertsConfigurations: StaticStructureSchema = [3, n0, _TAC, 0, [_En], [2]];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TEhr, { [_e]: _c, [_hE]: 429 }, [_M, _RI], [0, 0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var TileLayoutStyle: StaticStructureSchema = [
+export var ThemeVersionSummary$: StaticStructureSchema = [3, n0, _TVSh, 0, [_VN, _A, _D, _CT, _St], [1, 0, 0, 4, 0]];
+export var ThousandSeparatorOptions$: StaticStructureSchema = [3, n0, _TSO, 0, [_Sym, _Vi, _GSro], [0, 0, 0]];
+export var ThresholdAlertsConfigurations$: StaticStructureSchema = [3, n0, _TAC, 0, [_En], [2]];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TEhr, { [_e]: _c, [_hE]: 429 }, [_M, _RI], [0, 0]];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var TileLayoutStyle$: StaticStructureSchema = [
   3,
   n0,
   _TLS,
   0,
   [_Gu, _Mar],
-  [() => GutterStyle, () => MarginStyle],
+  [() => GutterStyle$, () => MarginStyle$],
 ];
-export var TileStyle: StaticStructureSchema = [3, n0, _TSi, 0, [_BCa, _Bor, _BR, _Pad], [0, () => BorderStyle, 0, 0]];
-export var TimeBasedForecastProperties: StaticStructureSchema = [
+export var TileStyle$: StaticStructureSchema = [3, n0, _TSi, 0, [_BCa, _Bor, _BR, _Pad], [0, () => BorderStyle$, 0, 0]];
+export var TimeBasedForecastProperties$: StaticStructureSchema = [
   3,
   n0,
   _TBFP,
@@ -12723,23 +12866,23 @@ export var TimeBasedForecastProperties: StaticStructureSchema = [
   [_PFe, _PB, _UB, _LB, _PIre, _Sea],
   [1, 1, 1, 1, 1, 1],
 ];
-export var TimeEqualityFilter: StaticStructureSchema = [
+export var TimeEqualityFilter$: StaticStructureSchema = [
   3,
   n0,
   _TEF,
   0,
   [_FIil, _C, _V, _PN, _TG, _RD, _DFCC],
-  [0, () => ColumnIdentifier, 4, 0, 0, [() => RollingDateConfiguration, 0], () => DefaultFilterControlConfiguration],
+  [0, () => ColumnIdentifier$, 4, 0, 0, [() => RollingDateConfiguration$, 0], () => DefaultFilterControlConfiguration$],
 ];
-export var TimeRangeDrillDownFilter: StaticStructureSchema = [
+export var TimeRangeDrillDownFilter$: StaticStructureSchema = [
   3,
   n0,
   _TRDDF,
   0,
   [_C, _RM, _RMa, _TG],
-  [() => ColumnIdentifier, 4, 4, 0],
+  [() => ColumnIdentifier$, 4, 4, 0],
 ];
-export var TimeRangeFilter: StaticStructureSchema = [
+export var TimeRangeFilter$: StaticStructureSchema = [
   3,
   n0,
   _TRF,
@@ -12747,66 +12890,74 @@ export var TimeRangeFilter: StaticStructureSchema = [
   [_FIil, _C, _IMn, _IMnc, _RMV, _RMVa, _NO, _EPC, _TG, _DFCC],
   [
     0,
-    () => ColumnIdentifier,
+    () => ColumnIdentifier$,
     2,
     2,
-    [() => TimeRangeFilterValue, 0],
-    [() => TimeRangeFilterValue, 0],
+    [() => TimeRangeFilterValue$, 0],
+    [() => TimeRangeFilterValue$, 0],
     0,
-    () => ExcludePeriodConfiguration,
+    () => ExcludePeriodConfiguration$,
     0,
-    () => DefaultFilterControlConfiguration,
+    () => DefaultFilterControlConfiguration$,
   ],
 ];
-export var TimeRangeFilterValue: StaticStructureSchema = [
+export var TimeRangeFilterValue$: StaticStructureSchema = [
   3,
   n0,
   _TRFV,
   0,
   [_SVta, _RD, _Para],
-  [4, [() => RollingDateConfiguration, 0], 0],
+  [4, [() => RollingDateConfiguration$, 0], 0],
 ];
-export var TooltipItem: StaticStructureSchema = [
+export var TooltipItem$: StaticStructureSchema = [
   3,
   n0,
   _TIoo,
   0,
   [_FTI, _CTI],
-  [() => FieldTooltipItem, () => ColumnTooltipItem],
+  [() => FieldTooltipItem$, () => ColumnTooltipItem$],
 ];
-export var TooltipOptions: StaticStructureSchema = [
+export var TooltipOptions$: StaticStructureSchema = [
   3,
   n0,
   _TOo,
   0,
   [_TVo, _STT, _FBT],
-  [0, 0, () => FieldBasedTooltip],
+  [0, 0, () => FieldBasedTooltip$],
 ];
-export var TopBottomFilter: StaticStructureSchema = [
+export var TopBottomFilter$: StaticStructureSchema = [
   3,
   n0,
   _TBF,
   0,
   [_FIil, _C, _Li, _ASCg, _TG, _PN, _DFCC],
-  [0, () => ColumnIdentifier, 1, () => AggregationSortConfigurationList, 0, 0, () => DefaultFilterControlConfiguration],
+  [
+    0,
+    () => ColumnIdentifier$,
+    1,
+    () => AggregationSortConfigurationList,
+    0,
+    0,
+    () => DefaultFilterControlConfiguration$,
+  ],
 ];
-export var TopBottomMoversComputation: StaticStructureSchema = [
+export var TopBottomMoversComputation$: StaticStructureSchema = [
   3,
   n0,
   _TBMC,
   0,
   [_CIom, _N, _Tim, _Ca, _V, _MSo, _SOo, _T],
-  [0, 0, () => DimensionField, () => DimensionField, () => MeasureField, 1, 0, 0],
+  [0, 0, () => DimensionField$, () => DimensionField$, () => MeasureField$, 1, 0, 0],
 ];
-export var TopBottomRankedComputation: StaticStructureSchema = [
+export var TopBottomRankedComputation$: StaticStructureSchema = [
   3,
   n0,
   _TBRC,
   0,
   [_CIom, _N, _Ca, _V, _RSesu, _T],
-  [0, 0, () => DimensionField, () => MeasureField, 1, 0],
+  [0, 0, () => DimensionField$, () => MeasureField$, 1, 0],
 ];
-export var TopicCalculatedField: StaticStructureSchema = [
+export var TopicCalculatedField$: StaticStructureSchema = [
   3,
   n0,
   _TCFo,
@@ -12821,10 +12972,10 @@ export var TopicCalculatedField: StaticStructureSchema = [
     2,
     0,
     0,
-    () => DefaultFormatting,
+    () => DefaultFormatting$,
     0,
-    () => ComparativeOrder,
-    [() => SemanticType, 0],
+    () => ComparativeOrder$,
+    [() => SemanticType$, 0],
     64 | 0,
     64 | 0,
     2,
@@ -12832,23 +12983,23 @@ export var TopicCalculatedField: StaticStructureSchema = [
     2,
   ],
 ];
-export var TopicCategoryFilter: StaticStructureSchema = [
+export var TopicCategoryFilter$: StaticStructureSchema = [
   3,
   n0,
   _TCFop,
   0,
   [_CFF, _CFTa, _Cons, _Inv],
-  [0, 0, [() => TopicCategoryFilterConstant, 0], 2],
+  [0, 0, [() => TopicCategoryFilterConstant$, 0], 2],
 ];
-export var TopicCategoryFilterConstant: StaticStructureSchema = [
+export var TopicCategoryFilterConstant$: StaticStructureSchema = [
   3,
   n0,
   _TCFC,
   8,
   [_CTo, _SCi, _CCo],
-  [0, 0, () => CollectiveConstant],
+  [0, 0, () => CollectiveConstant$],
 ];
-export var TopicColumn: StaticStructureSchema = [
+export var TopicColumn$: StaticStructureSchema = [
   3,
   n0,
   _TCo,
@@ -12863,19 +13014,19 @@ export var TopicColumn: StaticStructureSchema = [
     0,
     2,
     2,
-    () => ComparativeOrder,
-    [() => SemanticType, 0],
+    () => ComparativeOrder$,
+    [() => SemanticType$, 0],
     0,
     64 | 0,
     64 | 0,
-    () => DefaultFormatting,
+    () => DefaultFormatting$,
     2,
     () => CellValueSynonyms,
     2,
   ],
 ];
-export var TopicConfigOptions: StaticStructureSchema = [3, n0, _TCOo, 0, [_QBIE], [2]];
-export var TopicConstantValue: StaticStructureSchema = [
+export var TopicConfigOptions$: StaticStructureSchema = [3, n0, _TCOo, 0, [_QBIE], [2]];
+export var TopicConstantValue$: StaticStructureSchema = [
   3,
   n0,
   _TCVo,
@@ -12883,23 +13034,23 @@ export var TopicConstantValue: StaticStructureSchema = [
   [_CTo, _V, _Min, _Max, _VL],
   [0, 0, 0, 0, () => CollectiveConstantEntryList],
 ];
-export var TopicDateRangeFilter: StaticStructureSchema = [
+export var TopicDateRangeFilter$: StaticStructureSchema = [
   3,
   n0,
   _TDRF,
   0,
   [_Inc, _Cons],
-  [2, [() => TopicRangeFilterConstant, 0]],
+  [2, [() => TopicRangeFilterConstant$, 0]],
 ];
-export var TopicDetails: StaticStructureSchema = [
+export var TopicDetails$: StaticStructureSchema = [
   3,
   n0,
   _TD,
   0,
   [_N, _D, _UEV, _DSat, _COonf],
-  [0, 0, 0, [() => Datasets, 0], () => TopicConfigOptions],
+  [0, 0, 0, [() => Datasets, 0], () => TopicConfigOptions$],
 ];
-export var TopicFilter: StaticStructureSchema = [
+export var TopicFilter$: StaticStructureSchema = [
   3,
   n0,
   _TFo,
@@ -12912,15 +13063,15 @@ export var TopicFilter: StaticStructureSchema = [
     64 | 0,
     0,
     0,
-    [() => TopicCategoryFilter, 0],
-    [() => TopicNumericEqualityFilter, 0],
-    [() => TopicNumericRangeFilter, 0],
-    [() => TopicDateRangeFilter, 0],
-    [() => TopicRelativeDateFilter, 0],
-    [() => TopicNullFilter, 0],
+    [() => TopicCategoryFilter$, 0],
+    [() => TopicNumericEqualityFilter$, 0],
+    [() => TopicNumericRangeFilter$, 0],
+    [() => TopicDateRangeFilter$, 0],
+    [() => TopicRelativeDateFilter$, 0],
+    [() => TopicNullFilter$, 0],
   ],
 ];
-export var TopicIR: StaticStructureSchema = [
+export var TopicIR$: StaticStructureSchema = [
   3,
   n0,
   _TIR,
@@ -12930,21 +13081,21 @@ export var TopicIR: StaticStructureSchema = [
     [() => TopicIRMetricList, 0],
     () => TopicIRGroupByList,
     () => TopicIRFilterList,
-    () => TopicSortClause,
-    () => TopicIRContributionAnalysis,
-    () => VisualOptions,
+    () => TopicSortClause$,
+    () => TopicIRContributionAnalysis$,
+    () => VisualOptions$,
   ],
 ];
-export var TopicIRComparisonMethod: StaticStructureSchema = [3, n0, _TIRCM, 0, [_T, _Pe, _WSi], [0, 0, 1]];
-export var TopicIRContributionAnalysis: StaticStructureSchema = [
+export var TopicIRComparisonMethod$: StaticStructureSchema = [3, n0, _TIRCM, 0, [_T, _Pe, _WSi], [0, 0, 1]];
+export var TopicIRContributionAnalysis$: StaticStructureSchema = [
   3,
   n0,
   _TIRCA,
   0,
   [_Fac, _TRi, _Dir, _STor],
-  [() => ContributionAnalysisFactorsList, () => ContributionAnalysisTimeRanges, 0, 0],
+  [() => ContributionAnalysisFactorsList, () => ContributionAnalysisTimeRanges$, 0, 0],
 ];
-export var TopicIRFilterOption: StaticStructureSchema = [
+export var TopicIRFilterOption$: StaticStructureSchema = [
   3,
   n0,
   _TIRFO,
@@ -12953,85 +13104,92 @@ export var TopicIRFilterOption: StaticStructureSchema = [
   [
     0,
     0,
-    () => Identifier,
+    () => Identifier$,
     0,
-    () => TopicConstantValue,
+    () => TopicConstantValue$,
     2,
     0,
     0,
     128 | 0,
     () => AggregationPartitionByList,
-    () => TopicConstantValue,
+    () => TopicConstantValue$,
     2,
     0,
-    () => TopicConstantValue,
+    () => TopicConstantValue$,
     () => FilterAggMetricsList,
-    () => TopicConstantValue,
+    () => TopicConstantValue$,
     0,
-    () => Anchor,
+    () => Anchor$,
   ],
 ];
-export var TopicIRGroupBy: StaticStructureSchema = [
+export var TopicIRGroupBy$: StaticStructureSchema = [
   3,
   n0,
   _TIRGB,
   0,
   [_FN, _TG, _Sor, _DFi, _DFO, _NEame],
-  [() => Identifier, 0, () => TopicSortClause, 0, () => DisplayFormatOptions, () => NamedEntityRef],
+  [() => Identifier$, 0, () => TopicSortClause$, 0, () => DisplayFormatOptions$, () => NamedEntityRef$],
 ];
-export var TopicIRMetric: StaticStructureSchema = [
+export var TopicIRMetric$: StaticStructureSchema = [
   3,
   n0,
   _TIRM,
   0,
   [_MIe, _Fu, _Ope, _CMo, _Ex, _CFRa, _DFi, _DFO, _NEame],
   [
-    () => Identifier,
-    () => AggFunction,
+    () => Identifier$,
+    () => AggFunction$,
     () => OperandList,
-    () => TopicIRComparisonMethod,
+    () => TopicIRComparisonMethod$,
     [() => Expression, 0],
     () => CalculatedFieldReferenceList,
     0,
-    () => DisplayFormatOptions,
-    () => NamedEntityRef,
+    () => DisplayFormatOptions$,
+    () => NamedEntityRef$,
   ],
 ];
-export var TopicNamedEntity: StaticStructureSchema = [
+export var TopicNamedEntity$: StaticStructureSchema = [
   3,
   n0,
   _TNE,
   0,
   [_EN, _ED, _ESn, _SET, _De],
-  [0, 0, 64 | 0, () => SemanticEntityType, () => NamedEntityDefinitions],
+  [0, 0, 64 | 0, () => SemanticEntityType$, () => NamedEntityDefinitions],
 ];
-export var TopicNullFilter: StaticStructureSchema = [
+export var TopicNullFilter$: StaticStructureSchema = [
   3,
   n0,
   _TNF,
   0,
   [_NFT, _Cons, _Inv],
-  [0, [() => TopicSingularFilterConstant, 0], 2],
+  [0, [() => TopicSingularFilterConstant$, 0], 2],
 ];
-export var TopicNumericEqualityFilter: StaticStructureSchema = [
+export var TopicNumericEqualityFilter$: StaticStructureSchema = [
   3,
   n0,
   _TNEF,
   0,
   [_Cons, _Ag],
-  [[() => TopicSingularFilterConstant, 0], 0],
+  [[() => TopicSingularFilterConstant$, 0], 0],
 ];
-export var TopicNumericRangeFilter: StaticStructureSchema = [
+export var TopicNumericRangeFilter$: StaticStructureSchema = [
   3,
   n0,
   _TNRF,
   0,
   [_Inc, _Cons, _Ag],
-  [2, [() => TopicRangeFilterConstant, 0], 0],
+  [2, [() => TopicRangeFilterConstant$, 0], 0],
 ];
-export var TopicRangeFilterConstant: StaticStructureSchema = [3, n0, _TRFC, 8, [_CTo, _RCa], [0, () => RangeConstant]];
-export var TopicRefreshDetails: StaticStructureSchema = [3, n0, _TRD, 0, [_RAe, _RIe, _RSef], [0, 0, 0]];
-export var TopicRefreshSchedule: StaticStructureSchema = [
+export var TopicRangeFilterConstant$: StaticStructureSchema = [
+  3,
+  n0,
+  _TRFC,
+  8,
+  [_CTo, _RCa],
+  [0, () => RangeConstant$],
+];
+export var TopicRefreshDetails$: StaticStructureSchema = [3, n0, _TRD, 0, [_RAe, _RIe, _RSef], [0, 0, 0]];
+export var TopicRefreshSchedule$: StaticStructureSchema = [
   3,
   n0,
   _TRS,
@@ -13039,69 +13197,69 @@ export var TopicRefreshSchedule: StaticStructureSchema = [
   [_IE, _BOSS, _SAta, _Ti, _RAep, _TSTo],
   [2, 2, 4, 0, 0, 0],
 ];
-export var TopicRefreshScheduleSummary: StaticStructureSchema = [
+export var TopicRefreshScheduleSummary$: StaticStructureSchema = [
   3,
   n0,
   _TRSS,
   0,
   [_DIat, _DA, _DNa, _RSe],
-  [0, 0, 0, () => TopicRefreshSchedule],
+  [0, 0, 0, () => TopicRefreshSchedule$],
 ];
-export var TopicRelativeDateFilter: StaticStructureSchema = [
+export var TopicRelativeDateFilter$: StaticStructureSchema = [
   3,
   n0,
   _TRDF,
   0,
   [_TG, _RDFF, _Cons],
-  [0, 0, [() => TopicSingularFilterConstant, 0]],
+  [0, 0, [() => TopicSingularFilterConstant$, 0]],
 ];
-export var TopicReviewedAnswer: StaticStructureSchema = [
+export var TopicReviewedAnswer$: StaticStructureSchema = [
   3,
   n0,
   _TRA,
   0,
   [_A, _AInsw, _DA, _Q, _Mir, _PV, _Tem],
-  [0, 0, 0, 0, [() => TopicIR, 0], [() => TopicVisual, 0], () => TopicTemplate],
+  [0, 0, 0, 0, [() => TopicIR$, 0], [() => TopicVisual$, 0], () => TopicTemplate$],
 ];
-export var TopicSearchFilter: StaticStructureSchema = [3, n0, _TSF, 0, [_O, _N, _V], [0, 0, 0]];
-export var TopicSingularFilterConstant: StaticStructureSchema = [3, n0, _TSFC, 8, [_CTo, _SCi], [0, 0]];
-export var TopicSortClause: StaticStructureSchema = [3, n0, _TSCo, 0, [_Oper, _SDo], [() => Identifier, 0]];
-export var TopicSummary: StaticStructureSchema = [3, n0, _TSo, 0, [_A, _TIo, _N, _UEV], [0, 0, 0, 0]];
-export var TopicTemplate: StaticStructureSchema = [3, n0, _TTop, 0, [_TTe, _Slot], [0, () => Slots]];
-export var TopicVisual: StaticStructureSchema = [
+export var TopicSearchFilter$: StaticStructureSchema = [3, n0, _TSF, 0, [_O, _N, _V], [0, 0, 0]];
+export var TopicSingularFilterConstant$: StaticStructureSchema = [3, n0, _TSFC, 8, [_CTo, _SCi], [0, 0]];
+export var TopicSortClause$: StaticStructureSchema = [3, n0, _TSCo, 0, [_Oper, _SDo], [() => Identifier$, 0]];
+export var TopicSummary$: StaticStructureSchema = [3, n0, _TSo, 0, [_A, _TIo, _N, _UEV], [0, 0, 0, 0]];
+export var TopicTemplate$: StaticStructureSchema = [3, n0, _TTop, 0, [_TTe, _Slot], [0, () => Slots]];
+export var TopicVisual$: StaticStructureSchema = [
   3,
   n0,
   _TVop,
   0,
   [_VI, _Ro, _Ir, _SVu],
-  [0, 0, [() => TopicIR, 0], [() => TopicVisuals, 0]],
+  [0, 0, [() => TopicIR$, 0], [() => TopicVisuals, 0]],
 ];
-export var TotalAggregationComputation: StaticStructureSchema = [
+export var TotalAggregationComputation$: StaticStructureSchema = [
   3,
   n0,
   _TACo,
   0,
   [_CIom, _N, _V],
-  [0, 0, () => MeasureField],
+  [0, 0, () => MeasureField$],
 ];
-export var TotalAggregationFunction: StaticStructureSchema = [3, n0, _TAF, 0, [_STAF], [0]];
-export var TotalAggregationOption: StaticStructureSchema = [
+export var TotalAggregationFunction$: StaticStructureSchema = [3, n0, _TAF, 0, [_STAF], [0]];
+export var TotalAggregationOption$: StaticStructureSchema = [
   3,
   n0,
   _TAOo,
   0,
   [_FIi, _TAF],
-  [0, () => TotalAggregationFunction],
+  [0, () => TotalAggregationFunction$],
 ];
-export var TotalOptions: StaticStructureSchema = [
+export var TotalOptions$: StaticStructureSchema = [
   3,
   n0,
   _TOot,
   0,
   [_TV, _Pla, _SSc, _CL, _TCS, _TAO],
-  [0, 0, 0, 0, () => TableCellStyle, () => TotalAggregationOptionList],
+  [0, 0, 0, 0, () => TableCellStyle$, () => TotalAggregationOptionList],
 ];
-export var TransformOperationSource: StaticStructureSchema = [
+export var TransformOperationSource$: StaticStructureSchema = [
   3,
   n0,
   _TOS,
@@ -13109,28 +13267,28 @@ export var TransformOperationSource: StaticStructureSchema = [
   [_TOI, _CIM],
   [0, () => DataSetColumnIdMappingList],
 ];
-export var TransformStep: StaticStructureSchema = [
+export var TransformStep$: StaticStructureSchema = [
   3,
   n0,
   _TSr,
   0,
   [_ITS, _PSr, _FSilt, _CCSr, _RCS, _CCTS, _JSo, _ASg, _PSi, _USn, _ASp],
   [
-    () => ImportTableOperation,
-    () => ProjectOperation,
-    [() => FiltersOperation, 0],
-    [() => CreateColumnsOperation, 0],
-    () => RenameColumnsOperation,
-    () => CastColumnTypesOperation,
-    [() => JoinOperation, 0],
-    () => AggregateOperation,
-    () => PivotOperation,
-    () => UnpivotOperation,
-    () => AppendOperation,
+    () => ImportTableOperation$,
+    () => ProjectOperation$,
+    [() => FiltersOperation$, 0],
+    [() => CreateColumnsOperation$, 0],
+    () => RenameColumnsOperation$,
+    () => CastColumnTypesOperation$,
+    [() => JoinOperation$, 0],
+    () => AggregateOperation$,
+    () => PivotOperation$,
+    () => UnpivotOperation$,
+    () => AppendOperation$,
   ],
 ];
-export var TransposedTableOption: StaticStructureSchema = [3, n0, _TTOr, 0, [_CIolu, _CW, _CTolu], [1, 0, 0]];
-export var TreeMapAggregatedFieldWells: StaticStructureSchema = [
+export var TransposedTableOption$: StaticStructureSchema = [3, n0, _TTOr, 0, [_CIolu, _CW, _CTolu], [1, 0, 0]];
+export var TreeMapAggregatedFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _TMAFW,
@@ -13138,35 +13296,42 @@ export var TreeMapAggregatedFieldWells: StaticStructureSchema = [
   [_Gro, _Siz, _Co],
   [() => TreeMapDimensionFieldList, () => TreeMapMeasureFieldList, () => TreeMapMeasureFieldList],
 ];
-export var TreeMapConfiguration: StaticStructureSchema = [
+export var TreeMapConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _TMC,
   0,
   [_FW, _SCo, _GLO, _SLOi, _CLOo, _CSol, _Le, _DL, _To, _I],
   [
-    () => TreeMapFieldWells,
-    () => TreeMapSortConfiguration,
-    () => ChartAxisLabelOptions,
-    () => ChartAxisLabelOptions,
-    () => ChartAxisLabelOptions,
-    () => ColorScale,
-    () => LegendOptions,
-    () => DataLabelOptions,
-    () => TooltipOptions,
-    () => VisualInteractionOptions,
+    () => TreeMapFieldWells$,
+    () => TreeMapSortConfiguration$,
+    () => ChartAxisLabelOptions$,
+    () => ChartAxisLabelOptions$,
+    () => ChartAxisLabelOptions$,
+    () => ColorScale$,
+    () => LegendOptions$,
+    () => DataLabelOptions$,
+    () => TooltipOptions$,
+    () => VisualInteractionOptions$,
   ],
 ];
-export var TreeMapFieldWells: StaticStructureSchema = [3, n0, _TMFW, 0, [_TMAFW], [() => TreeMapAggregatedFieldWells]];
-export var TreeMapSortConfiguration: StaticStructureSchema = [
+export var TreeMapFieldWells$: StaticStructureSchema = [
+  3,
+  n0,
+  _TMFW,
+  0,
+  [_TMAFW],
+  [() => TreeMapAggregatedFieldWells$],
+];
+export var TreeMapSortConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _TMSC,
   0,
   [_TMS, _TMGILC],
-  [() => FieldSortOptionsList, () => ItemsLimitConfiguration],
+  [() => FieldSortOptionsList, () => ItemsLimitConfiguration$],
 ];
-export var TreeMapVisual: StaticStructureSchema = [
+export var TreeMapVisual$: StaticStructureSchema = [
   3,
   n0,
   _TMV,
@@ -13174,18 +13339,18 @@ export var TreeMapVisual: StaticStructureSchema = [
   [_VI, _Tit, _Su, _CCh, _Ac, _CH, _VCAT],
   [
     0,
-    () => VisualTitleLabelOptions,
-    () => VisualSubtitleLabelOptions,
-    () => TreeMapConfiguration,
+    () => VisualTitleLabelOptions$,
+    () => VisualSubtitleLabelOptions$,
+    () => TreeMapConfiguration$,
     () => VisualCustomActionList,
     () => ColumnHierarchyList,
     0,
   ],
 ];
-export var TrendArrowOptions: StaticStructureSchema = [3, n0, _TAOr, 0, [_Vi], [0]];
-export var TrinoParameters: StaticStructureSchema = [3, n0, _TPr, 0, [_H, _Po, _Cata], [0, 1, 0]];
-export var TwitterParameters: StaticStructureSchema = [3, n0, _TPw, 0, [_Qu, _MRa], [0, 1]];
-export var Typography: StaticStructureSchema = [
+export var TrendArrowOptions$: StaticStructureSchema = [3, n0, _TAOr, 0, [_Vi], [0]];
+export var TrinoParameters$: StaticStructureSchema = [3, n0, _TPr, 0, [_H, _Po, _Cata], [0, 1, 0]];
+export var TwitterParameters$: StaticStructureSchema = [3, n0, _TPw, 0, [_Qu, _MRa], [0, 1]];
+export var Typography$: StaticStructureSchema = [
   3,
   n0,
   _Ty,
@@ -13193,16 +13358,16 @@ export var Typography: StaticStructureSchema = [
   [_FFon, _ATFC, _ALFC, _LTFC, _LVFC, _DLFC, _VTFC, _VSFC],
   [
     () => FontList,
-    () => FontConfiguration,
-    () => FontConfiguration,
-    () => FontConfiguration,
-    () => FontConfiguration,
-    () => FontConfiguration,
-    () => VisualTitleFontConfiguration,
-    () => VisualSubtitleFontConfiguration,
+    () => FontConfiguration$,
+    () => FontConfiguration$,
+    () => FontConfiguration$,
+    () => FontConfiguration$,
+    () => FontConfiguration$,
+    () => VisualTitleFontConfiguration$,
+    () => VisualSubtitleFontConfiguration$,
   ],
 ];
-export var UIColorPalette: StaticStructureSchema = [
+export var UIColorPalette$: StaticStructureSchema = [
   3,
   n0,
   _UICP,
@@ -13210,32 +13375,32 @@ export var UIColorPalette: StaticStructureSchema = [
   [_PFr, _PBri, _SFec, _SBec, _Acc, _AFc, _Dan, _DFan, _Wa, _WF, _Suc, _SFu, _Di, _DFime, _Me, _MFe],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var UnaggregatedField: StaticStructureSchema = [
+export var UnaggregatedField$: StaticStructureSchema = [
   3,
   n0,
   _UF,
   0,
   [_FIi, _C, _FCor],
-  [0, () => ColumnIdentifier, [() => FormatConfiguration, 0]],
+  [0, () => ColumnIdentifier$, [() => FormatConfiguration$, 0]],
 ];
-export var UniqueKey: StaticStructureSchema = [3, n0, _UK, 0, [_CNo], [64 | 0]];
-export var UniqueValuesComputation: StaticStructureSchema = [
+export var UniqueKey$: StaticStructureSchema = [3, n0, _UK, 0, [_CNo], [64 | 0]];
+export var UniqueValuesComputation$: StaticStructureSchema = [
   3,
   n0,
   _UVC,
   0,
   [_CIom, _N, _Ca],
-  [0, 0, () => DimensionField],
+  [0, 0, () => DimensionField$],
 ];
-export var UnpivotOperation: StaticStructureSchema = [
+export var UnpivotOperation$: StaticStructureSchema = [
   3,
   n0,
   _UOn,
   0,
   [_Al, _So, _CTUo, _ULCN, _ULCI, _UVCN, _UVCI],
-  [0, () => TransformOperationSource, () => ColumnToUnpivotList, 0, 0, 0, 0],
+  [0, () => TransformOperationSource$, () => ColumnToUnpivotList, 0, 0, 0, 0],
 ];
-export var UnsupportedPricingPlanException: StaticErrorSchema = [
+export var UnsupportedPricingPlanException$: StaticErrorSchema = [
   -3,
   n0,
   _UPPE,
@@ -13243,8 +13408,8 @@ export var UnsupportedPricingPlanException: StaticErrorSchema = [
   [_M, _RI],
   [0, 0],
 ];
-TypeRegistry.for(n0).registerError(UnsupportedPricingPlanException, __UnsupportedPricingPlanException);
-export var UnsupportedUserEditionException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(UnsupportedPricingPlanException$, UnsupportedPricingPlanException);
+export var UnsupportedUserEditionException$: StaticErrorSchema = [
   -3,
   n0,
   _UUEE,
@@ -13252,9 +13417,9 @@ export var UnsupportedUserEditionException: StaticErrorSchema = [
   [_M, _RI],
   [0, 0],
 ];
-TypeRegistry.for(n0).registerError(UnsupportedUserEditionException, __UnsupportedUserEditionException);
-export var UntagColumnOperation: StaticStructureSchema = [3, n0, _UCO, 0, [_CN, _TNa], [0, 64 | 0]];
-export var UntagResourceRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(UnsupportedUserEditionException$, UnsupportedUserEditionException);
+export var UntagColumnOperation$: StaticStructureSchema = [3, n0, _UCO, 0, [_CN, _TNa], [0, 64 | 0]];
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -13265,26 +13430,26 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _k }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [_RI, _St], [0, [1, 32]]];
-export var UpdateAccountCustomizationRequest: StaticStructureSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [_RI, _St], [0, [1, 32]]];
+export var UpdateAccountCustomizationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UACR,
   0,
   [_AAI, _Na, _AC],
-  [[0, 1], [0, { [_hQ]: _n }], () => AccountCustomization],
+  [[0, 1], [0, { [_hQ]: _n }], () => AccountCustomization$],
 ];
-export var UpdateAccountCustomizationResponse: StaticStructureSchema = [
+export var UpdateAccountCustomizationResponse$: StaticStructureSchema = [
   3,
   n0,
   _UACRp,
   0,
   [_A, _AAI, _Na, _AC, _RI, _St],
-  [0, 0, 0, () => AccountCustomization, 0, [1, 32]],
+  [0, 0, 0, () => AccountCustomization$, 0, [1, 32]],
 ];
-export var UpdateAccountCustomPermissionRequest: StaticStructureSchema = [3, n0, _UACPR, 0, [_CPN, _AAI], [0, [0, 1]]];
-export var UpdateAccountCustomPermissionResponse: StaticStructureSchema = [3, n0, _UACPRp, 0, [_RI, _St], [0, 1]];
-export var UpdateAccountSettingsRequest: StaticStructureSchema = [
+export var UpdateAccountCustomPermissionRequest$: StaticStructureSchema = [3, n0, _UACPR, 0, [_CPN, _AAI], [0, [0, 1]]];
+export var UpdateAccountCustomPermissionResponse$: StaticStructureSchema = [3, n0, _UACPRp, 0, [_RI, _St], [0, 1]];
+export var UpdateAccountSettingsRequest$: StaticStructureSchema = [
   3,
   n0,
   _UASR,
@@ -13292,8 +13457,8 @@ export var UpdateAccountSettingsRequest: StaticStructureSchema = [
   [_AAI, _DN, _NE, _TPE],
   [[0, 1], 0, 0, 2],
 ];
-export var UpdateAccountSettingsResponse: StaticStructureSchema = [3, n0, _UASRp, 0, [_RI, _St], [0, [1, 32]]];
-export var UpdateActionConnectorPermissionsRequest: StaticStructureSchema = [
+export var UpdateAccountSettingsResponse$: StaticStructureSchema = [3, n0, _UASRp, 0, [_RI, _St], [0, [1, 32]]];
+export var UpdateActionConnectorPermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _UACPRpd,
@@ -13301,7 +13466,7 @@ export var UpdateActionConnectorPermissionsRequest: StaticStructureSchema = [
   [_AAI, _ACI, _GPr, _RPev],
   [[0, 1], [0, 1], () => ResourcePermissionList, () => ResourcePermissionList],
 ];
-export var UpdateActionConnectorPermissionsResponse: StaticStructureSchema = [
+export var UpdateActionConnectorPermissionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _UACPRpda,
@@ -13309,15 +13474,15 @@ export var UpdateActionConnectorPermissionsResponse: StaticStructureSchema = [
   [_A, _ACI, _RI, _St, _Per],
   [0, 0, 0, [1, 32], () => ResourcePermissionList],
 ];
-export var UpdateActionConnectorRequest: StaticStructureSchema = [
+export var UpdateActionConnectorRequest$: StaticStructureSchema = [
   3,
   n0,
   _UACRpd,
   0,
   [_AAI, _ACI, _N, _ACu, _D, _VCA],
-  [[0, 1], [0, 1], [() => ActionConnectorName, 0], [() => AuthConfig, 0], [() => ActionConnectorDescription, 0], 0],
+  [[0, 1], [0, 1], [() => ActionConnectorName, 0], [() => AuthConfig$, 0], [() => ActionConnectorDescription, 0], 0],
 ];
-export var UpdateActionConnectorResponse: StaticStructureSchema = [
+export var UpdateActionConnectorResponse$: StaticStructureSchema = [
   3,
   n0,
   _UACRpda,
@@ -13325,7 +13490,7 @@ export var UpdateActionConnectorResponse: StaticStructureSchema = [
   [_A, _ACI, _RI, _USpd, _St],
   [0, 0, 0, 0, [1, 32]],
 ];
-export var UpdateAnalysisPermissionsRequest: StaticStructureSchema = [
+export var UpdateAnalysisPermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _UAPR,
@@ -13333,7 +13498,7 @@ export var UpdateAnalysisPermissionsRequest: StaticStructureSchema = [
   [_AAI, _AIn, _GPr, _RPev],
   [[0, 1], [0, 1], () => UpdateResourcePermissionList, () => UpdateResourcePermissionList],
 ];
-export var UpdateAnalysisPermissionsResponse: StaticStructureSchema = [
+export var UpdateAnalysisPermissionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _UAPRp,
@@ -13341,7 +13506,7 @@ export var UpdateAnalysisPermissionsResponse: StaticStructureSchema = [
   [_AAn, _AIn, _Per, _RI, _St],
   [0, 0, () => UpdateResourcePermissionList, 0, [1, 32]],
 ];
-export var UpdateAnalysisRequest: StaticStructureSchema = [
+export var UpdateAnalysisRequest$: StaticStructureSchema = [
   3,
   n0,
   _UAR,
@@ -13351,14 +13516,14 @@ export var UpdateAnalysisRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     0,
-    [() => _Parameters, 0],
-    () => AnalysisSourceEntity,
+    [() => _Parameters$, 0],
+    () => AnalysisSourceEntity$,
     0,
-    [() => AnalysisDefinition, 0],
-    () => ValidationStrategy,
+    [() => AnalysisDefinition$, 0],
+    () => ValidationStrategy$,
   ],
 ];
-export var UpdateAnalysisResponse: StaticStructureSchema = [
+export var UpdateAnalysisResponse$: StaticStructureSchema = [
   3,
   n0,
   _UARp,
@@ -13366,7 +13531,7 @@ export var UpdateAnalysisResponse: StaticStructureSchema = [
   [_A, _AIn, _USpd, _St, _RI],
   [0, 0, 0, [1, 32], 0],
 ];
-export var UpdateApplicationWithTokenExchangeGrantRequest: StaticStructureSchema = [
+export var UpdateApplicationWithTokenExchangeGrantRequest$: StaticStructureSchema = [
   3,
   n0,
   _UAWTEGR,
@@ -13377,7 +13542,7 @@ export var UpdateApplicationWithTokenExchangeGrantRequest: StaticStructureSchema
     [0, { [_hQ]: _n }],
   ],
 ];
-export var UpdateApplicationWithTokenExchangeGrantResponse: StaticStructureSchema = [
+export var UpdateApplicationWithTokenExchangeGrantResponse$: StaticStructureSchema = [
   3,
   n0,
   _UAWTEGRp,
@@ -13385,9 +13550,9 @@ export var UpdateApplicationWithTokenExchangeGrantResponse: StaticStructureSchem
   [_St, _RI],
   [[1, 32], 0],
 ];
-export var UpdateBrandAssignmentRequest: StaticStructureSchema = [3, n0, _UBAR, 0, [_AAI, _BAr], [[0, 1], 0]];
-export var UpdateBrandAssignmentResponse: StaticStructureSchema = [3, n0, _UBARp, 0, [_RI, _BAr], [0, 0]];
-export var UpdateBrandPublishedVersionRequest: StaticStructureSchema = [
+export var UpdateBrandAssignmentRequest$: StaticStructureSchema = [3, n0, _UBAR, 0, [_AAI, _BAr], [[0, 1], 0]];
+export var UpdateBrandAssignmentResponse$: StaticStructureSchema = [3, n0, _UBARp, 0, [_RI, _BAr], [0, 0]];
+export var UpdateBrandPublishedVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _UBPVR,
@@ -13395,33 +13560,33 @@ export var UpdateBrandPublishedVersionRequest: StaticStructureSchema = [
   [_AAI, _BI, _VIe],
   [[0, 1], [0, 1], 0],
 ];
-export var UpdateBrandPublishedVersionResponse: StaticStructureSchema = [3, n0, _UBPVRp, 0, [_RI, _VIe], [0, 0]];
-export var UpdateBrandRequest: StaticStructureSchema = [
+export var UpdateBrandPublishedVersionResponse$: StaticStructureSchema = [3, n0, _UBPVRp, 0, [_RI, _VIe], [0, 0]];
+export var UpdateBrandRequest$: StaticStructureSchema = [
   3,
   n0,
   _UBR,
   0,
   [_AAI, _BI, _BD],
-  [[0, 1], [0, 1], () => BrandDefinition],
+  [[0, 1], [0, 1], () => BrandDefinition$],
 ];
-export var UpdateBrandResponse: StaticStructureSchema = [
+export var UpdateBrandResponse$: StaticStructureSchema = [
   3,
   n0,
   _UBRp,
   0,
   [_RI, _BDr, _BD],
-  [0, () => BrandDetail, () => BrandDefinition],
+  [0, () => BrandDetail$, () => BrandDefinition$],
 ];
-export var UpdateCustomPermissionsRequest: StaticStructureSchema = [
+export var UpdateCustomPermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCPR,
   0,
   [_AAI, _CPN, _Cap],
-  [[0, 1], [0, 1], () => Capabilities],
+  [[0, 1], [0, 1], () => Capabilities$],
 ];
-export var UpdateCustomPermissionsResponse: StaticStructureSchema = [3, n0, _UCPRp, 0, [_St, _A, _RI], [1, 0, 0]];
-export var UpdateDashboardLinksRequest: StaticStructureSchema = [
+export var UpdateCustomPermissionsResponse$: StaticStructureSchema = [3, n0, _UCPRp, 0, [_St, _A, _RI], [1, 0, 0]];
+export var UpdateDashboardLinksRequest$: StaticStructureSchema = [
   3,
   n0,
   _UDLR,
@@ -13429,7 +13594,7 @@ export var UpdateDashboardLinksRequest: StaticStructureSchema = [
   [_AAI, _DI, _LE],
   [[0, 1], [0, 1], 64 | 0],
 ];
-export var UpdateDashboardLinksResponse: StaticStructureSchema = [
+export var UpdateDashboardLinksResponse$: StaticStructureSchema = [
   3,
   n0,
   _UDLRp,
@@ -13437,7 +13602,7 @@ export var UpdateDashboardLinksResponse: StaticStructureSchema = [
   [_RI, _St, _DAas, _LE],
   [0, [1, 32], 0, 64 | 0],
 ];
-export var UpdateDashboardPermissionsRequest: StaticStructureSchema = [
+export var UpdateDashboardPermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _UDPR,
@@ -13452,15 +13617,15 @@ export var UpdateDashboardPermissionsRequest: StaticStructureSchema = [
     () => UpdateLinkPermissionList,
   ],
 ];
-export var UpdateDashboardPermissionsResponse: StaticStructureSchema = [
+export var UpdateDashboardPermissionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _UDPRp,
   0,
   [_DAas, _DI, _Per, _RI, _St, _LSC],
-  [0, 0, () => UpdateResourcePermissionList, 0, [1, 32], () => LinkSharingConfiguration],
+  [0, 0, () => UpdateResourcePermissionList, 0, [1, 32], () => LinkSharingConfiguration$],
 ];
-export var UpdateDashboardPublishedVersionRequest: StaticStructureSchema = [
+export var UpdateDashboardPublishedVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _UDPVR,
@@ -13472,7 +13637,7 @@ export var UpdateDashboardPublishedVersionRequest: StaticStructureSchema = [
     [1, 1],
   ],
 ];
-export var UpdateDashboardPublishedVersionResponse: StaticStructureSchema = [
+export var UpdateDashboardPublishedVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _UDPVRp,
@@ -13480,7 +13645,7 @@ export var UpdateDashboardPublishedVersionResponse: StaticStructureSchema = [
   [_DI, _DAas, _St, _RI],
   [0, 0, [1, 32], 0],
 ];
-export var UpdateDashboardRequest: StaticStructureSchema = [
+export var UpdateDashboardRequest$: StaticStructureSchema = [
   3,
   n0,
   _UDR,
@@ -13490,16 +13655,16 @@ export var UpdateDashboardRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     0,
-    () => DashboardSourceEntity,
-    [() => _Parameters, 0],
+    () => DashboardSourceEntity$,
+    [() => _Parameters$, 0],
     0,
-    () => DashboardPublishOptions,
+    () => DashboardPublishOptions$,
     0,
-    [() => DashboardVersionDefinition, 0],
-    () => ValidationStrategy,
+    [() => DashboardVersionDefinition$, 0],
+    () => ValidationStrategy$,
   ],
 ];
-export var UpdateDashboardResponse: StaticStructureSchema = [
+export var UpdateDashboardResponse$: StaticStructureSchema = [
   3,
   n0,
   _UDRp,
@@ -13507,7 +13672,7 @@ export var UpdateDashboardResponse: StaticStructureSchema = [
   [_A, _VAe, _DI, _CSr, _St, _RI],
   [0, 0, 0, 0, 1, 0],
 ];
-export var UpdateDashboardsQAConfigurationRequest: StaticStructureSchema = [
+export var UpdateDashboardsQAConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UDQACR,
@@ -13515,7 +13680,7 @@ export var UpdateDashboardsQAConfigurationRequest: StaticStructureSchema = [
   [_AAI, _DQAS],
   [[0, 1], 0],
 ];
-export var UpdateDashboardsQAConfigurationResponse: StaticStructureSchema = [
+export var UpdateDashboardsQAConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _UDQACRp,
@@ -13523,7 +13688,7 @@ export var UpdateDashboardsQAConfigurationResponse: StaticStructureSchema = [
   [_DQAS, _RI, _St],
   [0, 0, [1, 32]],
 ];
-export var UpdateDataSetPermissionsRequest: StaticStructureSchema = [
+export var UpdateDataSetPermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _UDSPR,
@@ -13531,7 +13696,7 @@ export var UpdateDataSetPermissionsRequest: StaticStructureSchema = [
   [_AAI, _DSI, _GPr, _RPev],
   [[0, 1], [0, 1], () => ResourcePermissionList, () => ResourcePermissionList],
 ];
-export var UpdateDataSetPermissionsResponse: StaticStructureSchema = [
+export var UpdateDataSetPermissionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _UDSPRp,
@@ -13539,7 +13704,7 @@ export var UpdateDataSetPermissionsResponse: StaticStructureSchema = [
   [_DSAat, _DSI, _RI, _St],
   [0, 0, 0, [1, 32]],
 ];
-export var UpdateDataSetRequest: StaticStructureSchema = [
+export var UpdateDataSetRequest$: StaticStructureSchema = [
   3,
   n0,
   _UDSR,
@@ -13554,17 +13719,17 @@ export var UpdateDataSetRequest: StaticStructureSchema = [
     0,
     () => ColumnGroupList,
     () => FieldFolderMap,
-    () => RowLevelPermissionDataSet,
-    [() => RowLevelPermissionTagConfiguration, 0],
+    () => RowLevelPermissionDataSet$,
+    [() => RowLevelPermissionTagConfiguration$, 0],
     () => ColumnLevelPermissionRuleList,
-    () => DataSetUsageConfiguration,
+    () => DataSetUsageConfiguration$,
     () => DatasetParameterList,
-    () => PerformanceConfiguration,
-    [() => DataPrepConfiguration, 0],
-    [() => SemanticModelConfiguration, 0],
+    () => PerformanceConfiguration$,
+    [() => DataPrepConfiguration$, 0],
+    [() => SemanticModelConfiguration$, 0],
   ],
 ];
-export var UpdateDataSetResponse: StaticStructureSchema = [
+export var UpdateDataSetResponse$: StaticStructureSchema = [
   3,
   n0,
   _UDSRp,
@@ -13572,7 +13737,7 @@ export var UpdateDataSetResponse: StaticStructureSchema = [
   [_A, _DSI, _IAn, _II, _RI, _St],
   [0, 0, 0, 0, 0, [1, 32]],
 ];
-export var UpdateDataSourcePermissionsRequest: StaticStructureSchema = [
+export var UpdateDataSourcePermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _UDSPRpd,
@@ -13580,7 +13745,7 @@ export var UpdateDataSourcePermissionsRequest: StaticStructureSchema = [
   [_AAI, _DSIat, _GPr, _RPev],
   [[0, 1], [0, 1], () => ResourcePermissionList, () => ResourcePermissionList],
 ];
-export var UpdateDataSourcePermissionsResponse: StaticStructureSchema = [
+export var UpdateDataSourcePermissionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _UDSPRpda,
@@ -13588,7 +13753,7 @@ export var UpdateDataSourcePermissionsResponse: StaticStructureSchema = [
   [_DSAa, _DSIat, _RI, _St],
   [0, 0, 0, [1, 32]],
 ];
-export var UpdateDataSourceRequest: StaticStructureSchema = [
+export var UpdateDataSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _UDSRpd,
@@ -13598,13 +13763,13 @@ export var UpdateDataSourceRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     0,
-    () => DataSourceParameters,
-    [() => DataSourceCredentials, 0],
-    () => VpcConnectionProperties,
-    () => SslProperties,
+    () => DataSourceParameters$,
+    [() => DataSourceCredentials$, 0],
+    () => VpcConnectionProperties$,
+    () => SslProperties$,
   ],
 ];
-export var UpdateDataSourceResponse: StaticStructureSchema = [
+export var UpdateDataSourceResponse$: StaticStructureSchema = [
   3,
   n0,
   _UDSRpda,
@@ -13612,7 +13777,7 @@ export var UpdateDataSourceResponse: StaticStructureSchema = [
   [_A, _DSIat, _USpd, _RI, _St],
   [0, 0, 0, 0, [1, 32]],
 ];
-export var UpdateDefaultQBusinessApplicationRequest: StaticStructureSchema = [
+export var UpdateDefaultQBusinessApplicationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UDQBAR,
@@ -13620,7 +13785,7 @@ export var UpdateDefaultQBusinessApplicationRequest: StaticStructureSchema = [
   [_AAI, _Na, _AIp],
   [[0, 1], [0, { [_hQ]: _n }], 0],
 ];
-export var UpdateDefaultQBusinessApplicationResponse: StaticStructureSchema = [
+export var UpdateDefaultQBusinessApplicationResponse$: StaticStructureSchema = [
   3,
   n0,
   _UDQBARp,
@@ -13628,7 +13793,7 @@ export var UpdateDefaultQBusinessApplicationResponse: StaticStructureSchema = [
   [_RI, _St],
   [0, [1, 32]],
 ];
-export var UpdateFlowPermissionsInput: StaticStructureSchema = [
+export var UpdateFlowPermissionsInput$: StaticStructureSchema = [
   3,
   n0,
   _UFPI,
@@ -13641,7 +13806,7 @@ export var UpdateFlowPermissionsInput: StaticStructureSchema = [
     () => UpdateFlowPermissionsInputRevokePermissionsList,
   ],
 ];
-export var UpdateFlowPermissionsOutput: StaticStructureSchema = [
+export var UpdateFlowPermissionsOutput$: StaticStructureSchema = [
   3,
   n0,
   _UFPO,
@@ -13649,7 +13814,7 @@ export var UpdateFlowPermissionsOutput: StaticStructureSchema = [
   [_St, _A, _Per, _RI, _FIl],
   [[1, 32], 0, () => PermissionsList, 0, 0],
 ];
-export var UpdateFolderPermissionsRequest: StaticStructureSchema = [
+export var UpdateFolderPermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _UFPR,
@@ -13657,7 +13822,7 @@ export var UpdateFolderPermissionsRequest: StaticStructureSchema = [
   [_AAI, _FI, _GPr, _RPev],
   [[0, 1], [0, 1], () => ResourcePermissionList, () => ResourcePermissionList],
 ];
-export var UpdateFolderPermissionsResponse: StaticStructureSchema = [
+export var UpdateFolderPermissionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _UFPRp,
@@ -13665,9 +13830,9 @@ export var UpdateFolderPermissionsResponse: StaticStructureSchema = [
   [_St, _A, _FI, _Per, _RI],
   [1, 0, 0, () => ResourcePermissionList, 0],
 ];
-export var UpdateFolderRequest: StaticStructureSchema = [3, n0, _UFR, 0, [_AAI, _FI, _N], [[0, 1], [0, 1], 0]];
-export var UpdateFolderResponse: StaticStructureSchema = [3, n0, _UFRp, 0, [_St, _A, _FI, _RI], [[1, 32], 0, 0, 0]];
-export var UpdateGroupRequest: StaticStructureSchema = [
+export var UpdateFolderRequest$: StaticStructureSchema = [3, n0, _UFR, 0, [_AAI, _FI, _N], [[0, 1], [0, 1], 0]];
+export var UpdateFolderResponse$: StaticStructureSchema = [3, n0, _UFRp, 0, [_St, _A, _FI, _RI], [[1, 32], 0, 0, 0]];
+export var UpdateGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _UGR,
@@ -13675,8 +13840,8 @@ export var UpdateGroupRequest: StaticStructureSchema = [
   [_GN, _D, _AAI, _Na],
   [[0, 1], 0, [0, 1], [0, 1]],
 ];
-export var UpdateGroupResponse: StaticStructureSchema = [3, n0, _UGRp, 0, [_Gr, _RI, _St], [() => Group, 0, [1, 32]]];
-export var UpdateIAMPolicyAssignmentRequest: StaticStructureSchema = [
+export var UpdateGroupResponse$: StaticStructureSchema = [3, n0, _UGRp, 0, [_Gr, _RI, _St], [() => Group$, 0, [1, 32]]];
+export var UpdateIAMPolicyAssignmentRequest$: StaticStructureSchema = [
   3,
   n0,
   _UIAMPAR,
@@ -13684,7 +13849,7 @@ export var UpdateIAMPolicyAssignmentRequest: StaticStructureSchema = [
   [_AAI, _ANs, _Na, _ASs, _PA, _Id],
   [[0, 1], [0, 1], [0, 1], 0, 0, [2, n0, _IMd, 0, 0, 64 | 0]],
 ];
-export var UpdateIAMPolicyAssignmentResponse: StaticStructureSchema = [
+export var UpdateIAMPolicyAssignmentResponse$: StaticStructureSchema = [
   3,
   n0,
   _UIAMPARp,
@@ -13692,7 +13857,7 @@ export var UpdateIAMPolicyAssignmentResponse: StaticStructureSchema = [
   [_ANs, _AIs, _PA, _Id, _ASs, _RI, _St],
   [0, 0, 0, [2, n0, _IMd, 0, 0, 64 | 0], 0, 0, [1, 32]],
 ];
-export var UpdateIdentityPropagationConfigRequest: StaticStructureSchema = [
+export var UpdateIdentityPropagationConfigRequest$: StaticStructureSchema = [
   3,
   n0,
   _UIPCR,
@@ -13700,7 +13865,7 @@ export var UpdateIdentityPropagationConfigRequest: StaticStructureSchema = [
   [_AAI, _Se, _ATu],
   [[0, 1], [0, 1], 64 | 0],
 ];
-export var UpdateIdentityPropagationConfigResponse: StaticStructureSchema = [
+export var UpdateIdentityPropagationConfigResponse$: StaticStructureSchema = [
   3,
   n0,
   _UIPCRp,
@@ -13708,7 +13873,7 @@ export var UpdateIdentityPropagationConfigResponse: StaticStructureSchema = [
   [_RI, _St],
   [0, [1, 32]],
 ];
-export var UpdateIpRestrictionRequest: StaticStructureSchema = [
+export var UpdateIpRestrictionRequest$: StaticStructureSchema = [
   3,
   n0,
   _UIRR,
@@ -13716,8 +13881,8 @@ export var UpdateIpRestrictionRequest: StaticStructureSchema = [
   [_AAI, _IRRM, _VIRRM, _VEIRRM, _En],
   [[0, 1], 128 | 0, 128 | 0, 128 | 0, 2],
 ];
-export var UpdateIpRestrictionResponse: StaticStructureSchema = [3, n0, _UIRRp, 0, [_AAI, _RI, _St], [0, 0, [1, 32]]];
-export var UpdateKeyRegistrationRequest: StaticStructureSchema = [
+export var UpdateIpRestrictionResponse$: StaticStructureSchema = [3, n0, _UIRRp, 0, [_AAI, _RI, _St], [0, 0, [1, 32]]];
+export var UpdateKeyRegistrationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UKRR,
@@ -13725,7 +13890,7 @@ export var UpdateKeyRegistrationRequest: StaticStructureSchema = [
   [_AAI, _KR],
   [[0, 1], () => KeyRegistration],
 ];
-export var UpdateKeyRegistrationResponse: StaticStructureSchema = [
+export var UpdateKeyRegistrationResponse$: StaticStructureSchema = [
   3,
   n0,
   _UKRRp,
@@ -13733,9 +13898,9 @@ export var UpdateKeyRegistrationResponse: StaticStructureSchema = [
   [_FKR, _SKR, _RI],
   [() => FailedKeyRegistrationEntries, () => SuccessfulKeyRegistrationEntries, 0],
 ];
-export var UpdatePublicSharingSettingsRequest: StaticStructureSchema = [3, n0, _UPSSR, 0, [_AAI, _PSE], [[0, 1], 2]];
-export var UpdatePublicSharingSettingsResponse: StaticStructureSchema = [3, n0, _UPSSRp, 0, [_RI, _St], [0, [1, 32]]];
-export var UpdateQPersonalizationConfigurationRequest: StaticStructureSchema = [
+export var UpdatePublicSharingSettingsRequest$: StaticStructureSchema = [3, n0, _UPSSR, 0, [_AAI, _PSE], [[0, 1], 2]];
+export var UpdatePublicSharingSettingsResponse$: StaticStructureSchema = [3, n0, _UPSSRp, 0, [_RI, _St], [0, [1, 32]]];
+export var UpdateQPersonalizationConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UQPCR,
@@ -13743,7 +13908,7 @@ export var UpdateQPersonalizationConfigurationRequest: StaticStructureSchema = [
   [_AAI, _PM],
   [[0, 1], 0],
 ];
-export var UpdateQPersonalizationConfigurationResponse: StaticStructureSchema = [
+export var UpdateQPersonalizationConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _UQPCRp,
@@ -13751,7 +13916,7 @@ export var UpdateQPersonalizationConfigurationResponse: StaticStructureSchema = 
   [_PM, _RI, _St],
   [0, 0, [1, 32]],
 ];
-export var UpdateQuickSightQSearchConfigurationRequest: StaticStructureSchema = [
+export var UpdateQuickSightQSearchConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UQSQSCR,
@@ -13759,7 +13924,7 @@ export var UpdateQuickSightQSearchConfigurationRequest: StaticStructureSchema = 
   [_AAI, _QSS],
   [[0, 1], 0],
 ];
-export var UpdateQuickSightQSearchConfigurationResponse: StaticStructureSchema = [
+export var UpdateQuickSightQSearchConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _UQSQSCRp,
@@ -13767,15 +13932,15 @@ export var UpdateQuickSightQSearchConfigurationResponse: StaticStructureSchema =
   [_QSS, _RI, _St],
   [0, 0, [1, 32]],
 ];
-export var UpdateRefreshScheduleRequest: StaticStructureSchema = [
+export var UpdateRefreshScheduleRequest$: StaticStructureSchema = [
   3,
   n0,
   _URSR,
   0,
   [_DSI, _AAI, _Sc],
-  [[0, 1], [0, 1], () => RefreshSchedule],
+  [[0, 1], [0, 1], () => RefreshSchedule$],
 ];
-export var UpdateRefreshScheduleResponse: StaticStructureSchema = [
+export var UpdateRefreshScheduleResponse$: StaticStructureSchema = [
   3,
   n0,
   _URSRp,
@@ -13783,7 +13948,7 @@ export var UpdateRefreshScheduleResponse: StaticStructureSchema = [
   [_St, _RI, _SI, _A],
   [[1, 32], 0, 0, 0],
 ];
-export var UpdateRoleCustomPermissionRequest: StaticStructureSchema = [
+export var UpdateRoleCustomPermissionRequest$: StaticStructureSchema = [
   3,
   n0,
   _URCPR,
@@ -13791,8 +13956,8 @@ export var UpdateRoleCustomPermissionRequest: StaticStructureSchema = [
   [_CPN, _Ro, _AAI, _Na],
   [0, [0, 1], [0, 1], [0, 1]],
 ];
-export var UpdateRoleCustomPermissionResponse: StaticStructureSchema = [3, n0, _URCPRp, 0, [_RI, _St], [0, 1]];
-export var UpdateSPICECapacityConfigurationRequest: StaticStructureSchema = [
+export var UpdateRoleCustomPermissionResponse$: StaticStructureSchema = [3, n0, _URCPRp, 0, [_RI, _St], [0, 1]];
+export var UpdateSPICECapacityConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _USPICECCR,
@@ -13800,7 +13965,7 @@ export var UpdateSPICECapacityConfigurationRequest: StaticStructureSchema = [
   [_AAI, _PMu],
   [[0, 1], 0],
 ];
-export var UpdateSPICECapacityConfigurationResponse: StaticStructureSchema = [
+export var UpdateSPICECapacityConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _USPICECCRp,
@@ -13808,7 +13973,7 @@ export var UpdateSPICECapacityConfigurationResponse: StaticStructureSchema = [
   [_RI, _St],
   [0, [1, 32]],
 ];
-export var UpdateTemplateAliasRequest: StaticStructureSchema = [
+export var UpdateTemplateAliasRequest$: StaticStructureSchema = [
   3,
   n0,
   _UTAR,
@@ -13816,15 +13981,15 @@ export var UpdateTemplateAliasRequest: StaticStructureSchema = [
   [_AAI, _TIe, _ANl, _TVN],
   [[0, 1], [0, 1], [0, 1], 1],
 ];
-export var UpdateTemplateAliasResponse: StaticStructureSchema = [
+export var UpdateTemplateAliasResponse$: StaticStructureSchema = [
   3,
   n0,
   _UTARp,
   0,
   [_TAe, _St, _RI],
-  [() => TemplateAlias, [1, 32], 0],
+  [() => TemplateAlias$, [1, 32], 0],
 ];
-export var UpdateTemplatePermissionsRequest: StaticStructureSchema = [
+export var UpdateTemplatePermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _UTPR,
@@ -13832,7 +13997,7 @@ export var UpdateTemplatePermissionsRequest: StaticStructureSchema = [
   [_AAI, _TIe, _GPr, _RPev],
   [[0, 1], [0, 1], () => UpdateResourcePermissionList, () => UpdateResourcePermissionList],
 ];
-export var UpdateTemplatePermissionsResponse: StaticStructureSchema = [
+export var UpdateTemplatePermissionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _UTPRp,
@@ -13840,15 +14005,15 @@ export var UpdateTemplatePermissionsResponse: StaticStructureSchema = [
   [_TIe, _TAem, _Per, _RI, _St],
   [0, 0, () => UpdateResourcePermissionList, 0, [1, 32]],
 ];
-export var UpdateTemplateRequest: StaticStructureSchema = [
+export var UpdateTemplateRequest$: StaticStructureSchema = [
   3,
   n0,
   _UTR,
   0,
   [_AAI, _TIe, _SE, _VD, _N, _De, _VSa],
-  [[0, 1], [0, 1], () => TemplateSourceEntity, 0, 0, [() => TemplateVersionDefinition, 0], () => ValidationStrategy],
+  [[0, 1], [0, 1], () => TemplateSourceEntity$, 0, 0, [() => TemplateVersionDefinition$, 0], () => ValidationStrategy$],
 ];
-export var UpdateTemplateResponse: StaticStructureSchema = [
+export var UpdateTemplateResponse$: StaticStructureSchema = [
   3,
   n0,
   _UTRp,
@@ -13856,7 +14021,7 @@ export var UpdateTemplateResponse: StaticStructureSchema = [
   [_TIe, _A, _VAe, _CSr, _St, _RI],
   [0, 0, 0, 0, [1, 32], 0],
 ];
-export var UpdateThemeAliasRequest: StaticStructureSchema = [
+export var UpdateThemeAliasRequest$: StaticStructureSchema = [
   3,
   n0,
   _UTARpd,
@@ -13864,15 +14029,15 @@ export var UpdateThemeAliasRequest: StaticStructureSchema = [
   [_AAI, _TI, _ANl, _TVNh],
   [[0, 1], [0, 1], [0, 1], 1],
 ];
-export var UpdateThemeAliasResponse: StaticStructureSchema = [
+export var UpdateThemeAliasResponse$: StaticStructureSchema = [
   3,
   n0,
   _UTARpda,
   0,
   [_TAh, _St, _RI],
-  [() => ThemeAlias, [1, 32], 0],
+  [() => ThemeAlias$, [1, 32], 0],
 ];
-export var UpdateThemePermissionsRequest: StaticStructureSchema = [
+export var UpdateThemePermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _UTPRpd,
@@ -13880,7 +14045,7 @@ export var UpdateThemePermissionsRequest: StaticStructureSchema = [
   [_AAI, _TI, _GPr, _RPev],
   [[0, 1], [0, 1], () => UpdateResourcePermissionList, () => UpdateResourcePermissionList],
 ];
-export var UpdateThemePermissionsResponse: StaticStructureSchema = [
+export var UpdateThemePermissionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _UTPRpda,
@@ -13888,15 +14053,15 @@ export var UpdateThemePermissionsResponse: StaticStructureSchema = [
   [_TI, _TA, _Per, _RI, _St],
   [0, 0, () => UpdateResourcePermissionList, 0, [1, 32]],
 ];
-export var UpdateThemeRequest: StaticStructureSchema = [
+export var UpdateThemeRequest$: StaticStructureSchema = [
   3,
   n0,
   _UTRpd,
   0,
   [_AAI, _TI, _N, _BTI, _VD, _Conf],
-  [[0, 1], [0, 1], 0, 0, 0, () => ThemeConfiguration],
+  [[0, 1], [0, 1], 0, 0, 0, () => ThemeConfiguration$],
 ];
-export var UpdateThemeResponse: StaticStructureSchema = [
+export var UpdateThemeResponse$: StaticStructureSchema = [
   3,
   n0,
   _UTRpda,
@@ -13904,7 +14069,7 @@ export var UpdateThemeResponse: StaticStructureSchema = [
   [_TI, _A, _VAe, _CSr, _St, _RI],
   [0, 0, 0, 0, [1, 32], 0],
 ];
-export var UpdateTopicPermissionsRequest: StaticStructureSchema = [
+export var UpdateTopicPermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _UTPRpdat,
@@ -13912,7 +14077,7 @@ export var UpdateTopicPermissionsRequest: StaticStructureSchema = [
   [_AAI, _TIo, _GPr, _RPev],
   [[0, 1], [0, 1], () => UpdateResourcePermissionList, () => UpdateResourcePermissionList],
 ];
-export var UpdateTopicPermissionsResponse: StaticStructureSchema = [
+export var UpdateTopicPermissionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _UTPRpdate,
@@ -13920,15 +14085,15 @@ export var UpdateTopicPermissionsResponse: StaticStructureSchema = [
   [_TIo, _TAo, _Per, _St, _RI],
   [0, 0, () => ResourcePermissionList, [1, 32], 0],
 ];
-export var UpdateTopicRefreshScheduleRequest: StaticStructureSchema = [
+export var UpdateTopicRefreshScheduleRequest$: StaticStructureSchema = [
   3,
   n0,
   _UTRSR,
   0,
   [_AAI, _TIo, _DIat, _RSe],
-  [[0, 1], [0, 1], [0, 1], () => TopicRefreshSchedule],
+  [[0, 1], [0, 1], [0, 1], () => TopicRefreshSchedule$],
 ];
-export var UpdateTopicRefreshScheduleResponse: StaticStructureSchema = [
+export var UpdateTopicRefreshScheduleResponse$: StaticStructureSchema = [
   3,
   n0,
   _UTRSRp,
@@ -13936,7 +14101,7 @@ export var UpdateTopicRefreshScheduleResponse: StaticStructureSchema = [
   [_TIo, _TAo, _DA, _St, _RI],
   [0, 0, 0, [1, 32], 0],
 ];
-export var UpdateTopicRequest: StaticStructureSchema = [
+export var UpdateTopicRequest$: StaticStructureSchema = [
   3,
   n0,
   _UTRpdat,
@@ -13945,11 +14110,11 @@ export var UpdateTopicRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [() => TopicDetails, 0],
-    [() => CustomInstructions, 0],
+    [() => TopicDetails$, 0],
+    [() => CustomInstructions$, 0],
   ],
 ];
-export var UpdateTopicResponse: StaticStructureSchema = [
+export var UpdateTopicResponse$: StaticStructureSchema = [
   3,
   n0,
   _UTRpdate,
@@ -13957,7 +14122,7 @@ export var UpdateTopicResponse: StaticStructureSchema = [
   [_TIo, _A, _RAe, _RI, _St],
   [0, 0, 0, 0, [1, 32]],
 ];
-export var UpdateUserCustomPermissionRequest: StaticStructureSchema = [
+export var UpdateUserCustomPermissionRequest$: StaticStructureSchema = [
   3,
   n0,
   _UUCPR,
@@ -13965,8 +14130,8 @@ export var UpdateUserCustomPermissionRequest: StaticStructureSchema = [
   [_UN, _AAI, _Na, _CPN],
   [[0, 1], [0, 1], [0, 1], 0],
 ];
-export var UpdateUserCustomPermissionResponse: StaticStructureSchema = [3, n0, _UUCPRp, 0, [_RI, _St], [0, [1, 32]]];
-export var UpdateUserRequest: StaticStructureSchema = [
+export var UpdateUserCustomPermissionResponse$: StaticStructureSchema = [3, n0, _UUCPRp, 0, [_RI, _St], [0, [1, 32]]];
+export var UpdateUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _UUR,
@@ -13974,8 +14139,8 @@ export var UpdateUserRequest: StaticStructureSchema = [
   [_UN, _AAI, _Na, _E, _Ro, _CPN, _UCP, _ELFPT, _CFPU, _ELI],
   [[0, 1], [0, 1], [0, 1], 0, 0, 0, 2, 0, 0, 0],
 ];
-export var UpdateUserResponse: StaticStructureSchema = [3, n0, _UURp, 0, [_Us, _RI, _St], [() => User, 0, [1, 32]]];
-export var UpdateVPCConnectionRequest: StaticStructureSchema = [
+export var UpdateUserResponse$: StaticStructureSchema = [3, n0, _UURp, 0, [_Us, _RI, _St], [() => User$, 0, [1, 32]]];
+export var UpdateVPCConnectionRequest$: StaticStructureSchema = [
   3,
   n0,
   _UVPCCR,
@@ -13983,7 +14148,7 @@ export var UpdateVPCConnectionRequest: StaticStructureSchema = [
   [_AAI, _VPCCI, _N, _SIu, _SGI, _DR, _RA],
   [[0, 1], [0, 1], 0, 64 | 0, 64 | 0, 64 | 0, 0],
 ];
-export var UpdateVPCConnectionResponse: StaticStructureSchema = [
+export var UpdateVPCConnectionResponse$: StaticStructureSchema = [
   3,
   n0,
   _UVPCCRp,
@@ -13991,7 +14156,7 @@ export var UpdateVPCConnectionResponse: StaticStructureSchema = [
   [_A, _VPCCI, _USpd, _ASv, _RI, _St],
   [0, 0, 0, 0, 0, [1, 32]],
 ];
-export var UploadSettings: StaticStructureSchema = [
+export var UploadSettings$: StaticStructureSchema = [
   3,
   n0,
   _USp,
@@ -13999,7 +14164,7 @@ export var UploadSettings: StaticStructureSchema = [
   [_Fo, _SFRt, _CHon, _TQ, _Del, _CCAR],
   [0, 1, 2, 0, 0, 0],
 ];
-export var User: StaticStructureSchema = [
+export var User$: StaticStructureSchema = [
   3,
   n0,
   _Us,
@@ -14007,17 +14172,17 @@ export var User: StaticStructureSchema = [
   [_A, _UN, _E, _Ro, _ITd, _Acti, _PIr, _CPN, _ELFPT, _ELFPU, _ELI],
   [0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0],
 ];
-export var ValidationStrategy: StaticStructureSchema = [3, n0, _VSa, 0, [_Mo], [0]];
-export var ValueColumnConfiguration: StaticStructureSchema = [
+export var ValidationStrategy$: StaticStructureSchema = [3, n0, _VSa, 0, [_Mo], [0]];
+export var ValueColumnConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _VCC,
   0,
   [_AFg],
-  [() => DataPrepAggregationFunction],
+  [() => DataPrepAggregationFunction$],
 ];
-export var VisibleRangeOptions: StaticStructureSchema = [3, n0, _VRO, 0, [_PRe], [() => PercentVisibleRange]];
-export var Visual: StaticStructureSchema = [
+export var VisibleRangeOptions$: StaticStructureSchema = [3, n0, _VRO, 0, [_PRe], [() => PercentVisibleRange$]];
+export var Visual$: StaticStructureSchema = [
   3,
   n0,
   _Visua,
@@ -14050,35 +14215,35 @@ export var Visual: StaticStructureSchema = [
     _PVl,
   ],
   [
-    () => TableVisual,
-    () => PivotTableVisual,
-    () => BarChartVisual,
-    () => KPIVisual,
-    () => PieChartVisual,
-    () => GaugeChartVisual,
-    () => LineChartVisual,
-    () => HeatMapVisual,
-    () => TreeMapVisual,
-    () => GeospatialMapVisual,
-    () => FilledMapVisual,
-    () => LayerMapVisual,
-    () => FunnelChartVisual,
-    () => ScatterPlotVisual,
-    () => ComboChartVisual,
-    () => BoxPlotVisual,
-    () => WaterfallVisual,
-    () => HistogramVisual,
-    () => WordCloudVisual,
-    () => InsightVisual,
-    () => SankeyDiagramVisual,
-    () => CustomContentVisual,
-    () => EmptyVisual,
-    () => RadarChartVisual,
-    () => PluginVisual,
+    () => TableVisual$,
+    () => PivotTableVisual$,
+    () => BarChartVisual$,
+    () => KPIVisual$,
+    () => PieChartVisual$,
+    () => GaugeChartVisual$,
+    () => LineChartVisual$,
+    () => HeatMapVisual$,
+    () => TreeMapVisual$,
+    () => GeospatialMapVisual$,
+    () => FilledMapVisual$,
+    () => LayerMapVisual$,
+    () => FunnelChartVisual$,
+    () => ScatterPlotVisual$,
+    () => ComboChartVisual$,
+    () => BoxPlotVisual$,
+    () => WaterfallVisual$,
+    () => HistogramVisual$,
+    () => WordCloudVisual$,
+    () => InsightVisual$,
+    () => SankeyDiagramVisual$,
+    () => CustomContentVisual$,
+    () => EmptyVisual$,
+    () => RadarChartVisual$,
+    () => PluginVisual$,
   ],
 ];
-export var VisualAxisSortOption: StaticStructureSchema = [3, n0, _VASO, 0, [_ASv], [0]];
-export var VisualCustomAction: StaticStructureSchema = [
+export var VisualAxisSortOption$: StaticStructureSchema = [3, n0, _VASO, 0, [_ASv], [0]];
+export var VisualCustomAction$: StaticStructureSchema = [
   3,
   n0,
   _VCAi,
@@ -14086,28 +14251,28 @@ export var VisualCustomAction: StaticStructureSchema = [
   [_CAI, _N, _St, _Tr, _AOc],
   [0, 0, 0, 0, () => VisualCustomActionOperationList],
 ];
-export var VisualCustomActionDefaults: StaticStructureSchema = [
+export var VisualCustomActionDefaults$: StaticStructureSchema = [
   3,
   n0,
   _VCAD,
   0,
   [_hO],
-  [() => VisualHighlightOperation],
+  [() => VisualHighlightOperation$],
 ];
-export var VisualCustomActionOperation: StaticStructureSchema = [
+export var VisualCustomActionOperation$: StaticStructureSchema = [
   3,
   n0,
   _VCAO,
   0,
   [_FO, _NOa, _URLO, _SPO],
   [
-    () => CustomActionFilterOperation,
-    () => CustomActionNavigationOperation,
-    () => CustomActionURLOperation,
-    () => CustomActionSetParametersOperation,
+    () => CustomActionFilterOperation$,
+    () => CustomActionNavigationOperation$,
+    () => CustomActionURLOperation$,
+    () => CustomActionSetParametersOperation$,
   ],
 ];
-export var VisualCustomizationFieldsConfiguration: StaticStructureSchema = [
+export var VisualCustomizationFieldsConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _VCFC,
@@ -14115,44 +14280,51 @@ export var VisualCustomizationFieldsConfiguration: StaticStructureSchema = [
   [_St, _AFd],
   [0, () => VisualCustomizationAdditionalFieldsList],
 ];
-export var VisualHighlightOperation: StaticStructureSchema = [3, n0, _VHO, 0, [_Tr], [0]];
-export var VisualInteractionOptions: StaticStructureSchema = [
+export var VisualHighlightOperation$: StaticStructureSchema = [3, n0, _VHO, 0, [_Tr], [0]];
+export var VisualInteractionOptions$: StaticStructureSchema = [
   3,
   n0,
   _VIO,
   0,
   [_VMO, _CMO],
-  [() => VisualMenuOption, () => ContextMenuOption],
+  [() => VisualMenuOption$, () => ContextMenuOption$],
 ];
-export var VisualMenuOption: StaticStructureSchema = [3, n0, _VMO, 0, [_ASv], [0]];
-export var VisualOptions: StaticStructureSchema = [3, n0, _VO, 0, [_t], [0]];
-export var VisualPalette: StaticStructureSchema = [3, n0, _VP, 0, [_CCha, _CMol], [0, () => DataPathColorList]];
-export var VisualSubtitleFontConfiguration: StaticStructureSchema = [
+export var VisualMenuOption$: StaticStructureSchema = [3, n0, _VMO, 0, [_ASv], [0]];
+export var VisualOptions$: StaticStructureSchema = [3, n0, _VO, 0, [_t], [0]];
+export var VisualPalette$: StaticStructureSchema = [3, n0, _VP, 0, [_CCha, _CMol], [0, () => DataPathColorList]];
+export var VisualSubtitleFontConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _VSFC,
   0,
   [_FCo, _TAext, _TTex],
-  [() => FontConfiguration, 0, 0],
+  [() => FontConfiguration$, 0, 0],
 ];
-export var VisualSubtitleLabelOptions: StaticStructureSchema = [
+export var VisualSubtitleLabelOptions$: StaticStructureSchema = [
   3,
   n0,
   _VSLO,
   0,
   [_Vi, _FTor],
-  [0, () => LongFormatText],
+  [0, () => LongFormatText$],
 ];
-export var VisualTitleFontConfiguration: StaticStructureSchema = [
+export var VisualTitleFontConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _VTFC,
   0,
   [_FCo, _TAext, _TTex],
-  [() => FontConfiguration, 0, 0],
+  [() => FontConfiguration$, 0, 0],
 ];
-export var VisualTitleLabelOptions: StaticStructureSchema = [3, n0, _VTLO, 0, [_Vi, _FTor], [0, () => ShortFormatText]];
-export var VPCConnection: StaticStructureSchema = [
+export var VisualTitleLabelOptions$: StaticStructureSchema = [
+  3,
+  n0,
+  _VTLO,
+  0,
+  [_Vi, _FTor],
+  [0, () => ShortFormatText$],
+];
+export var VPCConnection$: StaticStructureSchema = [
   3,
   n0,
   _VPCCo,
@@ -14160,8 +14332,8 @@ export var VPCConnection: StaticStructureSchema = [
   [_VPCCI, _A, _N, _VPCI, _SGI, _DR, _St, _ASv, _NIe, _RA, _CT, _LUT],
   [0, 0, 0, 0, 64 | 0, 64 | 0, 0, 0, () => NetworkInterfaceList, 0, 4, 4],
 ];
-export var VpcConnectionProperties: StaticStructureSchema = [3, n0, _VCP, 0, [_VCA], [0]];
-export var VPCConnectionSummary: StaticStructureSchema = [
+export var VpcConnectionProperties$: StaticStructureSchema = [3, n0, _VCP, 0, [_VCA], [0]];
+export var VPCConnectionSummary$: StaticStructureSchema = [
   3,
   n0,
   _VPCCSo,
@@ -14169,7 +14341,7 @@ export var VPCConnectionSummary: StaticStructureSchema = [
   [_VPCCI, _A, _N, _VPCI, _SGI, _DR, _St, _ASv, _NIe, _RA, _CT, _LUT],
   [0, 0, 0, 0, 64 | 0, 64 | 0, 0, 0, () => NetworkInterfaceList, 0, 4, 4],
 ];
-export var WaterfallChartAggregatedFieldWells: StaticStructureSchema = [
+export var WaterfallChartAggregatedFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _WCAFW,
@@ -14177,44 +14349,44 @@ export var WaterfallChartAggregatedFieldWells: StaticStructureSchema = [
   [_Cate, _Va, _Bre],
   [() => DimensionFieldList, () => MeasureFieldList, () => DimensionFieldList],
 ];
-export var WaterfallChartColorConfiguration: StaticStructureSchema = [
+export var WaterfallChartColorConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _WCCC,
   0,
   [_GCCr],
-  [() => WaterfallChartGroupColorConfiguration],
+  [() => WaterfallChartGroupColorConfiguration$],
 ];
-export var WaterfallChartConfiguration: StaticStructureSchema = [
+export var WaterfallChartConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _WCC,
   0,
   [_FW, _SCo, _WCO, _CALOa, _CADOa, _PYALO, _PYADO, _Le, _DL, _VP, _CColo, _I],
   [
-    () => WaterfallChartFieldWells,
-    () => WaterfallChartSortConfiguration,
-    () => WaterfallChartOptions,
-    () => ChartAxisLabelOptions,
-    () => AxisDisplayOptions,
-    () => ChartAxisLabelOptions,
-    () => AxisDisplayOptions,
-    () => LegendOptions,
-    () => DataLabelOptions,
-    () => VisualPalette,
-    () => WaterfallChartColorConfiguration,
-    () => VisualInteractionOptions,
+    () => WaterfallChartFieldWells$,
+    () => WaterfallChartSortConfiguration$,
+    () => WaterfallChartOptions$,
+    () => ChartAxisLabelOptions$,
+    () => AxisDisplayOptions$,
+    () => ChartAxisLabelOptions$,
+    () => AxisDisplayOptions$,
+    () => LegendOptions$,
+    () => DataLabelOptions$,
+    () => VisualPalette$,
+    () => WaterfallChartColorConfiguration$,
+    () => VisualInteractionOptions$,
   ],
 ];
-export var WaterfallChartFieldWells: StaticStructureSchema = [
+export var WaterfallChartFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _WCFW,
   0,
   [_WCAFW],
-  [() => WaterfallChartAggregatedFieldWells],
+  [() => WaterfallChartAggregatedFieldWells$],
 ];
-export var WaterfallChartGroupColorConfiguration: StaticStructureSchema = [
+export var WaterfallChartGroupColorConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _WCGCC,
@@ -14222,16 +14394,16 @@ export var WaterfallChartGroupColorConfiguration: StaticStructureSchema = [
   [_PBCo, _NBC, _TBC],
   [0, 0, 0],
 ];
-export var WaterfallChartOptions: StaticStructureSchema = [3, n0, _WCO, 0, [_TBLo], [0]];
-export var WaterfallChartSortConfiguration: StaticStructureSchema = [
+export var WaterfallChartOptions$: StaticStructureSchema = [3, n0, _WCO, 0, [_TBLo], [0]];
+export var WaterfallChartSortConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _WCSC,
   0,
   [_CSa, _BIL],
-  [() => FieldSortOptionsList, () => ItemsLimitConfiguration],
+  [() => FieldSortOptionsList, () => ItemsLimitConfiguration$],
 ];
-export var WaterfallVisual: StaticStructureSchema = [
+export var WaterfallVisual$: StaticStructureSchema = [
   3,
   n0,
   _WV,
@@ -14239,15 +14411,15 @@ export var WaterfallVisual: StaticStructureSchema = [
   [_VI, _Tit, _Su, _CCh, _Ac, _CH, _VCAT],
   [
     0,
-    () => VisualTitleLabelOptions,
-    () => VisualSubtitleLabelOptions,
-    () => WaterfallChartConfiguration,
+    () => VisualTitleLabelOptions$,
+    () => VisualSubtitleLabelOptions$,
+    () => WaterfallChartConfiguration$,
     () => VisualCustomActionList,
     () => ColumnHierarchyList,
     0,
   ],
 ];
-export var WebCrawlerParameters: StaticStructureSchema = [
+export var WebCrawlerParameters$: StaticStructureSchema = [
   3,
   n0,
   _WCP,
@@ -14255,10 +14427,10 @@ export var WebCrawlerParameters: StaticStructureSchema = [
   [_WCAT, _UFX, _PFX, _UBX, _PBX, _LPU, _WPHN, _WPPN],
   [0, 0, 0, 0, 0, 0, 0, 1],
 ];
-export var WebProxyCredentials: StaticStructureSchema = [3, n0, _WPC, 0, [_WPU, _WPP], [0, 0]];
-export var WhatIfPointScenario: StaticStructureSchema = [3, n0, _WIPS, 0, [_Date, _V], [4, 1]];
-export var WhatIfRangeScenario: StaticStructureSchema = [3, n0, _WIRS, 0, [_SDt, _EDn, _V], [4, 4, 1]];
-export var WordCloudAggregatedFieldWells: StaticStructureSchema = [
+export var WebProxyCredentials$: StaticStructureSchema = [3, n0, _WPC, 0, [_WPU, _WPP], [0, 0]];
+export var WhatIfPointScenario$: StaticStructureSchema = [3, n0, _WIPS, 0, [_Date, _V], [4, 1]];
+export var WhatIfRangeScenario$: StaticStructureSchema = [3, n0, _WIRS, 0, [_SDt, _EDn, _V], [4, 4, 1]];
+export var WordCloudAggregatedFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _WCAFWo,
@@ -14266,29 +14438,29 @@ export var WordCloudAggregatedFieldWells: StaticStructureSchema = [
   [_GB, _Si],
   [() => WordCloudDimensionFieldList, () => WordCloudMeasureFieldList],
 ];
-export var WordCloudChartConfiguration: StaticStructureSchema = [
+export var WordCloudChartConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _WCCCo,
   0,
   [_FW, _SCo, _CLO, _WCOo, _I],
   [
-    () => WordCloudFieldWells,
-    () => WordCloudSortConfiguration,
-    () => ChartAxisLabelOptions,
-    () => WordCloudOptions,
-    () => VisualInteractionOptions,
+    () => WordCloudFieldWells$,
+    () => WordCloudSortConfiguration$,
+    () => ChartAxisLabelOptions$,
+    () => WordCloudOptions$,
+    () => VisualInteractionOptions$,
   ],
 ];
-export var WordCloudFieldWells: StaticStructureSchema = [
+export var WordCloudFieldWells$: StaticStructureSchema = [
   3,
   n0,
   _WCFWo,
   0,
   [_WCAFWo],
-  [() => WordCloudAggregatedFieldWells],
+  [() => WordCloudAggregatedFieldWells$],
 ];
-export var WordCloudOptions: StaticStructureSchema = [
+export var WordCloudOptions$: StaticStructureSchema = [
   3,
   n0,
   _WCOo,
@@ -14296,15 +14468,15 @@ export var WordCloudOptions: StaticStructureSchema = [
   [_WOo, _WSo, _CLl, _WC, _WP, _MSL],
   [0, 0, 0, 0, 0, 1],
 ];
-export var WordCloudSortConfiguration: StaticStructureSchema = [
+export var WordCloudSortConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _WCSCo,
   0,
   [_CIL, _CSa],
-  [() => ItemsLimitConfiguration, () => FieldSortOptionsList],
+  [() => ItemsLimitConfiguration$, () => FieldSortOptionsList],
 ];
-export var WordCloudVisual: StaticStructureSchema = [
+export var WordCloudVisual$: StaticStructureSchema = [
   3,
   n0,
   _WCV,
@@ -14312,695 +14484,653 @@ export var WordCloudVisual: StaticStructureSchema = [
   [_VI, _Tit, _Su, _CCh, _Ac, _CH, _VCAT],
   [
     0,
-    () => VisualTitleLabelOptions,
-    () => VisualSubtitleLabelOptions,
-    () => WordCloudChartConfiguration,
+    () => VisualTitleLabelOptions$,
+    () => VisualSubtitleLabelOptions$,
+    () => WordCloudChartConfiguration$,
     () => VisualCustomActionList,
     () => ColumnHierarchyList,
     0,
   ],
 ];
-export var YAxisOptions: StaticStructureSchema = [3, n0, _YAO, 0, [_YA], [0]];
-export var QuickSightServiceException: StaticErrorSchema = [-3, _sm, "QuickSightServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(QuickSightServiceException, __QuickSightServiceException);
-export var ActionConnectorSearchFilterList: StaticListSchema = [1, n0, _ACSFL, 0, () => ActionConnectorSearchFilter];
-export var ActionConnectorSummaryList: StaticListSchema = [1, n0, _ACSL, 0, [() => ActionConnectorSummary, 0]];
-export var ActionIdList = 64 | 0;
-export var ActionList = 64 | 0;
-export var ActionsList = 64 | 0;
-export var ActiveIAMPolicyAssignmentList: StaticListSchema = [1, n0, _AIAMPAL, 0, () => ActiveIAMPolicyAssignment];
-export var AdditionalDashboardIdList = 64 | 0;
-export var AggregationList: StaticListSchema = [1, n0, _AL, 0, () => Aggregation];
-export var AggregationPartitionByList: StaticListSchema = [1, n0, _APBL, 0, () => AggregationPartitionBy];
-export var AggregationSortConfigurationList: StaticListSchema = [1, n0, _ASCL, 0, () => AggregationSortConfiguration];
-export var AnalysisErrorList: StaticListSchema = [1, n0, _AEL, 0, () => AnalysisError];
-export var AnalysisSearchFilterList: StaticListSchema = [1, n0, _ASFL, 0, () => AnalysisSearchFilter];
-export var AnalysisSummaryList: StaticListSchema = [1, n0, _ASL, 0, () => AnalysisSummary];
-export var AnonymousUserDashboardEmbeddingConfigurationDisabledFeatures = 64 | 0;
-export var AnonymousUserDashboardEmbeddingConfigurationEnabledFeatures = 64 | 0;
-export var AnonymousUserSnapshotJobResultList: StaticListSchema = [
+export var YAxisOptions$: StaticStructureSchema = [3, n0, _YAO, 0, [_YA], [0]];
+export var QuickSightServiceException$: StaticErrorSchema = [-3, _sm, "QuickSightServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(QuickSightServiceException$, QuickSightServiceException);
+var ActionConnectorSearchFilterList: StaticListSchema = [1, n0, _ACSFL, 0, () => ActionConnectorSearchFilter$];
+var ActionConnectorSummaryList: StaticListSchema = [1, n0, _ACSL, 0, [() => ActionConnectorSummary$, 0]];
+var ActionIdList = 64 | 0;
+var ActionList = 64 | 0;
+var ActionsList = 64 | 0;
+var ActiveIAMPolicyAssignmentList: StaticListSchema = [1, n0, _AIAMPAL, 0, () => ActiveIAMPolicyAssignment$];
+var AdditionalDashboardIdList = 64 | 0;
+var AggregationList: StaticListSchema = [1, n0, _AL, 0, () => Aggregation$];
+var AggregationPartitionByList: StaticListSchema = [1, n0, _APBL, 0, () => AggregationPartitionBy$];
+var AggregationSortConfigurationList: StaticListSchema = [1, n0, _ASCL, 0, () => AggregationSortConfiguration$];
+var AnalysisErrorList: StaticListSchema = [1, n0, _AEL, 0, () => AnalysisError$];
+var AnalysisSearchFilterList: StaticListSchema = [1, n0, _ASFL, 0, () => AnalysisSearchFilter$];
+var AnalysisSummaryList: StaticListSchema = [1, n0, _ASL, 0, () => AnalysisSummary$];
+var AnonymousUserDashboardEmbeddingConfigurationDisabledFeatures = 64 | 0;
+var AnonymousUserDashboardEmbeddingConfigurationEnabledFeatures = 64 | 0;
+var AnonymousUserSnapshotJobResultList: StaticListSchema = [
   1,
   n0,
   _AUSJRL,
   0,
-  [() => AnonymousUserSnapshotJobResult, 0],
+  [() => AnonymousUserSnapshotJobResult$, 0],
 ];
-export var AnswerIds = 64 | 0;
-export var AppendedColumnList: StaticListSchema = [1, n0, _ACL, 0, () => AppendedColumn];
-export var ArnList = 64 | 0;
-export var AssetBundleExportJobAnalysisOverridePropertiesList: StaticListSchema = [
+var AnswerIds = 64 | 0;
+var AppendedColumnList: StaticListSchema = [1, n0, _ACL, 0, () => AppendedColumn$];
+var ArnList = 64 | 0;
+var AssetBundleExportJobAnalysisOverridePropertiesList: StaticListSchema = [
   1,
   n0,
   _ABEJAOPL,
   0,
-  () => AssetBundleExportJobAnalysisOverrideProperties,
+  () => AssetBundleExportJobAnalysisOverrideProperties$,
 ];
-export var AssetBundleExportJobAnalysisPropertyToOverrideList = 64 | 0;
-export var AssetBundleExportJobDashboardOverridePropertiesList: StaticListSchema = [
+var AssetBundleExportJobAnalysisPropertyToOverrideList = 64 | 0;
+var AssetBundleExportJobDashboardOverridePropertiesList: StaticListSchema = [
   1,
   n0,
   _ABEJDOPL,
   0,
-  () => AssetBundleExportJobDashboardOverrideProperties,
+  () => AssetBundleExportJobDashboardOverrideProperties$,
 ];
-export var AssetBundleExportJobDashboardPropertyToOverrideList = 64 | 0;
-export var AssetBundleExportJobDataSetOverridePropertiesList: StaticListSchema = [
+var AssetBundleExportJobDashboardPropertyToOverrideList = 64 | 0;
+var AssetBundleExportJobDataSetOverridePropertiesList: StaticListSchema = [
   1,
   n0,
   _ABEJDSOPL,
   0,
-  () => AssetBundleExportJobDataSetOverrideProperties,
+  () => AssetBundleExportJobDataSetOverrideProperties$,
 ];
-export var AssetBundleExportJobDataSetPropertyToOverrideList = 64 | 0;
-export var AssetBundleExportJobDataSourceOverridePropertiesList: StaticListSchema = [
+var AssetBundleExportJobDataSetPropertyToOverrideList = 64 | 0;
+var AssetBundleExportJobDataSourceOverridePropertiesList: StaticListSchema = [
   1,
   n0,
   _ABEJDSOPLs,
   0,
-  () => AssetBundleExportJobDataSourceOverrideProperties,
+  () => AssetBundleExportJobDataSourceOverrideProperties$,
 ];
-export var AssetBundleExportJobDataSourcePropertyToOverrideList = 64 | 0;
-export var AssetBundleExportJobErrorList: StaticListSchema = [1, n0, _ABEJEL, 0, () => AssetBundleExportJobError];
-export var AssetBundleExportJobFolderOverridePropertiesList: StaticListSchema = [
+var AssetBundleExportJobDataSourcePropertyToOverrideList = 64 | 0;
+var AssetBundleExportJobErrorList: StaticListSchema = [1, n0, _ABEJEL, 0, () => AssetBundleExportJobError$];
+var AssetBundleExportJobFolderOverridePropertiesList: StaticListSchema = [
   1,
   n0,
   _ABEJFOPL,
   0,
-  () => AssetBundleExportJobFolderOverrideProperties,
+  () => AssetBundleExportJobFolderOverrideProperties$,
 ];
-export var AssetBundleExportJobFolderPropertyToOverrideList = 64 | 0;
-export var AssetBundleExportJobRefreshScheduleOverridePropertiesList: StaticListSchema = [
+var AssetBundleExportJobFolderPropertyToOverrideList = 64 | 0;
+var AssetBundleExportJobRefreshScheduleOverridePropertiesList: StaticListSchema = [
   1,
   n0,
   _ABEJRSOPL,
   0,
-  () => AssetBundleExportJobRefreshScheduleOverrideProperties,
+  () => AssetBundleExportJobRefreshScheduleOverrideProperties$,
 ];
-export var AssetBundleExportJobRefreshSchedulePropertyToOverrideList = 64 | 0;
-export var AssetBundleExportJobSummaryList: StaticListSchema = [1, n0, _ABEJSL, 0, () => AssetBundleExportJobSummary];
-export var AssetBundleExportJobThemeOverridePropertiesList: StaticListSchema = [
+var AssetBundleExportJobRefreshSchedulePropertyToOverrideList = 64 | 0;
+var AssetBundleExportJobSummaryList: StaticListSchema = [1, n0, _ABEJSL, 0, () => AssetBundleExportJobSummary$];
+var AssetBundleExportJobThemeOverridePropertiesList: StaticListSchema = [
   1,
   n0,
   _ABEJTOPL,
   0,
-  () => AssetBundleExportJobThemeOverrideProperties,
+  () => AssetBundleExportJobThemeOverrideProperties$,
 ];
-export var AssetBundleExportJobThemePropertyToOverrideList = 64 | 0;
-export var AssetBundleExportJobVPCConnectionOverridePropertiesList: StaticListSchema = [
+var AssetBundleExportJobThemePropertyToOverrideList = 64 | 0;
+var AssetBundleExportJobVPCConnectionOverridePropertiesList: StaticListSchema = [
   1,
   n0,
   _ABEJVPCCOPL,
   0,
-  () => AssetBundleExportJobVPCConnectionOverrideProperties,
+  () => AssetBundleExportJobVPCConnectionOverrideProperties$,
 ];
-export var AssetBundleExportJobVPCConnectionPropertyToOverrideList = 64 | 0;
-export var AssetBundleExportJobWarningList: StaticListSchema = [1, n0, _ABEJWL, 0, () => AssetBundleExportJobWarning];
-export var AssetBundleImportJobAnalysisOverrideParametersList: StaticListSchema = [
+var AssetBundleExportJobVPCConnectionPropertyToOverrideList = 64 | 0;
+var AssetBundleExportJobWarningList: StaticListSchema = [1, n0, _ABEJWL, 0, () => AssetBundleExportJobWarning$];
+var AssetBundleImportJobAnalysisOverrideParametersList: StaticListSchema = [
   1,
   n0,
   _ABIJAOPL,
   0,
-  () => AssetBundleImportJobAnalysisOverrideParameters,
+  () => AssetBundleImportJobAnalysisOverrideParameters$,
 ];
-export var AssetBundleImportJobAnalysisOverridePermissionsList: StaticListSchema = [
+var AssetBundleImportJobAnalysisOverridePermissionsList: StaticListSchema = [
   1,
   n0,
   _ABIJAOPLs,
   0,
-  () => AssetBundleImportJobAnalysisOverridePermissions,
+  () => AssetBundleImportJobAnalysisOverridePermissions$,
 ];
-export var AssetBundleImportJobAnalysisOverrideTagsList: StaticListSchema = [
+var AssetBundleImportJobAnalysisOverrideTagsList: StaticListSchema = [
   1,
   n0,
   _ABIJAOTL,
   0,
-  () => AssetBundleImportJobAnalysisOverrideTags,
+  () => AssetBundleImportJobAnalysisOverrideTags$,
 ];
-export var AssetBundleImportJobDashboardOverrideParametersList: StaticListSchema = [
+var AssetBundleImportJobDashboardOverrideParametersList: StaticListSchema = [
   1,
   n0,
   _ABIJDOPL,
   0,
-  () => AssetBundleImportJobDashboardOverrideParameters,
+  () => AssetBundleImportJobDashboardOverrideParameters$,
 ];
-export var AssetBundleImportJobDashboardOverridePermissionsList: StaticListSchema = [
+var AssetBundleImportJobDashboardOverridePermissionsList: StaticListSchema = [
   1,
   n0,
   _ABIJDOPLs,
   0,
-  () => AssetBundleImportJobDashboardOverridePermissions,
+  () => AssetBundleImportJobDashboardOverridePermissions$,
 ];
-export var AssetBundleImportJobDashboardOverrideTagsList: StaticListSchema = [
+var AssetBundleImportJobDashboardOverrideTagsList: StaticListSchema = [
   1,
   n0,
   _ABIJDOTL,
   0,
-  () => AssetBundleImportJobDashboardOverrideTags,
+  () => AssetBundleImportJobDashboardOverrideTags$,
 ];
-export var AssetBundleImportJobDataSetOverrideParametersList: StaticListSchema = [
+var AssetBundleImportJobDataSetOverrideParametersList: StaticListSchema = [
   1,
   n0,
   _ABIJDSOPL,
   0,
-  () => AssetBundleImportJobDataSetOverrideParameters,
+  () => AssetBundleImportJobDataSetOverrideParameters$,
 ];
-export var AssetBundleImportJobDataSetOverridePermissionsList: StaticListSchema = [
+var AssetBundleImportJobDataSetOverridePermissionsList: StaticListSchema = [
   1,
   n0,
   _ABIJDSOPLs,
   0,
-  () => AssetBundleImportJobDataSetOverridePermissions,
+  () => AssetBundleImportJobDataSetOverridePermissions$,
 ];
-export var AssetBundleImportJobDataSetOverrideTagsList: StaticListSchema = [
+var AssetBundleImportJobDataSetOverrideTagsList: StaticListSchema = [
   1,
   n0,
   _ABIJDSOTL,
   0,
-  () => AssetBundleImportJobDataSetOverrideTags,
+  () => AssetBundleImportJobDataSetOverrideTags$,
 ];
-export var AssetBundleImportJobDataSourceOverrideParametersList: StaticListSchema = [
+var AssetBundleImportJobDataSourceOverrideParametersList: StaticListSchema = [
   1,
   n0,
   _ABIJDSOPLss,
   0,
-  [() => AssetBundleImportJobDataSourceOverrideParameters, 0],
+  [() => AssetBundleImportJobDataSourceOverrideParameters$, 0],
 ];
-export var AssetBundleImportJobDataSourceOverridePermissionsList: StaticListSchema = [
+var AssetBundleImportJobDataSourceOverridePermissionsList: StaticListSchema = [
   1,
   n0,
   _ABIJDSOPLsse,
   0,
-  () => AssetBundleImportJobDataSourceOverridePermissions,
+  () => AssetBundleImportJobDataSourceOverridePermissions$,
 ];
-export var AssetBundleImportJobDataSourceOverrideTagsList: StaticListSchema = [
+var AssetBundleImportJobDataSourceOverrideTagsList: StaticListSchema = [
   1,
   n0,
   _ABIJDSOTLs,
   0,
-  () => AssetBundleImportJobDataSourceOverrideTags,
+  () => AssetBundleImportJobDataSourceOverrideTags$,
 ];
-export var AssetBundleImportJobErrorList: StaticListSchema = [1, n0, _ABIJEL, 0, () => AssetBundleImportJobError];
-export var AssetBundleImportJobFolderOverrideParametersList: StaticListSchema = [
+var AssetBundleImportJobErrorList: StaticListSchema = [1, n0, _ABIJEL, 0, () => AssetBundleImportJobError$];
+var AssetBundleImportJobFolderOverrideParametersList: StaticListSchema = [
   1,
   n0,
   _ABIJFOPL,
   0,
-  () => AssetBundleImportJobFolderOverrideParameters,
+  () => AssetBundleImportJobFolderOverrideParameters$,
 ];
-export var AssetBundleImportJobFolderOverridePermissionsList: StaticListSchema = [
+var AssetBundleImportJobFolderOverridePermissionsList: StaticListSchema = [
   1,
   n0,
   _ABIJFOPLs,
   0,
-  () => AssetBundleImportJobFolderOverridePermissions,
+  () => AssetBundleImportJobFolderOverridePermissions$,
 ];
-export var AssetBundleImportJobFolderOverrideTagsList: StaticListSchema = [
+var AssetBundleImportJobFolderOverrideTagsList: StaticListSchema = [
   1,
   n0,
   _ABIJFOTL,
   0,
-  () => AssetBundleImportJobFolderOverrideTags,
+  () => AssetBundleImportJobFolderOverrideTags$,
 ];
-export var AssetBundleImportJobRefreshScheduleOverrideParametersList: StaticListSchema = [
+var AssetBundleImportJobRefreshScheduleOverrideParametersList: StaticListSchema = [
   1,
   n0,
   _ABIJRSOPL,
   0,
-  () => AssetBundleImportJobRefreshScheduleOverrideParameters,
+  () => AssetBundleImportJobRefreshScheduleOverrideParameters$,
 ];
-export var AssetBundleImportJobSummaryList: StaticListSchema = [1, n0, _ABIJSL, 0, () => AssetBundleImportJobSummary];
-export var AssetBundleImportJobThemeOverrideParametersList: StaticListSchema = [
+var AssetBundleImportJobSummaryList: StaticListSchema = [1, n0, _ABIJSL, 0, () => AssetBundleImportJobSummary$];
+var AssetBundleImportJobThemeOverrideParametersList: StaticListSchema = [
   1,
   n0,
   _ABIJTOPL,
   0,
-  () => AssetBundleImportJobThemeOverrideParameters,
+  () => AssetBundleImportJobThemeOverrideParameters$,
 ];
-export var AssetBundleImportJobThemeOverridePermissionsList: StaticListSchema = [
+var AssetBundleImportJobThemeOverridePermissionsList: StaticListSchema = [
   1,
   n0,
   _ABIJTOPLs,
   0,
-  () => AssetBundleImportJobThemeOverridePermissions,
+  () => AssetBundleImportJobThemeOverridePermissions$,
 ];
-export var AssetBundleImportJobThemeOverrideTagsList: StaticListSchema = [
+var AssetBundleImportJobThemeOverrideTagsList: StaticListSchema = [
   1,
   n0,
   _ABIJTOTL,
   0,
-  () => AssetBundleImportJobThemeOverrideTags,
+  () => AssetBundleImportJobThemeOverrideTags$,
 ];
-export var AssetBundleImportJobVPCConnectionOverrideParametersList: StaticListSchema = [
+var AssetBundleImportJobVPCConnectionOverrideParametersList: StaticListSchema = [
   1,
   n0,
   _ABIJVPCCOPL,
   0,
-  () => AssetBundleImportJobVPCConnectionOverrideParameters,
+  () => AssetBundleImportJobVPCConnectionOverrideParameters$,
 ];
-export var AssetBundleImportJobVPCConnectionOverrideTagsList: StaticListSchema = [
+var AssetBundleImportJobVPCConnectionOverrideTagsList: StaticListSchema = [
   1,
   n0,
   _ABIJVPCCOTL,
   0,
-  () => AssetBundleImportJobVPCConnectionOverrideTags,
+  () => AssetBundleImportJobVPCConnectionOverrideTags$,
 ];
-export var AssetBundleImportJobWarningList: StaticListSchema = [1, n0, _ABIJWL, 0, () => AssetBundleImportJobWarning];
-export var AssetBundlePrincipalList = 64 | 0;
-export var AssetBundleResourceArns = 64 | 0;
-export var AssetBundleRestrictiveResourceIdList = 64 | 0;
-export var AuthorizedTargetsByServices: StaticListSchema = [1, n0, _ATBSu, 0, () => AuthorizedTargetsByService];
-export var AuthorizedTargetsList = 64 | 0;
-export var AuthorSpecifiedAggregations = 64 | 0;
-export var AxisLabelOptionsList: StaticListSchema = [1, n0, _ALOL, 0, () => AxisLabelOptions];
-export var BarSeriesItemList: StaticListSchema = [1, n0, _BSIL, 0, () => BarSeriesItem];
-export var BodySectionConfigurationList: StaticListSchema = [1, n0, _BSCL, 0, () => BodySectionConfiguration];
-export var BodySectionDynamicDimensionSortConfigurationList: StaticListSchema = [1, n0, _BSDDSCL, 0, () => ColumnSort];
-export var BodySectionRepeatDimensionConfigurationList: StaticListSchema = [
+var AssetBundleImportJobWarningList: StaticListSchema = [1, n0, _ABIJWL, 0, () => AssetBundleImportJobWarning$];
+var AssetBundlePrincipalList = 64 | 0;
+var AssetBundleResourceArns = 64 | 0;
+var AssetBundleRestrictiveResourceIdList = 64 | 0;
+var AuthorizedTargetsByServices: StaticListSchema = [1, n0, _ATBSu, 0, () => AuthorizedTargetsByService$];
+var AuthorizedTargetsList = 64 | 0;
+var AuthorSpecifiedAggregations = 64 | 0;
+var AxisLabelOptionsList: StaticListSchema = [1, n0, _ALOL, 0, () => AxisLabelOptions$];
+var BarSeriesItemList: StaticListSchema = [1, n0, _BSIL, 0, () => BarSeriesItem$];
+var BodySectionConfigurationList: StaticListSchema = [1, n0, _BSCL, 0, () => BodySectionConfiguration$];
+var BodySectionDynamicDimensionSortConfigurationList: StaticListSchema = [1, n0, _BSDDSCL, 0, () => ColumnSort$];
+var BodySectionRepeatDimensionConfigurationList: StaticListSchema = [
   1,
   n0,
   _BSRDCL,
   0,
-  () => BodySectionRepeatDimensionConfiguration,
+  () => BodySectionRepeatDimensionConfiguration$,
 ];
-export var BoxPlotDimensionFieldList: StaticListSchema = [1, n0, _BPDFL, 0, () => DimensionField];
-export var BoxPlotMeasureFieldList: StaticListSchema = [1, n0, _BPMFL, 0, () => MeasureField];
-export var BrandSummaryList: StaticListSchema = [1, n0, _BSL, 0, () => BrandSummary];
-export var CalculatedColumnList: StaticListSchema = [1, n0, _CCL, 0, [() => CalculatedColumn, 0]];
-export var CalculatedFieldReferenceList: StaticListSchema = [1, n0, _CFRL, 0, () => Identifier];
-export var CalculatedFields: StaticListSchema = [1, n0, _CF, 0, [() => CalculatedField, 0]];
-export var CascadingControlSourceList: StaticListSchema = [1, n0, _CCSL, 0, () => CascadingControlSource];
-export var CastColumnTypeOperationList: StaticListSchema = [1, n0, _CCTOL, 0, () => CastColumnTypeOperation];
-export var CategoryValueList = 64 | 0;
-export var CellValueSynonyms: StaticListSchema = [1, n0, _CVSe, 0, () => CellValueSynonym];
-export var CollectiveConstantEntryList: StaticListSchema = [1, n0, _CCEL, 0, () => CollectiveConstantEntry];
-export var ColorList = 64 | 0;
-export var ColorScaleColorList: StaticListSchema = [1, n0, _CSCL, 0, () => DataColor];
-export var ColumnConfigurationList: StaticListSchema = [1, n0, _CCLo, 0, [() => ColumnConfiguration, 0]];
-export var ColumnGroupColumnSchemaList: StaticListSchema = [1, n0, _CGCSL, 0, () => ColumnGroupColumnSchema];
-export var ColumnGroupList: StaticListSchema = [1, n0, _CGL, 0, () => ColumnGroup];
-export var ColumnGroupSchemaList: StaticListSchema = [1, n0, _CGSL, 0, () => ColumnGroupSchema];
-export var ColumnHierarchyList: StaticListSchema = [1, n0, _CHL, 0, () => ColumnHierarchy];
-export var ColumnLevelPermissionRuleColumnNameList = 64 | 0;
-export var ColumnLevelPermissionRuleList: StaticListSchema = [1, n0, _CLPRL, 0, () => ColumnLevelPermissionRule];
-export var ColumnList = 64 | 0;
-export var ColumnSchemaList: StaticListSchema = [1, n0, _CSL, 0, () => ColumnSchema];
-export var ColumnTagList: StaticListSchema = [1, n0, _CTL, 0, [() => ColumnTag, 0]];
-export var ColumnTagNames = 64 | 0;
-export var ColumnToUnpivotList: StaticListSchema = [1, n0, _CTUL, 0, () => ColumnToUnpivot];
-export var ComboSeriesItemList: StaticListSchema = [1, n0, _CSIL, 0, () => ComboSeriesItem];
-export var ComputationList: StaticListSchema = [1, n0, _CLo, 0, () => Computation];
-export var ContributionAnalysisDefaultList: StaticListSchema = [1, n0, _CADL, 0, () => ContributionAnalysisDefault];
-export var ContributionAnalysisFactorsList: StaticListSchema = [1, n0, _CAFL, 0, () => ContributionAnalysisFactor];
-export var ContributorDimensionList: StaticListSchema = [1, n0, _CDL, 0, () => ColumnIdentifier];
-export var CreateTopicReviewedAnswers: StaticListSchema = [1, n0, _CTRAr, 0, [() => CreateTopicReviewedAnswer, 0]];
-export var CustomActionColumnList: StaticListSchema = [1, n0, _CACL, 0, () => ColumnIdentifier];
-export var CustomColorsList: StaticListSchema = [1, n0, _CCLu, 0, [() => CustomColor, 0]];
-export var CustomPermissionsList: StaticListSchema = [1, n0, _CPL, 0, () => CustomPermissions];
-export var DashboardErrorList: StaticListSchema = [1, n0, _DEL, 0, () => DashboardError];
-export var DashboardSearchFilterList: StaticListSchema = [1, n0, _DSFL, 0, () => DashboardSearchFilter];
-export var DashboardSummaryList: StaticListSchema = [1, n0, _DSL, 0, () => DashboardSummary];
-export var DashboardVersionSummaryList: StaticListSchema = [1, n0, _DVSL, 0, () => DashboardVersionSummary];
-export var DatabaseGroupList = 64 | 0;
-export var DataLabelTypes: StaticListSchema = [1, n0, _DLT, 0, () => DataLabelType];
-export var DataPathColorList: StaticListSchema = [1, n0, _DPCL, 0, () => DataPathColor];
-export var DataPathValueList: StaticListSchema = [1, n0, _DPVL, 0, [() => DataPathValue, 0]];
-export var DataSetArnsList = 64 | 0;
-export var DataSetColumnIdMappingList: StaticListSchema = [1, n0, _DSCIML, 0, () => DataSetColumnIdMapping];
-export var DataSetConfigurationList: StaticListSchema = [1, n0, _DSCL, 0, () => DataSetConfiguration];
-export var DataSetIdentifierDeclarationList: StaticListSchema = [1, n0, _DSIDL, 0, () => DataSetIdentifierDeclaration];
-export var DatasetParameterList: StaticListSchema = [1, n0, _DPLa, 0, () => DatasetParameter];
-export var DataSetReferenceList: StaticListSchema = [1, n0, _DSRL, 0, () => DataSetReference];
-export var Datasets: StaticListSchema = [1, n0, _Data, 0, [() => DatasetMetadata, 0]];
-export var DataSetSearchFilterList: StaticListSchema = [1, n0, _DSSFL, 0, () => DataSetSearchFilter];
-export var DataSetStringFilterStaticValueList: StaticListSchema = [
+var BoxPlotDimensionFieldList: StaticListSchema = [1, n0, _BPDFL, 0, () => DimensionField$];
+var BoxPlotMeasureFieldList: StaticListSchema = [1, n0, _BPMFL, 0, () => MeasureField$];
+var BrandSummaryList: StaticListSchema = [1, n0, _BSL, 0, () => BrandSummary$];
+var CalculatedColumnList: StaticListSchema = [1, n0, _CCL, 0, [() => CalculatedColumn$, 0]];
+var CalculatedFieldReferenceList: StaticListSchema = [1, n0, _CFRL, 0, () => Identifier$];
+var CalculatedFields: StaticListSchema = [1, n0, _CF, 0, [() => CalculatedField$, 0]];
+var CascadingControlSourceList: StaticListSchema = [1, n0, _CCSL, 0, () => CascadingControlSource$];
+var CastColumnTypeOperationList: StaticListSchema = [1, n0, _CCTOL, 0, () => CastColumnTypeOperation$];
+var CategoryValueList = 64 | 0;
+var CellValueSynonyms: StaticListSchema = [1, n0, _CVSe, 0, () => CellValueSynonym$];
+var CollectiveConstantEntryList: StaticListSchema = [1, n0, _CCEL, 0, () => CollectiveConstantEntry$];
+var ColorList = 64 | 0;
+var ColorScaleColorList: StaticListSchema = [1, n0, _CSCL, 0, () => DataColor$];
+var ColumnConfigurationList: StaticListSchema = [1, n0, _CCLo, 0, [() => ColumnConfiguration$, 0]];
+var ColumnGroupColumnSchemaList: StaticListSchema = [1, n0, _CGCSL, 0, () => ColumnGroupColumnSchema$];
+var ColumnGroupList: StaticListSchema = [1, n0, _CGL, 0, () => ColumnGroup$];
+var ColumnGroupSchemaList: StaticListSchema = [1, n0, _CGSL, 0, () => ColumnGroupSchema$];
+var ColumnHierarchyList: StaticListSchema = [1, n0, _CHL, 0, () => ColumnHierarchy$];
+var ColumnLevelPermissionRuleColumnNameList = 64 | 0;
+var ColumnLevelPermissionRuleList: StaticListSchema = [1, n0, _CLPRL, 0, () => ColumnLevelPermissionRule$];
+var ColumnList = 64 | 0;
+var ColumnSchemaList: StaticListSchema = [1, n0, _CSL, 0, () => ColumnSchema$];
+var ColumnTagList: StaticListSchema = [1, n0, _CTL, 0, [() => ColumnTag$, 0]];
+var ColumnTagNames = 64 | 0;
+var ColumnToUnpivotList: StaticListSchema = [1, n0, _CTUL, 0, () => ColumnToUnpivot$];
+var ComboSeriesItemList: StaticListSchema = [1, n0, _CSIL, 0, () => ComboSeriesItem$];
+var ComputationList: StaticListSchema = [1, n0, _CLo, 0, () => Computation$];
+var ContributionAnalysisDefaultList: StaticListSchema = [1, n0, _CADL, 0, () => ContributionAnalysisDefault$];
+var ContributionAnalysisFactorsList: StaticListSchema = [1, n0, _CAFL, 0, () => ContributionAnalysisFactor$];
+var ContributorDimensionList: StaticListSchema = [1, n0, _CDL, 0, () => ColumnIdentifier$];
+var CreateTopicReviewedAnswers: StaticListSchema = [1, n0, _CTRAr, 0, [() => CreateTopicReviewedAnswer$, 0]];
+var CustomActionColumnList: StaticListSchema = [1, n0, _CACL, 0, () => ColumnIdentifier$];
+var CustomColorsList: StaticListSchema = [1, n0, _CCLu, 0, [() => CustomColor$, 0]];
+var CustomPermissionsList: StaticListSchema = [1, n0, _CPL, 0, () => CustomPermissions$];
+var DashboardErrorList: StaticListSchema = [1, n0, _DEL, 0, () => DashboardError$];
+var DashboardSearchFilterList: StaticListSchema = [1, n0, _DSFL, 0, () => DashboardSearchFilter$];
+var DashboardSummaryList: StaticListSchema = [1, n0, _DSL, 0, () => DashboardSummary$];
+var DashboardVersionSummaryList: StaticListSchema = [1, n0, _DVSL, 0, () => DashboardVersionSummary$];
+var DatabaseGroupList = 64 | 0;
+var DataLabelTypes: StaticListSchema = [1, n0, _DLT, 0, () => DataLabelType$];
+var DataPathColorList: StaticListSchema = [1, n0, _DPCL, 0, () => DataPathColor$];
+var DataPathValueList: StaticListSchema = [1, n0, _DPVL, 0, [() => DataPathValue$, 0]];
+var DataSetArnsList = 64 | 0;
+var DataSetColumnIdMappingList: StaticListSchema = [1, n0, _DSCIML, 0, () => DataSetColumnIdMapping$];
+var DataSetConfigurationList: StaticListSchema = [1, n0, _DSCL, 0, () => DataSetConfiguration$];
+var DataSetIdentifierDeclarationList: StaticListSchema = [1, n0, _DSIDL, 0, () => DataSetIdentifierDeclaration$];
+var DatasetParameterList: StaticListSchema = [1, n0, _DPLa, 0, () => DatasetParameter$];
+var DataSetReferenceList: StaticListSchema = [1, n0, _DSRL, 0, () => DataSetReference$];
+var Datasets: StaticListSchema = [1, n0, _Data, 0, [() => DatasetMetadata$, 0]];
+var DataSetSearchFilterList: StaticListSchema = [1, n0, _DSSFL, 0, () => DataSetSearchFilter$];
+var DataSetStringFilterStaticValueList: StaticListSchema = [
   1,
   n0,
   _DSSFSVL,
   0,
   [() => DataSetStringFilterStaticValue, 0],
 ];
-export var DataSetSummaryList: StaticListSchema = [1, n0, _DSSL, 0, () => DataSetSummary];
-export var DataSourceList: StaticListSchema = [1, n0, _DSLa, 0, () => DataSource];
-export var DataSourceParametersList: StaticListSchema = [1, n0, _DSPL, 0, () => DataSourceParameters];
-export var DataSourceSearchFilterList: StaticListSchema = [1, n0, _DSSFLa, 0, () => DataSourceSearchFilter];
-export var DataSourceSummaryList: StaticListSchema = [1, n0, _DSSLa, 0, () => DataSourceSummary];
-export var DateTimeDatasetParameterValueList = 64 | 4;
-export var DateTimeDefaultValueList: StaticListSchema = [1, n0, _DTDVL, 0, [() => SensitiveTimestamp, 0]];
-export var DateTimeParameterList: StaticListSchema = [1, n0, _DTPL, 0, [() => DateTimeParameter, 0]];
-export var DecalSettingsList: StaticListSchema = [1, n0, _DSLe, 0, () => DecalSettings];
-export var DecimalDatasetParameterValueList = 64 | 1;
-export var DecimalDefaultValueList: StaticListSchema = [1, n0, _DDVL, 0, [() => SensitiveDoubleObject, 0]];
-export var DecimalParameterList: StaticListSchema = [1, n0, _DPLe, 0, [() => DecimalParameter, 0]];
-export var DimensionFieldList: StaticListSchema = [1, n0, _DFL, 0, () => DimensionField];
-export var DnsResolverList = 64 | 0;
-export var DrillDownFilterList: StaticListSchema = [1, n0, _DDFL, 0, () => DrillDownFilter];
-export var EntityList: StaticListSchema = [1, n0, _EL, 0, () => Entity];
-export var ErrorList = 64 | 0;
-export var ExplicitHierarchyColumnList: StaticListSchema = [1, n0, _EHCL, 0, () => ColumnIdentifier];
-export var FailedKeyRegistrationEntries: StaticListSchema = [1, n0, _FKREa, 0, () => FailedKeyRegistrationEntry];
-export var FieldOrderList = 64 | 0;
-export var FieldSortOptionsList: StaticListSchema = [1, n0, _FSOL, 0, () => FieldSortOptions];
-export var FilledMapConditionalFormattingOptionList: StaticListSchema = [
+var DataSetSummaryList: StaticListSchema = [1, n0, _DSSL, 0, () => DataSetSummary$];
+var DataSourceList: StaticListSchema = [1, n0, _DSLa, 0, () => DataSource$];
+var DataSourceParametersList: StaticListSchema = [1, n0, _DSPL, 0, () => DataSourceParameters$];
+var DataSourceSearchFilterList: StaticListSchema = [1, n0, _DSSFLa, 0, () => DataSourceSearchFilter$];
+var DataSourceSummaryList: StaticListSchema = [1, n0, _DSSLa, 0, () => DataSourceSummary$];
+var DateTimeDatasetParameterValueList = 64 | 4;
+var DateTimeDefaultValueList: StaticListSchema = [1, n0, _DTDVL, 0, [() => SensitiveTimestamp, 0]];
+var DateTimeParameterList: StaticListSchema = [1, n0, _DTPL, 0, [() => DateTimeParameter$, 0]];
+var DecalSettingsList: StaticListSchema = [1, n0, _DSLe, 0, () => DecalSettings$];
+var DecimalDatasetParameterValueList = 64 | 1;
+var DecimalDefaultValueList: StaticListSchema = [1, n0, _DDVL, 0, [() => SensitiveDoubleObject, 0]];
+var DecimalParameterList: StaticListSchema = [1, n0, _DPLe, 0, [() => DecimalParameter$, 0]];
+var DimensionFieldList: StaticListSchema = [1, n0, _DFL, 0, () => DimensionField$];
+var DnsResolverList = 64 | 0;
+var DrillDownFilterList: StaticListSchema = [1, n0, _DDFL, 0, () => DrillDownFilter$];
+var EntityList: StaticListSchema = [1, n0, _EL, 0, () => Entity$];
+var ErrorList = 64 | 0;
+var ExplicitHierarchyColumnList: StaticListSchema = [1, n0, _EHCL, 0, () => ColumnIdentifier$];
+var FailedKeyRegistrationEntries: StaticListSchema = [1, n0, _FKREa, 0, () => FailedKeyRegistrationEntry$];
+var FieldOrderList = 64 | 0;
+var FieldSortOptionsList: StaticListSchema = [1, n0, _FSOL, 0, () => FieldSortOptions$];
+var FilledMapConditionalFormattingOptionList: StaticListSchema = [
   1,
   n0,
   _FMCFOL,
   0,
-  () => FilledMapConditionalFormattingOption,
+  () => FilledMapConditionalFormattingOption$,
 ];
-export var FilledMapDimensionFieldList: StaticListSchema = [1, n0, _FMDFL, 0, () => DimensionField];
-export var FilledMapMeasureFieldList: StaticListSchema = [1, n0, _FMMFL, 0, () => MeasureField];
-export var FilterAggMetricsList: StaticListSchema = [1, n0, _FAML, 0, () => FilterAggMetrics];
-export var FilterControlList: StaticListSchema = [1, n0, _FCL, 0, () => FilterControl];
-export var FilteredVisualsList = 64 | 0;
-export var FilterGroupList: StaticListSchema = [1, n0, _FGL, 0, [() => FilterGroup, 0]];
-export var FilterList: StaticListSchema = [1, n0, _FLi, 0, [() => Filter, 0]];
-export var FilterOperationList: StaticListSchema = [1, n0, _FOL, 0, [() => FilterOperation, 0]];
-export var FlowSummaryList: StaticListSchema = [1, n0, _FSL, 0, () => FlowSummary];
-export var FolderArnList = 64 | 0;
-export var FolderColumnList = 64 | 0;
-export var FolderMemberList: StaticListSchema = [1, n0, _FML, 0, () => MemberIdArnPair];
-export var FolderSearchFilterList: StaticListSchema = [1, n0, _FSFL, 0, () => FolderSearchFilter];
-export var FoldersForResourceArnList = 64 | 0;
-export var FolderSummaryList: StaticListSchema = [1, n0, _FSLo, 0, () => FolderSummary];
-export var FontList: StaticListSchema = [1, n0, _FLo, 0, () => Font];
-export var ForecastConfigurationList: StaticListSchema = [1, n0, _FCLo, 0, () => ForecastConfiguration];
-export var FreeFromLayoutElementList: StaticListSchema = [1, n0, _FFLEL, 0, () => FreeFormLayoutElement];
-export var FunnelChartDimensionFieldList: StaticListSchema = [1, n0, _FCDFL, 0, () => DimensionField];
-export var FunnelChartMeasureFieldList: StaticListSchema = [1, n0, _FCMFL, 0, () => MeasureField];
-export var GaugeChartConditionalFormattingOptionList: StaticListSchema = [
+var FilledMapDimensionFieldList: StaticListSchema = [1, n0, _FMDFL, 0, () => DimensionField$];
+var FilledMapMeasureFieldList: StaticListSchema = [1, n0, _FMMFL, 0, () => MeasureField$];
+var FilterAggMetricsList: StaticListSchema = [1, n0, _FAML, 0, () => FilterAggMetrics$];
+var FilterControlList: StaticListSchema = [1, n0, _FCL, 0, () => FilterControl$];
+var FilteredVisualsList = 64 | 0;
+var FilterGroupList: StaticListSchema = [1, n0, _FGL, 0, [() => FilterGroup$, 0]];
+var FilterList: StaticListSchema = [1, n0, _FLi, 0, [() => Filter$, 0]];
+var FilterOperationList: StaticListSchema = [1, n0, _FOL, 0, [() => FilterOperation$, 0]];
+var FlowSummaryList: StaticListSchema = [1, n0, _FSL, 0, () => FlowSummary$];
+var FolderArnList = 64 | 0;
+var FolderColumnList = 64 | 0;
+var FolderMemberList: StaticListSchema = [1, n0, _FML, 0, () => MemberIdArnPair$];
+var FolderSearchFilterList: StaticListSchema = [1, n0, _FSFL, 0, () => FolderSearchFilter$];
+var FoldersForResourceArnList = 64 | 0;
+var FolderSummaryList: StaticListSchema = [1, n0, _FSLo, 0, () => FolderSummary$];
+var FontList: StaticListSchema = [1, n0, _FLo, 0, () => Font$];
+var ForecastConfigurationList: StaticListSchema = [1, n0, _FCLo, 0, () => ForecastConfiguration$];
+var FreeFromLayoutElementList: StaticListSchema = [1, n0, _FFLEL, 0, () => FreeFormLayoutElement$];
+var FunnelChartDimensionFieldList: StaticListSchema = [1, n0, _FCDFL, 0, () => DimensionField$];
+var FunnelChartMeasureFieldList: StaticListSchema = [1, n0, _FCMFL, 0, () => MeasureField$];
+var GaugeChartConditionalFormattingOptionList: StaticListSchema = [
   1,
   n0,
   _GCCFOL,
   0,
-  () => GaugeChartConditionalFormattingOption,
+  () => GaugeChartConditionalFormattingOption$,
 ];
-export var GeocodePreferenceList: StaticListSchema = [1, n0, _GPLeo, 0, () => GeocodePreference];
-export var GeospatialCategoricalDataColorList: StaticListSchema = [
-  1,
-  n0,
-  _GCDCL,
-  0,
-  () => GeospatialCategoricalDataColor,
-];
-export var GeospatialGradientStepColorList: StaticListSchema = [1, n0, _GGSCL, 0, () => GeospatialGradientStepColor];
-export var GeospatialHeatmapDataColorList: StaticListSchema = [1, n0, _GHDCL, 0, () => GeospatialHeatmapDataColor];
-export var GeospatialLayerDimensionFieldList: StaticListSchema = [1, n0, _GLDFL, 0, [() => DimensionField, 0]];
-export var GeospatialLayerMeasureFieldList: StaticListSchema = [1, n0, _GLMFL, 0, [() => MeasureField, 0]];
-export var GeospatialMapLayerList: StaticListSchema = [1, n0, _GMLL, 0, () => GeospatialLayerItem];
-export var GradientStopList: StaticListSchema = [1, n0, _GSL, 0, () => GradientStop];
-export var GridLayoutElementList: StaticListSchema = [1, n0, _GLEL, 0, () => GridLayoutElement];
-export var GroupByColumnNameList = 64 | 0;
-export var GroupList: StaticListSchema = [1, n0, _GLr, 0, () => Group];
-export var GroupMemberList: StaticListSchema = [1, n0, _GML, 0, () => GroupMember];
-export var GroupSearchFilterList: StaticListSchema = [1, n0, _GSFL, 0, () => GroupSearchFilter];
-export var GroupsList = 64 | 0;
-export var HeaderFooterSectionConfigurationList: StaticListSchema = [
+var GeocodePreferenceList: StaticListSchema = [1, n0, _GPLeo, 0, () => GeocodePreference$];
+var GeospatialCategoricalDataColorList: StaticListSchema = [1, n0, _GCDCL, 0, () => GeospatialCategoricalDataColor$];
+var GeospatialGradientStepColorList: StaticListSchema = [1, n0, _GGSCL, 0, () => GeospatialGradientStepColor$];
+var GeospatialHeatmapDataColorList: StaticListSchema = [1, n0, _GHDCL, 0, () => GeospatialHeatmapDataColor$];
+var GeospatialLayerDimensionFieldList: StaticListSchema = [1, n0, _GLDFL, 0, [() => DimensionField$, 0]];
+var GeospatialLayerMeasureFieldList: StaticListSchema = [1, n0, _GLMFL, 0, [() => MeasureField$, 0]];
+var GeospatialMapLayerList: StaticListSchema = [1, n0, _GMLL, 0, () => GeospatialLayerItem$];
+var GradientStopList: StaticListSchema = [1, n0, _GSL, 0, () => GradientStop$];
+var GridLayoutElementList: StaticListSchema = [1, n0, _GLEL, 0, () => GridLayoutElement$];
+var GroupByColumnNameList = 64 | 0;
+var GroupList: StaticListSchema = [1, n0, _GLr, 0, () => Group$];
+var GroupMemberList: StaticListSchema = [1, n0, _GML, 0, () => GroupMember$];
+var GroupSearchFilterList: StaticListSchema = [1, n0, _GSFL, 0, () => GroupSearchFilter$];
+var GroupsList = 64 | 0;
+var HeaderFooterSectionConfigurationList: StaticListSchema = [
   1,
   n0,
   _HFSCL,
   0,
-  () => HeaderFooterSectionConfiguration,
+  () => HeaderFooterSectionConfiguration$,
 ];
-export var HeatMapDimensionFieldList: StaticListSchema = [1, n0, _HMDFL, 0, () => DimensionField];
-export var HeatMapMeasureFieldList: StaticListSchema = [1, n0, _HMMFL, 0, () => MeasureField];
-export var HistogramMeasureFieldList: StaticListSchema = [1, n0, _HMFL, 0, () => MeasureField];
-export var IAMPolicyAssignmentSummaryList: StaticListSchema = [1, n0, _IAMPASL, 0, () => IAMPolicyAssignmentSummary];
-export var IdentityNameList = 64 | 0;
-export var ImageCustomActionList: StaticListSchema = [1, n0, _ICAL, 0, () => ImageCustomAction];
-export var ImageCustomActionOperationList: StaticListSchema = [1, n0, _ICAOL, 0, () => ImageCustomActionOperation];
-export var Ingestions: StaticListSchema = [1, n0, _Inge, 0, () => Ingestion];
-export var InputColumnList: StaticListSchema = [1, n0, _ICL, 0, () => InputColumn];
-export var IntegerDatasetParameterValueList = 64 | 1;
-export var IntegerDefaultValueList: StaticListSchema = [1, n0, _IDVL, 0, [() => SensitiveLongObject, 0]];
-export var IntegerParameterList: StaticListSchema = [1, n0, _IPL, 0, [() => IntegerParameter, 0]];
-export var InvalidTopicReviewedAnswers: StaticListSchema = [1, n0, _ITRAn, 0, () => InvalidTopicReviewedAnswer];
-export var KeyRegistration: StaticListSchema = [1, n0, _KR, 0, () => RegisteredCustomerManagedKey];
-export var KPIConditionalFormattingOptionList: StaticListSchema = [
-  1,
-  n0,
-  _KPICFOL,
-  0,
-  () => KPIConditionalFormattingOption,
-];
-export var LayerCustomActionList: StaticListSchema = [1, n0, _LCAL, 0, () => LayerCustomAction];
-export var LayerCustomActionOperationList: StaticListSchema = [1, n0, _LCAOL, 0, () => LayerCustomActionOperation];
-export var LayoutList: StaticListSchema = [1, n0, _LLa, 0, () => Layout];
-export var LinkEntityArnList = 64 | 0;
-export var MappedDataSetParameters: StaticListSchema = [1, n0, _MDSP, 0, () => MappedDataSetParameter];
-export var MeasureFieldList: StaticListSchema = [1, n0, _MFLea, 0, () => MeasureField];
-export var MissingDataConfigurationList: StaticListSchema = [1, n0, _MDCL, 0, () => MissingDataConfiguration];
-export var NamedEntityDefinitions: StaticListSchema = [1, n0, _NEDa, 0, () => NamedEntityDefinition];
-export var Namespaces: StaticListSchema = [1, n0, _Nam, 0, () => NamespaceInfoV2];
-export var NetworkInterfaceList: StaticListSchema = [1, n0, _NIL, 0, () => NetworkInterface];
-export var NonRepeatingVisualsList = 64 | 0;
-export var OperandList: StaticListSchema = [1, n0, _OL, 0, () => Identifier];
-export var OutputColumnList: StaticListSchema = [1, n0, _OCL, 0, [() => OutputColumn, 0]];
-export var OutputColumnNameOverrideList: StaticListSchema = [1, n0, _OCNOL, 0, () => OutputColumnNameOverride];
-export var ParameterControlList: StaticListSchema = [1, n0, _PCL, 0, () => ParameterControl];
-export var ParameterDeclarationList: StaticListSchema = [1, n0, _PDL, 0, [() => ParameterDeclaration, 0]];
-export var ParameterSelectableValueList = 64 | 0;
-export var Path = 64 | 0;
-export var PermissionsList: StaticListSchema = [1, n0, _PLe, 0, () => Permission];
-export var PivotedLabelList: StaticListSchema = [1, n0, _PLL, 0, () => PivotedLabel];
-export var PivotFieldSortOptionsList: StaticListSchema = [1, n0, _PFSOL, 0, () => PivotFieldSortOptions];
-export var PivotGroupByColumnNameList = 64 | 0;
-export var PivotMeasureFieldList: StaticListSchema = [1, n0, _PMFL, 0, () => MeasureField];
-export var PivotTableConditionalFormattingOptionList: StaticListSchema = [
+var HeatMapDimensionFieldList: StaticListSchema = [1, n0, _HMDFL, 0, () => DimensionField$];
+var HeatMapMeasureFieldList: StaticListSchema = [1, n0, _HMMFL, 0, () => MeasureField$];
+var HistogramMeasureFieldList: StaticListSchema = [1, n0, _HMFL, 0, () => MeasureField$];
+var IAMPolicyAssignmentSummaryList: StaticListSchema = [1, n0, _IAMPASL, 0, () => IAMPolicyAssignmentSummary$];
+var IdentityNameList = 64 | 0;
+var ImageCustomActionList: StaticListSchema = [1, n0, _ICAL, 0, () => ImageCustomAction$];
+var ImageCustomActionOperationList: StaticListSchema = [1, n0, _ICAOL, 0, () => ImageCustomActionOperation$];
+var Ingestions: StaticListSchema = [1, n0, _Inge, 0, () => Ingestion$];
+var InputColumnList: StaticListSchema = [1, n0, _ICL, 0, () => InputColumn$];
+var IntegerDatasetParameterValueList = 64 | 1;
+var IntegerDefaultValueList: StaticListSchema = [1, n0, _IDVL, 0, [() => SensitiveLongObject, 0]];
+var IntegerParameterList: StaticListSchema = [1, n0, _IPL, 0, [() => IntegerParameter$, 0]];
+var InvalidTopicReviewedAnswers: StaticListSchema = [1, n0, _ITRAn, 0, () => InvalidTopicReviewedAnswer$];
+var KeyRegistration: StaticListSchema = [1, n0, _KR, 0, () => RegisteredCustomerManagedKey$];
+var KPIConditionalFormattingOptionList: StaticListSchema = [1, n0, _KPICFOL, 0, () => KPIConditionalFormattingOption$];
+var LayerCustomActionList: StaticListSchema = [1, n0, _LCAL, 0, () => LayerCustomAction$];
+var LayerCustomActionOperationList: StaticListSchema = [1, n0, _LCAOL, 0, () => LayerCustomActionOperation$];
+var LayoutList: StaticListSchema = [1, n0, _LLa, 0, () => Layout$];
+var LinkEntityArnList = 64 | 0;
+var MappedDataSetParameters: StaticListSchema = [1, n0, _MDSP, 0, () => MappedDataSetParameter$];
+var MeasureFieldList: StaticListSchema = [1, n0, _MFLea, 0, () => MeasureField$];
+var MissingDataConfigurationList: StaticListSchema = [1, n0, _MDCL, 0, () => MissingDataConfiguration$];
+var NamedEntityDefinitions: StaticListSchema = [1, n0, _NEDa, 0, () => NamedEntityDefinition$];
+var Namespaces: StaticListSchema = [1, n0, _Nam, 0, () => NamespaceInfoV2$];
+var NetworkInterfaceList: StaticListSchema = [1, n0, _NIL, 0, () => NetworkInterface$];
+var NonRepeatingVisualsList = 64 | 0;
+var OperandList: StaticListSchema = [1, n0, _OL, 0, () => Identifier$];
+var OutputColumnList: StaticListSchema = [1, n0, _OCL, 0, [() => OutputColumn$, 0]];
+var OutputColumnNameOverrideList: StaticListSchema = [1, n0, _OCNOL, 0, () => OutputColumnNameOverride$];
+var ParameterControlList: StaticListSchema = [1, n0, _PCL, 0, () => ParameterControl$];
+var ParameterDeclarationList: StaticListSchema = [1, n0, _PDL, 0, [() => ParameterDeclaration$, 0]];
+var ParameterSelectableValueList = 64 | 0;
+var Path = 64 | 0;
+var PermissionsList: StaticListSchema = [1, n0, _PLe, 0, () => Permission$];
+var PivotedLabelList: StaticListSchema = [1, n0, _PLL, 0, () => PivotedLabel$];
+var PivotFieldSortOptionsList: StaticListSchema = [1, n0, _PFSOL, 0, () => PivotFieldSortOptions$];
+var PivotGroupByColumnNameList = 64 | 0;
+var PivotMeasureFieldList: StaticListSchema = [1, n0, _PMFL, 0, () => MeasureField$];
+var PivotTableConditionalFormattingOptionList: StaticListSchema = [
   1,
   n0,
   _PTCFOL,
   0,
-  () => PivotTableConditionalFormattingOption,
+  () => PivotTableConditionalFormattingOption$,
 ];
-export var PivotTableConditionalFormattingScopeList: StaticListSchema = [
+var PivotTableConditionalFormattingScopeList: StaticListSchema = [
   1,
   n0,
   _PTCFSL,
   0,
-  () => PivotTableConditionalFormattingScope,
+  () => PivotTableConditionalFormattingScope$,
 ];
-export var PivotTableDataPathOptionList: StaticListSchema = [1, n0, _PTDPOL, 0, () => PivotTableDataPathOption];
-export var PivotTableDimensionList: StaticListSchema = [1, n0, _PTDL, 0, () => DimensionField];
-export var PivotTableFieldCollapseStateOptionList: StaticListSchema = [
+var PivotTableDataPathOptionList: StaticListSchema = [1, n0, _PTDPOL, 0, () => PivotTableDataPathOption$];
+var PivotTableDimensionList: StaticListSchema = [1, n0, _PTDL, 0, () => DimensionField$];
+var PivotTableFieldCollapseStateOptionList: StaticListSchema = [
   1,
   n0,
   _PTFCSOL,
   0,
-  () => PivotTableFieldCollapseStateOption,
+  () => PivotTableFieldCollapseStateOption$,
 ];
-export var PivotTableFieldOptionList: StaticListSchema = [1, n0, _PTFOL, 0, () => PivotTableFieldOption];
-export var PivotTableFieldSubtotalOptionsList: StaticListSchema = [
-  1,
-  n0,
-  _PTFSOL,
-  0,
-  () => PivotTableFieldSubtotalOptions,
-];
-export var PluginVisualFieldWells: StaticListSchema = [1, n0, _PVFWl, 0, () => PluginVisualFieldWell];
-export var PluginVisualPropertiesList: StaticListSchema = [1, n0, _PVPL, 0, () => PluginVisualProperty];
-export var PredefinedHierarchyColumnList: StaticListSchema = [1, n0, _PHCL, 0, () => ColumnIdentifier];
-export var PrincipalList = 64 | 0;
-export var ProjectedColumnNameList = 64 | 0;
-export var QAResults: StaticListSchema = [1, n0, _QARe, 0, [() => QAResult, 0]];
-export var RadarChartCategoryFieldList: StaticListSchema = [1, n0, _RCCFL, 0, () => DimensionField];
-export var RadarChartColorFieldList: StaticListSchema = [1, n0, _RCCFLa, 0, () => DimensionField];
-export var RadarChartValuesFieldList: StaticListSchema = [1, n0, _RCVFL, 0, () => MeasureField];
-export var ReferenceLineList: StaticListSchema = [1, n0, _RLL, 0, () => ReferenceLine];
-export var RefreshSchedules: StaticListSchema = [1, n0, _RS, 0, () => RefreshSchedule];
-export var RegisteredUserSnapshotJobResultList: StaticListSchema = [
+var PivotTableFieldOptionList: StaticListSchema = [1, n0, _PTFOL, 0, () => PivotTableFieldOption$];
+var PivotTableFieldSubtotalOptionsList: StaticListSchema = [1, n0, _PTFSOL, 0, () => PivotTableFieldSubtotalOptions$];
+var PluginVisualFieldWells: StaticListSchema = [1, n0, _PVFWl, 0, () => PluginVisualFieldWell$];
+var PluginVisualPropertiesList: StaticListSchema = [1, n0, _PVPL, 0, () => PluginVisualProperty$];
+var PredefinedHierarchyColumnList: StaticListSchema = [1, n0, _PHCL, 0, () => ColumnIdentifier$];
+var PrincipalList = 64 | 0;
+var ProjectedColumnNameList = 64 | 0;
+var QAResults: StaticListSchema = [1, n0, _QARe, 0, [() => QAResult$, 0]];
+var RadarChartCategoryFieldList: StaticListSchema = [1, n0, _RCCFL, 0, () => DimensionField$];
+var RadarChartColorFieldList: StaticListSchema = [1, n0, _RCCFLa, 0, () => DimensionField$];
+var RadarChartValuesFieldList: StaticListSchema = [1, n0, _RCVFL, 0, () => MeasureField$];
+var ReferenceLineList: StaticListSchema = [1, n0, _RLL, 0, () => ReferenceLine$];
+var RefreshSchedules: StaticListSchema = [1, n0, _RS, 0, () => RefreshSchedule$];
+var RegisteredUserSnapshotJobResultList: StaticListSchema = [
   1,
   n0,
   _RUSJRL,
   0,
-  [() => RegisteredUserSnapshotJobResult, 0],
+  [() => RegisteredUserSnapshotJobResult$, 0],
 ];
-export var RenameColumnOperationList: StaticListSchema = [1, n0, _RCOL, 0, () => RenameColumnOperation];
-export var ResourcePermissionList: StaticListSchema = [1, n0, _RPL, 0, () => ResourcePermission];
-export var RowAlternateColorList = 64 | 0;
-export var RowLevelPermissionTagRuleConfiguration = 64 | 0;
-export var RowLevelPermissionTagRuleConfigurationList: StaticListSchema = [1, n0, _RLPTRCL, 0, 64 | 0];
-export var RowLevelPermissionTagRuleList: StaticListSchema = [1, n0, _RLPTRL, 0, [() => RowLevelPermissionTagRule, 0]];
-export var RowSortList: StaticListSchema = [1, n0, _RSL, 0, () => FieldSortOptions];
-export var SearchFlowsFilterList: StaticListSchema = [1, n0, _SFFL, 0, () => SearchFlowsFilter];
-export var SecurityGroupIdList = 64 | 0;
-export var SelectedFieldList = 64 | 0;
-export var SensitiveDoubleList: StaticListSchema = [1, n0, _SDL, 0, [() => SensitiveDouble, 0]];
-export var SensitiveLongList: StaticListSchema = [1, n0, _SLL, 0, [() => SensitiveLong, 0]];
-export var SensitiveStringList: StaticListSchema = [1, n0, _SSL, 0, [() => SensitiveString, 0]];
-export var SensitiveTimestampList: StaticListSchema = [1, n0, _STL, 0, [() => SensitiveTimestamp, 0]];
-export var SeriesItemList: StaticListSchema = [1, n0, _SILe, 0, () => SeriesItem];
-export var SessionTagKeyList = 64 | 0;
-export var SessionTagList: StaticListSchema = [1, n0, _STLe, 0, [() => SessionTag, 0]];
-export var SetParameterValueConfigurationList: StaticListSchema = [
+var RenameColumnOperationList: StaticListSchema = [1, n0, _RCOL, 0, () => RenameColumnOperation$];
+var ResourcePermissionList: StaticListSchema = [1, n0, _RPL, 0, () => ResourcePermission$];
+var RowAlternateColorList = 64 | 0;
+var RowLevelPermissionTagRuleConfiguration = 64 | 0;
+var RowLevelPermissionTagRuleConfigurationList: StaticListSchema = [1, n0, _RLPTRCL, 0, 64 | 0];
+var RowLevelPermissionTagRuleList: StaticListSchema = [1, n0, _RLPTRL, 0, [() => RowLevelPermissionTagRule$, 0]];
+var RowSortList: StaticListSchema = [1, n0, _RSL, 0, () => FieldSortOptions$];
+var SearchFlowsFilterList: StaticListSchema = [1, n0, _SFFL, 0, () => SearchFlowsFilter$];
+var SecurityGroupIdList = 64 | 0;
+var SelectedFieldList = 64 | 0;
+var SensitiveDoubleList: StaticListSchema = [1, n0, _SDL, 0, [() => SensitiveDouble, 0]];
+var SensitiveLongList: StaticListSchema = [1, n0, _SLL, 0, [() => SensitiveLong, 0]];
+var SensitiveStringList: StaticListSchema = [1, n0, _SSL, 0, [() => SensitiveString, 0]];
+var SensitiveTimestampList: StaticListSchema = [1, n0, _STL, 0, [() => SensitiveTimestamp, 0]];
+var SeriesItemList: StaticListSchema = [1, n0, _SILe, 0, () => SeriesItem$];
+var SessionTagKeyList = 64 | 0;
+var SessionTagList: StaticListSchema = [1, n0, _STLe, 0, [() => SessionTag$, 0]];
+var SetParameterValueConfigurationList: StaticListSchema = [
   1,
   n0,
   _SPVCL,
   0,
-  [() => SetParameterValueConfiguration, 0],
+  [() => SetParameterValueConfiguration$, 0],
 ];
-export var SheetControlLayoutList: StaticListSchema = [1, n0, _SCLL, 0, () => SheetControlLayout];
-export var SheetDefinitionList: StaticListSchema = [1, n0, _SDLh, 0, () => SheetDefinition];
-export var SheetElementRenderingRuleList: StaticListSchema = [1, n0, _SERRL, 0, () => SheetElementRenderingRule];
-export var SheetImageList: StaticListSchema = [1, n0, _SILh, 0, () => SheetImage];
-export var SheetList: StaticListSchema = [1, n0, _SLh, 0, () => Sheet];
-export var SheetTextBoxList: StaticListSchema = [1, n0, _STBL, 0, () => SheetTextBox];
-export var SheetVisualScopingConfigurations: StaticListSchema = [
-  1,
-  n0,
-  _SVSC,
-  0,
-  () => SheetVisualScopingConfiguration,
-];
-export var Slots: StaticListSchema = [1, n0, _Slot, 0, () => Slot];
-export var SmallMultiplesDimensionFieldList: StaticListSchema = [1, n0, _SMDFL, 0, () => DimensionField];
-export var SnapshotAnonymousUserList: StaticListSchema = [1, n0, _SAUL, 0, [() => SnapshotAnonymousUser, 0]];
-export var SnapshotAnonymousUserRedactedList: StaticListSchema = [
-  1,
-  n0,
-  _SAURL,
-  0,
-  () => SnapshotAnonymousUserRedacted,
-];
-export var SnapshotFileGroupList: StaticListSchema = [1, n0, _SFGL, 0, () => SnapshotFileGroup];
-export var SnapshotFileList: StaticListSchema = [1, n0, _SFL, 0, () => SnapshotFile];
-export var SnapshotFileSheetSelectionList: StaticListSchema = [1, n0, _SFSSL, 0, () => SnapshotFileSheetSelection];
-export var SnapshotFileSheetSelectionVisualIdList = 64 | 0;
-export var SnapshotJobResultErrorInfoList: StaticListSchema = [1, n0, _SJREIL, 0, () => SnapshotJobResultErrorInfo];
-export var SnapshotJobResultFileGroupList: StaticListSchema = [
-  1,
-  n0,
-  _SJRFGL,
-  0,
-  [() => SnapshotJobResultFileGroup, 0],
-];
-export var SnapshotJobS3ResultList: StaticListSchema = [1, n0, _SJSRL, 0, [() => SnapshotJobS3Result, 0]];
-export var SnapshotS3DestinationConfigurationList: StaticListSchema = [
+var SheetControlLayoutList: StaticListSchema = [1, n0, _SCLL, 0, () => SheetControlLayout$];
+var SheetDefinitionList: StaticListSchema = [1, n0, _SDLh, 0, () => SheetDefinition$];
+var SheetElementRenderingRuleList: StaticListSchema = [1, n0, _SERRL, 0, () => SheetElementRenderingRule$];
+var SheetImageList: StaticListSchema = [1, n0, _SILh, 0, () => SheetImage$];
+var SheetList: StaticListSchema = [1, n0, _SLh, 0, () => Sheet$];
+var SheetTextBoxList: StaticListSchema = [1, n0, _STBL, 0, () => SheetTextBox$];
+var SheetVisualScopingConfigurations: StaticListSchema = [1, n0, _SVSC, 0, () => SheetVisualScopingConfiguration$];
+var Slots: StaticListSchema = [1, n0, _Slot, 0, () => Slot$];
+var SmallMultiplesDimensionFieldList: StaticListSchema = [1, n0, _SMDFL, 0, () => DimensionField$];
+var SnapshotAnonymousUserList: StaticListSchema = [1, n0, _SAUL, 0, [() => SnapshotAnonymousUser$, 0]];
+var SnapshotAnonymousUserRedactedList: StaticListSchema = [1, n0, _SAURL, 0, () => SnapshotAnonymousUserRedacted$];
+var SnapshotFileGroupList: StaticListSchema = [1, n0, _SFGL, 0, () => SnapshotFileGroup$];
+var SnapshotFileList: StaticListSchema = [1, n0, _SFL, 0, () => SnapshotFile$];
+var SnapshotFileSheetSelectionList: StaticListSchema = [1, n0, _SFSSL, 0, () => SnapshotFileSheetSelection$];
+var SnapshotFileSheetSelectionVisualIdList = 64 | 0;
+var SnapshotJobResultErrorInfoList: StaticListSchema = [1, n0, _SJREIL, 0, () => SnapshotJobResultErrorInfo$];
+var SnapshotJobResultFileGroupList: StaticListSchema = [1, n0, _SJRFGL, 0, [() => SnapshotJobResultFileGroup$, 0]];
+var SnapshotJobS3ResultList: StaticListSchema = [1, n0, _SJSRL, 0, [() => SnapshotJobS3Result$, 0]];
+var SnapshotS3DestinationConfigurationList: StaticListSchema = [
   1,
   n0,
   _SSDCL,
   0,
-  () => SnapshotS3DestinationConfiguration,
+  () => SnapshotS3DestinationConfiguration$,
 ];
-export var StaticFileList: StaticListSchema = [1, n0, _SFLt, 0, () => StaticFile];
-export var StringDatasetParameterValueList = 64 | 0;
-export var StringDefaultValueList: StaticListSchema = [1, n0, _SDVL, 0, [() => SensitiveStringObject, 0]];
-export var StringList = 64 | 0;
-export var StringParameterList: StaticListSchema = [1, n0, _SPL, 0, [() => StringParameter, 0]];
-export var SubnetIdList = 64 | 0;
-export var SucceededTopicReviewedAnswers: StaticListSchema = [1, n0, _STRAu, 0, () => SucceededTopicReviewedAnswer];
-export var SuccessfulKeyRegistrationEntries: StaticListSchema = [
-  1,
-  n0,
-  _SKREu,
-  0,
-  () => SuccessfulKeyRegistrationEntry,
-];
-export var Synonyms = 64 | 0;
-export var TableConditionalFormattingOptionList: StaticListSchema = [
+var StaticFileList: StaticListSchema = [1, n0, _SFLt, 0, () => StaticFile$];
+var StringDatasetParameterValueList = 64 | 0;
+var StringDefaultValueList: StaticListSchema = [1, n0, _SDVL, 0, [() => SensitiveStringObject, 0]];
+var StringList = 64 | 0;
+var StringParameterList: StaticListSchema = [1, n0, _SPL, 0, [() => StringParameter$, 0]];
+var SubnetIdList = 64 | 0;
+var SucceededTopicReviewedAnswers: StaticListSchema = [1, n0, _STRAu, 0, () => SucceededTopicReviewedAnswer$];
+var SuccessfulKeyRegistrationEntries: StaticListSchema = [1, n0, _SKREu, 0, () => SuccessfulKeyRegistrationEntry$];
+var Synonyms = 64 | 0;
+var TableConditionalFormattingOptionList: StaticListSchema = [
   1,
   n0,
   _TCFOL,
   0,
-  () => TableConditionalFormattingOption,
+  () => TableConditionalFormattingOption$,
 ];
-export var TableFieldOptionList: StaticListSchema = [1, n0, _TFOL, 0, () => TableFieldOption];
-export var TableFieldOrderList = 64 | 0;
-export var TableInlineVisualizationList: StaticListSchema = [1, n0, _TIVL, 0, () => TableInlineVisualization];
-export var TablePathElementList: StaticListSchema = [1, n0, _TPEL, 0, () => TablePathElement];
-export var TableStyleTargetList: StaticListSchema = [1, n0, _TSTL, 0, () => TableStyleTarget];
-export var TableUnaggregatedFieldList: StaticListSchema = [1, n0, _TUFL, 0, () => UnaggregatedField];
-export var TagKeyList = 64 | 0;
-export var TagList: StaticListSchema = [1, n0, _TLa, 0, () => Tag];
-export var TargetVisualList = 64 | 0;
-export var TemplateAliasList: StaticListSchema = [1, n0, _TAL, 0, () => TemplateAlias];
-export var TemplateErrorList: StaticListSchema = [1, n0, _TEL, 0, () => TemplateError];
-export var TemplateSummaryList: StaticListSchema = [1, n0, _TSL, 0, () => TemplateSummary];
-export var TemplateVersionSummaryList: StaticListSchema = [1, n0, _TVSL, 0, () => TemplateVersionSummary];
-export var ThemeAliasList: StaticListSchema = [1, n0, _TALh, 0, () => ThemeAlias];
-export var ThemeErrorList: StaticListSchema = [1, n0, _TELh, 0, () => ThemeError];
-export var ThemeSummaryList: StaticListSchema = [1, n0, _TSLh, 0, () => ThemeSummary];
-export var ThemeVersionSummaryList: StaticListSchema = [1, n0, _TVSLh, 0, () => ThemeVersionSummary];
-export var TooltipItemList: StaticListSchema = [1, n0, _TIL, 0, () => TooltipItem];
-export var TopicCalculatedFields: StaticListSchema = [1, n0, _TCFopi, 0, [() => TopicCalculatedField, 0]];
-export var TopicColumns: StaticListSchema = [1, n0, _TCop, 0, [() => TopicColumn, 0]];
-export var TopicFilters: StaticListSchema = [1, n0, _TFop, 0, [() => TopicFilter, 0]];
-export var TopicIRFilterEntry: StaticListSchema = [1, n0, _TIRFE, 0, () => TopicIRFilterOption];
-export var TopicIRFilterList: StaticListSchema = [1, n0, _TIRFL, 0, () => TopicIRFilterEntry];
-export var TopicIRGroupByList: StaticListSchema = [1, n0, _TIRGBL, 0, () => TopicIRGroupBy];
-export var TopicIRMetricList: StaticListSchema = [1, n0, _TIRML, 0, [() => TopicIRMetric, 0]];
-export var TopicNamedEntities: StaticListSchema = [1, n0, _TNEo, 0, () => TopicNamedEntity];
-export var TopicRefreshScheduleSummaries: StaticListSchema = [1, n0, _TRSSo, 0, () => TopicRefreshScheduleSummary];
-export var TopicReviewedAnswers: StaticListSchema = [1, n0, _TRAo, 0, [() => TopicReviewedAnswer, 0]];
-export var TopicSearchFilterList: StaticListSchema = [1, n0, _TSFL, 0, () => TopicSearchFilter];
-export var TopicSummaries: StaticListSchema = [1, n0, _TSop, 0, () => TopicSummary];
-export var TopicVisuals: StaticListSchema = [1, n0, _TVopi, 0, [() => TopicVisual, 0]];
-export var TotalAggregationOptionList: StaticListSchema = [1, n0, _TAOL, 0, () => TotalAggregationOption];
-export var TransformOperationList: StaticListSchema = [1, n0, _TOL, 0, [() => TransformOperation, 0]];
-export var TransposedTableOptionList: StaticListSchema = [1, n0, _TTOL, 0, () => TransposedTableOption];
-export var TreeMapDimensionFieldList: StaticListSchema = [1, n0, _TMDFL, 0, () => DimensionField];
-export var TreeMapMeasureFieldList: StaticListSchema = [1, n0, _TMMFL, 0, () => MeasureField];
-export var UnaggregatedFieldList: StaticListSchema = [1, n0, _UFL, 0, () => UnaggregatedField];
-export var UniqueKeyColumnNameList = 64 | 0;
-export var UniqueKeyList: StaticListSchema = [1, n0, _UKL, 0, () => UniqueKey];
-export var UpdateFlowPermissionsInputGrantPermissionsList: StaticListSchema = [1, n0, _UFPIGPL, 0, () => Permission];
-export var UpdateFlowPermissionsInputRevokePermissionsList: StaticListSchema = [1, n0, _UFPIRPL, 0, () => Permission];
-export var UpdateLinkPermissionList: StaticListSchema = [1, n0, _ULPL, 0, () => ResourcePermission];
-export var UpdateResourcePermissionList: StaticListSchema = [1, n0, _URPL, 0, () => ResourcePermission];
-export var UserList: StaticListSchema = [1, n0, _UL, 0, () => User];
-export var VisualCustomActionList: StaticListSchema = [1, n0, _VCAL, 0, () => VisualCustomAction];
-export var VisualCustomActionOperationList: StaticListSchema = [1, n0, _VCAOL, 0, () => VisualCustomActionOperation];
-export var VisualCustomizationAdditionalFieldsList: StaticListSchema = [1, n0, _VCAFL, 0, () => ColumnIdentifier];
-export var VisualList: StaticListSchema = [1, n0, _VLi, 0, () => Visual];
-export var VPCConnectionSummaryList: StaticListSchema = [1, n0, _VPCCSL, 0, () => VPCConnectionSummary];
-export var WordCloudDimensionFieldList: StaticListSchema = [1, n0, _WCDFL, 0, () => DimensionField];
-export var WordCloudMeasureFieldList: StaticListSchema = [1, n0, _WCMFL, 0, () => MeasureField];
-export var AggFunctionParamMap = 128 | 0;
-export var AggregationFunctionParameters = 128 | 0;
-export var DestinationTableMap: StaticMapSchema = [2, n0, _DTM, 0, 0, () => DestinationTable];
-export var FieldFolderMap: StaticMapSchema = [2, n0, _FFM, 0, 0, () => FieldFolder];
-export var IdentityMap: StaticMapSchema = [2, n0, _IMd, 0, 0, 64 | 0];
-export var IpRestrictionRuleMap = 128 | 0;
-export var LogicalTableMap: StaticMapSchema = [2, n0, _LTM, 0, [0, 0], [() => LogicalTable, 0]];
-export var PhysicalTableMap: StaticMapSchema = [2, n0, _PTM, 0, [0, 0], [() => PhysicalTable, 0]];
-export var RowLevelPermissionDataSetMap: StaticMapSchema = [2, n0, _RLPDSM, 0, 0, () => RowLevelPermissionDataSet];
-export var SemanticTableMap: StaticMapSchema = [2, n0, _STMe, 0, [0, 0], [() => SemanticTable, 0]];
-export var SourceTableMap: StaticMapSchema = [2, n0, _STM, 0, 0, () => SourceTable];
-export var TransformStepMap: StaticMapSchema = [2, n0, _TSM, 0, [0, 0], [() => TransformStep, 0]];
-export var TypeParameters = 128 | 0;
-export var VpcEndpointIdRestrictionRuleMap = 128 | 0;
-export var VpcIdRestrictionRuleMap = 128 | 0;
-export var AuthenticationMetadata: StaticStructureSchema = [
+var TableFieldOptionList: StaticListSchema = [1, n0, _TFOL, 0, () => TableFieldOption$];
+var TableFieldOrderList = 64 | 0;
+var TableInlineVisualizationList: StaticListSchema = [1, n0, _TIVL, 0, () => TableInlineVisualization$];
+var TablePathElementList: StaticListSchema = [1, n0, _TPEL, 0, () => TablePathElement$];
+var TableStyleTargetList: StaticListSchema = [1, n0, _TSTL, 0, () => TableStyleTarget$];
+var TableUnaggregatedFieldList: StaticListSchema = [1, n0, _TUFL, 0, () => UnaggregatedField$];
+var TagKeyList = 64 | 0;
+var TagList: StaticListSchema = [1, n0, _TLa, 0, () => Tag$];
+var TargetVisualList = 64 | 0;
+var TemplateAliasList: StaticListSchema = [1, n0, _TAL, 0, () => TemplateAlias$];
+var TemplateErrorList: StaticListSchema = [1, n0, _TEL, 0, () => TemplateError$];
+var TemplateSummaryList: StaticListSchema = [1, n0, _TSL, 0, () => TemplateSummary$];
+var TemplateVersionSummaryList: StaticListSchema = [1, n0, _TVSL, 0, () => TemplateVersionSummary$];
+var ThemeAliasList: StaticListSchema = [1, n0, _TALh, 0, () => ThemeAlias$];
+var ThemeErrorList: StaticListSchema = [1, n0, _TELh, 0, () => ThemeError$];
+var ThemeSummaryList: StaticListSchema = [1, n0, _TSLh, 0, () => ThemeSummary$];
+var ThemeVersionSummaryList: StaticListSchema = [1, n0, _TVSLh, 0, () => ThemeVersionSummary$];
+var TooltipItemList: StaticListSchema = [1, n0, _TIL, 0, () => TooltipItem$];
+var TopicCalculatedFields: StaticListSchema = [1, n0, _TCFopi, 0, [() => TopicCalculatedField$, 0]];
+var TopicColumns: StaticListSchema = [1, n0, _TCop, 0, [() => TopicColumn$, 0]];
+var TopicFilters: StaticListSchema = [1, n0, _TFop, 0, [() => TopicFilter$, 0]];
+var TopicIRFilterEntry: StaticListSchema = [1, n0, _TIRFE, 0, () => TopicIRFilterOption$];
+var TopicIRFilterList: StaticListSchema = [1, n0, _TIRFL, 0, () => TopicIRFilterEntry];
+var TopicIRGroupByList: StaticListSchema = [1, n0, _TIRGBL, 0, () => TopicIRGroupBy$];
+var TopicIRMetricList: StaticListSchema = [1, n0, _TIRML, 0, [() => TopicIRMetric$, 0]];
+var TopicNamedEntities: StaticListSchema = [1, n0, _TNEo, 0, () => TopicNamedEntity$];
+var TopicRefreshScheduleSummaries: StaticListSchema = [1, n0, _TRSSo, 0, () => TopicRefreshScheduleSummary$];
+var TopicReviewedAnswers: StaticListSchema = [1, n0, _TRAo, 0, [() => TopicReviewedAnswer$, 0]];
+var TopicSearchFilterList: StaticListSchema = [1, n0, _TSFL, 0, () => TopicSearchFilter$];
+var TopicSummaries: StaticListSchema = [1, n0, _TSop, 0, () => TopicSummary$];
+var TopicVisuals: StaticListSchema = [1, n0, _TVopi, 0, [() => TopicVisual$, 0]];
+var TotalAggregationOptionList: StaticListSchema = [1, n0, _TAOL, 0, () => TotalAggregationOption$];
+var TransformOperationList: StaticListSchema = [1, n0, _TOL, 0, [() => TransformOperation$, 0]];
+var TransposedTableOptionList: StaticListSchema = [1, n0, _TTOL, 0, () => TransposedTableOption$];
+var TreeMapDimensionFieldList: StaticListSchema = [1, n0, _TMDFL, 0, () => DimensionField$];
+var TreeMapMeasureFieldList: StaticListSchema = [1, n0, _TMMFL, 0, () => MeasureField$];
+var UnaggregatedFieldList: StaticListSchema = [1, n0, _UFL, 0, () => UnaggregatedField$];
+var UniqueKeyColumnNameList = 64 | 0;
+var UniqueKeyList: StaticListSchema = [1, n0, _UKL, 0, () => UniqueKey$];
+var UpdateFlowPermissionsInputGrantPermissionsList: StaticListSchema = [1, n0, _UFPIGPL, 0, () => Permission$];
+var UpdateFlowPermissionsInputRevokePermissionsList: StaticListSchema = [1, n0, _UFPIRPL, 0, () => Permission$];
+var UpdateLinkPermissionList: StaticListSchema = [1, n0, _ULPL, 0, () => ResourcePermission$];
+var UpdateResourcePermissionList: StaticListSchema = [1, n0, _URPL, 0, () => ResourcePermission$];
+var UserList: StaticListSchema = [1, n0, _UL, 0, () => User$];
+var VisualCustomActionList: StaticListSchema = [1, n0, _VCAL, 0, () => VisualCustomAction$];
+var VisualCustomActionOperationList: StaticListSchema = [1, n0, _VCAOL, 0, () => VisualCustomActionOperation$];
+var VisualCustomizationAdditionalFieldsList: StaticListSchema = [1, n0, _VCAFL, 0, () => ColumnIdentifier$];
+var VisualList: StaticListSchema = [1, n0, _VLi, 0, () => Visual$];
+var VPCConnectionSummaryList: StaticListSchema = [1, n0, _VPCCSL, 0, () => VPCConnectionSummary$];
+var WordCloudDimensionFieldList: StaticListSchema = [1, n0, _WCDFL, 0, () => DimensionField$];
+var WordCloudMeasureFieldList: StaticListSchema = [1, n0, _WCMFL, 0, () => MeasureField$];
+var AggFunctionParamMap = 128 | 0;
+var AggregationFunctionParameters = 128 | 0;
+var DestinationTableMap: StaticMapSchema = [2, n0, _DTM, 0, 0, () => DestinationTable$];
+var FieldFolderMap: StaticMapSchema = [2, n0, _FFM, 0, 0, () => FieldFolder$];
+var IdentityMap: StaticMapSchema = [2, n0, _IMd, 0, 0, 64 | 0];
+var IpRestrictionRuleMap = 128 | 0;
+var LogicalTableMap: StaticMapSchema = [2, n0, _LTM, 0, [0, 0], [() => LogicalTable$, 0]];
+var PhysicalTableMap: StaticMapSchema = [2, n0, _PTM, 0, [0, 0], [() => PhysicalTable$, 0]];
+var RowLevelPermissionDataSetMap: StaticMapSchema = [2, n0, _RLPDSM, 0, 0, () => RowLevelPermissionDataSet$];
+var SemanticTableMap: StaticMapSchema = [2, n0, _STMe, 0, [0, 0], [() => SemanticTable$, 0]];
+var SourceTableMap: StaticMapSchema = [2, n0, _STM, 0, 0, () => SourceTable$];
+var TransformStepMap: StaticMapSchema = [2, n0, _TSM, 0, [0, 0], [() => TransformStep$, 0]];
+var TypeParameters = 128 | 0;
+var VpcEndpointIdRestrictionRuleMap = 128 | 0;
+var VpcIdRestrictionRuleMap = 128 | 0;
+export var AuthenticationMetadata$: StaticStructureSchema = [
   3,
   n0,
   _AM,
   0,
   [_ACGM, _CCGM, _BACM, _AKCM, _NCM, _ICM],
   [
-    [() => AuthorizationCodeGrantMetadata, 0],
-    [() => ClientCredentialsGrantMetadata, 0],
-    [() => BasicAuthConnectionMetadata, 0],
-    [() => APIKeyConnectionMetadata, 0],
-    () => NoneConnectionMetadata,
-    () => IAMConnectionMetadata,
+    [() => AuthorizationCodeGrantMetadata$, 0],
+    [() => ClientCredentialsGrantMetadata$, 0],
+    [() => BasicAuthConnectionMetadata$, 0],
+    [() => APIKeyConnectionMetadata$, 0],
+    () => NoneConnectionMetadata$,
+    () => IAMConnectionMetadata$,
   ],
 ];
-export var AuthorizationCodeGrantCredentialsDetails: StaticStructureSchema = [
+export var AuthorizationCodeGrantCredentialsDetails$: StaticStructureSchema = [
   3,
   n0,
   _ACGCD,
   0,
   [_ACGD],
-  [[() => AuthorizationCodeGrantDetails, 0]],
+  [[() => AuthorizationCodeGrantDetails$, 0]],
 ];
-export var ClientCredentialsDetails: StaticStructureSchema = [
+export var ClientCredentialsDetails$: StaticStructureSchema = [
   3,
   n0,
   _CCD,
   0,
   [_CCGD],
-  [[() => ClientCredentialsGrantDetails, 0]],
+  [[() => ClientCredentialsGrantDetails$, 0]],
 ];
-export var DataSourceParameters: StaticStructureSchema = [
+export var DataSourceParameters$: StaticStructureSchema = [
   3,
   n0,
   _DSP,
@@ -15040,106 +15170,106 @@ export var DataSourceParameters: StaticStructureSchema = [
     _QBP,
   ],
   [
-    () => AmazonElasticsearchParameters,
-    () => AthenaParameters,
-    () => AuroraParameters,
-    () => AuroraPostgreSqlParameters,
-    () => AwsIotAnalyticsParameters,
-    () => JiraParameters,
-    () => MariaDbParameters,
-    () => MySqlParameters,
-    () => OracleParameters,
-    () => PostgreSqlParameters,
-    () => PrestoParameters,
-    () => RdsParameters,
-    () => RedshiftParameters,
-    () => S3Parameters,
-    () => S3KnowledgeBaseParameters,
-    () => ServiceNowParameters,
-    () => SnowflakeParameters,
-    () => SparkParameters,
-    () => SqlServerParameters,
-    () => TeradataParameters,
-    () => TwitterParameters,
-    () => AmazonOpenSearchParameters,
-    () => ExasolParameters,
-    () => DatabricksParameters,
-    () => StarburstParameters,
-    () => TrinoParameters,
-    () => BigQueryParameters,
-    () => ImpalaParameters,
-    () => CustomConnectionParameters,
-    () => WebCrawlerParameters,
-    () => ConfluenceParameters,
-    () => QBusinessParameters,
+    () => AmazonElasticsearchParameters$,
+    () => AthenaParameters$,
+    () => AuroraParameters$,
+    () => AuroraPostgreSqlParameters$,
+    () => AwsIotAnalyticsParameters$,
+    () => JiraParameters$,
+    () => MariaDbParameters$,
+    () => MySqlParameters$,
+    () => OracleParameters$,
+    () => PostgreSqlParameters$,
+    () => PrestoParameters$,
+    () => RdsParameters$,
+    () => RedshiftParameters$,
+    () => S3Parameters$,
+    () => S3KnowledgeBaseParameters$,
+    () => ServiceNowParameters$,
+    () => SnowflakeParameters$,
+    () => SparkParameters$,
+    () => SqlServerParameters$,
+    () => TeradataParameters$,
+    () => TwitterParameters$,
+    () => AmazonOpenSearchParameters$,
+    () => ExasolParameters$,
+    () => DatabricksParameters$,
+    () => StarburstParameters$,
+    () => TrinoParameters$,
+    () => BigQueryParameters$,
+    () => ImpalaParameters$,
+    () => CustomConnectionParameters$,
+    () => WebCrawlerParameters$,
+    () => ConfluenceParameters$,
+    () => QBusinessParameters$,
   ],
 ];
-export var GeocodePreferenceValue: StaticStructureSchema = [
+export var GeocodePreferenceValue$: StaticStructureSchema = [
   3,
   n0,
   _GPV,
   0,
   [_GH, _Coo],
-  [() => GeocoderHierarchy, () => Coordinate],
+  [() => GeocoderHierarchy$, () => Coordinate$],
 ];
-export var ImageSource: StaticStructureSchema = [3, n0, _ISmag, 0, [_PUu, _SU], [0, 0]];
-export var PhysicalTable: StaticStructureSchema = [
+export var ImageSource$: StaticStructureSchema = [3, n0, _ISmag, 0, [_PUu, _SU], [0, 0]];
+export var PhysicalTable$: StaticStructureSchema = [
   3,
   n0,
   _PTh,
   0,
   [_RTel, _CSu, _SSo, _SST],
-  [() => RelationalTable, [() => CustomSql, 0], () => S3Source, () => SaaSTable],
+  [() => RelationalTable$, [() => CustomSql$, 0], () => S3Source$, () => SaaSTable$],
 ];
-export var ReadAuthenticationMetadata: StaticStructureSchema = [
+export var ReadAuthenticationMetadata$: StaticStructureSchema = [
   3,
   n0,
   _RAM,
   0,
   [_ACGM, _CCGM, _BACM, _AKCM, _NCM, _ICM],
   [
-    () => ReadAuthorizationCodeGrantMetadata,
-    () => ReadClientCredentialsGrantMetadata,
-    [() => ReadBasicAuthConnectionMetadata, 0],
-    [() => ReadAPIKeyConnectionMetadata, 0],
-    () => ReadNoneConnectionMetadata,
-    () => ReadIamConnectionMetadata,
+    () => ReadAuthorizationCodeGrantMetadata$,
+    () => ReadClientCredentialsGrantMetadata$,
+    [() => ReadBasicAuthConnectionMetadata$, 0],
+    [() => ReadAPIKeyConnectionMetadata$, 0],
+    () => ReadNoneConnectionMetadata$,
+    () => ReadIamConnectionMetadata$,
   ],
 ];
-export var ReadAuthorizationCodeGrantCredentialsDetails: StaticStructureSchema = [
+export var ReadAuthorizationCodeGrantCredentialsDetails$: StaticStructureSchema = [
   3,
   n0,
   _RACGCD,
   0,
   [_RACGD],
-  [() => ReadAuthorizationCodeGrantDetails],
+  [() => ReadAuthorizationCodeGrantDetails$],
 ];
-export var ReadClientCredentialsDetails: StaticStructureSchema = [
+export var ReadClientCredentialsDetails$: StaticStructureSchema = [
   3,
   n0,
   _RCCD,
   0,
   [_RCCGD],
-  [() => ReadClientCredentialsGrantDetails],
+  [() => ReadClientCredentialsGrantDetails$],
 ];
-export var TransformOperation: StaticStructureSchema = [
+export var TransformOperation$: StaticStructureSchema = [
   3,
   n0,
   _TOra,
   0,
   [_POr, _FO, _CCO, _RCO, _CCTO, _TCO, _UCO, _ODPO],
   [
-    () => ProjectOperation,
-    [() => FilterOperation, 0],
-    [() => CreateColumnsOperation, 0],
-    () => RenameColumnOperation,
-    () => CastColumnTypeOperation,
-    [() => TagColumnOperation, 0],
-    () => UntagColumnOperation,
-    () => OverrideDatasetParameterOperation,
+    () => ProjectOperation$,
+    [() => FilterOperation$, 0],
+    [() => CreateColumnsOperation$, 0],
+    () => RenameColumnOperation$,
+    () => CastColumnTypeOperation$,
+    [() => TagColumnOperation$, 0],
+    () => UntagColumnOperation$,
+    () => OverrideDatasetParameterOperation$,
   ],
 ];
-export var UserIdentifier: StaticStructureSchema = [
+export var UserIdentifier$: StaticStructureSchema = [
   3,
   n0,
   _UIs,
@@ -15147,1811 +15277,1811 @@ export var UserIdentifier: StaticStructureSchema = [
   [_UN, _E, _UAs],
   [[() => SensitiveString, 0], [() => SensitiveString, 0], 0],
 ];
-export var BatchCreateTopicReviewedAnswer: StaticOperationSchema = [
+export var BatchCreateTopicReviewedAnswer$: StaticOperationSchema = [
   9,
   n0,
   _BCTRA,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/topics/{TopicId}/batch-create-reviewed-answers", 200] },
-  () => BatchCreateTopicReviewedAnswerRequest,
-  () => BatchCreateTopicReviewedAnswerResponse,
+  () => BatchCreateTopicReviewedAnswerRequest$,
+  () => BatchCreateTopicReviewedAnswerResponse$,
 ];
-export var BatchDeleteTopicReviewedAnswer: StaticOperationSchema = [
+export var BatchDeleteTopicReviewedAnswer$: StaticOperationSchema = [
   9,
   n0,
   _BDTRA,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/topics/{TopicId}/batch-delete-reviewed-answers", 200] },
-  () => BatchDeleteTopicReviewedAnswerRequest,
-  () => BatchDeleteTopicReviewedAnswerResponse,
+  () => BatchDeleteTopicReviewedAnswerRequest$,
+  () => BatchDeleteTopicReviewedAnswerResponse$,
 ];
-export var CancelIngestion: StaticOperationSchema = [
+export var CancelIngestion$: StaticOperationSchema = [
   9,
   n0,
   _CIa,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}", 200] },
-  () => CancelIngestionRequest,
-  () => CancelIngestionResponse,
+  () => CancelIngestionRequest$,
+  () => CancelIngestionResponse$,
 ];
-export var CreateAccountCustomization: StaticOperationSchema = [
+export var CreateAccountCustomization$: StaticOperationSchema = [
   9,
   n0,
   _CAC,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/customizations", 200] },
-  () => CreateAccountCustomizationRequest,
-  () => CreateAccountCustomizationResponse,
+  () => CreateAccountCustomizationRequest$,
+  () => CreateAccountCustomizationResponse$,
 ];
-export var CreateAccountSubscription: StaticOperationSchema = [
+export var CreateAccountSubscription$: StaticOperationSchema = [
   9,
   n0,
   _CAS,
   { [_h]: ["POST", "/account/{AwsAccountId}", 200] },
-  () => CreateAccountSubscriptionRequest,
-  () => CreateAccountSubscriptionResponse,
+  () => CreateAccountSubscriptionRequest$,
+  () => CreateAccountSubscriptionResponse$,
 ];
-export var CreateActionConnector: StaticOperationSchema = [
+export var CreateActionConnector$: StaticOperationSchema = [
   9,
   n0,
   _CACr,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/action-connectors", 200] },
-  () => CreateActionConnectorRequest,
-  () => CreateActionConnectorResponse,
+  () => CreateActionConnectorRequest$,
+  () => CreateActionConnectorResponse$,
 ];
-export var CreateAnalysis: StaticOperationSchema = [
+export var CreateAnalysis$: StaticOperationSchema = [
   9,
   n0,
   _CAr,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/analyses/{AnalysisId}", 200] },
-  () => CreateAnalysisRequest,
-  () => CreateAnalysisResponse,
+  () => CreateAnalysisRequest$,
+  () => CreateAnalysisResponse$,
 ];
-export var CreateBrand: StaticOperationSchema = [
+export var CreateBrand$: StaticOperationSchema = [
   9,
   n0,
   _CBr,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/brands/{BrandId}", 200] },
-  () => CreateBrandRequest,
-  () => CreateBrandResponse,
+  () => CreateBrandRequest$,
+  () => CreateBrandResponse$,
 ];
-export var CreateCustomPermissions: StaticOperationSchema = [
+export var CreateCustomPermissions$: StaticOperationSchema = [
   9,
   n0,
   _CCPr,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/custom-permissions", 200] },
-  () => CreateCustomPermissionsRequest,
-  () => CreateCustomPermissionsResponse,
+  () => CreateCustomPermissionsRequest$,
+  () => CreateCustomPermissionsResponse$,
 ];
-export var CreateDashboard: StaticOperationSchema = [
+export var CreateDashboard$: StaticOperationSchema = [
   9,
   n0,
   _CDre,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/dashboards/{DashboardId}", 200] },
-  () => CreateDashboardRequest,
-  () => CreateDashboardResponse,
+  () => CreateDashboardRequest$,
+  () => CreateDashboardResponse$,
 ];
-export var CreateDataSet: StaticOperationSchema = [
+export var CreateDataSet$: StaticOperationSchema = [
   9,
   n0,
   _CDSr,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/data-sets", 200] },
-  () => CreateDataSetRequest,
-  () => CreateDataSetResponse,
+  () => CreateDataSetRequest$,
+  () => CreateDataSetResponse$,
 ];
-export var CreateDataSource: StaticOperationSchema = [
+export var CreateDataSource$: StaticOperationSchema = [
   9,
   n0,
   _CDSre,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/data-sources", 200] },
-  () => CreateDataSourceRequest,
-  () => CreateDataSourceResponse,
+  () => CreateDataSourceRequest$,
+  () => CreateDataSourceResponse$,
 ];
-export var CreateFolder: StaticOperationSchema = [
+export var CreateFolder$: StaticOperationSchema = [
   9,
   n0,
   _CFr,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/folders/{FolderId}", 200] },
-  () => CreateFolderRequest,
-  () => CreateFolderResponse,
+  () => CreateFolderRequest$,
+  () => CreateFolderResponse$,
 ];
-export var CreateFolderMembership: StaticOperationSchema = [
+export var CreateFolderMembership$: StaticOperationSchema = [
   9,
   n0,
   _CFM,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/folders/{FolderId}/members/{MemberType}/{MemberId}", 200] },
-  () => CreateFolderMembershipRequest,
-  () => CreateFolderMembershipResponse,
+  () => CreateFolderMembershipRequest$,
+  () => CreateFolderMembershipResponse$,
 ];
-export var CreateGroup: StaticOperationSchema = [
+export var CreateGroup$: StaticOperationSchema = [
   9,
   n0,
   _CGr,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups", 200] },
-  () => CreateGroupRequest,
-  () => CreateGroupResponse,
+  () => CreateGroupRequest$,
+  () => CreateGroupResponse$,
 ];
-export var CreateGroupMembership: StaticOperationSchema = [
+export var CreateGroupMembership$: StaticOperationSchema = [
   9,
   n0,
   _CGM,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}", 200] },
-  () => CreateGroupMembershipRequest,
-  () => CreateGroupMembershipResponse,
+  () => CreateGroupMembershipRequest$,
+  () => CreateGroupMembershipResponse$,
 ];
-export var CreateIAMPolicyAssignment: StaticOperationSchema = [
+export var CreateIAMPolicyAssignment$: StaticOperationSchema = [
   9,
   n0,
   _CIAMPA,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments", 200] },
-  () => CreateIAMPolicyAssignmentRequest,
-  () => CreateIAMPolicyAssignmentResponse,
+  () => CreateIAMPolicyAssignmentRequest$,
+  () => CreateIAMPolicyAssignmentResponse$,
 ];
-export var CreateIngestion: StaticOperationSchema = [
+export var CreateIngestion$: StaticOperationSchema = [
   9,
   n0,
   _CIr,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}", 200] },
-  () => CreateIngestionRequest,
-  () => CreateIngestionResponse,
+  () => CreateIngestionRequest$,
+  () => CreateIngestionResponse$,
 ];
-export var CreateNamespace: StaticOperationSchema = [
+export var CreateNamespace$: StaticOperationSchema = [
   9,
   n0,
   _CNr,
   { [_h]: ["POST", "/accounts/{AwsAccountId}", 200] },
-  () => CreateNamespaceRequest,
-  () => CreateNamespaceResponse,
+  () => CreateNamespaceRequest$,
+  () => CreateNamespaceResponse$,
 ];
-export var CreateRefreshSchedule: StaticOperationSchema = [
+export var CreateRefreshSchedule$: StaticOperationSchema = [
   9,
   n0,
   _CRS,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules", 200] },
-  () => CreateRefreshScheduleRequest,
-  () => CreateRefreshScheduleResponse,
+  () => CreateRefreshScheduleRequest$,
+  () => CreateRefreshScheduleResponse$,
 ];
-export var CreateRoleMembership: StaticOperationSchema = [
+export var CreateRoleMembership$: StaticOperationSchema = [
   9,
   n0,
   _CRM,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members/{MemberName}", 200] },
-  () => CreateRoleMembershipRequest,
-  () => CreateRoleMembershipResponse,
+  () => CreateRoleMembershipRequest$,
+  () => CreateRoleMembershipResponse$,
 ];
-export var CreateTemplate: StaticOperationSchema = [
+export var CreateTemplate$: StaticOperationSchema = [
   9,
   n0,
   _CTr,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/templates/{TemplateId}", 200] },
-  () => CreateTemplateRequest,
-  () => CreateTemplateResponse,
+  () => CreateTemplateRequest$,
+  () => CreateTemplateResponse$,
 ];
-export var CreateTemplateAlias: StaticOperationSchema = [
+export var CreateTemplateAlias$: StaticOperationSchema = [
   9,
   n0,
   _CTA,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}", 200] },
-  () => CreateTemplateAliasRequest,
-  () => CreateTemplateAliasResponse,
+  () => CreateTemplateAliasRequest$,
+  () => CreateTemplateAliasResponse$,
 ];
-export var CreateTheme: StaticOperationSchema = [
+export var CreateTheme$: StaticOperationSchema = [
   9,
   n0,
   _CTre,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/themes/{ThemeId}", 200] },
-  () => CreateThemeRequest,
-  () => CreateThemeResponse,
+  () => CreateThemeRequest$,
+  () => CreateThemeResponse$,
 ];
-export var CreateThemeAlias: StaticOperationSchema = [
+export var CreateThemeAlias$: StaticOperationSchema = [
   9,
   n0,
   _CTAr,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}", 200] },
-  () => CreateThemeAliasRequest,
-  () => CreateThemeAliasResponse,
+  () => CreateThemeAliasRequest$,
+  () => CreateThemeAliasResponse$,
 ];
-export var CreateTopic: StaticOperationSchema = [
+export var CreateTopic$: StaticOperationSchema = [
   9,
   n0,
   _CTrea,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/topics", 200] },
-  () => CreateTopicRequest,
-  () => CreateTopicResponse,
+  () => CreateTopicRequest$,
+  () => CreateTopicResponse$,
 ];
-export var CreateTopicRefreshSchedule: StaticOperationSchema = [
+export var CreateTopicRefreshSchedule$: StaticOperationSchema = [
   9,
   n0,
   _CTRS,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/topics/{TopicId}/schedules", 200] },
-  () => CreateTopicRefreshScheduleRequest,
-  () => CreateTopicRefreshScheduleResponse,
+  () => CreateTopicRefreshScheduleRequest$,
+  () => CreateTopicRefreshScheduleResponse$,
 ];
-export var CreateVPCConnection: StaticOperationSchema = [
+export var CreateVPCConnection$: StaticOperationSchema = [
   9,
   n0,
   _CVPCC,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/vpc-connections", 200] },
-  () => CreateVPCConnectionRequest,
-  () => CreateVPCConnectionResponse,
+  () => CreateVPCConnectionRequest$,
+  () => CreateVPCConnectionResponse$,
 ];
-export var DeleteAccountCustomization: StaticOperationSchema = [
+export var DeleteAccountCustomization$: StaticOperationSchema = [
   9,
   n0,
   _DAC,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/customizations", 200] },
-  () => DeleteAccountCustomizationRequest,
-  () => DeleteAccountCustomizationResponse,
+  () => DeleteAccountCustomizationRequest$,
+  () => DeleteAccountCustomizationResponse$,
 ];
-export var DeleteAccountCustomPermission: StaticOperationSchema = [
+export var DeleteAccountCustomPermission$: StaticOperationSchema = [
   9,
   n0,
   _DACP,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/custom-permission", 200] },
-  () => DeleteAccountCustomPermissionRequest,
-  () => DeleteAccountCustomPermissionResponse,
+  () => DeleteAccountCustomPermissionRequest$,
+  () => DeleteAccountCustomPermissionResponse$,
 ];
-export var DeleteAccountSubscription: StaticOperationSchema = [
+export var DeleteAccountSubscription$: StaticOperationSchema = [
   9,
   n0,
   _DAS,
   { [_h]: ["DELETE", "/account/{AwsAccountId}", 200] },
-  () => DeleteAccountSubscriptionRequest,
-  () => DeleteAccountSubscriptionResponse,
+  () => DeleteAccountSubscriptionRequest$,
+  () => DeleteAccountSubscriptionResponse$,
 ];
-export var DeleteActionConnector: StaticOperationSchema = [
+export var DeleteActionConnector$: StaticOperationSchema = [
   9,
   n0,
   _DACe,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}", 200] },
-  () => DeleteActionConnectorRequest,
-  () => DeleteActionConnectorResponse,
+  () => DeleteActionConnectorRequest$,
+  () => DeleteActionConnectorResponse$,
 ];
-export var DeleteAnalysis: StaticOperationSchema = [
+export var DeleteAnalysis$: StaticOperationSchema = [
   9,
   n0,
   _DAe,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/analyses/{AnalysisId}", 200] },
-  () => DeleteAnalysisRequest,
-  () => DeleteAnalysisResponse,
+  () => DeleteAnalysisRequest$,
+  () => DeleteAnalysisResponse$,
 ];
-export var DeleteBrand: StaticOperationSchema = [
+export var DeleteBrand$: StaticOperationSchema = [
   9,
   n0,
   _DBe,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/brands/{BrandId}", 200] },
-  () => DeleteBrandRequest,
-  () => DeleteBrandResponse,
+  () => DeleteBrandRequest$,
+  () => DeleteBrandResponse$,
 ];
-export var DeleteBrandAssignment: StaticOperationSchema = [
+export var DeleteBrandAssignment$: StaticOperationSchema = [
   9,
   n0,
   _DBA,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/brandassignments", 200] },
-  () => DeleteBrandAssignmentRequest,
-  () => DeleteBrandAssignmentResponse,
+  () => DeleteBrandAssignmentRequest$,
+  () => DeleteBrandAssignmentResponse$,
 ];
-export var DeleteCustomPermissions: StaticOperationSchema = [
+export var DeleteCustomPermissions$: StaticOperationSchema = [
   9,
   n0,
   _DCPe,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/custom-permissions/{CustomPermissionsName}", 200] },
-  () => DeleteCustomPermissionsRequest,
-  () => DeleteCustomPermissionsResponse,
+  () => DeleteCustomPermissionsRequest$,
+  () => DeleteCustomPermissionsResponse$,
 ];
-export var DeleteDashboard: StaticOperationSchema = [
+export var DeleteDashboard$: StaticOperationSchema = [
   9,
   n0,
   _DDe,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/dashboards/{DashboardId}", 200] },
-  () => DeleteDashboardRequest,
-  () => DeleteDashboardResponse,
+  () => DeleteDashboardRequest$,
+  () => DeleteDashboardResponse$,
 ];
-export var DeleteDataSet: StaticOperationSchema = [
+export var DeleteDataSet$: StaticOperationSchema = [
   9,
   n0,
   _DDS,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/data-sets/{DataSetId}", 200] },
-  () => DeleteDataSetRequest,
-  () => DeleteDataSetResponse,
+  () => DeleteDataSetRequest$,
+  () => DeleteDataSetResponse$,
 ];
-export var DeleteDataSetRefreshProperties: StaticOperationSchema = [
+export var DeleteDataSetRefreshProperties$: StaticOperationSchema = [
   9,
   n0,
   _DDSRP,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties", 200] },
-  () => DeleteDataSetRefreshPropertiesRequest,
-  () => DeleteDataSetRefreshPropertiesResponse,
+  () => DeleteDataSetRefreshPropertiesRequest$,
+  () => DeleteDataSetRefreshPropertiesResponse$,
 ];
-export var DeleteDataSource: StaticOperationSchema = [
+export var DeleteDataSource$: StaticOperationSchema = [
   9,
   n0,
   _DDSe,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/data-sources/{DataSourceId}", 200] },
-  () => DeleteDataSourceRequest,
-  () => DeleteDataSourceResponse,
+  () => DeleteDataSourceRequest$,
+  () => DeleteDataSourceResponse$,
 ];
-export var DeleteDefaultQBusinessApplication: StaticOperationSchema = [
+export var DeleteDefaultQBusinessApplication$: StaticOperationSchema = [
   9,
   n0,
   _DDQBA,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/default-qbusiness-application", 200] },
-  () => DeleteDefaultQBusinessApplicationRequest,
-  () => DeleteDefaultQBusinessApplicationResponse,
+  () => DeleteDefaultQBusinessApplicationRequest$,
+  () => DeleteDefaultQBusinessApplicationResponse$,
 ];
-export var DeleteFolder: StaticOperationSchema = [
+export var DeleteFolder$: StaticOperationSchema = [
   9,
   n0,
   _DFel,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/folders/{FolderId}", 200] },
-  () => DeleteFolderRequest,
-  () => DeleteFolderResponse,
+  () => DeleteFolderRequest$,
+  () => DeleteFolderResponse$,
 ];
-export var DeleteFolderMembership: StaticOperationSchema = [
+export var DeleteFolderMembership$: StaticOperationSchema = [
   9,
   n0,
   _DFM,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/folders/{FolderId}/members/{MemberType}/{MemberId}", 200] },
-  () => DeleteFolderMembershipRequest,
-  () => DeleteFolderMembershipResponse,
+  () => DeleteFolderMembershipRequest$,
+  () => DeleteFolderMembershipResponse$,
 ];
-export var DeleteGroup: StaticOperationSchema = [
+export var DeleteGroup$: StaticOperationSchema = [
   9,
   n0,
   _DGe,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}", 200] },
-  () => DeleteGroupRequest,
-  () => DeleteGroupResponse,
+  () => DeleteGroupRequest$,
+  () => DeleteGroupResponse$,
 ];
-export var DeleteGroupMembership: StaticOperationSchema = [
+export var DeleteGroupMembership$: StaticOperationSchema = [
   9,
   n0,
   _DGM,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}", 200] },
-  () => DeleteGroupMembershipRequest,
-  () => DeleteGroupMembershipResponse,
+  () => DeleteGroupMembershipRequest$,
+  () => DeleteGroupMembershipResponse$,
 ];
-export var DeleteIAMPolicyAssignment: StaticOperationSchema = [
+export var DeleteIAMPolicyAssignment$: StaticOperationSchema = [
   9,
   n0,
   _DIAMPA,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespace/{Namespace}/iam-policy-assignments/{AssignmentName}", 200] },
-  () => DeleteIAMPolicyAssignmentRequest,
-  () => DeleteIAMPolicyAssignmentResponse,
+  () => DeleteIAMPolicyAssignmentRequest$,
+  () => DeleteIAMPolicyAssignmentResponse$,
 ];
-export var DeleteIdentityPropagationConfig: StaticOperationSchema = [
+export var DeleteIdentityPropagationConfig$: StaticOperationSchema = [
   9,
   n0,
   _DIPC,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/identity-propagation-config/{Service}", 200] },
-  () => DeleteIdentityPropagationConfigRequest,
-  () => DeleteIdentityPropagationConfigResponse,
+  () => DeleteIdentityPropagationConfigRequest$,
+  () => DeleteIdentityPropagationConfigResponse$,
 ];
-export var DeleteNamespace: StaticOperationSchema = [
+export var DeleteNamespace$: StaticOperationSchema = [
   9,
   n0,
   _DNe,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespaces/{Namespace}", 200] },
-  () => DeleteNamespaceRequest,
-  () => DeleteNamespaceResponse,
+  () => DeleteNamespaceRequest$,
+  () => DeleteNamespaceResponse$,
 ];
-export var DeleteRefreshSchedule: StaticOperationSchema = [
+export var DeleteRefreshSchedule$: StaticOperationSchema = [
   9,
   n0,
   _DRS,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules/{ScheduleId}", 200] },
-  () => DeleteRefreshScheduleRequest,
-  () => DeleteRefreshScheduleResponse,
+  () => DeleteRefreshScheduleRequest$,
+  () => DeleteRefreshScheduleResponse$,
 ];
-export var DeleteRoleCustomPermission: StaticOperationSchema = [
+export var DeleteRoleCustomPermission$: StaticOperationSchema = [
   9,
   n0,
   _DRCP,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission", 200] },
-  () => DeleteRoleCustomPermissionRequest,
-  () => DeleteRoleCustomPermissionResponse,
+  () => DeleteRoleCustomPermissionRequest$,
+  () => DeleteRoleCustomPermissionResponse$,
 ];
-export var DeleteRoleMembership: StaticOperationSchema = [
+export var DeleteRoleMembership$: StaticOperationSchema = [
   9,
   n0,
   _DRM,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members/{MemberName}", 200] },
-  () => DeleteRoleMembershipRequest,
-  () => DeleteRoleMembershipResponse,
+  () => DeleteRoleMembershipRequest$,
+  () => DeleteRoleMembershipResponse$,
 ];
-export var DeleteTemplate: StaticOperationSchema = [
+export var DeleteTemplate$: StaticOperationSchema = [
   9,
   n0,
   _DTel,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/templates/{TemplateId}", 200] },
-  () => DeleteTemplateRequest,
-  () => DeleteTemplateResponse,
+  () => DeleteTemplateRequest$,
+  () => DeleteTemplateResponse$,
 ];
-export var DeleteTemplateAlias: StaticOperationSchema = [
+export var DeleteTemplateAlias$: StaticOperationSchema = [
   9,
   n0,
   _DTA,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}", 200] },
-  () => DeleteTemplateAliasRequest,
-  () => DeleteTemplateAliasResponse,
+  () => DeleteTemplateAliasRequest$,
+  () => DeleteTemplateAliasResponse$,
 ];
-export var DeleteTheme: StaticOperationSchema = [
+export var DeleteTheme$: StaticOperationSchema = [
   9,
   n0,
   _DTele,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/themes/{ThemeId}", 200] },
-  () => DeleteThemeRequest,
-  () => DeleteThemeResponse,
+  () => DeleteThemeRequest$,
+  () => DeleteThemeResponse$,
 ];
-export var DeleteThemeAlias: StaticOperationSchema = [
+export var DeleteThemeAlias$: StaticOperationSchema = [
   9,
   n0,
   _DTAe,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}", 200] },
-  () => DeleteThemeAliasRequest,
-  () => DeleteThemeAliasResponse,
+  () => DeleteThemeAliasRequest$,
+  () => DeleteThemeAliasResponse$,
 ];
-export var DeleteTopic: StaticOperationSchema = [
+export var DeleteTopic$: StaticOperationSchema = [
   9,
   n0,
   _DTelet,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/topics/{TopicId}", 200] },
-  () => DeleteTopicRequest,
-  () => DeleteTopicResponse,
+  () => DeleteTopicRequest$,
+  () => DeleteTopicResponse$,
 ];
-export var DeleteTopicRefreshSchedule: StaticOperationSchema = [
+export var DeleteTopicRefreshSchedule$: StaticOperationSchema = [
   9,
   n0,
   _DTRS,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/topics/{TopicId}/schedules/{DatasetId}", 200] },
-  () => DeleteTopicRefreshScheduleRequest,
-  () => DeleteTopicRefreshScheduleResponse,
+  () => DeleteTopicRefreshScheduleRequest$,
+  () => DeleteTopicRefreshScheduleResponse$,
 ];
-export var DeleteUser: StaticOperationSchema = [
+export var DeleteUser$: StaticOperationSchema = [
   9,
   n0,
   _DUe,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}", 200] },
-  () => DeleteUserRequest,
-  () => DeleteUserResponse,
+  () => DeleteUserRequest$,
+  () => DeleteUserResponse$,
 ];
-export var DeleteUserByPrincipalId: StaticOperationSchema = [
+export var DeleteUserByPrincipalId$: StaticOperationSchema = [
   9,
   n0,
   _DUBPI,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespaces/{Namespace}/user-principals/{PrincipalId}", 200] },
-  () => DeleteUserByPrincipalIdRequest,
-  () => DeleteUserByPrincipalIdResponse,
+  () => DeleteUserByPrincipalIdRequest$,
+  () => DeleteUserByPrincipalIdResponse$,
 ];
-export var DeleteUserCustomPermission: StaticOperationSchema = [
+export var DeleteUserCustomPermission$: StaticOperationSchema = [
   9,
   n0,
   _DUCP,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/custom-permission", 200] },
-  () => DeleteUserCustomPermissionRequest,
-  () => DeleteUserCustomPermissionResponse,
+  () => DeleteUserCustomPermissionRequest$,
+  () => DeleteUserCustomPermissionResponse$,
 ];
-export var DeleteVPCConnection: StaticOperationSchema = [
+export var DeleteVPCConnection$: StaticOperationSchema = [
   9,
   n0,
   _DVPCC,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}", 200] },
-  () => DeleteVPCConnectionRequest,
-  () => DeleteVPCConnectionResponse,
+  () => DeleteVPCConnectionRequest$,
+  () => DeleteVPCConnectionResponse$,
 ];
-export var DescribeAccountCustomization: StaticOperationSchema = [
+export var DescribeAccountCustomization$: StaticOperationSchema = [
   9,
   n0,
   _DACes,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/customizations", 200] },
-  () => DescribeAccountCustomizationRequest,
-  () => DescribeAccountCustomizationResponse,
+  () => DescribeAccountCustomizationRequest$,
+  () => DescribeAccountCustomizationResponse$,
 ];
-export var DescribeAccountCustomPermission: StaticOperationSchema = [
+export var DescribeAccountCustomPermission$: StaticOperationSchema = [
   9,
   n0,
   _DACPe,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/custom-permission", 200] },
-  () => DescribeAccountCustomPermissionRequest,
-  () => DescribeAccountCustomPermissionResponse,
+  () => DescribeAccountCustomPermissionRequest$,
+  () => DescribeAccountCustomPermissionResponse$,
 ];
-export var DescribeAccountSettings: StaticOperationSchema = [
+export var DescribeAccountSettings$: StaticOperationSchema = [
   9,
   n0,
   _DASe,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/settings", 200] },
-  () => DescribeAccountSettingsRequest,
-  () => DescribeAccountSettingsResponse,
+  () => DescribeAccountSettingsRequest$,
+  () => DescribeAccountSettingsResponse$,
 ];
-export var DescribeAccountSubscription: StaticOperationSchema = [
+export var DescribeAccountSubscription$: StaticOperationSchema = [
   9,
   n0,
   _DASes,
   { [_h]: ["GET", "/account/{AwsAccountId}", 200] },
-  () => DescribeAccountSubscriptionRequest,
-  () => DescribeAccountSubscriptionResponse,
+  () => DescribeAccountSubscriptionRequest$,
+  () => DescribeAccountSubscriptionResponse$,
 ];
-export var DescribeActionConnector: StaticOperationSchema = [
+export var DescribeActionConnector$: StaticOperationSchema = [
   9,
   n0,
   _DACesc,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}", 200] },
-  () => DescribeActionConnectorRequest,
-  () => DescribeActionConnectorResponse,
+  () => DescribeActionConnectorRequest$,
+  () => DescribeActionConnectorResponse$,
 ];
-export var DescribeActionConnectorPermissions: StaticOperationSchema = [
+export var DescribeActionConnectorPermissions$: StaticOperationSchema = [
   9,
   n0,
   _DACPes,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}/permissions", 200] },
-  () => DescribeActionConnectorPermissionsRequest,
-  () => DescribeActionConnectorPermissionsResponse,
+  () => DescribeActionConnectorPermissionsRequest$,
+  () => DescribeActionConnectorPermissionsResponse$,
 ];
-export var DescribeAnalysis: StaticOperationSchema = [
+export var DescribeAnalysis$: StaticOperationSchema = [
   9,
   n0,
   _DAes,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/analyses/{AnalysisId}", 200] },
-  () => DescribeAnalysisRequest,
-  () => DescribeAnalysisResponse,
+  () => DescribeAnalysisRequest$,
+  () => DescribeAnalysisResponse$,
 ];
-export var DescribeAnalysisDefinition: StaticOperationSchema = [
+export var DescribeAnalysisDefinition$: StaticOperationSchema = [
   9,
   n0,
   _DAD,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/analyses/{AnalysisId}/definition", 200] },
-  () => DescribeAnalysisDefinitionRequest,
-  () => DescribeAnalysisDefinitionResponse,
+  () => DescribeAnalysisDefinitionRequest$,
+  () => DescribeAnalysisDefinitionResponse$,
 ];
-export var DescribeAnalysisPermissions: StaticOperationSchema = [
+export var DescribeAnalysisPermissions$: StaticOperationSchema = [
   9,
   n0,
   _DAP,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/analyses/{AnalysisId}/permissions", 200] },
-  () => DescribeAnalysisPermissionsRequest,
-  () => DescribeAnalysisPermissionsResponse,
+  () => DescribeAnalysisPermissionsRequest$,
+  () => DescribeAnalysisPermissionsResponse$,
 ];
-export var DescribeAssetBundleExportJob: StaticOperationSchema = [
+export var DescribeAssetBundleExportJob$: StaticOperationSchema = [
   9,
   n0,
   _DABEJ,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/asset-bundle-export-jobs/{AssetBundleExportJobId}", 200] },
-  () => DescribeAssetBundleExportJobRequest,
-  () => DescribeAssetBundleExportJobResponse,
+  () => DescribeAssetBundleExportJobRequest$,
+  () => DescribeAssetBundleExportJobResponse$,
 ];
-export var DescribeAssetBundleImportJob: StaticOperationSchema = [
+export var DescribeAssetBundleImportJob$: StaticOperationSchema = [
   9,
   n0,
   _DABIJ,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/asset-bundle-import-jobs/{AssetBundleImportJobId}", 200] },
-  () => DescribeAssetBundleImportJobRequest,
-  () => DescribeAssetBundleImportJobResponse,
+  () => DescribeAssetBundleImportJobRequest$,
+  () => DescribeAssetBundleImportJobResponse$,
 ];
-export var DescribeBrand: StaticOperationSchema = [
+export var DescribeBrand$: StaticOperationSchema = [
   9,
   n0,
   _DBes,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/brands/{BrandId}", 200] },
-  () => DescribeBrandRequest,
-  () => DescribeBrandResponse,
+  () => DescribeBrandRequest$,
+  () => DescribeBrandResponse$,
 ];
-export var DescribeBrandAssignment: StaticOperationSchema = [
+export var DescribeBrandAssignment$: StaticOperationSchema = [
   9,
   n0,
   _DBAe,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/brandassignments", 200] },
-  () => DescribeBrandAssignmentRequest,
-  () => DescribeBrandAssignmentResponse,
+  () => DescribeBrandAssignmentRequest$,
+  () => DescribeBrandAssignmentResponse$,
 ];
-export var DescribeBrandPublishedVersion: StaticOperationSchema = [
+export var DescribeBrandPublishedVersion$: StaticOperationSchema = [
   9,
   n0,
   _DBPV,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/brands/{BrandId}/publishedversion", 200] },
-  () => DescribeBrandPublishedVersionRequest,
-  () => DescribeBrandPublishedVersionResponse,
+  () => DescribeBrandPublishedVersionRequest$,
+  () => DescribeBrandPublishedVersionResponse$,
 ];
-export var DescribeCustomPermissions: StaticOperationSchema = [
+export var DescribeCustomPermissions$: StaticOperationSchema = [
   9,
   n0,
   _DCPes,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/custom-permissions/{CustomPermissionsName}", 200] },
-  () => DescribeCustomPermissionsRequest,
-  () => DescribeCustomPermissionsResponse,
+  () => DescribeCustomPermissionsRequest$,
+  () => DescribeCustomPermissionsResponse$,
 ];
-export var DescribeDashboard: StaticOperationSchema = [
+export var DescribeDashboard$: StaticOperationSchema = [
   9,
   n0,
   _DDes,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/dashboards/{DashboardId}", 200] },
-  () => DescribeDashboardRequest,
-  () => DescribeDashboardResponse,
+  () => DescribeDashboardRequest$,
+  () => DescribeDashboardResponse$,
 ];
-export var DescribeDashboardDefinition: StaticOperationSchema = [
+export var DescribeDashboardDefinition$: StaticOperationSchema = [
   9,
   n0,
   _DDD,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/definition", 200] },
-  () => DescribeDashboardDefinitionRequest,
-  () => DescribeDashboardDefinitionResponse,
+  () => DescribeDashboardDefinitionRequest$,
+  () => DescribeDashboardDefinitionResponse$,
 ];
-export var DescribeDashboardPermissions: StaticOperationSchema = [
+export var DescribeDashboardPermissions$: StaticOperationSchema = [
   9,
   n0,
   _DDPe,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/permissions", 200] },
-  () => DescribeDashboardPermissionsRequest,
-  () => DescribeDashboardPermissionsResponse,
+  () => DescribeDashboardPermissionsRequest$,
+  () => DescribeDashboardPermissionsResponse$,
 ];
-export var DescribeDashboardSnapshotJob: StaticOperationSchema = [
+export var DescribeDashboardSnapshotJob$: StaticOperationSchema = [
   9,
   n0,
   _DDSJ,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs/{SnapshotJobId}", 200] },
-  () => DescribeDashboardSnapshotJobRequest,
-  () => DescribeDashboardSnapshotJobResponse,
+  () => DescribeDashboardSnapshotJobRequest$,
+  () => DescribeDashboardSnapshotJobResponse$,
 ];
-export var DescribeDashboardSnapshotJobResult: StaticOperationSchema = [
+export var DescribeDashboardSnapshotJobResult$: StaticOperationSchema = [
   9,
   n0,
   _DDSJRes,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs/{SnapshotJobId}/result", 200] },
-  () => DescribeDashboardSnapshotJobResultRequest,
-  () => DescribeDashboardSnapshotJobResultResponse,
+  () => DescribeDashboardSnapshotJobResultRequest$,
+  () => DescribeDashboardSnapshotJobResultResponse$,
 ];
-export var DescribeDashboardsQAConfiguration: StaticOperationSchema = [
+export var DescribeDashboardsQAConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DDQAC,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/dashboards-qa-configuration", 200] },
-  () => DescribeDashboardsQAConfigurationRequest,
-  () => DescribeDashboardsQAConfigurationResponse,
+  () => DescribeDashboardsQAConfigurationRequest$,
+  () => DescribeDashboardsQAConfigurationResponse$,
 ];
-export var DescribeDataSet: StaticOperationSchema = [
+export var DescribeDataSet$: StaticOperationSchema = [
   9,
   n0,
   _DDSes,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/data-sets/{DataSetId}", 200] },
-  () => DescribeDataSetRequest,
-  () => DescribeDataSetResponse,
+  () => DescribeDataSetRequest$,
+  () => DescribeDataSetResponse$,
 ];
-export var DescribeDataSetPermissions: StaticOperationSchema = [
+export var DescribeDataSetPermissions$: StaticOperationSchema = [
   9,
   n0,
   _DDSP,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/permissions", 200] },
-  () => DescribeDataSetPermissionsRequest,
-  () => DescribeDataSetPermissionsResponse,
+  () => DescribeDataSetPermissionsRequest$,
+  () => DescribeDataSetPermissionsResponse$,
 ];
-export var DescribeDataSetRefreshProperties: StaticOperationSchema = [
+export var DescribeDataSetRefreshProperties$: StaticOperationSchema = [
   9,
   n0,
   _DDSRPe,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties", 200] },
-  () => DescribeDataSetRefreshPropertiesRequest,
-  () => DescribeDataSetRefreshPropertiesResponse,
+  () => DescribeDataSetRefreshPropertiesRequest$,
+  () => DescribeDataSetRefreshPropertiesResponse$,
 ];
-export var DescribeDataSource: StaticOperationSchema = [
+export var DescribeDataSource$: StaticOperationSchema = [
   9,
   n0,
   _DDSesc,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/data-sources/{DataSourceId}", 200] },
-  () => DescribeDataSourceRequest,
-  () => DescribeDataSourceResponse,
+  () => DescribeDataSourceRequest$,
+  () => DescribeDataSourceResponse$,
 ];
-export var DescribeDataSourcePermissions: StaticOperationSchema = [
+export var DescribeDataSourcePermissions$: StaticOperationSchema = [
   9,
   n0,
   _DDSPe,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions", 200] },
-  () => DescribeDataSourcePermissionsRequest,
-  () => DescribeDataSourcePermissionsResponse,
+  () => DescribeDataSourcePermissionsRequest$,
+  () => DescribeDataSourcePermissionsResponse$,
 ];
-export var DescribeDefaultQBusinessApplication: StaticOperationSchema = [
+export var DescribeDefaultQBusinessApplication$: StaticOperationSchema = [
   9,
   n0,
   _DDQBAe,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/default-qbusiness-application", 200] },
-  () => DescribeDefaultQBusinessApplicationRequest,
-  () => DescribeDefaultQBusinessApplicationResponse,
+  () => DescribeDefaultQBusinessApplicationRequest$,
+  () => DescribeDefaultQBusinessApplicationResponse$,
 ];
-export var DescribeFolder: StaticOperationSchema = [
+export var DescribeFolder$: StaticOperationSchema = [
   9,
   n0,
   _DFes,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/folders/{FolderId}", 200] },
-  () => DescribeFolderRequest,
-  () => DescribeFolderResponse,
+  () => DescribeFolderRequest$,
+  () => DescribeFolderResponse$,
 ];
-export var DescribeFolderPermissions: StaticOperationSchema = [
+export var DescribeFolderPermissions$: StaticOperationSchema = [
   9,
   n0,
   _DFP,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/folders/{FolderId}/permissions", 200] },
-  () => DescribeFolderPermissionsRequest,
-  () => DescribeFolderPermissionsResponse,
+  () => DescribeFolderPermissionsRequest$,
+  () => DescribeFolderPermissionsResponse$,
 ];
-export var DescribeFolderResolvedPermissions: StaticOperationSchema = [
+export var DescribeFolderResolvedPermissions$: StaticOperationSchema = [
   9,
   n0,
   _DFRP,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/folders/{FolderId}/resolved-permissions", 200] },
-  () => DescribeFolderResolvedPermissionsRequest,
-  () => DescribeFolderResolvedPermissionsResponse,
+  () => DescribeFolderResolvedPermissionsRequest$,
+  () => DescribeFolderResolvedPermissionsResponse$,
 ];
-export var DescribeGroup: StaticOperationSchema = [
+export var DescribeGroup$: StaticOperationSchema = [
   9,
   n0,
   _DGes,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}", 200] },
-  () => DescribeGroupRequest,
-  () => DescribeGroupResponse,
+  () => DescribeGroupRequest$,
+  () => DescribeGroupResponse$,
 ];
-export var DescribeGroupMembership: StaticOperationSchema = [
+export var DescribeGroupMembership$: StaticOperationSchema = [
   9,
   n0,
   _DGMe,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}", 200] },
-  () => DescribeGroupMembershipRequest,
-  () => DescribeGroupMembershipResponse,
+  () => DescribeGroupMembershipRequest$,
+  () => DescribeGroupMembershipResponse$,
 ];
-export var DescribeIAMPolicyAssignment: StaticOperationSchema = [
+export var DescribeIAMPolicyAssignment$: StaticOperationSchema = [
   9,
   n0,
   _DIAMPAe,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments/{AssignmentName}", 200] },
-  () => DescribeIAMPolicyAssignmentRequest,
-  () => DescribeIAMPolicyAssignmentResponse,
+  () => DescribeIAMPolicyAssignmentRequest$,
+  () => DescribeIAMPolicyAssignmentResponse$,
 ];
-export var DescribeIngestion: StaticOperationSchema = [
+export var DescribeIngestion$: StaticOperationSchema = [
   9,
   n0,
   _DIe,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}", 200] },
-  () => DescribeIngestionRequest,
-  () => DescribeIngestionResponse,
+  () => DescribeIngestionRequest$,
+  () => DescribeIngestionResponse$,
 ];
-export var DescribeIpRestriction: StaticOperationSchema = [
+export var DescribeIpRestriction$: StaticOperationSchema = [
   9,
   n0,
   _DIRes,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/ip-restriction", 200] },
-  () => DescribeIpRestrictionRequest,
-  () => DescribeIpRestrictionResponse,
+  () => DescribeIpRestrictionRequest$,
+  () => DescribeIpRestrictionResponse$,
 ];
-export var DescribeKeyRegistration: StaticOperationSchema = [
+export var DescribeKeyRegistration$: StaticOperationSchema = [
   9,
   n0,
   _DKR,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/key-registration", 200] },
-  () => DescribeKeyRegistrationRequest,
-  () => DescribeKeyRegistrationResponse,
+  () => DescribeKeyRegistrationRequest$,
+  () => DescribeKeyRegistrationResponse$,
 ];
-export var DescribeNamespace: StaticOperationSchema = [
+export var DescribeNamespace$: StaticOperationSchema = [
   9,
   n0,
   _DNes,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}", 200] },
-  () => DescribeNamespaceRequest,
-  () => DescribeNamespaceResponse,
+  () => DescribeNamespaceRequest$,
+  () => DescribeNamespaceResponse$,
 ];
-export var DescribeQPersonalizationConfiguration: StaticOperationSchema = [
+export var DescribeQPersonalizationConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DQPC,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/q-personalization-configuration", 200] },
-  () => DescribeQPersonalizationConfigurationRequest,
-  () => DescribeQPersonalizationConfigurationResponse,
+  () => DescribeQPersonalizationConfigurationRequest$,
+  () => DescribeQPersonalizationConfigurationResponse$,
 ];
-export var DescribeQuickSightQSearchConfiguration: StaticOperationSchema = [
+export var DescribeQuickSightQSearchConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DQSQSC,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/quicksight-q-search-configuration", 200] },
-  () => DescribeQuickSightQSearchConfigurationRequest,
-  () => DescribeQuickSightQSearchConfigurationResponse,
+  () => DescribeQuickSightQSearchConfigurationRequest$,
+  () => DescribeQuickSightQSearchConfigurationResponse$,
 ];
-export var DescribeRefreshSchedule: StaticOperationSchema = [
+export var DescribeRefreshSchedule$: StaticOperationSchema = [
   9,
   n0,
   _DRSe,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules/{ScheduleId}", 200] },
-  () => DescribeRefreshScheduleRequest,
-  () => DescribeRefreshScheduleResponse,
+  () => DescribeRefreshScheduleRequest$,
+  () => DescribeRefreshScheduleResponse$,
 ];
-export var DescribeRoleCustomPermission: StaticOperationSchema = [
+export var DescribeRoleCustomPermission$: StaticOperationSchema = [
   9,
   n0,
   _DRCPe,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission", 200] },
-  () => DescribeRoleCustomPermissionRequest,
-  () => DescribeRoleCustomPermissionResponse,
+  () => DescribeRoleCustomPermissionRequest$,
+  () => DescribeRoleCustomPermissionResponse$,
 ];
-export var DescribeTemplate: StaticOperationSchema = [
+export var DescribeTemplate$: StaticOperationSchema = [
   9,
   n0,
   _DTesc,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/templates/{TemplateId}", 200] },
-  () => DescribeTemplateRequest,
-  () => DescribeTemplateResponse,
+  () => DescribeTemplateRequest$,
+  () => DescribeTemplateResponse$,
 ];
-export var DescribeTemplateAlias: StaticOperationSchema = [
+export var DescribeTemplateAlias$: StaticOperationSchema = [
   9,
   n0,
   _DTAes,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}", 200] },
-  () => DescribeTemplateAliasRequest,
-  () => DescribeTemplateAliasResponse,
+  () => DescribeTemplateAliasRequest$,
+  () => DescribeTemplateAliasResponse$,
 ];
-export var DescribeTemplateDefinition: StaticOperationSchema = [
+export var DescribeTemplateDefinition$: StaticOperationSchema = [
   9,
   n0,
   _DTD,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/templates/{TemplateId}/definition", 200] },
-  () => DescribeTemplateDefinitionRequest,
-  () => DescribeTemplateDefinitionResponse,
+  () => DescribeTemplateDefinitionRequest$,
+  () => DescribeTemplateDefinitionResponse$,
 ];
-export var DescribeTemplatePermissions: StaticOperationSchema = [
+export var DescribeTemplatePermissions$: StaticOperationSchema = [
   9,
   n0,
   _DTPe,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/templates/{TemplateId}/permissions", 200] },
-  () => DescribeTemplatePermissionsRequest,
-  () => DescribeTemplatePermissionsResponse,
+  () => DescribeTemplatePermissionsRequest$,
+  () => DescribeTemplatePermissionsResponse$,
 ];
-export var DescribeTheme: StaticOperationSchema = [
+export var DescribeTheme$: StaticOperationSchema = [
   9,
   n0,
   _DTescr,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/themes/{ThemeId}", 200] },
-  () => DescribeThemeRequest,
-  () => DescribeThemeResponse,
+  () => DescribeThemeRequest$,
+  () => DescribeThemeResponse$,
 ];
-export var DescribeThemeAlias: StaticOperationSchema = [
+export var DescribeThemeAlias$: StaticOperationSchema = [
   9,
   n0,
   _DTAesc,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}", 200] },
-  () => DescribeThemeAliasRequest,
-  () => DescribeThemeAliasResponse,
+  () => DescribeThemeAliasRequest$,
+  () => DescribeThemeAliasResponse$,
 ];
-export var DescribeThemePermissions: StaticOperationSchema = [
+export var DescribeThemePermissions$: StaticOperationSchema = [
   9,
   n0,
   _DTPes,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/themes/{ThemeId}/permissions", 200] },
-  () => DescribeThemePermissionsRequest,
-  () => DescribeThemePermissionsResponse,
+  () => DescribeThemePermissionsRequest$,
+  () => DescribeThemePermissionsResponse$,
 ];
-export var DescribeTopic: StaticOperationSchema = [
+export var DescribeTopic$: StaticOperationSchema = [
   9,
   n0,
   _DTescri,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/topics/{TopicId}", 200] },
-  () => DescribeTopicRequest,
-  () => DescribeTopicResponse,
+  () => DescribeTopicRequest$,
+  () => DescribeTopicResponse$,
 ];
-export var DescribeTopicPermissions: StaticOperationSchema = [
+export var DescribeTopicPermissions$: StaticOperationSchema = [
   9,
   n0,
   _DTPesc,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/topics/{TopicId}/permissions", 200] },
-  () => DescribeTopicPermissionsRequest,
-  () => DescribeTopicPermissionsResponse,
+  () => DescribeTopicPermissionsRequest$,
+  () => DescribeTopicPermissionsResponse$,
 ];
-export var DescribeTopicRefresh: StaticOperationSchema = [
+export var DescribeTopicRefresh$: StaticOperationSchema = [
   9,
   n0,
   _DTRescribeo,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/topics/{TopicId}/refresh/{RefreshId}", 200] },
-  () => DescribeTopicRefreshRequest,
-  () => DescribeTopicRefreshResponse,
+  () => DescribeTopicRefreshRequest$,
+  () => DescribeTopicRefreshResponse$,
 ];
-export var DescribeTopicRefreshSchedule: StaticOperationSchema = [
+export var DescribeTopicRefreshSchedule$: StaticOperationSchema = [
   9,
   n0,
   _DTRSe,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/topics/{TopicId}/schedules/{DatasetId}", 200] },
-  () => DescribeTopicRefreshScheduleRequest,
-  () => DescribeTopicRefreshScheduleResponse,
+  () => DescribeTopicRefreshScheduleRequest$,
+  () => DescribeTopicRefreshScheduleResponse$,
 ];
-export var DescribeUser: StaticOperationSchema = [
+export var DescribeUser$: StaticOperationSchema = [
   9,
   n0,
   _DUes,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}", 200] },
-  () => DescribeUserRequest,
-  () => DescribeUserResponse,
+  () => DescribeUserRequest$,
+  () => DescribeUserResponse$,
 ];
-export var DescribeVPCConnection: StaticOperationSchema = [
+export var DescribeVPCConnection$: StaticOperationSchema = [
   9,
   n0,
   _DVPCCe,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}", 200] },
-  () => DescribeVPCConnectionRequest,
-  () => DescribeVPCConnectionResponse,
+  () => DescribeVPCConnectionRequest$,
+  () => DescribeVPCConnectionResponse$,
 ];
-export var GenerateEmbedUrlForAnonymousUser: StaticOperationSchema = [
+export var GenerateEmbedUrlForAnonymousUser$: StaticOperationSchema = [
   9,
   n0,
   _GEUFAU,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/embed-url/anonymous-user", 200] },
-  () => GenerateEmbedUrlForAnonymousUserRequest,
-  () => GenerateEmbedUrlForAnonymousUserResponse,
+  () => GenerateEmbedUrlForAnonymousUserRequest$,
+  () => GenerateEmbedUrlForAnonymousUserResponse$,
 ];
-export var GenerateEmbedUrlForRegisteredUser: StaticOperationSchema = [
+export var GenerateEmbedUrlForRegisteredUser$: StaticOperationSchema = [
   9,
   n0,
   _GEUFRU,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/embed-url/registered-user", 200] },
-  () => GenerateEmbedUrlForRegisteredUserRequest,
-  () => GenerateEmbedUrlForRegisteredUserResponse,
+  () => GenerateEmbedUrlForRegisteredUserRequest$,
+  () => GenerateEmbedUrlForRegisteredUserResponse$,
 ];
-export var GenerateEmbedUrlForRegisteredUserWithIdentity: StaticOperationSchema = [
+export var GenerateEmbedUrlForRegisteredUserWithIdentity$: StaticOperationSchema = [
   9,
   n0,
   _GEUFRUWI,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/embed-url/registered-user-with-identity", 200] },
-  () => GenerateEmbedUrlForRegisteredUserWithIdentityRequest,
-  () => GenerateEmbedUrlForRegisteredUserWithIdentityResponse,
+  () => GenerateEmbedUrlForRegisteredUserWithIdentityRequest$,
+  () => GenerateEmbedUrlForRegisteredUserWithIdentityResponse$,
 ];
-export var GetDashboardEmbedUrl: StaticOperationSchema = [
+export var GetDashboardEmbedUrl$: StaticOperationSchema = [
   9,
   n0,
   _GDEU,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/embed-url", 200] },
-  () => GetDashboardEmbedUrlRequest,
-  () => GetDashboardEmbedUrlResponse,
+  () => GetDashboardEmbedUrlRequest$,
+  () => GetDashboardEmbedUrlResponse$,
 ];
-export var GetFlowMetadata: StaticOperationSchema = [
+export var GetFlowMetadata$: StaticOperationSchema = [
   9,
   n0,
   _GFM,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/flows/{FlowId}/metadata", 200] },
-  () => GetFlowMetadataInput,
-  () => GetFlowMetadataOutput,
+  () => GetFlowMetadataInput$,
+  () => GetFlowMetadataOutput$,
 ];
-export var GetFlowPermissions: StaticOperationSchema = [
+export var GetFlowPermissions$: StaticOperationSchema = [
   9,
   n0,
   _GFP,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/flows/{FlowId}/permissions", 200] },
-  () => GetFlowPermissionsInput,
-  () => GetFlowPermissionsOutput,
+  () => GetFlowPermissionsInput$,
+  () => GetFlowPermissionsOutput$,
 ];
-export var GetIdentityContext: StaticOperationSchema = [
+export var GetIdentityContext$: StaticOperationSchema = [
   9,
   n0,
   _GIC,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/identity-context", 200] },
-  () => GetIdentityContextRequest,
-  () => GetIdentityContextResponse,
+  () => GetIdentityContextRequest$,
+  () => GetIdentityContextResponse$,
 ];
-export var GetSessionEmbedUrl: StaticOperationSchema = [
+export var GetSessionEmbedUrl$: StaticOperationSchema = [
   9,
   n0,
   _GSEU,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/session-embed-url", 200] },
-  () => GetSessionEmbedUrlRequest,
-  () => GetSessionEmbedUrlResponse,
+  () => GetSessionEmbedUrlRequest$,
+  () => GetSessionEmbedUrlResponse$,
 ];
-export var ListActionConnectors: StaticOperationSchema = [
+export var ListActionConnectors$: StaticOperationSchema = [
   9,
   n0,
   _LAC,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/action-connectors", 200] },
-  () => ListActionConnectorsRequest,
-  () => ListActionConnectorsResponse,
+  () => ListActionConnectorsRequest$,
+  () => ListActionConnectorsResponse$,
 ];
-export var ListAnalyses: StaticOperationSchema = [
+export var ListAnalyses$: StaticOperationSchema = [
   9,
   n0,
   _LAi,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/analyses", 200] },
-  () => ListAnalysesRequest,
-  () => ListAnalysesResponse,
+  () => ListAnalysesRequest$,
+  () => ListAnalysesResponse$,
 ];
-export var ListAssetBundleExportJobs: StaticOperationSchema = [
+export var ListAssetBundleExportJobs$: StaticOperationSchema = [
   9,
   n0,
   _LABEJ,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/asset-bundle-export-jobs", 200] },
-  () => ListAssetBundleExportJobsRequest,
-  () => ListAssetBundleExportJobsResponse,
+  () => ListAssetBundleExportJobsRequest$,
+  () => ListAssetBundleExportJobsResponse$,
 ];
-export var ListAssetBundleImportJobs: StaticOperationSchema = [
+export var ListAssetBundleImportJobs$: StaticOperationSchema = [
   9,
   n0,
   _LABIJ,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/asset-bundle-import-jobs", 200] },
-  () => ListAssetBundleImportJobsRequest,
-  () => ListAssetBundleImportJobsResponse,
+  () => ListAssetBundleImportJobsRequest$,
+  () => ListAssetBundleImportJobsResponse$,
 ];
-export var ListBrands: StaticOperationSchema = [
+export var ListBrands$: StaticOperationSchema = [
   9,
   n0,
   _LBi,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/brands", 200] },
-  () => ListBrandsRequest,
-  () => ListBrandsResponse,
+  () => ListBrandsRequest$,
+  () => ListBrandsResponse$,
 ];
-export var ListCustomPermissions: StaticOperationSchema = [
+export var ListCustomPermissions$: StaticOperationSchema = [
   9,
   n0,
   _LCP,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/custom-permissions", 200] },
-  () => ListCustomPermissionsRequest,
-  () => ListCustomPermissionsResponse,
+  () => ListCustomPermissionsRequest$,
+  () => ListCustomPermissionsResponse$,
 ];
-export var ListDashboards: StaticOperationSchema = [
+export var ListDashboards$: StaticOperationSchema = [
   9,
   n0,
   _LDi,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/dashboards", 200] },
-  () => ListDashboardsRequest,
-  () => ListDashboardsResponse,
+  () => ListDashboardsRequest$,
+  () => ListDashboardsResponse$,
 ];
-export var ListDashboardVersions: StaticOperationSchema = [
+export var ListDashboardVersions$: StaticOperationSchema = [
   9,
   n0,
   _LDV,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/versions", 200] },
-  () => ListDashboardVersionsRequest,
-  () => ListDashboardVersionsResponse,
+  () => ListDashboardVersionsRequest$,
+  () => ListDashboardVersionsResponse$,
 ];
-export var ListDataSets: StaticOperationSchema = [
+export var ListDataSets$: StaticOperationSchema = [
   9,
   n0,
   _LDS,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/data-sets", 200] },
-  () => ListDataSetsRequest,
-  () => ListDataSetsResponse,
+  () => ListDataSetsRequest$,
+  () => ListDataSetsResponse$,
 ];
-export var ListDataSources: StaticOperationSchema = [
+export var ListDataSources$: StaticOperationSchema = [
   9,
   n0,
   _LDSi,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/data-sources", 200] },
-  () => ListDataSourcesRequest,
-  () => ListDataSourcesResponse,
+  () => ListDataSourcesRequest$,
+  () => ListDataSourcesResponse$,
 ];
-export var ListFlows: StaticOperationSchema = [
+export var ListFlows$: StaticOperationSchema = [
   9,
   n0,
   _LF,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/flows", 200] },
-  () => ListFlowsInput,
-  () => ListFlowsOutput,
+  () => ListFlowsInput$,
+  () => ListFlowsOutput$,
 ];
-export var ListFolderMembers: StaticOperationSchema = [
+export var ListFolderMembers$: StaticOperationSchema = [
   9,
   n0,
   _LFM,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/folders/{FolderId}/members", 200] },
-  () => ListFolderMembersRequest,
-  () => ListFolderMembersResponse,
+  () => ListFolderMembersRequest$,
+  () => ListFolderMembersResponse$,
 ];
-export var ListFolders: StaticOperationSchema = [
+export var ListFolders$: StaticOperationSchema = [
   9,
   n0,
   _LFi,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/folders", 200] },
-  () => ListFoldersRequest,
-  () => ListFoldersResponse,
+  () => ListFoldersRequest$,
+  () => ListFoldersResponse$,
 ];
-export var ListFoldersForResource: StaticOperationSchema = [
+export var ListFoldersForResource$: StaticOperationSchema = [
   9,
   n0,
   _LFFR,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/resource/{ResourceArn}/folders", 200] },
-  () => ListFoldersForResourceRequest,
-  () => ListFoldersForResourceResponse,
+  () => ListFoldersForResourceRequest$,
+  () => ListFoldersForResourceResponse$,
 ];
-export var ListGroupMemberships: StaticOperationSchema = [
+export var ListGroupMemberships$: StaticOperationSchema = [
   9,
   n0,
   _LGM,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members", 200] },
-  () => ListGroupMembershipsRequest,
-  () => ListGroupMembershipsResponse,
+  () => ListGroupMembershipsRequest$,
+  () => ListGroupMembershipsResponse$,
 ];
-export var ListGroups: StaticOperationSchema = [
+export var ListGroups$: StaticOperationSchema = [
   9,
   n0,
   _LG,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups", 200] },
-  () => ListGroupsRequest,
-  () => ListGroupsResponse,
+  () => ListGroupsRequest$,
+  () => ListGroupsResponse$,
 ];
-export var ListIAMPolicyAssignments: StaticOperationSchema = [
+export var ListIAMPolicyAssignments$: StaticOperationSchema = [
   9,
   n0,
   _LIAMPA,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/v2/iam-policy-assignments", 200] },
-  () => ListIAMPolicyAssignmentsRequest,
-  () => ListIAMPolicyAssignmentsResponse,
+  () => ListIAMPolicyAssignmentsRequest$,
+  () => ListIAMPolicyAssignmentsResponse$,
 ];
-export var ListIAMPolicyAssignmentsForUser: StaticOperationSchema = [
+export var ListIAMPolicyAssignmentsForUser$: StaticOperationSchema = [
   9,
   n0,
   _LIAMPAFU,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/iam-policy-assignments", 200] },
-  () => ListIAMPolicyAssignmentsForUserRequest,
-  () => ListIAMPolicyAssignmentsForUserResponse,
+  () => ListIAMPolicyAssignmentsForUserRequest$,
+  () => ListIAMPolicyAssignmentsForUserResponse$,
 ];
-export var ListIdentityPropagationConfigs: StaticOperationSchema = [
+export var ListIdentityPropagationConfigs$: StaticOperationSchema = [
   9,
   n0,
   _LIPC,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/identity-propagation-config", 200] },
-  () => ListIdentityPropagationConfigsRequest,
-  () => ListIdentityPropagationConfigsResponse,
+  () => ListIdentityPropagationConfigsRequest$,
+  () => ListIdentityPropagationConfigsResponse$,
 ];
-export var ListIngestions: StaticOperationSchema = [
+export var ListIngestions$: StaticOperationSchema = [
   9,
   n0,
   _LIis,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions", 200] },
-  () => ListIngestionsRequest,
-  () => ListIngestionsResponse,
+  () => ListIngestionsRequest$,
+  () => ListIngestionsResponse$,
 ];
-export var ListNamespaces: StaticOperationSchema = [
+export var ListNamespaces$: StaticOperationSchema = [
   9,
   n0,
   _LNi,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces", 200] },
-  () => ListNamespacesRequest,
-  () => ListNamespacesResponse,
+  () => ListNamespacesRequest$,
+  () => ListNamespacesResponse$,
 ];
-export var ListRefreshSchedules: StaticOperationSchema = [
+export var ListRefreshSchedules$: StaticOperationSchema = [
   9,
   n0,
   _LRS,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules", 200] },
-  () => ListRefreshSchedulesRequest,
-  () => ListRefreshSchedulesResponse,
+  () => ListRefreshSchedulesRequest$,
+  () => ListRefreshSchedulesResponse$,
 ];
-export var ListRoleMemberships: StaticOperationSchema = [
+export var ListRoleMemberships$: StaticOperationSchema = [
   9,
   n0,
   _LRM,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members", 200] },
-  () => ListRoleMembershipsRequest,
-  () => ListRoleMembershipsResponse,
+  () => ListRoleMembershipsRequest$,
+  () => ListRoleMembershipsResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/resources/{ResourceArn}/tags", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var ListTemplateAliases: StaticOperationSchema = [
+export var ListTemplateAliases$: StaticOperationSchema = [
   9,
   n0,
   _LTA,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases", 200] },
-  () => ListTemplateAliasesRequest,
-  () => ListTemplateAliasesResponse,
+  () => ListTemplateAliasesRequest$,
+  () => ListTemplateAliasesResponse$,
 ];
-export var ListTemplates: StaticOperationSchema = [
+export var ListTemplates$: StaticOperationSchema = [
   9,
   n0,
   _LTi,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/templates", 200] },
-  () => ListTemplatesRequest,
-  () => ListTemplatesResponse,
+  () => ListTemplatesRequest$,
+  () => ListTemplatesResponse$,
 ];
-export var ListTemplateVersions: StaticOperationSchema = [
+export var ListTemplateVersions$: StaticOperationSchema = [
   9,
   n0,
   _LTV,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/templates/{TemplateId}/versions", 200] },
-  () => ListTemplateVersionsRequest,
-  () => ListTemplateVersionsResponse,
+  () => ListTemplateVersionsRequest$,
+  () => ListTemplateVersionsResponse$,
 ];
-export var ListThemeAliases: StaticOperationSchema = [
+export var ListThemeAliases$: StaticOperationSchema = [
   9,
   n0,
   _LTAi,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases", 200] },
-  () => ListThemeAliasesRequest,
-  () => ListThemeAliasesResponse,
+  () => ListThemeAliasesRequest$,
+  () => ListThemeAliasesResponse$,
 ];
-export var ListThemes: StaticOperationSchema = [
+export var ListThemes$: StaticOperationSchema = [
   9,
   n0,
   _LTis,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/themes", 200] },
-  () => ListThemesRequest,
-  () => ListThemesResponse,
+  () => ListThemesRequest$,
+  () => ListThemesResponse$,
 ];
-export var ListThemeVersions: StaticOperationSchema = [
+export var ListThemeVersions$: StaticOperationSchema = [
   9,
   n0,
   _LTVi,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/themes/{ThemeId}/versions", 200] },
-  () => ListThemeVersionsRequest,
-  () => ListThemeVersionsResponse,
+  () => ListThemeVersionsRequest$,
+  () => ListThemeVersionsResponse$,
 ];
-export var ListTopicRefreshSchedules: StaticOperationSchema = [
+export var ListTopicRefreshSchedules$: StaticOperationSchema = [
   9,
   n0,
   _LTRS,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/topics/{TopicId}/schedules", 200] },
-  () => ListTopicRefreshSchedulesRequest,
-  () => ListTopicRefreshSchedulesResponse,
+  () => ListTopicRefreshSchedulesRequest$,
+  () => ListTopicRefreshSchedulesResponse$,
 ];
-export var ListTopicReviewedAnswers: StaticOperationSchema = [
+export var ListTopicReviewedAnswers$: StaticOperationSchema = [
   9,
   n0,
   _LTRA,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/topics/{TopicId}/reviewed-answers", 200] },
-  () => ListTopicReviewedAnswersRequest,
-  () => ListTopicReviewedAnswersResponse,
+  () => ListTopicReviewedAnswersRequest$,
+  () => ListTopicReviewedAnswersResponse$,
 ];
-export var ListTopics: StaticOperationSchema = [
+export var ListTopics$: StaticOperationSchema = [
   9,
   n0,
   _LTist,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/topics", 200] },
-  () => ListTopicsRequest,
-  () => ListTopicsResponse,
+  () => ListTopicsRequest$,
+  () => ListTopicsResponse$,
 ];
-export var ListUserGroups: StaticOperationSchema = [
+export var ListUserGroups$: StaticOperationSchema = [
   9,
   n0,
   _LUG,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/groups", 200] },
-  () => ListUserGroupsRequest,
-  () => ListUserGroupsResponse,
+  () => ListUserGroupsRequest$,
+  () => ListUserGroupsResponse$,
 ];
-export var ListUsers: StaticOperationSchema = [
+export var ListUsers$: StaticOperationSchema = [
   9,
   n0,
   _LU,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/users", 200] },
-  () => ListUsersRequest,
-  () => ListUsersResponse,
+  () => ListUsersRequest$,
+  () => ListUsersResponse$,
 ];
-export var ListVPCConnections: StaticOperationSchema = [
+export var ListVPCConnections$: StaticOperationSchema = [
   9,
   n0,
   _LVPCC,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/vpc-connections", 200] },
-  () => ListVPCConnectionsRequest,
-  () => ListVPCConnectionsResponse,
+  () => ListVPCConnectionsRequest$,
+  () => ListVPCConnectionsResponse$,
 ];
-export var PredictQAResults: StaticOperationSchema = [
+export var PredictQAResults$: StaticOperationSchema = [
   9,
   n0,
   _PQAR,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/qa/predict", 200] },
-  () => PredictQAResultsRequest,
-  () => PredictQAResultsResponse,
+  () => PredictQAResultsRequest$,
+  () => PredictQAResultsResponse$,
 ];
-export var PutDataSetRefreshProperties: StaticOperationSchema = [
+export var PutDataSetRefreshProperties$: StaticOperationSchema = [
   9,
   n0,
   _PDSRP,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties", 200] },
-  () => PutDataSetRefreshPropertiesRequest,
-  () => PutDataSetRefreshPropertiesResponse,
+  () => PutDataSetRefreshPropertiesRequest$,
+  () => PutDataSetRefreshPropertiesResponse$,
 ];
-export var RegisterUser: StaticOperationSchema = [
+export var RegisterUser$: StaticOperationSchema = [
   9,
   n0,
   _RUeg,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/namespaces/{Namespace}/users", 200] },
-  () => RegisterUserRequest,
-  () => RegisterUserResponse,
+  () => RegisterUserRequest$,
+  () => RegisterUserResponse$,
 ];
-export var RestoreAnalysis: StaticOperationSchema = [
+export var RestoreAnalysis$: StaticOperationSchema = [
   9,
   n0,
   _RAest,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/restore/analyses/{AnalysisId}", 200] },
-  () => RestoreAnalysisRequest,
-  () => RestoreAnalysisResponse,
+  () => RestoreAnalysisRequest$,
+  () => RestoreAnalysisResponse$,
 ];
-export var SearchActionConnectors: StaticOperationSchema = [
+export var SearchActionConnectors$: StaticOperationSchema = [
   9,
   n0,
   _SAC,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/search/action-connectors", 200] },
-  () => SearchActionConnectorsRequest,
-  () => SearchActionConnectorsResponse,
+  () => SearchActionConnectorsRequest$,
+  () => SearchActionConnectorsResponse$,
 ];
-export var SearchAnalyses: StaticOperationSchema = [
+export var SearchAnalyses$: StaticOperationSchema = [
   9,
   n0,
   _SAe,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/search/analyses", 200] },
-  () => SearchAnalysesRequest,
-  () => SearchAnalysesResponse,
+  () => SearchAnalysesRequest$,
+  () => SearchAnalysesResponse$,
 ];
-export var SearchDashboards: StaticOperationSchema = [
+export var SearchDashboards$: StaticOperationSchema = [
   9,
   n0,
   _SDea,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/search/dashboards", 200] },
-  () => SearchDashboardsRequest,
-  () => SearchDashboardsResponse,
+  () => SearchDashboardsRequest$,
+  () => SearchDashboardsResponse$,
 ];
-export var SearchDataSets: StaticOperationSchema = [
+export var SearchDataSets$: StaticOperationSchema = [
   9,
   n0,
   _SDSe,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/search/data-sets", 200] },
-  () => SearchDataSetsRequest,
-  () => SearchDataSetsResponse,
+  () => SearchDataSetsRequest$,
+  () => SearchDataSetsResponse$,
 ];
-export var SearchDataSources: StaticOperationSchema = [
+export var SearchDataSources$: StaticOperationSchema = [
   9,
   n0,
   _SDSea,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/search/data-sources", 200] },
-  () => SearchDataSourcesRequest,
-  () => SearchDataSourcesResponse,
+  () => SearchDataSourcesRequest$,
+  () => SearchDataSourcesResponse$,
 ];
-export var SearchFlows: StaticOperationSchema = [
+export var SearchFlows$: StaticOperationSchema = [
   9,
   n0,
   _SFea,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/flows/searchFlows", 200] },
-  () => SearchFlowsInput,
-  () => SearchFlowsOutput,
+  () => SearchFlowsInput$,
+  () => SearchFlowsOutput$,
 ];
-export var SearchFolders: StaticOperationSchema = [
+export var SearchFolders$: StaticOperationSchema = [
   9,
   n0,
   _SFear,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/search/folders", 200] },
-  () => SearchFoldersRequest,
-  () => SearchFoldersResponse,
+  () => SearchFoldersRequest$,
+  () => SearchFoldersResponse$,
 ];
-export var SearchGroups: StaticOperationSchema = [
+export var SearchGroups$: StaticOperationSchema = [
   9,
   n0,
   _SG,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups-search", 200] },
-  () => SearchGroupsRequest,
-  () => SearchGroupsResponse,
+  () => SearchGroupsRequest$,
+  () => SearchGroupsResponse$,
 ];
-export var SearchTopics: StaticOperationSchema = [
+export var SearchTopics$: StaticOperationSchema = [
   9,
   n0,
   _STea,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/search/topics", 200] },
-  () => SearchTopicsRequest,
-  () => SearchTopicsResponse,
+  () => SearchTopicsRequest$,
+  () => SearchTopicsResponse$,
 ];
-export var StartAssetBundleExportJob: StaticOperationSchema = [
+export var StartAssetBundleExportJob$: StaticOperationSchema = [
   9,
   n0,
   _SABEJ,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/asset-bundle-export-jobs/export", 200] },
-  () => StartAssetBundleExportJobRequest,
-  () => StartAssetBundleExportJobResponse,
+  () => StartAssetBundleExportJobRequest$,
+  () => StartAssetBundleExportJobResponse$,
 ];
-export var StartAssetBundleImportJob: StaticOperationSchema = [
+export var StartAssetBundleImportJob$: StaticOperationSchema = [
   9,
   n0,
   _SABIJ,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/asset-bundle-import-jobs/import", 200] },
-  () => StartAssetBundleImportJobRequest,
-  () => StartAssetBundleImportJobResponse,
+  () => StartAssetBundleImportJobRequest$,
+  () => StartAssetBundleImportJobResponse$,
 ];
-export var StartDashboardSnapshotJob: StaticOperationSchema = [
+export var StartDashboardSnapshotJob$: StaticOperationSchema = [
   9,
   n0,
   _SDSJ,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs", 200] },
-  () => StartDashboardSnapshotJobRequest,
-  () => StartDashboardSnapshotJobResponse,
+  () => StartDashboardSnapshotJobRequest$,
+  () => StartDashboardSnapshotJobResponse$,
 ];
-export var StartDashboardSnapshotJobSchedule: StaticOperationSchema = [
+export var StartDashboardSnapshotJobSchedule$: StaticOperationSchema = [
   9,
   n0,
   _SDSJS,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/schedules/{ScheduleId}", 200] },
-  () => StartDashboardSnapshotJobScheduleRequest,
-  () => StartDashboardSnapshotJobScheduleResponse,
+  () => StartDashboardSnapshotJobScheduleRequest$,
+  () => StartDashboardSnapshotJobScheduleResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TRa,
   { [_h]: ["POST", "/resources/{ResourceArn}/tags", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _URn,
   { [_h]: ["DELETE", "/resources/{ResourceArn}/tags", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateAccountCustomization: StaticOperationSchema = [
+export var UpdateAccountCustomization$: StaticOperationSchema = [
   9,
   n0,
   _UAC,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/customizations", 200] },
-  () => UpdateAccountCustomizationRequest,
-  () => UpdateAccountCustomizationResponse,
+  () => UpdateAccountCustomizationRequest$,
+  () => UpdateAccountCustomizationResponse$,
 ];
-export var UpdateAccountCustomPermission: StaticOperationSchema = [
+export var UpdateAccountCustomPermission$: StaticOperationSchema = [
   9,
   n0,
   _UACP,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/custom-permission", 200] },
-  () => UpdateAccountCustomPermissionRequest,
-  () => UpdateAccountCustomPermissionResponse,
+  () => UpdateAccountCustomPermissionRequest$,
+  () => UpdateAccountCustomPermissionResponse$,
 ];
-export var UpdateAccountSettings: StaticOperationSchema = [
+export var UpdateAccountSettings$: StaticOperationSchema = [
   9,
   n0,
   _UAS,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/settings", 200] },
-  () => UpdateAccountSettingsRequest,
-  () => UpdateAccountSettingsResponse,
+  () => UpdateAccountSettingsRequest$,
+  () => UpdateAccountSettingsResponse$,
 ];
-export var UpdateActionConnector: StaticOperationSchema = [
+export var UpdateActionConnector$: StaticOperationSchema = [
   9,
   n0,
   _UACp,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}", 200] },
-  () => UpdateActionConnectorRequest,
-  () => UpdateActionConnectorResponse,
+  () => UpdateActionConnectorRequest$,
+  () => UpdateActionConnectorResponse$,
 ];
-export var UpdateActionConnectorPermissions: StaticOperationSchema = [
+export var UpdateActionConnectorPermissions$: StaticOperationSchema = [
   9,
   n0,
   _UACPp,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}/permissions", 200] },
-  () => UpdateActionConnectorPermissionsRequest,
-  () => UpdateActionConnectorPermissionsResponse,
+  () => UpdateActionConnectorPermissionsRequest$,
+  () => UpdateActionConnectorPermissionsResponse$,
 ];
-export var UpdateAnalysis: StaticOperationSchema = [
+export var UpdateAnalysis$: StaticOperationSchema = [
   9,
   n0,
   _UAp,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/analyses/{AnalysisId}", 200] },
-  () => UpdateAnalysisRequest,
-  () => UpdateAnalysisResponse,
+  () => UpdateAnalysisRequest$,
+  () => UpdateAnalysisResponse$,
 ];
-export var UpdateAnalysisPermissions: StaticOperationSchema = [
+export var UpdateAnalysisPermissions$: StaticOperationSchema = [
   9,
   n0,
   _UAP,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/analyses/{AnalysisId}/permissions", 200] },
-  () => UpdateAnalysisPermissionsRequest,
-  () => UpdateAnalysisPermissionsResponse,
+  () => UpdateAnalysisPermissionsRequest$,
+  () => UpdateAnalysisPermissionsResponse$,
 ];
-export var UpdateApplicationWithTokenExchangeGrant: StaticOperationSchema = [
+export var UpdateApplicationWithTokenExchangeGrant$: StaticOperationSchema = [
   9,
   n0,
   _UAWTEG,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/application-with-token-exchange-grant", 200] },
-  () => UpdateApplicationWithTokenExchangeGrantRequest,
-  () => UpdateApplicationWithTokenExchangeGrantResponse,
+  () => UpdateApplicationWithTokenExchangeGrantRequest$,
+  () => UpdateApplicationWithTokenExchangeGrantResponse$,
 ];
-export var UpdateBrand: StaticOperationSchema = [
+export var UpdateBrand$: StaticOperationSchema = [
   9,
   n0,
   _UBp,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/brands/{BrandId}", 200] },
-  () => UpdateBrandRequest,
-  () => UpdateBrandResponse,
+  () => UpdateBrandRequest$,
+  () => UpdateBrandResponse$,
 ];
-export var UpdateBrandAssignment: StaticOperationSchema = [
+export var UpdateBrandAssignment$: StaticOperationSchema = [
   9,
   n0,
   _UBA,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/brandassignments", 200] },
-  () => UpdateBrandAssignmentRequest,
-  () => UpdateBrandAssignmentResponse,
+  () => UpdateBrandAssignmentRequest$,
+  () => UpdateBrandAssignmentResponse$,
 ];
-export var UpdateBrandPublishedVersion: StaticOperationSchema = [
+export var UpdateBrandPublishedVersion$: StaticOperationSchema = [
   9,
   n0,
   _UBPV,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/brands/{BrandId}/publishedversion", 200] },
-  () => UpdateBrandPublishedVersionRequest,
-  () => UpdateBrandPublishedVersionResponse,
+  () => UpdateBrandPublishedVersionRequest$,
+  () => UpdateBrandPublishedVersionResponse$,
 ];
-export var UpdateCustomPermissions: StaticOperationSchema = [
+export var UpdateCustomPermissions$: StaticOperationSchema = [
   9,
   n0,
   _UCPp,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/custom-permissions/{CustomPermissionsName}", 200] },
-  () => UpdateCustomPermissionsRequest,
-  () => UpdateCustomPermissionsResponse,
+  () => UpdateCustomPermissionsRequest$,
+  () => UpdateCustomPermissionsResponse$,
 ];
-export var UpdateDashboard: StaticOperationSchema = [
+export var UpdateDashboard$: StaticOperationSchema = [
   9,
   n0,
   _UD,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/dashboards/{DashboardId}", 200] },
-  () => UpdateDashboardRequest,
-  () => UpdateDashboardResponse,
+  () => UpdateDashboardRequest$,
+  () => UpdateDashboardResponse$,
 ];
-export var UpdateDashboardLinks: StaticOperationSchema = [
+export var UpdateDashboardLinks$: StaticOperationSchema = [
   9,
   n0,
   _UDL,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/linked-entities", 200] },
-  () => UpdateDashboardLinksRequest,
-  () => UpdateDashboardLinksResponse,
+  () => UpdateDashboardLinksRequest$,
+  () => UpdateDashboardLinksResponse$,
 ];
-export var UpdateDashboardPermissions: StaticOperationSchema = [
+export var UpdateDashboardPermissions$: StaticOperationSchema = [
   9,
   n0,
   _UDP,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/permissions", 200] },
-  () => UpdateDashboardPermissionsRequest,
-  () => UpdateDashboardPermissionsResponse,
+  () => UpdateDashboardPermissionsRequest$,
+  () => UpdateDashboardPermissionsResponse$,
 ];
-export var UpdateDashboardPublishedVersion: StaticOperationSchema = [
+export var UpdateDashboardPublishedVersion$: StaticOperationSchema = [
   9,
   n0,
   _UDPV,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/versions/{VersionNumber}", 200] },
-  () => UpdateDashboardPublishedVersionRequest,
-  () => UpdateDashboardPublishedVersionResponse,
+  () => UpdateDashboardPublishedVersionRequest$,
+  () => UpdateDashboardPublishedVersionResponse$,
 ];
-export var UpdateDashboardsQAConfiguration: StaticOperationSchema = [
+export var UpdateDashboardsQAConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UDQAC,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/dashboards-qa-configuration", 200] },
-  () => UpdateDashboardsQAConfigurationRequest,
-  () => UpdateDashboardsQAConfigurationResponse,
+  () => UpdateDashboardsQAConfigurationRequest$,
+  () => UpdateDashboardsQAConfigurationResponse$,
 ];
-export var UpdateDataSet: StaticOperationSchema = [
+export var UpdateDataSet$: StaticOperationSchema = [
   9,
   n0,
   _UDS,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/data-sets/{DataSetId}", 200] },
-  () => UpdateDataSetRequest,
-  () => UpdateDataSetResponse,
+  () => UpdateDataSetRequest$,
+  () => UpdateDataSetResponse$,
 ];
-export var UpdateDataSetPermissions: StaticOperationSchema = [
+export var UpdateDataSetPermissions$: StaticOperationSchema = [
   9,
   n0,
   _UDSP,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/permissions", 200] },
-  () => UpdateDataSetPermissionsRequest,
-  () => UpdateDataSetPermissionsResponse,
+  () => UpdateDataSetPermissionsRequest$,
+  () => UpdateDataSetPermissionsResponse$,
 ];
-export var UpdateDataSource: StaticOperationSchema = [
+export var UpdateDataSource$: StaticOperationSchema = [
   9,
   n0,
   _UDSp,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/data-sources/{DataSourceId}", 200] },
-  () => UpdateDataSourceRequest,
-  () => UpdateDataSourceResponse,
+  () => UpdateDataSourceRequest$,
+  () => UpdateDataSourceResponse$,
 ];
-export var UpdateDataSourcePermissions: StaticOperationSchema = [
+export var UpdateDataSourcePermissions$: StaticOperationSchema = [
   9,
   n0,
   _UDSPp,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions", 200] },
-  () => UpdateDataSourcePermissionsRequest,
-  () => UpdateDataSourcePermissionsResponse,
+  () => UpdateDataSourcePermissionsRequest$,
+  () => UpdateDataSourcePermissionsResponse$,
 ];
-export var UpdateDefaultQBusinessApplication: StaticOperationSchema = [
+export var UpdateDefaultQBusinessApplication$: StaticOperationSchema = [
   9,
   n0,
   _UDQBA,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/default-qbusiness-application", 200] },
-  () => UpdateDefaultQBusinessApplicationRequest,
-  () => UpdateDefaultQBusinessApplicationResponse,
+  () => UpdateDefaultQBusinessApplicationRequest$,
+  () => UpdateDefaultQBusinessApplicationResponse$,
 ];
-export var UpdateFlowPermissions: StaticOperationSchema = [
+export var UpdateFlowPermissions$: StaticOperationSchema = [
   9,
   n0,
   _UFP,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/flows/{FlowId}/permissions", 200] },
-  () => UpdateFlowPermissionsInput,
-  () => UpdateFlowPermissionsOutput,
+  () => UpdateFlowPermissionsInput$,
+  () => UpdateFlowPermissionsOutput$,
 ];
-export var UpdateFolder: StaticOperationSchema = [
+export var UpdateFolder$: StaticOperationSchema = [
   9,
   n0,
   _UFp,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/folders/{FolderId}", 200] },
-  () => UpdateFolderRequest,
-  () => UpdateFolderResponse,
+  () => UpdateFolderRequest$,
+  () => UpdateFolderResponse$,
 ];
-export var UpdateFolderPermissions: StaticOperationSchema = [
+export var UpdateFolderPermissions$: StaticOperationSchema = [
   9,
   n0,
   _UFPp,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/folders/{FolderId}/permissions", 200] },
-  () => UpdateFolderPermissionsRequest,
-  () => UpdateFolderPermissionsResponse,
+  () => UpdateFolderPermissionsRequest$,
+  () => UpdateFolderPermissionsResponse$,
 ];
-export var UpdateGroup: StaticOperationSchema = [
+export var UpdateGroup$: StaticOperationSchema = [
   9,
   n0,
   _UGp,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}", 200] },
-  () => UpdateGroupRequest,
-  () => UpdateGroupResponse,
+  () => UpdateGroupRequest$,
+  () => UpdateGroupResponse$,
 ];
-export var UpdateIAMPolicyAssignment: StaticOperationSchema = [
+export var UpdateIAMPolicyAssignment$: StaticOperationSchema = [
   9,
   n0,
   _UIAMPA,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments/{AssignmentName}", 200] },
-  () => UpdateIAMPolicyAssignmentRequest,
-  () => UpdateIAMPolicyAssignmentResponse,
+  () => UpdateIAMPolicyAssignmentRequest$,
+  () => UpdateIAMPolicyAssignmentResponse$,
 ];
-export var UpdateIdentityPropagationConfig: StaticOperationSchema = [
+export var UpdateIdentityPropagationConfig$: StaticOperationSchema = [
   9,
   n0,
   _UIPC,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/identity-propagation-config/{Service}", 200] },
-  () => UpdateIdentityPropagationConfigRequest,
-  () => UpdateIdentityPropagationConfigResponse,
+  () => UpdateIdentityPropagationConfigRequest$,
+  () => UpdateIdentityPropagationConfigResponse$,
 ];
-export var UpdateIpRestriction: StaticOperationSchema = [
+export var UpdateIpRestriction$: StaticOperationSchema = [
   9,
   n0,
   _UIR,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/ip-restriction", 200] },
-  () => UpdateIpRestrictionRequest,
-  () => UpdateIpRestrictionResponse,
+  () => UpdateIpRestrictionRequest$,
+  () => UpdateIpRestrictionResponse$,
 ];
-export var UpdateKeyRegistration: StaticOperationSchema = [
+export var UpdateKeyRegistration$: StaticOperationSchema = [
   9,
   n0,
   _UKR,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/key-registration", 200] },
-  () => UpdateKeyRegistrationRequest,
-  () => UpdateKeyRegistrationResponse,
+  () => UpdateKeyRegistrationRequest$,
+  () => UpdateKeyRegistrationResponse$,
 ];
-export var UpdatePublicSharingSettings: StaticOperationSchema = [
+export var UpdatePublicSharingSettings$: StaticOperationSchema = [
   9,
   n0,
   _UPSS,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/public-sharing-settings", 200] },
-  () => UpdatePublicSharingSettingsRequest,
-  () => UpdatePublicSharingSettingsResponse,
+  () => UpdatePublicSharingSettingsRequest$,
+  () => UpdatePublicSharingSettingsResponse$,
 ];
-export var UpdateQPersonalizationConfiguration: StaticOperationSchema = [
+export var UpdateQPersonalizationConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UQPC,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/q-personalization-configuration", 200] },
-  () => UpdateQPersonalizationConfigurationRequest,
-  () => UpdateQPersonalizationConfigurationResponse,
+  () => UpdateQPersonalizationConfigurationRequest$,
+  () => UpdateQPersonalizationConfigurationResponse$,
 ];
-export var UpdateQuickSightQSearchConfiguration: StaticOperationSchema = [
+export var UpdateQuickSightQSearchConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UQSQSC,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/quicksight-q-search-configuration", 200] },
-  () => UpdateQuickSightQSearchConfigurationRequest,
-  () => UpdateQuickSightQSearchConfigurationResponse,
+  () => UpdateQuickSightQSearchConfigurationRequest$,
+  () => UpdateQuickSightQSearchConfigurationResponse$,
 ];
-export var UpdateRefreshSchedule: StaticOperationSchema = [
+export var UpdateRefreshSchedule$: StaticOperationSchema = [
   9,
   n0,
   _URS,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules", 200] },
-  () => UpdateRefreshScheduleRequest,
-  () => UpdateRefreshScheduleResponse,
+  () => UpdateRefreshScheduleRequest$,
+  () => UpdateRefreshScheduleResponse$,
 ];
-export var UpdateRoleCustomPermission: StaticOperationSchema = [
+export var UpdateRoleCustomPermission$: StaticOperationSchema = [
   9,
   n0,
   _URCP,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission", 200] },
-  () => UpdateRoleCustomPermissionRequest,
-  () => UpdateRoleCustomPermissionResponse,
+  () => UpdateRoleCustomPermissionRequest$,
+  () => UpdateRoleCustomPermissionResponse$,
 ];
-export var UpdateSPICECapacityConfiguration: StaticOperationSchema = [
+export var UpdateSPICECapacityConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _USPICECC,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/spice-capacity-configuration", 200] },
-  () => UpdateSPICECapacityConfigurationRequest,
-  () => UpdateSPICECapacityConfigurationResponse,
+  () => UpdateSPICECapacityConfigurationRequest$,
+  () => UpdateSPICECapacityConfigurationResponse$,
 ];
-export var UpdateTemplate: StaticOperationSchema = [
+export var UpdateTemplate$: StaticOperationSchema = [
   9,
   n0,
   _UT,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/templates/{TemplateId}", 200] },
-  () => UpdateTemplateRequest,
-  () => UpdateTemplateResponse,
+  () => UpdateTemplateRequest$,
+  () => UpdateTemplateResponse$,
 ];
-export var UpdateTemplateAlias: StaticOperationSchema = [
+export var UpdateTemplateAlias$: StaticOperationSchema = [
   9,
   n0,
   _UTA,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}", 200] },
-  () => UpdateTemplateAliasRequest,
-  () => UpdateTemplateAliasResponse,
+  () => UpdateTemplateAliasRequest$,
+  () => UpdateTemplateAliasResponse$,
 ];
-export var UpdateTemplatePermissions: StaticOperationSchema = [
+export var UpdateTemplatePermissions$: StaticOperationSchema = [
   9,
   n0,
   _UTP,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/templates/{TemplateId}/permissions", 200] },
-  () => UpdateTemplatePermissionsRequest,
-  () => UpdateTemplatePermissionsResponse,
+  () => UpdateTemplatePermissionsRequest$,
+  () => UpdateTemplatePermissionsResponse$,
 ];
-export var UpdateTheme: StaticOperationSchema = [
+export var UpdateTheme$: StaticOperationSchema = [
   9,
   n0,
   _UTp,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/themes/{ThemeId}", 200] },
-  () => UpdateThemeRequest,
-  () => UpdateThemeResponse,
+  () => UpdateThemeRequest$,
+  () => UpdateThemeResponse$,
 ];
-export var UpdateThemeAlias: StaticOperationSchema = [
+export var UpdateThemeAlias$: StaticOperationSchema = [
   9,
   n0,
   _UTAp,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}", 200] },
-  () => UpdateThemeAliasRequest,
-  () => UpdateThemeAliasResponse,
+  () => UpdateThemeAliasRequest$,
+  () => UpdateThemeAliasResponse$,
 ];
-export var UpdateThemePermissions: StaticOperationSchema = [
+export var UpdateThemePermissions$: StaticOperationSchema = [
   9,
   n0,
   _UTPp,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/themes/{ThemeId}/permissions", 200] },
-  () => UpdateThemePermissionsRequest,
-  () => UpdateThemePermissionsResponse,
+  () => UpdateThemePermissionsRequest$,
+  () => UpdateThemePermissionsResponse$,
 ];
-export var UpdateTopic: StaticOperationSchema = [
+export var UpdateTopic$: StaticOperationSchema = [
   9,
   n0,
   _UTpd,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/topics/{TopicId}", 200] },
-  () => UpdateTopicRequest,
-  () => UpdateTopicResponse,
+  () => UpdateTopicRequest$,
+  () => UpdateTopicResponse$,
 ];
-export var UpdateTopicPermissions: StaticOperationSchema = [
+export var UpdateTopicPermissions$: StaticOperationSchema = [
   9,
   n0,
   _UTPpd,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/topics/{TopicId}/permissions", 200] },
-  () => UpdateTopicPermissionsRequest,
-  () => UpdateTopicPermissionsResponse,
+  () => UpdateTopicPermissionsRequest$,
+  () => UpdateTopicPermissionsResponse$,
 ];
-export var UpdateTopicRefreshSchedule: StaticOperationSchema = [
+export var UpdateTopicRefreshSchedule$: StaticOperationSchema = [
   9,
   n0,
   _UTRS,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/topics/{TopicId}/schedules/{DatasetId}", 200] },
-  () => UpdateTopicRefreshScheduleRequest,
-  () => UpdateTopicRefreshScheduleResponse,
+  () => UpdateTopicRefreshScheduleRequest$,
+  () => UpdateTopicRefreshScheduleResponse$,
 ];
-export var UpdateUser: StaticOperationSchema = [
+export var UpdateUser$: StaticOperationSchema = [
   9,
   n0,
   _UU,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}", 200] },
-  () => UpdateUserRequest,
-  () => UpdateUserResponse,
+  () => UpdateUserRequest$,
+  () => UpdateUserResponse$,
 ];
-export var UpdateUserCustomPermission: StaticOperationSchema = [
+export var UpdateUserCustomPermission$: StaticOperationSchema = [
   9,
   n0,
   _UUCP,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/custom-permission", 200] },
-  () => UpdateUserCustomPermissionRequest,
-  () => UpdateUserCustomPermissionResponse,
+  () => UpdateUserCustomPermissionRequest$,
+  () => UpdateUserCustomPermissionResponse$,
 ];
-export var UpdateVPCConnection: StaticOperationSchema = [
+export var UpdateVPCConnection$: StaticOperationSchema = [
   9,
   n0,
   _UVPCC,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}", 200] },
-  () => UpdateVPCConnectionRequest,
-  () => UpdateVPCConnectionResponse,
+  () => UpdateVPCConnectionRequest$,
+  () => UpdateVPCConnectionResponse$,
 ];

@@ -9,7 +9,7 @@ import type {
   ModifyInstanceCreditSpecificationRequest,
   ModifyInstanceCreditSpecificationResult,
 } from "../models/models_6";
-import { ModifyInstanceCreditSpecification } from "../schemas/schemas_0";
+import { ModifyInstanceCreditSpecification$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class ModifyInstanceCreditSpecificationCommand extends $Command
   })
   .s("AmazonEC2", "ModifyInstanceCreditSpecification", {})
   .n("EC2Client", "ModifyInstanceCreditSpecificationCommand")
-  .sc(ModifyInstanceCreditSpecification)
+  .sc(ModifyInstanceCreditSpecification$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

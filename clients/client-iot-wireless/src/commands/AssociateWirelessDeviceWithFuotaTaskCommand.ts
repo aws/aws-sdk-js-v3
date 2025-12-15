@@ -9,7 +9,7 @@ import type {
   AssociateWirelessDeviceWithFuotaTaskRequest,
   AssociateWirelessDeviceWithFuotaTaskResponse,
 } from "../models/models_0";
-import { AssociateWirelessDeviceWithFuotaTask } from "../schemas/schemas_0";
+import { AssociateWirelessDeviceWithFuotaTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class AssociateWirelessDeviceWithFuotaTaskCommand extends $Command
   })
   .s("iotwireless", "AssociateWirelessDeviceWithFuotaTask", {})
   .n("IoTWirelessClient", "AssociateWirelessDeviceWithFuotaTaskCommand")
-  .sc(AssociateWirelessDeviceWithFuotaTask)
+  .sc(AssociateWirelessDeviceWithFuotaTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

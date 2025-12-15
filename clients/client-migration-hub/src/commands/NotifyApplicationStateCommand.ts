@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
 import type { NotifyApplicationStateRequest, NotifyApplicationStateResult } from "../models/models_0";
-import { NotifyApplicationState } from "../schemas/schemas_0";
+import { NotifyApplicationState$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class NotifyApplicationStateCommand extends $Command
   })
   .s("AWSMigrationHub", "NotifyApplicationState", {})
   .n("MigrationHubClient", "NotifyApplicationStateCommand")
-  .sc(NotifyApplicationState)
+  .sc(NotifyApplicationState$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

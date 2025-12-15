@@ -13,7 +13,7 @@ import type {
   GetEnrollmentStatusesForOrganizationRequest,
   GetEnrollmentStatusesForOrganizationResponse,
 } from "../models/models_0";
-import { GetEnrollmentStatusesForOrganization } from "../schemas/schemas_0";
+import { GetEnrollmentStatusesForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class GetEnrollmentStatusesForOrganizationCommand extends $Command
   })
   .s("ComputeOptimizerService", "GetEnrollmentStatusesForOrganization", {})
   .n("ComputeOptimizerClient", "GetEnrollmentStatusesForOrganizationCommand")
-  .sc(GetEnrollmentStatusesForOrganization)
+  .sc(GetEnrollmentStatusesForOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

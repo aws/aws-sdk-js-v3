@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListIndexedRecoveryPointsInput, ListIndexedRecoveryPointsOutput } from "../models/models_0";
-import { ListIndexedRecoveryPoints } from "../schemas/schemas_0";
+import { ListIndexedRecoveryPoints$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class ListIndexedRecoveryPointsCommand extends $Command
   })
   .s("CryoControllerUserManager", "ListIndexedRecoveryPoints", {})
   .n("BackupClient", "ListIndexedRecoveryPointsCommand")
-  .sc(ListIndexedRecoveryPoints)
+  .sc(ListIndexedRecoveryPoints$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

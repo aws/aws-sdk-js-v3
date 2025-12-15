@@ -9,7 +9,7 @@ import type {
   DescribeTestSetDiscrepancyReportRequest,
   DescribeTestSetDiscrepancyReportResponse,
 } from "../models/models_0";
-import { DescribeTestSetDiscrepancyReport } from "../schemas/schemas_0";
+import { DescribeTestSetDiscrepancyReport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,7 +127,7 @@ export class DescribeTestSetDiscrepancyReportCommand extends $Command
   })
   .s("LexModelBuildingServiceV2", "DescribeTestSetDiscrepancyReport", {})
   .n("LexModelsV2Client", "DescribeTestSetDiscrepancyReportCommand")
-  .sc(DescribeTestSetDiscrepancyReport)
+  .sc(DescribeTestSetDiscrepancyReport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

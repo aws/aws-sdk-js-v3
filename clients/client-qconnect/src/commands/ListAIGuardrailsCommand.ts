@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAIGuardrailsRequest, ListAIGuardrailsResponse } from "../models/models_0";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { ListAIGuardrails } from "../schemas/schemas_0";
+import { ListAIGuardrails$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class ListAIGuardrailsCommand extends $Command
   })
   .s("WisdomService", "ListAIGuardrails", {})
   .n("QConnectClient", "ListAIGuardrailsCommand")
-  .sc(ListAIGuardrails)
+  .sc(ListAIGuardrails$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

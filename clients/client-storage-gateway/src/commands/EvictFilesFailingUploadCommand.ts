@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EvictFilesFailingUploadInput, EvictFilesFailingUploadOutput } from "../models/models_0";
-import { EvictFilesFailingUpload } from "../schemas/schemas_0";
+import { EvictFilesFailingUpload$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -98,7 +98,7 @@ export class EvictFilesFailingUploadCommand extends $Command
   })
   .s("StorageGateway_20130630", "EvictFilesFailingUpload", {})
   .n("StorageGatewayClient", "EvictFilesFailingUploadCommand")
-  .sc(EvictFilesFailingUpload)
+  .sc(EvictFilesFailingUpload$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

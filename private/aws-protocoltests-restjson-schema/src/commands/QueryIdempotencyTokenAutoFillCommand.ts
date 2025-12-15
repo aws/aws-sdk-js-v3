@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { QueryIdempotencyTokenAutoFill } from "../schemas/schemas_0";
+import { QueryIdempotencyTokenAutoFill$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -75,7 +75,7 @@ export class QueryIdempotencyTokenAutoFillCommand extends $Command
   })
   .s("RestJson", "QueryIdempotencyTokenAutoFill", {})
   .n("RestJsonProtocolClient", "QueryIdempotencyTokenAutoFillCommand")
-  .sc(QueryIdempotencyTokenAutoFill)
+  .sc(QueryIdempotencyTokenAutoFill$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

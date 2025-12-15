@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import type { GetUsageTotalsRequest, GetUsageTotalsResponse } from "../models/models_0";
-import { GetUsageTotals } from "../schemas/schemas_0";
+import { GetUsageTotals$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class GetUsageTotalsCommand extends $Command
   })
   .s("Macie2", "GetUsageTotals", {})
   .n("Macie2Client", "GetUsageTotalsCommand")
-  .sc(GetUsageTotals)
+  .sc(GetUsageTotals$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

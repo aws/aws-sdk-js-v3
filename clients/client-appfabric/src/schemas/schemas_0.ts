@@ -223,46 +223,46 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { AppFabricServiceException as __AppFabricServiceException } from "../models/AppFabricServiceException";
+import { AppFabricServiceException } from "../models/AppFabricServiceException";
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var Email: StaticSimpleSchema = [0, n0, _E, 8, 0];
-export var SensitiveString2048: StaticSimpleSchema = [0, n0, _SS, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var ApiKeyCredential: StaticStructureSchema = [3, n0, _AKC, 0, [_aK], [[() => SensitiveString2048, 0]]];
-export var AppAuthorization: StaticStructureSchema = [
+var Email: StaticSimpleSchema = [0, n0, _E, 8, 0];
+var SensitiveString2048: StaticSimpleSchema = [0, n0, _SS, 8, 0];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var ApiKeyCredential$: StaticStructureSchema = [3, n0, _AKC, 0, [_aK], [[() => SensitiveString2048, 0]]];
+export var AppAuthorization$: StaticStructureSchema = [
   3,
   n0,
   _AA,
   0,
   [_aAA, _aBA, _a, _t, _aT, _s, _cA, _uA, _p, _aU],
-  [0, 0, 0, () => Tenant, 0, 0, 5, 5, 0, 0],
+  [0, 0, 0, () => Tenant$, 0, 0, 5, 5, 0, 0],
 ];
-export var AppAuthorizationSummary: StaticStructureSchema = [
+export var AppAuthorizationSummary$: StaticStructureSchema = [
   3,
   n0,
   _AAS,
   0,
   [_aAA, _aBA, _a, _t, _s, _uA],
-  [0, 0, 0, () => Tenant, 0, 5],
+  [0, 0, 0, () => Tenant$, 0, 5],
 ];
-export var AppBundle: StaticStructureSchema = [3, n0, _AB, 0, [_ar, _cMKA], [0, 0]];
-export var AppBundleSummary: StaticStructureSchema = [3, n0, _ABS, 0, [_ar], [0]];
-export var AuditLogDestinationConfiguration: StaticStructureSchema = [3, n0, _ALDC, 0, [_d], [() => Destination]];
-export var AuditLogProcessingConfiguration: StaticStructureSchema = [3, n0, _ALPC, 0, [_sc, _f], [0, 0]];
-export var AuthRequest: StaticStructureSchema = [3, n0, _AR, 0, [_rU, _co], [0, [() => SensitiveString2048, 0]]];
-export var BatchGetUserAccessTasksRequest: StaticStructureSchema = [3, n0, _BGUATR, 0, [_aBI, _tIL], [0, 64 | 0]];
-export var BatchGetUserAccessTasksResponse: StaticStructureSchema = [
+export var AppBundle$: StaticStructureSchema = [3, n0, _AB, 0, [_ar, _cMKA], [0, 0]];
+export var AppBundleSummary$: StaticStructureSchema = [3, n0, _ABS, 0, [_ar], [0]];
+export var AuditLogDestinationConfiguration$: StaticStructureSchema = [3, n0, _ALDC, 0, [_d], [() => Destination$]];
+export var AuditLogProcessingConfiguration$: StaticStructureSchema = [3, n0, _ALPC, 0, [_sc, _f], [0, 0]];
+export var AuthRequest$: StaticStructureSchema = [3, n0, _AR, 0, [_rU, _co], [0, [() => SensitiveString2048, 0]]];
+export var BatchGetUserAccessTasksRequest$: StaticStructureSchema = [3, n0, _BGUATR, 0, [_aBI, _tIL], [0, 64 | 0]];
+export var BatchGetUserAccessTasksResponse$: StaticStructureSchema = [
   3,
   n0,
   _BGUATRa,
@@ -270,9 +270,9 @@ export var BatchGetUserAccessTasksResponse: StaticStructureSchema = [
   [_uARL],
   [[() => UserAccessResultsList, 0]],
 ];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var ConnectAppAuthorizationRequest: StaticStructureSchema = [
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var ConnectAppAuthorizationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CAAR,
@@ -281,27 +281,34 @@ export var ConnectAppAuthorizationRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [() => AuthRequest, 0],
+    [() => AuthRequest$, 0],
   ],
 ];
-export var ConnectAppAuthorizationResponse: StaticStructureSchema = [
+export var ConnectAppAuthorizationResponse$: StaticStructureSchema = [
   3,
   n0,
   _CAARo,
   0,
   [_aAS],
-  [() => AppAuthorizationSummary],
+  [() => AppAuthorizationSummary$],
 ];
-export var CreateAppAuthorizationRequest: StaticStructureSchema = [
+export var CreateAppAuthorizationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CAARr,
   0,
   [_aBI, _a, _cr, _t, _aT, _cT, _ta],
-  [[0, 1], 0, [() => Credential, 0], () => Tenant, 0, [0, 4], () => TagList],
+  [[0, 1], 0, [() => Credential$, 0], () => Tenant$, 0, [0, 4], () => TagList],
 ];
-export var CreateAppAuthorizationResponse: StaticStructureSchema = [3, n0, _CAARre, 0, [_aA], [() => AppAuthorization]];
-export var CreateAppBundleRequest: StaticStructureSchema = [
+export var CreateAppAuthorizationResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _CAARre,
+  0,
+  [_aA],
+  [() => AppAuthorization$],
+];
+export var CreateAppBundleRequest$: StaticStructureSchema = [
   3,
   n0,
   _CABR,
@@ -309,24 +316,24 @@ export var CreateAppBundleRequest: StaticStructureSchema = [
   [_cT, _cMKI, _ta],
   [[0, 4], 0, () => TagList],
 ];
-export var CreateAppBundleResponse: StaticStructureSchema = [3, n0, _CABRr, 0, [_aB], [() => AppBundle]];
-export var CreateIngestionDestinationRequest: StaticStructureSchema = [
+export var CreateAppBundleResponse$: StaticStructureSchema = [3, n0, _CABRr, 0, [_aB], [() => AppBundle$]];
+export var CreateIngestionDestinationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CIDR,
   0,
   [_aBI, _iI, _pC, _dC, _cT, _ta],
-  [[0, 1], [0, 1], () => ProcessingConfiguration, () => DestinationConfiguration, [0, 4], () => TagList],
+  [[0, 1], [0, 1], () => ProcessingConfiguration$, () => DestinationConfiguration$, [0, 4], () => TagList],
 ];
-export var CreateIngestionDestinationResponse: StaticStructureSchema = [
+export var CreateIngestionDestinationResponse$: StaticStructureSchema = [
   3,
   n0,
   _CIDRr,
   0,
   [_iD],
-  [() => IngestionDestination],
+  [() => IngestionDestination$],
 ];
-export var CreateIngestionRequest: StaticStructureSchema = [
+export var CreateIngestionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CIR,
@@ -334,8 +341,8 @@ export var CreateIngestionRequest: StaticStructureSchema = [
   [_aBI, _a, _tI, _iT, _cT, _ta],
   [[0, 1], 0, 0, 0, [0, 4], () => TagList],
 ];
-export var CreateIngestionResponse: StaticStructureSchema = [3, n0, _CIRr, 0, [_i], [() => Ingestion]];
-export var DeleteAppAuthorizationRequest: StaticStructureSchema = [
+export var CreateIngestionResponse$: StaticStructureSchema = [3, n0, _CIRr, 0, [_i], [() => Ingestion$]];
+export var DeleteAppAuthorizationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DAAR,
@@ -346,10 +353,10 @@ export var DeleteAppAuthorizationRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteAppAuthorizationResponse: StaticStructureSchema = [3, n0, _DAARe, 0, [], []];
-export var DeleteAppBundleRequest: StaticStructureSchema = [3, n0, _DABR, 0, [_aBI], [[0, 1]]];
-export var DeleteAppBundleResponse: StaticStructureSchema = [3, n0, _DABRe, 0, [], []];
-export var DeleteIngestionDestinationRequest: StaticStructureSchema = [
+export var DeleteAppAuthorizationResponse$: StaticStructureSchema = [3, n0, _DAARe, 0, [], []];
+export var DeleteAppBundleRequest$: StaticStructureSchema = [3, n0, _DABR, 0, [_aBI], [[0, 1]]];
+export var DeleteAppBundleResponse$: StaticStructureSchema = [3, n0, _DABRe, 0, [], []];
+export var DeleteIngestionDestinationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DIDR,
@@ -361,8 +368,8 @@ export var DeleteIngestionDestinationRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteIngestionDestinationResponse: StaticStructureSchema = [3, n0, _DIDRe, 0, [], []];
-export var DeleteIngestionRequest: StaticStructureSchema = [
+export var DeleteIngestionDestinationResponse$: StaticStructureSchema = [3, n0, _DIDRe, 0, [], []];
+export var DeleteIngestionRequest$: StaticStructureSchema = [
   3,
   n0,
   _DIR,
@@ -373,9 +380,9 @@ export var DeleteIngestionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteIngestionResponse: StaticStructureSchema = [3, n0, _DIRe, 0, [], []];
-export var FirehoseStream: StaticStructureSchema = [3, n0, _FS, 0, [_sN], [0]];
-export var GetAppAuthorizationRequest: StaticStructureSchema = [
+export var DeleteIngestionResponse$: StaticStructureSchema = [3, n0, _DIRe, 0, [], []];
+export var FirehoseStream$: StaticStructureSchema = [3, n0, _FS, 0, [_sN], [0]];
+export var GetAppAuthorizationRequest$: StaticStructureSchema = [
   3,
   n0,
   _GAAR,
@@ -386,10 +393,10 @@ export var GetAppAuthorizationRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetAppAuthorizationResponse: StaticStructureSchema = [3, n0, _GAARe, 0, [_aA], [() => AppAuthorization]];
-export var GetAppBundleRequest: StaticStructureSchema = [3, n0, _GABR, 0, [_aBI], [[0, 1]]];
-export var GetAppBundleResponse: StaticStructureSchema = [3, n0, _GABRe, 0, [_aB], [() => AppBundle]];
-export var GetIngestionDestinationRequest: StaticStructureSchema = [
+export var GetAppAuthorizationResponse$: StaticStructureSchema = [3, n0, _GAARe, 0, [_aA], [() => AppAuthorization$]];
+export var GetAppBundleRequest$: StaticStructureSchema = [3, n0, _GABR, 0, [_aBI], [[0, 1]]];
+export var GetAppBundleResponse$: StaticStructureSchema = [3, n0, _GABRe, 0, [_aB], [() => AppBundle$]];
+export var GetIngestionDestinationRequest$: StaticStructureSchema = [
   3,
   n0,
   _GIDR,
@@ -401,15 +408,15 @@ export var GetIngestionDestinationRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetIngestionDestinationResponse: StaticStructureSchema = [
+export var GetIngestionDestinationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GIDRe,
   0,
   [_iD],
-  [() => IngestionDestination],
+  [() => IngestionDestination$],
 ];
-export var GetIngestionRequest: StaticStructureSchema = [
+export var GetIngestionRequest$: StaticStructureSchema = [
   3,
   n0,
   _GIR,
@@ -420,8 +427,8 @@ export var GetIngestionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetIngestionResponse: StaticStructureSchema = [3, n0, _GIRe, 0, [_i], [() => Ingestion]];
-export var Ingestion: StaticStructureSchema = [
+export var GetIngestionResponse$: StaticStructureSchema = [3, n0, _GIRe, 0, [_i], [() => Ingestion$]];
+export var Ingestion$: StaticStructureSchema = [
   3,
   n0,
   _I,
@@ -429,17 +436,17 @@ export var Ingestion: StaticStructureSchema = [
   [_ar, _aBA, _a, _tI, _cA, _uA, _st, _iT],
   [0, 0, 0, 0, 5, 5, 0, 0],
 ];
-export var IngestionDestination: StaticStructureSchema = [
+export var IngestionDestination$: StaticStructureSchema = [
   3,
   n0,
   _ID,
   0,
   [_ar, _iA, _pC, _dC, _s, _sR, _cA, _uA],
-  [0, 0, () => ProcessingConfiguration, () => DestinationConfiguration, 0, 0, 5, 5],
+  [0, 0, () => ProcessingConfiguration$, () => DestinationConfiguration$, 0, 0, 5, 5],
 ];
-export var IngestionDestinationSummary: StaticStructureSchema = [3, n0, _IDS, 0, [_ar], [0]];
-export var IngestionSummary: StaticStructureSchema = [3, n0, _IS, 0, [_ar, _a, _tI, _st], [0, 0, 0, 0]];
-export var InternalServerException: StaticErrorSchema = [
+export var IngestionDestinationSummary$: StaticStructureSchema = [3, n0, _IDS, 0, [_ar], [0]];
+export var IngestionSummary$: StaticStructureSchema = [3, n0, _IS, 0, [_ar, _a, _tI, _st], [0, 0, 0, 0]];
+export var InternalServerException$: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
@@ -447,8 +454,8 @@ export var InternalServerException: StaticErrorSchema = [
   [_m, _rAS],
   [0, [1, { [_hH]: _RA }]],
 ];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var ListAppAuthorizationsRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var ListAppAuthorizationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAAR,
@@ -460,7 +467,7 @@ export var ListAppAuthorizationsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListAppAuthorizationsResponse: StaticStructureSchema = [
+export var ListAppAuthorizationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LAARi,
@@ -468,7 +475,7 @@ export var ListAppAuthorizationsResponse: StaticStructureSchema = [
   [_aASL, _nT],
   [() => AppAuthorizationSummaryList, 0],
 ];
-export var ListAppBundlesRequest: StaticStructureSchema = [
+export var ListAppBundlesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LABR,
@@ -479,7 +486,7 @@ export var ListAppBundlesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListAppBundlesResponse: StaticStructureSchema = [
+export var ListAppBundlesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LABRi,
@@ -487,7 +494,7 @@ export var ListAppBundlesResponse: StaticStructureSchema = [
   [_aBSL, _nT],
   [() => AppBundleSummaryList, 0],
 ];
-export var ListIngestionDestinationsRequest: StaticStructureSchema = [
+export var ListIngestionDestinationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LIDR,
@@ -500,7 +507,7 @@ export var ListIngestionDestinationsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListIngestionDestinationsResponse: StaticStructureSchema = [
+export var ListIngestionDestinationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LIDRi,
@@ -508,7 +515,7 @@ export var ListIngestionDestinationsResponse: StaticStructureSchema = [
   [_iDn, _nT],
   [() => IngestionDestinationList, 0],
 ];
-export var ListIngestionsRequest: StaticStructureSchema = [
+export var ListIngestionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LIR,
@@ -520,11 +527,11 @@ export var ListIngestionsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListIngestionsResponse: StaticStructureSchema = [3, n0, _LIRi, 0, [_in, _nT], [() => IngestionList, 0]];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [() => TagList]];
-export var Oauth2Credential: StaticStructureSchema = [3, n0, _OC, 0, [_cI, _cS], [0, [() => SensitiveString2048, 0]]];
-export var ResourceNotFoundException: StaticErrorSchema = [
+export var ListIngestionsResponse$: StaticStructureSchema = [3, n0, _LIRi, 0, [_in, _nT], [() => IngestionList, 0]];
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [() => TagList]];
+export var Oauth2Credential$: StaticStructureSchema = [3, n0, _OC, 0, [_cI, _cS], [0, [() => SensitiveString2048, 0]]];
+export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
@@ -532,9 +539,9 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var S3Bucket: StaticStructureSchema = [3, n0, _SB, 0, [_bN, _pr], [0, 0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var S3Bucket$: StaticStructureSchema = [3, n0, _SB, 0, [_bN, _pr], [0, 0]];
+export var ServiceQuotaExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
@@ -542,8 +549,8 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   [_m, _rI, _rT, _sC, _qC],
   [0, 0, 0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var StartIngestionRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var StartIngestionRequest$: StaticStructureSchema = [
   3,
   n0,
   _SIR,
@@ -554,9 +561,9 @@ export var StartIngestionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var StartIngestionResponse: StaticStructureSchema = [3, n0, _SIRt, 0, [], []];
-export var StartUserAccessTasksRequest: StaticStructureSchema = [3, n0, _SUATR, 0, [_aBI, _em], [0, [() => Email, 0]]];
-export var StartUserAccessTasksResponse: StaticStructureSchema = [
+export var StartIngestionResponse$: StaticStructureSchema = [3, n0, _SIRt, 0, [], []];
+export var StartUserAccessTasksRequest$: StaticStructureSchema = [3, n0, _SUATR, 0, [_aBI, _em], [0, [() => Email, 0]]];
+export var StartUserAccessTasksResponse$: StaticStructureSchema = [
   3,
   n0,
   _SUATRt,
@@ -564,7 +571,7 @@ export var StartUserAccessTasksResponse: StaticStructureSchema = [
   [_uATL],
   [() => UserAccessTasksList],
 ];
-export var StopIngestionRequest: StaticStructureSchema = [
+export var StopIngestionRequest$: StaticStructureSchema = [
   3,
   n0,
   _SIRto,
@@ -575,13 +582,13 @@ export var StopIngestionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var StopIngestionResponse: StaticStructureSchema = [3, n0, _SIRtop, 0, [], []];
-export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_k, _v], [0, 0]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _ta], [[0, 1], () => TagList]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TaskError: StaticStructureSchema = [3, n0, _TE, 0, [_eC, _eM], [0, 0]];
-export var Tenant: StaticStructureSchema = [3, n0, _Te, 0, [_tIe, _tDN], [0, 0]];
-export var ThrottlingException: StaticErrorSchema = [
+export var StopIngestionResponse$: StaticStructureSchema = [3, n0, _SIRtop, 0, [], []];
+export var Tag$: StaticStructureSchema = [3, n0, _T, 0, [_k, _v], [0, 0]];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _ta], [[0, 1], () => TagList]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var TaskError$: StaticStructureSchema = [3, n0, _TE, 0, [_eC, _eM], [0, 0]];
+export var Tenant$: StaticStructureSchema = [3, n0, _Te, 0, [_tIe, _tDN], [0, 0]];
+export var ThrottlingException$: StaticErrorSchema = [
   -3,
   n0,
   _TEh,
@@ -589,8 +596,8 @@ export var ThrottlingException: StaticErrorSchema = [
   [_m, _sC, _qC, _rAS],
   [0, 0, 0, [1, { [_hH]: _RA }]],
 ];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var UntagResourceRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -601,33 +608,40 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateAppAuthorizationRequest: StaticStructureSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateAppAuthorizationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UAAR,
   0,
   [_aBI, _aAI, _cr, _t],
-  [[0, 1], [0, 1], [() => Credential, 0], () => Tenant],
+  [[0, 1], [0, 1], [() => Credential$, 0], () => Tenant$],
 ];
-export var UpdateAppAuthorizationResponse: StaticStructureSchema = [3, n0, _UAARp, 0, [_aA], [() => AppAuthorization]];
-export var UpdateIngestionDestinationRequest: StaticStructureSchema = [
+export var UpdateAppAuthorizationResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _UAARp,
+  0,
+  [_aA],
+  [() => AppAuthorization$],
+];
+export var UpdateIngestionDestinationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UIDR,
   0,
   [_aBI, _iI, _iDI, _dC],
-  [[0, 1], [0, 1], [0, 1], () => DestinationConfiguration],
+  [[0, 1], [0, 1], [0, 1], () => DestinationConfiguration$],
 ];
-export var UpdateIngestionDestinationResponse: StaticStructureSchema = [
+export var UpdateIngestionDestinationResponse$: StaticStructureSchema = [
   3,
   n0,
   _UIDRp,
   0,
   [_iD],
-  [() => IngestionDestination],
+  [() => IngestionDestination$],
 ];
-export var UserAccessResultItem: StaticStructureSchema = [
+export var UserAccessResultItem$: StaticStructureSchema = [
   3,
   n0,
   _UARI,
@@ -645,18 +659,18 @@ export var UserAccessResultItem: StaticStructureSchema = [
     [() => SensitiveString2048, 0],
     [() => SensitiveString2048, 0],
     0,
-    () => TaskError,
+    () => TaskError$,
   ],
 ];
-export var UserAccessTaskItem: StaticStructureSchema = [
+export var UserAccessTaskItem$: StaticStructureSchema = [
   3,
   n0,
   _UATI,
   0,
   [_a, _tI, _tIa, _e],
-  [0, 0, 0, () => TaskError],
+  [0, 0, 0, () => TaskError$],
 ];
-export var ValidationException: StaticErrorSchema = [
+export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VE,
@@ -664,121 +678,121 @@ export var ValidationException: StaticErrorSchema = [
   [_m, _r, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
-export var AppFabricServiceException: StaticErrorSchema = [-3, _sm, "AppFabricServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(AppFabricServiceException, __AppFabricServiceException);
-export var AppAuthorizationSummaryList: StaticListSchema = [1, n0, _AASL, 0, () => AppAuthorizationSummary];
-export var AppBundleSummaryList: StaticListSchema = [1, n0, _ABSL, 0, () => AppBundleSummary];
-export var IngestionDestinationList: StaticListSchema = [1, n0, _IDL, 0, () => IngestionDestinationSummary];
-export var IngestionList: StaticListSchema = [1, n0, _IL, 0, () => IngestionSummary];
-export var TagKeyList = 64 | 0;
-export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
-export var TaskIdList = 64 | 0;
-export var UserAccessResultsList: StaticListSchema = [1, n0, _UARL, 0, [() => UserAccessResultItem, 0]];
-export var UserAccessTasksList: StaticListSchema = [1, n0, _UATL, 0, () => UserAccessTaskItem];
-export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
-export var Credential: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
+export var AppFabricServiceException$: StaticErrorSchema = [-3, _sm, "AppFabricServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(AppFabricServiceException$, AppFabricServiceException);
+var AppAuthorizationSummaryList: StaticListSchema = [1, n0, _AASL, 0, () => AppAuthorizationSummary$];
+var AppBundleSummaryList: StaticListSchema = [1, n0, _ABSL, 0, () => AppBundleSummary$];
+var IngestionDestinationList: StaticListSchema = [1, n0, _IDL, 0, () => IngestionDestinationSummary$];
+var IngestionList: StaticListSchema = [1, n0, _IL, 0, () => IngestionSummary$];
+var TagKeyList = 64 | 0;
+var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
+var TaskIdList = 64 | 0;
+var UserAccessResultsList: StaticListSchema = [1, n0, _UARL, 0, [() => UserAccessResultItem$, 0]];
+var UserAccessTasksList: StaticListSchema = [1, n0, _UATL, 0, () => UserAccessTaskItem$];
+var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField$];
+export var Credential$: StaticStructureSchema = [
   3,
   n0,
   _C,
   0,
   [_oC, _aKC],
   [
-    [() => Oauth2Credential, 0],
-    [() => ApiKeyCredential, 0],
+    [() => Oauth2Credential$, 0],
+    [() => ApiKeyCredential$, 0],
   ],
 ];
-export var Destination: StaticStructureSchema = [3, n0, _D, 0, [_sB, _fS], [() => S3Bucket, () => FirehoseStream]];
-export var DestinationConfiguration: StaticStructureSchema = [
+export var Destination$: StaticStructureSchema = [3, n0, _D, 0, [_sB, _fS], [() => S3Bucket$, () => FirehoseStream$]];
+export var DestinationConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _DC,
   0,
   [_aL],
-  [() => AuditLogDestinationConfiguration],
+  [() => AuditLogDestinationConfiguration$],
 ];
-export var ProcessingConfiguration: StaticStructureSchema = [
+export var ProcessingConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _PC,
   0,
   [_aL],
-  [() => AuditLogProcessingConfiguration],
+  [() => AuditLogProcessingConfiguration$],
 ];
-export var BatchGetUserAccessTasks: StaticOperationSchema = [
+export var BatchGetUserAccessTasks$: StaticOperationSchema = [
   9,
   n0,
   _BGUAT,
   { [_h]: ["POST", "/useraccess/batchget", 200] },
-  () => BatchGetUserAccessTasksRequest,
-  () => BatchGetUserAccessTasksResponse,
+  () => BatchGetUserAccessTasksRequest$,
+  () => BatchGetUserAccessTasksResponse$,
 ];
-export var ConnectAppAuthorization: StaticOperationSchema = [
+export var ConnectAppAuthorization$: StaticOperationSchema = [
   9,
   n0,
   _CAA,
   { [_h]: ["POST", "/appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}/connect", 200] },
-  () => ConnectAppAuthorizationRequest,
-  () => ConnectAppAuthorizationResponse,
+  () => ConnectAppAuthorizationRequest$,
+  () => ConnectAppAuthorizationResponse$,
 ];
-export var CreateAppAuthorization: StaticOperationSchema = [
+export var CreateAppAuthorization$: StaticOperationSchema = [
   9,
   n0,
   _CAAr,
   { [_h]: ["POST", "/appbundles/{appBundleIdentifier}/appauthorizations", 201] },
-  () => CreateAppAuthorizationRequest,
-  () => CreateAppAuthorizationResponse,
+  () => CreateAppAuthorizationRequest$,
+  () => CreateAppAuthorizationResponse$,
 ];
-export var CreateAppBundle: StaticOperationSchema = [
+export var CreateAppBundle$: StaticOperationSchema = [
   9,
   n0,
   _CAB,
   { [_h]: ["POST", "/appbundles", 201] },
-  () => CreateAppBundleRequest,
-  () => CreateAppBundleResponse,
+  () => CreateAppBundleRequest$,
+  () => CreateAppBundleResponse$,
 ];
-export var CreateIngestion: StaticOperationSchema = [
+export var CreateIngestion$: StaticOperationSchema = [
   9,
   n0,
   _CI,
   { [_h]: ["POST", "/appbundles/{appBundleIdentifier}/ingestions", 201] },
-  () => CreateIngestionRequest,
-  () => CreateIngestionResponse,
+  () => CreateIngestionRequest$,
+  () => CreateIngestionResponse$,
 ];
-export var CreateIngestionDestination: StaticOperationSchema = [
+export var CreateIngestionDestination$: StaticOperationSchema = [
   9,
   n0,
   _CID,
   { [_h]: ["POST", "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations", 201] },
-  () => CreateIngestionDestinationRequest,
-  () => CreateIngestionDestinationResponse,
+  () => CreateIngestionDestinationRequest$,
+  () => CreateIngestionDestinationResponse$,
 ];
-export var DeleteAppAuthorization: StaticOperationSchema = [
+export var DeleteAppAuthorization$: StaticOperationSchema = [
   9,
   n0,
   _DAA,
   { [_h]: ["DELETE", "/appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}", 204] },
-  () => DeleteAppAuthorizationRequest,
-  () => DeleteAppAuthorizationResponse,
+  () => DeleteAppAuthorizationRequest$,
+  () => DeleteAppAuthorizationResponse$,
 ];
-export var DeleteAppBundle: StaticOperationSchema = [
+export var DeleteAppBundle$: StaticOperationSchema = [
   9,
   n0,
   _DAB,
   { [_h]: ["DELETE", "/appbundles/{appBundleIdentifier}", 204] },
-  () => DeleteAppBundleRequest,
-  () => DeleteAppBundleResponse,
+  () => DeleteAppBundleRequest$,
+  () => DeleteAppBundleResponse$,
 ];
-export var DeleteIngestion: StaticOperationSchema = [
+export var DeleteIngestion$: StaticOperationSchema = [
   9,
   n0,
   _DI,
   { [_h]: ["DELETE", "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}", 204] },
-  () => DeleteIngestionRequest,
-  () => DeleteIngestionResponse,
+  () => DeleteIngestionRequest$,
+  () => DeleteIngestionResponse$,
 ];
-export var DeleteIngestionDestination: StaticOperationSchema = [
+export var DeleteIngestionDestination$: StaticOperationSchema = [
   9,
   n0,
   _DID,
@@ -789,34 +803,34 @@ export var DeleteIngestionDestination: StaticOperationSchema = [
       204,
     ],
   },
-  () => DeleteIngestionDestinationRequest,
-  () => DeleteIngestionDestinationResponse,
+  () => DeleteIngestionDestinationRequest$,
+  () => DeleteIngestionDestinationResponse$,
 ];
-export var GetAppAuthorization: StaticOperationSchema = [
+export var GetAppAuthorization$: StaticOperationSchema = [
   9,
   n0,
   _GAA,
   { [_h]: ["GET", "/appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}", 200] },
-  () => GetAppAuthorizationRequest,
-  () => GetAppAuthorizationResponse,
+  () => GetAppAuthorizationRequest$,
+  () => GetAppAuthorizationResponse$,
 ];
-export var GetAppBundle: StaticOperationSchema = [
+export var GetAppBundle$: StaticOperationSchema = [
   9,
   n0,
   _GAB,
   { [_h]: ["GET", "/appbundles/{appBundleIdentifier}", 200] },
-  () => GetAppBundleRequest,
-  () => GetAppBundleResponse,
+  () => GetAppBundleRequest$,
+  () => GetAppBundleResponse$,
 ];
-export var GetIngestion: StaticOperationSchema = [
+export var GetIngestion$: StaticOperationSchema = [
   9,
   n0,
   _GI,
   { [_h]: ["GET", "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}", 200] },
-  () => GetIngestionRequest,
-  () => GetIngestionResponse,
+  () => GetIngestionRequest$,
+  () => GetIngestionResponse$,
 ];
-export var GetIngestionDestination: StaticOperationSchema = [
+export var GetIngestionDestination$: StaticOperationSchema = [
   9,
   n0,
   _GID,
@@ -827,98 +841,98 @@ export var GetIngestionDestination: StaticOperationSchema = [
       200,
     ],
   },
-  () => GetIngestionDestinationRequest,
-  () => GetIngestionDestinationResponse,
+  () => GetIngestionDestinationRequest$,
+  () => GetIngestionDestinationResponse$,
 ];
-export var ListAppAuthorizations: StaticOperationSchema = [
+export var ListAppAuthorizations$: StaticOperationSchema = [
   9,
   n0,
   _LAA,
   { [_h]: ["GET", "/appbundles/{appBundleIdentifier}/appauthorizations", 200] },
-  () => ListAppAuthorizationsRequest,
-  () => ListAppAuthorizationsResponse,
+  () => ListAppAuthorizationsRequest$,
+  () => ListAppAuthorizationsResponse$,
 ];
-export var ListAppBundles: StaticOperationSchema = [
+export var ListAppBundles$: StaticOperationSchema = [
   9,
   n0,
   _LAB,
   { [_h]: ["GET", "/appbundles", 200] },
-  () => ListAppBundlesRequest,
-  () => ListAppBundlesResponse,
+  () => ListAppBundlesRequest$,
+  () => ListAppBundlesResponse$,
 ];
-export var ListIngestionDestinations: StaticOperationSchema = [
+export var ListIngestionDestinations$: StaticOperationSchema = [
   9,
   n0,
   _LID,
   { [_h]: ["GET", "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations", 200] },
-  () => ListIngestionDestinationsRequest,
-  () => ListIngestionDestinationsResponse,
+  () => ListIngestionDestinationsRequest$,
+  () => ListIngestionDestinationsResponse$,
 ];
-export var ListIngestions: StaticOperationSchema = [
+export var ListIngestions$: StaticOperationSchema = [
   9,
   n0,
   _LI,
   { [_h]: ["GET", "/appbundles/{appBundleIdentifier}/ingestions", 200] },
-  () => ListIngestionsRequest,
-  () => ListIngestionsResponse,
+  () => ListIngestionsRequest$,
+  () => ListIngestionsResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{resourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var StartIngestion: StaticOperationSchema = [
+export var StartIngestion$: StaticOperationSchema = [
   9,
   n0,
   _SI,
   { [_h]: ["POST", "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/start", 200] },
-  () => StartIngestionRequest,
-  () => StartIngestionResponse,
+  () => StartIngestionRequest$,
+  () => StartIngestionResponse$,
 ];
-export var StartUserAccessTasks: StaticOperationSchema = [
+export var StartUserAccessTasks$: StaticOperationSchema = [
   9,
   n0,
   _SUAT,
   { [_h]: ["POST", "/useraccess/start", 201] },
-  () => StartUserAccessTasksRequest,
-  () => StartUserAccessTasksResponse,
+  () => StartUserAccessTasksRequest$,
+  () => StartUserAccessTasksResponse$,
 ];
-export var StopIngestion: StaticOperationSchema = [
+export var StopIngestion$: StaticOperationSchema = [
   9,
   n0,
   _SIt,
   { [_h]: ["POST", "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/stop", 200] },
-  () => StopIngestionRequest,
-  () => StopIngestionResponse,
+  () => StopIngestionRequest$,
+  () => StopIngestionResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/tags/{resourceArn}", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateAppAuthorization: StaticOperationSchema = [
+export var UpdateAppAuthorization$: StaticOperationSchema = [
   9,
   n0,
   _UAA,
   { [_h]: ["PATCH", "/appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}", 200] },
-  () => UpdateAppAuthorizationRequest,
-  () => UpdateAppAuthorizationResponse,
+  () => UpdateAppAuthorizationRequest$,
+  () => UpdateAppAuthorizationResponse$,
 ];
-export var UpdateIngestionDestination: StaticOperationSchema = [
+export var UpdateIngestionDestination$: StaticOperationSchema = [
   9,
   n0,
   _UID,
@@ -929,6 +943,6 @@ export var UpdateIngestionDestination: StaticOperationSchema = [
       200,
     ],
   },
-  () => UpdateIngestionDestinationRequest,
-  () => UpdateIngestionDestinationResponse,
+  () => UpdateIngestionDestinationRequest$,
+  () => UpdateIngestionDestinationResponse$,
 ];

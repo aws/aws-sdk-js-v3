@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
 import type { CreateDataflowEndpointGroupRequest, DataflowEndpointGroupIdResponse } from "../models/models_0";
-import { CreateDataflowEndpointGroup } from "../schemas/schemas_0";
+import { CreateDataflowEndpointGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -180,7 +180,7 @@ export class CreateDataflowEndpointGroupCommand extends $Command
   })
   .s("GroundStation", "CreateDataflowEndpointGroup", {})
   .n("GroundStationClient", "CreateDataflowEndpointGroupCommand")
-  .sc(CreateDataflowEndpointGroup)
+  .sc(CreateDataflowEndpointGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

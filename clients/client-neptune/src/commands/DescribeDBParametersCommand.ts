@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DBParameterGroupDetails, DescribeDBParametersMessage } from "../models/models_0";
 import type { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { DescribeDBParameters } from "../schemas/schemas_0";
+import { DescribeDBParameters$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class DescribeDBParametersCommand extends $Command
   })
   .s("AmazonRDSv19", "DescribeDBParameters", {})
   .n("NeptuneClient", "DescribeDBParametersCommand")
-  .sc(DescribeDBParameters)
+  .sc(DescribeDBParameters$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

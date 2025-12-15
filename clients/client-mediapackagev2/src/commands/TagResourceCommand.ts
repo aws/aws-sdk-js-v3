@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MediaPackageV2Client";
 import type { TagResourceRequest } from "../models/models_0";
-import { TagResource } from "../schemas/schemas_0";
+import { TagResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class TagResourceCommand extends $Command
   })
   .s("mediapackagev2", "TagResource", {})
   .n("MediaPackageV2Client", "TagResourceCommand")
-  .sc(TagResource)
+  .sc(TagResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

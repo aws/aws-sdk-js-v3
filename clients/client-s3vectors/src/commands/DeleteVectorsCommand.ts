@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteVectorsInput, DeleteVectorsOutput } from "../models/models_0";
 import type { S3VectorsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3VectorsClient";
-import { DeleteVectors } from "../schemas/schemas_0";
+import { DeleteVectors$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class DeleteVectorsCommand extends $Command
   })
   .s("S3Vectors", "DeleteVectors", {})
   .n("S3VectorsClient", "DeleteVectorsCommand")
-  .sc(DeleteVectors)
+  .sc(DeleteVectors$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

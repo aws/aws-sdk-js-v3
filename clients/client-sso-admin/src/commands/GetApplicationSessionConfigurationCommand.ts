@@ -8,7 +8,7 @@ import type {
   GetApplicationSessionConfigurationRequest,
   GetApplicationSessionConfigurationResponse,
 } from "../models/models_0";
-import { GetApplicationSessionConfiguration } from "../schemas/schemas_0";
+import { GetApplicationSessionConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -93,7 +93,7 @@ export class GetApplicationSessionConfigurationCommand extends $Command
   })
   .s("SWBExternalService", "GetApplicationSessionConfiguration", {})
   .n("SSOAdminClient", "GetApplicationSessionConfigurationCommand")
-  .sc(GetApplicationSessionConfiguration)
+  .sc(GetApplicationSessionConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

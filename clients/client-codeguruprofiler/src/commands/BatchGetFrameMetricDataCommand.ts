@@ -10,7 +10,7 @@ import type {
 } from "../CodeGuruProfilerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchGetFrameMetricDataRequest, BatchGetFrameMetricDataResponse } from "../models/models_0";
-import { BatchGetFrameMetricData } from "../schemas/schemas_0";
+import { BatchGetFrameMetricData$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class BatchGetFrameMetricDataCommand extends $Command
   })
   .s("CodeGuruProfiler", "BatchGetFrameMetricData", {})
   .n("CodeGuruProfilerClient", "BatchGetFrameMetricDataCommand")
-  .sc(BatchGetFrameMetricData)
+  .sc(BatchGetFrameMetricData$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

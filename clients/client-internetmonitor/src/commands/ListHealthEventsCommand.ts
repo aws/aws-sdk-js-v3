@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../InternetMonitorClient";
 import type { ListHealthEventsInput, ListHealthEventsOutput } from "../models/models_0";
-import { ListHealthEvents } from "../schemas/schemas_0";
+import { ListHealthEvents$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -164,7 +164,7 @@ export class ListHealthEventsCommand extends $Command
   })
   .s("InternetMonitor20210603", "ListHealthEvents", {})
   .n("InternetMonitorClient", "ListHealthEventsCommand")
-  .sc(ListHealthEvents)
+  .sc(ListHealthEvents$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

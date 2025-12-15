@@ -9,7 +9,7 @@ import type {
   ListAssociatedApprovalRuleTemplatesForRepositoryInput,
   ListAssociatedApprovalRuleTemplatesForRepositoryOutput,
 } from "../models/models_0";
-import { ListAssociatedApprovalRuleTemplatesForRepository } from "../schemas/schemas_0";
+import { ListAssociatedApprovalRuleTemplatesForRepository$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class ListAssociatedApprovalRuleTemplatesForRepositoryCommand extends $Co
   })
   .s("CodeCommit_20150413", "ListAssociatedApprovalRuleTemplatesForRepository", {})
   .n("CodeCommitClient", "ListAssociatedApprovalRuleTemplatesForRepositoryCommand")
-  .sc(ListAssociatedApprovalRuleTemplatesForRepository)
+  .sc(ListAssociatedApprovalRuleTemplatesForRepository$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

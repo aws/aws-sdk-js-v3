@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53DomainsClient";
-import { ResendContactReachabilityEmail } from "../schemas/schemas_0";
+import { ResendContactReachabilityEmail$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class ResendContactReachabilityEmailCommand extends $Command
   })
   .s("Route53Domains_v20140515", "ResendContactReachabilityEmail", {})
   .n("Route53DomainsClient", "ResendContactReachabilityEmailCommand")
-  .sc(ResendContactReachabilityEmail)
+  .sc(ResendContactReachabilityEmail$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

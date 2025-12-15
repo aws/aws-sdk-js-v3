@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeregisterPackageVersionRequest, DeregisterPackageVersionResponse } from "../models/models_0";
 import type { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import { DeregisterPackageVersion } from "../schemas/schemas_0";
+import { DeregisterPackageVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeregisterPackageVersionCommand extends $Command
   })
   .s("OmniCloudServiceLambda", "DeregisterPackageVersion", {})
   .n("PanoramaClient", "DeregisterPackageVersionCommand")
-  .sc(DeregisterPackageVersion)
+  .sc(DeregisterPackageVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

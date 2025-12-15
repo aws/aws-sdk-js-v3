@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ResolverClient";
-import { PutResolverRulePolicy } from "../schemas/schemas_0";
+import { PutResolverRulePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class PutResolverRulePolicyCommand extends $Command
   })
   .s("Route53Resolver", "PutResolverRulePolicy", {})
   .n("Route53ResolverClient", "PutResolverRulePolicyCommand")
-  .sc(PutResolverRulePolicy)
+  .sc(PutResolverRulePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

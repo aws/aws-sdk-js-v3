@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { ResetDistributionCacheRequest, ResetDistributionCacheResult } from "../models/models_1";
-import { ResetDistributionCache } from "../schemas/schemas_0";
+import { ResetDistributionCache$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class ResetDistributionCacheCommand extends $Command
   })
   .s("Lightsail_20161128", "ResetDistributionCache", {})
   .n("LightsailClient", "ResetDistributionCacheCommand")
-  .sc(ResetDistributionCache)
+  .sc(ResetDistributionCache$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

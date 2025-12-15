@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeStreamProcessorRequest, DescribeStreamProcessorResponse } from "../models/models_0";
 import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
-import { DescribeStreamProcessor } from "../schemas/schemas_0";
+import { DescribeStreamProcessor$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -149,7 +149,7 @@ export class DescribeStreamProcessorCommand extends $Command
   })
   .s("RekognitionService", "DescribeStreamProcessor", {})
   .n("RekognitionClient", "DescribeStreamProcessorCommand")
-  .sc(DescribeStreamProcessor)
+  .sc(DescribeStreamProcessor$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

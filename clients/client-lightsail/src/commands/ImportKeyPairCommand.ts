@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { ImportKeyPairRequest, ImportKeyPairResult } from "../models/models_1";
-import { ImportKeyPair } from "../schemas/schemas_0";
+import { ImportKeyPair$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,7 +124,7 @@ export class ImportKeyPairCommand extends $Command
   })
   .s("Lightsail_20161128", "ImportKeyPair", {})
   .n("LightsailClient", "ImportKeyPairCommand")
-  .sc(ImportKeyPair)
+  .sc(ImportKeyPair$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

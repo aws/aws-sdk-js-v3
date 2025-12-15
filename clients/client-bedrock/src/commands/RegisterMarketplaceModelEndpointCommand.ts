@@ -9,7 +9,7 @@ import type {
   RegisterMarketplaceModelEndpointRequest,
   RegisterMarketplaceModelEndpointResponse,
 } from "../models/models_0";
-import { RegisterMarketplaceModelEndpoint } from "../schemas/schemas_0";
+import { RegisterMarketplaceModelEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -122,7 +122,7 @@ export class RegisterMarketplaceModelEndpointCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "RegisterMarketplaceModelEndpoint", {})
   .n("BedrockClient", "RegisterMarketplaceModelEndpointCommand")
-  .sc(RegisterMarketplaceModelEndpoint)
+  .sc(RegisterMarketplaceModelEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

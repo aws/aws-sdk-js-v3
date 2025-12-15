@@ -9,7 +9,7 @@ import type {
   DeleteSlackWorkspaceAuthorizationRequest,
   DeleteSlackWorkspaceAuthorizationResult,
 } from "../models/models_0";
-import { DeleteSlackWorkspaceAuthorization } from "../schemas/schemas_0";
+import { DeleteSlackWorkspaceAuthorization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class DeleteSlackWorkspaceAuthorizationCommand extends $Command
   })
   .s("WheatleyOrchestration_20171011", "DeleteSlackWorkspaceAuthorization", {})
   .n("ChatbotClient", "DeleteSlackWorkspaceAuthorizationCommand")
-  .sc(DeleteSlackWorkspaceAuthorization)
+  .sc(DeleteSlackWorkspaceAuthorization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

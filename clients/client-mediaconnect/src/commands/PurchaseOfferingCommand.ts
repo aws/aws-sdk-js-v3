@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import type { PurchaseOfferingRequest, PurchaseOfferingResponse } from "../models/models_0";
-import { PurchaseOffering } from "../schemas/schemas_0";
+import { PurchaseOffering$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class PurchaseOfferingCommand extends $Command
   })
   .s("MediaConnect", "PurchaseOffering", {})
   .n("MediaConnectClient", "PurchaseOfferingCommand")
-  .sc(PurchaseOffering)
+  .sc(PurchaseOffering$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

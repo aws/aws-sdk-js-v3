@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeTrustedTokenIssuerRequest, DescribeTrustedTokenIssuerResponse } from "../models/models_0";
-import { DescribeTrustedTokenIssuer } from "../schemas/schemas_0";
+import { DescribeTrustedTokenIssuer$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -98,7 +98,7 @@ export class DescribeTrustedTokenIssuerCommand extends $Command
   })
   .s("SWBExternalService", "DescribeTrustedTokenIssuer", {})
   .n("SSOAdminClient", "DescribeTrustedTokenIssuerCommand")
-  .sc(DescribeTrustedTokenIssuer)
+  .sc(DescribeTrustedTokenIssuer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../ElasticBeanstalkClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribePlatformVersionRequest, DescribePlatformVersionResult } from "../models/models_0";
-import { DescribePlatformVersion } from "../schemas/schemas_0";
+import { DescribePlatformVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class DescribePlatformVersionCommand extends $Command
   })
   .s("AWSElasticBeanstalkService", "DescribePlatformVersion", {})
   .n("ElasticBeanstalkClient", "DescribePlatformVersionCommand")
-  .sc(DescribePlatformVersion)
+  .sc(DescribePlatformVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

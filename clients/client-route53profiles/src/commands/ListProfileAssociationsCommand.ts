@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ProfilesClient";
-import { ListProfileAssociations } from "../schemas/schemas_0";
+import { ListProfileAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class ListProfileAssociationsCommand extends $Command
   })
   .s("Route53Profiles", "ListProfileAssociations", {})
   .n("Route53ProfilesClient", "ListProfileAssociationsCommand")
-  .sc(ListProfileAssociations)
+  .sc(ListProfileAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

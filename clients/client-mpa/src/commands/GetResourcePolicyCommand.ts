@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetResourcePolicyRequest, GetResourcePolicyResponse } from "../models/models_0";
 import type { MPAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MPAClient";
-import { GetResourcePolicy } from "../schemas/schemas_0";
+import { GetResourcePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class GetResourcePolicyCommand extends $Command
   })
   .s("AWSFluffyCoreService", "GetResourcePolicy", {})
   .n("MPAClient", "GetResourcePolicyCommand")
-  .sc(GetResourcePolicy)
+  .sc(GetResourcePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

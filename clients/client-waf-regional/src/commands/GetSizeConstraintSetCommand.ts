@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetSizeConstraintSetRequest, GetSizeConstraintSetResponse } from "../models/models_0";
-import { GetSizeConstraintSet } from "../schemas/schemas_0";
+import { GetSizeConstraintSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -132,7 +132,7 @@ export class GetSizeConstraintSetCommand extends $Command
   })
   .s("AWSWAF_Regional_20161128", "GetSizeConstraintSet", {})
   .n("WAFRegionalClient", "GetSizeConstraintSetCommand")
-  .sc(GetSizeConstraintSet)
+  .sc(GetSizeConstraintSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

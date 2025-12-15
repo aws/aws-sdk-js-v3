@@ -10,7 +10,7 @@ import type {
 } from "../CodeGuruProfilerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutPermissionRequest, PutPermissionResponse } from "../models/models_0";
-import { PutPermission } from "../schemas/schemas_0";
+import { PutPermission$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class PutPermissionCommand extends $Command
   })
   .s("CodeGuruProfiler", "PutPermission", {})
   .n("CodeGuruProfilerClient", "PutPermissionCommand")
-  .sc(PutPermission)
+  .sc(PutPermission$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateSecretRequest, CreateSecretResponse } from "../models/models_0";
-import { CreateSecret } from "../schemas/schemas_0";
+import { CreateSecret$ } from "../schemas/schemas_0";
 import type {
   SecretsManagerClientResolvedConfig,
   ServiceInputTypes,
@@ -221,7 +221,7 @@ export class CreateSecretCommand extends $Command
   })
   .s("secretsmanager", "CreateSecret", {})
   .n("SecretsManagerClient", "CreateSecretCommand")
-  .sc(CreateSecret)
+  .sc(CreateSecret$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

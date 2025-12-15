@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetGroupsRequest, GetGroupsResult } from "../models/models_0";
-import { GetGroups } from "../schemas/schemas_0";
+import { GetGroups$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
@@ -90,7 +90,7 @@ export class GetGroupsCommand extends $Command
   })
   .s("AWSXRay", "GetGroups", {})
   .n("XRayClient", "GetGroupsCommand")
-  .sc(GetGroups)
+  .sc(GetGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

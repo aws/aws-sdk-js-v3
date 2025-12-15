@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ExecuteBudgetActionRequest, ExecuteBudgetActionResponse } from "../models/models_0";
-import { ExecuteBudgetAction } from "../schemas/schemas_0";
+import { ExecuteBudgetAction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class ExecuteBudgetActionCommand extends $Command
   })
   .s("AWSBudgetServiceGateway", "ExecuteBudgetAction", {})
   .n("BudgetsClient", "ExecuteBudgetActionCommand")
-  .sc(ExecuteBudgetAction)
+  .sc(ExecuteBudgetAction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

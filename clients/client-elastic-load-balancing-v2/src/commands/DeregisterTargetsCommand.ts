@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeregisterTargetsInput, DeregisterTargetsOutput } from "../models/models_0";
-import { DeregisterTargets } from "../schemas/schemas_0";
+import { DeregisterTargets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -134,7 +134,7 @@ export class DeregisterTargetsCommand extends $Command
   })
   .s("ElasticLoadBalancing_v10", "DeregisterTargets", {})
   .n("ElasticLoadBalancingV2Client", "DeregisterTargetsCommand")
-  .sc(DeregisterTargets)
+  .sc(DeregisterTargets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

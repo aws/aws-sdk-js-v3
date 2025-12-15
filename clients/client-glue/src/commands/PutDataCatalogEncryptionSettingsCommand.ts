@@ -9,7 +9,7 @@ import type {
   PutDataCatalogEncryptionSettingsRequest,
   PutDataCatalogEncryptionSettingsResponse,
 } from "../models/models_2";
-import { PutDataCatalogEncryptionSettings } from "../schemas/schemas_0";
+import { PutDataCatalogEncryptionSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class PutDataCatalogEncryptionSettingsCommand extends $Command
   })
   .s("AWSGlue", "PutDataCatalogEncryptionSettings", {})
   .n("GlueClient", "PutDataCatalogEncryptionSettingsCommand")
-  .sc(PutDataCatalogEncryptionSettings)
+  .sc(PutDataCatalogEncryptionSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../CodeConnectionsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListSyncConfigurationsInput, ListSyncConfigurationsOutput } from "../models/models_0";
-import { ListSyncConfigurations } from "../schemas/schemas_0";
+import { ListSyncConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class ListSyncConfigurationsCommand extends $Command
   })
   .s("CodeConnections_20231201", "ListSyncConfigurations", {})
   .n("CodeConnectionsClient", "ListSyncConfigurationsCommand")
-  .sc(ListSyncConfigurations)
+  .sc(ListSyncConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

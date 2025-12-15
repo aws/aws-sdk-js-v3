@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeregisterContainerInstanceRequest, DeregisterContainerInstanceResponse } from "../models/models_0";
-import { DeregisterContainerInstance } from "../schemas/schemas_0";
+import { DeregisterContainerInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -201,7 +201,7 @@ export class DeregisterContainerInstanceCommand extends $Command
   })
   .s("AmazonEC2ContainerServiceV20141113", "DeregisterContainerInstance", {})
   .n("ECSClient", "DeregisterContainerInstanceCommand")
-  .sc(DeregisterContainerInstance)
+  .sc(DeregisterContainerInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

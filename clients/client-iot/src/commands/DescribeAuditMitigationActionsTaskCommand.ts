@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import type { DescribeAuditMitigationActionsTaskRequest } from "../models/models_0";
 import type { DescribeAuditMitigationActionsTaskResponse } from "../models/models_1";
-import { DescribeAuditMitigationActionsTask } from "../schemas/schemas_0";
+import { DescribeAuditMitigationActionsTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -146,7 +146,7 @@ export class DescribeAuditMitigationActionsTaskCommand extends $Command
   })
   .s("AWSIotService", "DescribeAuditMitigationActionsTask", {})
   .n("IoTClient", "DescribeAuditMitigationActionsTaskCommand")
-  .sc(DescribeAuditMitigationActionsTask)
+  .sc(DescribeAuditMitigationActionsTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

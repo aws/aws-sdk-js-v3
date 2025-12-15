@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
 import type { DeleteGroupMembershipRequest, DeleteGroupMembershipResponse } from "../models/models_0";
-import { DeleteGroupMembership } from "../schemas/schemas_0";
+import { DeleteGroupMembership$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeleteGroupMembershipCommand extends $Command
   })
   .s("AWSIdentityStore", "DeleteGroupMembership", {})
   .n("IdentitystoreClient", "DeleteGroupMembershipCommand")
-  .sc(DeleteGroupMembership)
+  .sc(DeleteGroupMembership$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

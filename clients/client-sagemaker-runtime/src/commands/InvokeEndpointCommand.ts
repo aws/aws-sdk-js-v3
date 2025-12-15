@@ -11,7 +11,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../SageMakerRuntimeClient";
-import { InvokeEndpoint } from "../schemas/schemas_0";
+import { InvokeEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -148,7 +148,7 @@ export class InvokeEndpointCommand extends $Command
   })
   .s("AmazonSageMakerRuntime", "InvokeEndpoint", {})
   .n("SageMakerRuntimeClient", "InvokeEndpointCommand")
-  .sc(InvokeEndpoint)
+  .sc(InvokeEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   ListCostCategoryResourceAssociationsRequest,
   ListCostCategoryResourceAssociationsResponse,
 } from "../models/models_0";
-import { ListCostCategoryResourceAssociations } from "../schemas/schemas_0";
+import { ListCostCategoryResourceAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class ListCostCategoryResourceAssociationsCommand extends $Command
   })
   .s("AWSInsightsIndexService", "ListCostCategoryResourceAssociations", {})
   .n("CostExplorerClient", "ListCostCategoryResourceAssociationsCommand")
-  .sc(ListCostCategoryResourceAssociations)
+  .sc(ListCostCategoryResourceAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

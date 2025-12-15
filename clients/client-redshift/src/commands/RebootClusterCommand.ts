@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RebootClusterMessage, RebootClusterResult } from "../models/models_1";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { RebootCluster } from "../schemas/schemas_0";
+import { RebootCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -277,7 +277,7 @@ export class RebootClusterCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "RebootCluster", {})
   .n("RedshiftClient", "RebootClusterCommand")
-  .sc(RebootCluster)
+  .sc(RebootCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

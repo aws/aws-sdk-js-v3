@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeSourceRegionsMessage, SourceRegionMessage } from "../models/models_0";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DescribeSourceRegions } from "../schemas/schemas_0";
+import { DescribeSourceRegions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -240,7 +240,7 @@ export class DescribeSourceRegionsCommand extends $Command
   })
   .s("AmazonRDSv19", "DescribeSourceRegions", {})
   .n("RDSClient", "DescribeSourceRegionsCommand")
-  .sc(DescribeSourceRegions)
+  .sc(DescribeSourceRegions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

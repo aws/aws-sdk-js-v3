@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartDeploymentRequest, StartDeploymentResponse } from "../models/models_0";
-import { StartDeployment } from "../schemas/schemas_0";
+import { StartDeployment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class StartDeploymentCommand extends $Command
   })
   .s("AppRunner", "StartDeployment", {})
   .n("AppRunnerClient", "StartDeploymentCommand")
-  .sc(StartDeployment)
+  .sc(StartDeployment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

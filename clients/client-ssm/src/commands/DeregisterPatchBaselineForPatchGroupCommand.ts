@@ -8,7 +8,7 @@ import type {
   DeregisterPatchBaselineForPatchGroupRequest,
   DeregisterPatchBaselineForPatchGroupResult,
 } from "../models/models_0";
-import { DeregisterPatchBaselineForPatchGroup } from "../schemas/schemas_0";
+import { DeregisterPatchBaselineForPatchGroup$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -86,7 +86,7 @@ export class DeregisterPatchBaselineForPatchGroupCommand extends $Command
   })
   .s("AmazonSSM", "DeregisterPatchBaselineForPatchGroup", {})
   .n("SSMClient", "DeregisterPatchBaselineForPatchGroupCommand")
-  .sc(DeregisterPatchBaselineForPatchGroup)
+  .sc(DeregisterPatchBaselineForPatchGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

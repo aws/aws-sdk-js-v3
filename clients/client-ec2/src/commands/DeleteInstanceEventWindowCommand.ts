@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteInstanceEventWindowRequest, DeleteInstanceEventWindowResult } from "../models/models_2";
-import { DeleteInstanceEventWindow } from "../schemas/schemas_0";
+import { DeleteInstanceEventWindow$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -80,7 +80,7 @@ export class DeleteInstanceEventWindowCommand extends $Command
   })
   .s("AmazonEC2", "DeleteInstanceEventWindow", {})
   .n("EC2Client", "DeleteInstanceEventWindowCommand")
-  .sc(DeleteInstanceEventWindow)
+  .sc(DeleteInstanceEventWindow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

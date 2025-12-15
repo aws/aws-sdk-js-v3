@@ -8,7 +8,7 @@ import type {
   GetDeployablePatchSnapshotForInstanceRequest,
   GetDeployablePatchSnapshotForInstanceResult,
 } from "../models/models_0";
-import { GetDeployablePatchSnapshotForInstance } from "../schemas/schemas_0";
+import { GetDeployablePatchSnapshotForInstance$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -157,7 +157,7 @@ export class GetDeployablePatchSnapshotForInstanceCommand extends $Command
   })
   .s("AmazonSSM", "GetDeployablePatchSnapshotForInstance", {})
   .n("SSMClient", "GetDeployablePatchSnapshotForInstanceCommand")
-  .sc(GetDeployablePatchSnapshotForInstance)
+  .sc(GetDeployablePatchSnapshotForInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   RegisterOrganizationAdminAccountRequest,
   RegisterOrganizationAdminAccountResponse,
 } from "../models/models_0";
-import { RegisterOrganizationAdminAccount } from "../schemas/schemas_0";
+import { RegisterOrganizationAdminAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class RegisterOrganizationAdminAccountCommand extends $Command
   })
   .s("BedrockAssessmentManagerLambda", "RegisterOrganizationAdminAccount", {})
   .n("AuditManagerClient", "RegisterOrganizationAdminAccountCommand")
-  .sc(RegisterOrganizationAdminAccount)
+  .sc(RegisterOrganizationAdminAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

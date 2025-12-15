@@ -9,7 +9,7 @@ import type {
   GetOrganizationCustomRulePolicyRequest,
   GetOrganizationCustomRulePolicyResponse,
 } from "../models/models_0";
-import { GetOrganizationCustomRulePolicy } from "../schemas/schemas_0";
+import { GetOrganizationCustomRulePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class GetOrganizationCustomRulePolicyCommand extends $Command
   })
   .s("StarlingDoveService", "GetOrganizationCustomRulePolicy", {})
   .n("ConfigServiceClient", "GetOrganizationCustomRulePolicyCommand")
-  .sc(GetOrganizationCustomRulePolicy)
+  .sc(GetOrganizationCustomRulePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

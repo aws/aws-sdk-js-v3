@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopFlowRequest, StopFlowResponse } from "../models/models_0";
-import { StopFlow } from "../schemas/schemas_0";
+import { StopFlow$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class StopFlowCommand extends $Command
   })
   .s("SandstoneConfigurationServiceLambda", "StopFlow", {})
   .n("AppflowClient", "StopFlowCommand")
-  .sc(StopFlow)
+  .sc(StopFlow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

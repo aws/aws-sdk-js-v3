@@ -9,7 +9,7 @@ import type {
   SendPipelineExecutionStepSuccessResponse,
 } from "../models/models_4";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { SendPipelineExecutionStepSuccess } from "../schemas/schemas_0";
+import { SendPipelineExecutionStepSuccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class SendPipelineExecutionStepSuccessCommand extends $Command
   })
   .s("SageMaker", "SendPipelineExecutionStepSuccess", {})
   .n("SageMakerClient", "SendPipelineExecutionStepSuccessCommand")
-  .sc(SendPipelineExecutionStepSuccess)
+  .sc(SendPipelineExecutionStepSuccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

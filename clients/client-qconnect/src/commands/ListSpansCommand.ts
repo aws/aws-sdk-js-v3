@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListSpansRequest } from "../models/models_0";
 import type { ListSpansResponse } from "../models/models_1";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { ListSpans } from "../schemas/schemas_0";
+import { ListSpans$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -206,7 +206,7 @@ export class ListSpansCommand extends $Command
   })
   .s("WisdomService", "ListSpans", {})
   .n("QConnectClient", "ListSpansCommand")
-  .sc(ListSpans)
+  .sc(ListSpans$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

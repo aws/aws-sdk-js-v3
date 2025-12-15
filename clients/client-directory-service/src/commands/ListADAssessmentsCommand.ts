@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListADAssessmentsRequest, ListADAssessmentsResult } from "../models/models_0";
-import { ListADAssessments } from "../schemas/schemas_0";
+import { ListADAssessments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class ListADAssessmentsCommand extends $Command
   })
   .s("DirectoryService_20150416", "ListADAssessments", {})
   .n("DirectoryServiceClient", "ListADAssessmentsCommand")
-  .sc(ListADAssessments)
+  .sc(ListADAssessments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

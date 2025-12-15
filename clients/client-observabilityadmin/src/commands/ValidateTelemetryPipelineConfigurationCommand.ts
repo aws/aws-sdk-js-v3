@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import { ValidateTelemetryPipelineConfiguration } from "../schemas/schemas_0";
+import { ValidateTelemetryPipelineConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class ValidateTelemetryPipelineConfigurationCommand extends $Command
   })
   .s("ObservabilityAdmin", "ValidateTelemetryPipelineConfiguration", {})
   .n("ObservabilityAdminClient", "ValidateTelemetryPipelineConfigurationCommand")
-  .sc(ValidateTelemetryPipelineConfiguration)
+  .sc(ValidateTelemetryPipelineConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

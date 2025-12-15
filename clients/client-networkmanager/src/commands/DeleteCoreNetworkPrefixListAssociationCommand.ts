@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { DeleteCoreNetworkPrefixListAssociation } from "../schemas/schemas_0";
+import { DeleteCoreNetworkPrefixListAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class DeleteCoreNetworkPrefixListAssociationCommand extends $Command
   })
   .s("NetworkManager", "DeleteCoreNetworkPrefixListAssociation", {})
   .n("NetworkManagerClient", "DeleteCoreNetworkPrefixListAssociationCommand")
-  .sc(DeleteCoreNetworkPrefixListAssociation)
+  .sc(DeleteCoreNetworkPrefixListAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

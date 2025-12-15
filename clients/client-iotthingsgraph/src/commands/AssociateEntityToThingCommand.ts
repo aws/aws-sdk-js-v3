@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTThingsGraphClient";
 import type { AssociateEntityToThingRequest, AssociateEntityToThingResponse } from "../models/models_0";
-import { AssociateEntityToThing } from "../schemas/schemas_0";
+import { AssociateEntityToThing$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class AssociateEntityToThingCommand extends $Command
   })
   .s("IotThingsGraphFrontEndService", "AssociateEntityToThing", {})
   .n("IoTThingsGraphClient", "AssociateEntityToThingCommand")
-  .sc(AssociateEntityToThing)
+  .sc(AssociateEntityToThing$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

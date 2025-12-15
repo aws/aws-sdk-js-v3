@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetManagedRuleSetRequest, GetManagedRuleSetResponse } from "../models/models_0";
-import { GetManagedRuleSet } from "../schemas/schemas_0";
+import { GetManagedRuleSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -131,7 +131,7 @@ export class GetManagedRuleSetCommand extends $Command
   })
   .s("AWSWAF_20190729", "GetManagedRuleSet", {})
   .n("WAFV2Client", "GetManagedRuleSetCommand")
-  .sc(GetManagedRuleSet)
+  .sc(GetManagedRuleSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

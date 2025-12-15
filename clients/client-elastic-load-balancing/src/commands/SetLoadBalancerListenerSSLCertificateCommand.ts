@@ -13,7 +13,7 @@ import type {
   SetLoadBalancerListenerSSLCertificateInput,
   SetLoadBalancerListenerSSLCertificateOutput,
 } from "../models/models_0";
-import { SetLoadBalancerListenerSSLCertificate } from "../schemas/schemas_0";
+import { SetLoadBalancerListenerSSLCertificate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class SetLoadBalancerListenerSSLCertificateCommand extends $Command
   })
   .s("ElasticLoadBalancing_v7", "SetLoadBalancerListenerSSLCertificate", {})
   .n("ElasticLoadBalancingClient", "SetLoadBalancerListenerSSLCertificateCommand")
-  .sc(SetLoadBalancerListenerSSLCertificate)
+  .sc(SetLoadBalancerListenerSSLCertificate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   DescribeFraudsterRegistrationJobRequest,
   DescribeFraudsterRegistrationJobResponse,
 } from "../models/models_0";
-import { DescribeFraudsterRegistrationJob } from "../schemas/schemas_0";
+import { DescribeFraudsterRegistrationJob$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
@@ -129,7 +129,7 @@ export class DescribeFraudsterRegistrationJobCommand extends $Command
   })
   .s("VoiceID", "DescribeFraudsterRegistrationJob", {})
   .n("VoiceIDClient", "DescribeFraudsterRegistrationJobCommand")
-  .sc(DescribeFraudsterRegistrationJob)
+  .sc(DescribeFraudsterRegistrationJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

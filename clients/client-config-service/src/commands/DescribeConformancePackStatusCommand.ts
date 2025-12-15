@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeConformancePackStatusRequest, DescribeConformancePackStatusResponse } from "../models/models_0";
-import { DescribeConformancePackStatus } from "../schemas/schemas_0";
+import { DescribeConformancePackStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class DescribeConformancePackStatusCommand extends $Command
   })
   .s("StarlingDoveService", "DescribeConformancePackStatus", {})
   .n("ConfigServiceClient", "DescribeConformancePackStatusCommand")
-  .sc(DescribeConformancePackStatus)
+  .sc(DescribeConformancePackStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

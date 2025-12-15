@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAssociatedFleetsRequest, ListAssociatedFleetsResult } from "../models/models_0";
-import { ListAssociatedFleets } from "../schemas/schemas_0";
+import { ListAssociatedFleets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,7 +77,7 @@ export class ListAssociatedFleetsCommand extends $Command
   })
   .s("PhotonAdminProxyService", "ListAssociatedFleets", {})
   .n("AppStreamClient", "ListAssociatedFleetsCommand")
-  .sc(ListAssociatedFleets)
+  .sc(ListAssociatedFleets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

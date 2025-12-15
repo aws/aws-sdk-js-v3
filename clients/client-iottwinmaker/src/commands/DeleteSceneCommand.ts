@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
 import type { DeleteSceneRequest, DeleteSceneResponse } from "../models/models_0";
-import { DeleteScene } from "../schemas/schemas_0";
+import { DeleteScene$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DeleteSceneCommand extends $Command
   })
   .s("AWSIoTTwinMaker", "DeleteScene", {})
   .n("IoTTwinMakerClient", "DeleteSceneCommand")
-  .sc(DeleteScene)
+  .sc(DeleteScene$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

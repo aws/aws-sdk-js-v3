@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EvaluateMappingTemplateRequest, EvaluateMappingTemplateResponse } from "../models/models_0";
-import { EvaluateMappingTemplate } from "../schemas/schemas_0";
+import { EvaluateMappingTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class EvaluateMappingTemplateCommand extends $Command
   })
   .s("AWSDeepdishControlPlaneService", "EvaluateMappingTemplate", {})
   .n("AppSyncClient", "EvaluateMappingTemplateCommand")
-  .sc(EvaluateMappingTemplate)
+  .sc(EvaluateMappingTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

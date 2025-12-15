@@ -9,7 +9,7 @@ import type {
   PutAssetModelInterfaceRelationshipRequest,
   PutAssetModelInterfaceRelationshipResponse,
 } from "../models/models_1";
-import { PutAssetModelInterfaceRelationship } from "../schemas/schemas_0";
+import { PutAssetModelInterfaceRelationship$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class PutAssetModelInterfaceRelationshipCommand extends $Command
   })
   .s("AWSIoTSiteWise", "PutAssetModelInterfaceRelationship", {})
   .n("IoTSiteWiseClient", "PutAssetModelInterfaceRelationshipCommand")
-  .sc(PutAssetModelInterfaceRelationship)
+  .sc(PutAssetModelInterfaceRelationship$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

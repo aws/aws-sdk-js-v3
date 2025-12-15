@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetPublicKeyRequest, GetPublicKeyResult } from "../models/models_1";
-import { GetPublicKey } from "../schemas/schemas_0";
+import { GetPublicKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class GetPublicKeyCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "GetPublicKey", {})
   .n("CloudFrontClient", "GetPublicKeyCommand")
-  .sc(GetPublicKey)
+  .sc(GetPublicKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

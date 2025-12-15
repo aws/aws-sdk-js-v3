@@ -13,7 +13,7 @@ import type {
   DescribeFleetAdvisorLsaAnalysisRequest,
   DescribeFleetAdvisorLsaAnalysisResponse,
 } from "../models/models_0";
-import { DescribeFleetAdvisorLsaAnalysis } from "../schemas/schemas_0";
+import { DescribeFleetAdvisorLsaAnalysis$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class DescribeFleetAdvisorLsaAnalysisCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribeFleetAdvisorLsaAnalysis", {})
   .n("DatabaseMigrationServiceClient", "DescribeFleetAdvisorLsaAnalysisCommand")
-  .sc(DescribeFleetAdvisorLsaAnalysis)
+  .sc(DescribeFleetAdvisorLsaAnalysis$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

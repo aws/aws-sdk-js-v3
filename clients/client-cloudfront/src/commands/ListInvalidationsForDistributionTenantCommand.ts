@@ -9,7 +9,7 @@ import type {
   ListInvalidationsForDistributionTenantRequest,
   ListInvalidationsForDistributionTenantResult,
 } from "../models/models_1";
-import { ListInvalidationsForDistributionTenant } from "../schemas/schemas_0";
+import { ListInvalidationsForDistributionTenant$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class ListInvalidationsForDistributionTenantCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "ListInvalidationsForDistributionTenant", {})
   .n("CloudFrontClient", "ListInvalidationsForDistributionTenantCommand")
-  .sc(ListInvalidationsForDistributionTenant)
+  .sc(ListInvalidationsForDistributionTenant$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

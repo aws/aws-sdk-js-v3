@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchEventsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeConnectionRequest, DescribeConnectionResponse } from "../models/models_0";
-import { DescribeConnection } from "../schemas/schemas_0";
+import { DescribeConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -153,7 +153,7 @@ export class DescribeConnectionCommand extends $Command
   })
   .s("AWSEvents", "DescribeConnection", {})
   .n("CloudWatchEventsClient", "DescribeConnectionCommand")
-  .sc(DescribeConnection)
+  .sc(DescribeConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

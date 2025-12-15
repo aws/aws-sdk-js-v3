@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateGroupRequest, CreateGroupResponse } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { CreateGroup } from "../schemas/schemas_0";
+import { CreateGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class CreateGroupCommand extends $Command
   })
   .s("QuickSight_20180401", "CreateGroup", {})
   .n("QuickSightClient", "CreateGroupCommand")
-  .sc(CreateGroup)
+  .sc(CreateGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

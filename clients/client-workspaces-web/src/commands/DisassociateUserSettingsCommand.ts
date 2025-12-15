@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateUserSettingsRequest, DisassociateUserSettingsResponse } from "../models/models_0";
-import { DisassociateUserSettings } from "../schemas/schemas_0";
+import { DisassociateUserSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -89,7 +89,7 @@ export class DisassociateUserSettingsCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "DisassociateUserSettings", {})
   .n("WorkSpacesWebClient", "DisassociateUserSettingsCommand")
-  .sc(DisassociateUserSettings)
+  .sc(DisassociateUserSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

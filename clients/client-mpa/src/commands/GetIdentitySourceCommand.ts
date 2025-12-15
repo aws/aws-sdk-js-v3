@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetIdentitySourceRequest, GetIdentitySourceResponse } from "../models/models_0";
 import type { MPAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MPAClient";
-import { GetIdentitySource } from "../schemas/schemas_0";
+import { GetIdentitySource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class GetIdentitySourceCommand extends $Command
   })
   .s("AWSFluffyCoreService", "GetIdentitySource", {})
   .n("MPAClient", "GetIdentitySourceCommand")
-  .sc(GetIdentitySource)
+  .sc(GetIdentitySource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

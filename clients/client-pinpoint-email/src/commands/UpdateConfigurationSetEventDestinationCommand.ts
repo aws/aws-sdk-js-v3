@@ -9,7 +9,7 @@ import type {
   UpdateConfigurationSetEventDestinationResponse,
 } from "../models/models_0";
 import type { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { UpdateConfigurationSetEventDestination } from "../schemas/schemas_0";
+import { UpdateConfigurationSetEventDestination$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command
   })
   .s("AmazonPinpointEmailService", "UpdateConfigurationSetEventDestination", {})
   .n("PinpointEmailClient", "UpdateConfigurationSetEventDestinationCommand")
-  .sc(UpdateConfigurationSetEventDestination)
+  .sc(UpdateConfigurationSetEventDestination$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDefaultRetentionPolicyRequest, GetDefaultRetentionPolicyResponse } from "../models/models_0";
-import { GetDefaultRetentionPolicy } from "../schemas/schemas_0";
+import { GetDefaultRetentionPolicy$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -97,7 +97,7 @@ export class GetDefaultRetentionPolicyCommand extends $Command
   })
   .s("WorkMailService", "GetDefaultRetentionPolicy", {})
   .n("WorkMailClient", "GetDefaultRetentionPolicyCommand")
-  .sc(GetDefaultRetentionPolicy)
+  .sc(GetDefaultRetentionPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartContentUploadRequest, StartContentUploadResponse } from "../models/models_0";
-import { StartContentUpload } from "../schemas/schemas_0";
+import { StartContentUpload$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -92,7 +92,7 @@ export class StartContentUploadCommand extends $Command
   })
   .s("WisdomService", "StartContentUpload", {})
   .n("WisdomClient", "StartContentUploadCommand")
-  .sc(StartContentUpload)
+  .sc(StartContentUpload$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateDashboardRequest, CreateDashboardResponse } from "../models/models_2";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { CreateDashboard } from "../schemas/schemas_0";
+import { CreateDashboard$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -5892,7 +5892,7 @@ export class CreateDashboardCommand extends $Command
   })
   .s("QuickSight_20180401", "CreateDashboard", {})
   .n("QuickSightClient", "CreateDashboardCommand")
-  .sc(CreateDashboard)
+  .sc(CreateDashboard$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   UpdateDataRepositoryAssociationRequest,
   UpdateDataRepositoryAssociationResponse,
 } from "../models/models_0";
-import { UpdateDataRepositoryAssociation } from "../schemas/schemas_0";
+import { UpdateDataRepositoryAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -160,7 +160,7 @@ export class UpdateDataRepositoryAssociationCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "UpdateDataRepositoryAssociation", {})
   .n("FSxClient", "UpdateDataRepositoryAssociationCommand")
-  .sc(UpdateDataRepositoryAssociation)
+  .sc(UpdateDataRepositoryAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

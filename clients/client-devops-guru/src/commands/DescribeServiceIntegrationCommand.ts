@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeServiceIntegrationRequest, DescribeServiceIntegrationResponse } from "../models/models_0";
-import { DescribeServiceIntegration } from "../schemas/schemas_0";
+import { DescribeServiceIntegration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class DescribeServiceIntegrationCommand extends $Command
   })
   .s("CapstoneControlPlaneService", "DescribeServiceIntegration", {})
   .n("DevOpsGuruClient", "DescribeServiceIntegrationCommand")
-  .sc(DescribeServiceIntegration)
+  .sc(DescribeServiceIntegration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

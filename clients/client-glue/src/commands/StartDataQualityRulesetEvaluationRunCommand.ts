@@ -9,7 +9,7 @@ import type {
   StartDataQualityRulesetEvaluationRunRequest,
   StartDataQualityRulesetEvaluationRunResponse,
 } from "../models/models_2";
-import { StartDataQualityRulesetEvaluationRun } from "../schemas/schemas_0";
+import { StartDataQualityRulesetEvaluationRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -148,7 +148,7 @@ export class StartDataQualityRulesetEvaluationRunCommand extends $Command
   })
   .s("AWSGlue", "StartDataQualityRulesetEvaluationRun", {})
   .n("GlueClient", "StartDataQualityRulesetEvaluationRunCommand")
-  .sc(StartDataQualityRulesetEvaluationRun)
+  .sc(StartDataQualityRulesetEvaluationRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

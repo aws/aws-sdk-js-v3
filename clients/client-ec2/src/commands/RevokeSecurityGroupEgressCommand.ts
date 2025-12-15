@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RevokeSecurityGroupEgressRequest, RevokeSecurityGroupEgressResult } from "../models/models_7";
-import { RevokeSecurityGroupEgress } from "../schemas/schemas_0";
+import { RevokeSecurityGroupEgress$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -182,7 +182,7 @@ export class RevokeSecurityGroupEgressCommand extends $Command
   })
   .s("AmazonEC2", "RevokeSecurityGroupEgress", {})
   .n("EC2Client", "RevokeSecurityGroupEgressCommand")
-  .sc(RevokeSecurityGroupEgress)
+  .sc(RevokeSecurityGroupEgress$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

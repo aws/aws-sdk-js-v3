@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { B2biClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../B2biClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteProfileRequest } from "../models/models_0";
-import { DeleteProfile } from "../schemas/schemas_0";
+import { DeleteProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class DeleteProfileCommand extends $Command
   })
   .s("B2BI", "DeleteProfile", {})
   .n("B2biClient", "DeleteProfileCommand")
-  .sc(DeleteProfile)
+  .sc(DeleteProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

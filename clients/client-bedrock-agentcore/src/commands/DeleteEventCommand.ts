@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteEventInput, DeleteEventOutput } from "../models/models_0";
-import { DeleteEvent } from "../schemas/schemas_0";
+import { DeleteEvent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class DeleteEventCommand extends $Command
   })
   .s("AmazonBedrockAgentCore", "DeleteEvent", {})
   .n("BedrockAgentCoreClient", "DeleteEventCommand")
-  .sc(DeleteEvent)
+  .sc(DeleteEvent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

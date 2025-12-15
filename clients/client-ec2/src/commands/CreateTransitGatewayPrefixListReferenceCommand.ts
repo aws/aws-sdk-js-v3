@@ -9,7 +9,7 @@ import type {
   CreateTransitGatewayPrefixListReferenceRequest,
   CreateTransitGatewayPrefixListReferenceResult,
 } from "../models/models_2";
-import { CreateTransitGatewayPrefixListReference } from "../schemas/schemas_0";
+import { CreateTransitGatewayPrefixListReference$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class CreateTransitGatewayPrefixListReferenceCommand extends $Command
   })
   .s("AmazonEC2", "CreateTransitGatewayPrefixListReference", {})
   .n("EC2Client", "CreateTransitGatewayPrefixListReferenceCommand")
-  .sc(CreateTransitGatewayPrefixListReference)
+  .sc(CreateTransitGatewayPrefixListReference$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

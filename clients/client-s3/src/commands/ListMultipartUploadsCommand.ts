@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListMultipartUploadsOutput, ListMultipartUploadsRequest } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { ListMultipartUploads } from "../schemas/schemas_0";
+import { ListMultipartUploads$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -345,7 +345,7 @@ export class ListMultipartUploadsCommand extends $Command
   })
   .s("AmazonS3", "ListMultipartUploads", {})
   .n("S3Client", "ListMultipartUploadsCommand")
-  .sc(ListMultipartUploads)
+  .sc(ListMultipartUploads$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

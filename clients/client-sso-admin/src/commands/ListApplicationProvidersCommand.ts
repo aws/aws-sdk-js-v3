@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListApplicationProvidersRequest, ListApplicationProvidersResponse } from "../models/models_0";
-import { ListApplicationProviders } from "../schemas/schemas_0";
+import { ListApplicationProviders$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -105,7 +105,7 @@ export class ListApplicationProvidersCommand extends $Command
   })
   .s("SWBExternalService", "ListApplicationProviders", {})
   .n("SSOAdminClient", "ListApplicationProvidersCommand")
-  .sc(ListApplicationProviders)
+  .sc(ListApplicationProviders$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

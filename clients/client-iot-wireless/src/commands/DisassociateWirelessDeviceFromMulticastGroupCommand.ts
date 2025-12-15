@@ -9,7 +9,7 @@ import type {
   DisassociateWirelessDeviceFromMulticastGroupRequest,
   DisassociateWirelessDeviceFromMulticastGroupResponse,
 } from "../models/models_0";
-import { DisassociateWirelessDeviceFromMulticastGroup } from "../schemas/schemas_0";
+import { DisassociateWirelessDeviceFromMulticastGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DisassociateWirelessDeviceFromMulticastGroupCommand extends $Comman
   })
   .s("iotwireless", "DisassociateWirelessDeviceFromMulticastGroup", {})
   .n("IoTWirelessClient", "DisassociateWirelessDeviceFromMulticastGroupCommand")
-  .sc(DisassociateWirelessDeviceFromMulticastGroup)
+  .sc(DisassociateWirelessDeviceFromMulticastGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

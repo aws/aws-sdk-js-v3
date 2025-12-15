@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetReadSetExportJobRequest, GetReadSetExportJobResponse } from "../models/models_0";
 import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { GetReadSetExportJob } from "../schemas/schemas_0";
+import { GetReadSetExportJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class GetReadSetExportJobCommand extends $Command
   })
   .s("Omics", "GetReadSetExportJob", {})
   .n("OmicsClient", "GetReadSetExportJobCommand")
-  .sc(GetReadSetExportJob)
+  .sc(GetReadSetExportJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { ListReservationOfferings } from "../schemas/schemas_0";
+import { ListReservationOfferings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class ListReservationOfferingsCommand extends $Command
   })
   .s("RedshiftServerless", "ListReservationOfferings", {})
   .n("RedshiftServerlessClient", "ListReservationOfferingsCommand")
-  .sc(ListReservationOfferings)
+  .sc(ListReservationOfferings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

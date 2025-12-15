@@ -9,7 +9,7 @@ import type {
   GetNetworkInsightsAccessScopeContentRequest,
   GetNetworkInsightsAccessScopeContentResult,
 } from "../models/models_6";
-import { GetNetworkInsightsAccessScopeContent } from "../schemas/schemas_0";
+import { GetNetworkInsightsAccessScopeContent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -180,7 +180,7 @@ export class GetNetworkInsightsAccessScopeContentCommand extends $Command
   })
   .s("AmazonEC2", "GetNetworkInsightsAccessScopeContent", {})
   .n("EC2Client", "GetNetworkInsightsAccessScopeContentCommand")
-  .sc(GetNetworkInsightsAccessScopeContent)
+  .sc(GetNetworkInsightsAccessScopeContent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

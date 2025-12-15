@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartInstancesRequest, StartInstancesResult } from "../models/models_7";
-import { StartInstances } from "../schemas/schemas_0";
+import { StartInstances$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -136,7 +136,7 @@ export class StartInstancesCommand extends $Command
   })
   .s("AmazonEC2", "StartInstances", {})
   .n("EC2Client", "StartInstancesCommand")
-  .sc(StartInstances)
+  .sc(StartInstances$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

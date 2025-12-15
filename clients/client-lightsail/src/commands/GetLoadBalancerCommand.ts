@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { GetLoadBalancerRequest } from "../models/models_0";
 import type { GetLoadBalancerResult } from "../models/models_1";
-import { GetLoadBalancer } from "../schemas/schemas_0";
+import { GetLoadBalancer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -151,7 +151,7 @@ export class GetLoadBalancerCommand extends $Command
   })
   .s("Lightsail_20161128", "GetLoadBalancer", {})
   .n("LightsailClient", "GetLoadBalancerCommand")
-  .sc(GetLoadBalancer)
+  .sc(GetLoadBalancer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

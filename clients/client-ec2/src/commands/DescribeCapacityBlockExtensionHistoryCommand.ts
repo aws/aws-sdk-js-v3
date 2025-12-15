@@ -9,7 +9,7 @@ import type {
   DescribeCapacityBlockExtensionHistoryRequest,
   DescribeCapacityBlockExtensionHistoryResult,
 } from "../models/models_3";
-import { DescribeCapacityBlockExtensionHistory } from "../schemas/schemas_0";
+import { DescribeCapacityBlockExtensionHistory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class DescribeCapacityBlockExtensionHistoryCommand extends $Command
   })
   .s("AmazonEC2", "DescribeCapacityBlockExtensionHistory", {})
   .n("EC2Client", "DescribeCapacityBlockExtensionHistoryCommand")
-  .sc(DescribeCapacityBlockExtensionHistory)
+  .sc(DescribeCapacityBlockExtensionHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

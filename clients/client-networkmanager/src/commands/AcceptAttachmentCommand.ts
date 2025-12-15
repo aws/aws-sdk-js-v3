@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { AcceptAttachment } from "../schemas/schemas_0";
+import { AcceptAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -149,7 +149,7 @@ export class AcceptAttachmentCommand extends $Command
   })
   .s("NetworkManager", "AcceptAttachment", {})
   .n("NetworkManagerClient", "AcceptAttachmentCommand")
-  .sc(AcceptAttachment)
+  .sc(AcceptAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

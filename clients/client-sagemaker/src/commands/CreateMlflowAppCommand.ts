@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateMlflowAppRequest, CreateMlflowAppResponse } from "../models/models_1";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { CreateMlflowApp } from "../schemas/schemas_0";
+import { CreateMlflowApp$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class CreateMlflowAppCommand extends $Command
   })
   .s("SageMaker", "CreateMlflowApp", {})
   .n("SageMakerClient", "CreateMlflowAppCommand")
-  .sc(CreateMlflowApp)
+  .sc(CreateMlflowApp$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListJobRunAttemptsRequest, ListJobRunAttemptsResponse } from "../models/models_0";
-import { ListJobRunAttempts } from "../schemas/schemas_0";
+import { ListJobRunAttempts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class ListJobRunAttemptsCommand extends $Command
   })
   .s("AwsToledoWebService", "ListJobRunAttempts", {})
   .n("EMRServerlessClient", "ListJobRunAttemptsCommand")
-  .sc(ListJobRunAttempts)
+  .sc(ListJobRunAttempts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

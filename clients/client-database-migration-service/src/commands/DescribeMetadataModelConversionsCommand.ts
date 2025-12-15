@@ -13,7 +13,7 @@ import type {
   DescribeMetadataModelConversionsMessage,
   DescribeMetadataModelConversionsResponse,
 } from "../models/models_0";
-import { DescribeMetadataModelConversions } from "../schemas/schemas_0";
+import { DescribeMetadataModelConversions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -153,7 +153,7 @@ export class DescribeMetadataModelConversionsCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribeMetadataModelConversions", {})
   .n("DatabaseMigrationServiceClient", "DescribeMetadataModelConversionsCommand")
-  .sc(DescribeMetadataModelConversions)
+  .sc(DescribeMetadataModelConversions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

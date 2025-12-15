@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateVirtualGatewayInput, CreateVirtualGatewayOutput } from "../models/models_0";
-import { CreateVirtualGateway } from "../schemas/schemas_0";
+import { CreateVirtualGateway$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -371,7 +371,7 @@ export class CreateVirtualGatewayCommand extends $Command
   })
   .s("AppMesh", "CreateVirtualGateway", {})
   .n("AppMeshClient", "CreateVirtualGatewayCommand")
-  .sc(CreateVirtualGateway)
+  .sc(CreateVirtualGateway$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

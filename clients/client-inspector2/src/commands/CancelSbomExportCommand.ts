@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import type { CancelSbomExportRequest, CancelSbomExportResponse } from "../models/models_0";
-import { CancelSbomExport } from "../schemas/schemas_0";
+import { CancelSbomExport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class CancelSbomExportCommand extends $Command
   })
   .s("Inspector2", "CancelSbomExport", {})
   .n("Inspector2Client", "CancelSbomExportCommand")
-  .sc(CancelSbomExport)
+  .sc(CancelSbomExport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

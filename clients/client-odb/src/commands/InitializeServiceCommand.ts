@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { InitializeServiceInput, InitializeServiceOutput } from "../models/models_0";
 import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
-import { InitializeService } from "../schemas/schemas_0";
+import { InitializeService$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class InitializeServiceCommand extends $Command
   })
   .s("Odb", "InitializeService", {})
   .n("OdbClient", "InitializeServiceCommand")
-  .sc(InitializeService)
+  .sc(InitializeService$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

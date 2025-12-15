@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteCarrierGatewayRequest, DeleteCarrierGatewayResult } from "../models/models_2";
-import { DeleteCarrierGateway } from "../schemas/schemas_0";
+import { DeleteCarrierGateway$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeleteCarrierGatewayCommand extends $Command
   })
   .s("AmazonEC2", "DeleteCarrierGateway", {})
   .n("EC2Client", "DeleteCarrierGatewayCommand")
-  .sc(DeleteCarrierGateway)
+  .sc(DeleteCarrierGateway$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   BatchCreateRumMetricDefinitionsResponse,
 } from "../models/models_0";
 import type { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
-import { BatchCreateRumMetricDefinitions } from "../schemas/schemas_0";
+import { BatchCreateRumMetricDefinitions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -141,7 +141,7 @@ export class BatchCreateRumMetricDefinitionsCommand extends $Command
   })
   .s("RUM", "BatchCreateRumMetricDefinitions", {})
   .n("RUMClient", "BatchCreateRumMetricDefinitionsCommand")
-  .sc(BatchCreateRumMetricDefinitions)
+  .sc(BatchCreateRumMetricDefinitions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

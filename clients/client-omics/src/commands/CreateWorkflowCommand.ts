@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateWorkflowRequest, CreateWorkflowResponse } from "../models/models_0";
 import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { CreateWorkflow } from "../schemas/schemas_0";
+import { CreateWorkflow$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -154,7 +154,7 @@ export class CreateWorkflowCommand extends $Command
   })
   .s("Omics", "CreateWorkflow", {})
   .n("OmicsClient", "CreateWorkflowCommand")
-  .sc(CreateWorkflow)
+  .sc(CreateWorkflow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

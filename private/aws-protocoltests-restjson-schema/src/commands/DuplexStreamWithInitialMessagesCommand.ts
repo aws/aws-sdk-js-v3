@@ -11,7 +11,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { DuplexStreamWithInitialMessages } from "../schemas/schemas_0";
+import { DuplexStreamWithInitialMessages$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -172,7 +172,7 @@ export class DuplexStreamWithInitialMessagesCommand extends $Command
     },
   })
   .n("RestJsonProtocolClient", "DuplexStreamWithInitialMessagesCommand")
-  .sc(DuplexStreamWithInitialMessages)
+  .sc(DuplexStreamWithInitialMessages$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

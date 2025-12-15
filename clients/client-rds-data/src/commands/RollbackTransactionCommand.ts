@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RollbackTransactionRequest, RollbackTransactionResponse } from "../models/models_0";
 import type { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
-import { RollbackTransaction } from "../schemas/schemas_0";
+import { RollbackTransaction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class RollbackTransactionCommand extends $Command
   })
   .s("RdsDataService", "RollbackTransaction", {})
   .n("RDSDataClient", "RollbackTransactionCommand")
-  .sc(RollbackTransaction)
+  .sc(RollbackTransaction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

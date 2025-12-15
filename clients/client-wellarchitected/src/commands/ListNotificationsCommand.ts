@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListNotificationsInput, ListNotificationsOutput } from "../models/models_0";
-import { ListNotifications } from "../schemas/schemas_0";
+import { ListNotifications$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -107,7 +107,7 @@ export class ListNotificationsCommand extends $Command
   })
   .s("WellArchitectedApiServiceLambda", "ListNotifications", {})
   .n("WellArchitectedClient", "ListNotificationsCommand")
-  .sc(ListNotifications)
+  .sc(ListNotifications$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

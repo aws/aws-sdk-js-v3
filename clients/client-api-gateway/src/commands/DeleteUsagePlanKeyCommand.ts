@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteUsagePlanKeyRequest } from "../models/models_0";
-import { DeleteUsagePlanKey } from "../schemas/schemas_0";
+import { DeleteUsagePlanKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DeleteUsagePlanKeyCommand extends $Command
   })
   .s("BackplaneControlService", "DeleteUsagePlanKey", {})
   .n("APIGatewayClient", "DeleteUsagePlanKeyCommand")
-  .sc(DeleteUsagePlanKey)
+  .sc(DeleteUsagePlanKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

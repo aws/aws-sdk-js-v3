@@ -9,7 +9,7 @@ import type {
   ListThingRegistrationTaskReportsRequest,
   ListThingRegistrationTaskReportsResponse,
 } from "../models/models_2";
-import { ListThingRegistrationTaskReports } from "../schemas/schemas_0";
+import { ListThingRegistrationTaskReports$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class ListThingRegistrationTaskReportsCommand extends $Command
   })
   .s("AWSIotService", "ListThingRegistrationTaskReports", {})
   .n("IoTClient", "ListThingRegistrationTaskReportsCommand")
-  .sc(ListThingRegistrationTaskReports)
+  .sc(ListThingRegistrationTaskReports$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

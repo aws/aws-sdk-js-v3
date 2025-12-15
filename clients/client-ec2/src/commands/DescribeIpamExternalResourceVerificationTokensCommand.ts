@@ -9,7 +9,7 @@ import type {
   DescribeIpamExternalResourceVerificationTokensRequest,
   DescribeIpamExternalResourceVerificationTokensResult,
 } from "../models/models_4";
-import { DescribeIpamExternalResourceVerificationTokens } from "../schemas/schemas_0";
+import { DescribeIpamExternalResourceVerificationTokens$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class DescribeIpamExternalResourceVerificationTokensCommand extends $Comm
   })
   .s("AmazonEC2", "DescribeIpamExternalResourceVerificationTokens", {})
   .n("EC2Client", "DescribeIpamExternalResourceVerificationTokensCommand")
-  .sc(DescribeIpamExternalResourceVerificationTokens)
+  .sc(DescribeIpamExternalResourceVerificationTokens$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

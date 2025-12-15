@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateNumberOfDomainControllersRequest, UpdateNumberOfDomainControllersResult } from "../models/models_0";
-import { UpdateNumberOfDomainControllers } from "../schemas/schemas_0";
+import { UpdateNumberOfDomainControllers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class UpdateNumberOfDomainControllersCommand extends $Command
   })
   .s("DirectoryService_20150416", "UpdateNumberOfDomainControllers", {})
   .n("DirectoryServiceClient", "UpdateNumberOfDomainControllersCommand")
-  .sc(UpdateNumberOfDomainControllers)
+  .sc(UpdateNumberOfDomainControllers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

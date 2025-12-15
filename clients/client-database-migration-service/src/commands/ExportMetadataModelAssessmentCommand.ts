@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ExportMetadataModelAssessmentMessage, ExportMetadataModelAssessmentResponse } from "../models/models_0";
-import { ExportMetadataModelAssessment } from "../schemas/schemas_0";
+import { ExportMetadataModelAssessment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -122,7 +122,7 @@ export class ExportMetadataModelAssessmentCommand extends $Command
   })
   .s("AmazonDMSv20160101", "ExportMetadataModelAssessment", {})
   .n("DatabaseMigrationServiceClient", "ExportMetadataModelAssessmentCommand")
-  .sc(ExportMetadataModelAssessment)
+  .sc(ExportMetadataModelAssessment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

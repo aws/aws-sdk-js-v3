@@ -865,36 +865,36 @@ import type {
 } from "@smithy/types";
 
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  ExternalResourceException as __ExternalResourceException,
-  InternalServerException as __InternalServerException,
-  LicenseNotFoundException as __LicenseNotFoundException,
-  MediaTooLargeException as __MediaTooLargeException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  ExternalResourceException,
+  InternalServerException,
+  LicenseNotFoundException,
+  MediaTooLargeException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
-import { QBusinessServiceException as __QBusinessServiceException } from "../models/QBusinessServiceException";
+import { QBusinessServiceException } from "../models/QBusinessServiceException";
 
 /* eslint no-var: 0 */
-export var DataAccessorName: StaticSimpleSchema = [0, n0, _DAN, 8, 0];
-export var KmsKeyId: StaticSimpleSchema = [0, n0, _KKI, 8, 0];
-export var Payload: StaticSimpleSchema = [0, n0, _P, 8, 0];
-export var AccessConfiguration: StaticStructureSchema = [3, n0, _AC, 0, [_aC, _mR], [() => AccessControls, 0]];
-export var AccessControl: StaticStructureSchema = [3, n0, _ACc, 0, [_p, _mR], [() => Principals, 0]];
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var ActionConfiguration: StaticStructureSchema = [
+var DataAccessorName: StaticSimpleSchema = [0, n0, _DAN, 8, 0];
+var KmsKeyId: StaticSimpleSchema = [0, n0, _KKI, 8, 0];
+var Payload: StaticSimpleSchema = [0, n0, _P, 8, 0];
+export var AccessConfiguration$: StaticStructureSchema = [3, n0, _AC, 0, [_aC, _mR], [() => AccessControls, 0]];
+export var AccessControl$: StaticStructureSchema = [3, n0, _ACc, 0, [_p, _mR], [() => Principals, 0]];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var ActionConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ACct,
   0,
   [_a, _fC],
-  [0, () => ActionFilterConfiguration],
+  [0, () => ActionFilterConfiguration$],
 ];
-export var ActionExecution: StaticStructureSchema = [
+export var ActionExecution$: StaticStructureSchema = [
   3,
   n0,
   _AE,
@@ -902,7 +902,7 @@ export var ActionExecution: StaticStructureSchema = [
   [_pI, _pa, _pFNS],
   [0, () => ActionExecutionPayload, 0],
 ];
-export var ActionExecutionEvent: StaticStructureSchema = [
+export var ActionExecutionEvent$: StaticStructureSchema = [
   3,
   n0,
   _AEE,
@@ -910,9 +910,9 @@ export var ActionExecutionEvent: StaticStructureSchema = [
   [_pI, _pa, _pFNS],
   [0, () => ActionExecutionPayload, 0],
 ];
-export var ActionExecutionPayloadField: StaticStructureSchema = [3, n0, _AEPF, 0, [_v], [15]];
-export var ActionFilterConfiguration: StaticStructureSchema = [3, n0, _AFC, 0, [_dAF], [() => AttributeFilter]];
-export var ActionReview: StaticStructureSchema = [
+export var ActionExecutionPayloadField$: StaticStructureSchema = [3, n0, _AEPF, 0, [_v], [15]];
+export var ActionFilterConfiguration$: StaticStructureSchema = [3, n0, _AFC, 0, [_dAF], [() => AttributeFilter$]];
+export var ActionReview$: StaticStructureSchema = [
   3,
   n0,
   _AR,
@@ -920,7 +920,7 @@ export var ActionReview: StaticStructureSchema = [
   [_pI, _pT, _pa, _pFNS],
   [0, 0, () => ActionReviewPayload, 0],
 ];
-export var ActionReviewEvent: StaticStructureSchema = [
+export var ActionReviewEvent$: StaticStructureSchema = [
   3,
   n0,
   _ARE,
@@ -928,7 +928,7 @@ export var ActionReviewEvent: StaticStructureSchema = [
   [_cI, _uMI, _sMI, _pI, _pT, _pa, _pFNS],
   [0, 0, 0, 0, 0, () => ActionReviewPayload, 0],
 ];
-export var ActionReviewPayloadField: StaticStructureSchema = [
+export var ActionReviewPayloadField$: StaticStructureSchema = [
   3,
   n0,
   _ARPF,
@@ -936,22 +936,22 @@ export var ActionReviewPayloadField: StaticStructureSchema = [
   [_dN, _dO, _dD, _t, _v, _aV, _aF, _aIJS, _r],
   [0, 1, 0, 0, 15, () => ActionReviewPayloadFieldAllowedValues, 0, 15, 2],
 ];
-export var ActionReviewPayloadFieldAllowedValue: StaticStructureSchema = [3, n0, _ARPFAV, 0, [_v, _dV], [15, 15]];
-export var ActionSummary: StaticStructureSchema = [3, n0, _AS, 0, [_aI, _dN, _iE, _d], [0, 0, 0, 0]];
-export var Application: StaticStructureSchema = [
+export var ActionReviewPayloadFieldAllowedValue$: StaticStructureSchema = [3, n0, _ARPFAV, 0, [_v, _dV], [15, 15]];
+export var ActionSummary$: StaticStructureSchema = [3, n0, _AS, 0, [_aI, _dN, _iE, _d], [0, 0, 0, 0]];
+export var Application$: StaticStructureSchema = [
   3,
   n0,
   _A,
   0,
   [_dN, _aIp, _cA, _uA, _s, _iT, _qSC],
-  [0, 0, 4, 4, 0, 0, () => QuickSightConfiguration],
+  [0, 0, 4, 4, 0, 0, () => QuickSightConfiguration$],
 ];
-export var AppliedAttachmentsConfiguration: StaticStructureSchema = [3, n0, _AAC, 0, [_aCM], [0]];
-export var AppliedCreatorModeConfiguration: StaticStructureSchema = [3, n0, _ACMC, 0, [_cMC], [0]];
-export var AppliedOrchestrationConfiguration: StaticStructureSchema = [3, n0, _AOC, 0, [_co], [0]];
-export var AssociatedGroup: StaticStructureSchema = [3, n0, _AG, 0, [_n, _t], [0, 0]];
-export var AssociatedUser: StaticStructureSchema = [3, n0, _AU, 0, [_i, _t], [0, 0]];
-export var AssociatePermissionRequest: StaticStructureSchema = [
+export var AppliedAttachmentsConfiguration$: StaticStructureSchema = [3, n0, _AAC, 0, [_aCM], [0]];
+export var AppliedCreatorModeConfiguration$: StaticStructureSchema = [3, n0, _ACMC, 0, [_cMC], [0]];
+export var AppliedOrchestrationConfiguration$: StaticStructureSchema = [3, n0, _AOC, 0, [_co], [0]];
+export var AssociatedGroup$: StaticStructureSchema = [3, n0, _AG, 0, [_n, _t], [0, 0]];
+export var AssociatedUser$: StaticStructureSchema = [3, n0, _AU, 0, [_i, _t], [0, 0]];
+export var AssociatePermissionRequest$: StaticStructureSchema = [
   3,
   n0,
   _APR,
@@ -959,27 +959,27 @@ export var AssociatePermissionRequest: StaticStructureSchema = [
   [_aIp, _sI, _ac, _con, _pr],
   [[0, 1], 0, 64 | 0, () => PermissionConditions, 0],
 ];
-export var AssociatePermissionResponse: StaticStructureSchema = [3, n0, _APRs, 0, [_st], [0]];
-export var Attachment: StaticStructureSchema = [
+export var AssociatePermissionResponse$: StaticStructureSchema = [3, n0, _APRs, 0, [_st], [0]];
+export var Attachment$: StaticStructureSchema = [
   3,
   n0,
   _At,
   0,
   [_aIt, _cI, _n, _cF, _fT, _fS, _md, _cA, _s, _e],
-  [0, 0, 0, () => CopyFromSource, 0, 1, 0, 4, 0, () => ErrorDetail],
+  [0, 0, 0, () => CopyFromSource$, 0, 1, 0, 4, 0, () => ErrorDetail$],
 ];
-export var AttachmentInput: StaticStructureSchema = [3, n0, _AI, 0, [_da, _n, _cF], [21, 0, () => CopyFromSource]];
-export var AttachmentInputEvent: StaticStructureSchema = [3, n0, _AIE, 0, [_at], [() => AttachmentInput]];
-export var AttachmentOutput: StaticStructureSchema = [
+export var AttachmentInput$: StaticStructureSchema = [3, n0, _AI, 0, [_da, _n, _cF], [21, 0, () => CopyFromSource$]];
+export var AttachmentInputEvent$: StaticStructureSchema = [3, n0, _AIE, 0, [_at], [() => AttachmentInput$]];
+export var AttachmentOutput$: StaticStructureSchema = [
   3,
   n0,
   _AO,
   0,
   [_n, _s, _e, _aIt, _cI],
-  [0, 0, () => ErrorDetail, 0, 0],
+  [0, 0, () => ErrorDetail$, 0, 0],
 ];
-export var AttachmentsConfiguration: StaticStructureSchema = [3, n0, _ACt, 0, [_aCM], [0]];
-export var AttributeFilter: StaticStructureSchema = [
+export var AttachmentsConfiguration$: StaticStructureSchema = [3, n0, _ACt, 0, [_aCM], [0]];
+export var AttributeFilter$: StaticStructureSchema = [
   3,
   n0,
   _AF,
@@ -988,25 +988,32 @@ export var AttributeFilter: StaticStructureSchema = [
   [
     () => AttributeFilters,
     () => AttributeFilters,
-    () => AttributeFilter,
-    () => DocumentAttribute,
-    () => DocumentAttribute,
-    () => DocumentAttribute,
-    () => DocumentAttribute,
-    () => DocumentAttribute,
-    () => DocumentAttribute,
-    () => DocumentAttribute,
+    () => AttributeFilter$,
+    () => DocumentAttribute$,
+    () => DocumentAttribute$,
+    () => DocumentAttribute$,
+    () => DocumentAttribute$,
+    () => DocumentAttribute$,
+    () => DocumentAttribute$,
+    () => DocumentAttribute$,
   ],
 ];
-export var AudioExtractionConfiguration: StaticStructureSchema = [3, n0, _AEC, 0, [_aES], [0]];
-export var AudioSourceDetails: StaticStructureSchema = [3, n0, _ASD, 0, [_mI, _mMT, _sTM, _eTM, _aET], [0, 0, 1, 1, 0]];
-export var AuthChallengeRequest: StaticStructureSchema = [3, n0, _ACR, 0, [_aU], [0]];
-export var AuthChallengeRequestEvent: StaticStructureSchema = [3, n0, _ACRE, 0, [_aU], [0]];
-export var AuthChallengeResponse: StaticStructureSchema = [3, n0, _ACRu, 0, [_rM], [128 | 0]];
-export var AuthChallengeResponseEvent: StaticStructureSchema = [3, n0, _ACREu, 0, [_rM], [128 | 0]];
-export var AutoSubscriptionConfiguration: StaticStructureSchema = [3, n0, _ASC, 0, [_aS, _dST], [0, 0]];
-export var BasicAuthConfiguration: StaticStructureSchema = [3, n0, _BAC, 0, [_sA, _rA], [0, 0]];
-export var BatchDeleteDocumentRequest: StaticStructureSchema = [
+export var AudioExtractionConfiguration$: StaticStructureSchema = [3, n0, _AEC, 0, [_aES], [0]];
+export var AudioSourceDetails$: StaticStructureSchema = [
+  3,
+  n0,
+  _ASD,
+  0,
+  [_mI, _mMT, _sTM, _eTM, _aET],
+  [0, 0, 1, 1, 0],
+];
+export var AuthChallengeRequest$: StaticStructureSchema = [3, n0, _ACR, 0, [_aU], [0]];
+export var AuthChallengeRequestEvent$: StaticStructureSchema = [3, n0, _ACRE, 0, [_aU], [0]];
+export var AuthChallengeResponse$: StaticStructureSchema = [3, n0, _ACRu, 0, [_rM], [128 | 0]];
+export var AuthChallengeResponseEvent$: StaticStructureSchema = [3, n0, _ACREu, 0, [_rM], [128 | 0]];
+export var AutoSubscriptionConfiguration$: StaticStructureSchema = [3, n0, _ASC, 0, [_aS, _dST], [0, 0]];
+export var BasicAuthConfiguration$: StaticStructureSchema = [3, n0, _BAC, 0, [_sA, _rA], [0, 0]];
+export var BatchDeleteDocumentRequest$: StaticStructureSchema = [
   3,
   n0,
   _BDDR,
@@ -1014,8 +1021,8 @@ export var BatchDeleteDocumentRequest: StaticStructureSchema = [
   [_aIp, _iI, _do, _dSSI],
   [[0, 1], [0, 1], () => DeleteDocuments, 0],
 ];
-export var BatchDeleteDocumentResponse: StaticStructureSchema = [3, n0, _BDDRa, 0, [_fD], [() => FailedDocuments]];
-export var BatchPutDocumentRequest: StaticStructureSchema = [
+export var BatchDeleteDocumentResponse$: StaticStructureSchema = [3, n0, _BDDRa, 0, [_fD], [() => FailedDocuments]];
+export var BatchPutDocumentRequest$: StaticStructureSchema = [
   3,
   n0,
   _BPDR,
@@ -1023,9 +1030,9 @@ export var BatchPutDocumentRequest: StaticStructureSchema = [
   [_aIp, _iI, _do, _rA, _dSSI],
   [[0, 1], [0, 1], () => Documents, 0, 0],
 ];
-export var BatchPutDocumentResponse: StaticStructureSchema = [3, n0, _BPDRa, 0, [_fD], [() => FailedDocuments]];
-export var BlockedPhrasesConfiguration: StaticStructureSchema = [3, n0, _BPC, 0, [_bP, _sMO], [64 | 0, 0]];
-export var BlockedPhrasesConfigurationUpdate: StaticStructureSchema = [
+export var BatchPutDocumentResponse$: StaticStructureSchema = [3, n0, _BPDRa, 0, [_fD], [() => FailedDocuments]];
+export var BlockedPhrasesConfiguration$: StaticStructureSchema = [3, n0, _BPC, 0, [_bP, _sMO], [64 | 0, 0]];
+export var BlockedPhrasesConfigurationUpdate$: StaticStructureSchema = [
   3,
   n0,
   _BPCU,
@@ -1033,8 +1040,8 @@ export var BlockedPhrasesConfigurationUpdate: StaticStructureSchema = [
   [_bPTCOU, _bPTD, _sMO],
   [64 | 0, 64 | 0, 0],
 ];
-export var BrowserExtensionConfiguration: StaticStructureSchema = [3, n0, _BEC, 0, [_eBE], [64 | 0]];
-export var CancelSubscriptionRequest: StaticStructureSchema = [
+export var BrowserExtensionConfiguration$: StaticStructureSchema = [3, n0, _BEC, 0, [_eBE], [64 | 0]];
+export var CancelSubscriptionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CSR,
@@ -1045,15 +1052,15 @@ export var CancelSubscriptionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var CancelSubscriptionResponse: StaticStructureSchema = [
+export var CancelSubscriptionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CSRa,
   0,
   [_sAu, _cS, _nS],
-  [0, () => SubscriptionDetails, () => SubscriptionDetails],
+  [0, () => SubscriptionDetails$, () => SubscriptionDetails$],
 ];
-export var ChatInput: StaticStructureSchema = [
+export var ChatInput$: StaticStructureSchema = [
   3,
   n0,
   _CI,
@@ -1066,11 +1073,11 @@ export var ChatInput: StaticStructureSchema = [
     [0, { [_hQ]: _cI }],
     [0, { [_hQ]: _pMI }],
     [0, { [_iTd]: 1, [_hQ]: _cT }],
-    [() => ChatInputStream, 16],
+    [() => ChatInputStream$, 16],
   ],
 ];
-export var ChatOutput: StaticStructureSchema = [3, n0, _CO, 0, [_oS], [[() => ChatOutputStream, 16]]];
-export var ChatResponseConfiguration: StaticStructureSchema = [
+export var ChatOutput$: StaticStructureSchema = [3, n0, _CO, 0, [_oS], [[() => ChatOutputStream$, 16]]];
+export var ChatResponseConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _CRC,
@@ -1078,15 +1085,15 @@ export var ChatResponseConfiguration: StaticStructureSchema = [
   [_cRCI, _cRCA, _dN, _rCS, _s, _cA, _uA],
   [0, 0, 0, 0, 0, 4, 4],
 ];
-export var ChatResponseConfigurationDetail: StaticStructureSchema = [
+export var ChatResponseConfigurationDetail$: StaticStructureSchema = [
   3,
   n0,
   _CRCD,
   0,
   [_rC, _rCS, _s, _e, _uA],
-  [() => ResponseConfigurations, 0, 0, () => ErrorDetail, 4],
+  [() => ResponseConfigurations, 0, 0, () => ErrorDetail$, 4],
 ];
-export var ChatSyncInput: StaticStructureSchema = [
+export var ChatSyncInput$: StaticStructureSchema = [
   3,
   n0,
   _CSI,
@@ -1098,25 +1105,34 @@ export var ChatSyncInput: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _uG }],
     0,
     () => AttachmentsInput,
-    () => ActionExecution,
-    () => AuthChallengeResponse,
+    () => ActionExecution$,
+    () => AuthChallengeResponse$,
     0,
     0,
-    () => AttributeFilter,
+    () => AttributeFilter$,
     0,
-    () => ChatModeConfiguration,
+    () => ChatModeConfiguration$,
     [0, 4],
   ],
 ];
-export var ChatSyncOutput: StaticStructureSchema = [
+export var ChatSyncOutput$: StaticStructureSchema = [
   3,
   n0,
   _CSO,
   0,
   [_cI, _sM, _sMI, _uMI, _aR, _aCRu, _sAo, _fA],
-  [0, 0, 0, 0, () => ActionReview, () => AuthChallengeRequest, [() => SourceAttributions, 0], () => AttachmentsOutput],
+  [
+    0,
+    0,
+    0,
+    0,
+    () => ActionReview$,
+    () => AuthChallengeRequest$,
+    [() => SourceAttributions, 0],
+    () => AttachmentsOutput,
+  ],
 ];
-export var CheckDocumentAccessRequest: StaticStructureSchema = [
+export var CheckDocumentAccessRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDAR,
@@ -1130,29 +1146,29 @@ export var CheckDocumentAccessRequest: StaticStructureSchema = [
     [0, { [_hQ]: _dSI }],
   ],
 ];
-export var CheckDocumentAccessResponse: StaticStructureSchema = [
+export var CheckDocumentAccessResponse$: StaticStructureSchema = [
   3,
   n0,
   _CDARh,
   0,
   [_uG, _uAs, _hA, _dA],
-  [() => AssociatedGroups, () => AssociatedUsers, 2, () => DocumentAcl],
+  [() => AssociatedGroups, () => AssociatedUsers, 2, () => DocumentAcl$],
 ];
-export var ConfigurationEvent: StaticStructureSchema = [
+export var ConfigurationEvent$: StaticStructureSchema = [
   3,
   n0,
   _CE,
   0,
   [_cM, _cMCh, _aFt],
-  [0, () => ChatModeConfiguration, () => AttributeFilter],
+  [0, () => ChatModeConfiguration$, () => AttributeFilter$],
 ];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CEo, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var ContentBlockerRule: StaticStructureSchema = [3, n0, _CBR, 0, [_sMO], [0]];
-export var ContentRetrievalRule: StaticStructureSchema = [3, n0, _CRR, 0, [_eDS], [() => EligibleDataSources]];
-export var Conversation: StaticStructureSchema = [3, n0, _C, 0, [_cI, _ti, _sT], [0, 0, 4]];
-export var ConversationSource: StaticStructureSchema = [3, n0, _CS, 0, [_cI, _aIt], [0, 0]];
-export var CreateAnonymousWebExperienceUrlRequest: StaticStructureSchema = [
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var ContentBlockerRule$: StaticStructureSchema = [3, n0, _CBR, 0, [_sMO], [0]];
+export var ContentRetrievalRule$: StaticStructureSchema = [3, n0, _CRR, 0, [_eDS], [() => EligibleDataSources]];
+export var Conversation$: StaticStructureSchema = [3, n0, _C, 0, [_cI, _ti, _sT], [0, 0, 4]];
+export var ConversationSource$: StaticStructureSchema = [3, n0, _CS, 0, [_cI, _aIt], [0, 0]];
+export var CreateAnonymousWebExperienceUrlRequest$: StaticStructureSchema = [
   3,
   n0,
   _CAWEUR,
@@ -1160,8 +1176,8 @@ export var CreateAnonymousWebExperienceUrlRequest: StaticStructureSchema = [
   [_aIp, _wEI, _sDIM],
   [[0, 1], [0, 1], 1],
 ];
-export var CreateAnonymousWebExperienceUrlResponse: StaticStructureSchema = [3, n0, _CAWEURr, 0, [_aUn], [0]];
-export var CreateApplicationRequest: StaticStructureSchema = [
+export var CreateAnonymousWebExperienceUrlResponse$: StaticStructureSchema = [3, n0, _CAWEURr, 0, [_aUn], [0]];
+export var CreateApplicationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CAR,
@@ -1175,17 +1191,17 @@ export var CreateApplicationRequest: StaticStructureSchema = [
     0,
     64 | 0,
     0,
-    [() => EncryptionConfiguration, 0],
+    [() => EncryptionConfiguration$, 0],
     () => Tags,
     [0, 4],
-    () => AttachmentsConfiguration,
-    () => QAppsConfiguration,
-    () => PersonalizationConfiguration,
-    () => QuickSightConfiguration,
+    () => AttachmentsConfiguration$,
+    () => QAppsConfiguration$,
+    () => PersonalizationConfiguration$,
+    () => QuickSightConfiguration$,
   ],
 ];
-export var CreateApplicationResponse: StaticStructureSchema = [3, n0, _CARr, 0, [_aIp, _aA], [0, 0]];
-export var CreateChatResponseConfigurationRequest: StaticStructureSchema = [
+export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr, 0, [_aIp, _aA], [0, 0]];
+export var CreateChatResponseConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCRCR,
@@ -1193,8 +1209,15 @@ export var CreateChatResponseConfigurationRequest: StaticStructureSchema = [
   [_aIp, _dN, _cT, _rC, _ta],
   [[0, 1], 0, [0, 4], () => ResponseConfigurations, () => Tags],
 ];
-export var CreateChatResponseConfigurationResponse: StaticStructureSchema = [3, n0, _CCRCRr, 0, [_cRCI, _cRCA], [0, 0]];
-export var CreateDataAccessorRequest: StaticStructureSchema = [
+export var CreateChatResponseConfigurationResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _CCRCRr,
+  0,
+  [_cRCI, _cRCA],
+  [0, 0],
+];
+export var CreateDataAccessorRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDARr,
@@ -1206,12 +1229,12 @@ export var CreateDataAccessorRequest: StaticStructureSchema = [
     () => ActionConfigurationList,
     [0, 4],
     [() => DataAccessorName, 0],
-    () => DataAccessorAuthenticationDetail,
+    () => DataAccessorAuthenticationDetail$,
     () => Tags,
   ],
 ];
-export var CreateDataAccessorResponse: StaticStructureSchema = [3, n0, _CDARre, 0, [_dAI, _iAA, _dAA], [0, 0, 0]];
-export var CreateDataSourceRequest: StaticStructureSchema = [
+export var CreateDataAccessorResponse$: StaticStructureSchema = [3, n0, _CDARre, 0, [_dAI, _iAA, _dAA], [0, 0, 0]];
+export var CreateDataSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDSR,
@@ -1222,61 +1245,61 @@ export var CreateDataSourceRequest: StaticStructureSchema = [
     [0, 1],
     0,
     15,
-    () => DataSourceVpcConfiguration,
+    () => DataSourceVpcConfiguration$,
     0,
     () => Tags,
     0,
     0,
     [0, 4],
-    () => DocumentEnrichmentConfiguration,
-    () => MediaExtractionConfiguration,
+    () => DocumentEnrichmentConfiguration$,
+    () => MediaExtractionConfiguration$,
   ],
 ];
-export var CreateDataSourceResponse: StaticStructureSchema = [3, n0, _CDSRr, 0, [_dSI, _dSA], [0, 0]];
-export var CreateIndexRequest: StaticStructureSchema = [
+export var CreateDataSourceResponse$: StaticStructureSchema = [3, n0, _CDSRr, 0, [_dSI, _dSA], [0, 0]];
+export var CreateIndexRequest$: StaticStructureSchema = [
   3,
   n0,
   _CIR,
   0,
   [_aIp, _dN, _d, _t, _ta, _cC, _cT],
-  [[0, 1], 0, 0, 0, () => Tags, () => IndexCapacityConfiguration, [0, 4]],
+  [[0, 1], 0, 0, 0, () => Tags, () => IndexCapacityConfiguration$, [0, 4]],
 ];
-export var CreateIndexResponse: StaticStructureSchema = [3, n0, _CIRr, 0, [_iI, _iA], [0, 0]];
-export var CreatePluginRequest: StaticStructureSchema = [
+export var CreateIndexResponse$: StaticStructureSchema = [3, n0, _CIRr, 0, [_iI, _iA], [0, 0]];
+export var CreatePluginRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPR,
   0,
   [_aIp, _dN, _t, _aCu, _sU, _cPC, _ta, _cT],
-  [[0, 1], 0, 0, () => PluginAuthConfiguration, 0, [() => CustomPluginConfiguration, 0], () => Tags, [0, 4]],
+  [[0, 1], 0, 0, () => PluginAuthConfiguration$, 0, [() => CustomPluginConfiguration$, 0], () => Tags, [0, 4]],
 ];
-export var CreatePluginResponse: StaticStructureSchema = [3, n0, _CPRr, 0, [_pI, _pA, _bS], [0, 0, 0]];
-export var CreateRetrieverRequest: StaticStructureSchema = [
+export var CreatePluginResponse$: StaticStructureSchema = [3, n0, _CPRr, 0, [_pI, _pA, _bS], [0, 0, 0]];
+export var CreateRetrieverRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRRr,
   0,
   [_aIp, _t, _dN, _conf, _rA, _cT, _ta],
-  [[0, 1], 0, 0, () => RetrieverConfiguration, 0, [0, 4], () => Tags],
+  [[0, 1], 0, 0, () => RetrieverConfiguration$, 0, [0, 4], () => Tags],
 ];
-export var CreateRetrieverResponse: StaticStructureSchema = [3, n0, _CRRre, 0, [_rIe, _rAe], [0, 0]];
-export var CreateSubscriptionRequest: StaticStructureSchema = [
+export var CreateRetrieverResponse$: StaticStructureSchema = [3, n0, _CRRre, 0, [_rIe, _rAe], [0, 0]];
+export var CreateSubscriptionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CSRr,
   0,
   [_aIp, _pr, _t, _cT],
-  [[0, 1], () => SubscriptionPrincipal, 0, [0, 4]],
+  [[0, 1], () => SubscriptionPrincipal$, 0, [0, 4]],
 ];
-export var CreateSubscriptionResponse: StaticStructureSchema = [
+export var CreateSubscriptionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CSRre,
   0,
   [_sIu, _sAu, _cS, _nS],
-  [0, 0, () => SubscriptionDetails, () => SubscriptionDetails],
+  [0, 0, () => SubscriptionDetails$, () => SubscriptionDetails$],
 ];
-export var CreateUserRequest: StaticStructureSchema = [
+export var CreateUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _CUR,
@@ -1284,8 +1307,8 @@ export var CreateUserRequest: StaticStructureSchema = [
   [_aIp, _uI, _uAs, _cT],
   [[0, 1], 0, () => UserAliases, [0, 4]],
 ];
-export var CreateUserResponse: StaticStructureSchema = [3, n0, _CURr, 0, [], []];
-export var CreateWebExperienceRequest: StaticStructureSchema = [
+export var CreateUserResponse$: StaticStructureSchema = [3, n0, _CURr, 0, [], []];
+export var CreateWebExperienceRequest$: StaticStructureSchema = [
   3,
   n0,
   _CWER,
@@ -1301,49 +1324,49 @@ export var CreateWebExperienceRequest: StaticStructureSchema = [
     0,
     () => Tags,
     [0, 4],
-    () => IdentityProviderConfiguration,
-    () => BrowserExtensionConfiguration,
-    () => CustomizationConfiguration,
+    () => IdentityProviderConfiguration$,
+    () => BrowserExtensionConfiguration$,
+    () => CustomizationConfiguration$,
   ],
 ];
-export var CreateWebExperienceResponse: StaticStructureSchema = [3, n0, _CWERr, 0, [_wEI, _wEA], [0, 0]];
-export var CreatorModeConfiguration: StaticStructureSchema = [3, n0, _CMC, 0, [_cMC], [0]];
-export var CustomizationConfiguration: StaticStructureSchema = [3, n0, _CC, 0, [_cCSSU, _lU, _fU, _fUa], [0, 0, 0, 0]];
-export var CustomPluginConfiguration: StaticStructureSchema = [
+export var CreateWebExperienceResponse$: StaticStructureSchema = [3, n0, _CWERr, 0, [_wEI, _wEA], [0, 0]];
+export var CreatorModeConfiguration$: StaticStructureSchema = [3, n0, _CMC, 0, [_cMC], [0]];
+export var CustomizationConfiguration$: StaticStructureSchema = [3, n0, _CC, 0, [_cCSSU, _lU, _fU, _fUa], [0, 0, 0, 0]];
+export var CustomPluginConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _CPC,
   0,
   [_d, _aST, _aSp],
-  [0, 0, [() => APISchema, 0]],
+  [0, 0, [() => APISchema$, 0]],
 ];
-export var DataAccessor: StaticStructureSchema = [
+export var DataAccessor$: StaticStructureSchema = [
   3,
   n0,
   _DA,
   0,
   [_dN, _dAI, _dAA, _iAA, _pr, _aD, _cA, _uA],
-  [[() => DataAccessorName, 0], 0, 0, 0, 0, () => DataAccessorAuthenticationDetail, 4, 4],
+  [[() => DataAccessorName, 0], 0, 0, 0, 0, () => DataAccessorAuthenticationDetail$, 4, 4],
 ];
-export var DataAccessorAuthenticationDetail: StaticStructureSchema = [
+export var DataAccessorAuthenticationDetail$: StaticStructureSchema = [
   3,
   n0,
   _DAAD,
   0,
   [_aT, _aCut, _eI],
-  [0, () => DataAccessorAuthenticationConfiguration, 64 | 0],
+  [0, () => DataAccessorAuthenticationConfiguration$, 64 | 0],
 ];
-export var DataAccessorIdcTrustedTokenIssuerConfiguration: StaticStructureSchema = [3, n0, _DAITTIC, 0, [_iTTIA], [0]];
-export var DataSource: StaticStructureSchema = [3, n0, _DS, 0, [_dN, _dSI, _t, _cA, _uA, _s], [0, 0, 0, 4, 4, 0]];
-export var DataSourceSyncJob: StaticStructureSchema = [
+export var DataAccessorIdcTrustedTokenIssuerConfiguration$: StaticStructureSchema = [3, n0, _DAITTIC, 0, [_iTTIA], [0]];
+export var DataSource$: StaticStructureSchema = [3, n0, _DS, 0, [_dN, _dSI, _t, _cA, _uA, _s], [0, 0, 0, 4, 4, 0]];
+export var DataSourceSyncJob$: StaticStructureSchema = [
   3,
   n0,
   _DSSJ,
   0,
   [_eIx, _sT, _eTn, _s, _e, _dSEC, _me],
-  [0, 4, 4, 0, () => ErrorDetail, 0, () => DataSourceSyncJobMetrics],
+  [0, 4, 4, 0, () => ErrorDetail$, 0, () => DataSourceSyncJobMetrics$],
 ];
-export var DataSourceSyncJobMetrics: StaticStructureSchema = [
+export var DataSourceSyncJobMetrics$: StaticStructureSchema = [
   3,
   n0,
   _DSSJM,
@@ -1351,11 +1374,11 @@ export var DataSourceSyncJobMetrics: StaticStructureSchema = [
   [_dAo, _dM, _dDo, _dF, _dS],
   [0, 0, 0, 0, 0],
 ];
-export var DataSourceVpcConfiguration: StaticStructureSchema = [3, n0, _DSVC, 0, [_sIub, _sGI], [64 | 0, 64 | 0]];
-export var DateAttributeBoostingConfiguration: StaticStructureSchema = [3, n0, _DABC, 0, [_bL, _bDIS], [0, 1]];
-export var DeleteApplicationRequest: StaticStructureSchema = [3, n0, _DAR, 0, [_aIp], [[0, 1]]];
-export var DeleteApplicationResponse: StaticStructureSchema = [3, n0, _DARe, 0, [], []];
-export var DeleteAttachmentRequest: StaticStructureSchema = [
+export var DataSourceVpcConfiguration$: StaticStructureSchema = [3, n0, _DSVC, 0, [_sIub, _sGI], [64 | 0, 64 | 0]];
+export var DateAttributeBoostingConfiguration$: StaticStructureSchema = [3, n0, _DABC, 0, [_bL, _bDIS], [0, 1]];
+export var DeleteApplicationRequest$: StaticStructureSchema = [3, n0, _DAR, 0, [_aIp], [[0, 1]]];
+export var DeleteApplicationResponse$: StaticStructureSchema = [3, n0, _DARe, 0, [], []];
+export var DeleteAttachmentRequest$: StaticStructureSchema = [
   3,
   n0,
   _DARel,
@@ -1368,10 +1391,10 @@ export var DeleteAttachmentRequest: StaticStructureSchema = [
     [0, { [_hQ]: _uI }],
   ],
 ];
-export var DeleteAttachmentResponse: StaticStructureSchema = [3, n0, _DARele, 0, [], []];
-export var DeleteChatControlsConfigurationRequest: StaticStructureSchema = [3, n0, _DCCCR, 0, [_aIp], [[0, 1]]];
-export var DeleteChatControlsConfigurationResponse: StaticStructureSchema = [3, n0, _DCCCRe, 0, [], []];
-export var DeleteChatResponseConfigurationRequest: StaticStructureSchema = [
+export var DeleteAttachmentResponse$: StaticStructureSchema = [3, n0, _DARele, 0, [], []];
+export var DeleteChatControlsConfigurationRequest$: StaticStructureSchema = [3, n0, _DCCCR, 0, [_aIp], [[0, 1]]];
+export var DeleteChatControlsConfigurationResponse$: StaticStructureSchema = [3, n0, _DCCCRe, 0, [], []];
+export var DeleteChatResponseConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCRCR,
@@ -1382,8 +1405,8 @@ export var DeleteChatResponseConfigurationRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteChatResponseConfigurationResponse: StaticStructureSchema = [3, n0, _DCRCRe, 0, [], []];
-export var DeleteConversationRequest: StaticStructureSchema = [
+export var DeleteChatResponseConfigurationResponse$: StaticStructureSchema = [3, n0, _DCRCRe, 0, [], []];
+export var DeleteConversationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCR,
@@ -1395,8 +1418,8 @@ export var DeleteConversationRequest: StaticStructureSchema = [
     [0, { [_hQ]: _uI }],
   ],
 ];
-export var DeleteConversationResponse: StaticStructureSchema = [3, n0, _DCRe, 0, [], []];
-export var DeleteDataAccessorRequest: StaticStructureSchema = [
+export var DeleteConversationResponse$: StaticStructureSchema = [3, n0, _DCRe, 0, [], []];
+export var DeleteDataAccessorRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDAR,
@@ -1407,8 +1430,8 @@ export var DeleteDataAccessorRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteDataAccessorResponse: StaticStructureSchema = [3, n0, _DDARe, 0, [], []];
-export var DeleteDataSourceRequest: StaticStructureSchema = [
+export var DeleteDataAccessorResponse$: StaticStructureSchema = [3, n0, _DDARe, 0, [], []];
+export var DeleteDataSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDSR,
@@ -1420,9 +1443,9 @@ export var DeleteDataSourceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteDataSourceResponse: StaticStructureSchema = [3, n0, _DDSRe, 0, [], []];
-export var DeleteDocument: StaticStructureSchema = [3, n0, _DD, 0, [_dI], [0]];
-export var DeleteGroupRequest: StaticStructureSchema = [
+export var DeleteDataSourceResponse$: StaticStructureSchema = [3, n0, _DDSRe, 0, [], []];
+export var DeleteDocument$: StaticStructureSchema = [3, n0, _DD, 0, [_dI], [0]];
+export var DeleteGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _DGR,
@@ -1435,8 +1458,8 @@ export var DeleteGroupRequest: StaticStructureSchema = [
     [0, { [_hQ]: _dSI }],
   ],
 ];
-export var DeleteGroupResponse: StaticStructureSchema = [3, n0, _DGRe, 0, [], []];
-export var DeleteIndexRequest: StaticStructureSchema = [
+export var DeleteGroupResponse$: StaticStructureSchema = [3, n0, _DGRe, 0, [], []];
+export var DeleteIndexRequest$: StaticStructureSchema = [
   3,
   n0,
   _DIR,
@@ -1447,8 +1470,8 @@ export var DeleteIndexRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteIndexResponse: StaticStructureSchema = [3, n0, _DIRe, 0, [], []];
-export var DeletePluginRequest: StaticStructureSchema = [
+export var DeleteIndexResponse$: StaticStructureSchema = [3, n0, _DIRe, 0, [], []];
+export var DeletePluginRequest$: StaticStructureSchema = [
   3,
   n0,
   _DPR,
@@ -1459,8 +1482,8 @@ export var DeletePluginRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeletePluginResponse: StaticStructureSchema = [3, n0, _DPRe, 0, [], []];
-export var DeleteRetrieverRequest: StaticStructureSchema = [
+export var DeletePluginResponse$: StaticStructureSchema = [3, n0, _DPRe, 0, [], []];
+export var DeleteRetrieverRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRR,
@@ -1471,8 +1494,8 @@ export var DeleteRetrieverRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteRetrieverResponse: StaticStructureSchema = [3, n0, _DRRe, 0, [], []];
-export var DeleteUserRequest: StaticStructureSchema = [
+export var DeleteRetrieverResponse$: StaticStructureSchema = [3, n0, _DRRe, 0, [], []];
+export var DeleteUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _DUR,
@@ -1483,8 +1506,8 @@ export var DeleteUserRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteUserResponse: StaticStructureSchema = [3, n0, _DURe, 0, [], []];
-export var DeleteWebExperienceRequest: StaticStructureSchema = [
+export var DeleteUserResponse$: StaticStructureSchema = [3, n0, _DURe, 0, [], []];
+export var DeleteWebExperienceRequest$: StaticStructureSchema = [
   3,
   n0,
   _DWER,
@@ -1495,8 +1518,8 @@ export var DeleteWebExperienceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteWebExperienceResponse: StaticStructureSchema = [3, n0, _DWERe, 0, [], []];
-export var DisassociatePermissionRequest: StaticStructureSchema = [
+export var DeleteWebExperienceResponse$: StaticStructureSchema = [3, n0, _DWERe, 0, [], []];
+export var DisassociatePermissionRequest$: StaticStructureSchema = [
   3,
   n0,
   _DPRi,
@@ -1507,8 +1530,8 @@ export var DisassociatePermissionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DisassociatePermissionResponse: StaticStructureSchema = [3, n0, _DPRis, 0, [], []];
-export var Document: StaticStructureSchema = [
+export var DisassociatePermissionResponse$: StaticStructureSchema = [3, n0, _DPRis, 0, [], []];
+export var Document$: StaticStructureSchema = [
   3,
   n0,
   _D,
@@ -1517,23 +1540,23 @@ export var Document: StaticStructureSchema = [
   [
     0,
     () => DocumentAttributes,
-    () => DocumentContent,
+    () => DocumentContent$,
     0,
     0,
-    () => AccessConfiguration,
-    () => DocumentEnrichmentConfiguration,
-    () => MediaExtractionConfiguration,
+    () => AccessConfiguration$,
+    () => DocumentEnrichmentConfiguration$,
+    () => MediaExtractionConfiguration$,
   ],
 ];
-export var DocumentAcl: StaticStructureSchema = [
+export var DocumentAcl$: StaticStructureSchema = [
   3,
   n0,
   _DAo,
   0,
   [_al, _dL],
-  [() => DocumentAclMembership, () => DocumentAclMembership],
+  [() => DocumentAclMembership$, () => DocumentAclMembership$],
 ];
-export var DocumentAclCondition: StaticStructureSchema = [
+export var DocumentAclCondition$: StaticStructureSchema = [
   3,
   n0,
   _DAC,
@@ -1541,8 +1564,8 @@ export var DocumentAclCondition: StaticStructureSchema = [
   [_mR, _u, _g],
   [0, () => DocumentAclUsers, () => DocumentAclGroups],
 ];
-export var DocumentAclGroup: StaticStructureSchema = [3, n0, _DAG, 0, [_n, _t], [0, 0]];
-export var DocumentAclMembership: StaticStructureSchema = [
+export var DocumentAclGroup$: StaticStructureSchema = [3, n0, _DAG, 0, [_n, _t], [0, 0]];
+export var DocumentAclMembership$: StaticStructureSchema = [
   3,
   n0,
   _DAM,
@@ -1550,58 +1573,58 @@ export var DocumentAclMembership: StaticStructureSchema = [
   [_mR, _con],
   [0, () => DocumentAclConditions],
 ];
-export var DocumentAclUser: StaticStructureSchema = [3, n0, _DAU, 0, [_i, _t], [0, 0]];
-export var DocumentAttribute: StaticStructureSchema = [3, n0, _DAoc, 0, [_n, _v], [0, () => DocumentAttributeValue]];
-export var DocumentAttributeCondition: StaticStructureSchema = [
+export var DocumentAclUser$: StaticStructureSchema = [3, n0, _DAU, 0, [_i, _t], [0, 0]];
+export var DocumentAttribute$: StaticStructureSchema = [3, n0, _DAoc, 0, [_n, _v], [0, () => DocumentAttributeValue$]];
+export var DocumentAttributeCondition$: StaticStructureSchema = [
   3,
   n0,
   _DACo,
   0,
   [_k, _op, _v],
-  [0, 0, () => DocumentAttributeValue],
+  [0, 0, () => DocumentAttributeValue$],
 ];
-export var DocumentAttributeConfiguration: StaticStructureSchema = [3, n0, _DACoc, 0, [_n, _t, _se], [0, 0, 0]];
-export var DocumentAttributeTarget: StaticStructureSchema = [
+export var DocumentAttributeConfiguration$: StaticStructureSchema = [3, n0, _DACoc, 0, [_n, _t, _se], [0, 0, 0]];
+export var DocumentAttributeTarget$: StaticStructureSchema = [
   3,
   n0,
   _DAT,
   0,
   [_k, _v, _aVO],
-  [0, () => DocumentAttributeValue, 0],
+  [0, () => DocumentAttributeValue$, 0],
 ];
-export var DocumentDetails: StaticStructureSchema = [
+export var DocumentDetails$: StaticStructureSchema = [
   3,
   n0,
   _DDo,
   0,
   [_dI, _s, _e, _cA, _uA],
-  [0, 0, () => ErrorDetail, 4, 4],
+  [0, 0, () => ErrorDetail$, 4, 4],
 ];
-export var DocumentEnrichmentConfiguration: StaticStructureSchema = [
+export var DocumentEnrichmentConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _DEC,
   0,
   [_iC, _pEHC, _pEHCo],
-  [() => InlineDocumentEnrichmentConfigurations, () => HookConfiguration, () => HookConfiguration],
+  [() => InlineDocumentEnrichmentConfigurations, () => HookConfiguration$, () => HookConfiguration$],
 ];
-export var EligibleDataSource: StaticStructureSchema = [3, n0, _EDS, 0, [_iI, _dSI], [0, 0]];
-export var EncryptionConfiguration: StaticStructureSchema = [3, n0, _EC, 0, [_kKI], [[() => KmsKeyId, 0]]];
-export var EndOfInputEvent: StaticStructureSchema = [3, n0, _EOIE, 0, [], []];
-export var ErrorDetail: StaticStructureSchema = [3, n0, _ED, 0, [_eM, _eCr], [0, 0]];
-export var ExternalResourceException: StaticErrorSchema = [-3, n0, _ERE, { [_e]: _c, [_hE]: 424 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ExternalResourceException, __ExternalResourceException);
-export var FailedAttachmentEvent: StaticStructureSchema = [
+export var EligibleDataSource$: StaticStructureSchema = [3, n0, _EDS, 0, [_iI, _dSI], [0, 0]];
+export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC, 0, [_kKI], [[() => KmsKeyId, 0]]];
+export var EndOfInputEvent$: StaticStructureSchema = [3, n0, _EOIE, 0, [], []];
+export var ErrorDetail$: StaticStructureSchema = [3, n0, _ED, 0, [_eM, _eCr], [0, 0]];
+export var ExternalResourceException$: StaticErrorSchema = [-3, n0, _ERE, { [_e]: _c, [_hE]: 424 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ExternalResourceException$, ExternalResourceException);
+export var FailedAttachmentEvent$: StaticStructureSchema = [
   3,
   n0,
   _FAE,
   0,
   [_cI, _uMI, _sMI, _at],
-  [0, 0, 0, () => AttachmentOutput],
+  [0, 0, 0, () => AttachmentOutput$],
 ];
-export var FailedDocument: StaticStructureSchema = [3, n0, _FD, 0, [_i, _e, _dSI], [0, () => ErrorDetail, 0]];
-export var GetApplicationRequest: StaticStructureSchema = [3, n0, _GAR, 0, [_aIp], [[0, 1]]];
-export var GetApplicationResponse: StaticStructureSchema = [
+export var FailedDocument$: StaticStructureSchema = [3, n0, _FD, 0, [_i, _e, _dSI], [0, () => ErrorDetail$, 0]];
+export var GetApplicationRequest$: StaticStructureSchema = [3, n0, _GAR, 0, [_aIp], [[0, 1]]];
+export var GetApplicationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GARe,
@@ -1617,19 +1640,19 @@ export var GetApplicationResponse: StaticStructureSchema = [
     0,
     0,
     0,
-    [() => EncryptionConfiguration, 0],
+    [() => EncryptionConfiguration$, 0],
     4,
     4,
-    () => ErrorDetail,
-    () => AppliedAttachmentsConfiguration,
-    () => QAppsConfiguration,
-    () => PersonalizationConfiguration,
-    () => AutoSubscriptionConfiguration,
+    () => ErrorDetail$,
+    () => AppliedAttachmentsConfiguration$,
+    () => QAppsConfiguration$,
+    () => PersonalizationConfiguration$,
+    () => AutoSubscriptionConfiguration$,
     64 | 0,
-    () => QuickSightConfiguration,
+    () => QuickSightConfiguration$,
   ],
 ];
-export var GetChatControlsConfigurationRequest: StaticStructureSchema = [
+export var GetChatControlsConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _GCCCR,
@@ -1641,7 +1664,7 @@ export var GetChatControlsConfigurationRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var GetChatControlsConfigurationResponse: StaticStructureSchema = [
+export var GetChatControlsConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCCCRe,
@@ -1649,15 +1672,15 @@ export var GetChatControlsConfigurationResponse: StaticStructureSchema = [
   [_rS, _oC, _bP, _tC, _cMCr, _nT, _hRC],
   [
     0,
-    () => AppliedOrchestrationConfiguration,
-    () => BlockedPhrasesConfiguration,
+    () => AppliedOrchestrationConfiguration$,
+    () => BlockedPhrasesConfiguration$,
     () => TopicConfigurations,
-    () => AppliedCreatorModeConfiguration,
+    () => AppliedCreatorModeConfiguration$,
     0,
-    () => HallucinationReductionConfiguration,
+    () => HallucinationReductionConfiguration$,
   ],
 ];
-export var GetChatResponseConfigurationRequest: StaticStructureSchema = [
+export var GetChatResponseConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _GCRCR,
@@ -1668,15 +1691,15 @@ export var GetChatResponseConfigurationRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetChatResponseConfigurationResponse: StaticStructureSchema = [
+export var GetChatResponseConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCRCRe,
   0,
   [_cRCI, _cRCA, _dN, _cA, _iUC, _lUC],
-  [0, 0, 0, 4, () => ChatResponseConfigurationDetail, () => ChatResponseConfigurationDetail],
+  [0, 0, 0, 4, () => ChatResponseConfigurationDetail$, () => ChatResponseConfigurationDetail$],
 ];
-export var GetDataAccessorRequest: StaticStructureSchema = [
+export var GetDataAccessorRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDAR,
@@ -1687,7 +1710,7 @@ export var GetDataAccessorRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetDataAccessorResponse: StaticStructureSchema = [
+export var GetDataAccessorResponse$: StaticStructureSchema = [
   3,
   n0,
   _GDARe,
@@ -1701,12 +1724,12 @@ export var GetDataAccessorResponse: StaticStructureSchema = [
     0,
     0,
     () => ActionConfigurationList,
-    () => DataAccessorAuthenticationDetail,
+    () => DataAccessorAuthenticationDetail$,
     4,
     4,
   ],
 ];
-export var GetDataSourceRequest: StaticStructureSchema = [
+export var GetDataSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDSR,
@@ -1718,7 +1741,7 @@ export var GetDataSourceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetDataSourceResponse: StaticStructureSchema = [
+export var GetDataSourceResponse$: StaticStructureSchema = [
   3,
   n0,
   _GDSRe,
@@ -1732,19 +1755,19 @@ export var GetDataSourceResponse: StaticStructureSchema = [
     0,
     0,
     15,
-    () => DataSourceVpcConfiguration,
+    () => DataSourceVpcConfiguration$,
     4,
     4,
     0,
     0,
     0,
     0,
-    () => ErrorDetail,
-    () => DocumentEnrichmentConfiguration,
-    () => MediaExtractionConfiguration,
+    () => ErrorDetail$,
+    () => DocumentEnrichmentConfiguration$,
+    () => MediaExtractionConfiguration$,
   ],
 ];
-export var GetDocumentContentRequest: StaticStructureSchema = [
+export var GetDocumentContentRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDCR,
@@ -1758,8 +1781,8 @@ export var GetDocumentContentRequest: StaticStructureSchema = [
     [0, { [_hQ]: _oF }],
   ],
 ];
-export var GetDocumentContentResponse: StaticStructureSchema = [3, n0, _GDCRe, 0, [_pU, _mT], [0, 0]];
-export var GetGroupRequest: StaticStructureSchema = [
+export var GetDocumentContentResponse$: StaticStructureSchema = [3, n0, _GDCRe, 0, [_pU, _mT], [0, 0]];
+export var GetGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _GGR,
@@ -1772,15 +1795,15 @@ export var GetGroupRequest: StaticStructureSchema = [
     [0, { [_hQ]: _dSI }],
   ],
 ];
-export var GetGroupResponse: StaticStructureSchema = [
+export var GetGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _GGRe,
   0,
   [_s, _sH],
-  [() => GroupStatusDetail, () => GroupStatusDetails],
+  [() => GroupStatusDetail$, () => GroupStatusDetails],
 ];
-export var GetIndexRequest: StaticStructureSchema = [
+export var GetIndexRequest$: StaticStructureSchema = [
   3,
   n0,
   _GIR,
@@ -1791,7 +1814,7 @@ export var GetIndexRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetIndexResponse: StaticStructureSchema = [
+export var GetIndexResponse$: StaticStructureSchema = [
   3,
   n0,
   _GIRe,
@@ -1807,13 +1830,13 @@ export var GetIndexResponse: StaticStructureSchema = [
     0,
     4,
     4,
-    () => IndexCapacityConfiguration,
+    () => IndexCapacityConfiguration$,
     () => DocumentAttributeConfigurations,
-    () => ErrorDetail,
-    () => IndexStatistics,
+    () => ErrorDetail$,
+    () => IndexStatistics$,
   ],
 ];
-export var GetMediaRequest: StaticStructureSchema = [
+export var GetMediaRequest$: StaticStructureSchema = [
   3,
   n0,
   _GMR,
@@ -1826,8 +1849,8 @@ export var GetMediaRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetMediaResponse: StaticStructureSchema = [3, n0, _GMRe, 0, [_mB, _mMT], [21, 0]];
-export var GetPluginRequest: StaticStructureSchema = [
+export var GetMediaResponse$: StaticStructureSchema = [3, n0, _GMRe, 0, [_mB, _mMT], [21, 0]];
+export var GetPluginRequest$: StaticStructureSchema = [
   3,
   n0,
   _GPR,
@@ -1838,17 +1861,17 @@ export var GetPluginRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetPluginResponse: StaticStructureSchema = [
+export var GetPluginResponse$: StaticStructureSchema = [
   3,
   n0,
   _GPRe,
   0,
   [_aIp, _pI, _dN, _t, _sU, _aCu, _cPC, _bS, _pA, _sta, _cA, _uA],
-  [0, 0, 0, 0, 0, () => PluginAuthConfiguration, [() => CustomPluginConfiguration, 0], 0, 0, 0, 4, 4],
+  [0, 0, 0, 0, 0, () => PluginAuthConfiguration$, [() => CustomPluginConfiguration$, 0], 0, 0, 0, 4, 4],
 ];
-export var GetPolicyRequest: StaticStructureSchema = [3, n0, _GPRet, 0, [_aIp], [[0, 1]]];
-export var GetPolicyResponse: StaticStructureSchema = [3, n0, _GPReto, 0, [_po], [0]];
-export var GetRetrieverRequest: StaticStructureSchema = [
+export var GetPolicyRequest$: StaticStructureSchema = [3, n0, _GPRet, 0, [_aIp], [[0, 1]]];
+export var GetPolicyResponse$: StaticStructureSchema = [3, n0, _GPReto, 0, [_po], [0]];
+export var GetRetrieverRequest$: StaticStructureSchema = [
   3,
   n0,
   _GRR,
@@ -1859,15 +1882,15 @@ export var GetRetrieverRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetRetrieverResponse: StaticStructureSchema = [
+export var GetRetrieverResponse$: StaticStructureSchema = [
   3,
   n0,
   _GRRe,
   0,
   [_aIp, _rIe, _rAe, _t, _s, _dN, _conf, _rA, _cA, _uA],
-  [0, 0, 0, 0, 0, 0, () => RetrieverConfiguration, 0, 4, 4],
+  [0, 0, 0, 0, 0, 0, () => RetrieverConfiguration$, 0, 4, 4],
 ];
-export var GetUserRequest: StaticStructureSchema = [
+export var GetUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _GUR,
@@ -1878,8 +1901,8 @@ export var GetUserRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetUserResponse: StaticStructureSchema = [3, n0, _GURe, 0, [_uAs], [() => UserAliases]];
-export var GetWebExperienceRequest: StaticStructureSchema = [
+export var GetUserResponse$: StaticStructureSchema = [3, n0, _GURe, 0, [_uAs], [() => UserAliases]];
+export var GetWebExperienceRequest$: StaticStructureSchema = [
   3,
   n0,
   _GWER,
@@ -1890,7 +1913,7 @@ export var GetWebExperienceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetWebExperienceResponse: StaticStructureSchema = [
+export var GetWebExperienceResponse$: StaticStructureSchema = [
   3,
   n0,
   _GWERe,
@@ -1910,47 +1933,47 @@ export var GetWebExperienceResponse: StaticStructureSchema = [
     0,
     64 | 0,
     0,
-    () => IdentityProviderConfiguration,
-    () => WebExperienceAuthConfiguration,
-    () => ErrorDetail,
-    () => BrowserExtensionConfiguration,
-    () => CustomizationConfiguration,
+    () => IdentityProviderConfiguration$,
+    () => WebExperienceAuthConfiguration$,
+    () => ErrorDetail$,
+    () => BrowserExtensionConfiguration$,
+    () => CustomizationConfiguration$,
   ],
 ];
-export var GroupMembers: StaticStructureSchema = [
+export var GroupMembers$: StaticStructureSchema = [
   3,
   n0,
   _GM,
   0,
   [_mG, _mU, _sPFGM],
-  [() => MemberGroups, () => MemberUsers, () => S3],
+  [() => MemberGroups, () => MemberUsers, () => S3$],
 ];
-export var GroupStatusDetail: StaticStructureSchema = [3, n0, _GSD, 0, [_s, _lUA, _eD], [0, 4, () => ErrorDetail]];
-export var GroupSummary: StaticStructureSchema = [3, n0, _GS, 0, [_gN], [0]];
-export var HallucinationReductionConfiguration: StaticStructureSchema = [3, n0, _HRC, 0, [_hRCa], [0]];
-export var HookConfiguration: StaticStructureSchema = [
+export var GroupStatusDetail$: StaticStructureSchema = [3, n0, _GSD, 0, [_s, _lUA, _eD], [0, 4, () => ErrorDetail$]];
+export var GroupSummary$: StaticStructureSchema = [3, n0, _GS, 0, [_gN], [0]];
+export var HallucinationReductionConfiguration$: StaticStructureSchema = [3, n0, _HRC, 0, [_hRCa], [0]];
+export var HookConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _HC,
   0,
   [_iCn, _lA, _sBN, _rA],
-  [() => DocumentAttributeCondition, 0, 0, 0],
+  [() => DocumentAttributeCondition$, 0, 0, 0],
 ];
-export var IdcAuthConfiguration: StaticStructureSchema = [3, n0, _IAC, 0, [_iAA, _rA], [0, 0]];
-export var ImageExtractionConfiguration: StaticStructureSchema = [3, n0, _IEC, 0, [_iES], [0]];
-export var ImageSourceDetails: StaticStructureSchema = [3, n0, _ISD, 0, [_mI, _mMT], [0, 0]];
-export var Index: StaticStructureSchema = [3, n0, _I, 0, [_dN, _iI, _cA, _uA, _s], [0, 0, 4, 4, 0]];
-export var IndexCapacityConfiguration: StaticStructureSchema = [3, n0, _ICC, 0, [_un], [1]];
-export var IndexStatistics: StaticStructureSchema = [3, n0, _IS, 0, [_tDS], [() => TextDocumentStatistics]];
-export var InlineDocumentEnrichmentConfiguration: StaticStructureSchema = [
+export var IdcAuthConfiguration$: StaticStructureSchema = [3, n0, _IAC, 0, [_iAA, _rA], [0, 0]];
+export var ImageExtractionConfiguration$: StaticStructureSchema = [3, n0, _IEC, 0, [_iES], [0]];
+export var ImageSourceDetails$: StaticStructureSchema = [3, n0, _ISD, 0, [_mI, _mMT], [0, 0]];
+export var Index$: StaticStructureSchema = [3, n0, _I, 0, [_dN, _iI, _cA, _uA, _s], [0, 0, 4, 4, 0]];
+export var IndexCapacityConfiguration$: StaticStructureSchema = [3, n0, _ICC, 0, [_un], [1]];
+export var IndexStatistics$: StaticStructureSchema = [3, n0, _IS, 0, [_tDS], [() => TextDocumentStatistics$]];
+export var InlineDocumentEnrichmentConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _IDEC,
   0,
   [_cond, _tar, _dCO],
-  [() => DocumentAttributeCondition, () => DocumentAttributeTarget, 0],
+  [() => DocumentAttributeCondition$, () => DocumentAttributeTarget$, 0],
 ];
-export var InstructionCollection: StaticStructureSchema = [
+export var InstructionCollection$: StaticStructureSchema = [
   3,
   n0,
   _IC,
@@ -1958,12 +1981,12 @@ export var InstructionCollection: StaticStructureSchema = [
   [_rL, _tA, _pe, _oSu, _id, _to, _cIu, _ex],
   [0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _ser, [_hE]: 500 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var KendraIndexConfiguration: StaticStructureSchema = [3, n0, _KIC, 0, [_iI], [0]];
-export var LicenseNotFoundException: StaticErrorSchema = [-3, n0, _LNFE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(LicenseNotFoundException, __LicenseNotFoundException);
-export var ListApplicationsRequest: StaticStructureSchema = [
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _ser, [_hE]: 500 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var KendraIndexConfiguration$: StaticStructureSchema = [3, n0, _KIC, 0, [_iI], [0]];
+export var LicenseNotFoundException$: StaticErrorSchema = [-3, n0, _LNFE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(LicenseNotFoundException$, LicenseNotFoundException);
+export var ListApplicationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAR,
@@ -1974,8 +1997,8 @@ export var ListApplicationsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mRa }],
   ],
 ];
-export var ListApplicationsResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_nT, _ap], [0, () => Applications]];
-export var ListAttachmentsRequest: StaticStructureSchema = [
+export var ListApplicationsResponse$: StaticStructureSchema = [3, n0, _LARi, 0, [_nT, _ap], [0, () => Applications]];
+export var ListAttachmentsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LARis,
@@ -1989,8 +2012,15 @@ export var ListAttachmentsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mRa }],
   ],
 ];
-export var ListAttachmentsResponse: StaticStructureSchema = [3, n0, _LARist, 0, [_att, _nT], [() => AttachmentList, 0]];
-export var ListChatResponseConfigurationsRequest: StaticStructureSchema = [
+export var ListAttachmentsResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _LARist,
+  0,
+  [_att, _nT],
+  [() => AttachmentList, 0],
+];
+export var ListChatResponseConfigurationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCRCR,
@@ -2002,7 +2032,7 @@ export var ListChatResponseConfigurationsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListChatResponseConfigurationsResponse: StaticStructureSchema = [
+export var ListChatResponseConfigurationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCRCRi,
@@ -2010,7 +2040,7 @@ export var ListChatResponseConfigurationsResponse: StaticStructureSchema = [
   [_cRC, _nT],
   [() => ChatResponseConfigurations, 0],
 ];
-export var ListConversationsRequest: StaticStructureSchema = [
+export var ListConversationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCR,
@@ -2023,8 +2053,15 @@ export var ListConversationsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mRa }],
   ],
 ];
-export var ListConversationsResponse: StaticStructureSchema = [3, n0, _LCRi, 0, [_nT, _conv], [0, () => Conversations]];
-export var ListDataAccessorsRequest: StaticStructureSchema = [
+export var ListConversationsResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _LCRi,
+  0,
+  [_nT, _conv],
+  [0, () => Conversations],
+];
+export var ListDataAccessorsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDAR,
@@ -2036,7 +2073,7 @@ export var ListDataAccessorsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mRa }],
   ],
 ];
-export var ListDataAccessorsResponse: StaticStructureSchema = [
+export var ListDataAccessorsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LDARi,
@@ -2044,7 +2081,7 @@ export var ListDataAccessorsResponse: StaticStructureSchema = [
   [_dAa, _nT],
   [[() => DataAccessors, 0], 0],
 ];
-export var ListDataSourcesRequest: StaticStructureSchema = [
+export var ListDataSourcesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDSR,
@@ -2057,8 +2094,8 @@ export var ListDataSourcesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mRa }],
   ],
 ];
-export var ListDataSourcesResponse: StaticStructureSchema = [3, n0, _LDSRi, 0, [_dSa, _nT], [() => DataSources, 0]];
-export var ListDataSourceSyncJobsRequest: StaticStructureSchema = [
+export var ListDataSourcesResponse$: StaticStructureSchema = [3, n0, _LDSRi, 0, [_dSa, _nT], [() => DataSources, 0]];
+export var ListDataSourceSyncJobsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDSSJR,
@@ -2075,7 +2112,7 @@ export var ListDataSourceSyncJobsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sSy }],
   ],
 ];
-export var ListDataSourceSyncJobsResponse: StaticStructureSchema = [
+export var ListDataSourceSyncJobsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LDSSJRi,
@@ -2083,7 +2120,7 @@ export var ListDataSourceSyncJobsResponse: StaticStructureSchema = [
   [_h, _nT],
   [() => DataSourceSyncJobs, 0],
 ];
-export var ListDocumentsRequest: StaticStructureSchema = [
+export var ListDocumentsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDR,
@@ -2097,8 +2134,15 @@ export var ListDocumentsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mRa }],
   ],
 ];
-export var ListDocumentsResponse: StaticStructureSchema = [3, n0, _LDRi, 0, [_dDL, _nT], [() => DocumentDetailList, 0]];
-export var ListGroupsRequest: StaticStructureSchema = [
+export var ListDocumentsResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _LDRi,
+  0,
+  [_dDL, _nT],
+  [() => DocumentDetailList, 0],
+];
+export var ListGroupsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LGR,
@@ -2113,8 +2157,8 @@ export var ListGroupsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mRa }],
   ],
 ];
-export var ListGroupsResponse: StaticStructureSchema = [3, n0, _LGRi, 0, [_nT, _it], [0, () => GroupSummaryList]];
-export var ListIndicesRequest: StaticStructureSchema = [
+export var ListGroupsResponse$: StaticStructureSchema = [3, n0, _LGRi, 0, [_nT, _it], [0, () => GroupSummaryList]];
+export var ListIndicesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LIR,
@@ -2126,8 +2170,8 @@ export var ListIndicesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mRa }],
   ],
 ];
-export var ListIndicesResponse: StaticStructureSchema = [3, n0, _LIRi, 0, [_nT, _in], [0, () => Indices]];
-export var ListMessagesRequest: StaticStructureSchema = [
+export var ListIndicesResponse$: StaticStructureSchema = [3, n0, _LIRi, 0, [_nT, _in], [0, () => Indices]];
+export var ListMessagesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LMR,
@@ -2141,8 +2185,8 @@ export var ListMessagesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mRa }],
   ],
 ];
-export var ListMessagesResponse: StaticStructureSchema = [3, n0, _LMRi, 0, [_mes, _nT], [[() => Messages, 0], 0]];
-export var ListPluginActionsRequest: StaticStructureSchema = [
+export var ListMessagesResponse$: StaticStructureSchema = [3, n0, _LMRi, 0, [_mes, _nT], [[() => Messages, 0], 0]];
+export var ListPluginActionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPAR,
@@ -2155,8 +2199,8 @@ export var ListPluginActionsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mRa }],
   ],
 ];
-export var ListPluginActionsResponse: StaticStructureSchema = [3, n0, _LPARi, 0, [_nT, _it], [0, () => Actions]];
-export var ListPluginsRequest: StaticStructureSchema = [
+export var ListPluginActionsResponse$: StaticStructureSchema = [3, n0, _LPARi, 0, [_nT, _it], [0, () => Actions]];
+export var ListPluginsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPR,
@@ -2168,8 +2212,8 @@ export var ListPluginsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mRa }],
   ],
 ];
-export var ListPluginsResponse: StaticStructureSchema = [3, n0, _LPRi, 0, [_nT, _pl], [0, () => Plugins]];
-export var ListPluginTypeActionsRequest: StaticStructureSchema = [
+export var ListPluginsResponse$: StaticStructureSchema = [3, n0, _LPRi, 0, [_nT, _pl], [0, () => Plugins]];
+export var ListPluginTypeActionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPTAR,
@@ -2181,8 +2225,8 @@ export var ListPluginTypeActionsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mRa }],
   ],
 ];
-export var ListPluginTypeActionsResponse: StaticStructureSchema = [3, n0, _LPTARi, 0, [_nT, _it], [0, () => Actions]];
-export var ListPluginTypeMetadataRequest: StaticStructureSchema = [
+export var ListPluginTypeActionsResponse$: StaticStructureSchema = [3, n0, _LPTARi, 0, [_nT, _it], [0, () => Actions]];
+export var ListPluginTypeMetadataRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPTMR,
@@ -2193,7 +2237,7 @@ export var ListPluginTypeMetadataRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mRa }],
   ],
 ];
-export var ListPluginTypeMetadataResponse: StaticStructureSchema = [
+export var ListPluginTypeMetadataResponse$: StaticStructureSchema = [
   3,
   n0,
   _LPTMRi,
@@ -2201,7 +2245,7 @@ export var ListPluginTypeMetadataResponse: StaticStructureSchema = [
   [_nT, _it],
   [0, () => ListPluginTypeMetadataSummaries],
 ];
-export var ListRetrieversRequest: StaticStructureSchema = [
+export var ListRetrieversRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRR,
@@ -2213,8 +2257,8 @@ export var ListRetrieversRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mRa }],
   ],
 ];
-export var ListRetrieversResponse: StaticStructureSchema = [3, n0, _LRRi, 0, [_re, _nT], [() => Retrievers, 0]];
-export var ListSubscriptionsRequest: StaticStructureSchema = [
+export var ListRetrieversResponse$: StaticStructureSchema = [3, n0, _LRRi, 0, [_re, _nT], [() => Retrievers, 0]];
+export var ListSubscriptionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LSR,
@@ -2226,10 +2270,10 @@ export var ListSubscriptionsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mRa }],
   ],
 ];
-export var ListSubscriptionsResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_nT, _sub], [0, () => Subscriptions]];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rARN], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [() => Tags]];
-export var ListWebExperiencesRequest: StaticStructureSchema = [
+export var ListSubscriptionsResponse$: StaticStructureSchema = [3, n0, _LSRi, 0, [_nT, _sub], [0, () => Subscriptions]];
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rARN], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [() => Tags]];
+export var ListWebExperiencesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LWER,
@@ -2241,7 +2285,7 @@ export var ListWebExperiencesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mRa }],
   ],
 ];
-export var ListWebExperiencesResponse: StaticStructureSchema = [
+export var ListWebExperiencesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LWERi,
@@ -2249,28 +2293,28 @@ export var ListWebExperiencesResponse: StaticStructureSchema = [
   [_wE, _nT],
   [() => WebExperiences, 0],
 ];
-export var MediaExtractionConfiguration: StaticStructureSchema = [
+export var MediaExtractionConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _MEC,
   0,
   [_iEC, _aEC, _vEC],
-  [() => ImageExtractionConfiguration, () => AudioExtractionConfiguration, () => VideoExtractionConfiguration],
+  [() => ImageExtractionConfiguration$, () => AudioExtractionConfiguration$, () => VideoExtractionConfiguration$],
 ];
-export var MediaTooLargeException: StaticErrorSchema = [-3, n0, _MTLE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(MediaTooLargeException, __MediaTooLargeException);
-export var MemberGroup: StaticStructureSchema = [3, n0, _MG, 0, [_gN, _t], [0, 0]];
-export var MemberUser: StaticStructureSchema = [3, n0, _MU, 0, [_uI, _t], [0, 0]];
-export var Message: StaticStructureSchema = [
+export var MediaTooLargeException$: StaticErrorSchema = [-3, n0, _MTLE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(MediaTooLargeException$, MediaTooLargeException);
+export var MemberGroup$: StaticStructureSchema = [3, n0, _MG, 0, [_gN, _t], [0, 0]];
+export var MemberUser$: StaticStructureSchema = [3, n0, _MU, 0, [_uI, _t], [0, 0]];
+export var Message$: StaticStructureSchema = [
   3,
   n0,
   _M,
   0,
   [_mIe, _b, _tim, _t, _att, _sAou, _aR, _aE],
-  [0, 0, 4, 0, () => AttachmentsOutput, [() => SourceAttributions, 0], () => ActionReview, () => ActionExecution],
+  [0, 0, 4, 0, () => AttachmentsOutput, [() => SourceAttributions, 0], () => ActionReview$, () => ActionExecution$],
 ];
-export var MessageUsefulnessFeedback: StaticStructureSchema = [3, n0, _MUF, 0, [_us, _rea, _com, _sAub], [0, 0, 0, 4]];
-export var MetadataEvent: StaticStructureSchema = [
+export var MessageUsefulnessFeedback$: StaticStructureSchema = [3, n0, _MUF, 0, [_us, _rea, _com, _sAub], [0, 0, 0, 4]];
+export var MetadataEvent$: StaticStructureSchema = [
   3,
   n0,
   _ME,
@@ -2278,7 +2322,7 @@ export var MetadataEvent: StaticStructureSchema = [
   [_cI, _uMI, _sMI, _sAo, _fTM],
   [0, 0, 0, [() => SourceAttributions, 0], 0],
 ];
-export var NativeIndexConfiguration: StaticStructureSchema = [
+export var NativeIndexConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _NIC,
@@ -2286,9 +2330,9 @@ export var NativeIndexConfiguration: StaticStructureSchema = [
   [_iI, _ve, _bO],
   [0, 1, () => DocumentAttributeBoostingOverrideMap],
 ];
-export var NoAuthConfiguration: StaticStructureSchema = [3, n0, _NAC, 0, [], []];
-export var NumberAttributeBoostingConfiguration: StaticStructureSchema = [3, n0, _NABC, 0, [_bL, _bT], [0, 0]];
-export var OAuth2ClientCredentialConfiguration: StaticStructureSchema = [
+export var NoAuthConfiguration$: StaticStructureSchema = [3, n0, _NAC, 0, [], []];
+export var NumberAttributeBoostingConfiguration$: StaticStructureSchema = [3, n0, _NABC, 0, [_bL, _bT], [0, 0]];
+export var OAuth2ClientCredentialConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _OACCC,
@@ -2296,11 +2340,11 @@ export var OAuth2ClientCredentialConfiguration: StaticStructureSchema = [
   [_sA, _rA, _aU, _tU],
   [0, 0, 0, 0],
 ];
-export var OpenIDConnectProviderConfiguration: StaticStructureSchema = [3, n0, _OIDCPC, 0, [_sAe, _sR], [0, 0]];
-export var OrchestrationConfiguration: StaticStructureSchema = [3, n0, _OC, 0, [_co], [0]];
-export var PermissionCondition: StaticStructureSchema = [3, n0, _PC, 0, [_cO, _cK, _cV], [0, 0, 64 | 0]];
-export var PersonalizationConfiguration: StaticStructureSchema = [3, n0, _PCe, 0, [_pCM], [0]];
-export var Plugin: StaticStructureSchema = [
+export var OpenIDConnectProviderConfiguration$: StaticStructureSchema = [3, n0, _OIDCPC, 0, [_sAe, _sR], [0, 0]];
+export var OrchestrationConfiguration$: StaticStructureSchema = [3, n0, _OC, 0, [_co], [0]];
+export var PermissionCondition$: StaticStructureSchema = [3, n0, _PC, 0, [_cO, _cK, _cV], [0, 0, 64 | 0]];
+export var PersonalizationConfiguration$: StaticStructureSchema = [3, n0, _PCe, 0, [_pCM], [0]];
+export var Plugin$: StaticStructureSchema = [
   3,
   n0,
   _Pl,
@@ -2308,38 +2352,38 @@ export var Plugin: StaticStructureSchema = [
   [_pI, _dN, _t, _sU, _sta, _bS, _cA, _uA],
   [0, 0, 0, 0, 0, 0, 4, 4],
 ];
-export var PluginConfiguration: StaticStructureSchema = [3, n0, _PCl, 0, [_pI], [0]];
-export var PluginTypeMetadataSummary: StaticStructureSchema = [3, n0, _PTMS, 0, [_t, _ca, _d], [0, 0, 0]];
-export var PrincipalGroup: StaticStructureSchema = [3, n0, _PG, 0, [_n, _acc, _mTe], [0, 0, 0]];
-export var PrincipalUser: StaticStructureSchema = [3, n0, _PU, 0, [_i, _acc, _mTe], [0, 0, 0]];
-export var PutFeedbackRequest: StaticStructureSchema = [
+export var PluginConfiguration$: StaticStructureSchema = [3, n0, _PCl, 0, [_pI], [0]];
+export var PluginTypeMetadataSummary$: StaticStructureSchema = [3, n0, _PTMS, 0, [_t, _ca, _d], [0, 0, 0]];
+export var PrincipalGroup$: StaticStructureSchema = [3, n0, _PG, 0, [_n, _acc, _mTe], [0, 0, 0]];
+export var PrincipalUser$: StaticStructureSchema = [3, n0, _PU, 0, [_i, _acc, _mTe], [0, 0, 0]];
+export var PutFeedbackRequest$: StaticStructureSchema = [
   3,
   n0,
   _PFR,
   0,
   [_aIp, _uI, _cI, _mIe, _mCA, _mUe],
-  [[0, 1], [0, { [_hQ]: _uI }], [0, 1], [0, 1], 4, () => MessageUsefulnessFeedback],
+  [[0, 1], [0, { [_hQ]: _uI }], [0, 1], [0, 1], 4, () => MessageUsefulnessFeedback$],
 ];
-export var PutGroupRequest: StaticStructureSchema = [
+export var PutGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _PGR,
   0,
   [_aIp, _iI, _gN, _dSI, _t, _gM, _rA],
-  [[0, 1], [0, 1], 0, 0, 0, () => GroupMembers, 0],
+  [[0, 1], [0, 1], 0, 0, 0, () => GroupMembers$, 0],
 ];
-export var PutGroupResponse: StaticStructureSchema = [3, n0, _PGRu, 0, [], []];
-export var QAppsConfiguration: StaticStructureSchema = [3, n0, _QAC, 0, [_qACM], [0]];
-export var QuickSightConfiguration: StaticStructureSchema = [3, n0, _QSC, 0, [_cN], [0]];
-export var RelevantContent: StaticStructureSchema = [
+export var PutGroupResponse$: StaticStructureSchema = [3, n0, _PGRu, 0, [], []];
+export var QAppsConfiguration$: StaticStructureSchema = [3, n0, _QAC, 0, [_qACM], [0]];
+export var QuickSightConfiguration$: StaticStructureSchema = [3, n0, _QSC, 0, [_cN], [0]];
+export var RelevantContent$: StaticStructureSchema = [
   3,
   n0,
   _RC,
   0,
   [_cont, _dI, _dT, _dU, _dAoc, _sAc],
-  [0, 0, 0, 0, () => DocumentAttributes, () => ScoreAttributes],
+  [0, 0, 0, 0, () => DocumentAttributes, () => ScoreAttributes$],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
+export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
@@ -2347,31 +2391,31 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ResponseConfiguration: StaticStructureSchema = [3, n0, _RCe, 0, [_iCns], [() => InstructionCollection]];
-export var Retriever: StaticStructureSchema = [3, n0, _R, 0, [_aIp, _rIe, _t, _s, _dN], [0, 0, 0, 0, 0]];
-export var RetrieverContentSource: StaticStructureSchema = [3, n0, _RCS, 0, [_rIe], [0]];
-export var Rule: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResponseConfiguration$: StaticStructureSchema = [3, n0, _RCe, 0, [_iCns], [() => InstructionCollection$]];
+export var Retriever$: StaticStructureSchema = [3, n0, _R, 0, [_aIp, _rIe, _t, _s, _dN], [0, 0, 0, 0, 0]];
+export var RetrieverContentSource$: StaticStructureSchema = [3, n0, _RCS, 0, [_rIe], [0]];
+export var Rule$: StaticStructureSchema = [
   3,
   n0,
   _Ru,
   0,
   [_iUAG, _eUAG, _rTu, _rCu],
-  [() => UsersAndGroups, () => UsersAndGroups, 0, () => RuleConfiguration],
+  [() => UsersAndGroups$, () => UsersAndGroups$, 0, () => RuleConfiguration$],
 ];
-export var S3: StaticStructureSchema = [3, n0, _S, 0, [_bu, _k], [0, 0]];
-export var SamlConfiguration: StaticStructureSchema = [3, n0, _SC, 0, [_mXML, _rA, _uIA, _uGA], [0, 0, 0, 0]];
-export var SamlProviderConfiguration: StaticStructureSchema = [3, n0, _SPC, 0, [_aUu], [0]];
-export var ScoreAttributes: StaticStructureSchema = [3, n0, _SA, 0, [_sC], [0]];
-export var SearchRelevantContentRequest: StaticStructureSchema = [
+export var S3$: StaticStructureSchema = [3, n0, _S, 0, [_bu, _k], [0, 0]];
+export var SamlConfiguration$: StaticStructureSchema = [3, n0, _SC, 0, [_mXML, _rA, _uIA, _uGA], [0, 0, 0, 0]];
+export var SamlProviderConfiguration$: StaticStructureSchema = [3, n0, _SPC, 0, [_aUu], [0]];
+export var ScoreAttributes$: StaticStructureSchema = [3, n0, _SA, 0, [_sC], [0]];
+export var SearchRelevantContentRequest$: StaticStructureSchema = [
   3,
   n0,
   _SRCR,
   0,
   [_aIp, _qT, _cSo, _aFt, _mRa, _nT],
-  [[0, 1], 0, () => ContentSource, () => AttributeFilter, 1, 0],
+  [[0, 1], 0, () => ContentSource$, () => AttributeFilter$, 1, 0],
 ];
-export var SearchRelevantContentResponse: StaticStructureSchema = [
+export var SearchRelevantContentResponse$: StaticStructureSchema = [
   3,
   n0,
   _SRCRe,
@@ -2379,7 +2423,7 @@ export var SearchRelevantContentResponse: StaticStructureSchema = [
   [_rCe, _nT],
   [() => RelevantContentList, 0],
 ];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
+export var ServiceQuotaExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
@@ -2387,9 +2431,9 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var SnippetExcerpt: StaticStructureSchema = [3, n0, _SE, 0, [_te], [0]];
-export var SourceAttribution: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var SnippetExcerpt$: StaticStructureSchema = [3, n0, _SE, 0, [_te], [0]];
+export var SourceAttribution$: StaticStructureSchema = [
   3,
   n0,
   _SAo,
@@ -2397,7 +2441,7 @@ export var SourceAttribution: StaticStructureSchema = [
   [_ti, _sn, _ur, _cNi, _uA, _tMS, _dI, _iI, _dIa],
   [0, 0, 0, 1, 4, () => TextSegmentList, 0, 0, 0],
 ];
-export var StartDataSourceSyncJobRequest: StaticStructureSchema = [
+export var StartDataSourceSyncJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _SDSSJR,
@@ -2409,8 +2453,8 @@ export var StartDataSourceSyncJobRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var StartDataSourceSyncJobResponse: StaticStructureSchema = [3, n0, _SDSSJRt, 0, [_eIx], [0]];
-export var StopDataSourceSyncJobRequest: StaticStructureSchema = [
+export var StartDataSourceSyncJobResponse$: StaticStructureSchema = [3, n0, _SDSSJRt, 0, [_eIx], [0]];
+export var StopDataSourceSyncJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _SDSSJRto,
@@ -2422,35 +2466,35 @@ export var StopDataSourceSyncJobRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var StopDataSourceSyncJobResponse: StaticStructureSchema = [3, n0, _SDSSJRtop, 0, [], []];
-export var StringAttributeBoostingConfiguration: StaticStructureSchema = [3, n0, _SABC, 0, [_bL, _aVB], [0, 128 | 0]];
-export var StringListAttributeBoostingConfiguration: StaticStructureSchema = [3, n0, _SLABC, 0, [_bL], [0]];
-export var Subscription: StaticStructureSchema = [
+export var StopDataSourceSyncJobResponse$: StaticStructureSchema = [3, n0, _SDSSJRtop, 0, [], []];
+export var StringAttributeBoostingConfiguration$: StaticStructureSchema = [3, n0, _SABC, 0, [_bL, _aVB], [0, 128 | 0]];
+export var StringListAttributeBoostingConfiguration$: StaticStructureSchema = [3, n0, _SLABC, 0, [_bL], [0]];
+export var Subscription$: StaticStructureSchema = [
   3,
   n0,
   _Su,
   0,
   [_sIu, _sAu, _pr, _cS, _nS],
-  [0, 0, () => SubscriptionPrincipal, () => SubscriptionDetails, () => SubscriptionDetails],
+  [0, 0, () => SubscriptionPrincipal$, () => SubscriptionDetails$, () => SubscriptionDetails$],
 ];
-export var SubscriptionDetails: StaticStructureSchema = [3, n0, _SD, 0, [_t], [0]];
-export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_k, _v], [0, 0]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rARN, _ta], [[0, 1], () => Tags]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TextDocumentStatistics: StaticStructureSchema = [3, n0, _TDS, 0, [_iTB, _iTDC], [1, 1]];
-export var TextInputEvent: StaticStructureSchema = [3, n0, _TIE, 0, [_uM], [0]];
-export var TextOutputEvent: StaticStructureSchema = [3, n0, _TOE, 0, [_sMT, _cI, _uMI, _sMI, _sM], [0, 0, 0, 0, 0]];
-export var TextSegment: StaticStructureSchema = [
+export var SubscriptionDetails$: StaticStructureSchema = [3, n0, _SD, 0, [_t], [0]];
+export var Tag$: StaticStructureSchema = [3, n0, _T, 0, [_k, _v], [0, 0]];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rARN, _ta], [[0, 1], () => Tags]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var TextDocumentStatistics$: StaticStructureSchema = [3, n0, _TDS, 0, [_iTB, _iTDC], [1, 1]];
+export var TextInputEvent$: StaticStructureSchema = [3, n0, _TIE, 0, [_uM], [0]];
+export var TextOutputEvent$: StaticStructureSchema = [3, n0, _TOE, 0, [_sMT, _cI, _uMI, _sMI, _sM], [0, 0, 0, 0, 0]];
+export var TextSegment$: StaticStructureSchema = [
   3,
   n0,
   _TS,
   0,
   [_bOe, _eO, _sE, _mI, _mMT, _sD],
-  [1, 1, () => SnippetExcerpt, 0, 0, () => SourceDetails],
+  [1, 1, () => SnippetExcerpt$, 0, 0, () => SourceDetails$],
 ];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var TopicConfiguration: StaticStructureSchema = [
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var TopicConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _TC,
@@ -2458,7 +2502,7 @@ export var TopicConfiguration: StaticStructureSchema = [
   [_n, _d, _eCM, _ru],
   [0, 0, 64 | 0, () => Rules],
 ];
-export var UntagResourceRequest: StaticStructureSchema = [
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -2469,8 +2513,8 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateApplicationRequest: StaticStructureSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateApplicationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UAR,
@@ -2482,14 +2526,14 @@ export var UpdateApplicationRequest: StaticStructureSchema = [
     0,
     0,
     0,
-    () => AttachmentsConfiguration,
-    () => QAppsConfiguration,
-    () => PersonalizationConfiguration,
-    () => AutoSubscriptionConfiguration,
+    () => AttachmentsConfiguration$,
+    () => QAppsConfiguration$,
+    () => PersonalizationConfiguration$,
+    () => AutoSubscriptionConfiguration$,
   ],
 ];
-export var UpdateApplicationResponse: StaticStructureSchema = [3, n0, _UARp, 0, [], []];
-export var UpdateChatControlsConfigurationRequest: StaticStructureSchema = [
+export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp, 0, [], []];
+export var UpdateChatControlsConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCCCR,
@@ -2499,16 +2543,16 @@ export var UpdateChatControlsConfigurationRequest: StaticStructureSchema = [
     [0, 1],
     [0, 4],
     0,
-    () => OrchestrationConfiguration,
-    () => BlockedPhrasesConfigurationUpdate,
+    () => OrchestrationConfiguration$,
+    () => BlockedPhrasesConfigurationUpdate$,
     () => TopicConfigurations,
     () => TopicConfigurations,
-    () => CreatorModeConfiguration,
-    () => HallucinationReductionConfiguration,
+    () => CreatorModeConfiguration$,
+    () => HallucinationReductionConfiguration$,
   ],
 ];
-export var UpdateChatControlsConfigurationResponse: StaticStructureSchema = [3, n0, _UCCCRp, 0, [], []];
-export var UpdateChatResponseConfigurationRequest: StaticStructureSchema = [
+export var UpdateChatControlsConfigurationResponse$: StaticStructureSchema = [3, n0, _UCCCRp, 0, [], []];
+export var UpdateChatResponseConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCRCR,
@@ -2516,17 +2560,17 @@ export var UpdateChatResponseConfigurationRequest: StaticStructureSchema = [
   [_aIp, _cRCI, _dN, _rC, _cT],
   [[0, 1], [0, 1], 0, () => ResponseConfigurations, [0, 4]],
 ];
-export var UpdateChatResponseConfigurationResponse: StaticStructureSchema = [3, n0, _UCRCRp, 0, [], []];
-export var UpdateDataAccessorRequest: StaticStructureSchema = [
+export var UpdateChatResponseConfigurationResponse$: StaticStructureSchema = [3, n0, _UCRCRp, 0, [], []];
+export var UpdateDataAccessorRequest$: StaticStructureSchema = [
   3,
   n0,
   _UDAR,
   0,
   [_aIp, _dAI, _aCc, _aD, _dN],
-  [[0, 1], [0, 1], () => ActionConfigurationList, () => DataAccessorAuthenticationDetail, [() => DataAccessorName, 0]],
+  [[0, 1], [0, 1], () => ActionConfigurationList, () => DataAccessorAuthenticationDetail$, [() => DataAccessorName, 0]],
 ];
-export var UpdateDataAccessorResponse: StaticStructureSchema = [3, n0, _UDARp, 0, [], []];
-export var UpdateDataSourceRequest: StaticStructureSchema = [
+export var UpdateDataAccessorResponse$: StaticStructureSchema = [3, n0, _UDARp, 0, [], []];
+export var UpdateDataSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _UDSR,
@@ -2538,52 +2582,52 @@ export var UpdateDataSourceRequest: StaticStructureSchema = [
     [0, 1],
     0,
     15,
-    () => DataSourceVpcConfiguration,
+    () => DataSourceVpcConfiguration$,
     0,
     0,
     0,
-    () => DocumentEnrichmentConfiguration,
-    () => MediaExtractionConfiguration,
+    () => DocumentEnrichmentConfiguration$,
+    () => MediaExtractionConfiguration$,
   ],
 ];
-export var UpdateDataSourceResponse: StaticStructureSchema = [3, n0, _UDSRp, 0, [], []];
-export var UpdateIndexRequest: StaticStructureSchema = [
+export var UpdateDataSourceResponse$: StaticStructureSchema = [3, n0, _UDSRp, 0, [], []];
+export var UpdateIndexRequest$: StaticStructureSchema = [
   3,
   n0,
   _UIR,
   0,
   [_aIp, _iI, _dN, _d, _cC, _dAC],
-  [[0, 1], [0, 1], 0, 0, () => IndexCapacityConfiguration, () => DocumentAttributeConfigurations],
+  [[0, 1], [0, 1], 0, 0, () => IndexCapacityConfiguration$, () => DocumentAttributeConfigurations],
 ];
-export var UpdateIndexResponse: StaticStructureSchema = [3, n0, _UIRp, 0, [], []];
-export var UpdatePluginRequest: StaticStructureSchema = [
+export var UpdateIndexResponse$: StaticStructureSchema = [3, n0, _UIRp, 0, [], []];
+export var UpdatePluginRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPR,
   0,
   [_aIp, _pI, _dN, _sta, _sU, _cPC, _aCu],
-  [[0, 1], [0, 1], 0, 0, 0, [() => CustomPluginConfiguration, 0], () => PluginAuthConfiguration],
+  [[0, 1], [0, 1], 0, 0, 0, [() => CustomPluginConfiguration$, 0], () => PluginAuthConfiguration$],
 ];
-export var UpdatePluginResponse: StaticStructureSchema = [3, n0, _UPRp, 0, [], []];
-export var UpdateRetrieverRequest: StaticStructureSchema = [
+export var UpdatePluginResponse$: StaticStructureSchema = [3, n0, _UPRp, 0, [], []];
+export var UpdateRetrieverRequest$: StaticStructureSchema = [
   3,
   n0,
   _URRp,
   0,
   [_aIp, _rIe, _conf, _dN, _rA],
-  [[0, 1], [0, 1], () => RetrieverConfiguration, 0, 0],
+  [[0, 1], [0, 1], () => RetrieverConfiguration$, 0, 0],
 ];
-export var UpdateRetrieverResponse: StaticStructureSchema = [3, n0, _URRpd, 0, [], []];
-export var UpdateSubscriptionRequest: StaticStructureSchema = [3, n0, _USR, 0, [_aIp, _sIu, _t], [[0, 1], [0, 1], 0]];
-export var UpdateSubscriptionResponse: StaticStructureSchema = [
+export var UpdateRetrieverResponse$: StaticStructureSchema = [3, n0, _URRpd, 0, [], []];
+export var UpdateSubscriptionRequest$: StaticStructureSchema = [3, n0, _USR, 0, [_aIp, _sIu, _t], [[0, 1], [0, 1], 0]];
+export var UpdateSubscriptionResponse$: StaticStructureSchema = [
   3,
   n0,
   _USRp,
   0,
   [_sAu, _cS, _nS],
-  [0, () => SubscriptionDetails, () => SubscriptionDetails],
+  [0, () => SubscriptionDetails$, () => SubscriptionDetails$],
 ];
-export var UpdateUserRequest: StaticStructureSchema = [
+export var UpdateUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _UUR,
@@ -2591,7 +2635,7 @@ export var UpdateUserRequest: StaticStructureSchema = [
   [_aIp, _uI, _uATU, _uATD],
   [[0, 1], [0, 1], () => UserAliases, () => UserAliases],
 ];
-export var UpdateUserResponse: StaticStructureSchema = [
+export var UpdateUserResponse$: StaticStructureSchema = [
   3,
   n0,
   _UURp,
@@ -2599,7 +2643,7 @@ export var UpdateUserResponse: StaticStructureSchema = [
   [_uAA, _uAU, _uAD],
   [() => UserAliases, () => UserAliases, () => UserAliases],
 ];
-export var UpdateWebExperienceRequest: StaticStructureSchema = [
+export var UpdateWebExperienceRequest$: StaticStructureSchema = [
   3,
   n0,
   _UWER,
@@ -2609,21 +2653,21 @@ export var UpdateWebExperienceRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     0,
-    () => WebExperienceAuthConfiguration,
+    () => WebExperienceAuthConfiguration$,
     0,
     0,
     0,
     0,
-    () => IdentityProviderConfiguration,
+    () => IdentityProviderConfiguration$,
     64 | 0,
-    () => BrowserExtensionConfiguration,
-    () => CustomizationConfiguration,
+    () => BrowserExtensionConfiguration$,
+    () => CustomizationConfiguration$,
   ],
 ];
-export var UpdateWebExperienceResponse: StaticStructureSchema = [3, n0, _UWERp, 0, [], []];
-export var UserAlias: StaticStructureSchema = [3, n0, _UA, 0, [_iI, _dSI, _uI], [0, 0, 0]];
-export var UsersAndGroups: StaticStructureSchema = [3, n0, _UAG, 0, [_uIs, _uG], [64 | 0, 64 | 0]];
-export var ValidationException: StaticErrorSchema = [
+export var UpdateWebExperienceResponse$: StaticStructureSchema = [3, n0, _UWERp, 0, [], []];
+export var UserAlias$: StaticStructureSchema = [3, n0, _UA, 0, [_iI, _dSI, _uI], [0, 0, 0]];
+export var UsersAndGroups$: StaticStructureSchema = [3, n0, _UAG, 0, [_uIs, _uG], [64 | 0, 64 | 0]];
+export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VE,
@@ -2631,268 +2675,276 @@ export var ValidationException: StaticErrorSchema = [
   [_m, _rea, _f],
   [0, 0, () => ValidationExceptionFields],
 ];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
-export var VideoExtractionConfiguration: StaticStructureSchema = [3, n0, _VEC, 0, [_vES], [0]];
-export var VideoSourceDetails: StaticStructureSchema = [3, n0, _VSD, 0, [_mI, _mMT, _sTM, _eTM, _vET], [0, 0, 1, 1, 0]];
-export var WebExperience: StaticStructureSchema = [3, n0, _WE, 0, [_wEI, _cA, _uA, _dE, _s], [0, 4, 4, 0, 0]];
-export var __Unit = "unit" as const;
-export var QBusinessServiceException: StaticErrorSchema = [-3, _sm, "QBusinessServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(QBusinessServiceException, __QBusinessServiceException);
-export var AccessControls: StaticListSchema = [1, n0, _ACcc, 0, () => AccessControl];
-export var ActionConfigurationList: StaticListSchema = [1, n0, _ACL, 0, () => ActionConfiguration];
-export var ActionReviewPayloadFieldAllowedValues: StaticListSchema = [
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
+export var VideoExtractionConfiguration$: StaticStructureSchema = [3, n0, _VEC, 0, [_vES], [0]];
+export var VideoSourceDetails$: StaticStructureSchema = [
+  3,
+  n0,
+  _VSD,
+  0,
+  [_mI, _mMT, _sTM, _eTM, _vET],
+  [0, 0, 1, 1, 0],
+];
+export var WebExperience$: StaticStructureSchema = [3, n0, _WE, 0, [_wEI, _cA, _uA, _dE, _s], [0, 4, 4, 0, 0]];
+var __Unit = "unit" as const;
+export var QBusinessServiceException$: StaticErrorSchema = [-3, _sm, "QBusinessServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(QBusinessServiceException$, QBusinessServiceException);
+var AccessControls: StaticListSchema = [1, n0, _ACcc, 0, () => AccessControl$];
+var ActionConfigurationList: StaticListSchema = [1, n0, _ACL, 0, () => ActionConfiguration$];
+var ActionReviewPayloadFieldAllowedValues: StaticListSchema = [
   1,
   n0,
   _ARPFAVc,
   0,
-  () => ActionReviewPayloadFieldAllowedValue,
+  () => ActionReviewPayloadFieldAllowedValue$,
 ];
-export var Actions: StaticListSchema = [1, n0, _Ac, 0, () => ActionSummary];
-export var Applications: StaticListSchema = [1, n0, _Ap, 0, () => Application];
-export var AssociatedGroups: StaticListSchema = [1, n0, _AGs, 0, () => AssociatedGroup];
-export var AssociatedUsers: StaticListSchema = [1, n0, _AUs, 0, () => AssociatedUser];
-export var AttachmentList: StaticListSchema = [1, n0, _AL, 0, () => Attachment];
-export var AttachmentsInput: StaticListSchema = [1, n0, _AIt, 0, () => AttachmentInput];
-export var AttachmentsOutput: StaticListSchema = [1, n0, _AOt, 0, () => AttachmentOutput];
-export var AttributeFilters: StaticListSchema = [1, n0, _AFt, 0, () => AttributeFilter];
-export var BlockedPhrases = 64 | 0;
-export var BrowserExtensionList = 64 | 0;
-export var ChatResponseConfigurations: StaticListSchema = [1, n0, _CRCh, 0, () => ChatResponseConfiguration];
-export var ClientIdsForOIDC = 64 | 0;
-export var Conversations: StaticListSchema = [1, n0, _Co, 0, () => Conversation];
-export var DataAccessorExternalIds = 64 | 0;
-export var DataAccessors: StaticListSchema = [1, n0, _DAa, 0, [() => DataAccessor, 0]];
-export var DataSourceIds = 64 | 0;
-export var DataSources: StaticListSchema = [1, n0, _DSa, 0, () => DataSource];
-export var DataSourceSyncJobs: StaticListSchema = [1, n0, _DSSJa, 0, () => DataSourceSyncJob];
-export var DeleteDocuments: StaticListSchema = [1, n0, _DDe, 0, () => DeleteDocument];
-export var DocumentAclConditions: StaticListSchema = [1, n0, _DACocu, 0, () => DocumentAclCondition];
-export var DocumentAclGroups: StaticListSchema = [1, n0, _DAGo, 0, () => DocumentAclGroup];
-export var DocumentAclUsers: StaticListSchema = [1, n0, _DAUo, 0, () => DocumentAclUser];
-export var DocumentAttributeConfigurations: StaticListSchema = [
-  1,
-  n0,
-  _DACocum,
-  0,
-  () => DocumentAttributeConfiguration,
-];
-export var DocumentAttributes: StaticListSchema = [1, n0, _DAocu, 0, () => DocumentAttribute];
-export var DocumentAttributeStringListValue = 64 | 0;
-export var DocumentDetailList: StaticListSchema = [1, n0, _DDL, 0, () => DocumentDetails];
-export var Documents: StaticListSchema = [1, n0, _Do, 0, () => Document];
-export var EligibleDataSources: StaticListSchema = [1, n0, _EDSl, 0, () => EligibleDataSource];
-export var ExampleChatMessages = 64 | 0;
-export var FailedDocuments: StaticListSchema = [1, n0, _FDa, 0, () => FailedDocument];
-export var GroupStatusDetails: StaticListSchema = [1, n0, _GSDr, 0, () => GroupStatusDetail];
-export var GroupSummaryList: StaticListSchema = [1, n0, _GSL, 0, () => GroupSummary];
-export var Indices: StaticListSchema = [1, n0, _In, 0, () => Index];
-export var InlineDocumentEnrichmentConfigurations: StaticListSchema = [
+var Actions: StaticListSchema = [1, n0, _Ac, 0, () => ActionSummary$];
+var Applications: StaticListSchema = [1, n0, _Ap, 0, () => Application$];
+var AssociatedGroups: StaticListSchema = [1, n0, _AGs, 0, () => AssociatedGroup$];
+var AssociatedUsers: StaticListSchema = [1, n0, _AUs, 0, () => AssociatedUser$];
+var AttachmentList: StaticListSchema = [1, n0, _AL, 0, () => Attachment$];
+var AttachmentsInput: StaticListSchema = [1, n0, _AIt, 0, () => AttachmentInput$];
+var AttachmentsOutput: StaticListSchema = [1, n0, _AOt, 0, () => AttachmentOutput$];
+var AttributeFilters: StaticListSchema = [1, n0, _AFt, 0, () => AttributeFilter$];
+var BlockedPhrases = 64 | 0;
+var BrowserExtensionList = 64 | 0;
+var ChatResponseConfigurations: StaticListSchema = [1, n0, _CRCh, 0, () => ChatResponseConfiguration$];
+var ClientIdsForOIDC = 64 | 0;
+var Conversations: StaticListSchema = [1, n0, _Co, 0, () => Conversation$];
+var DataAccessorExternalIds = 64 | 0;
+var DataAccessors: StaticListSchema = [1, n0, _DAa, 0, [() => DataAccessor$, 0]];
+var DataSourceIds = 64 | 0;
+var DataSources: StaticListSchema = [1, n0, _DSa, 0, () => DataSource$];
+var DataSourceSyncJobs: StaticListSchema = [1, n0, _DSSJa, 0, () => DataSourceSyncJob$];
+var DeleteDocuments: StaticListSchema = [1, n0, _DDe, 0, () => DeleteDocument$];
+var DocumentAclConditions: StaticListSchema = [1, n0, _DACocu, 0, () => DocumentAclCondition$];
+var DocumentAclGroups: StaticListSchema = [1, n0, _DAGo, 0, () => DocumentAclGroup$];
+var DocumentAclUsers: StaticListSchema = [1, n0, _DAUo, 0, () => DocumentAclUser$];
+var DocumentAttributeConfigurations: StaticListSchema = [1, n0, _DACocum, 0, () => DocumentAttributeConfiguration$];
+var DocumentAttributes: StaticListSchema = [1, n0, _DAocu, 0, () => DocumentAttribute$];
+var DocumentAttributeStringListValue = 64 | 0;
+var DocumentDetailList: StaticListSchema = [1, n0, _DDL, 0, () => DocumentDetails$];
+var Documents: StaticListSchema = [1, n0, _Do, 0, () => Document$];
+var EligibleDataSources: StaticListSchema = [1, n0, _EDSl, 0, () => EligibleDataSource$];
+var ExampleChatMessages = 64 | 0;
+var FailedDocuments: StaticListSchema = [1, n0, _FDa, 0, () => FailedDocument$];
+var GroupStatusDetails: StaticListSchema = [1, n0, _GSDr, 0, () => GroupStatusDetail$];
+var GroupSummaryList: StaticListSchema = [1, n0, _GSL, 0, () => GroupSummary$];
+var Indices: StaticListSchema = [1, n0, _In, 0, () => Index$];
+var InlineDocumentEnrichmentConfigurations: StaticListSchema = [
   1,
   n0,
   _IDECn,
   0,
-  () => InlineDocumentEnrichmentConfiguration,
+  () => InlineDocumentEnrichmentConfiguration$,
 ];
-export var ListPluginTypeMetadataSummaries: StaticListSchema = [1, n0, _LPTMS, 0, () => PluginTypeMetadataSummary];
-export var MemberGroups: StaticListSchema = [1, n0, _MGe, 0, () => MemberGroup];
-export var MemberUsers: StaticListSchema = [1, n0, _MUe, 0, () => MemberUser];
-export var Messages: StaticListSchema = [1, n0, _Me, 0, [() => Message, 0]];
-export var PermissionConditions: StaticListSchema = [1, n0, _PCer, 0, () => PermissionCondition];
-export var PermissionConditionValues = 64 | 0;
-export var Plugins: StaticListSchema = [1, n0, _Plu, 0, () => Plugin];
-export var Principals: StaticListSchema = [1, n0, _Pr, 0, () => Principal];
-export var QIamActions = 64 | 0;
-export var RelevantContentList: StaticListSchema = [1, n0, _RCL, 0, () => RelevantContent];
-export var Retrievers: StaticListSchema = [1, n0, _Re, 0, () => Retriever];
-export var Rules: StaticListSchema = [1, n0, _Rul, 0, () => Rule];
-export var SecurityGroupIds = 64 | 0;
-export var SourceAttributions: StaticListSchema = [1, n0, _SAou, { [_sp]: 1 }, () => SourceAttribution];
-export var SubnetIds = 64 | 0;
-export var Subscriptions: StaticListSchema = [1, n0, _Sub, 0, () => Subscription];
-export var TagKeys = 64 | 0;
-export var Tags: StaticListSchema = [1, n0, _Ta, 0, () => Tag];
-export var TextSegmentList: StaticListSchema = [1, n0, _TSL, 0, () => TextSegment];
-export var TopicConfigurations: StaticListSchema = [1, n0, _TCo, 0, () => TopicConfiguration];
-export var UserAliases: StaticListSchema = [1, n0, _UAs, 0, () => UserAlias];
-export var UserGroups = 64 | 0;
-export var UserIds = 64 | 0;
-export var ValidationExceptionFields: StaticListSchema = [1, n0, _VEFa, 0, () => ValidationExceptionField];
-export var WebExperienceOrigins = 64 | 0;
-export var WebExperiences: StaticListSchema = [1, n0, _WEe, 0, () => WebExperience];
-export var ActionExecutionPayload: StaticMapSchema = [2, n0, _AEP, 0, 0, () => ActionExecutionPayloadField];
-export var ActionReviewPayload: StaticMapSchema = [2, n0, _ARP, 0, 0, () => ActionReviewPayloadField];
-export var AuthorizationResponseMap = 128 | 0;
-export var DocumentAttributeBoostingOverrideMap: StaticMapSchema = [
+var ListPluginTypeMetadataSummaries: StaticListSchema = [1, n0, _LPTMS, 0, () => PluginTypeMetadataSummary$];
+var MemberGroups: StaticListSchema = [1, n0, _MGe, 0, () => MemberGroup$];
+var MemberUsers: StaticListSchema = [1, n0, _MUe, 0, () => MemberUser$];
+var Messages: StaticListSchema = [1, n0, _Me, 0, [() => Message$, 0]];
+var PermissionConditions: StaticListSchema = [1, n0, _PCer, 0, () => PermissionCondition$];
+var PermissionConditionValues = 64 | 0;
+var Plugins: StaticListSchema = [1, n0, _Plu, 0, () => Plugin$];
+var Principals: StaticListSchema = [1, n0, _Pr, 0, () => Principal$];
+var QIamActions = 64 | 0;
+var RelevantContentList: StaticListSchema = [1, n0, _RCL, 0, () => RelevantContent$];
+var Retrievers: StaticListSchema = [1, n0, _Re, 0, () => Retriever$];
+var Rules: StaticListSchema = [1, n0, _Rul, 0, () => Rule$];
+var SecurityGroupIds = 64 | 0;
+var SourceAttributions: StaticListSchema = [1, n0, _SAou, { [_sp]: 1 }, () => SourceAttribution$];
+var SubnetIds = 64 | 0;
+var Subscriptions: StaticListSchema = [1, n0, _Sub, 0, () => Subscription$];
+var TagKeys = 64 | 0;
+var Tags: StaticListSchema = [1, n0, _Ta, 0, () => Tag$];
+var TextSegmentList: StaticListSchema = [1, n0, _TSL, 0, () => TextSegment$];
+var TopicConfigurations: StaticListSchema = [1, n0, _TCo, 0, () => TopicConfiguration$];
+var UserAliases: StaticListSchema = [1, n0, _UAs, 0, () => UserAlias$];
+var UserGroups = 64 | 0;
+var UserIds = 64 | 0;
+var ValidationExceptionFields: StaticListSchema = [1, n0, _VEFa, 0, () => ValidationExceptionField$];
+var WebExperienceOrigins = 64 | 0;
+var WebExperiences: StaticListSchema = [1, n0, _WEe, 0, () => WebExperience$];
+var ActionExecutionPayload: StaticMapSchema = [2, n0, _AEP, 0, 0, () => ActionExecutionPayloadField$];
+var ActionReviewPayload: StaticMapSchema = [2, n0, _ARP, 0, 0, () => ActionReviewPayloadField$];
+var AuthorizationResponseMap = 128 | 0;
+var DocumentAttributeBoostingOverrideMap: StaticMapSchema = [
   2,
   n0,
   _DABOM,
   0,
   0,
-  () => DocumentAttributeBoostingConfiguration,
+  () => DocumentAttributeBoostingConfiguration$,
 ];
-export var ResponseConfigurations: StaticMapSchema = [2, n0, _RCes, 0, 0, () => ResponseConfiguration];
-export var StringAttributeValueBoosting = 128 | 0;
-export var APISchema: StaticStructureSchema = [3, n0, _APIS, 0, [_pa, _s_], [[() => Payload, 0], () => S3]];
-export var ChatInputStream: StaticStructureSchema = [
+var ResponseConfigurations: StaticMapSchema = [2, n0, _RCes, 0, 0, () => ResponseConfiguration$];
+var StringAttributeValueBoosting = 128 | 0;
+export var APISchema$: StaticStructureSchema = [3, n0, _APIS, 0, [_pa, _s_], [[() => Payload, 0], () => S3$]];
+export var ChatInputStream$: StaticStructureSchema = [
   3,
   n0,
   _CIS,
   { [_str]: 1 },
   [_cE, _tE, _aEt, _aEE, _eOIE, _aCRE],
   [
-    () => ConfigurationEvent,
-    () => TextInputEvent,
-    () => AttachmentInputEvent,
-    () => ActionExecutionEvent,
-    () => EndOfInputEvent,
-    () => AuthChallengeResponseEvent,
+    () => ConfigurationEvent$,
+    () => TextInputEvent$,
+    () => AttachmentInputEvent$,
+    () => ActionExecutionEvent$,
+    () => EndOfInputEvent$,
+    () => AuthChallengeResponseEvent$,
   ],
 ];
-export var ChatModeConfiguration: StaticStructureSchema = [3, n0, _CMCh, 0, [_pCl], [() => PluginConfiguration]];
-export var ChatOutputStream: StaticStructureSchema = [
+export var ChatModeConfiguration$: StaticStructureSchema = [3, n0, _CMCh, 0, [_pCl], [() => PluginConfiguration$]];
+export var ChatOutputStream$: StaticStructureSchema = [
   3,
   n0,
   _COS,
   { [_str]: 1 },
   [_tE, _mE, _aRE, _fAE, _aCREu],
   [
-    () => TextOutputEvent,
-    [() => MetadataEvent, 0],
-    () => ActionReviewEvent,
-    () => FailedAttachmentEvent,
-    () => AuthChallengeRequestEvent,
+    () => TextOutputEvent$,
+    [() => MetadataEvent$, 0],
+    () => ActionReviewEvent$,
+    () => FailedAttachmentEvent$,
+    () => AuthChallengeRequestEvent$,
   ],
 ];
-export var ContentSource: StaticStructureSchema = [3, n0, _CSo, 0, [_ret], [() => RetrieverContentSource]];
-export var CopyFromSource: StaticStructureSchema = [3, n0, _CFS, 0, [_conve], [() => ConversationSource]];
-export var DataAccessorAuthenticationConfiguration: StaticStructureSchema = [
+export var ContentSource$: StaticStructureSchema = [3, n0, _CSo, 0, [_ret], [() => RetrieverContentSource$]];
+export var CopyFromSource$: StaticStructureSchema = [3, n0, _CFS, 0, [_conve], [() => ConversationSource$]];
+export var DataAccessorAuthenticationConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _DAAC,
   0,
   [_iTTIC],
-  [() => DataAccessorIdcTrustedTokenIssuerConfiguration],
+  [() => DataAccessorIdcTrustedTokenIssuerConfiguration$],
 ];
-export var DocumentAttributeBoostingConfiguration: StaticStructureSchema = [
+export var DocumentAttributeBoostingConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _DABCo,
   0,
   [_nC, _sCt, _dC, _sLC],
   [
-    () => NumberAttributeBoostingConfiguration,
-    () => StringAttributeBoostingConfiguration,
-    () => DateAttributeBoostingConfiguration,
-    () => StringListAttributeBoostingConfiguration,
+    () => NumberAttributeBoostingConfiguration$,
+    () => StringAttributeBoostingConfiguration$,
+    () => DateAttributeBoostingConfiguration$,
+    () => StringListAttributeBoostingConfiguration$,
   ],
 ];
-export var DocumentAttributeValue: StaticStructureSchema = [3, n0, _DAV, 0, [_sV, _sLV, _lV, _dVa], [0, 64 | 0, 1, 4]];
-export var DocumentContent: StaticStructureSchema = [3, n0, _DC, 0, [_bl, _s_], [21, () => S3]];
-export var IdentityProviderConfiguration: StaticStructureSchema = [
+export var DocumentAttributeValue$: StaticStructureSchema = [3, n0, _DAV, 0, [_sV, _sLV, _lV, _dVa], [0, 64 | 0, 1, 4]];
+export var DocumentContent$: StaticStructureSchema = [3, n0, _DC, 0, [_bl, _s_], [21, () => S3$]];
+export var IdentityProviderConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _IPC,
   0,
   [_sCa, _oIDCC],
-  [() => SamlProviderConfiguration, () => OpenIDConnectProviderConfiguration],
+  [() => SamlProviderConfiguration$, () => OpenIDConnectProviderConfiguration$],
 ];
-export var PluginAuthConfiguration: StaticStructureSchema = [
+export var PluginAuthConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _PAC,
   0,
   [_bAC, _oACCC, _nAC, _iAC],
   [
-    () => BasicAuthConfiguration,
-    () => OAuth2ClientCredentialConfiguration,
-    () => NoAuthConfiguration,
-    () => IdcAuthConfiguration,
+    () => BasicAuthConfiguration$,
+    () => OAuth2ClientCredentialConfiguration$,
+    () => NoAuthConfiguration$,
+    () => IdcAuthConfiguration$,
   ],
 ];
-export var Principal: StaticStructureSchema = [
+export var Principal$: StaticStructureSchema = [
   3,
   n0,
   _Pri,
   0,
   [_use, _gr],
-  [() => PrincipalUser, () => PrincipalGroup],
+  [() => PrincipalUser$, () => PrincipalGroup$],
 ];
-export var RetrieverConfiguration: StaticStructureSchema = [
+export var RetrieverConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RCet,
   0,
   [_nIC, _kIC],
-  [() => NativeIndexConfiguration, () => KendraIndexConfiguration],
+  [() => NativeIndexConfiguration$, () => KendraIndexConfiguration$],
 ];
-export var RuleConfiguration: StaticStructureSchema = [
+export var RuleConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RCu,
   0,
   [_cBR, _cRR],
-  [() => ContentBlockerRule, () => ContentRetrievalRule],
+  [() => ContentBlockerRule$, () => ContentRetrievalRule$],
 ];
-export var SourceDetails: StaticStructureSchema = [
+export var SourceDetails$: StaticStructureSchema = [
   3,
   n0,
   _SDo,
   0,
   [_iSD, _aSD, _vSD],
-  [() => ImageSourceDetails, () => AudioSourceDetails, () => VideoSourceDetails],
+  [() => ImageSourceDetails$, () => AudioSourceDetails$, () => VideoSourceDetails$],
 ];
-export var SubscriptionPrincipal: StaticStructureSchema = [3, n0, _SP, 0, [_use, _gr], [0, 0]];
-export var WebExperienceAuthConfiguration: StaticStructureSchema = [3, n0, _WEAC, 0, [_sCa], [() => SamlConfiguration]];
-export var AssociatePermission: StaticOperationSchema = [
+export var SubscriptionPrincipal$: StaticStructureSchema = [3, n0, _SP, 0, [_use, _gr], [0, 0]];
+export var WebExperienceAuthConfiguration$: StaticStructureSchema = [
+  3,
+  n0,
+  _WEAC,
+  0,
+  [_sCa],
+  [() => SamlConfiguration$],
+];
+export var AssociatePermission$: StaticOperationSchema = [
   9,
   n0,
   _AP,
   { [_ht]: ["POST", "/applications/{applicationId}/policy", 200] },
-  () => AssociatePermissionRequest,
-  () => AssociatePermissionResponse,
+  () => AssociatePermissionRequest$,
+  () => AssociatePermissionResponse$,
 ];
-export var BatchDeleteDocument: StaticOperationSchema = [
+export var BatchDeleteDocument$: StaticOperationSchema = [
   9,
   n0,
   _BDD,
   { [_ht]: ["POST", "/applications/{applicationId}/indices/{indexId}/documents/delete", 200] },
-  () => BatchDeleteDocumentRequest,
-  () => BatchDeleteDocumentResponse,
+  () => BatchDeleteDocumentRequest$,
+  () => BatchDeleteDocumentResponse$,
 ];
-export var BatchPutDocument: StaticOperationSchema = [
+export var BatchPutDocument$: StaticOperationSchema = [
   9,
   n0,
   _BPD,
   { [_ht]: ["POST", "/applications/{applicationId}/indices/{indexId}/documents", 200] },
-  () => BatchPutDocumentRequest,
-  () => BatchPutDocumentResponse,
+  () => BatchPutDocumentRequest$,
+  () => BatchPutDocumentResponse$,
 ];
-export var CancelSubscription: StaticOperationSchema = [
+export var CancelSubscription$: StaticOperationSchema = [
   9,
   n0,
   _CSa,
   { [_ht]: ["DELETE", "/applications/{applicationId}/subscriptions/{subscriptionId}", 200] },
-  () => CancelSubscriptionRequest,
-  () => CancelSubscriptionResponse,
+  () => CancelSubscriptionRequest$,
+  () => CancelSubscriptionResponse$,
 ];
-export var Chat: StaticOperationSchema = [
+export var Chat$: StaticOperationSchema = [
   9,
   n0,
   _Ch,
   { [_ht]: ["POST", "/applications/{applicationId}/conversations", 200] },
-  () => ChatInput,
-  () => ChatOutput,
+  () => ChatInput$,
+  () => ChatOutput$,
 ];
-export var ChatSync: StaticOperationSchema = [
+export var ChatSync$: StaticOperationSchema = [
   9,
   n0,
   _CSh,
   { [_ht]: ["POST", "/applications/{applicationId}/conversations?sync", 200] },
-  () => ChatSyncInput,
-  () => ChatSyncOutput,
+  () => ChatSyncInput$,
+  () => ChatSyncOutput$,
 ];
-export var CheckDocumentAccess: StaticOperationSchema = [
+export var CheckDocumentAccess$: StaticOperationSchema = [
   9,
   n0,
   _CDA,
@@ -2903,274 +2955,274 @@ export var CheckDocumentAccess: StaticOperationSchema = [
       200,
     ],
   },
-  () => CheckDocumentAccessRequest,
-  () => CheckDocumentAccessResponse,
+  () => CheckDocumentAccessRequest$,
+  () => CheckDocumentAccessResponse$,
 ];
-export var CreateAnonymousWebExperienceUrl: StaticOperationSchema = [
+export var CreateAnonymousWebExperienceUrl$: StaticOperationSchema = [
   9,
   n0,
   _CAWEU,
   { [_ht]: ["POST", "/applications/{applicationId}/experiences/{webExperienceId}/anonymous-url", 200] },
-  () => CreateAnonymousWebExperienceUrlRequest,
-  () => CreateAnonymousWebExperienceUrlResponse,
+  () => CreateAnonymousWebExperienceUrlRequest$,
+  () => CreateAnonymousWebExperienceUrlResponse$,
 ];
-export var CreateApplication: StaticOperationSchema = [
+export var CreateApplication$: StaticOperationSchema = [
   9,
   n0,
   _CA,
   { [_ht]: ["POST", "/applications", 200] },
-  () => CreateApplicationRequest,
-  () => CreateApplicationResponse,
+  () => CreateApplicationRequest$,
+  () => CreateApplicationResponse$,
 ];
-export var CreateChatResponseConfiguration: StaticOperationSchema = [
+export var CreateChatResponseConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _CCRC,
   { [_ht]: ["POST", "/applications/{applicationId}/chatresponseconfigurations", 200] },
-  () => CreateChatResponseConfigurationRequest,
-  () => CreateChatResponseConfigurationResponse,
+  () => CreateChatResponseConfigurationRequest$,
+  () => CreateChatResponseConfigurationResponse$,
 ];
-export var CreateDataAccessor: StaticOperationSchema = [
+export var CreateDataAccessor$: StaticOperationSchema = [
   9,
   n0,
   _CDAr,
   { [_ht]: ["POST", "/applications/{applicationId}/dataaccessors", 200] },
-  () => CreateDataAccessorRequest,
-  () => CreateDataAccessorResponse,
+  () => CreateDataAccessorRequest$,
+  () => CreateDataAccessorResponse$,
 ];
-export var CreateDataSource: StaticOperationSchema = [
+export var CreateDataSource$: StaticOperationSchema = [
   9,
   n0,
   _CDS,
   { [_ht]: ["POST", "/applications/{applicationId}/indices/{indexId}/datasources", 200] },
-  () => CreateDataSourceRequest,
-  () => CreateDataSourceResponse,
+  () => CreateDataSourceRequest$,
+  () => CreateDataSourceResponse$,
 ];
-export var CreateIndex: StaticOperationSchema = [
+export var CreateIndex$: StaticOperationSchema = [
   9,
   n0,
   _CIr,
   { [_ht]: ["POST", "/applications/{applicationId}/indices", 200] },
-  () => CreateIndexRequest,
-  () => CreateIndexResponse,
+  () => CreateIndexRequest$,
+  () => CreateIndexResponse$,
 ];
-export var CreatePlugin: StaticOperationSchema = [
+export var CreatePlugin$: StaticOperationSchema = [
   9,
   n0,
   _CP,
   { [_ht]: ["POST", "/applications/{applicationId}/plugins", 200] },
-  () => CreatePluginRequest,
-  () => CreatePluginResponse,
+  () => CreatePluginRequest$,
+  () => CreatePluginResponse$,
 ];
-export var CreateRetriever: StaticOperationSchema = [
+export var CreateRetriever$: StaticOperationSchema = [
   9,
   n0,
   _CR,
   { [_ht]: ["POST", "/applications/{applicationId}/retrievers", 200] },
-  () => CreateRetrieverRequest,
-  () => CreateRetrieverResponse,
+  () => CreateRetrieverRequest$,
+  () => CreateRetrieverResponse$,
 ];
-export var CreateSubscription: StaticOperationSchema = [
+export var CreateSubscription$: StaticOperationSchema = [
   9,
   n0,
   _CSr,
   { [_ht]: ["POST", "/applications/{applicationId}/subscriptions", 200] },
-  () => CreateSubscriptionRequest,
-  () => CreateSubscriptionResponse,
+  () => CreateSubscriptionRequest$,
+  () => CreateSubscriptionResponse$,
 ];
-export var CreateUser: StaticOperationSchema = [
+export var CreateUser$: StaticOperationSchema = [
   9,
   n0,
   _CU,
   { [_ht]: ["POST", "/applications/{applicationId}/users", 200] },
-  () => CreateUserRequest,
-  () => CreateUserResponse,
+  () => CreateUserRequest$,
+  () => CreateUserResponse$,
 ];
-export var CreateWebExperience: StaticOperationSchema = [
+export var CreateWebExperience$: StaticOperationSchema = [
   9,
   n0,
   _CWE,
   { [_ht]: ["POST", "/applications/{applicationId}/experiences", 200] },
-  () => CreateWebExperienceRequest,
-  () => CreateWebExperienceResponse,
+  () => CreateWebExperienceRequest$,
+  () => CreateWebExperienceResponse$,
 ];
-export var DeleteApplication: StaticOperationSchema = [
+export var DeleteApplication$: StaticOperationSchema = [
   9,
   n0,
   _DAe,
   { [_ht]: ["DELETE", "/applications/{applicationId}", 200] },
-  () => DeleteApplicationRequest,
-  () => DeleteApplicationResponse,
+  () => DeleteApplicationRequest$,
+  () => DeleteApplicationResponse$,
 ];
-export var DeleteAttachment: StaticOperationSchema = [
+export var DeleteAttachment$: StaticOperationSchema = [
   9,
   n0,
   _DAel,
   { [_ht]: ["DELETE", "/applications/{applicationId}/conversations/{conversationId}/attachments/{attachmentId}", 200] },
-  () => DeleteAttachmentRequest,
-  () => DeleteAttachmentResponse,
+  () => DeleteAttachmentRequest$,
+  () => DeleteAttachmentResponse$,
 ];
-export var DeleteChatControlsConfiguration: StaticOperationSchema = [
+export var DeleteChatControlsConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DCCC,
   { [_ht]: ["DELETE", "/applications/{applicationId}/chatcontrols", 200] },
-  () => DeleteChatControlsConfigurationRequest,
-  () => DeleteChatControlsConfigurationResponse,
+  () => DeleteChatControlsConfigurationRequest$,
+  () => DeleteChatControlsConfigurationResponse$,
 ];
-export var DeleteChatResponseConfiguration: StaticOperationSchema = [
+export var DeleteChatResponseConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DCRC,
   { [_ht]: ["DELETE", "/applications/{applicationId}/chatresponseconfigurations/{chatResponseConfigurationId}", 200] },
-  () => DeleteChatResponseConfigurationRequest,
-  () => DeleteChatResponseConfigurationResponse,
+  () => DeleteChatResponseConfigurationRequest$,
+  () => DeleteChatResponseConfigurationResponse$,
 ];
-export var DeleteConversation: StaticOperationSchema = [
+export var DeleteConversation$: StaticOperationSchema = [
   9,
   n0,
   _DCe,
   { [_ht]: ["DELETE", "/applications/{applicationId}/conversations/{conversationId}", 200] },
-  () => DeleteConversationRequest,
-  () => DeleteConversationResponse,
+  () => DeleteConversationRequest$,
+  () => DeleteConversationResponse$,
 ];
-export var DeleteDataAccessor: StaticOperationSchema = [
+export var DeleteDataAccessor$: StaticOperationSchema = [
   9,
   n0,
   _DDA,
   { [_ht]: ["DELETE", "/applications/{applicationId}/dataaccessors/{dataAccessorId}", 200] },
-  () => DeleteDataAccessorRequest,
-  () => DeleteDataAccessorResponse,
+  () => DeleteDataAccessorRequest$,
+  () => DeleteDataAccessorResponse$,
 ];
-export var DeleteDataSource: StaticOperationSchema = [
+export var DeleteDataSource$: StaticOperationSchema = [
   9,
   n0,
   _DDS,
   { [_ht]: ["DELETE", "/applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}", 200] },
-  () => DeleteDataSourceRequest,
-  () => DeleteDataSourceResponse,
+  () => DeleteDataSourceRequest$,
+  () => DeleteDataSourceResponse$,
 ];
-export var DeleteGroup: StaticOperationSchema = [
+export var DeleteGroup$: StaticOperationSchema = [
   9,
   n0,
   _DG,
   { [_ht]: ["DELETE", "/applications/{applicationId}/indices/{indexId}/groups/{groupName}", 200] },
-  () => DeleteGroupRequest,
-  () => DeleteGroupResponse,
+  () => DeleteGroupRequest$,
+  () => DeleteGroupResponse$,
 ];
-export var DeleteIndex: StaticOperationSchema = [
+export var DeleteIndex$: StaticOperationSchema = [
   9,
   n0,
   _DI,
   { [_ht]: ["DELETE", "/applications/{applicationId}/indices/{indexId}", 200] },
-  () => DeleteIndexRequest,
-  () => DeleteIndexResponse,
+  () => DeleteIndexRequest$,
+  () => DeleteIndexResponse$,
 ];
-export var DeletePlugin: StaticOperationSchema = [
+export var DeletePlugin$: StaticOperationSchema = [
   9,
   n0,
   _DP,
   { [_ht]: ["DELETE", "/applications/{applicationId}/plugins/{pluginId}", 200] },
-  () => DeletePluginRequest,
-  () => DeletePluginResponse,
+  () => DeletePluginRequest$,
+  () => DeletePluginResponse$,
 ];
-export var DeleteRetriever: StaticOperationSchema = [
+export var DeleteRetriever$: StaticOperationSchema = [
   9,
   n0,
   _DR,
   { [_ht]: ["DELETE", "/applications/{applicationId}/retrievers/{retrieverId}", 200] },
-  () => DeleteRetrieverRequest,
-  () => DeleteRetrieverResponse,
+  () => DeleteRetrieverRequest$,
+  () => DeleteRetrieverResponse$,
 ];
-export var DeleteUser: StaticOperationSchema = [
+export var DeleteUser$: StaticOperationSchema = [
   9,
   n0,
   _DU,
   { [_ht]: ["DELETE", "/applications/{applicationId}/users/{userId}", 200] },
-  () => DeleteUserRequest,
-  () => DeleteUserResponse,
+  () => DeleteUserRequest$,
+  () => DeleteUserResponse$,
 ];
-export var DeleteWebExperience: StaticOperationSchema = [
+export var DeleteWebExperience$: StaticOperationSchema = [
   9,
   n0,
   _DWE,
   { [_ht]: ["DELETE", "/applications/{applicationId}/experiences/{webExperienceId}", 200] },
-  () => DeleteWebExperienceRequest,
-  () => DeleteWebExperienceResponse,
+  () => DeleteWebExperienceRequest$,
+  () => DeleteWebExperienceResponse$,
 ];
-export var DisassociatePermission: StaticOperationSchema = [
+export var DisassociatePermission$: StaticOperationSchema = [
   9,
   n0,
   _DPi,
   { [_ht]: ["DELETE", "/applications/{applicationId}/policy/{statementId}", 200] },
-  () => DisassociatePermissionRequest,
-  () => DisassociatePermissionResponse,
+  () => DisassociatePermissionRequest$,
+  () => DisassociatePermissionResponse$,
 ];
-export var GetApplication: StaticOperationSchema = [
+export var GetApplication$: StaticOperationSchema = [
   9,
   n0,
   _GA,
   { [_ht]: ["GET", "/applications/{applicationId}", 200] },
-  () => GetApplicationRequest,
-  () => GetApplicationResponse,
+  () => GetApplicationRequest$,
+  () => GetApplicationResponse$,
 ];
-export var GetChatControlsConfiguration: StaticOperationSchema = [
+export var GetChatControlsConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GCCC,
   { [_ht]: ["GET", "/applications/{applicationId}/chatcontrols", 200] },
-  () => GetChatControlsConfigurationRequest,
-  () => GetChatControlsConfigurationResponse,
+  () => GetChatControlsConfigurationRequest$,
+  () => GetChatControlsConfigurationResponse$,
 ];
-export var GetChatResponseConfiguration: StaticOperationSchema = [
+export var GetChatResponseConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GCRC,
   { [_ht]: ["GET", "/applications/{applicationId}/chatresponseconfigurations/{chatResponseConfigurationId}", 200] },
-  () => GetChatResponseConfigurationRequest,
-  () => GetChatResponseConfigurationResponse,
+  () => GetChatResponseConfigurationRequest$,
+  () => GetChatResponseConfigurationResponse$,
 ];
-export var GetDataAccessor: StaticOperationSchema = [
+export var GetDataAccessor$: StaticOperationSchema = [
   9,
   n0,
   _GDA,
   { [_ht]: ["GET", "/applications/{applicationId}/dataaccessors/{dataAccessorId}", 200] },
-  () => GetDataAccessorRequest,
-  () => GetDataAccessorResponse,
+  () => GetDataAccessorRequest$,
+  () => GetDataAccessorResponse$,
 ];
-export var GetDataSource: StaticOperationSchema = [
+export var GetDataSource$: StaticOperationSchema = [
   9,
   n0,
   _GDS,
   { [_ht]: ["GET", "/applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}", 200] },
-  () => GetDataSourceRequest,
-  () => GetDataSourceResponse,
+  () => GetDataSourceRequest$,
+  () => GetDataSourceResponse$,
 ];
-export var GetDocumentContent: StaticOperationSchema = [
+export var GetDocumentContent$: StaticOperationSchema = [
   9,
   n0,
   _GDC,
   { [_ht]: ["GET", "/applications/{applicationId}/index/{indexId}/documents/{documentId}/content", 200] },
-  () => GetDocumentContentRequest,
-  () => GetDocumentContentResponse,
+  () => GetDocumentContentRequest$,
+  () => GetDocumentContentResponse$,
 ];
-export var GetGroup: StaticOperationSchema = [
+export var GetGroup$: StaticOperationSchema = [
   9,
   n0,
   _GG,
   { [_ht]: ["GET", "/applications/{applicationId}/indices/{indexId}/groups/{groupName}", 200] },
-  () => GetGroupRequest,
-  () => GetGroupResponse,
+  () => GetGroupRequest$,
+  () => GetGroupResponse$,
 ];
-export var GetIndex: StaticOperationSchema = [
+export var GetIndex$: StaticOperationSchema = [
   9,
   n0,
   _GI,
   { [_ht]: ["GET", "/applications/{applicationId}/indices/{indexId}", 200] },
-  () => GetIndexRequest,
-  () => GetIndexResponse,
+  () => GetIndexRequest$,
+  () => GetIndexResponse$,
 ];
-export var GetMedia: StaticOperationSchema = [
+export var GetMedia$: StaticOperationSchema = [
   9,
   n0,
   _GMe,
@@ -3181,344 +3233,344 @@ export var GetMedia: StaticOperationSchema = [
       200,
     ],
   },
-  () => GetMediaRequest,
-  () => GetMediaResponse,
+  () => GetMediaRequest$,
+  () => GetMediaResponse$,
 ];
-export var GetPlugin: StaticOperationSchema = [
+export var GetPlugin$: StaticOperationSchema = [
   9,
   n0,
   _GP,
   { [_ht]: ["GET", "/applications/{applicationId}/plugins/{pluginId}", 200] },
-  () => GetPluginRequest,
-  () => GetPluginResponse,
+  () => GetPluginRequest$,
+  () => GetPluginResponse$,
 ];
-export var GetPolicy: StaticOperationSchema = [
+export var GetPolicy$: StaticOperationSchema = [
   9,
   n0,
   _GPe,
   { [_ht]: ["GET", "/applications/{applicationId}/policy", 200] },
-  () => GetPolicyRequest,
-  () => GetPolicyResponse,
+  () => GetPolicyRequest$,
+  () => GetPolicyResponse$,
 ];
-export var GetRetriever: StaticOperationSchema = [
+export var GetRetriever$: StaticOperationSchema = [
   9,
   n0,
   _GR,
   { [_ht]: ["GET", "/applications/{applicationId}/retrievers/{retrieverId}", 200] },
-  () => GetRetrieverRequest,
-  () => GetRetrieverResponse,
+  () => GetRetrieverRequest$,
+  () => GetRetrieverResponse$,
 ];
-export var GetUser: StaticOperationSchema = [
+export var GetUser$: StaticOperationSchema = [
   9,
   n0,
   _GU,
   { [_ht]: ["GET", "/applications/{applicationId}/users/{userId}", 200] },
-  () => GetUserRequest,
-  () => GetUserResponse,
+  () => GetUserRequest$,
+  () => GetUserResponse$,
 ];
-export var GetWebExperience: StaticOperationSchema = [
+export var GetWebExperience$: StaticOperationSchema = [
   9,
   n0,
   _GWE,
   { [_ht]: ["GET", "/applications/{applicationId}/experiences/{webExperienceId}", 200] },
-  () => GetWebExperienceRequest,
-  () => GetWebExperienceResponse,
+  () => GetWebExperienceRequest$,
+  () => GetWebExperienceResponse$,
 ];
-export var ListApplications: StaticOperationSchema = [
+export var ListApplications$: StaticOperationSchema = [
   9,
   n0,
   _LA,
   { [_ht]: ["GET", "/applications", 200] },
-  () => ListApplicationsRequest,
-  () => ListApplicationsResponse,
+  () => ListApplicationsRequest$,
+  () => ListApplicationsResponse$,
 ];
-export var ListAttachments: StaticOperationSchema = [
+export var ListAttachments$: StaticOperationSchema = [
   9,
   n0,
   _LAi,
   { [_ht]: ["GET", "/applications/{applicationId}/attachments", 200] },
-  () => ListAttachmentsRequest,
-  () => ListAttachmentsResponse,
+  () => ListAttachmentsRequest$,
+  () => ListAttachmentsResponse$,
 ];
-export var ListChatResponseConfigurations: StaticOperationSchema = [
+export var ListChatResponseConfigurations$: StaticOperationSchema = [
   9,
   n0,
   _LCRC,
   { [_ht]: ["GET", "/applications/{applicationId}/chatresponseconfigurations", 200] },
-  () => ListChatResponseConfigurationsRequest,
-  () => ListChatResponseConfigurationsResponse,
+  () => ListChatResponseConfigurationsRequest$,
+  () => ListChatResponseConfigurationsResponse$,
 ];
-export var ListConversations: StaticOperationSchema = [
+export var ListConversations$: StaticOperationSchema = [
   9,
   n0,
   _LC,
   { [_ht]: ["GET", "/applications/{applicationId}/conversations", 200] },
-  () => ListConversationsRequest,
-  () => ListConversationsResponse,
+  () => ListConversationsRequest$,
+  () => ListConversationsResponse$,
 ];
-export var ListDataAccessors: StaticOperationSchema = [
+export var ListDataAccessors$: StaticOperationSchema = [
   9,
   n0,
   _LDA,
   { [_ht]: ["GET", "/applications/{applicationId}/dataaccessors", 200] },
-  () => ListDataAccessorsRequest,
-  () => ListDataAccessorsResponse,
+  () => ListDataAccessorsRequest$,
+  () => ListDataAccessorsResponse$,
 ];
-export var ListDataSources: StaticOperationSchema = [
+export var ListDataSources$: StaticOperationSchema = [
   9,
   n0,
   _LDS,
   { [_ht]: ["GET", "/applications/{applicationId}/indices/{indexId}/datasources", 200] },
-  () => ListDataSourcesRequest,
-  () => ListDataSourcesResponse,
+  () => ListDataSourcesRequest$,
+  () => ListDataSourcesResponse$,
 ];
-export var ListDataSourceSyncJobs: StaticOperationSchema = [
+export var ListDataSourceSyncJobs$: StaticOperationSchema = [
   9,
   n0,
   _LDSSJ,
   { [_ht]: ["GET", "/applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}/syncjobs", 200] },
-  () => ListDataSourceSyncJobsRequest,
-  () => ListDataSourceSyncJobsResponse,
+  () => ListDataSourceSyncJobsRequest$,
+  () => ListDataSourceSyncJobsResponse$,
 ];
-export var ListDocuments: StaticOperationSchema = [
+export var ListDocuments$: StaticOperationSchema = [
   9,
   n0,
   _LD,
   { [_ht]: ["GET", "/applications/{applicationId}/index/{indexId}/documents", 200] },
-  () => ListDocumentsRequest,
-  () => ListDocumentsResponse,
+  () => ListDocumentsRequest$,
+  () => ListDocumentsResponse$,
 ];
-export var ListGroups: StaticOperationSchema = [
+export var ListGroups$: StaticOperationSchema = [
   9,
   n0,
   _LG,
   { [_ht]: ["GET", "/applications/{applicationId}/indices/{indexId}/groups", 200] },
-  () => ListGroupsRequest,
-  () => ListGroupsResponse,
+  () => ListGroupsRequest$,
+  () => ListGroupsResponse$,
 ];
-export var ListIndices: StaticOperationSchema = [
+export var ListIndices$: StaticOperationSchema = [
   9,
   n0,
   _LI,
   { [_ht]: ["GET", "/applications/{applicationId}/indices", 200] },
-  () => ListIndicesRequest,
-  () => ListIndicesResponse,
+  () => ListIndicesRequest$,
+  () => ListIndicesResponse$,
 ];
-export var ListMessages: StaticOperationSchema = [
+export var ListMessages$: StaticOperationSchema = [
   9,
   n0,
   _LM,
   { [_ht]: ["GET", "/applications/{applicationId}/conversations/{conversationId}", 200] },
-  () => ListMessagesRequest,
-  () => ListMessagesResponse,
+  () => ListMessagesRequest$,
+  () => ListMessagesResponse$,
 ];
-export var ListPluginActions: StaticOperationSchema = [
+export var ListPluginActions$: StaticOperationSchema = [
   9,
   n0,
   _LPA,
   { [_ht]: ["GET", "/applications/{applicationId}/plugins/{pluginId}/actions", 200] },
-  () => ListPluginActionsRequest,
-  () => ListPluginActionsResponse,
+  () => ListPluginActionsRequest$,
+  () => ListPluginActionsResponse$,
 ];
-export var ListPlugins: StaticOperationSchema = [
+export var ListPlugins$: StaticOperationSchema = [
   9,
   n0,
   _LP,
   { [_ht]: ["GET", "/applications/{applicationId}/plugins", 200] },
-  () => ListPluginsRequest,
-  () => ListPluginsResponse,
+  () => ListPluginsRequest$,
+  () => ListPluginsResponse$,
 ];
-export var ListPluginTypeActions: StaticOperationSchema = [
+export var ListPluginTypeActions$: StaticOperationSchema = [
   9,
   n0,
   _LPTA,
   { [_ht]: ["GET", "/pluginTypes/{pluginType}/actions", 200] },
-  () => ListPluginTypeActionsRequest,
-  () => ListPluginTypeActionsResponse,
+  () => ListPluginTypeActionsRequest$,
+  () => ListPluginTypeActionsResponse$,
 ];
-export var ListPluginTypeMetadata: StaticOperationSchema = [
+export var ListPluginTypeMetadata$: StaticOperationSchema = [
   9,
   n0,
   _LPTM,
   { [_ht]: ["GET", "/pluginTypeMetadata", 200] },
-  () => ListPluginTypeMetadataRequest,
-  () => ListPluginTypeMetadataResponse,
+  () => ListPluginTypeMetadataRequest$,
+  () => ListPluginTypeMetadataResponse$,
 ];
-export var ListRetrievers: StaticOperationSchema = [
+export var ListRetrievers$: StaticOperationSchema = [
   9,
   n0,
   _LR,
   { [_ht]: ["GET", "/applications/{applicationId}/retrievers", 200] },
-  () => ListRetrieversRequest,
-  () => ListRetrieversResponse,
+  () => ListRetrieversRequest$,
+  () => ListRetrieversResponse$,
 ];
-export var ListSubscriptions: StaticOperationSchema = [
+export var ListSubscriptions$: StaticOperationSchema = [
   9,
   n0,
   _LS,
   { [_ht]: ["GET", "/applications/{applicationId}/subscriptions", 200] },
-  () => ListSubscriptionsRequest,
-  () => ListSubscriptionsResponse,
+  () => ListSubscriptionsRequest$,
+  () => ListSubscriptionsResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_ht]: ["GET", "/v1/tags/{resourceARN}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var ListWebExperiences: StaticOperationSchema = [
+export var ListWebExperiences$: StaticOperationSchema = [
   9,
   n0,
   _LWE,
   { [_ht]: ["GET", "/applications/{applicationId}/experiences", 200] },
-  () => ListWebExperiencesRequest,
-  () => ListWebExperiencesResponse,
+  () => ListWebExperiencesRequest$,
+  () => ListWebExperiencesResponse$,
 ];
-export var PutFeedback: StaticOperationSchema = [
+export var PutFeedback$: StaticOperationSchema = [
   9,
   n0,
   _PF,
   {
     [_ht]: ["POST", "/applications/{applicationId}/conversations/{conversationId}/messages/{messageId}/feedback", 200],
   },
-  () => PutFeedbackRequest,
+  () => PutFeedbackRequest$,
   () => __Unit,
 ];
-export var PutGroup: StaticOperationSchema = [
+export var PutGroup$: StaticOperationSchema = [
   9,
   n0,
   _PGu,
   { [_ht]: ["PUT", "/applications/{applicationId}/indices/{indexId}/groups", 200] },
-  () => PutGroupRequest,
-  () => PutGroupResponse,
+  () => PutGroupRequest$,
+  () => PutGroupResponse$,
 ];
-export var SearchRelevantContent: StaticOperationSchema = [
+export var SearchRelevantContent$: StaticOperationSchema = [
   9,
   n0,
   _SRC,
   { [_ht]: ["POST", "/applications/{applicationId}/relevant-content", 200] },
-  () => SearchRelevantContentRequest,
-  () => SearchRelevantContentResponse,
+  () => SearchRelevantContentRequest$,
+  () => SearchRelevantContentResponse$,
 ];
-export var StartDataSourceSyncJob: StaticOperationSchema = [
+export var StartDataSourceSyncJob$: StaticOperationSchema = [
   9,
   n0,
   _SDSSJ,
   { [_ht]: ["POST", "/applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}/startsync", 200] },
-  () => StartDataSourceSyncJobRequest,
-  () => StartDataSourceSyncJobResponse,
+  () => StartDataSourceSyncJobRequest$,
+  () => StartDataSourceSyncJobResponse$,
 ];
-export var StopDataSourceSyncJob: StaticOperationSchema = [
+export var StopDataSourceSyncJob$: StaticOperationSchema = [
   9,
   n0,
   _SDSSJt,
   { [_ht]: ["POST", "/applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}/stopsync", 200] },
-  () => StopDataSourceSyncJobRequest,
-  () => StopDataSourceSyncJobResponse,
+  () => StopDataSourceSyncJobRequest$,
+  () => StopDataSourceSyncJobResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_ht]: ["POST", "/v1/tags/{resourceARN}", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_ht]: ["DELETE", "/v1/tags/{resourceARN}", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateApplication: StaticOperationSchema = [
+export var UpdateApplication$: StaticOperationSchema = [
   9,
   n0,
   _UAp,
   { [_ht]: ["PUT", "/applications/{applicationId}", 200] },
-  () => UpdateApplicationRequest,
-  () => UpdateApplicationResponse,
+  () => UpdateApplicationRequest$,
+  () => UpdateApplicationResponse$,
 ];
-export var UpdateChatControlsConfiguration: StaticOperationSchema = [
+export var UpdateChatControlsConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UCCC,
   { [_ht]: ["PATCH", "/applications/{applicationId}/chatcontrols", 200] },
-  () => UpdateChatControlsConfigurationRequest,
-  () => UpdateChatControlsConfigurationResponse,
+  () => UpdateChatControlsConfigurationRequest$,
+  () => UpdateChatControlsConfigurationResponse$,
 ];
-export var UpdateChatResponseConfiguration: StaticOperationSchema = [
+export var UpdateChatResponseConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UCRC,
   { [_ht]: ["PUT", "/applications/{applicationId}/chatresponseconfigurations/{chatResponseConfigurationId}", 200] },
-  () => UpdateChatResponseConfigurationRequest,
-  () => UpdateChatResponseConfigurationResponse,
+  () => UpdateChatResponseConfigurationRequest$,
+  () => UpdateChatResponseConfigurationResponse$,
 ];
-export var UpdateDataAccessor: StaticOperationSchema = [
+export var UpdateDataAccessor$: StaticOperationSchema = [
   9,
   n0,
   _UDA,
   { [_ht]: ["PUT", "/applications/{applicationId}/dataaccessors/{dataAccessorId}", 200] },
-  () => UpdateDataAccessorRequest,
-  () => UpdateDataAccessorResponse,
+  () => UpdateDataAccessorRequest$,
+  () => UpdateDataAccessorResponse$,
 ];
-export var UpdateDataSource: StaticOperationSchema = [
+export var UpdateDataSource$: StaticOperationSchema = [
   9,
   n0,
   _UDS,
   { [_ht]: ["PUT", "/applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}", 200] },
-  () => UpdateDataSourceRequest,
-  () => UpdateDataSourceResponse,
+  () => UpdateDataSourceRequest$,
+  () => UpdateDataSourceResponse$,
 ];
-export var UpdateIndex: StaticOperationSchema = [
+export var UpdateIndex$: StaticOperationSchema = [
   9,
   n0,
   _UI,
   { [_ht]: ["PUT", "/applications/{applicationId}/indices/{indexId}", 200] },
-  () => UpdateIndexRequest,
-  () => UpdateIndexResponse,
+  () => UpdateIndexRequest$,
+  () => UpdateIndexResponse$,
 ];
-export var UpdatePlugin: StaticOperationSchema = [
+export var UpdatePlugin$: StaticOperationSchema = [
   9,
   n0,
   _UP,
   { [_ht]: ["PUT", "/applications/{applicationId}/plugins/{pluginId}", 200] },
-  () => UpdatePluginRequest,
-  () => UpdatePluginResponse,
+  () => UpdatePluginRequest$,
+  () => UpdatePluginResponse$,
 ];
-export var UpdateRetriever: StaticOperationSchema = [
+export var UpdateRetriever$: StaticOperationSchema = [
   9,
   n0,
   _URp,
   { [_ht]: ["PUT", "/applications/{applicationId}/retrievers/{retrieverId}", 200] },
-  () => UpdateRetrieverRequest,
-  () => UpdateRetrieverResponse,
+  () => UpdateRetrieverRequest$,
+  () => UpdateRetrieverResponse$,
 ];
-export var UpdateSubscription: StaticOperationSchema = [
+export var UpdateSubscription$: StaticOperationSchema = [
   9,
   n0,
   _US,
   { [_ht]: ["PUT", "/applications/{applicationId}/subscriptions/{subscriptionId}", 200] },
-  () => UpdateSubscriptionRequest,
-  () => UpdateSubscriptionResponse,
+  () => UpdateSubscriptionRequest$,
+  () => UpdateSubscriptionResponse$,
 ];
-export var UpdateUser: StaticOperationSchema = [
+export var UpdateUser$: StaticOperationSchema = [
   9,
   n0,
   _UU,
   { [_ht]: ["PUT", "/applications/{applicationId}/users/{userId}", 200] },
-  () => UpdateUserRequest,
-  () => UpdateUserResponse,
+  () => UpdateUserRequest$,
+  () => UpdateUserResponse$,
 ];
-export var UpdateWebExperience: StaticOperationSchema = [
+export var UpdateWebExperience$: StaticOperationSchema = [
   9,
   n0,
   _UWE,
   { [_ht]: ["PUT", "/applications/{applicationId}/experiences/{webExperienceId}", 200] },
-  () => UpdateWebExperienceRequest,
-  () => UpdateWebExperienceResponse,
+  () => UpdateWebExperienceRequest$,
+  () => UpdateWebExperienceResponse$,
 ];

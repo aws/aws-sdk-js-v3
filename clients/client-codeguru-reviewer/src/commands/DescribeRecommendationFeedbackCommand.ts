@@ -10,7 +10,7 @@ import type {
 } from "../CodeGuruReviewerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeRecommendationFeedbackRequest, DescribeRecommendationFeedbackResponse } from "../models/models_0";
-import { DescribeRecommendationFeedback } from "../schemas/schemas_0";
+import { DescribeRecommendationFeedback$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class DescribeRecommendationFeedbackCommand extends $Command
   })
   .s("AWSGuruFrontendService", "DescribeRecommendationFeedback", {})
   .n("CodeGuruReviewerClient", "DescribeRecommendationFeedbackCommand")
-  .sc(DescribeRecommendationFeedback)
+  .sc(DescribeRecommendationFeedback$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

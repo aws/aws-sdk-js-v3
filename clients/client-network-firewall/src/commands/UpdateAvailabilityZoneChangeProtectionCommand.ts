@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFirewallClient";
-import { UpdateAvailabilityZoneChangeProtection } from "../schemas/schemas_0";
+import { UpdateAvailabilityZoneChangeProtection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -122,7 +122,7 @@ export class UpdateAvailabilityZoneChangeProtectionCommand extends $Command
   })
   .s("NetworkFirewall_20201112", "UpdateAvailabilityZoneChangeProtection", {})
   .n("NetworkFirewallClient", "UpdateAvailabilityZoneChangeProtectionCommand")
-  .sc(UpdateAvailabilityZoneChangeProtection)
+  .sc(UpdateAvailabilityZoneChangeProtection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeletePackageRequest, DeletePackageResponse } from "../models/models_0";
 import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { DeletePackage } from "../schemas/schemas_0";
+import { DeletePackage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -130,7 +130,7 @@ export class DeletePackageCommand extends $Command
   })
   .s("AmazonOpenSearchService", "DeletePackage", {})
   .n("OpenSearchClient", "DeletePackageCommand")
-  .sc(DeletePackage)
+  .sc(DeletePackage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

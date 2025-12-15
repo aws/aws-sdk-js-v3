@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeEmailAddressRequest, DescribeEmailAddressResponse } from "../models/models_1";
-import { DescribeEmailAddress } from "../schemas/schemas_0";
+import { DescribeEmailAddress$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class DescribeEmailAddressCommand extends $Command
   })
   .s("AmazonConnectService", "DescribeEmailAddress", {})
   .n("ConnectClient", "DescribeEmailAddressCommand")
-  .sc(DescribeEmailAddress)
+  .sc(DescribeEmailAddress$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

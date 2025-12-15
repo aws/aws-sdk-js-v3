@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GameLiftStreamsClient";
 import type { DeleteStreamGroupInput } from "../models/models_0";
-import { DeleteStreamGroup } from "../schemas/schemas_0";
+import { DeleteStreamGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeleteStreamGroupCommand extends $Command
   })
   .s("GameLiftStreams", "DeleteStreamGroup", {})
   .n("GameLiftStreamsClient", "DeleteStreamGroupCommand")
-  .sc(DeleteStreamGroup)
+  .sc(DeleteStreamGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

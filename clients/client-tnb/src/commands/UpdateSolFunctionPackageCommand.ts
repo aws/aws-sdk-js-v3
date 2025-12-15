@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateSolFunctionPackageInput, UpdateSolFunctionPackageOutput } from "../models/models_0";
-import { UpdateSolFunctionPackage } from "../schemas/schemas_0";
+import { UpdateSolFunctionPackage$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
@@ -123,7 +123,7 @@ export class UpdateSolFunctionPackageCommand extends $Command
   })
   .s("TNB", "UpdateSolFunctionPackage", {})
   .n("TnbClient", "UpdateSolFunctionPackageCommand")
-  .sc(UpdateSolFunctionPackage)
+  .sc(UpdateSolFunctionPackage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

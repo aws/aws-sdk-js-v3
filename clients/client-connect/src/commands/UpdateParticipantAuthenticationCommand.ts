@@ -9,7 +9,7 @@ import type {
   UpdateParticipantAuthenticationRequest,
   UpdateParticipantAuthenticationResponse,
 } from "../models/models_3";
-import { UpdateParticipantAuthentication } from "../schemas/schemas_0";
+import { UpdateParticipantAuthentication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class UpdateParticipantAuthenticationCommand extends $Command
   })
   .s("AmazonConnectService", "UpdateParticipantAuthentication", {})
   .n("ConnectClient", "UpdateParticipantAuthenticationCommand")
-  .sc(UpdateParticipantAuthentication)
+  .sc(UpdateParticipantAuthentication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

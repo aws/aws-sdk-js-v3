@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateLibraryItemInput, UpdateLibraryItemOutput } from "../models/models_0";
 import type { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
-import { UpdateLibraryItem } from "../schemas/schemas_0";
+import { UpdateLibraryItem$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -158,7 +158,7 @@ export class UpdateLibraryItemCommand extends $Command
   })
   .s("QAppsService", "UpdateLibraryItem", {})
   .n("QAppsClient", "UpdateLibraryItemCommand")
-  .sc(UpdateLibraryItem)
+  .sc(UpdateLibraryItem$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

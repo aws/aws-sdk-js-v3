@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListCodeInterpretersRequest, ListCodeInterpretersResponse } from "../models/models_0";
-import { ListCodeInterpreters } from "../schemas/schemas_0";
+import { ListCodeInterpreters$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class ListCodeInterpretersCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "ListCodeInterpreters", {})
   .n("BedrockAgentCoreControlClient", "ListCodeInterpretersCommand")
-  .sc(ListCodeInterpreters)
+  .sc(ListCodeInterpreters$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

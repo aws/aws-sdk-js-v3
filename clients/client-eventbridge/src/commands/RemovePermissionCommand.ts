@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import type { RemovePermissionRequest } from "../models/models_0";
-import { RemovePermission } from "../schemas/schemas_0";
+import { RemovePermission$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class RemovePermissionCommand extends $Command
   })
   .s("AWSEvents", "RemovePermission", {})
   .n("EventBridgeClient", "RemovePermissionCommand")
-  .sc(RemovePermission)
+  .sc(RemovePermission$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

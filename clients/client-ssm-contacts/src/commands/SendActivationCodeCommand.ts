@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SendActivationCodeRequest, SendActivationCodeResult } from "../models/models_0";
-import { SendActivationCode } from "../schemas/schemas_0";
+import { SendActivationCode$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -95,7 +95,7 @@ export class SendActivationCodeCommand extends $Command
   })
   .s("SSMContacts", "SendActivationCode", {})
   .n("SSMContactsClient", "SendActivationCodeCommand")
-  .sc(SendActivationCode)
+  .sc(SendActivationCode$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

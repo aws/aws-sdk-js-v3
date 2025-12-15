@@ -9,7 +9,7 @@ import type {
   StartTargetedSentimentDetectionJobRequest,
   StartTargetedSentimentDetectionJobResponse,
 } from "../models/models_0";
-import { StartTargetedSentimentDetectionJob } from "../schemas/schemas_0";
+import { StartTargetedSentimentDetectionJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -137,7 +137,7 @@ export class StartTargetedSentimentDetectionJobCommand extends $Command
   })
   .s("Comprehend_20171127", "StartTargetedSentimentDetectionJob", {})
   .n("ComprehendClient", "StartTargetedSentimentDetectionJobCommand")
-  .sc(StartTargetedSentimentDetectionJob)
+  .sc(StartTargetedSentimentDetectionJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

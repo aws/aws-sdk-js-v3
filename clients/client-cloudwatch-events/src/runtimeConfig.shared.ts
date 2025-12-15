@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: CloudWatchEventsClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.cloudwatchevents",
-        serviceTarget: "AWSEvents",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.cloudwatchevents",
+      xmlNamespace: "http://events.amazonaws.com/doc/2015-10-07",
+      version: "2015-10-07",
+      serviceTarget: "AWSEvents",
+    },
     serviceId: config?.serviceId ?? "CloudWatch Events",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

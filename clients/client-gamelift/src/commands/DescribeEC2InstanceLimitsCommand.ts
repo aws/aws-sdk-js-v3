@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import type { DescribeEC2InstanceLimitsInput, DescribeEC2InstanceLimitsOutput } from "../models/models_0";
-import { DescribeEC2InstanceLimits } from "../schemas/schemas_0";
+import { DescribeEC2InstanceLimits$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -151,7 +151,7 @@ export class DescribeEC2InstanceLimitsCommand extends $Command
   })
   .s("GameLift", "DescribeEC2InstanceLimits", {})
   .n("GameLiftClient", "DescribeEC2InstanceLimitsCommand")
-  .sc(DescribeEC2InstanceLimits)
+  .sc(DescribeEC2InstanceLimits$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DeleteChatControlsConfigurationResponse,
 } from "../models/models_0";
 import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
-import { DeleteChatControlsConfiguration } from "../schemas/schemas_0";
+import { DeleteChatControlsConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DeleteChatControlsConfigurationCommand extends $Command
   })
   .s("ExpertQ", "DeleteChatControlsConfiguration", {})
   .n("QBusinessClient", "DeleteChatControlsConfigurationCommand")
-  .sc(DeleteChatControlsConfiguration)
+  .sc(DeleteChatControlsConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

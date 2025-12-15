@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteTagsRequest } from "../models/models_0";
-import { DeleteTags } from "../schemas/schemas_0";
+import { DeleteTags$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class DeleteTagsCommand extends $Command
   })
   .s("MagnolioAPIService_v20150201", "DeleteTags", {})
   .n("EFSClient", "DeleteTagsCommand")
-  .sc(DeleteTags)
+  .sc(DeleteTags$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

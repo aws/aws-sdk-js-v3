@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartDBClusterMessage, StartDBClusterResult } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { StartDBCluster } from "../schemas/schemas_0";
+import { StartDBCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -318,7 +318,7 @@ export class StartDBClusterCommand extends $Command
   })
   .s("AmazonRDSv19", "StartDBCluster", {})
   .n("RDSClient", "StartDBClusterCommand")
-  .sc(StartDBCluster)
+  .sc(StartDBCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DescribeTransitGatewayMulticastDomainsRequest,
   DescribeTransitGatewayMulticastDomainsResult,
 } from "../models/models_4";
-import { DescribeTransitGatewayMulticastDomains } from "../schemas/schemas_0";
+import { DescribeTransitGatewayMulticastDomains$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class DescribeTransitGatewayMulticastDomainsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeTransitGatewayMulticastDomains", {})
   .n("EC2Client", "DescribeTransitGatewayMulticastDomainsCommand")
-  .sc(DescribeTransitGatewayMulticastDomains)
+  .sc(DescribeTransitGatewayMulticastDomains$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

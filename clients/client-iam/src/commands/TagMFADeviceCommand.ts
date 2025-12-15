@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import type { TagMFADeviceRequest } from "../models/models_0";
-import { TagMFADevice } from "../schemas/schemas_0";
+import { TagMFADevice$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -133,7 +133,7 @@ export class TagMFADeviceCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "TagMFADevice", {})
   .n("IAMClient", "TagMFADeviceCommand")
-  .sc(TagMFADevice)
+  .sc(TagMFADevice$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

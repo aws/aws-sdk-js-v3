@@ -9,7 +9,7 @@ import type {
   DescribeAppBlockBuilderAppBlockAssociationsRequest,
   DescribeAppBlockBuilderAppBlockAssociationsResult,
 } from "../models/models_0";
-import { DescribeAppBlockBuilderAppBlockAssociations } from "../schemas/schemas_0";
+import { DescribeAppBlockBuilderAppBlockAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DescribeAppBlockBuilderAppBlockAssociationsCommand extends $Command
   })
   .s("PhotonAdminProxyService", "DescribeAppBlockBuilderAppBlockAssociations", {})
   .n("AppStreamClient", "DescribeAppBlockBuilderAppBlockAssociationsCommand")
-  .sc(DescribeAppBlockBuilderAppBlockAssociations)
+  .sc(DescribeAppBlockBuilderAppBlockAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

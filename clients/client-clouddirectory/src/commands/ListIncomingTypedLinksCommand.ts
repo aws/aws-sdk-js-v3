@@ -10,7 +10,7 @@ import type {
 } from "../CloudDirectoryClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListIncomingTypedLinksRequest, ListIncomingTypedLinksResponse } from "../models/models_0";
-import { ListIncomingTypedLinks } from "../schemas/schemas_0";
+import { ListIncomingTypedLinks$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -250,7 +250,7 @@ export class ListIncomingTypedLinksCommand extends $Command
   })
   .s("AmazonCloudDirectory_20170111", "ListIncomingTypedLinks", {})
   .n("CloudDirectoryClient", "ListIncomingTypedLinksCommand")
-  .sc(ListIncomingTypedLinks)
+  .sc(ListIncomingTypedLinks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

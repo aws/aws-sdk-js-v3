@@ -11,7 +11,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { HttpPayloadTraitsWithMediaType } from "../schemas/schemas_0";
+import { HttpPayloadTraitsWithMediaType$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class HttpPayloadTraitsWithMediaTypeCommand extends $Command
   })
   .s("RestJson", "HttpPayloadTraitsWithMediaType", {})
   .n("RestJsonProtocolClient", "HttpPayloadTraitsWithMediaTypeCommand")
-  .sc(HttpPayloadTraitsWithMediaType)
+  .sc(HttpPayloadTraitsWithMediaType$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSubscriptionRequest, DeleteSubscriptionResponse } from "../models/models_0";
-import { DeleteSubscription } from "../schemas/schemas_0";
+import { DeleteSubscription$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -80,7 +80,7 @@ export class DeleteSubscriptionCommand extends $Command
   })
   .s("AWSShield_20160616", "DeleteSubscription", {})
   .n("ShieldClient", "DeleteSubscriptionCommand")
-  .sc(DeleteSubscription)
+  .sc(DeleteSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

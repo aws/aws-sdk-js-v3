@@ -13,7 +13,7 @@ import type {
   ListFailuresForLicenseConfigurationOperationsRequest,
   ListFailuresForLicenseConfigurationOperationsResponse,
 } from "../models/models_0";
-import { ListFailuresForLicenseConfigurationOperations } from "../schemas/schemas_0";
+import { ListFailuresForLicenseConfigurationOperations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class ListFailuresForLicenseConfigurationOperationsCommand extends $Comma
   })
   .s("AWSLicenseManager", "ListFailuresForLicenseConfigurationOperations", {})
   .n("LicenseManagerClient", "ListFailuresForLicenseConfigurationOperationsCommand")
-  .sc(ListFailuresForLicenseConfigurationOperations)
+  .sc(ListFailuresForLicenseConfigurationOperations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

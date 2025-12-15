@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RegisterClusterRequest, RegisterClusterResponse } from "../models/models_0";
-import { RegisterCluster } from "../schemas/schemas_0";
+import { RegisterCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -249,7 +249,7 @@ export class RegisterClusterCommand extends $Command
   })
   .s("AWSWesleyFrontend", "RegisterCluster", {})
   .n("EKSClient", "RegisterClusterCommand")
-  .sc(RegisterCluster)
+  .sc(RegisterCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

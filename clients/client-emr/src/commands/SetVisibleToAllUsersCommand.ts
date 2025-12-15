@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SetVisibleToAllUsersInput } from "../models/models_0";
-import { SetVisibleToAllUsers } from "../schemas/schemas_0";
+import { SetVisibleToAllUsers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class SetVisibleToAllUsersCommand extends $Command
   })
   .s("ElasticMapReduce", "SetVisibleToAllUsers", {})
   .n("EMRClient", "SetVisibleToAllUsersCommand")
-  .sc(SetVisibleToAllUsers)
+  .sc(SetVisibleToAllUsers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

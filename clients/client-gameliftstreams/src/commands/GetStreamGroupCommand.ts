@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GameLiftStreamsClient";
 import type { GetStreamGroupInput, GetStreamGroupOutput } from "../models/models_0";
-import { GetStreamGroup } from "../schemas/schemas_0";
+import { GetStreamGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class GetStreamGroupCommand extends $Command
   })
   .s("GameLiftStreams", "GetStreamGroup", {})
   .n("GameLiftStreamsClient", "GetStreamGroupCommand")
-  .sc(GetStreamGroup)
+  .sc(GetStreamGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

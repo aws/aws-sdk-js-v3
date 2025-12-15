@@ -256,48 +256,55 @@ import type {
 } from "@smithy/types";
 
 import {
-  AuthorizationErrorException as __AuthorizationErrorException,
-  BatchEntryIdsNotDistinctException as __BatchEntryIdsNotDistinctException,
-  BatchRequestTooLongException as __BatchRequestTooLongException,
-  ConcurrentAccessException as __ConcurrentAccessException,
-  EmptyBatchRequestException as __EmptyBatchRequestException,
-  EndpointDisabledException as __EndpointDisabledException,
-  FilterPolicyLimitExceededException as __FilterPolicyLimitExceededException,
-  InternalErrorException as __InternalErrorException,
-  InvalidBatchEntryIdException as __InvalidBatchEntryIdException,
-  InvalidParameterException as __InvalidParameterException,
-  InvalidParameterValueException as __InvalidParameterValueException,
-  InvalidSecurityException as __InvalidSecurityException,
-  InvalidStateException as __InvalidStateException,
-  KMSAccessDeniedException as __KMSAccessDeniedException,
-  KMSDisabledException as __KMSDisabledException,
-  KMSInvalidStateException as __KMSInvalidStateException,
-  KMSNotFoundException as __KMSNotFoundException,
-  KMSOptInRequired as __KMSOptInRequired,
-  KMSThrottlingException as __KMSThrottlingException,
-  NotFoundException as __NotFoundException,
-  OptedOutException as __OptedOutException,
-  PlatformApplicationDisabledException as __PlatformApplicationDisabledException,
-  ReplayLimitExceededException as __ReplayLimitExceededException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  StaleTagException as __StaleTagException,
-  SubscriptionLimitExceededException as __SubscriptionLimitExceededException,
-  TagLimitExceededException as __TagLimitExceededException,
-  TagPolicyException as __TagPolicyException,
-  ThrottledException as __ThrottledException,
-  TooManyEntriesInBatchRequestException as __TooManyEntriesInBatchRequestException,
-  TopicLimitExceededException as __TopicLimitExceededException,
-  UserErrorException as __UserErrorException,
-  ValidationException as __ValidationException,
-  VerificationException as __VerificationException,
+  AuthorizationErrorException,
+  BatchEntryIdsNotDistinctException,
+  BatchRequestTooLongException,
+  ConcurrentAccessException,
+  EmptyBatchRequestException,
+  EndpointDisabledException,
+  FilterPolicyLimitExceededException,
+  InternalErrorException,
+  InvalidBatchEntryIdException,
+  InvalidParameterException,
+  InvalidParameterValueException,
+  InvalidSecurityException,
+  InvalidStateException,
+  KMSAccessDeniedException,
+  KMSDisabledException,
+  KMSInvalidStateException,
+  KMSNotFoundException,
+  KMSOptInRequired,
+  KMSThrottlingException,
+  NotFoundException,
+  OptedOutException,
+  PlatformApplicationDisabledException,
+  ReplayLimitExceededException,
+  ResourceNotFoundException,
+  StaleTagException,
+  SubscriptionLimitExceededException,
+  TagLimitExceededException,
+  TagPolicyException,
+  ThrottledException,
+  TooManyEntriesInBatchRequestException,
+  TopicLimitExceededException,
+  UserErrorException,
+  ValidationException,
+  VerificationException,
 } from "../models/errors";
-import { SNSServiceException as __SNSServiceException } from "../models/SNSServiceException";
+import { SNSServiceException } from "../models/SNSServiceException";
 
 /* eslint no-var: 0 */
-export var PhoneNumber: StaticSimpleSchema = [0, n0, _PN, 8, 0];
-export var PhoneNumberString: StaticSimpleSchema = [0, n0, _PNS, 8, 0];
-export var AddPermissionInput: StaticStructureSchema = [3, n0, _API, 0, [_TA, _L, _AWSAI, _AN], [0, 0, 64 | 0, 64 | 0]];
-export var AuthorizationErrorException: StaticErrorSchema = [
+var PhoneNumber: StaticSimpleSchema = [0, n0, _PN, 8, 0];
+var PhoneNumberString: StaticSimpleSchema = [0, n0, _PNS, 8, 0];
+export var AddPermissionInput$: StaticStructureSchema = [
+  3,
+  n0,
+  _API,
+  0,
+  [_TA, _L, _AWSAI, _AN],
+  [0, 0, 64 | 0, 64 | 0],
+];
+export var AuthorizationErrorException$: StaticErrorSchema = [
   -3,
   n0,
   _AEE,
@@ -305,8 +312,8 @@ export var AuthorizationErrorException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(AuthorizationErrorException, __AuthorizationErrorException);
-export var BatchEntryIdsNotDistinctException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(AuthorizationErrorException$, AuthorizationErrorException);
+export var BatchEntryIdsNotDistinctException$: StaticErrorSchema = [
   -3,
   n0,
   _BEINDE,
@@ -314,8 +321,8 @@ export var BatchEntryIdsNotDistinctException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(BatchEntryIdsNotDistinctException, __BatchEntryIdsNotDistinctException);
-export var BatchRequestTooLongException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(BatchEntryIdsNotDistinctException$, BatchEntryIdsNotDistinctException);
+export var BatchRequestTooLongException$: StaticErrorSchema = [
   -3,
   n0,
   _BRTLE,
@@ -323,9 +330,9 @@ export var BatchRequestTooLongException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(BatchRequestTooLongException, __BatchRequestTooLongException);
-export var BatchResultErrorEntry: StaticStructureSchema = [3, n0, _BREE, 0, [_I, _C, _M, _SF], [0, 0, 0, 2]];
-export var CheckIfPhoneNumberIsOptedOutInput: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(BatchRequestTooLongException$, BatchRequestTooLongException);
+export var BatchResultErrorEntry$: StaticStructureSchema = [3, n0, _BREE, 0, [_I, _C, _M, _SF], [0, 0, 0, 2]];
+export var CheckIfPhoneNumberIsOptedOutInput$: StaticStructureSchema = [
   3,
   n0,
   _CIPNIOOI,
@@ -333,8 +340,8 @@ export var CheckIfPhoneNumberIsOptedOutInput: StaticStructureSchema = [
   [_pN],
   [[() => PhoneNumber, 0]],
 ];
-export var CheckIfPhoneNumberIsOptedOutResponse: StaticStructureSchema = [3, n0, _CIPNIOOR, 0, [_iOO], [2]];
-export var ConcurrentAccessException: StaticErrorSchema = [
+export var CheckIfPhoneNumberIsOptedOutResponse$: StaticStructureSchema = [3, n0, _CIPNIOOR, 0, [_iOO], [2]];
+export var ConcurrentAccessException$: StaticErrorSchema = [
   -3,
   n0,
   _CAE,
@@ -342,13 +349,13 @@ export var ConcurrentAccessException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(ConcurrentAccessException, __ConcurrentAccessException);
-export var ConfirmSubscriptionInput: StaticStructureSchema = [3, n0, _CSI, 0, [_TA, _T, _AOU], [0, 0, 0]];
-export var ConfirmSubscriptionResponse: StaticStructureSchema = [3, n0, _CSR, 0, [_SA], [0]];
-export var CreateEndpointResponse: StaticStructureSchema = [3, n0, _CER, 0, [_EA], [0]];
-export var CreatePlatformApplicationInput: StaticStructureSchema = [3, n0, _CPAI, 0, [_N, _P, _A], [0, 0, 128 | 0]];
-export var CreatePlatformApplicationResponse: StaticStructureSchema = [3, n0, _CPAR, 0, [_PAA], [0]];
-export var CreatePlatformEndpointInput: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ConcurrentAccessException$, ConcurrentAccessException);
+export var ConfirmSubscriptionInput$: StaticStructureSchema = [3, n0, _CSI, 0, [_TA, _T, _AOU], [0, 0, 0]];
+export var ConfirmSubscriptionResponse$: StaticStructureSchema = [3, n0, _CSR, 0, [_SA], [0]];
+export var CreateEndpointResponse$: StaticStructureSchema = [3, n0, _CER, 0, [_EA], [0]];
+export var CreatePlatformApplicationInput$: StaticStructureSchema = [3, n0, _CPAI, 0, [_N, _P, _A], [0, 0, 128 | 0]];
+export var CreatePlatformApplicationResponse$: StaticStructureSchema = [3, n0, _CPAR, 0, [_PAA], [0]];
+export var CreatePlatformEndpointInput$: StaticStructureSchema = [
   3,
   n0,
   _CPEI,
@@ -356,7 +363,7 @@ export var CreatePlatformEndpointInput: StaticStructureSchema = [
   [_PAA, _T, _CUD, _A],
   [0, 0, 0, 128 | 0],
 ];
-export var CreateSMSSandboxPhoneNumberInput: StaticStructureSchema = [
+export var CreateSMSSandboxPhoneNumberInput$: StaticStructureSchema = [
   3,
   n0,
   _CSMSSPNI,
@@ -364,8 +371,8 @@ export var CreateSMSSandboxPhoneNumberInput: StaticStructureSchema = [
   [_PN, _LC],
   [[() => PhoneNumberString, 0], 0],
 ];
-export var CreateSMSSandboxPhoneNumberResult: StaticStructureSchema = [3, n0, _CSMSSPNR, 0, [], []];
-export var CreateTopicInput: StaticStructureSchema = [
+export var CreateSMSSandboxPhoneNumberResult$: StaticStructureSchema = [3, n0, _CSMSSPNR, 0, [], []];
+export var CreateTopicInput$: StaticStructureSchema = [
   3,
   n0,
   _CTI,
@@ -373,10 +380,10 @@ export var CreateTopicInput: StaticStructureSchema = [
   [_N, _A, _Ta, _DPP],
   [0, 128 | 0, () => TagList, 0],
 ];
-export var CreateTopicResponse: StaticStructureSchema = [3, n0, _CTR, 0, [_TA], [0]];
-export var DeleteEndpointInput: StaticStructureSchema = [3, n0, _DEI, 0, [_EA], [0]];
-export var DeletePlatformApplicationInput: StaticStructureSchema = [3, n0, _DPAI, 0, [_PAA], [0]];
-export var DeleteSMSSandboxPhoneNumberInput: StaticStructureSchema = [
+export var CreateTopicResponse$: StaticStructureSchema = [3, n0, _CTR, 0, [_TA], [0]];
+export var DeleteEndpointInput$: StaticStructureSchema = [3, n0, _DEI, 0, [_EA], [0]];
+export var DeletePlatformApplicationInput$: StaticStructureSchema = [3, n0, _DPAI, 0, [_PAA], [0]];
+export var DeleteSMSSandboxPhoneNumberInput$: StaticStructureSchema = [
   3,
   n0,
   _DSMSSPNI,
@@ -384,9 +391,9 @@ export var DeleteSMSSandboxPhoneNumberInput: StaticStructureSchema = [
   [_PN],
   [[() => PhoneNumberString, 0]],
 ];
-export var DeleteSMSSandboxPhoneNumberResult: StaticStructureSchema = [3, n0, _DSMSSPNR, 0, [], []];
-export var DeleteTopicInput: StaticStructureSchema = [3, n0, _DTI, 0, [_TA], [0]];
-export var EmptyBatchRequestException: StaticErrorSchema = [
+export var DeleteSMSSandboxPhoneNumberResult$: StaticStructureSchema = [3, n0, _DSMSSPNR, 0, [], []];
+export var DeleteTopicInput$: StaticStructureSchema = [3, n0, _DTI, 0, [_TA], [0]];
+export var EmptyBatchRequestException$: StaticErrorSchema = [
   -3,
   n0,
   _EBRE,
@@ -394,9 +401,9 @@ export var EmptyBatchRequestException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(EmptyBatchRequestException, __EmptyBatchRequestException);
-export var Endpoint: StaticStructureSchema = [3, n0, _E, 0, [_EA, _A], [0, 128 | 0]];
-export var EndpointDisabledException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(EmptyBatchRequestException$, EmptyBatchRequestException);
+export var Endpoint$: StaticStructureSchema = [3, n0, _E, 0, [_EA, _A], [0, 128 | 0]];
+export var EndpointDisabledException$: StaticErrorSchema = [
   -3,
   n0,
   _EDE,
@@ -404,8 +411,8 @@ export var EndpointDisabledException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(EndpointDisabledException, __EndpointDisabledException);
-export var FilterPolicyLimitExceededException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(EndpointDisabledException$, EndpointDisabledException);
+export var FilterPolicyLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _FPLEE,
@@ -413,22 +420,22 @@ export var FilterPolicyLimitExceededException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(FilterPolicyLimitExceededException, __FilterPolicyLimitExceededException);
-export var GetDataProtectionPolicyInput: StaticStructureSchema = [3, n0, _GDPPI, 0, [_RA], [0]];
-export var GetDataProtectionPolicyResponse: StaticStructureSchema = [3, n0, _GDPPR, 0, [_DPP], [0]];
-export var GetEndpointAttributesInput: StaticStructureSchema = [3, n0, _GEAI, 0, [_EA], [0]];
-export var GetEndpointAttributesResponse: StaticStructureSchema = [3, n0, _GEAR, 0, [_A], [128 | 0]];
-export var GetPlatformApplicationAttributesInput: StaticStructureSchema = [3, n0, _GPAAI, 0, [_PAA], [0]];
-export var GetPlatformApplicationAttributesResponse: StaticStructureSchema = [3, n0, _GPAAR, 0, [_A], [128 | 0]];
-export var GetSMSAttributesInput: StaticStructureSchema = [3, n0, _GSMSAI, 0, [_a], [64 | 0]];
-export var GetSMSAttributesResponse: StaticStructureSchema = [3, n0, _GSMSAR, 0, [_a], [128 | 0]];
-export var GetSMSSandboxAccountStatusInput: StaticStructureSchema = [3, n0, _GSMSSASI, 0, [], []];
-export var GetSMSSandboxAccountStatusResult: StaticStructureSchema = [3, n0, _GSMSSASR, 0, [_IIS], [2]];
-export var GetSubscriptionAttributesInput: StaticStructureSchema = [3, n0, _GSAI, 0, [_SA], [0]];
-export var GetSubscriptionAttributesResponse: StaticStructureSchema = [3, n0, _GSAR, 0, [_A], [128 | 0]];
-export var GetTopicAttributesInput: StaticStructureSchema = [3, n0, _GTAI, 0, [_TA], [0]];
-export var GetTopicAttributesResponse: StaticStructureSchema = [3, n0, _GTAR, 0, [_A], [128 | 0]];
-export var InternalErrorException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(FilterPolicyLimitExceededException$, FilterPolicyLimitExceededException);
+export var GetDataProtectionPolicyInput$: StaticStructureSchema = [3, n0, _GDPPI, 0, [_RA], [0]];
+export var GetDataProtectionPolicyResponse$: StaticStructureSchema = [3, n0, _GDPPR, 0, [_DPP], [0]];
+export var GetEndpointAttributesInput$: StaticStructureSchema = [3, n0, _GEAI, 0, [_EA], [0]];
+export var GetEndpointAttributesResponse$: StaticStructureSchema = [3, n0, _GEAR, 0, [_A], [128 | 0]];
+export var GetPlatformApplicationAttributesInput$: StaticStructureSchema = [3, n0, _GPAAI, 0, [_PAA], [0]];
+export var GetPlatformApplicationAttributesResponse$: StaticStructureSchema = [3, n0, _GPAAR, 0, [_A], [128 | 0]];
+export var GetSMSAttributesInput$: StaticStructureSchema = [3, n0, _GSMSAI, 0, [_a], [64 | 0]];
+export var GetSMSAttributesResponse$: StaticStructureSchema = [3, n0, _GSMSAR, 0, [_a], [128 | 0]];
+export var GetSMSSandboxAccountStatusInput$: StaticStructureSchema = [3, n0, _GSMSSASI, 0, [], []];
+export var GetSMSSandboxAccountStatusResult$: StaticStructureSchema = [3, n0, _GSMSSASR, 0, [_IIS], [2]];
+export var GetSubscriptionAttributesInput$: StaticStructureSchema = [3, n0, _GSAI, 0, [_SA], [0]];
+export var GetSubscriptionAttributesResponse$: StaticStructureSchema = [3, n0, _GSAR, 0, [_A], [128 | 0]];
+export var GetTopicAttributesInput$: StaticStructureSchema = [3, n0, _GTAI, 0, [_TA], [0]];
+export var GetTopicAttributesResponse$: StaticStructureSchema = [3, n0, _GTAR, 0, [_A], [128 | 0]];
+export var InternalErrorException$: StaticErrorSchema = [
   -3,
   n0,
   _IEE,
@@ -436,8 +443,8 @@ export var InternalErrorException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(InternalErrorException, __InternalErrorException);
-export var InvalidBatchEntryIdException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(InternalErrorException$, InternalErrorException);
+export var InvalidBatchEntryIdException$: StaticErrorSchema = [
   -3,
   n0,
   _IBEIE,
@@ -445,8 +452,8 @@ export var InvalidBatchEntryIdException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(InvalidBatchEntryIdException, __InvalidBatchEntryIdException);
-export var InvalidParameterException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(InvalidBatchEntryIdException$, InvalidBatchEntryIdException);
+export var InvalidParameterException$: StaticErrorSchema = [
   -3,
   n0,
   _IPE,
@@ -454,8 +461,8 @@ export var InvalidParameterException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-export var InvalidParameterValueException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
+export var InvalidParameterValueException$: StaticErrorSchema = [
   -3,
   n0,
   _IPVE,
@@ -463,8 +470,8 @@ export var InvalidParameterValueException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(InvalidParameterValueException, __InvalidParameterValueException);
-export var InvalidSecurityException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(InvalidParameterValueException$, InvalidParameterValueException);
+export var InvalidSecurityException$: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
@@ -472,8 +479,8 @@ export var InvalidSecurityException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(InvalidSecurityException, __InvalidSecurityException);
-export var InvalidStateException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(InvalidSecurityException$, InvalidSecurityException);
+export var InvalidStateException$: StaticErrorSchema = [
   -3,
   n0,
   _ISEn,
@@ -481,8 +488,8 @@ export var InvalidStateException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(InvalidStateException, __InvalidStateException);
-export var KMSAccessDeniedException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(InvalidStateException$, InvalidStateException);
+export var KMSAccessDeniedException$: StaticErrorSchema = [
   -3,
   n0,
   _KMSADE,
@@ -490,8 +497,8 @@ export var KMSAccessDeniedException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(KMSAccessDeniedException, __KMSAccessDeniedException);
-export var KMSDisabledException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(KMSAccessDeniedException$, KMSAccessDeniedException);
+export var KMSDisabledException$: StaticErrorSchema = [
   -3,
   n0,
   _KMSDE,
@@ -499,8 +506,8 @@ export var KMSDisabledException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(KMSDisabledException, __KMSDisabledException);
-export var KMSInvalidStateException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(KMSDisabledException$, KMSDisabledException);
+export var KMSInvalidStateException$: StaticErrorSchema = [
   -3,
   n0,
   _KMSISE,
@@ -508,8 +515,8 @@ export var KMSInvalidStateException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(KMSInvalidStateException, __KMSInvalidStateException);
-export var KMSNotFoundException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(KMSInvalidStateException$, KMSInvalidStateException);
+export var KMSNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _KMSNFE,
@@ -517,8 +524,8 @@ export var KMSNotFoundException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(KMSNotFoundException, __KMSNotFoundException);
-export var KMSOptInRequired: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(KMSNotFoundException$, KMSNotFoundException);
+export var KMSOptInRequired$: StaticErrorSchema = [
   -3,
   n0,
   _KMSOIR,
@@ -526,8 +533,8 @@ export var KMSOptInRequired: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(KMSOptInRequired, __KMSOptInRequired);
-export var KMSThrottlingException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(KMSOptInRequired$, KMSOptInRequired);
+export var KMSThrottlingException$: StaticErrorSchema = [
   -3,
   n0,
   _KMSTE,
@@ -535,9 +542,9 @@ export var KMSThrottlingException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(KMSThrottlingException, __KMSThrottlingException);
-export var ListEndpointsByPlatformApplicationInput: StaticStructureSchema = [3, n0, _LEBPAI, 0, [_PAA, _NT], [0, 0]];
-export var ListEndpointsByPlatformApplicationResponse: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(KMSThrottlingException$, KMSThrottlingException);
+export var ListEndpointsByPlatformApplicationInput$: StaticStructureSchema = [3, n0, _LEBPAI, 0, [_PAA, _NT], [0, 0]];
+export var ListEndpointsByPlatformApplicationResponse$: StaticStructureSchema = [
   3,
   n0,
   _LEBPAR,
@@ -545,8 +552,8 @@ export var ListEndpointsByPlatformApplicationResponse: StaticStructureSchema = [
   [_En, _NT],
   [() => ListOfEndpoints, 0],
 ];
-export var ListOriginationNumbersRequest: StaticStructureSchema = [3, n0, _LONR, 0, [_NT, _MR], [0, 1]];
-export var ListOriginationNumbersResult: StaticStructureSchema = [
+export var ListOriginationNumbersRequest$: StaticStructureSchema = [3, n0, _LONR, 0, [_NT, _MR], [0, 1]];
+export var ListOriginationNumbersResult$: StaticStructureSchema = [
   3,
   n0,
   _LONRi,
@@ -554,8 +561,8 @@ export var ListOriginationNumbersResult: StaticStructureSchema = [
   [_NT, _PNh],
   [0, [() => PhoneNumberInformationList, 0]],
 ];
-export var ListPhoneNumbersOptedOutInput: StaticStructureSchema = [3, n0, _LPNOOI, 0, [_nT], [0]];
-export var ListPhoneNumbersOptedOutResponse: StaticStructureSchema = [
+export var ListPhoneNumbersOptedOutInput$: StaticStructureSchema = [3, n0, _LPNOOI, 0, [_nT], [0]];
+export var ListPhoneNumbersOptedOutResponse$: StaticStructureSchema = [
   3,
   n0,
   _LPNOOR,
@@ -563,8 +570,8 @@ export var ListPhoneNumbersOptedOutResponse: StaticStructureSchema = [
   [_pNh, _nT],
   [[() => PhoneNumberList, 0], 0],
 ];
-export var ListPlatformApplicationsInput: StaticStructureSchema = [3, n0, _LPAI, 0, [_NT], [0]];
-export var ListPlatformApplicationsResponse: StaticStructureSchema = [
+export var ListPlatformApplicationsInput$: StaticStructureSchema = [3, n0, _LPAI, 0, [_NT], [0]];
+export var ListPlatformApplicationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LPAR,
@@ -572,8 +579,8 @@ export var ListPlatformApplicationsResponse: StaticStructureSchema = [
   [_PA, _NT],
   [() => ListOfPlatformApplications, 0],
 ];
-export var ListSMSSandboxPhoneNumbersInput: StaticStructureSchema = [3, n0, _LSMSSPNI, 0, [_NT, _MR], [0, 1]];
-export var ListSMSSandboxPhoneNumbersResult: StaticStructureSchema = [
+export var ListSMSSandboxPhoneNumbersInput$: StaticStructureSchema = [3, n0, _LSMSSPNI, 0, [_NT, _MR], [0, 1]];
+export var ListSMSSandboxPhoneNumbersResult$: StaticStructureSchema = [
   3,
   n0,
   _LSMSSPNR,
@@ -581,8 +588,8 @@ export var ListSMSSandboxPhoneNumbersResult: StaticStructureSchema = [
   [_PNh, _NT],
   [[() => SMSSandboxPhoneNumberList, 0], 0],
 ];
-export var ListSubscriptionsByTopicInput: StaticStructureSchema = [3, n0, _LSBTI, 0, [_TA, _NT], [0, 0]];
-export var ListSubscriptionsByTopicResponse: StaticStructureSchema = [
+export var ListSubscriptionsByTopicInput$: StaticStructureSchema = [3, n0, _LSBTI, 0, [_TA, _NT], [0, 0]];
+export var ListSubscriptionsByTopicResponse$: StaticStructureSchema = [
   3,
   n0,
   _LSBTR,
@@ -590,14 +597,21 @@ export var ListSubscriptionsByTopicResponse: StaticStructureSchema = [
   [_S, _NT],
   [() => SubscriptionsList, 0],
 ];
-export var ListSubscriptionsInput: StaticStructureSchema = [3, n0, _LSI, 0, [_NT], [0]];
-export var ListSubscriptionsResponse: StaticStructureSchema = [3, n0, _LSR, 0, [_S, _NT], [() => SubscriptionsList, 0]];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RA], [0]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [() => TagList]];
-export var ListTopicsInput: StaticStructureSchema = [3, n0, _LTI, 0, [_NT], [0]];
-export var ListTopicsResponse: StaticStructureSchema = [3, n0, _LTR, 0, [_To, _NT], [() => TopicsList, 0]];
-export var MessageAttributeValue: StaticStructureSchema = [3, n0, _MAV, 0, [_DT, _SV, _BV], [0, 0, 21]];
-export var NotFoundException: StaticErrorSchema = [
+export var ListSubscriptionsInput$: StaticStructureSchema = [3, n0, _LSI, 0, [_NT], [0]];
+export var ListSubscriptionsResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _LSR,
+  0,
+  [_S, _NT],
+  [() => SubscriptionsList, 0],
+];
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RA], [0]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [() => TagList]];
+export var ListTopicsInput$: StaticStructureSchema = [3, n0, _LTI, 0, [_NT], [0]];
+export var ListTopicsResponse$: StaticStructureSchema = [3, n0, _LTR, 0, [_To, _NT], [() => TopicsList, 0]];
+export var MessageAttributeValue$: StaticStructureSchema = [3, n0, _MAV, 0, [_DT, _SV, _BV], [0, 0, 21]];
+export var NotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _NFE,
@@ -605,8 +619,8 @@ export var NotFoundException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-export var OptedOutException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
+export var OptedOutException$: StaticErrorSchema = [
   -3,
   n0,
   _OOE,
@@ -614,10 +628,10 @@ export var OptedOutException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(OptedOutException, __OptedOutException);
-export var OptInPhoneNumberInput: StaticStructureSchema = [3, n0, _OIPNI, 0, [_pN], [[() => PhoneNumber, 0]]];
-export var OptInPhoneNumberResponse: StaticStructureSchema = [3, n0, _OIPNR, 0, [], []];
-export var PhoneNumberInformation: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(OptedOutException$, OptedOutException);
+export var OptInPhoneNumberInput$: StaticStructureSchema = [3, n0, _OIPNI, 0, [_pN], [[() => PhoneNumber, 0]]];
+export var OptInPhoneNumberResponse$: StaticStructureSchema = [3, n0, _OIPNR, 0, [], []];
+export var PhoneNumberInformation$: StaticStructureSchema = [
   3,
   n0,
   _PNI,
@@ -625,8 +639,8 @@ export var PhoneNumberInformation: StaticStructureSchema = [
   [_CA, _PN, _St, _ICC, _RT, _NC],
   [4, [() => PhoneNumber, 0], 0, 0, 0, 64 | 0],
 ];
-export var PlatformApplication: StaticStructureSchema = [3, n0, _PAl, 0, [_PAA, _A], [0, 128 | 0]];
-export var PlatformApplicationDisabledException: StaticErrorSchema = [
+export var PlatformApplication$: StaticStructureSchema = [3, n0, _PAl, 0, [_PAA, _A], [0, 128 | 0]];
+export var PlatformApplicationDisabledException$: StaticErrorSchema = [
   -3,
   n0,
   _PADE,
@@ -634,8 +648,8 @@ export var PlatformApplicationDisabledException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(PlatformApplicationDisabledException, __PlatformApplicationDisabledException);
-export var PublishBatchInput: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(PlatformApplicationDisabledException$, PlatformApplicationDisabledException);
+export var PublishBatchInput$: StaticStructureSchema = [
   3,
   n0,
   _PBI,
@@ -643,7 +657,7 @@ export var PublishBatchInput: StaticStructureSchema = [
   [_TA, _PBRE],
   [0, [() => PublishBatchRequestEntryList, 0]],
 ];
-export var PublishBatchRequestEntry: StaticStructureSchema = [
+export var PublishBatchRequestEntry$: StaticStructureSchema = [
   3,
   n0,
   _PBREu,
@@ -651,7 +665,7 @@ export var PublishBatchRequestEntry: StaticStructureSchema = [
   [_I, _M, _Su, _MS, _MA, _MDI, _MGI],
   [0, 0, 0, 0, [() => MessageAttributeMap, 0], 0, 0],
 ];
-export var PublishBatchResponse: StaticStructureSchema = [
+export var PublishBatchResponse$: StaticStructureSchema = [
   3,
   n0,
   _PBR,
@@ -659,8 +673,8 @@ export var PublishBatchResponse: StaticStructureSchema = [
   [_Suc, _F],
   [() => PublishBatchResultEntryList, () => BatchResultErrorEntryList],
 ];
-export var PublishBatchResultEntry: StaticStructureSchema = [3, n0, _PBREub, 0, [_I, _MI, _SN], [0, 0, 0]];
-export var PublishInput: StaticStructureSchema = [
+export var PublishBatchResultEntry$: StaticStructureSchema = [3, n0, _PBREub, 0, [_I, _MI, _SN], [0, 0, 0]];
+export var PublishInput$: StaticStructureSchema = [
   3,
   n0,
   _PI,
@@ -668,10 +682,10 @@ export var PublishInput: StaticStructureSchema = [
   [_TA, _TAa, _PN, _M, _Su, _MS, _MA, _MDI, _MGI],
   [0, 0, [() => PhoneNumber, 0], 0, 0, 0, [() => MessageAttributeMap, 0], 0, 0],
 ];
-export var PublishResponse: StaticStructureSchema = [3, n0, _PR, 0, [_MI, _SN], [0, 0]];
-export var PutDataProtectionPolicyInput: StaticStructureSchema = [3, n0, _PDPPI, 0, [_RA, _DPP], [0, 0]];
-export var RemovePermissionInput: StaticStructureSchema = [3, n0, _RPI, 0, [_TA, _L], [0, 0]];
-export var ReplayLimitExceededException: StaticErrorSchema = [
+export var PublishResponse$: StaticStructureSchema = [3, n0, _PR, 0, [_MI, _SN], [0, 0]];
+export var PutDataProtectionPolicyInput$: StaticStructureSchema = [3, n0, _PDPPI, 0, [_RA, _DPP], [0, 0]];
+export var RemovePermissionInput$: StaticStructureSchema = [3, n0, _RPI, 0, [_TA, _L], [0, 0]];
+export var ReplayLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _RLEE,
@@ -679,8 +693,8 @@ export var ReplayLimitExceededException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(ReplayLimitExceededException, __ReplayLimitExceededException);
-export var ResourceNotFoundException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(ReplayLimitExceededException$, ReplayLimitExceededException);
+export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
@@ -688,14 +702,14 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var SetEndpointAttributesInput: StaticStructureSchema = [3, n0, _SEAI, 0, [_EA, _A], [0, 128 | 0]];
-export var SetPlatformApplicationAttributesInput: StaticStructureSchema = [3, n0, _SPAAI, 0, [_PAA, _A], [0, 128 | 0]];
-export var SetSMSAttributesInput: StaticStructureSchema = [3, n0, _SSMSAI, 0, [_a], [128 | 0]];
-export var SetSMSAttributesResponse: StaticStructureSchema = [3, n0, _SSMSAR, 0, [], []];
-export var SetSubscriptionAttributesInput: StaticStructureSchema = [3, n0, _SSAI, 0, [_SA, _ANt, _AV], [0, 0, 0]];
-export var SetTopicAttributesInput: StaticStructureSchema = [3, n0, _STAI, 0, [_TA, _ANt, _AV], [0, 0, 0]];
-export var SMSSandboxPhoneNumber: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var SetEndpointAttributesInput$: StaticStructureSchema = [3, n0, _SEAI, 0, [_EA, _A], [0, 128 | 0]];
+export var SetPlatformApplicationAttributesInput$: StaticStructureSchema = [3, n0, _SPAAI, 0, [_PAA, _A], [0, 128 | 0]];
+export var SetSMSAttributesInput$: StaticStructureSchema = [3, n0, _SSMSAI, 0, [_a], [128 | 0]];
+export var SetSMSAttributesResponse$: StaticStructureSchema = [3, n0, _SSMSAR, 0, [], []];
+export var SetSubscriptionAttributesInput$: StaticStructureSchema = [3, n0, _SSAI, 0, [_SA, _ANt, _AV], [0, 0, 0]];
+export var SetTopicAttributesInput$: StaticStructureSchema = [3, n0, _STAI, 0, [_TA, _ANt, _AV], [0, 0, 0]];
+export var SMSSandboxPhoneNumber$: StaticStructureSchema = [
   3,
   n0,
   _SMSSPN,
@@ -703,7 +717,7 @@ export var SMSSandboxPhoneNumber: StaticStructureSchema = [
   [_PN, _St],
   [[() => PhoneNumberString, 0], 0],
 ];
-export var StaleTagException: StaticErrorSchema = [
+export var StaleTagException$: StaticErrorSchema = [
   -3,
   n0,
   _STE,
@@ -711,11 +725,11 @@ export var StaleTagException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(StaleTagException, __StaleTagException);
-export var SubscribeInput: StaticStructureSchema = [3, n0, _SI, 0, [_TA, _Pr, _E, _A, _RSA], [0, 0, 0, 128 | 0, 2]];
-export var SubscribeResponse: StaticStructureSchema = [3, n0, _SR, 0, [_SA], [0]];
-export var Subscription: StaticStructureSchema = [3, n0, _Sub, 0, [_SA, _O, _Pr, _E, _TA], [0, 0, 0, 0, 0]];
-export var SubscriptionLimitExceededException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(StaleTagException$, StaleTagException);
+export var SubscribeInput$: StaticStructureSchema = [3, n0, _SI, 0, [_TA, _Pr, _E, _A, _RSA], [0, 0, 0, 128 | 0, 2]];
+export var SubscribeResponse$: StaticStructureSchema = [3, n0, _SR, 0, [_SA], [0]];
+export var Subscription$: StaticStructureSchema = [3, n0, _Sub, 0, [_SA, _O, _Pr, _E, _TA], [0, 0, 0, 0, 0]];
+export var SubscriptionLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SLEE,
@@ -723,9 +737,9 @@ export var SubscriptionLimitExceededException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(SubscriptionLimitExceededException, __SubscriptionLimitExceededException);
-export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
-export var TagLimitExceededException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(SubscriptionLimitExceededException$, SubscriptionLimitExceededException);
+export var Tag$: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
+export var TagLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _TLEE,
@@ -733,8 +747,8 @@ export var TagLimitExceededException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(TagLimitExceededException, __TagLimitExceededException);
-export var TagPolicyException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(TagLimitExceededException$, TagLimitExceededException);
+export var TagPolicyException$: StaticErrorSchema = [
   -3,
   n0,
   _TPE,
@@ -742,10 +756,10 @@ export var TagPolicyException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(TagPolicyException, __TagPolicyException);
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _Ta], [0, () => TagList]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottledException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(TagPolicyException$, TagPolicyException);
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _Ta], [0, () => TagList]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var ThrottledException$: StaticErrorSchema = [
   -3,
   n0,
   _TE,
@@ -753,8 +767,8 @@ export var ThrottledException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(ThrottledException, __ThrottledException);
-export var TooManyEntriesInBatchRequestException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(ThrottledException$, ThrottledException);
+export var TooManyEntriesInBatchRequestException$: StaticErrorSchema = [
   -3,
   n0,
   _TMEIBRE,
@@ -762,9 +776,9 @@ export var TooManyEntriesInBatchRequestException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(TooManyEntriesInBatchRequestException, __TooManyEntriesInBatchRequestException);
-export var Topic: StaticStructureSchema = [3, n0, _Top, 0, [_TA], [0]];
-export var TopicLimitExceededException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(TooManyEntriesInBatchRequestException$, TooManyEntriesInBatchRequestException);
+export var Topic$: StaticStructureSchema = [3, n0, _Top, 0, [_TA], [0]];
+export var TopicLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _TLEEo,
@@ -772,11 +786,11 @@ export var TopicLimitExceededException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(TopicLimitExceededException, __TopicLimitExceededException);
-export var UnsubscribeInput: StaticStructureSchema = [3, n0, _UI, 0, [_SA], [0]];
-export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RA, _TK], [0, 64 | 0]];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UserErrorException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(TopicLimitExceededException$, TopicLimitExceededException);
+export var UnsubscribeInput$: StaticStructureSchema = [3, n0, _UI, 0, [_SA], [0]];
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR, 0, [_RA, _TK], [0, 64 | 0]];
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UserErrorException$: StaticErrorSchema = [
   -3,
   n0,
   _UEE,
@@ -784,8 +798,8 @@ export var UserErrorException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(UserErrorException, __UserErrorException);
-export var ValidationException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(UserErrorException$, UserErrorException);
+export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VE,
@@ -793,10 +807,10 @@ export var ValidationException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var VerificationException: StaticErrorSchema = [-3, n0, _VEe, { [_e]: _c }, [_M, _St], [0, 0]];
-TypeRegistry.for(n0).registerError(VerificationException, __VerificationException);
-export var VerifySMSSandboxPhoneNumberInput: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var VerificationException$: StaticErrorSchema = [-3, n0, _VEe, { [_e]: _c }, [_M, _St], [0, 0]];
+TypeRegistry.for(n0).registerError(VerificationException$, VerificationException);
+export var VerifySMSSandboxPhoneNumberInput$: StaticStructureSchema = [
   3,
   n0,
   _VSMSSPNI,
@@ -804,286 +818,293 @@ export var VerifySMSSandboxPhoneNumberInput: StaticStructureSchema = [
   [_PN, _OTP],
   [[() => PhoneNumberString, 0], 0],
 ];
-export var VerifySMSSandboxPhoneNumberResult: StaticStructureSchema = [3, n0, _VSMSSPNR, 0, [], []];
-export var __Unit = "unit" as const;
-export var SNSServiceException: StaticErrorSchema = [-3, _sm, "SNSServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SNSServiceException, __SNSServiceException);
-export var ActionsList = 64 | 0;
-export var BatchResultErrorEntryList: StaticListSchema = [1, n0, _BREEL, 0, () => BatchResultErrorEntry];
-export var DelegatesList = 64 | 0;
-export var ListOfEndpoints: StaticListSchema = [1, n0, _LOE, 0, () => Endpoint];
-export var ListOfPlatformApplications: StaticListSchema = [1, n0, _LOPA, 0, () => PlatformApplication];
-export var ListString = 64 | 0;
-export var NumberCapabilityList = 64 | 0;
-export var PhoneNumberInformationList: StaticListSchema = [1, n0, _PNIL, 0, [() => PhoneNumberInformation, 0]];
-export var PhoneNumberList: StaticListSchema = [1, n0, _PNL, 0, [() => PhoneNumber, 0]];
-export var PublishBatchRequestEntryList: StaticListSchema = [1, n0, _PBREL, 0, [() => PublishBatchRequestEntry, 0]];
-export var PublishBatchResultEntryList: StaticListSchema = [1, n0, _PBRELu, 0, () => PublishBatchResultEntry];
-export var SMSSandboxPhoneNumberList: StaticListSchema = [1, n0, _SMSSPNL, 0, [() => SMSSandboxPhoneNumber, 0]];
-export var SubscriptionsList: StaticListSchema = [1, n0, _SL, 0, () => Subscription];
-export var TagKeyList = 64 | 0;
-export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
-export var TopicsList: StaticListSchema = [1, n0, _TLo, 0, () => Topic];
-export var MapStringToString = 128 | 0;
-export var MessageAttributeMap: StaticMapSchema = [
+export var VerifySMSSandboxPhoneNumberResult$: StaticStructureSchema = [3, n0, _VSMSSPNR, 0, [], []];
+var __Unit = "unit" as const;
+export var SNSServiceException$: StaticErrorSchema = [-3, _sm, "SNSServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(SNSServiceException$, SNSServiceException);
+var ActionsList = 64 | 0;
+var BatchResultErrorEntryList: StaticListSchema = [1, n0, _BREEL, 0, () => BatchResultErrorEntry$];
+var DelegatesList = 64 | 0;
+var ListOfEndpoints: StaticListSchema = [1, n0, _LOE, 0, () => Endpoint$];
+var ListOfPlatformApplications: StaticListSchema = [1, n0, _LOPA, 0, () => PlatformApplication$];
+var ListString = 64 | 0;
+var NumberCapabilityList = 64 | 0;
+var PhoneNumberInformationList: StaticListSchema = [1, n0, _PNIL, 0, [() => PhoneNumberInformation$, 0]];
+var PhoneNumberList: StaticListSchema = [1, n0, _PNL, 0, [() => PhoneNumber, 0]];
+var PublishBatchRequestEntryList: StaticListSchema = [1, n0, _PBREL, 0, [() => PublishBatchRequestEntry$, 0]];
+var PublishBatchResultEntryList: StaticListSchema = [1, n0, _PBRELu, 0, () => PublishBatchResultEntry$];
+var SMSSandboxPhoneNumberList: StaticListSchema = [1, n0, _SMSSPNL, 0, [() => SMSSandboxPhoneNumber$, 0]];
+var SubscriptionsList: StaticListSchema = [1, n0, _SL, 0, () => Subscription$];
+var TagKeyList = 64 | 0;
+var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
+var TopicsList: StaticListSchema = [1, n0, _TLo, 0, () => Topic$];
+var MapStringToString = 128 | 0;
+var MessageAttributeMap: StaticMapSchema = [
   2,
   n0,
   _MAM,
   0,
   [0, { [_xN]: _N }],
-  [() => MessageAttributeValue, { [_xN]: _V }],
+  [() => MessageAttributeValue$, { [_xN]: _V }],
 ];
-export var SubscriptionAttributesMap = 128 | 0;
-export var TopicAttributesMap = 128 | 0;
-export var AddPermission: StaticOperationSchema = [9, n0, _AP, 0, () => AddPermissionInput, () => __Unit];
-export var CheckIfPhoneNumberIsOptedOut: StaticOperationSchema = [
+var SubscriptionAttributesMap = 128 | 0;
+var TopicAttributesMap = 128 | 0;
+export var AddPermission$: StaticOperationSchema = [9, n0, _AP, 0, () => AddPermissionInput$, () => __Unit];
+export var CheckIfPhoneNumberIsOptedOut$: StaticOperationSchema = [
   9,
   n0,
   _CIPNIOO,
   0,
-  () => CheckIfPhoneNumberIsOptedOutInput,
-  () => CheckIfPhoneNumberIsOptedOutResponse,
+  () => CheckIfPhoneNumberIsOptedOutInput$,
+  () => CheckIfPhoneNumberIsOptedOutResponse$,
 ];
-export var ConfirmSubscription: StaticOperationSchema = [
+export var ConfirmSubscription$: StaticOperationSchema = [
   9,
   n0,
   _CS,
   0,
-  () => ConfirmSubscriptionInput,
-  () => ConfirmSubscriptionResponse,
+  () => ConfirmSubscriptionInput$,
+  () => ConfirmSubscriptionResponse$,
 ];
-export var CreatePlatformApplication: StaticOperationSchema = [
+export var CreatePlatformApplication$: StaticOperationSchema = [
   9,
   n0,
   _CPA,
   0,
-  () => CreatePlatformApplicationInput,
-  () => CreatePlatformApplicationResponse,
+  () => CreatePlatformApplicationInput$,
+  () => CreatePlatformApplicationResponse$,
 ];
-export var CreatePlatformEndpoint: StaticOperationSchema = [
+export var CreatePlatformEndpoint$: StaticOperationSchema = [
   9,
   n0,
   _CPE,
   0,
-  () => CreatePlatformEndpointInput,
-  () => CreateEndpointResponse,
+  () => CreatePlatformEndpointInput$,
+  () => CreateEndpointResponse$,
 ];
-export var CreateSMSSandboxPhoneNumber: StaticOperationSchema = [
+export var CreateSMSSandboxPhoneNumber$: StaticOperationSchema = [
   9,
   n0,
   _CSMSSPN,
   0,
-  () => CreateSMSSandboxPhoneNumberInput,
-  () => CreateSMSSandboxPhoneNumberResult,
+  () => CreateSMSSandboxPhoneNumberInput$,
+  () => CreateSMSSandboxPhoneNumberResult$,
 ];
-export var CreateTopic: StaticOperationSchema = [9, n0, _CT, 0, () => CreateTopicInput, () => CreateTopicResponse];
-export var DeleteEndpoint: StaticOperationSchema = [9, n0, _DE, 0, () => DeleteEndpointInput, () => __Unit];
-export var DeletePlatformApplication: StaticOperationSchema = [
+export var CreateTopic$: StaticOperationSchema = [9, n0, _CT, 0, () => CreateTopicInput$, () => CreateTopicResponse$];
+export var DeleteEndpoint$: StaticOperationSchema = [9, n0, _DE, 0, () => DeleteEndpointInput$, () => __Unit];
+export var DeletePlatformApplication$: StaticOperationSchema = [
   9,
   n0,
   _DPA,
   0,
-  () => DeletePlatformApplicationInput,
+  () => DeletePlatformApplicationInput$,
   () => __Unit,
 ];
-export var DeleteSMSSandboxPhoneNumber: StaticOperationSchema = [
+export var DeleteSMSSandboxPhoneNumber$: StaticOperationSchema = [
   9,
   n0,
   _DSMSSPN,
   0,
-  () => DeleteSMSSandboxPhoneNumberInput,
-  () => DeleteSMSSandboxPhoneNumberResult,
+  () => DeleteSMSSandboxPhoneNumberInput$,
+  () => DeleteSMSSandboxPhoneNumberResult$,
 ];
-export var DeleteTopic: StaticOperationSchema = [9, n0, _DTe, 0, () => DeleteTopicInput, () => __Unit];
-export var GetDataProtectionPolicy: StaticOperationSchema = [
+export var DeleteTopic$: StaticOperationSchema = [9, n0, _DTe, 0, () => DeleteTopicInput$, () => __Unit];
+export var GetDataProtectionPolicy$: StaticOperationSchema = [
   9,
   n0,
   _GDPP,
   0,
-  () => GetDataProtectionPolicyInput,
-  () => GetDataProtectionPolicyResponse,
+  () => GetDataProtectionPolicyInput$,
+  () => GetDataProtectionPolicyResponse$,
 ];
-export var GetEndpointAttributes: StaticOperationSchema = [
+export var GetEndpointAttributes$: StaticOperationSchema = [
   9,
   n0,
   _GEA,
   0,
-  () => GetEndpointAttributesInput,
-  () => GetEndpointAttributesResponse,
+  () => GetEndpointAttributesInput$,
+  () => GetEndpointAttributesResponse$,
 ];
-export var GetPlatformApplicationAttributes: StaticOperationSchema = [
+export var GetPlatformApplicationAttributes$: StaticOperationSchema = [
   9,
   n0,
   _GPAA,
   0,
-  () => GetPlatformApplicationAttributesInput,
-  () => GetPlatformApplicationAttributesResponse,
+  () => GetPlatformApplicationAttributesInput$,
+  () => GetPlatformApplicationAttributesResponse$,
 ];
-export var GetSMSAttributes: StaticOperationSchema = [
+export var GetSMSAttributes$: StaticOperationSchema = [
   9,
   n0,
   _GSMSA,
   0,
-  () => GetSMSAttributesInput,
-  () => GetSMSAttributesResponse,
+  () => GetSMSAttributesInput$,
+  () => GetSMSAttributesResponse$,
 ];
-export var GetSMSSandboxAccountStatus: StaticOperationSchema = [
+export var GetSMSSandboxAccountStatus$: StaticOperationSchema = [
   9,
   n0,
   _GSMSSAS,
   0,
-  () => GetSMSSandboxAccountStatusInput,
-  () => GetSMSSandboxAccountStatusResult,
+  () => GetSMSSandboxAccountStatusInput$,
+  () => GetSMSSandboxAccountStatusResult$,
 ];
-export var GetSubscriptionAttributes: StaticOperationSchema = [
+export var GetSubscriptionAttributes$: StaticOperationSchema = [
   9,
   n0,
   _GSA,
   0,
-  () => GetSubscriptionAttributesInput,
-  () => GetSubscriptionAttributesResponse,
+  () => GetSubscriptionAttributesInput$,
+  () => GetSubscriptionAttributesResponse$,
 ];
-export var GetTopicAttributes: StaticOperationSchema = [
+export var GetTopicAttributes$: StaticOperationSchema = [
   9,
   n0,
   _GTA,
   0,
-  () => GetTopicAttributesInput,
-  () => GetTopicAttributesResponse,
+  () => GetTopicAttributesInput$,
+  () => GetTopicAttributesResponse$,
 ];
-export var ListEndpointsByPlatformApplication: StaticOperationSchema = [
+export var ListEndpointsByPlatformApplication$: StaticOperationSchema = [
   9,
   n0,
   _LEBPA,
   0,
-  () => ListEndpointsByPlatformApplicationInput,
-  () => ListEndpointsByPlatformApplicationResponse,
+  () => ListEndpointsByPlatformApplicationInput$,
+  () => ListEndpointsByPlatformApplicationResponse$,
 ];
-export var ListOriginationNumbers: StaticOperationSchema = [
+export var ListOriginationNumbers$: StaticOperationSchema = [
   9,
   n0,
   _LON,
   0,
-  () => ListOriginationNumbersRequest,
-  () => ListOriginationNumbersResult,
+  () => ListOriginationNumbersRequest$,
+  () => ListOriginationNumbersResult$,
 ];
-export var ListPhoneNumbersOptedOut: StaticOperationSchema = [
+export var ListPhoneNumbersOptedOut$: StaticOperationSchema = [
   9,
   n0,
   _LPNOO,
   0,
-  () => ListPhoneNumbersOptedOutInput,
-  () => ListPhoneNumbersOptedOutResponse,
+  () => ListPhoneNumbersOptedOutInput$,
+  () => ListPhoneNumbersOptedOutResponse$,
 ];
-export var ListPlatformApplications: StaticOperationSchema = [
+export var ListPlatformApplications$: StaticOperationSchema = [
   9,
   n0,
   _LPA,
   0,
-  () => ListPlatformApplicationsInput,
-  () => ListPlatformApplicationsResponse,
+  () => ListPlatformApplicationsInput$,
+  () => ListPlatformApplicationsResponse$,
 ];
-export var ListSMSSandboxPhoneNumbers: StaticOperationSchema = [
+export var ListSMSSandboxPhoneNumbers$: StaticOperationSchema = [
   9,
   n0,
   _LSMSSPN,
   0,
-  () => ListSMSSandboxPhoneNumbersInput,
-  () => ListSMSSandboxPhoneNumbersResult,
+  () => ListSMSSandboxPhoneNumbersInput$,
+  () => ListSMSSandboxPhoneNumbersResult$,
 ];
-export var ListSubscriptions: StaticOperationSchema = [
+export var ListSubscriptions$: StaticOperationSchema = [
   9,
   n0,
   _LS,
   0,
-  () => ListSubscriptionsInput,
-  () => ListSubscriptionsResponse,
+  () => ListSubscriptionsInput$,
+  () => ListSubscriptionsResponse$,
 ];
-export var ListSubscriptionsByTopic: StaticOperationSchema = [
+export var ListSubscriptionsByTopic$: StaticOperationSchema = [
   9,
   n0,
   _LSBT,
   0,
-  () => ListSubscriptionsByTopicInput,
-  () => ListSubscriptionsByTopicResponse,
+  () => ListSubscriptionsByTopicInput$,
+  () => ListSubscriptionsByTopicResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   0,
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var ListTopics: StaticOperationSchema = [9, n0, _LT, 0, () => ListTopicsInput, () => ListTopicsResponse];
-export var OptInPhoneNumber: StaticOperationSchema = [
+export var ListTopics$: StaticOperationSchema = [9, n0, _LT, 0, () => ListTopicsInput$, () => ListTopicsResponse$];
+export var OptInPhoneNumber$: StaticOperationSchema = [
   9,
   n0,
   _OIPN,
   0,
-  () => OptInPhoneNumberInput,
-  () => OptInPhoneNumberResponse,
+  () => OptInPhoneNumberInput$,
+  () => OptInPhoneNumberResponse$,
 ];
-export var Publish: StaticOperationSchema = [9, n0, _Pu, 0, () => PublishInput, () => PublishResponse];
-export var PublishBatch: StaticOperationSchema = [9, n0, _PB, 0, () => PublishBatchInput, () => PublishBatchResponse];
-export var PutDataProtectionPolicy: StaticOperationSchema = [
+export var Publish$: StaticOperationSchema = [9, n0, _Pu, 0, () => PublishInput$, () => PublishResponse$];
+export var PublishBatch$: StaticOperationSchema = [
+  9,
+  n0,
+  _PB,
+  0,
+  () => PublishBatchInput$,
+  () => PublishBatchResponse$,
+];
+export var PutDataProtectionPolicy$: StaticOperationSchema = [
   9,
   n0,
   _PDPP,
   0,
-  () => PutDataProtectionPolicyInput,
+  () => PutDataProtectionPolicyInput$,
   () => __Unit,
 ];
-export var RemovePermission: StaticOperationSchema = [9, n0, _RP, 0, () => RemovePermissionInput, () => __Unit];
-export var SetEndpointAttributes: StaticOperationSchema = [
+export var RemovePermission$: StaticOperationSchema = [9, n0, _RP, 0, () => RemovePermissionInput$, () => __Unit];
+export var SetEndpointAttributes$: StaticOperationSchema = [
   9,
   n0,
   _SEA,
   0,
-  () => SetEndpointAttributesInput,
+  () => SetEndpointAttributesInput$,
   () => __Unit,
 ];
-export var SetPlatformApplicationAttributes: StaticOperationSchema = [
+export var SetPlatformApplicationAttributes$: StaticOperationSchema = [
   9,
   n0,
   _SPAA,
   0,
-  () => SetPlatformApplicationAttributesInput,
+  () => SetPlatformApplicationAttributesInput$,
   () => __Unit,
 ];
-export var SetSMSAttributes: StaticOperationSchema = [
+export var SetSMSAttributes$: StaticOperationSchema = [
   9,
   n0,
   _SSMSA,
   0,
-  () => SetSMSAttributesInput,
-  () => SetSMSAttributesResponse,
+  () => SetSMSAttributesInput$,
+  () => SetSMSAttributesResponse$,
 ];
-export var SetSubscriptionAttributes: StaticOperationSchema = [
+export var SetSubscriptionAttributes$: StaticOperationSchema = [
   9,
   n0,
   _SSA,
   0,
-  () => SetSubscriptionAttributesInput,
+  () => SetSubscriptionAttributesInput$,
   () => __Unit,
 ];
-export var SetTopicAttributes: StaticOperationSchema = [9, n0, _STA, 0, () => SetTopicAttributesInput, () => __Unit];
-export var Subscribe: StaticOperationSchema = [9, n0, _Subs, 0, () => SubscribeInput, () => SubscribeResponse];
-export var TagResource: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceRequest, () => TagResourceResponse];
-export var Unsubscribe: StaticOperationSchema = [9, n0, _U, 0, () => UnsubscribeInput, () => __Unit];
-export var UntagResource: StaticOperationSchema = [
+export var SetTopicAttributes$: StaticOperationSchema = [9, n0, _STA, 0, () => SetTopicAttributesInput$, () => __Unit];
+export var Subscribe$: StaticOperationSchema = [9, n0, _Subs, 0, () => SubscribeInput$, () => SubscribeResponse$];
+export var TagResource$: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceRequest$, () => TagResourceResponse$];
+export var Unsubscribe$: StaticOperationSchema = [9, n0, _U, 0, () => UnsubscribeInput$, () => __Unit];
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   0,
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var VerifySMSSandboxPhoneNumber: StaticOperationSchema = [
+export var VerifySMSSandboxPhoneNumber$: StaticOperationSchema = [
   9,
   n0,
   _VSMSSPN,
   0,
-  () => VerifySMSSandboxPhoneNumberInput,
-  () => VerifySMSSandboxPhoneNumberResult,
+  () => VerifySMSSandboxPhoneNumberInput$,
+  () => VerifySMSSandboxPhoneNumberResult$,
 ];

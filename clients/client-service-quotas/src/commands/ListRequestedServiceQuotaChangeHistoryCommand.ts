@@ -8,7 +8,7 @@ import type {
   ListRequestedServiceQuotaChangeHistoryRequest,
   ListRequestedServiceQuotaChangeHistoryResponse,
 } from "../models/models_0";
-import { ListRequestedServiceQuotaChangeHistory } from "../schemas/schemas_0";
+import { ListRequestedServiceQuotaChangeHistory$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
@@ -129,7 +129,7 @@ export class ListRequestedServiceQuotaChangeHistoryCommand extends $Command
   })
   .s("ServiceQuotasV20190624", "ListRequestedServiceQuotaChangeHistory", {})
   .n("ServiceQuotasClient", "ListRequestedServiceQuotaChangeHistoryCommand")
-  .sc(ListRequestedServiceQuotaChangeHistory)
+  .sc(ListRequestedServiceQuotaChangeHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

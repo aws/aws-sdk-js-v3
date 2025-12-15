@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutEventStreamRequest, PutEventStreamResponse } from "../models/models_1";
 import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { PutEventStream } from "../schemas/schemas_0";
+import { PutEventStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class PutEventStreamCommand extends $Command
   })
   .s("Pinpoint", "PutEventStream", {})
   .n("PinpointClient", "PutEventStreamCommand")
-  .sc(PutEventStream)
+  .sc(PutEventStream$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

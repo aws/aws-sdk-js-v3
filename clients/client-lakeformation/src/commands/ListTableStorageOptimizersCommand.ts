@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import type { ListTableStorageOptimizersRequest, ListTableStorageOptimizersResponse } from "../models/models_0";
-import { ListTableStorageOptimizers } from "../schemas/schemas_0";
+import { ListTableStorageOptimizers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class ListTableStorageOptimizersCommand extends $Command
   })
   .s("AWSLakeFormation", "ListTableStorageOptimizers", {})
   .n("LakeFormationClient", "ListTableStorageOptimizersCommand")
-  .sc(ListTableStorageOptimizers)
+  .sc(ListTableStorageOptimizers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

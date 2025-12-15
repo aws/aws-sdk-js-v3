@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateVpcConnectorRequest, CreateVpcConnectorResponse } from "../models/models_0";
-import { CreateVpcConnector } from "../schemas/schemas_0";
+import { CreateVpcConnector$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class CreateVpcConnectorCommand extends $Command
   })
   .s("AppRunner", "CreateVpcConnector", {})
   .n("AppRunnerClient", "CreateVpcConnectorCommand")
-  .sc(CreateVpcConnector)
+  .sc(CreateVpcConnector$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

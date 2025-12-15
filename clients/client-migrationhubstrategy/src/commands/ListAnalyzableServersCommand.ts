@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
 import type { ListAnalyzableServersRequest, ListAnalyzableServersResponse } from "../models/models_0";
-import { ListAnalyzableServers } from "../schemas/schemas_0";
+import { ListAnalyzableServers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,7 +123,7 @@ export class ListAnalyzableServersCommand extends $Command
   })
   .s("AWSMigrationHubStrategyRecommendation", "ListAnalyzableServers", {})
   .n("MigrationHubStrategyClient", "ListAnalyzableServersCommand")
-  .sc(ListAnalyzableServers)
+  .sc(ListAnalyzableServers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

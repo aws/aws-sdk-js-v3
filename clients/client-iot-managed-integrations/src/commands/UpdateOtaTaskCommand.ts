@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { UpdateOtaTaskRequest } from "../models/models_0";
-import { UpdateOtaTask } from "../schemas/schemas_0";
+import { UpdateOtaTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class UpdateOtaTaskCommand extends $Command
   })
   .s("IotManagedIntegrations", "UpdateOtaTask", {})
   .n("IoTManagedIntegrationsClient", "UpdateOtaTaskCommand")
-  .sc(UpdateOtaTask)
+  .sc(UpdateOtaTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDeliverabilityTestReportRequest, GetDeliverabilityTestReportResponse } from "../models/models_0";
-import { GetDeliverabilityTestReport } from "../schemas/schemas_0";
+import { GetDeliverabilityTestReport$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -117,7 +117,7 @@ export class GetDeliverabilityTestReportCommand extends $Command
   })
   .s("SimpleEmailService_v2", "GetDeliverabilityTestReport", {})
   .n("SESv2Client", "GetDeliverabilityTestReportCommand")
-  .sc(GetDeliverabilityTestReport)
+  .sc(GetDeliverabilityTestReport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

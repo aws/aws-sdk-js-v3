@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteDeviceRequest, DeleteDeviceResponse } from "../models/models_0";
-import { DeleteDevice } from "../schemas/schemas_0";
+import { DeleteDevice$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -94,7 +94,7 @@ export class DeleteDeviceCommand extends $Command
   })
   .s("ThinClient", "DeleteDevice", {})
   .n("WorkSpacesThinClientClient", "DeleteDeviceCommand")
-  .sc(DeleteDevice)
+  .sc(DeleteDevice$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

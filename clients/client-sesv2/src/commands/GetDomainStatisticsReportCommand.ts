@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDomainStatisticsReportRequest, GetDomainStatisticsReportResponse } from "../models/models_0";
-import { GetDomainStatisticsReport } from "../schemas/schemas_0";
+import { GetDomainStatisticsReport$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -122,7 +122,7 @@ export class GetDomainStatisticsReportCommand extends $Command
   })
   .s("SimpleEmailService_v2", "GetDomainStatisticsReport", {})
   .n("SESv2Client", "GetDomainStatisticsReportCommand")
-  .sc(GetDomainStatisticsReport)
+  .sc(GetDomainStatisticsReport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

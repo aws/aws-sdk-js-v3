@@ -10,7 +10,7 @@ import type {
 } from "../AmplifyUIBuilderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateFormRequest, CreateFormResponse } from "../models/models_0";
-import { CreateForm } from "../schemas/schemas_0";
+import { CreateForm$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -402,7 +402,7 @@ export class CreateFormCommand extends $Command
   })
   .s("AmplifyUIBuilder", "CreateForm", {})
   .n("AmplifyUIBuilderClient", "CreateFormCommand")
-  .sc(CreateForm)
+  .sc(CreateForm$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

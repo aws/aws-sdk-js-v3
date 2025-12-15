@@ -8,7 +8,7 @@ import type {
   DeleteConfigurationSetTrackingOptionsRequest,
   DeleteConfigurationSetTrackingOptionsResponse,
 } from "../models/models_0";
-import { DeleteConfigurationSetTrackingOptions } from "../schemas/schemas_0";
+import { DeleteConfigurationSetTrackingOptions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -92,7 +92,7 @@ export class DeleteConfigurationSetTrackingOptionsCommand extends $Command
   })
   .s("SimpleEmailService", "DeleteConfigurationSetTrackingOptions", {})
   .n("SESClient", "DeleteConfigurationSetTrackingOptionsCommand")
-  .sc(DeleteConfigurationSetTrackingOptions)
+  .sc(DeleteConfigurationSetTrackingOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

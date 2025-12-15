@@ -9,7 +9,7 @@ import type {
   ListTrainingJobsForHyperParameterTuningJobResponse,
 } from "../models/models_4";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { ListTrainingJobsForHyperParameterTuningJob } from "../schemas/schemas_0";
+import { ListTrainingJobsForHyperParameterTuningJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class ListTrainingJobsForHyperParameterTuningJobCommand extends $Command
   })
   .s("SageMaker", "ListTrainingJobsForHyperParameterTuningJob", {})
   .n("SageMakerClient", "ListTrainingJobsForHyperParameterTuningJobCommand")
-  .sc(ListTrainingJobsForHyperParameterTuningJob)
+  .sc(ListTrainingJobsForHyperParameterTuningJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteGroupRequest } from "../models/models_0";
-import { DeleteGroup } from "../schemas/schemas_0";
+import { DeleteGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class DeleteGroupCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "DeleteGroup", {})
   .n("CognitoIdentityProviderClient", "DeleteGroupCommand")
-  .sc(DeleteGroup)
+  .sc(DeleteGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

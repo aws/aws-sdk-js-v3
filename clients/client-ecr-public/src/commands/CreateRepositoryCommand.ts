@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateRepositoryRequest, CreateRepositoryResponse } from "../models/models_0";
-import { CreateRepository } from "../schemas/schemas_0";
+import { CreateRepository$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -136,7 +136,7 @@ export class CreateRepositoryCommand extends $Command
   })
   .s("SpencerFrontendService", "CreateRepository", {})
   .n("ECRPUBLICClient", "CreateRepositoryCommand")
-  .sc(CreateRepository)
+  .sc(CreateRepository$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

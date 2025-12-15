@@ -9,7 +9,7 @@ import type {
   UpdateAccessControlConfigurationRequest,
   UpdateAccessControlConfigurationResponse,
 } from "../models/models_0";
-import { UpdateAccessControlConfiguration } from "../schemas/schemas_0";
+import { UpdateAccessControlConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -153,7 +153,7 @@ export class UpdateAccessControlConfigurationCommand extends $Command
   })
   .s("AWSKendraFrontendService", "UpdateAccessControlConfiguration", {})
   .n("KendraClient", "UpdateAccessControlConfigurationCommand")
-  .sc(UpdateAccessControlConfiguration)
+  .sc(UpdateAccessControlConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

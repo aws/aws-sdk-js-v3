@@ -10,7 +10,7 @@ import type {
 } from "../ChimeSDKMediaPipelinesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateMediaInsightsPipelineStatusRequest } from "../models/models_0";
-import { UpdateMediaInsightsPipelineStatus } from "../schemas/schemas_0";
+import { UpdateMediaInsightsPipelineStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class UpdateMediaInsightsPipelineStatusCommand extends $Command
   })
   .s("ChimeSDKMediaPipelinesService", "UpdateMediaInsightsPipelineStatus", {})
   .n("ChimeSDKMediaPipelinesClient", "UpdateMediaInsightsPipelineStatusCommand")
-  .sc(UpdateMediaInsightsPipelineStatus)
+  .sc(UpdateMediaInsightsPipelineStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   UpdateManagedRuleSetVersionExpiryDateRequest,
   UpdateManagedRuleSetVersionExpiryDateResponse,
 } from "../models/models_0";
-import { UpdateManagedRuleSetVersionExpiryDate } from "../schemas/schemas_0";
+import { UpdateManagedRuleSetVersionExpiryDate$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -131,7 +131,7 @@ export class UpdateManagedRuleSetVersionExpiryDateCommand extends $Command
   })
   .s("AWSWAF_20190729", "UpdateManagedRuleSetVersionExpiryDate", {})
   .n("WAFV2Client", "UpdateManagedRuleSetVersionExpiryDateCommand")
-  .sc(UpdateManagedRuleSetVersionExpiryDate)
+  .sc(UpdateManagedRuleSetVersionExpiryDate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

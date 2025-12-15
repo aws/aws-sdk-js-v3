@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestXmlProtocolClient";
-import { OmitsNullSerializesEmptyString } from "../schemas/schemas_0";
+import { OmitsNullSerializesEmptyString$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -76,7 +76,7 @@ export class OmitsNullSerializesEmptyStringCommand extends $Command
   })
   .s("RestXml", "OmitsNullSerializesEmptyString", {})
   .n("RestXmlProtocolClient", "OmitsNullSerializesEmptyStringCommand")
-  .sc(OmitsNullSerializesEmptyString)
+  .sc(OmitsNullSerializesEmptyString$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

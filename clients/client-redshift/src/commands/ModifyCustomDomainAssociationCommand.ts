@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyCustomDomainAssociationMessage, ModifyCustomDomainAssociationResult } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { ModifyCustomDomainAssociation } from "../schemas/schemas_0";
+import { ModifyCustomDomainAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class ModifyCustomDomainAssociationCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "ModifyCustomDomainAssociation", {})
   .n("RedshiftClient", "ModifyCustomDomainAssociationCommand")
-  .sc(ModifyCustomDomainAssociation)
+  .sc(ModifyCustomDomainAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

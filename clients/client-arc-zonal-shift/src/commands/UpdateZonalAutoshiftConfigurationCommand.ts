@@ -9,7 +9,7 @@ import type {
   UpdateZonalAutoshiftConfigurationRequest,
   UpdateZonalAutoshiftConfigurationResponse,
 } from "../models/models_0";
-import { UpdateZonalAutoshiftConfiguration } from "../schemas/schemas_0";
+import { UpdateZonalAutoshiftConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class UpdateZonalAutoshiftConfigurationCommand extends $Command
   })
   .s("PercDataPlane", "UpdateZonalAutoshiftConfiguration", {})
   .n("ARCZonalShiftClient", "UpdateZonalAutoshiftConfigurationCommand")
-  .sc(UpdateZonalAutoshiftConfiguration)
+  .sc(UpdateZonalAutoshiftConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

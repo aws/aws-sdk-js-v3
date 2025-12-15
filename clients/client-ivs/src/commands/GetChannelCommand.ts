@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
 import type { GetChannelRequest, GetChannelResponse } from "../models/models_0";
-import { GetChannel } from "../schemas/schemas_0";
+import { GetChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class GetChannelCommand extends $Command
   })
   .s("AmazonInteractiveVideoService", "GetChannel", {})
   .n("IvsClient", "GetChannelCommand")
-  .sc(GetChannel)
+  .sc(GetChannel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

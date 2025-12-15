@@ -9,7 +9,7 @@ import type {
   CreateContainerServiceRegistryLoginRequest,
   CreateContainerServiceRegistryLoginResult,
 } from "../models/models_0";
-import { CreateContainerServiceRegistryLogin } from "../schemas/schemas_0";
+import { CreateContainerServiceRegistryLogin$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,7 +127,7 @@ export class CreateContainerServiceRegistryLoginCommand extends $Command
   })
   .s("Lightsail_20161128", "CreateContainerServiceRegistryLogin", {})
   .n("LightsailClient", "CreateContainerServiceRegistryLoginCommand")
-  .sc(CreateContainerServiceRegistryLogin)
+  .sc(CreateContainerServiceRegistryLogin$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

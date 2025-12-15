@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ResumeSessionRequest, ResumeSessionResponse } from "../models/models_1";
-import { ResumeSession } from "../schemas/schemas_0";
+import { ResumeSession$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -89,7 +89,7 @@ export class ResumeSessionCommand extends $Command
   })
   .s("AmazonSSM", "ResumeSession", {})
   .n("SSMClient", "ResumeSessionCommand")
-  .sc(ResumeSession)
+  .sc(ResumeSession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

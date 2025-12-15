@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListReceivedDataGrantsRequest, ListReceivedDataGrantsResponse } from "../models/models_0";
-import { ListReceivedDataGrants } from "../schemas/schemas_0";
+import { ListReceivedDataGrants$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class ListReceivedDataGrantsCommand extends $Command
   })
   .s("DataExchange", "ListReceivedDataGrants", {})
   .n("DataExchangeClient", "ListReceivedDataGrantsCommand")
-  .sc(ListReceivedDataGrants)
+  .sc(ListReceivedDataGrants$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

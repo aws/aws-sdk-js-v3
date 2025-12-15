@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateLocationFsxWindowsRequest, CreateLocationFsxWindowsResponse } from "../models/models_0";
-import { CreateLocationFsxWindows } from "../schemas/schemas_0";
+import { CreateLocationFsxWindows$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class CreateLocationFsxWindowsCommand extends $Command
   })
   .s("FmrsService", "CreateLocationFsxWindows", {})
   .n("DataSyncClient", "CreateLocationFsxWindowsCommand")
-  .sc(CreateLocationFsxWindows)
+  .sc(CreateLocationFsxWindows$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

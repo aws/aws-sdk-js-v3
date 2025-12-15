@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import type { ListGeofenceCollectionsRequest, ListGeofenceCollectionsResponse } from "../models/models_0";
-import { ListGeofenceCollections } from "../schemas/schemas_0";
+import { ListGeofenceCollections$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class ListGeofenceCollectionsCommand extends $Command
   })
   .s("LocationService", "ListGeofenceCollections", {})
   .n("LocationClient", "ListGeofenceCollectionsCommand")
-  .sc(ListGeofenceCollections)
+  .sc(ListGeofenceCollections$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

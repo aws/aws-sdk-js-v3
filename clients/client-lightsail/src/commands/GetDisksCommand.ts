@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { GetDisksRequest, GetDisksResult } from "../models/models_0";
-import { GetDisks } from "../schemas/schemas_0";
+import { GetDisks$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -146,7 +146,7 @@ export class GetDisksCommand extends $Command
   })
   .s("Lightsail_20161128", "GetDisks", {})
   .n("LightsailClient", "GetDisksCommand")
-  .sc(GetDisks)
+  .sc(GetDisks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

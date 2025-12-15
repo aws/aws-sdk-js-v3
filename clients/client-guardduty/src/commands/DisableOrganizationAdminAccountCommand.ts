@@ -9,7 +9,7 @@ import type {
   DisableOrganizationAdminAccountRequest,
   DisableOrganizationAdminAccountResponse,
 } from "../models/models_0";
-import { DisableOrganizationAdminAccount } from "../schemas/schemas_0";
+import { DisableOrganizationAdminAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class DisableOrganizationAdminAccountCommand extends $Command
   })
   .s("GuardDutyAPIService", "DisableOrganizationAdminAccount", {})
   .n("GuardDutyClient", "DisableOrganizationAdminAccountCommand")
-  .sc(DisableOrganizationAdminAccount)
+  .sc(DisableOrganizationAdminAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

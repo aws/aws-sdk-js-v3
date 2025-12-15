@@ -9,7 +9,7 @@ import type {
   DeleteAssetModelInterfaceRelationshipRequest,
   DeleteAssetModelInterfaceRelationshipResponse,
 } from "../models/models_0";
-import { DeleteAssetModelInterfaceRelationship } from "../schemas/schemas_0";
+import { DeleteAssetModelInterfaceRelationship$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class DeleteAssetModelInterfaceRelationshipCommand extends $Command
   })
   .s("AWSIoTSiteWise", "DeleteAssetModelInterfaceRelationship", {})
   .n("IoTSiteWiseClient", "DeleteAssetModelInterfaceRelationshipCommand")
-  .sc(DeleteAssetModelInterfaceRelationship)
+  .sc(DeleteAssetModelInterfaceRelationship$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

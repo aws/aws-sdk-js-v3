@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribePackagesRequest, DescribePackagesResponse } from "../models/models_0";
 import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { DescribePackages } from "../schemas/schemas_0";
+import { DescribePackages$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -140,7 +140,7 @@ export class DescribePackagesCommand extends $Command
   })
   .s("AmazonOpenSearchService", "DescribePackages", {})
   .n("OpenSearchClient", "DescribePackagesCommand")
-  .sc(DescribePackages)
+  .sc(DescribePackages$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

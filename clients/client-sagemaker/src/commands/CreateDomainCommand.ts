@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateDomainRequest, CreateDomainResponse } from "../models/models_1";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { CreateDomain } from "../schemas/schemas_0";
+import { CreateDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -436,7 +436,7 @@ export class CreateDomainCommand extends $Command
   })
   .s("SageMaker", "CreateDomain", {})
   .n("SageMakerClient", "CreateDomainCommand")
-  .sc(CreateDomain)
+  .sc(CreateDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

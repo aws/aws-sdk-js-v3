@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
 import type { CreateReplicatorRequest, CreateReplicatorResponse } from "../models/models_0";
-import { CreateReplicator } from "../schemas/schemas_0";
+import { CreateReplicator$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -153,7 +153,7 @@ export class CreateReplicatorCommand extends $Command
   })
   .s("Kafka", "CreateReplicator", {})
   .n("KafkaClient", "CreateReplicatorCommand")
-  .sc(CreateReplicator)
+  .sc(CreateReplicator$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   CreateLocalGatewayRouteTableVpcAssociationRequest,
   CreateLocalGatewayRouteTableVpcAssociationResult,
 } from "../models/models_1";
-import { CreateLocalGatewayRouteTableVpcAssociation } from "../schemas/schemas_0";
+import { CreateLocalGatewayRouteTableVpcAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class CreateLocalGatewayRouteTableVpcAssociationCommand extends $Command
   })
   .s("AmazonEC2", "CreateLocalGatewayRouteTableVpcAssociation", {})
   .n("EC2Client", "CreateLocalGatewayRouteTableVpcAssociationCommand")
-  .sc(CreateLocalGatewayRouteTableVpcAssociation)
+  .sc(CreateLocalGatewayRouteTableVpcAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

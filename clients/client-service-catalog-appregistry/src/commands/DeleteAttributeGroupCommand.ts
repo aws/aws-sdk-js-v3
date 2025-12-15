@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAttributeGroupRequest, DeleteAttributeGroupResponse } from "../models/models_0";
-import { DeleteAttributeGroup } from "../schemas/schemas_0";
+import { DeleteAttributeGroup$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -94,7 +94,7 @@ export class DeleteAttributeGroupCommand extends $Command
   })
   .s("AWS242AppRegistry", "DeleteAttributeGroup", {})
   .n("ServiceCatalogAppRegistryClient", "DeleteAttributeGroupCommand")
-  .sc(DeleteAttributeGroup)
+  .sc(DeleteAttributeGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

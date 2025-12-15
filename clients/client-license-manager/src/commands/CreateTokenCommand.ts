@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LicenseManagerClient";
 import type { CreateTokenRequest, CreateTokenResponse } from "../models/models_0";
-import { CreateToken } from "../schemas/schemas_0";
+import { CreateToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class CreateTokenCommand extends $Command
   })
   .s("AWSLicenseManager", "CreateToken", {})
   .n("LicenseManagerClient", "CreateTokenCommand")
-  .sc(CreateToken)
+  .sc(CreateToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

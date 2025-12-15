@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { StartGUISessionRequest, StartGUISessionResult } from "../models/models_1";
-import { StartGUISession } from "../schemas/schemas_0";
+import { StartGUISession$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class StartGUISessionCommand extends $Command
   })
   .s("Lightsail_20161128", "StartGUISession", {})
   .n("LightsailClient", "StartGUISessionCommand")
-  .sc(StartGUISession)
+  .sc(StartGUISession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

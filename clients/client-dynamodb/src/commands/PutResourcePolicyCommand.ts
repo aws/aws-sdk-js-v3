@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutResourcePolicyInput, PutResourcePolicyOutput } from "../models/models_0";
-import { PutResourcePolicy } from "../schemas/schemas_0";
+import { PutResourcePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -149,7 +149,7 @@ export class PutResourcePolicyCommand extends $Command
   })
   .s("DynamoDB_20120810", "PutResourcePolicy", {})
   .n("DynamoDBClient", "PutResourcePolicyCommand")
-  .sc(PutResourcePolicy)
+  .sc(PutResourcePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

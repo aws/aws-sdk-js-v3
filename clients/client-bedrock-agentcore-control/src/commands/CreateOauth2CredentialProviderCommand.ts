@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateOauth2CredentialProviderRequest, CreateOauth2CredentialProviderResponse } from "../models/models_0";
-import { CreateOauth2CredentialProvider } from "../schemas/schemas_0";
+import { CreateOauth2CredentialProvider$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -280,7 +280,7 @@ export class CreateOauth2CredentialProviderCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "CreateOauth2CredentialProvider", {})
   .n("BedrockAgentCoreControlClient", "CreateOauth2CredentialProviderCommand")
-  .sc(CreateOauth2CredentialProvider)
+  .sc(CreateOauth2CredentialProvider$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

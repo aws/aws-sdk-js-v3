@@ -13,7 +13,7 @@ import type {
   StartMetadataModelExportToTargetMessage,
   StartMetadataModelExportToTargetResponse,
 } from "../models/models_1";
-import { StartMetadataModelExportToTarget } from "../schemas/schemas_0";
+import { StartMetadataModelExportToTarget$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,7 +127,7 @@ export class StartMetadataModelExportToTargetCommand extends $Command
   })
   .s("AmazonDMSv20160101", "StartMetadataModelExportToTarget", {})
   .n("DatabaseMigrationServiceClient", "StartMetadataModelExportToTargetCommand")
-  .sc(StartMetadataModelExportToTarget)
+  .sc(StartMetadataModelExportToTarget$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

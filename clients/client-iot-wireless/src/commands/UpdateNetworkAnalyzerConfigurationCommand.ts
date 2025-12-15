@@ -9,7 +9,7 @@ import type {
   UpdateNetworkAnalyzerConfigurationRequest,
   UpdateNetworkAnalyzerConfigurationResponse,
 } from "../models/models_1";
-import { UpdateNetworkAnalyzerConfiguration } from "../schemas/schemas_0";
+import { UpdateNetworkAnalyzerConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class UpdateNetworkAnalyzerConfigurationCommand extends $Command
   })
   .s("iotwireless", "UpdateNetworkAnalyzerConfiguration", {})
   .n("IoTWirelessClient", "UpdateNetworkAnalyzerConfigurationCommand")
-  .sc(UpdateNetworkAnalyzerConfiguration)
+  .sc(UpdateNetworkAnalyzerConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

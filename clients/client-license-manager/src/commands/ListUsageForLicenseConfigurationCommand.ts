@@ -13,7 +13,7 @@ import type {
   ListUsageForLicenseConfigurationRequest,
   ListUsageForLicenseConfigurationResponse,
 } from "../models/models_0";
-import { ListUsageForLicenseConfiguration } from "../schemas/schemas_0";
+import { ListUsageForLicenseConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,7 +123,7 @@ export class ListUsageForLicenseConfigurationCommand extends $Command
   })
   .s("AWSLicenseManager", "ListUsageForLicenseConfiguration", {})
   .n("LicenseManagerClient", "ListUsageForLicenseConfigurationCommand")
-  .sc(ListUsageForLicenseConfiguration)
+  .sc(ListUsageForLicenseConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

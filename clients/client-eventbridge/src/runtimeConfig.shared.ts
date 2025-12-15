@@ -37,13 +37,13 @@ export const getRuntimeConfig = (config: EventBridgeClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.eventbridge",
-        serviceTarget: "AWSEvents",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.eventbridge",
+      xmlNamespace: "http://events.amazonaws.com/doc/2015-10-07",
+      version: "2015-10-07",
+      serviceTarget: "AWSEvents",
+    },
     serviceId: config?.serviceId ?? "EventBridge",
     signerConstructor: config?.signerConstructor ?? SignatureV4MultiRegion,
     urlParser: config?.urlParser ?? parseUrl,

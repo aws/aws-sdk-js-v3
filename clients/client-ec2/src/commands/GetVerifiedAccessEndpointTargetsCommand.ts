@@ -9,7 +9,7 @@ import type {
   GetVerifiedAccessEndpointTargetsRequest,
   GetVerifiedAccessEndpointTargetsResult,
 } from "../models/models_6";
-import { GetVerifiedAccessEndpointTargets } from "../schemas/schemas_0";
+import { GetVerifiedAccessEndpointTargets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class GetVerifiedAccessEndpointTargetsCommand extends $Command
   })
   .s("AmazonEC2", "GetVerifiedAccessEndpointTargets", {})
   .n("EC2Client", "GetVerifiedAccessEndpointTargetsCommand")
-  .sc(GetVerifiedAccessEndpointTargets)
+  .sc(GetVerifiedAccessEndpointTargets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

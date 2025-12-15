@@ -9,7 +9,7 @@ import type {
   DescribeAccountCustomPermissionResponse,
 } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DescribeAccountCustomPermission } from "../schemas/schemas_0";
+import { DescribeAccountCustomPermission$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class DescribeAccountCustomPermissionCommand extends $Command
   })
   .s("QuickSight_20180401", "DescribeAccountCustomPermission", {})
   .n("QuickSightClient", "DescribeAccountCustomPermissionCommand")
-  .sc(DescribeAccountCustomPermission)
+  .sc(DescribeAccountCustomPermission$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../AccessAnalyzerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetFindingsStatisticsRequest, GetFindingsStatisticsResponse } from "../models/models_0";
-import { GetFindingsStatistics } from "../schemas/schemas_0";
+import { GetFindingsStatistics$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -140,7 +140,7 @@ export class GetFindingsStatisticsCommand extends $Command
   })
   .s("AccessAnalyzer", "GetFindingsStatistics", {})
   .n("AccessAnalyzerClient", "GetFindingsStatisticsCommand")
-  .sc(GetFindingsStatistics)
+  .sc(GetFindingsStatistics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

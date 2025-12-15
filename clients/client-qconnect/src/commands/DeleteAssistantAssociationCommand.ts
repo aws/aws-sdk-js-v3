@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAssistantAssociationRequest, DeleteAssistantAssociationResponse } from "../models/models_0";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { DeleteAssistantAssociation } from "../schemas/schemas_0";
+import { DeleteAssistantAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class DeleteAssistantAssociationCommand extends $Command
   })
   .s("WisdomService", "DeleteAssistantAssociation", {})
   .n("QConnectClient", "DeleteAssistantAssociationCommand")
-  .sc(DeleteAssistantAssociation)
+  .sc(DeleteAssistantAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

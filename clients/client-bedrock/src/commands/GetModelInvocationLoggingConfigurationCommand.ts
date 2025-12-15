@@ -9,7 +9,7 @@ import type {
   GetModelInvocationLoggingConfigurationRequest,
   GetModelInvocationLoggingConfigurationResponse,
 } from "../models/models_1";
-import { GetModelInvocationLoggingConfiguration } from "../schemas/schemas_0";
+import { GetModelInvocationLoggingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class GetModelInvocationLoggingConfigurationCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "GetModelInvocationLoggingConfiguration", {})
   .n("BedrockClient", "GetModelInvocationLoggingConfigurationCommand")
-  .sc(GetModelInvocationLoggingConfiguration)
+  .sc(GetModelInvocationLoggingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

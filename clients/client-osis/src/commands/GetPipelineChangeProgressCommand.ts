@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetPipelineChangeProgressRequest, GetPipelineChangeProgressResponse } from "../models/models_0";
 import type { OSISClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OSISClient";
-import { GetPipelineChangeProgress } from "../schemas/schemas_0";
+import { GetPipelineChangeProgress$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class GetPipelineChangeProgressCommand extends $Command
   })
   .s("AmazonOpenSearchIngestionService", "GetPipelineChangeProgress", {})
   .n("OSISClient", "GetPipelineChangeProgressCommand")
-  .sc(GetPipelineChangeProgress)
+  .sc(GetPipelineChangeProgress$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

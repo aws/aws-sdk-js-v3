@@ -9,7 +9,7 @@ import type {
   BatchDeleteRumMetricDefinitionsResponse,
 } from "../models/models_0";
 import type { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
-import { BatchDeleteRumMetricDefinitions } from "../schemas/schemas_0";
+import { BatchDeleteRumMetricDefinitions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class BatchDeleteRumMetricDefinitionsCommand extends $Command
   })
   .s("RUM", "BatchDeleteRumMetricDefinitions", {})
   .n("RUMClient", "BatchDeleteRumMetricDefinitionsCommand")
-  .sc(BatchDeleteRumMetricDefinitions)
+  .sc(BatchDeleteRumMetricDefinitions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

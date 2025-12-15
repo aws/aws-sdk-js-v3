@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateSnapshotInput, CreateSnapshotOutput } from "../models/models_0";
-import { CreateSnapshot } from "../schemas/schemas_0";
+import { CreateSnapshot$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -137,7 +137,7 @@ export class CreateSnapshotCommand extends $Command
   })
   .s("StorageGateway_20130630", "CreateSnapshot", {})
   .n("StorageGatewayClient", "CreateSnapshotCommand")
-  .sc(CreateSnapshot)
+  .sc(CreateSnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

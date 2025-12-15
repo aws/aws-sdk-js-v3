@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { XmlListsOutput } from "../models/models_0";
 import type { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { XmlEmptyLists } from "../schemas/schemas_0";
+import { XmlEmptyLists$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class XmlEmptyListsCommand extends $Command
   })
   .s("AwsQuery", "XmlEmptyLists", {})
   .n("QueryProtocolClient", "XmlEmptyListsCommand")
-  .sc(XmlEmptyLists)
+  .sc(XmlEmptyLists$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

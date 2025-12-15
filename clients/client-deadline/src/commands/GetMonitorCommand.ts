@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetMonitorRequest, GetMonitorResponse } from "../models/models_1";
-import { GetMonitor } from "../schemas/schemas_0";
+import { GetMonitor$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class GetMonitorCommand extends $Command
   })
   .s("Deadline", "GetMonitor", {})
   .n("DeadlineClient", "GetMonitorCommand")
-  .sc(GetMonitor)
+  .sc(GetMonitor$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

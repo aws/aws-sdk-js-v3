@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LookoutEquipmentClient";
 import type { ListInferenceExecutionsRequest, ListInferenceExecutionsResponse } from "../models/models_0";
-import { ListInferenceExecutions } from "../schemas/schemas_0";
+import { ListInferenceExecutions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -139,7 +139,7 @@ export class ListInferenceExecutionsCommand extends $Command
   })
   .s("AWSLookoutEquipmentFrontendService", "ListInferenceExecutions", {})
   .n("LookoutEquipmentClient", "ListInferenceExecutionsCommand")
-  .sc(ListInferenceExecutions)
+  .sc(ListInferenceExecutions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

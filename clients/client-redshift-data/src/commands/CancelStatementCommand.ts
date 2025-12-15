@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CancelStatementRequest, CancelStatementResponse } from "../models/models_0";
 import type { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
-import { CancelStatement } from "../schemas/schemas_0";
+import { CancelStatement$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class CancelStatementCommand extends $Command
   })
   .s("RedshiftData", "CancelStatement", {})
   .n("RedshiftDataClient", "CancelStatementCommand")
-  .sc(CancelStatement)
+  .sc(CancelStatement$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

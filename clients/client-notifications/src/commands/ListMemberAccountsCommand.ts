@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListMemberAccountsRequest, ListMemberAccountsResponse } from "../models/models_0";
 import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { ListMemberAccounts } from "../schemas/schemas_0";
+import { ListMemberAccounts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class ListMemberAccountsCommand extends $Command
   })
   .s("Notifications", "ListMemberAccounts", {})
   .n("NotificationsClient", "ListMemberAccountsCommand")
-  .sc(ListMemberAccounts)
+  .sc(ListMemberAccounts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

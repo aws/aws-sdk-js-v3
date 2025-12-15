@@ -245,47 +245,47 @@ import type {
 } from "@smithy/types";
 
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
-import { WorkspacesInstancesServiceException as __WorkspacesInstancesServiceException } from "../models/WorkspacesInstancesServiceException";
+import { WorkspacesInstancesServiceException } from "../models/WorkspacesInstancesServiceException";
 
 /* eslint no-var: 0 */
-export var ClientToken: StaticSimpleSchema = [0, n0, _CT, 8, 0];
-export var Ipv4Address: StaticSimpleSchema = [0, n0, _IA, 8, 0];
-export var Ipv6Address: StaticSimpleSchema = [0, n0, _IAp, 8, 0];
-export var KmsKeyId: StaticSimpleSchema = [0, n0, _KKI, 8, 0];
-export var NextToken: StaticSimpleSchema = [0, n0, _NT, 8, 0];
-export var UserData: StaticSimpleSchema = [0, n0, _UD, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var AssociateVolumeRequest: StaticStructureSchema = [3, n0, _AVR, 0, [_WII, _VI, _D], [0, 0, 0]];
-export var AssociateVolumeResponse: StaticStructureSchema = [3, n0, _AVRs, 0, [], []];
-export var BlockDeviceMappingRequest: StaticStructureSchema = [
+var ClientToken: StaticSimpleSchema = [0, n0, _CT, 8, 0];
+var Ipv4Address: StaticSimpleSchema = [0, n0, _IA, 8, 0];
+var Ipv6Address: StaticSimpleSchema = [0, n0, _IAp, 8, 0];
+var KmsKeyId: StaticSimpleSchema = [0, n0, _KKI, 8, 0];
+var NextToken: StaticSimpleSchema = [0, n0, _NT, 8, 0];
+var UserData: StaticSimpleSchema = [0, n0, _UD, 8, 0];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var AssociateVolumeRequest$: StaticStructureSchema = [3, n0, _AVR, 0, [_WII, _VI, _D], [0, 0, 0]];
+export var AssociateVolumeResponse$: StaticStructureSchema = [3, n0, _AVRs, 0, [], []];
+export var BlockDeviceMappingRequest$: StaticStructureSchema = [
   3,
   n0,
   _BDMR,
   0,
   [_DN, _E, _ND, _VN],
-  [0, [() => EbsBlockDevice, 0], 0, 0],
+  [0, [() => EbsBlockDevice$, 0], 0, 0],
 ];
-export var CapacityReservationSpecification: StaticStructureSchema = [
+export var CapacityReservationSpecification$: StaticStructureSchema = [
   3,
   n0,
   _CRS,
   0,
   [_CRP, _CRT],
-  [0, () => CapacityReservationTarget],
+  [0, () => CapacityReservationTarget$],
 ];
-export var CapacityReservationTarget: StaticStructureSchema = [3, n0, _CRT, 0, [_CRI, _CRRGA], [0, 0]];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M, _RI, _RT], [0, 0, 0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var ConnectionTrackingSpecificationRequest: StaticStructureSchema = [
+export var CapacityReservationTarget$: StaticStructureSchema = [3, n0, _CRT, 0, [_CRI, _CRRGA], [0, 0]];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M, _RI, _RT], [0, 0, 0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var ConnectionTrackingSpecificationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CTSR,
@@ -293,8 +293,8 @@ export var ConnectionTrackingSpecificationRequest: StaticStructureSchema = [
   [_TET, _UST, _UT],
   [1, 1, 1],
 ];
-export var CpuOptionsRequest: StaticStructureSchema = [3, n0, _COR, 0, [_ASS, _CC, _TPC], [0, 1, 1]];
-export var CreateVolumeRequest: StaticStructureSchema = [
+export var CpuOptionsRequest$: StaticStructureSchema = [3, n0, _COR, 0, [_ASS, _CC, _TPC], [0, 1, 1]];
+export var CreateVolumeRequest$: StaticStructureSchema = [
   3,
   n0,
   _CVR,
@@ -302,24 +302,24 @@ export var CreateVolumeRequest: StaticStructureSchema = [
   [_AZ, _CT, _En, _I, _KKI, _SIGB, _SI, _TS, _T, _VT],
   [0, [() => ClientToken, 4], 2, 1, [() => KmsKeyId, 0], 1, 0, () => TagSpecifications, 1, 0],
 ];
-export var CreateVolumeResponse: StaticStructureSchema = [3, n0, _CVRr, 0, [_VI], [0]];
-export var CreateWorkspaceInstanceRequest: StaticStructureSchema = [
+export var CreateVolumeResponse$: StaticStructureSchema = [3, n0, _CVRr, 0, [_VI], [0]];
+export var CreateWorkspaceInstanceRequest$: StaticStructureSchema = [
   3,
   n0,
   _CWIR,
   0,
   [_CT, _Ta, _MI],
-  [[() => ClientToken, 4], () => TagList, [() => ManagedInstanceRequest, 0]],
+  [[() => ClientToken, 4], () => TagList, [() => ManagedInstanceRequest$, 0]],
 ];
-export var CreateWorkspaceInstanceResponse: StaticStructureSchema = [3, n0, _CWIRr, 0, [_WII], [0]];
-export var CreditSpecificationRequest: StaticStructureSchema = [3, n0, _CSR, 0, [_CCp], [0]];
-export var DeleteVolumeRequest: StaticStructureSchema = [3, n0, _DVR, 0, [_VI], [0]];
-export var DeleteVolumeResponse: StaticStructureSchema = [3, n0, _DVRe, 0, [], []];
-export var DeleteWorkspaceInstanceRequest: StaticStructureSchema = [3, n0, _DWIR, 0, [_WII], [0]];
-export var DeleteWorkspaceInstanceResponse: StaticStructureSchema = [3, n0, _DWIRe, 0, [], []];
-export var DisassociateVolumeRequest: StaticStructureSchema = [3, n0, _DVRi, 0, [_WII, _VI, _D, _DM], [0, 0, 0, 0]];
-export var DisassociateVolumeResponse: StaticStructureSchema = [3, n0, _DVRis, 0, [], []];
-export var EbsBlockDevice: StaticStructureSchema = [
+export var CreateWorkspaceInstanceResponse$: StaticStructureSchema = [3, n0, _CWIRr, 0, [_WII], [0]];
+export var CreditSpecificationRequest$: StaticStructureSchema = [3, n0, _CSR, 0, [_CCp], [0]];
+export var DeleteVolumeRequest$: StaticStructureSchema = [3, n0, _DVR, 0, [_VI], [0]];
+export var DeleteVolumeResponse$: StaticStructureSchema = [3, n0, _DVRe, 0, [], []];
+export var DeleteWorkspaceInstanceRequest$: StaticStructureSchema = [3, n0, _DWIR, 0, [_WII], [0]];
+export var DeleteWorkspaceInstanceResponse$: StaticStructureSchema = [3, n0, _DWIRe, 0, [], []];
+export var DisassociateVolumeRequest$: StaticStructureSchema = [3, n0, _DVRi, 0, [_WII, _VI, _D, _DM], [0, 0, 0, 0]];
+export var DisassociateVolumeResponse$: StaticStructureSchema = [3, n0, _DVRis, 0, [], []];
+export var EbsBlockDevice$: StaticStructureSchema = [
   3,
   n0,
   _EBD,
@@ -327,40 +327,40 @@ export var EbsBlockDevice: StaticStructureSchema = [
   [_VT, _En, _KKI, _I, _T, _VS],
   [0, 2, [() => KmsKeyId, 0], 1, 1, 1],
 ];
-export var EC2InstanceError: StaticStructureSchema = [3, n0, _ECIE, 0, [_ECEC, _ECET, _ECEM], [0, 0, 0]];
-export var EC2ManagedInstance: StaticStructureSchema = [3, n0, _ECMI, 0, [_II], [0]];
-export var EnaSrdSpecificationRequest: StaticStructureSchema = [
+export var EC2InstanceError$: StaticStructureSchema = [3, n0, _ECIE, 0, [_ECEC, _ECET, _ECEM], [0, 0, 0]];
+export var EC2ManagedInstance$: StaticStructureSchema = [3, n0, _ECMI, 0, [_II], [0]];
+export var EnaSrdSpecificationRequest$: StaticStructureSchema = [
   3,
   n0,
   _ESSR,
   0,
   [_ESE, _ESUS],
-  [2, () => EnaSrdUdpSpecificationRequest],
+  [2, () => EnaSrdUdpSpecificationRequest$],
 ];
-export var EnaSrdUdpSpecificationRequest: StaticStructureSchema = [3, n0, _ESUSR, 0, [_ESUE], [2]];
-export var EnclaveOptionsRequest: StaticStructureSchema = [3, n0, _EOR, 0, [_Ena], [2]];
-export var GetWorkspaceInstanceRequest: StaticStructureSchema = [3, n0, _GWIR, 0, [_WII], [0]];
-export var GetWorkspaceInstanceResponse: StaticStructureSchema = [
+export var EnaSrdUdpSpecificationRequest$: StaticStructureSchema = [3, n0, _ESUSR, 0, [_ESUE], [2]];
+export var EnclaveOptionsRequest$: StaticStructureSchema = [3, n0, _EOR, 0, [_Ena], [2]];
+export var GetWorkspaceInstanceRequest$: StaticStructureSchema = [3, n0, _GWIR, 0, [_WII], [0]];
+export var GetWorkspaceInstanceResponse$: StaticStructureSchema = [
   3,
   n0,
   _GWIRe,
   0,
   [_WIE, _ECIEn, _PS, _WII, _ECMI],
-  [() => WorkspaceInstanceErrors, () => EC2InstanceErrors, 0, 0, () => EC2ManagedInstance],
+  [() => WorkspaceInstanceErrors, () => EC2InstanceErrors, 0, 0, () => EC2ManagedInstance$],
 ];
-export var HibernationOptionsRequest: StaticStructureSchema = [3, n0, _HOR, 0, [_C], [2]];
-export var IamInstanceProfileSpecification: StaticStructureSchema = [3, n0, _IIPS, 0, [_A, _N], [0, 0]];
-export var InstanceIpv6Address: StaticStructureSchema = [3, n0, _IIA, 0, [_IAp, _IPI], [[() => Ipv6Address, 0], 2]];
-export var InstanceMaintenanceOptionsRequest: StaticStructureSchema = [3, n0, _IMOR, 0, [_AR], [0]];
-export var InstanceMarketOptionsRequest: StaticStructureSchema = [
+export var HibernationOptionsRequest$: StaticStructureSchema = [3, n0, _HOR, 0, [_C], [2]];
+export var IamInstanceProfileSpecification$: StaticStructureSchema = [3, n0, _IIPS, 0, [_A, _N], [0, 0]];
+export var InstanceIpv6Address$: StaticStructureSchema = [3, n0, _IIA, 0, [_IAp, _IPI], [[() => Ipv6Address, 0], 2]];
+export var InstanceMaintenanceOptionsRequest$: StaticStructureSchema = [3, n0, _IMOR, 0, [_AR], [0]];
+export var InstanceMarketOptionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _IMORn,
   0,
   [_MT, _SO],
-  [0, () => SpotMarketOptions],
+  [0, () => SpotMarketOptions$],
 ];
-export var InstanceMetadataOptionsRequest: StaticStructureSchema = [
+export var InstanceMetadataOptionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _IMORns,
@@ -368,7 +368,7 @@ export var InstanceMetadataOptionsRequest: StaticStructureSchema = [
   [_HE, _HPI, _HPRHL, _HT, _IMT],
   [0, 0, 1, 0, 0],
 ];
-export var InstanceNetworkInterfaceSpecification: StaticStructureSchema = [
+export var InstanceNetworkInterfaceSpecification$: StaticStructureSchema = [
   3,
   n0,
   _INIS,
@@ -399,10 +399,10 @@ export var InstanceNetworkInterfaceSpecification: StaticStructureSchema = [
   [
     2,
     2,
-    () => ConnectionTrackingSpecificationRequest,
+    () => ConnectionTrackingSpecificationRequest$,
     0,
     1,
-    () => EnaSrdSpecificationRequest,
+    () => EnaSrdSpecificationRequest$,
     0,
     () => Ipv4Prefixes,
     1,
@@ -420,9 +420,9 @@ export var InstanceNetworkInterfaceSpecification: StaticStructureSchema = [
     0,
   ],
 ];
-export var InstanceNetworkPerformanceOptionsRequest: StaticStructureSchema = [3, n0, _INPOR, 0, [_BW], [0]];
-export var InstanceTypeInfo: StaticStructureSchema = [3, n0, _ITI, 0, [_ITn], [0]];
-export var InternalServerException: StaticErrorSchema = [
+export var InstanceNetworkPerformanceOptionsRequest$: StaticStructureSchema = [3, n0, _INPOR, 0, [_BW], [0]];
+export var InstanceTypeInfo$: StaticStructureSchema = [3, n0, _ITI, 0, [_ITn], [0]];
+export var InternalServerException$: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
@@ -430,12 +430,12 @@ export var InternalServerException: StaticErrorSchema = [
   [_M, _RAS],
   [0, [1, { [_hH]: _RA }]],
 ];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var Ipv4PrefixSpecificationRequest: StaticStructureSchema = [3, n0, _IPSR, 0, [_IPpv], [0]];
-export var Ipv6PrefixSpecificationRequest: StaticStructureSchema = [3, n0, _IPSRp, 0, [_IPpvr], [0]];
-export var LicenseConfigurationRequest: StaticStructureSchema = [3, n0, _LCR, 0, [_LCA], [0]];
-export var ListInstanceTypesRequest: StaticStructureSchema = [3, n0, _LITR, 0, [_MR, _NT], [1, [() => NextToken, 0]]];
-export var ListInstanceTypesResponse: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var Ipv4PrefixSpecificationRequest$: StaticStructureSchema = [3, n0, _IPSR, 0, [_IPpv], [0]];
+export var Ipv6PrefixSpecificationRequest$: StaticStructureSchema = [3, n0, _IPSRp, 0, [_IPpvr], [0]];
+export var LicenseConfigurationRequest$: StaticStructureSchema = [3, n0, _LCR, 0, [_LCA], [0]];
+export var ListInstanceTypesRequest$: StaticStructureSchema = [3, n0, _LITR, 0, [_MR, _NT], [1, [() => NextToken, 0]]];
+export var ListInstanceTypesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LITRi,
@@ -443,8 +443,8 @@ export var ListInstanceTypesResponse: StaticStructureSchema = [
   [_ITns, _NT],
   [() => InstanceTypes, [() => NextToken, 0]],
 ];
-export var ListRegionsRequest: StaticStructureSchema = [3, n0, _LRR, 0, [_MR, _NT], [1, [() => NextToken, 0]]];
-export var ListRegionsResponse: StaticStructureSchema = [
+export var ListRegionsRequest$: StaticStructureSchema = [3, n0, _LRR, 0, [_MR, _NT], [1, [() => NextToken, 0]]];
+export var ListRegionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRRi,
@@ -452,9 +452,9 @@ export var ListRegionsResponse: StaticStructureSchema = [
   [_R, _NT],
   [() => RegionList, [() => NextToken, 0]],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_WII], [0]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [() => TagList]];
-export var ListWorkspaceInstancesRequest: StaticStructureSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_WII], [0]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [() => TagList]];
+export var ListWorkspaceInstancesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LWIR,
@@ -462,7 +462,7 @@ export var ListWorkspaceInstancesRequest: StaticStructureSchema = [
   [_PSr, _MR, _NT],
   [64 | 0, 1, [() => NextToken, 0]],
 ];
-export var ListWorkspaceInstancesResponse: StaticStructureSchema = [
+export var ListWorkspaceInstancesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LWIRi,
@@ -470,7 +470,7 @@ export var ListWorkspaceInstancesResponse: StaticStructureSchema = [
   [_WI, _NT],
   [() => WorkspaceInstances, [() => NextToken, 0]],
 ];
-export var ManagedInstanceRequest: StaticStructureSchema = [
+export var ManagedInstanceRequest$: StaticStructureSchema = [
   3,
   n0,
   _MIR,
@@ -511,30 +511,30 @@ export var ManagedInstanceRequest: StaticStructureSchema = [
   ],
   [
     [() => BlockDeviceMappings, 0],
-    () => CapacityReservationSpecification,
-    () => CpuOptionsRequest,
-    () => CreditSpecificationRequest,
+    () => CapacityReservationSpecification$,
+    () => CpuOptionsRequest$,
+    () => CreditSpecificationRequest$,
     2,
     2,
     2,
-    () => EnclaveOptionsRequest,
-    () => HibernationOptionsRequest,
-    () => IamInstanceProfileSpecification,
+    () => EnclaveOptionsRequest$,
+    () => HibernationOptionsRequest$,
+    () => IamInstanceProfileSpecification$,
     0,
-    () => InstanceMarketOptionsRequest,
+    () => InstanceMarketOptionsRequest$,
     0,
     [() => Ipv6Addresses, 0],
     1,
     0,
     0,
     () => LicenseSpecifications,
-    () => InstanceMaintenanceOptionsRequest,
-    () => InstanceMetadataOptionsRequest,
-    () => RunInstancesMonitoringEnabled,
+    () => InstanceMaintenanceOptionsRequest$,
+    () => InstanceMetadataOptionsRequest$,
+    () => RunInstancesMonitoringEnabled$,
     [() => NetworkInterfaces, 0],
-    () => InstanceNetworkPerformanceOptionsRequest,
-    () => Placement,
-    () => PrivateDnsNameOptionsRequest,
+    () => InstanceNetworkPerformanceOptionsRequest$,
+    () => Placement$,
+    () => PrivateDnsNameOptionsRequest$,
     [() => Ipv4Address, 0],
     0,
     64 | 0,
@@ -544,7 +544,7 @@ export var ManagedInstanceRequest: StaticStructureSchema = [
     [() => UserData, 0],
   ],
 ];
-export var Placement: StaticStructureSchema = [
+export var Placement$: StaticStructureSchema = [
   3,
   n0,
   _P,
@@ -552,7 +552,7 @@ export var Placement: StaticStructureSchema = [
   [_Af, _AZ, _GI, _GN, _HI, _HRGA, _PN, _Te],
   [0, 0, 0, 0, 0, 0, 1, 0],
 ];
-export var PrivateDnsNameOptionsRequest: StaticStructureSchema = [
+export var PrivateDnsNameOptionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _PDNOR,
@@ -560,7 +560,7 @@ export var PrivateDnsNameOptionsRequest: StaticStructureSchema = [
   [_HTo, _ERNDAR, _ERNDAAAAR],
   [0, 2, 2],
 ];
-export var PrivateIpAddressSpecification: StaticStructureSchema = [
+export var PrivateIpAddressSpecification$: StaticStructureSchema = [
   3,
   n0,
   _PIAS,
@@ -568,8 +568,8 @@ export var PrivateIpAddressSpecification: StaticStructureSchema = [
   [_Pr, _PIA],
   [2, [() => Ipv4Address, 0]],
 ];
-export var Region: StaticStructureSchema = [3, n0, _Re, 0, [_RN], [0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
+export var Region$: StaticStructureSchema = [3, n0, _Re, 0, [_RN], [0]];
+export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
@@ -577,9 +577,9 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   [_M, _RI, _RT],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var RunInstancesMonitoringEnabled: StaticStructureSchema = [3, n0, _RIME, 0, [_Ena], [2]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var RunInstancesMonitoringEnabled$: StaticStructureSchema = [3, n0, _RIME, 0, [_Ena], [2]];
+export var ServiceQuotaExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
@@ -587,13 +587,20 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   [_M, _RI, _RT, _SC, _QC],
   [0, 0, 0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var SpotMarketOptions: StaticStructureSchema = [3, n0, _SMO, 0, [_BDMl, _IIB, _MP, _SIT, _VUU], [1, 0, 0, 0, 4]];
-export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_WII, _Ta], [0, () => TagList]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TagSpecification: StaticStructureSchema = [3, n0, _TSa, 0, [_RT, _Ta], [0, () => TagList]];
-export var ThrottlingException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var SpotMarketOptions$: StaticStructureSchema = [
+  3,
+  n0,
+  _SMO,
+  0,
+  [_BDMl, _IIB, _MP, _SIT, _VUU],
+  [1, 0, 0, 0, 4],
+];
+export var Tag$: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_WII, _Ta], [0, () => TagList]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var TagSpecification$: StaticStructureSchema = [3, n0, _TSa, 0, [_RT, _Ta], [0, () => TagList]];
+export var ThrottlingException$: StaticErrorSchema = [
   -3,
   n0,
   _TE,
@@ -601,10 +608,10 @@ export var ThrottlingException: StaticErrorSchema = [
   [_M, _SC, _QC, _RAS],
   [0, 0, 0, [1, { [_hH]: _RA }]],
 ];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_WII, _TK], [0, 64 | 0]];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var ValidationException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR, 0, [_WII, _TK], [0, 64 | 0]];
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VE,
@@ -612,18 +619,18 @@ export var ValidationException: StaticErrorSchema = [
   [_M, _Rea, _FL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_N, _Rea, _M], [0, 0, 0]];
-export var WorkspaceInstance: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF, 0, [_N, _Rea, _M], [0, 0, 0]];
+export var WorkspaceInstance$: StaticStructureSchema = [
   3,
   n0,
   _WIo,
   0,
   [_PS, _WII, _ECMI],
-  [0, 0, () => EC2ManagedInstance],
+  [0, 0, () => EC2ManagedInstance$],
 ];
-export var WorkspaceInstanceError: StaticStructureSchema = [3, n0, _WIEo, 0, [_EC, _EM], [0, 0]];
-export var WorkspacesInstancesServiceException: StaticErrorSchema = [
+export var WorkspaceInstanceError$: StaticStructureSchema = [3, n0, _WIEo, 0, [_EC, _EM], [0, 0]];
+export var WorkspacesInstancesServiceException$: StaticErrorSchema = [
   -3,
   _sm,
   "WorkspacesInstancesServiceException",
@@ -631,99 +638,113 @@ export var WorkspacesInstancesServiceException: StaticErrorSchema = [
   [],
   [],
 ];
-TypeRegistry.for(_sm).registerError(WorkspacesInstancesServiceException, __WorkspacesInstancesServiceException);
-export var BlockDeviceMappings: StaticListSchema = [1, n0, _BDM, 0, [() => BlockDeviceMappingRequest, 0]];
-export var EC2InstanceErrors: StaticListSchema = [1, n0, _ECIEn, 0, () => EC2InstanceError];
-export var InstanceTypes: StaticListSchema = [1, n0, _ITns, 0, () => InstanceTypeInfo];
-export var Ipv4Prefixes: StaticListSchema = [1, n0, _IP, 0, () => Ipv4PrefixSpecificationRequest];
-export var Ipv6Addresses: StaticListSchema = [1, n0, _IApv, 0, [() => InstanceIpv6Address, 0]];
-export var Ipv6Prefixes: StaticListSchema = [1, n0, _IPp, 0, () => Ipv6PrefixSpecificationRequest];
-export var LicenseSpecifications: StaticListSchema = [1, n0, _LS, 0, () => LicenseConfigurationRequest];
-export var NetworkInterfaces: StaticListSchema = [1, n0, _NI, 0, [() => InstanceNetworkInterfaceSpecification, 0]];
-export var PrivateIpAddresses: StaticListSchema = [1, n0, _PIAr, 0, [() => PrivateIpAddressSpecification, 0]];
-export var ProvisionStates = 64 | 0;
-export var RegionList: StaticListSchema = [1, n0, _RL, 0, () => Region];
-export var SecurityGroupIds = 64 | 0;
-export var SecurityGroupNames = 64 | 0;
-export var TagKeyList = 64 | 0;
-export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
-export var TagSpecifications: StaticListSchema = [1, n0, _TS, 0, () => TagSpecification];
-export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
-export var WorkspaceInstanceErrors: StaticListSchema = [1, n0, _WIE, 0, () => WorkspaceInstanceError];
-export var WorkspaceInstances: StaticListSchema = [1, n0, _WI, 0, () => WorkspaceInstance];
-export var AssociateVolume: StaticOperationSchema = [
+TypeRegistry.for(_sm).registerError(WorkspacesInstancesServiceException$, WorkspacesInstancesServiceException);
+var BlockDeviceMappings: StaticListSchema = [1, n0, _BDM, 0, [() => BlockDeviceMappingRequest$, 0]];
+var EC2InstanceErrors: StaticListSchema = [1, n0, _ECIEn, 0, () => EC2InstanceError$];
+var InstanceTypes: StaticListSchema = [1, n0, _ITns, 0, () => InstanceTypeInfo$];
+var Ipv4Prefixes: StaticListSchema = [1, n0, _IP, 0, () => Ipv4PrefixSpecificationRequest$];
+var Ipv6Addresses: StaticListSchema = [1, n0, _IApv, 0, [() => InstanceIpv6Address$, 0]];
+var Ipv6Prefixes: StaticListSchema = [1, n0, _IPp, 0, () => Ipv6PrefixSpecificationRequest$];
+var LicenseSpecifications: StaticListSchema = [1, n0, _LS, 0, () => LicenseConfigurationRequest$];
+var NetworkInterfaces: StaticListSchema = [1, n0, _NI, 0, [() => InstanceNetworkInterfaceSpecification$, 0]];
+var PrivateIpAddresses: StaticListSchema = [1, n0, _PIAr, 0, [() => PrivateIpAddressSpecification$, 0]];
+var ProvisionStates = 64 | 0;
+var RegionList: StaticListSchema = [1, n0, _RL, 0, () => Region$];
+var SecurityGroupIds = 64 | 0;
+var SecurityGroupNames = 64 | 0;
+var TagKeyList = 64 | 0;
+var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
+var TagSpecifications: StaticListSchema = [1, n0, _TS, 0, () => TagSpecification$];
+var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField$];
+var WorkspaceInstanceErrors: StaticListSchema = [1, n0, _WIE, 0, () => WorkspaceInstanceError$];
+var WorkspaceInstances: StaticListSchema = [1, n0, _WI, 0, () => WorkspaceInstance$];
+export var AssociateVolume$: StaticOperationSchema = [
   9,
   n0,
   _AV,
   0,
-  () => AssociateVolumeRequest,
-  () => AssociateVolumeResponse,
+  () => AssociateVolumeRequest$,
+  () => AssociateVolumeResponse$,
 ];
-export var CreateVolume: StaticOperationSchema = [9, n0, _CV, 2, () => CreateVolumeRequest, () => CreateVolumeResponse];
-export var CreateWorkspaceInstance: StaticOperationSchema = [
+export var CreateVolume$: StaticOperationSchema = [
+  9,
+  n0,
+  _CV,
+  2,
+  () => CreateVolumeRequest$,
+  () => CreateVolumeResponse$,
+];
+export var CreateWorkspaceInstance$: StaticOperationSchema = [
   9,
   n0,
   _CWI,
   2,
-  () => CreateWorkspaceInstanceRequest,
-  () => CreateWorkspaceInstanceResponse,
+  () => CreateWorkspaceInstanceRequest$,
+  () => CreateWorkspaceInstanceResponse$,
 ];
-export var DeleteVolume: StaticOperationSchema = [9, n0, _DV, 0, () => DeleteVolumeRequest, () => DeleteVolumeResponse];
-export var DeleteWorkspaceInstance: StaticOperationSchema = [
+export var DeleteVolume$: StaticOperationSchema = [
+  9,
+  n0,
+  _DV,
+  0,
+  () => DeleteVolumeRequest$,
+  () => DeleteVolumeResponse$,
+];
+export var DeleteWorkspaceInstance$: StaticOperationSchema = [
   9,
   n0,
   _DWI,
   0,
-  () => DeleteWorkspaceInstanceRequest,
-  () => DeleteWorkspaceInstanceResponse,
+  () => DeleteWorkspaceInstanceRequest$,
+  () => DeleteWorkspaceInstanceResponse$,
 ];
-export var DisassociateVolume: StaticOperationSchema = [
+export var DisassociateVolume$: StaticOperationSchema = [
   9,
   n0,
   _DVi,
   0,
-  () => DisassociateVolumeRequest,
-  () => DisassociateVolumeResponse,
+  () => DisassociateVolumeRequest$,
+  () => DisassociateVolumeResponse$,
 ];
-export var GetWorkspaceInstance: StaticOperationSchema = [
+export var GetWorkspaceInstance$: StaticOperationSchema = [
   9,
   n0,
   _GWI,
   0,
-  () => GetWorkspaceInstanceRequest,
-  () => GetWorkspaceInstanceResponse,
+  () => GetWorkspaceInstanceRequest$,
+  () => GetWorkspaceInstanceResponse$,
 ];
-export var ListInstanceTypes: StaticOperationSchema = [
+export var ListInstanceTypes$: StaticOperationSchema = [
   9,
   n0,
   _LIT,
   0,
-  () => ListInstanceTypesRequest,
-  () => ListInstanceTypesResponse,
+  () => ListInstanceTypesRequest$,
+  () => ListInstanceTypesResponse$,
 ];
-export var ListRegions: StaticOperationSchema = [9, n0, _LR, 0, () => ListRegionsRequest, () => ListRegionsResponse];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListRegions$: StaticOperationSchema = [9, n0, _LR, 0, () => ListRegionsRequest$, () => ListRegionsResponse$];
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   0,
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var ListWorkspaceInstances: StaticOperationSchema = [
+export var ListWorkspaceInstances$: StaticOperationSchema = [
   9,
   n0,
   _LWI,
   0,
-  () => ListWorkspaceInstancesRequest,
-  () => ListWorkspaceInstancesResponse,
+  () => ListWorkspaceInstancesRequest$,
+  () => ListWorkspaceInstancesResponse$,
 ];
-export var TagResource: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceRequest, () => TagResourceResponse];
-export var UntagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceRequest$, () => TagResourceResponse$];
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   0,
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];

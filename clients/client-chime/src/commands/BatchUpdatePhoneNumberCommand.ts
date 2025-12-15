@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchUpdatePhoneNumberRequest, BatchUpdatePhoneNumberResponse } from "../models/models_0";
-import { BatchUpdatePhoneNumber } from "../schemas/schemas_0";
+import { BatchUpdatePhoneNumber$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class BatchUpdatePhoneNumberCommand extends $Command
   })
   .s("UCBuzzConsoleService", "BatchUpdatePhoneNumber", {})
   .n("ChimeClient", "BatchUpdatePhoneNumberCommand")
-  .sc(BatchUpdatePhoneNumber)
+  .sc(BatchUpdatePhoneNumber$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

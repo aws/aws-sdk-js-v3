@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RestoreBackupRequest, RestoreBackupResponse } from "../models/models_0";
-import { RestoreBackup } from "../schemas/schemas_0";
+import { RestoreBackup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class RestoreBackupCommand extends $Command
   })
   .s("BaldrApiService", "RestoreBackup", {})
   .n("CloudHSMV2Client", "RestoreBackupCommand")
-  .sc(RestoreBackup)
+  .sc(RestoreBackup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeprecateDomainInput } from "../models/models_0";
-import { DeprecateDomain } from "../schemas/schemas_0";
+import { DeprecateDomain$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -111,7 +111,7 @@ export class DeprecateDomainCommand extends $Command
   })
   .s("SimpleWorkflowService", "DeprecateDomain", {})
   .n("SWFClient", "DeprecateDomainCommand")
-  .sc(DeprecateDomain)
+  .sc(DeprecateDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

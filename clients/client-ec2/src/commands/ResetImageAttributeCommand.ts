@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ResetImageAttributeRequest } from "../models/models_7";
-import { ResetImageAttribute } from "../schemas/schemas_0";
+import { ResetImageAttribute$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class ResetImageAttributeCommand extends $Command
   })
   .s("AmazonEC2", "ResetImageAttribute", {})
   .n("EC2Client", "ResetImageAttributeCommand")
-  .sc(ResetImageAttribute)
+  .sc(ResetImageAttribute$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

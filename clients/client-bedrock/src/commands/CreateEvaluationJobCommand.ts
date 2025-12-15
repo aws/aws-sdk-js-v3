@@ -7,7 +7,7 @@ import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateEvaluationJobResponse } from "../models/models_0";
 import type { CreateEvaluationJobRequest } from "../models/models_1";
-import { CreateEvaluationJob } from "../schemas/schemas_0";
+import { CreateEvaluationJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -427,7 +427,7 @@ export class CreateEvaluationJobCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "CreateEvaluationJob", {})
   .n("BedrockClient", "CreateEvaluationJobCommand")
-  .sc(CreateEvaluationJob)
+  .sc(CreateEvaluationJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

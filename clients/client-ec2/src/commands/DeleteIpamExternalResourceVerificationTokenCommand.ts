@@ -9,7 +9,7 @@ import type {
   DeleteIpamExternalResourceVerificationTokenRequest,
   DeleteIpamExternalResourceVerificationTokenResult,
 } from "../models/models_2";
-import { DeleteIpamExternalResourceVerificationToken } from "../schemas/schemas_0";
+import { DeleteIpamExternalResourceVerificationToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class DeleteIpamExternalResourceVerificationTokenCommand extends $Command
   })
   .s("AmazonEC2", "DeleteIpamExternalResourceVerificationToken", {})
   .n("EC2Client", "DeleteIpamExternalResourceVerificationTokenCommand")
-  .sc(DeleteIpamExternalResourceVerificationToken)
+  .sc(DeleteIpamExternalResourceVerificationToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../AccessAnalyzerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAccessPreviewFindingsRequest, ListAccessPreviewFindingsResponse } from "../models/models_0";
-import { ListAccessPreviewFindings } from "../schemas/schemas_0";
+import { ListAccessPreviewFindings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -146,7 +146,7 @@ export class ListAccessPreviewFindingsCommand extends $Command
   })
   .s("AccessAnalyzer", "ListAccessPreviewFindings", {})
   .n("AccessAnalyzerClient", "ListAccessPreviewFindingsCommand")
-  .sc(ListAccessPreviewFindings)
+  .sc(ListAccessPreviewFindings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

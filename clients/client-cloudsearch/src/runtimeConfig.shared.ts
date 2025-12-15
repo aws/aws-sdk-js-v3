@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: CloudSearchClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsQueryProtocol({
-        defaultNamespace: "com.amazonaws.cloudsearch",
-        xmlNamespace: "http://cloudsearch.amazonaws.com/doc/2013-01-01/",
-        version: "2013-01-01",
-      }),
+    protocol: config?.protocol ?? AwsQueryProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.cloudsearch",
+      xmlNamespace: "http://cloudsearch.amazonaws.com/doc/2013-01-01/",
+      version: "2013-01-01",
+      serviceTarget: "A9SearchCloudConfigService2013",
+    },
     serviceId: config?.serviceId ?? "CloudSearch",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

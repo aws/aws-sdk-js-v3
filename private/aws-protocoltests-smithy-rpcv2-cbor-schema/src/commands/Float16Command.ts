@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Float16Output } from "../models/models_0";
 import type { RpcV2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RpcV2ProtocolClient";
-import { Float16 } from "../schemas/schemas_0";
+import { Float16$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -71,7 +71,7 @@ export class Float16Command extends $Command
   })
   .s("RpcV2Protocol", "Float16", {})
   .n("RpcV2ProtocolClient", "Float16Command")
-  .sc(Float16)
+  .sc(Float16$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

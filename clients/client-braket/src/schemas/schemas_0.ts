@@ -220,36 +220,36 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { BraketServiceException as __BraketServiceException } from "../models/BraketServiceException";
+import { BraketServiceException } from "../models/BraketServiceException";
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  DeviceOfflineException as __DeviceOfflineException,
-  DeviceRetiredException as __DeviceRetiredException,
-  InternalServiceException as __InternalServiceException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  DeviceOfflineException,
+  DeviceRetiredException,
+  InternalServiceException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var JsonValue: StaticSimpleSchema = [0, n0, _JV, { [_mT]: _a }, 0];
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var ActionMetadata: StaticStructureSchema = [3, n0, _AM, 0, [_aT, _pC, _eC], [0, 1, 1]];
-export var AlgorithmSpecification: StaticStructureSchema = [
+var JsonValue: StaticSimpleSchema = [0, n0, _JV, { [_mT]: _a }, 0];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var ActionMetadata$: StaticStructureSchema = [3, n0, _AM, 0, [_aT, _pC, _eC], [0, 1, 1]];
+export var AlgorithmSpecification$: StaticStructureSchema = [
   3,
   n0,
   _AS,
   0,
   [_sMC, _cI],
-  [() => ScriptModeConfig, () => ContainerImage],
+  [() => ScriptModeConfig$, () => ContainerImage$],
 ];
-export var Association: StaticStructureSchema = [3, n0, _A, 0, [_ar, _t], [0, 0]];
-export var CancelJobRequest: StaticStructureSchema = [3, n0, _CJR, 0, [_jA], [[0, 1]]];
-export var CancelJobResponse: StaticStructureSchema = [3, n0, _CJRa, 0, [_jA, _cS], [0, 0]];
-export var CancelQuantumTaskRequest: StaticStructureSchema = [
+export var Association$: StaticStructureSchema = [3, n0, _A, 0, [_ar, _t], [0, 0]];
+export var CancelJobRequest$: StaticStructureSchema = [3, n0, _CJR, 0, [_jA], [[0, 1]]];
+export var CancelJobResponse$: StaticStructureSchema = [3, n0, _CJRa, 0, [_jA, _cS], [0, 0]];
+export var CancelQuantumTaskRequest$: StaticStructureSchema = [
   3,
   n0,
   _CQTR,
@@ -260,11 +260,11 @@ export var CancelQuantumTaskRequest: StaticStructureSchema = [
     [0, 4],
   ],
 ];
-export var CancelQuantumTaskResponse: StaticStructureSchema = [3, n0, _CQTRa, 0, [_qTA, _cS], [0, 0]];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var ContainerImage: StaticStructureSchema = [3, n0, _CI, 0, [_u], [0]];
-export var CreateJobRequest: StaticStructureSchema = [
+export var CancelQuantumTaskResponse$: StaticStructureSchema = [3, n0, _CQTRa, 0, [_qTA, _cS], [0, 0]];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var ContainerImage$: StaticStructureSchema = [3, n0, _CI, 0, [_u], [0]];
+export var CreateJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _CJRr,
@@ -272,22 +272,22 @@ export var CreateJobRequest: StaticStructureSchema = [
   [_cT, _aS, _iDC, _oDC, _cC, _jN, _rA, _sC, _iC, _hP, _dC, _ta, _as],
   [
     [0, 4],
-    () => AlgorithmSpecification,
+    () => AlgorithmSpecification$,
     () => InputConfigList,
-    () => JobOutputDataConfig,
-    () => JobCheckpointConfig,
+    () => JobOutputDataConfig$,
+    () => JobCheckpointConfig$,
     0,
     0,
-    () => JobStoppingCondition,
-    () => InstanceConfig,
+    () => JobStoppingCondition$,
+    () => InstanceConfig$,
     128 | 0,
-    () => DeviceConfig,
+    () => DeviceConfig$,
     128 | 0,
     () => Associations,
   ],
 ];
-export var CreateJobResponse: StaticStructureSchema = [3, n0, _CJRre, 0, [_jA], [0]];
-export var CreateQuantumTaskRequest: StaticStructureSchema = [
+export var CreateJobResponse$: StaticStructureSchema = [3, n0, _CJRre, 0, [_jA], [0]];
+export var CreateQuantumTaskRequest$: StaticStructureSchema = [
   3,
   n0,
   _CQTRr,
@@ -304,31 +304,31 @@ export var CreateQuantumTaskRequest: StaticStructureSchema = [
     128 | 0,
     0,
     () => Associations,
-    () => ExperimentalCapabilities,
+    () => ExperimentalCapabilities$,
   ],
 ];
-export var CreateQuantumTaskResponse: StaticStructureSchema = [3, n0, _CQTRre, 0, [_qTA], [0]];
-export var CreateSpendingLimitRequest: StaticStructureSchema = [
+export var CreateQuantumTaskResponse$: StaticStructureSchema = [3, n0, _CQTRre, 0, [_qTA], [0]];
+export var CreateSpendingLimitRequest$: StaticStructureSchema = [
   3,
   n0,
   _CSLR,
   0,
   [_cT, _dA, _sL, _tP, _ta],
-  [[0, 4], 0, 0, () => TimePeriod, 128 | 0],
+  [[0, 4], 0, 0, () => TimePeriod$, 128 | 0],
 ];
-export var CreateSpendingLimitResponse: StaticStructureSchema = [3, n0, _CSLRr, 0, [_sLA], [0]];
-export var DataSource: StaticStructureSchema = [3, n0, _DS, 0, [_sDS], [() => S3DataSource]];
-export var DeleteSpendingLimitRequest: StaticStructureSchema = [3, n0, _DSLR, 0, [_sLA], [[0, 1]]];
-export var DeleteSpendingLimitResponse: StaticStructureSchema = [3, n0, _DSLRe, 0, [], []];
-export var DeviceConfig: StaticStructureSchema = [3, n0, _DC, 0, [_d], [0]];
-export var DeviceOfflineException: StaticErrorSchema = [-3, n0, _DOE, { [_e]: _c, [_hE]: 424 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(DeviceOfflineException, __DeviceOfflineException);
-export var DeviceQueueInfo: StaticStructureSchema = [3, n0, _DQI, 0, [_q, _qS, _qP], [0, 0, 0]];
-export var DeviceRetiredException: StaticErrorSchema = [-3, n0, _DRE, { [_e]: _c, [_hE]: 410 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(DeviceRetiredException, __DeviceRetiredException);
-export var DeviceSummary: StaticStructureSchema = [3, n0, _DSe, 0, [_dA, _dN, _pN, _dT, _dS], [0, 0, 0, 0, 0]];
-export var GetDeviceRequest: StaticStructureSchema = [3, n0, _GDR, 0, [_dA], [[0, 1]]];
-export var GetDeviceResponse: StaticStructureSchema = [
+export var CreateSpendingLimitResponse$: StaticStructureSchema = [3, n0, _CSLRr, 0, [_sLA], [0]];
+export var DataSource$: StaticStructureSchema = [3, n0, _DS, 0, [_sDS], [() => S3DataSource$]];
+export var DeleteSpendingLimitRequest$: StaticStructureSchema = [3, n0, _DSLR, 0, [_sLA], [[0, 1]]];
+export var DeleteSpendingLimitResponse$: StaticStructureSchema = [3, n0, _DSLRe, 0, [], []];
+export var DeviceConfig$: StaticStructureSchema = [3, n0, _DC, 0, [_d], [0]];
+export var DeviceOfflineException$: StaticErrorSchema = [-3, n0, _DOE, { [_e]: _c, [_hE]: 424 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(DeviceOfflineException$, DeviceOfflineException);
+export var DeviceQueueInfo$: StaticStructureSchema = [3, n0, _DQI, 0, [_q, _qS, _qP], [0, 0, 0]];
+export var DeviceRetiredException$: StaticErrorSchema = [-3, n0, _DRE, { [_e]: _c, [_hE]: 410 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(DeviceRetiredException$, DeviceRetiredException);
+export var DeviceSummary$: StaticStructureSchema = [3, n0, _DSe, 0, [_dA, _dN, _pN, _dT, _dS], [0, 0, 0, 0, 0]];
+export var GetDeviceRequest$: StaticStructureSchema = [3, n0, _GDR, 0, [_dA], [[0, 1]]];
+export var GetDeviceResponse$: StaticStructureSchema = [
   3,
   n0,
   _GDRe,
@@ -336,7 +336,7 @@ export var GetDeviceResponse: StaticStructureSchema = [
   [_dA, _dN, _pN, _dT, _dS, _dCe, _dQI],
   [0, 0, 0, 0, 0, [() => JsonValue, 0], () => DeviceQueueInfoList],
 ];
-export var GetJobRequest: StaticStructureSchema = [
+export var GetJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _GJR,
@@ -347,7 +347,7 @@ export var GetJobRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _aAN }],
   ],
 ];
-export var GetJobResponse: StaticStructureSchema = [
+export var GetJobResponse$: StaticStructureSchema = [
   3,
   n0,
   _GJRe,
@@ -361,23 +361,23 @@ export var GetJobResponse: StaticStructureSchema = [
     0,
     128 | 0,
     () => InputConfigList,
-    () => JobOutputDataConfig,
-    () => JobStoppingCondition,
-    () => JobCheckpointConfig,
-    () => AlgorithmSpecification,
-    () => InstanceConfig,
+    () => JobOutputDataConfig$,
+    () => JobStoppingCondition$,
+    () => JobCheckpointConfig$,
+    () => AlgorithmSpecification$,
+    () => InstanceConfig$,
     5,
     5,
     5,
     1,
-    () => DeviceConfig,
+    () => DeviceConfig$,
     () => JobEvents,
     128 | 0,
-    () => HybridJobQueueInfo,
+    () => HybridJobQueueInfo$,
     () => Associations,
   ],
 ];
-export var GetQuantumTaskRequest: StaticStructureSchema = [
+export var GetQuantumTaskRequest$: StaticStructureSchema = [
   3,
   n0,
   _GQTR,
@@ -388,7 +388,7 @@ export var GetQuantumTaskRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _aAN }],
   ],
 ];
-export var GetQuantumTaskResponse: StaticStructureSchema = [
+export var GetQuantumTaskResponse$: StaticStructureSchema = [
   3,
   n0,
   _GQTRe,
@@ -407,23 +407,23 @@ export var GetQuantumTaskResponse: StaticStructureSchema = [
     5,
     128 | 0,
     0,
-    () => QuantumTaskQueueInfo,
+    () => QuantumTaskQueueInfo$,
     () => Associations,
     1,
-    () => ActionMetadata,
-    () => ExperimentalCapabilities,
+    () => ActionMetadata$,
+    () => ExperimentalCapabilities$,
   ],
 ];
-export var HybridJobQueueInfo: StaticStructureSchema = [3, n0, _HJQI, 0, [_q, _p, _m], [0, 0, 0]];
-export var InputFileConfig: StaticStructureSchema = [3, n0, _IFC, 0, [_cN, _cTo, _dSa], [0, 0, () => DataSource]];
-export var InstanceConfig: StaticStructureSchema = [3, n0, _IC, 0, [_iT, _vSIG, _iCn], [0, 1, 1]];
-export var InternalServiceException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InternalServiceException, __InternalServiceException);
-export var JobCheckpointConfig: StaticStructureSchema = [3, n0, _JCC, 0, [_lP, _sU], [0, 0]];
-export var JobEventDetails: StaticStructureSchema = [3, n0, _JED, 0, [_eT, _tOE, _m], [0, 5, 0]];
-export var JobOutputDataConfig: StaticStructureSchema = [3, n0, _JODC, 0, [_kKI, _sP], [0, 0]];
-export var JobStoppingCondition: StaticStructureSchema = [3, n0, _JSC, 0, [_mRIS], [1]];
-export var JobSummary: StaticStructureSchema = [
+export var HybridJobQueueInfo$: StaticStructureSchema = [3, n0, _HJQI, 0, [_q, _p, _m], [0, 0, 0]];
+export var InputFileConfig$: StaticStructureSchema = [3, n0, _IFC, 0, [_cN, _cTo, _dSa], [0, 0, () => DataSource$]];
+export var InstanceConfig$: StaticStructureSchema = [3, n0, _IC, 0, [_iT, _vSIG, _iCn], [0, 1, 1]];
+export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InternalServiceException$, InternalServiceException);
+export var JobCheckpointConfig$: StaticStructureSchema = [3, n0, _JCC, 0, [_lP, _sU], [0, 0]];
+export var JobEventDetails$: StaticStructureSchema = [3, n0, _JED, 0, [_eT, _tOE, _m], [0, 5, 0]];
+export var JobOutputDataConfig$: StaticStructureSchema = [3, n0, _JODC, 0, [_kKI, _sP], [0, 0]];
+export var JobStoppingCondition$: StaticStructureSchema = [3, n0, _JSC, 0, [_mRIS], [1]];
+export var JobSummary$: StaticStructureSchema = [
   3,
   n0,
   _JS,
@@ -431,11 +431,11 @@ export var JobSummary: StaticStructureSchema = [
   [_st, _jA, _jN, _d, _cA, _sA, _eA, _ta],
   [0, 0, 0, 0, 5, 5, 5, 128 | 0],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rAe], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [128 | 0]];
-export var ProgramSetValidationFailure: StaticStructureSchema = [3, n0, _PSVF, 0, [_pI, _iI, _er], [1, 1, 64 | 0]];
-export var QuantumTaskQueueInfo: StaticStructureSchema = [3, n0, _QTQI, 0, [_q, _p, _qP, _m], [0, 0, 0, 0]];
-export var QuantumTaskSummary: StaticStructureSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rAe], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [128 | 0]];
+export var ProgramSetValidationFailure$: StaticStructureSchema = [3, n0, _PSVF, 0, [_pI, _iI, _er], [1, 1, 64 | 0]];
+export var QuantumTaskQueueInfo$: StaticStructureSchema = [3, n0, _QTQI, 0, [_q, _p, _qP, _m], [0, 0, 0, 0]];
+export var QuantumTaskSummary$: StaticStructureSchema = [
   3,
   n0,
   _QTS,
@@ -443,12 +443,12 @@ export var QuantumTaskSummary: StaticStructureSchema = [
   [_qTA, _st, _dA, _s, _oSB, _oSD, _cA, _eA, _ta],
   [0, 0, 0, 1, 0, 0, 5, 5, 128 | 0],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var S3DataSource: StaticStructureSchema = [3, n0, _SDS, 0, [_sU], [0]];
-export var ScriptModeConfig: StaticStructureSchema = [3, n0, _SMC, 0, [_eP, _sU, _cTom], [0, 0, 0]];
-export var SearchDevicesFilter: StaticStructureSchema = [3, n0, _SDF, 0, [_n, _v], [0, 64 | 0]];
-export var SearchDevicesRequest: StaticStructureSchema = [
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var S3DataSource$: StaticStructureSchema = [3, n0, _SDS, 0, [_sU], [0]];
+export var ScriptModeConfig$: StaticStructureSchema = [3, n0, _SMC, 0, [_eP, _sU, _cTom], [0, 0, 0]];
+export var SearchDevicesFilter$: StaticStructureSchema = [3, n0, _SDF, 0, [_n, _v], [0, 64 | 0]];
+export var SearchDevicesRequest$: StaticStructureSchema = [
   3,
   n0,
   _SDR,
@@ -456,9 +456,9 @@ export var SearchDevicesRequest: StaticStructureSchema = [
   [_nT, _mR, _f],
   [0, 1, () => SearchDevicesFilterList],
 ];
-export var SearchDevicesResponse: StaticStructureSchema = [3, n0, _SDRe, 0, [_de, _nT], [() => DeviceSummaryList, 0]];
-export var SearchJobsFilter: StaticStructureSchema = [3, n0, _SJF, 0, [_n, _v, _o], [0, 64 | 0, 0]];
-export var SearchJobsRequest: StaticStructureSchema = [
+export var SearchDevicesResponse$: StaticStructureSchema = [3, n0, _SDRe, 0, [_de, _nT], [() => DeviceSummaryList, 0]];
+export var SearchJobsFilter$: StaticStructureSchema = [3, n0, _SJF, 0, [_n, _v, _o], [0, 64 | 0, 0]];
+export var SearchJobsRequest$: StaticStructureSchema = [
   3,
   n0,
   _SJR,
@@ -466,9 +466,9 @@ export var SearchJobsRequest: StaticStructureSchema = [
   [_nT, _mR, _f],
   [0, 1, () => SearchJobsFilterList],
 ];
-export var SearchJobsResponse: StaticStructureSchema = [3, n0, _SJRe, 0, [_j, _nT], [() => JobSummaryList, 0]];
-export var SearchQuantumTasksFilter: StaticStructureSchema = [3, n0, _SQTF, 0, [_n, _v, _o], [0, 64 | 0, 0]];
-export var SearchQuantumTasksRequest: StaticStructureSchema = [
+export var SearchJobsResponse$: StaticStructureSchema = [3, n0, _SJRe, 0, [_j, _nT], [() => JobSummaryList, 0]];
+export var SearchQuantumTasksFilter$: StaticStructureSchema = [3, n0, _SQTF, 0, [_n, _v, _o], [0, 64 | 0, 0]];
+export var SearchQuantumTasksRequest$: StaticStructureSchema = [
   3,
   n0,
   _SQTR,
@@ -476,7 +476,7 @@ export var SearchQuantumTasksRequest: StaticStructureSchema = [
   [_nT, _mR, _f],
   [0, 1, () => SearchQuantumTasksFilterList],
 ];
-export var SearchQuantumTasksResponse: StaticStructureSchema = [
+export var SearchQuantumTasksResponse$: StaticStructureSchema = [
   3,
   n0,
   _SQTRe,
@@ -484,8 +484,8 @@ export var SearchQuantumTasksResponse: StaticStructureSchema = [
   [_qT, _nT],
   [() => QuantumTaskSummaryList, 0],
 ];
-export var SearchSpendingLimitsFilter: StaticStructureSchema = [3, n0, _SSLF, 0, [_n, _v, _o], [0, 64 | 0, 0]];
-export var SearchSpendingLimitsRequest: StaticStructureSchema = [
+export var SearchSpendingLimitsFilter$: StaticStructureSchema = [3, n0, _SSLF, 0, [_n, _v, _o], [0, 64 | 0, 0]];
+export var SearchSpendingLimitsRequest$: StaticStructureSchema = [
   3,
   n0,
   _SSLR,
@@ -493,7 +493,7 @@ export var SearchSpendingLimitsRequest: StaticStructureSchema = [
   [_nT, _mR, _f],
   [0, 1, () => SearchSpendingLimitsFilterList],
 ];
-export var SearchSpendingLimitsResponse: StaticStructureSchema = [
+export var SearchSpendingLimitsResponse$: StaticStructureSchema = [
   3,
   n0,
   _SSLRe,
@@ -501,22 +501,22 @@ export var SearchSpendingLimitsResponse: StaticStructureSchema = [
   [_sLp, _nT],
   [() => SpendingLimitSummaryList, 0],
 ];
-export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var SpendingLimitSummary: StaticStructureSchema = [
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var SpendingLimitSummary$: StaticStructureSchema = [
   3,
   n0,
   _SLS,
   0,
   [_sLA, _dA, _tP, _sL, _qSu, _tS, _cA, _uA, _ta],
-  [0, 0, () => TimePeriod, 0, 0, 0, 5, 5, 128 | 0],
+  [0, 0, () => TimePeriod$, 0, 0, 0, 5, 5, 128 | 0],
 ];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rAe, _ta], [[0, 1], 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var TimePeriod: StaticStructureSchema = [3, n0, _TP, 0, [_sAt, _eAn], [7, 7]];
-export var UntagResourceRequest: StaticStructureSchema = [
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rAe, _ta], [[0, 1], 128 | 0]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var TimePeriod$: StaticStructureSchema = [3, n0, _TP, 0, [_sAt, _eAn], [7, 7]];
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -527,17 +527,17 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateSpendingLimitRequest: StaticStructureSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateSpendingLimitRequest$: StaticStructureSchema = [
   3,
   n0,
   _USLR,
   0,
   [_sLA, _cT, _sL, _tP],
-  [[0, 1], [0, 4], 0, () => TimePeriod],
+  [[0, 1], [0, 4], 0, () => TimePeriod$],
 ];
-export var UpdateSpendingLimitResponse: StaticStructureSchema = [3, n0, _USLRp, 0, [], []];
-export var ValidationException: StaticErrorSchema = [
+export var UpdateSpendingLimitResponse$: StaticStructureSchema = [3, n0, _USLRp, 0, [], []];
+export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VE,
@@ -545,163 +545,163 @@ export var ValidationException: StaticErrorSchema = [
   [_m, _r, _pSVF],
   [0, 0, () => ProgramSetValidationFailuresList],
 ];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var BraketServiceException: StaticErrorSchema = [-3, _sm, "BraketServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(BraketServiceException, __BraketServiceException);
-export var Associations: StaticListSchema = [1, n0, _As, 0, () => Association];
-export var DeviceQueueInfoList: StaticListSchema = [1, n0, _DQIL, 0, () => DeviceQueueInfo];
-export var DeviceSummaryList: StaticListSchema = [1, n0, _DSL, 0, () => DeviceSummary];
-export var HybridJobAdditionalAttributeNamesList = 64 | 0;
-export var InputConfigList: StaticListSchema = [1, n0, _ICL, 0, () => InputFileConfig];
-export var JobEvents: StaticListSchema = [1, n0, _JE, 0, () => JobEventDetails];
-export var JobSummaryList: StaticListSchema = [1, n0, _JSL, 0, () => JobSummary];
-export var ProgramSetValidationFailuresList: StaticListSchema = [1, n0, _PSVFL, 0, () => ProgramSetValidationFailure];
-export var ProgramValidationFailuresList = 64 | 0;
-export var QuantumTaskAdditionalAttributeNamesList = 64 | 0;
-export var QuantumTaskSummaryList: StaticListSchema = [1, n0, _QTSL, 0, () => QuantumTaskSummary];
-export var SearchDevicesFilterList: StaticListSchema = [1, n0, _SDFL, 0, () => SearchDevicesFilter];
-export var SearchJobsFilterList: StaticListSchema = [1, n0, _SJFL, 0, () => SearchJobsFilter];
-export var SearchQuantumTasksFilterList: StaticListSchema = [1, n0, _SQTFL, 0, () => SearchQuantumTasksFilter];
-export var SearchSpendingLimitsFilterList: StaticListSchema = [1, n0, _SSLFL, 0, () => SearchSpendingLimitsFilter];
-export var SpendingLimitSummaryList: StaticListSchema = [1, n0, _SLSL, 0, () => SpendingLimitSummary];
-export var String256List = 64 | 0;
-export var TagKeys = 64 | 0;
-export var HyperParameters = 128 | 0;
-export var TagsMap = 128 | 0;
-export var ExperimentalCapabilities: StaticStructureSchema = [3, n0, _EC, 0, [_en], [0]];
-export var CancelJob: StaticOperationSchema = [
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var BraketServiceException$: StaticErrorSchema = [-3, _sm, "BraketServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(BraketServiceException$, BraketServiceException);
+var Associations: StaticListSchema = [1, n0, _As, 0, () => Association$];
+var DeviceQueueInfoList: StaticListSchema = [1, n0, _DQIL, 0, () => DeviceQueueInfo$];
+var DeviceSummaryList: StaticListSchema = [1, n0, _DSL, 0, () => DeviceSummary$];
+var HybridJobAdditionalAttributeNamesList = 64 | 0;
+var InputConfigList: StaticListSchema = [1, n0, _ICL, 0, () => InputFileConfig$];
+var JobEvents: StaticListSchema = [1, n0, _JE, 0, () => JobEventDetails$];
+var JobSummaryList: StaticListSchema = [1, n0, _JSL, 0, () => JobSummary$];
+var ProgramSetValidationFailuresList: StaticListSchema = [1, n0, _PSVFL, 0, () => ProgramSetValidationFailure$];
+var ProgramValidationFailuresList = 64 | 0;
+var QuantumTaskAdditionalAttributeNamesList = 64 | 0;
+var QuantumTaskSummaryList: StaticListSchema = [1, n0, _QTSL, 0, () => QuantumTaskSummary$];
+var SearchDevicesFilterList: StaticListSchema = [1, n0, _SDFL, 0, () => SearchDevicesFilter$];
+var SearchJobsFilterList: StaticListSchema = [1, n0, _SJFL, 0, () => SearchJobsFilter$];
+var SearchQuantumTasksFilterList: StaticListSchema = [1, n0, _SQTFL, 0, () => SearchQuantumTasksFilter$];
+var SearchSpendingLimitsFilterList: StaticListSchema = [1, n0, _SSLFL, 0, () => SearchSpendingLimitsFilter$];
+var SpendingLimitSummaryList: StaticListSchema = [1, n0, _SLSL, 0, () => SpendingLimitSummary$];
+var String256List = 64 | 0;
+var TagKeys = 64 | 0;
+var HyperParameters = 128 | 0;
+var TagsMap = 128 | 0;
+export var ExperimentalCapabilities$: StaticStructureSchema = [3, n0, _EC, 0, [_en], [0]];
+export var CancelJob$: StaticOperationSchema = [
   9,
   n0,
   _CJ,
   { [_h]: ["PUT", "/job/{jobArn}/cancel", 200] },
-  () => CancelJobRequest,
-  () => CancelJobResponse,
+  () => CancelJobRequest$,
+  () => CancelJobResponse$,
 ];
-export var CancelQuantumTask: StaticOperationSchema = [
+export var CancelQuantumTask$: StaticOperationSchema = [
   9,
   n0,
   _CQT,
   { [_h]: ["PUT", "/quantum-task/{quantumTaskArn}/cancel", 200] },
-  () => CancelQuantumTaskRequest,
-  () => CancelQuantumTaskResponse,
+  () => CancelQuantumTaskRequest$,
+  () => CancelQuantumTaskResponse$,
 ];
-export var CreateJob: StaticOperationSchema = [
+export var CreateJob$: StaticOperationSchema = [
   9,
   n0,
   _CJr,
   { [_h]: ["POST", "/job", 201] },
-  () => CreateJobRequest,
-  () => CreateJobResponse,
+  () => CreateJobRequest$,
+  () => CreateJobResponse$,
 ];
-export var CreateQuantumTask: StaticOperationSchema = [
+export var CreateQuantumTask$: StaticOperationSchema = [
   9,
   n0,
   _CQTr,
   { [_h]: ["POST", "/quantum-task", 201] },
-  () => CreateQuantumTaskRequest,
-  () => CreateQuantumTaskResponse,
+  () => CreateQuantumTaskRequest$,
+  () => CreateQuantumTaskResponse$,
 ];
-export var CreateSpendingLimit: StaticOperationSchema = [
+export var CreateSpendingLimit$: StaticOperationSchema = [
   9,
   n0,
   _CSL,
   { [_h]: ["POST", "/spending-limit", 201] },
-  () => CreateSpendingLimitRequest,
-  () => CreateSpendingLimitResponse,
+  () => CreateSpendingLimitRequest$,
+  () => CreateSpendingLimitResponse$,
 ];
-export var DeleteSpendingLimit: StaticOperationSchema = [
+export var DeleteSpendingLimit$: StaticOperationSchema = [
   9,
   n0,
   _DSLe,
   { [_h]: ["DELETE", "/spending-limit/{spendingLimitArn}/delete", 200] },
-  () => DeleteSpendingLimitRequest,
-  () => DeleteSpendingLimitResponse,
+  () => DeleteSpendingLimitRequest$,
+  () => DeleteSpendingLimitResponse$,
 ];
-export var GetDevice: StaticOperationSchema = [
+export var GetDevice$: StaticOperationSchema = [
   9,
   n0,
   _GD,
   { [_h]: ["GET", "/device/{deviceArn}", 200] },
-  () => GetDeviceRequest,
-  () => GetDeviceResponse,
+  () => GetDeviceRequest$,
+  () => GetDeviceResponse$,
 ];
-export var GetJob: StaticOperationSchema = [
+export var GetJob$: StaticOperationSchema = [
   9,
   n0,
   _GJ,
   { [_h]: ["GET", "/job/{jobArn}", 200] },
-  () => GetJobRequest,
-  () => GetJobResponse,
+  () => GetJobRequest$,
+  () => GetJobResponse$,
 ];
-export var GetQuantumTask: StaticOperationSchema = [
+export var GetQuantumTask$: StaticOperationSchema = [
   9,
   n0,
   _GQT,
   { [_h]: ["GET", "/quantum-task/{quantumTaskArn}", 200] },
-  () => GetQuantumTaskRequest,
-  () => GetQuantumTaskResponse,
+  () => GetQuantumTaskRequest$,
+  () => GetQuantumTaskResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{resourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var SearchDevices: StaticOperationSchema = [
+export var SearchDevices$: StaticOperationSchema = [
   9,
   n0,
   _SD,
   { [_h]: ["POST", "/devices", 200] },
-  () => SearchDevicesRequest,
-  () => SearchDevicesResponse,
+  () => SearchDevicesRequest$,
+  () => SearchDevicesResponse$,
 ];
-export var SearchJobs: StaticOperationSchema = [
+export var SearchJobs$: StaticOperationSchema = [
   9,
   n0,
   _SJ,
   { [_h]: ["POST", "/jobs", 200] },
-  () => SearchJobsRequest,
-  () => SearchJobsResponse,
+  () => SearchJobsRequest$,
+  () => SearchJobsResponse$,
 ];
-export var SearchQuantumTasks: StaticOperationSchema = [
+export var SearchQuantumTasks$: StaticOperationSchema = [
   9,
   n0,
   _SQT,
   { [_h]: ["POST", "/quantum-tasks", 200] },
-  () => SearchQuantumTasksRequest,
-  () => SearchQuantumTasksResponse,
+  () => SearchQuantumTasksRequest$,
+  () => SearchQuantumTasksResponse$,
 ];
-export var SearchSpendingLimits: StaticOperationSchema = [
+export var SearchSpendingLimits$: StaticOperationSchema = [
   9,
   n0,
   _SSL,
   { [_h]: ["POST", "/spending-limits", 200] },
-  () => SearchSpendingLimitsRequest,
-  () => SearchSpendingLimitsResponse,
+  () => SearchSpendingLimitsRequest$,
+  () => SearchSpendingLimitsResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/tags/{resourceArn}", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateSpendingLimit: StaticOperationSchema = [
+export var UpdateSpendingLimit$: StaticOperationSchema = [
   9,
   n0,
   _USL,
   { [_h]: ["PATCH", "/spending-limit/{spendingLimitArn}/update", 200] },
-  () => UpdateSpendingLimitRequest,
-  () => UpdateSpendingLimitResponse,
+  () => UpdateSpendingLimitRequest$,
+  () => UpdateSpendingLimitResponse$,
 ];

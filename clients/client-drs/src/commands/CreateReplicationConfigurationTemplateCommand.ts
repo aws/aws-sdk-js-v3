@@ -9,7 +9,7 @@ import type {
   CreateReplicationConfigurationTemplateRequest,
   ReplicationConfigurationTemplate,
 } from "../models/models_0";
-import { CreateReplicationConfigurationTemplate } from "../schemas/schemas_0";
+import { CreateReplicationConfigurationTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -155,7 +155,7 @@ export class CreateReplicationConfigurationTemplateCommand extends $Command
   })
   .s("ElasticDisasterRecoveryService", "CreateReplicationConfigurationTemplate", {})
   .n("DrsClient", "CreateReplicationConfigurationTemplateCommand")
-  .sc(CreateReplicationConfigurationTemplate)
+  .sc(CreateReplicationConfigurationTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

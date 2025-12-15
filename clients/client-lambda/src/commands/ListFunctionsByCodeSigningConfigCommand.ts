@@ -9,7 +9,7 @@ import type {
   ListFunctionsByCodeSigningConfigRequest,
   ListFunctionsByCodeSigningConfigResponse,
 } from "../models/models_0";
-import { ListFunctionsByCodeSigningConfig } from "../schemas/schemas_0";
+import { ListFunctionsByCodeSigningConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class ListFunctionsByCodeSigningConfigCommand extends $Command
   })
   .s("AWSGirApiService", "ListFunctionsByCodeSigningConfig", {})
   .n("LambdaClient", "ListFunctionsByCodeSigningConfigCommand")
-  .sc(ListFunctionsByCodeSigningConfig)
+  .sc(ListFunctionsByCodeSigningConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

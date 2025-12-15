@@ -10,7 +10,7 @@ import type {
 } from "../AccessAnalyzerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAnalyzerRequest } from "../models/models_0";
-import { DeleteAnalyzer } from "../schemas/schemas_0";
+import { DeleteAnalyzer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DeleteAnalyzerCommand extends $Command
   })
   .s("AccessAnalyzer", "DeleteAnalyzer", {})
   .n("AccessAnalyzerClient", "DeleteAnalyzerCommand")
-  .sc(DeleteAnalyzer)
+  .sc(DeleteAnalyzer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DescribeS3AccessPointAttachmentsRequest,
   DescribeS3AccessPointAttachmentsResponse,
 } from "../models/models_0";
-import { DescribeS3AccessPointAttachments } from "../schemas/schemas_0";
+import { DescribeS3AccessPointAttachments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -153,7 +153,7 @@ export class DescribeS3AccessPointAttachmentsCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "DescribeS3AccessPointAttachments", {})
   .n("FSxClient", "DescribeS3AccessPointAttachmentsCommand")
-  .sc(DescribeS3AccessPointAttachments)
+  .sc(DescribeS3AccessPointAttachments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

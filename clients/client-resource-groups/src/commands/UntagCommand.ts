@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceGroupsClient";
-import { Untag } from "../schemas/schemas_0";
+import { Untag$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class UntagCommand extends $Command
   })
   .s("Ardi", "Untag", {})
   .n("ResourceGroupsClient", "UntagCommand")
-  .sc(Untag)
+  .sc(Untag$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

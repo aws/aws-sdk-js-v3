@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateComputeNodeGroupRequest, UpdateComputeNodeGroupResponse } from "../models/models_0";
 import type { PCSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PCSClient";
-import { UpdateComputeNodeGroup } from "../schemas/schemas_0";
+import { UpdateComputeNodeGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -165,7 +165,7 @@ export class UpdateComputeNodeGroupCommand extends $Command
   })
   .s("AWSParallelComputingService", "UpdateComputeNodeGroup", {})
   .n("PCSClient", "UpdateComputeNodeGroupCommand")
-  .sc(UpdateComputeNodeGroup)
+  .sc(UpdateComputeNodeGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

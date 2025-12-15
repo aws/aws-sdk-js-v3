@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceDataClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateGroupRequest, UpdateGroupResult } from "../models/models_0";
-import { UpdateGroup } from "../schemas/schemas_0";
+import { UpdateGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -150,7 +150,7 @@ export class UpdateGroupCommand extends $Command
   })
   .s("DirectoryServiceData", "UpdateGroup", {})
   .n("DirectoryServiceDataClient", "UpdateGroupCommand")
-  .sc(UpdateGroup)
+  .sc(UpdateGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

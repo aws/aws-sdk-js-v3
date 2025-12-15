@@ -9,7 +9,7 @@ import type {
   CreateDataRepositoryAssociationRequest,
   CreateDataRepositoryAssociationResponse,
 } from "../models/models_0";
-import { CreateDataRepositoryAssociation } from "../schemas/schemas_0";
+import { CreateDataRepositoryAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -186,7 +186,7 @@ export class CreateDataRepositoryAssociationCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "CreateDataRepositoryAssociation", {})
   .n("FSxClient", "CreateDataRepositoryAssociationCommand")
-  .sc(CreateDataRepositoryAssociation)
+  .sc(CreateDataRepositoryAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RemoveKnowledgeBaseTemplateUriRequest, RemoveKnowledgeBaseTemplateUriResponse } from "../models/models_1";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { RemoveKnowledgeBaseTemplateUri } from "../schemas/schemas_0";
+import { RemoveKnowledgeBaseTemplateUri$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -82,7 +82,7 @@ export class RemoveKnowledgeBaseTemplateUriCommand extends $Command
   })
   .s("WisdomService", "RemoveKnowledgeBaseTemplateUri", {})
   .n("QConnectClient", "RemoveKnowledgeBaseTemplateUriCommand")
-  .sc(RemoveKnowledgeBaseTemplateUri)
+  .sc(RemoveKnowledgeBaseTemplateUri$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

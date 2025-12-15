@@ -9,7 +9,7 @@ import type {
   DescribeIpamPrefixListResolverTargetsRequest,
   DescribeIpamPrefixListResolverTargetsResult,
 } from "../models/models_4";
-import { DescribeIpamPrefixListResolverTargets } from "../schemas/schemas_0";
+import { DescribeIpamPrefixListResolverTargets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class DescribeIpamPrefixListResolverTargetsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeIpamPrefixListResolverTargets", {})
   .n("EC2Client", "DescribeIpamPrefixListResolverTargetsCommand")
-  .sc(DescribeIpamPrefixListResolverTargets)
+  .sc(DescribeIpamPrefixListResolverTargets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PublishStateMachineVersionInput, PublishStateMachineVersionOutput } from "../models/models_0";
-import { PublishStateMachineVersion } from "../schemas/schemas_0";
+import { PublishStateMachineVersion$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -122,7 +122,7 @@ export class PublishStateMachineVersionCommand extends $Command
   })
   .s("AWSStepFunctions", "PublishStateMachineVersion", {})
   .n("SFNClient", "PublishStateMachineVersionCommand")
-  .sc(PublishStateMachineVersion)
+  .sc(PublishStateMachineVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

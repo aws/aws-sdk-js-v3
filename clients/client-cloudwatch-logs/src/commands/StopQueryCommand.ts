@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopQueryRequest, StopQueryResponse } from "../models/models_0";
-import { StopQuery } from "../schemas/schemas_0";
+import { StopQuery$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class StopQueryCommand extends $Command
   })
   .s("Logs_20140328", "StopQuery", {})
   .n("CloudWatchLogsClient", "StopQueryCommand")
-  .sc(StopQuery)
+  .sc(StopQuery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

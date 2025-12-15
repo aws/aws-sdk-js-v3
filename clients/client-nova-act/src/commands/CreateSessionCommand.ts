@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateSessionRequest, CreateSessionResponse } from "../models/models_0";
 import type { NovaActClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NovaActClient";
-import { CreateSession } from "../schemas/schemas_0";
+import { CreateSession$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class CreateSessionCommand extends $Command
   })
   .s("AmazonNovaAgentsDataPlane", "CreateSession", {})
   .n("NovaActClient", "CreateSessionCommand")
-  .sc(CreateSession)
+  .sc(CreateSession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

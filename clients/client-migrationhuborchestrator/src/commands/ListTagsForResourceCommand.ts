@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
 import type { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
-import { ListTagsForResource } from "../schemas/schemas_0";
+import { ListTagsForResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class ListTagsForResourceCommand extends $Command
   })
   .s("AWSMigrationHubOrchestrator", "ListTagsForResource", {})
   .n("MigrationHubOrchestratorClient", "ListTagsForResourceCommand")
-  .sc(ListTagsForResource)
+  .sc(ListTagsForResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

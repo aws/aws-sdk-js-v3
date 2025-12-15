@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53GlobalResolverClient";
-import { GetManagedFirewallDomainList } from "../schemas/schemas_0";
+import { GetManagedFirewallDomainList$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class GetManagedFirewallDomainListCommand extends $Command
   })
   .s("EC2DNSGlobalResolverCustomerAPI", "GetManagedFirewallDomainList", {})
   .n("Route53GlobalResolverClient", "GetManagedFirewallDomainListCommand")
-  .sc(GetManagedFirewallDomainList)
+  .sc(GetManagedFirewallDomainList$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

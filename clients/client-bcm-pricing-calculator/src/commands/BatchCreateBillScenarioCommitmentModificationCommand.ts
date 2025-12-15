@@ -13,7 +13,7 @@ import type {
   BatchCreateBillScenarioCommitmentModificationRequest,
   BatchCreateBillScenarioCommitmentModificationResponse,
 } from "../models/models_0";
-import { BatchCreateBillScenarioCommitmentModification } from "../schemas/schemas_0";
+import { BatchCreateBillScenarioCommitmentModification$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -158,7 +158,7 @@ export class BatchCreateBillScenarioCommitmentModificationCommand extends $Comma
   })
   .s("AWSBCMPricingCalculator", "BatchCreateBillScenarioCommitmentModification", {})
   .n("BCMPricingCalculatorClient", "BatchCreateBillScenarioCommitmentModificationCommand")
-  .sc(BatchCreateBillScenarioCommitmentModification)
+  .sc(BatchCreateBillScenarioCommitmentModification$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

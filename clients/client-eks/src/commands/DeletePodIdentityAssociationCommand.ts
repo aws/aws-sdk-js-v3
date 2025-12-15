@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeletePodIdentityAssociationRequest, DeletePodIdentityAssociationResponse } from "../models/models_0";
-import { DeletePodIdentityAssociation } from "../schemas/schemas_0";
+import { DeletePodIdentityAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class DeletePodIdentityAssociationCommand extends $Command
   })
   .s("AWSWesleyFrontend", "DeletePodIdentityAssociation", {})
   .n("EKSClient", "DeletePodIdentityAssociationCommand")
-  .sc(DeletePodIdentityAssociation)
+  .sc(DeletePodIdentityAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

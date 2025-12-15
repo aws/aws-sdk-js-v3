@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutModelPackageGroupPolicyInput, PutModelPackageGroupPolicyOutput } from "../models/models_4";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { PutModelPackageGroupPolicy } from "../schemas/schemas_0";
+import { PutModelPackageGroupPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,7 +77,7 @@ export class PutModelPackageGroupPolicyCommand extends $Command
   })
   .s("SageMaker", "PutModelPackageGroupPolicy", {})
   .n("SageMakerClient", "PutModelPackageGroupPolicyCommand")
-  .sc(PutModelPackageGroupPolicy)
+  .sc(PutModelPackageGroupPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

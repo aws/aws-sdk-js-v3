@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListPolicyGenerationAssetsRequest, ListPolicyGenerationAssetsResponse } from "../models/models_0";
-import { ListPolicyGenerationAssets } from "../schemas/schemas_0";
+import { ListPolicyGenerationAssets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class ListPolicyGenerationAssetsCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "ListPolicyGenerationAssets", {})
   .n("BedrockAgentCoreControlClient", "ListPolicyGenerationAssetsCommand")
-  .sc(ListPolicyGenerationAssets)
+  .sc(ListPolicyGenerationAssets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

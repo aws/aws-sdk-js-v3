@@ -8,7 +8,7 @@ import type {
   DescribeCustomWorkspaceImageImportRequest,
   DescribeCustomWorkspaceImageImportResult,
 } from "../models/models_0";
-import { DescribeCustomWorkspaceImageImport } from "../schemas/schemas_0";
+import { DescribeCustomWorkspaceImageImport$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -100,7 +100,7 @@ export class DescribeCustomWorkspaceImageImportCommand extends $Command
   })
   .s("WorkspacesService", "DescribeCustomWorkspaceImageImport", {})
   .n("WorkSpacesClient", "DescribeCustomWorkspaceImageImportCommand")
-  .sc(DescribeCustomWorkspaceImageImport)
+  .sc(DescribeCustomWorkspaceImageImport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

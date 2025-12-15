@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteScheduledQueryRequest } from "../models/models_0";
-import { DeleteScheduledQuery } from "../schemas/schemas_0";
+import { DeleteScheduledQuery$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -101,7 +101,7 @@ export class DeleteScheduledQueryCommand extends $Command
   })
   .s("Timestream_20181101", "DeleteScheduledQuery", {})
   .n("TimestreamQueryClient", "DeleteScheduledQueryCommand")
-  .sc(DeleteScheduledQuery)
+  .sc(DeleteScheduledQuery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisableBaselineInput, DisableBaselineOutput } from "../models/models_0";
-import { DisableBaseline } from "../schemas/schemas_0";
+import { DisableBaseline$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DisableBaselineCommand extends $Command
   })
   .s("AWSControlTowerApis", "DisableBaseline", {})
   .n("ControlTowerClient", "DisableBaselineCommand")
-  .sc(DisableBaseline)
+  .sc(DisableBaseline$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

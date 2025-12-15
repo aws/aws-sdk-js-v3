@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceClient";
-import { ListConfigurationSets } from "../schemas/schemas_0";
+import { ListConfigurationSets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class ListConfigurationSetsCommand extends $Command
   })
   .s("PinpointSMSVoice", "ListConfigurationSets", {})
   .n("PinpointSMSVoiceClient", "ListConfigurationSetsCommand")
-  .sc(ListConfigurationSets)
+  .sc(ListConfigurationSets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

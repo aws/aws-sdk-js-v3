@@ -345,49 +345,49 @@ import type {
 } from "@smithy/types";
 
 import {
-  ConflictException as __ConflictException,
-  InternalException as __InternalException,
-  NotFoundException as __NotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  ConflictException,
+  InternalException,
+  NotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
-import { PipesServiceException as __PipesServiceException } from "../models/PipesServiceException";
+import { PipesServiceException } from "../models/PipesServiceException";
 
 /* eslint no-var: 0 */
-export var CapacityProvider: StaticSimpleSchema = [0, n0, _CP, 8, 0];
-export var Database: StaticSimpleSchema = [0, n0, _D, 8, 0];
-export var DbUser: StaticSimpleSchema = [0, n0, _DU, 8, 0];
-export var EndpointString: StaticSimpleSchema = [0, n0, _ES, 8, 0];
-export var EventBridgeDetailType: StaticSimpleSchema = [0, n0, _EBDT, 8, 0];
-export var EventBridgeEndpointId: StaticSimpleSchema = [0, n0, _EBEI, 8, 0];
-export var EventBridgeEventSource: StaticSimpleSchema = [0, n0, _EBES, 8, 0];
-export var EventPattern: StaticSimpleSchema = [0, n0, _EP, 8, 0];
-export var HeaderValue: StaticSimpleSchema = [0, n0, _HV, 8, 0];
-export var InputTemplate: StaticSimpleSchema = [0, n0, _IT, 8, 0];
-export var KafkaTopicName: StaticSimpleSchema = [0, n0, _KTN, 8, 0];
-export var KinesisPartitionKey: StaticSimpleSchema = [0, n0, _KPK, 8, 0];
-export var MessageDeduplicationId: StaticSimpleSchema = [0, n0, _MDI, 8, 0];
-export var MessageGroupId: StaticSimpleSchema = [0, n0, _MGI, 8, 0];
-export var MQBrokerQueueName: StaticSimpleSchema = [0, n0, _MQBQN, 8, 0];
-export var NextToken: StaticSimpleSchema = [0, n0, _NT, 8, 0];
-export var PathParameter: StaticSimpleSchema = [0, n0, _PP, 8, 0];
-export var PipeDescription: StaticSimpleSchema = [0, n0, _PD, 8, 0];
-export var PlacementConstraintExpression: StaticSimpleSchema = [0, n0, _PCE, 8, 0];
-export var PlacementStrategyField: StaticSimpleSchema = [0, n0, _PSF, 8, 0];
-export var QueryStringValue: StaticSimpleSchema = [0, n0, _QSV, 8, 0];
-export var ReferenceId: StaticSimpleSchema = [0, n0, _RI, 8, 0];
-export var SageMakerPipelineParameterName: StaticSimpleSchema = [0, n0, _SMPPN, 8, 0];
-export var SageMakerPipelineParameterValue: StaticSimpleSchema = [0, n0, _SMPPV, 8, 0];
-export var SecurityGroup: StaticSimpleSchema = [0, n0, _SG, 8, 0];
-export var SecurityGroupId: StaticSimpleSchema = [0, n0, _SGI, 8, 0];
-export var Sql: StaticSimpleSchema = [0, n0, _S, 8, 0];
-export var StatementName: StaticSimpleSchema = [0, n0, _SN, 8, 0];
-export var Subnet: StaticSimpleSchema = [0, n0, _Su, 8, 0];
-export var SubnetId: StaticSimpleSchema = [0, n0, _SI, 8, 0];
-export var TagValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
-export var URI: StaticSimpleSchema = [0, n0, _URI, 8, 0];
-export var AwsVpcConfiguration: StaticStructureSchema = [
+var CapacityProvider: StaticSimpleSchema = [0, n0, _CP, 8, 0];
+var Database: StaticSimpleSchema = [0, n0, _D, 8, 0];
+var DbUser: StaticSimpleSchema = [0, n0, _DU, 8, 0];
+var EndpointString: StaticSimpleSchema = [0, n0, _ES, 8, 0];
+var EventBridgeDetailType: StaticSimpleSchema = [0, n0, _EBDT, 8, 0];
+var EventBridgeEndpointId: StaticSimpleSchema = [0, n0, _EBEI, 8, 0];
+var EventBridgeEventSource: StaticSimpleSchema = [0, n0, _EBES, 8, 0];
+var EventPattern: StaticSimpleSchema = [0, n0, _EP, 8, 0];
+var HeaderValue: StaticSimpleSchema = [0, n0, _HV, 8, 0];
+var InputTemplate: StaticSimpleSchema = [0, n0, _IT, 8, 0];
+var KafkaTopicName: StaticSimpleSchema = [0, n0, _KTN, 8, 0];
+var KinesisPartitionKey: StaticSimpleSchema = [0, n0, _KPK, 8, 0];
+var MessageDeduplicationId: StaticSimpleSchema = [0, n0, _MDI, 8, 0];
+var MessageGroupId: StaticSimpleSchema = [0, n0, _MGI, 8, 0];
+var MQBrokerQueueName: StaticSimpleSchema = [0, n0, _MQBQN, 8, 0];
+var NextToken: StaticSimpleSchema = [0, n0, _NT, 8, 0];
+var PathParameter: StaticSimpleSchema = [0, n0, _PP, 8, 0];
+var PipeDescription: StaticSimpleSchema = [0, n0, _PD, 8, 0];
+var PlacementConstraintExpression: StaticSimpleSchema = [0, n0, _PCE, 8, 0];
+var PlacementStrategyField: StaticSimpleSchema = [0, n0, _PSF, 8, 0];
+var QueryStringValue: StaticSimpleSchema = [0, n0, _QSV, 8, 0];
+var ReferenceId: StaticSimpleSchema = [0, n0, _RI, 8, 0];
+var SageMakerPipelineParameterName: StaticSimpleSchema = [0, n0, _SMPPN, 8, 0];
+var SageMakerPipelineParameterValue: StaticSimpleSchema = [0, n0, _SMPPV, 8, 0];
+var SecurityGroup: StaticSimpleSchema = [0, n0, _SG, 8, 0];
+var SecurityGroupId: StaticSimpleSchema = [0, n0, _SGI, 8, 0];
+var Sql: StaticSimpleSchema = [0, n0, _S, 8, 0];
+var StatementName: StaticSimpleSchema = [0, n0, _SN, 8, 0];
+var Subnet: StaticSimpleSchema = [0, n0, _Su, 8, 0];
+var SubnetId: StaticSimpleSchema = [0, n0, _SI, 8, 0];
+var TagValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
+var URI: StaticSimpleSchema = [0, n0, _URI, 8, 0];
+export var AwsVpcConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _AVC,
@@ -395,8 +395,8 @@ export var AwsVpcConfiguration: StaticStructureSchema = [
   [_Sub, _SGe, _API],
   [[() => Subnets, 0], [() => SecurityGroups, 0], 0],
 ];
-export var BatchArrayProperties: StaticStructureSchema = [3, n0, _BAP, 0, [_Si], [1]];
-export var BatchContainerOverrides: StaticStructureSchema = [
+export var BatchArrayProperties$: StaticStructureSchema = [3, n0, _BAP, 0, [_Si], [1]];
+export var BatchContainerOverrides$: StaticStructureSchema = [
   3,
   n0,
   _BCO,
@@ -404,11 +404,11 @@ export var BatchContainerOverrides: StaticStructureSchema = [
   [_C, _E, _ITn, _RR],
   [64 | 0, () => BatchEnvironmentVariableList, 0, () => BatchResourceRequirementsList],
 ];
-export var BatchEnvironmentVariable: StaticStructureSchema = [3, n0, _BEV, 0, [_N, _V], [0, 0]];
-export var BatchJobDependency: StaticStructureSchema = [3, n0, _BJD, 0, [_JI, _T], [0, 0]];
-export var BatchResourceRequirement: StaticStructureSchema = [3, n0, _BRR, 0, [_T, _V], [0, 0]];
-export var BatchRetryStrategy: StaticStructureSchema = [3, n0, _BRS, 0, [_A], [1]];
-export var CapacityProviderStrategyItem: StaticStructureSchema = [
+export var BatchEnvironmentVariable$: StaticStructureSchema = [3, n0, _BEV, 0, [_N, _V], [0, 0]];
+export var BatchJobDependency$: StaticStructureSchema = [3, n0, _BJD, 0, [_JI, _T], [0, 0]];
+export var BatchResourceRequirement$: StaticStructureSchema = [3, n0, _BRR, 0, [_T, _V], [0, 0]];
+export var BatchRetryStrategy$: StaticStructureSchema = [3, n0, _BRS, 0, [_A], [1]];
+export var CapacityProviderStrategyItem$: StaticStructureSchema = [
   3,
   n0,
   _CPSI,
@@ -416,11 +416,11 @@ export var CapacityProviderStrategyItem: StaticStructureSchema = [
   [_cP, _w, _b],
   [[() => CapacityProvider, 0], 1, 1],
 ];
-export var CloudwatchLogsLogDestination: StaticStructureSchema = [3, n0, _CLLD, 0, [_LGA], [0]];
-export var CloudwatchLogsLogDestinationParameters: StaticStructureSchema = [3, n0, _CLLDP, 0, [_LGA], [0]];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreatePipeRequest: StaticStructureSchema = [
+export var CloudwatchLogsLogDestination$: StaticStructureSchema = [3, n0, _CLLD, 0, [_LGA], [0]];
+export var CloudwatchLogsLogDestinationParameters$: StaticStructureSchema = [3, n0, _CLLDP, 0, [_LGA], [0]];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreatePipeRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPR,
@@ -431,18 +431,18 @@ export var CreatePipeRequest: StaticStructureSchema = [
     [() => PipeDescription, 0],
     0,
     0,
-    [() => PipeSourceParameters, 0],
+    [() => PipeSourceParameters$, 0],
     0,
-    [() => PipeEnrichmentParameters, 0],
+    [() => PipeEnrichmentParameters$, 0],
     0,
-    [() => PipeTargetParameters, 0],
+    [() => PipeTargetParameters$, 0],
     0,
     [() => TagMap, 0],
-    () => PipeLogConfigurationParameters,
+    () => PipeLogConfigurationParameters$,
     0,
   ],
 ];
-export var CreatePipeResponse: StaticStructureSchema = [
+export var CreatePipeResponse$: StaticStructureSchema = [
   3,
   n0,
   _CPRr,
@@ -450,9 +450,9 @@ export var CreatePipeResponse: StaticStructureSchema = [
   [_Ar, _N, _DS, _CS, _CT, _LMT],
   [0, 0, 0, 0, 4, 4],
 ];
-export var DeadLetterConfig: StaticStructureSchema = [3, n0, _DLC, 0, [_Ar], [0]];
-export var DeletePipeRequest: StaticStructureSchema = [3, n0, _DPR, 0, [_N], [[0, 1]]];
-export var DeletePipeResponse: StaticStructureSchema = [
+export var DeadLetterConfig$: StaticStructureSchema = [3, n0, _DLC, 0, [_Ar], [0]];
+export var DeletePipeRequest$: StaticStructureSchema = [3, n0, _DPR, 0, [_N], [[0, 1]]];
+export var DeletePipeResponse$: StaticStructureSchema = [
   3,
   n0,
   _DPRe,
@@ -460,8 +460,8 @@ export var DeletePipeResponse: StaticStructureSchema = [
   [_Ar, _N, _DS, _CS, _CT, _LMT],
   [0, 0, 0, 0, 4, 4],
 ];
-export var DescribePipeRequest: StaticStructureSchema = [3, n0, _DPRes, 0, [_N], [[0, 1]]];
-export var DescribePipeResponse: StaticStructureSchema = [
+export var DescribePipeRequest$: StaticStructureSchema = [3, n0, _DPRes, 0, [_N], [[0, 1]]];
+export var DescribePipeResponse$: StaticStructureSchema = [
   3,
   n0,
   _DPResc,
@@ -475,21 +475,21 @@ export var DescribePipeResponse: StaticStructureSchema = [
     0,
     0,
     0,
-    [() => PipeSourceParameters, 0],
+    [() => PipeSourceParameters$, 0],
     0,
-    [() => PipeEnrichmentParameters, 0],
+    [() => PipeEnrichmentParameters$, 0],
     0,
-    [() => PipeTargetParameters, 0],
+    [() => PipeTargetParameters$, 0],
     0,
     [() => TagMap, 0],
     4,
     4,
-    () => PipeLogConfiguration,
+    () => PipeLogConfiguration$,
     0,
   ],
 ];
-export var DimensionMapping: StaticStructureSchema = [3, n0, _DM, 0, [_DV, _DVT, _DN], [0, 0, 0]];
-export var EcsContainerOverride: StaticStructureSchema = [
+export var DimensionMapping$: StaticStructureSchema = [3, n0, _DM, 0, [_DV, _DVT, _DN], [0, 0, 0]];
+export var EcsContainerOverride$: StaticStructureSchema = [
   3,
   n0,
   _ECO,
@@ -506,24 +506,24 @@ export var EcsContainerOverride: StaticStructureSchema = [
     () => EcsResourceRequirementsList,
   ],
 ];
-export var EcsEnvironmentFile: StaticStructureSchema = [3, n0, _EEF, 0, [_t, _v], [0, 0]];
-export var EcsEnvironmentVariable: StaticStructureSchema = [3, n0, _EEV, 0, [_n, _v], [0, 0]];
-export var EcsEphemeralStorage: StaticStructureSchema = [3, n0, _EES, 0, [_sIGB], [1]];
-export var EcsInferenceAcceleratorOverride: StaticStructureSchema = [3, n0, _EIAO, 0, [_dN, _dT], [0, 0]];
-export var EcsResourceRequirement: StaticStructureSchema = [3, n0, _ERR, 0, [_t, _v], [0, 0]];
-export var EcsTaskOverride: StaticStructureSchema = [
+export var EcsEnvironmentFile$: StaticStructureSchema = [3, n0, _EEF, 0, [_t, _v], [0, 0]];
+export var EcsEnvironmentVariable$: StaticStructureSchema = [3, n0, _EEV, 0, [_n, _v], [0, 0]];
+export var EcsEphemeralStorage$: StaticStructureSchema = [3, n0, _EES, 0, [_sIGB], [1]];
+export var EcsInferenceAcceleratorOverride$: StaticStructureSchema = [3, n0, _EIAO, 0, [_dN, _dT], [0, 0]];
+export var EcsResourceRequirement$: StaticStructureSchema = [3, n0, _ERR, 0, [_t, _v], [0, 0]];
+export var EcsTaskOverride$: StaticStructureSchema = [
   3,
   n0,
   _ETO,
   0,
   [_CO, _Cp, _ESp, _ERA, _IAO, _M, _TRA],
-  [() => EcsContainerOverrideList, 0, () => EcsEphemeralStorage, 0, () => EcsInferenceAcceleratorOverrideList, 0, 0],
+  [() => EcsContainerOverrideList, 0, () => EcsEphemeralStorage$, 0, () => EcsInferenceAcceleratorOverrideList, 0, 0],
 ];
-export var Filter: StaticStructureSchema = [3, n0, _F, 0, [_P], [[() => EventPattern, 0]]];
-export var FilterCriteria: StaticStructureSchema = [3, n0, _FC, 0, [_Fi], [[() => FilterList, 0]]];
-export var FirehoseLogDestination: StaticStructureSchema = [3, n0, _FLD, 0, [_DSA], [0]];
-export var FirehoseLogDestinationParameters: StaticStructureSchema = [3, n0, _FLDP, 0, [_DSA], [0]];
-export var InternalException: StaticErrorSchema = [
+export var Filter$: StaticStructureSchema = [3, n0, _F, 0, [_P], [[() => EventPattern, 0]]];
+export var FilterCriteria$: StaticStructureSchema = [3, n0, _FC, 0, [_Fi], [[() => FilterList, 0]]];
+export var FirehoseLogDestination$: StaticStructureSchema = [3, n0, _FLD, 0, [_DSA], [0]];
+export var FirehoseLogDestinationParameters$: StaticStructureSchema = [3, n0, _FLDP, 0, [_DSA], [0]];
+export var InternalException$: StaticErrorSchema = [
   -3,
   n0,
   _IE,
@@ -531,8 +531,8 @@ export var InternalException: StaticErrorSchema = [
   [_m, _rAS],
   [0, [1, { [_hH]: _RA_ }]],
 ];
-TypeRegistry.for(n0).registerError(InternalException, __InternalException);
-export var ListPipesRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InternalException$, InternalException);
+export var ListPipesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPR,
@@ -548,7 +548,7 @@ export var ListPipesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _L }],
   ],
 ];
-export var ListPipesResponse: StaticStructureSchema = [
+export var ListPipesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LPRi,
@@ -556,10 +556,10 @@ export var ListPipesResponse: StaticStructureSchema = [
   [_Pi, _NT],
   [() => PipeList, [() => NextToken, 0]],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [[() => TagMap, 0]]];
-export var MultiMeasureAttributeMapping: StaticStructureSchema = [3, n0, _MMAM, 0, [_MV, _MVT, _MMAN], [0, 0, 0]];
-export var MultiMeasureMapping: StaticStructureSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [[() => TagMap, 0]]];
+export var MultiMeasureAttributeMapping$: StaticStructureSchema = [3, n0, _MMAM, 0, [_MV, _MVT, _MMAN], [0, 0, 0]];
+export var MultiMeasureMapping$: StaticStructureSchema = [
   3,
   n0,
   _MMM,
@@ -567,10 +567,10 @@ export var MultiMeasureMapping: StaticStructureSchema = [
   [_MMN, _MMAMu],
   [0, () => MultiMeasureAttributeMappings],
 ];
-export var NetworkConfiguration: StaticStructureSchema = [3, n0, _NC, 0, [_aC], [[() => AwsVpcConfiguration, 0]]];
-export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-export var Pipe: StaticStructureSchema = [
+export var NetworkConfiguration$: StaticStructureSchema = [3, n0, _NC, 0, [_aC], [[() => AwsVpcConfiguration$, 0]]];
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
+export var Pipe$: StaticStructureSchema = [
   3,
   n0,
   _Pip,
@@ -578,7 +578,7 @@ export var Pipe: StaticStructureSchema = [
   [_N, _Ar, _DS, _CS, _SR, _CT, _LMT, _So, _Ta, _En],
   [0, 0, 0, 0, 0, 4, 4, 0, 0, 0],
 ];
-export var PipeEnrichmentHttpParameters: StaticStructureSchema = [
+export var PipeEnrichmentHttpParameters$: StaticStructureSchema = [
   3,
   n0,
   _PEHP,
@@ -590,7 +590,7 @@ export var PipeEnrichmentHttpParameters: StaticStructureSchema = [
     [() => QueryStringParametersMap, 0],
   ],
 ];
-export var PipeEnrichmentParameters: StaticStructureSchema = [
+export var PipeEnrichmentParameters$: StaticStructureSchema = [
   3,
   n0,
   _PEP,
@@ -598,89 +598,89 @@ export var PipeEnrichmentParameters: StaticStructureSchema = [
   [_IT, _HPt],
   [
     [() => InputTemplate, 0],
-    [() => PipeEnrichmentHttpParameters, 0],
+    [() => PipeEnrichmentHttpParameters$, 0],
   ],
 ];
-export var PipeLogConfiguration: StaticStructureSchema = [
+export var PipeLogConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _PLC,
   0,
   [_SLD, _FLD, _CLLD, _Le, _IED],
-  [() => S3LogDestination, () => FirehoseLogDestination, () => CloudwatchLogsLogDestination, 0, 64 | 0],
+  [() => S3LogDestination$, () => FirehoseLogDestination$, () => CloudwatchLogsLogDestination$, 0, 64 | 0],
 ];
-export var PipeLogConfigurationParameters: StaticStructureSchema = [
+export var PipeLogConfigurationParameters$: StaticStructureSchema = [
   3,
   n0,
   _PLCP,
   0,
   [_SLD, _FLD, _CLLD, _Le, _IED],
   [
-    () => S3LogDestinationParameters,
-    () => FirehoseLogDestinationParameters,
-    () => CloudwatchLogsLogDestinationParameters,
+    () => S3LogDestinationParameters$,
+    () => FirehoseLogDestinationParameters$,
+    () => CloudwatchLogsLogDestinationParameters$,
     0,
     64 | 0,
   ],
 ];
-export var PipeSourceActiveMQBrokerParameters: StaticStructureSchema = [
+export var PipeSourceActiveMQBrokerParameters$: StaticStructureSchema = [
   3,
   n0,
   _PSAMQBP,
   0,
   [_Cr, _QN, _BS, _MBWIS],
-  [() => MQBrokerAccessCredentials, [() => MQBrokerQueueName, 0], 1, 1],
+  [() => MQBrokerAccessCredentials$, [() => MQBrokerQueueName, 0], 1, 1],
 ];
-export var PipeSourceDynamoDBStreamParameters: StaticStructureSchema = [
+export var PipeSourceDynamoDBStreamParameters$: StaticStructureSchema = [
   3,
   n0,
   _PSDDBSP,
   0,
   [_BS, _DLC, _OPBIF, _MBWIS, _MRAIS, _MRA, _PF, _SPt],
-  [1, () => DeadLetterConfig, 0, 1, 1, 1, 1, 0],
+  [1, () => DeadLetterConfig$, 0, 1, 1, 1, 1, 0],
 ];
-export var PipeSourceKinesisStreamParameters: StaticStructureSchema = [
+export var PipeSourceKinesisStreamParameters$: StaticStructureSchema = [
   3,
   n0,
   _PSKSP,
   0,
   [_BS, _DLC, _OPBIF, _MBWIS, _MRAIS, _MRA, _PF, _SPt, _SPT],
-  [1, () => DeadLetterConfig, 0, 1, 1, 1, 1, 0, 4],
+  [1, () => DeadLetterConfig$, 0, 1, 1, 1, 1, 0, 4],
 ];
-export var PipeSourceManagedStreamingKafkaParameters: StaticStructureSchema = [
+export var PipeSourceManagedStreamingKafkaParameters$: StaticStructureSchema = [
   3,
   n0,
   _PSMSKP,
   0,
   [_TN, _SPt, _BS, _MBWIS, _CGID, _Cr],
-  [[() => KafkaTopicName, 0], 0, 1, 1, [() => URI, 0], () => MSKAccessCredentials],
+  [[() => KafkaTopicName, 0], 0, 1, 1, [() => URI, 0], () => MSKAccessCredentials$],
 ];
-export var PipeSourceParameters: StaticStructureSchema = [
+export var PipeSourceParameters$: StaticStructureSchema = [
   3,
   n0,
   _PSP,
   0,
   [_FC, _KSP, _DDBSP, _SQP, _AMQBP, _RMQBP, _MSKP, _SMKP],
   [
-    [() => FilterCriteria, 0],
-    () => PipeSourceKinesisStreamParameters,
-    () => PipeSourceDynamoDBStreamParameters,
-    () => PipeSourceSqsQueueParameters,
-    [() => PipeSourceActiveMQBrokerParameters, 0],
-    [() => PipeSourceRabbitMQBrokerParameters, 0],
-    [() => PipeSourceManagedStreamingKafkaParameters, 0],
-    [() => PipeSourceSelfManagedKafkaParameters, 0],
+    [() => FilterCriteria$, 0],
+    () => PipeSourceKinesisStreamParameters$,
+    () => PipeSourceDynamoDBStreamParameters$,
+    () => PipeSourceSqsQueueParameters$,
+    [() => PipeSourceActiveMQBrokerParameters$, 0],
+    [() => PipeSourceRabbitMQBrokerParameters$, 0],
+    [() => PipeSourceManagedStreamingKafkaParameters$, 0],
+    [() => PipeSourceSelfManagedKafkaParameters$, 0],
   ],
 ];
-export var PipeSourceRabbitMQBrokerParameters: StaticStructureSchema = [
+export var PipeSourceRabbitMQBrokerParameters$: StaticStructureSchema = [
   3,
   n0,
   _PSRMQBP,
   0,
   [_Cr, _QN, _VH, _BS, _MBWIS],
-  [() => MQBrokerAccessCredentials, [() => MQBrokerQueueName, 0], [() => URI, 0], 1, 1],
+  [() => MQBrokerAccessCredentials$, [() => MQBrokerQueueName, 0], [() => URI, 0], 1, 1],
 ];
-export var PipeSourceSelfManagedKafkaParameters: StaticStructureSchema = [
+export var PipeSourceSelfManagedKafkaParameters$: StaticStructureSchema = [
   3,
   n0,
   _PSSMKP,
@@ -693,13 +693,13 @@ export var PipeSourceSelfManagedKafkaParameters: StaticStructureSchema = [
     1,
     1,
     [() => URI, 0],
-    () => SelfManagedKafkaAccessConfigurationCredentials,
+    () => SelfManagedKafkaAccessConfigurationCredentials$,
     0,
-    [() => SelfManagedKafkaAccessConfigurationVpc, 0],
+    [() => SelfManagedKafkaAccessConfigurationVpc$, 0],
   ],
 ];
-export var PipeSourceSqsQueueParameters: StaticStructureSchema = [3, n0, _PSSQP, 0, [_BS, _MBWIS], [1, 1]];
-export var PipeTargetBatchJobParameters: StaticStructureSchema = [
+export var PipeSourceSqsQueueParameters$: StaticStructureSchema = [3, n0, _PSSQP, 0, [_BS, _MBWIS], [1, 1]];
+export var PipeTargetBatchJobParameters$: StaticStructureSchema = [
   3,
   n0,
   _PTBJP,
@@ -708,15 +708,15 @@ export var PipeTargetBatchJobParameters: StaticStructureSchema = [
   [
     0,
     0,
-    () => BatchArrayProperties,
-    () => BatchRetryStrategy,
-    () => BatchContainerOverrides,
+    () => BatchArrayProperties$,
+    () => BatchRetryStrategy$,
+    () => BatchContainerOverrides$,
     () => BatchDependsOn,
     128 | 0,
   ],
 ];
-export var PipeTargetCloudWatchLogsParameters: StaticStructureSchema = [3, n0, _PTCWLP, 0, [_LSN, _Ti], [0, 0]];
-export var PipeTargetEcsTaskParameters: StaticStructureSchema = [
+export var PipeTargetCloudWatchLogsParameters$: StaticStructureSchema = [3, n0, _PTCWLP, 0, [_LSN, _Ti], [0, 0]];
+export var PipeTargetEcsTaskParameters$: StaticStructureSchema = [
   3,
   n0,
   _PTETP,
@@ -726,7 +726,7 @@ export var PipeTargetEcsTaskParameters: StaticStructureSchema = [
     0,
     1,
     0,
-    [() => NetworkConfiguration, 0],
+    [() => NetworkConfiguration$, 0],
     0,
     0,
     [() => CapacityProviderStrategy, 0],
@@ -736,11 +736,11 @@ export var PipeTargetEcsTaskParameters: StaticStructureSchema = [
     [() => PlacementStrategies, 0],
     0,
     [() => ReferenceId, 0],
-    () => EcsTaskOverride,
+    () => EcsTaskOverride$,
     [() => TagList, 0],
   ],
 ];
-export var PipeTargetEventBridgeEventBusParameters: StaticStructureSchema = [
+export var PipeTargetEventBridgeEventBusParameters$: StaticStructureSchema = [
   3,
   n0,
   _PTEBEBP,
@@ -748,7 +748,7 @@ export var PipeTargetEventBridgeEventBusParameters: StaticStructureSchema = [
   [_EI, _DT, _So, _R, _Tim],
   [[() => EventBridgeEndpointId, 0], [() => EventBridgeDetailType, 0], [() => EventBridgeEventSource, 0], 64 | 0, 0],
 ];
-export var PipeTargetHttpParameters: StaticStructureSchema = [
+export var PipeTargetHttpParameters$: StaticStructureSchema = [
   3,
   n0,
   _PTHP,
@@ -760,7 +760,7 @@ export var PipeTargetHttpParameters: StaticStructureSchema = [
     [() => QueryStringParametersMap, 0],
   ],
 ];
-export var PipeTargetKinesisStreamParameters: StaticStructureSchema = [
+export var PipeTargetKinesisStreamParameters$: StaticStructureSchema = [
   3,
   n0,
   _PTKSP,
@@ -768,8 +768,8 @@ export var PipeTargetKinesisStreamParameters: StaticStructureSchema = [
   [_PK],
   [[() => KinesisPartitionKey, 0]],
 ];
-export var PipeTargetLambdaFunctionParameters: StaticStructureSchema = [3, n0, _PTLFP, 0, [_ITnv], [0]];
-export var PipeTargetParameters: StaticStructureSchema = [
+export var PipeTargetLambdaFunctionParameters$: StaticStructureSchema = [3, n0, _PTLFP, 0, [_ITnv], [0]];
+export var PipeTargetParameters$: StaticStructureSchema = [
   3,
   n0,
   _PTP,
@@ -777,21 +777,21 @@ export var PipeTargetParameters: StaticStructureSchema = [
   [_IT, _LFP, _SFSMP, _KSP, _ETP, _BJP, _SQP, _HPt, _RDP, _SMPP, _EBEBP, _CWLP, _TPi],
   [
     [() => InputTemplate, 0],
-    () => PipeTargetLambdaFunctionParameters,
-    () => PipeTargetStateMachineParameters,
-    [() => PipeTargetKinesisStreamParameters, 0],
-    [() => PipeTargetEcsTaskParameters, 0],
-    () => PipeTargetBatchJobParameters,
-    [() => PipeTargetSqsQueueParameters, 0],
-    [() => PipeTargetHttpParameters, 0],
-    [() => PipeTargetRedshiftDataParameters, 0],
-    [() => PipeTargetSageMakerPipelineParameters, 0],
-    [() => PipeTargetEventBridgeEventBusParameters, 0],
-    () => PipeTargetCloudWatchLogsParameters,
-    () => PipeTargetTimestreamParameters,
+    () => PipeTargetLambdaFunctionParameters$,
+    () => PipeTargetStateMachineParameters$,
+    [() => PipeTargetKinesisStreamParameters$, 0],
+    [() => PipeTargetEcsTaskParameters$, 0],
+    () => PipeTargetBatchJobParameters$,
+    [() => PipeTargetSqsQueueParameters$, 0],
+    [() => PipeTargetHttpParameters$, 0],
+    [() => PipeTargetRedshiftDataParameters$, 0],
+    [() => PipeTargetSageMakerPipelineParameters$, 0],
+    [() => PipeTargetEventBridgeEventBusParameters$, 0],
+    () => PipeTargetCloudWatchLogsParameters$,
+    () => PipeTargetTimestreamParameters$,
   ],
 ];
-export var PipeTargetRedshiftDataParameters: StaticStructureSchema = [
+export var PipeTargetRedshiftDataParameters$: StaticStructureSchema = [
   3,
   n0,
   _PTRDP,
@@ -799,7 +799,7 @@ export var PipeTargetRedshiftDataParameters: StaticStructureSchema = [
   [_SMA, _D, _DU, _SN, _WE, _Sq],
   [0, [() => Database, 0], [() => DbUser, 0], [() => StatementName, 0], 2, [() => Sqls, 0]],
 ];
-export var PipeTargetSageMakerPipelineParameters: StaticStructureSchema = [
+export var PipeTargetSageMakerPipelineParameters$: StaticStructureSchema = [
   3,
   n0,
   _PTSMPP,
@@ -807,7 +807,7 @@ export var PipeTargetSageMakerPipelineParameters: StaticStructureSchema = [
   [_PPL],
   [[() => SageMakerPipelineParameterList, 0]],
 ];
-export var PipeTargetSqsQueueParameters: StaticStructureSchema = [
+export var PipeTargetSqsQueueParameters$: StaticStructureSchema = [
   3,
   n0,
   _PTSQP,
@@ -818,8 +818,8 @@ export var PipeTargetSqsQueueParameters: StaticStructureSchema = [
     [() => MessageDeduplicationId, 0],
   ],
 ];
-export var PipeTargetStateMachineParameters: StaticStructureSchema = [3, n0, _PTSMP, 0, [_ITnv], [0]];
-export var PipeTargetTimestreamParameters: StaticStructureSchema = [
+export var PipeTargetStateMachineParameters$: StaticStructureSchema = [3, n0, _PTSMP, 0, [_ITnv], [0]];
+export var PipeTargetTimestreamParameters$: StaticStructureSchema = [
   3,
   n0,
   _PTTP,
@@ -827,7 +827,7 @@ export var PipeTargetTimestreamParameters: StaticStructureSchema = [
   [_TVi, _ETU, _TFT, _TF, _VV, _DMi, _SMM, _MMMu],
   [0, 0, 0, 0, 0, () => DimensionMappings, () => SingleMeasureMappings, () => MultiMeasureMappings],
 ];
-export var PlacementConstraint: StaticStructureSchema = [
+export var PlacementConstraint$: StaticStructureSchema = [
   3,
   n0,
   _PCl,
@@ -835,10 +835,17 @@ export var PlacementConstraint: StaticStructureSchema = [
   [_t, _ex],
   [0, [() => PlacementConstraintExpression, 0]],
 ];
-export var PlacementStrategy: StaticStructureSchema = [3, n0, _PS, 0, [_t, _f], [0, [() => PlacementStrategyField, 0]]];
-export var S3LogDestination: StaticStructureSchema = [3, n0, _SLD, 0, [_BN, _Pr, _BO, _OF], [0, 0, 0, 0]];
-export var S3LogDestinationParameters: StaticStructureSchema = [3, n0, _SLDP, 0, [_BN, _BO, _OF, _Pr], [0, 0, 0, 0]];
-export var SageMakerPipelineParameter: StaticStructureSchema = [
+export var PlacementStrategy$: StaticStructureSchema = [
+  3,
+  n0,
+  _PS,
+  0,
+  [_t, _f],
+  [0, [() => PlacementStrategyField, 0]],
+];
+export var S3LogDestination$: StaticStructureSchema = [3, n0, _SLD, 0, [_BN, _Pr, _BO, _OF], [0, 0, 0, 0]];
+export var S3LogDestinationParameters$: StaticStructureSchema = [3, n0, _SLDP, 0, [_BN, _BO, _OF, _Pr], [0, 0, 0, 0]];
+export var SageMakerPipelineParameter$: StaticStructureSchema = [
   3,
   n0,
   _SMPPa,
@@ -849,7 +856,7 @@ export var SageMakerPipelineParameter: StaticStructureSchema = [
     [() => SageMakerPipelineParameterValue, 0],
   ],
 ];
-export var SelfManagedKafkaAccessConfigurationVpc: StaticStructureSchema = [
+export var SelfManagedKafkaAccessConfigurationVpc$: StaticStructureSchema = [
   3,
   n0,
   _SMKACV,
@@ -860,7 +867,7 @@ export var SelfManagedKafkaAccessConfigurationVpc: StaticStructureSchema = [
     [() => SecurityGroupIds, 0],
   ],
 ];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
+export var ServiceQuotaExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
@@ -868,10 +875,10 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   [_m, _rI, _rT, _sC, _qC],
   [0, 0, 0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var SingleMeasureMapping: StaticStructureSchema = [3, n0, _SMMi, 0, [_MV, _MVT, _MN], [0, 0, 0]];
-export var StartPipeRequest: StaticStructureSchema = [3, n0, _SPR, 0, [_N], [[0, 1]]];
-export var StartPipeResponse: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var SingleMeasureMapping$: StaticStructureSchema = [3, n0, _SMMi, 0, [_MV, _MVT, _MN], [0, 0, 0]];
+export var StartPipeRequest$: StaticStructureSchema = [3, n0, _SPR, 0, [_N], [[0, 1]]];
+export var StartPipeResponse$: StaticStructureSchema = [
   3,
   n0,
   _SPRt,
@@ -879,8 +886,8 @@ export var StartPipeResponse: StaticStructureSchema = [
   [_Ar, _N, _DS, _CS, _CT, _LMT],
   [0, 0, 0, 0, 4, 4],
 ];
-export var StopPipeRequest: StaticStructureSchema = [3, n0, _SPRto, 0, [_N], [[0, 1]]];
-export var StopPipeResponse: StaticStructureSchema = [
+export var StopPipeRequest$: StaticStructureSchema = [3, n0, _SPRto, 0, [_N], [[0, 1]]];
+export var StopPipeResponse$: StaticStructureSchema = [
   3,
   n0,
   _SPRtop,
@@ -888,8 +895,8 @@ export var StopPipeResponse: StaticStructureSchema = [
   [_Ar, _N, _DS, _CS, _CT, _LMT],
   [0, 0, 0, 0, 4, 4],
 ];
-export var Tag: StaticStructureSchema = [3, n0, _Tag_, 0, [_K, _V], [0, [() => TagValue, 0]]];
-export var TagResourceRequest: StaticStructureSchema = [
+export var Tag$: StaticStructureSchema = [3, n0, _Tag_, 0, [_K, _V], [0, [() => TagValue, 0]]];
+export var TagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _TRR,
@@ -900,8 +907,8 @@ export var TagResourceRequest: StaticStructureSchema = [
     [() => TagMap, 0],
   ],
 ];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var ThrottlingException$: StaticErrorSchema = [
   -3,
   n0,
   _TE,
@@ -909,8 +916,8 @@ export var ThrottlingException: StaticErrorSchema = [
   [_m, _sC, _qC, _rAS],
   [0, 0, 0, [1, { [_hH]: _RA_ }]],
 ];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var UntagResourceRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -921,8 +928,8 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdatePipeRequest: StaticStructureSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdatePipeRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPR,
@@ -932,17 +939,17 @@ export var UpdatePipeRequest: StaticStructureSchema = [
     [0, 1],
     [() => PipeDescription, 0],
     0,
-    [() => UpdatePipeSourceParameters, 0],
+    [() => UpdatePipeSourceParameters$, 0],
     0,
-    [() => PipeEnrichmentParameters, 0],
+    [() => PipeEnrichmentParameters$, 0],
     0,
-    [() => PipeTargetParameters, 0],
+    [() => PipeTargetParameters$, 0],
     0,
-    () => PipeLogConfigurationParameters,
+    () => PipeLogConfigurationParameters$,
     0,
   ],
 ];
-export var UpdatePipeResponse: StaticStructureSchema = [
+export var UpdatePipeResponse$: StaticStructureSchema = [
   3,
   n0,
   _UPRp,
@@ -950,73 +957,73 @@ export var UpdatePipeResponse: StaticStructureSchema = [
   [_Ar, _N, _DS, _CS, _CT, _LMT],
   [0, 0, 0, 0, 4, 4],
 ];
-export var UpdatePipeSourceActiveMQBrokerParameters: StaticStructureSchema = [
+export var UpdatePipeSourceActiveMQBrokerParameters$: StaticStructureSchema = [
   3,
   n0,
   _UPSAMQBP,
   0,
   [_Cr, _BS, _MBWIS],
-  [() => MQBrokerAccessCredentials, 1, 1],
+  [() => MQBrokerAccessCredentials$, 1, 1],
 ];
-export var UpdatePipeSourceDynamoDBStreamParameters: StaticStructureSchema = [
+export var UpdatePipeSourceDynamoDBStreamParameters$: StaticStructureSchema = [
   3,
   n0,
   _UPSDDBSP,
   0,
   [_BS, _DLC, _OPBIF, _MBWIS, _MRAIS, _MRA, _PF],
-  [1, () => DeadLetterConfig, 0, 1, 1, 1, 1],
+  [1, () => DeadLetterConfig$, 0, 1, 1, 1, 1],
 ];
-export var UpdatePipeSourceKinesisStreamParameters: StaticStructureSchema = [
+export var UpdatePipeSourceKinesisStreamParameters$: StaticStructureSchema = [
   3,
   n0,
   _UPSKSP,
   0,
   [_BS, _DLC, _OPBIF, _MBWIS, _MRAIS, _MRA, _PF],
-  [1, () => DeadLetterConfig, 0, 1, 1, 1, 1],
+  [1, () => DeadLetterConfig$, 0, 1, 1, 1, 1],
 ];
-export var UpdatePipeSourceManagedStreamingKafkaParameters: StaticStructureSchema = [
+export var UpdatePipeSourceManagedStreamingKafkaParameters$: StaticStructureSchema = [
   3,
   n0,
   _UPSMSKP,
   0,
   [_BS, _Cr, _MBWIS],
-  [1, () => MSKAccessCredentials, 1],
+  [1, () => MSKAccessCredentials$, 1],
 ];
-export var UpdatePipeSourceParameters: StaticStructureSchema = [
+export var UpdatePipeSourceParameters$: StaticStructureSchema = [
   3,
   n0,
   _UPSP,
   0,
   [_FC, _KSP, _DDBSP, _SQP, _AMQBP, _RMQBP, _MSKP, _SMKP],
   [
-    [() => FilterCriteria, 0],
-    () => UpdatePipeSourceKinesisStreamParameters,
-    () => UpdatePipeSourceDynamoDBStreamParameters,
-    () => UpdatePipeSourceSqsQueueParameters,
-    () => UpdatePipeSourceActiveMQBrokerParameters,
-    () => UpdatePipeSourceRabbitMQBrokerParameters,
-    () => UpdatePipeSourceManagedStreamingKafkaParameters,
-    [() => UpdatePipeSourceSelfManagedKafkaParameters, 0],
+    [() => FilterCriteria$, 0],
+    () => UpdatePipeSourceKinesisStreamParameters$,
+    () => UpdatePipeSourceDynamoDBStreamParameters$,
+    () => UpdatePipeSourceSqsQueueParameters$,
+    () => UpdatePipeSourceActiveMQBrokerParameters$,
+    () => UpdatePipeSourceRabbitMQBrokerParameters$,
+    () => UpdatePipeSourceManagedStreamingKafkaParameters$,
+    [() => UpdatePipeSourceSelfManagedKafkaParameters$, 0],
   ],
 ];
-export var UpdatePipeSourceRabbitMQBrokerParameters: StaticStructureSchema = [
+export var UpdatePipeSourceRabbitMQBrokerParameters$: StaticStructureSchema = [
   3,
   n0,
   _UPSRMQBP,
   0,
   [_Cr, _BS, _MBWIS],
-  [() => MQBrokerAccessCredentials, 1, 1],
+  [() => MQBrokerAccessCredentials$, 1, 1],
 ];
-export var UpdatePipeSourceSelfManagedKafkaParameters: StaticStructureSchema = [
+export var UpdatePipeSourceSelfManagedKafkaParameters$: StaticStructureSchema = [
   3,
   n0,
   _UPSSMKP,
   0,
   [_BS, _MBWIS, _Cr, _SRCC, _Vp],
-  [1, 1, () => SelfManagedKafkaAccessConfigurationCredentials, 0, [() => SelfManagedKafkaAccessConfigurationVpc, 0]],
+  [1, 1, () => SelfManagedKafkaAccessConfigurationCredentials$, 0, [() => SelfManagedKafkaAccessConfigurationVpc$, 0]],
 ];
-export var UpdatePipeSourceSqsQueueParameters: StaticStructureSchema = [3, n0, _UPSSQP, 0, [_BS, _MBWIS], [1, 1]];
-export var ValidationException: StaticErrorSchema = [
+export var UpdatePipeSourceSqsQueueParameters$: StaticStructureSchema = [3, n0, _UPSSQP, 0, [_BS, _MBWIS], [1, 1]];
+export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VE,
@@ -1024,54 +1031,48 @@ export var ValidationException: StaticErrorSchema = [
   [_m, _fL],
   [0, () => ValidationExceptionFieldList],
 ];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
-export var PipesServiceException: StaticErrorSchema = [-3, _sm, "PipesServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(PipesServiceException, __PipesServiceException);
-export var BatchDependsOn: StaticListSchema = [1, n0, _BDO, 0, () => BatchJobDependency];
-export var BatchEnvironmentVariableList: StaticListSchema = [1, n0, _BEVL, 0, () => BatchEnvironmentVariable];
-export var BatchResourceRequirementsList: StaticListSchema = [1, n0, _BRRL, 0, () => BatchResourceRequirement];
-export var CapacityProviderStrategy: StaticListSchema = [1, n0, _CPS, 0, [() => CapacityProviderStrategyItem, 0]];
-export var DimensionMappings: StaticListSchema = [1, n0, _DMi, 0, () => DimensionMapping];
-export var EcsContainerOverrideList: StaticListSchema = [1, n0, _ECOL, 0, () => EcsContainerOverride];
-export var EcsEnvironmentFileList: StaticListSchema = [1, n0, _EEFL, 0, () => EcsEnvironmentFile];
-export var EcsEnvironmentVariableList: StaticListSchema = [1, n0, _EEVL, 0, () => EcsEnvironmentVariable];
-export var EcsInferenceAcceleratorOverrideList: StaticListSchema = [
-  1,
-  n0,
-  _EIAOL,
-  0,
-  () => EcsInferenceAcceleratorOverride,
-];
-export var EcsResourceRequirementsList: StaticListSchema = [1, n0, _ERRL, 0, () => EcsResourceRequirement];
-export var EventBridgeEventResourceList = 64 | 0;
-export var FilterList: StaticListSchema = [1, n0, _FL, 0, [() => Filter, 0]];
-export var IncludeExecutionData = 64 | 0;
-export var KafkaBootstrapServers: StaticListSchema = [1, n0, _KBS, 0, [() => EndpointString, 0]];
-export var MultiMeasureAttributeMappings: StaticListSchema = [1, n0, _MMAMu, 0, () => MultiMeasureAttributeMapping];
-export var MultiMeasureMappings: StaticListSchema = [1, n0, _MMMu, 0, () => MultiMeasureMapping];
-export var PathParameterList: StaticListSchema = [1, n0, _PPLa, 0, [() => PathParameter, 0]];
-export var PipeList: StaticListSchema = [1, n0, _PL, 0, () => Pipe];
-export var PlacementConstraints: StaticListSchema = [1, n0, _PC, 0, [() => PlacementConstraint, 0]];
-export var PlacementStrategies: StaticListSchema = [1, n0, _PSl, 0, [() => PlacementStrategy, 0]];
-export var SageMakerPipelineParameterList: StaticListSchema = [1, n0, _SMPPL, 0, [() => SageMakerPipelineParameter, 0]];
-export var SecurityGroupIds: StaticListSchema = [1, n0, _SGIe, 0, [() => SecurityGroupId, 0]];
-export var SecurityGroups: StaticListSchema = [1, n0, _SGe, 0, [() => SecurityGroup, 0]];
-export var SingleMeasureMappings: StaticListSchema = [1, n0, _SMM, 0, () => SingleMeasureMapping];
-export var Sqls: StaticListSchema = [1, n0, _Sq, 0, [() => Sql, 0]];
-export var StringList = 64 | 0;
-export var SubnetIds: StaticListSchema = [1, n0, _SIu, 0, [() => SubnetId, 0]];
-export var Subnets: StaticListSchema = [1, n0, _Sub, 0, [() => Subnet, 0]];
-export var TagKeyList = 64 | 0;
-export var TagList: StaticListSchema = [1, n0, _TL, 0, [() => Tag, 0]];
-export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
-export var BatchParametersMap = 128 | 0;
-export var HeaderParametersMap: StaticMapSchema = [2, n0, _HPM, 0, [0, 0], [() => HeaderValue, 0]];
-export var QueryStringParametersMap: StaticMapSchema = [2, n0, _QSPM, 0, [0, 0], [() => QueryStringValue, 0]];
-export var TagMap: StaticMapSchema = [2, n0, _TM, 0, [0, 0], [() => TagValue, 0]];
-export var MQBrokerAccessCredentials: StaticStructureSchema = [3, n0, _MQBAC, 0, [_BA], [0]];
-export var MSKAccessCredentials: StaticStructureSchema = [3, n0, _MSKAC, 0, [_SSA, _CCTA], [0, 0]];
-export var SelfManagedKafkaAccessConfigurationCredentials: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
+export var PipesServiceException$: StaticErrorSchema = [-3, _sm, "PipesServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(PipesServiceException$, PipesServiceException);
+var BatchDependsOn: StaticListSchema = [1, n0, _BDO, 0, () => BatchJobDependency$];
+var BatchEnvironmentVariableList: StaticListSchema = [1, n0, _BEVL, 0, () => BatchEnvironmentVariable$];
+var BatchResourceRequirementsList: StaticListSchema = [1, n0, _BRRL, 0, () => BatchResourceRequirement$];
+var CapacityProviderStrategy: StaticListSchema = [1, n0, _CPS, 0, [() => CapacityProviderStrategyItem$, 0]];
+var DimensionMappings: StaticListSchema = [1, n0, _DMi, 0, () => DimensionMapping$];
+var EcsContainerOverrideList: StaticListSchema = [1, n0, _ECOL, 0, () => EcsContainerOverride$];
+var EcsEnvironmentFileList: StaticListSchema = [1, n0, _EEFL, 0, () => EcsEnvironmentFile$];
+var EcsEnvironmentVariableList: StaticListSchema = [1, n0, _EEVL, 0, () => EcsEnvironmentVariable$];
+var EcsInferenceAcceleratorOverrideList: StaticListSchema = [1, n0, _EIAOL, 0, () => EcsInferenceAcceleratorOverride$];
+var EcsResourceRequirementsList: StaticListSchema = [1, n0, _ERRL, 0, () => EcsResourceRequirement$];
+var EventBridgeEventResourceList = 64 | 0;
+var FilterList: StaticListSchema = [1, n0, _FL, 0, [() => Filter$, 0]];
+var IncludeExecutionData = 64 | 0;
+var KafkaBootstrapServers: StaticListSchema = [1, n0, _KBS, 0, [() => EndpointString, 0]];
+var MultiMeasureAttributeMappings: StaticListSchema = [1, n0, _MMAMu, 0, () => MultiMeasureAttributeMapping$];
+var MultiMeasureMappings: StaticListSchema = [1, n0, _MMMu, 0, () => MultiMeasureMapping$];
+var PathParameterList: StaticListSchema = [1, n0, _PPLa, 0, [() => PathParameter, 0]];
+var PipeList: StaticListSchema = [1, n0, _PL, 0, () => Pipe$];
+var PlacementConstraints: StaticListSchema = [1, n0, _PC, 0, [() => PlacementConstraint$, 0]];
+var PlacementStrategies: StaticListSchema = [1, n0, _PSl, 0, [() => PlacementStrategy$, 0]];
+var SageMakerPipelineParameterList: StaticListSchema = [1, n0, _SMPPL, 0, [() => SageMakerPipelineParameter$, 0]];
+var SecurityGroupIds: StaticListSchema = [1, n0, _SGIe, 0, [() => SecurityGroupId, 0]];
+var SecurityGroups: StaticListSchema = [1, n0, _SGe, 0, [() => SecurityGroup, 0]];
+var SingleMeasureMappings: StaticListSchema = [1, n0, _SMM, 0, () => SingleMeasureMapping$];
+var Sqls: StaticListSchema = [1, n0, _Sq, 0, [() => Sql, 0]];
+var StringList = 64 | 0;
+var SubnetIds: StaticListSchema = [1, n0, _SIu, 0, [() => SubnetId, 0]];
+var Subnets: StaticListSchema = [1, n0, _Sub, 0, [() => Subnet, 0]];
+var TagKeyList = 64 | 0;
+var TagList: StaticListSchema = [1, n0, _TL, 0, [() => Tag$, 0]];
+var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField$];
+var BatchParametersMap = 128 | 0;
+var HeaderParametersMap: StaticMapSchema = [2, n0, _HPM, 0, [0, 0], [() => HeaderValue, 0]];
+var QueryStringParametersMap: StaticMapSchema = [2, n0, _QSPM, 0, [0, 0], [() => QueryStringValue, 0]];
+var TagMap: StaticMapSchema = [2, n0, _TM, 0, [0, 0], [() => TagValue, 0]];
+export var MQBrokerAccessCredentials$: StaticStructureSchema = [3, n0, _MQBAC, 0, [_BA], [0]];
+export var MSKAccessCredentials$: StaticStructureSchema = [3, n0, _MSKAC, 0, [_SSA, _CCTA], [0, 0]];
+export var SelfManagedKafkaAccessConfigurationCredentials$: StaticStructureSchema = [
   3,
   n0,
   _SMKACC,
@@ -1079,83 +1080,83 @@ export var SelfManagedKafkaAccessConfigurationCredentials: StaticStructureSchema
   [_BA, _SSA, _SSAa, _CCTA],
   [0, 0, 0, 0],
 ];
-export var CreatePipe: StaticOperationSchema = [
+export var CreatePipe$: StaticOperationSchema = [
   9,
   n0,
   _CPr,
   { [_h]: ["POST", "/v1/pipes/{Name}", 200] },
-  () => CreatePipeRequest,
-  () => CreatePipeResponse,
+  () => CreatePipeRequest$,
+  () => CreatePipeResponse$,
 ];
-export var DeletePipe: StaticOperationSchema = [
+export var DeletePipe$: StaticOperationSchema = [
   9,
   n0,
   _DP,
   { [_h]: ["DELETE", "/v1/pipes/{Name}", 200] },
-  () => DeletePipeRequest,
-  () => DeletePipeResponse,
+  () => DeletePipeRequest$,
+  () => DeletePipeResponse$,
 ];
-export var DescribePipe: StaticOperationSchema = [
+export var DescribePipe$: StaticOperationSchema = [
   9,
   n0,
   _DPe,
   { [_h]: ["GET", "/v1/pipes/{Name}", 200] },
-  () => DescribePipeRequest,
-  () => DescribePipeResponse,
+  () => DescribePipeRequest$,
+  () => DescribePipeResponse$,
 ];
-export var ListPipes: StaticOperationSchema = [
+export var ListPipes$: StaticOperationSchema = [
   9,
   n0,
   _LP,
   { [_h]: ["GET", "/v1/pipes", 200] },
-  () => ListPipesRequest,
-  () => ListPipesResponse,
+  () => ListPipesRequest$,
+  () => ListPipesResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{resourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var StartPipe: StaticOperationSchema = [
+export var StartPipe$: StaticOperationSchema = [
   9,
   n0,
   _SPta,
   { [_h]: ["POST", "/v1/pipes/{Name}/start", 200] },
-  () => StartPipeRequest,
-  () => StartPipeResponse,
+  () => StartPipeRequest$,
+  () => StartPipeResponse$,
 ];
-export var StopPipe: StaticOperationSchema = [
+export var StopPipe$: StaticOperationSchema = [
   9,
   n0,
   _SPto,
   { [_h]: ["POST", "/v1/pipes/{Name}/stop", 200] },
-  () => StopPipeRequest,
-  () => StopPipeResponse,
+  () => StopPipeRequest$,
+  () => StopPipeResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/tags/{resourceArn}", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdatePipe: StaticOperationSchema = [
+export var UpdatePipe$: StaticOperationSchema = [
   9,
   n0,
   _UP,
   { [_h]: ["PUT", "/v1/pipes/{Name}", 200] },
-  () => UpdatePipeRequest,
-  () => UpdatePipeResponse,
+  () => UpdatePipeRequest$,
+  () => UpdatePipeResponse$,
 ];

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListSubscriptionsRequest, ListSubscriptionsResponse } from "../models/models_0";
 import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
-import { ListSubscriptions } from "../schemas/schemas_0";
+import { ListSubscriptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class ListSubscriptionsCommand extends $Command
   })
   .s("ExpertQ", "ListSubscriptions", {})
   .n("QBusinessClient", "ListSubscriptionsCommand")
-  .sc(ListSubscriptions)
+  .sc(ListSubscriptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

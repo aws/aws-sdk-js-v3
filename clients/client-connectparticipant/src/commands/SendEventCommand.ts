@@ -10,7 +10,7 @@ import type {
 } from "../ConnectParticipantClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SendEventRequest, SendEventResponse } from "../models/models_0";
-import { SendEvent } from "../schemas/schemas_0";
+import { SendEvent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class SendEventCommand extends $Command
   })
   .s("AmazonConnectParticipantServiceLambda", "SendEvent", {})
   .n("ConnectParticipantClient", "SendEventCommand")
-  .sc(SendEvent)
+  .sc(SendEvent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

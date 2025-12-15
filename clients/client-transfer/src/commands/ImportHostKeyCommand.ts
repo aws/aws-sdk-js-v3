@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ImportHostKeyRequest, ImportHostKeyResponse } from "../models/models_0";
-import { ImportHostKey } from "../schemas/schemas_0";
+import { ImportHostKey$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -100,7 +100,7 @@ export class ImportHostKeyCommand extends $Command
   })
   .s("TransferService", "ImportHostKey", {})
   .n("TransferClient", "ImportHostKeyCommand")
-  .sc(ImportHostKey)
+  .sc(ImportHostKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

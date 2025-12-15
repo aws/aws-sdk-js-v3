@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import type { DisableKeyRotationRequest } from "../models/models_0";
-import { DisableKeyRotation } from "../schemas/schemas_0";
+import { DisableKeyRotation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -172,7 +172,7 @@ export class DisableKeyRotationCommand extends $Command
   })
   .s("TrentService", "DisableKeyRotation", {})
   .n("KMSClient", "DisableKeyRotationCommand")
-  .sc(DisableKeyRotation)
+  .sc(DisableKeyRotation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

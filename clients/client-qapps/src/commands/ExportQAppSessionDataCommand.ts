@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ExportQAppSessionDataInput, ExportQAppSessionDataOutput } from "../models/models_0";
 import type { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
-import { ExportQAppSessionData } from "../schemas/schemas_0";
+import { ExportQAppSessionData$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class ExportQAppSessionDataCommand extends $Command
   })
   .s("QAppsService", "ExportQAppSessionData", {})
   .n("QAppsClient", "ExportQAppSessionDataCommand")
-  .sc(ExportQAppSessionData)
+  .sc(ExportQAppSessionData$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

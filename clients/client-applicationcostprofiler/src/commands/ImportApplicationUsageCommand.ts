@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationCostProfilerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ImportApplicationUsageRequest, ImportApplicationUsageResult } from "../models/models_0";
-import { ImportApplicationUsage } from "../schemas/schemas_0";
+import { ImportApplicationUsage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class ImportApplicationUsageCommand extends $Command
   })
   .s("AWSApplicationCostProfiler", "ImportApplicationUsage", {})
   .n("ApplicationCostProfilerClient", "ImportApplicationUsageCommand")
-  .sc(ImportApplicationUsage)
+  .sc(ImportApplicationUsage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

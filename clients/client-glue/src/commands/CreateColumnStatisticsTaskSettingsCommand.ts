@@ -9,7 +9,7 @@ import type {
   CreateColumnStatisticsTaskSettingsRequest,
   CreateColumnStatisticsTaskSettingsResponse,
 } from "../models/models_0";
-import { CreateColumnStatisticsTaskSettings } from "../schemas/schemas_0";
+import { CreateColumnStatisticsTaskSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class CreateColumnStatisticsTaskSettingsCommand extends $Command
   })
   .s("AWSGlue", "CreateColumnStatisticsTaskSettings", {})
   .n("GlueClient", "CreateColumnStatisticsTaskSettingsCommand")
-  .sc(CreateColumnStatisticsTaskSettings)
+  .sc(CreateColumnStatisticsTaskSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

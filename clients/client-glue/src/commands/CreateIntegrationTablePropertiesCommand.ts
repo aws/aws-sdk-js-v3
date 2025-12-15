@@ -9,7 +9,7 @@ import type {
   CreateIntegrationTablePropertiesRequest,
   CreateIntegrationTablePropertiesResponse,
 } from "../models/models_1";
-import { CreateIntegrationTableProperties } from "../schemas/schemas_0";
+import { CreateIntegrationTableProperties$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class CreateIntegrationTablePropertiesCommand extends $Command
   })
   .s("AWSGlue", "CreateIntegrationTableProperties", {})
   .n("GlueClient", "CreateIntegrationTablePropertiesCommand")
-  .sc(CreateIntegrationTableProperties)
+  .sc(CreateIntegrationTableProperties$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

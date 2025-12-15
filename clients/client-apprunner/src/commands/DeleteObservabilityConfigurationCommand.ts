@@ -9,7 +9,7 @@ import type {
   DeleteObservabilityConfigurationRequest,
   DeleteObservabilityConfigurationResponse,
 } from "../models/models_0";
-import { DeleteObservabilityConfiguration } from "../schemas/schemas_0";
+import { DeleteObservabilityConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class DeleteObservabilityConfigurationCommand extends $Command
   })
   .s("AppRunner", "DeleteObservabilityConfiguration", {})
   .n("AppRunnerClient", "DeleteObservabilityConfigurationCommand")
-  .sc(DeleteObservabilityConfiguration)
+  .sc(DeleteObservabilityConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

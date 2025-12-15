@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { GetConnectAttachment } from "../schemas/schemas_0";
+import { GetConnectAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -149,7 +149,7 @@ export class GetConnectAttachmentCommand extends $Command
   })
   .s("NetworkManager", "GetConnectAttachment", {})
   .n("NetworkManagerClient", "GetConnectAttachmentCommand")
-  .sc(GetConnectAttachment)
+  .sc(GetConnectAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

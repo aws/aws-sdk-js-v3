@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { DeleteEndpointAccess } from "../schemas/schemas_0";
+import { DeleteEndpointAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class DeleteEndpointAccessCommand extends $Command
   })
   .s("RedshiftServerless", "DeleteEndpointAccess", {})
   .n("RedshiftServerlessClient", "DeleteEndpointAccessCommand")
-  .sc(DeleteEndpointAccess)
+  .sc(DeleteEndpointAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

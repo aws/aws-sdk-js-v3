@@ -11,7 +11,7 @@ import type {
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RebootReplicationInstanceMessage } from "../models/models_0";
 import type { RebootReplicationInstanceResponse } from "../models/models_1";
-import { RebootReplicationInstance } from "../schemas/schemas_0";
+import { RebootReplicationInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -153,7 +153,7 @@ export class RebootReplicationInstanceCommand extends $Command
   })
   .s("AmazonDMSv20160101", "RebootReplicationInstance", {})
   .n("DatabaseMigrationServiceClient", "RebootReplicationInstanceCommand")
-  .sc(RebootReplicationInstance)
+  .sc(RebootReplicationInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

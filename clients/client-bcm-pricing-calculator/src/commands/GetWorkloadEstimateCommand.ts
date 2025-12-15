@@ -10,7 +10,7 @@ import type {
 } from "../BCMPricingCalculatorClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetWorkloadEstimateRequest, GetWorkloadEstimateResponse } from "../models/models_0";
-import { GetWorkloadEstimate } from "../schemas/schemas_0";
+import { GetWorkloadEstimate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class GetWorkloadEstimateCommand extends $Command
   })
   .s("AWSBCMPricingCalculator", "GetWorkloadEstimate", {})
   .n("BCMPricingCalculatorClient", "GetWorkloadEstimateCommand")
-  .sc(GetWorkloadEstimate)
+  .sc(GetWorkloadEstimate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

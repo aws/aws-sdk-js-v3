@@ -8,7 +8,7 @@ import type {
   DisassociateDelegateFromResourceRequest,
   DisassociateDelegateFromResourceResponse,
 } from "../models/models_0";
-import { DisassociateDelegateFromResource } from "../schemas/schemas_0";
+import { DisassociateDelegateFromResource$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -100,7 +100,7 @@ export class DisassociateDelegateFromResourceCommand extends $Command
   })
   .s("WorkMailService", "DisassociateDelegateFromResource", {})
   .n("WorkMailClient", "DisassociateDelegateFromResourceCommand")
-  .sc(DisassociateDelegateFromResource)
+  .sc(DisassociateDelegateFromResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

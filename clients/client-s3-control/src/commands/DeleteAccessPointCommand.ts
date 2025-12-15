@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAccessPointRequest } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { DeleteAccessPoint } from "../schemas/schemas_0";
+import { DeleteAccessPoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class DeleteAccessPointCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "DeleteAccessPoint", {})
   .n("S3ControlClient", "DeleteAccessPointCommand")
-  .sc(DeleteAccessPoint)
+  .sc(DeleteAccessPoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartStreamTranscriptionRequest, StartStreamTranscriptionResponse } from "../models/models_0";
-import { StartStreamTranscription } from "../schemas/schemas_0";
+import { StartStreamTranscription$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -261,7 +261,7 @@ export class StartStreamTranscriptionCommand extends $Command
     },
   })
   .n("TranscribeStreamingClient", "StartStreamTranscriptionCommand")
-  .sc(StartStreamTranscription)
+  .sc(StartStreamTranscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

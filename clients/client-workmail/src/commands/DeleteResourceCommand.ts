@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteResourceRequest, DeleteResourceResponse } from "../models/models_0";
-import { DeleteResource } from "../schemas/schemas_0";
+import { DeleteResource$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -90,7 +90,7 @@ export class DeleteResourceCommand extends $Command
   })
   .s("WorkMailService", "DeleteResource", {})
   .n("WorkMailClient", "DeleteResourceCommand")
-  .sc(DeleteResource)
+  .sc(DeleteResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

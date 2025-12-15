@@ -9,7 +9,7 @@ import type {
   DescribeTransitGatewayRouteTableAnnouncementsRequest,
   DescribeTransitGatewayRouteTableAnnouncementsResult,
 } from "../models/models_4";
-import { DescribeTransitGatewayRouteTableAnnouncements } from "../schemas/schemas_0";
+import { DescribeTransitGatewayRouteTableAnnouncements$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class DescribeTransitGatewayRouteTableAnnouncementsCommand extends $Comma
   })
   .s("AmazonEC2", "DescribeTransitGatewayRouteTableAnnouncements", {})
   .n("EC2Client", "DescribeTransitGatewayRouteTableAnnouncementsCommand")
-  .sc(DescribeTransitGatewayRouteTableAnnouncements)
+  .sc(DescribeTransitGatewayRouteTableAnnouncements$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

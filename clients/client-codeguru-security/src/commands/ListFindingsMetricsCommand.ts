@@ -10,7 +10,7 @@ import type {
 } from "../CodeGuruSecurityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListFindingsMetricsRequest, ListFindingsMetricsResponse } from "../models/models_0";
-import { ListFindingsMetrics } from "../schemas/schemas_0";
+import { ListFindingsMetrics$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -125,7 +125,7 @@ export class ListFindingsMetricsCommand extends $Command
   })
   .s("AwsCodeGuruSecurity", "ListFindingsMetrics", {})
   .n("CodeGuruSecurityClient", "ListFindingsMetricsCommand")
-  .sc(ListFindingsMetrics)
+  .sc(ListFindingsMetrics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

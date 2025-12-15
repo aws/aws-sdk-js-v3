@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestXmlProtocolClient";
-import { FlattenedXmlMap } from "../schemas/schemas_0";
+import { FlattenedXmlMap$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -81,7 +81,7 @@ export class FlattenedXmlMapCommand extends $Command
   })
   .s("RestXml", "FlattenedXmlMap", {})
   .n("RestXmlProtocolClient", "FlattenedXmlMapCommand")
-  .sc(FlattenedXmlMap)
+  .sc(FlattenedXmlMap$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

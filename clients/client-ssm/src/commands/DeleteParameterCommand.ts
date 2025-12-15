@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteParameterRequest, DeleteParameterResult } from "../models/models_0";
-import { DeleteParameter } from "../schemas/schemas_0";
+import { DeleteParameter$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -83,7 +83,7 @@ export class DeleteParameterCommand extends $Command
   })
   .s("AmazonSSM", "DeleteParameter", {})
   .n("SSMClient", "DeleteParameterCommand")
-  .sc(DeleteParameter)
+  .sc(DeleteParameter$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: TranscribeClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.transcribe",
-        serviceTarget: "Transcribe",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.transcribe",
+      version: "2017-10-26",
+      serviceTarget: "Transcribe",
+    },
     serviceId: config?.serviceId ?? "Transcribe",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

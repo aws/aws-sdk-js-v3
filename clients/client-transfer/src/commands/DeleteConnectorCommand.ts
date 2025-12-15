@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteConnectorRequest } from "../models/models_0";
-import { DeleteConnector } from "../schemas/schemas_0";
+import { DeleteConnector$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -83,7 +83,7 @@ export class DeleteConnectorCommand extends $Command
   })
   .s("TransferService", "DeleteConnector", {})
   .n("TransferClient", "DeleteConnectorCommand")
-  .sc(DeleteConnector)
+  .sc(DeleteConnector$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

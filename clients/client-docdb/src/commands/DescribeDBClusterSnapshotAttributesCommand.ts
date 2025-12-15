@@ -9,7 +9,7 @@ import type {
   DescribeDBClusterSnapshotAttributesMessage,
   DescribeDBClusterSnapshotAttributesResult,
 } from "../models/models_0";
-import { DescribeDBClusterSnapshotAttributes } from "../schemas/schemas_0";
+import { DescribeDBClusterSnapshotAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DescribeDBClusterSnapshotAttributesCommand extends $Command
   })
   .s("AmazonRDSv19", "DescribeDBClusterSnapshotAttributes", {})
   .n("DocDBClient", "DescribeDBClusterSnapshotAttributesCommand")
-  .sc(DescribeDBClusterSnapshotAttributes)
+  .sc(DescribeDBClusterSnapshotAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

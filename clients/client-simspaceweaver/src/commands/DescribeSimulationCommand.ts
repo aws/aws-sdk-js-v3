@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeSimulationInput, DescribeSimulationOutput } from "../models/models_0";
-import { DescribeSimulation } from "../schemas/schemas_0";
+import { DescribeSimulation$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -130,7 +130,7 @@ export class DescribeSimulationCommand extends $Command
   })
   .s("SimSpaceWeaver", "DescribeSimulation", {})
   .n("SimSpaceWeaverClient", "DescribeSimulationCommand")
-  .sc(DescribeSimulation)
+  .sc(DescribeSimulation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

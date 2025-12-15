@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import { BatchGetEffectiveLifecyclePolicy } from "../schemas/schemas_0";
+import { BatchGetEffectiveLifecyclePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class BatchGetEffectiveLifecyclePolicyCommand extends $Command
   })
   .s("OpenSearchServerless", "BatchGetEffectiveLifecyclePolicy", {})
   .n("OpenSearchServerlessClient", "BatchGetEffectiveLifecyclePolicyCommand")
-  .sc(BatchGetEffectiveLifecyclePolicy)
+  .sc(BatchGetEffectiveLifecyclePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

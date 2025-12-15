@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
 import type { GetEnvironmentRequest, GetEnvironmentResponse } from "../models/models_0";
-import { GetEnvironment } from "../schemas/schemas_0";
+import { GetEnvironment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class GetEnvironmentCommand extends $Command
   })
   .s("AWSHabaneroManagementService", "GetEnvironment", {})
   .n("FinspaceClient", "GetEnvironmentCommand")
-  .sc(GetEnvironment)
+  .sc(GetEnvironment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DescribeLaunchConfigurationTemplatesRequest,
   DescribeLaunchConfigurationTemplatesResponse,
 } from "../models/models_0";
-import { DescribeLaunchConfigurationTemplates } from "../schemas/schemas_0";
+import { DescribeLaunchConfigurationTemplates$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -152,7 +152,7 @@ export class DescribeLaunchConfigurationTemplatesCommand extends $Command
   })
   .s("ApplicationMigrationService", "DescribeLaunchConfigurationTemplates", {})
   .n("MgnClient", "DescribeLaunchConfigurationTemplatesCommand")
-  .sc(DescribeLaunchConfigurationTemplates)
+  .sc(DescribeLaunchConfigurationTemplates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

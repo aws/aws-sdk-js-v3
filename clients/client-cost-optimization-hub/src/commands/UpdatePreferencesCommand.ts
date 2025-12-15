@@ -10,7 +10,7 @@ import type {
 } from "../CostOptimizationHubClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdatePreferencesRequest, UpdatePreferencesResponse } from "../models/models_0";
-import { UpdatePreferences } from "../schemas/schemas_0";
+import { UpdatePreferences$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class UpdatePreferencesCommand extends $Command
   })
   .s("CostOptimizationHubService", "UpdatePreferences", {})
   .n("CostOptimizationHubClient", "UpdatePreferencesCommand")
-  .sc(UpdatePreferences)
+  .sc(UpdatePreferences$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

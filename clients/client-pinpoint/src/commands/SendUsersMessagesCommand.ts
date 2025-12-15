@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SendUsersMessagesRequest, SendUsersMessagesResponse } from "../models/models_1";
 import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { SendUsersMessages } from "../schemas/schemas_0";
+import { SendUsersMessages$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -311,7 +311,7 @@ export class SendUsersMessagesCommand extends $Command
   })
   .s("Pinpoint", "SendUsersMessages", {})
   .n("PinpointClient", "SendUsersMessagesCommand")
-  .sc(SendUsersMessages)
+  .sc(SendUsersMessages$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

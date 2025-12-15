@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LaunchWizardClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LaunchWizardClient";
 import type { GetWorkloadDeploymentPatternInput, GetWorkloadDeploymentPatternOutput } from "../models/models_0";
-import { GetWorkloadDeploymentPattern } from "../schemas/schemas_0";
+import { GetWorkloadDeploymentPattern$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -154,7 +154,7 @@ export class GetWorkloadDeploymentPatternCommand extends $Command
   })
   .s("LaunchWizard", "GetWorkloadDeploymentPattern", {})
   .n("LaunchWizardClient", "GetWorkloadDeploymentPatternCommand")
-  .sc(GetWorkloadDeploymentPattern)
+  .sc(GetWorkloadDeploymentPattern$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

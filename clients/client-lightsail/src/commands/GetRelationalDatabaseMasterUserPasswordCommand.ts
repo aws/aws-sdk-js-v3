@@ -9,7 +9,7 @@ import type {
   GetRelationalDatabaseMasterUserPasswordRequest,
   GetRelationalDatabaseMasterUserPasswordResult,
 } from "../models/models_1";
-import { GetRelationalDatabaseMasterUserPassword } from "../schemas/schemas_0";
+import { GetRelationalDatabaseMasterUserPassword$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class GetRelationalDatabaseMasterUserPasswordCommand extends $Command
   })
   .s("Lightsail_20161128", "GetRelationalDatabaseMasterUserPassword", {})
   .n("LightsailClient", "GetRelationalDatabaseMasterUserPasswordCommand")
-  .sc(GetRelationalDatabaseMasterUserPassword)
+  .sc(GetRelationalDatabaseMasterUserPassword$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

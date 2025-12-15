@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestXmlProtocolClient";
-import { XmlBlobs } from "../schemas/schemas_0";
+import { XmlBlobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,7 +77,7 @@ export class XmlBlobsCommand extends $Command
   })
   .s("RestXml", "XmlBlobs", {})
   .n("RestXmlProtocolClient", "XmlBlobsCommand")
-  .sc(XmlBlobs)
+  .sc(XmlBlobs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

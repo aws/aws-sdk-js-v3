@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateIPSetRequest, UpdateIPSetResponse } from "../models/models_0";
-import { UpdateIPSet } from "../schemas/schemas_0";
+import { UpdateIPSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -290,7 +290,7 @@ export class UpdateIPSetCommand extends $Command
   })
   .s("AWSWAF_20150824", "UpdateIPSet", {})
   .n("WAFClient", "UpdateIPSetCommand")
-  .sc(UpdateIPSet)
+  .sc(UpdateIPSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

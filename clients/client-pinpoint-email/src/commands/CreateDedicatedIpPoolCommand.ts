@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateDedicatedIpPoolRequest, CreateDedicatedIpPoolResponse } from "../models/models_0";
 import type { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { CreateDedicatedIpPool } from "../schemas/schemas_0";
+import { CreateDedicatedIpPool$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class CreateDedicatedIpPoolCommand extends $Command
   })
   .s("AmazonPinpointEmailService", "CreateDedicatedIpPool", {})
   .n("PinpointEmailClient", "CreateDedicatedIpPoolCommand")
-  .sc(CreateDedicatedIpPool)
+  .sc(CreateDedicatedIpPool$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

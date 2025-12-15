@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DetachClassicLinkVpcRequest, DetachClassicLinkVpcResult } from "../models/models_5";
-import { DetachClassicLinkVpc } from "../schemas/schemas_0";
+import { DetachClassicLinkVpc$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -80,7 +80,7 @@ export class DetachClassicLinkVpcCommand extends $Command
   })
   .s("AmazonEC2", "DetachClassicLinkVpc", {})
   .n("EC2Client", "DetachClassicLinkVpcCommand")
-  .sc(DetachClassicLinkVpc)
+  .sc(DetachClassicLinkVpc$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

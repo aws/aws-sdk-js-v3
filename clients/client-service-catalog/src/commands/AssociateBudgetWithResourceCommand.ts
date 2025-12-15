@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateBudgetWithResourceInput, AssociateBudgetWithResourceOutput } from "../models/models_0";
-import { AssociateBudgetWithResource } from "../schemas/schemas_0";
+import { AssociateBudgetWithResource$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -89,7 +89,7 @@ export class AssociateBudgetWithResourceCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "AssociateBudgetWithResource", {})
   .n("ServiceCatalogClient", "AssociateBudgetWithResourceCommand")
-  .sc(AssociateBudgetWithResource)
+  .sc(AssociateBudgetWithResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

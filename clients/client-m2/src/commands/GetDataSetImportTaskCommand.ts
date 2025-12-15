@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
 import type { GetDataSetImportTaskRequest, GetDataSetImportTaskResponse } from "../models/models_0";
-import { GetDataSetImportTask } from "../schemas/schemas_0";
+import { GetDataSetImportTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class GetDataSetImportTaskCommand extends $Command
   })
   .s("AwsSupernovaControlPlaneService", "GetDataSetImportTask", {})
   .n("M2Client", "GetDataSetImportTaskCommand")
-  .sc(GetDataSetImportTask)
+  .sc(GetDataSetImportTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

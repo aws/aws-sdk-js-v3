@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import type { GetRouterOutputRequest, GetRouterOutputResponse } from "../models/models_0";
-import { GetRouterOutput } from "../schemas/schemas_0";
+import { GetRouterOutput$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -209,7 +209,7 @@ export class GetRouterOutputCommand extends $Command
   })
   .s("MediaConnect", "GetRouterOutput", {})
   .n("MediaConnectClient", "GetRouterOutputCommand")
-  .sc(GetRouterOutput)
+  .sc(GetRouterOutput$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

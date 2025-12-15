@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAnomalySubscriptionRequest, DeleteAnomalySubscriptionResponse } from "../models/models_0";
-import { DeleteAnomalySubscription } from "../schemas/schemas_0";
+import { DeleteAnomalySubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,7 +77,7 @@ export class DeleteAnomalySubscriptionCommand extends $Command
   })
   .s("AWSInsightsIndexService", "DeleteAnomalySubscription", {})
   .n("CostExplorerClient", "DeleteAnomalySubscriptionCommand")
-  .sc(DeleteAnomalySubscription)
+  .sc(DeleteAnomalySubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

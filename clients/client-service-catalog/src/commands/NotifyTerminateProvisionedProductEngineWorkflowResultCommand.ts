@@ -8,7 +8,7 @@ import type {
   NotifyTerminateProvisionedProductEngineWorkflowResultInput,
   NotifyTerminateProvisionedProductEngineWorkflowResultOutput,
 } from "../models/models_0";
-import { NotifyTerminateProvisionedProductEngineWorkflowResult } from "../schemas/schemas_0";
+import { NotifyTerminateProvisionedProductEngineWorkflowResult$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -94,7 +94,7 @@ export class NotifyTerminateProvisionedProductEngineWorkflowResultCommand extend
   })
   .s("AWS242ServiceCatalogService", "NotifyTerminateProvisionedProductEngineWorkflowResult", {})
   .n("ServiceCatalogClient", "NotifyTerminateProvisionedProductEngineWorkflowResultCommand")
-  .sc(NotifyTerminateProvisionedProductEngineWorkflowResult)
+  .sc(NotifyTerminateProvisionedProductEngineWorkflowResult$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

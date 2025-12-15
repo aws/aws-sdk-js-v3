@@ -10,7 +10,7 @@ import type {
 } from "../ElasticBeanstalkClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateEnvironmentOperationsRoleMessage } from "../models/models_0";
-import { DisassociateEnvironmentOperationsRole } from "../schemas/schemas_0";
+import { DisassociateEnvironmentOperationsRole$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class DisassociateEnvironmentOperationsRoleCommand extends $Command
   })
   .s("AWSElasticBeanstalkService", "DisassociateEnvironmentOperationsRole", {})
   .n("ElasticBeanstalkClient", "DisassociateEnvironmentOperationsRoleCommand")
-  .sc(DisassociateEnvironmentOperationsRole)
+  .sc(DisassociateEnvironmentOperationsRole$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   ListAccountAssignmentsForPrincipalRequest,
   ListAccountAssignmentsForPrincipalResponse,
 } from "../models/models_0";
-import { ListAccountAssignmentsForPrincipal } from "../schemas/schemas_0";
+import { ListAccountAssignmentsForPrincipal$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -108,7 +108,7 @@ export class ListAccountAssignmentsForPrincipalCommand extends $Command
   })
   .s("SWBExternalService", "ListAccountAssignmentsForPrincipal", {})
   .n("SSOAdminClient", "ListAccountAssignmentsForPrincipalCommand")
-  .sc(ListAccountAssignmentsForPrincipal)
+  .sc(ListAccountAssignmentsForPrincipal$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

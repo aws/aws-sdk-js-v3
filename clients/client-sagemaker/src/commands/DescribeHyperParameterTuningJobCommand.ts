@@ -9,7 +9,7 @@ import type {
   DescribeHyperParameterTuningJobResponse,
 } from "../models/models_2";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DescribeHyperParameterTuningJob } from "../schemas/schemas_0";
+import { DescribeHyperParameterTuningJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -546,7 +546,7 @@ export class DescribeHyperParameterTuningJobCommand extends $Command
   })
   .s("SageMaker", "DescribeHyperParameterTuningJob", {})
   .n("SageMakerClient", "DescribeHyperParameterTuningJobCommand")
-  .sc(DescribeHyperParameterTuningJob)
+  .sc(DescribeHyperParameterTuningJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

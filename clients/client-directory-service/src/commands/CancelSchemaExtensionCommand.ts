@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CancelSchemaExtensionRequest, CancelSchemaExtensionResult } from "../models/models_0";
-import { CancelSchemaExtension } from "../schemas/schemas_0";
+import { CancelSchemaExtension$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class CancelSchemaExtensionCommand extends $Command
   })
   .s("DirectoryService_20150416", "CancelSchemaExtension", {})
   .n("DirectoryServiceClient", "CancelSchemaExtensionCommand")
-  .sc(CancelSchemaExtension)
+  .sc(CancelSchemaExtension$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

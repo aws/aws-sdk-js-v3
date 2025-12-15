@@ -9,7 +9,7 @@ import type {
   DescribeAccountAuditConfigurationRequest,
   DescribeAccountAuditConfigurationResponse,
 } from "../models/models_0";
-import { DescribeAccountAuditConfiguration } from "../schemas/schemas_0";
+import { DescribeAccountAuditConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class DescribeAccountAuditConfigurationCommand extends $Command
   })
   .s("AWSIotService", "DescribeAccountAuditConfiguration", {})
   .n("IoTClient", "DescribeAccountAuditConfigurationCommand")
-  .sc(DescribeAccountAuditConfiguration)
+  .sc(DescribeAccountAuditConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

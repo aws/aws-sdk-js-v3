@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { GetActiveNamesRequest, GetActiveNamesResult } from "../models/models_0";
-import { GetActiveNames } from "../schemas/schemas_0";
+import { GetActiveNames$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class GetActiveNamesCommand extends $Command
   })
   .s("Lightsail_20161128", "GetActiveNames", {})
   .n("LightsailClient", "GetActiveNamesCommand")
-  .sc(GetActiveNames)
+  .sc(GetActiveNames$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

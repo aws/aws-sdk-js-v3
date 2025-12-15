@@ -31,8 +31,7 @@ export const getRuntimeConfig = (config: MigrationHubOrchestratorClientConfig) =
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.migrationhuborchestrator" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
     serviceId: config?.serviceId ?? "MigrationHubOrchestrator",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

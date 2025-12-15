@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutStorageLensConfigurationRequest } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { PutStorageLensConfiguration } from "../schemas/schemas_0";
+import { PutStorageLensConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -222,7 +222,7 @@ export class PutStorageLensConfigurationCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "PutStorageLensConfiguration", {})
   .n("S3ControlClient", "PutStorageLensConfigurationCommand")
-  .sc(PutStorageLensConfiguration)
+  .sc(PutStorageLensConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

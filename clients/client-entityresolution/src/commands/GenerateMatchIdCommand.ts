@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../EntityResolutionClient";
 import type { GenerateMatchIdInput, GenerateMatchIdOutput } from "../models/models_0";
-import { GenerateMatchId } from "../schemas/schemas_0";
+import { GenerateMatchId$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class GenerateMatchIdCommand extends $Command
   })
   .s("AWSVeniceService", "GenerateMatchId", {})
   .n("EntityResolutionClient", "GenerateMatchIdCommand")
-  .sc(GenerateMatchId)
+  .sc(GenerateMatchId$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

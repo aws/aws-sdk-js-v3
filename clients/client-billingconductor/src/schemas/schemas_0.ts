@@ -302,31 +302,31 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { BillingconductorServiceException as __BillingconductorServiceException } from "../models/BillingconductorServiceException";
+import { BillingconductorServiceException } from "../models/BillingconductorServiceException";
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceLimitExceededException as __ServiceLimitExceededException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceLimitExceededException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var AccountEmail: StaticSimpleSchema = [0, n0, _AE, 8, 0];
-export var AccountName: StaticSimpleSchema = [0, n0, _AN, 8, 0];
-export var BillingGroupDescription: StaticSimpleSchema = [0, n0, _BGD, 8, 0];
-export var BillingGroupName: StaticSimpleSchema = [0, n0, _BGN, 8, 0];
-export var CustomLineItemDescription: StaticSimpleSchema = [0, n0, _CLID, 8, 0];
-export var CustomLineItemName: StaticSimpleSchema = [0, n0, _CLIN, 8, 0];
-export var PricingPlanDescription: StaticSimpleSchema = [0, n0, _PPD, 8, 0];
-export var PricingPlanName: StaticSimpleSchema = [0, n0, _PPN, 8, 0];
-export var PricingRuleDescription: StaticSimpleSchema = [0, n0, _PRD, 8, 0];
-export var PricingRuleName: StaticSimpleSchema = [0, n0, _PRN, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var AccountAssociationsListElement: StaticStructureSchema = [
+var AccountEmail: StaticSimpleSchema = [0, n0, _AE, 8, 0];
+var AccountName: StaticSimpleSchema = [0, n0, _AN, 8, 0];
+var BillingGroupDescription: StaticSimpleSchema = [0, n0, _BGD, 8, 0];
+var BillingGroupName: StaticSimpleSchema = [0, n0, _BGN, 8, 0];
+var CustomLineItemDescription: StaticSimpleSchema = [0, n0, _CLID, 8, 0];
+var CustomLineItemName: StaticSimpleSchema = [0, n0, _CLIN, 8, 0];
+var PricingPlanDescription: StaticSimpleSchema = [0, n0, _PPD, 8, 0];
+var PricingPlanName: StaticSimpleSchema = [0, n0, _PPN, 8, 0];
+var PricingRuleDescription: StaticSimpleSchema = [0, n0, _PRD, 8, 0];
+var PricingRuleName: StaticSimpleSchema = [0, n0, _PRN, 8, 0];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var AccountAssociationsListElement$: StaticStructureSchema = [
   3,
   n0,
   _AALE,
@@ -334,30 +334,30 @@ export var AccountAssociationsListElement: StaticStructureSchema = [
   [_AI, _BGA, _AN, _AE],
   [0, 0, [() => AccountName, 0], [() => AccountEmail, 0]],
 ];
-export var AccountGrouping: StaticStructureSchema = [3, n0, _AG, 0, [_LAI, _AA, _RTA], [64 | 0, 2, 0]];
-export var AssociateAccountsInput: StaticStructureSchema = [3, n0, _AAI, 0, [_A, _AIc], [0, 64 | 0]];
-export var AssociateAccountsOutput: StaticStructureSchema = [3, n0, _AAO, 0, [_A], [0]];
-export var AssociatePricingRulesInput: StaticStructureSchema = [3, n0, _APRI, 0, [_A, _PRA], [0, 64 | 0]];
-export var AssociatePricingRulesOutput: StaticStructureSchema = [3, n0, _APRO, 0, [_A], [0]];
-export var AssociateResourceError: StaticStructureSchema = [3, n0, _ARE, 0, [_M, _R], [0, 0]];
-export var AssociateResourceResponseElement: StaticStructureSchema = [
+export var AccountGrouping$: StaticStructureSchema = [3, n0, _AG, 0, [_LAI, _AA, _RTA], [64 | 0, 2, 0]];
+export var AssociateAccountsInput$: StaticStructureSchema = [3, n0, _AAI, 0, [_A, _AIc], [0, 64 | 0]];
+export var AssociateAccountsOutput$: StaticStructureSchema = [3, n0, _AAO, 0, [_A], [0]];
+export var AssociatePricingRulesInput$: StaticStructureSchema = [3, n0, _APRI, 0, [_A, _PRA], [0, 64 | 0]];
+export var AssociatePricingRulesOutput$: StaticStructureSchema = [3, n0, _APRO, 0, [_A], [0]];
+export var AssociateResourceError$: StaticStructureSchema = [3, n0, _ARE, 0, [_M, _R], [0, 0]];
+export var AssociateResourceResponseElement$: StaticStructureSchema = [
   3,
   n0,
   _ARRE,
   0,
   [_A, _E],
-  [0, () => AssociateResourceError],
+  [0, () => AssociateResourceError$],
 ];
-export var Attribute: StaticStructureSchema = [3, n0, _At, 0, [_K, _V], [0, 0]];
-export var BatchAssociateResourcesToCustomLineItemInput: StaticStructureSchema = [
+export var Attribute$: StaticStructureSchema = [3, n0, _At, 0, [_K, _V], [0, 0]];
+export var BatchAssociateResourcesToCustomLineItemInput$: StaticStructureSchema = [
   3,
   n0,
   _BARTCLII,
   0,
   [_TA, _RA, _BPR],
-  [0, 64 | 0, () => CustomLineItemBillingPeriodRange],
+  [0, 64 | 0, () => CustomLineItemBillingPeriodRange$],
 ];
-export var BatchAssociateResourcesToCustomLineItemOutput: StaticStructureSchema = [
+export var BatchAssociateResourcesToCustomLineItemOutput$: StaticStructureSchema = [
   3,
   n0,
   _BARTCLIO,
@@ -365,15 +365,15 @@ export var BatchAssociateResourcesToCustomLineItemOutput: StaticStructureSchema 
   [_SAR, _FAR],
   [() => AssociateResourcesResponseList, () => AssociateResourcesResponseList],
 ];
-export var BatchDisassociateResourcesFromCustomLineItemInput: StaticStructureSchema = [
+export var BatchDisassociateResourcesFromCustomLineItemInput$: StaticStructureSchema = [
   3,
   n0,
   _BDRFCLII,
   0,
   [_TA, _RA, _BPR],
-  [0, 64 | 0, () => CustomLineItemBillingPeriodRange],
+  [0, 64 | 0, () => CustomLineItemBillingPeriodRange$],
 ];
-export var BatchDisassociateResourcesFromCustomLineItemOutput: StaticStructureSchema = [
+export var BatchDisassociateResourcesFromCustomLineItemOutput$: StaticStructureSchema = [
   3,
   n0,
   _BDRFCLIO,
@@ -381,7 +381,7 @@ export var BatchDisassociateResourcesFromCustomLineItemOutput: StaticStructureSc
   [_SDR, _FDR],
   [() => DisassociateResourcesResponseList, () => DisassociateResourcesResponseList],
 ];
-export var BillingGroupCostReportElement: StaticStructureSchema = [
+export var BillingGroupCostReportElement$: StaticStructureSchema = [
   3,
   n0,
   _BGCRE,
@@ -389,7 +389,7 @@ export var BillingGroupCostReportElement: StaticStructureSchema = [
   [_A, _AWSC, _PC, _Ma, _MP, _C],
   [0, 0, 0, 0, 0, 0],
 ];
-export var BillingGroupCostReportResultElement: StaticStructureSchema = [
+export var BillingGroupCostReportResultElement$: StaticStructureSchema = [
   3,
   n0,
   _BGCRRE,
@@ -397,7 +397,7 @@ export var BillingGroupCostReportResultElement: StaticStructureSchema = [
   [_A, _AWSC, _PC, _Ma, _MP, _C, _Att],
   [0, 0, 0, 0, 0, 0, () => AttributesList],
 ];
-export var BillingGroupListElement: StaticStructureSchema = [
+export var BillingGroupListElement$: StaticStructureSchema = [
   3,
   n0,
   _BGLE,
@@ -408,19 +408,19 @@ export var BillingGroupListElement: StaticStructureSchema = [
     0,
     [() => BillingGroupDescription, 0],
     0,
-    () => ComputationPreference,
+    () => ComputationPreference$,
     1,
     1,
     1,
     0,
     0,
-    () => ListBillingGroupAccountGrouping,
+    () => ListBillingGroupAccountGrouping$,
     0,
   ],
 ];
-export var BillingPeriodRange: StaticStructureSchema = [3, n0, _BPR, 0, [_ISBP, _EEBP], [0, 0]];
-export var ComputationPreference: StaticStructureSchema = [3, n0, _CP, 0, [_PPA], [0]];
-export var ConflictException: StaticErrorSchema = [
+export var BillingPeriodRange$: StaticStructureSchema = [3, n0, _BPR, 0, [_ISBP, _EEBP], [0, 0]];
+export var ComputationPreference$: StaticStructureSchema = [3, n0, _CP, 0, [_PPA], [0]];
+export var ConflictException$: StaticErrorSchema = [
   -3,
   n0,
   _CE,
@@ -428,8 +428,8 @@ export var ConflictException: StaticErrorSchema = [
   [_M, _RI, _RT, _R],
   [0, 0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateBillingGroupInput: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateBillingGroupInput$: StaticStructureSchema = [
   3,
   n0,
   _CBGI,
@@ -438,15 +438,15 @@ export var CreateBillingGroupInput: StaticStructureSchema = [
   [
     [0, { [_hH]: _XACT, [_iT]: 1 }],
     [() => BillingGroupName, 0],
-    () => AccountGrouping,
-    () => ComputationPreference,
+    () => AccountGrouping$,
+    () => ComputationPreference$,
     0,
     [() => BillingGroupDescription, 0],
     128 | 0,
   ],
 ];
-export var CreateBillingGroupOutput: StaticStructureSchema = [3, n0, _CBGO, 0, [_A], [0]];
-export var CreateCustomLineItemInput: StaticStructureSchema = [
+export var CreateBillingGroupOutput$: StaticStructureSchema = [3, n0, _CBGO, 0, [_A], [0]];
+export var CreateCustomLineItemInput$: StaticStructureSchema = [
   3,
   n0,
   _CCLII,
@@ -457,17 +457,17 @@ export var CreateCustomLineItemInput: StaticStructureSchema = [
     [() => CustomLineItemName, 0],
     [() => CustomLineItemDescription, 0],
     0,
-    () => CustomLineItemBillingPeriodRange,
+    () => CustomLineItemBillingPeriodRange$,
     128 | 0,
-    () => CustomLineItemChargeDetails,
+    () => CustomLineItemChargeDetails$,
     0,
     0,
-    () => PresentationObject,
+    () => PresentationObject$,
   ],
 ];
-export var CreateCustomLineItemOutput: StaticStructureSchema = [3, n0, _CCLIO, 0, [_A], [0]];
-export var CreateFreeTierConfig: StaticStructureSchema = [3, n0, _CFTC, 0, [_Ac], [2]];
-export var CreatePricingPlanInput: StaticStructureSchema = [
+export var CreateCustomLineItemOutput$: StaticStructureSchema = [3, n0, _CCLIO, 0, [_A], [0]];
+export var CreateFreeTierConfig$: StaticStructureSchema = [3, n0, _CFTC, 0, [_Ac], [2]];
+export var CreatePricingPlanInput$: StaticStructureSchema = [
   3,
   n0,
   _CPPI,
@@ -475,8 +475,8 @@ export var CreatePricingPlanInput: StaticStructureSchema = [
   [_CTl, _N, _D, _PRA, _T],
   [[0, { [_hH]: _XACT, [_iT]: 1 }], [() => PricingPlanName, 0], [() => PricingPlanDescription, 0], 64 | 0, 128 | 0],
 ];
-export var CreatePricingPlanOutput: StaticStructureSchema = [3, n0, _CPPO, 0, [_A], [0]];
-export var CreatePricingRuleInput: StaticStructureSchema = [
+export var CreatePricingPlanOutput$: StaticStructureSchema = [3, n0, _CPPO, 0, [_A], [0]];
+export var CreatePricingRuleInput$: StaticStructureSchema = [
   3,
   n0,
   _CPRI,
@@ -492,24 +492,24 @@ export var CreatePricingRuleInput: StaticStructureSchema = [
     0,
     128 | 0,
     0,
-    () => CreateTieringInput,
+    () => CreateTieringInput$,
     0,
     0,
   ],
 ];
-export var CreatePricingRuleOutput: StaticStructureSchema = [3, n0, _CPRO, 0, [_A], [0]];
-export var CreateTieringInput: StaticStructureSchema = [3, n0, _CTI, 0, [_FT], [() => CreateFreeTierConfig]];
-export var CustomLineItemBillingPeriodRange: StaticStructureSchema = [3, n0, _CLIBPR, 0, [_ISBP, _EEBP], [0, 0]];
-export var CustomLineItemChargeDetails: StaticStructureSchema = [
+export var CreatePricingRuleOutput$: StaticStructureSchema = [3, n0, _CPRO, 0, [_A], [0]];
+export var CreateTieringInput$: StaticStructureSchema = [3, n0, _CTI, 0, [_FT], [() => CreateFreeTierConfig$]];
+export var CustomLineItemBillingPeriodRange$: StaticStructureSchema = [3, n0, _CLIBPR, 0, [_ISBP, _EEBP], [0, 0]];
+export var CustomLineItemChargeDetails$: StaticStructureSchema = [
   3,
   n0,
   _CLICD,
   0,
   [_F, _P, _Ty, _LIF],
-  [() => CustomLineItemFlatChargeDetails, () => CustomLineItemPercentageChargeDetails, 0, () => LineItemFiltersList],
+  [() => CustomLineItemFlatChargeDetails$, () => CustomLineItemPercentageChargeDetails$, 0, () => LineItemFiltersList],
 ];
-export var CustomLineItemFlatChargeDetails: StaticStructureSchema = [3, n0, _CLIFCD, 0, [_CV], [1]];
-export var CustomLineItemListElement: StaticStructureSchema = [
+export var CustomLineItemFlatChargeDetails$: StaticStructureSchema = [3, n0, _CLIFCD, 0, [_CV], [1]];
+export var CustomLineItemListElement$: StaticStructureSchema = [
   3,
   n0,
   _CLILE,
@@ -518,7 +518,7 @@ export var CustomLineItemListElement: StaticStructureSchema = [
   [
     0,
     [() => CustomLineItemName, 0],
-    () => ListCustomLineItemChargeDetails,
+    () => ListCustomLineItemChargeDetails$,
     0,
     [() => CustomLineItemDescription, 0],
     0,
@@ -528,11 +528,11 @@ export var CustomLineItemListElement: StaticStructureSchema = [
     1,
     0,
     0,
-    () => PresentationObject,
+    () => PresentationObject$,
   ],
 ];
-export var CustomLineItemPercentageChargeDetails: StaticStructureSchema = [3, n0, _CLIPCD, 0, [_PV, _AV], [1, 64 | 0]];
-export var CustomLineItemVersionListElement: StaticStructureSchema = [
+export var CustomLineItemPercentageChargeDetails$: StaticStructureSchema = [3, n0, _CLIPCD, 0, [_PV, _AV], [1, 64 | 0]];
+export var CustomLineItemVersionListElement$: StaticStructureSchema = [
   3,
   n0,
   _CLIVLE,
@@ -540,7 +540,7 @@ export var CustomLineItemVersionListElement: StaticStructureSchema = [
   [_N, _CD, _CC, _D, _PCr, _BGA, _CT, _LMT, _AS, _SBP, _EBP, _A, _ST, _AI, _CR, _PD],
   [
     [() => CustomLineItemName, 0],
-    () => ListCustomLineItemChargeDetails,
+    () => ListCustomLineItemChargeDetails$,
     0,
     [() => CustomLineItemDescription, 0],
     0,
@@ -554,46 +554,46 @@ export var CustomLineItemVersionListElement: StaticStructureSchema = [
     1,
     0,
     0,
-    () => PresentationObject,
+    () => PresentationObject$,
   ],
 ];
-export var DeleteBillingGroupInput: StaticStructureSchema = [3, n0, _DBGI, 0, [_A], [0]];
-export var DeleteBillingGroupOutput: StaticStructureSchema = [3, n0, _DBGO, 0, [_A], [0]];
-export var DeleteCustomLineItemInput: StaticStructureSchema = [
+export var DeleteBillingGroupInput$: StaticStructureSchema = [3, n0, _DBGI, 0, [_A], [0]];
+export var DeleteBillingGroupOutput$: StaticStructureSchema = [3, n0, _DBGO, 0, [_A], [0]];
+export var DeleteCustomLineItemInput$: StaticStructureSchema = [
   3,
   n0,
   _DCLII,
   0,
   [_A, _BPR],
-  [0, () => CustomLineItemBillingPeriodRange],
+  [0, () => CustomLineItemBillingPeriodRange$],
 ];
-export var DeleteCustomLineItemOutput: StaticStructureSchema = [3, n0, _DCLIO, 0, [_A], [0]];
-export var DeletePricingPlanInput: StaticStructureSchema = [3, n0, _DPPI, 0, [_A], [0]];
-export var DeletePricingPlanOutput: StaticStructureSchema = [3, n0, _DPPO, 0, [_A], [0]];
-export var DeletePricingRuleInput: StaticStructureSchema = [3, n0, _DPRI, 0, [_A], [0]];
-export var DeletePricingRuleOutput: StaticStructureSchema = [3, n0, _DPRO, 0, [_A], [0]];
-export var DisassociateAccountsInput: StaticStructureSchema = [3, n0, _DAI, 0, [_A, _AIc], [0, 64 | 0]];
-export var DisassociateAccountsOutput: StaticStructureSchema = [3, n0, _DAO, 0, [_A], [0]];
-export var DisassociatePricingRulesInput: StaticStructureSchema = [3, n0, _DPRIi, 0, [_A, _PRA], [0, 64 | 0]];
-export var DisassociatePricingRulesOutput: StaticStructureSchema = [3, n0, _DPROi, 0, [_A], [0]];
-export var DisassociateResourceResponseElement: StaticStructureSchema = [
+export var DeleteCustomLineItemOutput$: StaticStructureSchema = [3, n0, _DCLIO, 0, [_A], [0]];
+export var DeletePricingPlanInput$: StaticStructureSchema = [3, n0, _DPPI, 0, [_A], [0]];
+export var DeletePricingPlanOutput$: StaticStructureSchema = [3, n0, _DPPO, 0, [_A], [0]];
+export var DeletePricingRuleInput$: StaticStructureSchema = [3, n0, _DPRI, 0, [_A], [0]];
+export var DeletePricingRuleOutput$: StaticStructureSchema = [3, n0, _DPRO, 0, [_A], [0]];
+export var DisassociateAccountsInput$: StaticStructureSchema = [3, n0, _DAI, 0, [_A, _AIc], [0, 64 | 0]];
+export var DisassociateAccountsOutput$: StaticStructureSchema = [3, n0, _DAO, 0, [_A], [0]];
+export var DisassociatePricingRulesInput$: StaticStructureSchema = [3, n0, _DPRIi, 0, [_A, _PRA], [0, 64 | 0]];
+export var DisassociatePricingRulesOutput$: StaticStructureSchema = [3, n0, _DPROi, 0, [_A], [0]];
+export var DisassociateResourceResponseElement$: StaticStructureSchema = [
   3,
   n0,
   _DRRE,
   0,
   [_A, _E],
-  [0, () => AssociateResourceError],
+  [0, () => AssociateResourceError$],
 ];
-export var FreeTierConfig: StaticStructureSchema = [3, n0, _FTC, 0, [_Ac], [2]];
-export var GetBillingGroupCostReportInput: StaticStructureSchema = [
+export var FreeTierConfig$: StaticStructureSchema = [3, n0, _FTC, 0, [_Ac], [2]];
+export var GetBillingGroupCostReportInput$: StaticStructureSchema = [
   3,
   n0,
   _GBGCRI,
   0,
   [_A, _BPR, _GB, _MR, _NT],
-  [0, () => BillingPeriodRange, 64 | 0, 1, 0],
+  [0, () => BillingPeriodRange$, 64 | 0, 1, 0],
 ];
-export var GetBillingGroupCostReportOutput: StaticStructureSchema = [
+export var GetBillingGroupCostReportOutput$: StaticStructureSchema = [
   3,
   n0,
   _GBGCRO,
@@ -601,7 +601,7 @@ export var GetBillingGroupCostReportOutput: StaticStructureSchema = [
   [_BGCRR, _NT],
   [() => BillingGroupCostReportResultsList, 0],
 ];
-export var InternalServerException: StaticErrorSchema = [
+export var InternalServerException$: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
@@ -609,18 +609,18 @@ export var InternalServerException: StaticErrorSchema = [
   [_M, _RAS],
   [0, [1, { [_hH]: _RA_ }]],
 ];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var LineItemFilter: StaticStructureSchema = [3, n0, _LIFi, 0, [_At, _MO, _Va, _AVt], [0, 0, 64 | 0, 64 | 0]];
-export var ListAccountAssociationsFilter: StaticStructureSchema = [3, n0, _LAAF, 0, [_As, _AI, _AIc], [0, 0, 64 | 0]];
-export var ListAccountAssociationsInput: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var LineItemFilter$: StaticStructureSchema = [3, n0, _LIFi, 0, [_At, _MO, _Va, _AVt], [0, 0, 64 | 0, 64 | 0]];
+export var ListAccountAssociationsFilter$: StaticStructureSchema = [3, n0, _LAAF, 0, [_As, _AI, _AIc], [0, 0, 64 | 0]];
+export var ListAccountAssociationsInput$: StaticStructureSchema = [
   3,
   n0,
   _LAAI,
   0,
   [_BP, _Fi, _NT],
-  [0, () => ListAccountAssociationsFilter, 0],
+  [0, () => ListAccountAssociationsFilter$, 0],
 ];
-export var ListAccountAssociationsOutput: StaticStructureSchema = [
+export var ListAccountAssociationsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LAAO,
@@ -628,17 +628,17 @@ export var ListAccountAssociationsOutput: StaticStructureSchema = [
   [_LA, _NT],
   [[() => AccountAssociationsList, 0], 0],
 ];
-export var ListBillingGroupAccountGrouping: StaticStructureSchema = [3, n0, _LBGAG, 0, [_AA, _RTA], [2, 0]];
-export var ListBillingGroupCostReportsFilter: StaticStructureSchema = [3, n0, _LBGCRF, 0, [_BGAi], [64 | 0]];
-export var ListBillingGroupCostReportsInput: StaticStructureSchema = [
+export var ListBillingGroupAccountGrouping$: StaticStructureSchema = [3, n0, _LBGAG, 0, [_AA, _RTA], [2, 0]];
+export var ListBillingGroupCostReportsFilter$: StaticStructureSchema = [3, n0, _LBGCRF, 0, [_BGAi], [64 | 0]];
+export var ListBillingGroupCostReportsInput$: StaticStructureSchema = [
   3,
   n0,
   _LBGCRI,
   0,
   [_BP, _MR, _NT, _Fi],
-  [0, 1, 0, () => ListBillingGroupCostReportsFilter],
+  [0, 1, 0, () => ListBillingGroupCostReportsFilter$],
 ];
-export var ListBillingGroupCostReportsOutput: StaticStructureSchema = [
+export var ListBillingGroupCostReportsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LBGCRO,
@@ -646,7 +646,7 @@ export var ListBillingGroupCostReportsOutput: StaticStructureSchema = [
   [_BGCR, _NT],
   [() => BillingGroupCostReportList, 0],
 ];
-export var ListBillingGroupsFilter: StaticStructureSchema = [
+export var ListBillingGroupsFilter$: StaticStructureSchema = [
   3,
   n0,
   _LBGF,
@@ -654,15 +654,15 @@ export var ListBillingGroupsFilter: StaticStructureSchema = [
   [_Ar, _PP, _Sta, _AA, _PAIr, _BGTi, _Na, _RTAe],
   [64 | 0, 0, 64 | 0, 2, 64 | 0, 64 | 0, () => StringSearches, 64 | 0],
 ];
-export var ListBillingGroupsInput: StaticStructureSchema = [
+export var ListBillingGroupsInput$: StaticStructureSchema = [
   3,
   n0,
   _LBGI,
   0,
   [_BP, _MR, _NT, _Fi],
-  [0, 1, 0, () => ListBillingGroupsFilter],
+  [0, 1, 0, () => ListBillingGroupsFilter$],
 ];
-export var ListBillingGroupsOutput: StaticStructureSchema = [
+export var ListBillingGroupsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LBGO,
@@ -670,22 +670,22 @@ export var ListBillingGroupsOutput: StaticStructureSchema = [
   [_BG, _NT],
   [[() => BillingGroupList, 0], 0],
 ];
-export var ListCustomLineItemChargeDetails: StaticStructureSchema = [
+export var ListCustomLineItemChargeDetails$: StaticStructureSchema = [
   3,
   n0,
   _LCLICD,
   0,
   [_F, _P, _Ty, _LIF],
   [
-    () => ListCustomLineItemFlatChargeDetails,
-    () => ListCustomLineItemPercentageChargeDetails,
+    () => ListCustomLineItemFlatChargeDetails$,
+    () => ListCustomLineItemPercentageChargeDetails$,
     0,
     () => LineItemFiltersList,
   ],
 ];
-export var ListCustomLineItemFlatChargeDetails: StaticStructureSchema = [3, n0, _LCLIFCD, 0, [_CV], [1]];
-export var ListCustomLineItemPercentageChargeDetails: StaticStructureSchema = [3, n0, _LCLIPCD, 0, [_PV], [1]];
-export var ListCustomLineItemsFilter: StaticStructureSchema = [
+export var ListCustomLineItemFlatChargeDetails$: StaticStructureSchema = [3, n0, _LCLIFCD, 0, [_CV], [1]];
+export var ListCustomLineItemPercentageChargeDetails$: StaticStructureSchema = [3, n0, _LCLIPCD, 0, [_PV], [1]];
+export var ListCustomLineItemsFilter$: StaticStructureSchema = [
   3,
   n0,
   _LCLIF,
@@ -693,15 +693,15 @@ export var ListCustomLineItemsFilter: StaticStructureSchema = [
   [_Na, _BG, _Ar, _AIc],
   [[() => CustomLineItemNameList, 0], 64 | 0, 64 | 0, 64 | 0],
 ];
-export var ListCustomLineItemsInput: StaticStructureSchema = [
+export var ListCustomLineItemsInput$: StaticStructureSchema = [
   3,
   n0,
   _LCLII,
   0,
   [_BP, _MR, _NT, _Fi],
-  [0, 1, 0, [() => ListCustomLineItemsFilter, 0]],
+  [0, 1, 0, [() => ListCustomLineItemsFilter$, 0]],
 ];
-export var ListCustomLineItemsOutput: StaticStructureSchema = [
+export var ListCustomLineItemsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LCLIO,
@@ -709,7 +709,7 @@ export var ListCustomLineItemsOutput: StaticStructureSchema = [
   [_CLI, _NT],
   [[() => CustomLineItemList, 0], 0],
 ];
-export var ListCustomLineItemVersionsBillingPeriodRangeFilter: StaticStructureSchema = [
+export var ListCustomLineItemVersionsBillingPeriodRangeFilter$: StaticStructureSchema = [
   3,
   n0,
   _LCLIVBPRF,
@@ -717,23 +717,23 @@ export var ListCustomLineItemVersionsBillingPeriodRangeFilter: StaticStructureSc
   [_SBP, _EBP],
   [0, 0],
 ];
-export var ListCustomLineItemVersionsFilter: StaticStructureSchema = [
+export var ListCustomLineItemVersionsFilter$: StaticStructureSchema = [
   3,
   n0,
   _LCLIVF,
   0,
   [_BPR],
-  [() => ListCustomLineItemVersionsBillingPeriodRangeFilter],
+  [() => ListCustomLineItemVersionsBillingPeriodRangeFilter$],
 ];
-export var ListCustomLineItemVersionsInput: StaticStructureSchema = [
+export var ListCustomLineItemVersionsInput$: StaticStructureSchema = [
   3,
   n0,
   _LCLIVI,
   0,
   [_A, _MR, _NT, _Fi],
-  [0, 1, 0, () => ListCustomLineItemVersionsFilter],
+  [0, 1, 0, () => ListCustomLineItemVersionsFilter$],
 ];
-export var ListCustomLineItemVersionsOutput: StaticStructureSchema = [
+export var ListCustomLineItemVersionsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LCLIVO,
@@ -741,7 +741,7 @@ export var ListCustomLineItemVersionsOutput: StaticStructureSchema = [
   [_CLIV, _NT],
   [[() => CustomLineItemVersionList, 0], 0],
 ];
-export var ListPricingPlansAssociatedWithPricingRuleInput: StaticStructureSchema = [
+export var ListPricingPlansAssociatedWithPricingRuleInput$: StaticStructureSchema = [
   3,
   n0,
   _LPPAWPRI,
@@ -749,7 +749,7 @@ export var ListPricingPlansAssociatedWithPricingRuleInput: StaticStructureSchema
   [_BP, _PRAr, _MR, _NT],
   [0, 0, 1, 0],
 ];
-export var ListPricingPlansAssociatedWithPricingRuleOutput: StaticStructureSchema = [
+export var ListPricingPlansAssociatedWithPricingRuleOutput$: StaticStructureSchema = [
   3,
   n0,
   _LPPAWPRO,
@@ -757,16 +757,16 @@ export var ListPricingPlansAssociatedWithPricingRuleOutput: StaticStructureSchem
   [_BP, _PRAr, _PPAr, _NT],
   [0, 0, 64 | 0, 0],
 ];
-export var ListPricingPlansFilter: StaticStructureSchema = [3, n0, _LPPF, 0, [_Ar], [64 | 0]];
-export var ListPricingPlansInput: StaticStructureSchema = [
+export var ListPricingPlansFilter$: StaticStructureSchema = [3, n0, _LPPF, 0, [_Ar], [64 | 0]];
+export var ListPricingPlansInput$: StaticStructureSchema = [
   3,
   n0,
   _LPPI,
   0,
   [_BP, _Fi, _MR, _NT],
-  [0, () => ListPricingPlansFilter, 1, 0],
+  [0, () => ListPricingPlansFilter$, 1, 0],
 ];
-export var ListPricingPlansOutput: StaticStructureSchema = [
+export var ListPricingPlansOutput$: StaticStructureSchema = [
   3,
   n0,
   _LPPO,
@@ -774,7 +774,7 @@ export var ListPricingPlansOutput: StaticStructureSchema = [
   [_BP, _PPr, _NT],
   [0, [() => PricingPlanList, 0], 0],
 ];
-export var ListPricingRulesAssociatedToPricingPlanInput: StaticStructureSchema = [
+export var ListPricingRulesAssociatedToPricingPlanInput$: StaticStructureSchema = [
   3,
   n0,
   _LPRATPPI,
@@ -782,7 +782,7 @@ export var ListPricingRulesAssociatedToPricingPlanInput: StaticStructureSchema =
   [_BP, _PPA, _MR, _NT],
   [0, 0, 1, 0],
 ];
-export var ListPricingRulesAssociatedToPricingPlanOutput: StaticStructureSchema = [
+export var ListPricingRulesAssociatedToPricingPlanOutput$: StaticStructureSchema = [
   3,
   n0,
   _LPRATPPO,
@@ -790,16 +790,16 @@ export var ListPricingRulesAssociatedToPricingPlanOutput: StaticStructureSchema 
   [_BP, _PPA, _PRA, _NT],
   [0, 0, 64 | 0, 0],
 ];
-export var ListPricingRulesFilter: StaticStructureSchema = [3, n0, _LPRF, 0, [_Ar], [64 | 0]];
-export var ListPricingRulesInput: StaticStructureSchema = [
+export var ListPricingRulesFilter$: StaticStructureSchema = [3, n0, _LPRF, 0, [_Ar], [64 | 0]];
+export var ListPricingRulesInput$: StaticStructureSchema = [
   3,
   n0,
   _LPRI,
   0,
   [_BP, _Fi, _MR, _NT],
-  [0, () => ListPricingRulesFilter, 1, 0],
+  [0, () => ListPricingRulesFilter$, 1, 0],
 ];
-export var ListPricingRulesOutput: StaticStructureSchema = [
+export var ListPricingRulesOutput$: StaticStructureSchema = [
   3,
   n0,
   _LPRO,
@@ -807,16 +807,16 @@ export var ListPricingRulesOutput: StaticStructureSchema = [
   [_BP, _PR, _NT],
   [0, [() => PricingRuleList, 0], 0],
 ];
-export var ListResourcesAssociatedToCustomLineItemFilter: StaticStructureSchema = [3, n0, _LRATCLIF, 0, [_Re], [0]];
-export var ListResourcesAssociatedToCustomLineItemInput: StaticStructureSchema = [
+export var ListResourcesAssociatedToCustomLineItemFilter$: StaticStructureSchema = [3, n0, _LRATCLIF, 0, [_Re], [0]];
+export var ListResourcesAssociatedToCustomLineItemInput$: StaticStructureSchema = [
   3,
   n0,
   _LRATCLII,
   0,
   [_BP, _A, _MR, _NT, _Fi],
-  [0, 0, 1, 0, () => ListResourcesAssociatedToCustomLineItemFilter],
+  [0, 0, 1, 0, () => ListResourcesAssociatedToCustomLineItemFilter$],
 ];
-export var ListResourcesAssociatedToCustomLineItemOutput: StaticStructureSchema = [
+export var ListResourcesAssociatedToCustomLineItemOutput$: StaticStructureSchema = [
   3,
   n0,
   _LRATCLIO,
@@ -824,7 +824,7 @@ export var ListResourcesAssociatedToCustomLineItemOutput: StaticStructureSchema 
   [_A, _AR, _NT],
   [0, () => ListResourcesAssociatedToCustomLineItemResponseList, 0],
 ];
-export var ListResourcesAssociatedToCustomLineItemResponseElement: StaticStructureSchema = [
+export var ListResourcesAssociatedToCustomLineItemResponseElement$: StaticStructureSchema = [
   3,
   n0,
   _LRATCLIRE,
@@ -832,10 +832,10 @@ export var ListResourcesAssociatedToCustomLineItemResponseElement: StaticStructu
   [_A, _Re, _EBP],
   [0, 0, 0],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RAe], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [128 | 0]];
-export var PresentationObject: StaticStructureSchema = [3, n0, _PO, 0, [_Se], [0]];
-export var PricingPlanListElement: StaticStructureSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RAe], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [128 | 0]];
+export var PresentationObject$: StaticStructureSchema = [3, n0, _PO, 0, [_Se], [0]];
+export var PricingPlanListElement$: StaticStructureSchema = [
   3,
   n0,
   _PPLE,
@@ -843,15 +843,15 @@ export var PricingPlanListElement: StaticStructureSchema = [
   [_N, _A, _D, _S, _CT, _LMT],
   [[() => PricingPlanName, 0], 0, [() => PricingPlanDescription, 0], 1, 1, 1],
 ];
-export var PricingRuleListElement: StaticStructureSchema = [
+export var PricingRuleListElement$: StaticStructureSchema = [
   3,
   n0,
   _PRLE,
   0,
   [_N, _A, _D, _Sc, _Ty, _MPo, _Se, _APPC, _CT, _LMT, _BE, _Ti, _UT, _O],
-  [[() => PricingRuleName, 0], 0, [() => PricingRuleDescription, 0], 0, 0, 1, 0, 1, 1, 1, 0, () => Tiering, 0, 0],
+  [[() => PricingRuleName, 0], 0, [() => PricingRuleDescription, 0], 0, 0, 1, 0, 1, 1, 1, 0, () => Tiering$, 0, 0],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
+export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
@@ -859,8 +859,8 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   [_M, _RI, _RT],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ServiceLimitExceededException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SLEE,
@@ -868,11 +868,11 @@ export var ServiceLimitExceededException: StaticErrorSchema = [
   [_M, _RI, _RT, _LC, _SC],
   [0, 0, 0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ServiceLimitExceededException, __ServiceLimitExceededException);
-export var StringSearch: StaticStructureSchema = [3, n0, _SS, 0, [_SO, _SV], [0, 0]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RAe, _T], [[0, 1], 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(ServiceLimitExceededException$, ServiceLimitExceededException);
+export var StringSearch$: StaticStructureSchema = [3, n0, _SS, 0, [_SO, _SV], [0, 0]];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_RAe, _T], [[0, 1], 128 | 0]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var ThrottlingException$: StaticErrorSchema = [
   -3,
   n0,
   _TE,
@@ -880,9 +880,9 @@ export var ThrottlingException: StaticErrorSchema = [
   [_M, _RAS],
   [0, [1, { [_hH]: _RA_ }]],
 ];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var Tiering: StaticStructureSchema = [3, n0, _Ti, 0, [_FT], [() => FreeTierConfig]];
-export var UntagResourceRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var Tiering$: StaticStructureSchema = [3, n0, _Ti, 0, [_FT], [() => FreeTierConfig$]];
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -893,9 +893,9 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateBillingGroupAccountGrouping: StaticStructureSchema = [3, n0, _UBGAG, 0, [_AA, _RTA], [2, 0]];
-export var UpdateBillingGroupInput: StaticStructureSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateBillingGroupAccountGrouping$: StaticStructureSchema = [3, n0, _UBGAG, 0, [_AA, _RTA], [2, 0]];
+export var UpdateBillingGroupInput$: StaticStructureSchema = [
   3,
   n0,
   _UBGI,
@@ -905,12 +905,12 @@ export var UpdateBillingGroupInput: StaticStructureSchema = [
     0,
     [() => BillingGroupName, 0],
     0,
-    () => ComputationPreference,
+    () => ComputationPreference$,
     [() => BillingGroupDescription, 0],
-    () => UpdateBillingGroupAccountGrouping,
+    () => UpdateBillingGroupAccountGrouping$,
   ],
 ];
-export var UpdateBillingGroupOutput: StaticStructureSchema = [
+export var UpdateBillingGroupOutput$: StaticStructureSchema = [
   3,
   n0,
   _UBGO,
@@ -926,23 +926,23 @@ export var UpdateBillingGroupOutput: StaticStructureSchema = [
     1,
     0,
     0,
-    () => UpdateBillingGroupAccountGrouping,
+    () => UpdateBillingGroupAccountGrouping$,
   ],
 ];
-export var UpdateCustomLineItemChargeDetails: StaticStructureSchema = [
+export var UpdateCustomLineItemChargeDetails$: StaticStructureSchema = [
   3,
   n0,
   _UCLICD,
   0,
   [_F, _P, _LIF],
   [
-    () => UpdateCustomLineItemFlatChargeDetails,
-    () => UpdateCustomLineItemPercentageChargeDetails,
+    () => UpdateCustomLineItemFlatChargeDetails$,
+    () => UpdateCustomLineItemPercentageChargeDetails$,
     () => LineItemFiltersList,
   ],
 ];
-export var UpdateCustomLineItemFlatChargeDetails: StaticStructureSchema = [3, n0, _UCLIFCD, 0, [_CV], [1]];
-export var UpdateCustomLineItemInput: StaticStructureSchema = [
+export var UpdateCustomLineItemFlatChargeDetails$: StaticStructureSchema = [3, n0, _UCLIFCD, 0, [_CV], [1]];
+export var UpdateCustomLineItemInput$: StaticStructureSchema = [
   3,
   n0,
   _UCLII,
@@ -952,11 +952,11 @@ export var UpdateCustomLineItemInput: StaticStructureSchema = [
     0,
     [() => CustomLineItemName, 0],
     [() => CustomLineItemDescription, 0],
-    () => UpdateCustomLineItemChargeDetails,
-    () => CustomLineItemBillingPeriodRange,
+    () => UpdateCustomLineItemChargeDetails$,
+    () => CustomLineItemBillingPeriodRange$,
   ],
 ];
-export var UpdateCustomLineItemOutput: StaticStructureSchema = [
+export var UpdateCustomLineItemOutput$: StaticStructureSchema = [
   3,
   n0,
   _UCLIO,
@@ -967,14 +967,14 @@ export var UpdateCustomLineItemOutput: StaticStructureSchema = [
     0,
     [() => CustomLineItemName, 0],
     [() => CustomLineItemDescription, 0],
-    () => ListCustomLineItemChargeDetails,
+    () => ListCustomLineItemChargeDetails$,
     1,
     1,
   ],
 ];
-export var UpdateCustomLineItemPercentageChargeDetails: StaticStructureSchema = [3, n0, _UCLIPCD, 0, [_PV], [1]];
-export var UpdateFreeTierConfig: StaticStructureSchema = [3, n0, _UFTC, 0, [_Ac], [2]];
-export var UpdatePricingPlanInput: StaticStructureSchema = [
+export var UpdateCustomLineItemPercentageChargeDetails$: StaticStructureSchema = [3, n0, _UCLIPCD, 0, [_PV], [1]];
+export var UpdateFreeTierConfig$: StaticStructureSchema = [3, n0, _UFTC, 0, [_Ac], [2]];
+export var UpdatePricingPlanInput$: StaticStructureSchema = [
   3,
   n0,
   _UPPI,
@@ -982,7 +982,7 @@ export var UpdatePricingPlanInput: StaticStructureSchema = [
   [_A, _N, _D],
   [0, [() => PricingPlanName, 0], [() => PricingPlanDescription, 0]],
 ];
-export var UpdatePricingPlanOutput: StaticStructureSchema = [
+export var UpdatePricingPlanOutput$: StaticStructureSchema = [
   3,
   n0,
   _UPPO,
@@ -990,15 +990,15 @@ export var UpdatePricingPlanOutput: StaticStructureSchema = [
   [_A, _N, _D, _S, _LMT],
   [0, [() => PricingPlanName, 0], [() => PricingPlanDescription, 0], 1, 1],
 ];
-export var UpdatePricingRuleInput: StaticStructureSchema = [
+export var UpdatePricingRuleInput$: StaticStructureSchema = [
   3,
   n0,
   _UPRI,
   0,
   [_A, _N, _D, _Ty, _MPo, _Ti],
-  [0, [() => PricingRuleName, 0], [() => PricingRuleDescription, 0], 0, 1, () => UpdateTieringInput],
+  [0, [() => PricingRuleName, 0], [() => PricingRuleDescription, 0], 0, 1, () => UpdateTieringInput$],
 ];
-export var UpdatePricingRuleOutput: StaticStructureSchema = [
+export var UpdatePricingRuleOutput$: StaticStructureSchema = [
   3,
   n0,
   _UPRO,
@@ -1015,13 +1015,13 @@ export var UpdatePricingRuleOutput: StaticStructureSchema = [
     1,
     1,
     0,
-    () => UpdateTieringInput,
+    () => UpdateTieringInput$,
     0,
     0,
   ],
 ];
-export var UpdateTieringInput: StaticStructureSchema = [3, n0, _UTI, 0, [_FT], [() => UpdateFreeTierConfig]];
-export var ValidationException: StaticErrorSchema = [
+export var UpdateTieringInput$: StaticStructureSchema = [3, n0, _UTI, 0, [_FT], [() => UpdateFreeTierConfig$]];
+export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VE,
@@ -1029,9 +1029,9 @@ export var ValidationException: StaticErrorSchema = [
   [_M, _R, _Fie],
   [0, 0, () => ValidationExceptionFieldList],
 ];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_N, _M], [0, 0]];
-export var BillingconductorServiceException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF, 0, [_N, _M], [0, 0]];
+export var BillingconductorServiceException$: StaticErrorSchema = [
   -3,
   _sm,
   "BillingconductorServiceException",
@@ -1039,320 +1039,308 @@ export var BillingconductorServiceException: StaticErrorSchema = [
   [],
   [],
 ];
-TypeRegistry.for(_sm).registerError(BillingconductorServiceException, __BillingconductorServiceException);
-export var AccountAssociationsList: StaticListSchema = [1, n0, _AAL, 0, [() => AccountAssociationsListElement, 0]];
-export var AccountIdFilterList = 64 | 0;
-export var AccountIdList = 64 | 0;
-export var AssociateResourcesResponseList: StaticListSchema = [1, n0, _ARRL, 0, () => AssociateResourceResponseElement];
-export var AttributesList: StaticListSchema = [1, n0, _AL, 0, () => Attribute];
-export var AttributeValueList = 64 | 0;
-export var BillingGroupArnList = 64 | 0;
-export var BillingGroupCostReportList: StaticListSchema = [1, n0, _BGCRL, 0, () => BillingGroupCostReportElement];
-export var BillingGroupCostReportResultsList: StaticListSchema = [
+TypeRegistry.for(_sm).registerError(BillingconductorServiceException$, BillingconductorServiceException);
+var AccountAssociationsList: StaticListSchema = [1, n0, _AAL, 0, [() => AccountAssociationsListElement$, 0]];
+var AccountIdFilterList = 64 | 0;
+var AccountIdList = 64 | 0;
+var AssociateResourcesResponseList: StaticListSchema = [1, n0, _ARRL, 0, () => AssociateResourceResponseElement$];
+var AttributesList: StaticListSchema = [1, n0, _AL, 0, () => Attribute$];
+var AttributeValueList = 64 | 0;
+var BillingGroupArnList = 64 | 0;
+var BillingGroupCostReportList: StaticListSchema = [1, n0, _BGCRL, 0, () => BillingGroupCostReportElement$];
+var BillingGroupCostReportResultsList: StaticListSchema = [
   1,
   n0,
   _BGCRRL,
   0,
-  () => BillingGroupCostReportResultElement,
+  () => BillingGroupCostReportResultElement$,
 ];
-export var BillingGroupList: StaticListSchema = [1, n0, _BGL, 0, [() => BillingGroupListElement, 0]];
-export var BillingGroupStatusList = 64 | 0;
-export var BillingGroupTypeList = 64 | 0;
-export var CustomLineItemArns = 64 | 0;
-export var CustomLineItemAssociationsList = 64 | 0;
-export var CustomLineItemBatchAssociationsList = 64 | 0;
-export var CustomLineItemBatchDisassociationsList = 64 | 0;
-export var CustomLineItemList: StaticListSchema = [1, n0, _CLIL, 0, [() => CustomLineItemListElement, 0]];
-export var CustomLineItemNameList: StaticListSchema = [1, n0, _CLINL, 0, [() => CustomLineItemName, 0]];
-export var CustomLineItemVersionList: StaticListSchema = [
-  1,
-  n0,
-  _CLIVL,
-  0,
-  [() => CustomLineItemVersionListElement, 0],
-];
-export var DisassociateResourcesResponseList: StaticListSchema = [
-  1,
-  n0,
-  _DRRL,
-  0,
-  () => DisassociateResourceResponseElement,
-];
-export var GroupByAttributesList = 64 | 0;
-export var LineItemFiltersList: StaticListSchema = [1, n0, _LIFL, 0, () => LineItemFilter];
-export var LineItemFilterValuesList = 64 | 0;
-export var ListResourcesAssociatedToCustomLineItemResponseList: StaticListSchema = [
+var BillingGroupList: StaticListSchema = [1, n0, _BGL, 0, [() => BillingGroupListElement$, 0]];
+var BillingGroupStatusList = 64 | 0;
+var BillingGroupTypeList = 64 | 0;
+var CustomLineItemArns = 64 | 0;
+var CustomLineItemAssociationsList = 64 | 0;
+var CustomLineItemBatchAssociationsList = 64 | 0;
+var CustomLineItemBatchDisassociationsList = 64 | 0;
+var CustomLineItemList: StaticListSchema = [1, n0, _CLIL, 0, [() => CustomLineItemListElement$, 0]];
+var CustomLineItemNameList: StaticListSchema = [1, n0, _CLINL, 0, [() => CustomLineItemName, 0]];
+var CustomLineItemVersionList: StaticListSchema = [1, n0, _CLIVL, 0, [() => CustomLineItemVersionListElement$, 0]];
+var DisassociateResourcesResponseList: StaticListSchema = [1, n0, _DRRL, 0, () => DisassociateResourceResponseElement$];
+var GroupByAttributesList = 64 | 0;
+var LineItemFiltersList: StaticListSchema = [1, n0, _LIFL, 0, () => LineItemFilter$];
+var LineItemFilterValuesList = 64 | 0;
+var ListResourcesAssociatedToCustomLineItemResponseList: StaticListSchema = [
   1,
   n0,
   _LRATCLIRL,
   0,
-  () => ListResourcesAssociatedToCustomLineItemResponseElement,
+  () => ListResourcesAssociatedToCustomLineItemResponseElement$,
 ];
-export var PricingPlanArns = 64 | 0;
-export var PricingPlanList: StaticListSchema = [1, n0, _PPL, 0, [() => PricingPlanListElement, 0]];
-export var PricingRuleArns = 64 | 0;
-export var PricingRuleArnsInput = 64 | 0;
-export var PricingRuleArnsNonEmptyInput = 64 | 0;
-export var PricingRuleList: StaticListSchema = [1, n0, _PRL, 0, [() => PricingRuleListElement, 0]];
-export var PrimaryAccountIdList = 64 | 0;
-export var ResponsibilityTransferArnsList = 64 | 0;
-export var StringSearches: StaticListSchema = [1, n0, _SSt, 0, () => StringSearch];
-export var TagKeyList = 64 | 0;
-export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
-export var TagMap = 128 | 0;
-export var AssociateAccounts: StaticOperationSchema = [
+var PricingPlanArns = 64 | 0;
+var PricingPlanList: StaticListSchema = [1, n0, _PPL, 0, [() => PricingPlanListElement$, 0]];
+var PricingRuleArns = 64 | 0;
+var PricingRuleArnsInput = 64 | 0;
+var PricingRuleArnsNonEmptyInput = 64 | 0;
+var PricingRuleList: StaticListSchema = [1, n0, _PRL, 0, [() => PricingRuleListElement$, 0]];
+var PrimaryAccountIdList = 64 | 0;
+var ResponsibilityTransferArnsList = 64 | 0;
+var StringSearches: StaticListSchema = [1, n0, _SSt, 0, () => StringSearch$];
+var TagKeyList = 64 | 0;
+var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField$];
+var TagMap = 128 | 0;
+export var AssociateAccounts$: StaticOperationSchema = [
   9,
   n0,
   _AAs,
   { [_h]: ["POST", "/associate-accounts", 200] },
-  () => AssociateAccountsInput,
-  () => AssociateAccountsOutput,
+  () => AssociateAccountsInput$,
+  () => AssociateAccountsOutput$,
 ];
-export var AssociatePricingRules: StaticOperationSchema = [
+export var AssociatePricingRules$: StaticOperationSchema = [
   9,
   n0,
   _APR,
   { [_h]: ["PUT", "/associate-pricing-rules", 200] },
-  () => AssociatePricingRulesInput,
-  () => AssociatePricingRulesOutput,
+  () => AssociatePricingRulesInput$,
+  () => AssociatePricingRulesOutput$,
 ];
-export var BatchAssociateResourcesToCustomLineItem: StaticOperationSchema = [
+export var BatchAssociateResourcesToCustomLineItem$: StaticOperationSchema = [
   9,
   n0,
   _BARTCLI,
   { [_h]: ["PUT", "/batch-associate-resources-to-custom-line-item", 200] },
-  () => BatchAssociateResourcesToCustomLineItemInput,
-  () => BatchAssociateResourcesToCustomLineItemOutput,
+  () => BatchAssociateResourcesToCustomLineItemInput$,
+  () => BatchAssociateResourcesToCustomLineItemOutput$,
 ];
-export var BatchDisassociateResourcesFromCustomLineItem: StaticOperationSchema = [
+export var BatchDisassociateResourcesFromCustomLineItem$: StaticOperationSchema = [
   9,
   n0,
   _BDRFCLI,
   { [_h]: ["PUT", "/batch-disassociate-resources-from-custom-line-item", 200] },
-  () => BatchDisassociateResourcesFromCustomLineItemInput,
-  () => BatchDisassociateResourcesFromCustomLineItemOutput,
+  () => BatchDisassociateResourcesFromCustomLineItemInput$,
+  () => BatchDisassociateResourcesFromCustomLineItemOutput$,
 ];
-export var CreateBillingGroup: StaticOperationSchema = [
+export var CreateBillingGroup$: StaticOperationSchema = [
   9,
   n0,
   _CBG,
   { [_h]: ["POST", "/create-billing-group", 200] },
-  () => CreateBillingGroupInput,
-  () => CreateBillingGroupOutput,
+  () => CreateBillingGroupInput$,
+  () => CreateBillingGroupOutput$,
 ];
-export var CreateCustomLineItem: StaticOperationSchema = [
+export var CreateCustomLineItem$: StaticOperationSchema = [
   9,
   n0,
   _CCLI,
   { [_h]: ["POST", "/create-custom-line-item", 200] },
-  () => CreateCustomLineItemInput,
-  () => CreateCustomLineItemOutput,
+  () => CreateCustomLineItemInput$,
+  () => CreateCustomLineItemOutput$,
 ];
-export var CreatePricingPlan: StaticOperationSchema = [
+export var CreatePricingPlan$: StaticOperationSchema = [
   9,
   n0,
   _CPP,
   { [_h]: ["POST", "/create-pricing-plan", 200] },
-  () => CreatePricingPlanInput,
-  () => CreatePricingPlanOutput,
+  () => CreatePricingPlanInput$,
+  () => CreatePricingPlanOutput$,
 ];
-export var CreatePricingRule: StaticOperationSchema = [
+export var CreatePricingRule$: StaticOperationSchema = [
   9,
   n0,
   _CPR,
   { [_h]: ["POST", "/create-pricing-rule", 200] },
-  () => CreatePricingRuleInput,
-  () => CreatePricingRuleOutput,
+  () => CreatePricingRuleInput$,
+  () => CreatePricingRuleOutput$,
 ];
-export var DeleteBillingGroup: StaticOperationSchema = [
+export var DeleteBillingGroup$: StaticOperationSchema = [
   9,
   n0,
   _DBG,
   { [_h]: ["POST", "/delete-billing-group", 200] },
-  () => DeleteBillingGroupInput,
-  () => DeleteBillingGroupOutput,
+  () => DeleteBillingGroupInput$,
+  () => DeleteBillingGroupOutput$,
 ];
-export var DeleteCustomLineItem: StaticOperationSchema = [
+export var DeleteCustomLineItem$: StaticOperationSchema = [
   9,
   n0,
   _DCLI,
   { [_h]: ["POST", "/delete-custom-line-item", 200] },
-  () => DeleteCustomLineItemInput,
-  () => DeleteCustomLineItemOutput,
+  () => DeleteCustomLineItemInput$,
+  () => DeleteCustomLineItemOutput$,
 ];
-export var DeletePricingPlan: StaticOperationSchema = [
+export var DeletePricingPlan$: StaticOperationSchema = [
   9,
   n0,
   _DPP,
   { [_h]: ["POST", "/delete-pricing-plan", 200] },
-  () => DeletePricingPlanInput,
-  () => DeletePricingPlanOutput,
+  () => DeletePricingPlanInput$,
+  () => DeletePricingPlanOutput$,
 ];
-export var DeletePricingRule: StaticOperationSchema = [
+export var DeletePricingRule$: StaticOperationSchema = [
   9,
   n0,
   _DPR,
   { [_h]: ["POST", "/delete-pricing-rule", 200] },
-  () => DeletePricingRuleInput,
-  () => DeletePricingRuleOutput,
+  () => DeletePricingRuleInput$,
+  () => DeletePricingRuleOutput$,
 ];
-export var DisassociateAccounts: StaticOperationSchema = [
+export var DisassociateAccounts$: StaticOperationSchema = [
   9,
   n0,
   _DA,
   { [_h]: ["POST", "/disassociate-accounts", 200] },
-  () => DisassociateAccountsInput,
-  () => DisassociateAccountsOutput,
+  () => DisassociateAccountsInput$,
+  () => DisassociateAccountsOutput$,
 ];
-export var DisassociatePricingRules: StaticOperationSchema = [
+export var DisassociatePricingRules$: StaticOperationSchema = [
   9,
   n0,
   _DPRi,
   { [_h]: ["PUT", "/disassociate-pricing-rules", 200] },
-  () => DisassociatePricingRulesInput,
-  () => DisassociatePricingRulesOutput,
+  () => DisassociatePricingRulesInput$,
+  () => DisassociatePricingRulesOutput$,
 ];
-export var GetBillingGroupCostReport: StaticOperationSchema = [
+export var GetBillingGroupCostReport$: StaticOperationSchema = [
   9,
   n0,
   _GBGCR,
   { [_h]: ["POST", "/get-billing-group-cost-report", 200] },
-  () => GetBillingGroupCostReportInput,
-  () => GetBillingGroupCostReportOutput,
+  () => GetBillingGroupCostReportInput$,
+  () => GetBillingGroupCostReportOutput$,
 ];
-export var ListAccountAssociations: StaticOperationSchema = [
+export var ListAccountAssociations$: StaticOperationSchema = [
   9,
   n0,
   _LAA,
   { [_h]: ["POST", "/list-account-associations", 200] },
-  () => ListAccountAssociationsInput,
-  () => ListAccountAssociationsOutput,
+  () => ListAccountAssociationsInput$,
+  () => ListAccountAssociationsOutput$,
 ];
-export var ListBillingGroupCostReports: StaticOperationSchema = [
+export var ListBillingGroupCostReports$: StaticOperationSchema = [
   9,
   n0,
   _LBGCR,
   { [_h]: ["POST", "/list-billing-group-cost-reports", 200] },
-  () => ListBillingGroupCostReportsInput,
-  () => ListBillingGroupCostReportsOutput,
+  () => ListBillingGroupCostReportsInput$,
+  () => ListBillingGroupCostReportsOutput$,
 ];
-export var ListBillingGroups: StaticOperationSchema = [
+export var ListBillingGroups$: StaticOperationSchema = [
   9,
   n0,
   _LBG,
   { [_h]: ["POST", "/list-billing-groups", 200] },
-  () => ListBillingGroupsInput,
-  () => ListBillingGroupsOutput,
+  () => ListBillingGroupsInput$,
+  () => ListBillingGroupsOutput$,
 ];
-export var ListCustomLineItems: StaticOperationSchema = [
+export var ListCustomLineItems$: StaticOperationSchema = [
   9,
   n0,
   _LCLI,
   { [_h]: ["POST", "/list-custom-line-items", 200] },
-  () => ListCustomLineItemsInput,
-  () => ListCustomLineItemsOutput,
+  () => ListCustomLineItemsInput$,
+  () => ListCustomLineItemsOutput$,
 ];
-export var ListCustomLineItemVersions: StaticOperationSchema = [
+export var ListCustomLineItemVersions$: StaticOperationSchema = [
   9,
   n0,
   _LCLIV,
   { [_h]: ["POST", "/list-custom-line-item-versions", 200] },
-  () => ListCustomLineItemVersionsInput,
-  () => ListCustomLineItemVersionsOutput,
+  () => ListCustomLineItemVersionsInput$,
+  () => ListCustomLineItemVersionsOutput$,
 ];
-export var ListPricingPlans: StaticOperationSchema = [
+export var ListPricingPlans$: StaticOperationSchema = [
   9,
   n0,
   _LPP,
   { [_h]: ["POST", "/list-pricing-plans", 200] },
-  () => ListPricingPlansInput,
-  () => ListPricingPlansOutput,
+  () => ListPricingPlansInput$,
+  () => ListPricingPlansOutput$,
 ];
-export var ListPricingPlansAssociatedWithPricingRule: StaticOperationSchema = [
+export var ListPricingPlansAssociatedWithPricingRule$: StaticOperationSchema = [
   9,
   n0,
   _LPPAWPR,
   { [_h]: ["POST", "/list-pricing-plans-associated-with-pricing-rule", 200] },
-  () => ListPricingPlansAssociatedWithPricingRuleInput,
-  () => ListPricingPlansAssociatedWithPricingRuleOutput,
+  () => ListPricingPlansAssociatedWithPricingRuleInput$,
+  () => ListPricingPlansAssociatedWithPricingRuleOutput$,
 ];
-export var ListPricingRules: StaticOperationSchema = [
+export var ListPricingRules$: StaticOperationSchema = [
   9,
   n0,
   _LPR,
   { [_h]: ["POST", "/list-pricing-rules", 200] },
-  () => ListPricingRulesInput,
-  () => ListPricingRulesOutput,
+  () => ListPricingRulesInput$,
+  () => ListPricingRulesOutput$,
 ];
-export var ListPricingRulesAssociatedToPricingPlan: StaticOperationSchema = [
+export var ListPricingRulesAssociatedToPricingPlan$: StaticOperationSchema = [
   9,
   n0,
   _LPRATPP,
   { [_h]: ["POST", "/list-pricing-rules-associated-to-pricing-plan", 200] },
-  () => ListPricingRulesAssociatedToPricingPlanInput,
-  () => ListPricingRulesAssociatedToPricingPlanOutput,
+  () => ListPricingRulesAssociatedToPricingPlanInput$,
+  () => ListPricingRulesAssociatedToPricingPlanOutput$,
 ];
-export var ListResourcesAssociatedToCustomLineItem: StaticOperationSchema = [
+export var ListResourcesAssociatedToCustomLineItem$: StaticOperationSchema = [
   9,
   n0,
   _LRATCLI,
   { [_h]: ["POST", "/list-resources-associated-to-custom-line-item", 200] },
-  () => ListResourcesAssociatedToCustomLineItemInput,
-  () => ListResourcesAssociatedToCustomLineItemOutput,
+  () => ListResourcesAssociatedToCustomLineItemInput$,
+  () => ListResourcesAssociatedToCustomLineItemOutput$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{ResourceArn}", 204] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/tags/{ResourceArn}", 204] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tags/{ResourceArn}", 204] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateBillingGroup: StaticOperationSchema = [
+export var UpdateBillingGroup$: StaticOperationSchema = [
   9,
   n0,
   _UBG,
   { [_h]: ["POST", "/update-billing-group", 200] },
-  () => UpdateBillingGroupInput,
-  () => UpdateBillingGroupOutput,
+  () => UpdateBillingGroupInput$,
+  () => UpdateBillingGroupOutput$,
 ];
-export var UpdateCustomLineItem: StaticOperationSchema = [
+export var UpdateCustomLineItem$: StaticOperationSchema = [
   9,
   n0,
   _UCLI,
   { [_h]: ["POST", "/update-custom-line-item", 200] },
-  () => UpdateCustomLineItemInput,
-  () => UpdateCustomLineItemOutput,
+  () => UpdateCustomLineItemInput$,
+  () => UpdateCustomLineItemOutput$,
 ];
-export var UpdatePricingPlan: StaticOperationSchema = [
+export var UpdatePricingPlan$: StaticOperationSchema = [
   9,
   n0,
   _UPP,
   { [_h]: ["PUT", "/update-pricing-plan", 200] },
-  () => UpdatePricingPlanInput,
-  () => UpdatePricingPlanOutput,
+  () => UpdatePricingPlanInput$,
+  () => UpdatePricingPlanOutput$,
 ];
-export var UpdatePricingRule: StaticOperationSchema = [
+export var UpdatePricingRule$: StaticOperationSchema = [
   9,
   n0,
   _UPR,
   { [_h]: ["PUT", "/update-pricing-rule", 200] },
-  () => UpdatePricingRuleInput,
-  () => UpdatePricingRuleOutput,
+  () => UpdatePricingRuleInput$,
+  () => UpdatePricingRuleOutput$,
 ];

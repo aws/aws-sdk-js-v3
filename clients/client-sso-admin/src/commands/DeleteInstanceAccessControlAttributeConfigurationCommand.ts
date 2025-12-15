@@ -8,7 +8,7 @@ import type {
   DeleteInstanceAccessControlAttributeConfigurationRequest,
   DeleteInstanceAccessControlAttributeConfigurationResponse,
 } from "../models/models_0";
-import { DeleteInstanceAccessControlAttributeConfiguration } from "../schemas/schemas_0";
+import { DeleteInstanceAccessControlAttributeConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -95,7 +95,7 @@ export class DeleteInstanceAccessControlAttributeConfigurationCommand extends $C
   })
   .s("SWBExternalService", "DeleteInstanceAccessControlAttributeConfiguration", {})
   .n("SSOAdminClient", "DeleteInstanceAccessControlAttributeConfigurationCommand")
-  .sc(DeleteInstanceAccessControlAttributeConfiguration)
+  .sc(DeleteInstanceAccessControlAttributeConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

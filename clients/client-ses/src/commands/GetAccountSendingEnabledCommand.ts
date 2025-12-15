@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAccountSendingEnabledResponse } from "../models/models_0";
-import { GetAccountSendingEnabled } from "../schemas/schemas_0";
+import { GetAccountSendingEnabled$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -85,7 +85,7 @@ export class GetAccountSendingEnabledCommand extends $Command
   })
   .s("SimpleEmailService", "GetAccountSendingEnabled", {})
   .n("SESClient", "GetAccountSendingEnabledCommand")
-  .sc(GetAccountSendingEnabled)
+  .sc(GetAccountSendingEnabled$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

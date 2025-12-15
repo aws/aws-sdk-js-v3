@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FreeTierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FreeTierClient";
 import type { UpgradeAccountPlanRequest, UpgradeAccountPlanResponse } from "../models/models_0";
-import { UpgradeAccountPlan } from "../schemas/schemas_0";
+import { UpgradeAccountPlan$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -172,7 +172,7 @@ export class UpgradeAccountPlanCommand extends $Command
   })
   .s("AWSFreeTierService", "UpgradeAccountPlan", {})
   .n("FreeTierClient", "UpgradeAccountPlanCommand")
-  .sc(UpgradeAccountPlan)
+  .sc(UpgradeAccountPlan$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

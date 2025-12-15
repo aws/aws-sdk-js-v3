@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAccessEntryRequest, DeleteAccessEntryResponse } from "../models/models_0";
-import { DeleteAccessEntry } from "../schemas/schemas_0";
+import { DeleteAccessEntry$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class DeleteAccessEntryCommand extends $Command
   })
   .s("AWSWesleyFrontend", "DeleteAccessEntry", {})
   .n("EKSClient", "DeleteAccessEntryCommand")
-  .sc(DeleteAccessEntry)
+  .sc(DeleteAccessEntry$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

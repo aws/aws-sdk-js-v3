@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateLocationObjectStorageRequest, UpdateLocationObjectStorageResponse } from "../models/models_0";
-import { UpdateLocationObjectStorage } from "../schemas/schemas_0";
+import { UpdateLocationObjectStorage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class UpdateLocationObjectStorageCommand extends $Command
   })
   .s("FmrsService", "UpdateLocationObjectStorage", {})
   .n("DataSyncClient", "UpdateLocationObjectStorageCommand")
-  .sc(UpdateLocationObjectStorage)
+  .sc(UpdateLocationObjectStorage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

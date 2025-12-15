@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ArtifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ArtifactClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutAccountSettingsRequest, PutAccountSettingsResponse } from "../models/models_0";
-import { PutAccountSettings } from "../schemas/schemas_0";
+import { PutAccountSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class PutAccountSettingsCommand extends $Command
   })
   .s("Artifact", "PutAccountSettings", {})
   .n("ArtifactClient", "PutAccountSettingsCommand")
-  .sc(PutAccountSettings)
+  .sc(PutAccountSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

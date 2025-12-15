@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import type { ListExperienceEntitiesRequest, ListExperienceEntitiesResponse } from "../models/models_0";
-import { ListExperienceEntities } from "../schemas/schemas_0";
+import { ListExperienceEntities$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class ListExperienceEntitiesCommand extends $Command
   })
   .s("AWSKendraFrontendService", "ListExperienceEntities", {})
   .n("KendraClient", "ListExperienceEntitiesCommand")
-  .sc(ListExperienceEntities)
+  .sc(ListExperienceEntities$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   UpdatePackageGroupOriginConfigurationRequest,
   UpdatePackageGroupOriginConfigurationResult,
 } from "../models/models_0";
-import { UpdatePackageGroupOriginConfiguration } from "../schemas/schemas_0";
+import { UpdatePackageGroupOriginConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -161,7 +161,7 @@ export class UpdatePackageGroupOriginConfigurationCommand extends $Command
   })
   .s("CodeArtifactControlPlaneService", "UpdatePackageGroupOriginConfiguration", {})
   .n("CodeartifactClient", "UpdatePackageGroupOriginConfigurationCommand")
-  .sc(UpdatePackageGroupOriginConfiguration)
+  .sc(UpdatePackageGroupOriginConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

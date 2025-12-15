@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MachineLearningClient";
 import type { DeleteEvaluationInput, DeleteEvaluationOutput } from "../models/models_0";
-import { DeleteEvaluation } from "../schemas/schemas_0";
+import { DeleteEvaluation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DeleteEvaluationCommand extends $Command
   })
   .s("AmazonML_20141212", "DeleteEvaluation", {})
   .n("MachineLearningClient", "DeleteEvaluationCommand")
-  .sc(DeleteEvaluation)
+  .sc(DeleteEvaluation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

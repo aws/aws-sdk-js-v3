@@ -38,13 +38,13 @@ export const getRuntimeConfig = (config: CognitoIdentityClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.cognitoidentity",
-        serviceTarget: "AWSCognitoIdentityService",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.cognitoidentity",
+      xmlNamespace: "http://cognito-identity.amazonaws.com/doc/2014-06-30/",
+      version: "2014-06-30",
+      serviceTarget: "AWSCognitoIdentityService",
+    },
     serviceId: config?.serviceId ?? "Cognito Identity",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

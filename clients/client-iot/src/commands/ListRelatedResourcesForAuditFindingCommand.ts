@@ -9,7 +9,7 @@ import type {
   ListRelatedResourcesForAuditFindingRequest,
   ListRelatedResourcesForAuditFindingResponse,
 } from "../models/models_1";
-import { ListRelatedResourcesForAuditFinding } from "../schemas/schemas_0";
+import { ListRelatedResourcesForAuditFinding$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -155,7 +155,7 @@ export class ListRelatedResourcesForAuditFindingCommand extends $Command
   })
   .s("AWSIotService", "ListRelatedResourcesForAuditFinding", {})
   .n("IoTClient", "ListRelatedResourcesForAuditFindingCommand")
-  .sc(ListRelatedResourcesForAuditFinding)
+  .sc(ListRelatedResourcesForAuditFinding$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

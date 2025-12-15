@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import type { GreetingWithErrorsOutput } from "../models/models_0";
-import { GreetingWithErrors } from "../schemas/schemas_0";
+import { GreetingWithErrors$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class GreetingWithErrorsCommand extends $Command
   })
   .s("JsonProtocol", "GreetingWithErrors", {})
   .n("JsonProtocolClient", "GreetingWithErrorsCommand")
-  .sc(GreetingWithErrors)
+  .sc(GreetingWithErrors$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

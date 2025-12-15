@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { TerminateSessionRequest, TerminateSessionResponse } from "../models/models_1";
-import { TerminateSession } from "../schemas/schemas_0";
+import { TerminateSession$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -77,7 +77,7 @@ export class TerminateSessionCommand extends $Command
   })
   .s("AmazonSSM", "TerminateSession", {})
   .n("SSMClient", "TerminateSessionCommand")
-  .sc(TerminateSession)
+  .sc(TerminateSession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

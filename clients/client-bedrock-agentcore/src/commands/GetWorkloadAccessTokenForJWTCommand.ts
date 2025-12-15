@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetWorkloadAccessTokenForJWTRequest, GetWorkloadAccessTokenForJWTResponse } from "../models/models_0";
-import { GetWorkloadAccessTokenForJWT } from "../schemas/schemas_0";
+import { GetWorkloadAccessTokenForJWT$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class GetWorkloadAccessTokenForJWTCommand extends $Command
   })
   .s("AmazonBedrockAgentCore", "GetWorkloadAccessTokenForJWT", {})
   .n("BedrockAgentCoreClient", "GetWorkloadAccessTokenForJWTCommand")
-  .sc(GetWorkloadAccessTokenForJWT)
+  .sc(GetWorkloadAccessTokenForJWT$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

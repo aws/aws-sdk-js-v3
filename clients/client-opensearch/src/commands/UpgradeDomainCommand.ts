@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpgradeDomainRequest, UpgradeDomainResponse } from "../models/models_0";
 import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { UpgradeDomain } from "../schemas/schemas_0";
+import { UpgradeDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class UpgradeDomainCommand extends $Command
   })
   .s("AmazonOpenSearchService", "UpgradeDomain", {})
   .n("OpenSearchClient", "UpgradeDomainCommand")
-  .sc(UpgradeDomain)
+  .sc(UpgradeDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

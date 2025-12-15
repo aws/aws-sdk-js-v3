@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppFabricClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteIngestionDestinationRequest, DeleteIngestionDestinationResponse } from "../models/models_0";
-import { DeleteIngestionDestination } from "../schemas/schemas_0";
+import { DeleteIngestionDestination$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeleteIngestionDestinationCommand extends $Command
   })
   .s("FabricFrontEndService", "DeleteIngestionDestination", {})
   .n("AppFabricClient", "DeleteIngestionDestinationCommand")
-  .sc(DeleteIngestionDestination)
+  .sc(DeleteIngestionDestination$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

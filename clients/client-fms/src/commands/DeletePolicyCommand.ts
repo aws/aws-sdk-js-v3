@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import type { DeletePolicyRequest } from "../models/models_0";
-import { DeletePolicy } from "../schemas/schemas_0";
+import { DeletePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DeletePolicyCommand extends $Command
   })
   .s("AWSFMS_20180101", "DeletePolicy", {})
   .n("FMSClient", "DeletePolicyCommand")
-  .sc(DeletePolicy)
+  .sc(DeletePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

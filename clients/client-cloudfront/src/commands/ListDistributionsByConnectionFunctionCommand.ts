@@ -9,7 +9,7 @@ import type {
   ListDistributionsByConnectionFunctionRequest,
   ListDistributionsByConnectionFunctionResult,
 } from "../models/models_1";
-import { ListDistributionsByConnectionFunction } from "../schemas/schemas_0";
+import { ListDistributionsByConnectionFunction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -417,7 +417,7 @@ export class ListDistributionsByConnectionFunctionCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "ListDistributionsByConnectionFunction", {})
   .n("CloudFrontClient", "ListDistributionsByConnectionFunctionCommand")
-  .sc(ListDistributionsByConnectionFunction)
+  .sc(ListDistributionsByConnectionFunction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

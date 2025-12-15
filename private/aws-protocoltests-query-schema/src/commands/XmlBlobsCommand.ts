@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { XmlBlobsOutput } from "../models/models_0";
 import type { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { XmlBlobs } from "../schemas/schemas_0";
+import { XmlBlobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -71,7 +71,7 @@ export class XmlBlobsCommand extends $Command
   })
   .s("AwsQuery", "XmlBlobs", {})
   .n("QueryProtocolClient", "XmlBlobsCommand")
-  .sc(XmlBlobs)
+  .sc(XmlBlobs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

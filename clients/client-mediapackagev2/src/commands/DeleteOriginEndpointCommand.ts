@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MediaPackageV2Client";
 import type { DeleteOriginEndpointRequest, DeleteOriginEndpointResponse } from "../models/models_0";
-import { DeleteOriginEndpoint } from "../schemas/schemas_0";
+import { DeleteOriginEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class DeleteOriginEndpointCommand extends $Command
   })
   .s("mediapackagev2", "DeleteOriginEndpoint", {})
   .n("MediaPackageV2Client", "DeleteOriginEndpointCommand")
-  .sc(DeleteOriginEndpoint)
+  .sc(DeleteOriginEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartAssetBundleImportJobRequest, StartAssetBundleImportJobResponse } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { StartAssetBundleImportJob } from "../schemas/schemas_0";
+import { StartAssetBundleImportJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -555,7 +555,7 @@ export class StartAssetBundleImportJobCommand extends $Command
   })
   .s("QuickSight_20180401", "StartAssetBundleImportJob", {})
   .n("QuickSightClient", "StartAssetBundleImportJobCommand")
-  .sc(StartAssetBundleImportJob)
+  .sc(StartAssetBundleImportJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -11,7 +11,7 @@ import type {
   GetMultiRegionAccessPointPolicyStatusResult,
 } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { GetMultiRegionAccessPointPolicyStatus } from "../schemas/schemas_0";
+import { GetMultiRegionAccessPointPolicyStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class GetMultiRegionAccessPointPolicyStatusCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "GetMultiRegionAccessPointPolicyStatus", {})
   .n("S3ControlClient", "GetMultiRegionAccessPointPolicyStatusCommand")
-  .sc(GetMultiRegionAccessPointPolicyStatus)
+  .sc(GetMultiRegionAccessPointPolicyStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

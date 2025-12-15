@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FreeTierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FreeTierClient";
 import type { GetAccountPlanStateRequest, GetAccountPlanStateResponse } from "../models/models_0";
-import { GetAccountPlanState } from "../schemas/schemas_0";
+import { GetAccountPlanState$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -157,7 +157,7 @@ export class GetAccountPlanStateCommand extends $Command
   })
   .s("AWSFreeTierService", "GetAccountPlanState", {})
   .n("FreeTierClient", "GetAccountPlanStateCommand")
-  .sc(GetAccountPlanState)
+  .sc(GetAccountPlanState$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

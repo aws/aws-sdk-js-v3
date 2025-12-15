@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { TagResourceInput } from "../models/models_0";
-import { TagResource } from "../schemas/schemas_0";
+import { TagResource$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -87,7 +87,7 @@ export class TagResourceCommand extends $Command
   })
   .s("SnowDeviceManagement", "TagResource", {})
   .n("SnowDeviceManagementClient", "TagResourceCommand")
-  .sc(TagResource)
+  .sc(TagResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

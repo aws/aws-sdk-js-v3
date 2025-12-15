@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteIndexPolicyRequest, DeleteIndexPolicyResponse } from "../models/models_0";
-import { DeleteIndexPolicy } from "../schemas/schemas_0";
+import { DeleteIndexPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class DeleteIndexPolicyCommand extends $Command
   })
   .s("Logs_20140328", "DeleteIndexPolicy", {})
   .n("CloudWatchLogsClient", "DeleteIndexPolicyCommand")
-  .sc(DeleteIndexPolicy)
+  .sc(DeleteIndexPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

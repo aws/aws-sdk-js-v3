@@ -9,7 +9,7 @@ import type {
   DeleteModelInvocationLoggingConfigurationRequest,
   DeleteModelInvocationLoggingConfigurationResponse,
 } from "../models/models_1";
-import { DeleteModelInvocationLoggingConfiguration } from "../schemas/schemas_0";
+import { DeleteModelInvocationLoggingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class DeleteModelInvocationLoggingConfigurationCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "DeleteModelInvocationLoggingConfiguration", {})
   .n("BedrockClient", "DeleteModelInvocationLoggingConfigurationCommand")
-  .sc(DeleteModelInvocationLoggingConfiguration)
+  .sc(DeleteModelInvocationLoggingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

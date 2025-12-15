@@ -9,7 +9,7 @@ import type {
   DescribeResourceGroupingRecommendationTaskResponse,
 } from "../models/models_0";
 import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
-import { DescribeResourceGroupingRecommendationTask } from "../schemas/schemas_0";
+import { DescribeResourceGroupingRecommendationTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class DescribeResourceGroupingRecommendationTaskCommand extends $Command
   })
   .s("AwsResilienceHub", "DescribeResourceGroupingRecommendationTask", {})
   .n("ResiliencehubClient", "DescribeResourceGroupingRecommendationTaskCommand")
-  .sc(DescribeResourceGroupingRecommendationTask)
+  .sc(DescribeResourceGroupingRecommendationTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

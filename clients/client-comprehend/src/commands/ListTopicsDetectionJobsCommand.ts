@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListTopicsDetectionJobsRequest, ListTopicsDetectionJobsResponse } from "../models/models_0";
-import { ListTopicsDetectionJobs } from "../schemas/schemas_0";
+import { ListTopicsDetectionJobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -130,7 +130,7 @@ export class ListTopicsDetectionJobsCommand extends $Command
   })
   .s("Comprehend_20171127", "ListTopicsDetectionJobs", {})
   .n("ComprehendClient", "ListTopicsDetectionJobsCommand")
-  .sc(ListTopicsDetectionJobs)
+  .sc(ListTopicsDetectionJobs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

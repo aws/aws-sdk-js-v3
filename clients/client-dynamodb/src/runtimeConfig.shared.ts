@@ -32,14 +32,14 @@ export const getRuntimeConfig = (config: DynamoDBClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_0Protocol({
-        defaultNamespace: "com.amazonaws.dynamodb",
-        serviceTarget: "DynamoDB_20120810",
-        awsQueryCompatible: false,
-        jsonCodec: new DynamoDBJsonCodec(),
-      }),
+    protocol: config?.protocol ?? AwsJson1_0Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.dynamodb",
+      xmlNamespace: "http://dynamodb.amazonaws.com/doc/2012-08-10/",
+      version: "2012-08-10",
+      serviceTarget: "DynamoDB_20120810",
+      jsonCodec: new DynamoDBJsonCodec(),
+    },
     serviceId: config?.serviceId ?? "DynamoDB",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

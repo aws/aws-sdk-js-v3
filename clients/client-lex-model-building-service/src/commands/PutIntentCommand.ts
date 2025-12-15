@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import type { PutIntentRequest, PutIntentResponse } from "../models/models_0";
-import { PutIntent } from "../schemas/schemas_0";
+import { PutIntent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -627,7 +627,7 @@ export class PutIntentCommand extends $Command
   })
   .s("AWSDeepSenseModelBuildingService", "PutIntent", {})
   .n("LexModelBuildingServiceClient", "PutIntentCommand")
-  .sc(PutIntent)
+  .sc(PutIntent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

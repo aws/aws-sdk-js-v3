@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteTapeInput, DeleteTapeOutput } from "../models/models_0";
-import { DeleteTape } from "../schemas/schemas_0";
+import { DeleteTape$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -104,7 +104,7 @@ export class DeleteTapeCommand extends $Command
   })
   .s("StorageGateway_20130630", "DeleteTape", {})
   .n("StorageGatewayClient", "DeleteTapeCommand")
-  .sc(DeleteTape)
+  .sc(DeleteTape$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

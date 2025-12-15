@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartAccessRequestRequest, StartAccessRequestResponse } from "../models/models_1";
-import { StartAccessRequest } from "../schemas/schemas_0";
+import { StartAccessRequest$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -108,7 +108,7 @@ export class StartAccessRequestCommand extends $Command
   })
   .s("AmazonSSM", "StartAccessRequest", {})
   .n("SSMClient", "StartAccessRequestCommand")
-  .sc(StartAccessRequest)
+  .sc(StartAccessRequest$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

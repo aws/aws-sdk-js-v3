@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { DatetimeOffsets } from "../schemas/schemas_0";
+import { DatetimeOffsets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -75,7 +75,7 @@ export class DatetimeOffsetsCommand extends $Command
   })
   .s("RestJson", "DatetimeOffsets", {})
   .n("RestJsonProtocolClient", "DatetimeOffsetsCommand")
-  .sc(DatetimeOffsets)
+  .sc(DatetimeOffsets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeJobRunRequest, DescribeJobRunResponse } from "../models/models_0";
-import { DescribeJobRun } from "../schemas/schemas_0";
+import { DescribeJobRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -157,7 +157,7 @@ export class DescribeJobRunCommand extends $Command
   })
   .s("AwsChicagoWebService", "DescribeJobRun", {})
   .n("EMRContainersClient", "DescribeJobRunCommand")
-  .sc(DescribeJobRun)
+  .sc(DescribeJobRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

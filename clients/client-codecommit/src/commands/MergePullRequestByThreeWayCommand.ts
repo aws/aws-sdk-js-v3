@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MergePullRequestByThreeWayInput, MergePullRequestByThreeWayOutput } from "../models/models_0";
-import { MergePullRequestByThreeWay } from "../schemas/schemas_0";
+import { MergePullRequestByThreeWay$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -270,7 +270,7 @@ export class MergePullRequestByThreeWayCommand extends $Command
   })
   .s("CodeCommit_20150413", "MergePullRequestByThreeWay", {})
   .n("CodeCommitClient", "MergePullRequestByThreeWayCommand")
-  .sc(MergePullRequestByThreeWay)
+  .sc(MergePullRequestByThreeWay$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

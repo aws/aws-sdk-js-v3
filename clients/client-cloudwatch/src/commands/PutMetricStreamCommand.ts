@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutMetricStreamInput, PutMetricStreamOutput } from "../models/models_0";
-import { PutMetricStream } from "../schemas/schemas_0";
+import { PutMetricStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -161,7 +161,7 @@ export class PutMetricStreamCommand extends $Command
   })
   .s("GraniteServiceVersion20100801", "PutMetricStream", {})
   .n("CloudWatchClient", "PutMetricStreamCommand")
-  .sc(PutMetricStream)
+  .sc(PutMetricStream$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

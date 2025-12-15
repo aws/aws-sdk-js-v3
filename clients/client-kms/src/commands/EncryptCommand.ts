@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import type { EncryptRequest, EncryptResponse } from "../models/models_0";
-import { Encrypt } from "../schemas/schemas_0";
+import { Encrypt$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -299,7 +299,7 @@ export class EncryptCommand extends $Command
   })
   .s("TrentService", "Encrypt", {})
   .n("KMSClient", "EncryptCommand")
-  .sc(Encrypt)
+  .sc(Encrypt$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

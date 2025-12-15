@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateTimelineEventInput, CreateTimelineEventOutput } from "../models/models_0";
-import { CreateTimelineEvent } from "../schemas/schemas_0";
+import { CreateTimelineEvent$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
@@ -107,7 +107,7 @@ export class CreateTimelineEventCommand extends $Command
   })
   .s("SSMIncidents", "CreateTimelineEvent", {})
   .n("SSMIncidentsClient", "CreateTimelineEventCommand")
-  .sc(CreateTimelineEvent)
+  .sc(CreateTimelineEvent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { PutKeyword } from "../schemas/schemas_0";
+import { PutKeyword$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class PutKeywordCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "PutKeyword", {})
   .n("PinpointSMSVoiceV2Client", "PutKeywordCommand")
-  .sc(PutKeyword)
+  .sc(PutKeyword$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

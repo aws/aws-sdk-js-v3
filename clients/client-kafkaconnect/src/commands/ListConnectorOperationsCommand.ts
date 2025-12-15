@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
 import type { ListConnectorOperationsRequest, ListConnectorOperationsResponse } from "../models/models_0";
-import { ListConnectorOperations } from "../schemas/schemas_0";
+import { ListConnectorOperations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class ListConnectorOperationsCommand extends $Command
   })
   .s("KafkaConnect", "ListConnectorOperations", {})
   .n("KafkaConnectClient", "ListConnectorOperationsCommand")
-  .sc(ListConnectorOperations)
+  .sc(ListConnectorOperations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

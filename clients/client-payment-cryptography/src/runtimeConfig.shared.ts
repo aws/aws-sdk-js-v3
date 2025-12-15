@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: PaymentCryptographyClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_0Protocol({
-        defaultNamespace: "com.amazonaws.paymentcryptography",
-        serviceTarget: "PaymentCryptographyControlPlane",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_0Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.paymentcryptography",
+      version: "2021-09-14",
+      serviceTarget: "PaymentCryptographyControlPlane",
+    },
     serviceId: config?.serviceId ?? "Payment Cryptography",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

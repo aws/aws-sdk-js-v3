@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutDataSetRefreshPropertiesRequest, PutDataSetRefreshPropertiesResponse } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { PutDataSetRefreshProperties } from "../schemas/schemas_0";
+import { PutDataSetRefreshProperties$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class PutDataSetRefreshPropertiesCommand extends $Command
   })
   .s("QuickSight_20180401", "PutDataSetRefreshProperties", {})
   .n("QuickSightClient", "PutDataSetRefreshPropertiesCommand")
-  .sc(PutDataSetRefreshProperties)
+  .sc(PutDataSetRefreshProperties$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

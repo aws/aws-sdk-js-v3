@@ -9,7 +9,7 @@ import type {
   DescribeVpcBlockPublicAccessOptionsRequest,
   DescribeVpcBlockPublicAccessOptionsResult,
 } from "../models/models_5";
-import { DescribeVpcBlockPublicAccessOptions } from "../schemas/schemas_0";
+import { DescribeVpcBlockPublicAccessOptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DescribeVpcBlockPublicAccessOptionsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeVpcBlockPublicAccessOptions", {})
   .n("EC2Client", "DescribeVpcBlockPublicAccessOptionsCommand")
-  .sc(DescribeVpcBlockPublicAccessOptions)
+  .sc(DescribeVpcBlockPublicAccessOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

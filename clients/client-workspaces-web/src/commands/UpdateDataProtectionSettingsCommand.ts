@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateDataProtectionSettingsRequest, UpdateDataProtectionSettingsResponse } from "../models/models_0";
-import { UpdateDataProtectionSettings } from "../schemas/schemas_0";
+import { UpdateDataProtectionSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -167,7 +167,7 @@ export class UpdateDataProtectionSettingsCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "UpdateDataProtectionSettings", {})
   .n("WorkSpacesWebClient", "UpdateDataProtectionSettingsCommand")
-  .sc(UpdateDataProtectionSettings)
+  .sc(UpdateDataProtectionSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

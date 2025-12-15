@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAssetTypeInput, DeleteAssetTypeOutput } from "../models/models_0";
-import { DeleteAssetType } from "../schemas/schemas_0";
+import { DeleteAssetType$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeleteAssetTypeCommand extends $Command
   })
   .s("DataZone", "DeleteAssetType", {})
   .n("DataZoneClient", "DeleteAssetTypeCommand")
-  .sc(DeleteAssetType)
+  .sc(DeleteAssetType$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

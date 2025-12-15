@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdatePushTemplateRequest, UpdatePushTemplateResponse } from "../models/models_1";
 import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { UpdatePushTemplate } from "../schemas/schemas_0";
+import { UpdatePushTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -156,7 +156,7 @@ export class UpdatePushTemplateCommand extends $Command
   })
   .s("Pinpoint", "UpdatePushTemplate", {})
   .n("PinpointClient", "UpdatePushTemplateCommand")
-  .sc(UpdatePushTemplate)
+  .sc(UpdatePushTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchDisassociateUserStackRequest, BatchDisassociateUserStackResult } from "../models/models_0";
-import { BatchDisassociateUserStack } from "../schemas/schemas_0";
+import { BatchDisassociateUserStack$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class BatchDisassociateUserStackCommand extends $Command
   })
   .s("PhotonAdminProxyService", "BatchDisassociateUserStack", {})
   .n("AppStreamClient", "BatchDisassociateUserStackCommand")
-  .sc(BatchDisassociateUserStack)
+  .sc(BatchDisassociateUserStack$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

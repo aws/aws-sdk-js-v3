@@ -9,7 +9,7 @@ import type {
   DescribeDataRepositoryAssociationsRequest,
   DescribeDataRepositoryAssociationsResponse,
 } from "../models/models_0";
-import { DescribeDataRepositoryAssociations } from "../schemas/schemas_0";
+import { DescribeDataRepositoryAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -173,7 +173,7 @@ export class DescribeDataRepositoryAssociationsCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "DescribeDataRepositoryAssociations", {})
   .n("FSxClient", "DescribeDataRepositoryAssociationsCommand")
-  .sc(DescribeDataRepositoryAssociations)
+  .sc(DescribeDataRepositoryAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

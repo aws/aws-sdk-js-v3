@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../KinesisVideoSignalingClient";
 import type { GetIceServerConfigRequest, GetIceServerConfigResponse } from "../models/models_0";
-import { GetIceServerConfig } from "../schemas/schemas_0";
+import { GetIceServerConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,7 +123,7 @@ export class GetIceServerConfigCommand extends $Command
   })
   .s("AWSAcuitySignalingService", "GetIceServerConfig", {})
   .n("KinesisVideoSignalingClient", "GetIceServerConfigCommand")
-  .sc(GetIceServerConfig)
+  .sc(GetIceServerConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

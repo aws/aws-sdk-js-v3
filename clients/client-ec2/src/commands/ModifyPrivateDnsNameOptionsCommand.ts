@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyPrivateDnsNameOptionsRequest, ModifyPrivateDnsNameOptionsResult } from "../models/models_6";
-import { ModifyPrivateDnsNameOptions } from "../schemas/schemas_0";
+import { ModifyPrivateDnsNameOptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,7 +77,7 @@ export class ModifyPrivateDnsNameOptionsCommand extends $Command
   })
   .s("AmazonEC2", "ModifyPrivateDnsNameOptions", {})
   .n("EC2Client", "ModifyPrivateDnsNameOptionsCommand")
-  .sc(ModifyPrivateDnsNameOptions)
+  .sc(ModifyPrivateDnsNameOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

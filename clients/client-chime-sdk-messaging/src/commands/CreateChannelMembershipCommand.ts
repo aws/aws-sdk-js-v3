@@ -10,7 +10,7 @@ import type {
 } from "../ChimeSDKMessagingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateChannelMembershipRequest, CreateChannelMembershipResponse } from "../models/models_0";
-import { CreateChannelMembership } from "../schemas/schemas_0";
+import { CreateChannelMembership$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -147,7 +147,7 @@ export class CreateChannelMembershipCommand extends $Command
   })
   .s("ChimeMessagingService", "CreateChannelMembership", {})
   .n("ChimeSDKMessagingClient", "CreateChannelMembershipCommand")
-  .sc(CreateChannelMembership)
+  .sc(CreateChannelMembership$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

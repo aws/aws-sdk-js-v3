@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSizeConstraintSetRequest, DeleteSizeConstraintSetResponse } from "../models/models_0";
-import { DeleteSizeConstraintSet } from "../schemas/schemas_0";
+import { DeleteSizeConstraintSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -154,7 +154,7 @@ export class DeleteSizeConstraintSetCommand extends $Command
   })
   .s("AWSWAF_20150824", "DeleteSizeConstraintSet", {})
   .n("WAFClient", "DeleteSizeConstraintSetCommand")
-  .sc(DeleteSizeConstraintSet)
+  .sc(DeleteSizeConstraintSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   DeleteCalculatedAttributeDefinitionRequest,
   DeleteCalculatedAttributeDefinitionResponse,
 } from "../models/models_0";
-import { DeleteCalculatedAttributeDefinition } from "../schemas/schemas_0";
+import { DeleteCalculatedAttributeDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class DeleteCalculatedAttributeDefinitionCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "DeleteCalculatedAttributeDefinition", {})
   .n("CustomerProfilesClient", "DeleteCalculatedAttributeDefinitionCommand")
-  .sc(DeleteCalculatedAttributeDefinition)
+  .sc(DeleteCalculatedAttributeDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

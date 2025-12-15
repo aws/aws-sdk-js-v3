@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GameLiftStreamsClient";
 import type { ListStreamSessionsInput, ListStreamSessionsOutput } from "../models/models_0";
-import { ListStreamSessions } from "../schemas/schemas_0";
+import { ListStreamSessions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class ListStreamSessionsCommand extends $Command
   })
   .s("GameLiftStreams", "ListStreamSessions", {})
   .n("GameLiftStreamsClient", "ListStreamSessionsCommand")
-  .sc(ListStreamSessions)
+  .sc(ListStreamSessions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

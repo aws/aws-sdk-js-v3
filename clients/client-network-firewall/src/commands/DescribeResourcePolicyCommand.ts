@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFirewallClient";
-import { DescribeResourcePolicy } from "../schemas/schemas_0";
+import { DescribeResourcePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class DescribeResourcePolicyCommand extends $Command
   })
   .s("NetworkFirewall_20201112", "DescribeResourcePolicy", {})
   .n("NetworkFirewallClient", "DescribeResourcePolicyCommand")
-  .sc(DescribeResourcePolicy)
+  .sc(DescribeResourcePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyDBSubnetGroupMessage, ModifyDBSubnetGroupResult } from "../models/models_0";
 import type { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { ModifyDBSubnetGroup } from "../schemas/schemas_0";
+import { ModifyDBSubnetGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class ModifyDBSubnetGroupCommand extends $Command
   })
   .s("AmazonRDSv19", "ModifyDBSubnetGroup", {})
   .n("NeptuneClient", "ModifyDBSubnetGroupCommand")
-  .sc(ModifyDBSubnetGroup)
+  .sc(ModifyDBSubnetGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

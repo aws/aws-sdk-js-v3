@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CancelExportTaskRequest } from "../models/models_0";
-import { CancelExportTask } from "../schemas/schemas_0";
+import { CancelExportTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class CancelExportTaskCommand extends $Command
   })
   .s("Logs_20140328", "CancelExportTask", {})
   .n("CloudWatchLogsClient", "CancelExportTaskCommand")
-  .sc(CancelExportTask)
+  .sc(CancelExportTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

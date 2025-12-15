@@ -9,7 +9,7 @@ import type {
   DescribeBudgetActionsForAccountRequest,
   DescribeBudgetActionsForAccountResponse,
 } from "../models/models_0";
-import { DescribeBudgetActionsForAccount } from "../schemas/schemas_0";
+import { DescribeBudgetActionsForAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -146,7 +146,7 @@ export class DescribeBudgetActionsForAccountCommand extends $Command
   })
   .s("AWSBudgetServiceGateway", "DescribeBudgetActionsForAccount", {})
   .n("BudgetsClient", "DescribeBudgetActionsForAccountCommand")
-  .sc(DescribeBudgetActionsForAccount)
+  .sc(DescribeBudgetActionsForAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

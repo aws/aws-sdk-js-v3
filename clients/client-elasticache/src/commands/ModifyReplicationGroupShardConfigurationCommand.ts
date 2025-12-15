@@ -9,7 +9,7 @@ import type {
   ModifyReplicationGroupShardConfigurationMessage,
   ModifyReplicationGroupShardConfigurationResult,
 } from "../models/models_0";
-import { ModifyReplicationGroupShardConfiguration } from "../schemas/schemas_0";
+import { ModifyReplicationGroupShardConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -249,7 +249,7 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "ModifyReplicationGroupShardConfiguration", {})
   .n("ElastiCacheClient", "ModifyReplicationGroupShardConfigurationCommand")
-  .sc(ModifyReplicationGroupShardConfiguration)
+  .sc(ModifyReplicationGroupShardConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

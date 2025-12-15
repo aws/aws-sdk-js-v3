@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ScalarSubjectRequest, SubjectDetailResponse } from "../models/models_0";
 import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
-import { GetSubject } from "../schemas/schemas_0";
+import { GetSubject$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class GetSubjectCommand extends $Command
   })
   .s("RolesAnywhere", "GetSubject", {})
   .n("RolesAnywhereClient", "GetSubjectCommand")
-  .sc(GetSubject)
+  .sc(GetSubject$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

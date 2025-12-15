@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SetIdentityPoolConfigurationRequest, SetIdentityPoolConfigurationResponse } from "../models/models_0";
-import { SetIdentityPoolConfiguration } from "../schemas/schemas_0";
+import { SetIdentityPoolConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -170,7 +170,7 @@ export class SetIdentityPoolConfigurationCommand extends $Command
   })
   .s("AWSCognitoSyncService", "SetIdentityPoolConfiguration", {})
   .n("CognitoSyncClient", "SetIdentityPoolConfigurationCommand")
-  .sc(SetIdentityPoolConfiguration)
+  .sc(SetIdentityPoolConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

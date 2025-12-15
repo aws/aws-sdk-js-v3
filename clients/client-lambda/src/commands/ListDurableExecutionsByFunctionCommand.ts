@@ -9,7 +9,7 @@ import type {
   ListDurableExecutionsByFunctionRequest,
   ListDurableExecutionsByFunctionResponse,
 } from "../models/models_0";
-import { ListDurableExecutionsByFunction } from "../schemas/schemas_0";
+import { ListDurableExecutionsByFunction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class ListDurableExecutionsByFunctionCommand extends $Command
   })
   .s("AWSGirApiService", "ListDurableExecutionsByFunction", {})
   .n("LambdaClient", "ListDurableExecutionsByFunctionCommand")
-  .sc(ListDurableExecutionsByFunction)
+  .sc(ListDurableExecutionsByFunction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

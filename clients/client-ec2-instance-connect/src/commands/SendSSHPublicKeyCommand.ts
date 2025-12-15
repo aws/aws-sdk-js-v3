@@ -10,7 +10,7 @@ import type {
 } from "../EC2InstanceConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SendSSHPublicKeyRequest, SendSSHPublicKeyResponse } from "../models/models_0";
-import { SendSSHPublicKey } from "../schemas/schemas_0";
+import { SendSSHPublicKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,7 +127,7 @@ export class SendSSHPublicKeyCommand extends $Command
   })
   .s("AWSEC2InstanceConnectService", "SendSSHPublicKey", {})
   .n("EC2InstanceConnectClient", "SendSSHPublicKeyCommand")
-  .sc(SendSSHPublicKey)
+  .sc(SendSSHPublicKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

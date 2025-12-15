@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import type { ListCrossAccountResourcesRequest, ListCrossAccountResourcesResponse } from "../models/models_0";
-import { ListCrossAccountResources } from "../schemas/schemas_0";
+import { ListCrossAccountResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class ListCrossAccountResourcesCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "ListCrossAccountResources", {})
   .n("GlobalAcceleratorClient", "ListCrossAccountResourcesCommand")
-  .sc(ListCrossAccountResources)
+  .sc(ListCrossAccountResources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

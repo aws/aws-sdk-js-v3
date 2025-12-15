@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteDataIntegrationFlowRequest, DeleteDataIntegrationFlowResponse } from "../models/models_0";
-import { DeleteDataIntegrationFlow } from "../schemas/schemas_0";
+import { DeleteDataIntegrationFlow$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupplyChainClientResolvedConfig } from "../SupplyChainClient";
 
 /**
@@ -113,7 +113,7 @@ export class DeleteDataIntegrationFlowCommand extends $Command
   })
   .s("GalaxyPublicAPIGateway", "DeleteDataIntegrationFlow", {})
   .n("SupplyChainClient", "DeleteDataIntegrationFlowCommand")
-  .sc(DeleteDataIntegrationFlow)
+  .sc(DeleteDataIntegrationFlow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

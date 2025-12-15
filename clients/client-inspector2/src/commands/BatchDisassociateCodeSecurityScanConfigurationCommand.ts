@@ -9,7 +9,7 @@ import type {
   BatchDisassociateCodeSecurityScanConfigurationRequest,
   BatchDisassociateCodeSecurityScanConfigurationResponse,
 } from "../models/models_0";
-import { BatchDisassociateCodeSecurityScanConfiguration } from "../schemas/schemas_0";
+import { BatchDisassociateCodeSecurityScanConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,7 +127,7 @@ export class BatchDisassociateCodeSecurityScanConfigurationCommand extends $Comm
   })
   .s("Inspector2", "BatchDisassociateCodeSecurityScanConfiguration", {})
   .n("Inspector2Client", "BatchDisassociateCodeSecurityScanConfigurationCommand")
-  .sc(BatchDisassociateCodeSecurityScanConfiguration)
+  .sc(BatchDisassociateCodeSecurityScanConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

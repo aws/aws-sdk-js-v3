@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateConnectorProfileRequest, CreateConnectorProfileResponse } from "../models/models_0";
-import { CreateConnectorProfile } from "../schemas/schemas_0";
+import { CreateConnectorProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -335,7 +335,7 @@ export class CreateConnectorProfileCommand extends $Command
   })
   .s("SandstoneConfigurationServiceLambda", "CreateConnectorProfile", {})
   .n("AppflowClient", "CreateConnectorProfileCommand")
-  .sc(CreateConnectorProfile)
+  .sc(CreateConnectorProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

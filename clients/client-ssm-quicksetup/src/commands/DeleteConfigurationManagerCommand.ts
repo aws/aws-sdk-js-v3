@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteConfigurationManagerInput } from "../models/models_0";
-import { DeleteConfigurationManager } from "../schemas/schemas_0";
+import { DeleteConfigurationManager$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMQuickSetupClientResolvedConfig } from "../SSMQuickSetupClient";
 
 /**
@@ -90,7 +90,7 @@ export class DeleteConfigurationManagerCommand extends $Command
   })
   .s("QuickSetup", "DeleteConfigurationManager", {})
   .n("SSMQuickSetupClient", "DeleteConfigurationManagerCommand")
-  .sc(DeleteConfigurationManager)
+  .sc(DeleteConfigurationManager$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

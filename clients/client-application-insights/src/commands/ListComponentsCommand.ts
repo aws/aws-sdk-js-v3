@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationInsightsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListComponentsRequest, ListComponentsResponse } from "../models/models_0";
-import { ListComponents } from "../schemas/schemas_0";
+import { ListComponents$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class ListComponentsCommand extends $Command
   })
   .s("EC2WindowsBarleyService", "ListComponents", {})
   .n("ApplicationInsightsClient", "ListComponentsCommand")
-  .sc(ListComponents)
+  .sc(ListComponents$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

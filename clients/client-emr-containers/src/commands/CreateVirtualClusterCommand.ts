@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateVirtualClusterRequest, CreateVirtualClusterResponse } from "../models/models_0";
-import { CreateVirtualCluster } from "../schemas/schemas_0";
+import { CreateVirtualCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class CreateVirtualClusterCommand extends $Command
   })
   .s("AwsChicagoWebService", "CreateVirtualCluster", {})
   .n("EMRContainersClient", "CreateVirtualClusterCommand")
-  .sc(CreateVirtualCluster)
+  .sc(CreateVirtualCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

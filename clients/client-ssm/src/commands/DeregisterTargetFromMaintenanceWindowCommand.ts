@@ -8,7 +8,7 @@ import type {
   DeregisterTargetFromMaintenanceWindowRequest,
   DeregisterTargetFromMaintenanceWindowResult,
 } from "../models/models_0";
-import { DeregisterTargetFromMaintenanceWindow } from "../schemas/schemas_0";
+import { DeregisterTargetFromMaintenanceWindow$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -95,7 +95,7 @@ export class DeregisterTargetFromMaintenanceWindowCommand extends $Command
   })
   .s("AmazonSSM", "DeregisterTargetFromMaintenanceWindow", {})
   .n("SSMClient", "DeregisterTargetFromMaintenanceWindowCommand")
-  .sc(DeregisterTargetFromMaintenanceWindow)
+  .sc(DeregisterTargetFromMaintenanceWindow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

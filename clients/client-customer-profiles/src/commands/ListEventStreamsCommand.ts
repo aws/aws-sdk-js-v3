@@ -10,7 +10,7 @@ import type {
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListEventStreamsRequest, ListEventStreamsResponse } from "../models/models_0";
-import { ListEventStreams } from "../schemas/schemas_0";
+import { ListEventStreams$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class ListEventStreamsCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "ListEventStreams", {})
   .n("CustomerProfilesClient", "ListEventStreamsCommand")
-  .sc(ListEventStreams)
+  .sc(ListEventStreams$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

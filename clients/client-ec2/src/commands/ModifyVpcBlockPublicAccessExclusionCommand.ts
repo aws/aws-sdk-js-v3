@@ -9,7 +9,7 @@ import type {
   ModifyVpcBlockPublicAccessExclusionRequest,
   ModifyVpcBlockPublicAccessExclusionResult,
 } from "../models/models_7";
-import { ModifyVpcBlockPublicAccessExclusion } from "../schemas/schemas_0";
+import { ModifyVpcBlockPublicAccessExclusion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class ModifyVpcBlockPublicAccessExclusionCommand extends $Command
   })
   .s("AmazonEC2", "ModifyVpcBlockPublicAccessExclusion", {})
   .n("EC2Client", "ModifyVpcBlockPublicAccessExclusionCommand")
-  .sc(ModifyVpcBlockPublicAccessExclusion)
+  .sc(ModifyVpcBlockPublicAccessExclusion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../CodeConnectionsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateHostInput, CreateHostOutput } from "../models/models_0";
-import { CreateHost } from "../schemas/schemas_0";
+import { CreateHost$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class CreateHostCommand extends $Command
   })
   .s("CodeConnections_20231201", "CreateHost", {})
   .n("CodeConnectionsClient", "CreateHostCommand")
-  .sc(CreateHost)
+  .sc(CreateHost$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

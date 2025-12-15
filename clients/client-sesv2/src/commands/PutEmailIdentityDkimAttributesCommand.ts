@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutEmailIdentityDkimAttributesRequest, PutEmailIdentityDkimAttributesResponse } from "../models/models_0";
-import { PutEmailIdentityDkimAttributes } from "../schemas/schemas_0";
+import { PutEmailIdentityDkimAttributes$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -83,7 +83,7 @@ export class PutEmailIdentityDkimAttributesCommand extends $Command
   })
   .s("SimpleEmailService_v2", "PutEmailIdentityDkimAttributes", {})
   .n("SESv2Client", "PutEmailIdentityDkimAttributesCommand")
-  .sc(PutEmailIdentityDkimAttributes)
+  .sc(PutEmailIdentityDkimAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

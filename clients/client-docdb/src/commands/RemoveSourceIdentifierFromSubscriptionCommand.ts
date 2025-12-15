@@ -9,7 +9,7 @@ import type {
   RemoveSourceIdentifierFromSubscriptionMessage,
   RemoveSourceIdentifierFromSubscriptionResult,
 } from "../models/models_0";
-import { RemoveSourceIdentifierFromSubscription } from "../schemas/schemas_0";
+import { RemoveSourceIdentifierFromSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command
   })
   .s("AmazonRDSv19", "RemoveSourceIdentifierFromSubscription", {})
   .n("DocDBClient", "RemoveSourceIdentifierFromSubscriptionCommand")
-  .sc(RemoveSourceIdentifierFromSubscription)
+  .sc(RemoveSourceIdentifierFromSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

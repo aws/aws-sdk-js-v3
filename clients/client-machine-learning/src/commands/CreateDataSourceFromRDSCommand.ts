@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MachineLearningClient";
 import type { CreateDataSourceFromRDSInput, CreateDataSourceFromRDSOutput } from "../models/models_0";
-import { CreateDataSourceFromRDS } from "../schemas/schemas_0";
+import { CreateDataSourceFromRDS$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class CreateDataSourceFromRDSCommand extends $Command
   })
   .s("AmazonML_20141212", "CreateDataSourceFromRDS", {})
   .n("MachineLearningClient", "CreateDataSourceFromRDSCommand")
-  .sc(CreateDataSourceFromRDS)
+  .sc(CreateDataSourceFromRDS$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   GetScalingConfigurationRecommendationResponse,
 } from "../models/models_3";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { GetScalingConfigurationRecommendation } from "../schemas/schemas_0";
+import { GetScalingConfigurationRecommendation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,7 +123,7 @@ export class GetScalingConfigurationRecommendationCommand extends $Command
   })
   .s("SageMaker", "GetScalingConfigurationRecommendation", {})
   .n("SageMakerClient", "GetScalingConfigurationRecommendationCommand")
-  .sc(GetScalingConfigurationRecommendation)
+  .sc(GetScalingConfigurationRecommendation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

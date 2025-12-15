@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputType
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type ExecuteQueryInput, ExecuteQueryOutput } from "../models/models_0";
 import type { NeptuneGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneGraphClient";
-import { ExecuteQuery } from "../schemas/schemas_0";
+import { ExecuteQuery$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class ExecuteQueryCommand extends $Command
   })
   .s("AmazonNeptuneGraph", "ExecuteQuery", {})
   .n("NeptuneGraphClient", "ExecuteQueryCommand")
-  .sc(ExecuteQuery)
+  .sc(ExecuteQuery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

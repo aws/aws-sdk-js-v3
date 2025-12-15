@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RemoveAutoScalingPolicyInput, RemoveAutoScalingPolicyOutput } from "../models/models_0";
-import { RemoveAutoScalingPolicy } from "../schemas/schemas_0";
+import { RemoveAutoScalingPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -72,7 +72,7 @@ export class RemoveAutoScalingPolicyCommand extends $Command
   })
   .s("ElasticMapReduce", "RemoveAutoScalingPolicy", {})
   .n("EMRClient", "RemoveAutoScalingPolicyCommand")
-  .sc(RemoveAutoScalingPolicy)
+  .sc(RemoveAutoScalingPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

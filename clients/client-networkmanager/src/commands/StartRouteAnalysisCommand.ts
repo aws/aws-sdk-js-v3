@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { StartRouteAnalysis } from "../schemas/schemas_0";
+import { StartRouteAnalysis$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -171,7 +171,7 @@ export class StartRouteAnalysisCommand extends $Command
   })
   .s("NetworkManager", "StartRouteAnalysis", {})
   .n("NetworkManagerClient", "StartRouteAnalysisCommand")
-  .sc(StartRouteAnalysis)
+  .sc(StartRouteAnalysis$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

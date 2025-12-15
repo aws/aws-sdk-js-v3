@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppFabricClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetIngestionRequest, GetIngestionResponse } from "../models/models_0";
-import { GetIngestion } from "../schemas/schemas_0";
+import { GetIngestion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class GetIngestionCommand extends $Command
   })
   .s("FabricFrontEndService", "GetIngestion", {})
   .n("AppFabricClient", "GetIngestionCommand")
-  .sc(GetIngestion)
+  .sc(GetIngestion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

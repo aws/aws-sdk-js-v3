@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { DBClusterEndpoint } from "../models/models_0";
 import type { ModifyDBClusterEndpointMessage } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { ModifyDBClusterEndpoint } from "../schemas/schemas_0";
+import { ModifyDBClusterEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -146,7 +146,7 @@ export class ModifyDBClusterEndpointCommand extends $Command
   })
   .s("AmazonRDSv19", "ModifyDBClusterEndpoint", {})
   .n("RDSClient", "ModifyDBClusterEndpointCommand")
-  .sc(ModifyDBClusterEndpoint)
+  .sc(ModifyDBClusterEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

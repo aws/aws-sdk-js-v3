@@ -10,7 +10,7 @@ import type {
 } from "../BedrockDataAutomationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateBlueprintVersionRequest, CreateBlueprintVersionResponse } from "../models/models_0";
-import { CreateBlueprintVersion } from "../schemas/schemas_0";
+import { CreateBlueprintVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class CreateBlueprintVersionCommand extends $Command
   })
   .s("AmazonBedrockKeystoneBuildTimeService", "CreateBlueprintVersion", {})
   .n("BedrockDataAutomationClient", "CreateBlueprintVersionCommand")
-  .sc(CreateBlueprintVersion)
+  .sc(CreateBlueprintVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeEndpointsRequest, DescribeEndpointsResponse } from "../models/models_0";
-import { DescribeEndpoints } from "../schemas/schemas_0";
+import { DescribeEndpoints$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,7 +77,7 @@ export class DescribeEndpointsCommand extends $Command
   })
   .s("DynamoDB_20120810", "DescribeEndpoints", {})
   .n("DynamoDBClient", "DescribeEndpointsCommand")
-  .sc(DescribeEndpoints)
+  .sc(DescribeEndpoints$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

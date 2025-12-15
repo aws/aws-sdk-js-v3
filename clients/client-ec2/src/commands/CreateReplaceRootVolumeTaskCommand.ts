@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateReplaceRootVolumeTaskRequest, CreateReplaceRootVolumeTaskResult } from "../models/models_1";
-import { CreateReplaceRootVolumeTask } from "../schemas/schemas_0";
+import { CreateReplaceRootVolumeTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class CreateReplaceRootVolumeTaskCommand extends $Command
   })
   .s("AmazonEC2", "CreateReplaceRootVolumeTask", {})
   .n("EC2Client", "CreateReplaceRootVolumeTaskCommand")
-  .sc(CreateReplaceRootVolumeTask)
+  .sc(CreateReplaceRootVolumeTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

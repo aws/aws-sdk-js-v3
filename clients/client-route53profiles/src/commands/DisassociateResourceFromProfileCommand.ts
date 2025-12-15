@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ProfilesClient";
-import { DisassociateResourceFromProfile } from "../schemas/schemas_0";
+import { DisassociateResourceFromProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -137,7 +137,7 @@ export class DisassociateResourceFromProfileCommand extends $Command
   })
   .s("Route53Profiles", "DisassociateResourceFromProfile", {})
   .n("Route53ProfilesClient", "DisassociateResourceFromProfileCommand")
-  .sc(DisassociateResourceFromProfile)
+  .sc(DisassociateResourceFromProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

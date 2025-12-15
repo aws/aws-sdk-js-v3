@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { InstantiateSolNetworkInstanceInput, InstantiateSolNetworkInstanceOutput } from "../models/models_0";
-import { InstantiateSolNetworkInstance } from "../schemas/schemas_0";
+import { InstantiateSolNetworkInstance$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
@@ -145,7 +145,7 @@ export class InstantiateSolNetworkInstanceCommand extends $Command
   })
   .s("TNB", "InstantiateSolNetworkInstance", {})
   .n("TnbClient", "InstantiateSolNetworkInstanceCommand")
-  .sc(InstantiateSolNetworkInstance)
+  .sc(InstantiateSolNetworkInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

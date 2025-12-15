@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ReleaseHostsRequest, ReleaseHostsResult } from "../models/models_7";
-import { ReleaseHosts } from "../schemas/schemas_0";
+import { ReleaseHosts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class ReleaseHostsCommand extends $Command
   })
   .s("AmazonEC2", "ReleaseHosts", {})
   .n("EC2Client", "ReleaseHostsCommand")
-  .sc(ReleaseHosts)
+  .sc(ReleaseHosts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -520,22 +520,22 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { AthenaServiceException as __AthenaServiceException } from "../models/AthenaServiceException";
+import { AthenaServiceException } from "../models/AthenaServiceException";
 import {
-  InternalServerException as __InternalServerException,
-  InvalidRequestException as __InvalidRequestException,
-  MetadataException as __MetadataException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  SessionAlreadyExistsException as __SessionAlreadyExistsException,
-  TooManyRequestsException as __TooManyRequestsException,
+  InternalServerException,
+  InvalidRequestException,
+  MetadataException,
+  ResourceNotFoundException,
+  SessionAlreadyExistsException,
+  TooManyRequestsException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var AclConfiguration: StaticStructureSchema = [3, n0, _AC, 0, [_SAO], [0]];
-export var ApplicationDPUSizes: StaticStructureSchema = [3, n0, _ADPUS, 0, [_ARI, _SDPUS], [0, 64 | 1]];
-export var AthenaError: StaticStructureSchema = [3, n0, _AE, 0, [_EC, _ET, _R, _EM], [1, 1, 2, 0]];
-export var BatchGetNamedQueryInput: StaticStructureSchema = [3, n0, _BGNQI, 0, [_NQI], [64 | 0]];
-export var BatchGetNamedQueryOutput: StaticStructureSchema = [
+export var AclConfiguration$: StaticStructureSchema = [3, n0, _AC, 0, [_SAO], [0]];
+export var ApplicationDPUSizes$: StaticStructureSchema = [3, n0, _ADPUS, 0, [_ARI, _SDPUS], [0, 64 | 1]];
+export var AthenaError$: StaticStructureSchema = [3, n0, _AE, 0, [_EC, _ET, _R, _EM], [1, 1, 2, 0]];
+export var BatchGetNamedQueryInput$: StaticStructureSchema = [3, n0, _BGNQI, 0, [_NQI], [64 | 0]];
+export var BatchGetNamedQueryOutput$: StaticStructureSchema = [
   3,
   n0,
   _BGNQO,
@@ -543,8 +543,8 @@ export var BatchGetNamedQueryOutput: StaticStructureSchema = [
   [_NQ, _UNQI],
   [() => NamedQueryList, () => UnprocessedNamedQueryIdList],
 ];
-export var BatchGetPreparedStatementInput: StaticStructureSchema = [3, n0, _BGPSI, 0, [_PSN, _WG], [64 | 0, 0]];
-export var BatchGetPreparedStatementOutput: StaticStructureSchema = [
+export var BatchGetPreparedStatementInput$: StaticStructureSchema = [3, n0, _BGPSI, 0, [_PSN, _WG], [64 | 0, 0]];
+export var BatchGetPreparedStatementOutput$: StaticStructureSchema = [
   3,
   n0,
   _BGPSO,
@@ -552,8 +552,8 @@ export var BatchGetPreparedStatementOutput: StaticStructureSchema = [
   [_PS, _UPSN],
   [() => PreparedStatementDetailsList, () => UnprocessedPreparedStatementNameList],
 ];
-export var BatchGetQueryExecutionInput: StaticStructureSchema = [3, n0, _BGQEI, 0, [_QEI], [64 | 0]];
-export var BatchGetQueryExecutionOutput: StaticStructureSchema = [
+export var BatchGetQueryExecutionInput$: StaticStructureSchema = [3, n0, _BGQEI, 0, [_QEI], [64 | 0]];
+export var BatchGetQueryExecutionOutput$: StaticStructureSchema = [
   3,
   n0,
   _BGQEO,
@@ -561,23 +561,23 @@ export var BatchGetQueryExecutionOutput: StaticStructureSchema = [
   [_QE, _UQEI],
   [() => QueryExecutionList, () => UnprocessedQueryExecutionIdList],
 ];
-export var CalculationConfiguration: StaticStructureSchema = [3, n0, _CC, 0, [_CB], [0]];
-export var CalculationResult: StaticStructureSchema = [3, n0, _CR, 0, [_SOSU, _SESU, _RSU, _RT], [0, 0, 0, 0]];
-export var CalculationStatistics: StaticStructureSchema = [3, n0, _CS, 0, [_DEIM, _P], [1, 0]];
-export var CalculationStatus: StaticStructureSchema = [3, n0, _CSa, 0, [_SDT, _CDT, _S, _SCR], [4, 4, 0, 0]];
-export var CalculationSummary: StaticStructureSchema = [
+export var CalculationConfiguration$: StaticStructureSchema = [3, n0, _CC, 0, [_CB], [0]];
+export var CalculationResult$: StaticStructureSchema = [3, n0, _CR, 0, [_SOSU, _SESU, _RSU, _RT], [0, 0, 0, 0]];
+export var CalculationStatistics$: StaticStructureSchema = [3, n0, _CS, 0, [_DEIM, _P], [1, 0]];
+export var CalculationStatus$: StaticStructureSchema = [3, n0, _CSa, 0, [_SDT, _CDT, _S, _SCR], [4, 4, 0, 0]];
+export var CalculationSummary$: StaticStructureSchema = [
   3,
   n0,
   _CSal,
   0,
   [_CEI, _D, _St],
-  [0, 0, () => CalculationStatus],
+  [0, 0, () => CalculationStatus$],
 ];
-export var CancelCapacityReservationInput: StaticStructureSchema = [3, n0, _CCRI, 0, [_N], [0]];
-export var CancelCapacityReservationOutput: StaticStructureSchema = [3, n0, _CCRO, 0, [], []];
-export var CapacityAllocation: StaticStructureSchema = [3, n0, _CA, 0, [_St, _SM, _RTe, _RCT], [0, 0, 4, 4]];
-export var CapacityAssignment: StaticStructureSchema = [3, n0, _CAa, 0, [_WGN], [64 | 0]];
-export var CapacityAssignmentConfiguration: StaticStructureSchema = [
+export var CancelCapacityReservationInput$: StaticStructureSchema = [3, n0, _CCRI, 0, [_N], [0]];
+export var CancelCapacityReservationOutput$: StaticStructureSchema = [3, n0, _CCRO, 0, [], []];
+export var CapacityAllocation$: StaticStructureSchema = [3, n0, _CA, 0, [_St, _SM, _RTe, _RCT], [0, 0, 4, 4]];
+export var CapacityAssignment$: StaticStructureSchema = [3, n0, _CAa, 0, [_WGN], [64 | 0]];
+export var CapacityAssignmentConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _CAC,
@@ -585,16 +585,16 @@ export var CapacityAssignmentConfiguration: StaticStructureSchema = [
   [_CRN, _CAap],
   [0, () => CapacityAssignmentsList],
 ];
-export var CapacityReservation: StaticStructureSchema = [
+export var CapacityReservation$: StaticStructureSchema = [
   3,
   n0,
   _CRa,
   0,
   [_N, _St, _TD, _AD, _LA, _LSAT, _CT],
-  [0, 0, 1, 1, () => CapacityAllocation, 4, 4],
+  [0, 0, 1, 1, () => CapacityAllocation$, 4, 4],
 ];
-export var Classification: StaticStructureSchema = [3, n0, _C, 0, [_N, _Pr], [0, 128 | 0]];
-export var CloudWatchLoggingConfiguration: StaticStructureSchema = [
+export var Classification$: StaticStructureSchema = [3, n0, _C, 0, [_N, _Pr], [0, 128 | 0]];
+export var CloudWatchLoggingConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _CWLC,
@@ -602,8 +602,8 @@ export var CloudWatchLoggingConfiguration: StaticStructureSchema = [
   [_E, _LG, _LSNP, _LT],
   [2, 0, 0, [2, n0, _LTM, 0, 0, 64 | 0]],
 ];
-export var Column: StaticStructureSchema = [3, n0, _Co, 0, [_N, _T, _Com], [0, 0, 0]];
-export var ColumnInfo: StaticStructureSchema = [
+export var Column$: StaticStructureSchema = [3, n0, _Co, 0, [_N, _T, _Com], [0, 0, 0]];
+export var ColumnInfo$: StaticStructureSchema = [
   3,
   n0,
   _CI,
@@ -611,7 +611,7 @@ export var ColumnInfo: StaticStructureSchema = [
   [_CN, _SN, _TN, _N, _L, _T, _Pre, _Sc, _Nu, _CSas],
   [0, 0, 0, 0, 0, 0, 1, 1, 0, 2],
 ];
-export var CreateCapacityReservationInput: StaticStructureSchema = [
+export var CreateCapacityReservationInput$: StaticStructureSchema = [
   3,
   n0,
   _CCRIr,
@@ -619,8 +619,8 @@ export var CreateCapacityReservationInput: StaticStructureSchema = [
   [_TD, _N, _Ta],
   [1, 0, () => TagList],
 ];
-export var CreateCapacityReservationOutput: StaticStructureSchema = [3, n0, _CCROr, 0, [], []];
-export var CreateDataCatalogInput: StaticStructureSchema = [
+export var CreateCapacityReservationOutput$: StaticStructureSchema = [3, n0, _CCROr, 0, [], []];
+export var CreateDataCatalogInput$: StaticStructureSchema = [
   3,
   n0,
   _CDCI,
@@ -628,8 +628,8 @@ export var CreateDataCatalogInput: StaticStructureSchema = [
   [_N, _T, _D, _Pa, _Ta],
   [0, 0, 0, 128 | 0, () => TagList],
 ];
-export var CreateDataCatalogOutput: StaticStructureSchema = [3, n0, _CDCO, 0, [_DC], [() => DataCatalog]];
-export var CreateNamedQueryInput: StaticStructureSchema = [
+export var CreateDataCatalogOutput$: StaticStructureSchema = [3, n0, _CDCO, 0, [_DC], [() => DataCatalog$]];
+export var CreateNamedQueryInput$: StaticStructureSchema = [
   3,
   n0,
   _CNQI,
@@ -637,13 +637,20 @@ export var CreateNamedQueryInput: StaticStructureSchema = [
   [_N, _D, _Da, _QS, _CRT, _WG],
   [0, 0, 0, 0, [0, 4], 0],
 ];
-export var CreateNamedQueryOutput: StaticStructureSchema = [3, n0, _CNQO, 0, [_NQIa], [0]];
-export var CreateNotebookInput: StaticStructureSchema = [3, n0, _CNI, 0, [_WG, _N, _CRT], [0, 0, 0]];
-export var CreateNotebookOutput: StaticStructureSchema = [3, n0, _CNO, 0, [_NI], [0]];
-export var CreatePreparedStatementInput: StaticStructureSchema = [3, n0, _CPSI, 0, [_SNt, _WG, _QSu, _D], [0, 0, 0, 0]];
-export var CreatePreparedStatementOutput: StaticStructureSchema = [3, n0, _CPSO, 0, [], []];
-export var CreatePresignedNotebookUrlRequest: StaticStructureSchema = [3, n0, _CPNUR, 0, [_SI], [0]];
-export var CreatePresignedNotebookUrlResponse: StaticStructureSchema = [
+export var CreateNamedQueryOutput$: StaticStructureSchema = [3, n0, _CNQO, 0, [_NQIa], [0]];
+export var CreateNotebookInput$: StaticStructureSchema = [3, n0, _CNI, 0, [_WG, _N, _CRT], [0, 0, 0]];
+export var CreateNotebookOutput$: StaticStructureSchema = [3, n0, _CNO, 0, [_NI], [0]];
+export var CreatePreparedStatementInput$: StaticStructureSchema = [
+  3,
+  n0,
+  _CPSI,
+  0,
+  [_SNt, _WG, _QSu, _D],
+  [0, 0, 0, 0],
+];
+export var CreatePreparedStatementOutput$: StaticStructureSchema = [3, n0, _CPSO, 0, [], []];
+export var CreatePresignedNotebookUrlRequest$: StaticStructureSchema = [3, n0, _CPNUR, 0, [_SI], [0]];
+export var CreatePresignedNotebookUrlResponse$: StaticStructureSchema = [
   3,
   n0,
   _CPNURr,
@@ -651,18 +658,18 @@ export var CreatePresignedNotebookUrlResponse: StaticStructureSchema = [
   [_NU, _AT, _ATET],
   [0, 0, 1],
 ];
-export var CreateWorkGroupInput: StaticStructureSchema = [
+export var CreateWorkGroupInput$: StaticStructureSchema = [
   3,
   n0,
   _CWGI,
   0,
   [_N, _Con, _D, _Ta],
-  [0, () => WorkGroupConfiguration, 0, () => TagList],
+  [0, () => WorkGroupConfiguration$, 0, () => TagList],
 ];
-export var CreateWorkGroupOutput: StaticStructureSchema = [3, n0, _CWGO, 0, [], []];
-export var CustomerContentEncryptionConfiguration: StaticStructureSchema = [3, n0, _CCEC, 0, [_KK], [0]];
-export var Database: StaticStructureSchema = [3, n0, _Da, 0, [_N, _D, _Pa], [0, 0, 128 | 0]];
-export var DataCatalog: StaticStructureSchema = [
+export var CreateWorkGroupOutput$: StaticStructureSchema = [3, n0, _CWGO, 0, [], []];
+export var CustomerContentEncryptionConfiguration$: StaticStructureSchema = [3, n0, _CCEC, 0, [_KK], [0]];
+export var Database$: StaticStructureSchema = [3, n0, _Da, 0, [_N, _D, _Pa], [0, 0, 128 | 0]];
+export var DataCatalog$: StaticStructureSchema = [
   3,
   n0,
   _DC,
@@ -670,22 +677,22 @@ export var DataCatalog: StaticStructureSchema = [
   [_N, _D, _T, _Pa, _St, _CTo, _Er],
   [0, 0, 0, 128 | 0, 0, 0, 0],
 ];
-export var DataCatalogSummary: StaticStructureSchema = [3, n0, _DCS, 0, [_CN, _T, _St, _CTo, _Er], [0, 0, 0, 0, 0]];
-export var Datum: StaticStructureSchema = [3, n0, _Dat, 0, [_VCV], [0]];
-export var DeleteCapacityReservationInput: StaticStructureSchema = [3, n0, _DCRI, 0, [_N], [0]];
-export var DeleteCapacityReservationOutput: StaticStructureSchema = [3, n0, _DCRO, 0, [], []];
-export var DeleteDataCatalogInput: StaticStructureSchema = [3, n0, _DDCI, 0, [_N, _DCO], [0, 2]];
-export var DeleteDataCatalogOutput: StaticStructureSchema = [3, n0, _DDCO, 0, [_DC], [() => DataCatalog]];
-export var DeleteNamedQueryInput: StaticStructureSchema = [3, n0, _DNQI, 0, [_NQIa], [[0, 4]]];
-export var DeleteNamedQueryOutput: StaticStructureSchema = [3, n0, _DNQO, 0, [], []];
-export var DeleteNotebookInput: StaticStructureSchema = [3, n0, _DNI, 0, [_NI], [0]];
-export var DeleteNotebookOutput: StaticStructureSchema = [3, n0, _DNO, 0, [], []];
-export var DeletePreparedStatementInput: StaticStructureSchema = [3, n0, _DPSI, 0, [_SNt, _WG], [0, 0]];
-export var DeletePreparedStatementOutput: StaticStructureSchema = [3, n0, _DPSO, 0, [], []];
-export var DeleteWorkGroupInput: StaticStructureSchema = [3, n0, _DWGI, 0, [_WG, _RDO], [0, 2]];
-export var DeleteWorkGroupOutput: StaticStructureSchema = [3, n0, _DWGO, 0, [], []];
-export var EncryptionConfiguration: StaticStructureSchema = [3, n0, _ECn, 0, [_EO, _KK], [0, 0]];
-export var EngineConfiguration: StaticStructureSchema = [
+export var DataCatalogSummary$: StaticStructureSchema = [3, n0, _DCS, 0, [_CN, _T, _St, _CTo, _Er], [0, 0, 0, 0, 0]];
+export var Datum$: StaticStructureSchema = [3, n0, _Dat, 0, [_VCV], [0]];
+export var DeleteCapacityReservationInput$: StaticStructureSchema = [3, n0, _DCRI, 0, [_N], [0]];
+export var DeleteCapacityReservationOutput$: StaticStructureSchema = [3, n0, _DCRO, 0, [], []];
+export var DeleteDataCatalogInput$: StaticStructureSchema = [3, n0, _DDCI, 0, [_N, _DCO], [0, 2]];
+export var DeleteDataCatalogOutput$: StaticStructureSchema = [3, n0, _DDCO, 0, [_DC], [() => DataCatalog$]];
+export var DeleteNamedQueryInput$: StaticStructureSchema = [3, n0, _DNQI, 0, [_NQIa], [[0, 4]]];
+export var DeleteNamedQueryOutput$: StaticStructureSchema = [3, n0, _DNQO, 0, [], []];
+export var DeleteNotebookInput$: StaticStructureSchema = [3, n0, _DNI, 0, [_NI], [0]];
+export var DeleteNotebookOutput$: StaticStructureSchema = [3, n0, _DNO, 0, [], []];
+export var DeletePreparedStatementInput$: StaticStructureSchema = [3, n0, _DPSI, 0, [_SNt, _WG], [0, 0]];
+export var DeletePreparedStatementOutput$: StaticStructureSchema = [3, n0, _DPSO, 0, [], []];
+export var DeleteWorkGroupInput$: StaticStructureSchema = [3, n0, _DWGI, 0, [_WG, _RDO], [0, 2]];
+export var DeleteWorkGroupOutput$: StaticStructureSchema = [3, n0, _DWGO, 0, [], []];
+export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _ECn, 0, [_EO, _KK], [0, 0]];
+export var EngineConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ECng,
@@ -693,8 +700,8 @@ export var EngineConfiguration: StaticStructureSchema = [
   [_CDS, _MCD, _DEDS, _ACd, _SP, _Cl],
   [1, 1, 1, 128 | 0, 128 | 0, () => ClassificationList],
 ];
-export var EngineVersion: StaticStructureSchema = [3, n0, _EV, 0, [_SEV, _EEV], [0, 0]];
-export var ExecutorsSummary: StaticStructureSchema = [
+export var EngineVersion$: StaticStructureSchema = [3, n0, _EV, 0, [_SEV, _EEV], [0, 0]];
+export var ExecutorsSummary$: StaticStructureSchema = [
   3,
   n0,
   _ES,
@@ -702,69 +709,76 @@ export var ExecutorsSummary: StaticStructureSchema = [
   [_EI, _ETx, _SDTt, _TDT, _ESx, _ESxe],
   [0, 0, 1, 1, 0, 1],
 ];
-export var ExportNotebookInput: StaticStructureSchema = [3, n0, _ENI, 0, [_NI], [0]];
-export var ExportNotebookOutput: StaticStructureSchema = [3, n0, _ENO, 0, [_NM, _Pay], [() => NotebookMetadata, 0]];
-export var FilterDefinition: StaticStructureSchema = [3, n0, _FD, 0, [_N], [0]];
-export var GetCalculationExecutionCodeRequest: StaticStructureSchema = [3, n0, _GCECR, 0, [_CEI], [0]];
-export var GetCalculationExecutionCodeResponse: StaticStructureSchema = [3, n0, _GCECRe, 0, [_CB], [0]];
-export var GetCalculationExecutionRequest: StaticStructureSchema = [3, n0, _GCER, 0, [_CEI], [0]];
-export var GetCalculationExecutionResponse: StaticStructureSchema = [
+export var ExportNotebookInput$: StaticStructureSchema = [3, n0, _ENI, 0, [_NI], [0]];
+export var ExportNotebookOutput$: StaticStructureSchema = [3, n0, _ENO, 0, [_NM, _Pay], [() => NotebookMetadata$, 0]];
+export var FilterDefinition$: StaticStructureSchema = [3, n0, _FD, 0, [_N], [0]];
+export var GetCalculationExecutionCodeRequest$: StaticStructureSchema = [3, n0, _GCECR, 0, [_CEI], [0]];
+export var GetCalculationExecutionCodeResponse$: StaticStructureSchema = [3, n0, _GCECRe, 0, [_CB], [0]];
+export var GetCalculationExecutionRequest$: StaticStructureSchema = [3, n0, _GCER, 0, [_CEI], [0]];
+export var GetCalculationExecutionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCERe,
   0,
   [_CEI, _SI, _D, _WD, _St, _Sta, _Re],
-  [0, 0, 0, 0, () => CalculationStatus, () => CalculationStatistics, () => CalculationResult],
+  [0, 0, 0, 0, () => CalculationStatus$, () => CalculationStatistics$, () => CalculationResult$],
 ];
-export var GetCalculationExecutionStatusRequest: StaticStructureSchema = [3, n0, _GCESR, 0, [_CEI], [0]];
-export var GetCalculationExecutionStatusResponse: StaticStructureSchema = [
+export var GetCalculationExecutionStatusRequest$: StaticStructureSchema = [3, n0, _GCESR, 0, [_CEI], [0]];
+export var GetCalculationExecutionStatusResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCESRe,
   0,
   [_St, _Sta],
-  [() => CalculationStatus, () => CalculationStatistics],
+  [() => CalculationStatus$, () => CalculationStatistics$],
 ];
-export var GetCapacityAssignmentConfigurationInput: StaticStructureSchema = [3, n0, _GCACI, 0, [_CRN], [0]];
-export var GetCapacityAssignmentConfigurationOutput: StaticStructureSchema = [
+export var GetCapacityAssignmentConfigurationInput$: StaticStructureSchema = [3, n0, _GCACI, 0, [_CRN], [0]];
+export var GetCapacityAssignmentConfigurationOutput$: StaticStructureSchema = [
   3,
   n0,
   _GCACO,
   0,
   [_CAC],
-  [() => CapacityAssignmentConfiguration],
+  [() => CapacityAssignmentConfiguration$],
 ];
-export var GetCapacityReservationInput: StaticStructureSchema = [3, n0, _GCRI, 0, [_N], [0]];
-export var GetCapacityReservationOutput: StaticStructureSchema = [3, n0, _GCRO, 0, [_CRa], [() => CapacityReservation]];
-export var GetDatabaseInput: StaticStructureSchema = [3, n0, _GDI, 0, [_CN, _DN, _WG], [0, 0, 0]];
-export var GetDatabaseOutput: StaticStructureSchema = [3, n0, _GDO, 0, [_Da], [() => Database]];
-export var GetDataCatalogInput: StaticStructureSchema = [3, n0, _GDCI, 0, [_N, _WG], [0, 0]];
-export var GetDataCatalogOutput: StaticStructureSchema = [3, n0, _GDCO, 0, [_DC], [() => DataCatalog]];
-export var GetNamedQueryInput: StaticStructureSchema = [3, n0, _GNQI, 0, [_NQIa], [0]];
-export var GetNamedQueryOutput: StaticStructureSchema = [3, n0, _GNQO, 0, [_NQa], [() => NamedQuery]];
-export var GetNotebookMetadataInput: StaticStructureSchema = [3, n0, _GNMI, 0, [_NI], [0]];
-export var GetNotebookMetadataOutput: StaticStructureSchema = [3, n0, _GNMO, 0, [_NM], [() => NotebookMetadata]];
-export var GetPreparedStatementInput: StaticStructureSchema = [3, n0, _GPSI, 0, [_SNt, _WG], [0, 0]];
-export var GetPreparedStatementOutput: StaticStructureSchema = [3, n0, _GPSO, 0, [_PSr], [() => PreparedStatement]];
-export var GetQueryExecutionInput: StaticStructureSchema = [3, n0, _GQEI, 0, [_QEIu], [0]];
-export var GetQueryExecutionOutput: StaticStructureSchema = [3, n0, _GQEO, 0, [_QEu], [() => QueryExecution]];
-export var GetQueryResultsInput: StaticStructureSchema = [3, n0, _GQRI, 0, [_QEIu, _NT, _MR, _QRT], [0, 0, 1, 0]];
-export var GetQueryResultsOutput: StaticStructureSchema = [3, n0, _GQRO, 0, [_UC, _RS, _NT], [1, () => ResultSet, 0]];
-export var GetQueryRuntimeStatisticsInput: StaticStructureSchema = [3, n0, _GQRSI, 0, [_QEIu], [0]];
-export var GetQueryRuntimeStatisticsOutput: StaticStructureSchema = [
+export var GetCapacityReservationInput$: StaticStructureSchema = [3, n0, _GCRI, 0, [_N], [0]];
+export var GetCapacityReservationOutput$: StaticStructureSchema = [
+  3,
+  n0,
+  _GCRO,
+  0,
+  [_CRa],
+  [() => CapacityReservation$],
+];
+export var GetDatabaseInput$: StaticStructureSchema = [3, n0, _GDI, 0, [_CN, _DN, _WG], [0, 0, 0]];
+export var GetDatabaseOutput$: StaticStructureSchema = [3, n0, _GDO, 0, [_Da], [() => Database$]];
+export var GetDataCatalogInput$: StaticStructureSchema = [3, n0, _GDCI, 0, [_N, _WG], [0, 0]];
+export var GetDataCatalogOutput$: StaticStructureSchema = [3, n0, _GDCO, 0, [_DC], [() => DataCatalog$]];
+export var GetNamedQueryInput$: StaticStructureSchema = [3, n0, _GNQI, 0, [_NQIa], [0]];
+export var GetNamedQueryOutput$: StaticStructureSchema = [3, n0, _GNQO, 0, [_NQa], [() => NamedQuery$]];
+export var GetNotebookMetadataInput$: StaticStructureSchema = [3, n0, _GNMI, 0, [_NI], [0]];
+export var GetNotebookMetadataOutput$: StaticStructureSchema = [3, n0, _GNMO, 0, [_NM], [() => NotebookMetadata$]];
+export var GetPreparedStatementInput$: StaticStructureSchema = [3, n0, _GPSI, 0, [_SNt, _WG], [0, 0]];
+export var GetPreparedStatementOutput$: StaticStructureSchema = [3, n0, _GPSO, 0, [_PSr], [() => PreparedStatement$]];
+export var GetQueryExecutionInput$: StaticStructureSchema = [3, n0, _GQEI, 0, [_QEIu], [0]];
+export var GetQueryExecutionOutput$: StaticStructureSchema = [3, n0, _GQEO, 0, [_QEu], [() => QueryExecution$]];
+export var GetQueryResultsInput$: StaticStructureSchema = [3, n0, _GQRI, 0, [_QEIu, _NT, _MR, _QRT], [0, 0, 1, 0]];
+export var GetQueryResultsOutput$: StaticStructureSchema = [3, n0, _GQRO, 0, [_UC, _RS, _NT], [1, () => ResultSet$, 0]];
+export var GetQueryRuntimeStatisticsInput$: StaticStructureSchema = [3, n0, _GQRSI, 0, [_QEIu], [0]];
+export var GetQueryRuntimeStatisticsOutput$: StaticStructureSchema = [
   3,
   n0,
   _GQRSO,
   0,
   [_QRS],
-  [() => QueryRuntimeStatistics],
+  [() => QueryRuntimeStatistics$],
 ];
-export var GetResourceDashboardRequest: StaticStructureSchema = [3, n0, _GRDR, 0, [_RARN], [0]];
-export var GetResourceDashboardResponse: StaticStructureSchema = [3, n0, _GRDRe, 0, [_U], [0]];
-export var GetSessionEndpointRequest: StaticStructureSchema = [3, n0, _GSER, 0, [_SI], [0]];
-export var GetSessionEndpointResponse: StaticStructureSchema = [3, n0, _GSERe, 0, [_EU, _AT, _ATET], [0, 0, 4]];
-export var GetSessionRequest: StaticStructureSchema = [3, n0, _GSR, 0, [_SI], [0]];
-export var GetSessionResponse: StaticStructureSchema = [
+export var GetResourceDashboardRequest$: StaticStructureSchema = [3, n0, _GRDR, 0, [_RARN], [0]];
+export var GetResourceDashboardResponse$: StaticStructureSchema = [3, n0, _GRDRe, 0, [_U], [0]];
+export var GetSessionEndpointRequest$: StaticStructureSchema = [3, n0, _GSER, 0, [_SI], [0]];
+export var GetSessionEndpointResponse$: StaticStructureSchema = [3, n0, _GSERe, 0, [_EU, _AT, _ATET], [0, 0, 4]];
+export var GetSessionRequest$: StaticStructureSchema = [3, n0, _GSR, 0, [_SI], [0]];
+export var GetSessionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GSRe,
@@ -775,22 +789,22 @@ export var GetSessionResponse: StaticStructureSchema = [
     0,
     0,
     0,
-    () => EngineConfiguration,
+    () => EngineConfiguration$,
     0,
-    () => MonitoringConfiguration,
-    () => SessionConfiguration,
-    () => SessionStatus,
-    () => SessionStatistics,
+    () => MonitoringConfiguration$,
+    () => SessionConfiguration$,
+    () => SessionStatus$,
+    () => SessionStatistics$,
   ],
 ];
-export var GetSessionStatusRequest: StaticStructureSchema = [3, n0, _GSSR, 0, [_SI], [0]];
-export var GetSessionStatusResponse: StaticStructureSchema = [3, n0, _GSSRe, 0, [_SI, _St], [0, () => SessionStatus]];
-export var GetTableMetadataInput: StaticStructureSchema = [3, n0, _GTMI, 0, [_CN, _DN, _TN, _WG], [0, 0, 0, 0]];
-export var GetTableMetadataOutput: StaticStructureSchema = [3, n0, _GTMO, 0, [_TM], [() => TableMetadata]];
-export var GetWorkGroupInput: StaticStructureSchema = [3, n0, _GWGI, 0, [_WG], [0]];
-export var GetWorkGroupOutput: StaticStructureSchema = [3, n0, _GWGO, 0, [_WG], [() => WorkGroup]];
-export var IdentityCenterConfiguration: StaticStructureSchema = [3, n0, _ICC, 0, [_EIC, _ICIA], [2, 0]];
-export var ImportNotebookInput: StaticStructureSchema = [
+export var GetSessionStatusRequest$: StaticStructureSchema = [3, n0, _GSSR, 0, [_SI], [0]];
+export var GetSessionStatusResponse$: StaticStructureSchema = [3, n0, _GSSRe, 0, [_SI, _St], [0, () => SessionStatus$]];
+export var GetTableMetadataInput$: StaticStructureSchema = [3, n0, _GTMI, 0, [_CN, _DN, _TN, _WG], [0, 0, 0, 0]];
+export var GetTableMetadataOutput$: StaticStructureSchema = [3, n0, _GTMO, 0, [_TM], [() => TableMetadata$]];
+export var GetWorkGroupInput$: StaticStructureSchema = [3, n0, _GWGI, 0, [_WG], [0]];
+export var GetWorkGroupOutput$: StaticStructureSchema = [3, n0, _GWGO, 0, [_WG], [() => WorkGroup$]];
+export var IdentityCenterConfiguration$: StaticStructureSchema = [3, n0, _ICC, 0, [_EIC, _ICIA], [2, 0]];
+export var ImportNotebookInput$: StaticStructureSchema = [
   3,
   n0,
   _INI,
@@ -798,13 +812,13 @@ export var ImportNotebookInput: StaticStructureSchema = [
   [_WG, _N, _Pay, _T, _NSLU, _CRT],
   [0, 0, 0, 0, 0, 0],
 ];
-export var ImportNotebookOutput: StaticStructureSchema = [3, n0, _INO, 0, [_NI], [0]];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c }, [_AEC, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-export var ListApplicationDPUSizesInput: StaticStructureSchema = [3, n0, _LADPUSI, 0, [_MR, _NT], [1, 0]];
-export var ListApplicationDPUSizesOutput: StaticStructureSchema = [
+export var ImportNotebookOutput$: StaticStructureSchema = [3, n0, _INO, 0, [_NI], [0]];
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c }, [_AEC, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
+export var ListApplicationDPUSizesInput$: StaticStructureSchema = [3, n0, _LADPUSI, 0, [_MR, _NT], [1, 0]];
+export var ListApplicationDPUSizesOutput$: StaticStructureSchema = [
   3,
   n0,
   _LADPUSO,
@@ -812,7 +826,7 @@ export var ListApplicationDPUSizesOutput: StaticStructureSchema = [
   [_ADPUS, _NT],
   [() => ApplicationDPUSizesList, 0],
 ];
-export var ListCalculationExecutionsRequest: StaticStructureSchema = [
+export var ListCalculationExecutionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCER,
@@ -820,7 +834,7 @@ export var ListCalculationExecutionsRequest: StaticStructureSchema = [
   [_SI, _SF, _MR, _NT],
   [0, 0, 1, 0],
 ];
-export var ListCalculationExecutionsResponse: StaticStructureSchema = [
+export var ListCalculationExecutionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCERi,
@@ -828,8 +842,8 @@ export var ListCalculationExecutionsResponse: StaticStructureSchema = [
   [_NT, _Ca],
   [0, () => CalculationsList],
 ];
-export var ListCapacityReservationsInput: StaticStructureSchema = [3, n0, _LCRI, 0, [_NT, _MR], [0, 1]];
-export var ListCapacityReservationsOutput: StaticStructureSchema = [
+export var ListCapacityReservationsInput$: StaticStructureSchema = [3, n0, _LCRI, 0, [_NT, _MR], [0, 1]];
+export var ListCapacityReservationsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LCRO,
@@ -837,10 +851,10 @@ export var ListCapacityReservationsOutput: StaticStructureSchema = [
   [_NT, _CRap],
   [0, () => CapacityReservationsList],
 ];
-export var ListDatabasesInput: StaticStructureSchema = [3, n0, _LDI, 0, [_CN, _NT, _MR, _WG], [0, 0, 1, 0]];
-export var ListDatabasesOutput: StaticStructureSchema = [3, n0, _LDO, 0, [_DL, _NT], [() => DatabaseList, 0]];
-export var ListDataCatalogsInput: StaticStructureSchema = [3, n0, _LDCI, 0, [_NT, _MR, _WG], [0, 1, 0]];
-export var ListDataCatalogsOutput: StaticStructureSchema = [
+export var ListDatabasesInput$: StaticStructureSchema = [3, n0, _LDI, 0, [_CN, _NT, _MR, _WG], [0, 0, 1, 0]];
+export var ListDatabasesOutput$: StaticStructureSchema = [3, n0, _LDO, 0, [_DL, _NT], [() => DatabaseList, 0]];
+export var ListDataCatalogsInput$: StaticStructureSchema = [3, n0, _LDCI, 0, [_NT, _MR, _WG], [0, 1, 0]];
+export var ListDataCatalogsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LDCO,
@@ -848,8 +862,8 @@ export var ListDataCatalogsOutput: StaticStructureSchema = [
   [_DCSa, _NT],
   [() => DataCatalogSummaryList, 0],
 ];
-export var ListEngineVersionsInput: StaticStructureSchema = [3, n0, _LEVI, 0, [_NT, _MR], [0, 1]];
-export var ListEngineVersionsOutput: StaticStructureSchema = [
+export var ListEngineVersionsInput$: StaticStructureSchema = [3, n0, _LEVI, 0, [_NT, _MR], [0, 1]];
+export var ListEngineVersionsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LEVO,
@@ -857,8 +871,8 @@ export var ListEngineVersionsOutput: StaticStructureSchema = [
   [_EVn, _NT],
   [() => EngineVersionsList, 0],
 ];
-export var ListExecutorsRequest: StaticStructureSchema = [3, n0, _LER, 0, [_SI, _ESF, _MR, _NT], [0, 0, 1, 0]];
-export var ListExecutorsResponse: StaticStructureSchema = [
+export var ListExecutorsRequest$: StaticStructureSchema = [3, n0, _LER, 0, [_SI, _ESF, _MR, _NT], [0, 0, 1, 0]];
+export var ListExecutorsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LERi,
@@ -866,17 +880,17 @@ export var ListExecutorsResponse: StaticStructureSchema = [
   [_SI, _NT, _ES],
   [0, 0, () => ExecutorsSummaryList],
 ];
-export var ListNamedQueriesInput: StaticStructureSchema = [3, n0, _LNQI, 0, [_NT, _MR, _WG], [0, 1, 0]];
-export var ListNamedQueriesOutput: StaticStructureSchema = [3, n0, _LNQO, 0, [_NQI, _NT], [64 | 0, 0]];
-export var ListNotebookMetadataInput: StaticStructureSchema = [
+export var ListNamedQueriesInput$: StaticStructureSchema = [3, n0, _LNQI, 0, [_NT, _MR, _WG], [0, 1, 0]];
+export var ListNamedQueriesOutput$: StaticStructureSchema = [3, n0, _LNQO, 0, [_NQI, _NT], [64 | 0, 0]];
+export var ListNotebookMetadataInput$: StaticStructureSchema = [
   3,
   n0,
   _LNMI,
   0,
   [_F, _NT, _MR, _WG],
-  [() => FilterDefinition, 0, 1, 0],
+  [() => FilterDefinition$, 0, 1, 0],
 ];
-export var ListNotebookMetadataOutput: StaticStructureSchema = [
+export var ListNotebookMetadataOutput$: StaticStructureSchema = [
   3,
   n0,
   _LNMO,
@@ -884,8 +898,8 @@ export var ListNotebookMetadataOutput: StaticStructureSchema = [
   [_NT, _NML],
   [0, () => NotebookMetadataArray],
 ];
-export var ListNotebookSessionsRequest: StaticStructureSchema = [3, n0, _LNSR, 0, [_NI, _MR, _NT], [0, 1, 0]];
-export var ListNotebookSessionsResponse: StaticStructureSchema = [
+export var ListNotebookSessionsRequest$: StaticStructureSchema = [3, n0, _LNSR, 0, [_NI, _MR, _NT], [0, 1, 0]];
+export var ListNotebookSessionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LNSRi,
@@ -893,8 +907,8 @@ export var ListNotebookSessionsResponse: StaticStructureSchema = [
   [_NSL, _NT],
   [() => NotebookSessionsList, 0],
 ];
-export var ListPreparedStatementsInput: StaticStructureSchema = [3, n0, _LPSI, 0, [_WG, _NT, _MR], [0, 0, 1]];
-export var ListPreparedStatementsOutput: StaticStructureSchema = [
+export var ListPreparedStatementsInput$: StaticStructureSchema = [3, n0, _LPSI, 0, [_WG, _NT, _MR], [0, 0, 1]];
+export var ListPreparedStatementsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LPSO,
@@ -902,11 +916,11 @@ export var ListPreparedStatementsOutput: StaticStructureSchema = [
   [_PS, _NT],
   [() => PreparedStatementsList, 0],
 ];
-export var ListQueryExecutionsInput: StaticStructureSchema = [3, n0, _LQEI, 0, [_NT, _MR, _WG], [0, 1, 0]];
-export var ListQueryExecutionsOutput: StaticStructureSchema = [3, n0, _LQEO, 0, [_QEI, _NT], [64 | 0, 0]];
-export var ListSessionsRequest: StaticStructureSchema = [3, n0, _LSR, 0, [_WG, _SF, _MR, _NT], [0, 0, 1, 0]];
-export var ListSessionsResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_NT, _Se], [0, () => SessionsList]];
-export var ListTableMetadataInput: StaticStructureSchema = [
+export var ListQueryExecutionsInput$: StaticStructureSchema = [3, n0, _LQEI, 0, [_NT, _MR, _WG], [0, 1, 0]];
+export var ListQueryExecutionsOutput$: StaticStructureSchema = [3, n0, _LQEO, 0, [_QEI, _NT], [64 | 0, 0]];
+export var ListSessionsRequest$: StaticStructureSchema = [3, n0, _LSR, 0, [_WG, _SF, _MR, _NT], [0, 0, 1, 0]];
+export var ListSessionsResponse$: StaticStructureSchema = [3, n0, _LSRi, 0, [_NT, _Se], [0, () => SessionsList]];
+export var ListTableMetadataInput$: StaticStructureSchema = [
   3,
   n0,
   _LTMI,
@@ -914,7 +928,7 @@ export var ListTableMetadataInput: StaticStructureSchema = [
   [_CN, _DN, _Ex, _NT, _MR, _WG],
   [0, 0, 0, 0, 1, 0],
 ];
-export var ListTableMetadataOutput: StaticStructureSchema = [
+export var ListTableMetadataOutput$: StaticStructureSchema = [
   3,
   n0,
   _LTMO,
@@ -922,44 +936,51 @@ export var ListTableMetadataOutput: StaticStructureSchema = [
   [_TML, _NT],
   [() => TableMetadataList, 0],
 ];
-export var ListTagsForResourceInput: StaticStructureSchema = [3, n0, _LTFRI, 0, [_RARN, _NT, _MR], [0, 0, 1]];
-export var ListTagsForResourceOutput: StaticStructureSchema = [3, n0, _LTFRO, 0, [_Ta, _NT], [() => TagList, 0]];
-export var ListWorkGroupsInput: StaticStructureSchema = [3, n0, _LWGI, 0, [_NT, _MR], [0, 1]];
-export var ListWorkGroupsOutput: StaticStructureSchema = [3, n0, _LWGO, 0, [_WGo, _NT], [() => WorkGroupsList, 0]];
-export var ManagedLoggingConfiguration: StaticStructureSchema = [3, n0, _MLC, 0, [_E, _KK], [2, 0]];
-export var ManagedQueryResultsConfiguration: StaticStructureSchema = [
+export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI, 0, [_RARN, _NT, _MR], [0, 0, 1]];
+export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO, 0, [_Ta, _NT], [() => TagList, 0]];
+export var ListWorkGroupsInput$: StaticStructureSchema = [3, n0, _LWGI, 0, [_NT, _MR], [0, 1]];
+export var ListWorkGroupsOutput$: StaticStructureSchema = [3, n0, _LWGO, 0, [_WGo, _NT], [() => WorkGroupsList, 0]];
+export var ManagedLoggingConfiguration$: StaticStructureSchema = [3, n0, _MLC, 0, [_E, _KK], [2, 0]];
+export var ManagedQueryResultsConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _MQRC,
   0,
   [_E, _ECn],
-  [2, () => ManagedQueryResultsEncryptionConfiguration],
+  [2, () => ManagedQueryResultsEncryptionConfiguration$],
 ];
-export var ManagedQueryResultsConfigurationUpdates: StaticStructureSchema = [
+export var ManagedQueryResultsConfigurationUpdates$: StaticStructureSchema = [
   3,
   n0,
   _MQRCU,
   0,
   [_E, _ECn, _REC],
-  [2, () => ManagedQueryResultsEncryptionConfiguration, 2],
+  [2, () => ManagedQueryResultsEncryptionConfiguration$, 2],
 ];
-export var ManagedQueryResultsEncryptionConfiguration: StaticStructureSchema = [3, n0, _MQREC, 0, [_KK], [0]];
-export var MetadataException: StaticErrorSchema = [-3, n0, _ME, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(MetadataException, __MetadataException);
-export var MonitoringConfiguration: StaticStructureSchema = [
+export var ManagedQueryResultsEncryptionConfiguration$: StaticStructureSchema = [3, n0, _MQREC, 0, [_KK], [0]];
+export var MetadataException$: StaticErrorSchema = [-3, n0, _ME, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(MetadataException$, MetadataException);
+export var MonitoringConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _MC,
   0,
   [_CWLC, _MLC, _SLC],
-  [() => CloudWatchLoggingConfiguration, () => ManagedLoggingConfiguration, () => S3LoggingConfiguration],
+  [() => CloudWatchLoggingConfiguration$, () => ManagedLoggingConfiguration$, () => S3LoggingConfiguration$],
 ];
-export var NamedQuery: StaticStructureSchema = [3, n0, _NQa, 0, [_N, _D, _Da, _QS, _NQIa, _WG], [0, 0, 0, 0, 0, 0]];
-export var NotebookMetadata: StaticStructureSchema = [3, n0, _NM, 0, [_NI, _N, _WG, _CT, _T, _LMT], [0, 0, 0, 4, 0, 4]];
-export var NotebookSessionSummary: StaticStructureSchema = [3, n0, _NSS, 0, [_SI, _CT], [0, 4]];
-export var PreparedStatement: StaticStructureSchema = [3, n0, _PSr, 0, [_SNt, _QSu, _WGNo, _D, _LMT], [0, 0, 0, 0, 4]];
-export var PreparedStatementSummary: StaticStructureSchema = [3, n0, _PSS, 0, [_SNt, _LMT], [0, 4]];
-export var PutCapacityAssignmentConfigurationInput: StaticStructureSchema = [
+export var NamedQuery$: StaticStructureSchema = [3, n0, _NQa, 0, [_N, _D, _Da, _QS, _NQIa, _WG], [0, 0, 0, 0, 0, 0]];
+export var NotebookMetadata$: StaticStructureSchema = [
+  3,
+  n0,
+  _NM,
+  0,
+  [_NI, _N, _WG, _CT, _T, _LMT],
+  [0, 0, 0, 4, 0, 4],
+];
+export var NotebookSessionSummary$: StaticStructureSchema = [3, n0, _NSS, 0, [_SI, _CT], [0, 4]];
+export var PreparedStatement$: StaticStructureSchema = [3, n0, _PSr, 0, [_SNt, _QSu, _WGNo, _D, _LMT], [0, 0, 0, 0, 4]];
+export var PreparedStatementSummary$: StaticStructureSchema = [3, n0, _PSS, 0, [_SNt, _LMT], [0, 4]];
+export var PutCapacityAssignmentConfigurationInput$: StaticStructureSchema = [
   3,
   n0,
   _PCACI,
@@ -967,8 +988,8 @@ export var PutCapacityAssignmentConfigurationInput: StaticStructureSchema = [
   [_CRN, _CAap],
   [0, () => CapacityAssignmentsList],
 ];
-export var PutCapacityAssignmentConfigurationOutput: StaticStructureSchema = [3, n0, _PCACO, 0, [], []];
-export var QueryExecution: StaticStructureSchema = [
+export var PutCapacityAssignmentConfigurationOutput$: StaticStructureSchema = [3, n0, _PCACO, 0, [], []];
+export var QueryExecution$: StaticStructureSchema = [
   3,
   n0,
   _QEu,
@@ -978,37 +999,37 @@ export var QueryExecution: StaticStructureSchema = [
     0,
     0,
     0,
-    () => ManagedQueryResultsConfiguration,
-    () => ResultConfiguration,
-    () => ResultReuseConfiguration,
-    () => QueryExecutionContext,
-    () => QueryExecutionStatus,
-    () => QueryExecutionStatistics,
+    () => ManagedQueryResultsConfiguration$,
+    () => ResultConfiguration$,
+    () => ResultReuseConfiguration$,
+    () => QueryExecutionContext$,
+    () => QueryExecutionStatus$,
+    () => QueryExecutionStatistics$,
     0,
-    () => EngineVersion,
+    () => EngineVersion$,
     64 | 0,
     0,
-    () => QueryResultsS3AccessGrantsConfiguration,
+    () => QueryResultsS3AccessGrantsConfiguration$,
   ],
 ];
-export var QueryExecutionContext: StaticStructureSchema = [3, n0, _QEC, 0, [_Da, _Cat], [0, 0]];
-export var QueryExecutionStatistics: StaticStructureSchema = [
+export var QueryExecutionContext$: StaticStructureSchema = [3, n0, _QEC, 0, [_Da, _Cat], [0, 0]];
+export var QueryExecutionStatistics$: StaticStructureSchema = [
   3,
   n0,
   _QES,
   0,
   [_EETIM, _DSIB, _DML, _TETIM, _QQTIM, _SPPTIM, _QPTIM, _SPTIM, _RRI, _DCp],
-  [1, 1, 0, 1, 1, 1, 1, 1, () => ResultReuseInformation, 1],
+  [1, 1, 0, 1, 1, 1, 1, 1, () => ResultReuseInformation$, 1],
 ];
-export var QueryExecutionStatus: StaticStructureSchema = [
+export var QueryExecutionStatus$: StaticStructureSchema = [
   3,
   n0,
   _QESu,
   0,
   [_S, _SCR, _SDT, _CDT, _AE],
-  [0, 0, 4, 4, () => AthenaError],
+  [0, 0, 4, 4, () => AthenaError$],
 ];
-export var QueryResultsS3AccessGrantsConfiguration: StaticStructureSchema = [
+export var QueryResultsS3AccessGrantsConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _QRSAGC,
@@ -1016,16 +1037,16 @@ export var QueryResultsS3AccessGrantsConfiguration: StaticStructureSchema = [
   [_ESAG, _CULP, _ATu],
   [2, 2, 0],
 ];
-export var QueryRuntimeStatistics: StaticStructureSchema = [
+export var QueryRuntimeStatistics$: StaticStructureSchema = [
   3,
   n0,
   _QRS,
   0,
   [_Ti, _Ro, _OS],
-  [() => QueryRuntimeStatisticsTimeline, () => QueryRuntimeStatisticsRows, () => QueryStage],
+  [() => QueryRuntimeStatisticsTimeline$, () => QueryRuntimeStatisticsRows$, () => QueryStage$],
 ];
-export var QueryRuntimeStatisticsRows: StaticStructureSchema = [3, n0, _QRSR, 0, [_IR, _IB, _OB, _OR], [1, 1, 1, 1]];
-export var QueryRuntimeStatisticsTimeline: StaticStructureSchema = [
+export var QueryRuntimeStatisticsRows$: StaticStructureSchema = [3, n0, _QRSR, 0, [_IR, _IB, _OB, _OR], [1, 1, 1, 1]];
+export var QueryRuntimeStatisticsTimeline$: StaticStructureSchema = [
   3,
   n0,
   _QRST,
@@ -1033,15 +1054,15 @@ export var QueryRuntimeStatisticsTimeline: StaticStructureSchema = [
   [_QQTIM, _SPPTIM, _QPTIM, _EETIM, _SPTIM, _TETIM],
   [1, 1, 1, 1, 1, 1],
 ];
-export var QueryStage: StaticStructureSchema = [
+export var QueryStage$: StaticStructureSchema = [
   3,
   n0,
   _QSue,
   0,
   [_SIt, _S, _OB, _OR, _IB, _IR, _ETxe, _QSP, _SS],
-  [1, 0, 1, 1, 1, 1, 1, () => QueryStagePlanNode, () => QueryStages],
+  [1, 0, 1, 1, 1, 1, 1, () => QueryStagePlanNode$, () => QueryStages],
 ];
-export var QueryStagePlanNode: StaticStructureSchema = [
+export var QueryStagePlanNode$: StaticStructureSchema = [
   3,
   n0,
   _QSPN,
@@ -1049,50 +1070,50 @@ export var QueryStagePlanNode: StaticStructureSchema = [
   [_N, _I, _Ch, _RSe],
   [0, 0, () => QueryStagePlanNodes, 64 | 0],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_M, _RN], [0, 0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ResultConfiguration: StaticStructureSchema = [
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_M, _RN], [0, 0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResultConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RC,
   0,
   [_OL, _ECn, _EBO, _AC],
-  [0, () => EncryptionConfiguration, 0, () => AclConfiguration],
+  [0, () => EncryptionConfiguration$, 0, () => AclConfiguration$],
 ];
-export var ResultConfigurationUpdates: StaticStructureSchema = [
+export var ResultConfigurationUpdates$: StaticStructureSchema = [
   3,
   n0,
   _RCU,
   0,
   [_OL, _ROL, _ECn, _REC, _EBO, _REBO, _AC, _RAC],
-  [0, 2, () => EncryptionConfiguration, 2, 0, 2, () => AclConfiguration, 2],
+  [0, 2, () => EncryptionConfiguration$, 2, 0, 2, () => AclConfiguration$, 2],
 ];
-export var ResultReuseByAgeConfiguration: StaticStructureSchema = [3, n0, _RRBAC, 0, [_E, _MAIM], [2, 1]];
-export var ResultReuseConfiguration: StaticStructureSchema = [
+export var ResultReuseByAgeConfiguration$: StaticStructureSchema = [3, n0, _RRBAC, 0, [_E, _MAIM], [2, 1]];
+export var ResultReuseConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RRC,
   0,
   [_RRBAC],
-  [() => ResultReuseByAgeConfiguration],
+  [() => ResultReuseByAgeConfiguration$],
 ];
-export var ResultReuseInformation: StaticStructureSchema = [3, n0, _RRI, 0, [_RPR], [2]];
-export var ResultSet: StaticStructureSchema = [3, n0, _RS, 0, [_Ro, _RSM], [() => RowList, () => ResultSetMetadata]];
-export var ResultSetMetadata: StaticStructureSchema = [3, n0, _RSM, 0, [_CI], [() => ColumnInfoList]];
-export var Row: StaticStructureSchema = [3, n0, _Row, 0, [_Data], [() => datumList]];
-export var S3LoggingConfiguration: StaticStructureSchema = [3, n0, _SLC, 0, [_E, _KK, _LL], [2, 0, 0]];
-export var SessionAlreadyExistsException: StaticErrorSchema = [-3, n0, _SAEE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(SessionAlreadyExistsException, __SessionAlreadyExistsException);
-export var SessionConfiguration: StaticStructureSchema = [
+export var ResultReuseInformation$: StaticStructureSchema = [3, n0, _RRI, 0, [_RPR], [2]];
+export var ResultSet$: StaticStructureSchema = [3, n0, _RS, 0, [_Ro, _RSM], [() => RowList, () => ResultSetMetadata$]];
+export var ResultSetMetadata$: StaticStructureSchema = [3, n0, _RSM, 0, [_CI], [() => ColumnInfoList]];
+export var Row$: StaticStructureSchema = [3, n0, _Row, 0, [_Data], [() => datumList]];
+export var S3LoggingConfiguration$: StaticStructureSchema = [3, n0, _SLC, 0, [_E, _KK, _LL], [2, 0, 0]];
+export var SessionAlreadyExistsException$: StaticErrorSchema = [-3, n0, _SAEE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(SessionAlreadyExistsException$, SessionAlreadyExistsException);
+export var SessionConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SC,
   0,
   [_ER, _WD, _ITS, _SITIM, _ECn],
-  [0, 0, 1, 1, () => EncryptionConfiguration],
+  [0, 0, 1, 1, () => EncryptionConfiguration$],
 ];
-export var SessionStatistics: StaticStructureSchema = [3, n0, _SSe, 0, [_DEIM], [1]];
-export var SessionStatus: StaticStructureSchema = [
+export var SessionStatistics$: StaticStructureSchema = [3, n0, _SSe, 0, [_DEIM], [1]];
+export var SessionStatus$: StaticStructureSchema = [
   3,
   n0,
   _SSes,
@@ -1100,24 +1121,24 @@ export var SessionStatus: StaticStructureSchema = [
   [_SDTt, _LMDT, _EDT, _ISDT, _S, _SCR],
   [4, 4, 4, 4, 0, 0],
 ];
-export var SessionSummary: StaticStructureSchema = [
+export var SessionSummary$: StaticStructureSchema = [
   3,
   n0,
   _SSess,
   0,
   [_SI, _D, _EV, _NV, _St],
-  [0, 0, () => EngineVersion, 0, () => SessionStatus],
+  [0, 0, () => EngineVersion$, 0, () => SessionStatus$],
 ];
-export var StartCalculationExecutionRequest: StaticStructureSchema = [
+export var StartCalculationExecutionRequest$: StaticStructureSchema = [
   3,
   n0,
   _SCER,
   0,
   [_SI, _D, _CC, _CB, _CRT],
-  [0, 0, () => CalculationConfiguration, 0, 0],
+  [0, 0, () => CalculationConfiguration$, 0, 0],
 ];
-export var StartCalculationExecutionResponse: StaticStructureSchema = [3, n0, _SCERt, 0, [_CEI, _S], [0, 0]];
-export var StartQueryExecutionInput: StaticStructureSchema = [
+export var StartCalculationExecutionResponse$: StaticStructureSchema = [3, n0, _SCERt, 0, [_CEI, _S], [0, 0]];
+export var StartQueryExecutionInput$: StaticStructureSchema = [
   3,
   n0,
   _SQEI,
@@ -1126,29 +1147,29 @@ export var StartQueryExecutionInput: StaticStructureSchema = [
   [
     0,
     [0, 4],
-    () => QueryExecutionContext,
-    () => ResultConfiguration,
+    () => QueryExecutionContext$,
+    () => ResultConfiguration$,
     0,
     64 | 0,
-    () => ResultReuseConfiguration,
-    () => EngineConfiguration,
+    () => ResultReuseConfiguration$,
+    () => EngineConfiguration$,
   ],
 ];
-export var StartQueryExecutionOutput: StaticStructureSchema = [3, n0, _SQEO, 0, [_QEIu], [0]];
-export var StartSessionRequest: StaticStructureSchema = [
+export var StartQueryExecutionOutput$: StaticStructureSchema = [3, n0, _SQEO, 0, [_QEIu], [0]];
+export var StartSessionRequest$: StaticStructureSchema = [
   3,
   n0,
   _SSR,
   0,
   [_D, _WG, _ECng, _ER, _MC, _NV, _SITIM, _CRT, _Ta, _CWGT],
-  [0, 0, () => EngineConfiguration, 0, () => MonitoringConfiguration, 0, 1, 0, () => TagList, 2],
+  [0, 0, () => EngineConfiguration$, 0, () => MonitoringConfiguration$, 0, 1, 0, () => TagList, 2],
 ];
-export var StartSessionResponse: StaticStructureSchema = [3, n0, _SSRt, 0, [_SI, _S], [0, 0]];
-export var StopCalculationExecutionRequest: StaticStructureSchema = [3, n0, _SCERto, 0, [_CEI], [0]];
-export var StopCalculationExecutionResponse: StaticStructureSchema = [3, n0, _SCERtop, 0, [_S], [0]];
-export var StopQueryExecutionInput: StaticStructureSchema = [3, n0, _SQEIt, 0, [_QEIu], [[0, 4]]];
-export var StopQueryExecutionOutput: StaticStructureSchema = [3, n0, _SQEOt, 0, [], []];
-export var TableMetadata: StaticStructureSchema = [
+export var StartSessionResponse$: StaticStructureSchema = [3, n0, _SSRt, 0, [_SI, _S], [0, 0]];
+export var StopCalculationExecutionRequest$: StaticStructureSchema = [3, n0, _SCERto, 0, [_CEI], [0]];
+export var StopCalculationExecutionResponse$: StaticStructureSchema = [3, n0, _SCERtop, 0, [_S], [0]];
+export var StopQueryExecutionInput$: StaticStructureSchema = [3, n0, _SQEIt, 0, [_QEIu], [[0, 4]]];
+export var StopQueryExecutionOutput$: StaticStructureSchema = [3, n0, _SQEOt, 0, [], []];
+export var TableMetadata$: StaticStructureSchema = [
   3,
   n0,
   _TM,
@@ -1156,72 +1177,79 @@ export var TableMetadata: StaticStructureSchema = [
   [_N, _CTr, _LAT, _TT, _Col, _PK, _Pa],
   [0, 4, 4, 0, () => ColumnList, () => ColumnList, 128 | 0],
 ];
-export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
-export var TagResourceInput: StaticStructureSchema = [3, n0, _TRI, 0, [_RARN, _Ta], [0, () => TagList]];
-export var TagResourceOutput: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
-export var TerminateSessionRequest: StaticStructureSchema = [3, n0, _TSR, 0, [_SI], [0]];
-export var TerminateSessionResponse: StaticStructureSchema = [3, n0, _TSRe, 0, [_S], [0]];
-export var TooManyRequestsException: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c }, [_M, _Rea], [0, 0]];
-TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-export var UnprocessedNamedQueryId: StaticStructureSchema = [3, n0, _UNQIn, 0, [_NQIa, _ECr, _EM], [0, 0, 0]];
-export var UnprocessedPreparedStatementName: StaticStructureSchema = [3, n0, _UPSNn, 0, [_SNt, _ECr, _EM], [0, 0, 0]];
-export var UnprocessedQueryExecutionId: StaticStructureSchema = [3, n0, _UQEIn, 0, [_QEIu, _ECr, _EM], [0, 0, 0]];
-export var UntagResourceInput: StaticStructureSchema = [3, n0, _URI, 0, [_RARN, _TK], [0, 64 | 0]];
-export var UntagResourceOutput: StaticStructureSchema = [3, n0, _URO, 0, [], []];
-export var UpdateCapacityReservationInput: StaticStructureSchema = [3, n0, _UCRI, 0, [_TD, _N], [1, 0]];
-export var UpdateCapacityReservationOutput: StaticStructureSchema = [3, n0, _UCRO, 0, [], []];
-export var UpdateDataCatalogInput: StaticStructureSchema = [3, n0, _UDCI, 0, [_N, _T, _D, _Pa], [0, 0, 0, 128 | 0]];
-export var UpdateDataCatalogOutput: StaticStructureSchema = [3, n0, _UDCO, 0, [], []];
-export var UpdateNamedQueryInput: StaticStructureSchema = [3, n0, _UNQIp, 0, [_NQIa, _N, _D, _QS], [0, 0, 0, 0]];
-export var UpdateNamedQueryOutput: StaticStructureSchema = [3, n0, _UNQO, 0, [], []];
-export var UpdateNotebookInput: StaticStructureSchema = [3, n0, _UNI, 0, [_NI, _Pay, _T, _SI, _CRT], [0, 0, 0, 0, 0]];
-export var UpdateNotebookMetadataInput: StaticStructureSchema = [3, n0, _UNMI, 0, [_NI, _CRT, _N], [0, 0, 0]];
-export var UpdateNotebookMetadataOutput: StaticStructureSchema = [3, n0, _UNMO, 0, [], []];
-export var UpdateNotebookOutput: StaticStructureSchema = [3, n0, _UNO, 0, [], []];
-export var UpdatePreparedStatementInput: StaticStructureSchema = [3, n0, _UPSI, 0, [_SNt, _WG, _QSu, _D], [0, 0, 0, 0]];
-export var UpdatePreparedStatementOutput: StaticStructureSchema = [3, n0, _UPSO, 0, [], []];
-export var UpdateWorkGroupInput: StaticStructureSchema = [
+export var Tag$: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
+export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI, 0, [_RARN, _Ta], [0, () => TagList]];
+export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
+export var TerminateSessionRequest$: StaticStructureSchema = [3, n0, _TSR, 0, [_SI], [0]];
+export var TerminateSessionResponse$: StaticStructureSchema = [3, n0, _TSRe, 0, [_S], [0]];
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c }, [_M, _Rea], [0, 0]];
+TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
+export var UnprocessedNamedQueryId$: StaticStructureSchema = [3, n0, _UNQIn, 0, [_NQIa, _ECr, _EM], [0, 0, 0]];
+export var UnprocessedPreparedStatementName$: StaticStructureSchema = [3, n0, _UPSNn, 0, [_SNt, _ECr, _EM], [0, 0, 0]];
+export var UnprocessedQueryExecutionId$: StaticStructureSchema = [3, n0, _UQEIn, 0, [_QEIu, _ECr, _EM], [0, 0, 0]];
+export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI, 0, [_RARN, _TK], [0, 64 | 0]];
+export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO, 0, [], []];
+export var UpdateCapacityReservationInput$: StaticStructureSchema = [3, n0, _UCRI, 0, [_TD, _N], [1, 0]];
+export var UpdateCapacityReservationOutput$: StaticStructureSchema = [3, n0, _UCRO, 0, [], []];
+export var UpdateDataCatalogInput$: StaticStructureSchema = [3, n0, _UDCI, 0, [_N, _T, _D, _Pa], [0, 0, 0, 128 | 0]];
+export var UpdateDataCatalogOutput$: StaticStructureSchema = [3, n0, _UDCO, 0, [], []];
+export var UpdateNamedQueryInput$: StaticStructureSchema = [3, n0, _UNQIp, 0, [_NQIa, _N, _D, _QS], [0, 0, 0, 0]];
+export var UpdateNamedQueryOutput$: StaticStructureSchema = [3, n0, _UNQO, 0, [], []];
+export var UpdateNotebookInput$: StaticStructureSchema = [3, n0, _UNI, 0, [_NI, _Pay, _T, _SI, _CRT], [0, 0, 0, 0, 0]];
+export var UpdateNotebookMetadataInput$: StaticStructureSchema = [3, n0, _UNMI, 0, [_NI, _CRT, _N], [0, 0, 0]];
+export var UpdateNotebookMetadataOutput$: StaticStructureSchema = [3, n0, _UNMO, 0, [], []];
+export var UpdateNotebookOutput$: StaticStructureSchema = [3, n0, _UNO, 0, [], []];
+export var UpdatePreparedStatementInput$: StaticStructureSchema = [
+  3,
+  n0,
+  _UPSI,
+  0,
+  [_SNt, _WG, _QSu, _D],
+  [0, 0, 0, 0],
+];
+export var UpdatePreparedStatementOutput$: StaticStructureSchema = [3, n0, _UPSO, 0, [], []];
+export var UpdateWorkGroupInput$: StaticStructureSchema = [
   3,
   n0,
   _UWGI,
   0,
   [_WG, _D, _CU, _S],
-  [0, 0, () => WorkGroupConfigurationUpdates, 0],
+  [0, 0, () => WorkGroupConfigurationUpdates$, 0],
 ];
-export var UpdateWorkGroupOutput: StaticStructureSchema = [3, n0, _UWGO, 0, [], []];
-export var WorkGroup: StaticStructureSchema = [
+export var UpdateWorkGroupOutput$: StaticStructureSchema = [3, n0, _UWGO, 0, [], []];
+export var WorkGroup$: StaticStructureSchema = [
   3,
   n0,
   _WG,
   0,
   [_N, _S, _Con, _D, _CT, _ICAA],
-  [0, 0, () => WorkGroupConfiguration, 0, 4, 0],
+  [0, 0, () => WorkGroupConfiguration$, 0, 4, 0],
 ];
-export var WorkGroupConfiguration: StaticStructureSchema = [
+export var WorkGroupConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _WGC,
   0,
   [_RC, _MQRC, _EWGC, _PCWME, _BSCPQ, _RPE, _EV, _ACdd, _ER, _MC, _ECng, _CCEC, _EMEC, _ICC, _QRSAGC],
   [
-    () => ResultConfiguration,
-    () => ManagedQueryResultsConfiguration,
+    () => ResultConfiguration$,
+    () => ManagedQueryResultsConfiguration$,
     2,
     2,
     1,
     2,
-    () => EngineVersion,
+    () => EngineVersion$,
     0,
     0,
-    () => MonitoringConfiguration,
-    () => EngineConfiguration,
-    () => CustomerContentEncryptionConfiguration,
+    () => MonitoringConfiguration$,
+    () => EngineConfiguration$,
+    () => CustomerContentEncryptionConfiguration$,
     2,
-    () => IdentityCenterConfiguration,
-    () => QueryResultsS3AccessGrantsConfiguration,
+    () => IdentityCenterConfiguration$,
+    () => QueryResultsS3AccessGrantsConfiguration$,
   ],
 ];
-export var WorkGroupConfigurationUpdates: StaticStructureSchema = [
+export var WorkGroupConfigurationUpdates$: StaticStructureSchema = [
   3,
   n0,
   _WGCU,
@@ -1229,579 +1257,607 @@ export var WorkGroupConfigurationUpdates: StaticStructureSchema = [
   [_EWGC, _RCU, _MQRCU, _PCWME, _BSCPQ, _RBSCPQ, _RPE, _EV, _RCCEC, _ACdd, _ER, _CCEC, _EMEC, _QRSAGC, _MC, _ECng],
   [
     2,
-    () => ResultConfigurationUpdates,
-    () => ManagedQueryResultsConfigurationUpdates,
+    () => ResultConfigurationUpdates$,
+    () => ManagedQueryResultsConfigurationUpdates$,
     2,
     1,
     2,
     2,
-    () => EngineVersion,
+    () => EngineVersion$,
     2,
     0,
     0,
-    () => CustomerContentEncryptionConfiguration,
+    () => CustomerContentEncryptionConfiguration$,
     2,
-    () => QueryResultsS3AccessGrantsConfiguration,
-    () => MonitoringConfiguration,
-    () => EngineConfiguration,
+    () => QueryResultsS3AccessGrantsConfiguration$,
+    () => MonitoringConfiguration$,
+    () => EngineConfiguration$,
   ],
 ];
-export var WorkGroupSummary: StaticStructureSchema = [
+export var WorkGroupSummary$: StaticStructureSchema = [
   3,
   n0,
   _WGS,
   0,
   [_N, _S, _D, _CT, _EV, _ICAA],
-  [0, 0, 0, 4, () => EngineVersion, 0],
+  [0, 0, 0, 4, () => EngineVersion$, 0],
 ];
-export var AthenaServiceException: StaticErrorSchema = [-3, _sm, "AthenaServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(AthenaServiceException, __AthenaServiceException);
-export var ApplicationDPUSizesList: StaticListSchema = [1, n0, _ADPUSL, 0, () => ApplicationDPUSizes];
-export var CalculationsList: StaticListSchema = [1, n0, _CL, 0, () => CalculationSummary];
-export var CapacityAssignmentsList: StaticListSchema = [1, n0, _CAL, 0, () => CapacityAssignment];
-export var CapacityReservationsList: StaticListSchema = [1, n0, _CRL, 0, () => CapacityReservation];
-export var ClassificationList: StaticListSchema = [1, n0, _CLl, 0, () => Classification];
-export var ColumnInfoList: StaticListSchema = [1, n0, _CIL, 0, () => ColumnInfo];
-export var ColumnList: StaticListSchema = [1, n0, _CLo, 0, () => Column];
-export var DatabaseList: StaticListSchema = [1, n0, _DL, 0, () => Database];
-export var DataCatalogSummaryList: StaticListSchema = [1, n0, _DCSL, 0, () => DataCatalogSummary];
-export var datumList: StaticListSchema = [1, n0, _dL, 0, () => Datum];
-export var EngineVersionsList: StaticListSchema = [1, n0, _EVL, 0, () => EngineVersion];
-export var ExecutionParameters = 64 | 0;
-export var ExecutorsSummaryList: StaticListSchema = [1, n0, _ESL, 0, () => ExecutorsSummary];
-export var LogTypeValuesList = 64 | 0;
-export var NamedQueryIdList = 64 | 0;
-export var NamedQueryList: StaticListSchema = [1, n0, _NQL, 0, () => NamedQuery];
-export var NotebookMetadataArray: StaticListSchema = [1, n0, _NMA, 0, () => NotebookMetadata];
-export var NotebookSessionsList: StaticListSchema = [1, n0, _NSL, 0, () => NotebookSessionSummary];
-export var PreparedStatementDetailsList: StaticListSchema = [1, n0, _PSDL, 0, () => PreparedStatement];
-export var PreparedStatementNameList = 64 | 0;
-export var PreparedStatementsList: StaticListSchema = [1, n0, _PSL, 0, () => PreparedStatementSummary];
-export var QueryExecutionIdList = 64 | 0;
-export var QueryExecutionList: StaticListSchema = [1, n0, _QEL, 0, () => QueryExecution];
-export var QueryStagePlanNodes: StaticListSchema = [1, n0, _QSPNu, 0, () => QueryStagePlanNode];
-export var QueryStages: StaticListSchema = [1, n0, _QSuer, 0, () => QueryStage];
-export var RowList: StaticListSchema = [1, n0, _RL, 0, () => Row];
-export var SessionsList: StaticListSchema = [1, n0, _SL, 0, () => SessionSummary];
-export var StringList = 64 | 0;
-export var SupportedDPUSizeList = 64 | 1;
-export var TableMetadataList: StaticListSchema = [1, n0, _TML, 0, () => TableMetadata];
-export var TagKeyList = 64 | 0;
-export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
-export var UnprocessedNamedQueryIdList: StaticListSchema = [1, n0, _UNQIL, 0, () => UnprocessedNamedQueryId];
-export var UnprocessedPreparedStatementNameList: StaticListSchema = [
+export var AthenaServiceException$: StaticErrorSchema = [-3, _sm, "AthenaServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(AthenaServiceException$, AthenaServiceException);
+var ApplicationDPUSizesList: StaticListSchema = [1, n0, _ADPUSL, 0, () => ApplicationDPUSizes$];
+var CalculationsList: StaticListSchema = [1, n0, _CL, 0, () => CalculationSummary$];
+var CapacityAssignmentsList: StaticListSchema = [1, n0, _CAL, 0, () => CapacityAssignment$];
+var CapacityReservationsList: StaticListSchema = [1, n0, _CRL, 0, () => CapacityReservation$];
+var ClassificationList: StaticListSchema = [1, n0, _CLl, 0, () => Classification$];
+var ColumnInfoList: StaticListSchema = [1, n0, _CIL, 0, () => ColumnInfo$];
+var ColumnList: StaticListSchema = [1, n0, _CLo, 0, () => Column$];
+var DatabaseList: StaticListSchema = [1, n0, _DL, 0, () => Database$];
+var DataCatalogSummaryList: StaticListSchema = [1, n0, _DCSL, 0, () => DataCatalogSummary$];
+var datumList: StaticListSchema = [1, n0, _dL, 0, () => Datum$];
+var EngineVersionsList: StaticListSchema = [1, n0, _EVL, 0, () => EngineVersion$];
+var ExecutionParameters = 64 | 0;
+var ExecutorsSummaryList: StaticListSchema = [1, n0, _ESL, 0, () => ExecutorsSummary$];
+var LogTypeValuesList = 64 | 0;
+var NamedQueryIdList = 64 | 0;
+var NamedQueryList: StaticListSchema = [1, n0, _NQL, 0, () => NamedQuery$];
+var NotebookMetadataArray: StaticListSchema = [1, n0, _NMA, 0, () => NotebookMetadata$];
+var NotebookSessionsList: StaticListSchema = [1, n0, _NSL, 0, () => NotebookSessionSummary$];
+var PreparedStatementDetailsList: StaticListSchema = [1, n0, _PSDL, 0, () => PreparedStatement$];
+var PreparedStatementNameList = 64 | 0;
+var PreparedStatementsList: StaticListSchema = [1, n0, _PSL, 0, () => PreparedStatementSummary$];
+var QueryExecutionIdList = 64 | 0;
+var QueryExecutionList: StaticListSchema = [1, n0, _QEL, 0, () => QueryExecution$];
+var QueryStagePlanNodes: StaticListSchema = [1, n0, _QSPNu, 0, () => QueryStagePlanNode$];
+var QueryStages: StaticListSchema = [1, n0, _QSuer, 0, () => QueryStage$];
+var RowList: StaticListSchema = [1, n0, _RL, 0, () => Row$];
+var SessionsList: StaticListSchema = [1, n0, _SL, 0, () => SessionSummary$];
+var StringList = 64 | 0;
+var SupportedDPUSizeList = 64 | 1;
+var TableMetadataList: StaticListSchema = [1, n0, _TML, 0, () => TableMetadata$];
+var TagKeyList = 64 | 0;
+var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
+var UnprocessedNamedQueryIdList: StaticListSchema = [1, n0, _UNQIL, 0, () => UnprocessedNamedQueryId$];
+var UnprocessedPreparedStatementNameList: StaticListSchema = [
   1,
   n0,
   _UPSNL,
   0,
-  () => UnprocessedPreparedStatementName,
+  () => UnprocessedPreparedStatementName$,
 ];
-export var UnprocessedQueryExecutionIdList: StaticListSchema = [1, n0, _UQEIL, 0, () => UnprocessedQueryExecutionId];
-export var WorkGroupNamesList = 64 | 0;
-export var WorkGroupsList: StaticListSchema = [1, n0, _WGL, 0, () => WorkGroupSummary];
-export var LogTypesMap: StaticMapSchema = [2, n0, _LTM, 0, 0, 64 | 0];
-export var ParametersMap = 128 | 0;
-export var BatchGetNamedQuery: StaticOperationSchema = [
+var UnprocessedQueryExecutionIdList: StaticListSchema = [1, n0, _UQEIL, 0, () => UnprocessedQueryExecutionId$];
+var WorkGroupNamesList = 64 | 0;
+var WorkGroupsList: StaticListSchema = [1, n0, _WGL, 0, () => WorkGroupSummary$];
+var LogTypesMap: StaticMapSchema = [2, n0, _LTM, 0, 0, 64 | 0];
+var ParametersMap = 128 | 0;
+export var BatchGetNamedQuery$: StaticOperationSchema = [
   9,
   n0,
   _BGNQ,
   0,
-  () => BatchGetNamedQueryInput,
-  () => BatchGetNamedQueryOutput,
+  () => BatchGetNamedQueryInput$,
+  () => BatchGetNamedQueryOutput$,
 ];
-export var BatchGetPreparedStatement: StaticOperationSchema = [
+export var BatchGetPreparedStatement$: StaticOperationSchema = [
   9,
   n0,
   _BGPS,
   0,
-  () => BatchGetPreparedStatementInput,
-  () => BatchGetPreparedStatementOutput,
+  () => BatchGetPreparedStatementInput$,
+  () => BatchGetPreparedStatementOutput$,
 ];
-export var BatchGetQueryExecution: StaticOperationSchema = [
+export var BatchGetQueryExecution$: StaticOperationSchema = [
   9,
   n0,
   _BGQE,
   0,
-  () => BatchGetQueryExecutionInput,
-  () => BatchGetQueryExecutionOutput,
+  () => BatchGetQueryExecutionInput$,
+  () => BatchGetQueryExecutionOutput$,
 ];
-export var CancelCapacityReservation: StaticOperationSchema = [
+export var CancelCapacityReservation$: StaticOperationSchema = [
   9,
   n0,
   _CCR,
   2,
-  () => CancelCapacityReservationInput,
-  () => CancelCapacityReservationOutput,
+  () => CancelCapacityReservationInput$,
+  () => CancelCapacityReservationOutput$,
 ];
-export var CreateCapacityReservation: StaticOperationSchema = [
+export var CreateCapacityReservation$: StaticOperationSchema = [
   9,
   n0,
   _CCRr,
   2,
-  () => CreateCapacityReservationInput,
-  () => CreateCapacityReservationOutput,
+  () => CreateCapacityReservationInput$,
+  () => CreateCapacityReservationOutput$,
 ];
-export var CreateDataCatalog: StaticOperationSchema = [
+export var CreateDataCatalog$: StaticOperationSchema = [
   9,
   n0,
   _CDC,
   0,
-  () => CreateDataCatalogInput,
-  () => CreateDataCatalogOutput,
+  () => CreateDataCatalogInput$,
+  () => CreateDataCatalogOutput$,
 ];
-export var CreateNamedQuery: StaticOperationSchema = [
+export var CreateNamedQuery$: StaticOperationSchema = [
   9,
   n0,
   _CNQ,
   2,
-  () => CreateNamedQueryInput,
-  () => CreateNamedQueryOutput,
+  () => CreateNamedQueryInput$,
+  () => CreateNamedQueryOutput$,
 ];
-export var CreateNotebook: StaticOperationSchema = [
+export var CreateNotebook$: StaticOperationSchema = [
   9,
   n0,
   _CNr,
   0,
-  () => CreateNotebookInput,
-  () => CreateNotebookOutput,
+  () => CreateNotebookInput$,
+  () => CreateNotebookOutput$,
 ];
-export var CreatePreparedStatement: StaticOperationSchema = [
+export var CreatePreparedStatement$: StaticOperationSchema = [
   9,
   n0,
   _CPS,
   0,
-  () => CreatePreparedStatementInput,
-  () => CreatePreparedStatementOutput,
+  () => CreatePreparedStatementInput$,
+  () => CreatePreparedStatementOutput$,
 ];
-export var CreatePresignedNotebookUrl: StaticOperationSchema = [
+export var CreatePresignedNotebookUrl$: StaticOperationSchema = [
   9,
   n0,
   _CPNU,
   0,
-  () => CreatePresignedNotebookUrlRequest,
-  () => CreatePresignedNotebookUrlResponse,
+  () => CreatePresignedNotebookUrlRequest$,
+  () => CreatePresignedNotebookUrlResponse$,
 ];
-export var CreateWorkGroup: StaticOperationSchema = [
+export var CreateWorkGroup$: StaticOperationSchema = [
   9,
   n0,
   _CWG,
   0,
-  () => CreateWorkGroupInput,
-  () => CreateWorkGroupOutput,
+  () => CreateWorkGroupInput$,
+  () => CreateWorkGroupOutput$,
 ];
-export var DeleteCapacityReservation: StaticOperationSchema = [
+export var DeleteCapacityReservation$: StaticOperationSchema = [
   9,
   n0,
   _DCR,
   2,
-  () => DeleteCapacityReservationInput,
-  () => DeleteCapacityReservationOutput,
+  () => DeleteCapacityReservationInput$,
+  () => DeleteCapacityReservationOutput$,
 ];
-export var DeleteDataCatalog: StaticOperationSchema = [
+export var DeleteDataCatalog$: StaticOperationSchema = [
   9,
   n0,
   _DDC,
   0,
-  () => DeleteDataCatalogInput,
-  () => DeleteDataCatalogOutput,
+  () => DeleteDataCatalogInput$,
+  () => DeleteDataCatalogOutput$,
 ];
-export var DeleteNamedQuery: StaticOperationSchema = [
+export var DeleteNamedQuery$: StaticOperationSchema = [
   9,
   n0,
   _DNQ,
   2,
-  () => DeleteNamedQueryInput,
-  () => DeleteNamedQueryOutput,
+  () => DeleteNamedQueryInput$,
+  () => DeleteNamedQueryOutput$,
 ];
-export var DeleteNotebook: StaticOperationSchema = [
+export var DeleteNotebook$: StaticOperationSchema = [
   9,
   n0,
   _DNe,
   0,
-  () => DeleteNotebookInput,
-  () => DeleteNotebookOutput,
+  () => DeleteNotebookInput$,
+  () => DeleteNotebookOutput$,
 ];
-export var DeletePreparedStatement: StaticOperationSchema = [
+export var DeletePreparedStatement$: StaticOperationSchema = [
   9,
   n0,
   _DPS,
   0,
-  () => DeletePreparedStatementInput,
-  () => DeletePreparedStatementOutput,
+  () => DeletePreparedStatementInput$,
+  () => DeletePreparedStatementOutput$,
 ];
-export var DeleteWorkGroup: StaticOperationSchema = [
+export var DeleteWorkGroup$: StaticOperationSchema = [
   9,
   n0,
   _DWG,
   2,
-  () => DeleteWorkGroupInput,
-  () => DeleteWorkGroupOutput,
+  () => DeleteWorkGroupInput$,
+  () => DeleteWorkGroupOutput$,
 ];
-export var ExportNotebook: StaticOperationSchema = [
+export var ExportNotebook$: StaticOperationSchema = [
   9,
   n0,
   _EN,
   0,
-  () => ExportNotebookInput,
-  () => ExportNotebookOutput,
+  () => ExportNotebookInput$,
+  () => ExportNotebookOutput$,
 ];
-export var GetCalculationExecution: StaticOperationSchema = [
+export var GetCalculationExecution$: StaticOperationSchema = [
   9,
   n0,
   _GCE,
   0,
-  () => GetCalculationExecutionRequest,
-  () => GetCalculationExecutionResponse,
+  () => GetCalculationExecutionRequest$,
+  () => GetCalculationExecutionResponse$,
 ];
-export var GetCalculationExecutionCode: StaticOperationSchema = [
+export var GetCalculationExecutionCode$: StaticOperationSchema = [
   9,
   n0,
   _GCEC,
   0,
-  () => GetCalculationExecutionCodeRequest,
-  () => GetCalculationExecutionCodeResponse,
+  () => GetCalculationExecutionCodeRequest$,
+  () => GetCalculationExecutionCodeResponse$,
 ];
-export var GetCalculationExecutionStatus: StaticOperationSchema = [
+export var GetCalculationExecutionStatus$: StaticOperationSchema = [
   9,
   n0,
   _GCES,
   0,
-  () => GetCalculationExecutionStatusRequest,
-  () => GetCalculationExecutionStatusResponse,
+  () => GetCalculationExecutionStatusRequest$,
+  () => GetCalculationExecutionStatusResponse$,
 ];
-export var GetCapacityAssignmentConfiguration: StaticOperationSchema = [
+export var GetCapacityAssignmentConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GCAC,
   0,
-  () => GetCapacityAssignmentConfigurationInput,
-  () => GetCapacityAssignmentConfigurationOutput,
+  () => GetCapacityAssignmentConfigurationInput$,
+  () => GetCapacityAssignmentConfigurationOutput$,
 ];
-export var GetCapacityReservation: StaticOperationSchema = [
+export var GetCapacityReservation$: StaticOperationSchema = [
   9,
   n0,
   _GCR,
   0,
-  () => GetCapacityReservationInput,
-  () => GetCapacityReservationOutput,
+  () => GetCapacityReservationInput$,
+  () => GetCapacityReservationOutput$,
 ];
-export var GetDatabase: StaticOperationSchema = [9, n0, _GD, 0, () => GetDatabaseInput, () => GetDatabaseOutput];
-export var GetDataCatalog: StaticOperationSchema = [
+export var GetDatabase$: StaticOperationSchema = [9, n0, _GD, 0, () => GetDatabaseInput$, () => GetDatabaseOutput$];
+export var GetDataCatalog$: StaticOperationSchema = [
   9,
   n0,
   _GDC,
   0,
-  () => GetDataCatalogInput,
-  () => GetDataCatalogOutput,
+  () => GetDataCatalogInput$,
+  () => GetDataCatalogOutput$,
 ];
-export var GetNamedQuery: StaticOperationSchema = [9, n0, _GNQ, 0, () => GetNamedQueryInput, () => GetNamedQueryOutput];
-export var GetNotebookMetadata: StaticOperationSchema = [
+export var GetNamedQuery$: StaticOperationSchema = [
+  9,
+  n0,
+  _GNQ,
+  0,
+  () => GetNamedQueryInput$,
+  () => GetNamedQueryOutput$,
+];
+export var GetNotebookMetadata$: StaticOperationSchema = [
   9,
   n0,
   _GNM,
   0,
-  () => GetNotebookMetadataInput,
-  () => GetNotebookMetadataOutput,
+  () => GetNotebookMetadataInput$,
+  () => GetNotebookMetadataOutput$,
 ];
-export var GetPreparedStatement: StaticOperationSchema = [
+export var GetPreparedStatement$: StaticOperationSchema = [
   9,
   n0,
   _GPS,
   0,
-  () => GetPreparedStatementInput,
-  () => GetPreparedStatementOutput,
+  () => GetPreparedStatementInput$,
+  () => GetPreparedStatementOutput$,
 ];
-export var GetQueryExecution: StaticOperationSchema = [
+export var GetQueryExecution$: StaticOperationSchema = [
   9,
   n0,
   _GQE,
   0,
-  () => GetQueryExecutionInput,
-  () => GetQueryExecutionOutput,
+  () => GetQueryExecutionInput$,
+  () => GetQueryExecutionOutput$,
 ];
-export var GetQueryResults: StaticOperationSchema = [
+export var GetQueryResults$: StaticOperationSchema = [
   9,
   n0,
   _GQR,
   0,
-  () => GetQueryResultsInput,
-  () => GetQueryResultsOutput,
+  () => GetQueryResultsInput$,
+  () => GetQueryResultsOutput$,
 ];
-export var GetQueryRuntimeStatistics: StaticOperationSchema = [
+export var GetQueryRuntimeStatistics$: StaticOperationSchema = [
   9,
   n0,
   _GQRS,
   0,
-  () => GetQueryRuntimeStatisticsInput,
-  () => GetQueryRuntimeStatisticsOutput,
+  () => GetQueryRuntimeStatisticsInput$,
+  () => GetQueryRuntimeStatisticsOutput$,
 ];
-export var GetResourceDashboard: StaticOperationSchema = [
+export var GetResourceDashboard$: StaticOperationSchema = [
   9,
   n0,
   _GRD,
   0,
-  () => GetResourceDashboardRequest,
-  () => GetResourceDashboardResponse,
+  () => GetResourceDashboardRequest$,
+  () => GetResourceDashboardResponse$,
 ];
-export var GetSession: StaticOperationSchema = [9, n0, _GS, 0, () => GetSessionRequest, () => GetSessionResponse];
-export var GetSessionEndpoint: StaticOperationSchema = [
+export var GetSession$: StaticOperationSchema = [9, n0, _GS, 0, () => GetSessionRequest$, () => GetSessionResponse$];
+export var GetSessionEndpoint$: StaticOperationSchema = [
   9,
   n0,
   _GSE,
   0,
-  () => GetSessionEndpointRequest,
-  () => GetSessionEndpointResponse,
+  () => GetSessionEndpointRequest$,
+  () => GetSessionEndpointResponse$,
 ];
-export var GetSessionStatus: StaticOperationSchema = [
+export var GetSessionStatus$: StaticOperationSchema = [
   9,
   n0,
   _GSS,
   0,
-  () => GetSessionStatusRequest,
-  () => GetSessionStatusResponse,
+  () => GetSessionStatusRequest$,
+  () => GetSessionStatusResponse$,
 ];
-export var GetTableMetadata: StaticOperationSchema = [
+export var GetTableMetadata$: StaticOperationSchema = [
   9,
   n0,
   _GTM,
   0,
-  () => GetTableMetadataInput,
-  () => GetTableMetadataOutput,
+  () => GetTableMetadataInput$,
+  () => GetTableMetadataOutput$,
 ];
-export var GetWorkGroup: StaticOperationSchema = [9, n0, _GWG, 0, () => GetWorkGroupInput, () => GetWorkGroupOutput];
-export var ImportNotebook: StaticOperationSchema = [
+export var GetWorkGroup$: StaticOperationSchema = [9, n0, _GWG, 0, () => GetWorkGroupInput$, () => GetWorkGroupOutput$];
+export var ImportNotebook$: StaticOperationSchema = [
   9,
   n0,
   _IN,
   0,
-  () => ImportNotebookInput,
-  () => ImportNotebookOutput,
+  () => ImportNotebookInput$,
+  () => ImportNotebookOutput$,
 ];
-export var ListApplicationDPUSizes: StaticOperationSchema = [
+export var ListApplicationDPUSizes$: StaticOperationSchema = [
   9,
   n0,
   _LADPUS,
   0,
-  () => ListApplicationDPUSizesInput,
-  () => ListApplicationDPUSizesOutput,
+  () => ListApplicationDPUSizesInput$,
+  () => ListApplicationDPUSizesOutput$,
 ];
-export var ListCalculationExecutions: StaticOperationSchema = [
+export var ListCalculationExecutions$: StaticOperationSchema = [
   9,
   n0,
   _LCE,
   0,
-  () => ListCalculationExecutionsRequest,
-  () => ListCalculationExecutionsResponse,
+  () => ListCalculationExecutionsRequest$,
+  () => ListCalculationExecutionsResponse$,
 ];
-export var ListCapacityReservations: StaticOperationSchema = [
+export var ListCapacityReservations$: StaticOperationSchema = [
   9,
   n0,
   _LCR,
   0,
-  () => ListCapacityReservationsInput,
-  () => ListCapacityReservationsOutput,
+  () => ListCapacityReservationsInput$,
+  () => ListCapacityReservationsOutput$,
 ];
-export var ListDatabases: StaticOperationSchema = [9, n0, _LD, 0, () => ListDatabasesInput, () => ListDatabasesOutput];
-export var ListDataCatalogs: StaticOperationSchema = [
+export var ListDatabases$: StaticOperationSchema = [
+  9,
+  n0,
+  _LD,
+  0,
+  () => ListDatabasesInput$,
+  () => ListDatabasesOutput$,
+];
+export var ListDataCatalogs$: StaticOperationSchema = [
   9,
   n0,
   _LDC,
   0,
-  () => ListDataCatalogsInput,
-  () => ListDataCatalogsOutput,
+  () => ListDataCatalogsInput$,
+  () => ListDataCatalogsOutput$,
 ];
-export var ListEngineVersions: StaticOperationSchema = [
+export var ListEngineVersions$: StaticOperationSchema = [
   9,
   n0,
   _LEV,
   0,
-  () => ListEngineVersionsInput,
-  () => ListEngineVersionsOutput,
+  () => ListEngineVersionsInput$,
+  () => ListEngineVersionsOutput$,
 ];
-export var ListExecutors: StaticOperationSchema = [
+export var ListExecutors$: StaticOperationSchema = [
   9,
   n0,
   _LE,
   0,
-  () => ListExecutorsRequest,
-  () => ListExecutorsResponse,
+  () => ListExecutorsRequest$,
+  () => ListExecutorsResponse$,
 ];
-export var ListNamedQueries: StaticOperationSchema = [
+export var ListNamedQueries$: StaticOperationSchema = [
   9,
   n0,
   _LNQ,
   0,
-  () => ListNamedQueriesInput,
-  () => ListNamedQueriesOutput,
+  () => ListNamedQueriesInput$,
+  () => ListNamedQueriesOutput$,
 ];
-export var ListNotebookMetadata: StaticOperationSchema = [
+export var ListNotebookMetadata$: StaticOperationSchema = [
   9,
   n0,
   _LNM,
   0,
-  () => ListNotebookMetadataInput,
-  () => ListNotebookMetadataOutput,
+  () => ListNotebookMetadataInput$,
+  () => ListNotebookMetadataOutput$,
 ];
-export var ListNotebookSessions: StaticOperationSchema = [
+export var ListNotebookSessions$: StaticOperationSchema = [
   9,
   n0,
   _LNS,
   0,
-  () => ListNotebookSessionsRequest,
-  () => ListNotebookSessionsResponse,
+  () => ListNotebookSessionsRequest$,
+  () => ListNotebookSessionsResponse$,
 ];
-export var ListPreparedStatements: StaticOperationSchema = [
+export var ListPreparedStatements$: StaticOperationSchema = [
   9,
   n0,
   _LPS,
   0,
-  () => ListPreparedStatementsInput,
-  () => ListPreparedStatementsOutput,
+  () => ListPreparedStatementsInput$,
+  () => ListPreparedStatementsOutput$,
 ];
-export var ListQueryExecutions: StaticOperationSchema = [
+export var ListQueryExecutions$: StaticOperationSchema = [
   9,
   n0,
   _LQE,
   0,
-  () => ListQueryExecutionsInput,
-  () => ListQueryExecutionsOutput,
+  () => ListQueryExecutionsInput$,
+  () => ListQueryExecutionsOutput$,
 ];
-export var ListSessions: StaticOperationSchema = [9, n0, _LS, 0, () => ListSessionsRequest, () => ListSessionsResponse];
-export var ListTableMetadata: StaticOperationSchema = [
+export var ListSessions$: StaticOperationSchema = [
+  9,
+  n0,
+  _LS,
+  0,
+  () => ListSessionsRequest$,
+  () => ListSessionsResponse$,
+];
+export var ListTableMetadata$: StaticOperationSchema = [
   9,
   n0,
   _LTMi,
   0,
-  () => ListTableMetadataInput,
-  () => ListTableMetadataOutput,
+  () => ListTableMetadataInput$,
+  () => ListTableMetadataOutput$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   0,
-  () => ListTagsForResourceInput,
-  () => ListTagsForResourceOutput,
+  () => ListTagsForResourceInput$,
+  () => ListTagsForResourceOutput$,
 ];
-export var ListWorkGroups: StaticOperationSchema = [
+export var ListWorkGroups$: StaticOperationSchema = [
   9,
   n0,
   _LWG,
   0,
-  () => ListWorkGroupsInput,
-  () => ListWorkGroupsOutput,
+  () => ListWorkGroupsInput$,
+  () => ListWorkGroupsOutput$,
 ];
-export var PutCapacityAssignmentConfiguration: StaticOperationSchema = [
+export var PutCapacityAssignmentConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _PCAC,
   2,
-  () => PutCapacityAssignmentConfigurationInput,
-  () => PutCapacityAssignmentConfigurationOutput,
+  () => PutCapacityAssignmentConfigurationInput$,
+  () => PutCapacityAssignmentConfigurationOutput$,
 ];
-export var StartCalculationExecution: StaticOperationSchema = [
+export var StartCalculationExecution$: StaticOperationSchema = [
   9,
   n0,
   _SCE,
   0,
-  () => StartCalculationExecutionRequest,
-  () => StartCalculationExecutionResponse,
+  () => StartCalculationExecutionRequest$,
+  () => StartCalculationExecutionResponse$,
 ];
-export var StartQueryExecution: StaticOperationSchema = [
+export var StartQueryExecution$: StaticOperationSchema = [
   9,
   n0,
   _SQE,
   2,
-  () => StartQueryExecutionInput,
-  () => StartQueryExecutionOutput,
+  () => StartQueryExecutionInput$,
+  () => StartQueryExecutionOutput$,
 ];
-export var StartSession: StaticOperationSchema = [
+export var StartSession$: StaticOperationSchema = [
   9,
   n0,
   _SSt,
   0,
-  () => StartSessionRequest,
-  () => StartSessionResponse,
+  () => StartSessionRequest$,
+  () => StartSessionResponse$,
 ];
-export var StopCalculationExecution: StaticOperationSchema = [
+export var StopCalculationExecution$: StaticOperationSchema = [
   9,
   n0,
   _SCEt,
   0,
-  () => StopCalculationExecutionRequest,
-  () => StopCalculationExecutionResponse,
+  () => StopCalculationExecutionRequest$,
+  () => StopCalculationExecutionResponse$,
 ];
-export var StopQueryExecution: StaticOperationSchema = [
+export var StopQueryExecution$: StaticOperationSchema = [
   9,
   n0,
   _SQEt,
   2,
-  () => StopQueryExecutionInput,
-  () => StopQueryExecutionOutput,
+  () => StopQueryExecutionInput$,
+  () => StopQueryExecutionOutput$,
 ];
-export var TagResource: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceInput, () => TagResourceOutput];
-export var TerminateSession: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceInput$, () => TagResourceOutput$];
+export var TerminateSession$: StaticOperationSchema = [
   9,
   n0,
   _TS,
   0,
-  () => TerminateSessionRequest,
-  () => TerminateSessionResponse,
+  () => TerminateSessionRequest$,
+  () => TerminateSessionResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [9, n0, _UR, 0, () => UntagResourceInput, () => UntagResourceOutput];
-export var UpdateCapacityReservation: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
+  9,
+  n0,
+  _UR,
+  0,
+  () => UntagResourceInput$,
+  () => UntagResourceOutput$,
+];
+export var UpdateCapacityReservation$: StaticOperationSchema = [
   9,
   n0,
   _UCR,
   0,
-  () => UpdateCapacityReservationInput,
-  () => UpdateCapacityReservationOutput,
+  () => UpdateCapacityReservationInput$,
+  () => UpdateCapacityReservationOutput$,
 ];
-export var UpdateDataCatalog: StaticOperationSchema = [
+export var UpdateDataCatalog$: StaticOperationSchema = [
   9,
   n0,
   _UDC,
   0,
-  () => UpdateDataCatalogInput,
-  () => UpdateDataCatalogOutput,
+  () => UpdateDataCatalogInput$,
+  () => UpdateDataCatalogOutput$,
 ];
-export var UpdateNamedQuery: StaticOperationSchema = [
+export var UpdateNamedQuery$: StaticOperationSchema = [
   9,
   n0,
   _UNQ,
   2,
-  () => UpdateNamedQueryInput,
-  () => UpdateNamedQueryOutput,
+  () => UpdateNamedQueryInput$,
+  () => UpdateNamedQueryOutput$,
 ];
-export var UpdateNotebook: StaticOperationSchema = [
+export var UpdateNotebook$: StaticOperationSchema = [
   9,
   n0,
   _UN,
   0,
-  () => UpdateNotebookInput,
-  () => UpdateNotebookOutput,
+  () => UpdateNotebookInput$,
+  () => UpdateNotebookOutput$,
 ];
-export var UpdateNotebookMetadata: StaticOperationSchema = [
+export var UpdateNotebookMetadata$: StaticOperationSchema = [
   9,
   n0,
   _UNM,
   0,
-  () => UpdateNotebookMetadataInput,
-  () => UpdateNotebookMetadataOutput,
+  () => UpdateNotebookMetadataInput$,
+  () => UpdateNotebookMetadataOutput$,
 ];
-export var UpdatePreparedStatement: StaticOperationSchema = [
+export var UpdatePreparedStatement$: StaticOperationSchema = [
   9,
   n0,
   _UPS,
   0,
-  () => UpdatePreparedStatementInput,
-  () => UpdatePreparedStatementOutput,
+  () => UpdatePreparedStatementInput$,
+  () => UpdatePreparedStatementOutput$,
 ];
-export var UpdateWorkGroup: StaticOperationSchema = [
+export var UpdateWorkGroup$: StaticOperationSchema = [
   9,
   n0,
   _UWG,
   0,
-  () => UpdateWorkGroupInput,
-  () => UpdateWorkGroupOutput,
+  () => UpdateWorkGroupInput$,
+  () => UpdateWorkGroupOutput$,
 ];

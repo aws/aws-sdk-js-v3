@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
 import type { CreateAddressListImportJobRequest, CreateAddressListImportJobResponse } from "../models/models_0";
-import { CreateAddressListImportJob } from "../schemas/schemas_0";
+import { CreateAddressListImportJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class CreateAddressListImportJobCommand extends $Command
   })
   .s("MailManagerSvc", "CreateAddressListImportJob", {})
   .n("MailManagerClient", "CreateAddressListImportJobCommand")
-  .sc(CreateAddressListImportJob)
+  .sc(CreateAddressListImportJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

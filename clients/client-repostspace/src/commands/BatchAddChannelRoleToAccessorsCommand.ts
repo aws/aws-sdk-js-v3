@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchAddChannelRoleToAccessorsInput, BatchAddChannelRoleToAccessorsOutput } from "../models/models_0";
 import type { RepostspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RepostspaceClient";
-import { BatchAddChannelRoleToAccessors } from "../schemas/schemas_0";
+import { BatchAddChannelRoleToAccessors$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,7 +127,7 @@ export class BatchAddChannelRoleToAccessorsCommand extends $Command
   })
   .s("RepostSpace", "BatchAddChannelRoleToAccessors", {})
   .n("RepostspaceClient", "BatchAddChannelRoleToAccessorsCommand")
-  .sc(BatchAddChannelRoleToAccessors)
+  .sc(BatchAddChannelRoleToAccessors$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

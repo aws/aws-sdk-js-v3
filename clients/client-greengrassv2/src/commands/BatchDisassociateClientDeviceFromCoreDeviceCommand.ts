@@ -9,7 +9,7 @@ import type {
   BatchDisassociateClientDeviceFromCoreDeviceRequest,
   BatchDisassociateClientDeviceFromCoreDeviceResponse,
 } from "../models/models_0";
-import { BatchDisassociateClientDeviceFromCoreDevice } from "../schemas/schemas_0";
+import { BatchDisassociateClientDeviceFromCoreDevice$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class BatchDisassociateClientDeviceFromCoreDeviceCommand extends $Command
   })
   .s("GreengrassV2", "BatchDisassociateClientDeviceFromCoreDevice", {})
   .n("GreengrassV2Client", "BatchDisassociateClientDeviceFromCoreDeviceCommand")
-  .sc(BatchDisassociateClientDeviceFromCoreDevice)
+  .sc(BatchDisassociateClientDeviceFromCoreDevice$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

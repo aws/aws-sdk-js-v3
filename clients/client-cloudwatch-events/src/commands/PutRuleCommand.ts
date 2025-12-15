@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchEventsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutRuleRequest, PutRuleResponse } from "../models/models_0";
-import { PutRule } from "../schemas/schemas_0";
+import { PutRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -152,7 +152,7 @@ export class PutRuleCommand extends $Command
   })
   .s("AWSEvents", "PutRule", {})
   .n("CloudWatchEventsClient", "PutRuleCommand")
-  .sc(PutRule)
+  .sc(PutRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

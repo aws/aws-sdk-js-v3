@@ -8,7 +8,7 @@ import type {
   ListPermissionSetProvisioningStatusRequest,
   ListPermissionSetProvisioningStatusResponse,
 } from "../models/models_0";
-import { ListPermissionSetProvisioningStatus } from "../schemas/schemas_0";
+import { ListPermissionSetProvisioningStatus$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -105,7 +105,7 @@ export class ListPermissionSetProvisioningStatusCommand extends $Command
   })
   .s("SWBExternalService", "ListPermissionSetProvisioningStatus", {})
   .n("SSOAdminClient", "ListPermissionSetProvisioningStatusCommand")
-  .sc(ListPermissionSetProvisioningStatus)
+  .sc(ListPermissionSetProvisioningStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

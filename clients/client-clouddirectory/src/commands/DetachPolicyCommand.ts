@@ -10,7 +10,7 @@ import type {
 } from "../CloudDirectoryClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DetachPolicyRequest, DetachPolicyResponse } from "../models/models_0";
-import { DetachPolicy } from "../schemas/schemas_0";
+import { DetachPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class DetachPolicyCommand extends $Command
   })
   .s("AmazonCloudDirectory_20170111", "DetachPolicy", {})
   .n("CloudDirectoryClient", "DetachPolicyCommand")
-  .sc(DetachPolicy)
+  .sc(DetachPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

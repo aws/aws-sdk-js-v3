@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreatePermissionRequest } from "../models/models_0";
-import { CreatePermission } from "../schemas/schemas_0";
+import { CreatePermission$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class CreatePermissionCommand extends $Command
   })
   .s("ACMPrivateCA", "CreatePermission", {})
   .n("ACMPCAClient", "CreatePermissionCommand")
-  .sc(CreatePermission)
+  .sc(CreatePermission$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

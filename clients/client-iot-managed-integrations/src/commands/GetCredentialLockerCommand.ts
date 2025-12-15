@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { GetCredentialLockerRequest, GetCredentialLockerResponse } from "../models/models_0";
-import { GetCredentialLocker } from "../schemas/schemas_0";
+import { GetCredentialLocker$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class GetCredentialLockerCommand extends $Command
   })
   .s("IotManagedIntegrations", "GetCredentialLocker", {})
   .n("IoTManagedIntegrationsClient", "GetCredentialLockerCommand")
-  .sc(GetCredentialLocker)
+  .sc(GetCredentialLocker$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

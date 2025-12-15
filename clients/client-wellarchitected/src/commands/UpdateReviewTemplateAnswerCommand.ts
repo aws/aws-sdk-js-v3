@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateReviewTemplateAnswerInput, UpdateReviewTemplateAnswerOutput } from "../models/models_0";
-import { UpdateReviewTemplateAnswer } from "../schemas/schemas_0";
+import { UpdateReviewTemplateAnswer$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -161,7 +161,7 @@ export class UpdateReviewTemplateAnswerCommand extends $Command
   })
   .s("WellArchitectedApiServiceLambda", "UpdateReviewTemplateAnswer", {})
   .n("WellArchitectedClient", "UpdateReviewTemplateAnswerCommand")
-  .sc(UpdateReviewTemplateAnswer)
+  .sc(UpdateReviewTemplateAnswer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

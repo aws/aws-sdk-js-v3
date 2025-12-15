@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ResolverClient";
-import { AssociateResolverEndpointIpAddress } from "../schemas/schemas_0";
+import { AssociateResolverEndpointIpAddress$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -136,7 +136,7 @@ export class AssociateResolverEndpointIpAddressCommand extends $Command
   })
   .s("Route53Resolver", "AssociateResolverEndpointIpAddress", {})
   .n("Route53ResolverClient", "AssociateResolverEndpointIpAddressCommand")
-  .sc(AssociateResolverEndpointIpAddress)
+  .sc(AssociateResolverEndpointIpAddress$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

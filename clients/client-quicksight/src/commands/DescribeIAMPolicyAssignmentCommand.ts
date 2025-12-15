@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeIAMPolicyAssignmentRequest, DescribeIAMPolicyAssignmentResponse } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DescribeIAMPolicyAssignment } from "../schemas/schemas_0";
+import { DescribeIAMPolicyAssignment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class DescribeIAMPolicyAssignmentCommand extends $Command
   })
   .s("QuickSight_20180401", "DescribeIAMPolicyAssignment", {})
   .n("QuickSightClient", "DescribeIAMPolicyAssignmentCommand")
-  .sc(DescribeIAMPolicyAssignment)
+  .sc(DescribeIAMPolicyAssignment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

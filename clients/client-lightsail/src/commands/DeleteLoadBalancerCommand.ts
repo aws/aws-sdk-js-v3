@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { DeleteLoadBalancerRequest, DeleteLoadBalancerResult } from "../models/models_0";
-import { DeleteLoadBalancer } from "../schemas/schemas_0";
+import { DeleteLoadBalancer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -130,7 +130,7 @@ export class DeleteLoadBalancerCommand extends $Command
   })
   .s("Lightsail_20161128", "DeleteLoadBalancer", {})
   .n("LightsailClient", "DeleteLoadBalancerCommand")
-  .sc(DeleteLoadBalancer)
+  .sc(DeleteLoadBalancer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

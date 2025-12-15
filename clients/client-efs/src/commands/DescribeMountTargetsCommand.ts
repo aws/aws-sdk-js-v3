@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeMountTargetsRequest, DescribeMountTargetsResponse } from "../models/models_0";
-import { DescribeMountTargets } from "../schemas/schemas_0";
+import { DescribeMountTargets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -143,7 +143,7 @@ export class DescribeMountTargetsCommand extends $Command
   })
   .s("MagnolioAPIService_v20150201", "DescribeMountTargets", {})
   .n("EFSClient", "DescribeMountTargetsCommand")
-  .sc(DescribeMountTargets)
+  .sc(DescribeMountTargets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

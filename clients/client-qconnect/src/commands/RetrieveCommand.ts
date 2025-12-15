@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { RetrieveResponse } from "../models/models_0";
 import type { RetrieveRequest } from "../models/models_1";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { Retrieve } from "../schemas/schemas_0";
+import { Retrieve$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -167,7 +167,7 @@ export class RetrieveCommand extends $Command
   })
   .s("WisdomService", "Retrieve", {})
   .n("QConnectClient", "RetrieveCommand")
-  .sc(Retrieve)
+  .sc(Retrieve$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

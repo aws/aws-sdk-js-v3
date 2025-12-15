@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAssociatedAccessPoliciesRequest, ListAssociatedAccessPoliciesResponse } from "../models/models_0";
-import { ListAssociatedAccessPolicies } from "../schemas/schemas_0";
+import { ListAssociatedAccessPolicies$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class ListAssociatedAccessPoliciesCommand extends $Command
   })
   .s("AWSWesleyFrontend", "ListAssociatedAccessPolicies", {})
   .n("EKSClient", "ListAssociatedAccessPoliciesCommand")
-  .sc(ListAssociatedAccessPolicies)
+  .sc(ListAssociatedAccessPolicies$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

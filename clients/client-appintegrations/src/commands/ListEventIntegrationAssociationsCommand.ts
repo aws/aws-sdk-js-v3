@@ -13,7 +13,7 @@ import type {
   ListEventIntegrationAssociationsRequest,
   ListEventIntegrationAssociationsResponse,
 } from "../models/models_0";
-import { ListEventIntegrationAssociations } from "../schemas/schemas_0";
+import { ListEventIntegrationAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class ListEventIntegrationAssociationsCommand extends $Command
   })
   .s("AmazonAppIntegrationService", "ListEventIntegrationAssociations", {})
   .n("AppIntegrationsClient", "ListEventIntegrationAssociationsCommand")
-  .sc(ListEventIntegrationAssociations)
+  .sc(ListEventIntegrationAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

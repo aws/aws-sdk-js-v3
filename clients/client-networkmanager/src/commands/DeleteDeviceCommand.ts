@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { DeleteDevice } from "../schemas/schemas_0";
+import { DeleteDevice$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -125,7 +125,7 @@ export class DeleteDeviceCommand extends $Command
   })
   .s("NetworkManager", "DeleteDevice", {})
   .n("NetworkManagerClient", "DeleteDeviceCommand")
-  .sc(DeleteDevice)
+  .sc(DeleteDevice$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

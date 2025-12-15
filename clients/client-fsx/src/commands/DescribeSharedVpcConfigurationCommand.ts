@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import type { DescribeSharedVpcConfigurationRequest, DescribeSharedVpcConfigurationResponse } from "../models/models_0";
-import { DescribeSharedVpcConfiguration } from "../schemas/schemas_0";
+import { DescribeSharedVpcConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -80,7 +80,7 @@ export class DescribeSharedVpcConfigurationCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "DescribeSharedVpcConfiguration", {})
   .n("FSxClient", "DescribeSharedVpcConfigurationCommand")
-  .sc(DescribeSharedVpcConfiguration)
+  .sc(DescribeSharedVpcConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

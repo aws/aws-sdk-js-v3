@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../EntityResolutionClient";
 import type { UpdateIdNamespaceInput, UpdateIdNamespaceOutput } from "../models/models_0";
-import { UpdateIdNamespace } from "../schemas/schemas_0";
+import { UpdateIdNamespace$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -164,7 +164,7 @@ export class UpdateIdNamespaceCommand extends $Command
   })
   .s("AWSVeniceService", "UpdateIdNamespace", {})
   .n("EntityResolutionClient", "UpdateIdNamespaceCommand")
-  .sc(UpdateIdNamespace)
+  .sc(UpdateIdNamespace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

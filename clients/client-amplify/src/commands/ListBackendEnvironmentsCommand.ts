@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListBackendEnvironmentsRequest, ListBackendEnvironmentsResult } from "../models/models_0";
-import { ListBackendEnvironments } from "../schemas/schemas_0";
+import { ListBackendEnvironments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class ListBackendEnvironmentsCommand extends $Command
   })
   .s("Amplify", "ListBackendEnvironments", {})
   .n("AmplifyClient", "ListBackendEnvironmentsCommand")
-  .sc(ListBackendEnvironments)
+  .sc(ListBackendEnvironments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

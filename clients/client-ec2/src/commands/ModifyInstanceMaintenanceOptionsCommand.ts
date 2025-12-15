@@ -9,7 +9,7 @@ import type {
   ModifyInstanceMaintenanceOptionsRequest,
   ModifyInstanceMaintenanceOptionsResult,
 } from "../models/models_6";
-import { ModifyInstanceMaintenanceOptions } from "../schemas/schemas_0";
+import { ModifyInstanceMaintenanceOptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class ModifyInstanceMaintenanceOptionsCommand extends $Command
   })
   .s("AmazonEC2", "ModifyInstanceMaintenanceOptions", {})
   .n("EC2Client", "ModifyInstanceMaintenanceOptionsCommand")
-  .sc(ModifyInstanceMaintenanceOptions)
+  .sc(ModifyInstanceMaintenanceOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

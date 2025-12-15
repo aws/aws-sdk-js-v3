@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { GetNetworkTelemetry } from "../schemas/schemas_0";
+import { GetNetworkTelemetry$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class GetNetworkTelemetryCommand extends $Command
   })
   .s("NetworkManager", "GetNetworkTelemetry", {})
   .n("NetworkManagerClient", "GetNetworkTelemetryCommand")
-  .sc(GetNetworkTelemetry)
+  .sc(GetNetworkTelemetry$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

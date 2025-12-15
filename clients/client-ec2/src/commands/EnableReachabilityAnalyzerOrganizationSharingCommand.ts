@@ -9,7 +9,7 @@ import type {
   EnableReachabilityAnalyzerOrganizationSharingRequest,
   EnableReachabilityAnalyzerOrganizationSharingResult,
 } from "../models/models_5";
-import { EnableReachabilityAnalyzerOrganizationSharing } from "../schemas/schemas_0";
+import { EnableReachabilityAnalyzerOrganizationSharing$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class EnableReachabilityAnalyzerOrganizationSharingCommand extends $Comma
   })
   .s("AmazonEC2", "EnableReachabilityAnalyzerOrganizationSharing", {})
   .n("EC2Client", "EnableReachabilityAnalyzerOrganizationSharingCommand")
-  .sc(EnableReachabilityAnalyzerOrganizationSharing)
+  .sc(EnableReachabilityAnalyzerOrganizationSharing$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -7,7 +7,7 @@ import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTy
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetManagedCertificateDetailsRequest } from "../models/models_0";
 import type { GetManagedCertificateDetailsResult } from "../models/models_1";
-import { GetManagedCertificateDetails } from "../schemas/schemas_0";
+import { GetManagedCertificateDetails$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class GetManagedCertificateDetailsCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "GetManagedCertificateDetails", {})
   .n("CloudFrontClient", "GetManagedCertificateDetailsCommand")
-  .sc(GetManagedCertificateDetails)
+  .sc(GetManagedCertificateDetails$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

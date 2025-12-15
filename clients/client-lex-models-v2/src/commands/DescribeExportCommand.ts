@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import type { DescribeExportRequest, DescribeExportResponse } from "../models/models_0";
-import { DescribeExport } from "../schemas/schemas_0";
+import { DescribeExport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class DescribeExportCommand extends $Command
   })
   .s("LexModelBuildingServiceV2", "DescribeExport", {})
   .n("LexModelsV2Client", "DescribeExportCommand")
-  .sc(DescribeExport)
+  .sc(DescribeExport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDataLakeNamespaceRequest, GetDataLakeNamespaceResponse } from "../models/models_0";
-import { GetDataLakeNamespace } from "../schemas/schemas_0";
+import { GetDataLakeNamespace$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupplyChainClientResolvedConfig } from "../SupplyChainClient";
 
 /**
@@ -147,7 +147,7 @@ export class GetDataLakeNamespaceCommand extends $Command
   })
   .s("GalaxyPublicAPIGateway", "GetDataLakeNamespace", {})
   .n("SupplyChainClient", "GetDataLakeNamespaceCommand")
-  .sc(GetDataLakeNamespace)
+  .sc(GetDataLakeNamespace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

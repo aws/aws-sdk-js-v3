@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: FraudDetectorClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.frauddetector",
-        serviceTarget: "AWSHawksNestServiceFacade",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.frauddetector",
+      xmlNamespace: "http://hawksnest.amazonaws.com/doc/2019-11-15",
+      version: "2019-11-15",
+      serviceTarget: "AWSHawksNestServiceFacade",
+    },
     serviceId: config?.serviceId ?? "FraudDetector",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListFileSharesInput, ListFileSharesOutput } from "../models/models_0";
-import { ListFileShares } from "../schemas/schemas_0";
+import { ListFileShares$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -99,7 +99,7 @@ export class ListFileSharesCommand extends $Command
   })
   .s("StorageGateway_20130630", "ListFileShares", {})
   .n("StorageGatewayClient", "ListFileSharesCommand")
-  .sc(ListFileShares)
+  .sc(ListFileShares$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

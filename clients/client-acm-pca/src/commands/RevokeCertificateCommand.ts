@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RevokeCertificateRequest } from "../models/models_0";
-import { RevokeCertificate } from "../schemas/schemas_0";
+import { RevokeCertificate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class RevokeCertificateCommand extends $Command
   })
   .s("ACMPrivateCA", "RevokeCertificate", {})
   .n("ACMPCAClient", "RevokeCertificateCommand")
-  .sc(RevokeCertificate)
+  .sc(RevokeCertificate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

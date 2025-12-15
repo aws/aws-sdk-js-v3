@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53GlobalResolverClient";
-import { ListAccessTokens } from "../schemas/schemas_0";
+import { ListAccessTokens$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class ListAccessTokensCommand extends $Command
   })
   .s("EC2DNSGlobalResolverCustomerAPI", "ListAccessTokens", {})
   .n("Route53GlobalResolverClient", "ListAccessTokensCommand")
-  .sc(ListAccessTokens)
+  .sc(ListAccessTokens$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

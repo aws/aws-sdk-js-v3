@@ -9,7 +9,7 @@ import type {
   GetTemporaryGluePartitionCredentialsRequest,
   GetTemporaryGluePartitionCredentialsResponse,
 } from "../models/models_0";
-import { GetTemporaryGluePartitionCredentials } from "../schemas/schemas_0";
+import { GetTemporaryGluePartitionCredentials$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class GetTemporaryGluePartitionCredentialsCommand extends $Command
   })
   .s("AWSLakeFormation", "GetTemporaryGluePartitionCredentials", {})
   .n("LakeFormationClient", "GetTemporaryGluePartitionCredentialsCommand")
-  .sc(GetTemporaryGluePartitionCredentials)
+  .sc(GetTemporaryGluePartitionCredentials$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

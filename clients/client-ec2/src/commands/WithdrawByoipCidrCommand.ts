@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { WithdrawByoipCidrRequest, WithdrawByoipCidrResult } from "../models/models_7";
-import { WithdrawByoipCidr } from "../schemas/schemas_0";
+import { WithdrawByoipCidr$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class WithdrawByoipCidrCommand extends $Command
   })
   .s("AmazonEC2", "WithdrawByoipCidr", {})
   .n("EC2Client", "WithdrawByoipCidrCommand")
-  .sc(WithdrawByoipCidr)
+  .sc(WithdrawByoipCidr$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

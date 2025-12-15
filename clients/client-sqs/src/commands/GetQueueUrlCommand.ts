@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetQueueUrlRequest, GetQueueUrlResult } from "../models/models_0";
-import { GetQueueUrl } from "../schemas/schemas_0";
+import { GetQueueUrl$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -111,7 +111,7 @@ export class GetQueueUrlCommand extends $Command
   })
   .s("AmazonSQS", "GetQueueUrl", {})
   .n("SQSClient", "GetQueueUrlCommand")
-  .sc(GetQueueUrl)
+  .sc(GetQueueUrl$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

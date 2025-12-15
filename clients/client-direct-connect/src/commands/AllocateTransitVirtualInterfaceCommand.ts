@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AllocateTransitVirtualInterfaceRequest, AllocateTransitVirtualInterfaceResult } from "../models/models_0";
-import { AllocateTransitVirtualInterface } from "../schemas/schemas_0";
+import { AllocateTransitVirtualInterface$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -158,7 +158,7 @@ export class AllocateTransitVirtualInterfaceCommand extends $Command
   })
   .s("OvertureService", "AllocateTransitVirtualInterface", {})
   .n("DirectConnectClient", "AllocateTransitVirtualInterfaceCommand")
-  .sc(AllocateTransitVirtualInterface)
+  .sc(AllocateTransitVirtualInterface$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

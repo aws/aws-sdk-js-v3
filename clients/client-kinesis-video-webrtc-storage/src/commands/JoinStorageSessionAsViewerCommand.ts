@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../KinesisVideoWebRTCStorageClient";
 import type { JoinStorageSessionAsViewerInput } from "../models/models_0";
-import { JoinStorageSessionAsViewer } from "../schemas/schemas_0";
+import { JoinStorageSessionAsViewer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class JoinStorageSessionAsViewerCommand extends $Command
   })
   .s("AWSAcuityRoutingServiceLambda", "JoinStorageSessionAsViewer", {})
   .n("KinesisVideoWebRTCStorageClient", "JoinStorageSessionAsViewerCommand")
-  .sc(JoinStorageSessionAsViewer)
+  .sc(JoinStorageSessionAsViewer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

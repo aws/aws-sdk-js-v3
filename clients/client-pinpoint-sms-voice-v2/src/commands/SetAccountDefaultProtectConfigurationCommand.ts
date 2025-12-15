@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { SetAccountDefaultProtectConfiguration } from "../schemas/schemas_0";
+import { SetAccountDefaultProtectConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class SetAccountDefaultProtectConfigurationCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "SetAccountDefaultProtectConfiguration", {})
   .n("PinpointSMSVoiceV2Client", "SetAccountDefaultProtectConfigurationCommand")
-  .sc(SetAccountDefaultProtectConfiguration)
+  .sc(SetAccountDefaultProtectConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EvaluateExpressionInput, EvaluateExpressionOutput } from "../models/models_0";
-import { EvaluateExpression } from "../schemas/schemas_0";
+import { EvaluateExpression$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class EvaluateExpressionCommand extends $Command
   })
   .s("DataPipeline", "EvaluateExpression", {})
   .n("DataPipelineClient", "EvaluateExpressionCommand")
-  .sc(EvaluateExpression)
+  .sc(EvaluateExpression$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

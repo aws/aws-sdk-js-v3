@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteResourceConfigRequest } from "../models/models_0";
-import { DeleteResourceConfig } from "../schemas/schemas_0";
+import { DeleteResourceConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class DeleteResourceConfigCommand extends $Command
   })
   .s("StarlingDoveService", "DeleteResourceConfig", {})
   .n("ConfigServiceClient", "DeleteResourceConfigCommand")
-  .sc(DeleteResourceConfig)
+  .sc(DeleteResourceConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

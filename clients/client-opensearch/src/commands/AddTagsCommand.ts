@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AddTagsRequest } from "../models/models_0";
 import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { AddTags } from "../schemas/schemas_0";
+import { AddTags$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class AddTagsCommand extends $Command
   })
   .s("AmazonOpenSearchService", "AddTags", {})
   .n("OpenSearchClient", "AddTagsCommand")
-  .sc(AddTags)
+  .sc(AddTags$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

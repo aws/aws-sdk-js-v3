@@ -10,7 +10,7 @@ import type {
 } from "../ComputeOptimizerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetRDSDatabaseRecommendationsRequest, GetRDSDatabaseRecommendationsResponse } from "../models/models_0";
-import { GetRDSDatabaseRecommendations } from "../schemas/schemas_0";
+import { GetRDSDatabaseRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -247,7 +247,7 @@ export class GetRDSDatabaseRecommendationsCommand extends $Command
   })
   .s("ComputeOptimizerService", "GetRDSDatabaseRecommendations", {})
   .n("ComputeOptimizerClient", "GetRDSDatabaseRecommendationsCommand")
-  .sc(GetRDSDatabaseRecommendations)
+  .sc(GetRDSDatabaseRecommendations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   CancelDetectMitigationActionsTaskRequest,
   CancelDetectMitigationActionsTaskResponse,
 } from "../models/models_0";
-import { CancelDetectMitigationActionsTask } from "../schemas/schemas_0";
+import { CancelDetectMitigationActionsTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class CancelDetectMitigationActionsTaskCommand extends $Command
   })
   .s("AWSIotService", "CancelDetectMitigationActionsTask", {})
   .n("IoTClient", "CancelDetectMitigationActionsTaskCommand")
-  .sc(CancelDetectMitigationActionsTask)
+  .sc(CancelDetectMitigationActionsTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

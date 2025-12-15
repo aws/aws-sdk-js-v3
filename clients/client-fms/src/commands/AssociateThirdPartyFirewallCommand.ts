@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import type { AssociateThirdPartyFirewallRequest, AssociateThirdPartyFirewallResponse } from "../models/models_0";
-import { AssociateThirdPartyFirewall } from "../schemas/schemas_0";
+import { AssociateThirdPartyFirewall$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class AssociateThirdPartyFirewallCommand extends $Command
   })
   .s("AWSFMS_20180101", "AssociateThirdPartyFirewall", {})
   .n("FMSClient", "AssociateThirdPartyFirewallCommand")
-  .sc(AssociateThirdPartyFirewall)
+  .sc(AssociateThirdPartyFirewall$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

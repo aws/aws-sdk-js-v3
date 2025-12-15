@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetNetworkSettingsRequest, GetNetworkSettingsResponse } from "../models/models_0";
-import { GetNetworkSettings } from "../schemas/schemas_0";
+import { GetNetworkSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -100,7 +100,7 @@ export class GetNetworkSettingsCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "GetNetworkSettings", {})
   .n("WorkSpacesWebClient", "GetNetworkSettingsCommand")
-  .sc(GetNetworkSettings)
+  .sc(GetNetworkSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

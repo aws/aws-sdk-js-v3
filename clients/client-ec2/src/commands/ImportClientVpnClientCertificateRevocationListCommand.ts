@@ -9,7 +9,7 @@ import type {
   ImportClientVpnClientCertificateRevocationListRequest,
   ImportClientVpnClientCertificateRevocationListResult,
 } from "../models/models_6";
-import { ImportClientVpnClientCertificateRevocationList } from "../schemas/schemas_0";
+import { ImportClientVpnClientCertificateRevocationList$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -82,7 +82,7 @@ export class ImportClientVpnClientCertificateRevocationListCommand extends $Comm
   })
   .s("AmazonEC2", "ImportClientVpnClientCertificateRevocationList", {})
   .n("EC2Client", "ImportClientVpnClientCertificateRevocationListCommand")
-  .sc(ImportClientVpnClientCertificateRevocationList)
+  .sc(ImportClientVpnClientCertificateRevocationList$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

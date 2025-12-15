@@ -9,7 +9,7 @@ import type {
   GetTableRecordExpirationConfigurationResponse,
 } from "../models/models_0";
 import type { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
-import { GetTableRecordExpirationConfiguration } from "../schemas/schemas_0";
+import { GetTableRecordExpirationConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class GetTableRecordExpirationConfigurationCommand extends $Command
   })
   .s("S3TableBuckets", "GetTableRecordExpirationConfiguration", {})
   .n("S3TablesClient", "GetTableRecordExpirationConfigurationCommand")
-  .sc(GetTableRecordExpirationConfiguration)
+  .sc(GetTableRecordExpirationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

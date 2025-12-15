@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RemoveRegionRequest, RemoveRegionResult } from "../models/models_0";
-import { RemoveRegion } from "../schemas/schemas_0";
+import { RemoveRegion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class RemoveRegionCommand extends $Command
   })
   .s("DirectoryService_20150416", "RemoveRegion", {})
   .n("DirectoryServiceClient", "RemoveRegionCommand")
-  .sc(RemoveRegion)
+  .sc(RemoveRegion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetCostEstimationRequest, GetCostEstimationResponse } from "../models/models_0";
-import { GetCostEstimation } from "../schemas/schemas_0";
+import { GetCostEstimation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class GetCostEstimationCommand extends $Command
   })
   .s("CapstoneControlPlaneService", "GetCostEstimation", {})
   .n("DevOpsGuruClient", "GetCostEstimationCommand")
-  .sc(GetCostEstimation)
+  .sc(GetCostEstimation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

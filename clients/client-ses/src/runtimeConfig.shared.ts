@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: SESClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsQueryProtocol({
-        defaultNamespace: "com.amazonaws.ses",
-        xmlNamespace: "http://ses.amazonaws.com/doc/2010-12-01/",
-        version: "2010-12-01",
-      }),
+    protocol: config?.protocol ?? AwsQueryProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.ses",
+      xmlNamespace: "http://ses.amazonaws.com/doc/2010-12-01/",
+      version: "2010-12-01",
+      serviceTarget: "SimpleEmailService",
+    },
     serviceId: config?.serviceId ?? "SES",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateSubnetGroupRequest, CreateSubnetGroupResponse } from "../models/models_0";
-import { CreateSubnetGroup } from "../schemas/schemas_0";
+import { CreateSubnetGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class CreateSubnetGroupCommand extends $Command
   })
   .s("AmazonDAXV3", "CreateSubnetGroup", {})
   .n("DAXClient", "CreateSubnetGroupCommand")
-  .sc(CreateSubnetGroup)
+  .sc(CreateSubnetGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

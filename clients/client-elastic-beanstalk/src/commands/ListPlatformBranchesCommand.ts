@@ -10,7 +10,7 @@ import type {
 } from "../ElasticBeanstalkClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListPlatformBranchesRequest, ListPlatformBranchesResult } from "../models/models_0";
-import { ListPlatformBranches } from "../schemas/schemas_0";
+import { ListPlatformBranches$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class ListPlatformBranchesCommand extends $Command
   })
   .s("AWSElasticBeanstalkService", "ListPlatformBranches", {})
   .n("ElasticBeanstalkClient", "ListPlatformBranchesCommand")
-  .sc(ListPlatformBranches)
+  .sc(ListPlatformBranches$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

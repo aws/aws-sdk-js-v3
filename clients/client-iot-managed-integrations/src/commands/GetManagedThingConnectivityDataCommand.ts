@@ -13,7 +13,7 @@ import type {
   GetManagedThingConnectivityDataRequest,
   GetManagedThingConnectivityDataResponse,
 } from "../models/models_0";
-import { GetManagedThingConnectivityData } from "../schemas/schemas_0";
+import { GetManagedThingConnectivityData$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class GetManagedThingConnectivityDataCommand extends $Command
   })
   .s("IotManagedIntegrations", "GetManagedThingConnectivityData", {})
   .n("IoTManagedIntegrationsClient", "GetManagedThingConnectivityDataCommand")
-  .sc(GetManagedThingConnectivityData)
+  .sc(GetManagedThingConnectivityData$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

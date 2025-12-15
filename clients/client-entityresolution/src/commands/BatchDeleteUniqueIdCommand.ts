@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../EntityResolutionClient";
 import type { BatchDeleteUniqueIdInput, BatchDeleteUniqueIdOutput } from "../models/models_0";
-import { BatchDeleteUniqueId } from "../schemas/schemas_0";
+import { BatchDeleteUniqueId$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class BatchDeleteUniqueIdCommand extends $Command
   })
   .s("AWSVeniceService", "BatchDeleteUniqueId", {})
   .n("EntityResolutionClient", "BatchDeleteUniqueIdCommand")
-  .sc(BatchDeleteUniqueId)
+  .sc(BatchDeleteUniqueId$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

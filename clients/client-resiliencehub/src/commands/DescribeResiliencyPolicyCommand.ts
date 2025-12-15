@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeResiliencyPolicyRequest, DescribeResiliencyPolicyResponse } from "../models/models_0";
 import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
-import { DescribeResiliencyPolicy } from "../schemas/schemas_0";
+import { DescribeResiliencyPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class DescribeResiliencyPolicyCommand extends $Command
   })
   .s("AwsResilienceHub", "DescribeResiliencyPolicy", {})
   .n("ResiliencehubClient", "DescribeResiliencyPolicyCommand")
-  .sc(DescribeResiliencyPolicy)
+  .sc(DescribeResiliencyPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { DisassociateTransitGatewayConnectPeer } from "../schemas/schemas_0";
+import { DisassociateTransitGatewayConnectPeer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class DisassociateTransitGatewayConnectPeerCommand extends $Command
   })
   .s("NetworkManager", "DisassociateTransitGatewayConnectPeer", {})
   .n("NetworkManagerClient", "DisassociateTransitGatewayConnectPeerCommand")
-  .sc(DisassociateTransitGatewayConnectPeer)
+  .sc(DisassociateTransitGatewayConnectPeer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

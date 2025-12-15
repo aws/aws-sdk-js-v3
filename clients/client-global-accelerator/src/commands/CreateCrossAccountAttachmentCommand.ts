@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import type { CreateCrossAccountAttachmentRequest, CreateCrossAccountAttachmentResponse } from "../models/models_0";
-import { CreateCrossAccountAttachment } from "../schemas/schemas_0";
+import { CreateCrossAccountAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -143,7 +143,7 @@ export class CreateCrossAccountAttachmentCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "CreateCrossAccountAttachment", {})
   .n("GlobalAcceleratorClient", "CreateCrossAccountAttachmentCommand")
-  .sc(CreateCrossAccountAttachment)
+  .sc(CreateCrossAccountAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

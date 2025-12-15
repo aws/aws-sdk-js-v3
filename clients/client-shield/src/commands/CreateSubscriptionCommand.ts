@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateSubscriptionRequest, CreateSubscriptionResponse } from "../models/models_0";
-import { CreateSubscription } from "../schemas/schemas_0";
+import { CreateSubscription$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -80,7 +80,7 @@ export class CreateSubscriptionCommand extends $Command
   })
   .s("AWSShield_20160616", "CreateSubscription", {})
   .n("ShieldClient", "CreateSubscriptionCommand")
-  .sc(CreateSubscription)
+  .sc(CreateSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

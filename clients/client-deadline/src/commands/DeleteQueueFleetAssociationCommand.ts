@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteQueueFleetAssociationRequest, DeleteQueueFleetAssociationResponse } from "../models/models_0";
-import { DeleteQueueFleetAssociation } from "../schemas/schemas_0";
+import { DeleteQueueFleetAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DeleteQueueFleetAssociationCommand extends $Command
   })
   .s("Deadline", "DeleteQueueFleetAssociation", {})
   .n("DeadlineClient", "DeleteQueueFleetAssociationCommand")
-  .sc(DeleteQueueFleetAssociation)
+  .sc(DeleteQueueFleetAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

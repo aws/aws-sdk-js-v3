@@ -9,7 +9,7 @@ import type {
   GenerateDataKeyPairWithoutPlaintextRequest,
   GenerateDataKeyPairWithoutPlaintextResponse,
 } from "../models/models_0";
-import { GenerateDataKeyPairWithoutPlaintext } from "../schemas/schemas_0";
+import { GenerateDataKeyPairWithoutPlaintext$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -247,7 +247,7 @@ export class GenerateDataKeyPairWithoutPlaintextCommand extends $Command
   })
   .s("TrentService", "GenerateDataKeyPairWithoutPlaintext", {})
   .n("KMSClient", "GenerateDataKeyPairWithoutPlaintextCommand")
-  .sc(GenerateDataKeyPairWithoutPlaintext)
+  .sc(GenerateDataKeyPairWithoutPlaintext$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

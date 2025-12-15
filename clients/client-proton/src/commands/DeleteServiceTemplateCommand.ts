@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteServiceTemplateInput, DeleteServiceTemplateOutput } from "../models/models_0";
 import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
-import { DeleteServiceTemplate } from "../schemas/schemas_0";
+import { DeleteServiceTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class DeleteServiceTemplateCommand extends $Command
   })
   .s("AwsProton20200720", "DeleteServiceTemplate", {})
   .n("ProtonClient", "DeleteServiceTemplateCommand")
-  .sc(DeleteServiceTemplate)
+  .sc(DeleteServiceTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

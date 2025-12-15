@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import type { DeleteDetectorRequest, DeleteDetectorResponse } from "../models/models_0";
-import { DeleteDetector } from "../schemas/schemas_0";
+import { DeleteDetector$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,7 +77,7 @@ export class DeleteDetectorCommand extends $Command
   })
   .s("GuardDutyAPIService", "DeleteDetector", {})
   .n("GuardDutyClient", "DeleteDetectorCommand")
-  .sc(DeleteDetector)
+  .sc(DeleteDetector$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

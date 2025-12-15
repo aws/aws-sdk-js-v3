@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopReplicationToReplicaRequest, StopReplicationToReplicaResponse } from "../models/models_0";
-import { StopReplicationToReplica } from "../schemas/schemas_0";
+import { StopReplicationToReplica$ } from "../schemas/schemas_0";
 import type {
   SecretsManagerClientResolvedConfig,
   ServiceInputTypes,
@@ -114,7 +114,7 @@ export class StopReplicationToReplicaCommand extends $Command
   })
   .s("secretsmanager", "StopReplicationToReplica", {})
   .n("SecretsManagerClient", "StopReplicationToReplicaCommand")
-  .sc(StopReplicationToReplica)
+  .sc(StopReplicationToReplica$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutLoggingConfigurationRequest, PutLoggingConfigurationResponse } from "../models/models_0";
-import { PutLoggingConfiguration } from "../schemas/schemas_0";
+import { PutLoggingConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -132,7 +132,7 @@ export class PutLoggingConfigurationCommand extends $Command
   })
   .s("AWSWAF_20150824", "PutLoggingConfiguration", {})
   .n("WAFClient", "PutLoggingConfigurationCommand")
-  .sc(PutLoggingConfiguration)
+  .sc(PutLoggingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

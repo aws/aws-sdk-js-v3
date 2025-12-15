@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ImportWorkspaceMediaRequest, ImportWorkspaceMediaResponse } from "../models/models_1";
-import { ImportWorkspaceMedia } from "../schemas/schemas_0";
+import { ImportWorkspaceMedia$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class ImportWorkspaceMediaCommand extends $Command
   })
   .s("AmazonConnectService", "ImportWorkspaceMedia", {})
   .n("ConnectClient", "ImportWorkspaceMediaCommand")
-  .sc(ImportWorkspaceMedia)
+  .sc(ImportWorkspaceMedia$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

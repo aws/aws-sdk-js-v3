@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteRuleGroupsNamespaceRequest } from "../models/models_0";
-import { DeleteRuleGroupsNamespace } from "../schemas/schemas_0";
+import { DeleteRuleGroupsNamespace$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DeleteRuleGroupsNamespaceCommand extends $Command
   })
   .s("AmazonPrometheusService", "DeleteRuleGroupsNamespace", {})
   .n("AmpClient", "DeleteRuleGroupsNamespaceCommand")
-  .sc(DeleteRuleGroupsNamespace)
+  .sc(DeleteRuleGroupsNamespace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

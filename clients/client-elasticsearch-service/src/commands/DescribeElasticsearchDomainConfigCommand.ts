@@ -13,7 +13,7 @@ import type {
   DescribeElasticsearchDomainConfigRequest,
   DescribeElasticsearchDomainConfigResponse,
 } from "../models/models_0";
-import { DescribeElasticsearchDomainConfig } from "../schemas/schemas_0";
+import { DescribeElasticsearchDomainConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -290,7 +290,7 @@ export class DescribeElasticsearchDomainConfigCommand extends $Command
   })
   .s("AmazonElasticsearchService2015", "DescribeElasticsearchDomainConfig", {})
   .n("ElasticsearchServiceClient", "DescribeElasticsearchDomainConfigCommand")
-  .sc(DescribeElasticsearchDomainConfig)
+  .sc(DescribeElasticsearchDomainConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

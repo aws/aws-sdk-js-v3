@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: WAFRegionalClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.wafregional",
-        serviceTarget: "AWSWAF_Regional_20161128",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.wafregional",
+      xmlNamespace: "http://waf.amazonaws.com/doc/2015-08-24/",
+      version: "2016-11-28",
+      serviceTarget: "AWSWAF_Regional_20161128",
+    },
     serviceId: config?.serviceId ?? "WAF Regional",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

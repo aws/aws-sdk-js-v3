@@ -9,7 +9,7 @@ import type {
   ListManagedNotificationChildEventsResponse,
 } from "../models/models_0";
 import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { ListManagedNotificationChildEvents } from "../schemas/schemas_0";
+import { ListManagedNotificationChildEvents$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class ListManagedNotificationChildEventsCommand extends $Command
   })
   .s("Notifications", "ListManagedNotificationChildEvents", {})
   .n("NotificationsClient", "ListManagedNotificationChildEventsCommand")
-  .sc(ListManagedNotificationChildEvents)
+  .sc(ListManagedNotificationChildEvents$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

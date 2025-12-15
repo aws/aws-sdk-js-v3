@@ -9,7 +9,7 @@ import type {
   DeleteAccountAuditConfigurationRequest,
   DeleteAccountAuditConfigurationResponse,
 } from "../models/models_0";
-import { DeleteAccountAuditConfiguration } from "../schemas/schemas_0";
+import { DeleteAccountAuditConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DeleteAccountAuditConfigurationCommand extends $Command
   })
   .s("AWSIotService", "DeleteAccountAuditConfiguration", {})
   .n("IoTClient", "DeleteAccountAuditConfigurationCommand")
-  .sc(DeleteAccountAuditConfiguration)
+  .sc(DeleteAccountAuditConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

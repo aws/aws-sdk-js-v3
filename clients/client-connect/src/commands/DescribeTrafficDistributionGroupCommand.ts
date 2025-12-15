@@ -9,7 +9,7 @@ import type {
   DescribeTrafficDistributionGroupRequest,
   DescribeTrafficDistributionGroupResponse,
 } from "../models/models_1";
-import { DescribeTrafficDistributionGroup } from "../schemas/schemas_0";
+import { DescribeTrafficDistributionGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class DescribeTrafficDistributionGroupCommand extends $Command
   })
   .s("AmazonConnectService", "DescribeTrafficDistributionGroup", {})
   .n("ConnectClient", "DescribeTrafficDistributionGroupCommand")
-  .sc(DescribeTrafficDistributionGroup)
+  .sc(DescribeTrafficDistributionGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

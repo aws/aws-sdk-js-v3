@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutAttributeMappingRequest, PutAttributeMappingResponse } from "../models/models_0";
 import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
-import { PutAttributeMapping } from "../schemas/schemas_0";
+import { PutAttributeMapping$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -163,7 +163,7 @@ export class PutAttributeMappingCommand extends $Command
   })
   .s("RolesAnywhere", "PutAttributeMapping", {})
   .n("RolesAnywhereClient", "PutAttributeMappingCommand")
-  .sc(PutAttributeMapping)
+  .sc(PutAttributeMapping$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteEndpointAccessMessage, EndpointAccess } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DeleteEndpointAccess } from "../schemas/schemas_0";
+import { DeleteEndpointAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class DeleteEndpointAccessCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "DeleteEndpointAccess", {})
   .n("RedshiftClient", "DeleteEndpointAccessCommand")
-  .sc(DeleteEndpointAccess)
+  .sc(DeleteEndpointAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

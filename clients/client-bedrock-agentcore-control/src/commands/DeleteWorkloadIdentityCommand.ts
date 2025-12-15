@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteWorkloadIdentityRequest, DeleteWorkloadIdentityResponse } from "../models/models_1";
-import { DeleteWorkloadIdentity } from "../schemas/schemas_0";
+import { DeleteWorkloadIdentity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeleteWorkloadIdentityCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "DeleteWorkloadIdentity", {})
   .n("BedrockAgentCoreControlClient", "DeleteWorkloadIdentityCommand")
-  .sc(DeleteWorkloadIdentity)
+  .sc(DeleteWorkloadIdentity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   GetObjectTypeAttributeStatisticsRequest,
   GetObjectTypeAttributeStatisticsResponse,
 } from "../models/models_0";
-import { GetObjectTypeAttributeStatistics } from "../schemas/schemas_0";
+import { GetObjectTypeAttributeStatistics$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class GetObjectTypeAttributeStatisticsCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "GetObjectTypeAttributeStatistics", {})
   .n("CustomerProfilesClient", "GetObjectTypeAttributeStatisticsCommand")
-  .sc(GetObjectTypeAttributeStatistics)
+  .sc(GetObjectTypeAttributeStatistics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

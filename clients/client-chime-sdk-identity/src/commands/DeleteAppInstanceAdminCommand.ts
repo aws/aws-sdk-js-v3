@@ -10,7 +10,7 @@ import type {
 } from "../ChimeSDKIdentityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAppInstanceAdminRequest } from "../models/models_0";
-import { DeleteAppInstanceAdmin } from "../schemas/schemas_0";
+import { DeleteAppInstanceAdmin$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class DeleteAppInstanceAdminCommand extends $Command
   })
   .s("ChimeIdentityService", "DeleteAppInstanceAdmin", {})
   .n("ChimeSDKIdentityClient", "DeleteAppInstanceAdminCommand")
-  .sc(DeleteAppInstanceAdmin)
+  .sc(DeleteAppInstanceAdmin$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

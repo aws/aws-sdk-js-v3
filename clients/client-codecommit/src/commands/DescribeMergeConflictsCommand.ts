@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeMergeConflictsInput, DescribeMergeConflictsOutput } from "../models/models_0";
-import { DescribeMergeConflicts } from "../schemas/schemas_0";
+import { DescribeMergeConflicts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -213,7 +213,7 @@ export class DescribeMergeConflictsCommand extends $Command
   })
   .s("CodeCommit_20150413", "DescribeMergeConflicts", {})
   .n("CodeCommitClient", "DescribeMergeConflictsCommand")
-  .sc(DescribeMergeConflicts)
+  .sc(DescribeMergeConflicts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

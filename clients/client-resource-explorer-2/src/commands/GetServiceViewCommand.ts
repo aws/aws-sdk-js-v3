@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
-import { GetServiceView } from "../schemas/schemas_0";
+import { GetServiceView$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class GetServiceViewCommand extends $Command
   })
   .s("ResourceExplorer", "GetServiceView", {})
   .n("ResourceExplorer2Client", "GetServiceViewCommand")
-  .sc(GetServiceView)
+  .sc(GetServiceView$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

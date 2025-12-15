@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RetryBuildBatchInput, RetryBuildBatchOutput } from "../models/models_0";
-import { RetryBuildBatch } from "../schemas/schemas_0";
+import { RetryBuildBatch$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -319,7 +319,7 @@ export class RetryBuildBatchCommand extends $Command
   })
   .s("CodeBuild_20161006", "RetryBuildBatch", {})
   .n("CodeBuildClient", "RetryBuildBatchCommand")
-  .sc(RetryBuildBatch)
+  .sc(RetryBuildBatch$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

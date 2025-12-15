@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MarketplaceAgreementClient";
 import type { SearchAgreementsInput, SearchAgreementsOutput } from "../models/models_0";
-import { SearchAgreements } from "../schemas/schemas_0";
+import { SearchAgreements$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -129,7 +129,7 @@ export class SearchAgreementsCommand extends $Command
   })
   .s("AWSMPCommerceService_v20200301", "SearchAgreements", {})
   .n("MarketplaceAgreementClient", "SearchAgreementsCommand")
-  .sc(SearchAgreements)
+  .sc(SearchAgreements$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

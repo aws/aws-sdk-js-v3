@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateBillOfMaterialsImportJobRequest, CreateBillOfMaterialsImportJobResponse } from "../models/models_0";
-import { CreateBillOfMaterialsImportJob } from "../schemas/schemas_0";
+import { CreateBillOfMaterialsImportJob$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupplyChainClientResolvedConfig } from "../SupplyChainClient";
 
 /**
@@ -116,7 +116,7 @@ export class CreateBillOfMaterialsImportJobCommand extends $Command
   })
   .s("GalaxyPublicAPIGateway", "CreateBillOfMaterialsImportJob", {})
   .n("SupplyChainClient", "CreateBillOfMaterialsImportJobCommand")
-  .sc(CreateBillOfMaterialsImportJob)
+  .sc(CreateBillOfMaterialsImportJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

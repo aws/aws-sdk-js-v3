@@ -9,7 +9,7 @@ import type {
   GetNetworkInsightsAccessScopeAnalysisFindingsRequest,
   GetNetworkInsightsAccessScopeAnalysisFindingsResult,
 } from "../models/models_6";
-import { GetNetworkInsightsAccessScopeAnalysisFindings } from "../schemas/schemas_0";
+import { GetNetworkInsightsAccessScopeAnalysisFindings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -413,7 +413,7 @@ export class GetNetworkInsightsAccessScopeAnalysisFindingsCommand extends $Comma
   })
   .s("AmazonEC2", "GetNetworkInsightsAccessScopeAnalysisFindings", {})
   .n("EC2Client", "GetNetworkInsightsAccessScopeAnalysisFindingsCommand")
-  .sc(GetNetworkInsightsAccessScopeAnalysisFindings)
+  .sc(GetNetworkInsightsAccessScopeAnalysisFindings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

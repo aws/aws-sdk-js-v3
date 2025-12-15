@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateFilterRequest, CreateFilterResponse } from "../models/models_0";
 import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { CreateFilter } from "../schemas/schemas_0";
+import { CreateFilter$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class CreateFilterCommand extends $Command
   })
   .s("AmazonPersonalize", "CreateFilter", {})
   .n("PersonalizeClient", "CreateFilterCommand")
-  .sc(CreateFilter)
+  .sc(CreateFilter$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

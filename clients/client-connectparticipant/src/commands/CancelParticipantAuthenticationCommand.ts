@@ -13,7 +13,7 @@ import type {
   CancelParticipantAuthenticationRequest,
   CancelParticipantAuthenticationResponse,
 } from "../models/models_0";
-import { CancelParticipantAuthentication } from "../schemas/schemas_0";
+import { CancelParticipantAuthentication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class CancelParticipantAuthenticationCommand extends $Command
   })
   .s("AmazonConnectParticipantServiceLambda", "CancelParticipantAuthentication", {})
   .n("ConnectParticipantClient", "CancelParticipantAuthenticationCommand")
-  .sc(CancelParticipantAuthentication)
+  .sc(CancelParticipantAuthentication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

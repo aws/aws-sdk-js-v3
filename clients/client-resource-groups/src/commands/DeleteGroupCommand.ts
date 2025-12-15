@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceGroupsClient";
-import { DeleteGroup } from "../schemas/schemas_0";
+import { DeleteGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class DeleteGroupCommand extends $Command
   })
   .s("Ardi", "DeleteGroup", {})
   .n("ResourceGroupsClient", "DeleteGroupCommand")
-  .sc(DeleteGroup)
+  .sc(DeleteGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

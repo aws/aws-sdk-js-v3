@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateSMBFileShareInput, CreateSMBFileShareOutput } from "../models/models_0";
-import { CreateSMBFileShare } from "../schemas/schemas_0";
+import { CreateSMBFileShare$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -138,7 +138,7 @@ export class CreateSMBFileShareCommand extends $Command
   })
   .s("StorageGateway_20130630", "CreateSMBFileShare", {})
   .n("StorageGatewayClient", "CreateSMBFileShareCommand")
-  .sc(CreateSMBFileShare)
+  .sc(CreateSMBFileShare$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

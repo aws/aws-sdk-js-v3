@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateSecretVersionStageRequest, UpdateSecretVersionStageResponse } from "../models/models_0";
-import { UpdateSecretVersionStage } from "../schemas/schemas_0";
+import { UpdateSecretVersionStage$ } from "../schemas/schemas_0";
 import type {
   SecretsManagerClientResolvedConfig,
   ServiceInputTypes,
@@ -190,7 +190,7 @@ export class UpdateSecretVersionStageCommand extends $Command
   })
   .s("secretsmanager", "UpdateSecretVersionStage", {})
   .n("SecretsManagerClient", "UpdateSecretVersionStageCommand")
-  .sc(UpdateSecretVersionStage)
+  .sc(UpdateSecretVersionStage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -32,7 +32,7 @@ export const getRuntimeConfig = (config: BedrockAgentCoreClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.bedrockagentcore" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
     sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     serviceId: config?.serviceId ?? "Bedrock AgentCore",
     urlParser: config?.urlParser ?? parseUrl,

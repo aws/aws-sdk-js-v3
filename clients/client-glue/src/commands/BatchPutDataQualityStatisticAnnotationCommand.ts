@@ -9,7 +9,7 @@ import type {
   BatchPutDataQualityStatisticAnnotationRequest,
   BatchPutDataQualityStatisticAnnotationResponse,
 } from "../models/models_0";
-import { BatchPutDataQualityStatisticAnnotation } from "../schemas/schemas_0";
+import { BatchPutDataQualityStatisticAnnotation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class BatchPutDataQualityStatisticAnnotationCommand extends $Command
   })
   .s("AWSGlue", "BatchPutDataQualityStatisticAnnotation", {})
   .n("GlueClient", "BatchPutDataQualityStatisticAnnotationCommand")
-  .sc(BatchPutDataQualityStatisticAnnotation)
+  .sc(BatchPutDataQualityStatisticAnnotation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

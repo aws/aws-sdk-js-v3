@@ -9,7 +9,7 @@ import type {
   CreateVpcEndpointServiceConfigurationRequest,
   CreateVpcEndpointServiceConfigurationResult,
 } from "../models/models_2";
-import { CreateVpcEndpointServiceConfiguration } from "../schemas/schemas_0";
+import { CreateVpcEndpointServiceConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -172,7 +172,7 @@ export class CreateVpcEndpointServiceConfigurationCommand extends $Command
   })
   .s("AmazonEC2", "CreateVpcEndpointServiceConfiguration", {})
   .n("EC2Client", "CreateVpcEndpointServiceConfigurationCommand")
-  .sc(CreateVpcEndpointServiceConfiguration)
+  .sc(CreateVpcEndpointServiceConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

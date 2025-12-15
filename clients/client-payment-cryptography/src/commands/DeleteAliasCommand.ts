@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyClient";
-import { DeleteAlias } from "../schemas/schemas_0";
+import { DeleteAlias$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class DeleteAliasCommand extends $Command
   })
   .s("PaymentCryptographyControlPlane", "DeleteAlias", {})
   .n("PaymentCryptographyClient", "DeleteAliasCommand")
-  .sc(DeleteAlias)
+  .sc(DeleteAlias$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

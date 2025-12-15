@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAuthorizationTokenRequest, GetAuthorizationTokenResult } from "../models/models_0";
-import { GetAuthorizationToken } from "../schemas/schemas_0";
+import { GetAuthorizationToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class GetAuthorizationTokenCommand extends $Command
   })
   .s("CodeArtifactControlPlaneService", "GetAuthorizationToken", {})
   .n("CodeartifactClient", "GetAuthorizationTokenCommand")
-  .sc(GetAuthorizationToken)
+  .sc(GetAuthorizationToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

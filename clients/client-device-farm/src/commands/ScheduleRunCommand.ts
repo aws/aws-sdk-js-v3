@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ScheduleRunRequest, ScheduleRunResult } from "../models/models_0";
-import { ScheduleRun } from "../schemas/schemas_0";
+import { ScheduleRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -291,7 +291,7 @@ export class ScheduleRunCommand extends $Command
   })
   .s("DeviceFarm_20150623", "ScheduleRun", {})
   .n("DeviceFarmClient", "ScheduleRunCommand")
-  .sc(ScheduleRun)
+  .sc(ScheduleRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

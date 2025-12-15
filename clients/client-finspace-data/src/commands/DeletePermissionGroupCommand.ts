@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
 import type { DeletePermissionGroupRequest, DeletePermissionGroupResponse } from "../models/models_0";
-import { DeletePermissionGroup } from "../schemas/schemas_0";
+import { DeletePermissionGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class DeletePermissionGroupCommand extends $Command
   })
   .s("AWSHabaneroPublicAPI", "DeletePermissionGroup", {})
   .n("FinspaceDataClient", "DeletePermissionGroupCommand")
-  .sc(DeletePermissionGroup)
+  .sc(DeletePermissionGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

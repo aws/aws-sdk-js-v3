@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateNetworkAclEntryRequest } from "../models/models_1";
-import { CreateNetworkAclEntry } from "../schemas/schemas_0";
+import { CreateNetworkAclEntry$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class CreateNetworkAclEntryCommand extends $Command
   })
   .s("AmazonEC2", "CreateNetworkAclEntry", {})
   .n("EC2Client", "CreateNetworkAclEntryCommand")
-  .sc(CreateNetworkAclEntry)
+  .sc(CreateNetworkAclEntry$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

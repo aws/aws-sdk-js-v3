@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RejectInvitationRequest } from "../models/models_0";
-import { RejectInvitation } from "../schemas/schemas_0";
+import { RejectInvitation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class RejectInvitationCommand extends $Command
   })
   .s("AmazonDetective", "RejectInvitation", {})
   .n("DetectiveClient", "RejectInvitationCommand")
-  .sc(RejectInvitation)
+  .sc(RejectInvitation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

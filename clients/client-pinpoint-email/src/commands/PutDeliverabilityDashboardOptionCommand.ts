@@ -9,7 +9,7 @@ import type {
   PutDeliverabilityDashboardOptionResponse,
 } from "../models/models_0";
 import type { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { PutDeliverabilityDashboardOption } from "../schemas/schemas_0";
+import { PutDeliverabilityDashboardOption$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class PutDeliverabilityDashboardOptionCommand extends $Command
   })
   .s("AmazonPinpointEmailService", "PutDeliverabilityDashboardOption", {})
   .n("PinpointEmailClient", "PutDeliverabilityDashboardOptionCommand")
-  .sc(PutDeliverabilityDashboardOption)
+  .sc(PutDeliverabilityDashboardOption$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

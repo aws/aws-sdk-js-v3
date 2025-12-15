@@ -9,7 +9,7 @@ import type {
   CreateLocalGatewayVirtualInterfaceGroupRequest,
   CreateLocalGatewayVirtualInterfaceGroupResult,
 } from "../models/models_1";
-import { CreateLocalGatewayVirtualInterfaceGroup } from "../schemas/schemas_0";
+import { CreateLocalGatewayVirtualInterfaceGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class CreateLocalGatewayVirtualInterfaceGroupCommand extends $Command
   })
   .s("AmazonEC2", "CreateLocalGatewayVirtualInterfaceGroup", {})
   .n("EC2Client", "CreateLocalGatewayVirtualInterfaceGroupCommand")
-  .sc(CreateLocalGatewayVirtualInterfaceGroup)
+  .sc(CreateLocalGatewayVirtualInterfaceGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

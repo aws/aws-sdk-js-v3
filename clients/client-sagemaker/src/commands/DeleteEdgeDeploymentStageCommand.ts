@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteEdgeDeploymentStageRequest } from "../models/models_2";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DeleteEdgeDeploymentStage } from "../schemas/schemas_0";
+import { DeleteEdgeDeploymentStage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -75,7 +75,7 @@ export class DeleteEdgeDeploymentStageCommand extends $Command
   })
   .s("SageMaker", "DeleteEdgeDeploymentStage", {})
   .n("SageMakerClient", "DeleteEdgeDeploymentStageCommand")
-  .sc(DeleteEdgeDeploymentStage)
+  .sc(DeleteEdgeDeploymentStage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

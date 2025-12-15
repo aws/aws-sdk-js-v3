@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EnableFederationRequest, EnableFederationResponse } from "../models/models_0";
-import { EnableFederation } from "../schemas/schemas_0";
+import { EnableFederation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -148,7 +148,7 @@ export class EnableFederationCommand extends $Command
   })
   .s("CloudTrail_20131101", "EnableFederation", {})
   .n("CloudTrailClient", "EnableFederationCommand")
-  .sc(EnableFederation)
+  .sc(EnableFederation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

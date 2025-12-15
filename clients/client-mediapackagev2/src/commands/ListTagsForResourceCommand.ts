@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MediaPackageV2Client";
 import type { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
-import { ListTagsForResource } from "../schemas/schemas_0";
+import { ListTagsForResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class ListTagsForResourceCommand extends $Command
   })
   .s("mediapackagev2", "ListTagsForResource", {})
   .n("MediaPackageV2Client", "ListTagsForResourceCommand")
-  .sc(ListTagsForResource)
+  .sc(ListTagsForResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

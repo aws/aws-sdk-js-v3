@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ReloadTablesMessage, ReloadTablesResponse } from "../models/models_1";
-import { ReloadTables } from "../schemas/schemas_0";
+import { ReloadTables$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class ReloadTablesCommand extends $Command
   })
   .s("AmazonDMSv20160101", "ReloadTables", {})
   .n("DatabaseMigrationServiceClient", "ReloadTablesCommand")
-  .sc(ReloadTables)
+  .sc(ReloadTables$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

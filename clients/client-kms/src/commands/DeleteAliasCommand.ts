@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import type { DeleteAliasRequest } from "../models/models_0";
-import { DeleteAlias } from "../schemas/schemas_0";
+import { DeleteAlias$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -166,7 +166,7 @@ export class DeleteAliasCommand extends $Command
   })
   .s("TrentService", "DeleteAlias", {})
   .n("KMSClient", "DeleteAliasCommand")
-  .sc(DeleteAlias)
+  .sc(DeleteAlias$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

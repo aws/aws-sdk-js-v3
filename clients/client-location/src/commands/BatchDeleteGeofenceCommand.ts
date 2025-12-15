@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import type { BatchDeleteGeofenceRequest, BatchDeleteGeofenceResponse } from "../models/models_0";
-import { BatchDeleteGeofence } from "../schemas/schemas_0";
+import { BatchDeleteGeofence$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class BatchDeleteGeofenceCommand extends $Command
   })
   .s("LocationService", "BatchDeleteGeofence", {})
   .n("LocationClient", "BatchDeleteGeofenceCommand")
-  .sc(BatchDeleteGeofence)
+  .sc(BatchDeleteGeofence$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

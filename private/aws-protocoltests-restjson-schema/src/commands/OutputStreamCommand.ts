@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { OutputStream } from "../schemas/schemas_0";
+import { OutputStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,7 +124,7 @@ export class OutputStreamCommand extends $Command
     },
   })
   .n("RestJsonProtocolClient", "OutputStreamCommand")
-  .sc(OutputStream)
+  .sc(OutputStream$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

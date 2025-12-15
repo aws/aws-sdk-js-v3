@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteApiCacheRequest, DeleteApiCacheResponse } from "../models/models_0";
-import { DeleteApiCache } from "../schemas/schemas_0";
+import { DeleteApiCache$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class DeleteApiCacheCommand extends $Command
   })
   .s("AWSDeepdishControlPlaneService", "DeleteApiCache", {})
   .n("AppSyncClient", "DeleteApiCacheCommand")
-  .sc(DeleteApiCache)
+  .sc(DeleteApiCache$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

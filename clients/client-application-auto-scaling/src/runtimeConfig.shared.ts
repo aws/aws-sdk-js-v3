@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: ApplicationAutoScalingClientConfig) => 
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.applicationautoscaling",
-        serviceTarget: "AnyScaleFrontendService",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.applicationautoscaling",
+      version: "2016-02-06",
+      serviceTarget: "AnyScaleFrontendService",
+    },
     serviceId: config?.serviceId ?? "Application Auto Scaling",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

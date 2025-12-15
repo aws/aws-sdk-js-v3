@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import type { DeleteScalingPolicyInput } from "../models/models_0";
-import { DeleteScalingPolicy } from "../schemas/schemas_0";
+import { DeleteScalingPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DeleteScalingPolicyCommand extends $Command
   })
   .s("GameLift", "DeleteScalingPolicy", {})
   .n("GameLiftClient", "DeleteScalingPolicyCommand")
-  .sc(DeleteScalingPolicy)
+  .sc(DeleteScalingPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

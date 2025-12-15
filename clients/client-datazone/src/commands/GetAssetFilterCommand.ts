@@ -7,7 +7,7 @@ import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAssetFilterInput } from "../models/models_1";
 import type { GetAssetFilterOutput } from "../models/models_2";
-import { GetAssetFilter } from "../schemas/schemas_0";
+import { GetAssetFilter$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -234,7 +234,7 @@ export class GetAssetFilterCommand extends $Command
   })
   .s("DataZone", "GetAssetFilter", {})
   .n("DataZoneClient", "GetAssetFilterCommand")
-  .sc(GetAssetFilter)
+  .sc(GetAssetFilter$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

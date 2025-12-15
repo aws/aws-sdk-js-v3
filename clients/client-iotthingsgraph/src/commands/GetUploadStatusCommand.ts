@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTThingsGraphClient";
 import type { GetUploadStatusRequest, GetUploadStatusResponse } from "../models/models_0";
-import { GetUploadStatus } from "../schemas/schemas_0";
+import { GetUploadStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class GetUploadStatusCommand extends $Command
   })
   .s("IotThingsGraphFrontEndService", "GetUploadStatus", {})
   .n("IoTThingsGraphClient", "GetUploadStatusCommand")
-  .sc(GetUploadStatus)
+  .sc(GetUploadStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

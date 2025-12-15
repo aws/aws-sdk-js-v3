@@ -9,7 +9,7 @@ import type {
   CreateCloudWatchAlarmTemplateGroupRequest,
   CreateCloudWatchAlarmTemplateGroupResponse,
 } from "../models/models_1";
-import { CreateCloudWatchAlarmTemplateGroup } from "../schemas/schemas_0";
+import { CreateCloudWatchAlarmTemplateGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class CreateCloudWatchAlarmTemplateGroupCommand extends $Command
   })
   .s("MediaLive", "CreateCloudWatchAlarmTemplateGroup", {})
   .n("MediaLiveClient", "CreateCloudWatchAlarmTemplateGroupCommand")
-  .sc(CreateCloudWatchAlarmTemplateGroup)
+  .sc(CreateCloudWatchAlarmTemplateGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

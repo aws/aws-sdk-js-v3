@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateIndexingRuleRequest, UpdateIndexingRuleResult } from "../models/models_0";
-import { UpdateIndexingRule } from "../schemas/schemas_0";
+import { UpdateIndexingRule$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
@@ -100,7 +100,7 @@ export class UpdateIndexingRuleCommand extends $Command
   })
   .s("AWSXRay", "UpdateIndexingRule", {})
   .n("XRayClient", "UpdateIndexingRuleCommand")
-  .sc(UpdateIndexingRule)
+  .sc(UpdateIndexingRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

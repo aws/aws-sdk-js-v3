@@ -9,7 +9,7 @@ import type {
   DescribeLoadBalancerTargetGroupsRequest,
   DescribeLoadBalancerTargetGroupsResponse,
 } from "../models/models_0";
-import { DescribeLoadBalancerTargetGroups } from "../schemas/schemas_0";
+import { DescribeLoadBalancerTargetGroups$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -145,7 +145,7 @@ export class DescribeLoadBalancerTargetGroupsCommand extends $Command
   })
   .s("AutoScaling_2011_01_01", "DescribeLoadBalancerTargetGroups", {})
   .n("AutoScalingClient", "DescribeLoadBalancerTargetGroupsCommand")
-  .sc(DescribeLoadBalancerTargetGroups)
+  .sc(DescribeLoadBalancerTargetGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

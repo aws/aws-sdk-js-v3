@@ -9,7 +9,7 @@ import type {
   CancelDataQualityRuleRecommendationRunRequest,
   CancelDataQualityRuleRecommendationRunResponse,
 } from "../models/models_0";
-import { CancelDataQualityRuleRecommendationRun } from "../schemas/schemas_0";
+import { CancelDataQualityRuleRecommendationRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class CancelDataQualityRuleRecommendationRunCommand extends $Command
   })
   .s("AWSGlue", "CancelDataQualityRuleRecommendationRun", {})
   .n("GlueClient", "CancelDataQualityRuleRecommendationRunCommand")
-  .sc(CancelDataQualityRuleRecommendationRun)
+  .sc(CancelDataQualityRuleRecommendationRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53GlobalResolverClient";
-import { DeleteAccessToken } from "../schemas/schemas_0";
+import { DeleteAccessToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DeleteAccessTokenCommand extends $Command
   })
   .s("EC2DNSGlobalResolverCustomerAPI", "DeleteAccessToken", {})
   .n("Route53GlobalResolverClient", "DeleteAccessTokenCommand")
-  .sc(DeleteAccessToken)
+  .sc(DeleteAccessToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

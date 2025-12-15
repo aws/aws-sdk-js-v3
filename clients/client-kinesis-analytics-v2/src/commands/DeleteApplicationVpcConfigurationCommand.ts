@@ -13,7 +13,7 @@ import type {
   DeleteApplicationVpcConfigurationRequest,
   DeleteApplicationVpcConfigurationResponse,
 } from "../models/models_0";
-import { DeleteApplicationVpcConfiguration } from "../schemas/schemas_0";
+import { DeleteApplicationVpcConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class DeleteApplicationVpcConfigurationCommand extends $Command
   })
   .s("KinesisAnalytics_20180523", "DeleteApplicationVpcConfiguration", {})
   .n("KinesisAnalyticsV2Client", "DeleteApplicationVpcConfigurationCommand")
-  .sc(DeleteApplicationVpcConfiguration)
+  .sc(DeleteApplicationVpcConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

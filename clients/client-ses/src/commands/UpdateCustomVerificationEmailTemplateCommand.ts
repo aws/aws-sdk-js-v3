@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateCustomVerificationEmailTemplateRequest } from "../models/models_0";
-import { UpdateCustomVerificationEmailTemplate } from "../schemas/schemas_0";
+import { UpdateCustomVerificationEmailTemplate$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -92,7 +92,7 @@ export class UpdateCustomVerificationEmailTemplateCommand extends $Command
   })
   .s("SimpleEmailService", "UpdateCustomVerificationEmailTemplate", {})
   .n("SESClient", "UpdateCustomVerificationEmailTemplateCommand")
-  .sc(UpdateCustomVerificationEmailTemplate)
+  .sc(UpdateCustomVerificationEmailTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

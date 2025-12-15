@@ -9,7 +9,7 @@ import type {
   GetHostReservationPurchasePreviewRequest,
   GetHostReservationPurchasePreviewResult,
 } from "../models/models_5";
-import { GetHostReservationPurchasePreview } from "../schemas/schemas_0";
+import { GetHostReservationPurchasePreview$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class GetHostReservationPurchasePreviewCommand extends $Command
   })
   .s("AmazonEC2", "GetHostReservationPurchasePreview", {})
   .n("EC2Client", "GetHostReservationPurchasePreviewCommand")
-  .sc(GetHostReservationPurchasePreview)
+  .sc(GetHostReservationPurchasePreview$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

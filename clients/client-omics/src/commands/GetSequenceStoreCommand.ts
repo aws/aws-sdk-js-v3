@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetSequenceStoreRequest, GetSequenceStoreResponse } from "../models/models_0";
 import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { GetSequenceStore } from "../schemas/schemas_0";
+import { GetSequenceStore$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class GetSequenceStoreCommand extends $Command
   })
   .s("Omics", "GetSequenceStore", {})
   .n("OmicsClient", "GetSequenceStoreCommand")
-  .sc(GetSequenceStore)
+  .sc(GetSequenceStore$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

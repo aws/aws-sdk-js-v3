@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: BillingClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_0Protocol({
-        defaultNamespace: "com.amazonaws.billing",
-        serviceTarget: "AWSBilling",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_0Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.billing",
+      version: "2023-09-07",
+      serviceTarget: "AWSBilling",
+    },
     serviceId: config?.serviceId ?? "Billing",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

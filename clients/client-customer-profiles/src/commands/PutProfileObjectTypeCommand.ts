@@ -10,7 +10,7 @@ import type {
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutProfileObjectTypeRequest, PutProfileObjectTypeResponse } from "../models/models_0";
-import { PutProfileObjectType } from "../schemas/schemas_0";
+import { PutProfileObjectType$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -156,7 +156,7 @@ export class PutProfileObjectTypeCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "PutProfileObjectType", {})
   .n("CustomerProfilesClient", "PutProfileObjectTypeCommand")
-  .sc(PutProfileObjectType)
+  .sc(PutProfileObjectType$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

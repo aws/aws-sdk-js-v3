@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartEngagementRequest, StartEngagementResult } from "../models/models_0";
-import { StartEngagement } from "../schemas/schemas_0";
+import { StartEngagement$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -100,7 +100,7 @@ export class StartEngagementCommand extends $Command
   })
   .s("SSMContacts", "StartEngagement", {})
   .n("SSMContactsClient", "StartEngagementCommand")
-  .sc(StartEngagement)
+  .sc(StartEngagement$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

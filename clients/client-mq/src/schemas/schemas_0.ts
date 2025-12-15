@@ -325,17 +325,17 @@ import type {
 } from "@smithy/types";
 
 import {
-  BadRequestException as __BadRequestException,
-  ConflictException as __ConflictException,
-  ForbiddenException as __ForbiddenException,
-  InternalServerErrorException as __InternalServerErrorException,
-  NotFoundException as __NotFoundException,
-  UnauthorizedException as __UnauthorizedException,
+  BadRequestException,
+  ConflictException,
+  ForbiddenException,
+  InternalServerErrorException,
+  NotFoundException,
+  UnauthorizedException,
 } from "../models/errors";
-import { MqServiceException as __MqServiceException } from "../models/MqServiceException";
+import { MqServiceException } from "../models/MqServiceException";
 
 /* eslint no-var: 0 */
-export var ActionRequired: StaticStructureSchema = [
+export var ActionRequired$: StaticStructureSchema = [
   3,
   n0,
   _AR,
@@ -346,8 +346,8 @@ export var ActionRequired: StaticStructureSchema = [
     [0, { [_jN]: _aRI }],
   ],
 ];
-export var AvailabilityZone: StaticStructureSchema = [3, n0, _AZ, 0, [_N], [[0, { [_jN]: _n }]]];
-export var BadRequestException: StaticErrorSchema = [
+export var AvailabilityZone$: StaticStructureSchema = [3, n0, _AZ, 0, [_N], [[0, { [_jN]: _n }]]];
+export var BadRequestException$: StaticErrorSchema = [
   -3,
   n0,
   _BRE,
@@ -358,8 +358,8 @@ export var BadRequestException: StaticErrorSchema = [
     [0, { [_jN]: _m }],
   ],
 ];
-TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-export var BrokerEngineType: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
+export var BrokerEngineType$: StaticStructureSchema = [
   3,
   n0,
   _BET,
@@ -370,7 +370,7 @@ export var BrokerEngineType: StaticStructureSchema = [
     [() => __listOfEngineVersion, { [_jN]: _eV }],
   ],
 ];
-export var BrokerInstance: StaticStructureSchema = [
+export var BrokerInstance$: StaticStructureSchema = [
   3,
   n0,
   _BI,
@@ -382,7 +382,7 @@ export var BrokerInstance: StaticStructureSchema = [
     [0, { [_jN]: _iA }],
   ],
 ];
-export var BrokerInstanceOption: StaticStructureSchema = [
+export var BrokerInstanceOption$: StaticStructureSchema = [
   3,
   n0,
   _BIO,
@@ -397,7 +397,7 @@ export var BrokerInstanceOption: StaticStructureSchema = [
     [64 | 0, { [_jN]: _sEV }],
   ],
 ];
-export var BrokerSummary: StaticStructureSchema = [
+export var BrokerSummary$: StaticStructureSchema = [
   3,
   n0,
   _BS,
@@ -414,7 +414,7 @@ export var BrokerSummary: StaticStructureSchema = [
     [0, { [_jN]: _hIT }],
   ],
 ];
-export var Configuration: StaticStructureSchema = [
+export var Configuration$: StaticStructureSchema = [
   3,
   n0,
   _Co,
@@ -428,12 +428,12 @@ export var Configuration: StaticStructureSchema = [
     [0, { [_jN]: _eT }],
     [0, { [_jN]: _eVn }],
     [0, { [_jN]: _i }],
-    [() => ConfigurationRevision, { [_jN]: _lR }],
+    [() => ConfigurationRevision$, { [_jN]: _lR }],
     [0, { [_jN]: _n }],
     [128 | 0, { [_jN]: _t }],
   ],
 ];
-export var ConfigurationId: StaticStructureSchema = [
+export var ConfigurationId$: StaticStructureSchema = [
   3,
   n0,
   _CI,
@@ -444,7 +444,7 @@ export var ConfigurationId: StaticStructureSchema = [
     [1, { [_jN]: _r }],
   ],
 ];
-export var ConfigurationRevision: StaticStructureSchema = [
+export var ConfigurationRevision$: StaticStructureSchema = [
   3,
   n0,
   _CR,
@@ -456,19 +456,19 @@ export var ConfigurationRevision: StaticStructureSchema = [
     [1, { [_jN]: _r }],
   ],
 ];
-export var Configurations: StaticStructureSchema = [
+export var Configurations$: StaticStructureSchema = [
   3,
   n0,
   _Con,
   0,
   [_Cu, _H, _P],
   [
-    [() => ConfigurationId, { [_jN]: _cu }],
+    [() => ConfigurationId$, { [_jN]: _cu }],
     [() => __listOfConfigurationId, { [_jN]: _h }],
-    [() => ConfigurationId, { [_jN]: _p }],
+    [() => ConfigurationId$, { [_jN]: _p }],
   ],
 ];
-export var ConflictException: StaticErrorSchema = [
+export var ConflictException$: StaticErrorSchema = [
   -3,
   n0,
   _CE,
@@ -479,8 +479,8 @@ export var ConflictException: StaticErrorSchema = [
     [0, { [_jN]: _m }],
   ],
 ];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateBrokerRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateBrokerRequest$: StaticStructureSchema = [
   3,
   n0,
   _CBR,
@@ -490,16 +490,16 @@ export var CreateBrokerRequest: StaticStructureSchema = [
     [0, { [_jN]: _aS }],
     [2, { [_jN]: _aMVU }],
     [0, { [_jN]: _bN }],
-    [() => ConfigurationId, { [_jN]: _co }],
+    [() => ConfigurationId$, { [_jN]: _co }],
     [0, { [_jN]: _cRI, [_iT]: 1 }],
     [0, { [_jN]: _dM }],
-    [() => EncryptionOptions, { [_jN]: _eO }],
+    [() => EncryptionOptions$, { [_jN]: _eO }],
     [0, { [_jN]: _eT }],
     [0, { [_jN]: _eVn }],
     [0, { [_jN]: _hIT }],
-    [() => LdapServerMetadataInput, { [_jN]: _lSM }],
-    [() => Logs, { [_jN]: _l }],
-    [() => WeeklyStartTime, { [_jN]: _mWST }],
+    [() => LdapServerMetadataInput$, { [_jN]: _lSM }],
+    [() => Logs$, { [_jN]: _l }],
+    [() => WeeklyStartTime$, { [_jN]: _mWST }],
     [2, { [_jN]: _pA }],
     [64 | 0, { [_jN]: _sG }],
     [0, { [_jN]: _sT }],
@@ -510,7 +510,7 @@ export var CreateBrokerRequest: StaticStructureSchema = [
     [0, { [_jN]: _dRPBA }],
   ],
 ];
-export var CreateBrokerResponse: StaticStructureSchema = [
+export var CreateBrokerResponse$: StaticStructureSchema = [
   3,
   n0,
   _CBRr,
@@ -521,7 +521,7 @@ export var CreateBrokerResponse: StaticStructureSchema = [
     [0, { [_jN]: _bI }],
   ],
 ];
-export var CreateConfigurationRequest: StaticStructureSchema = [
+export var CreateConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCR,
@@ -535,7 +535,7 @@ export var CreateConfigurationRequest: StaticStructureSchema = [
     [128 | 0, { [_jN]: _t }],
   ],
 ];
-export var CreateConfigurationResponse: StaticStructureSchema = [
+export var CreateConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _CCRr,
@@ -546,11 +546,11 @@ export var CreateConfigurationResponse: StaticStructureSchema = [
     [0, { [_jN]: _aS }],
     [5, { [_jN]: _cr }],
     [0, { [_jN]: _i }],
-    [() => ConfigurationRevision, { [_jN]: _lR }],
+    [() => ConfigurationRevision$, { [_jN]: _lR }],
     [0, { [_jN]: _n }],
   ],
 ];
-export var CreateTagsRequest: StaticStructureSchema = [
+export var CreateTagsRequest$: StaticStructureSchema = [
   3,
   n0,
   _CTR,
@@ -561,7 +561,7 @@ export var CreateTagsRequest: StaticStructureSchema = [
     [128 | 0, { [_jN]: _t }],
   ],
 ];
-export var CreateUserRequest: StaticStructureSchema = [
+export var CreateUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _CUR,
@@ -576,8 +576,8 @@ export var CreateUserRequest: StaticStructureSchema = [
     [2, { [_jN]: _rU }],
   ],
 ];
-export var CreateUserResponse: StaticStructureSchema = [3, n0, _CURr, 0, [], []];
-export var DataReplicationCounterpart: StaticStructureSchema = [
+export var CreateUserResponse$: StaticStructureSchema = [3, n0, _CURr, 0, [], []];
+export var DataReplicationCounterpart$: StaticStructureSchema = [
   3,
   n0,
   _DRC,
@@ -588,22 +588,22 @@ export var DataReplicationCounterpart: StaticStructureSchema = [
     [0, { [_jN]: _re }],
   ],
 ];
-export var DataReplicationMetadataOutput: StaticStructureSchema = [
+export var DataReplicationMetadataOutput$: StaticStructureSchema = [
   3,
   n0,
   _DRMO,
   0,
   [_DRC, _DRR],
   [
-    [() => DataReplicationCounterpart, { [_jN]: _dRC }],
+    [() => DataReplicationCounterpart$, { [_jN]: _dRC }],
     [0, { [_jN]: _dRR }],
   ],
 ];
-export var DeleteBrokerRequest: StaticStructureSchema = [3, n0, _DBR, 0, [_BIr], [[0, 1]]];
-export var DeleteBrokerResponse: StaticStructureSchema = [3, n0, _DBRe, 0, [_BIr], [[0, { [_jN]: _bI }]]];
-export var DeleteConfigurationRequest: StaticStructureSchema = [3, n0, _DCR, 0, [_CI], [[0, 1]]];
-export var DeleteConfigurationResponse: StaticStructureSchema = [3, n0, _DCRe, 0, [_CI], [[0, { [_jN]: _cI }]]];
-export var DeleteTagsRequest: StaticStructureSchema = [
+export var DeleteBrokerRequest$: StaticStructureSchema = [3, n0, _DBR, 0, [_BIr], [[0, 1]]];
+export var DeleteBrokerResponse$: StaticStructureSchema = [3, n0, _DBRe, 0, [_BIr], [[0, { [_jN]: _bI }]]];
+export var DeleteConfigurationRequest$: StaticStructureSchema = [3, n0, _DCR, 0, [_CI], [[0, 1]]];
+export var DeleteConfigurationResponse$: StaticStructureSchema = [3, n0, _DCRe, 0, [_CI], [[0, { [_jN]: _cI }]]];
+export var DeleteTagsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTR,
@@ -614,7 +614,7 @@ export var DeleteTagsRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var DeleteUserRequest: StaticStructureSchema = [
+export var DeleteUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _DUR,
@@ -625,8 +625,8 @@ export var DeleteUserRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteUserResponse: StaticStructureSchema = [3, n0, _DURe, 0, [], []];
-export var DescribeBrokerEngineTypesRequest: StaticStructureSchema = [
+export var DeleteUserResponse$: StaticStructureSchema = [3, n0, _DURe, 0, [], []];
+export var DescribeBrokerEngineTypesRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBETR,
@@ -638,7 +638,7 @@ export var DescribeBrokerEngineTypesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var DescribeBrokerEngineTypesResponse: StaticStructureSchema = [
+export var DescribeBrokerEngineTypesResponse$: StaticStructureSchema = [
   3,
   n0,
   _DBETRe,
@@ -650,7 +650,7 @@ export var DescribeBrokerEngineTypesResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var DescribeBrokerInstanceOptionsRequest: StaticStructureSchema = [
+export var DescribeBrokerInstanceOptionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBIOR,
@@ -664,7 +664,7 @@ export var DescribeBrokerInstanceOptionsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sT }],
   ],
 ];
-export var DescribeBrokerInstanceOptionsResponse: StaticStructureSchema = [
+export var DescribeBrokerInstanceOptionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DBIORe,
@@ -676,8 +676,8 @@ export var DescribeBrokerInstanceOptionsResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var DescribeBrokerRequest: StaticStructureSchema = [3, n0, _DBRes, 0, [_BIr], [[0, 1]]];
-export var DescribeBrokerResponse: StaticStructureSchema = [
+export var DescribeBrokerRequest$: StaticStructureSchema = [3, n0, _DBRes, 0, [_BIr], [[0, 1]]];
+export var DescribeBrokerResponse$: StaticStructureSchema = [
   3,
   n0,
   _DBResc,
@@ -726,20 +726,20 @@ export var DescribeBrokerResponse: StaticStructureSchema = [
     [() => __listOfBrokerInstance, { [_jN]: _bIr }],
     [0, { [_jN]: _bN }],
     [0, { [_jN]: _bS }],
-    [() => Configurations, { [_jN]: _con }],
+    [() => Configurations$, { [_jN]: _con }],
     [5, { [_jN]: _cr }],
     [0, { [_jN]: _dM }],
-    [() => EncryptionOptions, { [_jN]: _eO }],
+    [() => EncryptionOptions$, { [_jN]: _eO }],
     [0, { [_jN]: _eT }],
     [0, { [_jN]: _eVn }],
     [0, { [_jN]: _hIT }],
-    [() => LdapServerMetadataOutput, { [_jN]: _lSM }],
-    [() => LogsSummary, { [_jN]: _l }],
-    [() => WeeklyStartTime, { [_jN]: _mWST }],
+    [() => LdapServerMetadataOutput$, { [_jN]: _lSM }],
+    [() => LogsSummary$, { [_jN]: _l }],
+    [() => WeeklyStartTime$, { [_jN]: _mWST }],
     [0, { [_jN]: _pAS }],
     [0, { [_jN]: _pEV }],
     [0, { [_jN]: _pHIT }],
-    [() => LdapServerMetadataOutput, { [_jN]: _pLSM }],
+    [() => LdapServerMetadataOutput$, { [_jN]: _pLSM }],
     [64 | 0, { [_jN]: _pSG }],
     [2, { [_jN]: _pA }],
     [64 | 0, { [_jN]: _sG }],
@@ -747,14 +747,14 @@ export var DescribeBrokerResponse: StaticStructureSchema = [
     [64 | 0, { [_jN]: _sI }],
     [128 | 0, { [_jN]: _t }],
     [() => __listOfUserSummary, { [_jN]: _u }],
-    [() => DataReplicationMetadataOutput, { [_jN]: _dRMa }],
+    [() => DataReplicationMetadataOutput$, { [_jN]: _dRMa }],
     [0, { [_jN]: _dRM }],
-    [() => DataReplicationMetadataOutput, { [_jN]: _pDRM }],
+    [() => DataReplicationMetadataOutput$, { [_jN]: _pDRM }],
     [0, { [_jN]: _pDRMe }],
   ],
 ];
-export var DescribeConfigurationRequest: StaticStructureSchema = [3, n0, _DCRes, 0, [_CI], [[0, 1]]];
-export var DescribeConfigurationResponse: StaticStructureSchema = [
+export var DescribeConfigurationRequest$: StaticStructureSchema = [3, n0, _DCRes, 0, [_CI], [[0, 1]]];
+export var DescribeConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DCResc,
@@ -768,12 +768,12 @@ export var DescribeConfigurationResponse: StaticStructureSchema = [
     [0, { [_jN]: _eT }],
     [0, { [_jN]: _eVn }],
     [0, { [_jN]: _i }],
-    [() => ConfigurationRevision, { [_jN]: _lR }],
+    [() => ConfigurationRevision$, { [_jN]: _lR }],
     [0, { [_jN]: _n }],
     [128 | 0, { [_jN]: _t }],
   ],
 ];
-export var DescribeConfigurationRevisionRequest: StaticStructureSchema = [
+export var DescribeConfigurationRevisionRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCRR,
@@ -784,7 +784,7 @@ export var DescribeConfigurationRevisionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeConfigurationRevisionResponse: StaticStructureSchema = [
+export var DescribeConfigurationRevisionResponse$: StaticStructureSchema = [
   3,
   n0,
   _DCRRe,
@@ -797,7 +797,7 @@ export var DescribeConfigurationRevisionResponse: StaticStructureSchema = [
     [0, { [_jN]: _d }],
   ],
 ];
-export var DescribeUserRequest: StaticStructureSchema = [
+export var DescribeUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _DURes,
@@ -808,7 +808,7 @@ export var DescribeUserRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeUserResponse: StaticStructureSchema = [
+export var DescribeUserResponse$: StaticStructureSchema = [
   3,
   n0,
   _DUResc,
@@ -818,12 +818,12 @@ export var DescribeUserResponse: StaticStructureSchema = [
     [0, { [_jN]: _bI }],
     [2, { [_jN]: _cA }],
     [64 | 0, { [_jN]: _g }],
-    [() => UserPendingChanges, { [_jN]: _p }],
+    [() => UserPendingChanges$, { [_jN]: _p }],
     [0, { [_jN]: _us }],
     [2, { [_jN]: _rU }],
   ],
 ];
-export var EncryptionOptions: StaticStructureSchema = [
+export var EncryptionOptions$: StaticStructureSchema = [
   3,
   n0,
   _EO,
@@ -834,8 +834,8 @@ export var EncryptionOptions: StaticStructureSchema = [
     [2, { [_jN]: _uAOK }],
   ],
 ];
-export var EngineVersion: StaticStructureSchema = [3, n0, _EVn, 0, [_N], [[0, { [_jN]: _n }]]];
-export var ForbiddenException: StaticErrorSchema = [
+export var EngineVersion$: StaticStructureSchema = [3, n0, _EVn, 0, [_N], [[0, { [_jN]: _n }]]];
+export var ForbiddenException$: StaticErrorSchema = [
   -3,
   n0,
   _FE,
@@ -846,8 +846,8 @@ export var ForbiddenException: StaticErrorSchema = [
     [0, { [_jN]: _m }],
   ],
 ];
-TypeRegistry.for(n0).registerError(ForbiddenException, __ForbiddenException);
-export var InternalServerErrorException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
+export var InternalServerErrorException$: StaticErrorSchema = [
   -3,
   n0,
   _ISEE,
@@ -858,8 +858,8 @@ export var InternalServerErrorException: StaticErrorSchema = [
     [0, { [_jN]: _m }],
   ],
 ];
-TypeRegistry.for(n0).registerError(InternalServerErrorException, __InternalServerErrorException);
-export var LdapServerMetadataInput: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
+export var LdapServerMetadataInput$: StaticStructureSchema = [
   3,
   n0,
   _LSMI,
@@ -879,7 +879,7 @@ export var LdapServerMetadataInput: StaticStructureSchema = [
     [2, { [_jN]: _uSS }],
   ],
 ];
-export var LdapServerMetadataOutput: StaticStructureSchema = [
+export var LdapServerMetadataOutput$: StaticStructureSchema = [
   3,
   n0,
   _LSMO,
@@ -898,7 +898,7 @@ export var LdapServerMetadataOutput: StaticStructureSchema = [
     [2, { [_jN]: _uSS }],
   ],
 ];
-export var ListBrokersRequest: StaticStructureSchema = [
+export var ListBrokersRequest$: StaticStructureSchema = [
   3,
   n0,
   _LBR,
@@ -909,7 +909,7 @@ export var ListBrokersRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListBrokersResponse: StaticStructureSchema = [
+export var ListBrokersResponse$: StaticStructureSchema = [
   3,
   n0,
   _LBRi,
@@ -920,7 +920,7 @@ export var ListBrokersResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListConfigurationRevisionsRequest: StaticStructureSchema = [
+export var ListConfigurationRevisionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCRR,
@@ -932,7 +932,7 @@ export var ListConfigurationRevisionsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListConfigurationRevisionsResponse: StaticStructureSchema = [
+export var ListConfigurationRevisionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCRRi,
@@ -945,7 +945,7 @@ export var ListConfigurationRevisionsResponse: StaticStructureSchema = [
     [() => __listOfConfigurationRevision, { [_jN]: _rev }],
   ],
 ];
-export var ListConfigurationsRequest: StaticStructureSchema = [
+export var ListConfigurationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCR,
@@ -956,7 +956,7 @@ export var ListConfigurationsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListConfigurationsResponse: StaticStructureSchema = [
+export var ListConfigurationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCRi,
@@ -968,9 +968,9 @@ export var ListConfigurationsResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListTagsRequest: StaticStructureSchema = [3, n0, _LTR, 0, [_RA], [[0, 1]]];
-export var ListTagsResponse: StaticStructureSchema = [3, n0, _LTRi, 0, [_T], [[128 | 0, { [_jN]: _t }]]];
-export var ListUsersRequest: StaticStructureSchema = [
+export var ListTagsRequest$: StaticStructureSchema = [3, n0, _LTR, 0, [_RA], [[0, 1]]];
+export var ListTagsResponse$: StaticStructureSchema = [3, n0, _LTRi, 0, [_T], [[128 | 0, { [_jN]: _t }]]];
+export var ListUsersRequest$: StaticStructureSchema = [
   3,
   n0,
   _LUR,
@@ -982,7 +982,7 @@ export var ListUsersRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListUsersResponse: StaticStructureSchema = [
+export var ListUsersResponse$: StaticStructureSchema = [
   3,
   n0,
   _LURi,
@@ -995,7 +995,7 @@ export var ListUsersResponse: StaticStructureSchema = [
     [() => __listOfUserSummary, { [_jN]: _u }],
   ],
 ];
-export var Logs: StaticStructureSchema = [
+export var Logs$: StaticStructureSchema = [
   3,
   n0,
   _L,
@@ -1006,7 +1006,7 @@ export var Logs: StaticStructureSchema = [
     [2, { [_jN]: _ge }],
   ],
 ];
-export var LogsSummary: StaticStructureSchema = [
+export var LogsSummary$: StaticStructureSchema = [
   3,
   n0,
   _LS,
@@ -1017,10 +1017,10 @@ export var LogsSummary: StaticStructureSchema = [
     [0, { [_jN]: _aLG }],
     [2, { [_jN]: _ge }],
     [0, { [_jN]: _gLG }],
-    [() => PendingLogs, { [_jN]: _p }],
+    [() => PendingLogs$, { [_jN]: _p }],
   ],
 ];
-export var NotFoundException: StaticErrorSchema = [
+export var NotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _NFE,
@@ -1031,8 +1031,8 @@ export var NotFoundException: StaticErrorSchema = [
     [0, { [_jN]: _m }],
   ],
 ];
-TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-export var PendingLogs: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
+export var PendingLogs$: StaticStructureSchema = [
   3,
   n0,
   _PL,
@@ -1043,7 +1043,7 @@ export var PendingLogs: StaticStructureSchema = [
     [2, { [_jN]: _ge }],
   ],
 ];
-export var PromoteRequest: StaticStructureSchema = [
+export var PromoteRequest$: StaticStructureSchema = [
   3,
   n0,
   _PR,
@@ -1054,10 +1054,10 @@ export var PromoteRequest: StaticStructureSchema = [
     [0, { [_jN]: _mo }],
   ],
 ];
-export var PromoteResponse: StaticStructureSchema = [3, n0, _PRr, 0, [_BIr], [[0, { [_jN]: _bI }]]];
-export var RebootBrokerRequest: StaticStructureSchema = [3, n0, _RBR, 0, [_BIr], [[0, 1]]];
-export var RebootBrokerResponse: StaticStructureSchema = [3, n0, _RBRe, 0, [], []];
-export var SanitizationWarning: StaticStructureSchema = [
+export var PromoteResponse$: StaticStructureSchema = [3, n0, _PRr, 0, [_BIr], [[0, { [_jN]: _bI }]]];
+export var RebootBrokerRequest$: StaticStructureSchema = [3, n0, _RBR, 0, [_BIr], [[0, 1]]];
+export var RebootBrokerResponse$: StaticStructureSchema = [3, n0, _RBRe, 0, [], []];
+export var SanitizationWarning$: StaticStructureSchema = [
   3,
   n0,
   _SW,
@@ -1069,7 +1069,7 @@ export var SanitizationWarning: StaticStructureSchema = [
     [0, { [_jN]: _rea }],
   ],
 ];
-export var UnauthorizedException: StaticErrorSchema = [
+export var UnauthorizedException$: StaticErrorSchema = [
   -3,
   n0,
   _UE,
@@ -1080,8 +1080,8 @@ export var UnauthorizedException: StaticErrorSchema = [
     [0, { [_jN]: _m }],
   ],
 ];
-TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
-export var UpdateBrokerRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
+export var UpdateBrokerRequest$: StaticStructureSchema = [
   3,
   n0,
   _UBR,
@@ -1091,17 +1091,17 @@ export var UpdateBrokerRequest: StaticStructureSchema = [
     [0, { [_jN]: _aS }],
     [2, { [_jN]: _aMVU }],
     [0, 1],
-    [() => ConfigurationId, { [_jN]: _co }],
+    [() => ConfigurationId$, { [_jN]: _co }],
     [0, { [_jN]: _eVn }],
     [0, { [_jN]: _hIT }],
-    [() => LdapServerMetadataInput, { [_jN]: _lSM }],
-    [() => Logs, { [_jN]: _l }],
-    [() => WeeklyStartTime, { [_jN]: _mWST }],
+    [() => LdapServerMetadataInput$, { [_jN]: _lSM }],
+    [() => Logs$, { [_jN]: _l }],
+    [() => WeeklyStartTime$, { [_jN]: _mWST }],
     [64 | 0, { [_jN]: _sG }],
     [0, { [_jN]: _dRM }],
   ],
 ];
-export var UpdateBrokerResponse: StaticStructureSchema = [
+export var UpdateBrokerResponse$: StaticStructureSchema = [
   3,
   n0,
   _UBRp,
@@ -1111,20 +1111,20 @@ export var UpdateBrokerResponse: StaticStructureSchema = [
     [0, { [_jN]: _aS }],
     [2, { [_jN]: _aMVU }],
     [0, { [_jN]: _bI }],
-    [() => ConfigurationId, { [_jN]: _co }],
+    [() => ConfigurationId$, { [_jN]: _co }],
     [0, { [_jN]: _eVn }],
     [0, { [_jN]: _hIT }],
-    [() => LdapServerMetadataOutput, { [_jN]: _lSM }],
-    [() => Logs, { [_jN]: _l }],
-    [() => WeeklyStartTime, { [_jN]: _mWST }],
+    [() => LdapServerMetadataOutput$, { [_jN]: _lSM }],
+    [() => Logs$, { [_jN]: _l }],
+    [() => WeeklyStartTime$, { [_jN]: _mWST }],
     [64 | 0, { [_jN]: _sG }],
-    [() => DataReplicationMetadataOutput, { [_jN]: _dRMa }],
+    [() => DataReplicationMetadataOutput$, { [_jN]: _dRMa }],
     [0, { [_jN]: _dRM }],
-    [() => DataReplicationMetadataOutput, { [_jN]: _pDRM }],
+    [() => DataReplicationMetadataOutput$, { [_jN]: _pDRM }],
     [0, { [_jN]: _pDRMe }],
   ],
 ];
-export var UpdateConfigurationRequest: StaticStructureSchema = [
+export var UpdateConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCR,
@@ -1136,7 +1136,7 @@ export var UpdateConfigurationRequest: StaticStructureSchema = [
     [0, { [_jN]: _d }],
   ],
 ];
-export var UpdateConfigurationResponse: StaticStructureSchema = [
+export var UpdateConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _UCRp,
@@ -1146,12 +1146,12 @@ export var UpdateConfigurationResponse: StaticStructureSchema = [
     [0, { [_jN]: _a }],
     [5, { [_jN]: _cr }],
     [0, { [_jN]: _i }],
-    [() => ConfigurationRevision, { [_jN]: _lR }],
+    [() => ConfigurationRevision$, { [_jN]: _lR }],
     [0, { [_jN]: _n }],
     [() => __listOfSanitizationWarning, { [_jN]: _w }],
   ],
 ];
-export var UpdateUserRequest: StaticStructureSchema = [
+export var UpdateUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _UUR,
@@ -1166,8 +1166,8 @@ export var UpdateUserRequest: StaticStructureSchema = [
     [2, { [_jN]: _rU }],
   ],
 ];
-export var UpdateUserResponse: StaticStructureSchema = [3, n0, _UURp, 0, [], []];
-export var User: StaticStructureSchema = [
+export var UpdateUserResponse$: StaticStructureSchema = [3, n0, _UURp, 0, [], []];
+export var User$: StaticStructureSchema = [
   3,
   n0,
   _Use,
@@ -1181,7 +1181,7 @@ export var User: StaticStructureSchema = [
     [2, { [_jN]: _rU }],
   ],
 ];
-export var UserPendingChanges: StaticStructureSchema = [
+export var UserPendingChanges$: StaticStructureSchema = [
   3,
   n0,
   _UPC,
@@ -1193,7 +1193,7 @@ export var UserPendingChanges: StaticStructureSchema = [
     [0, { [_jN]: _pC }],
   ],
 ];
-export var UserSummary: StaticStructureSchema = [
+export var UserSummary$: StaticStructureSchema = [
   3,
   n0,
   _US,
@@ -1204,7 +1204,7 @@ export var UserSummary: StaticStructureSchema = [
     [0, { [_jN]: _us }],
   ],
 ];
-export var WeeklyStartTime: StaticStructureSchema = [
+export var WeeklyStartTime$: StaticStructureSchema = [
   3,
   n0,
   _WST,
@@ -1216,214 +1216,214 @@ export var WeeklyStartTime: StaticStructureSchema = [
     [0, { [_jN]: _tZ }],
   ],
 ];
-export var __Unit = "unit" as const;
-export var MqServiceException: StaticErrorSchema = [-3, _sm, "MqServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MqServiceException, __MqServiceException);
-export var __listOf__string = 64 | 0;
-export var __listOfActionRequired: StaticListSchema = [1, n0, _lOAR, 0, [() => ActionRequired, 0]];
-export var __listOfAvailabilityZone: StaticListSchema = [1, n0, _lOAZ, 0, [() => AvailabilityZone, 0]];
-export var __listOfBrokerEngineType: StaticListSchema = [1, n0, _lOBET, 0, [() => BrokerEngineType, 0]];
-export var __listOfBrokerInstance: StaticListSchema = [1, n0, _lOBI, 0, [() => BrokerInstance, 0]];
-export var __listOfBrokerInstanceOption: StaticListSchema = [1, n0, _lOBIO, 0, [() => BrokerInstanceOption, 0]];
-export var __listOfBrokerSummary: StaticListSchema = [1, n0, _lOBS, 0, [() => BrokerSummary, 0]];
-export var __listOfConfiguration: StaticListSchema = [1, n0, _lOC, 0, [() => Configuration, 0]];
-export var __listOfConfigurationId: StaticListSchema = [1, n0, _lOCI, 0, [() => ConfigurationId, 0]];
-export var __listOfConfigurationRevision: StaticListSchema = [1, n0, _lOCR, 0, [() => ConfigurationRevision, 0]];
-export var __listOfDeploymentMode = 64 | 0;
-export var __listOfEngineVersion: StaticListSchema = [1, n0, _lOEV, 0, [() => EngineVersion, 0]];
-export var __listOfSanitizationWarning: StaticListSchema = [1, n0, _lOSW, 0, [() => SanitizationWarning, 0]];
-export var __listOfUser: StaticListSchema = [1, n0, _lOU, 0, [() => User, 0]];
-export var __listOfUserSummary: StaticListSchema = [1, n0, _lOUS, 0, [() => UserSummary, 0]];
-export var __mapOf__string = 128 | 0;
-export var CreateBroker: StaticOperationSchema = [
+var __Unit = "unit" as const;
+export var MqServiceException$: StaticErrorSchema = [-3, _sm, "MqServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(MqServiceException$, MqServiceException);
+var __listOf__string = 64 | 0;
+var __listOfActionRequired: StaticListSchema = [1, n0, _lOAR, 0, [() => ActionRequired$, 0]];
+var __listOfAvailabilityZone: StaticListSchema = [1, n0, _lOAZ, 0, [() => AvailabilityZone$, 0]];
+var __listOfBrokerEngineType: StaticListSchema = [1, n0, _lOBET, 0, [() => BrokerEngineType$, 0]];
+var __listOfBrokerInstance: StaticListSchema = [1, n0, _lOBI, 0, [() => BrokerInstance$, 0]];
+var __listOfBrokerInstanceOption: StaticListSchema = [1, n0, _lOBIO, 0, [() => BrokerInstanceOption$, 0]];
+var __listOfBrokerSummary: StaticListSchema = [1, n0, _lOBS, 0, [() => BrokerSummary$, 0]];
+var __listOfConfiguration: StaticListSchema = [1, n0, _lOC, 0, [() => Configuration$, 0]];
+var __listOfConfigurationId: StaticListSchema = [1, n0, _lOCI, 0, [() => ConfigurationId$, 0]];
+var __listOfConfigurationRevision: StaticListSchema = [1, n0, _lOCR, 0, [() => ConfigurationRevision$, 0]];
+var __listOfDeploymentMode = 64 | 0;
+var __listOfEngineVersion: StaticListSchema = [1, n0, _lOEV, 0, [() => EngineVersion$, 0]];
+var __listOfSanitizationWarning: StaticListSchema = [1, n0, _lOSW, 0, [() => SanitizationWarning$, 0]];
+var __listOfUser: StaticListSchema = [1, n0, _lOU, 0, [() => User$, 0]];
+var __listOfUserSummary: StaticListSchema = [1, n0, _lOUS, 0, [() => UserSummary$, 0]];
+var __mapOf__string = 128 | 0;
+export var CreateBroker$: StaticOperationSchema = [
   9,
   n0,
   _CB,
   { [_ht]: ["POST", "/v1/brokers", 200] },
-  () => CreateBrokerRequest,
-  () => CreateBrokerResponse,
+  () => CreateBrokerRequest$,
+  () => CreateBrokerResponse$,
 ];
-export var CreateConfiguration: StaticOperationSchema = [
+export var CreateConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _CC,
   { [_ht]: ["POST", "/v1/configurations", 200] },
-  () => CreateConfigurationRequest,
-  () => CreateConfigurationResponse,
+  () => CreateConfigurationRequest$,
+  () => CreateConfigurationResponse$,
 ];
-export var CreateTags: StaticOperationSchema = [
+export var CreateTags$: StaticOperationSchema = [
   9,
   n0,
   _CT,
   { [_ht]: ["POST", "/v1/tags/{ResourceArn}", 204] },
-  () => CreateTagsRequest,
+  () => CreateTagsRequest$,
   () => __Unit,
 ];
-export var CreateUser: StaticOperationSchema = [
+export var CreateUser$: StaticOperationSchema = [
   9,
   n0,
   _CU,
   { [_ht]: ["POST", "/v1/brokers/{BrokerId}/users/{Username}", 200] },
-  () => CreateUserRequest,
-  () => CreateUserResponse,
+  () => CreateUserRequest$,
+  () => CreateUserResponse$,
 ];
-export var DeleteBroker: StaticOperationSchema = [
+export var DeleteBroker$: StaticOperationSchema = [
   9,
   n0,
   _DB,
   { [_ht]: ["DELETE", "/v1/brokers/{BrokerId}", 200] },
-  () => DeleteBrokerRequest,
-  () => DeleteBrokerResponse,
+  () => DeleteBrokerRequest$,
+  () => DeleteBrokerResponse$,
 ];
-export var DeleteConfiguration: StaticOperationSchema = [
+export var DeleteConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DC,
   { [_ht]: ["DELETE", "/v1/configurations/{ConfigurationId}", 200] },
-  () => DeleteConfigurationRequest,
-  () => DeleteConfigurationResponse,
+  () => DeleteConfigurationRequest$,
+  () => DeleteConfigurationResponse$,
 ];
-export var DeleteTags: StaticOperationSchema = [
+export var DeleteTags$: StaticOperationSchema = [
   9,
   n0,
   _DT,
   { [_ht]: ["DELETE", "/v1/tags/{ResourceArn}", 204] },
-  () => DeleteTagsRequest,
+  () => DeleteTagsRequest$,
   () => __Unit,
 ];
-export var DeleteUser: StaticOperationSchema = [
+export var DeleteUser$: StaticOperationSchema = [
   9,
   n0,
   _DU,
   { [_ht]: ["DELETE", "/v1/brokers/{BrokerId}/users/{Username}", 200] },
-  () => DeleteUserRequest,
-  () => DeleteUserResponse,
+  () => DeleteUserRequest$,
+  () => DeleteUserResponse$,
 ];
-export var DescribeBroker: StaticOperationSchema = [
+export var DescribeBroker$: StaticOperationSchema = [
   9,
   n0,
   _DBe,
   { [_ht]: ["GET", "/v1/brokers/{BrokerId}", 200] },
-  () => DescribeBrokerRequest,
-  () => DescribeBrokerResponse,
+  () => DescribeBrokerRequest$,
+  () => DescribeBrokerResponse$,
 ];
-export var DescribeBrokerEngineTypes: StaticOperationSchema = [
+export var DescribeBrokerEngineTypes$: StaticOperationSchema = [
   9,
   n0,
   _DBET,
   { [_ht]: ["GET", "/v1/broker-engine-types", 200] },
-  () => DescribeBrokerEngineTypesRequest,
-  () => DescribeBrokerEngineTypesResponse,
+  () => DescribeBrokerEngineTypesRequest$,
+  () => DescribeBrokerEngineTypesResponse$,
 ];
-export var DescribeBrokerInstanceOptions: StaticOperationSchema = [
+export var DescribeBrokerInstanceOptions$: StaticOperationSchema = [
   9,
   n0,
   _DBIO,
   { [_ht]: ["GET", "/v1/broker-instance-options", 200] },
-  () => DescribeBrokerInstanceOptionsRequest,
-  () => DescribeBrokerInstanceOptionsResponse,
+  () => DescribeBrokerInstanceOptionsRequest$,
+  () => DescribeBrokerInstanceOptionsResponse$,
 ];
-export var DescribeConfiguration: StaticOperationSchema = [
+export var DescribeConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DCe,
   { [_ht]: ["GET", "/v1/configurations/{ConfigurationId}", 200] },
-  () => DescribeConfigurationRequest,
-  () => DescribeConfigurationResponse,
+  () => DescribeConfigurationRequest$,
+  () => DescribeConfigurationResponse$,
 ];
-export var DescribeConfigurationRevision: StaticOperationSchema = [
+export var DescribeConfigurationRevision$: StaticOperationSchema = [
   9,
   n0,
   _DCRescr,
   { [_ht]: ["GET", "/v1/configurations/{ConfigurationId}/revisions/{ConfigurationRevision}", 200] },
-  () => DescribeConfigurationRevisionRequest,
-  () => DescribeConfigurationRevisionResponse,
+  () => DescribeConfigurationRevisionRequest$,
+  () => DescribeConfigurationRevisionResponse$,
 ];
-export var DescribeUser: StaticOperationSchema = [
+export var DescribeUser$: StaticOperationSchema = [
   9,
   n0,
   _DUe,
   { [_ht]: ["GET", "/v1/brokers/{BrokerId}/users/{Username}", 200] },
-  () => DescribeUserRequest,
-  () => DescribeUserResponse,
+  () => DescribeUserRequest$,
+  () => DescribeUserResponse$,
 ];
-export var ListBrokers: StaticOperationSchema = [
+export var ListBrokers$: StaticOperationSchema = [
   9,
   n0,
   _LB,
   { [_ht]: ["GET", "/v1/brokers", 200] },
-  () => ListBrokersRequest,
-  () => ListBrokersResponse,
+  () => ListBrokersRequest$,
+  () => ListBrokersResponse$,
 ];
-export var ListConfigurationRevisions: StaticOperationSchema = [
+export var ListConfigurationRevisions$: StaticOperationSchema = [
   9,
   n0,
   _LCRis,
   { [_ht]: ["GET", "/v1/configurations/{ConfigurationId}/revisions", 200] },
-  () => ListConfigurationRevisionsRequest,
-  () => ListConfigurationRevisionsResponse,
+  () => ListConfigurationRevisionsRequest$,
+  () => ListConfigurationRevisionsResponse$,
 ];
-export var ListConfigurations: StaticOperationSchema = [
+export var ListConfigurations$: StaticOperationSchema = [
   9,
   n0,
   _LC,
   { [_ht]: ["GET", "/v1/configurations", 200] },
-  () => ListConfigurationsRequest,
-  () => ListConfigurationsResponse,
+  () => ListConfigurationsRequest$,
+  () => ListConfigurationsResponse$,
 ];
-export var ListTags: StaticOperationSchema = [
+export var ListTags$: StaticOperationSchema = [
   9,
   n0,
   _LT,
   { [_ht]: ["GET", "/v1/tags/{ResourceArn}", 200] },
-  () => ListTagsRequest,
-  () => ListTagsResponse,
+  () => ListTagsRequest$,
+  () => ListTagsResponse$,
 ];
-export var ListUsers: StaticOperationSchema = [
+export var ListUsers$: StaticOperationSchema = [
   9,
   n0,
   _LU,
   { [_ht]: ["GET", "/v1/brokers/{BrokerId}/users", 200] },
-  () => ListUsersRequest,
-  () => ListUsersResponse,
+  () => ListUsersRequest$,
+  () => ListUsersResponse$,
 ];
-export var Promote: StaticOperationSchema = [
+export var Promote$: StaticOperationSchema = [
   9,
   n0,
   _Pr,
   { [_ht]: ["POST", "/v1/brokers/{BrokerId}/promote", 200] },
-  () => PromoteRequest,
-  () => PromoteResponse,
+  () => PromoteRequest$,
+  () => PromoteResponse$,
 ];
-export var RebootBroker: StaticOperationSchema = [
+export var RebootBroker$: StaticOperationSchema = [
   9,
   n0,
   _RBe,
   { [_ht]: ["POST", "/v1/brokers/{BrokerId}/reboot", 200] },
-  () => RebootBrokerRequest,
-  () => RebootBrokerResponse,
+  () => RebootBrokerRequest$,
+  () => RebootBrokerResponse$,
 ];
-export var UpdateBroker: StaticOperationSchema = [
+export var UpdateBroker$: StaticOperationSchema = [
   9,
   n0,
   _UBp,
   { [_ht]: ["PUT", "/v1/brokers/{BrokerId}", 200] },
-  () => UpdateBrokerRequest,
-  () => UpdateBrokerResponse,
+  () => UpdateBrokerRequest$,
+  () => UpdateBrokerResponse$,
 ];
-export var UpdateConfiguration: StaticOperationSchema = [
+export var UpdateConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UC,
   { [_ht]: ["PUT", "/v1/configurations/{ConfigurationId}", 200] },
-  () => UpdateConfigurationRequest,
-  () => UpdateConfigurationResponse,
+  () => UpdateConfigurationRequest$,
+  () => UpdateConfigurationResponse$,
 ];
-export var UpdateUser: StaticOperationSchema = [
+export var UpdateUser$: StaticOperationSchema = [
   9,
   n0,
   _UU,
   { [_ht]: ["PUT", "/v1/brokers/{BrokerId}/users/{Username}", 200] },
-  () => UpdateUserRequest,
-  () => UpdateUserResponse,
+  () => UpdateUserRequest$,
+  () => UpdateUserResponse$,
 ];

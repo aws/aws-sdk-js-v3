@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { GetDataQualityRulesetRequest, GetDataQualityRulesetResponse } from "../models/models_1";
-import { GetDataQualityRuleset } from "../schemas/schemas_0";
+import { GetDataQualityRuleset$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class GetDataQualityRulesetCommand extends $Command
   })
   .s("AWSGlue", "GetDataQualityRuleset", {})
   .n("GlueClient", "GetDataQualityRulesetCommand")
-  .sc(GetDataQualityRuleset)
+  .sc(GetDataQualityRuleset$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

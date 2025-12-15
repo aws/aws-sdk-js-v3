@@ -9,7 +9,7 @@ import type {
   DescribeVpcClassicLinkDnsSupportRequest,
   DescribeVpcClassicLinkDnsSupportResult,
 } from "../models/models_5";
-import { DescribeVpcClassicLinkDnsSupport } from "../schemas/schemas_0";
+import { DescribeVpcClassicLinkDnsSupport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DescribeVpcClassicLinkDnsSupportCommand extends $Command
   })
   .s("AmazonEC2", "DescribeVpcClassicLinkDnsSupport", {})
   .n("EC2Client", "DescribeVpcClassicLinkDnsSupportCommand")
-  .sc(DescribeVpcClassicLinkDnsSupport)
+  .sc(DescribeVpcClassicLinkDnsSupport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

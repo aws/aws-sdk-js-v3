@@ -9,7 +9,7 @@ import type {
   BatchUpdateMemberEc2DeepInspectionStatusRequest,
   BatchUpdateMemberEc2DeepInspectionStatusResponse,
 } from "../models/models_0";
-import { BatchUpdateMemberEc2DeepInspectionStatus } from "../schemas/schemas_0";
+import { BatchUpdateMemberEc2DeepInspectionStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class BatchUpdateMemberEc2DeepInspectionStatusCommand extends $Command
   })
   .s("Inspector2", "BatchUpdateMemberEc2DeepInspectionStatus", {})
   .n("Inspector2Client", "BatchUpdateMemberEc2DeepInspectionStatusCommand")
-  .sc(BatchUpdateMemberEc2DeepInspectionStatus)
+  .sc(BatchUpdateMemberEc2DeepInspectionStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

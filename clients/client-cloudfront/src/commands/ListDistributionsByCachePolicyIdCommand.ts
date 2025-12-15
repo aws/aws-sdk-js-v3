@@ -9,7 +9,7 @@ import type {
   ListDistributionsByCachePolicyIdRequest,
   ListDistributionsByCachePolicyIdResult,
 } from "../models/models_1";
-import { ListDistributionsByCachePolicyId } from "../schemas/schemas_0";
+import { ListDistributionsByCachePolicyId$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class ListDistributionsByCachePolicyIdCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "ListDistributionsByCachePolicyId", {})
   .n("CloudFrontClient", "ListDistributionsByCachePolicyIdCommand")
-  .sc(ListDistributionsByCachePolicyId)
+  .sc(ListDistributionsByCachePolicyId$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

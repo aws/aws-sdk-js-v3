@@ -9,7 +9,7 @@ import type {
   UpdateRelationalDatabaseParametersRequest,
   UpdateRelationalDatabaseParametersResult,
 } from "../models/models_1";
-import { UpdateRelationalDatabaseParameters } from "../schemas/schemas_0";
+import { UpdateRelationalDatabaseParameters$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -151,7 +151,7 @@ export class UpdateRelationalDatabaseParametersCommand extends $Command
   })
   .s("Lightsail_20161128", "UpdateRelationalDatabaseParameters", {})
   .n("LightsailClient", "UpdateRelationalDatabaseParametersCommand")
-  .sc(UpdateRelationalDatabaseParameters)
+  .sc(UpdateRelationalDatabaseParameters$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

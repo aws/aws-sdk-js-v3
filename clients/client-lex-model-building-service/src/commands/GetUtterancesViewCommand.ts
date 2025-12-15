@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import type { GetUtterancesViewRequest, GetUtterancesViewResponse } from "../models/models_0";
-import { GetUtterancesView } from "../schemas/schemas_0";
+import { GetUtterancesView$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -129,7 +129,7 @@ export class GetUtterancesViewCommand extends $Command
   })
   .s("AWSDeepSenseModelBuildingService", "GetUtterancesView", {})
   .n("LexModelBuildingServiceClient", "GetUtterancesViewCommand")
-  .sc(GetUtterancesView)
+  .sc(GetUtterancesView$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

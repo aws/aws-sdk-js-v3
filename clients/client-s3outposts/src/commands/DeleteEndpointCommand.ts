@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteEndpointRequest } from "../models/models_0";
 import type { S3OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3OutpostsClient";
-import { DeleteEndpoint } from "../schemas/schemas_0";
+import { DeleteEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class DeleteEndpointCommand extends $Command
   })
   .s("S3Outposts", "DeleteEndpoint", {})
   .n("S3OutpostsClient", "DeleteEndpointCommand")
-  .sc(DeleteEndpoint)
+  .sc(DeleteEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

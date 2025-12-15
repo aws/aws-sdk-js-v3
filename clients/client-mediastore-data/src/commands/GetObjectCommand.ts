@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MediaStoreDataClient";
 import { type GetObjectRequest, GetObjectResponse } from "../models/models_0";
-import { GetObject } from "../schemas/schemas_0";
+import { GetObject$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class GetObjectCommand extends $Command
   })
   .s("MediaStoreObject_20170901", "GetObject", {})
   .n("MediaStoreDataClient", "GetObjectCommand")
-  .sc(GetObject)
+  .sc(GetObject$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

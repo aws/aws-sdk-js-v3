@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { DeletePool } from "../schemas/schemas_0";
+import { DeletePool$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class DeletePoolCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "DeletePool", {})
   .n("PinpointSMSVoiceV2Client", "DeletePoolCommand")
-  .sc(DeletePool)
+  .sc(DeletePool$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

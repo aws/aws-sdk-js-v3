@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchEventsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteConnectionRequest, DeleteConnectionResponse } from "../models/models_0";
-import { DeleteConnection } from "../schemas/schemas_0";
+import { DeleteConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeleteConnectionCommand extends $Command
   })
   .s("AWSEvents", "DeleteConnection", {})
   .n("CloudWatchEventsClient", "DeleteConnectionCommand")
-  .sc(DeleteConnection)
+  .sc(DeleteConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

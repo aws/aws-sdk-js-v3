@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceClient";
-import { DeleteConfigurationSet } from "../schemas/schemas_0";
+import { DeleteConfigurationSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DeleteConfigurationSetCommand extends $Command
   })
   .s("PinpointSMSVoice", "DeleteConfigurationSet", {})
   .n("PinpointSMSVoiceClient", "DeleteConfigurationSetCommand")
-  .sc(DeleteConfigurationSet)
+  .sc(DeleteConfigurationSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

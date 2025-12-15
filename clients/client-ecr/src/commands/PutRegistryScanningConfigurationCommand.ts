@@ -9,7 +9,7 @@ import type {
   PutRegistryScanningConfigurationRequest,
   PutRegistryScanningConfigurationResponse,
 } from "../models/models_0";
-import { PutRegistryScanningConfiguration } from "../schemas/schemas_0";
+import { PutRegistryScanningConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class PutRegistryScanningConfigurationCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "PutRegistryScanningConfiguration", {})
   .n("ECRClient", "PutRegistryScanningConfigurationCommand")
-  .sc(PutRegistryScanningConfiguration)
+  .sc(PutRegistryScanningConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

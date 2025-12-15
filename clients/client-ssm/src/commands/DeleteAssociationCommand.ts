@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAssociationRequest, DeleteAssociationResult } from "../models/models_0";
-import { DeleteAssociation } from "../schemas/schemas_0";
+import { DeleteAssociation$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -111,7 +111,7 @@ export class DeleteAssociationCommand extends $Command
   })
   .s("AmazonSSM", "DeleteAssociation", {})
   .n("SSMClient", "DeleteAssociationCommand")
-  .sc(DeleteAssociation)
+  .sc(DeleteAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

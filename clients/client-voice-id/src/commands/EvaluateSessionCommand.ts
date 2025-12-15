@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EvaluateSessionRequest, EvaluateSessionResponse } from "../models/models_0";
-import { EvaluateSession } from "../schemas/schemas_0";
+import { EvaluateSession$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
@@ -137,7 +137,7 @@ export class EvaluateSessionCommand extends $Command
   })
   .s("VoiceID", "EvaluateSession", {})
   .n("VoiceIDClient", "EvaluateSessionCommand")
-  .sc(EvaluateSession)
+  .sc(EvaluateSession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

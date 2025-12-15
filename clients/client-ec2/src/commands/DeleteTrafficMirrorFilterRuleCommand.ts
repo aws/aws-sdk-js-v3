@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteTrafficMirrorFilterRuleRequest, DeleteTrafficMirrorFilterRuleResult } from "../models/models_2";
-import { DeleteTrafficMirrorFilterRule } from "../schemas/schemas_0";
+import { DeleteTrafficMirrorFilterRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -76,7 +76,7 @@ export class DeleteTrafficMirrorFilterRuleCommand extends $Command
   })
   .s("AmazonEC2", "DeleteTrafficMirrorFilterRule", {})
   .n("EC2Client", "DeleteTrafficMirrorFilterRuleCommand")
-  .sc(DeleteTrafficMirrorFilterRule)
+  .sc(DeleteTrafficMirrorFilterRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

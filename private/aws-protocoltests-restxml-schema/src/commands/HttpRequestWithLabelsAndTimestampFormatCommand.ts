@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestXmlProtocolClient";
-import { HttpRequestWithLabelsAndTimestampFormat } from "../schemas/schemas_0";
+import { HttpRequestWithLabelsAndTimestampFormat$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class HttpRequestWithLabelsAndTimestampFormatCommand extends $Command
   })
   .s("RestXml", "HttpRequestWithLabelsAndTimestampFormat", {})
   .n("RestXmlProtocolClient", "HttpRequestWithLabelsAndTimestampFormatCommand")
-  .sc(HttpRequestWithLabelsAndTimestampFormat)
+  .sc(HttpRequestWithLabelsAndTimestampFormat$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

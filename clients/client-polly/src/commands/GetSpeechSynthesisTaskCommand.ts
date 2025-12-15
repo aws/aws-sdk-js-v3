@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetSpeechSynthesisTaskInput, GetSpeechSynthesisTaskOutput } from "../models/models_0";
 import type { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
-import { GetSpeechSynthesisTask } from "../schemas/schemas_0";
+import { GetSpeechSynthesisTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class GetSpeechSynthesisTaskCommand extends $Command
   })
   .s("Parrot_v1", "GetSpeechSynthesisTask", {})
   .n("PollyClient", "GetSpeechSynthesisTaskCommand")
-  .sc(GetSpeechSynthesisTask)
+  .sc(GetSpeechSynthesisTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateChannelRequest, DisassociateChannelResponse } from "../models/models_0";
 import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { DisassociateChannel } from "../schemas/schemas_0";
+import { DisassociateChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DisassociateChannelCommand extends $Command
   })
   .s("Notifications", "DisassociateChannel", {})
   .n("NotificationsClient", "DisassociateChannelCommand")
-  .sc(DisassociateChannel)
+  .sc(DisassociateChannel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

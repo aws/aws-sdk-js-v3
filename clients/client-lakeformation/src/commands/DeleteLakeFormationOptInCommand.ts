@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import type { DeleteLakeFormationOptInRequest, DeleteLakeFormationOptInResponse } from "../models/models_0";
-import { DeleteLakeFormationOptIn } from "../schemas/schemas_0";
+import { DeleteLakeFormationOptIn$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -156,7 +156,7 @@ export class DeleteLakeFormationOptInCommand extends $Command
   })
   .s("AWSLakeFormation", "DeleteLakeFormationOptIn", {})
   .n("LakeFormationClient", "DeleteLakeFormationOptInCommand")
-  .sc(DeleteLakeFormationOptIn)
+  .sc(DeleteLakeFormationOptIn$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

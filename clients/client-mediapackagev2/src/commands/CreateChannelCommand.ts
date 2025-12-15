@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MediaPackageV2Client";
 import type { CreateChannelRequest, CreateChannelResponse } from "../models/models_0";
-import { CreateChannel } from "../schemas/schemas_0";
+import { CreateChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -178,7 +178,7 @@ export class CreateChannelCommand extends $Command
   })
   .s("mediapackagev2", "CreateChannel", {})
   .n("MediaPackageV2Client", "CreateChannelCommand")
-  .sc(CreateChannel)
+  .sc(CreateChannel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

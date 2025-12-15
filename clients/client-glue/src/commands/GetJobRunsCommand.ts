@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { GetJobRunsRequest, GetJobRunsResponse } from "../models/models_1";
-import { GetJobRuns } from "../schemas/schemas_0";
+import { GetJobRuns$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class GetJobRunsCommand extends $Command
   })
   .s("AWSGlue", "GetJobRuns", {})
   .n("GlueClient", "GetJobRunsCommand")
-  .sc(GetJobRuns)
+  .sc(GetJobRuns$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAccessControlRulesRequest, ListAccessControlRulesResponse } from "../models/models_0";
-import { ListAccessControlRules } from "../schemas/schemas_0";
+import { ListAccessControlRules$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -113,7 +113,7 @@ export class ListAccessControlRulesCommand extends $Command
   })
   .s("WorkMailService", "ListAccessControlRules", {})
   .n("WorkMailClient", "ListAccessControlRulesCommand")
-  .sc(ListAccessControlRules)
+  .sc(ListAccessControlRules$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

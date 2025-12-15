@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
 import type { DisconnectUserRequest, DisconnectUserResponse } from "../models/models_0";
-import { DisconnectUser } from "../schemas/schemas_0";
+import { DisconnectUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DisconnectUserCommand extends $Command
   })
   .s("AmazonInteractiveVideoServiceChat", "DisconnectUser", {})
   .n("IvschatClient", "DisconnectUserCommand")
-  .sc(DisconnectUser)
+  .sc(DisconnectUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

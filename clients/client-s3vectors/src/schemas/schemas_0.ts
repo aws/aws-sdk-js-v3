@@ -149,62 +149,62 @@ import type {
 } from "@smithy/types";
 
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  KmsDisabledException as __KmsDisabledException,
-  KmsInvalidKeyUsageException as __KmsInvalidKeyUsageException,
-  KmsInvalidStateException as __KmsInvalidStateException,
-  KmsNotFoundException as __KmsNotFoundException,
-  NotFoundException as __NotFoundException,
-  RequestTimeoutException as __RequestTimeoutException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ServiceUnavailableException as __ServiceUnavailableException,
-  TooManyRequestsException as __TooManyRequestsException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  KmsDisabledException,
+  KmsInvalidKeyUsageException,
+  KmsInvalidStateException,
+  KmsNotFoundException,
+  NotFoundException,
+  RequestTimeoutException,
+  ServiceQuotaExceededException,
+  ServiceUnavailableException,
+  TooManyRequestsException,
+  ValidationException,
 } from "../models/errors";
-import { S3VectorsServiceException as __S3VectorsServiceException } from "../models/S3VectorsServiceException";
+import { S3VectorsServiceException } from "../models/S3VectorsServiceException";
 
 /* eslint no-var: 0 */
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateIndexInput: StaticStructureSchema = [
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateIndexInput$: StaticStructureSchema = [
   3,
   n0,
   _CII,
   0,
   [_vBN, _vBA, _iN, _dT, _d, _dM, _mC, _eC, _t],
-  [0, 0, 0, 0, 1, 0, () => MetadataConfiguration, () => EncryptionConfiguration, 128 | 0],
+  [0, 0, 0, 0, 1, 0, () => MetadataConfiguration$, () => EncryptionConfiguration$, 128 | 0],
 ];
-export var CreateIndexOutput: StaticStructureSchema = [3, n0, _CIO, 0, [_iA], [0]];
-export var CreateVectorBucketInput: StaticStructureSchema = [
+export var CreateIndexOutput$: StaticStructureSchema = [3, n0, _CIO, 0, [_iA], [0]];
+export var CreateVectorBucketInput$: StaticStructureSchema = [
   3,
   n0,
   _CVBI,
   0,
   [_vBN, _eC, _t],
-  [0, () => EncryptionConfiguration, 128 | 0],
+  [0, () => EncryptionConfiguration$, 128 | 0],
 ];
-export var CreateVectorBucketOutput: StaticStructureSchema = [3, n0, _CVBO, 0, [_vBA], [0]];
-export var DeleteIndexInput: StaticStructureSchema = [3, n0, _DII, 0, [_vBN, _iN, _iA], [0, 0, 0]];
-export var DeleteIndexOutput: StaticStructureSchema = [3, n0, _DIO, 0, [], []];
-export var DeleteVectorBucketInput: StaticStructureSchema = [3, n0, _DVBI, 0, [_vBN, _vBA], [0, 0]];
-export var DeleteVectorBucketOutput: StaticStructureSchema = [3, n0, _DVBO, 0, [], []];
-export var DeleteVectorBucketPolicyInput: StaticStructureSchema = [3, n0, _DVBPI, 0, [_vBN, _vBA], [0, 0]];
-export var DeleteVectorBucketPolicyOutput: StaticStructureSchema = [3, n0, _DVBPO, 0, [], []];
-export var DeleteVectorsInput: StaticStructureSchema = [3, n0, _DVI, 0, [_vBN, _iN, _iA, _k], [0, 0, 0, 64 | 0]];
-export var DeleteVectorsOutput: StaticStructureSchema = [3, n0, _DVO, 0, [], []];
-export var EncryptionConfiguration: StaticStructureSchema = [3, n0, _EC, 0, [_sT, _kKA], [0, 0]];
-export var GetIndexInput: StaticStructureSchema = [3, n0, _GII, 0, [_vBN, _iN, _iA], [0, 0, 0]];
-export var GetIndexOutput: StaticStructureSchema = [3, n0, _GIO, 0, [_i], [() => Index]];
-export var GetOutputVector: StaticStructureSchema = [3, n0, _GOV, 0, [_ke, _da, _me], [0, () => VectorData, 15]];
-export var GetVectorBucketInput: StaticStructureSchema = [3, n0, _GVBI, 0, [_vBN, _vBA], [0, 0]];
-export var GetVectorBucketOutput: StaticStructureSchema = [3, n0, _GVBO, 0, [_vB], [() => VectorBucket]];
-export var GetVectorBucketPolicyInput: StaticStructureSchema = [3, n0, _GVBPI, 0, [_vBN, _vBA], [0, 0]];
-export var GetVectorBucketPolicyOutput: StaticStructureSchema = [3, n0, _GVBPO, 0, [_p], [0]];
-export var GetVectorsInput: StaticStructureSchema = [
+export var CreateVectorBucketOutput$: StaticStructureSchema = [3, n0, _CVBO, 0, [_vBA], [0]];
+export var DeleteIndexInput$: StaticStructureSchema = [3, n0, _DII, 0, [_vBN, _iN, _iA], [0, 0, 0]];
+export var DeleteIndexOutput$: StaticStructureSchema = [3, n0, _DIO, 0, [], []];
+export var DeleteVectorBucketInput$: StaticStructureSchema = [3, n0, _DVBI, 0, [_vBN, _vBA], [0, 0]];
+export var DeleteVectorBucketOutput$: StaticStructureSchema = [3, n0, _DVBO, 0, [], []];
+export var DeleteVectorBucketPolicyInput$: StaticStructureSchema = [3, n0, _DVBPI, 0, [_vBN, _vBA], [0, 0]];
+export var DeleteVectorBucketPolicyOutput$: StaticStructureSchema = [3, n0, _DVBPO, 0, [], []];
+export var DeleteVectorsInput$: StaticStructureSchema = [3, n0, _DVI, 0, [_vBN, _iN, _iA, _k], [0, 0, 0, 64 | 0]];
+export var DeleteVectorsOutput$: StaticStructureSchema = [3, n0, _DVO, 0, [], []];
+export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC, 0, [_sT, _kKA], [0, 0]];
+export var GetIndexInput$: StaticStructureSchema = [3, n0, _GII, 0, [_vBN, _iN, _iA], [0, 0, 0]];
+export var GetIndexOutput$: StaticStructureSchema = [3, n0, _GIO, 0, [_i], [() => Index$]];
+export var GetOutputVector$: StaticStructureSchema = [3, n0, _GOV, 0, [_ke, _da, _me], [0, () => VectorData$, 15]];
+export var GetVectorBucketInput$: StaticStructureSchema = [3, n0, _GVBI, 0, [_vBN, _vBA], [0, 0]];
+export var GetVectorBucketOutput$: StaticStructureSchema = [3, n0, _GVBO, 0, [_vB], [() => VectorBucket$]];
+export var GetVectorBucketPolicyInput$: StaticStructureSchema = [3, n0, _GVBPI, 0, [_vBN, _vBA], [0, 0]];
+export var GetVectorBucketPolicyOutput$: StaticStructureSchema = [3, n0, _GVBPO, 0, [_p], [0]];
+export var GetVectorsInput$: StaticStructureSchema = [
   3,
   n0,
   _GVI,
@@ -212,33 +212,33 @@ export var GetVectorsInput: StaticStructureSchema = [
   [_vBN, _iN, _iA, _k, _rD, _rM],
   [0, 0, 0, 64 | 0, 2, 2],
 ];
-export var GetVectorsOutput: StaticStructureSchema = [3, n0, _GVO, 0, [_v], [() => GetVectorsOutputList]];
-export var Index: StaticStructureSchema = [
+export var GetVectorsOutput$: StaticStructureSchema = [3, n0, _GVO, 0, [_v], [() => GetVectorsOutputList]];
+export var Index$: StaticStructureSchema = [
   3,
   n0,
   _I,
   0,
   [_vBN, _iN, _iA, _cT, _dT, _d, _dM, _mC, _eC],
-  [0, 0, 0, 4, 0, 1, 0, () => MetadataConfiguration, () => EncryptionConfiguration],
+  [0, 0, 0, 4, 0, 1, 0, () => MetadataConfiguration$, () => EncryptionConfiguration$],
 ];
-export var IndexSummary: StaticStructureSchema = [3, n0, _IS, 0, [_vBN, _iN, _iA, _cT], [0, 0, 0, 4]];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var KmsDisabledException: StaticErrorSchema = [-3, n0, _KDE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(KmsDisabledException, __KmsDisabledException);
-export var KmsInvalidKeyUsageException: StaticErrorSchema = [-3, n0, _KIKUE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(KmsInvalidKeyUsageException, __KmsInvalidKeyUsageException);
-export var KmsInvalidStateException: StaticErrorSchema = [-3, n0, _KISE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(KmsInvalidStateException, __KmsInvalidStateException);
-export var KmsNotFoundException: StaticErrorSchema = [-3, n0, _KNFE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(KmsNotFoundException, __KmsNotFoundException);
-export var ListIndexesInput: StaticStructureSchema = [3, n0, _LII, 0, [_vBN, _vBA, _mR, _nT, _pr], [0, 0, 1, 0, 0]];
-export var ListIndexesOutput: StaticStructureSchema = [3, n0, _LIO, 0, [_nT, _in], [0, () => ListIndexesOutputList]];
-export var ListOutputVector: StaticStructureSchema = [3, n0, _LOV, 0, [_ke, _da, _me], [0, () => VectorData, 15]];
-export var ListTagsForResourceInput: StaticStructureSchema = [3, n0, _LTFRI, 0, [_rA], [[0, 1]]];
-export var ListTagsForResourceOutput: StaticStructureSchema = [3, n0, _LTFRO, 0, [_t], [128 | 0]];
-export var ListVectorBucketsInput: StaticStructureSchema = [3, n0, _LVBI, 0, [_mR, _nT, _pr], [1, 0, 0]];
-export var ListVectorBucketsOutput: StaticStructureSchema = [
+export var IndexSummary$: StaticStructureSchema = [3, n0, _IS, 0, [_vBN, _iN, _iA, _cT], [0, 0, 0, 4]];
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var KmsDisabledException$: StaticErrorSchema = [-3, n0, _KDE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(KmsDisabledException$, KmsDisabledException);
+export var KmsInvalidKeyUsageException$: StaticErrorSchema = [-3, n0, _KIKUE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(KmsInvalidKeyUsageException$, KmsInvalidKeyUsageException);
+export var KmsInvalidStateException$: StaticErrorSchema = [-3, n0, _KISE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(KmsInvalidStateException$, KmsInvalidStateException);
+export var KmsNotFoundException$: StaticErrorSchema = [-3, n0, _KNFE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(KmsNotFoundException$, KmsNotFoundException);
+export var ListIndexesInput$: StaticStructureSchema = [3, n0, _LII, 0, [_vBN, _vBA, _mR, _nT, _pr], [0, 0, 1, 0, 0]];
+export var ListIndexesOutput$: StaticStructureSchema = [3, n0, _LIO, 0, [_nT, _in], [0, () => ListIndexesOutputList]];
+export var ListOutputVector$: StaticStructureSchema = [3, n0, _LOV, 0, [_ke, _da, _me], [0, () => VectorData$, 15]];
+export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI, 0, [_rA], [[0, 1]]];
+export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO, 0, [_t], [128 | 0]];
+export var ListVectorBucketsInput$: StaticStructureSchema = [3, n0, _LVBI, 0, [_mR, _nT, _pr], [1, 0, 0]];
+export var ListVectorBucketsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LVBO,
@@ -246,7 +246,7 @@ export var ListVectorBucketsOutput: StaticStructureSchema = [
   [_nT, _vBe],
   [0, () => ListVectorBucketsOutputList],
 ];
-export var ListVectorsInput: StaticStructureSchema = [
+export var ListVectorsInput$: StaticStructureSchema = [
   3,
   n0,
   _LVI,
@@ -254,14 +254,14 @@ export var ListVectorsInput: StaticStructureSchema = [
   [_vBN, _iN, _iA, _mR, _nT, _sC, _sI, _rD, _rM],
   [0, 0, 0, 1, 0, 1, 1, 2, 2],
 ];
-export var ListVectorsOutput: StaticStructureSchema = [3, n0, _LVO, 0, [_nT, _v], [0, () => ListVectorsOutputList]];
-export var MetadataConfiguration: StaticStructureSchema = [3, n0, _MC, 0, [_nFMK], [64 | 0]];
-export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-export var PutInputVector: StaticStructureSchema = [3, n0, _PIV, 0, [_ke, _da, _me], [0, () => VectorData, 15]];
-export var PutVectorBucketPolicyInput: StaticStructureSchema = [3, n0, _PVBPI, 0, [_vBN, _vBA, _p], [0, 0, 0]];
-export var PutVectorBucketPolicyOutput: StaticStructureSchema = [3, n0, _PVBPO, 0, [], []];
-export var PutVectorsInput: StaticStructureSchema = [
+export var ListVectorsOutput$: StaticStructureSchema = [3, n0, _LVO, 0, [_nT, _v], [0, () => ListVectorsOutputList]];
+export var MetadataConfiguration$: StaticStructureSchema = [3, n0, _MC, 0, [_nFMK], [64 | 0]];
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
+export var PutInputVector$: StaticStructureSchema = [3, n0, _PIV, 0, [_ke, _da, _me], [0, () => VectorData$, 15]];
+export var PutVectorBucketPolicyInput$: StaticStructureSchema = [3, n0, _PVBPI, 0, [_vBN, _vBA, _p], [0, 0, 0]];
+export var PutVectorBucketPolicyOutput$: StaticStructureSchema = [3, n0, _PVBPO, 0, [], []];
+export var PutVectorsInput$: StaticStructureSchema = [
   3,
   n0,
   _PVI,
@@ -269,28 +269,28 @@ export var PutVectorsInput: StaticStructureSchema = [
   [_vBN, _iN, _iA, _v],
   [0, 0, 0, () => PutVectorsInputList],
 ];
-export var PutVectorsOutput: StaticStructureSchema = [3, n0, _PVO, 0, [], []];
-export var QueryOutputVector: StaticStructureSchema = [3, n0, _QOV, 0, [_di, _ke, _me], [1, 0, 15]];
-export var QueryVectorsInput: StaticStructureSchema = [
+export var PutVectorsOutput$: StaticStructureSchema = [3, n0, _PVO, 0, [], []];
+export var QueryOutputVector$: StaticStructureSchema = [3, n0, _QOV, 0, [_di, _ke, _me], [1, 0, 15]];
+export var QueryVectorsInput$: StaticStructureSchema = [
   3,
   n0,
   _QVI,
   0,
   [_vBN, _iN, _iA, _tK, _qV, _f, _rM, _rDe],
-  [0, 0, 0, 1, () => VectorData, 15, 2, 2],
+  [0, 0, 0, 1, () => VectorData$, 15, 2, 2],
 ];
-export var QueryVectorsOutput: StaticStructureSchema = [3, n0, _QVO, 0, [_v, _dM], [() => QueryVectorsOutputList, 0]];
-export var RequestTimeoutException: StaticErrorSchema = [-3, n0, _RTE, { [_e]: _c, [_hE]: 408 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(RequestTimeoutException, __RequestTimeoutException);
-export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _s, [_hE]: 503 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-export var TagResourceInput: StaticStructureSchema = [3, n0, _TRI, 0, [_rA, _t], [[0, 1], 128 | 0]];
-export var TagResourceOutput: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
-export var TooManyRequestsException: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-export var UntagResourceInput: StaticStructureSchema = [
+export var QueryVectorsOutput$: StaticStructureSchema = [3, n0, _QVO, 0, [_v, _dM], [() => QueryVectorsOutputList, 0]];
+export var RequestTimeoutException$: StaticErrorSchema = [-3, n0, _RTE, { [_e]: _c, [_hE]: 408 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(RequestTimeoutException$, RequestTimeoutException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _s, [_hE]: 503 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI, 0, [_rA, _t], [[0, 1], 128 | 0]];
+export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
+export var UntagResourceInput$: StaticStructureSchema = [
   3,
   n0,
   _URI,
@@ -301,8 +301,8 @@ export var UntagResourceInput: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tKa }],
   ],
 ];
-export var UntagResourceOutput: StaticStructureSchema = [3, n0, _URO, 0, [], []];
-export var ValidationException: StaticErrorSchema = [
+export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO, 0, [], []];
+export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VE,
@@ -310,182 +310,182 @@ export var ValidationException: StaticErrorSchema = [
   [_m, _fL],
   [0, () => ValidationExceptionFieldList],
 ];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_pa, _m], [0, 0]];
-export var VectorBucket: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF, 0, [_pa, _m], [0, 0]];
+export var VectorBucket$: StaticStructureSchema = [
   3,
   n0,
   _VB,
   0,
   [_vBN, _vBA, _cT, _eC],
-  [0, 0, 4, () => EncryptionConfiguration],
+  [0, 0, 4, () => EncryptionConfiguration$],
 ];
-export var VectorBucketSummary: StaticStructureSchema = [3, n0, _VBS, 0, [_vBN, _vBA, _cT], [0, 0, 4]];
-export var S3VectorsServiceException: StaticErrorSchema = [-3, _sm, "S3VectorsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(S3VectorsServiceException, __S3VectorsServiceException);
-export var DeleteVectorsInputList = 64 | 0;
-export var Float32VectorData = 64 | 1;
-export var GetVectorsInputList = 64 | 0;
-export var GetVectorsOutputList: StaticListSchema = [1, n0, _GVOL, 0, () => GetOutputVector];
-export var ListIndexesOutputList: StaticListSchema = [1, n0, _LIOL, 0, () => IndexSummary];
-export var ListVectorBucketsOutputList: StaticListSchema = [1, n0, _LVBOL, 0, () => VectorBucketSummary];
-export var ListVectorsOutputList: StaticListSchema = [1, n0, _LVOL, 0, () => ListOutputVector];
-export var NonFilterableMetadataKeys = 64 | 0;
-export var PutVectorsInputList: StaticListSchema = [1, n0, _PVIL, 0, () => PutInputVector];
-export var QueryVectorsOutputList: StaticListSchema = [1, n0, _QVOL, 0, () => QueryOutputVector];
-export var TagKeyList = 64 | 0;
-export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
-export var TagsMap = 128 | 0;
-export var VectorData: StaticStructureSchema = [3, n0, _VD, 0, [_fl], [64 | 1]];
-export var CreateIndex: StaticOperationSchema = [
+export var VectorBucketSummary$: StaticStructureSchema = [3, n0, _VBS, 0, [_vBN, _vBA, _cT], [0, 0, 4]];
+export var S3VectorsServiceException$: StaticErrorSchema = [-3, _sm, "S3VectorsServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(S3VectorsServiceException$, S3VectorsServiceException);
+var DeleteVectorsInputList = 64 | 0;
+var Float32VectorData = 64 | 1;
+var GetVectorsInputList = 64 | 0;
+var GetVectorsOutputList: StaticListSchema = [1, n0, _GVOL, 0, () => GetOutputVector$];
+var ListIndexesOutputList: StaticListSchema = [1, n0, _LIOL, 0, () => IndexSummary$];
+var ListVectorBucketsOutputList: StaticListSchema = [1, n0, _LVBOL, 0, () => VectorBucketSummary$];
+var ListVectorsOutputList: StaticListSchema = [1, n0, _LVOL, 0, () => ListOutputVector$];
+var NonFilterableMetadataKeys = 64 | 0;
+var PutVectorsInputList: StaticListSchema = [1, n0, _PVIL, 0, () => PutInputVector$];
+var QueryVectorsOutputList: StaticListSchema = [1, n0, _QVOL, 0, () => QueryOutputVector$];
+var TagKeyList = 64 | 0;
+var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField$];
+var TagsMap = 128 | 0;
+export var VectorData$: StaticStructureSchema = [3, n0, _VD, 0, [_fl], [64 | 1]];
+export var CreateIndex$: StaticOperationSchema = [
   9,
   n0,
   _CI,
   { [_h]: ["POST", "/CreateIndex", 200] },
-  () => CreateIndexInput,
-  () => CreateIndexOutput,
+  () => CreateIndexInput$,
+  () => CreateIndexOutput$,
 ];
-export var CreateVectorBucket: StaticOperationSchema = [
+export var CreateVectorBucket$: StaticOperationSchema = [
   9,
   n0,
   _CVB,
   { [_h]: ["POST", "/CreateVectorBucket", 200] },
-  () => CreateVectorBucketInput,
-  () => CreateVectorBucketOutput,
+  () => CreateVectorBucketInput$,
+  () => CreateVectorBucketOutput$,
 ];
-export var DeleteIndex: StaticOperationSchema = [
+export var DeleteIndex$: StaticOperationSchema = [
   9,
   n0,
   _DI,
   { [_h]: ["POST", "/DeleteIndex", 200] },
-  () => DeleteIndexInput,
-  () => DeleteIndexOutput,
+  () => DeleteIndexInput$,
+  () => DeleteIndexOutput$,
 ];
-export var DeleteVectorBucket: StaticOperationSchema = [
+export var DeleteVectorBucket$: StaticOperationSchema = [
   9,
   n0,
   _DVB,
   { [_h]: ["POST", "/DeleteVectorBucket", 200] },
-  () => DeleteVectorBucketInput,
-  () => DeleteVectorBucketOutput,
+  () => DeleteVectorBucketInput$,
+  () => DeleteVectorBucketOutput$,
 ];
-export var DeleteVectorBucketPolicy: StaticOperationSchema = [
+export var DeleteVectorBucketPolicy$: StaticOperationSchema = [
   9,
   n0,
   _DVBP,
   { [_h]: ["POST", "/DeleteVectorBucketPolicy", 200] },
-  () => DeleteVectorBucketPolicyInput,
-  () => DeleteVectorBucketPolicyOutput,
+  () => DeleteVectorBucketPolicyInput$,
+  () => DeleteVectorBucketPolicyOutput$,
 ];
-export var DeleteVectors: StaticOperationSchema = [
+export var DeleteVectors$: StaticOperationSchema = [
   9,
   n0,
   _DV,
   { [_h]: ["POST", "/DeleteVectors", 200] },
-  () => DeleteVectorsInput,
-  () => DeleteVectorsOutput,
+  () => DeleteVectorsInput$,
+  () => DeleteVectorsOutput$,
 ];
-export var GetIndex: StaticOperationSchema = [
+export var GetIndex$: StaticOperationSchema = [
   9,
   n0,
   _GI,
   { [_h]: ["POST", "/GetIndex", 200] },
-  () => GetIndexInput,
-  () => GetIndexOutput,
+  () => GetIndexInput$,
+  () => GetIndexOutput$,
 ];
-export var GetVectorBucket: StaticOperationSchema = [
+export var GetVectorBucket$: StaticOperationSchema = [
   9,
   n0,
   _GVB,
   { [_h]: ["POST", "/GetVectorBucket", 200] },
-  () => GetVectorBucketInput,
-  () => GetVectorBucketOutput,
+  () => GetVectorBucketInput$,
+  () => GetVectorBucketOutput$,
 ];
-export var GetVectorBucketPolicy: StaticOperationSchema = [
+export var GetVectorBucketPolicy$: StaticOperationSchema = [
   9,
   n0,
   _GVBP,
   { [_h]: ["POST", "/GetVectorBucketPolicy", 200] },
-  () => GetVectorBucketPolicyInput,
-  () => GetVectorBucketPolicyOutput,
+  () => GetVectorBucketPolicyInput$,
+  () => GetVectorBucketPolicyOutput$,
 ];
-export var GetVectors: StaticOperationSchema = [
+export var GetVectors$: StaticOperationSchema = [
   9,
   n0,
   _GV,
   { [_h]: ["POST", "/GetVectors", 200] },
-  () => GetVectorsInput,
-  () => GetVectorsOutput,
+  () => GetVectorsInput$,
+  () => GetVectorsOutput$,
 ];
-export var ListIndexes: StaticOperationSchema = [
+export var ListIndexes$: StaticOperationSchema = [
   9,
   n0,
   _LI,
   { [_h]: ["POST", "/ListIndexes", 200] },
-  () => ListIndexesInput,
-  () => ListIndexesOutput,
+  () => ListIndexesInput$,
+  () => ListIndexesOutput$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{resourceArn}", 200] },
-  () => ListTagsForResourceInput,
-  () => ListTagsForResourceOutput,
+  () => ListTagsForResourceInput$,
+  () => ListTagsForResourceOutput$,
 ];
-export var ListVectorBuckets: StaticOperationSchema = [
+export var ListVectorBuckets$: StaticOperationSchema = [
   9,
   n0,
   _LVB,
   { [_h]: ["POST", "/ListVectorBuckets", 200] },
-  () => ListVectorBucketsInput,
-  () => ListVectorBucketsOutput,
+  () => ListVectorBucketsInput$,
+  () => ListVectorBucketsOutput$,
 ];
-export var ListVectors: StaticOperationSchema = [
+export var ListVectors$: StaticOperationSchema = [
   9,
   n0,
   _LV,
   { [_h]: ["POST", "/ListVectors", 200] },
-  () => ListVectorsInput,
-  () => ListVectorsOutput,
+  () => ListVectorsInput$,
+  () => ListVectorsOutput$,
 ];
-export var PutVectorBucketPolicy: StaticOperationSchema = [
+export var PutVectorBucketPolicy$: StaticOperationSchema = [
   9,
   n0,
   _PVBP,
   { [_h]: ["POST", "/PutVectorBucketPolicy", 200] },
-  () => PutVectorBucketPolicyInput,
-  () => PutVectorBucketPolicyOutput,
+  () => PutVectorBucketPolicyInput$,
+  () => PutVectorBucketPolicyOutput$,
 ];
-export var PutVectors: StaticOperationSchema = [
+export var PutVectors$: StaticOperationSchema = [
   9,
   n0,
   _PV,
   { [_h]: ["POST", "/PutVectors", 200] },
-  () => PutVectorsInput,
-  () => PutVectorsOutput,
+  () => PutVectorsInput$,
+  () => PutVectorsOutput$,
 ];
-export var QueryVectors: StaticOperationSchema = [
+export var QueryVectors$: StaticOperationSchema = [
   9,
   n0,
   _QV,
   { [_h]: ["POST", "/QueryVectors", 200] },
-  () => QueryVectorsInput,
-  () => QueryVectorsOutput,
+  () => QueryVectorsInput$,
+  () => QueryVectorsOutput$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/tags/{resourceArn}", 200] },
-  () => TagResourceInput,
-  () => TagResourceOutput,
+  () => TagResourceInput$,
+  () => TagResourceOutput$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
-  () => UntagResourceInput,
-  () => UntagResourceOutput,
+  () => UntagResourceInput$,
+  () => UntagResourceOutput$,
 ];

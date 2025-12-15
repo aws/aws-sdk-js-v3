@@ -9,7 +9,7 @@ import type {
   GetWirelessGatewayTaskDefinitionRequest,
   GetWirelessGatewayTaskDefinitionResponse,
 } from "../models/models_0";
-import { GetWirelessGatewayTaskDefinition } from "../schemas/schemas_0";
+import { GetWirelessGatewayTaskDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class GetWirelessGatewayTaskDefinitionCommand extends $Command
   })
   .s("iotwireless", "GetWirelessGatewayTaskDefinition", {})
   .n("IoTWirelessClient", "GetWirelessGatewayTaskDefinitionCommand")
-  .sc(GetWirelessGatewayTaskDefinition)
+  .sc(GetWirelessGatewayTaskDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import type { DeleteListenerRequest } from "../models/models_0";
-import { DeleteListener } from "../schemas/schemas_0";
+import { DeleteListener$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class DeleteListenerCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "DeleteListener", {})
   .n("GlobalAcceleratorClient", "DeleteListenerCommand")
-  .sc(DeleteListener)
+  .sc(DeleteListener$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

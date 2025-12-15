@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListFlowExecutionsRequest, ListFlowExecutionsResponse } from "../models/models_0";
-import { ListFlowExecutions } from "../schemas/schemas_0";
+import { ListFlowExecutions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class ListFlowExecutionsCommand extends $Command
   })
   .s("AmazonBedrockAgentRunTimeService", "ListFlowExecutions", {})
   .n("BedrockAgentRuntimeClient", "ListFlowExecutionsCommand")
-  .sc(ListFlowExecutions)
+  .sc(ListFlowExecutions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

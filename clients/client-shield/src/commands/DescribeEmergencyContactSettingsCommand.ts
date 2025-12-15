@@ -8,7 +8,7 @@ import type {
   DescribeEmergencyContactSettingsRequest,
   DescribeEmergencyContactSettingsResponse,
 } from "../models/models_0";
-import { DescribeEmergencyContactSettings } from "../schemas/schemas_0";
+import { DescribeEmergencyContactSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -88,7 +88,7 @@ export class DescribeEmergencyContactSettingsCommand extends $Command
   })
   .s("AWSShield_20160616", "DescribeEmergencyContactSettings", {})
   .n("ShieldClient", "DescribeEmergencyContactSettingsCommand")
-  .sc(DescribeEmergencyContactSettings)
+  .sc(DescribeEmergencyContactSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

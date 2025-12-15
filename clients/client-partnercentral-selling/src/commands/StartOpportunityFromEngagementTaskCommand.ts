@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralSellingClient";
-import { StartOpportunityFromEngagementTask } from "../schemas/schemas_0";
+import { StartOpportunityFromEngagementTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class StartOpportunityFromEngagementTaskCommand extends $Command
   })
   .s("AWSPartnerCentralSelling", "StartOpportunityFromEngagementTask", {})
   .n("PartnerCentralSellingClient", "StartOpportunityFromEngagementTaskCommand")
-  .sc(StartOpportunityFromEngagementTask)
+  .sc(StartOpportunityFromEngagementTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { NotifyRecommendationsReceivedRequest, NotifyRecommendationsReceivedResponse } from "../models/models_0";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { NotifyRecommendationsReceived } from "../schemas/schemas_0";
+import { NotifyRecommendationsReceived$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class NotifyRecommendationsReceivedCommand extends $Command
   })
   .s("WisdomService", "NotifyRecommendationsReceived", {})
   .n("QConnectClient", "NotifyRecommendationsReceivedCommand")
-  .sc(NotifyRecommendationsReceived)
+  .sc(NotifyRecommendationsReceived$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

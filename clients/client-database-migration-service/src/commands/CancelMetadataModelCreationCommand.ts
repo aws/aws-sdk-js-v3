@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CancelMetadataModelCreationMessage, CancelMetadataModelCreationResponse } from "../models/models_0";
-import { CancelMetadataModelCreation } from "../schemas/schemas_0";
+import { CancelMetadataModelCreation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class CancelMetadataModelCreationCommand extends $Command
   })
   .s("AmazonDMSv20160101", "CancelMetadataModelCreation", {})
   .n("DatabaseMigrationServiceClient", "CancelMetadataModelCreationCommand")
-  .sc(CancelMetadataModelCreation)
+  .sc(CancelMetadataModelCreation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

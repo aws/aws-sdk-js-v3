@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppFabricClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAppBundlesRequest, ListAppBundlesResponse } from "../models/models_0";
-import { ListAppBundles } from "../schemas/schemas_0";
+import { ListAppBundles$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class ListAppBundlesCommand extends $Command
   })
   .s("FabricFrontEndService", "ListAppBundles", {})
   .n("AppFabricClient", "ListAppBundlesCommand")
-  .sc(ListAppBundles)
+  .sc(ListAppBundles$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeHybridADUpdateRequest, DescribeHybridADUpdateResult } from "../models/models_0";
-import { DescribeHybridADUpdate } from "../schemas/schemas_0";
+import { DescribeHybridADUpdate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -153,7 +153,7 @@ export class DescribeHybridADUpdateCommand extends $Command
   })
   .s("DirectoryService_20150416", "DescribeHybridADUpdate", {})
   .n("DirectoryServiceClient", "DescribeHybridADUpdateCommand")
-  .sc(DescribeHybridADUpdate)
+  .sc(DescribeHybridADUpdate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

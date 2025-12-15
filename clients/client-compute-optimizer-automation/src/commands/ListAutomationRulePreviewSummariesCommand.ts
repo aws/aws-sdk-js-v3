@@ -13,7 +13,7 @@ import type {
   ListAutomationRulePreviewSummariesRequest,
   ListAutomationRulePreviewSummariesResponse,
 } from "../models/models_0";
-import { ListAutomationRulePreviewSummaries } from "../schemas/schemas_0";
+import { ListAutomationRulePreviewSummaries$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -194,7 +194,7 @@ export class ListAutomationRulePreviewSummariesCommand extends $Command
   })
   .s("ComputeOptimizerAutomationService", "ListAutomationRulePreviewSummaries", {})
   .n("ComputeOptimizerAutomationClient", "ListAutomationRulePreviewSummariesCommand")
-  .sc(ListAutomationRulePreviewSummaries)
+  .sc(ListAutomationRulePreviewSummaries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

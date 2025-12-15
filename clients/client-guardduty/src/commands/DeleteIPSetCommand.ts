@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import type { DeleteIPSetRequest, DeleteIPSetResponse } from "../models/models_0";
-import { DeleteIPSet } from "../schemas/schemas_0";
+import { DeleteIPSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -79,7 +79,7 @@ export class DeleteIPSetCommand extends $Command
   })
   .s("GuardDutyAPIService", "DeleteIPSet", {})
   .n("GuardDutyClient", "DeleteIPSetCommand")
-  .sc(DeleteIPSet)
+  .sc(DeleteIPSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

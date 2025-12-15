@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EnableLDAPSRequest, EnableLDAPSResult } from "../models/models_0";
-import { EnableLDAPS } from "../schemas/schemas_0";
+import { EnableLDAPS$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class EnableLDAPSCommand extends $Command
   })
   .s("DirectoryService_20150416", "EnableLDAPS", {})
   .n("DirectoryServiceClient", "EnableLDAPSCommand")
-  .sc(EnableLDAPS)
+  .sc(EnableLDAPS$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

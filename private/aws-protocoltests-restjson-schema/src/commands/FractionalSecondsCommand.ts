@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { FractionalSeconds } from "../schemas/schemas_0";
+import { FractionalSeconds$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -75,7 +75,7 @@ export class FractionalSecondsCommand extends $Command
   })
   .s("RestJson", "FractionalSeconds", {})
   .n("RestJsonProtocolClient", "FractionalSecondsCommand")
-  .sc(FractionalSeconds)
+  .sc(FractionalSeconds$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

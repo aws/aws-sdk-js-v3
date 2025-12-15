@@ -32,7 +32,7 @@ export const getRuntimeConfig = (config: RestJsonProtocolClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "aws.protocoltests.restjson" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
     sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     serviceId: config?.serviceId ?? "Rest Json Protocol",
     urlParser: config?.urlParser ?? parseUrl,

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { HostWithPathOperation } from "../schemas/schemas_0";
+import { HostWithPathOperation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -68,7 +68,7 @@ export class HostWithPathOperationCommand extends $Command
   })
   .s("AwsEc2", "HostWithPathOperation", {})
   .n("EC2ProtocolClient", "HostWithPathOperationCommand")
-  .sc(HostWithPathOperation)
+  .sc(HostWithPathOperation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartCapacityTaskInput, StartCapacityTaskOutput } from "../models/models_0";
 import type { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import { StartCapacityTask } from "../schemas/schemas_0";
+import { StartCapacityTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -140,7 +140,7 @@ export class StartCapacityTaskCommand extends $Command
   })
   .s("OutpostsOlafService", "StartCapacityTask", {})
   .n("OutpostsClient", "StartCapacityTaskCommand")
-  .sc(StartCapacityTask)
+  .sc(StartCapacityTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

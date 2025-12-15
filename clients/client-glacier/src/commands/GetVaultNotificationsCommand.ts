@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import type { GetVaultNotificationsInput, GetVaultNotificationsOutput } from "../models/models_0";
-import { GetVaultNotifications } from "../schemas/schemas_0";
+import { GetVaultNotifications$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -131,7 +131,7 @@ export class GetVaultNotificationsCommand extends $Command
   })
   .s("Glacier", "GetVaultNotifications", {})
   .n("GlacierClient", "GetVaultNotificationsCommand")
-  .sc(GetVaultNotifications)
+  .sc(GetVaultNotifications$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

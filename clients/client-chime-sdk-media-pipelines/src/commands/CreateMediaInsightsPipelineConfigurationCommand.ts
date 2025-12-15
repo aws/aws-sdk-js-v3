@@ -13,7 +13,7 @@ import type {
   CreateMediaInsightsPipelineConfigurationRequest,
   CreateMediaInsightsPipelineConfigurationResponse,
 } from "../models/models_0";
-import { CreateMediaInsightsPipelineConfiguration } from "../schemas/schemas_0";
+import { CreateMediaInsightsPipelineConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -309,7 +309,7 @@ export class CreateMediaInsightsPipelineConfigurationCommand extends $Command
   })
   .s("ChimeSDKMediaPipelinesService", "CreateMediaInsightsPipelineConfiguration", {})
   .n("ChimeSDKMediaPipelinesClient", "CreateMediaInsightsPipelineConfigurationCommand")
-  .sc(CreateMediaInsightsPipelineConfiguration)
+  .sc(CreateMediaInsightsPipelineConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

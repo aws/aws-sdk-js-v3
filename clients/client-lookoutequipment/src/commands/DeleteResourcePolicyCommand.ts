@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LookoutEquipmentClient";
 import type { DeleteResourcePolicyRequest } from "../models/models_0";
-import { DeleteResourcePolicy } from "../schemas/schemas_0";
+import { DeleteResourcePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class DeleteResourcePolicyCommand extends $Command
   })
   .s("AWSLookoutEquipmentFrontendService", "DeleteResourcePolicy", {})
   .n("LookoutEquipmentClient", "DeleteResourcePolicyCommand")
-  .sc(DeleteResourcePolicy)
+  .sc(DeleteResourcePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

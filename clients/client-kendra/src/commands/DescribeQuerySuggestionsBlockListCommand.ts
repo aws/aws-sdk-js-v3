@@ -9,7 +9,7 @@ import type {
   DescribeQuerySuggestionsBlockListRequest,
   DescribeQuerySuggestionsBlockListResponse,
 } from "../models/models_0";
-import { DescribeQuerySuggestionsBlockList } from "../schemas/schemas_0";
+import { DescribeQuerySuggestionsBlockList$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class DescribeQuerySuggestionsBlockListCommand extends $Command
   })
   .s("AWSKendraFrontendService", "DescribeQuerySuggestionsBlockList", {})
   .n("KendraClient", "DescribeQuerySuggestionsBlockListCommand")
-  .sc(DescribeQuerySuggestionsBlockList)
+  .sc(DescribeQuerySuggestionsBlockList$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

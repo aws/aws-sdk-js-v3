@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchGetMemberAccountDetailsRequest, BatchGetMemberAccountDetailsResponse } from "../models/models_0";
-import { BatchGetMemberAccountDetails } from "../schemas/schemas_0";
+import { BatchGetMemberAccountDetails$ } from "../schemas/schemas_0";
 import type { SecurityIRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityIRClient";
 
 /**
@@ -142,7 +142,7 @@ export class BatchGetMemberAccountDetailsCommand extends $Command
   })
   .s("SecurityIncidentResponse", "BatchGetMemberAccountDetails", {})
   .n("SecurityIRClient", "BatchGetMemberAccountDetailsCommand")
-  .sc(BatchGetMemberAccountDetails)
+  .sc(BatchGetMemberAccountDetails$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

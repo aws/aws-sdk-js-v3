@@ -10,7 +10,7 @@ import type {
 } from "../ElasticTranscoderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CancelJobRequest, CancelJobResponse } from "../models/models_0";
-import { CancelJob } from "../schemas/schemas_0";
+import { CancelJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class CancelJobCommand extends $Command
   })
   .s("EtsCustomerService", "CancelJob", {})
   .n("ElasticTranscoderClient", "CancelJobCommand")
-  .sc(CancelJob)
+  .sc(CancelJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

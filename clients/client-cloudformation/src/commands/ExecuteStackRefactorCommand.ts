@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ExecuteStackRefactorInput } from "../models/models_0";
-import { ExecuteStackRefactor } from "../schemas/schemas_0";
+import { ExecuteStackRefactor$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -75,7 +75,7 @@ export class ExecuteStackRefactorCommand extends $Command
   })
   .s("CloudFormation", "ExecuteStackRefactor", {})
   .n("CloudFormationClient", "ExecuteStackRefactorCommand")
-  .sc(ExecuteStackRefactor)
+  .sc(ExecuteStackRefactor$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

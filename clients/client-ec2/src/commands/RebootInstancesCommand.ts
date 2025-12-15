@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RebootInstancesRequest } from "../models/models_7";
-import { RebootInstances } from "../schemas/schemas_0";
+import { RebootInstances$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class RebootInstancesCommand extends $Command
   })
   .s("AmazonEC2", "RebootInstances", {})
   .n("EC2Client", "RebootInstancesCommand")
-  .sc(RebootInstances)
+  .sc(RebootInstances$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

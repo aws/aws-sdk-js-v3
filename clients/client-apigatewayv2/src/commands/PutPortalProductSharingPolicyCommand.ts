@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutPortalProductSharingPolicyRequest, PutPortalProductSharingPolicyResponse } from "../models/models_0";
-import { PutPortalProductSharingPolicy } from "../schemas/schemas_0";
+import { PutPortalProductSharingPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class PutPortalProductSharingPolicyCommand extends $Command
   })
   .s("ApiGatewayV2", "PutPortalProductSharingPolicy", {})
   .n("ApiGatewayV2Client", "PutPortalProductSharingPolicyCommand")
-  .sc(PutPortalProductSharingPolicy)
+  .sc(PutPortalProductSharingPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DeleteRepositoryPermissionsPolicyRequest,
   DeleteRepositoryPermissionsPolicyResult,
 } from "../models/models_0";
-import { DeleteRepositoryPermissionsPolicy } from "../schemas/schemas_0";
+import { DeleteRepositoryPermissionsPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -122,7 +122,7 @@ export class DeleteRepositoryPermissionsPolicyCommand extends $Command
   })
   .s("CodeArtifactControlPlaneService", "DeleteRepositoryPermissionsPolicy", {})
   .n("CodeartifactClient", "DeleteRepositoryPermissionsPolicyCommand")
-  .sc(DeleteRepositoryPermissionsPolicy)
+  .sc(DeleteRepositoryPermissionsPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

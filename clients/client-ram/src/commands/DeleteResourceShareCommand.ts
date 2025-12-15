@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteResourceShareRequest, DeleteResourceShareResponse } from "../models/models_0";
 import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
-import { DeleteResourceShare } from "../schemas/schemas_0";
+import { DeleteResourceShare$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class DeleteResourceShareCommand extends $Command
   })
   .s("AmazonResourceSharing", "DeleteResourceShare", {})
   .n("RAMClient", "DeleteResourceShareCommand")
-  .sc(DeleteResourceShare)
+  .sc(DeleteResourceShare$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

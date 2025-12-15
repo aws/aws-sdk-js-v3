@@ -10,7 +10,7 @@ import type {
 } from "../AmplifyUIBuilderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutMetadataFlagRequest } from "../models/models_0";
-import { PutMetadataFlag } from "../schemas/schemas_0";
+import { PutMetadataFlag$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class PutMetadataFlagCommand extends $Command
   })
   .s("AmplifyUIBuilder", "PutMetadataFlag", {})
   .n("AmplifyUIBuilderClient", "PutMetadataFlagCommand")
-  .sc(PutMetadataFlag)
+  .sc(PutMetadataFlag$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

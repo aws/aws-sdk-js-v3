@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralChannelClient";
-import { GetRelationship } from "../schemas/schemas_0";
+import { GetRelationship$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -137,7 +137,7 @@ export class GetRelationshipCommand extends $Command
   })
   .s("PartnerCentralChannel", "GetRelationship", {})
   .n("PartnerCentralChannelClient", "GetRelationshipCommand")
-  .sc(GetRelationship)
+  .sc(GetRelationship$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

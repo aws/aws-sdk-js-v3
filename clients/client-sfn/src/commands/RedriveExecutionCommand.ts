@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RedriveExecutionInput, RedriveExecutionOutput } from "../models/models_0";
-import { RedriveExecution } from "../schemas/schemas_0";
+import { RedriveExecution$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -111,7 +111,7 @@ export class RedriveExecutionCommand extends $Command
   })
   .s("AWSStepFunctions", "RedriveExecution", {})
   .n("SFNClient", "RedriveExecutionCommand")
-  .sc(RedriveExecution)
+  .sc(RedriveExecution$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

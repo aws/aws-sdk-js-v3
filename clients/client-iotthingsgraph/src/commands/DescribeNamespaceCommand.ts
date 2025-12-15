@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTThingsGraphClient";
 import type { DescribeNamespaceRequest, DescribeNamespaceResponse } from "../models/models_0";
-import { DescribeNamespace } from "../schemas/schemas_0";
+import { DescribeNamespace$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DescribeNamespaceCommand extends $Command
   })
   .s("IotThingsGraphFrontEndService", "DescribeNamespace", {})
   .n("IoTThingsGraphClient", "DescribeNamespaceCommand")
-  .sc(DescribeNamespace)
+  .sc(DescribeNamespace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

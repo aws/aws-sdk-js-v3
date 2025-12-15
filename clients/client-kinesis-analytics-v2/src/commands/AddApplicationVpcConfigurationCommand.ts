@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
 import type { AddApplicationVpcConfigurationRequest, AddApplicationVpcConfigurationResponse } from "../models/models_0";
-import { AddApplicationVpcConfiguration } from "../schemas/schemas_0";
+import { AddApplicationVpcConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -129,7 +129,7 @@ export class AddApplicationVpcConfigurationCommand extends $Command
   })
   .s("KinesisAnalytics_20180523", "AddApplicationVpcConfiguration", {})
   .n("KinesisAnalyticsV2Client", "AddApplicationVpcConfigurationCommand")
-  .sc(AddApplicationVpcConfiguration)
+  .sc(AddApplicationVpcConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

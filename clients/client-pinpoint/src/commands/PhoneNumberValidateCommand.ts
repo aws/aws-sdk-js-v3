@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PhoneNumberValidateRequest, PhoneNumberValidateResponse } from "../models/models_1";
 import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { PhoneNumberValidate } from "../schemas/schemas_0";
+import { PhoneNumberValidate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class PhoneNumberValidateCommand extends $Command
   })
   .s("Pinpoint", "PhoneNumberValidate", {})
   .n("PinpointClient", "PhoneNumberValidateCommand")
-  .sc(PhoneNumberValidate)
+  .sc(PhoneNumberValidate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

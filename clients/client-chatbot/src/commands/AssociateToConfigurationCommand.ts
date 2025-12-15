@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateToConfigurationRequest, AssociateToConfigurationResult } from "../models/models_0";
-import { AssociateToConfiguration } from "../schemas/schemas_0";
+import { AssociateToConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class AssociateToConfigurationCommand extends $Command
   })
   .s("WheatleyOrchestration_20171011", "AssociateToConfiguration", {})
   .n("ChatbotClient", "AssociateToConfigurationCommand")
-  .sc(AssociateToConfiguration)
+  .sc(AssociateToConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

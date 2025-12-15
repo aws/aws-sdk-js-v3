@@ -9,7 +9,7 @@ import type {
   DisassociatePhoneNumberFromUserRequest,
   DisassociatePhoneNumberFromUserResponse,
 } from "../models/models_0";
-import { DisassociatePhoneNumberFromUser } from "../schemas/schemas_0";
+import { DisassociatePhoneNumberFromUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class DisassociatePhoneNumberFromUserCommand extends $Command
   })
   .s("UCBuzzConsoleService", "DisassociatePhoneNumberFromUser", {})
   .n("ChimeClient", "DisassociatePhoneNumberFromUserCommand")
-  .sc(DisassociatePhoneNumberFromUser)
+  .sc(DisassociatePhoneNumberFromUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

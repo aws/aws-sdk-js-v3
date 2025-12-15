@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutTransformerRequest } from "../models/models_0";
-import { PutTransformer } from "../schemas/schemas_0";
+import { PutTransformer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -267,7 +267,7 @@ export class PutTransformerCommand extends $Command
   })
   .s("Logs_20140328", "PutTransformer", {})
   .n("CloudWatchLogsClient", "PutTransformerCommand")
-  .sc(PutTransformer)
+  .sc(PutTransformer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

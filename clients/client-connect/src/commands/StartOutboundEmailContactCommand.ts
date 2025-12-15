@@ -7,7 +7,7 @@ import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartOutboundEmailContactRequest } from "../models/models_2";
 import type { StartOutboundEmailContactResponse } from "../models/models_3";
-import { StartOutboundEmailContact } from "../schemas/schemas_0";
+import { StartOutboundEmailContact$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class StartOutboundEmailContactCommand extends $Command
   })
   .s("AmazonConnectService", "StartOutboundEmailContact", {})
   .n("ConnectClient", "StartOutboundEmailContactCommand")
-  .sc(StartOutboundEmailContact)
+  .sc(StartOutboundEmailContact$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

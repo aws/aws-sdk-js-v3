@@ -9,7 +9,7 @@ import type {
   GetManagedPrefixListAssociationsRequest,
   GetManagedPrefixListAssociationsResult,
 } from "../models/models_6";
-import { GetManagedPrefixListAssociations } from "../schemas/schemas_0";
+import { GetManagedPrefixListAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class GetManagedPrefixListAssociationsCommand extends $Command
   })
   .s("AmazonEC2", "GetManagedPrefixListAssociations", {})
   .n("EC2Client", "GetManagedPrefixListAssociationsCommand")
-  .sc(GetManagedPrefixListAssociations)
+  .sc(GetManagedPrefixListAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

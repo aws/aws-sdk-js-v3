@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import type { StartCisSessionRequest } from "../models/models_0";
 import type { StartCisSessionResponse } from "../models/models_1";
-import { StartCisSession } from "../schemas/schemas_0";
+import { StartCisSession$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class StartCisSessionCommand extends $Command
   })
   .s("Inspector2", "StartCisSession", {})
   .n("Inspector2Client", "StartCisSessionCommand")
-  .sc(StartCisSession)
+  .sc(StartCisSession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

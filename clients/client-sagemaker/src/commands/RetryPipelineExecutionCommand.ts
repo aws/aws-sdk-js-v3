@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RetryPipelineExecutionRequest, RetryPipelineExecutionResponse } from "../models/models_4";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { RetryPipelineExecution } from "../schemas/schemas_0";
+import { RetryPipelineExecution$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class RetryPipelineExecutionCommand extends $Command
   })
   .s("SageMaker", "RetryPipelineExecution", {})
   .n("SageMakerClient", "RetryPipelineExecutionCommand")
-  .sc(RetryPipelineExecution)
+  .sc(RetryPipelineExecution$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

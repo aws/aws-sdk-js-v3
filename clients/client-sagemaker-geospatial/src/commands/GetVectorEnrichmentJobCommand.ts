@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../SageMakerGeospatialClient";
-import { GetVectorEnrichmentJob } from "../schemas/schemas_0";
+import { GetVectorEnrichmentJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class GetVectorEnrichmentJobCommand extends $Command
   })
   .s("SageMakerGeospatial", "GetVectorEnrichmentJob", {})
   .n("SageMakerGeospatialClient", "GetVectorEnrichmentJobCommand")
-  .sc(GetVectorEnrichmentJob)
+  .sc(GetVectorEnrichmentJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

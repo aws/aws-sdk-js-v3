@@ -13,7 +13,7 @@ import type {
   ListServiceLevelObjectiveExclusionWindowsInput,
   ListServiceLevelObjectiveExclusionWindowsOutput,
 } from "../models/models_0";
-import { ListServiceLevelObjectiveExclusionWindows } from "../schemas/schemas_0";
+import { ListServiceLevelObjectiveExclusionWindows$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class ListServiceLevelObjectiveExclusionWindowsCommand extends $Command
   })
   .s("ApplicationSignals", "ListServiceLevelObjectiveExclusionWindows", {})
   .n("ApplicationSignalsClient", "ListServiceLevelObjectiveExclusionWindowsCommand")
-  .sc(ListServiceLevelObjectiveExclusionWindows)
+  .sc(ListServiceLevelObjectiveExclusionWindows$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

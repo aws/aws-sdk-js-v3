@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AddTagsInput, AddTagsOutput } from "../models/models_0";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { AddTags } from "../schemas/schemas_0";
+import { AddTags$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class AddTagsCommand extends $Command
   })
   .s("SageMaker", "AddTags", {})
   .n("SageMakerClient", "AddTagsCommand")
-  .sc(AddTags)
+  .sc(AddTags$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

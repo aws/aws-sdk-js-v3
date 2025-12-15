@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import type { DeleteAccountAliasRequest } from "../models/models_0";
-import { DeleteAccountAlias } from "../schemas/schemas_0";
+import { DeleteAccountAlias$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class DeleteAccountAliasCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "DeleteAccountAlias", {})
   .n("IAMClient", "DeleteAccountAliasCommand")
-  .sc(DeleteAccountAlias)
+  .sc(DeleteAccountAlias$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

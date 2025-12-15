@@ -9,7 +9,7 @@ import type {
   CreatePresignedNotebookInstanceUrlOutput,
 } from "../models/models_1";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { CreatePresignedNotebookInstanceUrl } from "../schemas/schemas_0";
+import { CreatePresignedNotebookInstanceUrl$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -79,7 +79,7 @@ export class CreatePresignedNotebookInstanceUrlCommand extends $Command
   })
   .s("SageMaker", "CreatePresignedNotebookInstanceUrl", {})
   .n("SageMakerClient", "CreatePresignedNotebookInstanceUrlCommand")
-  .sc(CreatePresignedNotebookInstanceUrl)
+  .sc(CreatePresignedNotebookInstanceUrl$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

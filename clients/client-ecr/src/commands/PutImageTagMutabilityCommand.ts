@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutImageTagMutabilityRequest, PutImageTagMutabilityResponse } from "../models/models_0";
-import { PutImageTagMutability } from "../schemas/schemas_0";
+import { PutImageTagMutability$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class PutImageTagMutabilityCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "PutImageTagMutability", {})
   .n("ECRClient", "PutImageTagMutabilityCommand")
-  .sc(PutImageTagMutability)
+  .sc(PutImageTagMutability$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

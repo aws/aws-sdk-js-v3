@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAssetRequest, GetAssetResponse } from "../models/models_0";
-import { GetAsset } from "../schemas/schemas_0";
+import { GetAsset$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -165,7 +165,7 @@ export class GetAssetCommand extends $Command
   })
   .s("DataExchange", "GetAsset", {})
   .n("DataExchangeClient", "GetAssetCommand")
-  .sc(GetAsset)
+  .sc(GetAsset$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

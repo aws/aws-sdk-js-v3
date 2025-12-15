@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAgentRuntimeRequest, DeleteAgentRuntimeResponse } from "../models/models_0";
-import { DeleteAgentRuntime } from "../schemas/schemas_0";
+import { DeleteAgentRuntime$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DeleteAgentRuntimeCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "DeleteAgentRuntime", {})
   .n("BedrockAgentCoreControlClient", "DeleteAgentRuntimeCommand")
-  .sc(DeleteAgentRuntime)
+  .sc(DeleteAgentRuntime$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartChangeRequestExecutionRequest, StartChangeRequestExecutionResult } from "../models/models_1";
-import { StartChangeRequestExecution } from "../schemas/schemas_0";
+import { StartChangeRequestExecution$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -192,7 +192,7 @@ export class StartChangeRequestExecutionCommand extends $Command
   })
   .s("AmazonSSM", "StartChangeRequestExecution", {})
   .n("SSMClient", "StartChangeRequestExecutionCommand")
-  .sc(StartChangeRequestExecution)
+  .sc(StartChangeRequestExecution$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

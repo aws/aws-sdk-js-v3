@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteDomainRequest, DeleteDomainResult } from "../models/models_0";
-import { DeleteDomain } from "../schemas/schemas_0";
+import { DeleteDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class DeleteDomainCommand extends $Command
   })
   .s("CodeArtifactControlPlaneService", "DeleteDomain", {})
   .n("CodeartifactClient", "DeleteDomainCommand")
-  .sc(DeleteDomain)
+  .sc(DeleteDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

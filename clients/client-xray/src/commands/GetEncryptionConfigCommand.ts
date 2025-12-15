@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetEncryptionConfigRequest, GetEncryptionConfigResult } from "../models/models_0";
-import { GetEncryptionConfig } from "../schemas/schemas_0";
+import { GetEncryptionConfig$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
@@ -81,7 +81,7 @@ export class GetEncryptionConfigCommand extends $Command
   })
   .s("AWSXRay", "GetEncryptionConfig", {})
   .n("XRayClient", "GetEncryptionConfigCommand")
-  .sc(GetEncryptionConfig)
+  .sc(GetEncryptionConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

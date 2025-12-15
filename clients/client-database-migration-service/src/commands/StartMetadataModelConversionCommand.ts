@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartMetadataModelConversionMessage, StartMetadataModelConversionResponse } from "../models/models_1";
-import { StartMetadataModelConversion } from "../schemas/schemas_0";
+import { StartMetadataModelConversion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -122,7 +122,7 @@ export class StartMetadataModelConversionCommand extends $Command
   })
   .s("AmazonDMSv20160101", "StartMetadataModelConversion", {})
   .n("DatabaseMigrationServiceClient", "StartMetadataModelConversionCommand")
-  .sc(StartMetadataModelConversion)
+  .sc(StartMetadataModelConversion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

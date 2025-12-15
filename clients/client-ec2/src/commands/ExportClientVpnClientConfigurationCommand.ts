@@ -9,7 +9,7 @@ import type {
   ExportClientVpnClientConfigurationRequest,
   ExportClientVpnClientConfigurationResult,
 } from "../models/models_5";
-import { ExportClientVpnClientConfiguration } from "../schemas/schemas_0";
+import { ExportClientVpnClientConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -81,7 +81,7 @@ export class ExportClientVpnClientConfigurationCommand extends $Command
   })
   .s("AmazonEC2", "ExportClientVpnClientConfiguration", {})
   .n("EC2Client", "ExportClientVpnClientConfigurationCommand")
-  .sc(ExportClientVpnClientConfiguration)
+  .sc(ExportClientVpnClientConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

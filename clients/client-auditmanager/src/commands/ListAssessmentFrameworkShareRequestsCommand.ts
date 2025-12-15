@@ -9,7 +9,7 @@ import type {
   ListAssessmentFrameworkShareRequestsRequest,
   ListAssessmentFrameworkShareRequestsResponse,
 } from "../models/models_0";
-import { ListAssessmentFrameworkShareRequests } from "../schemas/schemas_0";
+import { ListAssessmentFrameworkShareRequests$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class ListAssessmentFrameworkShareRequestsCommand extends $Command
   })
   .s("BedrockAssessmentManagerLambda", "ListAssessmentFrameworkShareRequests", {})
   .n("AuditManagerClient", "ListAssessmentFrameworkShareRequestsCommand")
-  .sc(ListAssessmentFrameworkShareRequests)
+  .sc(ListAssessmentFrameworkShareRequests$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateContainerInstancesStateRequest, UpdateContainerInstancesStateResponse } from "../models/models_0";
-import { UpdateContainerInstancesState } from "../schemas/schemas_0";
+import { UpdateContainerInstancesState$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -403,7 +403,7 @@ export class UpdateContainerInstancesStateCommand extends $Command
   })
   .s("AmazonEC2ContainerServiceV20141113", "UpdateContainerInstancesState", {})
   .n("ECSClient", "UpdateContainerInstancesStateCommand")
-  .sc(UpdateContainerInstancesState)
+  .sc(UpdateContainerInstancesState$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

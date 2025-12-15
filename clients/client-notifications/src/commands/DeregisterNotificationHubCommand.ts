@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeregisterNotificationHubRequest, DeregisterNotificationHubResponse } from "../models/models_0";
 import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { DeregisterNotificationHub } from "../schemas/schemas_0";
+import { DeregisterNotificationHub$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DeregisterNotificationHubCommand extends $Command
   })
   .s("Notifications", "DeregisterNotificationHub", {})
   .n("NotificationsClient", "DeregisterNotificationHubCommand")
-  .sc(DeregisterNotificationHub)
+  .sc(DeregisterNotificationHub$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeCreateAccountStatusRequest, DescribeCreateAccountStatusResponse } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { DescribeCreateAccountStatus } from "../schemas/schemas_0";
+import { DescribeCreateAccountStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -279,7 +279,7 @@ export class DescribeCreateAccountStatusCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "DescribeCreateAccountStatus", {})
   .n("OrganizationsClient", "DescribeCreateAccountStatusCommand")
-  .sc(DescribeCreateAccountStatus)
+  .sc(DescribeCreateAccountStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

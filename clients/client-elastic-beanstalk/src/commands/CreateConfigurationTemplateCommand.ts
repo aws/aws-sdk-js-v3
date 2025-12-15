@@ -10,7 +10,7 @@ import type {
 } from "../ElasticBeanstalkClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ConfigurationSettingsDescription, CreateConfigurationTemplateMessage } from "../models/models_0";
-import { CreateConfigurationTemplate } from "../schemas/schemas_0";
+import { CreateConfigurationTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -170,7 +170,7 @@ export class CreateConfigurationTemplateCommand extends $Command
   })
   .s("AWSElasticBeanstalkService", "CreateConfigurationTemplate", {})
   .n("ElasticBeanstalkClient", "CreateConfigurationTemplateCommand")
-  .sc(CreateConfigurationTemplate)
+  .sc(CreateConfigurationTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DeleteProcurementPortalPreferenceRequest,
   DeleteProcurementPortalPreferenceResponse,
 } from "../models/models_0";
-import { DeleteProcurementPortalPreference } from "../schemas/schemas_0";
+import { DeleteProcurementPortalPreference$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class DeleteProcurementPortalPreferenceCommand extends $Command
   })
   .s("Invoicing", "DeleteProcurementPortalPreference", {})
   .n("InvoicingClient", "DeleteProcurementPortalPreferenceCommand")
-  .sc(DeleteProcurementPortalPreference)
+  .sc(DeleteProcurementPortalPreference$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

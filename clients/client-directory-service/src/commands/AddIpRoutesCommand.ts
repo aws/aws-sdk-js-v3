@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AddIpRoutesRequest, AddIpRoutesResult } from "../models/models_0";
-import { AddIpRoutes } from "../schemas/schemas_0";
+import { AddIpRoutes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -131,7 +131,7 @@ export class AddIpRoutesCommand extends $Command
   })
   .s("DirectoryService_20150416", "AddIpRoutes", {})
   .n("DirectoryServiceClient", "AddIpRoutesCommand")
-  .sc(AddIpRoutes)
+  .sc(AddIpRoutes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

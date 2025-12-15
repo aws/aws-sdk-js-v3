@@ -9,7 +9,7 @@ import type {
   DescribeReplicationConfigurationsRequest,
   DescribeReplicationConfigurationsResponse,
 } from "../models/models_0";
-import { DescribeReplicationConfigurations } from "../schemas/schemas_0";
+import { DescribeReplicationConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class DescribeReplicationConfigurationsCommand extends $Command
   })
   .s("MagnolioAPIService_v20150201", "DescribeReplicationConfigurations", {})
   .n("EFSClient", "DescribeReplicationConfigurationsCommand")
-  .sc(DescribeReplicationConfigurations)
+  .sc(DescribeReplicationConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

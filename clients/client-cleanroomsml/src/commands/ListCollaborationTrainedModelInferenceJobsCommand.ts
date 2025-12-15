@@ -9,7 +9,7 @@ import type {
   ListCollaborationTrainedModelInferenceJobsRequest,
   ListCollaborationTrainedModelInferenceJobsResponse,
 } from "../models/models_0";
-import { ListCollaborationTrainedModelInferenceJobs } from "../schemas/schemas_0";
+import { ListCollaborationTrainedModelInferenceJobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class ListCollaborationTrainedModelInferenceJobsCommand extends $Command
   })
   .s("AWSStarkControlService", "ListCollaborationTrainedModelInferenceJobs", {})
   .n("CleanRoomsMLClient", "ListCollaborationTrainedModelInferenceJobsCommand")
-  .sc(ListCollaborationTrainedModelInferenceJobs)
+  .sc(ListCollaborationTrainedModelInferenceJobs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

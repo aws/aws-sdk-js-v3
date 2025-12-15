@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSessionLoggerRequest, DeleteSessionLoggerResponse } from "../models/models_0";
-import { DeleteSessionLogger } from "../schemas/schemas_0";
+import { DeleteSessionLogger$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -99,7 +99,7 @@ export class DeleteSessionLoggerCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "DeleteSessionLogger", {})
   .n("WorkSpacesWebClient", "DeleteSessionLoggerCommand")
-  .sc(DeleteSessionLogger)
+  .sc(DeleteSessionLogger$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

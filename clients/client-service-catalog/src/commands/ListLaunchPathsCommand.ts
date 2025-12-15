@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListLaunchPathsInput, ListLaunchPathsOutput } from "../models/models_0";
-import { ListLaunchPaths } from "../schemas/schemas_0";
+import { ListLaunchPaths$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -129,7 +129,7 @@ export class ListLaunchPathsCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "ListLaunchPaths", {})
   .n("ServiceCatalogClient", "ListLaunchPathsCommand")
-  .sc(ListLaunchPaths)
+  .sc(ListLaunchPaths$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

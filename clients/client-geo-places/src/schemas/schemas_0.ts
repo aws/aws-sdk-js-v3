@@ -266,30 +266,30 @@ import type {
 } from "@smithy/types";
 
 import {
-  AccessDeniedException as __AccessDeniedException,
-  InternalServerException as __InternalServerException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  InternalServerException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
-import { GeoPlacesServiceException as __GeoPlacesServiceException } from "../models/GeoPlacesServiceException";
+import { GeoPlacesServiceException } from "../models/GeoPlacesServiceException";
 
 /* eslint no-var: 0 */
-export var ApiKey: StaticSimpleSchema = [0, n0, _AK, 8, 0];
-export var CountryCode: StaticSimpleSchema = [0, n0, _CC, 8, 0];
-export var CountryCode2: StaticSimpleSchema = [0, n0, _CCo, 8, 0];
-export var CountryCode3: StaticSimpleSchema = [0, n0, _CCou, 8, 0];
-export var DistanceMeters: StaticSimpleSchema = [0, n0, _DM, 8, 1];
-export var DurationSeconds: StaticSimpleSchema = [0, n0, _DS, 8, 1];
-export var GeocodeFilterPlaceType: StaticSimpleSchema = [0, n0, _GFPT, 8, 0];
-export var OpeningHoursDisplay: StaticSimpleSchema = [0, n0, _OHD, 8, 0];
-export var PlaceType: StaticSimpleSchema = [0, n0, _PT, 8, 0];
-export var PostalAuthority: StaticSimpleSchema = [0, n0, _PA, 8, 0];
-export var PostalCodeType: StaticSimpleSchema = [0, n0, _PCT, 8, 0];
-export var RecordTypeCode: StaticSimpleSchema = [0, n0, _RTC, 8, 0];
-export var SensitiveBoolean: StaticSimpleSchema = [0, n0, _SB, 8, 2];
-export var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
-export var ZipClassificationCode: StaticSimpleSchema = [0, n0, _ZCC, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
+var ApiKey: StaticSimpleSchema = [0, n0, _AK, 8, 0];
+var CountryCode: StaticSimpleSchema = [0, n0, _CC, 8, 0];
+var CountryCode2: StaticSimpleSchema = [0, n0, _CCo, 8, 0];
+var CountryCode3: StaticSimpleSchema = [0, n0, _CCou, 8, 0];
+var DistanceMeters: StaticSimpleSchema = [0, n0, _DM, 8, 1];
+var DurationSeconds: StaticSimpleSchema = [0, n0, _DS, 8, 1];
+var GeocodeFilterPlaceType: StaticSimpleSchema = [0, n0, _GFPT, 8, 0];
+var OpeningHoursDisplay: StaticSimpleSchema = [0, n0, _OHD, 8, 0];
+var PlaceType: StaticSimpleSchema = [0, n0, _PT, 8, 0];
+var PostalAuthority: StaticSimpleSchema = [0, n0, _PA, 8, 0];
+var PostalCodeType: StaticSimpleSchema = [0, n0, _PCT, 8, 0];
+var RecordTypeCode: StaticSimpleSchema = [0, n0, _RTC, 8, 0];
+var SensitiveBoolean: StaticSimpleSchema = [0, n0, _SB, 8, 2];
+var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
+var ZipClassificationCode: StaticSimpleSchema = [0, n0, _ZCC, 8, 0];
+export var AccessDeniedException$: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
@@ -297,9 +297,9 @@ export var AccessDeniedException: StaticErrorSchema = [
   [_M],
   [[0, { [_jN]: _m }]],
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var AccessPoint: StaticStructureSchema = [3, n0, _AP, 0, [_P], [[() => Position, 0]]];
-export var AccessRestriction: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var AccessPoint$: StaticStructureSchema = [3, n0, _AP, 0, [_P], [[() => Position, 0]]];
+export var AccessRestriction$: StaticStructureSchema = [
   3,
   n0,
   _AR,
@@ -310,7 +310,7 @@ export var AccessRestriction: StaticStructureSchema = [
     [() => CategoryList, 0],
   ],
 ];
-export var Address: StaticStructureSchema = [
+export var Address$: StaticStructureSchema = [
   3,
   n0,
   _A,
@@ -318,9 +318,9 @@ export var Address: StaticStructureSchema = [
   [_L, _Co, _Re, _SR, _Lo, _D, _SD, _PC, _B, _SBu, _I, _S, _SC, _AN, _Bu, _SAC],
   [
     [() => SensitiveString, 0],
-    [() => Country, 0],
-    [() => Region, 0],
-    [() => SubRegion, 0],
+    [() => Country$, 0],
+    [() => Region$, 0],
+    [() => SubRegion$, 0],
     [() => SensitiveString, 0],
     [() => SensitiveString, 0],
     [() => SensitiveString, 0],
@@ -335,7 +335,7 @@ export var Address: StaticStructureSchema = [
     [() => SecondaryAddressComponentList, 0],
   ],
 ];
-export var AddressComponentMatchScores: StaticStructureSchema = [
+export var AddressComponentMatchScores$: StaticStructureSchema = [
   3,
   n0,
   _ACMS,
@@ -343,7 +343,7 @@ export var AddressComponentMatchScores: StaticStructureSchema = [
   [_Co, _Re, _SR, _Lo, _D, _SD, _PC, _B, _SBu, _I, _AN, _Bu, _SAC],
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 64 | 1, 1, 1, () => SecondaryAddressComponentMatchScoreList],
 ];
-export var AddressComponentPhonemes: StaticStructureSchema = [
+export var AddressComponentPhonemes$: StaticStructureSchema = [
   3,
   n0,
   _ACP,
@@ -361,7 +361,7 @@ export var AddressComponentPhonemes: StaticStructureSchema = [
     [() => PhonemeTranscriptionList, 0],
   ],
 ];
-export var AutocompleteAddressHighlights: StaticStructureSchema = [
+export var AutocompleteAddressHighlights$: StaticStructureSchema = [
   3,
   n0,
   _AAH,
@@ -369,9 +369,9 @@ export var AutocompleteAddressHighlights: StaticStructureSchema = [
   [_L, _Co, _Re, _SR, _Lo, _D, _SD, _S, _B, _SBu, _I, _PC, _AN, _Bu],
   [
     [() => HighlightList, 0],
-    [() => CountryHighlights, 0],
-    [() => RegionHighlights, 0],
-    [() => SubRegionHighlights, 0],
+    [() => CountryHighlights$, 0],
+    [() => RegionHighlights$, 0],
+    [() => SubRegionHighlights$, 0],
     [() => HighlightList, 0],
     [() => HighlightList, 0],
     [() => HighlightList, 0],
@@ -384,15 +384,15 @@ export var AutocompleteAddressHighlights: StaticStructureSchema = [
     [() => HighlightList, 0],
   ],
 ];
-export var AutocompleteFilter: StaticStructureSchema = [
+export var AutocompleteFilter$: StaticStructureSchema = [
   3,
   n0,
   _AF,
   0,
   [_BB, _Ci, _IC, _IPT],
-  [[() => BoundingBox, 0], [() => FilterCircle, 0], [() => CountryCodeList, 0], 64 | 0],
+  [[() => BoundingBox, 0], [() => FilterCircle$, 0], [() => CountryCodeList, 0], 64 | 0],
 ];
-export var AutocompleteHighlights: StaticStructureSchema = [
+export var AutocompleteHighlights$: StaticStructureSchema = [
   3,
   n0,
   _AH,
@@ -400,10 +400,10 @@ export var AutocompleteHighlights: StaticStructureSchema = [
   [_T, _A],
   [
     [() => HighlightList, 0],
-    [() => AutocompleteAddressHighlights, 0],
+    [() => AutocompleteAddressHighlights$, 0],
   ],
 ];
-export var AutocompleteRequest: StaticStructureSchema = [
+export var AutocompleteRequest$: StaticStructureSchema = [
   3,
   n0,
   _ARu,
@@ -413,7 +413,7 @@ export var AutocompleteRequest: StaticStructureSchema = [
     [() => SensitiveString, 0],
     1,
     [() => Position, 0],
-    [() => AutocompleteFilter, 0],
+    [() => AutocompleteFilter$, 0],
     0,
     64 | 0,
     0,
@@ -422,7 +422,7 @@ export var AutocompleteRequest: StaticStructureSchema = [
     [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
-export var AutocompleteResponse: StaticStructureSchema = [
+export var AutocompleteResponse$: StaticStructureSchema = [
   3,
   n0,
   _ARut,
@@ -433,7 +433,7 @@ export var AutocompleteResponse: StaticStructureSchema = [
     [() => AutocompleteResultItemList, 0],
   ],
 ];
-export var AutocompleteResultItem: StaticStructureSchema = [
+export var AutocompleteResultItem$: StaticStructureSchema = [
   3,
   n0,
   _ARI,
@@ -443,14 +443,14 @@ export var AutocompleteResultItem: StaticStructureSchema = [
     [() => SensitiveString, 0],
     [() => PlaceType, 0],
     [() => SensitiveString, 0],
-    [() => Address, 0],
+    [() => Address$, 0],
     [() => DistanceMeters, 0],
     0,
     [() => CountryCode3, 0],
-    [() => AutocompleteHighlights, 0],
+    [() => AutocompleteHighlights$, 0],
   ],
 ];
-export var BusinessChain: StaticStructureSchema = [
+export var BusinessChain$: StaticStructureSchema = [
   3,
   n0,
   _BC,
@@ -461,7 +461,7 @@ export var BusinessChain: StaticStructureSchema = [
     [() => SensitiveString, 0],
   ],
 ];
-export var Category: StaticStructureSchema = [
+export var Category$: StaticStructureSchema = [
   3,
   n0,
   _Ca,
@@ -474,15 +474,15 @@ export var Category: StaticStructureSchema = [
     [() => SensitiveBoolean, 0],
   ],
 ];
-export var ComponentMatchScores: StaticStructureSchema = [
+export var ComponentMatchScores$: StaticStructureSchema = [
   3,
   n0,
   _CMS,
   0,
   [_T, _A],
-  [1, () => AddressComponentMatchScores],
+  [1, () => AddressComponentMatchScores$],
 ];
-export var ContactDetails: StaticStructureSchema = [
+export var ContactDetails$: StaticStructureSchema = [
   3,
   n0,
   _CD,
@@ -494,7 +494,7 @@ export var ContactDetails: StaticStructureSchema = [
     [() => CategoryList, 0],
   ],
 ];
-export var Contacts: StaticStructureSchema = [
+export var Contacts$: StaticStructureSchema = [
   3,
   n0,
   _Con,
@@ -507,7 +507,7 @@ export var Contacts: StaticStructureSchema = [
     [() => ContactDetailsList, 0],
   ],
 ];
-export var Country: StaticStructureSchema = [
+export var Country$: StaticStructureSchema = [
   3,
   n0,
   _Co,
@@ -519,7 +519,7 @@ export var Country: StaticStructureSchema = [
     [() => SensitiveString, 0],
   ],
 ];
-export var CountryHighlights: StaticStructureSchema = [
+export var CountryHighlights$: StaticStructureSchema = [
   3,
   n0,
   _CH,
@@ -530,7 +530,7 @@ export var CountryHighlights: StaticStructureSchema = [
     [() => HighlightList, 0],
   ],
 ];
-export var FilterCircle: StaticStructureSchema = [
+export var FilterCircle$: StaticStructureSchema = [
   3,
   n0,
   _FC,
@@ -541,7 +541,7 @@ export var FilterCircle: StaticStructureSchema = [
     [() => DistanceMeters, 0],
   ],
 ];
-export var FoodType: StaticStructureSchema = [
+export var FoodType$: StaticStructureSchema = [
   3,
   n0,
   _FT,
@@ -553,7 +553,7 @@ export var FoodType: StaticStructureSchema = [
     [() => SensitiveBoolean, 0],
   ],
 ];
-export var GeocodeFilter: StaticStructureSchema = [
+export var GeocodeFilter$: StaticStructureSchema = [
   3,
   n0,
   _GF,
@@ -564,7 +564,7 @@ export var GeocodeFilter: StaticStructureSchema = [
     [() => GeocodeFilterPlaceTypeList, 0],
   ],
 ];
-export var GeocodeParsedQuery: StaticStructureSchema = [
+export var GeocodeParsedQuery$: StaticStructureSchema = [
   3,
   n0,
   _GPQ,
@@ -572,10 +572,10 @@ export var GeocodeParsedQuery: StaticStructureSchema = [
   [_T, _A],
   [
     [() => ParsedQueryComponentList, 0],
-    [() => GeocodeParsedQueryAddressComponents, 0],
+    [() => GeocodeParsedQueryAddressComponents$, 0],
   ],
 ];
-export var GeocodeParsedQueryAddressComponents: StaticStructureSchema = [
+export var GeocodeParsedQueryAddressComponents$: StaticStructureSchema = [
   3,
   n0,
   _GPQAC,
@@ -597,7 +597,7 @@ export var GeocodeParsedQueryAddressComponents: StaticStructureSchema = [
     [() => ParsedQuerySecondaryAddressComponentList, 0],
   ],
 ];
-export var GeocodeQueryComponents: StaticStructureSchema = [
+export var GeocodeQueryComponents$: StaticStructureSchema = [
   3,
   n0,
   _GQC,
@@ -614,7 +614,7 @@ export var GeocodeQueryComponents: StaticStructureSchema = [
     [() => SensitiveString, 0],
   ],
 ];
-export var GeocodeRequest: StaticStructureSchema = [
+export var GeocodeRequest$: StaticStructureSchema = [
   3,
   n0,
   _GR,
@@ -622,10 +622,10 @@ export var GeocodeRequest: StaticStructureSchema = [
   [_QT, _QC, _MR, _BP, _F, _AFd, _La, _PV, _IU, _K],
   [
     [() => SensitiveString, 0],
-    [() => GeocodeQueryComponents, 0],
+    [() => GeocodeQueryComponents$, 0],
     1,
     [() => Position, 0],
-    [() => GeocodeFilter, 0],
+    [() => GeocodeFilter$, 0],
     64 | 0,
     0,
     [() => CountryCode, 0],
@@ -633,7 +633,7 @@ export var GeocodeRequest: StaticStructureSchema = [
     [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
-export var GeocodeResponse: StaticStructureSchema = [
+export var GeocodeResponse$: StaticStructureSchema = [
   3,
   n0,
   _GRe,
@@ -644,7 +644,7 @@ export var GeocodeResponse: StaticStructureSchema = [
     [() => GeocodeResultItemList, 0],
   ],
 ];
-export var GeocodeResultItem: StaticStructureSchema = [
+export var GeocodeResultItem$: StaticStructureSchema = [
   3,
   n0,
   _GRI,
@@ -654,7 +654,7 @@ export var GeocodeResultItem: StaticStructureSchema = [
     [() => SensitiveString, 0],
     [() => PlaceType, 0],
     [() => SensitiveString, 0],
-    [() => Address, 0],
+    [() => Address$, 0],
     [() => SensitiveBoolean, 0],
     [() => PostalCodeDetailsList, 0],
     [() => Position, 0],
@@ -663,16 +663,16 @@ export var GeocodeResultItem: StaticStructureSchema = [
     [() => CategoryList, 0],
     [() => FoodTypeList, 0],
     [() => AccessPointList, 0],
-    [() => TimeZone, 0],
+    [() => TimeZone$, 0],
     [() => CountryCode3, 0],
-    () => MatchScoreDetails,
-    [() => GeocodeParsedQuery, 0],
+    () => MatchScoreDetails$,
+    [() => GeocodeParsedQuery$, 0],
     [() => IntersectionList, 0],
-    [() => RelatedPlace, 0],
+    [() => RelatedPlace$, 0],
     [() => RelatedPlaceList, 0],
   ],
 ];
-export var GetPlaceRequest: StaticStructureSchema = [
+export var GetPlaceRequest$: StaticStructureSchema = [
   3,
   n0,
   _GPR,
@@ -687,7 +687,7 @@ export var GetPlaceRequest: StaticStructureSchema = [
     [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
-export var GetPlaceResponse: StaticStructureSchema = [
+export var GetPlaceResponse$: StaticStructureSchema = [
   3,
   n0,
   _GPRe,
@@ -698,7 +698,7 @@ export var GetPlaceResponse: StaticStructureSchema = [
     [() => PlaceType, 0],
     [() => SensitiveString, 0],
     [0, { [_hH]: _xagpb }],
-    [() => Address, 0],
+    [() => Address$, 0],
     [() => SensitiveBoolean, 0],
     [() => PostalCodeDetailsList, 0],
     [() => Position, 0],
@@ -706,19 +706,19 @@ export var GetPlaceResponse: StaticStructureSchema = [
     [() => CategoryList, 0],
     [() => FoodTypeList, 0],
     [() => BusinessChainList, 0],
-    [() => Contacts, 0],
+    [() => Contacts$, 0],
     [() => OpeningHoursList, 0],
     [() => AccessPointList, 0],
     [() => AccessRestrictionList, 0],
-    [() => TimeZone, 0],
+    [() => TimeZone$, 0],
     [() => CountryCode3, 0],
-    [() => PhonemeDetails, 0],
-    [() => RelatedPlace, 0],
+    [() => PhonemeDetails$, 0],
+    [() => RelatedPlace$, 0],
     [() => RelatedPlaceList, 0],
   ],
 ];
-export var Highlight: StaticStructureSchema = [3, n0, _Hi, 0, [_SI, _EI, _V], [1, 1, [() => SensitiveString, 0]]];
-export var InternalServerException: StaticErrorSchema = [
+export var Highlight$: StaticStructureSchema = [3, n0, _Hi, 0, [_SI, _EI, _V], [1, 1, [() => SensitiveString, 0]]];
+export var InternalServerException$: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
@@ -726,8 +726,8 @@ export var InternalServerException: StaticErrorSchema = [
   [_M],
   [[0, { [_jN]: _m }]],
 ];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var Intersection: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var Intersection$: StaticStructureSchema = [
   3,
   n0,
   _I,
@@ -736,7 +736,7 @@ export var Intersection: StaticStructureSchema = [
   [
     [() => SensitiveString, 0],
     [() => SensitiveString, 0],
-    [() => Address, 0],
+    [() => Address$, 0],
     [() => Position, 0],
     [() => DistanceMeters, 0],
     [() => DistanceMeters, 0],
@@ -744,8 +744,8 @@ export var Intersection: StaticStructureSchema = [
     [() => AccessPointList, 0],
   ],
 ];
-export var MatchScoreDetails: StaticStructureSchema = [3, n0, _MSD, 0, [_O, _Com], [1, () => ComponentMatchScores]];
-export var OpeningHours: StaticStructureSchema = [
+export var MatchScoreDetails$: StaticStructureSchema = [3, n0, _MSD, 0, [_O, _Com], [1, () => ComponentMatchScores$]];
+export var OpeningHours$: StaticStructureSchema = [
   3,
   n0,
   _OH,
@@ -758,7 +758,7 @@ export var OpeningHours: StaticStructureSchema = [
     [() => CategoryList, 0],
   ],
 ];
-export var OpeningHoursComponents: StaticStructureSchema = [
+export var OpeningHoursComponents$: StaticStructureSchema = [
   3,
   n0,
   _OHC,
@@ -770,7 +770,7 @@ export var OpeningHoursComponents: StaticStructureSchema = [
     [() => SensitiveString, 0],
   ],
 ];
-export var ParsedQueryComponent: StaticStructureSchema = [
+export var ParsedQueryComponent$: StaticStructureSchema = [
   3,
   n0,
   _PQC,
@@ -778,7 +778,7 @@ export var ParsedQueryComponent: StaticStructureSchema = [
   [_SI, _EI, _V, _QCu],
   [1, 1, [() => SensitiveString, 0], [() => SensitiveString, 0]],
 ];
-export var ParsedQuerySecondaryAddressComponent: StaticStructureSchema = [
+export var ParsedQuerySecondaryAddressComponent$: StaticStructureSchema = [
   3,
   n0,
   _PQSAC,
@@ -786,7 +786,7 @@ export var ParsedQuerySecondaryAddressComponent: StaticStructureSchema = [
   [_SI, _EI, _V, _Nu, _De],
   [1, 1, [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0]],
 ];
-export var PhonemeDetails: StaticStructureSchema = [
+export var PhonemeDetails$: StaticStructureSchema = [
   3,
   n0,
   _PD,
@@ -794,10 +794,10 @@ export var PhonemeDetails: StaticStructureSchema = [
   [_T, _A],
   [
     [() => PhonemeTranscriptionList, 0],
-    [() => AddressComponentPhonemes, 0],
+    [() => AddressComponentPhonemes$, 0],
   ],
 ];
-export var PhonemeTranscription: StaticStructureSchema = [
+export var PhonemeTranscription$: StaticStructureSchema = [
   3,
   n0,
   _PTh,
@@ -805,7 +805,7 @@ export var PhonemeTranscription: StaticStructureSchema = [
   [_V, _La, _Pre],
   [[() => SensitiveString, 0], 0, [() => SensitiveBoolean, 0]],
 ];
-export var PostalCodeDetails: StaticStructureSchema = [
+export var PostalCodeDetails$: StaticStructureSchema = [
   3,
   n0,
   _PCD,
@@ -815,11 +815,11 @@ export var PostalCodeDetails: StaticStructureSchema = [
     [() => SensitiveString, 0],
     [() => PostalAuthority, 0],
     [() => PostalCodeType, 0],
-    [() => UspsZip, 0],
-    [() => UspsZipPlus4, 0],
+    [() => UspsZip$, 0],
+    [() => UspsZipPlus4$, 0],
   ],
 ];
-export var QueryRefinement: StaticStructureSchema = [
+export var QueryRefinement$: StaticStructureSchema = [
   3,
   n0,
   _QR,
@@ -827,7 +827,7 @@ export var QueryRefinement: StaticStructureSchema = [
   [_RT, _OTr, _SI, _EI],
   [[() => SensitiveString, 0], [() => SensitiveString, 0], 1, 1],
 ];
-export var Region: StaticStructureSchema = [
+export var Region$: StaticStructureSchema = [
   3,
   n0,
   _Re,
@@ -838,7 +838,7 @@ export var Region: StaticStructureSchema = [
     [() => SensitiveString, 0],
   ],
 ];
-export var RegionHighlights: StaticStructureSchema = [
+export var RegionHighlights$: StaticStructureSchema = [
   3,
   n0,
   _RH,
@@ -849,7 +849,7 @@ export var RegionHighlights: StaticStructureSchema = [
     [() => HighlightList, 0],
   ],
 ];
-export var RelatedPlace: StaticStructureSchema = [
+export var RelatedPlace$: StaticStructureSchema = [
   3,
   n0,
   _RP,
@@ -859,13 +859,13 @@ export var RelatedPlace: StaticStructureSchema = [
     [() => SensitiveString, 0],
     [() => PlaceType, 0],
     [() => SensitiveString, 0],
-    [() => Address, 0],
+    [() => Address$, 0],
     [() => Position, 0],
     [() => AccessPointList, 0],
   ],
 ];
-export var ReverseGeocodeFilter: StaticStructureSchema = [3, n0, _RGF, 0, [_IPT], [64 | 0]];
-export var ReverseGeocodeRequest: StaticStructureSchema = [
+export var ReverseGeocodeFilter$: StaticStructureSchema = [3, n0, _RGF, 0, [_IPT], [64 | 0]];
+export var ReverseGeocodeRequest$: StaticStructureSchema = [
   3,
   n0,
   _RGR,
@@ -875,7 +875,7 @@ export var ReverseGeocodeRequest: StaticStructureSchema = [
     [() => Position, 0],
     [() => DistanceMeters, 0],
     1,
-    () => ReverseGeocodeFilter,
+    () => ReverseGeocodeFilter$,
     64 | 0,
     0,
     [() => CountryCode, 0],
@@ -883,7 +883,7 @@ export var ReverseGeocodeRequest: StaticStructureSchema = [
     [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
-export var ReverseGeocodeResponse: StaticStructureSchema = [
+export var ReverseGeocodeResponse$: StaticStructureSchema = [
   3,
   n0,
   _RGRe,
@@ -894,7 +894,7 @@ export var ReverseGeocodeResponse: StaticStructureSchema = [
     [() => ReverseGeocodeResultItemList, 0],
   ],
 ];
-export var ReverseGeocodeResultItem: StaticStructureSchema = [
+export var ReverseGeocodeResultItem$: StaticStructureSchema = [
   3,
   n0,
   _RGRI,
@@ -904,7 +904,7 @@ export var ReverseGeocodeResultItem: StaticStructureSchema = [
     [() => SensitiveString, 0],
     [() => PlaceType, 0],
     [() => SensitiveString, 0],
-    [() => Address, 0],
+    [() => Address$, 0],
     [() => SensitiveBoolean, 0],
     [() => PostalCodeDetailsList, 0],
     [() => Position, 0],
@@ -913,12 +913,12 @@ export var ReverseGeocodeResultItem: StaticStructureSchema = [
     [() => CategoryList, 0],
     [() => FoodTypeList, 0],
     [() => AccessPointList, 0],
-    [() => TimeZone, 0],
+    [() => TimeZone$, 0],
     [() => CountryCode3, 0],
     [() => IntersectionList, 0],
   ],
 ];
-export var SearchNearbyFilter: StaticStructureSchema = [
+export var SearchNearbyFilter$: StaticStructureSchema = [
   3,
   n0,
   _SNF,
@@ -935,7 +935,7 @@ export var SearchNearbyFilter: StaticStructureSchema = [
     [() => FilterFoodTypeList, 0],
   ],
 ];
-export var SearchNearbyRequest: StaticStructureSchema = [
+export var SearchNearbyRequest$: StaticStructureSchema = [
   3,
   n0,
   _SNR,
@@ -945,7 +945,7 @@ export var SearchNearbyRequest: StaticStructureSchema = [
     [() => Position, 0],
     [() => DistanceMeters, 0],
     1,
-    [() => SearchNearbyFilter, 0],
+    [() => SearchNearbyFilter$, 0],
     64 | 0,
     0,
     [() => CountryCode, 0],
@@ -954,7 +954,7 @@ export var SearchNearbyRequest: StaticStructureSchema = [
     [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
-export var SearchNearbyResponse: StaticStructureSchema = [
+export var SearchNearbyResponse$: StaticStructureSchema = [
   3,
   n0,
   _SNRe,
@@ -962,7 +962,7 @@ export var SearchNearbyResponse: StaticStructureSchema = [
   [_PB, _RI, _NT],
   [[0, { [_hH]: _xagpb }], [() => SearchNearbyResultItemList, 0], 0],
 ];
-export var SearchNearbyResultItem: StaticStructureSchema = [
+export var SearchNearbyResultItem$: StaticStructureSchema = [
   3,
   n0,
   _SNRI,
@@ -972,7 +972,7 @@ export var SearchNearbyResultItem: StaticStructureSchema = [
     [() => SensitiveString, 0],
     [() => PlaceType, 0],
     [() => SensitiveString, 0],
-    [() => Address, 0],
+    [() => Address$, 0],
     [() => SensitiveBoolean, 0],
     [() => Position, 0],
     [() => DistanceMeters, 0],
@@ -980,16 +980,16 @@ export var SearchNearbyResultItem: StaticStructureSchema = [
     [() => CategoryList, 0],
     [() => FoodTypeList, 0],
     [() => BusinessChainList, 0],
-    [() => Contacts, 0],
+    [() => Contacts$, 0],
     [() => OpeningHoursList, 0],
     [() => AccessPointList, 0],
     [() => AccessRestrictionList, 0],
-    [() => TimeZone, 0],
+    [() => TimeZone$, 0],
     [() => CountryCode3, 0],
-    [() => PhonemeDetails, 0],
+    [() => PhonemeDetails$, 0],
   ],
 ];
-export var SearchTextFilter: StaticStructureSchema = [
+export var SearchTextFilter$: StaticStructureSchema = [
   3,
   n0,
   _STF,
@@ -997,11 +997,11 @@ export var SearchTextFilter: StaticStructureSchema = [
   [_BB, _Ci, _IC],
   [
     [() => BoundingBox, 0],
-    [() => FilterCircle, 0],
+    [() => FilterCircle$, 0],
     [() => CountryCodeList, 0],
   ],
 ];
-export var SearchTextRequest: StaticStructureSchema = [
+export var SearchTextRequest$: StaticStructureSchema = [
   3,
   n0,
   _STR,
@@ -1012,7 +1012,7 @@ export var SearchTextRequest: StaticStructureSchema = [
     [() => SensitiveString, 0],
     1,
     [() => Position, 0],
-    [() => SearchTextFilter, 0],
+    [() => SearchTextFilter$, 0],
     64 | 0,
     0,
     [() => CountryCode, 0],
@@ -1021,7 +1021,7 @@ export var SearchTextRequest: StaticStructureSchema = [
     [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
-export var SearchTextResponse: StaticStructureSchema = [
+export var SearchTextResponse$: StaticStructureSchema = [
   3,
   n0,
   _STRe,
@@ -1029,7 +1029,7 @@ export var SearchTextResponse: StaticStructureSchema = [
   [_PB, _RI, _NT],
   [[0, { [_hH]: _xagpb }], [() => SearchTextResultItemList, 0], 0],
 ];
-export var SearchTextResultItem: StaticStructureSchema = [
+export var SearchTextResultItem$: StaticStructureSchema = [
   3,
   n0,
   _STRI,
@@ -1039,7 +1039,7 @@ export var SearchTextResultItem: StaticStructureSchema = [
     [() => SensitiveString, 0],
     [() => PlaceType, 0],
     [() => SensitiveString, 0],
-    [() => Address, 0],
+    [() => Address$, 0],
     [() => SensitiveBoolean, 0],
     [() => Position, 0],
     [() => DistanceMeters, 0],
@@ -1047,18 +1047,18 @@ export var SearchTextResultItem: StaticStructureSchema = [
     [() => CategoryList, 0],
     [() => FoodTypeList, 0],
     [() => BusinessChainList, 0],
-    [() => Contacts, 0],
+    [() => Contacts$, 0],
     [() => OpeningHoursList, 0],
     [() => AccessPointList, 0],
     [() => AccessRestrictionList, 0],
-    [() => TimeZone, 0],
+    [() => TimeZone$, 0],
     [() => CountryCode3, 0],
-    [() => PhonemeDetails, 0],
+    [() => PhonemeDetails$, 0],
   ],
 ];
-export var SecondaryAddressComponent: StaticStructureSchema = [3, n0, _SACe, 0, [_Nu], [[() => SensitiveString, 0]]];
-export var SecondaryAddressComponentMatchScore: StaticStructureSchema = [3, n0, _SACMS, 0, [_Nu], [1]];
-export var StreetComponents: StaticStructureSchema = [
+export var SecondaryAddressComponent$: StaticStructureSchema = [3, n0, _SACe, 0, [_Nu], [[() => SensitiveString, 0]]];
+export var SecondaryAddressComponentMatchScore$: StaticStructureSchema = [3, n0, _SACMS, 0, [_Nu], [1]];
+export var StreetComponents$: StaticStructureSchema = [
   3,
   n0,
   _SC,
@@ -1075,7 +1075,7 @@ export var StreetComponents: StaticStructureSchema = [
     0,
   ],
 ];
-export var SubRegion: StaticStructureSchema = [
+export var SubRegion$: StaticStructureSchema = [
   3,
   n0,
   _SR,
@@ -1086,7 +1086,7 @@ export var SubRegion: StaticStructureSchema = [
     [() => SensitiveString, 0],
   ],
 ];
-export var SubRegionHighlights: StaticStructureSchema = [
+export var SubRegionHighlights$: StaticStructureSchema = [
   3,
   n0,
   _SRH,
@@ -1097,8 +1097,8 @@ export var SubRegionHighlights: StaticStructureSchema = [
     [() => HighlightList, 0],
   ],
 ];
-export var SuggestAddressHighlights: StaticStructureSchema = [3, n0, _SAH, 0, [_L], [[() => HighlightList, 0]]];
-export var SuggestFilter: StaticStructureSchema = [
+export var SuggestAddressHighlights$: StaticStructureSchema = [3, n0, _SAH, 0, [_L], [[() => HighlightList, 0]]];
+export var SuggestFilter$: StaticStructureSchema = [
   3,
   n0,
   _SF,
@@ -1106,11 +1106,11 @@ export var SuggestFilter: StaticStructureSchema = [
   [_BB, _Ci, _IC],
   [
     [() => BoundingBox, 0],
-    [() => FilterCircle, 0],
+    [() => FilterCircle$, 0],
     [() => CountryCodeList, 0],
   ],
 ];
-export var SuggestHighlights: StaticStructureSchema = [
+export var SuggestHighlights$: StaticStructureSchema = [
   3,
   n0,
   _SH,
@@ -1118,10 +1118,10 @@ export var SuggestHighlights: StaticStructureSchema = [
   [_T, _A],
   [
     [() => HighlightList, 0],
-    [() => SuggestAddressHighlights, 0],
+    [() => SuggestAddressHighlights$, 0],
   ],
 ];
-export var SuggestPlaceResult: StaticStructureSchema = [
+export var SuggestPlaceResult$: StaticStructureSchema = [
   3,
   n0,
   _SPR,
@@ -1130,7 +1130,7 @@ export var SuggestPlaceResult: StaticStructureSchema = [
   [
     [() => SensitiveString, 0],
     [() => PlaceType, 0],
-    [() => Address, 0],
+    [() => Address$, 0],
     [() => Position, 0],
     [() => DistanceMeters, 0],
     [() => BoundingBox, 0],
@@ -1139,13 +1139,13 @@ export var SuggestPlaceResult: StaticStructureSchema = [
     [() => BusinessChainList, 0],
     [() => AccessPointList, 0],
     [() => AccessRestrictionList, 0],
-    [() => TimeZone, 0],
+    [() => TimeZone$, 0],
     [() => CountryCode3, 0],
-    [() => PhonemeDetails, 0],
+    [() => PhonemeDetails$, 0],
   ],
 ];
-export var SuggestQueryResult: StaticStructureSchema = [3, n0, _SQR, 0, [_QI, _QTu], [[() => SensitiveString, 0], 0]];
-export var SuggestRequest: StaticStructureSchema = [
+export var SuggestQueryResult$: StaticStructureSchema = [3, n0, _SQR, 0, [_QI, _QTu], [[() => SensitiveString, 0], 0]];
+export var SuggestRequest$: StaticStructureSchema = [
   3,
   n0,
   _SRu,
@@ -1156,7 +1156,7 @@ export var SuggestRequest: StaticStructureSchema = [
     1,
     1,
     [() => Position, 0],
-    [() => SuggestFilter, 0],
+    [() => SuggestFilter$, 0],
     64 | 0,
     0,
     [() => CountryCode, 0],
@@ -1164,7 +1164,7 @@ export var SuggestRequest: StaticStructureSchema = [
     [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
-export var SuggestResponse: StaticStructureSchema = [
+export var SuggestResponse$: StaticStructureSchema = [
   3,
   n0,
   _SRug,
@@ -1176,7 +1176,7 @@ export var SuggestResponse: StaticStructureSchema = [
     [() => QueryRefinementList, 0],
   ],
 ];
-export var SuggestResultItem: StaticStructureSchema = [
+export var SuggestResultItem$: StaticStructureSchema = [
   3,
   n0,
   _SRI,
@@ -1185,14 +1185,21 @@ export var SuggestResultItem: StaticStructureSchema = [
   [
     [() => SensitiveString, 0],
     0,
-    [() => SuggestPlaceResult, 0],
-    [() => SuggestQueryResult, 0],
-    [() => SuggestHighlights, 0],
+    [() => SuggestPlaceResult$, 0],
+    [() => SuggestQueryResult$, 0],
+    [() => SuggestHighlights$, 0],
   ],
 ];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [[0, { [_jN]: _m }]]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var TimeZone: StaticStructureSchema = [
+export var ThrottlingException$: StaticErrorSchema = [
+  -3,
+  n0,
+  _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [[0, { [_jN]: _m }]],
+];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var TimeZone$: StaticStructureSchema = [
   3,
   n0,
   _TZ,
@@ -1204,9 +1211,9 @@ export var TimeZone: StaticStructureSchema = [
     [() => DurationSeconds, 0],
   ],
 ];
-export var UspsZip: StaticStructureSchema = [3, n0, _UZ, 0, [_ZCC], [[() => ZipClassificationCode, 0]]];
-export var UspsZipPlus4: StaticStructureSchema = [3, n0, _UZP, 0, [_RTC], [[() => RecordTypeCode, 0]]];
-export var ValidationException: StaticErrorSchema = [
+export var UspsZip$: StaticStructureSchema = [3, n0, _UZ, 0, [_ZCC], [[() => ZipClassificationCode, 0]]];
+export var UspsZipPlus4$: StaticStructureSchema = [3, n0, _UZP, 0, [_RTC], [[() => RecordTypeCode, 0]]];
+export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VE,
@@ -1218,8 +1225,8 @@ export var ValidationException: StaticErrorSchema = [
     [() => ValidationExceptionFieldList, { [_jN]: _fL }],
   ],
 ];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var ValidationExceptionField: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var ValidationExceptionField$: StaticStructureSchema = [
   3,
   n0,
   _VEF,
@@ -1230,119 +1237,119 @@ export var ValidationExceptionField: StaticStructureSchema = [
     [0, { [_jN]: _m }],
   ],
 ];
-export var GeoPlacesServiceException: StaticErrorSchema = [-3, _sm, "GeoPlacesServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(GeoPlacesServiceException, __GeoPlacesServiceException);
-export var AccessPointList: StaticListSchema = [1, n0, _APL, 0, [() => AccessPoint, 0]];
-export var AccessRestrictionList: StaticListSchema = [1, n0, _ARL, 0, [() => AccessRestriction, 0]];
-export var AutocompleteAdditionalFeatureList = 64 | 0;
-export var AutocompleteFilterPlaceTypeList = 64 | 0;
-export var AutocompleteResultItemList: StaticListSchema = [1, n0, _ARIL, 0, [() => AutocompleteResultItem, 0]];
-export var BoundingBox: StaticListSchema = [1, n0, _BB, 8, 1];
-export var BusinessChainList: StaticListSchema = [1, n0, _BCL, 0, [() => BusinessChain, 0]];
-export var CategoryList: StaticListSchema = [1, n0, _CL, 0, [() => Category, 0]];
-export var ContactDetailsList: StaticListSchema = [1, n0, _CDL, 0, [() => ContactDetails, 0]];
-export var CountryCodeList: StaticListSchema = [1, n0, _CCL, 0, [() => CountryCode, 0]];
-export var FilterBusinessChainList: StaticListSchema = [1, n0, _FBCL, 0, [() => SensitiveString, 0]];
-export var FilterCategoryList: StaticListSchema = [1, n0, _FCL, 0, [() => SensitiveString, 0]];
-export var FilterFoodTypeList: StaticListSchema = [1, n0, _FFTL, 0, [() => SensitiveString, 0]];
-export var FoodTypeList: StaticListSchema = [1, n0, _FTL, 0, [() => FoodType, 0]];
-export var GeocodeAdditionalFeatureList = 64 | 0;
-export var GeocodeFilterPlaceTypeList: StaticListSchema = [1, n0, _GFPTL, 0, [() => GeocodeFilterPlaceType, 0]];
-export var GeocodeResultItemList: StaticListSchema = [1, n0, _GRIL, 0, [() => GeocodeResultItem, 0]];
-export var GetPlaceAdditionalFeatureList = 64 | 0;
-export var HighlightList: StaticListSchema = [1, n0, _HL, 0, [() => Highlight, 0]];
-export var IntersectionHighlightsList: StaticListSchema = [1, n0, _IHL, 0, [() => HighlightList, 0]];
-export var IntersectionList: StaticListSchema = [1, n0, _IL, 0, [() => Intersection, 0]];
-export var IntersectionStreetList = 64 | 0;
-export var MatchScoreList = 64 | 1;
-export var OpeningHoursComponentsList: StaticListSchema = [1, n0, _OHCL, 0, [() => OpeningHoursComponents, 0]];
-export var OpeningHoursDisplayList: StaticListSchema = [1, n0, _OHDL, 0, [() => OpeningHoursDisplay, 0]];
-export var OpeningHoursList: StaticListSchema = [1, n0, _OHL, 0, [() => OpeningHours, 0]];
-export var ParsedQueryComponentList: StaticListSchema = [1, n0, _PQCL, 0, [() => ParsedQueryComponent, 0]];
-export var ParsedQuerySecondaryAddressComponentList: StaticListSchema = [
+export var GeoPlacesServiceException$: StaticErrorSchema = [-3, _sm, "GeoPlacesServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(GeoPlacesServiceException$, GeoPlacesServiceException);
+var AccessPointList: StaticListSchema = [1, n0, _APL, 0, [() => AccessPoint$, 0]];
+var AccessRestrictionList: StaticListSchema = [1, n0, _ARL, 0, [() => AccessRestriction$, 0]];
+var AutocompleteAdditionalFeatureList = 64 | 0;
+var AutocompleteFilterPlaceTypeList = 64 | 0;
+var AutocompleteResultItemList: StaticListSchema = [1, n0, _ARIL, 0, [() => AutocompleteResultItem$, 0]];
+var BoundingBox: StaticListSchema = [1, n0, _BB, 8, 1];
+var BusinessChainList: StaticListSchema = [1, n0, _BCL, 0, [() => BusinessChain$, 0]];
+var CategoryList: StaticListSchema = [1, n0, _CL, 0, [() => Category$, 0]];
+var ContactDetailsList: StaticListSchema = [1, n0, _CDL, 0, [() => ContactDetails$, 0]];
+var CountryCodeList: StaticListSchema = [1, n0, _CCL, 0, [() => CountryCode, 0]];
+var FilterBusinessChainList: StaticListSchema = [1, n0, _FBCL, 0, [() => SensitiveString, 0]];
+var FilterCategoryList: StaticListSchema = [1, n0, _FCL, 0, [() => SensitiveString, 0]];
+var FilterFoodTypeList: StaticListSchema = [1, n0, _FFTL, 0, [() => SensitiveString, 0]];
+var FoodTypeList: StaticListSchema = [1, n0, _FTL, 0, [() => FoodType$, 0]];
+var GeocodeAdditionalFeatureList = 64 | 0;
+var GeocodeFilterPlaceTypeList: StaticListSchema = [1, n0, _GFPTL, 0, [() => GeocodeFilterPlaceType, 0]];
+var GeocodeResultItemList: StaticListSchema = [1, n0, _GRIL, 0, [() => GeocodeResultItem$, 0]];
+var GetPlaceAdditionalFeatureList = 64 | 0;
+var HighlightList: StaticListSchema = [1, n0, _HL, 0, [() => Highlight$, 0]];
+var IntersectionHighlightsList: StaticListSchema = [1, n0, _IHL, 0, [() => HighlightList, 0]];
+var IntersectionList: StaticListSchema = [1, n0, _IL, 0, [() => Intersection$, 0]];
+var IntersectionStreetList = 64 | 0;
+var MatchScoreList = 64 | 1;
+var OpeningHoursComponentsList: StaticListSchema = [1, n0, _OHCL, 0, [() => OpeningHoursComponents$, 0]];
+var OpeningHoursDisplayList: StaticListSchema = [1, n0, _OHDL, 0, [() => OpeningHoursDisplay, 0]];
+var OpeningHoursList: StaticListSchema = [1, n0, _OHL, 0, [() => OpeningHours$, 0]];
+var ParsedQueryComponentList: StaticListSchema = [1, n0, _PQCL, 0, [() => ParsedQueryComponent$, 0]];
+var ParsedQuerySecondaryAddressComponentList: StaticListSchema = [
   1,
   n0,
   _PQSACL,
   0,
-  [() => ParsedQuerySecondaryAddressComponent, 0],
+  [() => ParsedQuerySecondaryAddressComponent$, 0],
 ];
-export var PhonemeTranscriptionList: StaticListSchema = [1, n0, _PTL, 0, [() => PhonemeTranscription, 0]];
-export var Position: StaticListSchema = [1, n0, _P, 8, 1];
-export var PostalCodeDetailsList: StaticListSchema = [1, n0, _PCDL, 0, [() => PostalCodeDetails, 0]];
-export var QueryRefinementList: StaticListSchema = [1, n0, _QRL, 0, [() => QueryRefinement, 0]];
-export var RelatedPlaceList: StaticListSchema = [1, n0, _RPL, 0, [() => RelatedPlace, 0]];
-export var ReverseGeocodeAdditionalFeatureList = 64 | 0;
-export var ReverseGeocodeFilterPlaceTypeList = 64 | 0;
-export var ReverseGeocodeResultItemList: StaticListSchema = [1, n0, _RGRIL, 0, [() => ReverseGeocodeResultItem, 0]];
-export var SearchNearbyAdditionalFeatureList = 64 | 0;
-export var SearchNearbyResultItemList: StaticListSchema = [1, n0, _SNRIL, 0, [() => SearchNearbyResultItem, 0]];
-export var SearchTextAdditionalFeatureList = 64 | 0;
-export var SearchTextResultItemList: StaticListSchema = [1, n0, _STRIL, 0, [() => SearchTextResultItem, 0]];
-export var SecondaryAddressComponentList: StaticListSchema = [1, n0, _SACL, 0, [() => SecondaryAddressComponent, 0]];
-export var SecondaryAddressComponentMatchScoreList: StaticListSchema = [
+var PhonemeTranscriptionList: StaticListSchema = [1, n0, _PTL, 0, [() => PhonemeTranscription$, 0]];
+var Position: StaticListSchema = [1, n0, _P, 8, 1];
+var PostalCodeDetailsList: StaticListSchema = [1, n0, _PCDL, 0, [() => PostalCodeDetails$, 0]];
+var QueryRefinementList: StaticListSchema = [1, n0, _QRL, 0, [() => QueryRefinement$, 0]];
+var RelatedPlaceList: StaticListSchema = [1, n0, _RPL, 0, [() => RelatedPlace$, 0]];
+var ReverseGeocodeAdditionalFeatureList = 64 | 0;
+var ReverseGeocodeFilterPlaceTypeList = 64 | 0;
+var ReverseGeocodeResultItemList: StaticListSchema = [1, n0, _RGRIL, 0, [() => ReverseGeocodeResultItem$, 0]];
+var SearchNearbyAdditionalFeatureList = 64 | 0;
+var SearchNearbyResultItemList: StaticListSchema = [1, n0, _SNRIL, 0, [() => SearchNearbyResultItem$, 0]];
+var SearchTextAdditionalFeatureList = 64 | 0;
+var SearchTextResultItemList: StaticListSchema = [1, n0, _STRIL, 0, [() => SearchTextResultItem$, 0]];
+var SecondaryAddressComponentList: StaticListSchema = [1, n0, _SACL, 0, [() => SecondaryAddressComponent$, 0]];
+var SecondaryAddressComponentMatchScoreList: StaticListSchema = [
   1,
   n0,
   _SACMSL,
   0,
-  () => SecondaryAddressComponentMatchScore,
+  () => SecondaryAddressComponentMatchScore$,
 ];
-export var StreetComponentsList: StaticListSchema = [1, n0, _SCL, 0, [() => StreetComponents, 0]];
-export var SuggestAdditionalFeatureList = 64 | 0;
-export var SuggestResultItemList: StaticListSchema = [1, n0, _SRIL, 0, [() => SuggestResultItem, 0]];
-export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, [() => ValidationExceptionField, 0]];
-export var Autocomplete: StaticOperationSchema = [
+var StreetComponentsList: StaticListSchema = [1, n0, _SCL, 0, [() => StreetComponents$, 0]];
+var SuggestAdditionalFeatureList = 64 | 0;
+var SuggestResultItemList: StaticListSchema = [1, n0, _SRIL, 0, [() => SuggestResultItem$, 0]];
+var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, [() => ValidationExceptionField$, 0]];
+export var Autocomplete$: StaticOperationSchema = [
   9,
   n0,
   _Au,
   { [_h]: ["POST", "/autocomplete", 200] },
-  () => AutocompleteRequest,
-  () => AutocompleteResponse,
+  () => AutocompleteRequest$,
+  () => AutocompleteResponse$,
 ];
-export var Geocode: StaticOperationSchema = [
+export var Geocode$: StaticOperationSchema = [
   9,
   n0,
   _G,
   { [_h]: ["POST", "/geocode", 200] },
-  () => GeocodeRequest,
-  () => GeocodeResponse,
+  () => GeocodeRequest$,
+  () => GeocodeResponse$,
 ];
-export var GetPlace: StaticOperationSchema = [
+export var GetPlace$: StaticOperationSchema = [
   9,
   n0,
   _GP,
   { [_h]: ["GET", "/place/{PlaceId}", 200] },
-  () => GetPlaceRequest,
-  () => GetPlaceResponse,
+  () => GetPlaceRequest$,
+  () => GetPlaceResponse$,
 ];
-export var ReverseGeocode: StaticOperationSchema = [
+export var ReverseGeocode$: StaticOperationSchema = [
   9,
   n0,
   _RG,
   { [_h]: ["POST", "/reverse-geocode", 200] },
-  () => ReverseGeocodeRequest,
-  () => ReverseGeocodeResponse,
+  () => ReverseGeocodeRequest$,
+  () => ReverseGeocodeResponse$,
 ];
-export var SearchNearby: StaticOperationSchema = [
+export var SearchNearby$: StaticOperationSchema = [
   9,
   n0,
   _SN,
   { [_h]: ["POST", "/search-nearby", 200] },
-  () => SearchNearbyRequest,
-  () => SearchNearbyResponse,
+  () => SearchNearbyRequest$,
+  () => SearchNearbyResponse$,
 ];
-export var SearchText: StaticOperationSchema = [
+export var SearchText$: StaticOperationSchema = [
   9,
   n0,
   _ST,
   { [_h]: ["POST", "/search-text", 200] },
-  () => SearchTextRequest,
-  () => SearchTextResponse,
+  () => SearchTextRequest$,
+  () => SearchTextResponse$,
 ];
-export var Suggest: StaticOperationSchema = [
+export var Suggest$: StaticOperationSchema = [
   9,
   n0,
   _Sug,
   { [_h]: ["POST", "/suggest", 200] },
-  () => SuggestRequest,
-  () => SuggestResponse,
+  () => SuggestRequest$,
+  () => SuggestResponse$,
 ];

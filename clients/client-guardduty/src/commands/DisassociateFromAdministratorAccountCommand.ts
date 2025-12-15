@@ -9,7 +9,7 @@ import type {
   DisassociateFromAdministratorAccountRequest,
   DisassociateFromAdministratorAccountResponse,
 } from "../models/models_0";
-import { DisassociateFromAdministratorAccount } from "../schemas/schemas_0";
+import { DisassociateFromAdministratorAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DisassociateFromAdministratorAccountCommand extends $Command
   })
   .s("GuardDutyAPIService", "DisassociateFromAdministratorAccount", {})
   .n("GuardDutyClient", "DisassociateFromAdministratorAccountCommand")
-  .sc(DisassociateFromAdministratorAccount)
+  .sc(DisassociateFromAdministratorAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

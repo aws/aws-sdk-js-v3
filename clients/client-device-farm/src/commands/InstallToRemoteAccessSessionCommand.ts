@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { InstallToRemoteAccessSessionRequest, InstallToRemoteAccessSessionResult } from "../models/models_0";
-import { InstallToRemoteAccessSession } from "../schemas/schemas_0";
+import { InstallToRemoteAccessSession$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class InstallToRemoteAccessSessionCommand extends $Command
   })
   .s("DeviceFarm_20150623", "InstallToRemoteAccessSession", {})
   .n("DeviceFarmClient", "InstallToRemoteAccessSessionCommand")
-  .sc(InstallToRemoteAccessSession)
+  .sc(InstallToRemoteAccessSession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

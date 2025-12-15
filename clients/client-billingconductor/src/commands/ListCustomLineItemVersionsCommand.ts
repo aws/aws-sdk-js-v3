@@ -10,7 +10,7 @@ import type {
 } from "../BillingconductorClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListCustomLineItemVersionsInput, ListCustomLineItemVersionsOutput } from "../models/models_0";
-import { ListCustomLineItemVersions } from "../schemas/schemas_0";
+import { ListCustomLineItemVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -139,7 +139,7 @@ export class ListCustomLineItemVersionsCommand extends $Command
   })
   .s("AWSBillingConductor", "ListCustomLineItemVersions", {})
   .n("BillingconductorClient", "ListCustomLineItemVersionsCommand")
-  .sc(ListCustomLineItemVersions)
+  .sc(ListCustomLineItemVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

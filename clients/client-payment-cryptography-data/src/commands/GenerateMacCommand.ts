@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyDataClient";
-import { GenerateMac } from "../schemas/schemas_0";
+import { GenerateMac$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,7 +124,7 @@ export class GenerateMacCommand extends $Command
   })
   .s("PaymentCryptographyDataPlane", "GenerateMac", {})
   .n("PaymentCryptographyDataClient", "GenerateMacCommand")
-  .sc(GenerateMac)
+  .sc(GenerateMac$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { OptOutSpeakerRequest, OptOutSpeakerResponse } from "../models/models_0";
-import { OptOutSpeaker } from "../schemas/schemas_0";
+import { OptOutSpeaker$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
@@ -115,7 +115,7 @@ export class OptOutSpeakerCommand extends $Command
   })
   .s("VoiceID", "OptOutSpeaker", {})
   .n("VoiceIDClient", "OptOutSpeakerCommand")
-  .sc(OptOutSpeaker)
+  .sc(OptOutSpeaker$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

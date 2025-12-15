@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: PartnerCentralBenefitsClientConfig) => 
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_0Protocol({
-        defaultNamespace: "com.amazonaws.partnercentralbenefits",
-        serviceTarget: "PartnerCentralBenefitsService",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_0Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.partnercentralbenefits",
+      version: "2018-05-10",
+      serviceTarget: "PartnerCentralBenefitsService",
+    },
     serviceId: config?.serviceId ?? "PartnerCentral Benefits",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

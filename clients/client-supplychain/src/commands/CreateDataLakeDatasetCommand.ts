@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateDataLakeDatasetRequest, CreateDataLakeDatasetResponse } from "../models/models_0";
-import { CreateDataLakeDataset } from "../schemas/schemas_0";
+import { CreateDataLakeDataset$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupplyChainClientResolvedConfig } from "../SupplyChainClient";
 
 /**
@@ -475,7 +475,7 @@ export class CreateDataLakeDatasetCommand extends $Command
   })
   .s("GalaxyPublicAPIGateway", "CreateDataLakeDataset", {})
   .n("SupplyChainClient", "CreateDataLakeDatasetCommand")
-  .sc(CreateDataLakeDataset)
+  .sc(CreateDataLakeDataset$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

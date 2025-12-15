@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchDeleteCategoryInput } from "../models/models_0";
 import type { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
-import { BatchDeleteCategory } from "../schemas/schemas_0";
+import { BatchDeleteCategory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class BatchDeleteCategoryCommand extends $Command
   })
   .s("QAppsService", "BatchDeleteCategory", {})
   .n("QAppsClient", "BatchDeleteCategoryCommand")
-  .sc(BatchDeleteCategory)
+  .sc(BatchDeleteCategory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

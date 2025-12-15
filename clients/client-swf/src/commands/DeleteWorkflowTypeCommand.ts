@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteWorkflowTypeInput } from "../models/models_0";
-import { DeleteWorkflowType } from "../schemas/schemas_0";
+import { DeleteWorkflowType$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -124,7 +124,7 @@ export class DeleteWorkflowTypeCommand extends $Command
   })
   .s("SimpleWorkflowService", "DeleteWorkflowType", {})
   .n("SWFClient", "DeleteWorkflowTypeCommand")
-  .sc(DeleteWorkflowType)
+  .sc(DeleteWorkflowType$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

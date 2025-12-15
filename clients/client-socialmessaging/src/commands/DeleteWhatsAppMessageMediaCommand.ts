@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteWhatsAppMessageMediaInput, DeleteWhatsAppMessageMediaOutput } from "../models/models_0";
-import { DeleteWhatsAppMessageMedia } from "../schemas/schemas_0";
+import { DeleteWhatsAppMessageMedia$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -103,7 +103,7 @@ export class DeleteWhatsAppMessageMediaCommand extends $Command
   })
   .s("SocialMessaging", "DeleteWhatsAppMessageMedia", {})
   .n("SocialMessagingClient", "DeleteWhatsAppMessageMediaCommand")
-  .sc(DeleteWhatsAppMessageMedia)
+  .sc(DeleteWhatsAppMessageMedia$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

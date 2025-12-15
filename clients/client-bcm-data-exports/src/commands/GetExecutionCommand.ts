@@ -10,7 +10,7 @@ import type {
 } from "../BCMDataExportsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetExecutionRequest, GetExecutionResponse } from "../models/models_0";
-import { GetExecution } from "../schemas/schemas_0";
+import { GetExecution$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class GetExecutionCommand extends $Command
   })
   .s("AWSBillingAndCostManagementDataExports", "GetExecution", {})
   .n("BCMDataExportsClient", "GetExecutionCommand")
-  .sc(GetExecution)
+  .sc(GetExecution$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

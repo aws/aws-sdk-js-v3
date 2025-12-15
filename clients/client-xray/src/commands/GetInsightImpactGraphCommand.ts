@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetInsightImpactGraphRequest, GetInsightImpactGraphResult } from "../models/models_0";
-import { GetInsightImpactGraph } from "../schemas/schemas_0";
+import { GetInsightImpactGraph$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
@@ -104,7 +104,7 @@ export class GetInsightImpactGraphCommand extends $Command
   })
   .s("AWSXRay", "GetInsightImpactGraph", {})
   .n("XRayClient", "GetInsightImpactGraphCommand")
-  .sc(GetInsightImpactGraph)
+  .sc(GetInsightImpactGraph$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

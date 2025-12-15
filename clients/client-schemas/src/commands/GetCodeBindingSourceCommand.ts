@@ -6,7 +6,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type GetCodeBindingSourceRequest, GetCodeBindingSourceResponse } from "../models/models_0";
-import { GetCodeBindingSource } from "../schemas/schemas_0";
+import { GetCodeBindingSource$ } from "../schemas/schemas_0";
 import type { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
@@ -96,7 +96,7 @@ export class GetCodeBindingSourceCommand extends $Command
   })
   .s("schemas", "GetCodeBindingSource", {})
   .n("SchemasClient", "GetCodeBindingSourceCommand")
-  .sc(GetCodeBindingSource)
+  .sc(GetCodeBindingSource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

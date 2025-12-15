@@ -9,7 +9,7 @@ import type {
   StartActiveApprovalTeamDeletionResponse,
 } from "../models/models_0";
 import type { MPAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MPAClient";
-import { StartActiveApprovalTeamDeletion } from "../schemas/schemas_0";
+import { StartActiveApprovalTeamDeletion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class StartActiveApprovalTeamDeletionCommand extends $Command
   })
   .s("AWSFluffyCoreService", "StartActiveApprovalTeamDeletion", {})
   .n("MPAClient", "StartActiveApprovalTeamDeletionCommand")
-  .sc(StartActiveApprovalTeamDeletion)
+  .sc(StartActiveApprovalTeamDeletion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

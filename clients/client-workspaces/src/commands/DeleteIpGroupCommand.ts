@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteIpGroupRequest, DeleteIpGroupResult } from "../models/models_0";
-import { DeleteIpGroup } from "../schemas/schemas_0";
+import { DeleteIpGroup$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -84,7 +84,7 @@ export class DeleteIpGroupCommand extends $Command
   })
   .s("WorkspacesService", "DeleteIpGroup", {})
   .n("WorkSpacesClient", "DeleteIpGroupCommand")
-  .sc(DeleteIpGroup)
+  .sc(DeleteIpGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

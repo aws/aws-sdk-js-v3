@@ -7,7 +7,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GeoMapsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoMapsClient";
 import { type GetGlyphsRequest, GetGlyphsResponse } from "../models/models_0";
-import { GetGlyphs } from "../schemas/schemas_0";
+import { GetGlyphs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class GetGlyphsCommand extends $Command
   })
   .s("MapsService", "GetGlyphs", {})
   .n("GeoMapsClient", "GetGlyphsCommand")
-  .sc(GetGlyphs)
+  .sc(GetGlyphs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

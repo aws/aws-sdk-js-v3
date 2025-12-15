@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
 import type { RejectInvitationInput, RejectInvitationOutput } from "../models/models_0";
-import { RejectInvitation } from "../schemas/schemas_0";
+import { RejectInvitation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class RejectInvitationCommand extends $Command
   })
   .s("TaigaWebService", "RejectInvitation", {})
   .n("ManagedBlockchainClient", "RejectInvitationCommand")
-  .sc(RejectInvitation)
+  .sc(RejectInvitation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

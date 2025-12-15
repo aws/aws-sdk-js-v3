@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDeliveryDestinationPolicyRequest, GetDeliveryDestinationPolicyResponse } from "../models/models_0";
-import { GetDeliveryDestinationPolicy } from "../schemas/schemas_0";
+import { GetDeliveryDestinationPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class GetDeliveryDestinationPolicyCommand extends $Command
   })
   .s("Logs_20140328", "GetDeliveryDestinationPolicy", {})
   .n("CloudWatchLogsClient", "GetDeliveryDestinationPolicyCommand")
-  .sc(GetDeliveryDestinationPolicy)
+  .sc(GetDeliveryDestinationPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

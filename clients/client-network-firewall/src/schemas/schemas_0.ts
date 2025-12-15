@@ -605,23 +605,23 @@ import type {
 } from "@smithy/types";
 
 import {
-  InsufficientCapacityException as __InsufficientCapacityException,
-  InternalServerError as __InternalServerError,
-  InvalidOperationException as __InvalidOperationException,
-  InvalidRequestException as __InvalidRequestException,
-  InvalidResourcePolicyException as __InvalidResourcePolicyException,
-  InvalidTokenException as __InvalidTokenException,
-  LimitExceededException as __LimitExceededException,
-  LogDestinationPermissionException as __LogDestinationPermissionException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ResourceOwnerCheckException as __ResourceOwnerCheckException,
-  ThrottlingException as __ThrottlingException,
-  UnsupportedOperationException as __UnsupportedOperationException,
+  InsufficientCapacityException,
+  InternalServerError,
+  InvalidOperationException,
+  InvalidRequestException,
+  InvalidResourcePolicyException,
+  InvalidTokenException,
+  LimitExceededException,
+  LogDestinationPermissionException,
+  ResourceNotFoundException,
+  ResourceOwnerCheckException,
+  ThrottlingException,
+  UnsupportedOperationException,
 } from "../models/errors";
-import { NetworkFirewallServiceException as __NetworkFirewallServiceException } from "../models/NetworkFirewallServiceException";
+import { NetworkFirewallServiceException } from "../models/NetworkFirewallServiceException";
 
 /* eslint no-var: 0 */
-export var AcceptNetworkFirewallTransitGatewayAttachmentRequest: StaticStructureSchema = [
+export var AcceptNetworkFirewallTransitGatewayAttachmentRequest$: StaticStructureSchema = [
   3,
   n0,
   _ANFTGAR,
@@ -629,7 +629,7 @@ export var AcceptNetworkFirewallTransitGatewayAttachmentRequest: StaticStructure
   [_TGAI],
   [0],
 ];
-export var AcceptNetworkFirewallTransitGatewayAttachmentResponse: StaticStructureSchema = [
+export var AcceptNetworkFirewallTransitGatewayAttachmentResponse$: StaticStructureSchema = [
   3,
   n0,
   _ANFTGARc,
@@ -637,19 +637,19 @@ export var AcceptNetworkFirewallTransitGatewayAttachmentResponse: StaticStructur
   [_TGAI, _TGAS],
   [0, 0],
 ];
-export var ActionDefinition: StaticStructureSchema = [3, n0, _AD, 0, [_PMA], [() => PublishMetricAction]];
-export var Address: StaticStructureSchema = [3, n0, _A, 0, [_ADd], [0]];
-export var AnalysisReport: StaticStructureSchema = [3, n0, _AR, 0, [_ARI, _AT, _RT, _S], [0, 0, 4, 0]];
-export var AnalysisResult: StaticStructureSchema = [3, n0, _ARn, 0, [_IRI, _IT, _ADn], [64 | 0, 0, 0]];
-export var AnalysisTypeReportResult: StaticStructureSchema = [
+export var ActionDefinition$: StaticStructureSchema = [3, n0, _AD, 0, [_PMA], [() => PublishMetricAction$]];
+export var Address$: StaticStructureSchema = [3, n0, _A, 0, [_ADd], [0]];
+export var AnalysisReport$: StaticStructureSchema = [3, n0, _AR, 0, [_ARI, _AT, _RT, _S], [0, 0, 4, 0]];
+export var AnalysisResult$: StaticStructureSchema = [3, n0, _ARn, 0, [_IRI, _IT, _ADn], [64 | 0, 0, 0]];
+export var AnalysisTypeReportResult$: StaticStructureSchema = [
   3,
   n0,
   _ATRR,
   0,
   [_P, _FA, _LA, _D, _H, _US],
-  [0, 4, 4, 0, () => Hits, () => UniqueSources],
+  [0, 4, 4, 0, () => Hits$, () => UniqueSources$],
 ];
-export var AssociateAvailabilityZonesRequest: StaticStructureSchema = [
+export var AssociateAvailabilityZonesRequest$: StaticStructureSchema = [
   3,
   n0,
   _AAZR,
@@ -657,7 +657,7 @@ export var AssociateAvailabilityZonesRequest: StaticStructureSchema = [
   [_UT, _FAi, _FN, _AZM],
   [0, 0, 0, () => AvailabilityZoneMappings],
 ];
-export var AssociateAvailabilityZonesResponse: StaticStructureSchema = [
+export var AssociateAvailabilityZonesResponse$: StaticStructureSchema = [
   3,
   n0,
   _AAZRs,
@@ -665,7 +665,7 @@ export var AssociateAvailabilityZonesResponse: StaticStructureSchema = [
   [_FAi, _FN, _AZM, _UT],
   [0, 0, () => AvailabilityZoneMappings, 0],
 ];
-export var AssociateFirewallPolicyRequest: StaticStructureSchema = [
+export var AssociateFirewallPolicyRequest$: StaticStructureSchema = [
   3,
   n0,
   _AFPR,
@@ -673,7 +673,7 @@ export var AssociateFirewallPolicyRequest: StaticStructureSchema = [
   [_UT, _FAi, _FN, _FPA],
   [0, 0, 0, 0],
 ];
-export var AssociateFirewallPolicyResponse: StaticStructureSchema = [
+export var AssociateFirewallPolicyResponse$: StaticStructureSchema = [
   3,
   n0,
   _AFPRs,
@@ -681,7 +681,7 @@ export var AssociateFirewallPolicyResponse: StaticStructureSchema = [
   [_FAi, _FN, _FPA, _UT],
   [0, 0, 0, 0],
 ];
-export var AssociateSubnetsRequest: StaticStructureSchema = [
+export var AssociateSubnetsRequest$: StaticStructureSchema = [
   3,
   n0,
   _ASR,
@@ -689,7 +689,7 @@ export var AssociateSubnetsRequest: StaticStructureSchema = [
   [_UT, _FAi, _FN, _SM],
   [0, 0, 0, () => SubnetMappings],
 ];
-export var AssociateSubnetsResponse: StaticStructureSchema = [
+export var AssociateSubnetsResponse$: StaticStructureSchema = [
   3,
   n0,
   _ASRs,
@@ -697,8 +697,8 @@ export var AssociateSubnetsResponse: StaticStructureSchema = [
   [_FAi, _FN, _SM, _UT],
   [0, 0, () => SubnetMappings, 0],
 ];
-export var Attachment: StaticStructureSchema = [3, n0, _At, 0, [_SI, _EI, _S, _SMt], [0, 0, 0, 0]];
-export var AttachRuleGroupsToProxyConfigurationRequest: StaticStructureSchema = [
+export var Attachment$: StaticStructureSchema = [3, n0, _At, 0, [_SI, _EI, _S, _SMt], [0, 0, 0, 0]];
+export var AttachRuleGroupsToProxyConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _ARGTPCR,
@@ -706,20 +706,20 @@ export var AttachRuleGroupsToProxyConfigurationRequest: StaticStructureSchema = 
   [_PCN, _PCA, _RG, _UT],
   [0, 0, () => ProxyRuleGroupAttachmentList, 0],
 ];
-export var AttachRuleGroupsToProxyConfigurationResponse: StaticStructureSchema = [
+export var AttachRuleGroupsToProxyConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _ARGTPCRt,
   0,
   [_PC, _UT],
-  [() => ProxyConfiguration, 0],
+  [() => ProxyConfiguration$, 0],
 ];
-export var AvailabilityZoneMapping: StaticStructureSchema = [3, n0, _AZMv, 0, [_AZ], [0]];
-export var AvailabilityZoneMetadata: StaticStructureSchema = [3, n0, _AZMva, 0, [_IPAT], [0]];
-export var AZSyncState: StaticStructureSchema = [3, n0, _AZSS, 0, [_At], [() => Attachment]];
-export var CapacityUsageSummary: StaticStructureSchema = [3, n0, _CUS, 0, [_CIDR], [() => CIDRSummary]];
-export var CheckCertificateRevocationStatusActions: StaticStructureSchema = [3, n0, _CCRSA, 0, [_RSA, _USA], [0, 0]];
-export var CIDRSummary: StaticStructureSchema = [
+export var AvailabilityZoneMapping$: StaticStructureSchema = [3, n0, _AZMv, 0, [_AZ], [0]];
+export var AvailabilityZoneMetadata$: StaticStructureSchema = [3, n0, _AZMva, 0, [_IPAT], [0]];
+export var AZSyncState$: StaticStructureSchema = [3, n0, _AZSS, 0, [_At], [() => Attachment$]];
+export var CapacityUsageSummary$: StaticStructureSchema = [3, n0, _CUS, 0, [_CIDR], [() => CIDRSummary$]];
+export var CheckCertificateRevocationStatusActions$: StaticStructureSchema = [3, n0, _CCRSA, 0, [_RSA, _USA], [0, 0]];
+export var CIDRSummary$: StaticStructureSchema = [
   3,
   n0,
   _CIDRS,
@@ -727,23 +727,23 @@ export var CIDRSummary: StaticStructureSchema = [
   [_ACIDRC, _UCIDRC, _IPSR],
   [1, 1, () => IPSetMetadataMap],
 ];
-export var CreateFirewallPolicyRequest: StaticStructureSchema = [
+export var CreateFirewallPolicyRequest$: StaticStructureSchema = [
   3,
   n0,
   _CFPR,
   0,
   [_FPN, _FP, _De, _T, _DR, _EC],
-  [0, () => FirewallPolicy, 0, () => TagList, 2, () => EncryptionConfiguration],
+  [0, () => FirewallPolicy$, 0, () => TagList, 2, () => EncryptionConfiguration$],
 ];
-export var CreateFirewallPolicyResponse: StaticStructureSchema = [
+export var CreateFirewallPolicyResponse$: StaticStructureSchema = [
   3,
   n0,
   _CFPRr,
   0,
   [_UT, _FPR],
-  [0, () => FirewallPolicyResponse],
+  [0, () => FirewallPolicyResponse$],
 ];
-export var CreateFirewallRequest: StaticStructureSchema = [
+export var CreateFirewallRequest$: StaticStructureSchema = [
   3,
   n0,
   _CFR,
@@ -759,47 +759,47 @@ export var CreateFirewallRequest: StaticStructureSchema = [
     2,
     0,
     () => TagList,
-    () => EncryptionConfiguration,
+    () => EncryptionConfiguration$,
     64 | 0,
     0,
     () => AvailabilityZoneMappings,
     2,
   ],
 ];
-export var CreateFirewallResponse: StaticStructureSchema = [
+export var CreateFirewallResponse$: StaticStructureSchema = [
   3,
   n0,
   _CFRr,
   0,
   [_F, _FS],
-  [() => Firewall, () => FirewallStatus],
+  [() => Firewall$, () => FirewallStatus$],
 ];
-export var CreateProxyConfigurationRequest: StaticStructureSchema = [
+export var CreateProxyConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPCR,
   0,
   [_PCN, _De, _RGN, _RGA, _DRPA, _T],
-  [0, 0, 64 | 0, 64 | 0, () => ProxyConfigDefaultRulePhaseActionsRequest, () => TagList],
+  [0, 0, 64 | 0, 64 | 0, () => ProxyConfigDefaultRulePhaseActionsRequest$, () => TagList],
 ];
-export var CreateProxyConfigurationResponse: StaticStructureSchema = [
+export var CreateProxyConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _CPCRr,
   0,
   [_PC, _UT],
-  [() => ProxyConfiguration, 0],
+  [() => ProxyConfiguration$, 0],
 ];
-export var CreateProxyRequest: StaticStructureSchema = [
+export var CreateProxyRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPR,
   0,
   [_PN, _NGI, _PCN, _PCA, _LP, _TIP, _T],
-  [0, 0, 0, 0, () => ListenerPropertiesRequest, () => TlsInterceptPropertiesRequest, () => TagList],
+  [0, 0, 0, 0, () => ListenerPropertiesRequest, () => TlsInterceptPropertiesRequest$, () => TagList],
 ];
-export var CreateProxyResponse: StaticStructureSchema = [3, n0, _CPRr, 0, [_Pr, _UT], [() => Proxy, 0]];
-export var CreateProxyRule: StaticStructureSchema = [
+export var CreateProxyResponse$: StaticStructureSchema = [3, n0, _CPRr, 0, [_Pr, _UT], [() => Proxy$, 0]];
+export var CreateProxyRule$: StaticStructureSchema = [
   3,
   n0,
   _CPRre,
@@ -807,23 +807,23 @@ export var CreateProxyRule: StaticStructureSchema = [
   [_PRN, _De, _Ac, _C, _IP],
   [0, 0, 0, () => ProxyRuleConditionList, 1],
 ];
-export var CreateProxyRuleGroupRequest: StaticStructureSchema = [
+export var CreateProxyRuleGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPRGR,
   0,
   [_PRGN, _De, _R, _T],
-  [0, 0, () => ProxyRulesByRequestPhase, () => TagList],
+  [0, 0, () => ProxyRulesByRequestPhase$, () => TagList],
 ];
-export var CreateProxyRuleGroupResponse: StaticStructureSchema = [
+export var CreateProxyRuleGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _CPRGRr,
   0,
   [_PRG, _UT],
-  [() => ProxyRuleGroup, 0],
+  [() => ProxyRuleGroup$, 0],
 ];
-export var CreateProxyRulesByRequestPhase: StaticStructureSchema = [
+export var CreateProxyRulesByRequestPhase$: StaticStructureSchema = [
   3,
   n0,
   _CPRBRP,
@@ -831,16 +831,23 @@ export var CreateProxyRulesByRequestPhase: StaticStructureSchema = [
   [_PDNS, _PREQUEST, _PRESPONSE],
   [() => CreateProxyRuleList, () => CreateProxyRuleList, () => CreateProxyRuleList],
 ];
-export var CreateProxyRulesRequest: StaticStructureSchema = [
+export var CreateProxyRulesRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPRR,
   0,
   [_PRGA, _PRGN, _R],
-  [0, 0, () => CreateProxyRulesByRequestPhase],
+  [0, 0, () => CreateProxyRulesByRequestPhase$],
 ];
-export var CreateProxyRulesResponse: StaticStructureSchema = [3, n0, _CPRRr, 0, [_PRG, _UT], [() => ProxyRuleGroup, 0]];
-export var CreateRuleGroupRequest: StaticStructureSchema = [
+export var CreateProxyRulesResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _CPRRr,
+  0,
+  [_PRG, _UT],
+  [() => ProxyRuleGroup$, 0],
+];
+export var CreateRuleGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRGR,
@@ -848,79 +855,79 @@ export var CreateRuleGroupRequest: StaticStructureSchema = [
   [_RGNu, _RGu, _R, _Ty, _De, _Ca, _T, _DR, _EC, _SMo, _ARG, _SC],
   [
     0,
-    () => RuleGroup,
+    () => RuleGroup$,
     0,
     0,
     0,
     1,
     () => TagList,
     2,
-    () => EncryptionConfiguration,
-    () => SourceMetadata,
+    () => EncryptionConfiguration$,
+    () => SourceMetadata$,
     2,
-    () => SummaryConfiguration,
+    () => SummaryConfiguration$,
   ],
 ];
-export var CreateRuleGroupResponse: StaticStructureSchema = [
+export var CreateRuleGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _CRGRr,
   0,
   [_UT, _RGR],
-  [0, () => RuleGroupResponse],
+  [0, () => RuleGroupResponse$],
 ];
-export var CreateTLSInspectionConfigurationRequest: StaticStructureSchema = [
+export var CreateTLSInspectionConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CTLSICR,
   0,
   [_TLSICN, _TLSIC, _De, _T, _EC],
-  [0, () => TLSInspectionConfiguration, 0, () => TagList, () => EncryptionConfiguration],
+  [0, () => TLSInspectionConfiguration$, 0, () => TagList, () => EncryptionConfiguration$],
 ];
-export var CreateTLSInspectionConfigurationResponse: StaticStructureSchema = [
+export var CreateTLSInspectionConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _CTLSICRr,
   0,
   [_UT, _TLSICR],
-  [0, () => TLSInspectionConfigurationResponse],
+  [0, () => TLSInspectionConfigurationResponse$],
 ];
-export var CreateVpcEndpointAssociationRequest: StaticStructureSchema = [
+export var CreateVpcEndpointAssociationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CVEAR,
   0,
   [_FAi, _VI, _SMu, _De, _T],
-  [0, 0, () => SubnetMapping, 0, () => TagList],
+  [0, 0, () => SubnetMapping$, 0, () => TagList],
 ];
-export var CreateVpcEndpointAssociationResponse: StaticStructureSchema = [
+export var CreateVpcEndpointAssociationResponse$: StaticStructureSchema = [
   3,
   n0,
   _CVEARr,
   0,
   [_VEA, _VEAS],
-  [() => VpcEndpointAssociation, () => VpcEndpointAssociationStatus],
+  [() => VpcEndpointAssociation$, () => VpcEndpointAssociationStatus$],
 ];
-export var CustomAction: StaticStructureSchema = [3, n0, _CA, 0, [_AN, _AD], [0, () => ActionDefinition]];
-export var DeleteFirewallPolicyRequest: StaticStructureSchema = [3, n0, _DFPR, 0, [_FPN, _FPA], [0, 0]];
-export var DeleteFirewallPolicyResponse: StaticStructureSchema = [
+export var CustomAction$: StaticStructureSchema = [3, n0, _CA, 0, [_AN, _AD], [0, () => ActionDefinition$]];
+export var DeleteFirewallPolicyRequest$: StaticStructureSchema = [3, n0, _DFPR, 0, [_FPN, _FPA], [0, 0]];
+export var DeleteFirewallPolicyResponse$: StaticStructureSchema = [
   3,
   n0,
   _DFPRe,
   0,
   [_FPR],
-  [() => FirewallPolicyResponse],
+  [() => FirewallPolicyResponse$],
 ];
-export var DeleteFirewallRequest: StaticStructureSchema = [3, n0, _DFR, 0, [_FN, _FAi], [0, 0]];
-export var DeleteFirewallResponse: StaticStructureSchema = [
+export var DeleteFirewallRequest$: StaticStructureSchema = [3, n0, _DFR, 0, [_FN, _FAi], [0, 0]];
+export var DeleteFirewallResponse$: StaticStructureSchema = [
   3,
   n0,
   _DFRe,
   0,
   [_F, _FS],
-  [() => Firewall, () => FirewallStatus],
+  [() => Firewall$, () => FirewallStatus$],
 ];
-export var DeleteNetworkFirewallTransitGatewayAttachmentRequest: StaticStructureSchema = [
+export var DeleteNetworkFirewallTransitGatewayAttachmentRequest$: StaticStructureSchema = [
   3,
   n0,
   _DNFTGAR,
@@ -928,7 +935,7 @@ export var DeleteNetworkFirewallTransitGatewayAttachmentRequest: StaticStructure
   [_TGAI],
   [0],
 ];
-export var DeleteNetworkFirewallTransitGatewayAttachmentResponse: StaticStructureSchema = [
+export var DeleteNetworkFirewallTransitGatewayAttachmentResponse$: StaticStructureSchema = [
   3,
   n0,
   _DNFTGARe,
@@ -936,19 +943,19 @@ export var DeleteNetworkFirewallTransitGatewayAttachmentResponse: StaticStructur
   [_TGAI, _TGAS],
   [0, 0],
 ];
-export var DeleteProxyConfigurationRequest: StaticStructureSchema = [3, n0, _DPCR, 0, [_PCN, _PCA], [0, 0]];
-export var DeleteProxyConfigurationResponse: StaticStructureSchema = [3, n0, _DPCRe, 0, [_PCN, _PCA], [0, 0]];
-export var DeleteProxyRequest: StaticStructureSchema = [3, n0, _DPR, 0, [_NGI, _PN, _PA], [0, 0, 0]];
-export var DeleteProxyResponse: StaticStructureSchema = [3, n0, _DPRe, 0, [_NGI, _PN, _PA], [0, 0, 0]];
-export var DeleteProxyRuleGroupRequest: StaticStructureSchema = [3, n0, _DPRGR, 0, [_PRGN, _PRGA], [0, 0]];
-export var DeleteProxyRuleGroupResponse: StaticStructureSchema = [3, n0, _DPRGRe, 0, [_PRGN, _PRGA], [0, 0]];
-export var DeleteProxyRulesRequest: StaticStructureSchema = [3, n0, _DPRR, 0, [_PRGA, _PRGN, _R], [0, 0, 64 | 0]];
-export var DeleteProxyRulesResponse: StaticStructureSchema = [3, n0, _DPRRe, 0, [_PRG], [() => ProxyRuleGroup]];
-export var DeleteResourcePolicyRequest: StaticStructureSchema = [3, n0, _DRPR, 0, [_RA], [0]];
-export var DeleteResourcePolicyResponse: StaticStructureSchema = [3, n0, _DRPRe, 0, [], []];
-export var DeleteRuleGroupRequest: StaticStructureSchema = [3, n0, _DRGR, 0, [_RGNu, _RGAu, _Ty], [0, 0, 0]];
-export var DeleteRuleGroupResponse: StaticStructureSchema = [3, n0, _DRGRe, 0, [_RGR], [() => RuleGroupResponse]];
-export var DeleteTLSInspectionConfigurationRequest: StaticStructureSchema = [
+export var DeleteProxyConfigurationRequest$: StaticStructureSchema = [3, n0, _DPCR, 0, [_PCN, _PCA], [0, 0]];
+export var DeleteProxyConfigurationResponse$: StaticStructureSchema = [3, n0, _DPCRe, 0, [_PCN, _PCA], [0, 0]];
+export var DeleteProxyRequest$: StaticStructureSchema = [3, n0, _DPR, 0, [_NGI, _PN, _PA], [0, 0, 0]];
+export var DeleteProxyResponse$: StaticStructureSchema = [3, n0, _DPRe, 0, [_NGI, _PN, _PA], [0, 0, 0]];
+export var DeleteProxyRuleGroupRequest$: StaticStructureSchema = [3, n0, _DPRGR, 0, [_PRGN, _PRGA], [0, 0]];
+export var DeleteProxyRuleGroupResponse$: StaticStructureSchema = [3, n0, _DPRGRe, 0, [_PRGN, _PRGA], [0, 0]];
+export var DeleteProxyRulesRequest$: StaticStructureSchema = [3, n0, _DPRR, 0, [_PRGA, _PRGN, _R], [0, 0, 64 | 0]];
+export var DeleteProxyRulesResponse$: StaticStructureSchema = [3, n0, _DPRRe, 0, [_PRG], [() => ProxyRuleGroup$]];
+export var DeleteResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPR, 0, [_RA], [0]];
+export var DeleteResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe, 0, [], []];
+export var DeleteRuleGroupRequest$: StaticStructureSchema = [3, n0, _DRGR, 0, [_RGNu, _RGAu, _Ty], [0, 0, 0]];
+export var DeleteRuleGroupResponse$: StaticStructureSchema = [3, n0, _DRGRe, 0, [_RGR], [() => RuleGroupResponse$]];
+export var DeleteTLSInspectionConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTLSICR,
@@ -956,25 +963,25 @@ export var DeleteTLSInspectionConfigurationRequest: StaticStructureSchema = [
   [_TLSICA, _TLSICN],
   [0, 0],
 ];
-export var DeleteTLSInspectionConfigurationResponse: StaticStructureSchema = [
+export var DeleteTLSInspectionConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DTLSICRe,
   0,
   [_TLSICR],
-  [() => TLSInspectionConfigurationResponse],
+  [() => TLSInspectionConfigurationResponse$],
 ];
-export var DeleteVpcEndpointAssociationRequest: StaticStructureSchema = [3, n0, _DVEAR, 0, [_VEAA], [0]];
-export var DeleteVpcEndpointAssociationResponse: StaticStructureSchema = [
+export var DeleteVpcEndpointAssociationRequest$: StaticStructureSchema = [3, n0, _DVEAR, 0, [_VEAA], [0]];
+export var DeleteVpcEndpointAssociationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DVEARe,
   0,
   [_VEA, _VEAS],
-  [() => VpcEndpointAssociation, () => VpcEndpointAssociationStatus],
+  [() => VpcEndpointAssociation$, () => VpcEndpointAssociationStatus$],
 ];
-export var DescribeFirewallMetadataRequest: StaticStructureSchema = [3, n0, _DFMR, 0, [_FAi], [0]];
-export var DescribeFirewallMetadataResponse: StaticStructureSchema = [
+export var DescribeFirewallMetadataRequest$: StaticStructureSchema = [3, n0, _DFMR, 0, [_FAi], [0]];
+export var DescribeFirewallMetadataResponse$: StaticStructureSchema = [
   3,
   n0,
   _DFMRe,
@@ -982,25 +989,25 @@ export var DescribeFirewallMetadataResponse: StaticStructureSchema = [
   [_FAi, _FPA, _De, _S, _SAZ, _TGAI],
   [0, 0, 0, 0, () => SupportedAvailabilityZones, 0],
 ];
-export var DescribeFirewallPolicyRequest: StaticStructureSchema = [3, n0, _DFPRes, 0, [_FPN, _FPA], [0, 0]];
-export var DescribeFirewallPolicyResponse: StaticStructureSchema = [
+export var DescribeFirewallPolicyRequest$: StaticStructureSchema = [3, n0, _DFPRes, 0, [_FPN, _FPA], [0, 0]];
+export var DescribeFirewallPolicyResponse$: StaticStructureSchema = [
   3,
   n0,
   _DFPResc,
   0,
   [_UT, _FPR, _FP],
-  [0, () => FirewallPolicyResponse, () => FirewallPolicy],
+  [0, () => FirewallPolicyResponse$, () => FirewallPolicy$],
 ];
-export var DescribeFirewallRequest: StaticStructureSchema = [3, n0, _DFRes, 0, [_FN, _FAi], [0, 0]];
-export var DescribeFirewallResponse: StaticStructureSchema = [
+export var DescribeFirewallRequest$: StaticStructureSchema = [3, n0, _DFRes, 0, [_FN, _FAi], [0, 0]];
+export var DescribeFirewallResponse$: StaticStructureSchema = [
   3,
   n0,
   _DFResc,
   0,
   [_UT, _F, _FS],
-  [0, () => Firewall, () => FirewallStatus],
+  [0, () => Firewall$, () => FirewallStatus$],
 ];
-export var DescribeFlowOperationRequest: StaticStructureSchema = [
+export var DescribeFlowOperationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DFOR,
@@ -1008,72 +1015,79 @@ export var DescribeFlowOperationRequest: StaticStructureSchema = [
   [_FAi, _AZ, _VEAA, _VEI, _FOI],
   [0, 0, 0, 0, 0],
 ];
-export var DescribeFlowOperationResponse: StaticStructureSchema = [
+export var DescribeFlowOperationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DFORe,
   0,
   [_FAi, _AZ, _VEAA, _VEI, _FOI, _FOT, _FOS, _SMt, _FRT, _FO],
-  [0, 0, 0, 0, 0, 0, 0, 0, 4, () => FlowOperation],
+  [0, 0, 0, 0, 0, 0, 0, 0, 4, () => FlowOperation$],
 ];
-export var DescribeLoggingConfigurationRequest: StaticStructureSchema = [3, n0, _DLCR, 0, [_FAi, _FN], [0, 0]];
-export var DescribeLoggingConfigurationResponse: StaticStructureSchema = [
+export var DescribeLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _DLCR, 0, [_FAi, _FN], [0, 0]];
+export var DescribeLoggingConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DLCRe,
   0,
   [_FAi, _LC, _EMD],
-  [0, () => LoggingConfiguration, 2],
+  [0, () => LoggingConfiguration$, 2],
 ];
-export var DescribeProxyConfigurationRequest: StaticStructureSchema = [3, n0, _DPCRes, 0, [_PCN, _PCA], [0, 0]];
-export var DescribeProxyConfigurationResponse: StaticStructureSchema = [
+export var DescribeProxyConfigurationRequest$: StaticStructureSchema = [3, n0, _DPCRes, 0, [_PCN, _PCA], [0, 0]];
+export var DescribeProxyConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DPCResc,
   0,
   [_PC, _UT],
-  [() => ProxyConfiguration, 0],
+  [() => ProxyConfiguration$, 0],
 ];
-export var DescribeProxyRequest: StaticStructureSchema = [3, n0, _DPRes, 0, [_PN, _PA], [0, 0]];
-export var DescribeProxyResource: StaticStructureSchema = [
+export var DescribeProxyRequest$: StaticStructureSchema = [3, n0, _DPRes, 0, [_PN, _PA], [0, 0]];
+export var DescribeProxyResource$: StaticStructureSchema = [
   3,
   n0,
   _DPResc,
   0,
   [_PN, _PA, _PCN, _PCA, _NGI, _PS, _PMS, _LP, _TIP, _VESN, _PDNSN, _CT, _DT, _UTp, _FC, _FM, _T],
-  [0, 0, 0, 0, 0, 0, 0, () => ListenerProperties, () => TlsInterceptProperties, 0, 0, 4, 4, 4, 0, 0, () => TagList],
+  [0, 0, 0, 0, 0, 0, 0, () => ListenerProperties, () => TlsInterceptProperties$, 0, 0, 4, 4, 4, 0, 0, () => TagList],
 ];
-export var DescribeProxyResponse: StaticStructureSchema = [
+export var DescribeProxyResponse$: StaticStructureSchema = [
   3,
   n0,
   _DPRescr,
   0,
   [_Pr, _UT],
-  [() => DescribeProxyResource, 0],
+  [() => DescribeProxyResource$, 0],
 ];
-export var DescribeProxyRuleGroupRequest: StaticStructureSchema = [3, n0, _DPRGRes, 0, [_PRGN, _PRGA], [0, 0]];
-export var DescribeProxyRuleGroupResponse: StaticStructureSchema = [
+export var DescribeProxyRuleGroupRequest$: StaticStructureSchema = [3, n0, _DPRGRes, 0, [_PRGN, _PRGA], [0, 0]];
+export var DescribeProxyRuleGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _DPRGResc,
   0,
   [_PRG, _UT],
-  [() => ProxyRuleGroup, 0],
+  [() => ProxyRuleGroup$, 0],
 ];
-export var DescribeProxyRuleRequest: StaticStructureSchema = [3, n0, _DPRRes, 0, [_PRN, _PRGN, _PRGA], [0, 0, 0]];
-export var DescribeProxyRuleResponse: StaticStructureSchema = [3, n0, _DPRResc, 0, [_PR, _UT], [() => ProxyRule, 0]];
-export var DescribeResourcePolicyRequest: StaticStructureSchema = [3, n0, _DRPRes, 0, [_RA], [0]];
-export var DescribeResourcePolicyResponse: StaticStructureSchema = [3, n0, _DRPResc, 0, [_Po], [0]];
-export var DescribeRuleGroupMetadataRequest: StaticStructureSchema = [3, n0, _DRGMR, 0, [_RGNu, _RGAu, _Ty], [0, 0, 0]];
-export var DescribeRuleGroupMetadataResponse: StaticStructureSchema = [
+export var DescribeProxyRuleRequest$: StaticStructureSchema = [3, n0, _DPRRes, 0, [_PRN, _PRGN, _PRGA], [0, 0, 0]];
+export var DescribeProxyRuleResponse$: StaticStructureSchema = [3, n0, _DPRResc, 0, [_PR, _UT], [() => ProxyRule$, 0]];
+export var DescribeResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPRes, 0, [_RA], [0]];
+export var DescribeResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPResc, 0, [_Po], [0]];
+export var DescribeRuleGroupMetadataRequest$: StaticStructureSchema = [
+  3,
+  n0,
+  _DRGMR,
+  0,
+  [_RGNu, _RGAu, _Ty],
+  [0, 0, 0],
+];
+export var DescribeRuleGroupMetadataResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRGMRe,
   0,
   [_RGAu, _RGNu, _De, _Ty, _Ca, _SRO, _LMT, _VN, _PI, _LN],
-  [0, 0, 0, 0, 1, () => StatefulRuleOptions, 4, 0, 0, 0],
+  [0, 0, 0, 0, 1, () => StatefulRuleOptions$, 4, 0, 0, 0],
 ];
-export var DescribeRuleGroupRequest: StaticStructureSchema = [
+export var DescribeRuleGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRGRes,
@@ -1081,24 +1095,24 @@ export var DescribeRuleGroupRequest: StaticStructureSchema = [
   [_RGNu, _RGAu, _Ty, _ARG],
   [0, 0, 0, 2],
 ];
-export var DescribeRuleGroupResponse: StaticStructureSchema = [
+export var DescribeRuleGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRGResc,
   0,
   [_UT, _RGu, _RGR],
-  [0, () => RuleGroup, () => RuleGroupResponse],
+  [0, () => RuleGroup$, () => RuleGroupResponse$],
 ];
-export var DescribeRuleGroupSummaryRequest: StaticStructureSchema = [3, n0, _DRGSR, 0, [_RGNu, _RGAu, _Ty], [0, 0, 0]];
-export var DescribeRuleGroupSummaryResponse: StaticStructureSchema = [
+export var DescribeRuleGroupSummaryRequest$: StaticStructureSchema = [3, n0, _DRGSR, 0, [_RGNu, _RGAu, _Ty], [0, 0, 0]];
+export var DescribeRuleGroupSummaryResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRGSRe,
   0,
   [_RGNu, _De, _Su],
-  [0, 0, () => Summary],
+  [0, 0, () => Summary$],
 ];
-export var DescribeTLSInspectionConfigurationRequest: StaticStructureSchema = [
+export var DescribeTLSInspectionConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTLSICRes,
@@ -1106,24 +1120,24 @@ export var DescribeTLSInspectionConfigurationRequest: StaticStructureSchema = [
   [_TLSICA, _TLSICN],
   [0, 0],
 ];
-export var DescribeTLSInspectionConfigurationResponse: StaticStructureSchema = [
+export var DescribeTLSInspectionConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DTLSICResc,
   0,
   [_UT, _TLSIC, _TLSICR],
-  [0, () => TLSInspectionConfiguration, () => TLSInspectionConfigurationResponse],
+  [0, () => TLSInspectionConfiguration$, () => TLSInspectionConfigurationResponse$],
 ];
-export var DescribeVpcEndpointAssociationRequest: StaticStructureSchema = [3, n0, _DVEARes, 0, [_VEAA], [0]];
-export var DescribeVpcEndpointAssociationResponse: StaticStructureSchema = [
+export var DescribeVpcEndpointAssociationRequest$: StaticStructureSchema = [3, n0, _DVEARes, 0, [_VEAA], [0]];
+export var DescribeVpcEndpointAssociationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DVEAResc,
   0,
   [_VEA, _VEAS],
-  [() => VpcEndpointAssociation, () => VpcEndpointAssociationStatus],
+  [() => VpcEndpointAssociation$, () => VpcEndpointAssociationStatus$],
 ];
-export var DetachRuleGroupsFromProxyConfigurationRequest: StaticStructureSchema = [
+export var DetachRuleGroupsFromProxyConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRGFPCR,
@@ -1131,16 +1145,16 @@ export var DetachRuleGroupsFromProxyConfigurationRequest: StaticStructureSchema 
   [_PCN, _PCA, _RGN, _RGA, _UT],
   [0, 0, 64 | 0, 64 | 0, 0],
 ];
-export var DetachRuleGroupsFromProxyConfigurationResponse: StaticStructureSchema = [
+export var DetachRuleGroupsFromProxyConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRGFPCRe,
   0,
   [_PC, _UT],
-  [() => ProxyConfiguration, 0],
+  [() => ProxyConfiguration$, 0],
 ];
-export var Dimension: StaticStructureSchema = [3, n0, _Di, 0, [_V], [0]];
-export var DisassociateAvailabilityZonesRequest: StaticStructureSchema = [
+export var Dimension$: StaticStructureSchema = [3, n0, _Di, 0, [_V], [0]];
+export var DisassociateAvailabilityZonesRequest$: StaticStructureSchema = [
   3,
   n0,
   _DAZR,
@@ -1148,7 +1162,7 @@ export var DisassociateAvailabilityZonesRequest: StaticStructureSchema = [
   [_UT, _FAi, _FN, _AZM],
   [0, 0, 0, () => AvailabilityZoneMappings],
 ];
-export var DisassociateAvailabilityZonesResponse: StaticStructureSchema = [
+export var DisassociateAvailabilityZonesResponse$: StaticStructureSchema = [
   3,
   n0,
   _DAZRi,
@@ -1156,7 +1170,7 @@ export var DisassociateAvailabilityZonesResponse: StaticStructureSchema = [
   [_FAi, _FN, _AZM, _UT],
   [0, 0, () => AvailabilityZoneMappings, 0],
 ];
-export var DisassociateSubnetsRequest: StaticStructureSchema = [
+export var DisassociateSubnetsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DSR,
@@ -1164,7 +1178,7 @@ export var DisassociateSubnetsRequest: StaticStructureSchema = [
   [_UT, _FAi, _FN, _SIu],
   [0, 0, 0, 64 | 0],
 ];
-export var DisassociateSubnetsResponse: StaticStructureSchema = [
+export var DisassociateSubnetsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DSRi,
@@ -1172,8 +1186,8 @@ export var DisassociateSubnetsResponse: StaticStructureSchema = [
   [_FAi, _FN, _SM, _UT],
   [0, 0, () => SubnetMappings, 0],
 ];
-export var EncryptionConfiguration: StaticStructureSchema = [3, n0, _EC, 0, [_KI, _Ty], [0, 0]];
-export var Firewall: StaticStructureSchema = [
+export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC, 0, [_KI, _Ty], [0, 0]];
+export var Firewall$: StaticStructureSchema = [
   3,
   n0,
   _F,
@@ -1191,7 +1205,7 @@ export var Firewall: StaticStructureSchema = [
     0,
     0,
     () => TagList,
-    () => EncryptionConfiguration,
+    () => EncryptionConfiguration$,
     1,
     64 | 0,
     0,
@@ -1200,8 +1214,8 @@ export var Firewall: StaticStructureSchema = [
     2,
   ],
 ];
-export var FirewallMetadata: StaticStructureSchema = [3, n0, _FMi, 0, [_FN, _FAi, _TGAI], [0, 0, 0]];
-export var FirewallPolicy: StaticStructureSchema = [
+export var FirewallMetadata$: StaticStructureSchema = [3, n0, _FMi, 0, [_FN, _FAi, _TGAI], [0, 0, 0]];
+export var FirewallPolicy$: StaticStructureSchema = [
   3,
   n0,
   _FP,
@@ -1214,49 +1228,49 @@ export var FirewallPolicy: StaticStructureSchema = [
     () => CustomActions,
     () => StatefulRuleGroupReferences,
     64 | 0,
-    () => StatefulEngineOptions,
+    () => StatefulEngineOptions$,
     0,
-    () => PolicyVariables,
+    () => PolicyVariables$,
     2,
   ],
 ];
-export var FirewallPolicyMetadata: StaticStructureSchema = [3, n0, _FPM, 0, [_N, _Ar], [0, 0]];
-export var FirewallPolicyResponse: StaticStructureSchema = [
+export var FirewallPolicyMetadata$: StaticStructureSchema = [3, n0, _FPM, 0, [_N, _Ar], [0, 0]];
+export var FirewallPolicyResponse$: StaticStructureSchema = [
   3,
   n0,
   _FPR,
   0,
   [_FPN, _FPA, _FPI, _De, _FPS, _T, _CSRC, _CSRCo, _NOA, _EC, _LMT],
-  [0, 0, 0, 0, 0, () => TagList, 1, 1, 1, () => EncryptionConfiguration, 4],
+  [0, 0, 0, 0, 0, () => TagList, 1, 1, 1, () => EncryptionConfiguration$, 4],
 ];
-export var FirewallStatus: StaticStructureSchema = [
+export var FirewallStatus$: StaticStructureSchema = [
   3,
   n0,
   _FS,
   0,
   [_S, _CSSS, _SS, _CUS, _TGASS],
-  [0, 0, () => SyncStates, () => CapacityUsageSummary, () => TransitGatewayAttachmentSyncState],
+  [0, 0, () => SyncStates, () => CapacityUsageSummary$, () => TransitGatewayAttachmentSyncState$],
 ];
-export var Flow: StaticStructureSchema = [
+export var Flow$: StaticStructureSchema = [
   3,
   n0,
   _Fl,
   0,
   [_SA, _DA, _SP, _DPe, _P, _Ag, _PCa, _BC],
-  [() => Address, () => Address, 0, 0, 0, 1, 1, 1],
+  [() => Address$, () => Address$, 0, 0, 0, 1, 1, 1],
 ];
-export var FlowFilter: StaticStructureSchema = [
+export var FlowFilter$: StaticStructureSchema = [
   3,
   n0,
   _FF,
   0,
   [_SA, _DA, _SP, _DPe, _Pro],
-  [() => Address, () => Address, 0, 0, 64 | 0],
+  [() => Address$, () => Address$, 0, 0, 64 | 0],
 ];
-export var FlowOperation: StaticStructureSchema = [3, n0, _FO, 0, [_MFAIS, _FFl], [1, () => FlowFilters]];
-export var FlowOperationMetadata: StaticStructureSchema = [3, n0, _FOM, 0, [_FOI, _FOT, _FRT, _FOS], [0, 0, 4, 0]];
-export var FlowTimeouts: StaticStructureSchema = [3, n0, _FT, 0, [_TITS], [1]];
-export var GetAnalysisReportResultsRequest: StaticStructureSchema = [
+export var FlowOperation$: StaticStructureSchema = [3, n0, _FO, 0, [_MFAIS, _FFl], [1, () => FlowFilters]];
+export var FlowOperationMetadata$: StaticStructureSchema = [3, n0, _FOM, 0, [_FOI, _FOT, _FRT, _FOS], [0, 0, 4, 0]];
+export var FlowTimeouts$: StaticStructureSchema = [3, n0, _FT, 0, [_TITS], [1]];
+export var GetAnalysisReportResultsRequest$: StaticStructureSchema = [
   3,
   n0,
   _GARRR,
@@ -1264,7 +1278,7 @@ export var GetAnalysisReportResultsRequest: StaticStructureSchema = [
   [_FN, _ARI, _FAi, _NT, _MR],
   [0, 0, 0, 0, 1],
 ];
-export var GetAnalysisReportResultsResponse: StaticStructureSchema = [
+export var GetAnalysisReportResultsResponse$: StaticStructureSchema = [
   3,
   n0,
   _GARRRe,
@@ -1272,27 +1286,27 @@ export var GetAnalysisReportResultsResponse: StaticStructureSchema = [
   [_S, _ST, _ET, _RT, _AT, _NT, _ARR],
   [0, 4, 4, 4, 0, 0, () => AnalysisReportResults],
 ];
-export var Header: StaticStructureSchema = [3, n0, _He, 0, [_P, _So, _SP, _Dir, _Des, _DPe], [0, 0, 0, 0, 0, 0]];
-export var Hits: StaticStructureSchema = [3, n0, _H, 0, [_Co], [1]];
-export var InsufficientCapacityException: StaticErrorSchema = [-3, n0, _ICE, { [_e]: _s }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InsufficientCapacityException, __InsufficientCapacityException);
-export var InternalServerError: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InternalServerError, __InternalServerError);
-export var InvalidOperationException: StaticErrorSchema = [-3, n0, _IOE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidOperationException, __InvalidOperationException);
-export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-export var InvalidResourcePolicyException: StaticErrorSchema = [-3, n0, _IRPE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidResourcePolicyException, __InvalidResourcePolicyException);
-export var InvalidTokenException: StaticErrorSchema = [-3, n0, _ITE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidTokenException, __InvalidTokenException);
-export var IPSet: StaticStructureSchema = [3, n0, _IPS, 0, [_Def], [64 | 0]];
-export var IPSetMetadata: StaticStructureSchema = [3, n0, _IPSM, 0, [_RCIDRC], [1]];
-export var IPSetReference: StaticStructureSchema = [3, n0, _IPSRe, 0, [_RAe], [0]];
-export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-export var ListAnalysisReportsRequest: StaticStructureSchema = [3, n0, _LARR, 0, [_FN, _FAi, _NT, _MR], [0, 0, 0, 1]];
-export var ListAnalysisReportsResponse: StaticStructureSchema = [
+export var Header$: StaticStructureSchema = [3, n0, _He, 0, [_P, _So, _SP, _Dir, _Des, _DPe], [0, 0, 0, 0, 0, 0]];
+export var Hits$: StaticStructureSchema = [3, n0, _H, 0, [_Co], [1]];
+export var InsufficientCapacityException$: StaticErrorSchema = [-3, n0, _ICE, { [_e]: _s }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InsufficientCapacityException$, InsufficientCapacityException);
+export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InternalServerError$, InternalServerError);
+export var InvalidOperationException$: StaticErrorSchema = [-3, n0, _IOE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InvalidOperationException$, InvalidOperationException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
+export var InvalidResourcePolicyException$: StaticErrorSchema = [-3, n0, _IRPE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InvalidResourcePolicyException$, InvalidResourcePolicyException);
+export var InvalidTokenException$: StaticErrorSchema = [-3, n0, _ITE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InvalidTokenException$, InvalidTokenException);
+export var IPSet$: StaticStructureSchema = [3, n0, _IPS, 0, [_Def], [64 | 0]];
+export var IPSetMetadata$: StaticStructureSchema = [3, n0, _IPSM, 0, [_RCIDRC], [1]];
+export var IPSetReference$: StaticStructureSchema = [3, n0, _IPSRe, 0, [_RAe], [0]];
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
+export var ListAnalysisReportsRequest$: StaticStructureSchema = [3, n0, _LARR, 0, [_FN, _FAi, _NT, _MR], [0, 0, 0, 1]];
+export var ListAnalysisReportsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LARRi,
@@ -1300,10 +1314,10 @@ export var ListAnalysisReportsResponse: StaticStructureSchema = [
   [_ARna, _NT],
   [() => AnalysisReports, 0],
 ];
-export var ListenerProperty: StaticStructureSchema = [3, n0, _LPi, 0, [_Por, _Ty], [1, 0]];
-export var ListenerPropertyRequest: StaticStructureSchema = [3, n0, _LPR, 0, [_Por, _Ty], [1, 0]];
-export var ListFirewallPoliciesRequest: StaticStructureSchema = [3, n0, _LFPR, 0, [_NT, _MR], [0, 1]];
-export var ListFirewallPoliciesResponse: StaticStructureSchema = [
+export var ListenerProperty$: StaticStructureSchema = [3, n0, _LPi, 0, [_Por, _Ty], [1, 0]];
+export var ListenerPropertyRequest$: StaticStructureSchema = [3, n0, _LPR, 0, [_Por, _Ty], [1, 0]];
+export var ListFirewallPoliciesRequest$: StaticStructureSchema = [3, n0, _LFPR, 0, [_NT, _MR], [0, 1]];
+export var ListFirewallPoliciesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LFPRi,
@@ -1311,9 +1325,9 @@ export var ListFirewallPoliciesResponse: StaticStructureSchema = [
   [_NT, _FPi],
   [0, () => FirewallPolicies],
 ];
-export var ListFirewallsRequest: StaticStructureSchema = [3, n0, _LFR, 0, [_NT, _VIp, _MR], [0, 64 | 0, 1]];
-export var ListFirewallsResponse: StaticStructureSchema = [3, n0, _LFRi, 0, [_NT, _Fi], [0, () => Firewalls]];
-export var ListFlowOperationResultsRequest: StaticStructureSchema = [
+export var ListFirewallsRequest$: StaticStructureSchema = [3, n0, _LFR, 0, [_NT, _VIp, _MR], [0, 64 | 0, 1]];
+export var ListFirewallsResponse$: StaticStructureSchema = [3, n0, _LFRi, 0, [_NT, _Fi], [0, () => Firewalls]];
+export var ListFlowOperationResultsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LFORR,
@@ -1321,7 +1335,7 @@ export var ListFlowOperationResultsRequest: StaticStructureSchema = [
   [_FAi, _FOI, _NT, _MR, _AZ, _VEI, _VEAA],
   [0, 0, 0, 1, 0, 0, 0],
 ];
-export var ListFlowOperationResultsResponse: StaticStructureSchema = [
+export var ListFlowOperationResultsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LFORRi,
@@ -1329,7 +1343,7 @@ export var ListFlowOperationResultsResponse: StaticStructureSchema = [
   [_FAi, _AZ, _VEAA, _VEI, _FOI, _FOS, _SMt, _FRT, _Flo, _NT],
   [0, 0, 0, 0, 0, 0, 0, 4, () => Flows, 0],
 ];
-export var ListFlowOperationsRequest: StaticStructureSchema = [
+export var ListFlowOperationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LFOR,
@@ -1337,7 +1351,7 @@ export var ListFlowOperationsRequest: StaticStructureSchema = [
   [_FAi, _AZ, _VEAA, _VEI, _FOT, _NT, _MR],
   [0, 0, 0, 0, 0, 0, 1],
 ];
-export var ListFlowOperationsResponse: StaticStructureSchema = [
+export var ListFlowOperationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LFORi,
@@ -1345,10 +1359,10 @@ export var ListFlowOperationsResponse: StaticStructureSchema = [
   [_FOl, _NT],
   [() => FlowOperations, 0],
 ];
-export var ListProxiesRequest: StaticStructureSchema = [3, n0, _LPRi, 0, [_NT, _MR], [0, 1]];
-export var ListProxiesResponse: StaticStructureSchema = [3, n0, _LPRis, 0, [_Prox, _NT], [() => Proxies, 0]];
-export var ListProxyConfigurationsRequest: StaticStructureSchema = [3, n0, _LPCR, 0, [_NT, _MR], [0, 1]];
-export var ListProxyConfigurationsResponse: StaticStructureSchema = [
+export var ListProxiesRequest$: StaticStructureSchema = [3, n0, _LPRi, 0, [_NT, _MR], [0, 1]];
+export var ListProxiesResponse$: StaticStructureSchema = [3, n0, _LPRis, 0, [_Prox, _NT], [() => Proxies, 0]];
+export var ListProxyConfigurationsRequest$: StaticStructureSchema = [3, n0, _LPCR, 0, [_NT, _MR], [0, 1]];
+export var ListProxyConfigurationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LPCRi,
@@ -1356,8 +1370,8 @@ export var ListProxyConfigurationsResponse: StaticStructureSchema = [
   [_PCr, _NT],
   [() => ProxyConfigurations, 0],
 ];
-export var ListProxyRuleGroupsRequest: StaticStructureSchema = [3, n0, _LPRGR, 0, [_NT, _MR], [0, 1]];
-export var ListProxyRuleGroupsResponse: StaticStructureSchema = [
+export var ListProxyRuleGroupsRequest$: StaticStructureSchema = [3, n0, _LPRGR, 0, [_NT, _MR], [0, 1]];
+export var ListProxyRuleGroupsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LPRGRi,
@@ -1365,7 +1379,7 @@ export var ListProxyRuleGroupsResponse: StaticStructureSchema = [
   [_PRGr, _NT],
   [() => ProxyRuleGroups, 0],
 ];
-export var ListRuleGroupsRequest: StaticStructureSchema = [
+export var ListRuleGroupsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRGR,
@@ -1373,11 +1387,11 @@ export var ListRuleGroupsRequest: StaticStructureSchema = [
   [_NT, _MR, _Sc, _MT, _SSu, _Ty],
   [0, 1, 0, 0, 0, 0],
 ];
-export var ListRuleGroupsResponse: StaticStructureSchema = [3, n0, _LRGRi, 0, [_NT, _RG], [0, () => RuleGroups]];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_NT, _MR, _RA], [0, 1, 0]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_NT, _T], [0, () => TagList]];
-export var ListTLSInspectionConfigurationsRequest: StaticStructureSchema = [3, n0, _LTLSICR, 0, [_NT, _MR], [0, 1]];
-export var ListTLSInspectionConfigurationsResponse: StaticStructureSchema = [
+export var ListRuleGroupsResponse$: StaticStructureSchema = [3, n0, _LRGRi, 0, [_NT, _RG], [0, () => RuleGroups]];
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_NT, _MR, _RA], [0, 1, 0]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_NT, _T], [0, () => TagList]];
+export var ListTLSInspectionConfigurationsRequest$: StaticStructureSchema = [3, n0, _LTLSICR, 0, [_NT, _MR], [0, 1]];
+export var ListTLSInspectionConfigurationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LTLSICRi,
@@ -1385,8 +1399,8 @@ export var ListTLSInspectionConfigurationsResponse: StaticStructureSchema = [
   [_NT, _TLSICn],
   [0, () => TLSInspectionConfigurations],
 ];
-export var ListVpcEndpointAssociationsRequest: StaticStructureSchema = [3, n0, _LVEAR, 0, [_NT, _MR, _FAi], [0, 1, 0]];
-export var ListVpcEndpointAssociationsResponse: StaticStructureSchema = [
+export var ListVpcEndpointAssociationsRequest$: StaticStructureSchema = [3, n0, _LVEAR, 0, [_NT, _MR, _FAi], [0, 1, 0]];
+export var ListVpcEndpointAssociationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LVEARi,
@@ -1394,11 +1408,11 @@ export var ListVpcEndpointAssociationsResponse: StaticStructureSchema = [
   [_NT, _VEAp],
   [0, () => VpcEndpointAssociations],
 ];
-export var LogDestinationConfig: StaticStructureSchema = [3, n0, _LDC, 0, [_LT, _LDT, _LD], [0, 0, 128 | 0]];
-export var LogDestinationPermissionException: StaticErrorSchema = [-3, n0, _LDPE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(LogDestinationPermissionException, __LogDestinationPermissionException);
-export var LoggingConfiguration: StaticStructureSchema = [3, n0, _LC, 0, [_LDCo], [() => LogDestinationConfigs]];
-export var MatchAttributes: StaticStructureSchema = [
+export var LogDestinationConfig$: StaticStructureSchema = [3, n0, _LDC, 0, [_LT, _LDT, _LD], [0, 0, 128 | 0]];
+export var LogDestinationPermissionException$: StaticErrorSchema = [-3, n0, _LDPE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(LogDestinationPermissionException$, LogDestinationPermissionException);
+export var LoggingConfiguration$: StaticStructureSchema = [3, n0, _LC, 0, [_LDCo], [() => LogDestinationConfigs]];
+export var MatchAttributes$: StaticStructureSchema = [
   3,
   n0,
   _MA,
@@ -1406,19 +1420,19 @@ export var MatchAttributes: StaticStructureSchema = [
   [_Sou, _Dest, _SPo, _DPes, _Pro, _TCPF],
   [() => Addresses, () => Addresses, () => PortRanges, () => PortRanges, 64 | 1, () => TCPFlags],
 ];
-export var PerObjectStatus: StaticStructureSchema = [3, n0, _POS, 0, [_SSy, _UT], [0, 0]];
-export var PolicyVariables: StaticStructureSchema = [3, n0, _PV, 0, [_RV], [() => IPSets]];
-export var PortRange: StaticStructureSchema = [3, n0, _PRo, 0, [_FPr, _TP], [1, 1]];
-export var PortSet: StaticStructureSchema = [3, n0, _PSo, 0, [_Def], [64 | 0]];
-export var Proxy: StaticStructureSchema = [
+export var PerObjectStatus$: StaticStructureSchema = [3, n0, _POS, 0, [_SSy, _UT], [0, 0]];
+export var PolicyVariables$: StaticStructureSchema = [3, n0, _PV, 0, [_RV], [() => IPSets]];
+export var PortRange$: StaticStructureSchema = [3, n0, _PRo, 0, [_FPr, _TP], [1, 1]];
+export var PortSet$: StaticStructureSchema = [3, n0, _PSo, 0, [_Def], [64 | 0]];
+export var Proxy$: StaticStructureSchema = [
   3,
   n0,
   _Pr,
   0,
   [_CT, _DT, _UTp, _FC, _FM, _PS, _PMS, _NGI, _PCN, _PCA, _PN, _PA, _LP, _TIP, _T],
-  [4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => ListenerProperties, () => TlsInterceptProperties, () => TagList],
+  [4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => ListenerProperties, () => TlsInterceptProperties$, () => TagList],
 ];
-export var ProxyConfigDefaultRulePhaseActionsRequest: StaticStructureSchema = [
+export var ProxyConfigDefaultRulePhaseActionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _PCDRPAR,
@@ -1426,18 +1440,18 @@ export var ProxyConfigDefaultRulePhaseActionsRequest: StaticStructureSchema = [
   [_PDNS, _PREQUEST, _PRESPONSE],
   [0, 0, 0],
 ];
-export var ProxyConfigRuleGroup: StaticStructureSchema = [3, n0, _PCRG, 0, [_PRGN, _PRGA, _Ty, _Pri], [0, 0, 0, 1]];
-export var ProxyConfiguration: StaticStructureSchema = [
+export var ProxyConfigRuleGroup$: StaticStructureSchema = [3, n0, _PCRG, 0, [_PRGN, _PRGA, _Ty, _Pri], [0, 0, 0, 1]];
+export var ProxyConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _PC,
   0,
   [_PCN, _PCA, _De, _CT, _DT, _RG, _DRPA, _T],
-  [0, 0, 0, 4, 4, () => ProxyConfigRuleGroupSet, () => ProxyConfigDefaultRulePhaseActionsRequest, () => TagList],
+  [0, 0, 0, 4, 4, () => ProxyConfigRuleGroupSet, () => ProxyConfigDefaultRulePhaseActionsRequest$, () => TagList],
 ];
-export var ProxyConfigurationMetadata: StaticStructureSchema = [3, n0, _PCM, 0, [_N, _Ar], [0, 0]];
-export var ProxyMetadata: StaticStructureSchema = [3, n0, _PM, 0, [_N, _Ar], [0, 0]];
-export var ProxyRule: StaticStructureSchema = [
+export var ProxyConfigurationMetadata$: StaticStructureSchema = [3, n0, _PCM, 0, [_N, _Ar], [0, 0]];
+export var ProxyMetadata$: StaticStructureSchema = [3, n0, _PM, 0, [_N, _Ar], [0, 0]];
+export var ProxyRule$: StaticStructureSchema = [
   3,
   n0,
   _PR,
@@ -1445,21 +1459,21 @@ export var ProxyRule: StaticStructureSchema = [
   [_PRN, _De, _Ac, _C],
   [0, 0, 0, () => ProxyRuleConditionList],
 ];
-export var ProxyRuleCondition: StaticStructureSchema = [3, n0, _PRC, 0, [_CO, _CK, _CV], [0, 0, 64 | 0]];
-export var ProxyRuleGroup: StaticStructureSchema = [
+export var ProxyRuleCondition$: StaticStructureSchema = [3, n0, _PRC, 0, [_CO, _CK, _CV], [0, 0, 64 | 0]];
+export var ProxyRuleGroup$: StaticStructureSchema = [
   3,
   n0,
   _PRG,
   0,
   [_PRGN, _PRGA, _CT, _DT, _R, _De, _T],
-  [0, 0, 4, 4, () => ProxyRulesByRequestPhase, 0, () => TagList],
+  [0, 0, 4, 4, () => ProxyRulesByRequestPhase$, 0, () => TagList],
 ];
-export var ProxyRuleGroupAttachment: StaticStructureSchema = [3, n0, _PRGAr, 0, [_PRGN, _IP], [0, 1]];
-export var ProxyRuleGroupMetadata: StaticStructureSchema = [3, n0, _PRGM, 0, [_N, _Ar], [0, 0]];
-export var ProxyRuleGroupPriority: StaticStructureSchema = [3, n0, _PRGP, 0, [_PRGN, _NP], [0, 1]];
-export var ProxyRuleGroupPriorityResult: StaticStructureSchema = [3, n0, _PRGPR, 0, [_PRGN, _Pri], [0, 1]];
-export var ProxyRulePriority: StaticStructureSchema = [3, n0, _PRP, 0, [_PRN, _NP], [0, 1]];
-export var ProxyRulesByRequestPhase: StaticStructureSchema = [
+export var ProxyRuleGroupAttachment$: StaticStructureSchema = [3, n0, _PRGAr, 0, [_PRGN, _IP], [0, 1]];
+export var ProxyRuleGroupMetadata$: StaticStructureSchema = [3, n0, _PRGM, 0, [_N, _Ar], [0, 0]];
+export var ProxyRuleGroupPriority$: StaticStructureSchema = [3, n0, _PRGP, 0, [_PRGN, _NP], [0, 1]];
+export var ProxyRuleGroupPriorityResult$: StaticStructureSchema = [3, n0, _PRGPR, 0, [_PRGN, _Pri], [0, 1]];
+export var ProxyRulePriority$: StaticStructureSchema = [3, n0, _PRP, 0, [_PRN, _NP], [0, 1]];
+export var ProxyRulesByRequestPhase$: StaticStructureSchema = [
   3,
   n0,
   _PRBRP,
@@ -1467,11 +1481,11 @@ export var ProxyRulesByRequestPhase: StaticStructureSchema = [
   [_PDNS, _PREQUEST, _PRESPONSE],
   [() => ProxyRuleList, () => ProxyRuleList, () => ProxyRuleList],
 ];
-export var PublishMetricAction: StaticStructureSchema = [3, n0, _PMA, 0, [_Dim], [() => Dimensions]];
-export var PutResourcePolicyRequest: StaticStructureSchema = [3, n0, _PRPR, 0, [_RA, _Po], [0, 0]];
-export var PutResourcePolicyResponse: StaticStructureSchema = [3, n0, _PRPRu, 0, [], []];
-export var ReferenceSets: StaticStructureSchema = [3, n0, _RS, 0, [_IPSR], [() => IPSetReferenceMap]];
-export var RejectNetworkFirewallTransitGatewayAttachmentRequest: StaticStructureSchema = [
+export var PublishMetricAction$: StaticStructureSchema = [3, n0, _PMA, 0, [_Dim], [() => Dimensions]];
+export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR, 0, [_RA, _Po], [0, 0]];
+export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu, 0, [], []];
+export var ReferenceSets$: StaticStructureSchema = [3, n0, _RS, 0, [_IPSR], [() => IPSetReferenceMap]];
+export var RejectNetworkFirewallTransitGatewayAttachmentRequest$: StaticStructureSchema = [
   3,
   n0,
   _RNFTGAR,
@@ -1479,7 +1493,7 @@ export var RejectNetworkFirewallTransitGatewayAttachmentRequest: StaticStructure
   [_TGAI],
   [0],
 ];
-export var RejectNetworkFirewallTransitGatewayAttachmentResponse: StaticStructureSchema = [
+export var RejectNetworkFirewallTransitGatewayAttachmentResponse$: StaticStructureSchema = [
   3,
   n0,
   _RNFTGARe,
@@ -1487,21 +1501,21 @@ export var RejectNetworkFirewallTransitGatewayAttachmentResponse: StaticStructur
   [_TGAI, _TGAS],
   [0, 0],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ResourceOwnerCheckException: StaticErrorSchema = [-3, n0, _ROCE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ResourceOwnerCheckException, __ResourceOwnerCheckException);
-export var RuleDefinition: StaticStructureSchema = [3, n0, _RD, 0, [_MA, _Act], [() => MatchAttributes, 64 | 0]];
-export var RuleGroup: StaticStructureSchema = [
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourceOwnerCheckException$: StaticErrorSchema = [-3, n0, _ROCE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ResourceOwnerCheckException$, ResourceOwnerCheckException);
+export var RuleDefinition$: StaticStructureSchema = [3, n0, _RD, 0, [_MA, _Act], [() => MatchAttributes$, 64 | 0]];
+export var RuleGroup$: StaticStructureSchema = [
   3,
   n0,
   _RGu,
   0,
   [_RV, _RS, _RSu, _SRO],
-  [() => RuleVariables, () => ReferenceSets, () => RulesSource, () => StatefulRuleOptions],
+  [() => RuleVariables$, () => ReferenceSets$, () => RulesSource$, () => StatefulRuleOptions$],
 ];
-export var RuleGroupMetadata: StaticStructureSchema = [3, n0, _RGM, 0, [_N, _Ar, _VN], [0, 0, 0]];
-export var RuleGroupResponse: StaticStructureSchema = [
+export var RuleGroupMetadata$: StaticStructureSchema = [3, n0, _RGM, 0, [_N, _Ar, _VN], [0, 0, 0]];
+export var RuleGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _RGR,
@@ -1518,36 +1532,36 @@ export var RuleGroupResponse: StaticStructureSchema = [
     () => TagList,
     1,
     1,
-    () => EncryptionConfiguration,
-    () => SourceMetadata,
+    () => EncryptionConfiguration$,
+    () => SourceMetadata$,
     0,
     4,
     () => AnalysisResultList,
-    () => SummaryConfiguration,
+    () => SummaryConfiguration$,
   ],
 ];
-export var RuleOption: StaticStructureSchema = [3, n0, _RO, 0, [_K, _Se], [0, 64 | 0]];
-export var RulesSource: StaticStructureSchema = [
+export var RuleOption$: StaticStructureSchema = [3, n0, _RO, 0, [_K, _Se], [0, 64 | 0]];
+export var RulesSource$: StaticStructureSchema = [
   3,
   n0,
   _RSu,
   0,
   [_RSul, _RSL, _SR, _SRACA],
-  [0, () => RulesSourceList, () => StatefulRules, () => StatelessRulesAndCustomActions],
+  [0, () => RulesSourceList$, () => StatefulRules, () => StatelessRulesAndCustomActions$],
 ];
-export var RulesSourceList: StaticStructureSchema = [3, n0, _RSL, 0, [_Ta, _TT, _GRT], [64 | 0, 64 | 0, 0]];
-export var RuleSummary: StaticStructureSchema = [3, n0, _RSule, 0, [_SID, _Ms, _Me], [0, 0, 0]];
-export var RuleVariables: StaticStructureSchema = [3, n0, _RV, 0, [_IPSe, _PSor], [() => IPSets, () => PortSets]];
-export var ServerCertificate: StaticStructureSchema = [3, n0, _SCe, 0, [_RA], [0]];
-export var ServerCertificateConfiguration: StaticStructureSchema = [
+export var RulesSourceList$: StaticStructureSchema = [3, n0, _RSL, 0, [_Ta, _TT, _GRT], [64 | 0, 64 | 0, 0]];
+export var RuleSummary$: StaticStructureSchema = [3, n0, _RSule, 0, [_SID, _Ms, _Me], [0, 0, 0]];
+export var RuleVariables$: StaticStructureSchema = [3, n0, _RV, 0, [_IPSe, _PSor], [() => IPSets, () => PortSets]];
+export var ServerCertificate$: StaticStructureSchema = [3, n0, _SCe, 0, [_RA], [0]];
+export var ServerCertificateConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SCC,
   0,
   [_SCer, _Sco, _CAA, _CCRS],
-  [() => ServerCertificates, () => ServerCertificateScopes, 0, () => CheckCertificateRevocationStatusActions],
+  [() => ServerCertificates, () => ServerCertificateScopes, 0, () => CheckCertificateRevocationStatusActions$],
 ];
-export var ServerCertificateScope: StaticStructureSchema = [
+export var ServerCertificateScope$: StaticStructureSchema = [
   3,
   n0,
   _SCS,
@@ -1555,10 +1569,10 @@ export var ServerCertificateScope: StaticStructureSchema = [
   [_Sou, _Dest, _SPo, _DPes, _Pro],
   [() => Addresses, () => Addresses, () => PortRanges, () => PortRanges, 64 | 1],
 ];
-export var SourceMetadata: StaticStructureSchema = [3, n0, _SMo, 0, [_SAo, _SUT], [0, 0]];
-export var StartAnalysisReportRequest: StaticStructureSchema = [3, n0, _SARR, 0, [_FN, _FAi, _AT], [0, 0, 0]];
-export var StartAnalysisReportResponse: StaticStructureSchema = [3, n0, _SARRt, 0, [_ARI], [0]];
-export var StartFlowCaptureRequest: StaticStructureSchema = [
+export var SourceMetadata$: StaticStructureSchema = [3, n0, _SMo, 0, [_SAo, _SUT], [0, 0]];
+export var StartAnalysisReportRequest$: StaticStructureSchema = [3, n0, _SARR, 0, [_FN, _FAi, _AT], [0, 0, 0]];
+export var StartAnalysisReportResponse$: StaticStructureSchema = [3, n0, _SARRt, 0, [_ARI], [0]];
+export var StartFlowCaptureRequest$: StaticStructureSchema = [
   3,
   n0,
   _SFCR,
@@ -1566,8 +1580,8 @@ export var StartFlowCaptureRequest: StaticStructureSchema = [
   [_FAi, _AZ, _VEAA, _VEI, _MFAIS, _FFl],
   [0, 0, 0, 0, 1, () => FlowFilters],
 ];
-export var StartFlowCaptureResponse: StaticStructureSchema = [3, n0, _SFCRt, 0, [_FAi, _FOI, _FOS], [0, 0, 0]];
-export var StartFlowFlushRequest: StaticStructureSchema = [
+export var StartFlowCaptureResponse$: StaticStructureSchema = [3, n0, _SFCRt, 0, [_FAi, _FOI, _FOS], [0, 0, 0]];
+export var StartFlowFlushRequest$: StaticStructureSchema = [
   3,
   n0,
   _SFFR,
@@ -1575,36 +1589,36 @@ export var StartFlowFlushRequest: StaticStructureSchema = [
   [_FAi, _AZ, _VEAA, _VEI, _MFAIS, _FFl],
   [0, 0, 0, 0, 1, () => FlowFilters],
 ];
-export var StartFlowFlushResponse: StaticStructureSchema = [3, n0, _SFFRt, 0, [_FAi, _FOI, _FOS], [0, 0, 0]];
-export var StatefulEngineOptions: StaticStructureSchema = [
+export var StartFlowFlushResponse$: StaticStructureSchema = [3, n0, _SFFRt, 0, [_FAi, _FOI, _FOS], [0, 0, 0]];
+export var StatefulEngineOptions$: StaticStructureSchema = [
   3,
   n0,
   _SEO,
   0,
   [_ROu, _SEP, _FT],
-  [0, 0, () => FlowTimeouts],
+  [0, 0, () => FlowTimeouts$],
 ];
-export var StatefulRule: StaticStructureSchema = [
+export var StatefulRule$: StaticStructureSchema = [
   3,
   n0,
   _SRt,
   0,
   [_Ac, _He, _ROul],
-  [0, () => Header, () => RuleOptions],
+  [0, () => Header$, () => RuleOptions],
 ];
-export var StatefulRuleGroupOverride: StaticStructureSchema = [3, n0, _SRGO, 0, [_Ac], [0]];
-export var StatefulRuleGroupReference: StaticStructureSchema = [
+export var StatefulRuleGroupOverride$: StaticStructureSchema = [3, n0, _SRGO, 0, [_Ac], [0]];
+export var StatefulRuleGroupReference$: StaticStructureSchema = [
   3,
   n0,
   _SRGRta,
   0,
   [_RA, _Pri, _O, _DTI],
-  [0, 1, () => StatefulRuleGroupOverride, 2],
+  [0, 1, () => StatefulRuleGroupOverride$, 2],
 ];
-export var StatefulRuleOptions: StaticStructureSchema = [3, n0, _SRO, 0, [_ROu], [0]];
-export var StatelessRule: StaticStructureSchema = [3, n0, _SRta, 0, [_RD, _Pri], [() => RuleDefinition, 1]];
-export var StatelessRuleGroupReference: StaticStructureSchema = [3, n0, _SRGRtat, 0, [_RA, _Pri], [0, 1]];
-export var StatelessRulesAndCustomActions: StaticStructureSchema = [
+export var StatefulRuleOptions$: StaticStructureSchema = [3, n0, _SRO, 0, [_ROu], [0]];
+export var StatelessRule$: StaticStructureSchema = [3, n0, _SRta, 0, [_RD, _Pri], [() => RuleDefinition$, 1]];
+export var StatelessRuleGroupReference$: StaticStructureSchema = [3, n0, _SRGRtat, 0, [_RA, _Pri], [0, 1]];
+export var StatelessRulesAndCustomActions$: StaticStructureSchema = [
   3,
   n0,
   _SRACA,
@@ -1612,18 +1626,25 @@ export var StatelessRulesAndCustomActions: StaticStructureSchema = [
   [_SRtat, _CAu],
   [() => StatelessRules, () => CustomActions],
 ];
-export var SubnetMapping: StaticStructureSchema = [3, n0, _SMu, 0, [_SI, _IPAT], [0, 0]];
-export var Summary: StaticStructureSchema = [3, n0, _Su, 0, [_RSuleu], [() => RuleSummaries]];
-export var SummaryConfiguration: StaticStructureSchema = [3, n0, _SC, 0, [_ROul], [64 | 0]];
-export var SyncState: StaticStructureSchema = [3, n0, _SSyn, 0, [_At, _Con], [() => Attachment, () => SyncStateConfig]];
-export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_Ke, _V], [0, 0]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _T], [0, () => TagList]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TCPFlagField: StaticStructureSchema = [3, n0, _TCPFF, 0, [_Fla, _Ma], [64 | 0, 64 | 0]];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var TlsCertificateData: StaticStructureSchema = [3, n0, _TCD, 0, [_CAe, _CS, _S, _SMt], [0, 0, 0, 0]];
-export var TLSInspectionConfiguration: StaticStructureSchema = [
+export var SubnetMapping$: StaticStructureSchema = [3, n0, _SMu, 0, [_SI, _IPAT], [0, 0]];
+export var Summary$: StaticStructureSchema = [3, n0, _Su, 0, [_RSuleu], [() => RuleSummaries]];
+export var SummaryConfiguration$: StaticStructureSchema = [3, n0, _SC, 0, [_ROul], [64 | 0]];
+export var SyncState$: StaticStructureSchema = [
+  3,
+  n0,
+  _SSyn,
+  0,
+  [_At, _Con],
+  [() => Attachment$, () => SyncStateConfig],
+];
+export var Tag$: StaticStructureSchema = [3, n0, _Tag, 0, [_Ke, _V], [0, 0]];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _T], [0, () => TagList]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var TCPFlagField$: StaticStructureSchema = [3, n0, _TCPFF, 0, [_Fla, _Ma], [64 | 0, 64 | 0]];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var TlsCertificateData$: StaticStructureSchema = [3, n0, _TCD, 0, [_CAe, _CS, _S, _SMt], [0, 0, 0, 0]];
+export var TLSInspectionConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _TLSIC,
@@ -1631,24 +1652,31 @@ export var TLSInspectionConfiguration: StaticStructureSchema = [
   [_SCCe],
   [() => ServerCertificateConfigurations],
 ];
-export var TLSInspectionConfigurationMetadata: StaticStructureSchema = [3, n0, _TLSICM, 0, [_N, _Ar], [0, 0]];
-export var TLSInspectionConfigurationResponse: StaticStructureSchema = [
+export var TLSInspectionConfigurationMetadata$: StaticStructureSchema = [3, n0, _TLSICM, 0, [_N, _Ar], [0, 0]];
+export var TLSInspectionConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _TLSICR,
   0,
   [_TLSICA, _TLSICN, _TLSICI, _TLSICS, _De, _T, _LMT, _NOA, _EC, _Ce, _CAer],
-  [0, 0, 0, 0, 0, () => TagList, 4, 1, () => EncryptionConfiguration, () => Certificates, () => TlsCertificateData],
+  [0, 0, 0, 0, 0, () => TagList, 4, 1, () => EncryptionConfiguration$, () => Certificates, () => TlsCertificateData$],
 ];
-export var TlsInterceptProperties: StaticStructureSchema = [3, n0, _TIP, 0, [_PAc, _TIM], [0, 0]];
-export var TlsInterceptPropertiesRequest: StaticStructureSchema = [3, n0, _TIPR, 0, [_PAc, _TIM], [0, 0]];
-export var TransitGatewayAttachmentSyncState: StaticStructureSchema = [3, n0, _TGASS, 0, [_AI, _TGAS, _SMt], [0, 0, 0]];
-export var UniqueSources: StaticStructureSchema = [3, n0, _US, 0, [_Co], [1]];
-export var UnsupportedOperationException: StaticErrorSchema = [-3, n0, _UOE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(UnsupportedOperationException, __UnsupportedOperationException);
-export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RA, _TK], [0, 64 | 0]];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateAvailabilityZoneChangeProtectionRequest: StaticStructureSchema = [
+export var TlsInterceptProperties$: StaticStructureSchema = [3, n0, _TIP, 0, [_PAc, _TIM], [0, 0]];
+export var TlsInterceptPropertiesRequest$: StaticStructureSchema = [3, n0, _TIPR, 0, [_PAc, _TIM], [0, 0]];
+export var TransitGatewayAttachmentSyncState$: StaticStructureSchema = [
+  3,
+  n0,
+  _TGASS,
+  0,
+  [_AI, _TGAS, _SMt],
+  [0, 0, 0],
+];
+export var UniqueSources$: StaticStructureSchema = [3, n0, _US, 0, [_Co], [1]];
+export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(UnsupportedOperationException$, UnsupportedOperationException);
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR, 0, [_RA, _TK], [0, 64 | 0]];
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateAvailabilityZoneChangeProtectionRequest$: StaticStructureSchema = [
   3,
   n0,
   _UAZCPR,
@@ -1656,7 +1684,7 @@ export var UpdateAvailabilityZoneChangeProtectionRequest: StaticStructureSchema 
   [_UT, _FAi, _FN, _AZCP],
   [0, 0, 0, 2],
 ];
-export var UpdateAvailabilityZoneChangeProtectionResponse: StaticStructureSchema = [
+export var UpdateAvailabilityZoneChangeProtectionResponse$: StaticStructureSchema = [
   3,
   n0,
   _UAZCPRp,
@@ -1664,7 +1692,7 @@ export var UpdateAvailabilityZoneChangeProtectionResponse: StaticStructureSchema
   [_UT, _FAi, _FN, _AZCP],
   [0, 0, 0, 2],
 ];
-export var UpdateFirewallAnalysisSettingsRequest: StaticStructureSchema = [
+export var UpdateFirewallAnalysisSettingsRequest$: StaticStructureSchema = [
   3,
   n0,
   _UFASR,
@@ -1672,7 +1700,7 @@ export var UpdateFirewallAnalysisSettingsRequest: StaticStructureSchema = [
   [_EAT, _FAi, _FN, _UT],
   [64 | 0, 0, 0, 0],
 ];
-export var UpdateFirewallAnalysisSettingsResponse: StaticStructureSchema = [
+export var UpdateFirewallAnalysisSettingsResponse$: StaticStructureSchema = [
   3,
   n0,
   _UFASRp,
@@ -1680,7 +1708,7 @@ export var UpdateFirewallAnalysisSettingsResponse: StaticStructureSchema = [
   [_EAT, _FAi, _FN, _UT],
   [64 | 0, 0, 0, 0],
 ];
-export var UpdateFirewallDeleteProtectionRequest: StaticStructureSchema = [
+export var UpdateFirewallDeleteProtectionRequest$: StaticStructureSchema = [
   3,
   n0,
   _UFDPR,
@@ -1688,7 +1716,7 @@ export var UpdateFirewallDeleteProtectionRequest: StaticStructureSchema = [
   [_UT, _FAi, _FN, _DP],
   [0, 0, 0, 2],
 ];
-export var UpdateFirewallDeleteProtectionResponse: StaticStructureSchema = [
+export var UpdateFirewallDeleteProtectionResponse$: StaticStructureSchema = [
   3,
   n0,
   _UFDPRp,
@@ -1696,7 +1724,7 @@ export var UpdateFirewallDeleteProtectionResponse: StaticStructureSchema = [
   [_FAi, _FN, _DP, _UT],
   [0, 0, 2, 0],
 ];
-export var UpdateFirewallDescriptionRequest: StaticStructureSchema = [
+export var UpdateFirewallDescriptionRequest$: StaticStructureSchema = [
   3,
   n0,
   _UFDR,
@@ -1704,7 +1732,7 @@ export var UpdateFirewallDescriptionRequest: StaticStructureSchema = [
   [_UT, _FAi, _FN, _De],
   [0, 0, 0, 0],
 ];
-export var UpdateFirewallDescriptionResponse: StaticStructureSchema = [
+export var UpdateFirewallDescriptionResponse$: StaticStructureSchema = [
   3,
   n0,
   _UFDRp,
@@ -1712,23 +1740,23 @@ export var UpdateFirewallDescriptionResponse: StaticStructureSchema = [
   [_FAi, _FN, _De, _UT],
   [0, 0, 0, 0],
 ];
-export var UpdateFirewallEncryptionConfigurationRequest: StaticStructureSchema = [
+export var UpdateFirewallEncryptionConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UFECR,
   0,
   [_UT, _FAi, _FN, _EC],
-  [0, 0, 0, () => EncryptionConfiguration],
+  [0, 0, 0, () => EncryptionConfiguration$],
 ];
-export var UpdateFirewallEncryptionConfigurationResponse: StaticStructureSchema = [
+export var UpdateFirewallEncryptionConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _UFECRp,
   0,
   [_FAi, _FN, _UT, _EC],
-  [0, 0, 0, () => EncryptionConfiguration],
+  [0, 0, 0, () => EncryptionConfiguration$],
 ];
-export var UpdateFirewallPolicyChangeProtectionRequest: StaticStructureSchema = [
+export var UpdateFirewallPolicyChangeProtectionRequest$: StaticStructureSchema = [
   3,
   n0,
   _UFPCPR,
@@ -1736,7 +1764,7 @@ export var UpdateFirewallPolicyChangeProtectionRequest: StaticStructureSchema = 
   [_UT, _FAi, _FN, _FPCP],
   [0, 0, 0, 2],
 ];
-export var UpdateFirewallPolicyChangeProtectionResponse: StaticStructureSchema = [
+export var UpdateFirewallPolicyChangeProtectionResponse$: StaticStructureSchema = [
   3,
   n0,
   _UFPCPRp,
@@ -1744,64 +1772,64 @@ export var UpdateFirewallPolicyChangeProtectionResponse: StaticStructureSchema =
   [_UT, _FAi, _FN, _FPCP],
   [0, 0, 0, 2],
 ];
-export var UpdateFirewallPolicyRequest: StaticStructureSchema = [
+export var UpdateFirewallPolicyRequest$: StaticStructureSchema = [
   3,
   n0,
   _UFPR,
   0,
   [_UT, _FPA, _FPN, _FP, _De, _DR, _EC],
-  [0, 0, 0, () => FirewallPolicy, 0, 2, () => EncryptionConfiguration],
+  [0, 0, 0, () => FirewallPolicy$, 0, 2, () => EncryptionConfiguration$],
 ];
-export var UpdateFirewallPolicyResponse: StaticStructureSchema = [
+export var UpdateFirewallPolicyResponse$: StaticStructureSchema = [
   3,
   n0,
   _UFPRp,
   0,
   [_UT, _FPR],
-  [0, () => FirewallPolicyResponse],
+  [0, () => FirewallPolicyResponse$],
 ];
-export var UpdateLoggingConfigurationRequest: StaticStructureSchema = [
+export var UpdateLoggingConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _ULCR,
   0,
   [_FAi, _FN, _LC, _EMD],
-  [0, 0, () => LoggingConfiguration, 2],
+  [0, 0, () => LoggingConfiguration$, 2],
 ];
-export var UpdateLoggingConfigurationResponse: StaticStructureSchema = [
+export var UpdateLoggingConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _ULCRp,
   0,
   [_FAi, _FN, _LC, _EMD],
-  [0, 0, () => LoggingConfiguration, 2],
+  [0, 0, () => LoggingConfiguration$, 2],
 ];
-export var UpdateProxyConfigurationRequest: StaticStructureSchema = [
+export var UpdateProxyConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPCR,
   0,
   [_PCN, _PCA, _DRPA, _UT],
-  [0, 0, () => ProxyConfigDefaultRulePhaseActionsRequest, 0],
+  [0, 0, () => ProxyConfigDefaultRulePhaseActionsRequest$, 0],
 ];
-export var UpdateProxyConfigurationResponse: StaticStructureSchema = [
+export var UpdateProxyConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _UPCRp,
   0,
   [_PC, _UT],
-  [() => ProxyConfiguration, 0],
+  [() => ProxyConfiguration$, 0],
 ];
-export var UpdateProxyRequest: StaticStructureSchema = [
+export var UpdateProxyRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPR,
   0,
   [_NGI, _PN, _PA, _LPTA, _LPTR, _TIP, _UT],
-  [0, 0, 0, () => ListenerPropertiesRequest, () => ListenerPropertiesRequest, () => TlsInterceptPropertiesRequest, 0],
+  [0, 0, 0, () => ListenerPropertiesRequest, () => ListenerPropertiesRequest, () => TlsInterceptPropertiesRequest$, 0],
 ];
-export var UpdateProxyResponse: StaticStructureSchema = [3, n0, _UPRp, 0, [_Pr, _UT], [() => Proxy, 0]];
-export var UpdateProxyRuleGroupPrioritiesRequest: StaticStructureSchema = [
+export var UpdateProxyResponse$: StaticStructureSchema = [3, n0, _UPRp, 0, [_Pr, _UT], [() => Proxy$, 0]];
+export var UpdateProxyRuleGroupPrioritiesRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPRGPR,
@@ -1809,7 +1837,7 @@ export var UpdateProxyRuleGroupPrioritiesRequest: StaticStructureSchema = [
   [_PCN, _PCA, _RG, _UT],
   [0, 0, () => ProxyRuleGroupPriorityList, 0],
 ];
-export var UpdateProxyRuleGroupPrioritiesResponse: StaticStructureSchema = [
+export var UpdateProxyRuleGroupPrioritiesResponse$: StaticStructureSchema = [
   3,
   n0,
   _UPRGPRp,
@@ -1817,7 +1845,7 @@ export var UpdateProxyRuleGroupPrioritiesResponse: StaticStructureSchema = [
   [_PRGr, _UT],
   [() => ProxyRuleGroupPriorityResultList, 0],
 ];
-export var UpdateProxyRulePrioritiesRequest: StaticStructureSchema = [
+export var UpdateProxyRulePrioritiesRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPRPR,
@@ -1825,7 +1853,7 @@ export var UpdateProxyRulePrioritiesRequest: StaticStructureSchema = [
   [_PRGN, _PRGA, _RGRP, _R, _UT],
   [0, 0, 0, () => ProxyRulePriorityList, 0],
 ];
-export var UpdateProxyRulePrioritiesResponse: StaticStructureSchema = [
+export var UpdateProxyRulePrioritiesResponse$: StaticStructureSchema = [
   3,
   n0,
   _UPRPRp,
@@ -1833,7 +1861,7 @@ export var UpdateProxyRulePrioritiesResponse: StaticStructureSchema = [
   [_PRGN, _PRGA, _RGRP, _R, _UT],
   [0, 0, 0, () => ProxyRulePriorityList, 0],
 ];
-export var UpdateProxyRuleRequest: StaticStructureSchema = [
+export var UpdateProxyRuleRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPRR,
@@ -1841,15 +1869,15 @@ export var UpdateProxyRuleRequest: StaticStructureSchema = [
   [_PRGN, _PRGA, _PRN, _De, _Ac, _AC, _RC, _UT],
   [0, 0, 0, 0, 0, () => ProxyRuleConditionList, () => ProxyRuleConditionList, 0],
 ];
-export var UpdateProxyRuleResponse: StaticStructureSchema = [
+export var UpdateProxyRuleResponse$: StaticStructureSchema = [
   3,
   n0,
   _UPRRp,
   0,
   [_PR, _RCe, _UT],
-  [() => ProxyRule, () => ProxyRuleConditionList, 0],
+  [() => ProxyRule$, () => ProxyRuleConditionList, 0],
 ];
-export var UpdateRuleGroupRequest: StaticStructureSchema = [
+export var UpdateRuleGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _URGR,
@@ -1859,26 +1887,26 @@ export var UpdateRuleGroupRequest: StaticStructureSchema = [
     0,
     0,
     0,
-    () => RuleGroup,
+    () => RuleGroup$,
     0,
     0,
     0,
     2,
-    () => EncryptionConfiguration,
-    () => SourceMetadata,
+    () => EncryptionConfiguration$,
+    () => SourceMetadata$,
     2,
-    () => SummaryConfiguration,
+    () => SummaryConfiguration$,
   ],
 ];
-export var UpdateRuleGroupResponse: StaticStructureSchema = [
+export var UpdateRuleGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _URGRp,
   0,
   [_UT, _RGR],
-  [0, () => RuleGroupResponse],
+  [0, () => RuleGroupResponse$],
 ];
-export var UpdateSubnetChangeProtectionRequest: StaticStructureSchema = [
+export var UpdateSubnetChangeProtectionRequest$: StaticStructureSchema = [
   3,
   n0,
   _USCPR,
@@ -1886,7 +1914,7 @@ export var UpdateSubnetChangeProtectionRequest: StaticStructureSchema = [
   [_UT, _FAi, _FN, _SCP],
   [0, 0, 0, 2],
 ];
-export var UpdateSubnetChangeProtectionResponse: StaticStructureSchema = [
+export var UpdateSubnetChangeProtectionResponse$: StaticStructureSchema = [
   3,
   n0,
   _USCPRp,
@@ -1894,32 +1922,32 @@ export var UpdateSubnetChangeProtectionResponse: StaticStructureSchema = [
   [_UT, _FAi, _FN, _SCP],
   [0, 0, 0, 2],
 ];
-export var UpdateTLSInspectionConfigurationRequest: StaticStructureSchema = [
+export var UpdateTLSInspectionConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UTLSICR,
   0,
   [_TLSICA, _TLSICN, _TLSIC, _De, _EC, _UT],
-  [0, 0, () => TLSInspectionConfiguration, 0, () => EncryptionConfiguration, 0],
+  [0, 0, () => TLSInspectionConfiguration$, 0, () => EncryptionConfiguration$, 0],
 ];
-export var UpdateTLSInspectionConfigurationResponse: StaticStructureSchema = [
+export var UpdateTLSInspectionConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _UTLSICRp,
   0,
   [_UT, _TLSICR],
-  [0, () => TLSInspectionConfigurationResponse],
+  [0, () => TLSInspectionConfigurationResponse$],
 ];
-export var VpcEndpointAssociation: StaticStructureSchema = [
+export var VpcEndpointAssociation$: StaticStructureSchema = [
   3,
   n0,
   _VEA,
   0,
   [_VEAI, _VEAA, _FAi, _VI, _SMu, _De, _T],
-  [0, 0, 0, 0, () => SubnetMapping, 0, () => TagList],
+  [0, 0, 0, 0, () => SubnetMapping$, 0, () => TagList],
 ];
-export var VpcEndpointAssociationMetadata: StaticStructureSchema = [3, n0, _VEAM, 0, [_VEAA], [0]];
-export var VpcEndpointAssociationStatus: StaticStructureSchema = [
+export var VpcEndpointAssociationMetadata$: StaticStructureSchema = [3, n0, _VEAM, 0, [_VEAA], [0]];
+export var VpcEndpointAssociationStatus$: StaticStructureSchema = [
   3,
   n0,
   _VEAS,
@@ -1927,678 +1955,693 @@ export var VpcEndpointAssociationStatus: StaticStructureSchema = [
   [_S, _ASS],
   [0, () => AssociationSyncState],
 ];
-export var NetworkFirewallServiceException: StaticErrorSchema = [-3, _sm, "NetworkFirewallServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(NetworkFirewallServiceException, __NetworkFirewallServiceException);
-export var Addresses: StaticListSchema = [1, n0, _Ad, 0, () => Address];
-export var AnalysisReportResults: StaticListSchema = [1, n0, _ARR, 0, () => AnalysisTypeReportResult];
-export var AnalysisReports: StaticListSchema = [1, n0, _ARna, 0, () => AnalysisReport];
-export var AnalysisResultList: StaticListSchema = [1, n0, _ARL, 0, () => AnalysisResult];
-export var AvailabilityZoneMappings: StaticListSchema = [1, n0, _AZM, 0, () => AvailabilityZoneMapping];
-export var AzSubnets = 64 | 0;
-export var Certificates: StaticListSchema = [1, n0, _Ce, 0, () => TlsCertificateData];
-export var CreateProxyRuleList: StaticListSchema = [1, n0, _CPRL, 0, () => CreateProxyRule];
-export var CustomActions: StaticListSchema = [1, n0, _CAu, 0, () => CustomAction];
-export var Dimensions: StaticListSchema = [1, n0, _Dim, 0, () => Dimension];
-export var EnabledAnalysisTypes = 64 | 0;
-export var FirewallPolicies: StaticListSchema = [1, n0, _FPi, 0, () => FirewallPolicyMetadata];
-export var Firewalls: StaticListSchema = [1, n0, _Fi, 0, () => FirewallMetadata];
-export var Flags = 64 | 0;
-export var FlowFilters: StaticListSchema = [1, n0, _FFl, 0, () => FlowFilter];
-export var FlowOperations: StaticListSchema = [1, n0, _FOl, 0, () => FlowOperationMetadata];
-export var Flows: StaticListSchema = [1, n0, _Flo, 0, () => Flow];
-export var ListenerProperties: StaticListSchema = [1, n0, _LP, 0, () => ListenerProperty];
-export var ListenerPropertiesRequest: StaticListSchema = [1, n0, _LPRist, 0, () => ListenerPropertyRequest];
-export var LogDestinationConfigs: StaticListSchema = [1, n0, _LDCo, 0, () => LogDestinationConfig];
-export var PortRanges: StaticListSchema = [1, n0, _PRor, 0, () => PortRange];
-export var ProtocolNumbers = 64 | 1;
-export var ProtocolStrings = 64 | 0;
-export var Proxies: StaticListSchema = [1, n0, _Prox, 0, () => ProxyMetadata];
-export var ProxyConditionValueList = 64 | 0;
-export var ProxyConfigRuleGroupSet: StaticListSchema = [1, n0, _PCRGS, 0, () => ProxyConfigRuleGroup];
-export var ProxyConfigurations: StaticListSchema = [1, n0, _PCr, 0, () => ProxyConfigurationMetadata];
-export var ProxyRuleConditionList: StaticListSchema = [1, n0, _PRCL, 0, () => ProxyRuleCondition];
-export var ProxyRuleGroupAttachmentList: StaticListSchema = [1, n0, _PRGAL, 0, () => ProxyRuleGroupAttachment];
-export var ProxyRuleGroupPriorityList: StaticListSchema = [1, n0, _PRGPL, 0, () => ProxyRuleGroupPriority];
-export var ProxyRuleGroupPriorityResultList: StaticListSchema = [1, n0, _PRGPRL, 0, () => ProxyRuleGroupPriorityResult];
-export var ProxyRuleGroups: StaticListSchema = [1, n0, _PRGr, 0, () => ProxyRuleGroupMetadata];
-export var ProxyRuleList: StaticListSchema = [1, n0, _PRL, 0, () => ProxyRule];
-export var ProxyRulePriorityList: StaticListSchema = [1, n0, _PRPL, 0, () => ProxyRulePriority];
-export var ResourceArnList = 64 | 0;
-export var ResourceNameList = 64 | 0;
-export var RuleGroups: StaticListSchema = [1, n0, _RG, 0, () => RuleGroupMetadata];
-export var RuleIdList = 64 | 0;
-export var RuleOptions: StaticListSchema = [1, n0, _ROul, 0, () => RuleOption];
-export var RuleSummaries: StaticListSchema = [1, n0, _RSuleu, 0, () => RuleSummary];
-export var RuleTargets = 64 | 0;
-export var ServerCertificateConfigurations: StaticListSchema = [1, n0, _SCCe, 0, () => ServerCertificateConfiguration];
-export var ServerCertificates: StaticListSchema = [1, n0, _SCer, 0, () => ServerCertificate];
-export var ServerCertificateScopes: StaticListSchema = [1, n0, _SCSe, 0, () => ServerCertificateScope];
-export var Settings = 64 | 0;
-export var StatefulActions = 64 | 0;
-export var StatefulRuleGroupReferences: StaticListSchema = [1, n0, _SRGRt, 0, () => StatefulRuleGroupReference];
-export var StatefulRules: StaticListSchema = [1, n0, _SR, 0, () => StatefulRule];
-export var StatelessActions = 64 | 0;
-export var StatelessRuleGroupReferences: StaticListSchema = [1, n0, _SRGR, 0, () => StatelessRuleGroupReference];
-export var StatelessRules: StaticListSchema = [1, n0, _SRtat, 0, () => StatelessRule];
-export var SubnetMappings: StaticListSchema = [1, n0, _SM, 0, () => SubnetMapping];
-export var SummaryRuleOptions = 64 | 0;
-export var TagKeyList = 64 | 0;
-export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
-export var TargetTypes = 64 | 0;
-export var TCPFlags: StaticListSchema = [1, n0, _TCPF, 0, () => TCPFlagField];
-export var TLSInspectionConfigurations: StaticListSchema = [
-  1,
-  n0,
-  _TLSICn,
+export var NetworkFirewallServiceException$: StaticErrorSchema = [
+  -3,
+  _sm,
+  "NetworkFirewallServiceException",
   0,
-  () => TLSInspectionConfigurationMetadata,
+  [],
+  [],
 ];
-export var VariableDefinitionList = 64 | 0;
-export var VpcEndpointAssociations: StaticListSchema = [1, n0, _VEAp, 0, () => VpcEndpointAssociationMetadata];
-export var VpcIds = 64 | 0;
-export var AssociationSyncState: StaticMapSchema = [2, n0, _ASS, 0, 0, () => AZSyncState];
-export var IPSetMetadataMap: StaticMapSchema = [2, n0, _IPSMM, 0, 0, () => IPSetMetadata];
-export var IPSetReferenceMap: StaticMapSchema = [2, n0, _IPSRM, 0, 0, () => IPSetReference];
-export var IPSets: StaticMapSchema = [2, n0, _IPSe, 0, 0, () => IPSet];
-export var LogDestinationMap = 128 | 0;
-export var PortSets: StaticMapSchema = [2, n0, _PSor, 0, 0, () => PortSet];
-export var SupportedAvailabilityZones: StaticMapSchema = [2, n0, _SAZ, 0, 0, () => AvailabilityZoneMetadata];
-export var SyncStateConfig: StaticMapSchema = [2, n0, _SSC, 0, 0, () => PerObjectStatus];
-export var SyncStates: StaticMapSchema = [2, n0, _SS, 0, 0, () => SyncState];
-export var AcceptNetworkFirewallTransitGatewayAttachment: StaticOperationSchema = [
+TypeRegistry.for(_sm).registerError(NetworkFirewallServiceException$, NetworkFirewallServiceException);
+var Addresses: StaticListSchema = [1, n0, _Ad, 0, () => Address$];
+var AnalysisReportResults: StaticListSchema = [1, n0, _ARR, 0, () => AnalysisTypeReportResult$];
+var AnalysisReports: StaticListSchema = [1, n0, _ARna, 0, () => AnalysisReport$];
+var AnalysisResultList: StaticListSchema = [1, n0, _ARL, 0, () => AnalysisResult$];
+var AvailabilityZoneMappings: StaticListSchema = [1, n0, _AZM, 0, () => AvailabilityZoneMapping$];
+var AzSubnets = 64 | 0;
+var Certificates: StaticListSchema = [1, n0, _Ce, 0, () => TlsCertificateData$];
+var CreateProxyRuleList: StaticListSchema = [1, n0, _CPRL, 0, () => CreateProxyRule$];
+var CustomActions: StaticListSchema = [1, n0, _CAu, 0, () => CustomAction$];
+var Dimensions: StaticListSchema = [1, n0, _Dim, 0, () => Dimension$];
+var EnabledAnalysisTypes = 64 | 0;
+var FirewallPolicies: StaticListSchema = [1, n0, _FPi, 0, () => FirewallPolicyMetadata$];
+var Firewalls: StaticListSchema = [1, n0, _Fi, 0, () => FirewallMetadata$];
+var Flags = 64 | 0;
+var FlowFilters: StaticListSchema = [1, n0, _FFl, 0, () => FlowFilter$];
+var FlowOperations: StaticListSchema = [1, n0, _FOl, 0, () => FlowOperationMetadata$];
+var Flows: StaticListSchema = [1, n0, _Flo, 0, () => Flow$];
+var ListenerProperties: StaticListSchema = [1, n0, _LP, 0, () => ListenerProperty$];
+var ListenerPropertiesRequest: StaticListSchema = [1, n0, _LPRist, 0, () => ListenerPropertyRequest$];
+var LogDestinationConfigs: StaticListSchema = [1, n0, _LDCo, 0, () => LogDestinationConfig$];
+var PortRanges: StaticListSchema = [1, n0, _PRor, 0, () => PortRange$];
+var ProtocolNumbers = 64 | 1;
+var ProtocolStrings = 64 | 0;
+var Proxies: StaticListSchema = [1, n0, _Prox, 0, () => ProxyMetadata$];
+var ProxyConditionValueList = 64 | 0;
+var ProxyConfigRuleGroupSet: StaticListSchema = [1, n0, _PCRGS, 0, () => ProxyConfigRuleGroup$];
+var ProxyConfigurations: StaticListSchema = [1, n0, _PCr, 0, () => ProxyConfigurationMetadata$];
+var ProxyRuleConditionList: StaticListSchema = [1, n0, _PRCL, 0, () => ProxyRuleCondition$];
+var ProxyRuleGroupAttachmentList: StaticListSchema = [1, n0, _PRGAL, 0, () => ProxyRuleGroupAttachment$];
+var ProxyRuleGroupPriorityList: StaticListSchema = [1, n0, _PRGPL, 0, () => ProxyRuleGroupPriority$];
+var ProxyRuleGroupPriorityResultList: StaticListSchema = [1, n0, _PRGPRL, 0, () => ProxyRuleGroupPriorityResult$];
+var ProxyRuleGroups: StaticListSchema = [1, n0, _PRGr, 0, () => ProxyRuleGroupMetadata$];
+var ProxyRuleList: StaticListSchema = [1, n0, _PRL, 0, () => ProxyRule$];
+var ProxyRulePriorityList: StaticListSchema = [1, n0, _PRPL, 0, () => ProxyRulePriority$];
+var ResourceArnList = 64 | 0;
+var ResourceNameList = 64 | 0;
+var RuleGroups: StaticListSchema = [1, n0, _RG, 0, () => RuleGroupMetadata$];
+var RuleIdList = 64 | 0;
+var RuleOptions: StaticListSchema = [1, n0, _ROul, 0, () => RuleOption$];
+var RuleSummaries: StaticListSchema = [1, n0, _RSuleu, 0, () => RuleSummary$];
+var RuleTargets = 64 | 0;
+var ServerCertificateConfigurations: StaticListSchema = [1, n0, _SCCe, 0, () => ServerCertificateConfiguration$];
+var ServerCertificates: StaticListSchema = [1, n0, _SCer, 0, () => ServerCertificate$];
+var ServerCertificateScopes: StaticListSchema = [1, n0, _SCSe, 0, () => ServerCertificateScope$];
+var Settings = 64 | 0;
+var StatefulActions = 64 | 0;
+var StatefulRuleGroupReferences: StaticListSchema = [1, n0, _SRGRt, 0, () => StatefulRuleGroupReference$];
+var StatefulRules: StaticListSchema = [1, n0, _SR, 0, () => StatefulRule$];
+var StatelessActions = 64 | 0;
+var StatelessRuleGroupReferences: StaticListSchema = [1, n0, _SRGR, 0, () => StatelessRuleGroupReference$];
+var StatelessRules: StaticListSchema = [1, n0, _SRtat, 0, () => StatelessRule$];
+var SubnetMappings: StaticListSchema = [1, n0, _SM, 0, () => SubnetMapping$];
+var SummaryRuleOptions = 64 | 0;
+var TagKeyList = 64 | 0;
+var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
+var TargetTypes = 64 | 0;
+var TCPFlags: StaticListSchema = [1, n0, _TCPF, 0, () => TCPFlagField$];
+var TLSInspectionConfigurations: StaticListSchema = [1, n0, _TLSICn, 0, () => TLSInspectionConfigurationMetadata$];
+var VariableDefinitionList = 64 | 0;
+var VpcEndpointAssociations: StaticListSchema = [1, n0, _VEAp, 0, () => VpcEndpointAssociationMetadata$];
+var VpcIds = 64 | 0;
+var AssociationSyncState: StaticMapSchema = [2, n0, _ASS, 0, 0, () => AZSyncState$];
+var IPSetMetadataMap: StaticMapSchema = [2, n0, _IPSMM, 0, 0, () => IPSetMetadata$];
+var IPSetReferenceMap: StaticMapSchema = [2, n0, _IPSRM, 0, 0, () => IPSetReference$];
+var IPSets: StaticMapSchema = [2, n0, _IPSe, 0, 0, () => IPSet$];
+var LogDestinationMap = 128 | 0;
+var PortSets: StaticMapSchema = [2, n0, _PSor, 0, 0, () => PortSet$];
+var SupportedAvailabilityZones: StaticMapSchema = [2, n0, _SAZ, 0, 0, () => AvailabilityZoneMetadata$];
+var SyncStateConfig: StaticMapSchema = [2, n0, _SSC, 0, 0, () => PerObjectStatus$];
+var SyncStates: StaticMapSchema = [2, n0, _SS, 0, 0, () => SyncState$];
+export var AcceptNetworkFirewallTransitGatewayAttachment$: StaticOperationSchema = [
   9,
   n0,
   _ANFTGA,
   0,
-  () => AcceptNetworkFirewallTransitGatewayAttachmentRequest,
-  () => AcceptNetworkFirewallTransitGatewayAttachmentResponse,
+  () => AcceptNetworkFirewallTransitGatewayAttachmentRequest$,
+  () => AcceptNetworkFirewallTransitGatewayAttachmentResponse$,
 ];
-export var AssociateAvailabilityZones: StaticOperationSchema = [
+export var AssociateAvailabilityZones$: StaticOperationSchema = [
   9,
   n0,
   _AAZ,
   0,
-  () => AssociateAvailabilityZonesRequest,
-  () => AssociateAvailabilityZonesResponse,
+  () => AssociateAvailabilityZonesRequest$,
+  () => AssociateAvailabilityZonesResponse$,
 ];
-export var AssociateFirewallPolicy: StaticOperationSchema = [
+export var AssociateFirewallPolicy$: StaticOperationSchema = [
   9,
   n0,
   _AFP,
   0,
-  () => AssociateFirewallPolicyRequest,
-  () => AssociateFirewallPolicyResponse,
+  () => AssociateFirewallPolicyRequest$,
+  () => AssociateFirewallPolicyResponse$,
 ];
-export var AssociateSubnets: StaticOperationSchema = [
+export var AssociateSubnets$: StaticOperationSchema = [
   9,
   n0,
   _AS,
   0,
-  () => AssociateSubnetsRequest,
-  () => AssociateSubnetsResponse,
+  () => AssociateSubnetsRequest$,
+  () => AssociateSubnetsResponse$,
 ];
-export var AttachRuleGroupsToProxyConfiguration: StaticOperationSchema = [
+export var AttachRuleGroupsToProxyConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _ARGTPC,
   0,
-  () => AttachRuleGroupsToProxyConfigurationRequest,
-  () => AttachRuleGroupsToProxyConfigurationResponse,
+  () => AttachRuleGroupsToProxyConfigurationRequest$,
+  () => AttachRuleGroupsToProxyConfigurationResponse$,
 ];
-export var CreateFirewall: StaticOperationSchema = [
+export var CreateFirewall$: StaticOperationSchema = [
   9,
   n0,
   _CF,
   0,
-  () => CreateFirewallRequest,
-  () => CreateFirewallResponse,
+  () => CreateFirewallRequest$,
+  () => CreateFirewallResponse$,
 ];
-export var CreateFirewallPolicy: StaticOperationSchema = [
+export var CreateFirewallPolicy$: StaticOperationSchema = [
   9,
   n0,
   _CFP,
   0,
-  () => CreateFirewallPolicyRequest,
-  () => CreateFirewallPolicyResponse,
+  () => CreateFirewallPolicyRequest$,
+  () => CreateFirewallPolicyResponse$,
 ];
-export var CreateProxy: StaticOperationSchema = [9, n0, _CP, 0, () => CreateProxyRequest, () => CreateProxyResponse];
-export var CreateProxyConfiguration: StaticOperationSchema = [
+export var CreateProxy$: StaticOperationSchema = [9, n0, _CP, 0, () => CreateProxyRequest$, () => CreateProxyResponse$];
+export var CreateProxyConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _CPC,
   0,
-  () => CreateProxyConfigurationRequest,
-  () => CreateProxyConfigurationResponse,
+  () => CreateProxyConfigurationRequest$,
+  () => CreateProxyConfigurationResponse$,
 ];
-export var CreateProxyRuleGroup: StaticOperationSchema = [
+export var CreateProxyRuleGroup$: StaticOperationSchema = [
   9,
   n0,
   _CPRG,
   0,
-  () => CreateProxyRuleGroupRequest,
-  () => CreateProxyRuleGroupResponse,
+  () => CreateProxyRuleGroupRequest$,
+  () => CreateProxyRuleGroupResponse$,
 ];
-export var CreateProxyRules: StaticOperationSchema = [
+export var CreateProxyRules$: StaticOperationSchema = [
   9,
   n0,
   _CPRrea,
   0,
-  () => CreateProxyRulesRequest,
-  () => CreateProxyRulesResponse,
+  () => CreateProxyRulesRequest$,
+  () => CreateProxyRulesResponse$,
 ];
-export var CreateRuleGroup: StaticOperationSchema = [
+export var CreateRuleGroup$: StaticOperationSchema = [
   9,
   n0,
   _CRG,
   0,
-  () => CreateRuleGroupRequest,
-  () => CreateRuleGroupResponse,
+  () => CreateRuleGroupRequest$,
+  () => CreateRuleGroupResponse$,
 ];
-export var CreateTLSInspectionConfiguration: StaticOperationSchema = [
+export var CreateTLSInspectionConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _CTLSIC,
   0,
-  () => CreateTLSInspectionConfigurationRequest,
-  () => CreateTLSInspectionConfigurationResponse,
+  () => CreateTLSInspectionConfigurationRequest$,
+  () => CreateTLSInspectionConfigurationResponse$,
 ];
-export var CreateVpcEndpointAssociation: StaticOperationSchema = [
+export var CreateVpcEndpointAssociation$: StaticOperationSchema = [
   9,
   n0,
   _CVEA,
   0,
-  () => CreateVpcEndpointAssociationRequest,
-  () => CreateVpcEndpointAssociationResponse,
+  () => CreateVpcEndpointAssociationRequest$,
+  () => CreateVpcEndpointAssociationResponse$,
 ];
-export var DeleteFirewall: StaticOperationSchema = [
+export var DeleteFirewall$: StaticOperationSchema = [
   9,
   n0,
   _DF,
   0,
-  () => DeleteFirewallRequest,
-  () => DeleteFirewallResponse,
+  () => DeleteFirewallRequest$,
+  () => DeleteFirewallResponse$,
 ];
-export var DeleteFirewallPolicy: StaticOperationSchema = [
+export var DeleteFirewallPolicy$: StaticOperationSchema = [
   9,
   n0,
   _DFP,
   0,
-  () => DeleteFirewallPolicyRequest,
-  () => DeleteFirewallPolicyResponse,
+  () => DeleteFirewallPolicyRequest$,
+  () => DeleteFirewallPolicyResponse$,
 ];
-export var DeleteNetworkFirewallTransitGatewayAttachment: StaticOperationSchema = [
+export var DeleteNetworkFirewallTransitGatewayAttachment$: StaticOperationSchema = [
   9,
   n0,
   _DNFTGA,
   0,
-  () => DeleteNetworkFirewallTransitGatewayAttachmentRequest,
-  () => DeleteNetworkFirewallTransitGatewayAttachmentResponse,
+  () => DeleteNetworkFirewallTransitGatewayAttachmentRequest$,
+  () => DeleteNetworkFirewallTransitGatewayAttachmentResponse$,
 ];
-export var DeleteProxy: StaticOperationSchema = [9, n0, _DPel, 0, () => DeleteProxyRequest, () => DeleteProxyResponse];
-export var DeleteProxyConfiguration: StaticOperationSchema = [
+export var DeleteProxy$: StaticOperationSchema = [
+  9,
+  n0,
+  _DPel,
+  0,
+  () => DeleteProxyRequest$,
+  () => DeleteProxyResponse$,
+];
+export var DeleteProxyConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DPC,
   0,
-  () => DeleteProxyConfigurationRequest,
-  () => DeleteProxyConfigurationResponse,
+  () => DeleteProxyConfigurationRequest$,
+  () => DeleteProxyConfigurationResponse$,
 ];
-export var DeleteProxyRuleGroup: StaticOperationSchema = [
+export var DeleteProxyRuleGroup$: StaticOperationSchema = [
   9,
   n0,
   _DPRG,
   0,
-  () => DeleteProxyRuleGroupRequest,
-  () => DeleteProxyRuleGroupResponse,
+  () => DeleteProxyRuleGroupRequest$,
+  () => DeleteProxyRuleGroupResponse$,
 ];
-export var DeleteProxyRules: StaticOperationSchema = [
+export var DeleteProxyRules$: StaticOperationSchema = [
   9,
   n0,
   _DPRel,
   0,
-  () => DeleteProxyRulesRequest,
-  () => DeleteProxyRulesResponse,
+  () => DeleteProxyRulesRequest$,
+  () => DeleteProxyRulesResponse$,
 ];
-export var DeleteResourcePolicy: StaticOperationSchema = [
+export var DeleteResourcePolicy$: StaticOperationSchema = [
   9,
   n0,
   _DRP,
   0,
-  () => DeleteResourcePolicyRequest,
-  () => DeleteResourcePolicyResponse,
+  () => DeleteResourcePolicyRequest$,
+  () => DeleteResourcePolicyResponse$,
 ];
-export var DeleteRuleGroup: StaticOperationSchema = [
+export var DeleteRuleGroup$: StaticOperationSchema = [
   9,
   n0,
   _DRG,
   0,
-  () => DeleteRuleGroupRequest,
-  () => DeleteRuleGroupResponse,
+  () => DeleteRuleGroupRequest$,
+  () => DeleteRuleGroupResponse$,
 ];
-export var DeleteTLSInspectionConfiguration: StaticOperationSchema = [
+export var DeleteTLSInspectionConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DTLSIC,
   0,
-  () => DeleteTLSInspectionConfigurationRequest,
-  () => DeleteTLSInspectionConfigurationResponse,
+  () => DeleteTLSInspectionConfigurationRequest$,
+  () => DeleteTLSInspectionConfigurationResponse$,
 ];
-export var DeleteVpcEndpointAssociation: StaticOperationSchema = [
+export var DeleteVpcEndpointAssociation$: StaticOperationSchema = [
   9,
   n0,
   _DVEA,
   0,
-  () => DeleteVpcEndpointAssociationRequest,
-  () => DeleteVpcEndpointAssociationResponse,
+  () => DeleteVpcEndpointAssociationRequest$,
+  () => DeleteVpcEndpointAssociationResponse$,
 ];
-export var DescribeFirewall: StaticOperationSchema = [
+export var DescribeFirewall$: StaticOperationSchema = [
   9,
   n0,
   _DFe,
   0,
-  () => DescribeFirewallRequest,
-  () => DescribeFirewallResponse,
+  () => DescribeFirewallRequest$,
+  () => DescribeFirewallResponse$,
 ];
-export var DescribeFirewallMetadata: StaticOperationSchema = [
+export var DescribeFirewallMetadata$: StaticOperationSchema = [
   9,
   n0,
   _DFM,
   0,
-  () => DescribeFirewallMetadataRequest,
-  () => DescribeFirewallMetadataResponse,
+  () => DescribeFirewallMetadataRequest$,
+  () => DescribeFirewallMetadataResponse$,
 ];
-export var DescribeFirewallPolicy: StaticOperationSchema = [
+export var DescribeFirewallPolicy$: StaticOperationSchema = [
   9,
   n0,
   _DFPe,
   0,
-  () => DescribeFirewallPolicyRequest,
-  () => DescribeFirewallPolicyResponse,
+  () => DescribeFirewallPolicyRequest$,
+  () => DescribeFirewallPolicyResponse$,
 ];
-export var DescribeFlowOperation: StaticOperationSchema = [
+export var DescribeFlowOperation$: StaticOperationSchema = [
   9,
   n0,
   _DFO,
   0,
-  () => DescribeFlowOperationRequest,
-  () => DescribeFlowOperationResponse,
+  () => DescribeFlowOperationRequest$,
+  () => DescribeFlowOperationResponse$,
 ];
-export var DescribeLoggingConfiguration: StaticOperationSchema = [
+export var DescribeLoggingConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DLC,
   0,
-  () => DescribeLoggingConfigurationRequest,
-  () => DescribeLoggingConfigurationResponse,
+  () => DescribeLoggingConfigurationRequest$,
+  () => DescribeLoggingConfigurationResponse$,
 ];
-export var DescribeProxy: StaticOperationSchema = [
+export var DescribeProxy$: StaticOperationSchema = [
   9,
   n0,
   _DPesc,
   0,
-  () => DescribeProxyRequest,
-  () => DescribeProxyResponse,
+  () => DescribeProxyRequest$,
+  () => DescribeProxyResponse$,
 ];
-export var DescribeProxyConfiguration: StaticOperationSchema = [
+export var DescribeProxyConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DPCe,
   0,
-  () => DescribeProxyConfigurationRequest,
-  () => DescribeProxyConfigurationResponse,
+  () => DescribeProxyConfigurationRequest$,
+  () => DescribeProxyConfigurationResponse$,
 ];
-export var DescribeProxyRule: StaticOperationSchema = [
+export var DescribeProxyRule$: StaticOperationSchema = [
   9,
   n0,
   _DPRescri,
   0,
-  () => DescribeProxyRuleRequest,
-  () => DescribeProxyRuleResponse,
+  () => DescribeProxyRuleRequest$,
+  () => DescribeProxyRuleResponse$,
 ];
-export var DescribeProxyRuleGroup: StaticOperationSchema = [
+export var DescribeProxyRuleGroup$: StaticOperationSchema = [
   9,
   n0,
   _DPRGe,
   0,
-  () => DescribeProxyRuleGroupRequest,
-  () => DescribeProxyRuleGroupResponse,
+  () => DescribeProxyRuleGroupRequest$,
+  () => DescribeProxyRuleGroupResponse$,
 ];
-export var DescribeResourcePolicy: StaticOperationSchema = [
+export var DescribeResourcePolicy$: StaticOperationSchema = [
   9,
   n0,
   _DRPe,
   0,
-  () => DescribeResourcePolicyRequest,
-  () => DescribeResourcePolicyResponse,
+  () => DescribeResourcePolicyRequest$,
+  () => DescribeResourcePolicyResponse$,
 ];
-export var DescribeRuleGroup: StaticOperationSchema = [
+export var DescribeRuleGroup$: StaticOperationSchema = [
   9,
   n0,
   _DRGe,
   0,
-  () => DescribeRuleGroupRequest,
-  () => DescribeRuleGroupResponse,
+  () => DescribeRuleGroupRequest$,
+  () => DescribeRuleGroupResponse$,
 ];
-export var DescribeRuleGroupMetadata: StaticOperationSchema = [
+export var DescribeRuleGroupMetadata$: StaticOperationSchema = [
   9,
   n0,
   _DRGM,
   0,
-  () => DescribeRuleGroupMetadataRequest,
-  () => DescribeRuleGroupMetadataResponse,
+  () => DescribeRuleGroupMetadataRequest$,
+  () => DescribeRuleGroupMetadataResponse$,
 ];
-export var DescribeRuleGroupSummary: StaticOperationSchema = [
+export var DescribeRuleGroupSummary$: StaticOperationSchema = [
   9,
   n0,
   _DRGS,
   0,
-  () => DescribeRuleGroupSummaryRequest,
-  () => DescribeRuleGroupSummaryResponse,
+  () => DescribeRuleGroupSummaryRequest$,
+  () => DescribeRuleGroupSummaryResponse$,
 ];
-export var DescribeTLSInspectionConfiguration: StaticOperationSchema = [
+export var DescribeTLSInspectionConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DTLSICe,
   0,
-  () => DescribeTLSInspectionConfigurationRequest,
-  () => DescribeTLSInspectionConfigurationResponse,
+  () => DescribeTLSInspectionConfigurationRequest$,
+  () => DescribeTLSInspectionConfigurationResponse$,
 ];
-export var DescribeVpcEndpointAssociation: StaticOperationSchema = [
+export var DescribeVpcEndpointAssociation$: StaticOperationSchema = [
   9,
   n0,
   _DVEAe,
   0,
-  () => DescribeVpcEndpointAssociationRequest,
-  () => DescribeVpcEndpointAssociationResponse,
+  () => DescribeVpcEndpointAssociationRequest$,
+  () => DescribeVpcEndpointAssociationResponse$,
 ];
-export var DetachRuleGroupsFromProxyConfiguration: StaticOperationSchema = [
+export var DetachRuleGroupsFromProxyConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DRGFPC,
   0,
-  () => DetachRuleGroupsFromProxyConfigurationRequest,
-  () => DetachRuleGroupsFromProxyConfigurationResponse,
+  () => DetachRuleGroupsFromProxyConfigurationRequest$,
+  () => DetachRuleGroupsFromProxyConfigurationResponse$,
 ];
-export var DisassociateAvailabilityZones: StaticOperationSchema = [
+export var DisassociateAvailabilityZones$: StaticOperationSchema = [
   9,
   n0,
   _DAZ,
   0,
-  () => DisassociateAvailabilityZonesRequest,
-  () => DisassociateAvailabilityZonesResponse,
+  () => DisassociateAvailabilityZonesRequest$,
+  () => DisassociateAvailabilityZonesResponse$,
 ];
-export var DisassociateSubnets: StaticOperationSchema = [
+export var DisassociateSubnets$: StaticOperationSchema = [
   9,
   n0,
   _DS,
   0,
-  () => DisassociateSubnetsRequest,
-  () => DisassociateSubnetsResponse,
+  () => DisassociateSubnetsRequest$,
+  () => DisassociateSubnetsResponse$,
 ];
-export var GetAnalysisReportResults: StaticOperationSchema = [
+export var GetAnalysisReportResults$: StaticOperationSchema = [
   9,
   n0,
   _GARR,
   0,
-  () => GetAnalysisReportResultsRequest,
-  () => GetAnalysisReportResultsResponse,
+  () => GetAnalysisReportResultsRequest$,
+  () => GetAnalysisReportResultsResponse$,
 ];
-export var ListAnalysisReports: StaticOperationSchema = [
+export var ListAnalysisReports$: StaticOperationSchema = [
   9,
   n0,
   _LAR,
   0,
-  () => ListAnalysisReportsRequest,
-  () => ListAnalysisReportsResponse,
+  () => ListAnalysisReportsRequest$,
+  () => ListAnalysisReportsResponse$,
 ];
-export var ListFirewallPolicies: StaticOperationSchema = [
+export var ListFirewallPolicies$: StaticOperationSchema = [
   9,
   n0,
   _LFP,
   0,
-  () => ListFirewallPoliciesRequest,
-  () => ListFirewallPoliciesResponse,
+  () => ListFirewallPoliciesRequest$,
+  () => ListFirewallPoliciesResponse$,
 ];
-export var ListFirewalls: StaticOperationSchema = [
+export var ListFirewalls$: StaticOperationSchema = [
   9,
   n0,
   _LF,
   0,
-  () => ListFirewallsRequest,
-  () => ListFirewallsResponse,
+  () => ListFirewallsRequest$,
+  () => ListFirewallsResponse$,
 ];
-export var ListFlowOperationResults: StaticOperationSchema = [
+export var ListFlowOperationResults$: StaticOperationSchema = [
   9,
   n0,
   _LFORis,
   0,
-  () => ListFlowOperationResultsRequest,
-  () => ListFlowOperationResultsResponse,
+  () => ListFlowOperationResultsRequest$,
+  () => ListFlowOperationResultsResponse$,
 ];
-export var ListFlowOperations: StaticOperationSchema = [
+export var ListFlowOperations$: StaticOperationSchema = [
   9,
   n0,
   _LFO,
   0,
-  () => ListFlowOperationsRequest,
-  () => ListFlowOperationsResponse,
+  () => ListFlowOperationsRequest$,
+  () => ListFlowOperationsResponse$,
 ];
-export var ListProxies: StaticOperationSchema = [9, n0, _LPis, 0, () => ListProxiesRequest, () => ListProxiesResponse];
-export var ListProxyConfigurations: StaticOperationSchema = [
+export var ListProxies$: StaticOperationSchema = [
+  9,
+  n0,
+  _LPis,
+  0,
+  () => ListProxiesRequest$,
+  () => ListProxiesResponse$,
+];
+export var ListProxyConfigurations$: StaticOperationSchema = [
   9,
   n0,
   _LPC,
   0,
-  () => ListProxyConfigurationsRequest,
-  () => ListProxyConfigurationsResponse,
+  () => ListProxyConfigurationsRequest$,
+  () => ListProxyConfigurationsResponse$,
 ];
-export var ListProxyRuleGroups: StaticOperationSchema = [
+export var ListProxyRuleGroups$: StaticOperationSchema = [
   9,
   n0,
   _LPRG,
   0,
-  () => ListProxyRuleGroupsRequest,
-  () => ListProxyRuleGroupsResponse,
+  () => ListProxyRuleGroupsRequest$,
+  () => ListProxyRuleGroupsResponse$,
 ];
-export var ListRuleGroups: StaticOperationSchema = [
+export var ListRuleGroups$: StaticOperationSchema = [
   9,
   n0,
   _LRG,
   0,
-  () => ListRuleGroupsRequest,
-  () => ListRuleGroupsResponse,
+  () => ListRuleGroupsRequest$,
+  () => ListRuleGroupsResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   0,
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var ListTLSInspectionConfigurations: StaticOperationSchema = [
+export var ListTLSInspectionConfigurations$: StaticOperationSchema = [
   9,
   n0,
   _LTLSIC,
   0,
-  () => ListTLSInspectionConfigurationsRequest,
-  () => ListTLSInspectionConfigurationsResponse,
+  () => ListTLSInspectionConfigurationsRequest$,
+  () => ListTLSInspectionConfigurationsResponse$,
 ];
-export var ListVpcEndpointAssociations: StaticOperationSchema = [
+export var ListVpcEndpointAssociations$: StaticOperationSchema = [
   9,
   n0,
   _LVEA,
   0,
-  () => ListVpcEndpointAssociationsRequest,
-  () => ListVpcEndpointAssociationsResponse,
+  () => ListVpcEndpointAssociationsRequest$,
+  () => ListVpcEndpointAssociationsResponse$,
 ];
-export var PutResourcePolicy: StaticOperationSchema = [
+export var PutResourcePolicy$: StaticOperationSchema = [
   9,
   n0,
   _PRPu,
   0,
-  () => PutResourcePolicyRequest,
-  () => PutResourcePolicyResponse,
+  () => PutResourcePolicyRequest$,
+  () => PutResourcePolicyResponse$,
 ];
-export var RejectNetworkFirewallTransitGatewayAttachment: StaticOperationSchema = [
+export var RejectNetworkFirewallTransitGatewayAttachment$: StaticOperationSchema = [
   9,
   n0,
   _RNFTGA,
   0,
-  () => RejectNetworkFirewallTransitGatewayAttachmentRequest,
-  () => RejectNetworkFirewallTransitGatewayAttachmentResponse,
+  () => RejectNetworkFirewallTransitGatewayAttachmentRequest$,
+  () => RejectNetworkFirewallTransitGatewayAttachmentResponse$,
 ];
-export var StartAnalysisReport: StaticOperationSchema = [
+export var StartAnalysisReport$: StaticOperationSchema = [
   9,
   n0,
   _SAR,
   0,
-  () => StartAnalysisReportRequest,
-  () => StartAnalysisReportResponse,
+  () => StartAnalysisReportRequest$,
+  () => StartAnalysisReportResponse$,
 ];
-export var StartFlowCapture: StaticOperationSchema = [
+export var StartFlowCapture$: StaticOperationSchema = [
   9,
   n0,
   _SFC,
   0,
-  () => StartFlowCaptureRequest,
-  () => StartFlowCaptureResponse,
+  () => StartFlowCaptureRequest$,
+  () => StartFlowCaptureResponse$,
 ];
-export var StartFlowFlush: StaticOperationSchema = [
+export var StartFlowFlush$: StaticOperationSchema = [
   9,
   n0,
   _SFF,
   0,
-  () => StartFlowFlushRequest,
-  () => StartFlowFlushResponse,
+  () => StartFlowFlushRequest$,
+  () => StartFlowFlushResponse$,
 ];
-export var TagResource: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceRequest, () => TagResourceResponse];
-export var UntagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceRequest$, () => TagResourceResponse$];
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   0,
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateAvailabilityZoneChangeProtection: StaticOperationSchema = [
+export var UpdateAvailabilityZoneChangeProtection$: StaticOperationSchema = [
   9,
   n0,
   _UAZCP,
   0,
-  () => UpdateAvailabilityZoneChangeProtectionRequest,
-  () => UpdateAvailabilityZoneChangeProtectionResponse,
+  () => UpdateAvailabilityZoneChangeProtectionRequest$,
+  () => UpdateAvailabilityZoneChangeProtectionResponse$,
 ];
-export var UpdateFirewallAnalysisSettings: StaticOperationSchema = [
+export var UpdateFirewallAnalysisSettings$: StaticOperationSchema = [
   9,
   n0,
   _UFAS,
   0,
-  () => UpdateFirewallAnalysisSettingsRequest,
-  () => UpdateFirewallAnalysisSettingsResponse,
+  () => UpdateFirewallAnalysisSettingsRequest$,
+  () => UpdateFirewallAnalysisSettingsResponse$,
 ];
-export var UpdateFirewallDeleteProtection: StaticOperationSchema = [
+export var UpdateFirewallDeleteProtection$: StaticOperationSchema = [
   9,
   n0,
   _UFDP,
   0,
-  () => UpdateFirewallDeleteProtectionRequest,
-  () => UpdateFirewallDeleteProtectionResponse,
+  () => UpdateFirewallDeleteProtectionRequest$,
+  () => UpdateFirewallDeleteProtectionResponse$,
 ];
-export var UpdateFirewallDescription: StaticOperationSchema = [
+export var UpdateFirewallDescription$: StaticOperationSchema = [
   9,
   n0,
   _UFD,
   0,
-  () => UpdateFirewallDescriptionRequest,
-  () => UpdateFirewallDescriptionResponse,
+  () => UpdateFirewallDescriptionRequest$,
+  () => UpdateFirewallDescriptionResponse$,
 ];
-export var UpdateFirewallEncryptionConfiguration: StaticOperationSchema = [
+export var UpdateFirewallEncryptionConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UFEC,
   0,
-  () => UpdateFirewallEncryptionConfigurationRequest,
-  () => UpdateFirewallEncryptionConfigurationResponse,
+  () => UpdateFirewallEncryptionConfigurationRequest$,
+  () => UpdateFirewallEncryptionConfigurationResponse$,
 ];
-export var UpdateFirewallPolicy: StaticOperationSchema = [
+export var UpdateFirewallPolicy$: StaticOperationSchema = [
   9,
   n0,
   _UFP,
   0,
-  () => UpdateFirewallPolicyRequest,
-  () => UpdateFirewallPolicyResponse,
+  () => UpdateFirewallPolicyRequest$,
+  () => UpdateFirewallPolicyResponse$,
 ];
-export var UpdateFirewallPolicyChangeProtection: StaticOperationSchema = [
+export var UpdateFirewallPolicyChangeProtection$: StaticOperationSchema = [
   9,
   n0,
   _UFPCP,
   0,
-  () => UpdateFirewallPolicyChangeProtectionRequest,
-  () => UpdateFirewallPolicyChangeProtectionResponse,
+  () => UpdateFirewallPolicyChangeProtectionRequest$,
+  () => UpdateFirewallPolicyChangeProtectionResponse$,
 ];
-export var UpdateLoggingConfiguration: StaticOperationSchema = [
+export var UpdateLoggingConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _ULC,
   0,
-  () => UpdateLoggingConfigurationRequest,
-  () => UpdateLoggingConfigurationResponse,
+  () => UpdateLoggingConfigurationRequest$,
+  () => UpdateLoggingConfigurationResponse$,
 ];
-export var UpdateProxy: StaticOperationSchema = [9, n0, _UP, 0, () => UpdateProxyRequest, () => UpdateProxyResponse];
-export var UpdateProxyConfiguration: StaticOperationSchema = [
+export var UpdateProxy$: StaticOperationSchema = [9, n0, _UP, 0, () => UpdateProxyRequest$, () => UpdateProxyResponse$];
+export var UpdateProxyConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UPC,
   0,
-  () => UpdateProxyConfigurationRequest,
-  () => UpdateProxyConfigurationResponse,
+  () => UpdateProxyConfigurationRequest$,
+  () => UpdateProxyConfigurationResponse$,
 ];
-export var UpdateProxyRule: StaticOperationSchema = [
+export var UpdateProxyRule$: StaticOperationSchema = [
   9,
   n0,
   _UPRpd,
   0,
-  () => UpdateProxyRuleRequest,
-  () => UpdateProxyRuleResponse,
+  () => UpdateProxyRuleRequest$,
+  () => UpdateProxyRuleResponse$,
 ];
-export var UpdateProxyRuleGroupPriorities: StaticOperationSchema = [
+export var UpdateProxyRuleGroupPriorities$: StaticOperationSchema = [
   9,
   n0,
   _UPRGP,
   0,
-  () => UpdateProxyRuleGroupPrioritiesRequest,
-  () => UpdateProxyRuleGroupPrioritiesResponse,
+  () => UpdateProxyRuleGroupPrioritiesRequest$,
+  () => UpdateProxyRuleGroupPrioritiesResponse$,
 ];
-export var UpdateProxyRulePriorities: StaticOperationSchema = [
+export var UpdateProxyRulePriorities$: StaticOperationSchema = [
   9,
   n0,
   _UPRP,
   0,
-  () => UpdateProxyRulePrioritiesRequest,
-  () => UpdateProxyRulePrioritiesResponse,
+  () => UpdateProxyRulePrioritiesRequest$,
+  () => UpdateProxyRulePrioritiesResponse$,
 ];
-export var UpdateRuleGroup: StaticOperationSchema = [
+export var UpdateRuleGroup$: StaticOperationSchema = [
   9,
   n0,
   _URG,
   0,
-  () => UpdateRuleGroupRequest,
-  () => UpdateRuleGroupResponse,
+  () => UpdateRuleGroupRequest$,
+  () => UpdateRuleGroupResponse$,
 ];
-export var UpdateSubnetChangeProtection: StaticOperationSchema = [
+export var UpdateSubnetChangeProtection$: StaticOperationSchema = [
   9,
   n0,
   _USCP,
   0,
-  () => UpdateSubnetChangeProtectionRequest,
-  () => UpdateSubnetChangeProtectionResponse,
+  () => UpdateSubnetChangeProtectionRequest$,
+  () => UpdateSubnetChangeProtectionResponse$,
 ];
-export var UpdateTLSInspectionConfiguration: StaticOperationSchema = [
+export var UpdateTLSInspectionConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UTLSIC,
   0,
-  () => UpdateTLSInspectionConfigurationRequest,
-  () => UpdateTLSInspectionConfigurationResponse,
+  () => UpdateTLSInspectionConfigurationRequest$,
+  () => UpdateTLSInspectionConfigurationResponse$,
 ];

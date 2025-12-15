@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetResourcesSummaryInput, GetResourcesSummaryOutput } from "../models/models_0";
 import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
-import { GetResourcesSummary } from "../schemas/schemas_0";
+import { GetResourcesSummary$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class GetResourcesSummaryCommand extends $Command
   })
   .s("AwsProton20200720", "GetResourcesSummary", {})
   .n("ProtonClient", "GetResourcesSummaryCommand")
-  .sc(GetResourcesSummary)
+  .sc(GetResourcesSummary$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

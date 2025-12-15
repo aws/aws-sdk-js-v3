@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { CreateAccountAssociationRequest, CreateAccountAssociationResponse } from "../models/models_0";
-import { CreateAccountAssociation } from "../schemas/schemas_0";
+import { CreateAccountAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class CreateAccountAssociationCommand extends $Command
   })
   .s("IotManagedIntegrations", "CreateAccountAssociation", {})
   .n("IoTManagedIntegrationsClient", "CreateAccountAssociationCommand")
-  .sc(CreateAccountAssociation)
+  .sc(CreateAccountAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

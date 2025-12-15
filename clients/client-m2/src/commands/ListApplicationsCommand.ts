@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
 import type { ListApplicationsRequest, ListApplicationsResponse } from "../models/models_0";
-import { ListApplications } from "../schemas/schemas_0";
+import { ListApplications$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class ListApplicationsCommand extends $Command
   })
   .s("AwsSupernovaControlPlaneService", "ListApplications", {})
   .n("M2Client", "ListApplicationsCommand")
-  .sc(ListApplications)
+  .sc(ListApplications$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

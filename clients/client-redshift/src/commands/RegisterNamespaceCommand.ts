@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RegisterNamespaceInputMessage, RegisterNamespaceOutputMessage } from "../models/models_1";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { RegisterNamespace } from "../schemas/schemas_0";
+import { RegisterNamespace$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class RegisterNamespaceCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "RegisterNamespace", {})
   .n("RedshiftClient", "RegisterNamespaceCommand")
-  .sc(RegisterNamespace)
+  .sc(RegisterNamespace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

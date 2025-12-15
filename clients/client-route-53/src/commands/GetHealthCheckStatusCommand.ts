@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetHealthCheckStatusRequest, GetHealthCheckStatusResponse } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { GetHealthCheckStatus } from "../schemas/schemas_0";
+import { GetHealthCheckStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class GetHealthCheckStatusCommand extends $Command
   })
   .s("AWSDnsV20130401", "GetHealthCheckStatus", {})
   .n("Route53Client", "GetHealthCheckStatusCommand")
-  .sc(GetHealthCheckStatus)
+  .sc(GetHealthCheckStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

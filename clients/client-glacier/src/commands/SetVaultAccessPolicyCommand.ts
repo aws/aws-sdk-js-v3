@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import type { SetVaultAccessPolicyInput } from "../models/models_0";
-import { SetVaultAccessPolicy } from "../schemas/schemas_0";
+import { SetVaultAccessPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class SetVaultAccessPolicyCommand extends $Command
   })
   .s("Glacier", "SetVaultAccessPolicy", {})
   .n("GlacierClient", "SetVaultAccessPolicyCommand")
-  .sc(SetVaultAccessPolicy)
+  .sc(SetVaultAccessPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

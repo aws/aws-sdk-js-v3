@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetCostComparisonDriversRequest, GetCostComparisonDriversResponse } from "../models/models_0";
-import { GetCostComparisonDrivers } from "../schemas/schemas_0";
+import { GetCostComparisonDrivers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -269,7 +269,7 @@ export class GetCostComparisonDriversCommand extends $Command
   })
   .s("AWSInsightsIndexService", "GetCostComparisonDrivers", {})
   .n("CostExplorerClient", "GetCostComparisonDriversCommand")
-  .sc(GetCostComparisonDrivers)
+  .sc(GetCostComparisonDrivers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

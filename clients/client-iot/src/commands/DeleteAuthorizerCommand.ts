@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import type { DeleteAuthorizerRequest, DeleteAuthorizerResponse } from "../models/models_0";
-import { DeleteAuthorizer } from "../schemas/schemas_0";
+import { DeleteAuthorizer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DeleteAuthorizerCommand extends $Command
   })
   .s("AWSIotService", "DeleteAuthorizer", {})
   .n("IoTClient", "DeleteAuthorizerCommand")
-  .sc(DeleteAuthorizer)
+  .sc(DeleteAuthorizer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

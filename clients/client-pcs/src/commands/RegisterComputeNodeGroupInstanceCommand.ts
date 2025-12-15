@@ -9,7 +9,7 @@ import type {
   RegisterComputeNodeGroupInstanceResponse,
 } from "../models/models_0";
 import type { PCSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PCSClient";
-import { RegisterComputeNodeGroupInstance } from "../schemas/schemas_0";
+import { RegisterComputeNodeGroupInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class RegisterComputeNodeGroupInstanceCommand extends $Command
   })
   .s("AWSParallelComputingService", "RegisterComputeNodeGroupInstance", {})
   .n("PCSClient", "RegisterComputeNodeGroupInstanceCommand")
-  .sc(RegisterComputeNodeGroupInstance)
+  .sc(RegisterComputeNodeGroupInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

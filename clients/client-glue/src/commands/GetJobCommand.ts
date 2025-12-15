@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { GetJobRequest } from "../models/models_1";
 import type { GetJobResponse } from "../models/models_3";
-import { GetJob } from "../schemas/schemas_0";
+import { GetJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -1338,7 +1338,7 @@ export class GetJobCommand extends $Command
   })
   .s("AWSGlue", "GetJob", {})
   .n("GlueClient", "GetJobCommand")
-  .sc(GetJob)
+  .sc(GetJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

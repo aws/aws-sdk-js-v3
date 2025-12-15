@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateProtectionGroupRequest, UpdateProtectionGroupResponse } from "../models/models_0";
-import { UpdateProtectionGroup } from "../schemas/schemas_0";
+import { UpdateProtectionGroup$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -90,7 +90,7 @@ export class UpdateProtectionGroupCommand extends $Command
   })
   .s("AWSShield_20160616", "UpdateProtectionGroup", {})
   .n("ShieldClient", "UpdateProtectionGroupCommand")
-  .sc(UpdateProtectionGroup)
+  .sc(UpdateProtectionGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

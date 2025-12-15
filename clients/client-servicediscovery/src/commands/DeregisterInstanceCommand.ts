@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeregisterInstanceRequest, DeregisterInstanceResponse } from "../models/models_0";
-import { DeregisterInstance } from "../schemas/schemas_0";
+import { DeregisterInstance$ } from "../schemas/schemas_0";
 import type {
   ServiceDiscoveryClientResolvedConfig,
   ServiceInputTypes,
@@ -130,7 +130,7 @@ export class DeregisterInstanceCommand extends $Command
   })
   .s("Route53AutoNaming_v20170314", "DeregisterInstance", {})
   .n("ServiceDiscoveryClient", "DeregisterInstanceCommand")
-  .sc(DeregisterInstance)
+  .sc(DeregisterInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

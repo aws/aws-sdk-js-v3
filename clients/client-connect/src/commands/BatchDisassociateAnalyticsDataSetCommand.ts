@@ -9,7 +9,7 @@ import type {
   BatchDisassociateAnalyticsDataSetRequest,
   BatchDisassociateAnalyticsDataSetResponse,
 } from "../models/models_0";
-import { BatchDisassociateAnalyticsDataSet } from "../schemas/schemas_0";
+import { BatchDisassociateAnalyticsDataSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class BatchDisassociateAnalyticsDataSetCommand extends $Command
   })
   .s("AmazonConnectService", "BatchDisassociateAnalyticsDataSet", {})
   .n("ConnectClient", "BatchDisassociateAnalyticsDataSetCommand")
-  .sc(BatchDisassociateAnalyticsDataSet)
+  .sc(BatchDisassociateAnalyticsDataSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

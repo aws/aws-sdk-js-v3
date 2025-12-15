@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import type { UpdateAssumeRolePolicyRequest } from "../models/models_0";
-import { UpdateAssumeRolePolicy } from "../schemas/schemas_0";
+import { UpdateAssumeRolePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class UpdateAssumeRolePolicyCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "UpdateAssumeRolePolicy", {})
   .n("IAMClient", "UpdateAssumeRolePolicyCommand")
-  .sc(UpdateAssumeRolePolicy)
+  .sc(UpdateAssumeRolePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

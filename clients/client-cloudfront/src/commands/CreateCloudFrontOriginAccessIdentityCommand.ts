@@ -9,7 +9,7 @@ import type {
   CreateCloudFrontOriginAccessIdentityRequest,
   CreateCloudFrontOriginAccessIdentityResult,
 } from "../models/models_0";
-import { CreateCloudFrontOriginAccessIdentity } from "../schemas/schemas_0";
+import { CreateCloudFrontOriginAccessIdentity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class CreateCloudFrontOriginAccessIdentityCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "CreateCloudFrontOriginAccessIdentity", {})
   .n("CloudFrontClient", "CreateCloudFrontOriginAccessIdentityCommand")
-  .sc(CreateCloudFrontOriginAccessIdentity)
+  .sc(CreateCloudFrontOriginAccessIdentity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

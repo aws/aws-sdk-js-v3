@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetLogDeliveryConfigurationRequest, GetLogDeliveryConfigurationResponse } from "../models/models_0";
-import { GetLogDeliveryConfiguration } from "../schemas/schemas_0";
+import { GetLogDeliveryConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -135,7 +135,7 @@ export class GetLogDeliveryConfigurationCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "GetLogDeliveryConfiguration", {})
   .n("CognitoIdentityProviderClient", "GetLogDeliveryConfigurationCommand")
-  .sc(GetLogDeliveryConfiguration)
+  .sc(GetLogDeliveryConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

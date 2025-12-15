@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import type { VerifyDevicePositionRequest, VerifyDevicePositionResponse } from "../models/models_0";
-import { VerifyDevicePosition } from "../schemas/schemas_0";
+import { VerifyDevicePosition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -146,7 +146,7 @@ export class VerifyDevicePositionCommand extends $Command
   })
   .s("LocationService", "VerifyDevicePosition", {})
   .n("LocationClient", "VerifyDevicePositionCommand")
-  .sc(VerifyDevicePosition)
+  .sc(VerifyDevicePosition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

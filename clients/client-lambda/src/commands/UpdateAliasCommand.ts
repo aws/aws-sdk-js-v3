@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import type { AliasConfiguration, UpdateAliasRequest } from "../models/models_0";
-import { UpdateAlias } from "../schemas/schemas_0";
+import { UpdateAlias$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -140,7 +140,7 @@ export class UpdateAliasCommand extends $Command
   })
   .s("AWSGirApiService", "UpdateAlias", {})
   .n("LambdaClient", "UpdateAliasCommand")
-  .sc(UpdateAlias)
+  .sc(UpdateAlias$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

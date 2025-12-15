@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { ListCloudWatchAlarmTemplatesRequest, ListCloudWatchAlarmTemplatesResponse } from "../models/models_1";
-import { ListCloudWatchAlarmTemplates } from "../schemas/schemas_0";
+import { ListCloudWatchAlarmTemplates$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class ListCloudWatchAlarmTemplatesCommand extends $Command
   })
   .s("MediaLive", "ListCloudWatchAlarmTemplates", {})
   .n("MediaLiveClient", "ListCloudWatchAlarmTemplatesCommand")
-  .sc(ListCloudWatchAlarmTemplates)
+  .sc(ListCloudWatchAlarmTemplates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

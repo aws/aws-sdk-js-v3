@@ -9,7 +9,7 @@ import type {
   DescribeAggregateComplianceByConformancePacksRequest,
   DescribeAggregateComplianceByConformancePacksResponse,
 } from "../models/models_0";
-import { DescribeAggregateComplianceByConformancePacks } from "../schemas/schemas_0";
+import { DescribeAggregateComplianceByConformancePacks$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -151,7 +151,7 @@ export class DescribeAggregateComplianceByConformancePacksCommand extends $Comma
   })
   .s("StarlingDoveService", "DescribeAggregateComplianceByConformancePacks", {})
   .n("ConfigServiceClient", "DescribeAggregateComplianceByConformancePacksCommand")
-  .sc(DescribeAggregateComplianceByConformancePacks)
+  .sc(DescribeAggregateComplianceByConformancePacks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

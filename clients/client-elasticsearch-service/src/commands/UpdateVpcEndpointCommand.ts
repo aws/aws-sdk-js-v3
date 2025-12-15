@@ -10,7 +10,7 @@ import type {
 } from "../ElasticsearchServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateVpcEndpointRequest, UpdateVpcEndpointResponse } from "../models/models_0";
-import { UpdateVpcEndpoint } from "../schemas/schemas_0";
+import { UpdateVpcEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class UpdateVpcEndpointCommand extends $Command
   })
   .s("AmazonElasticsearchService2015", "UpdateVpcEndpoint", {})
   .n("ElasticsearchServiceClient", "UpdateVpcEndpointCommand")
-  .sc(UpdateVpcEndpoint)
+  .sc(UpdateVpcEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

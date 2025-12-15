@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KendraRankingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraRankingClient";
 import type { ListRescoreExecutionPlansRequest, ListRescoreExecutionPlansResponse } from "../models/models_0";
-import { ListRescoreExecutionPlans } from "../schemas/schemas_0";
+import { ListRescoreExecutionPlans$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class ListRescoreExecutionPlansCommand extends $Command
   })
   .s("AWSKendraRerankingFrontendService", "ListRescoreExecutionPlans", {})
   .n("KendraRankingClient", "ListRescoreExecutionPlansCommand")
-  .sc(ListRescoreExecutionPlans)
+  .sc(ListRescoreExecutionPlans$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

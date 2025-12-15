@@ -10,7 +10,7 @@ import type {
 } from "../ARCRegionSwitchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdatePlanRequest, UpdatePlanResponse } from "../models/models_0";
-import { UpdatePlan } from "../schemas/schemas_0";
+import { UpdatePlan$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -700,7 +700,7 @@ export class UpdatePlanCommand extends $Command
   })
   .s("ArcRegionSwitch", "UpdatePlan", {})
   .n("ARCRegionSwitchClient", "UpdatePlanCommand")
-  .sc(UpdatePlan)
+  .sc(UpdatePlan$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

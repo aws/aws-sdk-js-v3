@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import type { DeprovisionByoipCidrRequest, DeprovisionByoipCidrResponse } from "../models/models_0";
-import { DeprovisionByoipCidr } from "../schemas/schemas_0";
+import { DeprovisionByoipCidr$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class DeprovisionByoipCidrCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "DeprovisionByoipCidr", {})
   .n("GlobalAcceleratorClient", "DeprovisionByoipCidrCommand")
-  .sc(DeprovisionByoipCidr)
+  .sc(DeprovisionByoipCidr$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

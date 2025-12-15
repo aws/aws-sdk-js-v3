@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetChangeTokenRequest, GetChangeTokenResponse } from "../models/models_0";
-import { GetChangeToken } from "../schemas/schemas_0";
+import { GetChangeToken$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -101,7 +101,7 @@ export class GetChangeTokenCommand extends $Command
   })
   .s("AWSWAF_Regional_20161128", "GetChangeToken", {})
   .n("WAFRegionalClient", "GetChangeTokenCommand")
-  .sc(GetChangeToken)
+  .sc(GetChangeToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

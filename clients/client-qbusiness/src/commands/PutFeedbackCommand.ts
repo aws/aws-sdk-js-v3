@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutFeedbackRequest } from "../models/models_0";
 import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
-import { PutFeedback } from "../schemas/schemas_0";
+import { PutFeedback$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class PutFeedbackCommand extends $Command
   })
   .s("ExpertQ", "PutFeedback", {})
   .n("QBusinessClient", "PutFeedbackCommand")
-  .sc(PutFeedback)
+  .sc(PutFeedback$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

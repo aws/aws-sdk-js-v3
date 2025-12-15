@@ -13,7 +13,7 @@ import type {
   ListCustomRoutingEndpointGroupsRequest,
   ListCustomRoutingEndpointGroupsResponse,
 } from "../models/models_0";
-import { ListCustomRoutingEndpointGroups } from "../schemas/schemas_0";
+import { ListCustomRoutingEndpointGroups$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class ListCustomRoutingEndpointGroupsCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "ListCustomRoutingEndpointGroups", {})
   .n("GlobalAcceleratorClient", "ListCustomRoutingEndpointGroupsCommand")
-  .sc(ListCustomRoutingEndpointGroups)
+  .sc(ListCustomRoutingEndpointGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

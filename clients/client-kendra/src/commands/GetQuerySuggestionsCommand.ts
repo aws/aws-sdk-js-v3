@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import type { GetQuerySuggestionsRequest, GetQuerySuggestionsResponse } from "../models/models_0";
-import { GetQuerySuggestions } from "../schemas/schemas_0";
+import { GetQuerySuggestions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -250,7 +250,7 @@ export class GetQuerySuggestionsCommand extends $Command
   })
   .s("AWSKendraFrontendService", "GetQuerySuggestions", {})
   .n("KendraClient", "GetQuerySuggestionsCommand")
-  .sc(GetQuerySuggestions)
+  .sc(GetQuerySuggestions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListTagsForResourceMessage, ListTagsForResourceResponse } from "../models/models_0";
-import { ListTagsForResource } from "../schemas/schemas_0";
+import { ListTagsForResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class ListTagsForResourceCommand extends $Command
   })
   .s("AmazonDMSv20160101", "ListTagsForResource", {})
   .n("DatabaseMigrationServiceClient", "ListTagsForResourceCommand")
-  .sc(ListTagsForResource)
+  .sc(ListTagsForResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

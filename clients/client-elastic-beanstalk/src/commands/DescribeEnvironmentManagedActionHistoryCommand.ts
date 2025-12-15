@@ -13,7 +13,7 @@ import type {
   DescribeEnvironmentManagedActionHistoryRequest,
   DescribeEnvironmentManagedActionHistoryResult,
 } from "../models/models_0";
-import { DescribeEnvironmentManagedActionHistory } from "../schemas/schemas_0";
+import { DescribeEnvironmentManagedActionHistory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class DescribeEnvironmentManagedActionHistoryCommand extends $Command
   })
   .s("AWSElasticBeanstalkService", "DescribeEnvironmentManagedActionHistory", {})
   .n("ElasticBeanstalkClient", "DescribeEnvironmentManagedActionHistoryCommand")
-  .sc(DescribeEnvironmentManagedActionHistory)
+  .sc(DescribeEnvironmentManagedActionHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

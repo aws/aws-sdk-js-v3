@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListVocabularyFiltersRequest, ListVocabularyFiltersResponse } from "../models/models_0";
-import { ListVocabularyFilters } from "../schemas/schemas_0";
+import { ListVocabularyFilters$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
@@ -98,7 +98,7 @@ export class ListVocabularyFiltersCommand extends $Command
   })
   .s("Transcribe", "ListVocabularyFilters", {})
   .n("TranscribeClient", "ListVocabularyFiltersCommand")
-  .sc(ListVocabularyFilters)
+  .sc(ListVocabularyFilters$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

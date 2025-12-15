@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeFileSystemAssociationsInput, DescribeFileSystemAssociationsOutput } from "../models/models_0";
-import { DescribeFileSystemAssociations } from "../schemas/schemas_0";
+import { DescribeFileSystemAssociations$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -117,7 +117,7 @@ export class DescribeFileSystemAssociationsCommand extends $Command
   })
   .s("StorageGateway_20130630", "DescribeFileSystemAssociations", {})
   .n("StorageGatewayClient", "DescribeFileSystemAssociationsCommand")
-  .sc(DescribeFileSystemAssociations)
+  .sc(DescribeFileSystemAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

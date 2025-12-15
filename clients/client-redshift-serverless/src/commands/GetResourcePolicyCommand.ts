@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { GetResourcePolicy } from "../schemas/schemas_0";
+import { GetResourcePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class GetResourcePolicyCommand extends $Command
   })
   .s("RedshiftServerless", "GetResourcePolicy", {})
   .n("RedshiftServerlessClient", "GetResourcePolicyCommand")
-  .sc(GetResourcePolicy)
+  .sc(GetResourcePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

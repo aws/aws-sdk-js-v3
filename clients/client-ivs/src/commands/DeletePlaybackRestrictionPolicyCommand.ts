@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
 import type { DeletePlaybackRestrictionPolicyRequest } from "../models/models_0";
-import { DeletePlaybackRestrictionPolicy } from "../schemas/schemas_0";
+import { DeletePlaybackRestrictionPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class DeletePlaybackRestrictionPolicyCommand extends $Command
   })
   .s("AmazonInteractiveVideoService", "DeletePlaybackRestrictionPolicy", {})
   .n("IvsClient", "DeletePlaybackRestrictionPolicyCommand")
-  .sc(DeletePlaybackRestrictionPolicy)
+  .sc(DeletePlaybackRestrictionPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

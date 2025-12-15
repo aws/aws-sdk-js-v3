@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryControlConfigClient";
-import { DeleteRoutingControl } from "../schemas/schemas_0";
+import { DeleteRoutingControl$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeleteRoutingControlCommand extends $Command
   })
   .s("Route53RecoveryControlConfig", "DeleteRoutingControl", {})
   .n("Route53RecoveryControlConfigClient", "DeleteRoutingControlCommand")
-  .sc(DeleteRoutingControl)
+  .sc(DeleteRoutingControl$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

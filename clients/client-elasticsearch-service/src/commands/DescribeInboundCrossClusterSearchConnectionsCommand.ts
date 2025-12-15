@@ -13,7 +13,7 @@ import type {
   DescribeInboundCrossClusterSearchConnectionsRequest,
   DescribeInboundCrossClusterSearchConnectionsResponse,
 } from "../models/models_0";
-import { DescribeInboundCrossClusterSearchConnections } from "../schemas/schemas_0";
+import { DescribeInboundCrossClusterSearchConnections$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class DescribeInboundCrossClusterSearchConnectionsCommand extends $Comman
   })
   .s("AmazonElasticsearchService2015", "DescribeInboundCrossClusterSearchConnections", {})
   .n("ElasticsearchServiceClient", "DescribeInboundCrossClusterSearchConnectionsCommand")
-  .sc(DescribeInboundCrossClusterSearchConnections)
+  .sc(DescribeInboundCrossClusterSearchConnections$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

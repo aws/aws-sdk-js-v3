@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import type { DisassociateFromMasterAccountRequest, DisassociateFromMasterAccountResponse } from "../models/models_0";
-import { DisassociateFromMasterAccount } from "../schemas/schemas_0";
+import { DisassociateFromMasterAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class DisassociateFromMasterAccountCommand extends $Command
   })
   .s("Macie2", "DisassociateFromMasterAccount", {})
   .n("Macie2Client", "DisassociateFromMasterAccountCommand")
-  .sc(DisassociateFromMasterAccount)
+  .sc(DisassociateFromMasterAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

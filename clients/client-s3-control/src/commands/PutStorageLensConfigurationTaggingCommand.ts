@@ -10,7 +10,7 @@ import type {
   PutStorageLensConfigurationTaggingResult,
 } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { PutStorageLensConfigurationTagging } from "../schemas/schemas_0";
+import { PutStorageLensConfigurationTagging$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class PutStorageLensConfigurationTaggingCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "PutStorageLensConfigurationTagging", {})
   .n("S3ControlClient", "PutStorageLensConfigurationTaggingCommand")
-  .sc(PutStorageLensConfigurationTagging)
+  .sc(PutStorageLensConfigurationTagging$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

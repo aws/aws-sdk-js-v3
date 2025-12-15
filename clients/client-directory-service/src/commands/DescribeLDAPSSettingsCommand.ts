@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeLDAPSSettingsRequest, DescribeLDAPSSettingsResult } from "../models/models_0";
-import { DescribeLDAPSSettings } from "../schemas/schemas_0";
+import { DescribeLDAPSSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class DescribeLDAPSSettingsCommand extends $Command
   })
   .s("DirectoryService_20150416", "DescribeLDAPSSettings", {})
   .n("DirectoryServiceClient", "DescribeLDAPSSettingsCommand")
-  .sc(DescribeLDAPSSettings)
+  .sc(DescribeLDAPSSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

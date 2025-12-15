@@ -10,7 +10,7 @@ import type {
 } from "../AccessAnalyzerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAnalyzersRequest, ListAnalyzersResponse } from "../models/models_0";
-import { ListAnalyzers } from "../schemas/schemas_0";
+import { ListAnalyzers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -144,7 +144,7 @@ export class ListAnalyzersCommand extends $Command
   })
   .s("AccessAnalyzer", "ListAnalyzers", {})
   .n("AccessAnalyzerClient", "ListAnalyzersCommand")
-  .sc(ListAnalyzers)
+  .sc(ListAnalyzers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

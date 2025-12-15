@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import type { ListPredictorsRequest, ListPredictorsResponse } from "../models/models_0";
-import { ListPredictors } from "../schemas/schemas_0";
+import { ListPredictors$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class ListPredictorsCommand extends $Command
   })
   .s("AmazonForecast", "ListPredictors", {})
   .n("ForecastClient", "ListPredictorsCommand")
-  .sc(ListPredictors)
+  .sc(ListPredictors$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

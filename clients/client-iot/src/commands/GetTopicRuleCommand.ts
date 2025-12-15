@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import type { GetTopicRuleRequest, GetTopicRuleResponse } from "../models/models_1";
-import { GetTopicRule } from "../schemas/schemas_0";
+import { GetTopicRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -508,7 +508,7 @@ export class GetTopicRuleCommand extends $Command
   })
   .s("AWSIotService", "GetTopicRule", {})
   .n("IoTClient", "GetTopicRuleCommand")
-  .sc(GetTopicRule)
+  .sc(GetTopicRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

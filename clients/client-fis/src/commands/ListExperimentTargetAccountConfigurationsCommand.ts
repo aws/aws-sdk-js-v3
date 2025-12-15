@@ -9,7 +9,7 @@ import type {
   ListExperimentTargetAccountConfigurationsRequest,
   ListExperimentTargetAccountConfigurationsResponse,
 } from "../models/models_0";
-import { ListExperimentTargetAccountConfigurations } from "../schemas/schemas_0";
+import { ListExperimentTargetAccountConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class ListExperimentTargetAccountConfigurationsCommand extends $Command
   })
   .s("FaultInjectionSimulator", "ListExperimentTargetAccountConfigurations", {})
   .n("FisClient", "ListExperimentTargetAccountConfigurationsCommand")
-  .sc(ListExperimentTargetAccountConfigurations)
+  .sc(ListExperimentTargetAccountConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetCustomRulePolicyRequest, GetCustomRulePolicyResponse } from "../models/models_0";
-import { GetCustomRulePolicy } from "../schemas/schemas_0";
+import { GetCustomRulePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -76,7 +76,7 @@ export class GetCustomRulePolicyCommand extends $Command
   })
   .s("StarlingDoveService", "GetCustomRulePolicy", {})
   .n("ConfigServiceClient", "GetCustomRulePolicyCommand")
-  .sc(GetCustomRulePolicy)
+  .sc(GetCustomRulePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

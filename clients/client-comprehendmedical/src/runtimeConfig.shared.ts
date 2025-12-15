@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: ComprehendMedicalClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.comprehendmedical",
-        serviceTarget: "ComprehendMedical_20181030",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.comprehendmedical",
+      version: "2018-10-30",
+      serviceTarget: "ComprehendMedical_20181030",
+    },
     serviceId: config?.serviceId ?? "ComprehendMedical",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteUserHierarchyGroupRequest } from "../models/models_1";
-import { DeleteUserHierarchyGroup } from "../schemas/schemas_0";
+import { DeleteUserHierarchyGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeleteUserHierarchyGroupCommand extends $Command
   })
   .s("AmazonConnectService", "DeleteUserHierarchyGroup", {})
   .n("ConnectClient", "DeleteUserHierarchyGroupCommand")
-  .sc(DeleteUserHierarchyGroup)
+  .sc(DeleteUserHierarchyGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   PutSipMediaApplicationLoggingConfigurationRequest,
   PutSipMediaApplicationLoggingConfigurationResponse,
 } from "../models/models_0";
-import { PutSipMediaApplicationLoggingConfiguration } from "../schemas/schemas_0";
+import { PutSipMediaApplicationLoggingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class PutSipMediaApplicationLoggingConfigurationCommand extends $Command
   })
   .s("ChimeSDKTelephonyService", "PutSipMediaApplicationLoggingConfiguration", {})
   .n("ChimeSDKVoiceClient", "PutSipMediaApplicationLoggingConfigurationCommand")
-  .sc(PutSipMediaApplicationLoggingConfiguration)
+  .sc(PutSipMediaApplicationLoggingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

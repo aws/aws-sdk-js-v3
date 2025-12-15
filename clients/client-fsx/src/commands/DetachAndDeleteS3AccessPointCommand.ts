@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import type { DetachAndDeleteS3AccessPointRequest, DetachAndDeleteS3AccessPointResponse } from "../models/models_0";
-import { DetachAndDeleteS3AccessPoint } from "../schemas/schemas_0";
+import { DetachAndDeleteS3AccessPoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class DetachAndDeleteS3AccessPointCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "DetachAndDeleteS3AccessPoint", {})
   .n("FSxClient", "DetachAndDeleteS3AccessPointCommand")
-  .sc(DetachAndDeleteS3AccessPoint)
+  .sc(DetachAndDeleteS3AccessPoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

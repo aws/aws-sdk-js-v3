@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { GetScheduledAction } from "../schemas/schemas_0";
+import { GetScheduledAction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class GetScheduledActionCommand extends $Command
   })
   .s("RedshiftServerless", "GetScheduledAction", {})
   .n("RedshiftServerlessClient", "GetScheduledActionCommand")
-  .sc(GetScheduledAction)
+  .sc(GetScheduledAction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

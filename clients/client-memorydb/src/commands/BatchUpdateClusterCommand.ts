@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
 import type { BatchUpdateClusterRequest, BatchUpdateClusterResponse } from "../models/models_0";
-import { BatchUpdateCluster } from "../schemas/schemas_0";
+import { BatchUpdateCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -166,7 +166,7 @@ export class BatchUpdateClusterCommand extends $Command
   })
   .s("AmazonMemoryDB", "BatchUpdateCluster", {})
   .n("MemoryDBClient", "BatchUpdateClusterCommand")
-  .sc(BatchUpdateCluster)
+  .sc(BatchUpdateCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyServerlessCacheRequest, ModifyServerlessCacheResponse } from "../models/models_0";
-import { ModifyServerlessCache } from "../schemas/schemas_0";
+import { ModifyServerlessCache$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -156,7 +156,7 @@ export class ModifyServerlessCacheCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "ModifyServerlessCache", {})
   .n("ElastiCacheClient", "ModifyServerlessCacheCommand")
-  .sc(ModifyServerlessCache)
+  .sc(ModifyServerlessCache$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

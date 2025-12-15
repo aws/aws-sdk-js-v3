@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetImpersonationRoleEffectRequest, GetImpersonationRoleEffectResponse } from "../models/models_0";
-import { GetImpersonationRoleEffect } from "../schemas/schemas_0";
+import { GetImpersonationRoleEffect$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -104,7 +104,7 @@ export class GetImpersonationRoleEffectCommand extends $Command
   })
   .s("WorkMailService", "GetImpersonationRoleEffect", {})
   .n("WorkMailClient", "GetImpersonationRoleEffectCommand")
-  .sc(GetImpersonationRoleEffect)
+  .sc(GetImpersonationRoleEffect$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

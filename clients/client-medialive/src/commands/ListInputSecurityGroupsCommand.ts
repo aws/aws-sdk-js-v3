@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { ListInputSecurityGroupsRequest, ListInputSecurityGroupsResponse } from "../models/models_1";
-import { ListInputSecurityGroups } from "../schemas/schemas_0";
+import { ListInputSecurityGroups$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class ListInputSecurityGroupsCommand extends $Command
   })
   .s("MediaLive", "ListInputSecurityGroups", {})
   .n("MediaLiveClient", "ListInputSecurityGroupsCommand")
-  .sc(ListInputSecurityGroups)
+  .sc(ListInputSecurityGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

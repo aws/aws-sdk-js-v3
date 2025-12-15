@@ -9,7 +9,7 @@ import type {
   DeleteTransitGatewayPrefixListReferenceRequest,
   DeleteTransitGatewayPrefixListReferenceResult,
 } from "../models/models_3";
-import { DeleteTransitGatewayPrefixListReference } from "../schemas/schemas_0";
+import { DeleteTransitGatewayPrefixListReference$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class DeleteTransitGatewayPrefixListReferenceCommand extends $Command
   })
   .s("AmazonEC2", "DeleteTransitGatewayPrefixListReference", {})
   .n("EC2Client", "DeleteTransitGatewayPrefixListReferenceCommand")
-  .sc(DeleteTransitGatewayPrefixListReference)
+  .sc(DeleteTransitGatewayPrefixListReference$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

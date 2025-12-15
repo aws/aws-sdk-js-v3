@@ -9,7 +9,7 @@ import type {
   DeleteMicrosoftTeamsUserIdentityRequest,
   DeleteMicrosoftTeamsUserIdentityResult,
 } from "../models/models_0";
-import { DeleteMicrosoftTeamsUserIdentity } from "../schemas/schemas_0";
+import { DeleteMicrosoftTeamsUserIdentity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class DeleteMicrosoftTeamsUserIdentityCommand extends $Command
   })
   .s("WheatleyOrchestration_20171011", "DeleteMicrosoftTeamsUserIdentity", {})
   .n("ChatbotClient", "DeleteMicrosoftTeamsUserIdentityCommand")
-  .sc(DeleteMicrosoftTeamsUserIdentity)
+  .sc(DeleteMicrosoftTeamsUserIdentity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

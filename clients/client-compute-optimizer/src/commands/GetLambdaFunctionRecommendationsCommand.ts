@@ -13,7 +13,7 @@ import type {
   GetLambdaFunctionRecommendationsRequest,
   GetLambdaFunctionRecommendationsResponse,
 } from "../models/models_0";
-import { GetLambdaFunctionRecommendations } from "../schemas/schemas_0";
+import { GetLambdaFunctionRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -187,7 +187,7 @@ export class GetLambdaFunctionRecommendationsCommand extends $Command
   })
   .s("ComputeOptimizerService", "GetLambdaFunctionRecommendations", {})
   .n("ComputeOptimizerClient", "GetLambdaFunctionRecommendationsCommand")
-  .sc(GetLambdaFunctionRecommendations)
+  .sc(GetLambdaFunctionRecommendations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

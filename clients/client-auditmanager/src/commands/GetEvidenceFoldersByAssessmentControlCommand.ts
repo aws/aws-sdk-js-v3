@@ -9,7 +9,7 @@ import type {
   GetEvidenceFoldersByAssessmentControlRequest,
   GetEvidenceFoldersByAssessmentControlResponse,
 } from "../models/models_0";
-import { GetEvidenceFoldersByAssessmentControl } from "../schemas/schemas_0";
+import { GetEvidenceFoldersByAssessmentControl$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class GetEvidenceFoldersByAssessmentControlCommand extends $Command
   })
   .s("BedrockAssessmentManagerLambda", "GetEvidenceFoldersByAssessmentControl", {})
   .n("AuditManagerClient", "GetEvidenceFoldersByAssessmentControlCommand")
-  .sc(GetEvidenceFoldersByAssessmentControl)
+  .sc(GetEvidenceFoldersByAssessmentControl$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

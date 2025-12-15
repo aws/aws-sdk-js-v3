@@ -9,7 +9,7 @@ import type {
   CreatePushNotificationRegistrationRequest,
   CreatePushNotificationRegistrationResponse,
 } from "../models/models_0";
-import { CreatePushNotificationRegistration } from "../schemas/schemas_0";
+import { CreatePushNotificationRegistration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class CreatePushNotificationRegistrationCommand extends $Command
   })
   .s("AmazonConnectService", "CreatePushNotificationRegistration", {})
   .n("ConnectClient", "CreatePushNotificationRegistrationCommand")
-  .sc(CreatePushNotificationRegistration)
+  .sc(CreatePushNotificationRegistration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

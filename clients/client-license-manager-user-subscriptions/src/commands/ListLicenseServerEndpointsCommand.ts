@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
 import type { ListLicenseServerEndpointsRequest, ListLicenseServerEndpointsResponse } from "../models/models_0";
-import { ListLicenseServerEndpoints } from "../schemas/schemas_0";
+import { ListLicenseServerEndpoints$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -125,7 +125,7 @@ export class ListLicenseServerEndpointsCommand extends $Command
   })
   .s("LicenseManagerUserSubscriptions", "ListLicenseServerEndpoints", {})
   .n("LicenseManagerUserSubscriptionsClient", "ListLicenseServerEndpointsCommand")
-  .sc(ListLicenseServerEndpoints)
+  .sc(ListLicenseServerEndpoints$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

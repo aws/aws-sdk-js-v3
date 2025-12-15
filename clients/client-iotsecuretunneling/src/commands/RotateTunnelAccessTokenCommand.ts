@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTSecureTunnelingClient";
 import type { RotateTunnelAccessTokenRequest, RotateTunnelAccessTokenResponse } from "../models/models_0";
-import { RotateTunnelAccessToken } from "../schemas/schemas_0";
+import { RotateTunnelAccessToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class RotateTunnelAccessTokenCommand extends $Command
   })
   .s("IoTSecuredTunneling", "RotateTunnelAccessToken", {})
   .n("IoTSecureTunnelingClient", "RotateTunnelAccessTokenCommand")
-  .sc(RotateTunnelAccessToken)
+  .sc(RotateTunnelAccessToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteDedicatedIpPoolRequest, DeleteDedicatedIpPoolResponse } from "../models/models_0";
-import { DeleteDedicatedIpPool } from "../schemas/schemas_0";
+import { DeleteDedicatedIpPool$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -83,7 +83,7 @@ export class DeleteDedicatedIpPoolCommand extends $Command
   })
   .s("SimpleEmailService_v2", "DeleteDedicatedIpPool", {})
   .n("SESv2Client", "DeleteDedicatedIpPoolCommand")
-  .sc(DeleteDedicatedIpPool)
+  .sc(DeleteDedicatedIpPool$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

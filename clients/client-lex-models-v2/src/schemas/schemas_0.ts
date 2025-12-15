@@ -1219,33 +1219,33 @@ import type {
 } from "@smithy/types";
 
 import {
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  PreconditionFailedException as __PreconditionFailedException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  ConflictException,
+  InternalServerException,
+  PreconditionFailedException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
-import { LexModelsV2ServiceException as __LexModelsV2ServiceException } from "../models/LexModelsV2ServiceException";
+import { LexModelsV2ServiceException } from "../models/LexModelsV2ServiceException";
 
 /* eslint no-var: 0 */
-export var FilePassword: StaticSimpleSchema = [0, n0, _FP, 8, 0];
-export var ImportExportFilePassword: StaticSimpleSchema = [0, n0, _IEFP, 8, 0];
-export var ActiveContext: StaticStructureSchema = [3, n0, _AC, 0, [_n], [0]];
-export var AdvancedRecognitionSetting: StaticStructureSchema = [3, n0, _ARS, 0, [_aRS], [0]];
-export var AgentTurnResult: StaticStructureSchema = [
+var FilePassword: StaticSimpleSchema = [0, n0, _FP, 8, 0];
+var ImportExportFilePassword: StaticSimpleSchema = [0, n0, _IEFP, 8, 0];
+export var ActiveContext$: StaticStructureSchema = [3, n0, _AC, 0, [_n], [0]];
+export var AdvancedRecognitionSetting$: StaticStructureSchema = [3, n0, _ARS, 0, [_aRS], [0]];
+export var AgentTurnResult$: StaticStructureSchema = [
   3,
   n0,
   _ATR,
   0,
   [_eAP, _aAP, _eD, _aES, _aI],
-  [0, 0, () => ExecutionErrorDetails, 0, 0],
+  [0, 0, () => ExecutionErrorDetails$, 0, 0],
 ];
-export var AgentTurnSpecification: StaticStructureSchema = [3, n0, _ATS, 0, [_aP], [0]];
-export var AggregatedUtterancesFilter: StaticStructureSchema = [3, n0, _AUF, 0, [_n, _v, _o], [0, 64 | 0, 0]];
-export var AggregatedUtterancesSortBy: StaticStructureSchema = [3, n0, _AUSB, 0, [_a, _or], [0, 0]];
-export var AggregatedUtterancesSummary: StaticStructureSchema = [
+export var AgentTurnSpecification$: StaticStructureSchema = [3, n0, _ATS, 0, [_aP], [0]];
+export var AggregatedUtterancesFilter$: StaticStructureSchema = [3, n0, _AUF, 0, [_n, _v, _o], [0, 64 | 0, 0]];
+export var AggregatedUtterancesSortBy$: StaticStructureSchema = [3, n0, _AUSB, 0, [_a, _or], [0, 0]];
+export var AggregatedUtterancesSummary$: StaticStructureSchema = [
   3,
   n0,
   _AUS,
@@ -1253,15 +1253,15 @@ export var AggregatedUtterancesSummary: StaticStructureSchema = [
   [_u, _hC, _mC, _uFRIAD, _uLRIAD, _cDFDR],
   [0, 1, 1, 4, 4, 2],
 ];
-export var AllowedInputTypes: StaticStructureSchema = [3, n0, _AIT, 0, [_aAI, _aDTMFI], [2, 2]];
-export var AnalyticsBinBySpecification: StaticStructureSchema = [3, n0, _ABBS, 0, [_n, _i, _or], [0, 0, 0]];
-export var AnalyticsBinKey: StaticStructureSchema = [3, n0, _ABK, 0, [_n, _va], [0, 1]];
-export var AnalyticsIntentFilter: StaticStructureSchema = [3, n0, _AIF, 0, [_n, _o, _v], [0, 0, 64 | 0]];
-export var AnalyticsIntentGroupByKey: StaticStructureSchema = [3, n0, _AIGBK, 0, [_n, _va], [0, 0]];
-export var AnalyticsIntentGroupBySpecification: StaticStructureSchema = [3, n0, _AIGBS, 0, [_n], [0]];
-export var AnalyticsIntentMetric: StaticStructureSchema = [3, n0, _AIM, 0, [_n, _s, _or], [0, 0, 0]];
-export var AnalyticsIntentMetricResult: StaticStructureSchema = [3, n0, _AIMR, 0, [_n, _s, _va], [0, 0, 1]];
-export var AnalyticsIntentNodeSummary: StaticStructureSchema = [
+export var AllowedInputTypes$: StaticStructureSchema = [3, n0, _AIT, 0, [_aAI, _aDTMFI], [2, 2]];
+export var AnalyticsBinBySpecification$: StaticStructureSchema = [3, n0, _ABBS, 0, [_n, _i, _or], [0, 0, 0]];
+export var AnalyticsBinKey$: StaticStructureSchema = [3, n0, _ABK, 0, [_n, _va], [0, 1]];
+export var AnalyticsIntentFilter$: StaticStructureSchema = [3, n0, _AIF, 0, [_n, _o, _v], [0, 0, 64 | 0]];
+export var AnalyticsIntentGroupByKey$: StaticStructureSchema = [3, n0, _AIGBK, 0, [_n, _va], [0, 0]];
+export var AnalyticsIntentGroupBySpecification$: StaticStructureSchema = [3, n0, _AIGBS, 0, [_n], [0]];
+export var AnalyticsIntentMetric$: StaticStructureSchema = [3, n0, _AIM, 0, [_n, _s, _or], [0, 0, 0]];
+export var AnalyticsIntentMetricResult$: StaticStructureSchema = [3, n0, _AIMR, 0, [_n, _s, _va], [0, 0, 1]];
+export var AnalyticsIntentNodeSummary$: StaticStructureSchema = [
   3,
   n0,
   _AINS,
@@ -1269,7 +1269,7 @@ export var AnalyticsIntentNodeSummary: StaticStructureSchema = [
   [_iN, _iP, _iC, _iL, _nT],
   [0, 0, 1, 1, 0],
 ];
-export var AnalyticsIntentResult: StaticStructureSchema = [
+export var AnalyticsIntentResult$: StaticStructureSchema = [
   3,
   n0,
   _AIR,
@@ -1277,12 +1277,12 @@ export var AnalyticsIntentResult: StaticStructureSchema = [
   [_bK, _gBK, _mR],
   [() => AnalyticsBinKeys, () => AnalyticsIntentGroupByKeys, () => AnalyticsIntentMetricResults],
 ];
-export var AnalyticsIntentStageFilter: StaticStructureSchema = [3, n0, _AISF, 0, [_n, _o, _v], [0, 0, 64 | 0]];
-export var AnalyticsIntentStageGroupByKey: StaticStructureSchema = [3, n0, _AISGBK, 0, [_n, _va], [0, 0]];
-export var AnalyticsIntentStageGroupBySpecification: StaticStructureSchema = [3, n0, _AISGBS, 0, [_n], [0]];
-export var AnalyticsIntentStageMetric: StaticStructureSchema = [3, n0, _AISM, 0, [_n, _s, _or], [0, 0, 0]];
-export var AnalyticsIntentStageMetricResult: StaticStructureSchema = [3, n0, _AISMR, 0, [_n, _s, _va], [0, 0, 1]];
-export var AnalyticsIntentStageResult: StaticStructureSchema = [
+export var AnalyticsIntentStageFilter$: StaticStructureSchema = [3, n0, _AISF, 0, [_n, _o, _v], [0, 0, 64 | 0]];
+export var AnalyticsIntentStageGroupByKey$: StaticStructureSchema = [3, n0, _AISGBK, 0, [_n, _va], [0, 0]];
+export var AnalyticsIntentStageGroupBySpecification$: StaticStructureSchema = [3, n0, _AISGBS, 0, [_n], [0]];
+export var AnalyticsIntentStageMetric$: StaticStructureSchema = [3, n0, _AISM, 0, [_n, _s, _or], [0, 0, 0]];
+export var AnalyticsIntentStageMetricResult$: StaticStructureSchema = [3, n0, _AISMR, 0, [_n, _s, _va], [0, 0, 1]];
+export var AnalyticsIntentStageResult$: StaticStructureSchema = [
   3,
   n0,
   _AISR,
@@ -1290,13 +1290,13 @@ export var AnalyticsIntentStageResult: StaticStructureSchema = [
   [_bK, _gBK, _mR],
   [() => AnalyticsBinKeys, () => AnalyticsIntentStageGroupByKeys, () => AnalyticsIntentStageMetricResults],
 ];
-export var AnalyticsPathFilter: StaticStructureSchema = [3, n0, _APF, 0, [_n, _o, _v], [0, 0, 64 | 0]];
-export var AnalyticsSessionFilter: StaticStructureSchema = [3, n0, _ASF, 0, [_n, _o, _v], [0, 0, 64 | 0]];
-export var AnalyticsSessionGroupByKey: StaticStructureSchema = [3, n0, _ASGBK, 0, [_n, _va], [0, 0]];
-export var AnalyticsSessionGroupBySpecification: StaticStructureSchema = [3, n0, _ASGBS, 0, [_n], [0]];
-export var AnalyticsSessionMetric: StaticStructureSchema = [3, n0, _ASM, 0, [_n, _s, _or], [0, 0, 0]];
-export var AnalyticsSessionMetricResult: StaticStructureSchema = [3, n0, _ASMR, 0, [_n, _s, _va], [0, 0, 1]];
-export var AnalyticsSessionResult: StaticStructureSchema = [
+export var AnalyticsPathFilter$: StaticStructureSchema = [3, n0, _APF, 0, [_n, _o, _v], [0, 0, 64 | 0]];
+export var AnalyticsSessionFilter$: StaticStructureSchema = [3, n0, _ASF, 0, [_n, _o, _v], [0, 0, 64 | 0]];
+export var AnalyticsSessionGroupByKey$: StaticStructureSchema = [3, n0, _ASGBK, 0, [_n, _va], [0, 0]];
+export var AnalyticsSessionGroupBySpecification$: StaticStructureSchema = [3, n0, _ASGBS, 0, [_n], [0]];
+export var AnalyticsSessionMetric$: StaticStructureSchema = [3, n0, _ASM, 0, [_n, _s, _or], [0, 0, 0]];
+export var AnalyticsSessionMetricResult$: StaticStructureSchema = [3, n0, _ASMR, 0, [_n, _s, _va], [0, 0, 1]];
+export var AnalyticsSessionResult$: StaticStructureSchema = [
   3,
   n0,
   _ASR,
@@ -1304,14 +1304,14 @@ export var AnalyticsSessionResult: StaticStructureSchema = [
   [_bK, _gBK, _mR],
   [() => AnalyticsBinKeys, () => AnalyticsSessionGroupByKeys, () => AnalyticsSessionMetricResults],
 ];
-export var AnalyticsUtteranceAttribute: StaticStructureSchema = [3, n0, _AUA, 0, [_n], [0]];
-export var AnalyticsUtteranceAttributeResult: StaticStructureSchema = [3, n0, _AUAR, 0, [_lUI], [0]];
-export var AnalyticsUtteranceFilter: StaticStructureSchema = [3, n0, _AUFn, 0, [_n, _o, _v], [0, 0, 64 | 0]];
-export var AnalyticsUtteranceGroupByKey: StaticStructureSchema = [3, n0, _AUGBK, 0, [_n, _va], [0, 0]];
-export var AnalyticsUtteranceGroupBySpecification: StaticStructureSchema = [3, n0, _AUGBS, 0, [_n], [0]];
-export var AnalyticsUtteranceMetric: StaticStructureSchema = [3, n0, _AUM, 0, [_n, _s, _or], [0, 0, 0]];
-export var AnalyticsUtteranceMetricResult: StaticStructureSchema = [3, n0, _AUMR, 0, [_n, _s, _va], [0, 0, 1]];
-export var AnalyticsUtteranceResult: StaticStructureSchema = [
+export var AnalyticsUtteranceAttribute$: StaticStructureSchema = [3, n0, _AUA, 0, [_n], [0]];
+export var AnalyticsUtteranceAttributeResult$: StaticStructureSchema = [3, n0, _AUAR, 0, [_lUI], [0]];
+export var AnalyticsUtteranceFilter$: StaticStructureSchema = [3, n0, _AUFn, 0, [_n, _o, _v], [0, 0, 64 | 0]];
+export var AnalyticsUtteranceGroupByKey$: StaticStructureSchema = [3, n0, _AUGBK, 0, [_n, _va], [0, 0]];
+export var AnalyticsUtteranceGroupBySpecification$: StaticStructureSchema = [3, n0, _AUGBS, 0, [_n], [0]];
+export var AnalyticsUtteranceMetric$: StaticStructureSchema = [3, n0, _AUM, 0, [_n, _s, _or], [0, 0, 0]];
+export var AnalyticsUtteranceMetricResult$: StaticStructureSchema = [3, n0, _AUMR, 0, [_n, _s, _va], [0, 0, 1]];
+export var AnalyticsUtteranceResult$: StaticStructureSchema = [
   3,
   n0,
   _AUR,
@@ -1324,20 +1324,27 @@ export var AnalyticsUtteranceResult: StaticStructureSchema = [
     () => AnalyticsUtteranceAttributeResults,
   ],
 ];
-export var AssociatedTranscript: StaticStructureSchema = [3, n0, _AT, 0, [_t], [0]];
-export var AssociatedTranscriptFilter: StaticStructureSchema = [3, n0, _ATF, 0, [_n, _v], [0, 64 | 0]];
-export var AudioAndDTMFInputSpecification: StaticStructureSchema = [
+export var AssociatedTranscript$: StaticStructureSchema = [3, n0, _AT, 0, [_t], [0]];
+export var AssociatedTranscriptFilter$: StaticStructureSchema = [3, n0, _ATF, 0, [_n, _v], [0, 64 | 0]];
+export var AudioAndDTMFInputSpecification$: StaticStructureSchema = [
   3,
   n0,
   _AADTMFIS,
   0,
   [_sTM, _aS, _dS],
-  [1, () => AudioSpecification, () => DTMFSpecification],
+  [1, () => AudioSpecification$, () => DTMFSpecification$],
 ];
-export var AudioLogDestination: StaticStructureSchema = [3, n0, _ALD, 0, [_sB], [() => S3BucketLogDestination]];
-export var AudioLogSetting: StaticStructureSchema = [3, n0, _ALS, 0, [_e, _d, _sLE], [2, () => AudioLogDestination, 2]];
-export var AudioSpecification: StaticStructureSchema = [3, n0, _AS, 0, [_mLM, _eTM], [1, 1]];
-export var BatchCreateCustomVocabularyItemRequest: StaticStructureSchema = [
+export var AudioLogDestination$: StaticStructureSchema = [3, n0, _ALD, 0, [_sB], [() => S3BucketLogDestination$]];
+export var AudioLogSetting$: StaticStructureSchema = [
+  3,
+  n0,
+  _ALS,
+  0,
+  [_e, _d, _sLE],
+  [2, () => AudioLogDestination$, 2],
+];
+export var AudioSpecification$: StaticStructureSchema = [3, n0, _AS, 0, [_mLM, _eTM], [1, 1]];
+export var BatchCreateCustomVocabularyItemRequest$: StaticStructureSchema = [
   3,
   n0,
   _BCCVIR,
@@ -1345,7 +1352,7 @@ export var BatchCreateCustomVocabularyItemRequest: StaticStructureSchema = [
   [_bI, _bV, _lI, _cVIL],
   [[0, 1], [0, 1], [0, 1], () => CreateCustomVocabularyItemsList],
 ];
-export var BatchCreateCustomVocabularyItemResponse: StaticStructureSchema = [
+export var BatchCreateCustomVocabularyItemResponse$: StaticStructureSchema = [
   3,
   n0,
   _BCCVIRa,
@@ -1353,7 +1360,7 @@ export var BatchCreateCustomVocabularyItemResponse: StaticStructureSchema = [
   [_bI, _bV, _lI, _er, _r],
   [0, 0, 0, () => FailedCustomVocabularyItems, () => CustomVocabularyItems],
 ];
-export var BatchDeleteCustomVocabularyItemRequest: StaticStructureSchema = [
+export var BatchDeleteCustomVocabularyItemRequest$: StaticStructureSchema = [
   3,
   n0,
   _BDCVIR,
@@ -1361,7 +1368,7 @@ export var BatchDeleteCustomVocabularyItemRequest: StaticStructureSchema = [
   [_bI, _bV, _lI, _cVIL],
   [[0, 1], [0, 1], [0, 1], () => DeleteCustomVocabularyItemsList],
 ];
-export var BatchDeleteCustomVocabularyItemResponse: StaticStructureSchema = [
+export var BatchDeleteCustomVocabularyItemResponse$: StaticStructureSchema = [
   3,
   n0,
   _BDCVIRa,
@@ -1369,7 +1376,7 @@ export var BatchDeleteCustomVocabularyItemResponse: StaticStructureSchema = [
   [_bI, _bV, _lI, _er, _r],
   [0, 0, 0, () => FailedCustomVocabularyItems, () => CustomVocabularyItems],
 ];
-export var BatchUpdateCustomVocabularyItemRequest: StaticStructureSchema = [
+export var BatchUpdateCustomVocabularyItemRequest$: StaticStructureSchema = [
   3,
   n0,
   _BUCVIR,
@@ -1377,7 +1384,7 @@ export var BatchUpdateCustomVocabularyItemRequest: StaticStructureSchema = [
   [_bI, _bV, _lI, _cVIL],
   [[0, 1], [0, 1], [0, 1], () => UpdateCustomVocabularyItemsList],
 ];
-export var BatchUpdateCustomVocabularyItemResponse: StaticStructureSchema = [
+export var BatchUpdateCustomVocabularyItemResponse$: StaticStructureSchema = [
   3,
   n0,
   _BUCVIRa,
@@ -1385,34 +1392,34 @@ export var BatchUpdateCustomVocabularyItemResponse: StaticStructureSchema = [
   [_bI, _bV, _lI, _er, _r],
   [0, 0, 0, () => FailedCustomVocabularyItems, () => CustomVocabularyItems],
 ];
-export var BedrockGuardrailConfiguration: StaticStructureSchema = [3, n0, _BGC, 0, [_id, _ve], [0, 0]];
-export var BedrockKnowledgeStoreConfiguration: StaticStructureSchema = [
+export var BedrockGuardrailConfiguration$: StaticStructureSchema = [3, n0, _BGC, 0, [_id, _ve], [0, 0]];
+export var BedrockKnowledgeStoreConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _BKSC,
   0,
   [_bKBA, _eR, _eRF],
-  [0, 2, () => BedrockKnowledgeStoreExactResponseFields],
+  [0, 2, () => BedrockKnowledgeStoreExactResponseFields$],
 ];
-export var BedrockKnowledgeStoreExactResponseFields: StaticStructureSchema = [3, n0, _BKSERF, 0, [_aF], [0]];
-export var BedrockModelSpecification: StaticStructureSchema = [
+export var BedrockKnowledgeStoreExactResponseFields$: StaticStructureSchema = [3, n0, _BKSERF, 0, [_aF], [0]];
+export var BedrockModelSpecification$: StaticStructureSchema = [
   3,
   n0,
   _BMS,
   0,
   [_mA, _g, _tS, _cP],
-  [0, () => BedrockGuardrailConfiguration, 0, 0],
+  [0, () => BedrockGuardrailConfiguration$, 0, 0],
 ];
-export var BotAliasHistoryEvent: StaticStructureSchema = [3, n0, _BAHE, 0, [_bV, _sD, _eDn], [0, 4, 4]];
-export var BotAliasLocaleSettings: StaticStructureSchema = [
+export var BotAliasHistoryEvent$: StaticStructureSchema = [3, n0, _BAHE, 0, [_bV, _sD, _eDn], [0, 4, 4]];
+export var BotAliasLocaleSettings$: StaticStructureSchema = [
   3,
   n0,
   _BALS,
   0,
   [_e, _cHS],
-  [2, () => CodeHookSpecification],
+  [2, () => CodeHookSpecification$],
 ];
-export var BotAliasReplicaSummary: StaticStructureSchema = [
+export var BotAliasReplicaSummary$: StaticStructureSchema = [
   3,
   n0,
   _BARS,
@@ -1420,7 +1427,7 @@ export var BotAliasReplicaSummary: StaticStructureSchema = [
   [_bAI, _bARS, _bV, _cDT, _lUDT, _fR],
   [0, 0, 0, 4, 4, 64 | 0],
 ];
-export var BotAliasSummary: StaticStructureSchema = [
+export var BotAliasSummary$: StaticStructureSchema = [
   3,
   n0,
   _BAS,
@@ -1428,30 +1435,30 @@ export var BotAliasSummary: StaticStructureSchema = [
   [_bAI, _bAN, _de, _bV, _bAS, _cDT, _lUDT],
   [0, 0, 0, 0, 0, 4, 4],
 ];
-export var BotAliasTestExecutionTarget: StaticStructureSchema = [3, n0, _BATET, 0, [_bI, _bAI, _lI], [0, 0, 0]];
-export var BotExportSpecification: StaticStructureSchema = [3, n0, _BES, 0, [_bI, _bV], [0, 0]];
-export var BotFilter: StaticStructureSchema = [3, n0, _BF, 0, [_n, _v, _o], [0, 64 | 0, 0]];
-export var BotImportSpecification: StaticStructureSchema = [
+export var BotAliasTestExecutionTarget$: StaticStructureSchema = [3, n0, _BATET, 0, [_bI, _bAI, _lI], [0, 0, 0]];
+export var BotExportSpecification$: StaticStructureSchema = [3, n0, _BES, 0, [_bI, _bV], [0, 0]];
+export var BotFilter$: StaticStructureSchema = [3, n0, _BF, 0, [_n, _v, _o], [0, 64 | 0, 0]];
+export var BotImportSpecification$: StaticStructureSchema = [
   3,
   n0,
   _BIS,
   0,
   [_bN, _rA, _dP, _eLS, _iSTTLIS, _bT, _tBAT],
-  [0, 0, () => DataPrivacy, () => ErrorLogSettings, 1, 128 | 0, 128 | 0],
+  [0, 0, () => DataPrivacy$, () => ErrorLogSettings$, 1, 128 | 0, 128 | 0],
 ];
-export var BotLocaleExportSpecification: StaticStructureSchema = [3, n0, _BLES, 0, [_bI, _bV, _lI], [0, 0, 0]];
-export var BotLocaleFilter: StaticStructureSchema = [3, n0, _BLF, 0, [_n, _v, _o], [0, 64 | 0, 0]];
-export var BotLocaleHistoryEvent: StaticStructureSchema = [3, n0, _BLHE, 0, [_ev, _eDv], [0, 4]];
-export var BotLocaleImportSpecification: StaticStructureSchema = [
+export var BotLocaleExportSpecification$: StaticStructureSchema = [3, n0, _BLES, 0, [_bI, _bV, _lI], [0, 0, 0]];
+export var BotLocaleFilter$: StaticStructureSchema = [3, n0, _BLF, 0, [_n, _v, _o], [0, 64 | 0, 0]];
+export var BotLocaleHistoryEvent$: StaticStructureSchema = [3, n0, _BLHE, 0, [_ev, _eDv], [0, 4]];
+export var BotLocaleImportSpecification$: StaticStructureSchema = [
   3,
   n0,
   _BLIS,
   0,
   [_bI, _bV, _lI, _nICT, _vS, _sRS, _sDS, _uSS],
-  [0, 0, 0, 1, () => VoiceSettings, () => SpeechRecognitionSettings, 0, () => UnifiedSpeechSettings],
+  [0, 0, 0, 1, () => VoiceSettings$, () => SpeechRecognitionSettings$, 0, () => UnifiedSpeechSettings$],
 ];
-export var BotLocaleSortBy: StaticStructureSchema = [3, n0, _BLSB, 0, [_a, _or], [0, 0]];
-export var BotLocaleSummary: StaticStructureSchema = [
+export var BotLocaleSortBy$: StaticStructureSchema = [3, n0, _BLSB, 0, [_a, _or], [0, 0]];
+export var BotLocaleSummary$: StaticStructureSchema = [
   3,
   n0,
   _BLS,
@@ -1459,27 +1466,27 @@ export var BotLocaleSummary: StaticStructureSchema = [
   [_lI, _lN, _de, _bLS, _lUDT, _lBSDT],
   [0, 0, 0, 0, 4, 4],
 ];
-export var BotMember: StaticStructureSchema = [3, n0, _BM, 0, [_bMI, _bMN, _bMAI, _bMAN, _bMV], [0, 0, 0, 0, 0]];
-export var BotRecommendationResults: StaticStructureSchema = [
+export var BotMember$: StaticStructureSchema = [3, n0, _BM, 0, [_bMI, _bMN, _bMAI, _bMAN, _bMV], [0, 0, 0, 0, 0]];
+export var BotRecommendationResults$: StaticStructureSchema = [
   3,
   n0,
   _BRR,
   0,
   [_bLEU, _aTU, _st],
-  [0, 0, () => BotRecommendationResultStatistics],
+  [0, 0, () => BotRecommendationResultStatistics$],
 ];
-export var BotRecommendationResultStatistics: StaticStructureSchema = [
+export var BotRecommendationResultStatistics$: StaticStructureSchema = [
   3,
   n0,
   _BRRS,
   0,
   [_in, _sT],
-  [() => IntentStatistics, () => SlotTypeStatistics],
+  [() => IntentStatistics$, () => SlotTypeStatistics$],
 ];
-export var BotRecommendationSummary: StaticStructureSchema = [3, n0, _BRS, 0, [_bRS, _bRI, _cDT, _lUDT], [0, 0, 4, 4]];
-export var BotReplicaSummary: StaticStructureSchema = [3, n0, _BRSo, 0, [_rR, _cDT, _bRSo, _fR], [0, 4, 0, 64 | 0]];
-export var BotSortBy: StaticStructureSchema = [3, n0, _BSB, 0, [_a, _or], [0, 0]];
-export var BotSummary: StaticStructureSchema = [
+export var BotRecommendationSummary$: StaticStructureSchema = [3, n0, _BRS, 0, [_bRS, _bRI, _cDT, _lUDT], [0, 0, 4, 4]];
+export var BotReplicaSummary$: StaticStructureSchema = [3, n0, _BRSo, 0, [_rR, _cDT, _bRSo, _fR], [0, 4, 0, 64 | 0]];
+export var BotSortBy$: StaticStructureSchema = [3, n0, _BSB, 0, [_a, _or], [0, 0]];
+export var BotSummary$: StaticStructureSchema = [
   3,
   n0,
   _BS,
@@ -1487,9 +1494,9 @@ export var BotSummary: StaticStructureSchema = [
   [_bI, _bN, _de, _bS, _lBV, _lUDT, _bTo],
   [0, 0, 0, 0, 0, 4, 0],
 ];
-export var BotVersionLocaleDetails: StaticStructureSchema = [3, n0, _BVLD, 0, [_sBV], [0]];
-export var BotVersionReplicaSortBy: StaticStructureSchema = [3, n0, _BVRSB, 0, [_a, _or], [0, 0]];
-export var BotVersionReplicaSummary: StaticStructureSchema = [
+export var BotVersionLocaleDetails$: StaticStructureSchema = [3, n0, _BVLD, 0, [_sBV], [0]];
+export var BotVersionReplicaSortBy$: StaticStructureSchema = [3, n0, _BVRSB, 0, [_a, _or], [0, 0]];
+export var BotVersionReplicaSummary$: StaticStructureSchema = [
   3,
   n0,
   _BVRS,
@@ -1497,9 +1504,9 @@ export var BotVersionReplicaSummary: StaticStructureSchema = [
   [_bV, _bVRS, _cDT, _fR],
   [0, 0, 4, 64 | 0],
 ];
-export var BotVersionSortBy: StaticStructureSchema = [3, n0, _BVSB, 0, [_a, _or], [0, 0]];
-export var BotVersionSummary: StaticStructureSchema = [3, n0, _BVS, 0, [_bN, _bV, _de, _bS, _cDT], [0, 0, 0, 0, 4]];
-export var BuildBotLocaleRequest: StaticStructureSchema = [
+export var BotVersionSortBy$: StaticStructureSchema = [3, n0, _BVSB, 0, [_a, _or], [0, 0]];
+export var BotVersionSummary$: StaticStructureSchema = [3, n0, _BVS, 0, [_bN, _bV, _de, _bS, _cDT], [0, 0, 0, 0, 4]];
+export var BuildBotLocaleRequest$: StaticStructureSchema = [
   3,
   n0,
   _BBLR,
@@ -1511,7 +1518,7 @@ export var BuildBotLocaleRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var BuildBotLocaleResponse: StaticStructureSchema = [
+export var BuildBotLocaleResponse$: StaticStructureSchema = [
   3,
   n0,
   _BBLRu,
@@ -1519,42 +1526,42 @@ export var BuildBotLocaleResponse: StaticStructureSchema = [
   [_bI, _bV, _lI, _bLS, _lBSDT],
   [0, 0, 0, 0, 4],
 ];
-export var BuildtimeSettings: StaticStructureSchema = [
+export var BuildtimeSettings$: StaticStructureSchema = [
   3,
   n0,
   _BSu,
   0,
   [_dBB, _sUG],
-  [() => DescriptiveBotBuilderSpecification, () => SampleUtteranceGenerationSpecification],
+  [() => DescriptiveBotBuilderSpecification$, () => SampleUtteranceGenerationSpecification$],
 ];
-export var BuiltInIntentSortBy: StaticStructureSchema = [3, n0, _BIISB, 0, [_a, _or], [0, 0]];
-export var BuiltInIntentSummary: StaticStructureSchema = [3, n0, _BIIS, 0, [_iS, _de], [0, 0]];
-export var BuiltInSlotTypeSortBy: StaticStructureSchema = [3, n0, _BISTSB, 0, [_a, _or], [0, 0]];
-export var BuiltInSlotTypeSummary: StaticStructureSchema = [3, n0, _BISTS, 0, [_sTS, _de], [0, 0]];
-export var Button: StaticStructureSchema = [3, n0, _B, 0, [_te, _va], [0, 0]];
-export var CloudWatchLogGroupLogDestination: StaticStructureSchema = [3, n0, _CWLGLD, 0, [_cWLGA, _lP], [0, 0]];
-export var CodeHookSpecification: StaticStructureSchema = [3, n0, _CHS, 0, [_lCH], [() => LambdaCodeHook]];
-export var CompositeSlotTypeSetting: StaticStructureSchema = [3, n0, _CSTS, 0, [_sS], [() => SubSlotTypeList]];
-export var Condition: StaticStructureSchema = [3, n0, _C, 0, [_eS], [0]];
-export var ConditionalBranch: StaticStructureSchema = [
+export var BuiltInIntentSortBy$: StaticStructureSchema = [3, n0, _BIISB, 0, [_a, _or], [0, 0]];
+export var BuiltInIntentSummary$: StaticStructureSchema = [3, n0, _BIIS, 0, [_iS, _de], [0, 0]];
+export var BuiltInSlotTypeSortBy$: StaticStructureSchema = [3, n0, _BISTSB, 0, [_a, _or], [0, 0]];
+export var BuiltInSlotTypeSummary$: StaticStructureSchema = [3, n0, _BISTS, 0, [_sTS, _de], [0, 0]];
+export var Button$: StaticStructureSchema = [3, n0, _B, 0, [_te, _va], [0, 0]];
+export var CloudWatchLogGroupLogDestination$: StaticStructureSchema = [3, n0, _CWLGLD, 0, [_cWLGA, _lP], [0, 0]];
+export var CodeHookSpecification$: StaticStructureSchema = [3, n0, _CHS, 0, [_lCH], [() => LambdaCodeHook$]];
+export var CompositeSlotTypeSetting$: StaticStructureSchema = [3, n0, _CSTS, 0, [_sS], [() => SubSlotTypeList]];
+export var Condition$: StaticStructureSchema = [3, n0, _C, 0, [_eS], [0]];
+export var ConditionalBranch$: StaticStructureSchema = [
   3,
   n0,
   _CB,
   0,
   [_n, _c, _nS, _re],
-  [0, () => Condition, () => DialogState, () => ResponseSpecification],
+  [0, () => Condition$, () => DialogState$, () => ResponseSpecification$],
 ];
-export var ConditionalSpecification: StaticStructureSchema = [
+export var ConditionalSpecification$: StaticStructureSchema = [
   3,
   n0,
   _CS,
   0,
   [_ac, _cB, _dB],
-  [2, () => ConditionalBranches, () => DefaultConditionalBranch],
+  [2, () => ConditionalBranches, () => DefaultConditionalBranch$],
 ];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_err]: _cl, [_hE]: 409 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var ConversationLevelIntentClassificationResultItem: StaticStructureSchema = [
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_err]: _cl, [_hE]: 409 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var ConversationLevelIntentClassificationResultItem$: StaticStructureSchema = [
   3,
   n0,
   _CLICRI,
@@ -1562,8 +1569,8 @@ export var ConversationLevelIntentClassificationResultItem: StaticStructureSchem
   [_iN, _mRa],
   [0, 0],
 ];
-export var ConversationLevelResultDetail: StaticStructureSchema = [3, n0, _CLRD, 0, [_eTER, _sTR], [0, 0]];
-export var ConversationLevelSlotResolutionResultItem: StaticStructureSchema = [
+export var ConversationLevelResultDetail$: StaticStructureSchema = [3, n0, _CLRD, 0, [_eTER, _sTR], [0, 0]];
+export var ConversationLevelSlotResolutionResultItem$: StaticStructureSchema = [
   3,
   n0,
   _CLSRRI,
@@ -1571,7 +1578,7 @@ export var ConversationLevelSlotResolutionResultItem: StaticStructureSchema = [
   [_iN, _sN, _mRa],
   [0, 0, 0],
 ];
-export var ConversationLevelTestResultItem: StaticStructureSchema = [
+export var ConversationLevelTestResultItem$: StaticStructureSchema = [
   3,
   n0,
   _CLTRI,
@@ -1579,7 +1586,7 @@ export var ConversationLevelTestResultItem: StaticStructureSchema = [
   [_cI, _eTER, _sTR, _iCR, _sRR],
   [0, 0, 0, () => ConversationLevelIntentClassificationResults, () => ConversationLevelSlotResolutionResults],
 ];
-export var ConversationLevelTestResults: StaticStructureSchema = [
+export var ConversationLevelTestResults$: StaticStructureSchema = [
   3,
   n0,
   _CLTR,
@@ -1587,17 +1594,24 @@ export var ConversationLevelTestResults: StaticStructureSchema = [
   [_it],
   [() => ConversationLevelTestResultItemList],
 ];
-export var ConversationLevelTestResultsFilterBy: StaticStructureSchema = [3, n0, _CLTRFB, 0, [_eTER], [0]];
-export var ConversationLogsDataSource: StaticStructureSchema = [
+export var ConversationLevelTestResultsFilterBy$: StaticStructureSchema = [3, n0, _CLTRFB, 0, [_eTER], [0]];
+export var ConversationLogsDataSource$: StaticStructureSchema = [
   3,
   n0,
   _CLDS,
   0,
   [_bI, _bAI, _lI, _f],
-  [0, 0, 0, () => ConversationLogsDataSourceFilterBy],
+  [0, 0, 0, () => ConversationLogsDataSourceFilterBy$],
 ];
-export var ConversationLogsDataSourceFilterBy: StaticStructureSchema = [3, n0, _CLDSFB, 0, [_sTt, _eT, _iM], [4, 4, 0]];
-export var ConversationLogSettings: StaticStructureSchema = [
+export var ConversationLogsDataSourceFilterBy$: StaticStructureSchema = [
+  3,
+  n0,
+  _CLDSFB,
+  0,
+  [_sTt, _eT, _iM],
+  [4, 4, 0],
+];
+export var ConversationLogSettings$: StaticStructureSchema = [
   3,
   n0,
   _CLS,
@@ -1605,7 +1619,7 @@ export var ConversationLogSettings: StaticStructureSchema = [
   [_tLS, _aLS],
   [() => TextLogSettingsList, () => AudioLogSettingsList],
 ];
-export var CreateBotAliasRequest: StaticStructureSchema = [
+export var CreateBotAliasRequest$: StaticStructureSchema = [
   3,
   n0,
   _CBAR,
@@ -1616,13 +1630,13 @@ export var CreateBotAliasRequest: StaticStructureSchema = [
     0,
     0,
     () => BotAliasLocaleSettingsMap,
-    () => ConversationLogSettings,
-    () => SentimentAnalysisSettings,
+    () => ConversationLogSettings$,
+    () => SentimentAnalysisSettings$,
     [0, 1],
     128 | 0,
   ],
 ];
-export var CreateBotAliasResponse: StaticStructureSchema = [
+export var CreateBotAliasResponse$: StaticStructureSchema = [
   3,
   n0,
   _CBARr,
@@ -1634,15 +1648,15 @@ export var CreateBotAliasResponse: StaticStructureSchema = [
     0,
     0,
     () => BotAliasLocaleSettingsMap,
-    () => ConversationLogSettings,
-    () => SentimentAnalysisSettings,
+    () => ConversationLogSettings$,
+    () => SentimentAnalysisSettings$,
     0,
     0,
     4,
     128 | 0,
   ],
 ];
-export var CreateBotLocaleRequest: StaticStructureSchema = [
+export var CreateBotLocaleRequest$: StaticStructureSchema = [
   3,
   n0,
   _CBLR,
@@ -1654,14 +1668,14 @@ export var CreateBotLocaleRequest: StaticStructureSchema = [
     0,
     0,
     1,
-    () => VoiceSettings,
-    () => UnifiedSpeechSettings,
-    () => SpeechRecognitionSettings,
-    () => GenerativeAISettings,
+    () => VoiceSettings$,
+    () => UnifiedSpeechSettings$,
+    () => SpeechRecognitionSettings$,
+    () => GenerativeAISettings$,
     0,
   ],
 ];
-export var CreateBotLocaleResponse: StaticStructureSchema = [
+export var CreateBotLocaleResponse$: StaticStructureSchema = [
   3,
   n0,
   _CBLRr,
@@ -1674,17 +1688,17 @@ export var CreateBotLocaleResponse: StaticStructureSchema = [
     0,
     0,
     1,
-    () => VoiceSettings,
-    () => UnifiedSpeechSettings,
-    () => SpeechRecognitionSettings,
+    () => VoiceSettings$,
+    () => UnifiedSpeechSettings$,
+    () => SpeechRecognitionSettings$,
     0,
     4,
-    () => GenerativeAISettings,
+    () => GenerativeAISettings$,
     0,
   ],
 ];
-export var CreateBotReplicaRequest: StaticStructureSchema = [3, n0, _CBRR, 0, [_bI, _rR], [[0, 1], 0]];
-export var CreateBotReplicaResponse: StaticStructureSchema = [
+export var CreateBotReplicaRequest$: StaticStructureSchema = [3, n0, _CBRR, 0, [_bI, _rR], [[0, 1], 0]];
+export var CreateBotReplicaResponse$: StaticStructureSchema = [
   3,
   n0,
   _CBRRr,
@@ -1692,23 +1706,23 @@ export var CreateBotReplicaResponse: StaticStructureSchema = [
   [_bI, _rR, _sR, _cDT, _bRSo],
   [0, 0, 0, 4, 0],
 ];
-export var CreateBotRequest: StaticStructureSchema = [
+export var CreateBotRequest$: StaticStructureSchema = [
   3,
   n0,
   _CBR,
   0,
   [_bN, _de, _rA, _dP, _iSTTLIS, _bT, _tBAT, _bTo, _bM, _eLS],
-  [0, 0, 0, () => DataPrivacy, 1, 128 | 0, 128 | 0, 0, () => BotMembers, () => ErrorLogSettings],
+  [0, 0, 0, () => DataPrivacy$, 1, 128 | 0, 128 | 0, 0, () => BotMembers, () => ErrorLogSettings$],
 ];
-export var CreateBotResponse: StaticStructureSchema = [
+export var CreateBotResponse$: StaticStructureSchema = [
   3,
   n0,
   _CBRr,
   0,
   [_bI, _bN, _de, _rA, _dP, _iSTTLIS, _bS, _cDT, _bT, _tBAT, _bTo, _bM, _eLS],
-  [0, 0, 0, 0, () => DataPrivacy, 1, 0, 4, 128 | 0, 128 | 0, 0, () => BotMembers, () => ErrorLogSettings],
+  [0, 0, 0, 0, () => DataPrivacy$, 1, 0, 4, 128 | 0, 128 | 0, 0, () => BotMembers, () => ErrorLogSettings$],
 ];
-export var CreateBotVersionRequest: StaticStructureSchema = [
+export var CreateBotVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CBVR,
@@ -1716,7 +1730,7 @@ export var CreateBotVersionRequest: StaticStructureSchema = [
   [_bI, _de, _bVLS],
   [[0, 1], 0, () => BotVersionLocaleSpecification],
 ];
-export var CreateBotVersionResponse: StaticStructureSchema = [
+export var CreateBotVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CBVRr,
@@ -1724,23 +1738,23 @@ export var CreateBotVersionResponse: StaticStructureSchema = [
   [_bI, _de, _bV, _bVLS, _bS, _cDT],
   [0, 0, 0, () => BotVersionLocaleSpecification, 0, 4],
 ];
-export var CreateExportRequest: StaticStructureSchema = [
+export var CreateExportRequest$: StaticStructureSchema = [
   3,
   n0,
   _CER,
   0,
   [_rS, _fF, _fP],
-  [() => ExportResourceSpecification, 0, [() => ImportExportFilePassword, 0]],
+  [() => ExportResourceSpecification$, 0, [() => ImportExportFilePassword, 0]],
 ];
-export var CreateExportResponse: StaticStructureSchema = [
+export var CreateExportResponse$: StaticStructureSchema = [
   3,
   n0,
   _CERr,
   0,
   [_eI, _rS, _fF, _eSx, _cDT],
-  [0, () => ExportResourceSpecification, 0, 0, 4],
+  [0, () => ExportResourceSpecification$, 0, 0, 4],
 ];
-export var CreateIntentRequest: StaticStructureSchema = [
+export var CreateIntentRequest$: StaticStructureSchema = [
   3,
   n0,
   _CIR,
@@ -1752,22 +1766,22 @@ export var CreateIntentRequest: StaticStructureSchema = [
     0,
     0,
     () => SampleUtterancesList,
-    () => DialogCodeHookSettings,
-    () => FulfillmentCodeHookSettings,
-    () => IntentConfirmationSetting,
-    () => IntentClosingSetting,
+    () => DialogCodeHookSettings$,
+    () => FulfillmentCodeHookSettings$,
+    () => IntentConfirmationSetting$,
+    () => IntentClosingSetting$,
     () => InputContextsList,
     () => OutputContextsList,
-    () => KendraConfiguration,
+    () => KendraConfiguration$,
     [0, 1],
     [0, 1],
     [0, 1],
-    () => InitialResponseSetting,
-    () => QnAIntentConfiguration,
-    () => QInConnectIntentConfiguration,
+    () => InitialResponseSetting$,
+    () => QnAIntentConfiguration$,
+    () => QInConnectIntentConfiguration$,
   ],
 ];
-export var CreateIntentResponse: StaticStructureSchema = [
+export var CreateIntentResponse$: StaticStructureSchema = [
   3,
   n0,
   _CIRr,
@@ -1780,25 +1794,25 @@ export var CreateIntentResponse: StaticStructureSchema = [
     0,
     0,
     () => SampleUtterancesList,
-    () => DialogCodeHookSettings,
-    () => FulfillmentCodeHookSettings,
-    () => IntentConfirmationSetting,
-    () => IntentClosingSetting,
+    () => DialogCodeHookSettings$,
+    () => FulfillmentCodeHookSettings$,
+    () => IntentConfirmationSetting$,
+    () => IntentClosingSetting$,
     () => InputContextsList,
     () => OutputContextsList,
-    () => KendraConfiguration,
+    () => KendraConfiguration$,
     0,
     0,
     0,
     4,
-    () => InitialResponseSetting,
-    () => QnAIntentConfiguration,
-    () => QInConnectIntentConfiguration,
+    () => InitialResponseSetting$,
+    () => QnAIntentConfiguration$,
+    () => QInConnectIntentConfiguration$,
   ],
 ];
-export var CreateResourcePolicyRequest: StaticStructureSchema = [3, n0, _CRPR, 0, [_rAe, _p], [[0, 1], 0]];
-export var CreateResourcePolicyResponse: StaticStructureSchema = [3, n0, _CRPRr, 0, [_rAe, _rI], [0, 0]];
-export var CreateResourcePolicyStatementRequest: StaticStructureSchema = [
+export var CreateResourcePolicyRequest$: StaticStructureSchema = [3, n0, _CRPR, 0, [_rAe, _p], [[0, 1], 0]];
+export var CreateResourcePolicyResponse$: StaticStructureSchema = [3, n0, _CRPRr, 0, [_rAe, _rI], [0, 0]];
+export var CreateResourcePolicyStatementRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRPSR,
@@ -1806,8 +1820,8 @@ export var CreateResourcePolicyStatementRequest: StaticStructureSchema = [
   [_rAe, _sI, _ef, _pr, _act, _c, _eRI],
   [[0, 1], 0, 0, () => PrincipalList, 64 | 0, [2, n0, _CM, 0, 0, 128 | 0], [0, { [_hQ]: _eRI }]],
 ];
-export var CreateResourcePolicyStatementResponse: StaticStructureSchema = [3, n0, _CRPSRr, 0, [_rAe, _rI], [0, 0]];
-export var CreateSlotRequest: StaticStructureSchema = [
+export var CreateResourcePolicyStatementResponse$: StaticStructureSchema = [3, n0, _CRPSRr, 0, [_rAe, _rI], [0, 0]];
+export var CreateSlotRequest$: StaticStructureSchema = [
   3,
   n0,
   _CSR,
@@ -1817,17 +1831,17 @@ export var CreateSlotRequest: StaticStructureSchema = [
     0,
     0,
     0,
-    () => SlotValueElicitationSetting,
-    () => ObfuscationSetting,
+    () => SlotValueElicitationSetting$,
+    () => ObfuscationSetting$,
     [0, 1],
     [0, 1],
     [0, 1],
     [0, 1],
-    () => MultipleValuesSetting,
-    () => SubSlotSetting,
+    () => MultipleValuesSetting$,
+    () => SubSlotSetting$,
   ],
 ];
-export var CreateSlotResponse: StaticStructureSchema = [
+export var CreateSlotResponse$: StaticStructureSchema = [
   3,
   n0,
   _CSRr,
@@ -1838,18 +1852,18 @@ export var CreateSlotResponse: StaticStructureSchema = [
     0,
     0,
     0,
-    () => SlotValueElicitationSetting,
-    () => ObfuscationSetting,
+    () => SlotValueElicitationSetting$,
+    () => ObfuscationSetting$,
     0,
     0,
     0,
     0,
     4,
-    () => MultipleValuesSetting,
-    () => SubSlotSetting,
+    () => MultipleValuesSetting$,
+    () => SubSlotSetting$,
   ],
 ];
-export var CreateSlotTypeRequest: StaticStructureSchema = [
+export var CreateSlotTypeRequest$: StaticStructureSchema = [
   3,
   n0,
   _CSTR,
@@ -1859,16 +1873,16 @@ export var CreateSlotTypeRequest: StaticStructureSchema = [
     0,
     0,
     () => SlotTypeValues,
-    () => SlotValueSelectionSetting,
+    () => SlotValueSelectionSetting$,
     0,
     [0, 1],
     [0, 1],
     [0, 1],
-    () => ExternalSourceSetting,
-    () => CompositeSlotTypeSetting,
+    () => ExternalSourceSetting$,
+    () => CompositeSlotTypeSetting$,
   ],
 ];
-export var CreateSlotTypeResponse: StaticStructureSchema = [
+export var CreateSlotTypeResponse$: StaticStructureSchema = [
   3,
   n0,
   _CSTRr,
@@ -1879,59 +1893,59 @@ export var CreateSlotTypeResponse: StaticStructureSchema = [
     0,
     0,
     () => SlotTypeValues,
-    () => SlotValueSelectionSetting,
+    () => SlotValueSelectionSetting$,
     0,
     0,
     0,
     0,
     4,
-    () => ExternalSourceSetting,
-    () => CompositeSlotTypeSetting,
+    () => ExternalSourceSetting$,
+    () => CompositeSlotTypeSetting$,
   ],
 ];
-export var CreateTestSetDiscrepancyReportRequest: StaticStructureSchema = [
+export var CreateTestSetDiscrepancyReportRequest$: StaticStructureSchema = [
   3,
   n0,
   _CTSDRR,
   0,
   [_tSI, _tar],
-  [[0, 1], () => TestSetDiscrepancyReportResourceTarget],
+  [[0, 1], () => TestSetDiscrepancyReportResourceTarget$],
 ];
-export var CreateTestSetDiscrepancyReportResponse: StaticStructureSchema = [
+export var CreateTestSetDiscrepancyReportResponse$: StaticStructureSchema = [
   3,
   n0,
   _CTSDRRr,
   0,
   [_tSDRI, _cDT, _tSI, _tar],
-  [0, 4, 0, () => TestSetDiscrepancyReportResourceTarget],
+  [0, 4, 0, () => TestSetDiscrepancyReportResourceTarget$],
 ];
-export var CreateUploadUrlRequest: StaticStructureSchema = [3, n0, _CUUR, 0, [], []];
-export var CreateUploadUrlResponse: StaticStructureSchema = [3, n0, _CUURr, 0, [_iIm, _uU], [0, 0]];
-export var CustomPayload: StaticStructureSchema = [3, n0, _CP, 0, [_va], [0]];
-export var CustomVocabularyEntryId: StaticStructureSchema = [3, n0, _CVEI, 0, [_iIt], [0]];
-export var CustomVocabularyExportSpecification: StaticStructureSchema = [3, n0, _CVES, 0, [_bI, _bV, _lI], [0, 0, 0]];
-export var CustomVocabularyImportSpecification: StaticStructureSchema = [3, n0, _CVIS, 0, [_bI, _bV, _lI], [0, 0, 0]];
-export var CustomVocabularyItem: StaticStructureSchema = [3, n0, _CVI, 0, [_iIt, _ph, _w, _dA], [0, 0, 1, 0]];
-export var DataPrivacy: StaticStructureSchema = [3, n0, _DP, 0, [_cD], [2]];
-export var DataSourceConfiguration: StaticStructureSchema = [
+export var CreateUploadUrlRequest$: StaticStructureSchema = [3, n0, _CUUR, 0, [], []];
+export var CreateUploadUrlResponse$: StaticStructureSchema = [3, n0, _CUURr, 0, [_iIm, _uU], [0, 0]];
+export var CustomPayload$: StaticStructureSchema = [3, n0, _CP, 0, [_va], [0]];
+export var CustomVocabularyEntryId$: StaticStructureSchema = [3, n0, _CVEI, 0, [_iIt], [0]];
+export var CustomVocabularyExportSpecification$: StaticStructureSchema = [3, n0, _CVES, 0, [_bI, _bV, _lI], [0, 0, 0]];
+export var CustomVocabularyImportSpecification$: StaticStructureSchema = [3, n0, _CVIS, 0, [_bI, _bV, _lI], [0, 0, 0]];
+export var CustomVocabularyItem$: StaticStructureSchema = [3, n0, _CVI, 0, [_iIt, _ph, _w, _dA], [0, 0, 1, 0]];
+export var DataPrivacy$: StaticStructureSchema = [3, n0, _DP, 0, [_cD], [2]];
+export var DataSourceConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _DSC,
   0,
   [_oCp, _kC, _bKSC],
-  [() => OpensearchConfiguration, () => QnAKendraConfiguration, () => BedrockKnowledgeStoreConfiguration],
+  [() => OpensearchConfiguration$, () => QnAKendraConfiguration$, () => BedrockKnowledgeStoreConfiguration$],
 ];
-export var DateRangeFilter: StaticStructureSchema = [3, n0, _DRF, 0, [_sDT, _eDT], [4, 4]];
-export var DeepgramSpeechModelConfig: StaticStructureSchema = [3, n0, _DSMC, 0, [_aTSA, _mI], [0, 0]];
-export var DefaultConditionalBranch: StaticStructureSchema = [
+export var DateRangeFilter$: StaticStructureSchema = [3, n0, _DRF, 0, [_sDT, _eDT], [4, 4]];
+export var DeepgramSpeechModelConfig$: StaticStructureSchema = [3, n0, _DSMC, 0, [_aTSA, _mI], [0, 0]];
+export var DefaultConditionalBranch$: StaticStructureSchema = [
   3,
   n0,
   _DCB,
   0,
   [_nS, _re],
-  [() => DialogState, () => ResponseSpecification],
+  [() => DialogState$, () => ResponseSpecification$],
 ];
-export var DeleteBotAliasRequest: StaticStructureSchema = [
+export var DeleteBotAliasRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBAR,
@@ -1943,8 +1957,8 @@ export var DeleteBotAliasRequest: StaticStructureSchema = [
     [2, { [_hQ]: _sRIUC }],
   ],
 ];
-export var DeleteBotAliasResponse: StaticStructureSchema = [3, n0, _DBARe, 0, [_bAI, _bI, _bAS], [0, 0, 0]];
-export var DeleteBotLocaleRequest: StaticStructureSchema = [
+export var DeleteBotAliasResponse$: StaticStructureSchema = [3, n0, _DBARe, 0, [_bAI, _bI, _bAS], [0, 0, 0]];
+export var DeleteBotLocaleRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBLR,
@@ -1956,8 +1970,8 @@ export var DeleteBotLocaleRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteBotLocaleResponse: StaticStructureSchema = [3, n0, _DBLRe, 0, [_bI, _bV, _lI, _bLS], [0, 0, 0, 0]];
-export var DeleteBotReplicaRequest: StaticStructureSchema = [
+export var DeleteBotLocaleResponse$: StaticStructureSchema = [3, n0, _DBLRe, 0, [_bI, _bV, _lI, _bLS], [0, 0, 0, 0]];
+export var DeleteBotReplicaRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBRR,
@@ -1968,8 +1982,8 @@ export var DeleteBotReplicaRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteBotReplicaResponse: StaticStructureSchema = [3, n0, _DBRRe, 0, [_bI, _rR, _bRSo], [0, 0, 0]];
-export var DeleteBotRequest: StaticStructureSchema = [
+export var DeleteBotReplicaResponse$: StaticStructureSchema = [3, n0, _DBRRe, 0, [_bI, _rR, _bRSo], [0, 0, 0]];
+export var DeleteBotRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBR,
@@ -1980,8 +1994,8 @@ export var DeleteBotRequest: StaticStructureSchema = [
     [2, { [_hQ]: _sRIUC }],
   ],
 ];
-export var DeleteBotResponse: StaticStructureSchema = [3, n0, _DBRe, 0, [_bI, _bS], [0, 0]];
-export var DeleteBotVersionRequest: StaticStructureSchema = [
+export var DeleteBotResponse$: StaticStructureSchema = [3, n0, _DBRe, 0, [_bI, _bS], [0, 0]];
+export var DeleteBotVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBVR,
@@ -1993,8 +2007,8 @@ export var DeleteBotVersionRequest: StaticStructureSchema = [
     [2, { [_hQ]: _sRIUC }],
   ],
 ];
-export var DeleteBotVersionResponse: StaticStructureSchema = [3, n0, _DBVRe, 0, [_bI, _bV, _bS], [0, 0, 0]];
-export var DeleteCustomVocabularyRequest: StaticStructureSchema = [
+export var DeleteBotVersionResponse$: StaticStructureSchema = [3, n0, _DBVRe, 0, [_bI, _bV, _bS], [0, 0, 0]];
+export var DeleteCustomVocabularyRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCVR,
@@ -2006,7 +2020,7 @@ export var DeleteCustomVocabularyRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteCustomVocabularyResponse: StaticStructureSchema = [
+export var DeleteCustomVocabularyResponse$: StaticStructureSchema = [
   3,
   n0,
   _DCVRe,
@@ -2014,11 +2028,11 @@ export var DeleteCustomVocabularyResponse: StaticStructureSchema = [
   [_bI, _bV, _lI, _cVS],
   [0, 0, 0, 0],
 ];
-export var DeleteExportRequest: StaticStructureSchema = [3, n0, _DER, 0, [_eI], [[0, 1]]];
-export var DeleteExportResponse: StaticStructureSchema = [3, n0, _DERe, 0, [_eI, _eSx], [0, 0]];
-export var DeleteImportRequest: StaticStructureSchema = [3, n0, _DIR, 0, [_iIm], [[0, 1]]];
-export var DeleteImportResponse: StaticStructureSchema = [3, n0, _DIRe, 0, [_iIm, _iSm], [0, 0]];
-export var DeleteIntentRequest: StaticStructureSchema = [
+export var DeleteExportRequest$: StaticStructureSchema = [3, n0, _DER, 0, [_eI], [[0, 1]]];
+export var DeleteExportResponse$: StaticStructureSchema = [3, n0, _DERe, 0, [_eI, _eSx], [0, 0]];
+export var DeleteImportRequest$: StaticStructureSchema = [3, n0, _DIR, 0, [_iIm], [[0, 1]]];
+export var DeleteImportResponse$: StaticStructureSchema = [3, n0, _DIRe, 0, [_iIm, _iSm], [0, 0]];
+export var DeleteIntentRequest$: StaticStructureSchema = [
   3,
   n0,
   _DIRel,
@@ -2031,7 +2045,7 @@ export var DeleteIntentRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteResourcePolicyRequest: StaticStructureSchema = [
+export var DeleteResourcePolicyRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRPR,
@@ -2042,8 +2056,8 @@ export var DeleteResourcePolicyRequest: StaticStructureSchema = [
     [0, { [_hQ]: _eRI }],
   ],
 ];
-export var DeleteResourcePolicyResponse: StaticStructureSchema = [3, n0, _DRPRe, 0, [_rAe, _rI], [0, 0]];
-export var DeleteResourcePolicyStatementRequest: StaticStructureSchema = [
+export var DeleteResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe, 0, [_rAe, _rI], [0, 0]];
+export var DeleteResourcePolicyStatementRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRPSR,
@@ -2055,8 +2069,8 @@ export var DeleteResourcePolicyStatementRequest: StaticStructureSchema = [
     [0, { [_hQ]: _eRI }],
   ],
 ];
-export var DeleteResourcePolicyStatementResponse: StaticStructureSchema = [3, n0, _DRPSRe, 0, [_rAe, _rI], [0, 0]];
-export var DeleteSlotRequest: StaticStructureSchema = [
+export var DeleteResourcePolicyStatementResponse$: StaticStructureSchema = [3, n0, _DRPSRe, 0, [_rAe, _rI], [0, 0]];
+export var DeleteSlotRequest$: StaticStructureSchema = [
   3,
   n0,
   _DSR,
@@ -2070,7 +2084,7 @@ export var DeleteSlotRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteSlotTypeRequest: StaticStructureSchema = [
+export var DeleteSlotTypeRequest$: StaticStructureSchema = [
   3,
   n0,
   _DSTR,
@@ -2084,8 +2098,8 @@ export var DeleteSlotTypeRequest: StaticStructureSchema = [
     [2, { [_hQ]: _sRIUC }],
   ],
 ];
-export var DeleteTestSetRequest: StaticStructureSchema = [3, n0, _DTSR, 0, [_tSI], [[0, 1]]];
-export var DeleteUtterancesRequest: StaticStructureSchema = [
+export var DeleteTestSetRequest$: StaticStructureSchema = [3, n0, _DTSR, 0, [_tSI], [[0, 1]]];
+export var DeleteUtterancesRequest$: StaticStructureSchema = [
   3,
   n0,
   _DUR,
@@ -2097,8 +2111,8 @@ export var DeleteUtterancesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sIe }],
   ],
 ];
-export var DeleteUtterancesResponse: StaticStructureSchema = [3, n0, _DURe, 0, [], []];
-export var DescribeBotAliasRequest: StaticStructureSchema = [
+export var DeleteUtterancesResponse$: StaticStructureSchema = [3, n0, _DURe, 0, [], []];
+export var DescribeBotAliasRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBARes,
@@ -2109,7 +2123,7 @@ export var DescribeBotAliasRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeBotAliasResponse: StaticStructureSchema = [
+export var DescribeBotAliasResponse$: StaticStructureSchema = [
   3,
   n0,
   _DBAResc,
@@ -2121,8 +2135,8 @@ export var DescribeBotAliasResponse: StaticStructureSchema = [
     0,
     0,
     () => BotAliasLocaleSettingsMap,
-    () => ConversationLogSettings,
-    () => SentimentAnalysisSettings,
+    () => ConversationLogSettings$,
+    () => SentimentAnalysisSettings$,
     () => BotAliasHistoryEventsList,
     0,
     0,
@@ -2131,7 +2145,7 @@ export var DescribeBotAliasResponse: StaticStructureSchema = [
     () => ParentBotNetworks,
   ],
 ];
-export var DescribeBotLocaleRequest: StaticStructureSchema = [
+export var DescribeBotLocaleRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBLRes,
@@ -2143,7 +2157,7 @@ export var DescribeBotLocaleRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeBotLocaleResponse: StaticStructureSchema = [
+export var DescribeBotLocaleResponse$: StaticStructureSchema = [
   3,
   n0,
   _DBLResc,
@@ -2177,9 +2191,9 @@ export var DescribeBotLocaleResponse: StaticStructureSchema = [
     0,
     0,
     1,
-    () => VoiceSettings,
-    () => UnifiedSpeechSettings,
-    () => SpeechRecognitionSettings,
+    () => VoiceSettings$,
+    () => UnifiedSpeechSettings$,
+    () => SpeechRecognitionSettings$,
     1,
     1,
     0,
@@ -2189,11 +2203,11 @@ export var DescribeBotLocaleResponse: StaticStructureSchema = [
     4,
     () => BotLocaleHistoryEventsList,
     64 | 0,
-    () => GenerativeAISettings,
+    () => GenerativeAISettings$,
     0,
   ],
 ];
-export var DescribeBotRecommendationRequest: StaticStructureSchema = [
+export var DescribeBotRecommendationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBRRes,
@@ -2206,7 +2220,7 @@ export var DescribeBotRecommendationRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeBotRecommendationResponse: StaticStructureSchema = [
+export var DescribeBotRecommendationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DBRResc,
@@ -2221,12 +2235,12 @@ export var DescribeBotRecommendationResponse: StaticStructureSchema = [
     64 | 0,
     4,
     4,
-    () => TranscriptSourceSetting,
-    [() => EncryptionSetting, 0],
-    () => BotRecommendationResults,
+    () => TranscriptSourceSetting$,
+    [() => EncryptionSetting$, 0],
+    () => BotRecommendationResults$,
   ],
 ];
-export var DescribeBotReplicaRequest: StaticStructureSchema = [
+export var DescribeBotReplicaRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBRRescr,
@@ -2237,7 +2251,7 @@ export var DescribeBotReplicaRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeBotReplicaResponse: StaticStructureSchema = [
+export var DescribeBotReplicaResponse$: StaticStructureSchema = [
   3,
   n0,
   _DBRRescri,
@@ -2245,8 +2259,8 @@ export var DescribeBotReplicaResponse: StaticStructureSchema = [
   [_bI, _rR, _sR, _cDT, _bRSo, _fR],
   [0, 0, 0, 4, 0, 64 | 0],
 ];
-export var DescribeBotRequest: StaticStructureSchema = [3, n0, _DBRes, 0, [_bI], [[0, 1]]];
-export var DescribeBotResourceGenerationRequest: StaticStructureSchema = [
+export var DescribeBotRequest$: StaticStructureSchema = [3, n0, _DBRes, 0, [_bI], [[0, 1]]];
+export var DescribeBotResourceGenerationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBRGR,
@@ -2259,7 +2273,7 @@ export var DescribeBotResourceGenerationRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeBotResourceGenerationResponse: StaticStructureSchema = [
+export var DescribeBotResourceGenerationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DBRGRe,
@@ -2267,15 +2281,15 @@ export var DescribeBotResourceGenerationResponse: StaticStructureSchema = [
   [_bI, _bV, _lI, _gI, _fR, _gS, _gIP, _gBLU, _cDT, _mA, _lUDT],
   [0, 0, 0, 0, 64 | 0, 0, 0, 0, 4, 0, 4],
 ];
-export var DescribeBotResponse: StaticStructureSchema = [
+export var DescribeBotResponse$: StaticStructureSchema = [
   3,
   n0,
   _DBResc,
   0,
   [_bI, _bN, _de, _rA, _dP, _iSTTLIS, _bS, _cDT, _lUDT, _bTo, _bM, _fR, _eLS],
-  [0, 0, 0, 0, () => DataPrivacy, 1, 0, 4, 4, 0, () => BotMembers, 64 | 0, () => ErrorLogSettings],
+  [0, 0, 0, 0, () => DataPrivacy$, 1, 0, 4, 4, 0, () => BotMembers, 64 | 0, () => ErrorLogSettings$],
 ];
-export var DescribeBotVersionRequest: StaticStructureSchema = [
+export var DescribeBotVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBVRes,
@@ -2286,15 +2300,15 @@ export var DescribeBotVersionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeBotVersionResponse: StaticStructureSchema = [
+export var DescribeBotVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _DBVResc,
   0,
   [_bI, _bN, _bV, _de, _rA, _dP, _iSTTLIS, _bS, _fR, _cDT, _pBN, _bTo, _bM],
-  [0, 0, 0, 0, 0, () => DataPrivacy, 1, 0, 64 | 0, 4, () => ParentBotNetworks, 0, () => BotMembers],
+  [0, 0, 0, 0, 0, () => DataPrivacy$, 1, 0, 64 | 0, 4, () => ParentBotNetworks, 0, () => BotMembers],
 ];
-export var DescribeCustomVocabularyMetadataRequest: StaticStructureSchema = [
+export var DescribeCustomVocabularyMetadataRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCVMR,
@@ -2306,7 +2320,7 @@ export var DescribeCustomVocabularyMetadataRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeCustomVocabularyMetadataResponse: StaticStructureSchema = [
+export var DescribeCustomVocabularyMetadataResponse$: StaticStructureSchema = [
   3,
   n0,
   _DCVMRe,
@@ -2314,25 +2328,25 @@ export var DescribeCustomVocabularyMetadataResponse: StaticStructureSchema = [
   [_bI, _bV, _lI, _cVS, _cDT, _lUDT],
   [0, 0, 0, 0, 4, 4],
 ];
-export var DescribeExportRequest: StaticStructureSchema = [3, n0, _DERes, 0, [_eI], [[0, 1]]];
-export var DescribeExportResponse: StaticStructureSchema = [
+export var DescribeExportRequest$: StaticStructureSchema = [3, n0, _DERes, 0, [_eI], [[0, 1]]];
+export var DescribeExportResponse$: StaticStructureSchema = [
   3,
   n0,
   _DEResc,
   0,
   [_eI, _rS, _fF, _eSx, _fR, _dU, _cDT, _lUDT],
-  [0, () => ExportResourceSpecification, 0, 0, 64 | 0, 0, 4, 4],
+  [0, () => ExportResourceSpecification$, 0, 0, 64 | 0, 0, 4, 4],
 ];
-export var DescribeImportRequest: StaticStructureSchema = [3, n0, _DIRes, 0, [_iIm], [[0, 1]]];
-export var DescribeImportResponse: StaticStructureSchema = [
+export var DescribeImportRequest$: StaticStructureSchema = [3, n0, _DIRes, 0, [_iIm], [[0, 1]]];
+export var DescribeImportResponse$: StaticStructureSchema = [
   3,
   n0,
   _DIResc,
   0,
   [_iIm, _rS, _iRI, _iRN, _mS, _iSm, _fR, _cDT, _lUDT],
-  [0, () => ImportResourceSpecification, 0, 0, 0, 0, 64 | 0, 4, 4],
+  [0, () => ImportResourceSpecification$, 0, 0, 0, 0, 64 | 0, 4, 4],
 ];
-export var DescribeIntentRequest: StaticStructureSchema = [
+export var DescribeIntentRequest$: StaticStructureSchema = [
   3,
   n0,
   _DIRescr,
@@ -2345,7 +2359,7 @@ export var DescribeIntentRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeIntentResponse: StaticStructureSchema = [
+export var DescribeIntentResponse$: StaticStructureSchema = [
   3,
   n0,
   _DIRescri,
@@ -2381,27 +2395,27 @@ export var DescribeIntentResponse: StaticStructureSchema = [
     0,
     0,
     () => SampleUtterancesList,
-    () => DialogCodeHookSettings,
-    () => FulfillmentCodeHookSettings,
+    () => DialogCodeHookSettings$,
+    () => FulfillmentCodeHookSettings$,
     () => SlotPrioritiesList,
-    () => IntentConfirmationSetting,
-    () => IntentClosingSetting,
+    () => IntentConfirmationSetting$,
+    () => IntentClosingSetting$,
     () => InputContextsList,
     () => OutputContextsList,
-    () => KendraConfiguration,
+    () => KendraConfiguration$,
     0,
     0,
     0,
     4,
     4,
-    () => InitialResponseSetting,
-    () => QnAIntentConfiguration,
-    () => QInConnectIntentConfiguration,
+    () => InitialResponseSetting$,
+    () => QnAIntentConfiguration$,
+    () => QInConnectIntentConfiguration$,
   ],
 ];
-export var DescribeResourcePolicyRequest: StaticStructureSchema = [3, n0, _DRPRes, 0, [_rAe], [[0, 1]]];
-export var DescribeResourcePolicyResponse: StaticStructureSchema = [3, n0, _DRPResc, 0, [_rAe, _p, _rI], [0, 0, 0]];
-export var DescribeSlotRequest: StaticStructureSchema = [
+export var DescribeResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPRes, 0, [_rAe], [[0, 1]]];
+export var DescribeResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPResc, 0, [_rAe, _p, _rI], [0, 0, 0]];
+export var DescribeSlotRequest$: StaticStructureSchema = [
   3,
   n0,
   _DSRe,
@@ -2415,7 +2429,7 @@ export var DescribeSlotRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeSlotResponse: StaticStructureSchema = [
+export var DescribeSlotResponse$: StaticStructureSchema = [
   3,
   n0,
   _DSRes,
@@ -2426,19 +2440,19 @@ export var DescribeSlotResponse: StaticStructureSchema = [
     0,
     0,
     0,
-    () => SlotValueElicitationSetting,
-    () => ObfuscationSetting,
+    () => SlotValueElicitationSetting$,
+    () => ObfuscationSetting$,
     0,
     0,
     0,
     0,
     4,
     4,
-    () => MultipleValuesSetting,
-    () => SubSlotSetting,
+    () => MultipleValuesSetting$,
+    () => SubSlotSetting$,
   ],
 ];
-export var DescribeSlotTypeRequest: StaticStructureSchema = [
+export var DescribeSlotTypeRequest$: StaticStructureSchema = [
   3,
   n0,
   _DSTRe,
@@ -2451,7 +2465,7 @@ export var DescribeSlotTypeRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeSlotTypeResponse: StaticStructureSchema = [
+export var DescribeSlotTypeResponse$: StaticStructureSchema = [
   3,
   n0,
   _DSTRes,
@@ -2462,82 +2476,82 @@ export var DescribeSlotTypeResponse: StaticStructureSchema = [
     0,
     0,
     () => SlotTypeValues,
-    () => SlotValueSelectionSetting,
+    () => SlotValueSelectionSetting$,
     0,
     0,
     0,
     0,
     4,
     4,
-    () => ExternalSourceSetting,
-    () => CompositeSlotTypeSetting,
+    () => ExternalSourceSetting$,
+    () => CompositeSlotTypeSetting$,
   ],
 ];
-export var DescribeTestExecutionRequest: StaticStructureSchema = [3, n0, _DTER, 0, [_tEI], [[0, 1]]];
-export var DescribeTestExecutionResponse: StaticStructureSchema = [
+export var DescribeTestExecutionRequest$: StaticStructureSchema = [3, n0, _DTER, 0, [_tEI], [[0, 1]]];
+export var DescribeTestExecutionResponse$: StaticStructureSchema = [
   3,
   n0,
   _DTERe,
   0,
   [_tEI, _cDT, _lUDT, _tES, _tSI, _tSN, _tar, _aM, _tEM, _fR],
-  [0, 4, 4, 0, 0, 0, () => TestExecutionTarget, 0, 0, 64 | 0],
+  [0, 4, 4, 0, 0, 0, () => TestExecutionTarget$, 0, 0, 64 | 0],
 ];
-export var DescribeTestSetDiscrepancyReportRequest: StaticStructureSchema = [3, n0, _DTSDRR, 0, [_tSDRI], [[0, 1]]];
-export var DescribeTestSetDiscrepancyReportResponse: StaticStructureSchema = [
+export var DescribeTestSetDiscrepancyReportRequest$: StaticStructureSchema = [3, n0, _DTSDRR, 0, [_tSDRI], [[0, 1]]];
+export var DescribeTestSetDiscrepancyReportResponse$: StaticStructureSchema = [
   3,
   n0,
   _DTSDRRe,
   0,
   [_tSDRI, _tSI, _cDT, _tar, _tSDRS, _lUDTa, _tSDTE, _tSDROU, _fR],
-  [0, 0, 4, () => TestSetDiscrepancyReportResourceTarget, 0, 4, () => TestSetDiscrepancyErrors, 0, 64 | 0],
+  [0, 0, 4, () => TestSetDiscrepancyReportResourceTarget$, 0, 4, () => TestSetDiscrepancyErrors$, 0, 64 | 0],
 ];
-export var DescribeTestSetGenerationRequest: StaticStructureSchema = [3, n0, _DTSGR, 0, [_tSGI], [[0, 1]]];
-export var DescribeTestSetGenerationResponse: StaticStructureSchema = [
+export var DescribeTestSetGenerationRequest$: StaticStructureSchema = [3, n0, _DTSGR, 0, [_tSGI], [[0, 1]]];
+export var DescribeTestSetGenerationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DTSGRe,
   0,
   [_tSGI, _tSGS, _fR, _tSI, _tSN, _de, _sL, _gDS, _rA, _cDT, _lUDT],
-  [0, 0, 64 | 0, 0, 0, 0, () => TestSetStorageLocation, () => TestSetGenerationDataSource, 0, 4, 4],
+  [0, 0, 64 | 0, 0, 0, 0, () => TestSetStorageLocation$, () => TestSetGenerationDataSource$, 0, 4, 4],
 ];
-export var DescribeTestSetRequest: StaticStructureSchema = [3, n0, _DTSRe, 0, [_tSI], [[0, 1]]];
-export var DescribeTestSetResponse: StaticStructureSchema = [
+export var DescribeTestSetRequest$: StaticStructureSchema = [3, n0, _DTSRe, 0, [_tSI], [[0, 1]]];
+export var DescribeTestSetResponse$: StaticStructureSchema = [
   3,
   n0,
   _DTSRes,
   0,
   [_tSI, _tSN, _de, _mo, _sta, _rA, _nTu, _sL, _cDT, _lUDT],
-  [0, 0, 0, 0, 0, 0, 1, () => TestSetStorageLocation, 4, 4],
+  [0, 0, 0, 0, 0, 0, 1, () => TestSetStorageLocation$, 4, 4],
 ];
-export var DescriptiveBotBuilderSpecification: StaticStructureSchema = [
+export var DescriptiveBotBuilderSpecification$: StaticStructureSchema = [
   3,
   n0,
   _DBBS,
   0,
   [_e, _bMS],
-  [2, () => BedrockModelSpecification],
+  [2, () => BedrockModelSpecification$],
 ];
-export var DialogAction: StaticStructureSchema = [3, n0, _DA, 0, [_ty, _sTE, _sNM], [0, 0, 2]];
-export var DialogCodeHookInvocationSetting: StaticStructureSchema = [
+export var DialogAction$: StaticStructureSchema = [3, n0, _DA, 0, [_ty, _sTE, _sNM], [0, 0, 2]];
+export var DialogCodeHookInvocationSetting$: StaticStructureSchema = [
   3,
   n0,
   _DCHIS,
   0,
   [_eCHI, _ac, _iLn, _pCHS],
-  [2, 2, 0, () => PostDialogCodeHookInvocationSpecification],
+  [2, 2, 0, () => PostDialogCodeHookInvocationSpecification$],
 ];
-export var DialogCodeHookSettings: StaticStructureSchema = [3, n0, _DCHS, 0, [_e], [2]];
-export var DialogState: StaticStructureSchema = [
+export var DialogCodeHookSettings$: StaticStructureSchema = [3, n0, _DCHS, 0, [_e], [2]];
+export var DialogState$: StaticStructureSchema = [
   3,
   n0,
   _DS,
   0,
   [_dAi, _int, _sA],
-  [() => DialogAction, () => IntentOverride, 128 | 0],
+  [() => DialogAction$, () => IntentOverride$, 128 | 0],
 ];
-export var DTMFSpecification: StaticStructureSchema = [3, n0, _DTMFS, 0, [_mL, _eTM, _dC, _eC], [1, 1, 0, 0]];
-export var ElicitationCodeHookInvocationSetting: StaticStructureSchema = [3, n0, _ECHIS, 0, [_eCHI, _iLn], [2, 0]];
-export var EncryptionSetting: StaticStructureSchema = [
+export var DTMFSpecification$: StaticStructureSchema = [3, n0, _DTMFS, 0, [_mL, _eTM, _dC, _eC], [1, 1, 0, 0]];
+export var ElicitationCodeHookInvocationSetting$: StaticStructureSchema = [3, n0, _ECHIS, 0, [_eCHI, _iLn], [2, 0]];
+export var EncryptionSetting$: StaticStructureSchema = [
   3,
   n0,
   _ES,
@@ -2545,43 +2559,43 @@ export var EncryptionSetting: StaticStructureSchema = [
   [_kKA, _bLEP, _aTP],
   [0, [() => FilePassword, 0], [() => FilePassword, 0]],
 ];
-export var ErrorLogSettings: StaticStructureSchema = [3, n0, _ELS, 0, [_e], [2]];
-export var ExactResponseFields: StaticStructureSchema = [3, n0, _ERF, 0, [_qF, _aF], [0, 0]];
-export var ExecutionErrorDetails: StaticStructureSchema = [3, n0, _EED, 0, [_eCr, _eM], [0, 0]];
-export var ExportFilter: StaticStructureSchema = [3, n0, _EF, 0, [_n, _v, _o], [0, 64 | 0, 0]];
-export var ExportResourceSpecification: StaticStructureSchema = [
+export var ErrorLogSettings$: StaticStructureSchema = [3, n0, _ELS, 0, [_e], [2]];
+export var ExactResponseFields$: StaticStructureSchema = [3, n0, _ERF, 0, [_qF, _aF], [0, 0]];
+export var ExecutionErrorDetails$: StaticStructureSchema = [3, n0, _EED, 0, [_eCr, _eM], [0, 0]];
+export var ExportFilter$: StaticStructureSchema = [3, n0, _EF, 0, [_n, _v, _o], [0, 64 | 0, 0]];
+export var ExportResourceSpecification$: StaticStructureSchema = [
   3,
   n0,
   _ERS,
   0,
   [_bES, _bLES, _cVES, _tSES],
   [
-    () => BotExportSpecification,
-    () => BotLocaleExportSpecification,
-    () => CustomVocabularyExportSpecification,
-    () => TestSetExportSpecification,
+    () => BotExportSpecification$,
+    () => BotLocaleExportSpecification$,
+    () => CustomVocabularyExportSpecification$,
+    () => TestSetExportSpecification$,
   ],
 ];
-export var ExportSortBy: StaticStructureSchema = [3, n0, _ESB, 0, [_a, _or], [0, 0]];
-export var ExportSummary: StaticStructureSchema = [
+export var ExportSortBy$: StaticStructureSchema = [3, n0, _ESB, 0, [_a, _or], [0, 0]];
+export var ExportSummary$: StaticStructureSchema = [
   3,
   n0,
   _ESx,
   0,
   [_eI, _rS, _fF, _eSx, _cDT, _lUDT],
-  [0, () => ExportResourceSpecification, 0, 0, 4, 4],
+  [0, () => ExportResourceSpecification$, 0, 0, 4, 4],
 ];
-export var ExternalSourceSetting: StaticStructureSchema = [3, n0, _ESS, 0, [_gSTS], [() => GrammarSlotTypeSetting]];
-export var FailedCustomVocabularyItem: StaticStructureSchema = [3, n0, _FCVI, 0, [_iIt, _eM, _eCr], [0, 0, 0]];
-export var FulfillmentCodeHookSettings: StaticStructureSchema = [
+export var ExternalSourceSetting$: StaticStructureSchema = [3, n0, _ESS, 0, [_gSTS], [() => GrammarSlotTypeSetting$]];
+export var FailedCustomVocabularyItem$: StaticStructureSchema = [3, n0, _FCVI, 0, [_iIt, _eM, _eCr], [0, 0, 0]];
+export var FulfillmentCodeHookSettings$: StaticStructureSchema = [
   3,
   n0,
   _FCHS,
   0,
   [_e, _pFSS, _fUS, _ac],
-  [2, () => PostFulfillmentStatusSpecification, () => FulfillmentUpdatesSpecification, 2],
+  [2, () => PostFulfillmentStatusSpecification$, () => FulfillmentUpdatesSpecification$, 2],
 ];
-export var FulfillmentStartResponseSpecification: StaticStructureSchema = [
+export var FulfillmentStartResponseSpecification$: StaticStructureSchema = [
   3,
   n0,
   _FSRS,
@@ -2589,7 +2603,7 @@ export var FulfillmentStartResponseSpecification: StaticStructureSchema = [
   [_dIS, _mG, _aIl],
   [1, () => MessageGroupsList, 2],
 ];
-export var FulfillmentUpdateResponseSpecification: StaticStructureSchema = [
+export var FulfillmentUpdateResponseSpecification$: StaticStructureSchema = [
   3,
   n0,
   _FURS,
@@ -2597,15 +2611,15 @@ export var FulfillmentUpdateResponseSpecification: StaticStructureSchema = [
   [_fIS, _mG, _aIl],
   [1, () => MessageGroupsList, 2],
 ];
-export var FulfillmentUpdatesSpecification: StaticStructureSchema = [
+export var FulfillmentUpdatesSpecification$: StaticStructureSchema = [
   3,
   n0,
   _FUS,
   0,
   [_ac, _sRt, _uR, _tIS],
-  [2, () => FulfillmentStartResponseSpecification, () => FulfillmentUpdateResponseSpecification, 1],
+  [2, () => FulfillmentStartResponseSpecification$, () => FulfillmentUpdateResponseSpecification$, 1],
 ];
-export var GenerateBotElementRequest: StaticStructureSchema = [
+export var GenerateBotElementRequest$: StaticStructureSchema = [
   3,
   n0,
   _GBER,
@@ -2613,7 +2627,7 @@ export var GenerateBotElementRequest: StaticStructureSchema = [
   [_iI, _bI, _bV, _lI],
   [0, [0, 1], [0, 1], [0, 1]],
 ];
-export var GenerateBotElementResponse: StaticStructureSchema = [
+export var GenerateBotElementResponse$: StaticStructureSchema = [
   3,
   n0,
   _GBERe,
@@ -2621,21 +2635,21 @@ export var GenerateBotElementResponse: StaticStructureSchema = [
   [_bI, _bV, _lI, _iI, _sU],
   [0, 0, 0, 0, () => SampleUtterancesList],
 ];
-export var GenerationSortBy: StaticStructureSchema = [3, n0, _GSB, 0, [_a, _or], [0, 0]];
-export var GenerationSummary: StaticStructureSchema = [3, n0, _GS, 0, [_gI, _gS, _cDT, _lUDT], [0, 0, 4, 4]];
-export var GenerativeAISettings: StaticStructureSchema = [
+export var GenerationSortBy$: StaticStructureSchema = [3, n0, _GSB, 0, [_a, _or], [0, 0]];
+export var GenerationSummary$: StaticStructureSchema = [3, n0, _GS, 0, [_gI, _gS, _cDT, _lUDT], [0, 0, 4, 4]];
+export var GenerativeAISettings$: StaticStructureSchema = [
   3,
   n0,
   _GAIS,
   0,
   [_rSu, _bSu],
-  [() => RuntimeSettings, () => BuildtimeSettings],
+  [() => RuntimeSettings$, () => BuildtimeSettings$],
 ];
-export var GetTestExecutionArtifactsUrlRequest: StaticStructureSchema = [3, n0, _GTEAUR, 0, [_tEI], [[0, 1]]];
-export var GetTestExecutionArtifactsUrlResponse: StaticStructureSchema = [3, n0, _GTEAURe, 0, [_tEI, _dAU], [0, 0]];
-export var GrammarSlotTypeSetting: StaticStructureSchema = [3, n0, _GSTS, 0, [_so], [() => GrammarSlotTypeSource]];
-export var GrammarSlotTypeSource: StaticStructureSchema = [3, n0, _GSTSr, 0, [_sBN, _sOK, _kKA], [0, 0, 0]];
-export var ImageResponseCard: StaticStructureSchema = [
+export var GetTestExecutionArtifactsUrlRequest$: StaticStructureSchema = [3, n0, _GTEAUR, 0, [_tEI], [[0, 1]]];
+export var GetTestExecutionArtifactsUrlResponse$: StaticStructureSchema = [3, n0, _GTEAURe, 0, [_tEI, _dAU], [0, 0]];
+export var GrammarSlotTypeSetting$: StaticStructureSchema = [3, n0, _GSTS, 0, [_so], [() => GrammarSlotTypeSource$]];
+export var GrammarSlotTypeSource$: StaticStructureSchema = [3, n0, _GSTSr, 0, [_sBN, _sOK, _kKA], [0, 0, 0]];
+export var ImageResponseCard$: StaticStructureSchema = [
   3,
   n0,
   _IRC,
@@ -2643,22 +2657,22 @@ export var ImageResponseCard: StaticStructureSchema = [
   [_ti, _su, _iU, _b],
   [0, 0, 0, () => ButtonsList],
 ];
-export var ImportFilter: StaticStructureSchema = [3, n0, _IF, 0, [_n, _v, _o], [0, 64 | 0, 0]];
-export var ImportResourceSpecification: StaticStructureSchema = [
+export var ImportFilter$: StaticStructureSchema = [3, n0, _IF, 0, [_n, _v, _o], [0, 64 | 0, 0]];
+export var ImportResourceSpecification$: StaticStructureSchema = [
   3,
   n0,
   _IRS,
   0,
   [_bIS, _bLIS, _cVIS, _tSIRS],
   [
-    () => BotImportSpecification,
-    () => BotLocaleImportSpecification,
-    () => CustomVocabularyImportSpecification,
-    () => TestSetImportResourceSpecification,
+    () => BotImportSpecification$,
+    () => BotLocaleImportSpecification$,
+    () => CustomVocabularyImportSpecification$,
+    () => TestSetImportResourceSpecification$,
   ],
 ];
-export var ImportSortBy: StaticStructureSchema = [3, n0, _ISB, 0, [_a, _or], [0, 0]];
-export var ImportSummary: StaticStructureSchema = [
+export var ImportSortBy$: StaticStructureSchema = [3, n0, _ISB, 0, [_a, _or], [0, 0]];
+export var ImportSummary$: StaticStructureSchema = [
   3,
   n0,
   _IS,
@@ -2666,37 +2680,37 @@ export var ImportSummary: StaticStructureSchema = [
   [_iIm, _iRI, _iRN, _iSm, _mS, _cDT, _lUDT, _iRT],
   [0, 0, 0, 0, 0, 4, 4, 0],
 ];
-export var InitialResponseSetting: StaticStructureSchema = [
+export var InitialResponseSetting$: StaticStructureSchema = [
   3,
   n0,
   _IRSn,
   0,
   [_iR, _nS, _co, _cH],
   [
-    () => ResponseSpecification,
-    () => DialogState,
-    () => ConditionalSpecification,
-    () => DialogCodeHookInvocationSetting,
+    () => ResponseSpecification$,
+    () => DialogState$,
+    () => ConditionalSpecification$,
+    () => DialogCodeHookInvocationSetting$,
   ],
 ];
-export var InputContext: StaticStructureSchema = [3, n0, _IC, 0, [_n], [0]];
-export var InputSessionStateSpecification: StaticStructureSchema = [
+export var InputContext$: StaticStructureSchema = [3, n0, _IC, 0, [_n], [0]];
+export var InputSessionStateSpecification$: StaticStructureSchema = [
   3,
   n0,
   _ISSS,
   0,
   [_sA, _aC, _rH],
-  [128 | 0, () => ActiveContextList, () => RuntimeHints],
+  [128 | 0, () => ActiveContextList, () => RuntimeHints$],
 ];
-export var IntentClassificationTestResultItem: StaticStructureSchema = [
+export var IntentClassificationTestResultItem$: StaticStructureSchema = [
   3,
   n0,
   _ICTRI,
   0,
   [_iN, _mTC, _rC],
-  [0, 2, () => IntentClassificationTestResultItemCounts],
+  [0, 2, () => IntentClassificationTestResultItemCounts$],
 ];
-export var IntentClassificationTestResultItemCounts: StaticStructureSchema = [
+export var IntentClassificationTestResultItemCounts$: StaticStructureSchema = [
   3,
   n0,
   _ICTRIC,
@@ -2704,7 +2718,7 @@ export var IntentClassificationTestResultItemCounts: StaticStructureSchema = [
   [_tRC, _sTRC, _iMRC],
   [1, 128 | 1, 128 | 1],
 ];
-export var IntentClassificationTestResults: StaticStructureSchema = [
+export var IntentClassificationTestResults$: StaticStructureSchema = [
   3,
   n0,
   _ICTR,
@@ -2712,39 +2726,39 @@ export var IntentClassificationTestResults: StaticStructureSchema = [
   [_it],
   [() => IntentClassificationTestResultItemList],
 ];
-export var IntentClosingSetting: StaticStructureSchema = [
+export var IntentClosingSetting$: StaticStructureSchema = [
   3,
   n0,
   _ICS,
   0,
   [_cR, _ac, _nS, _co],
-  [() => ResponseSpecification, 2, () => DialogState, () => ConditionalSpecification],
+  [() => ResponseSpecification$, 2, () => DialogState$, () => ConditionalSpecification$],
 ];
-export var IntentConfirmationSetting: StaticStructureSchema = [
+export var IntentConfirmationSetting$: StaticStructureSchema = [
   3,
   n0,
   _ICSn,
   0,
   [_pS, _dR, _ac, _cRo, _cNS, _cC, _dNS, _dCe, _fRa, _fNS, _fC, _cH, _eCH],
   [
-    () => PromptSpecification,
-    () => ResponseSpecification,
+    () => PromptSpecification$,
+    () => ResponseSpecification$,
     2,
-    () => ResponseSpecification,
-    () => DialogState,
-    () => ConditionalSpecification,
-    () => DialogState,
-    () => ConditionalSpecification,
-    () => ResponseSpecification,
-    () => DialogState,
-    () => ConditionalSpecification,
-    () => DialogCodeHookInvocationSetting,
-    () => ElicitationCodeHookInvocationSetting,
+    () => ResponseSpecification$,
+    () => DialogState$,
+    () => ConditionalSpecification$,
+    () => DialogState$,
+    () => ConditionalSpecification$,
+    () => ResponseSpecification$,
+    () => DialogState$,
+    () => ConditionalSpecification$,
+    () => DialogCodeHookInvocationSetting$,
+    () => ElicitationCodeHookInvocationSetting$,
   ],
 ];
-export var IntentDisambiguationSettings: StaticStructureSchema = [3, n0, _IDS, 0, [_e, _mDI, _cDM], [2, 1, 0]];
-export var IntentFilter: StaticStructureSchema = [3, n0, _IFn, 0, [_n, _v, _o], [0, 64 | 0, 0]];
-export var IntentLevelSlotResolutionTestResultItem: StaticStructureSchema = [
+export var IntentDisambiguationSettings$: StaticStructureSchema = [3, n0, _IDS, 0, [_e, _mDI, _cDM], [2, 1, 0]];
+export var IntentFilter$: StaticStructureSchema = [3, n0, _IFn, 0, [_n, _v, _o], [0, 64 | 0, 0]];
+export var IntentLevelSlotResolutionTestResultItem$: StaticStructureSchema = [
   3,
   n0,
   _ILSRTRI,
@@ -2752,7 +2766,7 @@ export var IntentLevelSlotResolutionTestResultItem: StaticStructureSchema = [
   [_iN, _mTC, _sRR],
   [0, 2, () => SlotResolutionTestResultItems],
 ];
-export var IntentLevelSlotResolutionTestResults: StaticStructureSchema = [
+export var IntentLevelSlotResolutionTestResults$: StaticStructureSchema = [
   3,
   n0,
   _ILSRTR,
@@ -2760,10 +2774,10 @@ export var IntentLevelSlotResolutionTestResults: StaticStructureSchema = [
   [_it],
   [() => IntentLevelSlotResolutionTestResultItemList],
 ];
-export var IntentOverride: StaticStructureSchema = [3, n0, _IO, 0, [_n, _sl], [0, () => SlotValueOverrideMap]];
-export var IntentSortBy: StaticStructureSchema = [3, n0, _ISBn, 0, [_a, _or], [0, 0]];
-export var IntentStatistics: StaticStructureSchema = [3, n0, _ISn, 0, [_dIC], [1]];
-export var IntentSummary: StaticStructureSchema = [
+export var IntentOverride$: StaticStructureSchema = [3, n0, _IO, 0, [_n, _sl], [0, () => SlotValueOverrideMap]];
+export var IntentSortBy$: StaticStructureSchema = [3, n0, _ISBn, 0, [_a, _or], [0, 0]];
+export var IntentStatistics$: StaticStructureSchema = [3, n0, _ISn, 0, [_dIC], [1]];
+export var IntentSummary$: StaticStructureSchema = [
   3,
   n0,
   _ISnt,
@@ -2771,13 +2785,13 @@ export var IntentSummary: StaticStructureSchema = [
   [_iI, _iN, _iDN, _de, _pIS, _iCn, _oC, _lUDT],
   [0, 0, 0, 0, 0, () => InputContextsList, () => OutputContextsList, 4],
 ];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_err]: _se, [_hE]: 500 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var InvokedIntentSample: StaticStructureSchema = [3, n0, _IIS, 0, [_iN], [0]];
-export var KendraConfiguration: StaticStructureSchema = [3, n0, _KC, 0, [_kI, _qFSE, _qFS], [0, 2, 0]];
-export var LambdaCodeHook: StaticStructureSchema = [3, n0, _LCH, 0, [_lARN, _cHIV], [0, 0]];
-export var LexTranscriptFilter: StaticStructureSchema = [3, n0, _LTF, 0, [_dRF], [() => DateRangeFilter]];
-export var ListAggregatedUtterancesRequest: StaticStructureSchema = [
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_err]: _se, [_hE]: 500 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var InvokedIntentSample$: StaticStructureSchema = [3, n0, _IIS, 0, [_iN], [0]];
+export var KendraConfiguration$: StaticStructureSchema = [3, n0, _KC, 0, [_kI, _qFSE, _qFS], [0, 2, 0]];
+export var LambdaCodeHook$: StaticStructureSchema = [3, n0, _LCH, 0, [_lARN, _cHIV], [0, 0]];
+export var LexTranscriptFilter$: StaticStructureSchema = [3, n0, _LTF, 0, [_dRF], [() => DateRangeFilter$]];
+export var ListAggregatedUtterancesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAUR,
@@ -2788,23 +2802,23 @@ export var ListAggregatedUtterancesRequest: StaticStructureSchema = [
     0,
     0,
     0,
-    () => UtteranceAggregationDuration,
-    () => AggregatedUtterancesSortBy,
+    () => UtteranceAggregationDuration$,
+    () => AggregatedUtterancesSortBy$,
     () => AggregatedUtterancesFilters,
     1,
     0,
   ],
 ];
-export var ListAggregatedUtterancesResponse: StaticStructureSchema = [
+export var ListAggregatedUtterancesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LAURi,
   0,
   [_bI, _bAI, _bV, _lI, _aD, _aWST, _aWET, _aLRDT, _aUS, _nTe],
-  [0, 0, 0, 0, () => UtteranceAggregationDuration, 4, 4, 4, () => AggregatedUtterancesSummaryList, 0],
+  [0, 0, 0, 0, () => UtteranceAggregationDuration$, 4, 4, 4, () => AggregatedUtterancesSummaryList, 0],
 ];
-export var ListBotAliasesRequest: StaticStructureSchema = [3, n0, _LBAR, 0, [_bI, _mRax, _nTe], [[0, 1], 1, 0]];
-export var ListBotAliasesResponse: StaticStructureSchema = [
+export var ListBotAliasesRequest$: StaticStructureSchema = [3, n0, _LBAR, 0, [_bI, _mRax, _nTe], [[0, 1], 1, 0]];
+export var ListBotAliasesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LBARi,
@@ -2812,7 +2826,7 @@ export var ListBotAliasesResponse: StaticStructureSchema = [
   [_bASo, _nTe, _bI],
   [() => BotAliasSummaryList, 0, 0],
 ];
-export var ListBotAliasReplicasRequest: StaticStructureSchema = [
+export var ListBotAliasReplicasRequest$: StaticStructureSchema = [
   3,
   n0,
   _LBARR,
@@ -2820,7 +2834,7 @@ export var ListBotAliasReplicasRequest: StaticStructureSchema = [
   [_bI, _rR, _mRax, _nTe],
   [[0, 1], [0, 1], 1, 0],
 ];
-export var ListBotAliasReplicasResponse: StaticStructureSchema = [
+export var ListBotAliasReplicasResponse$: StaticStructureSchema = [
   3,
   n0,
   _LBARRi,
@@ -2828,15 +2842,15 @@ export var ListBotAliasReplicasResponse: StaticStructureSchema = [
   [_bI, _sR, _rR, _bARSo, _nTe],
   [0, 0, 0, () => BotAliasReplicaSummaryList, 0],
 ];
-export var ListBotLocalesRequest: StaticStructureSchema = [
+export var ListBotLocalesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LBLR,
   0,
   [_bI, _bV, _sBo, _fi, _mRax, _nTe],
-  [[0, 1], [0, 1], () => BotLocaleSortBy, () => BotLocaleFilters, 1, 0],
+  [[0, 1], [0, 1], () => BotLocaleSortBy$, () => BotLocaleFilters, 1, 0],
 ];
-export var ListBotLocalesResponse: StaticStructureSchema = [
+export var ListBotLocalesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LBLRi,
@@ -2844,7 +2858,7 @@ export var ListBotLocalesResponse: StaticStructureSchema = [
   [_bI, _bV, _nTe, _bLSo],
   [0, 0, 0, () => BotLocaleSummaryList],
 ];
-export var ListBotRecommendationsRequest: StaticStructureSchema = [
+export var ListBotRecommendationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LBRR,
@@ -2852,7 +2866,7 @@ export var ListBotRecommendationsRequest: StaticStructureSchema = [
   [_bI, _bV, _lI, _mRax, _nTe],
   [[0, 1], [0, 1], [0, 1], 1, 0],
 ];
-export var ListBotRecommendationsResponse: StaticStructureSchema = [
+export var ListBotRecommendationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LBRRi,
@@ -2860,8 +2874,8 @@ export var ListBotRecommendationsResponse: StaticStructureSchema = [
   [_bI, _bV, _lI, _bRSot, _nTe],
   [0, 0, 0, () => BotRecommendationSummaryList, 0],
 ];
-export var ListBotReplicasRequest: StaticStructureSchema = [3, n0, _LBRRis, 0, [_bI], [[0, 1]]];
-export var ListBotReplicasResponse: StaticStructureSchema = [
+export var ListBotReplicasRequest$: StaticStructureSchema = [3, n0, _LBRRis, 0, [_bI], [[0, 1]]];
+export var ListBotReplicasResponse$: StaticStructureSchema = [
   3,
   n0,
   _LBRRist,
@@ -2869,15 +2883,15 @@ export var ListBotReplicasResponse: StaticStructureSchema = [
   [_bI, _sR, _bRSote],
   [0, 0, () => BotReplicaSummaryList],
 ];
-export var ListBotResourceGenerationsRequest: StaticStructureSchema = [
+export var ListBotResourceGenerationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LBRGR,
   0,
   [_bI, _bV, _lI, _sBo, _mRax, _nTe],
-  [[0, 1], [0, 1], [0, 1], () => GenerationSortBy, 1, 0],
+  [[0, 1], [0, 1], [0, 1], () => GenerationSortBy$, 1, 0],
 ];
-export var ListBotResourceGenerationsResponse: StaticStructureSchema = [
+export var ListBotResourceGenerationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LBRGRi,
@@ -2885,24 +2899,24 @@ export var ListBotResourceGenerationsResponse: StaticStructureSchema = [
   [_bI, _bV, _lI, _gSe, _nTe],
   [0, 0, 0, () => GenerationSummaryList, 0],
 ];
-export var ListBotsRequest: StaticStructureSchema = [
+export var ListBotsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LBR,
   0,
   [_sBo, _fi, _mRax, _nTe],
-  [() => BotSortBy, () => BotFilters, 1, 0],
+  [() => BotSortBy$, () => BotFilters, 1, 0],
 ];
-export var ListBotsResponse: StaticStructureSchema = [3, n0, _LBRi, 0, [_bSo, _nTe], [() => BotSummaryList, 0]];
-export var ListBotVersionReplicasRequest: StaticStructureSchema = [
+export var ListBotsResponse$: StaticStructureSchema = [3, n0, _LBRi, 0, [_bSo, _nTe], [() => BotSummaryList, 0]];
+export var ListBotVersionReplicasRequest$: StaticStructureSchema = [
   3,
   n0,
   _LBVRR,
   0,
   [_bI, _rR, _mRax, _nTe, _sBo],
-  [[0, 1], [0, 1], 1, 0, () => BotVersionReplicaSortBy],
+  [[0, 1], [0, 1], 1, 0, () => BotVersionReplicaSortBy$],
 ];
-export var ListBotVersionReplicasResponse: StaticStructureSchema = [
+export var ListBotVersionReplicasResponse$: StaticStructureSchema = [
   3,
   n0,
   _LBVRRi,
@@ -2910,15 +2924,15 @@ export var ListBotVersionReplicasResponse: StaticStructureSchema = [
   [_bI, _sR, _rR, _bVRSo, _nTe],
   [0, 0, 0, () => BotVersionReplicaSummaryList, 0],
 ];
-export var ListBotVersionsRequest: StaticStructureSchema = [
+export var ListBotVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LBVR,
   0,
   [_bI, _sBo, _mRax, _nTe],
-  [[0, 1], () => BotVersionSortBy, 1, 0],
+  [[0, 1], () => BotVersionSortBy$, 1, 0],
 ];
-export var ListBotVersionsResponse: StaticStructureSchema = [
+export var ListBotVersionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LBVRi,
@@ -2926,15 +2940,15 @@ export var ListBotVersionsResponse: StaticStructureSchema = [
   [_bI, _bVS, _nTe],
   [0, () => BotVersionSummaryList, 0],
 ];
-export var ListBuiltInIntentsRequest: StaticStructureSchema = [
+export var ListBuiltInIntentsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LBIIR,
   0,
   [_lI, _sBo, _mRax, _nTe],
-  [[0, 1], () => BuiltInIntentSortBy, 1, 0],
+  [[0, 1], () => BuiltInIntentSortBy$, 1, 0],
 ];
-export var ListBuiltInIntentsResponse: StaticStructureSchema = [
+export var ListBuiltInIntentsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LBIIRi,
@@ -2942,15 +2956,15 @@ export var ListBuiltInIntentsResponse: StaticStructureSchema = [
   [_bIIS, _nTe, _lI],
   [() => BuiltInIntentSummaryList, 0, 0],
 ];
-export var ListBuiltInSlotTypesRequest: StaticStructureSchema = [
+export var ListBuiltInSlotTypesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LBISTR,
   0,
   [_lI, _sBo, _mRax, _nTe],
-  [[0, 1], () => BuiltInSlotTypeSortBy, 1, 0],
+  [[0, 1], () => BuiltInSlotTypeSortBy$, 1, 0],
 ];
-export var ListBuiltInSlotTypesResponse: StaticStructureSchema = [
+export var ListBuiltInSlotTypesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LBISTRi,
@@ -2958,7 +2972,7 @@ export var ListBuiltInSlotTypesResponse: StaticStructureSchema = [
   [_bISTS, _nTe, _lI],
   [() => BuiltInSlotTypeSummaryList, 0, 0],
 ];
-export var ListCustomVocabularyItemsRequest: StaticStructureSchema = [
+export var ListCustomVocabularyItemsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCVIR,
@@ -2966,7 +2980,7 @@ export var ListCustomVocabularyItemsRequest: StaticStructureSchema = [
   [_bI, _bV, _lI, _mRax, _nTe],
   [[0, 1], [0, 1], [0, 1], 1, 0],
 ];
-export var ListCustomVocabularyItemsResponse: StaticStructureSchema = [
+export var ListCustomVocabularyItemsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCVIRi,
@@ -2974,15 +2988,15 @@ export var ListCustomVocabularyItemsResponse: StaticStructureSchema = [
   [_bI, _bV, _lI, _cVI, _nTe],
   [0, 0, 0, () => CustomVocabularyItems, 0],
 ];
-export var ListExportsRequest: StaticStructureSchema = [
+export var ListExportsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LER,
   0,
   [_bI, _bV, _sBo, _fi, _mRax, _nTe, _lI],
-  [0, 0, () => ExportSortBy, () => ExportFilters, 1, 0, 0],
+  [0, 0, () => ExportSortBy$, () => ExportFilters, 1, 0, 0],
 ];
-export var ListExportsResponse: StaticStructureSchema = [
+export var ListExportsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LERi,
@@ -2990,15 +3004,15 @@ export var ListExportsResponse: StaticStructureSchema = [
   [_bI, _bV, _eSxp, _nTe, _lI],
   [0, 0, () => ExportSummaryList, 0, 0],
 ];
-export var ListImportsRequest: StaticStructureSchema = [
+export var ListImportsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LIR,
   0,
   [_bI, _bV, _sBo, _fi, _mRax, _nTe, _lI],
-  [0, 0, () => ImportSortBy, () => ImportFilters, 1, 0, 0],
+  [0, 0, () => ImportSortBy$, () => ImportFilters, 1, 0, 0],
 ];
-export var ListImportsResponse: StaticStructureSchema = [
+export var ListImportsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LIRi,
@@ -3006,7 +3020,7 @@ export var ListImportsResponse: StaticStructureSchema = [
   [_bI, _bV, _iSmp, _nTe, _lI],
   [0, 0, () => ImportSummaryList, 0, 0],
 ];
-export var ListIntentMetricsRequest: StaticStructureSchema = [
+export var ListIntentMetricsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LIMR,
@@ -3024,7 +3038,7 @@ export var ListIntentMetricsRequest: StaticStructureSchema = [
     0,
   ],
 ];
-export var ListIntentMetricsResponse: StaticStructureSchema = [
+export var ListIntentMetricsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LIMRi,
@@ -3032,7 +3046,7 @@ export var ListIntentMetricsResponse: StaticStructureSchema = [
   [_bI, _res, _nTe],
   [0, () => AnalyticsIntentResults, 0],
 ];
-export var ListIntentPathsRequest: StaticStructureSchema = [
+export var ListIntentPathsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LIPR,
@@ -3040,7 +3054,7 @@ export var ListIntentPathsRequest: StaticStructureSchema = [
   [_bI, _sDT, _eDT, _iP, _fi],
   [[0, 1], 4, 4, 0, () => AnalyticsPathFilters],
 ];
-export var ListIntentPathsResponse: StaticStructureSchema = [
+export var ListIntentPathsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LIPRi,
@@ -3048,15 +3062,15 @@ export var ListIntentPathsResponse: StaticStructureSchema = [
   [_nSo],
   [() => AnalyticsIntentNodeSummaries],
 ];
-export var ListIntentsRequest: StaticStructureSchema = [
+export var ListIntentsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LIRis,
   0,
   [_bI, _bV, _lI, _sBo, _fi, _mRax, _nTe],
-  [[0, 1], [0, 1], [0, 1], () => IntentSortBy, () => IntentFilters, 1, 0],
+  [[0, 1], [0, 1], [0, 1], () => IntentSortBy$, () => IntentFilters, 1, 0],
 ];
-export var ListIntentsResponse: StaticStructureSchema = [
+export var ListIntentsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LIRist,
@@ -3064,7 +3078,7 @@ export var ListIntentsResponse: StaticStructureSchema = [
   [_bI, _bV, _lI, _iSn, _nTe],
   [0, 0, 0, () => IntentSummaryList, 0],
 ];
-export var ListIntentStageMetricsRequest: StaticStructureSchema = [
+export var ListIntentStageMetricsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LISMR,
@@ -3082,7 +3096,7 @@ export var ListIntentStageMetricsRequest: StaticStructureSchema = [
     0,
   ],
 ];
-export var ListIntentStageMetricsResponse: StaticStructureSchema = [
+export var ListIntentStageMetricsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LISMRi,
@@ -3090,7 +3104,7 @@ export var ListIntentStageMetricsResponse: StaticStructureSchema = [
   [_bI, _res, _nTe],
   [0, () => AnalyticsIntentStageResults, 0],
 ];
-export var ListRecommendedIntentsRequest: StaticStructureSchema = [
+export var ListRecommendedIntentsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRIR,
@@ -3098,7 +3112,7 @@ export var ListRecommendedIntentsRequest: StaticStructureSchema = [
   [_bI, _bV, _lI, _bRI, _nTe, _mRax],
   [[0, 1], [0, 1], [0, 1], [0, 1], 0, 1],
 ];
-export var ListRecommendedIntentsResponse: StaticStructureSchema = [
+export var ListRecommendedIntentsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRIRi,
@@ -3106,15 +3120,15 @@ export var ListRecommendedIntentsResponse: StaticStructureSchema = [
   [_bI, _bV, _lI, _bRI, _sLu, _nTe],
   [0, 0, 0, 0, () => RecommendedIntentSummaryList, 0],
 ];
-export var ListSessionAnalyticsDataRequest: StaticStructureSchema = [
+export var ListSessionAnalyticsDataRequest$: StaticStructureSchema = [
   3,
   n0,
   _LSADR,
   0,
   [_bI, _sDT, _eDT, _sBo, _fi, _mRax, _nTe],
-  [[0, 1], 4, 4, () => SessionDataSortBy, () => AnalyticsSessionFilters, 1, 0],
+  [[0, 1], 4, 4, () => SessionDataSortBy$, () => AnalyticsSessionFilters, 1, 0],
 ];
-export var ListSessionAnalyticsDataResponse: StaticStructureSchema = [
+export var ListSessionAnalyticsDataResponse$: StaticStructureSchema = [
   3,
   n0,
   _LSADRi,
@@ -3122,7 +3136,7 @@ export var ListSessionAnalyticsDataResponse: StaticStructureSchema = [
   [_bI, _nTe, _ses],
   [0, 0, () => SessionSpecifications],
 ];
-export var ListSessionMetricsRequest: StaticStructureSchema = [
+export var ListSessionMetricsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LSMR,
@@ -3140,7 +3154,7 @@ export var ListSessionMetricsRequest: StaticStructureSchema = [
     0,
   ],
 ];
-export var ListSessionMetricsResponse: StaticStructureSchema = [
+export var ListSessionMetricsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LSMRi,
@@ -3148,15 +3162,15 @@ export var ListSessionMetricsResponse: StaticStructureSchema = [
   [_bI, _res, _nTe],
   [0, () => AnalyticsSessionResults, 0],
 ];
-export var ListSlotsRequest: StaticStructureSchema = [
+export var ListSlotsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LSR,
   0,
   [_bI, _bV, _lI, _iI, _sBo, _fi, _mRax, _nTe],
-  [[0, 1], [0, 1], [0, 1], [0, 1], () => SlotSortBy, () => SlotFilters, 1, 0],
+  [[0, 1], [0, 1], [0, 1], [0, 1], () => SlotSortBy$, () => SlotFilters, 1, 0],
 ];
-export var ListSlotsResponse: StaticStructureSchema = [
+export var ListSlotsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LSRi,
@@ -3164,15 +3178,15 @@ export var ListSlotsResponse: StaticStructureSchema = [
   [_bI, _bV, _lI, _iI, _sSl, _nTe],
   [0, 0, 0, 0, () => SlotSummaryList, 0],
 ];
-export var ListSlotTypesRequest: StaticStructureSchema = [
+export var ListSlotTypesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LSTR,
   0,
   [_bI, _bV, _lI, _sBo, _fi, _mRax, _nTe],
-  [[0, 1], [0, 1], [0, 1], () => SlotTypeSortBy, () => SlotTypeFilters, 1, 0],
+  [[0, 1], [0, 1], [0, 1], () => SlotTypeSortBy$, () => SlotTypeFilters, 1, 0],
 ];
-export var ListSlotTypesResponse: StaticStructureSchema = [
+export var ListSlotTypesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LSTRi,
@@ -3180,33 +3194,33 @@ export var ListSlotTypesResponse: StaticStructureSchema = [
   [_bI, _bV, _lI, _sTSl, _nTe],
   [0, 0, 0, () => SlotTypeSummaryList, 0],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rARN], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [128 | 0]];
-export var ListTestExecutionResultItemsRequest: StaticStructureSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rARN], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [128 | 0]];
+export var ListTestExecutionResultItemsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LTERIR,
   0,
   [_tEI, _rFB, _mRax, _nTe],
-  [[0, 1], () => TestExecutionResultFilterBy, 1, 0],
+  [[0, 1], () => TestExecutionResultFilterBy$, 1, 0],
 ];
-export var ListTestExecutionResultItemsResponse: StaticStructureSchema = [
+export var ListTestExecutionResultItemsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LTERIRi,
   0,
   [_tER, _nTe],
-  [() => TestExecutionResultItems, 0],
+  [() => TestExecutionResultItems$, 0],
 ];
-export var ListTestExecutionsRequest: StaticStructureSchema = [
+export var ListTestExecutionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LTER,
   0,
   [_sBo, _mRax, _nTe],
-  [() => TestExecutionSortBy, 1, 0],
+  [() => TestExecutionSortBy$, 1, 0],
 ];
-export var ListTestExecutionsResponse: StaticStructureSchema = [
+export var ListTestExecutionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LTERi,
@@ -3214,8 +3228,8 @@ export var ListTestExecutionsResponse: StaticStructureSchema = [
   [_tE, _nTe],
   [() => TestExecutionSummaryList, 0],
 ];
-export var ListTestSetRecordsRequest: StaticStructureSchema = [3, n0, _LTSRR, 0, [_tSI, _mRax, _nTe], [[0, 1], 1, 0]];
-export var ListTestSetRecordsResponse: StaticStructureSchema = [
+export var ListTestSetRecordsRequest$: StaticStructureSchema = [3, n0, _LTSRR, 0, [_tSI, _mRax, _nTe], [[0, 1], 1, 0]];
+export var ListTestSetRecordsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LTSRRi,
@@ -3223,15 +3237,15 @@ export var ListTestSetRecordsResponse: StaticStructureSchema = [
   [_tSR, _nTe],
   [() => TestSetTurnRecordList, 0],
 ];
-export var ListTestSetsRequest: StaticStructureSchema = [
+export var ListTestSetsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LTSR,
   0,
   [_sBo, _mRax, _nTe],
-  [() => TestSetSortBy, 1, 0],
+  [() => TestSetSortBy$, 1, 0],
 ];
-export var ListTestSetsResponse: StaticStructureSchema = [
+export var ListTestSetsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LTSRi,
@@ -3239,15 +3253,15 @@ export var ListTestSetsResponse: StaticStructureSchema = [
   [_tSe, _nTe],
   [() => TestSetSummaryList, 0],
 ];
-export var ListUtteranceAnalyticsDataRequest: StaticStructureSchema = [
+export var ListUtteranceAnalyticsDataRequest$: StaticStructureSchema = [
   3,
   n0,
   _LUADR,
   0,
   [_bI, _sDT, _eDT, _sBo, _fi, _mRax, _nTe],
-  [[0, 1], 4, 4, () => UtteranceDataSortBy, () => AnalyticsUtteranceFilters, 1, 0],
+  [[0, 1], 4, 4, () => UtteranceDataSortBy$, () => AnalyticsUtteranceFilters, 1, 0],
 ];
-export var ListUtteranceAnalyticsDataResponse: StaticStructureSchema = [
+export var ListUtteranceAnalyticsDataResponse$: StaticStructureSchema = [
   3,
   n0,
   _LUADRi,
@@ -3255,7 +3269,7 @@ export var ListUtteranceAnalyticsDataResponse: StaticStructureSchema = [
   [_bI, _nTe, _ut],
   [0, 0, () => UtteranceSpecifications],
 ];
-export var ListUtteranceMetricsRequest: StaticStructureSchema = [
+export var ListUtteranceMetricsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LUMR,
@@ -3274,7 +3288,7 @@ export var ListUtteranceMetricsRequest: StaticStructureSchema = [
     0,
   ],
 ];
-export var ListUtteranceMetricsResponse: StaticStructureSchema = [
+export var ListUtteranceMetricsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LUMRi,
@@ -3282,43 +3296,43 @@ export var ListUtteranceMetricsResponse: StaticStructureSchema = [
   [_bI, _res, _nTe],
   [0, () => AnalyticsUtteranceResults, 0],
 ];
-export var Message: StaticStructureSchema = [
+export var Message$: StaticStructureSchema = [
   3,
   n0,
   _M,
   0,
   [_pTM, _cPu, _sM, _iRC],
-  [() => PlainTextMessage, () => CustomPayload, () => SSMLMessage, () => ImageResponseCard],
+  [() => PlainTextMessage$, () => CustomPayload$, () => SSMLMessage$, () => ImageResponseCard$],
 ];
-export var MessageGroup: StaticStructureSchema = [
+export var MessageGroup$: StaticStructureSchema = [
   3,
   n0,
   _MG,
   0,
   [_m, _var],
-  [() => Message, () => MessageVariationsList],
+  [() => Message$, () => MessageVariationsList],
 ];
-export var MultipleValuesSetting: StaticStructureSchema = [3, n0, _MVS, 0, [_aMV], [2]];
-export var NewCustomVocabularyItem: StaticStructureSchema = [3, n0, _NCVI, 0, [_ph, _w, _dA], [0, 1, 0]];
-export var NluImprovementSpecification: StaticStructureSchema = [
+export var MultipleValuesSetting$: StaticStructureSchema = [3, n0, _MVS, 0, [_aMV], [2]];
+export var NewCustomVocabularyItem$: StaticStructureSchema = [3, n0, _NCVI, 0, [_ph, _w, _dA], [0, 1, 0]];
+export var NluImprovementSpecification$: StaticStructureSchema = [
   3,
   n0,
   _NIS,
   0,
   [_e, _aNM, _iDS],
-  [2, 0, () => IntentDisambiguationSettings],
+  [2, 0, () => IntentDisambiguationSettings$],
 ];
-export var ObfuscationSetting: StaticStructureSchema = [3, n0, _OS, 0, [_oST], [0]];
-export var OpensearchConfiguration: StaticStructureSchema = [
+export var ObfuscationSetting$: StaticStructureSchema = [3, n0, _OS, 0, [_oST], [0]];
+export var OpensearchConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _OC,
   0,
   [_dE, _iNn, _eR, _eRF, _iF],
-  [0, 0, 2, () => ExactResponseFields, 64 | 0],
+  [0, 0, 2, () => ExactResponseFields$, 64 | 0],
 ];
-export var OutputContext: StaticStructureSchema = [3, n0, _OCu, 0, [_n, _tTLIS, _tTL], [0, 1, 1]];
-export var OverallTestResultItem: StaticStructureSchema = [
+export var OutputContext$: StaticStructureSchema = [3, n0, _OCu, 0, [_n, _tTLIS, _tTL], [0, 1, 1]];
+export var OverallTestResultItem$: StaticStructureSchema = [
   3,
   n0,
   _OTRI,
@@ -3326,58 +3340,58 @@ export var OverallTestResultItem: StaticStructureSchema = [
   [_mTC, _tRC, _sTRC, _eTERC],
   [2, 1, 128 | 1, 128 | 1],
 ];
-export var OverallTestResults: StaticStructureSchema = [3, n0, _OTR, 0, [_it], [() => OverallTestResultItemList]];
-export var ParentBotNetwork: StaticStructureSchema = [3, n0, _PBN, 0, [_bI, _bV], [0, 0]];
-export var PathFormat: StaticStructureSchema = [3, n0, _PF, 0, [_oP], [64 | 0]];
-export var PlainTextMessage: StaticStructureSchema = [3, n0, _PTM, 0, [_va], [0]];
-export var PostDialogCodeHookInvocationSpecification: StaticStructureSchema = [
+export var OverallTestResults$: StaticStructureSchema = [3, n0, _OTR, 0, [_it], [() => OverallTestResultItemList]];
+export var ParentBotNetwork$: StaticStructureSchema = [3, n0, _PBN, 0, [_bI, _bV], [0, 0]];
+export var PathFormat$: StaticStructureSchema = [3, n0, _PF, 0, [_oP], [64 | 0]];
+export var PlainTextMessage$: StaticStructureSchema = [3, n0, _PTM, 0, [_va], [0]];
+export var PostDialogCodeHookInvocationSpecification$: StaticStructureSchema = [
   3,
   n0,
   _PDCHIS,
   0,
   [_sRu, _sNS, _sC, _fRa, _fNS, _fC, _tR, _tNS, _tC],
   [
-    () => ResponseSpecification,
-    () => DialogState,
-    () => ConditionalSpecification,
-    () => ResponseSpecification,
-    () => DialogState,
-    () => ConditionalSpecification,
-    () => ResponseSpecification,
-    () => DialogState,
-    () => ConditionalSpecification,
+    () => ResponseSpecification$,
+    () => DialogState$,
+    () => ConditionalSpecification$,
+    () => ResponseSpecification$,
+    () => DialogState$,
+    () => ConditionalSpecification$,
+    () => ResponseSpecification$,
+    () => DialogState$,
+    () => ConditionalSpecification$,
   ],
 ];
-export var PostFulfillmentStatusSpecification: StaticStructureSchema = [
+export var PostFulfillmentStatusSpecification$: StaticStructureSchema = [
   3,
   n0,
   _PFSS,
   0,
   [_sRu, _fRa, _tR, _sNS, _sC, _fNS, _fC, _tNS, _tC],
   [
-    () => ResponseSpecification,
-    () => ResponseSpecification,
-    () => ResponseSpecification,
-    () => DialogState,
-    () => ConditionalSpecification,
-    () => DialogState,
-    () => ConditionalSpecification,
-    () => DialogState,
-    () => ConditionalSpecification,
+    () => ResponseSpecification$,
+    () => ResponseSpecification$,
+    () => ResponseSpecification$,
+    () => DialogState$,
+    () => ConditionalSpecification$,
+    () => DialogState$,
+    () => ConditionalSpecification$,
+    () => DialogState$,
+    () => ConditionalSpecification$,
   ],
 ];
-export var PreconditionFailedException: StaticErrorSchema = [-3, n0, _PFE, { [_err]: _cl, [_hE]: 412 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(PreconditionFailedException, __PreconditionFailedException);
-export var Principal: StaticStructureSchema = [3, n0, _P, 0, [_ser, _ar], [0, 0]];
-export var PromptAttemptSpecification: StaticStructureSchema = [
+export var PreconditionFailedException$: StaticErrorSchema = [-3, n0, _PFE, { [_err]: _cl, [_hE]: 412 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(PreconditionFailedException$, PreconditionFailedException);
+export var Principal$: StaticStructureSchema = [3, n0, _P, 0, [_ser, _ar], [0, 0]];
+export var PromptAttemptSpecification$: StaticStructureSchema = [
   3,
   n0,
   _PAS,
   0,
   [_aIl, _aIT, _aADTMFIS, _tISe],
-  [2, () => AllowedInputTypes, () => AudioAndDTMFInputSpecification, () => TextInputSpecification],
+  [2, () => AllowedInputTypes$, () => AudioAndDTMFInputSpecification$, () => TextInputSpecification$],
 ];
-export var PromptSpecification: StaticStructureSchema = [
+export var PromptSpecification$: StaticStructureSchema = [
   3,
   n0,
   _PS,
@@ -3385,30 +3399,30 @@ export var PromptSpecification: StaticStructureSchema = [
   [_mG, _mRaxe, _aIl, _mSS, _pAS],
   [() => MessageGroupsList, 1, 2, 0, () => PromptAttemptsSpecificationMap],
 ];
-export var QInConnectAssistantConfiguration: StaticStructureSchema = [3, n0, _QICAC, 0, [_aA], [0]];
-export var QInConnectIntentConfiguration: StaticStructureSchema = [
+export var QInConnectAssistantConfiguration$: StaticStructureSchema = [3, n0, _QICAC, 0, [_aA], [0]];
+export var QInConnectIntentConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _QICIC,
   0,
   [_qICAC],
-  [() => QInConnectAssistantConfiguration],
+  [() => QInConnectAssistantConfiguration$],
 ];
-export var QnAIntentConfiguration: StaticStructureSchema = [
+export var QnAIntentConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _QAIC,
   0,
   [_dSC, _bMC],
-  [() => DataSourceConfiguration, () => BedrockModelSpecification],
+  [() => DataSourceConfiguration$, () => BedrockModelSpecification$],
 ];
-export var QnAKendraConfiguration: StaticStructureSchema = [3, n0, _QAKC, 0, [_kI, _qFSE, _qFS, _eR], [0, 2, 0, 2]];
-export var RecommendedIntentSummary: StaticStructureSchema = [3, n0, _RIS, 0, [_iI, _iN, _sUC], [0, 0, 1]];
-export var RelativeAggregationDuration: StaticStructureSchema = [3, n0, _RAD, 0, [_tD, _tV], [0, 1]];
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_err]: _cl, [_hE]: 404 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ResponseSpecification: StaticStructureSchema = [3, n0, _RS, 0, [_mG, _aIl], [() => MessageGroupsList, 2]];
-export var RuntimeHintDetails: StaticStructureSchema = [
+export var QnAKendraConfiguration$: StaticStructureSchema = [3, n0, _QAKC, 0, [_kI, _qFSE, _qFS, _eR], [0, 2, 0, 2]];
+export var RecommendedIntentSummary$: StaticStructureSchema = [3, n0, _RIS, 0, [_iI, _iN, _sUC], [0, 0, 1]];
+export var RelativeAggregationDuration$: StaticStructureSchema = [3, n0, _RAD, 0, [_tD, _tV], [0, 1]];
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_err]: _cl, [_hE]: 404 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResponseSpecification$: StaticStructureSchema = [3, n0, _RS, 0, [_mG, _aIl], [() => MessageGroupsList, 2]];
+export var RuntimeHintDetails$: StaticStructureSchema = [
   3,
   n0,
   _RHD,
@@ -3416,36 +3430,36 @@ export var RuntimeHintDetails: StaticStructureSchema = [
   [_rHV, _sSH],
   [() => RuntimeHintValuesList, () => SlotHintsSlotMap],
 ];
-export var RuntimeHints: StaticStructureSchema = [3, n0, _RH, 0, [_sH], [() => SlotHintsIntentMap]];
-export var RuntimeHintValue: StaticStructureSchema = [3, n0, _RHV, 0, [_ph], [0]];
-export var RuntimeSettings: StaticStructureSchema = [
+export var RuntimeHints$: StaticStructureSchema = [3, n0, _RH, 0, [_sH], [() => SlotHintsIntentMap]];
+export var RuntimeHintValue$: StaticStructureSchema = [3, n0, _RHV, 0, [_ph], [0]];
+export var RuntimeSettings$: StaticStructureSchema = [
   3,
   n0,
   _RSu,
   0,
   [_sRI, _nI],
-  [() => SlotResolutionImprovementSpecification, () => NluImprovementSpecification],
+  [() => SlotResolutionImprovementSpecification$, () => NluImprovementSpecification$],
 ];
-export var S3BucketLogDestination: StaticStructureSchema = [3, n0, _SBLD, 0, [_kKA, _sBA, _lP], [0, 0, 0]];
-export var S3BucketTranscriptSource: StaticStructureSchema = [
+export var S3BucketLogDestination$: StaticStructureSchema = [3, n0, _SBLD, 0, [_kKA, _sBA, _lP], [0, 0, 0]];
+export var S3BucketTranscriptSource$: StaticStructureSchema = [
   3,
   n0,
   _SBTS,
   0,
   [_sBN, _pF, _tF, _tFr, _kKA],
-  [0, () => PathFormat, 0, () => TranscriptFilter, 0],
+  [0, () => PathFormat$, 0, () => TranscriptFilter$, 0],
 ];
-export var SampleUtterance: StaticStructureSchema = [3, n0, _SU, 0, [_u], [0]];
-export var SampleUtteranceGenerationSpecification: StaticStructureSchema = [
+export var SampleUtterance$: StaticStructureSchema = [3, n0, _SU, 0, [_u], [0]];
+export var SampleUtteranceGenerationSpecification$: StaticStructureSchema = [
   3,
   n0,
   _SUGS,
   0,
   [_e, _bMS],
-  [2, () => BedrockModelSpecification],
+  [2, () => BedrockModelSpecification$],
 ];
-export var SampleValue: StaticStructureSchema = [3, n0, _SV, 0, [_va], [0]];
-export var SearchAssociatedTranscriptsRequest: StaticStructureSchema = [
+export var SampleValue$: StaticStructureSchema = [3, n0, _SV, 0, [_va], [0]];
+export var SearchAssociatedTranscriptsRequest$: StaticStructureSchema = [
   3,
   n0,
   _SATR,
@@ -3453,7 +3467,7 @@ export var SearchAssociatedTranscriptsRequest: StaticStructureSchema = [
   [_bI, _bV, _lI, _bRI, _sO, _fi, _mRax, _nIe],
   [[0, 1], [0, 1], [0, 1], [0, 1], 0, () => AssociatedTranscriptFilters, 1, 1],
 ];
-export var SearchAssociatedTranscriptsResponse: StaticStructureSchema = [
+export var SearchAssociatedTranscriptsResponse$: StaticStructureSchema = [
   3,
   n0,
   _SATRe,
@@ -3461,11 +3475,11 @@ export var SearchAssociatedTranscriptsResponse: StaticStructureSchema = [
   [_bI, _bV, _lI, _bRI, _nIe, _aT, _tRo],
   [0, 0, 0, 0, 1, () => AssociatedTranscriptList, 1],
 ];
-export var SentimentAnalysisSettings: StaticStructureSchema = [3, n0, _SAS, 0, [_dSe], [2]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_err]: _cl, [_hE]: 402 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var SessionDataSortBy: StaticStructureSchema = [3, n0, _SDSB, 0, [_n, _or], [0, 0]];
-export var SessionSpecification: StaticStructureSchema = [
+export var SentimentAnalysisSettings$: StaticStructureSchema = [3, n0, _SAS, 0, [_dSe], [2]];
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE, { [_err]: _cl, [_hE]: 402 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var SessionDataSortBy$: StaticStructureSchema = [3, n0, _SDSB, 0, [_n, _or], [0, 0]];
+export var SessionSpecification$: StaticStructureSchema = [
   3,
   n0,
   _SS,
@@ -3473,25 +3487,25 @@ export var SessionSpecification: StaticStructureSchema = [
   [_bAI, _bV, _lI, _ch, _sIe, _cST, _cET, _cDS, _cES, _mod, _nOT, _iIS, _oRI],
   [0, 0, 0, 0, 0, 4, 4, 1, 0, 0, 1, () => InvokedIntentSamples, 0],
 ];
-export var SlotCaptureSetting: StaticStructureSchema = [
+export var SlotCaptureSetting$: StaticStructureSchema = [
   3,
   n0,
   _SCS,
   0,
   [_cRa, _cNSa, _cCa, _fRa, _fNS, _fC, _cH, _eCH],
   [
-    () => ResponseSpecification,
-    () => DialogState,
-    () => ConditionalSpecification,
-    () => ResponseSpecification,
-    () => DialogState,
-    () => ConditionalSpecification,
-    () => DialogCodeHookInvocationSetting,
-    () => ElicitationCodeHookInvocationSetting,
+    () => ResponseSpecification$,
+    () => DialogState$,
+    () => ConditionalSpecification$,
+    () => ResponseSpecification$,
+    () => DialogState$,
+    () => ConditionalSpecification$,
+    () => DialogCodeHookInvocationSetting$,
+    () => ElicitationCodeHookInvocationSetting$,
   ],
 ];
-export var SlotDefaultValue: StaticStructureSchema = [3, n0, _SDV, 0, [_dV], [0]];
-export var SlotDefaultValueSpecification: StaticStructureSchema = [
+export var SlotDefaultValue$: StaticStructureSchema = [3, n0, _SDV, 0, [_dV], [0]];
+export var SlotDefaultValueSpecification$: StaticStructureSchema = [
   3,
   n0,
   _SDVS,
@@ -3499,26 +3513,26 @@ export var SlotDefaultValueSpecification: StaticStructureSchema = [
   [_dVL],
   [() => SlotDefaultValueList],
 ];
-export var SlotFilter: StaticStructureSchema = [3, n0, _SF, 0, [_n, _v, _o], [0, 64 | 0, 0]];
-export var SlotPriority: StaticStructureSchema = [3, n0, _SP, 0, [_pri, _sIl], [1, 0]];
-export var SlotResolutionImprovementSpecification: StaticStructureSchema = [
+export var SlotFilter$: StaticStructureSchema = [3, n0, _SF, 0, [_n, _v, _o], [0, 64 | 0, 0]];
+export var SlotPriority$: StaticStructureSchema = [3, n0, _SP, 0, [_pri, _sIl], [1, 0]];
+export var SlotResolutionImprovementSpecification$: StaticStructureSchema = [
   3,
   n0,
   _SRIS,
   0,
   [_e, _bMS],
-  [2, () => BedrockModelSpecification],
+  [2, () => BedrockModelSpecification$],
 ];
-export var SlotResolutionSetting: StaticStructureSchema = [3, n0, _SRS, 0, [_sRSl], [0]];
-export var SlotResolutionTestResultItem: StaticStructureSchema = [
+export var SlotResolutionSetting$: StaticStructureSchema = [3, n0, _SRS, 0, [_sRSl], [0]];
+export var SlotResolutionTestResultItem$: StaticStructureSchema = [
   3,
   n0,
   _SRTRI,
   0,
   [_sN, _rC],
-  [0, () => SlotResolutionTestResultItemCounts],
+  [0, () => SlotResolutionTestResultItemCounts$],
 ];
-export var SlotResolutionTestResultItemCounts: StaticStructureSchema = [
+export var SlotResolutionTestResultItemCounts$: StaticStructureSchema = [
   3,
   n0,
   _SRTRIC,
@@ -3526,19 +3540,19 @@ export var SlotResolutionTestResultItemCounts: StaticStructureSchema = [
   [_tRC, _sTRC, _sMRC],
   [1, 128 | 1, 128 | 1],
 ];
-export var SlotSortBy: StaticStructureSchema = [3, n0, _SSB, 0, [_a, _or], [0, 0]];
-export var SlotSummary: StaticStructureSchema = [
+export var SlotSortBy$: StaticStructureSchema = [3, n0, _SSB, 0, [_a, _or], [0, 0]];
+export var SlotSummary$: StaticStructureSchema = [
   3,
   n0,
   _SSl,
   0,
   [_sIl, _sN, _de, _sCl, _sTI, _vEPS, _lUDT],
-  [0, 0, 0, 0, 0, () => PromptSpecification, 4],
+  [0, 0, 0, 0, 0, () => PromptSpecification$, 4],
 ];
-export var SlotTypeFilter: StaticStructureSchema = [3, n0, _STF, 0, [_n, _v, _o], [0, 64 | 0, 0]];
-export var SlotTypeSortBy: StaticStructureSchema = [3, n0, _STSB, 0, [_a, _or], [0, 0]];
-export var SlotTypeStatistics: StaticStructureSchema = [3, n0, _STS, 0, [_dSTC], [1]];
-export var SlotTypeSummary: StaticStructureSchema = [
+export var SlotTypeFilter$: StaticStructureSchema = [3, n0, _STF, 0, [_n, _v, _o], [0, 64 | 0, 0]];
+export var SlotTypeSortBy$: StaticStructureSchema = [3, n0, _STSB, 0, [_a, _or], [0, 0]];
+export var SlotTypeStatistics$: StaticStructureSchema = [3, n0, _STS, 0, [_dSTC], [1]];
+export var SlotTypeSummary$: StaticStructureSchema = [
   3,
   n0,
   _STSl,
@@ -3546,77 +3560,84 @@ export var SlotTypeSummary: StaticStructureSchema = [
   [_sTI, _sTN, _de, _pSTS, _lUDT, _sTCl],
   [0, 0, 0, 0, 4, 0],
 ];
-export var SlotTypeValue: StaticStructureSchema = [3, n0, _STV, 0, [_sV, _sy], [() => SampleValue, () => SynonymList]];
-export var SlotValue: StaticStructureSchema = [3, n0, _SVl, 0, [_iV], [0]];
-export var SlotValueElicitationSetting: StaticStructureSchema = [
+export var SlotTypeValue$: StaticStructureSchema = [
+  3,
+  n0,
+  _STV,
+  0,
+  [_sV, _sy],
+  [() => SampleValue$, () => SynonymList],
+];
+export var SlotValue$: StaticStructureSchema = [3, n0, _SVl, 0, [_iV], [0]];
+export var SlotValueElicitationSetting$: StaticStructureSchema = [
   3,
   n0,
   _SVES,
   0,
   [_dVS, _sCl, _pS, _sU, _wACS, _sCS, _sRSlo],
   [
-    () => SlotDefaultValueSpecification,
+    () => SlotDefaultValueSpecification$,
     0,
-    () => PromptSpecification,
+    () => PromptSpecification$,
     () => SampleUtterancesList,
-    () => WaitAndContinueSpecification,
-    () => SlotCaptureSetting,
-    () => SlotResolutionSetting,
+    () => WaitAndContinueSpecification$,
+    () => SlotCaptureSetting$,
+    () => SlotResolutionSetting$,
   ],
 ];
-export var SlotValueOverride: StaticStructureSchema = [
+export var SlotValueOverride$: StaticStructureSchema = [
   3,
   n0,
   _SVO,
   0,
   [_sh, _va, _v],
-  [0, () => SlotValue, () => SlotValues],
+  [0, () => SlotValue$, () => SlotValues],
 ];
-export var SlotValueRegexFilter: StaticStructureSchema = [3, n0, _SVRF, 0, [_pa], [0]];
-export var SlotValueSelectionSetting: StaticStructureSchema = [
+export var SlotValueRegexFilter$: StaticStructureSchema = [3, n0, _SVRF, 0, [_pa], [0]];
+export var SlotValueSelectionSetting$: StaticStructureSchema = [
   3,
   n0,
   _SVSS,
   0,
   [_rSe, _rF, _aRSd],
-  [0, () => SlotValueRegexFilter, () => AdvancedRecognitionSetting],
+  [0, () => SlotValueRegexFilter$, () => AdvancedRecognitionSetting$],
 ];
-export var Specifications: StaticStructureSchema = [
+export var Specifications$: StaticStructureSchema = [
   3,
   n0,
   _S,
   0,
   [_sTI, _vES],
-  [0, () => SubSlotValueElicitationSetting],
+  [0, () => SubSlotValueElicitationSetting$],
 ];
-export var SpeechFoundationModel: StaticStructureSchema = [3, n0, _SFM, 0, [_mA, _vI], [0, 0]];
-export var SpeechModelConfig: StaticStructureSchema = [3, n0, _SMC, 0, [_dCee], [() => DeepgramSpeechModelConfig]];
-export var SpeechRecognitionSettings: StaticStructureSchema = [
+export var SpeechFoundationModel$: StaticStructureSchema = [3, n0, _SFM, 0, [_mA, _vI], [0, 0]];
+export var SpeechModelConfig$: StaticStructureSchema = [3, n0, _SMC, 0, [_dCee], [() => DeepgramSpeechModelConfig$]];
+export var SpeechRecognitionSettings$: StaticStructureSchema = [
   3,
   n0,
   _SRSp,
   0,
   [_sMP, _sMC],
-  [0, () => SpeechModelConfig],
+  [0, () => SpeechModelConfig$],
 ];
-export var SSMLMessage: StaticStructureSchema = [3, n0, _SSMLM, 0, [_va], [0]];
-export var StartBotRecommendationRequest: StaticStructureSchema = [
+export var SSMLMessage$: StaticStructureSchema = [3, n0, _SSMLM, 0, [_va], [0]];
+export var StartBotRecommendationRequest$: StaticStructureSchema = [
   3,
   n0,
   _SBRR,
   0,
   [_bI, _bV, _lI, _tSS, _eSn],
-  [[0, 1], [0, 1], [0, 1], () => TranscriptSourceSetting, [() => EncryptionSetting, 0]],
+  [[0, 1], [0, 1], [0, 1], () => TranscriptSourceSetting$, [() => EncryptionSetting$, 0]],
 ];
-export var StartBotRecommendationResponse: StaticStructureSchema = [
+export var StartBotRecommendationResponse$: StaticStructureSchema = [
   3,
   n0,
   _SBRRt,
   0,
   [_bI, _bV, _lI, _bRS, _bRI, _cDT, _tSS, _eSn],
-  [0, 0, 0, 0, 0, 4, () => TranscriptSourceSetting, [() => EncryptionSetting, 0]],
+  [0, 0, 0, 0, 0, 4, () => TranscriptSourceSetting$, [() => EncryptionSetting$, 0]],
 ];
-export var StartBotResourceGenerationRequest: StaticStructureSchema = [
+export var StartBotResourceGenerationRequest$: StaticStructureSchema = [
   3,
   n0,
   _SBRGR,
@@ -3624,7 +3645,7 @@ export var StartBotResourceGenerationRequest: StaticStructureSchema = [
   [_gIP, _bI, _bV, _lI],
   [0, [0, 1], [0, 1], [0, 1]],
 ];
-export var StartBotResourceGenerationResponse: StaticStructureSchema = [
+export var StartBotResourceGenerationResponse$: StaticStructureSchema = [
   3,
   n0,
   _SBRGRt,
@@ -3632,55 +3653,55 @@ export var StartBotResourceGenerationResponse: StaticStructureSchema = [
   [_gIP, _gI, _bI, _bV, _lI, _gS, _cDT],
   [0, 0, 0, 0, 0, 0, 4],
 ];
-export var StartImportRequest: StaticStructureSchema = [
+export var StartImportRequest$: StaticStructureSchema = [
   3,
   n0,
   _SIR,
   0,
   [_iIm, _rS, _mS, _fP],
-  [0, () => ImportResourceSpecification, 0, [() => ImportExportFilePassword, 0]],
+  [0, () => ImportResourceSpecification$, 0, [() => ImportExportFilePassword, 0]],
 ];
-export var StartImportResponse: StaticStructureSchema = [
+export var StartImportResponse$: StaticStructureSchema = [
   3,
   n0,
   _SIRt,
   0,
   [_iIm, _rS, _mS, _iSm, _cDT],
-  [0, () => ImportResourceSpecification, 0, 0, 4],
+  [0, () => ImportResourceSpecification$, 0, 0, 4],
 ];
-export var StartTestExecutionRequest: StaticStructureSchema = [
+export var StartTestExecutionRequest$: StaticStructureSchema = [
   3,
   n0,
   _STER,
   0,
   [_tSI, _tar, _aM, _tEM],
-  [[0, 1], () => TestExecutionTarget, 0, 0],
+  [[0, 1], () => TestExecutionTarget$, 0, 0],
 ];
-export var StartTestExecutionResponse: StaticStructureSchema = [
+export var StartTestExecutionResponse$: StaticStructureSchema = [
   3,
   n0,
   _STERt,
   0,
   [_tEI, _cDT, _tSI, _tar, _aM, _tEM],
-  [0, 4, 0, () => TestExecutionTarget, 0, 0],
+  [0, 4, 0, () => TestExecutionTarget$, 0, 0],
 ];
-export var StartTestSetGenerationRequest: StaticStructureSchema = [
+export var StartTestSetGenerationRequest$: StaticStructureSchema = [
   3,
   n0,
   _STSGR,
   0,
   [_tSN, _de, _sL, _gDS, _rA, _tST],
-  [0, 0, () => TestSetStorageLocation, () => TestSetGenerationDataSource, 0, 128 | 0],
+  [0, 0, () => TestSetStorageLocation$, () => TestSetGenerationDataSource$, 0, 128 | 0],
 ];
-export var StartTestSetGenerationResponse: StaticStructureSchema = [
+export var StartTestSetGenerationResponse$: StaticStructureSchema = [
   3,
   n0,
   _STSGRt,
   0,
   [_tSGI, _cDT, _tSGS, _tSN, _de, _sL, _gDS, _rA, _tST],
-  [0, 4, 0, 0, 0, () => TestSetStorageLocation, () => TestSetGenerationDataSource, 0, 128 | 0],
+  [0, 4, 0, 0, 0, () => TestSetStorageLocation$, () => TestSetGenerationDataSource$, 0, 128 | 0],
 ];
-export var StillWaitingResponseSpecification: StaticStructureSchema = [
+export var StillWaitingResponseSpecification$: StaticStructureSchema = [
   3,
   n0,
   _SWRS,
@@ -3688,7 +3709,7 @@ export var StillWaitingResponseSpecification: StaticStructureSchema = [
   [_mG, _fIS, _tIS, _aIl],
   [() => MessageGroupsList, 1, 1, 2],
 ];
-export var StopBotRecommendationRequest: StaticStructureSchema = [
+export var StopBotRecommendationRequest$: StaticStructureSchema = [
   3,
   n0,
   _SBRRto,
@@ -3701,7 +3722,7 @@ export var StopBotRecommendationRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var StopBotRecommendationResponse: StaticStructureSchema = [
+export var StopBotRecommendationResponse$: StaticStructureSchema = [
   3,
   n0,
   _SBRRtop,
@@ -3709,56 +3730,56 @@ export var StopBotRecommendationResponse: StaticStructureSchema = [
   [_bI, _bV, _lI, _bRS, _bRI],
   [0, 0, 0, 0, 0],
 ];
-export var SubSlotSetting: StaticStructureSchema = [3, n0, _SSS, 0, [_ex, _sSlo], [0, () => SubSlotSpecificationMap]];
-export var SubSlotTypeComposition: StaticStructureSchema = [3, n0, _SSTC, 0, [_n, _sTI], [0, 0]];
-export var SubSlotValueElicitationSetting: StaticStructureSchema = [
+export var SubSlotSetting$: StaticStructureSchema = [3, n0, _SSS, 0, [_ex, _sSlo], [0, () => SubSlotSpecificationMap]];
+export var SubSlotTypeComposition$: StaticStructureSchema = [3, n0, _SSTC, 0, [_n, _sTI], [0, 0]];
+export var SubSlotValueElicitationSetting$: StaticStructureSchema = [
   3,
   n0,
   _SSVES,
   0,
   [_dVS, _pS, _sU, _wACS],
   [
-    () => SlotDefaultValueSpecification,
-    () => PromptSpecification,
+    () => SlotDefaultValueSpecification$,
+    () => PromptSpecification$,
     () => SampleUtterancesList,
-    () => WaitAndContinueSpecification,
+    () => WaitAndContinueSpecification$,
   ],
 ];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rARN, _ta], [[0, 1], 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TestExecutionResultFilterBy: StaticStructureSchema = [
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rARN, _ta], [[0, 1], 128 | 0]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var TestExecutionResultFilterBy$: StaticStructureSchema = [
   3,
   n0,
   _TERFB,
   0,
   [_rTF, _cLTRFB],
-  [0, () => ConversationLevelTestResultsFilterBy],
+  [0, () => ConversationLevelTestResultsFilterBy$],
 ];
-export var TestExecutionResultItems: StaticStructureSchema = [
+export var TestExecutionResultItems$: StaticStructureSchema = [
   3,
   n0,
   _TERI,
   0,
   [_oTR, _cLTR, _iCTR, _iLSRTR, _uLTR],
   [
-    () => OverallTestResults,
-    () => ConversationLevelTestResults,
-    () => IntentClassificationTestResults,
-    () => IntentLevelSlotResolutionTestResults,
-    () => UtteranceLevelTestResults,
+    () => OverallTestResults$,
+    () => ConversationLevelTestResults$,
+    () => IntentClassificationTestResults$,
+    () => IntentLevelSlotResolutionTestResults$,
+    () => UtteranceLevelTestResults$,
   ],
 ];
-export var TestExecutionSortBy: StaticStructureSchema = [3, n0, _TESB, 0, [_a, _or], [0, 0]];
-export var TestExecutionSummary: StaticStructureSchema = [
+export var TestExecutionSortBy$: StaticStructureSchema = [3, n0, _TESB, 0, [_a, _or], [0, 0]];
+export var TestExecutionSummary$: StaticStructureSchema = [
   3,
   n0,
   _TES,
   0,
   [_tEI, _cDT, _lUDT, _tES, _tSI, _tSN, _tar, _aM, _tEM],
-  [0, 4, 4, 0, 0, 0, () => TestExecutionTarget, 0, 0],
+  [0, 4, 4, 0, 0, 0, () => TestExecutionTarget$, 0, 0],
 ];
-export var TestExecutionTarget: StaticStructureSchema = [3, n0, _TET, 0, [_bAT], [() => BotAliasTestExecutionTarget]];
-export var TestSetDiscrepancyErrors: StaticStructureSchema = [
+export var TestExecutionTarget$: StaticStructureSchema = [3, n0, _TET, 0, [_bAT], [() => BotAliasTestExecutionTarget$]];
+export var TestSetDiscrepancyErrors$: StaticStructureSchema = [
   3,
   n0,
   _TSDE,
@@ -3766,7 +3787,7 @@ export var TestSetDiscrepancyErrors: StaticStructureSchema = [
   [_iD, _sDl],
   [() => TestSetIntentDiscrepancyList, () => TestSetSlotDiscrepancyList],
 ];
-export var TestSetDiscrepancyReportBotAliasTarget: StaticStructureSchema = [
+export var TestSetDiscrepancyReportBotAliasTarget$: StaticStructureSchema = [
   3,
   n0,
   _TSDRBAT,
@@ -3774,71 +3795,71 @@ export var TestSetDiscrepancyReportBotAliasTarget: StaticStructureSchema = [
   [_bI, _bAI, _lI],
   [0, 0, 0],
 ];
-export var TestSetDiscrepancyReportResourceTarget: StaticStructureSchema = [
+export var TestSetDiscrepancyReportResourceTarget$: StaticStructureSchema = [
   3,
   n0,
   _TSDRRT,
   0,
   [_bAT],
-  [() => TestSetDiscrepancyReportBotAliasTarget],
+  [() => TestSetDiscrepancyReportBotAliasTarget$],
 ];
-export var TestSetExportSpecification: StaticStructureSchema = [3, n0, _TSES, 0, [_tSI], [0]];
-export var TestSetGenerationDataSource: StaticStructureSchema = [
+export var TestSetExportSpecification$: StaticStructureSchema = [3, n0, _TSES, 0, [_tSI], [0]];
+export var TestSetGenerationDataSource$: StaticStructureSchema = [
   3,
   n0,
   _TSGDS,
   0,
   [_cLDS],
-  [() => ConversationLogsDataSource],
+  [() => ConversationLogsDataSource$],
 ];
-export var TestSetImportInputLocation: StaticStructureSchema = [3, n0, _TSIIL, 0, [_sBN, _sPa], [0, 0]];
-export var TestSetImportResourceSpecification: StaticStructureSchema = [
+export var TestSetImportInputLocation$: StaticStructureSchema = [3, n0, _TSIIL, 0, [_sBN, _sPa], [0, 0]];
+export var TestSetImportResourceSpecification$: StaticStructureSchema = [
   3,
   n0,
   _TSIRS,
   0,
   [_tSN, _de, _rA, _sL, _iIL, _mo, _tST],
-  [0, 0, 0, () => TestSetStorageLocation, () => TestSetImportInputLocation, 0, 128 | 0],
+  [0, 0, 0, () => TestSetStorageLocation$, () => TestSetImportInputLocation$, 0, 128 | 0],
 ];
-export var TestSetIntentDiscrepancyItem: StaticStructureSchema = [3, n0, _TSIDI, 0, [_iN, _eM], [0, 0]];
-export var TestSetSlotDiscrepancyItem: StaticStructureSchema = [3, n0, _TSSDI, 0, [_iN, _sN, _eM], [0, 0, 0]];
-export var TestSetSortBy: StaticStructureSchema = [3, n0, _TSSB, 0, [_a, _or], [0, 0]];
-export var TestSetStorageLocation: StaticStructureSchema = [3, n0, _TSSL, 0, [_sBN, _sPa, _kKA], [0, 0, 0]];
-export var TestSetSummary: StaticStructureSchema = [
+export var TestSetIntentDiscrepancyItem$: StaticStructureSchema = [3, n0, _TSIDI, 0, [_iN, _eM], [0, 0]];
+export var TestSetSlotDiscrepancyItem$: StaticStructureSchema = [3, n0, _TSSDI, 0, [_iN, _sN, _eM], [0, 0, 0]];
+export var TestSetSortBy$: StaticStructureSchema = [3, n0, _TSSB, 0, [_a, _or], [0, 0]];
+export var TestSetStorageLocation$: StaticStructureSchema = [3, n0, _TSSL, 0, [_sBN, _sPa, _kKA], [0, 0, 0]];
+export var TestSetSummary$: StaticStructureSchema = [
   3,
   n0,
   _TSS,
   0,
   [_tSI, _tSN, _de, _mo, _sta, _rA, _nTu, _sL, _cDT, _lUDT],
-  [0, 0, 0, 0, 0, 0, 1, () => TestSetStorageLocation, 4, 4],
+  [0, 0, 0, 0, 0, 0, 1, () => TestSetStorageLocation$, 4, 4],
 ];
-export var TestSetTurnRecord: StaticStructureSchema = [
+export var TestSetTurnRecord$: StaticStructureSchema = [
   3,
   n0,
   _TSTR,
   0,
   [_rN, _cI, _tN, _tSu],
-  [1, 0, 1, () => TurnSpecification],
+  [1, 0, 1, () => TurnSpecification$],
 ];
-export var TestSetTurnResult: StaticStructureSchema = [
+export var TestSetTurnResult$: StaticStructureSchema = [
   3,
   n0,
   _TSTRe,
   0,
   [_ag, _us],
-  [() => AgentTurnResult, () => UserTurnResult],
+  [() => AgentTurnResult$, () => UserTurnResult$],
 ];
-export var TextInputSpecification: StaticStructureSchema = [3, n0, _TIS, 0, [_sTM], [1]];
-export var TextLogDestination: StaticStructureSchema = [
+export var TextInputSpecification$: StaticStructureSchema = [3, n0, _TIS, 0, [_sTM], [1]];
+export var TextLogDestination$: StaticStructureSchema = [
   3,
   n0,
   _TLD,
   0,
   [_cW],
-  [() => CloudWatchLogGroupLogDestination],
+  [() => CloudWatchLogGroupLogDestination$],
 ];
-export var TextLogSetting: StaticStructureSchema = [3, n0, _TLS, 0, [_e, _d, _sLE], [2, () => TextLogDestination, 2]];
-export var ThrottlingException: StaticErrorSchema = [
+export var TextLogSetting$: StaticStructureSchema = [3, n0, _TLS, 0, [_e, _d, _sLE], [2, () => TextLogDestination$, 2]];
+export var ThrottlingException$: StaticErrorSchema = [
   -3,
   n0,
   _TE,
@@ -3846,26 +3867,26 @@ export var ThrottlingException: StaticErrorSchema = [
   [_rAS, _m],
   [[1, { [_hH]: _RA }], 0],
 ];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var TranscriptFilter: StaticStructureSchema = [3, n0, _TF, 0, [_lTF], [() => LexTranscriptFilter]];
-export var TranscriptSourceSetting: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var TranscriptFilter$: StaticStructureSchema = [3, n0, _TF, 0, [_lTF], [() => LexTranscriptFilter$]];
+export var TranscriptSourceSetting$: StaticStructureSchema = [
   3,
   n0,
   _TSSr,
   0,
   [_sBTS],
-  [() => S3BucketTranscriptSource],
+  [() => S3BucketTranscriptSource$],
 ];
-export var TurnSpecification: StaticStructureSchema = [
+export var TurnSpecification$: StaticStructureSchema = [
   3,
   n0,
   _TS,
   0,
   [_aTg, _uT],
-  [() => AgentTurnSpecification, () => UserTurnSpecification],
+  [() => AgentTurnSpecification$, () => UserTurnSpecification$],
 ];
-export var UnifiedSpeechSettings: StaticStructureSchema = [3, n0, _USS, 0, [_sFM], [() => SpeechFoundationModel]];
-export var UntagResourceRequest: StaticStructureSchema = [
+export var UnifiedSpeechSettings$: StaticStructureSchema = [3, n0, _USS, 0, [_sFM], [() => SpeechFoundationModel$]];
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -3876,8 +3897,8 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateBotAliasRequest: StaticStructureSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateBotAliasRequest$: StaticStructureSchema = [
   3,
   n0,
   _UBAR,
@@ -3889,12 +3910,12 @@ export var UpdateBotAliasRequest: StaticStructureSchema = [
     0,
     0,
     () => BotAliasLocaleSettingsMap,
-    () => ConversationLogSettings,
-    () => SentimentAnalysisSettings,
+    () => ConversationLogSettings$,
+    () => SentimentAnalysisSettings$,
     [0, 1],
   ],
 ];
-export var UpdateBotAliasResponse: StaticStructureSchema = [
+export var UpdateBotAliasResponse$: StaticStructureSchema = [
   3,
   n0,
   _UBARp,
@@ -3906,15 +3927,15 @@ export var UpdateBotAliasResponse: StaticStructureSchema = [
     0,
     0,
     () => BotAliasLocaleSettingsMap,
-    () => ConversationLogSettings,
-    () => SentimentAnalysisSettings,
+    () => ConversationLogSettings$,
+    () => SentimentAnalysisSettings$,
     0,
     0,
     4,
     4,
   ],
 ];
-export var UpdateBotLocaleRequest: StaticStructureSchema = [
+export var UpdateBotLocaleRequest$: StaticStructureSchema = [
   3,
   n0,
   _UBLR,
@@ -3926,14 +3947,14 @@ export var UpdateBotLocaleRequest: StaticStructureSchema = [
     [0, 1],
     0,
     1,
-    () => VoiceSettings,
-    () => UnifiedSpeechSettings,
-    () => SpeechRecognitionSettings,
-    () => GenerativeAISettings,
+    () => VoiceSettings$,
+    () => UnifiedSpeechSettings$,
+    () => SpeechRecognitionSettings$,
+    () => GenerativeAISettings$,
     0,
   ],
 ];
-export var UpdateBotLocaleResponse: StaticStructureSchema = [
+export var UpdateBotLocaleResponse$: StaticStructureSchema = [
   3,
   n0,
   _UBLRp,
@@ -3946,19 +3967,19 @@ export var UpdateBotLocaleResponse: StaticStructureSchema = [
     0,
     0,
     1,
-    () => VoiceSettings,
-    () => UnifiedSpeechSettings,
-    () => SpeechRecognitionSettings,
+    () => VoiceSettings$,
+    () => UnifiedSpeechSettings$,
+    () => SpeechRecognitionSettings$,
     0,
     64 | 0,
     4,
     4,
     64 | 0,
-    () => GenerativeAISettings,
+    () => GenerativeAISettings$,
     0,
   ],
 ];
-export var UpdateBotRecommendationRequest: StaticStructureSchema = [
+export var UpdateBotRecommendationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UBRR,
@@ -3969,34 +3990,34 @@ export var UpdateBotRecommendationRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [() => EncryptionSetting, 0],
+    [() => EncryptionSetting$, 0],
   ],
 ];
-export var UpdateBotRecommendationResponse: StaticStructureSchema = [
+export var UpdateBotRecommendationResponse$: StaticStructureSchema = [
   3,
   n0,
   _UBRRp,
   0,
   [_bI, _bV, _lI, _bRS, _bRI, _cDT, _lUDT, _tSS, _eSn],
-  [0, 0, 0, 0, 0, 4, 4, () => TranscriptSourceSetting, [() => EncryptionSetting, 0]],
+  [0, 0, 0, 0, 0, 4, 4, () => TranscriptSourceSetting$, [() => EncryptionSetting$, 0]],
 ];
-export var UpdateBotRequest: StaticStructureSchema = [
+export var UpdateBotRequest$: StaticStructureSchema = [
   3,
   n0,
   _UBR,
   0,
   [_bI, _bN, _de, _rA, _dP, _iSTTLIS, _bTo, _bM, _eLS],
-  [[0, 1], 0, 0, 0, () => DataPrivacy, 1, 0, () => BotMembers, () => ErrorLogSettings],
+  [[0, 1], 0, 0, 0, () => DataPrivacy$, 1, 0, () => BotMembers, () => ErrorLogSettings$],
 ];
-export var UpdateBotResponse: StaticStructureSchema = [
+export var UpdateBotResponse$: StaticStructureSchema = [
   3,
   n0,
   _UBRp,
   0,
   [_bI, _bN, _de, _rA, _dP, _iSTTLIS, _bS, _cDT, _lUDT, _bTo, _bM, _eLS],
-  [0, 0, 0, 0, () => DataPrivacy, 1, 0, 4, 4, 0, () => BotMembers, () => ErrorLogSettings],
+  [0, 0, 0, 0, () => DataPrivacy$, 1, 0, 4, 4, 0, () => BotMembers, () => ErrorLogSettings$],
 ];
-export var UpdateExportRequest: StaticStructureSchema = [
+export var UpdateExportRequest$: StaticStructureSchema = [
   3,
   n0,
   _UER,
@@ -4007,15 +4028,15 @@ export var UpdateExportRequest: StaticStructureSchema = [
     [() => ImportExportFilePassword, 0],
   ],
 ];
-export var UpdateExportResponse: StaticStructureSchema = [
+export var UpdateExportResponse$: StaticStructureSchema = [
   3,
   n0,
   _UERp,
   0,
   [_eI, _rS, _fF, _eSx, _cDT, _lUDT],
-  [0, () => ExportResourceSpecification, 0, 0, 4, 4],
+  [0, () => ExportResourceSpecification$, 0, 0, 4, 4],
 ];
-export var UpdateIntentRequest: StaticStructureSchema = [
+export var UpdateIntentRequest$: StaticStructureSchema = [
   3,
   n0,
   _UIR,
@@ -4028,23 +4049,23 @@ export var UpdateIntentRequest: StaticStructureSchema = [
     0,
     0,
     () => SampleUtterancesList,
-    () => DialogCodeHookSettings,
-    () => FulfillmentCodeHookSettings,
+    () => DialogCodeHookSettings$,
+    () => FulfillmentCodeHookSettings$,
     () => SlotPrioritiesList,
-    () => IntentConfirmationSetting,
-    () => IntentClosingSetting,
+    () => IntentConfirmationSetting$,
+    () => IntentClosingSetting$,
     () => InputContextsList,
     () => OutputContextsList,
-    () => KendraConfiguration,
+    () => KendraConfiguration$,
     [0, 1],
     [0, 1],
     [0, 1],
-    () => InitialResponseSetting,
-    () => QnAIntentConfiguration,
-    () => QInConnectIntentConfiguration,
+    () => InitialResponseSetting$,
+    () => QnAIntentConfiguration$,
+    () => QInConnectIntentConfiguration$,
   ],
 ];
-export var UpdateIntentResponse: StaticStructureSchema = [
+export var UpdateIntentResponse$: StaticStructureSchema = [
   3,
   n0,
   _UIRp,
@@ -4080,25 +4101,25 @@ export var UpdateIntentResponse: StaticStructureSchema = [
     0,
     0,
     () => SampleUtterancesList,
-    () => DialogCodeHookSettings,
-    () => FulfillmentCodeHookSettings,
+    () => DialogCodeHookSettings$,
+    () => FulfillmentCodeHookSettings$,
     () => SlotPrioritiesList,
-    () => IntentConfirmationSetting,
-    () => IntentClosingSetting,
+    () => IntentConfirmationSetting$,
+    () => IntentClosingSetting$,
     () => InputContextsList,
     () => OutputContextsList,
-    () => KendraConfiguration,
+    () => KendraConfiguration$,
     0,
     0,
     0,
     4,
     4,
-    () => InitialResponseSetting,
-    () => QnAIntentConfiguration,
-    () => QInConnectIntentConfiguration,
+    () => InitialResponseSetting$,
+    () => QnAIntentConfiguration$,
+    () => QInConnectIntentConfiguration$,
   ],
 ];
-export var UpdateResourcePolicyRequest: StaticStructureSchema = [
+export var UpdateResourcePolicyRequest$: StaticStructureSchema = [
   3,
   n0,
   _URPR,
@@ -4106,8 +4127,8 @@ export var UpdateResourcePolicyRequest: StaticStructureSchema = [
   [_rAe, _p, _eRI],
   [[0, 1], 0, [0, { [_hQ]: _eRI }]],
 ];
-export var UpdateResourcePolicyResponse: StaticStructureSchema = [3, n0, _URPRp, 0, [_rAe, _rI], [0, 0]];
-export var UpdateSlotRequest: StaticStructureSchema = [
+export var UpdateResourcePolicyResponse$: StaticStructureSchema = [3, n0, _URPRp, 0, [_rAe, _rI], [0, 0]];
+export var UpdateSlotRequest$: StaticStructureSchema = [
   3,
   n0,
   _USR,
@@ -4118,17 +4139,17 @@ export var UpdateSlotRequest: StaticStructureSchema = [
     0,
     0,
     0,
-    () => SlotValueElicitationSetting,
-    () => ObfuscationSetting,
+    () => SlotValueElicitationSetting$,
+    () => ObfuscationSetting$,
     [0, 1],
     [0, 1],
     [0, 1],
     [0, 1],
-    () => MultipleValuesSetting,
-    () => SubSlotSetting,
+    () => MultipleValuesSetting$,
+    () => SubSlotSetting$,
   ],
 ];
-export var UpdateSlotResponse: StaticStructureSchema = [
+export var UpdateSlotResponse$: StaticStructureSchema = [
   3,
   n0,
   _USRp,
@@ -4139,19 +4160,19 @@ export var UpdateSlotResponse: StaticStructureSchema = [
     0,
     0,
     0,
-    () => SlotValueElicitationSetting,
-    () => ObfuscationSetting,
+    () => SlotValueElicitationSetting$,
+    () => ObfuscationSetting$,
     0,
     0,
     0,
     0,
     4,
     4,
-    () => MultipleValuesSetting,
-    () => SubSlotSetting,
+    () => MultipleValuesSetting$,
+    () => SubSlotSetting$,
   ],
 ];
-export var UpdateSlotTypeRequest: StaticStructureSchema = [
+export var UpdateSlotTypeRequest$: StaticStructureSchema = [
   3,
   n0,
   _USTR,
@@ -4162,16 +4183,16 @@ export var UpdateSlotTypeRequest: StaticStructureSchema = [
     0,
     0,
     () => SlotTypeValues,
-    () => SlotValueSelectionSetting,
+    () => SlotValueSelectionSetting$,
     0,
     [0, 1],
     [0, 1],
     [0, 1],
-    () => ExternalSourceSetting,
-    () => CompositeSlotTypeSetting,
+    () => ExternalSourceSetting$,
+    () => CompositeSlotTypeSetting$,
   ],
 ];
-export var UpdateSlotTypeResponse: StaticStructureSchema = [
+export var UpdateSlotTypeResponse$: StaticStructureSchema = [
   3,
   n0,
   _USTRp,
@@ -4182,62 +4203,69 @@ export var UpdateSlotTypeResponse: StaticStructureSchema = [
     0,
     0,
     () => SlotTypeValues,
-    () => SlotValueSelectionSetting,
+    () => SlotValueSelectionSetting$,
     0,
     0,
     0,
     0,
     4,
     4,
-    () => ExternalSourceSetting,
-    () => CompositeSlotTypeSetting,
+    () => ExternalSourceSetting$,
+    () => CompositeSlotTypeSetting$,
   ],
 ];
-export var UpdateTestSetRequest: StaticStructureSchema = [3, n0, _UTSR, 0, [_tSI, _tSN, _de], [[0, 1], 0, 0]];
-export var UpdateTestSetResponse: StaticStructureSchema = [
+export var UpdateTestSetRequest$: StaticStructureSchema = [3, n0, _UTSR, 0, [_tSI, _tSN, _de], [[0, 1], 0, 0]];
+export var UpdateTestSetResponse$: StaticStructureSchema = [
   3,
   n0,
   _UTSRp,
   0,
   [_tSI, _tSN, _de, _mo, _sta, _rA, _nTu, _sL, _cDT, _lUDT],
-  [0, 0, 0, 0, 0, 0, 1, () => TestSetStorageLocation, 4, 4],
+  [0, 0, 0, 0, 0, 0, 1, () => TestSetStorageLocation$, 4, 4],
 ];
-export var UserTurnInputSpecification: StaticStructureSchema = [
+export var UserTurnInputSpecification$: StaticStructureSchema = [
   3,
   n0,
   _UTIS,
   0,
   [_uI, _rAeq, _sSe],
-  [() => UtteranceInputSpecification, 128 | 0, () => InputSessionStateSpecification],
+  [() => UtteranceInputSpecification$, 128 | 0, () => InputSessionStateSpecification$],
 ];
-export var UserTurnIntentOutput: StaticStructureSchema = [3, n0, _UTIO, 0, [_n, _sl], [0, () => UserTurnSlotOutputMap]];
-export var UserTurnOutputSpecification: StaticStructureSchema = [
+export var UserTurnIntentOutput$: StaticStructureSchema = [
+  3,
+  n0,
+  _UTIO,
+  0,
+  [_n, _sl],
+  [0, () => UserTurnSlotOutputMap],
+];
+export var UserTurnOutputSpecification$: StaticStructureSchema = [
   3,
   n0,
   _UTOS,
   0,
   [_int, _aC, _t],
-  [() => UserTurnIntentOutput, () => ActiveContextList, 0],
+  [() => UserTurnIntentOutput$, () => ActiveContextList, 0],
 ];
-export var UserTurnResult: StaticStructureSchema = [
+export var UserTurnResult$: StaticStructureSchema = [
   3,
   n0,
   _UTR,
   0,
   [_inp, _eO, _aO, _eD, _eTER, _iMR, _sMR, _sTR, _cLR],
   [
-    () => UserTurnInputSpecification,
-    () => UserTurnOutputSpecification,
-    () => UserTurnOutputSpecification,
-    () => ExecutionErrorDetails,
+    () => UserTurnInputSpecification$,
+    () => UserTurnOutputSpecification$,
+    () => UserTurnOutputSpecification$,
+    () => ExecutionErrorDetails$,
     0,
     0,
     0,
     0,
-    () => ConversationLevelResultDetail,
+    () => ConversationLevelResultDetail$,
   ],
 ];
-export var UserTurnSlotOutput: StaticStructureSchema = [
+export var UserTurnSlotOutput$: StaticStructureSchema = [
   3,
   n0,
   _UTSO,
@@ -4245,49 +4273,49 @@ export var UserTurnSlotOutput: StaticStructureSchema = [
   [_va, _v, _sS],
   [0, () => UserTurnSlotOutputList, () => UserTurnSlotOutputMap],
 ];
-export var UserTurnSpecification: StaticStructureSchema = [
+export var UserTurnSpecification$: StaticStructureSchema = [
   3,
   n0,
   _UTS,
   0,
   [_inp, _exp],
-  [() => UserTurnInputSpecification, () => UserTurnOutputSpecification],
+  [() => UserTurnInputSpecification$, () => UserTurnOutputSpecification$],
 ];
-export var UtteranceAggregationDuration: StaticStructureSchema = [
+export var UtteranceAggregationDuration$: StaticStructureSchema = [
   3,
   n0,
   _UAD,
   0,
   [_rAD],
-  [() => RelativeAggregationDuration],
+  [() => RelativeAggregationDuration$],
 ];
-export var UtteranceAudioInputSpecification: StaticStructureSchema = [3, n0, _UAIS, 0, [_aFSL], [0]];
-export var UtteranceBotResponse: StaticStructureSchema = [
+export var UtteranceAudioInputSpecification$: StaticStructureSchema = [3, n0, _UAIS, 0, [_aFSL], [0]];
+export var UtteranceBotResponse$: StaticStructureSchema = [
   3,
   n0,
   _UBRt,
   0,
   [_con, _cT, _iRC],
-  [0, 0, () => ImageResponseCard],
+  [0, 0, () => ImageResponseCard$],
 ];
-export var UtteranceDataSortBy: StaticStructureSchema = [3, n0, _UDSB, 0, [_n, _or], [0, 0]];
-export var UtteranceInputSpecification: StaticStructureSchema = [
+export var UtteranceDataSortBy$: StaticStructureSchema = [3, n0, _UDSB, 0, [_n, _or], [0, 0]];
+export var UtteranceInputSpecification$: StaticStructureSchema = [
   3,
   n0,
   _UIS,
   0,
   [_tI, _aIu],
-  [0, () => UtteranceAudioInputSpecification],
+  [0, () => UtteranceAudioInputSpecification$],
 ];
-export var UtteranceLevelTestResultItem: StaticStructureSchema = [
+export var UtteranceLevelTestResultItem$: StaticStructureSchema = [
   3,
   n0,
   _ULTRI,
   0,
   [_rN, _cI, _tRu],
-  [1, 0, () => TestSetTurnResult],
+  [1, 0, () => TestSetTurnResult$],
 ];
-export var UtteranceLevelTestResults: StaticStructureSchema = [
+export var UtteranceLevelTestResults$: StaticStructureSchema = [
   3,
   n0,
   _ULTR,
@@ -4295,7 +4323,7 @@ export var UtteranceLevelTestResults: StaticStructureSchema = [
   [_it],
   [() => UtteranceLevelTestResultItemList],
 ];
-export var UtteranceSpecification: StaticStructureSchema = [
+export var UtteranceSpecification$: StaticStructureSchema = [
   3,
   n0,
   _US,
@@ -4326,211 +4354,175 @@ export var UtteranceSpecification: StaticStructureSchema = [
   ],
   [0, 0, 0, 0, 0, 0, 4, 4, 0, 4, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => UtteranceBotResponses],
 ];
-export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_err]: _cl, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var VoiceSettings: StaticStructureSchema = [3, n0, _VS, 0, [_en, _vI], [0, 0]];
-export var WaitAndContinueSpecification: StaticStructureSchema = [
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_err]: _cl, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var VoiceSettings$: StaticStructureSchema = [3, n0, _VS, 0, [_en, _vI], [0, 0]];
+export var WaitAndContinueSpecification$: StaticStructureSchema = [
   3,
   n0,
   _WACS,
   0,
   [_wR, _cRon, _sWR, _ac],
-  [() => ResponseSpecification, () => ResponseSpecification, () => StillWaitingResponseSpecification, 2],
+  [() => ResponseSpecification$, () => ResponseSpecification$, () => StillWaitingResponseSpecification$, 2],
 ];
-export var __Unit = "unit" as const;
-export var LexModelsV2ServiceException: StaticErrorSchema = [-3, _sm, "LexModelsV2ServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(LexModelsV2ServiceException, __LexModelsV2ServiceException);
-export var ActiveContextList: StaticListSchema = [1, n0, _ACL, 0, () => ActiveContext];
-export var AggregatedUtterancesFilters: StaticListSchema = [1, n0, _AUFg, 0, () => AggregatedUtterancesFilter];
-export var AggregatedUtterancesSummaryList: StaticListSchema = [1, n0, _AUSL, 0, () => AggregatedUtterancesSummary];
-export var AnalyticsBinByList: StaticListSchema = [1, n0, _ABBL, 0, () => AnalyticsBinBySpecification];
-export var AnalyticsBinKeys: StaticListSchema = [1, n0, _ABKn, 0, () => AnalyticsBinKey];
-export var AnalyticsFilterValues = 64 | 0;
-export var AnalyticsIntentFilters: StaticListSchema = [1, n0, _AIFn, 0, () => AnalyticsIntentFilter];
-export var AnalyticsIntentGroupByKeys: StaticListSchema = [1, n0, _AIGBKn, 0, () => AnalyticsIntentGroupByKey];
-export var AnalyticsIntentGroupByList: StaticListSchema = [1, n0, _AIGBL, 0, () => AnalyticsIntentGroupBySpecification];
-export var AnalyticsIntentMetricResults: StaticListSchema = [1, n0, _AIMRn, 0, () => AnalyticsIntentMetricResult];
-export var AnalyticsIntentMetrics: StaticListSchema = [1, n0, _AIMn, 0, () => AnalyticsIntentMetric];
-export var AnalyticsIntentNodeSummaries: StaticListSchema = [1, n0, _AINSn, 0, () => AnalyticsIntentNodeSummary];
-export var AnalyticsIntentResults: StaticListSchema = [1, n0, _AIRn, 0, () => AnalyticsIntentResult];
-export var AnalyticsIntentStageFilters: StaticListSchema = [1, n0, _AISFn, 0, () => AnalyticsIntentStageFilter];
-export var AnalyticsIntentStageGroupByKeys: StaticListSchema = [
-  1,
-  n0,
-  _AISGBKn,
-  0,
-  () => AnalyticsIntentStageGroupByKey,
-];
-export var AnalyticsIntentStageGroupByList: StaticListSchema = [
+var __Unit = "unit" as const;
+export var LexModelsV2ServiceException$: StaticErrorSchema = [-3, _sm, "LexModelsV2ServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(LexModelsV2ServiceException$, LexModelsV2ServiceException);
+var ActiveContextList: StaticListSchema = [1, n0, _ACL, 0, () => ActiveContext$];
+var AggregatedUtterancesFilters: StaticListSchema = [1, n0, _AUFg, 0, () => AggregatedUtterancesFilter$];
+var AggregatedUtterancesSummaryList: StaticListSchema = [1, n0, _AUSL, 0, () => AggregatedUtterancesSummary$];
+var AnalyticsBinByList: StaticListSchema = [1, n0, _ABBL, 0, () => AnalyticsBinBySpecification$];
+var AnalyticsBinKeys: StaticListSchema = [1, n0, _ABKn, 0, () => AnalyticsBinKey$];
+var AnalyticsFilterValues = 64 | 0;
+var AnalyticsIntentFilters: StaticListSchema = [1, n0, _AIFn, 0, () => AnalyticsIntentFilter$];
+var AnalyticsIntentGroupByKeys: StaticListSchema = [1, n0, _AIGBKn, 0, () => AnalyticsIntentGroupByKey$];
+var AnalyticsIntentGroupByList: StaticListSchema = [1, n0, _AIGBL, 0, () => AnalyticsIntentGroupBySpecification$];
+var AnalyticsIntentMetricResults: StaticListSchema = [1, n0, _AIMRn, 0, () => AnalyticsIntentMetricResult$];
+var AnalyticsIntentMetrics: StaticListSchema = [1, n0, _AIMn, 0, () => AnalyticsIntentMetric$];
+var AnalyticsIntentNodeSummaries: StaticListSchema = [1, n0, _AINSn, 0, () => AnalyticsIntentNodeSummary$];
+var AnalyticsIntentResults: StaticListSchema = [1, n0, _AIRn, 0, () => AnalyticsIntentResult$];
+var AnalyticsIntentStageFilters: StaticListSchema = [1, n0, _AISFn, 0, () => AnalyticsIntentStageFilter$];
+var AnalyticsIntentStageGroupByKeys: StaticListSchema = [1, n0, _AISGBKn, 0, () => AnalyticsIntentStageGroupByKey$];
+var AnalyticsIntentStageGroupByList: StaticListSchema = [
   1,
   n0,
   _AISGBL,
   0,
-  () => AnalyticsIntentStageGroupBySpecification,
+  () => AnalyticsIntentStageGroupBySpecification$,
 ];
-export var AnalyticsIntentStageMetricResults: StaticListSchema = [
-  1,
-  n0,
-  _AISMRn,
-  0,
-  () => AnalyticsIntentStageMetricResult,
-];
-export var AnalyticsIntentStageMetrics: StaticListSchema = [1, n0, _AISMn, 0, () => AnalyticsIntentStageMetric];
-export var AnalyticsIntentStageResults: StaticListSchema = [1, n0, _AISRn, 0, () => AnalyticsIntentStageResult];
-export var AnalyticsPathFilters: StaticListSchema = [1, n0, _APFn, 0, () => AnalyticsPathFilter];
-export var AnalyticsSessionFilters: StaticListSchema = [1, n0, _ASFn, 0, () => AnalyticsSessionFilter];
-export var AnalyticsSessionGroupByKeys: StaticListSchema = [1, n0, _ASGBKn, 0, () => AnalyticsSessionGroupByKey];
-export var AnalyticsSessionGroupByList: StaticListSchema = [
-  1,
-  n0,
-  _ASGBL,
-  0,
-  () => AnalyticsSessionGroupBySpecification,
-];
-export var AnalyticsSessionMetricResults: StaticListSchema = [1, n0, _ASMRn, 0, () => AnalyticsSessionMetricResult];
-export var AnalyticsSessionMetrics: StaticListSchema = [1, n0, _ASMn, 0, () => AnalyticsSessionMetric];
-export var AnalyticsSessionResults: StaticListSchema = [1, n0, _ASRn, 0, () => AnalyticsSessionResult];
-export var AnalyticsUtteranceAttributeResults: StaticListSchema = [
-  1,
-  n0,
-  _AUARn,
-  0,
-  () => AnalyticsUtteranceAttributeResult,
-];
-export var AnalyticsUtteranceAttributes: StaticListSchema = [1, n0, _AUAn, 0, () => AnalyticsUtteranceAttribute];
-export var AnalyticsUtteranceFilters: StaticListSchema = [1, n0, _AUFna, 0, () => AnalyticsUtteranceFilter];
-export var AnalyticsUtteranceGroupByKeys: StaticListSchema = [1, n0, _AUGBKn, 0, () => AnalyticsUtteranceGroupByKey];
-export var AnalyticsUtteranceGroupByList: StaticListSchema = [
-  1,
-  n0,
-  _AUGBL,
-  0,
-  () => AnalyticsUtteranceGroupBySpecification,
-];
-export var AnalyticsUtteranceMetricResults: StaticListSchema = [1, n0, _AUMRn, 0, () => AnalyticsUtteranceMetricResult];
-export var AnalyticsUtteranceMetrics: StaticListSchema = [1, n0, _AUMn, 0, () => AnalyticsUtteranceMetric];
-export var AnalyticsUtteranceResults: StaticListSchema = [1, n0, _AURn, 0, () => AnalyticsUtteranceResult];
-export var AssociatedTranscriptFilters: StaticListSchema = [1, n0, _ATFs, 0, () => AssociatedTranscriptFilter];
-export var AssociatedTranscriptList: StaticListSchema = [1, n0, _ATL, 0, () => AssociatedTranscript];
-export var AudioLogSettingsList: StaticListSchema = [1, n0, _ALSL, 0, () => AudioLogSetting];
-export var BotAliasHistoryEventsList: StaticListSchema = [1, n0, _BAHEL, 0, () => BotAliasHistoryEvent];
-export var BotAliasReplicaSummaryList: StaticListSchema = [1, n0, _BARSL, 0, () => BotAliasReplicaSummary];
-export var BotAliasSummaryList: StaticListSchema = [1, n0, _BASL, 0, () => BotAliasSummary];
-export var BotFilters: StaticListSchema = [1, n0, _BFo, 0, () => BotFilter];
-export var BotLocaleFilters: StaticListSchema = [1, n0, _BLFo, 0, () => BotLocaleFilter];
-export var BotLocaleHistoryEventsList: StaticListSchema = [1, n0, _BLHEL, 0, () => BotLocaleHistoryEvent];
-export var BotLocaleSummaryList: StaticListSchema = [1, n0, _BLSL, 0, () => BotLocaleSummary];
-export var BotMembers: StaticListSchema = [1, n0, _BMo, 0, () => BotMember];
-export var BotRecommendationSummaryList: StaticListSchema = [1, n0, _BRSL, 0, () => BotRecommendationSummary];
-export var BotReplicaSummaryList: StaticListSchema = [1, n0, _BRSLo, 0, () => BotReplicaSummary];
-export var BotSummaryList: StaticListSchema = [1, n0, _BSL, 0, () => BotSummary];
-export var BotVersionReplicaSummaryList: StaticListSchema = [1, n0, _BVRSL, 0, () => BotVersionReplicaSummary];
-export var BotVersionSummaryList: StaticListSchema = [1, n0, _BVSL, 0, () => BotVersionSummary];
-export var BuiltInIntentSummaryList: StaticListSchema = [1, n0, _BIISL, 0, () => BuiltInIntentSummary];
-export var BuiltInSlotTypeSummaryList: StaticListSchema = [1, n0, _BISTSL, 0, () => BuiltInSlotTypeSummary];
-export var ButtonsList: StaticListSchema = [1, n0, _BL, 0, () => Button];
-export var ConditionalBranches: StaticListSchema = [1, n0, _CBo, 0, () => ConditionalBranch];
-export var ConversationLevelIntentClassificationResults: StaticListSchema = [
+var AnalyticsIntentStageMetricResults: StaticListSchema = [1, n0, _AISMRn, 0, () => AnalyticsIntentStageMetricResult$];
+var AnalyticsIntentStageMetrics: StaticListSchema = [1, n0, _AISMn, 0, () => AnalyticsIntentStageMetric$];
+var AnalyticsIntentStageResults: StaticListSchema = [1, n0, _AISRn, 0, () => AnalyticsIntentStageResult$];
+var AnalyticsPathFilters: StaticListSchema = [1, n0, _APFn, 0, () => AnalyticsPathFilter$];
+var AnalyticsSessionFilters: StaticListSchema = [1, n0, _ASFn, 0, () => AnalyticsSessionFilter$];
+var AnalyticsSessionGroupByKeys: StaticListSchema = [1, n0, _ASGBKn, 0, () => AnalyticsSessionGroupByKey$];
+var AnalyticsSessionGroupByList: StaticListSchema = [1, n0, _ASGBL, 0, () => AnalyticsSessionGroupBySpecification$];
+var AnalyticsSessionMetricResults: StaticListSchema = [1, n0, _ASMRn, 0, () => AnalyticsSessionMetricResult$];
+var AnalyticsSessionMetrics: StaticListSchema = [1, n0, _ASMn, 0, () => AnalyticsSessionMetric$];
+var AnalyticsSessionResults: StaticListSchema = [1, n0, _ASRn, 0, () => AnalyticsSessionResult$];
+var AnalyticsUtteranceAttributeResults: StaticListSchema = [1, n0, _AUARn, 0, () => AnalyticsUtteranceAttributeResult$];
+var AnalyticsUtteranceAttributes: StaticListSchema = [1, n0, _AUAn, 0, () => AnalyticsUtteranceAttribute$];
+var AnalyticsUtteranceFilters: StaticListSchema = [1, n0, _AUFna, 0, () => AnalyticsUtteranceFilter$];
+var AnalyticsUtteranceGroupByKeys: StaticListSchema = [1, n0, _AUGBKn, 0, () => AnalyticsUtteranceGroupByKey$];
+var AnalyticsUtteranceGroupByList: StaticListSchema = [1, n0, _AUGBL, 0, () => AnalyticsUtteranceGroupBySpecification$];
+var AnalyticsUtteranceMetricResults: StaticListSchema = [1, n0, _AUMRn, 0, () => AnalyticsUtteranceMetricResult$];
+var AnalyticsUtteranceMetrics: StaticListSchema = [1, n0, _AUMn, 0, () => AnalyticsUtteranceMetric$];
+var AnalyticsUtteranceResults: StaticListSchema = [1, n0, _AURn, 0, () => AnalyticsUtteranceResult$];
+var AssociatedTranscriptFilters: StaticListSchema = [1, n0, _ATFs, 0, () => AssociatedTranscriptFilter$];
+var AssociatedTranscriptList: StaticListSchema = [1, n0, _ATL, 0, () => AssociatedTranscript$];
+var AudioLogSettingsList: StaticListSchema = [1, n0, _ALSL, 0, () => AudioLogSetting$];
+var BotAliasHistoryEventsList: StaticListSchema = [1, n0, _BAHEL, 0, () => BotAliasHistoryEvent$];
+var BotAliasReplicaSummaryList: StaticListSchema = [1, n0, _BARSL, 0, () => BotAliasReplicaSummary$];
+var BotAliasSummaryList: StaticListSchema = [1, n0, _BASL, 0, () => BotAliasSummary$];
+var BotFilters: StaticListSchema = [1, n0, _BFo, 0, () => BotFilter$];
+var BotLocaleFilters: StaticListSchema = [1, n0, _BLFo, 0, () => BotLocaleFilter$];
+var BotLocaleHistoryEventsList: StaticListSchema = [1, n0, _BLHEL, 0, () => BotLocaleHistoryEvent$];
+var BotLocaleSummaryList: StaticListSchema = [1, n0, _BLSL, 0, () => BotLocaleSummary$];
+var BotMembers: StaticListSchema = [1, n0, _BMo, 0, () => BotMember$];
+var BotRecommendationSummaryList: StaticListSchema = [1, n0, _BRSL, 0, () => BotRecommendationSummary$];
+var BotReplicaSummaryList: StaticListSchema = [1, n0, _BRSLo, 0, () => BotReplicaSummary$];
+var BotSummaryList: StaticListSchema = [1, n0, _BSL, 0, () => BotSummary$];
+var BotVersionReplicaSummaryList: StaticListSchema = [1, n0, _BVRSL, 0, () => BotVersionReplicaSummary$];
+var BotVersionSummaryList: StaticListSchema = [1, n0, _BVSL, 0, () => BotVersionSummary$];
+var BuiltInIntentSummaryList: StaticListSchema = [1, n0, _BIISL, 0, () => BuiltInIntentSummary$];
+var BuiltInSlotTypeSummaryList: StaticListSchema = [1, n0, _BISTSL, 0, () => BuiltInSlotTypeSummary$];
+var ButtonsList: StaticListSchema = [1, n0, _BL, 0, () => Button$];
+var ConditionalBranches: StaticListSchema = [1, n0, _CBo, 0, () => ConditionalBranch$];
+var ConversationLevelIntentClassificationResults: StaticListSchema = [
   1,
   n0,
   _CLICR,
   0,
-  () => ConversationLevelIntentClassificationResultItem,
+  () => ConversationLevelIntentClassificationResultItem$,
 ];
-export var ConversationLevelSlotResolutionResults: StaticListSchema = [
+var ConversationLevelSlotResolutionResults: StaticListSchema = [
   1,
   n0,
   _CLSRR,
   0,
-  () => ConversationLevelSlotResolutionResultItem,
+  () => ConversationLevelSlotResolutionResultItem$,
 ];
-export var ConversationLevelTestResultItemList: StaticListSchema = [
-  1,
-  n0,
-  _CLTRIL,
-  0,
-  () => ConversationLevelTestResultItem,
-];
-export var CreateCustomVocabularyItemsList: StaticListSchema = [1, n0, _CCVIL, 0, () => NewCustomVocabularyItem];
-export var CustomVocabularyItems: StaticListSchema = [1, n0, _CVIu, 0, () => CustomVocabularyItem];
-export var DeleteCustomVocabularyItemsList: StaticListSchema = [1, n0, _DCVIL, 0, () => CustomVocabularyEntryId];
-export var ExportFilters: StaticListSchema = [1, n0, _EFx, 0, () => ExportFilter];
-export var ExportSummaryList: StaticListSchema = [1, n0, _ESL, 0, () => ExportSummary];
-export var FailedCustomVocabularyItems: StaticListSchema = [1, n0, _FCVIa, 0, () => FailedCustomVocabularyItem];
-export var FailureReasons = 64 | 0;
-export var FilterValues = 64 | 0;
-export var GenerationSummaryList: StaticListSchema = [1, n0, _GSL, 0, () => GenerationSummary];
-export var ImportFilters: StaticListSchema = [1, n0, _IFm, 0, () => ImportFilter];
-export var ImportSummaryList: StaticListSchema = [1, n0, _ISL, 0, () => ImportSummary];
-export var InputContextsList: StaticListSchema = [1, n0, _ICL, 0, () => InputContext];
-export var IntentClassificationTestResultItemList: StaticListSchema = [
+var ConversationLevelTestResultItemList: StaticListSchema = [1, n0, _CLTRIL, 0, () => ConversationLevelTestResultItem$];
+var CreateCustomVocabularyItemsList: StaticListSchema = [1, n0, _CCVIL, 0, () => NewCustomVocabularyItem$];
+var CustomVocabularyItems: StaticListSchema = [1, n0, _CVIu, 0, () => CustomVocabularyItem$];
+var DeleteCustomVocabularyItemsList: StaticListSchema = [1, n0, _DCVIL, 0, () => CustomVocabularyEntryId$];
+var ExportFilters: StaticListSchema = [1, n0, _EFx, 0, () => ExportFilter$];
+var ExportSummaryList: StaticListSchema = [1, n0, _ESL, 0, () => ExportSummary$];
+var FailedCustomVocabularyItems: StaticListSchema = [1, n0, _FCVIa, 0, () => FailedCustomVocabularyItem$];
+var FailureReasons = 64 | 0;
+var FilterValues = 64 | 0;
+var GenerationSummaryList: StaticListSchema = [1, n0, _GSL, 0, () => GenerationSummary$];
+var ImportFilters: StaticListSchema = [1, n0, _IFm, 0, () => ImportFilter$];
+var ImportSummaryList: StaticListSchema = [1, n0, _ISL, 0, () => ImportSummary$];
+var InputContextsList: StaticListSchema = [1, n0, _ICL, 0, () => InputContext$];
+var IntentClassificationTestResultItemList: StaticListSchema = [
   1,
   n0,
   _ICTRIL,
   0,
-  () => IntentClassificationTestResultItem,
+  () => IntentClassificationTestResultItem$,
 ];
-export var IntentFilters: StaticListSchema = [1, n0, _IFnt, 0, () => IntentFilter];
-export var IntentLevelSlotResolutionTestResultItemList: StaticListSchema = [
+var IntentFilters: StaticListSchema = [1, n0, _IFnt, 0, () => IntentFilter$];
+var IntentLevelSlotResolutionTestResultItemList: StaticListSchema = [
   1,
   n0,
   _ILSRTRIL,
   0,
-  () => IntentLevelSlotResolutionTestResultItem,
+  () => IntentLevelSlotResolutionTestResultItem$,
 ];
-export var IntentSummaryList: StaticListSchema = [1, n0, _ISLn, 0, () => IntentSummary];
-export var InvokedIntentSamples: StaticListSchema = [1, n0, _IISn, 0, () => InvokedIntentSample];
-export var MessageGroupsList: StaticListSchema = [1, n0, _MGL, 0, () => MessageGroup];
-export var MessageVariationsList: StaticListSchema = [1, n0, _MVL, 0, () => Message];
-export var ObjectPrefixes = 64 | 0;
-export var OperationList = 64 | 0;
-export var OSIncludeFields = 64 | 0;
-export var OutputContextsList: StaticListSchema = [1, n0, _OCL, 0, () => OutputContext];
-export var OverallTestResultItemList: StaticListSchema = [1, n0, _OTRIL, 0, () => OverallTestResultItem];
-export var ParentBotNetworks: StaticListSchema = [1, n0, _PBNa, 0, () => ParentBotNetwork];
-export var PrincipalList: StaticListSchema = [1, n0, _PL, 0, () => Principal];
-export var RecommendedActions = 64 | 0;
-export var RecommendedIntentSummaryList: StaticListSchema = [1, n0, _RISL, 0, () => RecommendedIntentSummary];
-export var RuntimeHintValuesList: StaticListSchema = [1, n0, _RHVL, 0, () => RuntimeHintValue];
-export var SampleUtterancesList: StaticListSchema = [1, n0, _SUL, 0, () => SampleUtterance];
-export var SessionSpecifications: StaticListSchema = [1, n0, _SSe, 0, () => SessionSpecification];
-export var SlotDefaultValueList: StaticListSchema = [1, n0, _SDVL, 0, () => SlotDefaultValue];
-export var SlotFilters: StaticListSchema = [1, n0, _SFl, 0, () => SlotFilter];
-export var SlotPrioritiesList: StaticListSchema = [1, n0, _SPL, 0, () => SlotPriority];
-export var SlotResolutionTestResultItems: StaticListSchema = [1, n0, _SRTRIl, 0, () => SlotResolutionTestResultItem];
-export var SlotSummaryList: StaticListSchema = [1, n0, _SSL, 0, () => SlotSummary];
-export var SlotTypeFilters: StaticListSchema = [1, n0, _STFl, 0, () => SlotTypeFilter];
-export var SlotTypeSummaryList: StaticListSchema = [1, n0, _STSL, 0, () => SlotTypeSummary];
-export var SlotTypeValues: StaticListSchema = [1, n0, _STVl, 0, () => SlotTypeValue];
-export var SlotValues: StaticListSchema = [1, n0, _SVlo, 0, () => SlotValueOverride];
-export var SubSlotTypeList: StaticListSchema = [1, n0, _SSTL, 0, () => SubSlotTypeComposition];
-export var SynonymList: StaticListSchema = [1, n0, _SL, 0, () => SampleValue];
-export var TagKeyList = 64 | 0;
-export var TestExecutionSummaryList: StaticListSchema = [1, n0, _TESL, 0, () => TestExecutionSummary];
-export var TestSetIntentDiscrepancyList: StaticListSchema = [1, n0, _TSIDL, 0, () => TestSetIntentDiscrepancyItem];
-export var TestSetSlotDiscrepancyList: StaticListSchema = [1, n0, _TSSDL, 0, () => TestSetSlotDiscrepancyItem];
-export var TestSetSummaryList: StaticListSchema = [1, n0, _TSSLe, 0, () => TestSetSummary];
-export var TestSetTurnRecordList: StaticListSchema = [1, n0, _TSTRL, 0, () => TestSetTurnRecord];
-export var TextLogSettingsList: StaticListSchema = [1, n0, _TLSL, 0, () => TextLogSetting];
-export var UpdateCustomVocabularyItemsList: StaticListSchema = [1, n0, _UCVIL, 0, () => CustomVocabularyItem];
-export var UserTurnSlotOutputList: StaticListSchema = [1, n0, _UTSOL, 0, () => UserTurnSlotOutput];
-export var UtteranceBotResponses: StaticListSchema = [1, n0, _UBRtt, 0, () => UtteranceBotResponse];
-export var UtteranceLevelTestResultItemList: StaticListSchema = [1, n0, _ULTRIL, 0, () => UtteranceLevelTestResultItem];
-export var UtteranceSpecifications: StaticListSchema = [1, n0, _USt, 0, () => UtteranceSpecification];
-export var BotAliasLocaleSettingsMap: StaticMapSchema = [2, n0, _BALSM, 0, 0, () => BotAliasLocaleSettings];
-export var BotVersionLocaleSpecification: StaticMapSchema = [2, n0, _BVLS, 0, 0, () => BotVersionLocaleDetails];
-export var ConditionKeyValueMap = 128 | 0;
-export var ConditionMap: StaticMapSchema = [2, n0, _CM, 0, 0, 128 | 0];
-export var PromptAttemptsSpecificationMap: StaticMapSchema = [2, n0, _PASM, 0, 0, () => PromptAttemptSpecification];
-export var SlotHintsIntentMap: StaticMapSchema = [2, n0, _SHIM, 0, 0, () => SlotHintsSlotMap];
-export var SlotHintsSlotMap: StaticMapSchema = [2, n0, _SHSM, 0, 0, () => RuntimeHintDetails];
-export var SlotValueOverrideMap: StaticMapSchema = [2, n0, _SVOM, 0, 0, () => SlotValueOverride];
-export var StringMap = 128 | 0;
-export var SubSlotSpecificationMap: StaticMapSchema = [2, n0, _SSSM, 0, 0, () => Specifications];
-export var TagMap = 128 | 0;
-export var TestResultMatchStatusCountMap = 128 | 1;
-export var UserTurnSlotOutputMap: StaticMapSchema = [2, n0, _UTSOM, 0, 0, () => UserTurnSlotOutput];
-export var BatchCreateCustomVocabularyItem: StaticOperationSchema = [
+var IntentSummaryList: StaticListSchema = [1, n0, _ISLn, 0, () => IntentSummary$];
+var InvokedIntentSamples: StaticListSchema = [1, n0, _IISn, 0, () => InvokedIntentSample$];
+var MessageGroupsList: StaticListSchema = [1, n0, _MGL, 0, () => MessageGroup$];
+var MessageVariationsList: StaticListSchema = [1, n0, _MVL, 0, () => Message$];
+var ObjectPrefixes = 64 | 0;
+var OperationList = 64 | 0;
+var OSIncludeFields = 64 | 0;
+var OutputContextsList: StaticListSchema = [1, n0, _OCL, 0, () => OutputContext$];
+var OverallTestResultItemList: StaticListSchema = [1, n0, _OTRIL, 0, () => OverallTestResultItem$];
+var ParentBotNetworks: StaticListSchema = [1, n0, _PBNa, 0, () => ParentBotNetwork$];
+var PrincipalList: StaticListSchema = [1, n0, _PL, 0, () => Principal$];
+var RecommendedActions = 64 | 0;
+var RecommendedIntentSummaryList: StaticListSchema = [1, n0, _RISL, 0, () => RecommendedIntentSummary$];
+var RuntimeHintValuesList: StaticListSchema = [1, n0, _RHVL, 0, () => RuntimeHintValue$];
+var SampleUtterancesList: StaticListSchema = [1, n0, _SUL, 0, () => SampleUtterance$];
+var SessionSpecifications: StaticListSchema = [1, n0, _SSe, 0, () => SessionSpecification$];
+var SlotDefaultValueList: StaticListSchema = [1, n0, _SDVL, 0, () => SlotDefaultValue$];
+var SlotFilters: StaticListSchema = [1, n0, _SFl, 0, () => SlotFilter$];
+var SlotPrioritiesList: StaticListSchema = [1, n0, _SPL, 0, () => SlotPriority$];
+var SlotResolutionTestResultItems: StaticListSchema = [1, n0, _SRTRIl, 0, () => SlotResolutionTestResultItem$];
+var SlotSummaryList: StaticListSchema = [1, n0, _SSL, 0, () => SlotSummary$];
+var SlotTypeFilters: StaticListSchema = [1, n0, _STFl, 0, () => SlotTypeFilter$];
+var SlotTypeSummaryList: StaticListSchema = [1, n0, _STSL, 0, () => SlotTypeSummary$];
+var SlotTypeValues: StaticListSchema = [1, n0, _STVl, 0, () => SlotTypeValue$];
+var SlotValues: StaticListSchema = [1, n0, _SVlo, 0, () => SlotValueOverride$];
+var SubSlotTypeList: StaticListSchema = [1, n0, _SSTL, 0, () => SubSlotTypeComposition$];
+var SynonymList: StaticListSchema = [1, n0, _SL, 0, () => SampleValue$];
+var TagKeyList = 64 | 0;
+var TestExecutionSummaryList: StaticListSchema = [1, n0, _TESL, 0, () => TestExecutionSummary$];
+var TestSetIntentDiscrepancyList: StaticListSchema = [1, n0, _TSIDL, 0, () => TestSetIntentDiscrepancyItem$];
+var TestSetSlotDiscrepancyList: StaticListSchema = [1, n0, _TSSDL, 0, () => TestSetSlotDiscrepancyItem$];
+var TestSetSummaryList: StaticListSchema = [1, n0, _TSSLe, 0, () => TestSetSummary$];
+var TestSetTurnRecordList: StaticListSchema = [1, n0, _TSTRL, 0, () => TestSetTurnRecord$];
+var TextLogSettingsList: StaticListSchema = [1, n0, _TLSL, 0, () => TextLogSetting$];
+var UpdateCustomVocabularyItemsList: StaticListSchema = [1, n0, _UCVIL, 0, () => CustomVocabularyItem$];
+var UserTurnSlotOutputList: StaticListSchema = [1, n0, _UTSOL, 0, () => UserTurnSlotOutput$];
+var UtteranceBotResponses: StaticListSchema = [1, n0, _UBRtt, 0, () => UtteranceBotResponse$];
+var UtteranceLevelTestResultItemList: StaticListSchema = [1, n0, _ULTRIL, 0, () => UtteranceLevelTestResultItem$];
+var UtteranceSpecifications: StaticListSchema = [1, n0, _USt, 0, () => UtteranceSpecification$];
+var BotAliasLocaleSettingsMap: StaticMapSchema = [2, n0, _BALSM, 0, 0, () => BotAliasLocaleSettings$];
+var BotVersionLocaleSpecification: StaticMapSchema = [2, n0, _BVLS, 0, 0, () => BotVersionLocaleDetails$];
+var ConditionKeyValueMap = 128 | 0;
+var ConditionMap: StaticMapSchema = [2, n0, _CM, 0, 0, 128 | 0];
+var PromptAttemptsSpecificationMap: StaticMapSchema = [2, n0, _PASM, 0, 0, () => PromptAttemptSpecification$];
+var SlotHintsIntentMap: StaticMapSchema = [2, n0, _SHIM, 0, 0, () => SlotHintsSlotMap];
+var SlotHintsSlotMap: StaticMapSchema = [2, n0, _SHSM, 0, 0, () => RuntimeHintDetails$];
+var SlotValueOverrideMap: StaticMapSchema = [2, n0, _SVOM, 0, 0, () => SlotValueOverride$];
+var StringMap = 128 | 0;
+var SubSlotSpecificationMap: StaticMapSchema = [2, n0, _SSSM, 0, 0, () => Specifications$];
+var TagMap = 128 | 0;
+var TestResultMatchStatusCountMap = 128 | 1;
+var UserTurnSlotOutputMap: StaticMapSchema = [2, n0, _UTSOM, 0, 0, () => UserTurnSlotOutput$];
+export var BatchCreateCustomVocabularyItem$: StaticOperationSchema = [
   9,
   n0,
   _BCCVI,
@@ -4541,10 +4533,10 @@ export var BatchCreateCustomVocabularyItem: StaticOperationSchema = [
       200,
     ],
   },
-  () => BatchCreateCustomVocabularyItemRequest,
-  () => BatchCreateCustomVocabularyItemResponse,
+  () => BatchCreateCustomVocabularyItemRequest$,
+  () => BatchCreateCustomVocabularyItemResponse$,
 ];
-export var BatchDeleteCustomVocabularyItem: StaticOperationSchema = [
+export var BatchDeleteCustomVocabularyItem$: StaticOperationSchema = [
   9,
   n0,
   _BDCVI,
@@ -4555,10 +4547,10 @@ export var BatchDeleteCustomVocabularyItem: StaticOperationSchema = [
       200,
     ],
   },
-  () => BatchDeleteCustomVocabularyItemRequest,
-  () => BatchDeleteCustomVocabularyItemResponse,
+  () => BatchDeleteCustomVocabularyItemRequest$,
+  () => BatchDeleteCustomVocabularyItemResponse$,
 ];
-export var BatchUpdateCustomVocabularyItem: StaticOperationSchema = [
+export var BatchUpdateCustomVocabularyItem$: StaticOperationSchema = [
   9,
   n0,
   _BUCVI,
@@ -4569,210 +4561,210 @@ export var BatchUpdateCustomVocabularyItem: StaticOperationSchema = [
       200,
     ],
   },
-  () => BatchUpdateCustomVocabularyItemRequest,
-  () => BatchUpdateCustomVocabularyItemResponse,
+  () => BatchUpdateCustomVocabularyItemRequest$,
+  () => BatchUpdateCustomVocabularyItemResponse$,
 ];
-export var BuildBotLocale: StaticOperationSchema = [
+export var BuildBotLocale$: StaticOperationSchema = [
   9,
   n0,
   _BBL,
   { [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}", 202] },
-  () => BuildBotLocaleRequest,
-  () => BuildBotLocaleResponse,
+  () => BuildBotLocaleRequest$,
+  () => BuildBotLocaleResponse$,
 ];
-export var CreateBot: StaticOperationSchema = [
+export var CreateBot$: StaticOperationSchema = [
   9,
   n0,
   _CBr,
   { [_h]: ["PUT", "/bots", 202] },
-  () => CreateBotRequest,
-  () => CreateBotResponse,
+  () => CreateBotRequest$,
+  () => CreateBotResponse$,
 ];
-export var CreateBotAlias: StaticOperationSchema = [
+export var CreateBotAlias$: StaticOperationSchema = [
   9,
   n0,
   _CBA,
   { [_h]: ["PUT", "/bots/{botId}/botaliases", 202] },
-  () => CreateBotAliasRequest,
-  () => CreateBotAliasResponse,
+  () => CreateBotAliasRequest$,
+  () => CreateBotAliasResponse$,
 ];
-export var CreateBotLocale: StaticOperationSchema = [
+export var CreateBotLocale$: StaticOperationSchema = [
   9,
   n0,
   _CBL,
   { [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales", 202] },
-  () => CreateBotLocaleRequest,
-  () => CreateBotLocaleResponse,
+  () => CreateBotLocaleRequest$,
+  () => CreateBotLocaleResponse$,
 ];
-export var CreateBotReplica: StaticOperationSchema = [
+export var CreateBotReplica$: StaticOperationSchema = [
   9,
   n0,
   _CBRre,
   { [_h]: ["PUT", "/bots/{botId}/replicas", 202] },
-  () => CreateBotReplicaRequest,
-  () => CreateBotReplicaResponse,
+  () => CreateBotReplicaRequest$,
+  () => CreateBotReplicaResponse$,
 ];
-export var CreateBotVersion: StaticOperationSchema = [
+export var CreateBotVersion$: StaticOperationSchema = [
   9,
   n0,
   _CBV,
   { [_h]: ["PUT", "/bots/{botId}/botversions", 202] },
-  () => CreateBotVersionRequest,
-  () => CreateBotVersionResponse,
+  () => CreateBotVersionRequest$,
+  () => CreateBotVersionResponse$,
 ];
-export var CreateExport: StaticOperationSchema = [
+export var CreateExport$: StaticOperationSchema = [
   9,
   n0,
   _CEr,
   { [_h]: ["PUT", "/exports", 202] },
-  () => CreateExportRequest,
-  () => CreateExportResponse,
+  () => CreateExportRequest$,
+  () => CreateExportResponse$,
 ];
-export var CreateIntent: StaticOperationSchema = [
+export var CreateIntent$: StaticOperationSchema = [
   9,
   n0,
   _CI,
   { [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents", 200] },
-  () => CreateIntentRequest,
-  () => CreateIntentResponse,
+  () => CreateIntentRequest$,
+  () => CreateIntentResponse$,
 ];
-export var CreateResourcePolicy: StaticOperationSchema = [
+export var CreateResourcePolicy$: StaticOperationSchema = [
   9,
   n0,
   _CRP,
   { [_h]: ["POST", "/policy/{resourceArn}", 200] },
-  () => CreateResourcePolicyRequest,
-  () => CreateResourcePolicyResponse,
+  () => CreateResourcePolicyRequest$,
+  () => CreateResourcePolicyResponse$,
 ];
-export var CreateResourcePolicyStatement: StaticOperationSchema = [
+export var CreateResourcePolicyStatement$: StaticOperationSchema = [
   9,
   n0,
   _CRPS,
   { [_h]: ["POST", "/policy/{resourceArn}/statements", 200] },
-  () => CreateResourcePolicyStatementRequest,
-  () => CreateResourcePolicyStatementResponse,
+  () => CreateResourcePolicyStatementRequest$,
+  () => CreateResourcePolicyStatementResponse$,
 ];
-export var CreateSlot: StaticOperationSchema = [
+export var CreateSlot$: StaticOperationSchema = [
   9,
   n0,
   _CSr,
   { [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots", 200] },
-  () => CreateSlotRequest,
-  () => CreateSlotResponse,
+  () => CreateSlotRequest$,
+  () => CreateSlotResponse$,
 ];
-export var CreateSlotType: StaticOperationSchema = [
+export var CreateSlotType$: StaticOperationSchema = [
   9,
   n0,
   _CST,
   { [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes", 200] },
-  () => CreateSlotTypeRequest,
-  () => CreateSlotTypeResponse,
+  () => CreateSlotTypeRequest$,
+  () => CreateSlotTypeResponse$,
 ];
-export var CreateTestSetDiscrepancyReport: StaticOperationSchema = [
+export var CreateTestSetDiscrepancyReport$: StaticOperationSchema = [
   9,
   n0,
   _CTSDR,
   { [_h]: ["POST", "/testsets/{testSetId}/testsetdiscrepancy", 202] },
-  () => CreateTestSetDiscrepancyReportRequest,
-  () => CreateTestSetDiscrepancyReportResponse,
+  () => CreateTestSetDiscrepancyReportRequest$,
+  () => CreateTestSetDiscrepancyReportResponse$,
 ];
-export var CreateUploadUrl: StaticOperationSchema = [
+export var CreateUploadUrl$: StaticOperationSchema = [
   9,
   n0,
   _CUU,
   { [_h]: ["POST", "/createuploadurl", 200] },
-  () => CreateUploadUrlRequest,
-  () => CreateUploadUrlResponse,
+  () => CreateUploadUrlRequest$,
+  () => CreateUploadUrlResponse$,
 ];
-export var DeleteBot: StaticOperationSchema = [
+export var DeleteBot$: StaticOperationSchema = [
   9,
   n0,
   _DB,
   { [_h]: ["DELETE", "/bots/{botId}", 202] },
-  () => DeleteBotRequest,
-  () => DeleteBotResponse,
+  () => DeleteBotRequest$,
+  () => DeleteBotResponse$,
 ];
-export var DeleteBotAlias: StaticOperationSchema = [
+export var DeleteBotAlias$: StaticOperationSchema = [
   9,
   n0,
   _DBA,
   { [_h]: ["DELETE", "/bots/{botId}/botaliases/{botAliasId}", 202] },
-  () => DeleteBotAliasRequest,
-  () => DeleteBotAliasResponse,
+  () => DeleteBotAliasRequest$,
+  () => DeleteBotAliasResponse$,
 ];
-export var DeleteBotLocale: StaticOperationSchema = [
+export var DeleteBotLocale$: StaticOperationSchema = [
   9,
   n0,
   _DBL,
   { [_h]: ["DELETE", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}", 202] },
-  () => DeleteBotLocaleRequest,
-  () => DeleteBotLocaleResponse,
+  () => DeleteBotLocaleRequest$,
+  () => DeleteBotLocaleResponse$,
 ];
-export var DeleteBotReplica: StaticOperationSchema = [
+export var DeleteBotReplica$: StaticOperationSchema = [
   9,
   n0,
   _DBRel,
   { [_h]: ["DELETE", "/bots/{botId}/replicas/{replicaRegion}", 202] },
-  () => DeleteBotReplicaRequest,
-  () => DeleteBotReplicaResponse,
+  () => DeleteBotReplicaRequest$,
+  () => DeleteBotReplicaResponse$,
 ];
-export var DeleteBotVersion: StaticOperationSchema = [
+export var DeleteBotVersion$: StaticOperationSchema = [
   9,
   n0,
   _DBV,
   { [_h]: ["DELETE", "/bots/{botId}/botversions/{botVersion}", 202] },
-  () => DeleteBotVersionRequest,
-  () => DeleteBotVersionResponse,
+  () => DeleteBotVersionRequest$,
+  () => DeleteBotVersionResponse$,
 ];
-export var DeleteCustomVocabulary: StaticOperationSchema = [
+export var DeleteCustomVocabulary$: StaticOperationSchema = [
   9,
   n0,
   _DCV,
   { [_h]: ["DELETE", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary", 202] },
-  () => DeleteCustomVocabularyRequest,
-  () => DeleteCustomVocabularyResponse,
+  () => DeleteCustomVocabularyRequest$,
+  () => DeleteCustomVocabularyResponse$,
 ];
-export var DeleteExport: StaticOperationSchema = [
+export var DeleteExport$: StaticOperationSchema = [
   9,
   n0,
   _DE,
   { [_h]: ["DELETE", "/exports/{exportId}", 202] },
-  () => DeleteExportRequest,
-  () => DeleteExportResponse,
+  () => DeleteExportRequest$,
+  () => DeleteExportResponse$,
 ];
-export var DeleteImport: StaticOperationSchema = [
+export var DeleteImport$: StaticOperationSchema = [
   9,
   n0,
   _DI,
   { [_h]: ["DELETE", "/imports/{importId}", 202] },
-  () => DeleteImportRequest,
-  () => DeleteImportResponse,
+  () => DeleteImportRequest$,
+  () => DeleteImportResponse$,
 ];
-export var DeleteIntent: StaticOperationSchema = [
+export var DeleteIntent$: StaticOperationSchema = [
   9,
   n0,
   _DIe,
   { [_h]: ["DELETE", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}", 204] },
-  () => DeleteIntentRequest,
+  () => DeleteIntentRequest$,
   () => __Unit,
 ];
-export var DeleteResourcePolicy: StaticOperationSchema = [
+export var DeleteResourcePolicy$: StaticOperationSchema = [
   9,
   n0,
   _DRP,
   { [_h]: ["DELETE", "/policy/{resourceArn}", 204] },
-  () => DeleteResourcePolicyRequest,
-  () => DeleteResourcePolicyResponse,
+  () => DeleteResourcePolicyRequest$,
+  () => DeleteResourcePolicyResponse$,
 ];
-export var DeleteResourcePolicyStatement: StaticOperationSchema = [
+export var DeleteResourcePolicyStatement$: StaticOperationSchema = [
   9,
   n0,
   _DRPS,
   { [_h]: ["DELETE", "/policy/{resourceArn}/statements/{statementId}", 204] },
-  () => DeleteResourcePolicyStatementRequest,
-  () => DeleteResourcePolicyStatementResponse,
+  () => DeleteResourcePolicyStatementRequest$,
+  () => DeleteResourcePolicyStatementResponse$,
 ];
-export var DeleteSlot: StaticOperationSchema = [
+export var DeleteSlot$: StaticOperationSchema = [
   9,
   n0,
   _DSe,
@@ -4783,58 +4775,58 @@ export var DeleteSlot: StaticOperationSchema = [
       204,
     ],
   },
-  () => DeleteSlotRequest,
+  () => DeleteSlotRequest$,
   () => __Unit,
 ];
-export var DeleteSlotType: StaticOperationSchema = [
+export var DeleteSlotType$: StaticOperationSchema = [
   9,
   n0,
   _DST,
   { [_h]: ["DELETE", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes/{slotTypeId}", 204] },
-  () => DeleteSlotTypeRequest,
+  () => DeleteSlotTypeRequest$,
   () => __Unit,
 ];
-export var DeleteTestSet: StaticOperationSchema = [
+export var DeleteTestSet$: StaticOperationSchema = [
   9,
   n0,
   _DTS,
   { [_h]: ["DELETE", "/testsets/{testSetId}", 204] },
-  () => DeleteTestSetRequest,
+  () => DeleteTestSetRequest$,
   () => __Unit,
 ];
-export var DeleteUtterances: StaticOperationSchema = [
+export var DeleteUtterances$: StaticOperationSchema = [
   9,
   n0,
   _DU,
   { [_h]: ["DELETE", "/bots/{botId}/utterances", 204] },
-  () => DeleteUtterancesRequest,
-  () => DeleteUtterancesResponse,
+  () => DeleteUtterancesRequest$,
+  () => DeleteUtterancesResponse$,
 ];
-export var DescribeBot: StaticOperationSchema = [
+export var DescribeBot$: StaticOperationSchema = [
   9,
   n0,
   _DBe,
   { [_h]: ["GET", "/bots/{botId}", 200] },
-  () => DescribeBotRequest,
-  () => DescribeBotResponse,
+  () => DescribeBotRequest$,
+  () => DescribeBotResponse$,
 ];
-export var DescribeBotAlias: StaticOperationSchema = [
+export var DescribeBotAlias$: StaticOperationSchema = [
   9,
   n0,
   _DBAe,
   { [_h]: ["GET", "/bots/{botId}/botaliases/{botAliasId}", 200] },
-  () => DescribeBotAliasRequest,
-  () => DescribeBotAliasResponse,
+  () => DescribeBotAliasRequest$,
+  () => DescribeBotAliasResponse$,
 ];
-export var DescribeBotLocale: StaticOperationSchema = [
+export var DescribeBotLocale$: StaticOperationSchema = [
   9,
   n0,
   _DBLe,
   { [_h]: ["GET", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}", 200] },
-  () => DescribeBotLocaleRequest,
-  () => DescribeBotLocaleResponse,
+  () => DescribeBotLocaleRequest$,
+  () => DescribeBotLocaleResponse$,
 ];
-export var DescribeBotRecommendation: StaticOperationSchema = [
+export var DescribeBotRecommendation$: StaticOperationSchema = [
   9,
   n0,
   _DBRescr,
@@ -4845,34 +4837,34 @@ export var DescribeBotRecommendation: StaticOperationSchema = [
       200,
     ],
   },
-  () => DescribeBotRecommendationRequest,
-  () => DescribeBotRecommendationResponse,
+  () => DescribeBotRecommendationRequest$,
+  () => DescribeBotRecommendationResponse$,
 ];
-export var DescribeBotReplica: StaticOperationSchema = [
+export var DescribeBotReplica$: StaticOperationSchema = [
   9,
   n0,
   _DBRescri,
   { [_h]: ["GET", "/bots/{botId}/replicas/{replicaRegion}", 200] },
-  () => DescribeBotReplicaRequest,
-  () => DescribeBotReplicaResponse,
+  () => DescribeBotReplicaRequest$,
+  () => DescribeBotReplicaResponse$,
 ];
-export var DescribeBotResourceGeneration: StaticOperationSchema = [
+export var DescribeBotResourceGeneration$: StaticOperationSchema = [
   9,
   n0,
   _DBRG,
   { [_h]: ["GET", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/generations/{generationId}", 200] },
-  () => DescribeBotResourceGenerationRequest,
-  () => DescribeBotResourceGenerationResponse,
+  () => DescribeBotResourceGenerationRequest$,
+  () => DescribeBotResourceGenerationResponse$,
 ];
-export var DescribeBotVersion: StaticOperationSchema = [
+export var DescribeBotVersion$: StaticOperationSchema = [
   9,
   n0,
   _DBVe,
   { [_h]: ["GET", "/bots/{botId}/botversions/{botVersion}", 200] },
-  () => DescribeBotVersionRequest,
-  () => DescribeBotVersionResponse,
+  () => DescribeBotVersionRequest$,
+  () => DescribeBotVersionResponse$,
 ];
-export var DescribeCustomVocabularyMetadata: StaticOperationSchema = [
+export var DescribeCustomVocabularyMetadata$: StaticOperationSchema = [
   9,
   n0,
   _DCVM,
@@ -4883,42 +4875,42 @@ export var DescribeCustomVocabularyMetadata: StaticOperationSchema = [
       200,
     ],
   },
-  () => DescribeCustomVocabularyMetadataRequest,
-  () => DescribeCustomVocabularyMetadataResponse,
+  () => DescribeCustomVocabularyMetadataRequest$,
+  () => DescribeCustomVocabularyMetadataResponse$,
 ];
-export var DescribeExport: StaticOperationSchema = [
+export var DescribeExport$: StaticOperationSchema = [
   9,
   n0,
   _DEe,
   { [_h]: ["GET", "/exports/{exportId}", 200] },
-  () => DescribeExportRequest,
-  () => DescribeExportResponse,
+  () => DescribeExportRequest$,
+  () => DescribeExportResponse$,
 ];
-export var DescribeImport: StaticOperationSchema = [
+export var DescribeImport$: StaticOperationSchema = [
   9,
   n0,
   _DIes,
   { [_h]: ["GET", "/imports/{importId}", 200] },
-  () => DescribeImportRequest,
-  () => DescribeImportResponse,
+  () => DescribeImportRequest$,
+  () => DescribeImportResponse$,
 ];
-export var DescribeIntent: StaticOperationSchema = [
+export var DescribeIntent$: StaticOperationSchema = [
   9,
   n0,
   _DIesc,
   { [_h]: ["GET", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}", 200] },
-  () => DescribeIntentRequest,
-  () => DescribeIntentResponse,
+  () => DescribeIntentRequest$,
+  () => DescribeIntentResponse$,
 ];
-export var DescribeResourcePolicy: StaticOperationSchema = [
+export var DescribeResourcePolicy$: StaticOperationSchema = [
   9,
   n0,
   _DRPe,
   { [_h]: ["GET", "/policy/{resourceArn}", 200] },
-  () => DescribeResourcePolicyRequest,
-  () => DescribeResourcePolicyResponse,
+  () => DescribeResourcePolicyRequest$,
+  () => DescribeResourcePolicyResponse$,
 ];
-export var DescribeSlot: StaticOperationSchema = [
+export var DescribeSlot$: StaticOperationSchema = [
   9,
   n0,
   _DSes,
@@ -4929,218 +4921,218 @@ export var DescribeSlot: StaticOperationSchema = [
       200,
     ],
   },
-  () => DescribeSlotRequest,
-  () => DescribeSlotResponse,
+  () => DescribeSlotRequest$,
+  () => DescribeSlotResponse$,
 ];
-export var DescribeSlotType: StaticOperationSchema = [
+export var DescribeSlotType$: StaticOperationSchema = [
   9,
   n0,
   _DSTe,
   { [_h]: ["GET", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes/{slotTypeId}", 200] },
-  () => DescribeSlotTypeRequest,
-  () => DescribeSlotTypeResponse,
+  () => DescribeSlotTypeRequest$,
+  () => DescribeSlotTypeResponse$,
 ];
-export var DescribeTestExecution: StaticOperationSchema = [
+export var DescribeTestExecution$: StaticOperationSchema = [
   9,
   n0,
   _DTE,
   { [_h]: ["GET", "/testexecutions/{testExecutionId}", 200] },
-  () => DescribeTestExecutionRequest,
-  () => DescribeTestExecutionResponse,
+  () => DescribeTestExecutionRequest$,
+  () => DescribeTestExecutionResponse$,
 ];
-export var DescribeTestSet: StaticOperationSchema = [
+export var DescribeTestSet$: StaticOperationSchema = [
   9,
   n0,
   _DTSe,
   { [_h]: ["GET", "/testsets/{testSetId}", 200] },
-  () => DescribeTestSetRequest,
-  () => DescribeTestSetResponse,
+  () => DescribeTestSetRequest$,
+  () => DescribeTestSetResponse$,
 ];
-export var DescribeTestSetDiscrepancyReport: StaticOperationSchema = [
+export var DescribeTestSetDiscrepancyReport$: StaticOperationSchema = [
   9,
   n0,
   _DTSDR,
   { [_h]: ["GET", "/testsetdiscrepancy/{testSetDiscrepancyReportId}", 200] },
-  () => DescribeTestSetDiscrepancyReportRequest,
-  () => DescribeTestSetDiscrepancyReportResponse,
+  () => DescribeTestSetDiscrepancyReportRequest$,
+  () => DescribeTestSetDiscrepancyReportResponse$,
 ];
-export var DescribeTestSetGeneration: StaticOperationSchema = [
+export var DescribeTestSetGeneration$: StaticOperationSchema = [
   9,
   n0,
   _DTSG,
   { [_h]: ["GET", "/testsetgenerations/{testSetGenerationId}", 200] },
-  () => DescribeTestSetGenerationRequest,
-  () => DescribeTestSetGenerationResponse,
+  () => DescribeTestSetGenerationRequest$,
+  () => DescribeTestSetGenerationResponse$,
 ];
-export var GenerateBotElement: StaticOperationSchema = [
+export var GenerateBotElement$: StaticOperationSchema = [
   9,
   n0,
   _GBE,
   { [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/generate", 202] },
-  () => GenerateBotElementRequest,
-  () => GenerateBotElementResponse,
+  () => GenerateBotElementRequest$,
+  () => GenerateBotElementResponse$,
 ];
-export var GetTestExecutionArtifactsUrl: StaticOperationSchema = [
+export var GetTestExecutionArtifactsUrl$: StaticOperationSchema = [
   9,
   n0,
   _GTEAU,
   { [_h]: ["GET", "/testexecutions/{testExecutionId}/artifacturl", 200] },
-  () => GetTestExecutionArtifactsUrlRequest,
-  () => GetTestExecutionArtifactsUrlResponse,
+  () => GetTestExecutionArtifactsUrlRequest$,
+  () => GetTestExecutionArtifactsUrlResponse$,
 ];
-export var ListAggregatedUtterances: StaticOperationSchema = [
+export var ListAggregatedUtterances$: StaticOperationSchema = [
   9,
   n0,
   _LAU,
   { [_h]: ["POST", "/bots/{botId}/aggregatedutterances", 200] },
-  () => ListAggregatedUtterancesRequest,
-  () => ListAggregatedUtterancesResponse,
+  () => ListAggregatedUtterancesRequest$,
+  () => ListAggregatedUtterancesResponse$,
 ];
-export var ListBotAliases: StaticOperationSchema = [
+export var ListBotAliases$: StaticOperationSchema = [
   9,
   n0,
   _LBA,
   { [_h]: ["POST", "/bots/{botId}/botaliases", 200] },
-  () => ListBotAliasesRequest,
-  () => ListBotAliasesResponse,
+  () => ListBotAliasesRequest$,
+  () => ListBotAliasesResponse$,
 ];
-export var ListBotAliasReplicas: StaticOperationSchema = [
+export var ListBotAliasReplicas$: StaticOperationSchema = [
   9,
   n0,
   _LBARis,
   { [_h]: ["POST", "/bots/{botId}/replicas/{replicaRegion}/botaliases", 200] },
-  () => ListBotAliasReplicasRequest,
-  () => ListBotAliasReplicasResponse,
+  () => ListBotAliasReplicasRequest$,
+  () => ListBotAliasReplicasResponse$,
 ];
-export var ListBotLocales: StaticOperationSchema = [
+export var ListBotLocales$: StaticOperationSchema = [
   9,
   n0,
   _LBL,
   { [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales", 200] },
-  () => ListBotLocalesRequest,
-  () => ListBotLocalesResponse,
+  () => ListBotLocalesRequest$,
+  () => ListBotLocalesResponse$,
 ];
-export var ListBotRecommendations: StaticOperationSchema = [
+export var ListBotRecommendations$: StaticOperationSchema = [
   9,
   n0,
   _LBRis,
   { [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations", 200] },
-  () => ListBotRecommendationsRequest,
-  () => ListBotRecommendationsResponse,
+  () => ListBotRecommendationsRequest$,
+  () => ListBotRecommendationsResponse$,
 ];
-export var ListBotReplicas: StaticOperationSchema = [
+export var ListBotReplicas$: StaticOperationSchema = [
   9,
   n0,
   _LBRist,
   { [_h]: ["POST", "/bots/{botId}/replicas", 200] },
-  () => ListBotReplicasRequest,
-  () => ListBotReplicasResponse,
+  () => ListBotReplicasRequest$,
+  () => ListBotReplicasResponse$,
 ];
-export var ListBotResourceGenerations: StaticOperationSchema = [
+export var ListBotResourceGenerations$: StaticOperationSchema = [
   9,
   n0,
   _LBRG,
   { [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/generations", 200] },
-  () => ListBotResourceGenerationsRequest,
-  () => ListBotResourceGenerationsResponse,
+  () => ListBotResourceGenerationsRequest$,
+  () => ListBotResourceGenerationsResponse$,
 ];
-export var ListBots: StaticOperationSchema = [
+export var ListBots$: StaticOperationSchema = [
   9,
   n0,
   _LB,
   { [_h]: ["POST", "/bots", 200] },
-  () => ListBotsRequest,
-  () => ListBotsResponse,
+  () => ListBotsRequest$,
+  () => ListBotsResponse$,
 ];
-export var ListBotVersionReplicas: StaticOperationSchema = [
+export var ListBotVersionReplicas$: StaticOperationSchema = [
   9,
   n0,
   _LBVRis,
   { [_h]: ["POST", "/bots/{botId}/replicas/{replicaRegion}/botversions", 200] },
-  () => ListBotVersionReplicasRequest,
-  () => ListBotVersionReplicasResponse,
+  () => ListBotVersionReplicasRequest$,
+  () => ListBotVersionReplicasResponse$,
 ];
-export var ListBotVersions: StaticOperationSchema = [
+export var ListBotVersions$: StaticOperationSchema = [
   9,
   n0,
   _LBV,
   { [_h]: ["POST", "/bots/{botId}/botversions", 200] },
-  () => ListBotVersionsRequest,
-  () => ListBotVersionsResponse,
+  () => ListBotVersionsRequest$,
+  () => ListBotVersionsResponse$,
 ];
-export var ListBuiltInIntents: StaticOperationSchema = [
+export var ListBuiltInIntents$: StaticOperationSchema = [
   9,
   n0,
   _LBII,
   { [_h]: ["POST", "/builtins/locales/{localeId}/intents", 200] },
-  () => ListBuiltInIntentsRequest,
-  () => ListBuiltInIntentsResponse,
+  () => ListBuiltInIntentsRequest$,
+  () => ListBuiltInIntentsResponse$,
 ];
-export var ListBuiltInSlotTypes: StaticOperationSchema = [
+export var ListBuiltInSlotTypes$: StaticOperationSchema = [
   9,
   n0,
   _LBIST,
   { [_h]: ["POST", "/builtins/locales/{localeId}/slottypes", 200] },
-  () => ListBuiltInSlotTypesRequest,
-  () => ListBuiltInSlotTypesResponse,
+  () => ListBuiltInSlotTypesRequest$,
+  () => ListBuiltInSlotTypesResponse$,
 ];
-export var ListCustomVocabularyItems: StaticOperationSchema = [
+export var ListCustomVocabularyItems$: StaticOperationSchema = [
   9,
   n0,
   _LCVI,
   { [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/list", 200] },
-  () => ListCustomVocabularyItemsRequest,
-  () => ListCustomVocabularyItemsResponse,
+  () => ListCustomVocabularyItemsRequest$,
+  () => ListCustomVocabularyItemsResponse$,
 ];
-export var ListExports: StaticOperationSchema = [
+export var ListExports$: StaticOperationSchema = [
   9,
   n0,
   _LE,
   { [_h]: ["POST", "/exports", 200] },
-  () => ListExportsRequest,
-  () => ListExportsResponse,
+  () => ListExportsRequest$,
+  () => ListExportsResponse$,
 ];
-export var ListImports: StaticOperationSchema = [
+export var ListImports$: StaticOperationSchema = [
   9,
   n0,
   _LI,
   { [_h]: ["POST", "/imports", 200] },
-  () => ListImportsRequest,
-  () => ListImportsResponse,
+  () => ListImportsRequest$,
+  () => ListImportsResponse$,
 ];
-export var ListIntentMetrics: StaticOperationSchema = [
+export var ListIntentMetrics$: StaticOperationSchema = [
   9,
   n0,
   _LIM,
   { [_h]: ["POST", "/bots/{botId}/analytics/intentmetrics", 200] },
-  () => ListIntentMetricsRequest,
-  () => ListIntentMetricsResponse,
+  () => ListIntentMetricsRequest$,
+  () => ListIntentMetricsResponse$,
 ];
-export var ListIntentPaths: StaticOperationSchema = [
+export var ListIntentPaths$: StaticOperationSchema = [
   9,
   n0,
   _LIP,
   { [_h]: ["POST", "/bots/{botId}/analytics/intentpaths", 200] },
-  () => ListIntentPathsRequest,
-  () => ListIntentPathsResponse,
+  () => ListIntentPathsRequest$,
+  () => ListIntentPathsResponse$,
 ];
-export var ListIntents: StaticOperationSchema = [
+export var ListIntents$: StaticOperationSchema = [
   9,
   n0,
   _LIi,
   { [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents", 200] },
-  () => ListIntentsRequest,
-  () => ListIntentsResponse,
+  () => ListIntentsRequest$,
+  () => ListIntentsResponse$,
 ];
-export var ListIntentStageMetrics: StaticOperationSchema = [
+export var ListIntentStageMetrics$: StaticOperationSchema = [
   9,
   n0,
   _LISM,
   { [_h]: ["POST", "/bots/{botId}/analytics/intentstagemetrics", 200] },
-  () => ListIntentStageMetricsRequest,
-  () => ListIntentStageMetricsResponse,
+  () => ListIntentStageMetricsRequest$,
+  () => ListIntentStageMetricsResponse$,
 ];
-export var ListRecommendedIntents: StaticOperationSchema = [
+export var ListRecommendedIntents$: StaticOperationSchema = [
   9,
   n0,
   _LRI,
@@ -5151,98 +5143,98 @@ export var ListRecommendedIntents: StaticOperationSchema = [
       200,
     ],
   },
-  () => ListRecommendedIntentsRequest,
-  () => ListRecommendedIntentsResponse,
+  () => ListRecommendedIntentsRequest$,
+  () => ListRecommendedIntentsResponse$,
 ];
-export var ListSessionAnalyticsData: StaticOperationSchema = [
+export var ListSessionAnalyticsData$: StaticOperationSchema = [
   9,
   n0,
   _LSAD,
   { [_h]: ["POST", "/bots/{botId}/analytics/sessions", 200] },
-  () => ListSessionAnalyticsDataRequest,
-  () => ListSessionAnalyticsDataResponse,
+  () => ListSessionAnalyticsDataRequest$,
+  () => ListSessionAnalyticsDataResponse$,
 ];
-export var ListSessionMetrics: StaticOperationSchema = [
+export var ListSessionMetrics$: StaticOperationSchema = [
   9,
   n0,
   _LSM,
   { [_h]: ["POST", "/bots/{botId}/analytics/sessionmetrics", 200] },
-  () => ListSessionMetricsRequest,
-  () => ListSessionMetricsResponse,
+  () => ListSessionMetricsRequest$,
+  () => ListSessionMetricsResponse$,
 ];
-export var ListSlots: StaticOperationSchema = [
+export var ListSlots$: StaticOperationSchema = [
   9,
   n0,
   _LS,
   { [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots", 200] },
-  () => ListSlotsRequest,
-  () => ListSlotsResponse,
+  () => ListSlotsRequest$,
+  () => ListSlotsResponse$,
 ];
-export var ListSlotTypes: StaticOperationSchema = [
+export var ListSlotTypes$: StaticOperationSchema = [
   9,
   n0,
   _LST,
   { [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes", 200] },
-  () => ListSlotTypesRequest,
-  () => ListSlotTypesResponse,
+  () => ListSlotTypesRequest$,
+  () => ListSlotTypesResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{resourceARN}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var ListTestExecutionResultItems: StaticOperationSchema = [
+export var ListTestExecutionResultItems$: StaticOperationSchema = [
   9,
   n0,
   _LTERI,
   { [_h]: ["POST", "/testexecutions/{testExecutionId}/results", 200] },
-  () => ListTestExecutionResultItemsRequest,
-  () => ListTestExecutionResultItemsResponse,
+  () => ListTestExecutionResultItemsRequest$,
+  () => ListTestExecutionResultItemsResponse$,
 ];
-export var ListTestExecutions: StaticOperationSchema = [
+export var ListTestExecutions$: StaticOperationSchema = [
   9,
   n0,
   _LTE,
   { [_h]: ["POST", "/testexecutions", 200] },
-  () => ListTestExecutionsRequest,
-  () => ListTestExecutionsResponse,
+  () => ListTestExecutionsRequest$,
+  () => ListTestExecutionsResponse$,
 ];
-export var ListTestSetRecords: StaticOperationSchema = [
+export var ListTestSetRecords$: StaticOperationSchema = [
   9,
   n0,
   _LTSRis,
   { [_h]: ["POST", "/testsets/{testSetId}/records", 200] },
-  () => ListTestSetRecordsRequest,
-  () => ListTestSetRecordsResponse,
+  () => ListTestSetRecordsRequest$,
+  () => ListTestSetRecordsResponse$,
 ];
-export var ListTestSets: StaticOperationSchema = [
+export var ListTestSets$: StaticOperationSchema = [
   9,
   n0,
   _LTS,
   { [_h]: ["POST", "/testsets", 200] },
-  () => ListTestSetsRequest,
-  () => ListTestSetsResponse,
+  () => ListTestSetsRequest$,
+  () => ListTestSetsResponse$,
 ];
-export var ListUtteranceAnalyticsData: StaticOperationSchema = [
+export var ListUtteranceAnalyticsData$: StaticOperationSchema = [
   9,
   n0,
   _LUAD,
   { [_h]: ["POST", "/bots/{botId}/analytics/utterances", 200] },
-  () => ListUtteranceAnalyticsDataRequest,
-  () => ListUtteranceAnalyticsDataResponse,
+  () => ListUtteranceAnalyticsDataRequest$,
+  () => ListUtteranceAnalyticsDataResponse$,
 ];
-export var ListUtteranceMetrics: StaticOperationSchema = [
+export var ListUtteranceMetrics$: StaticOperationSchema = [
   9,
   n0,
   _LUM,
   { [_h]: ["POST", "/bots/{botId}/analytics/utterancemetrics", 200] },
-  () => ListUtteranceMetricsRequest,
-  () => ListUtteranceMetricsResponse,
+  () => ListUtteranceMetricsRequest$,
+  () => ListUtteranceMetricsResponse$,
 ];
-export var SearchAssociatedTranscripts: StaticOperationSchema = [
+export var SearchAssociatedTranscripts$: StaticOperationSchema = [
   9,
   n0,
   _SAT,
@@ -5253,50 +5245,50 @@ export var SearchAssociatedTranscripts: StaticOperationSchema = [
       200,
     ],
   },
-  () => SearchAssociatedTranscriptsRequest,
-  () => SearchAssociatedTranscriptsResponse,
+  () => SearchAssociatedTranscriptsRequest$,
+  () => SearchAssociatedTranscriptsResponse$,
 ];
-export var StartBotRecommendation: StaticOperationSchema = [
+export var StartBotRecommendation$: StaticOperationSchema = [
   9,
   n0,
   _SBR,
   { [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations", 202] },
-  () => StartBotRecommendationRequest,
-  () => StartBotRecommendationResponse,
+  () => StartBotRecommendationRequest$,
+  () => StartBotRecommendationResponse$,
 ];
-export var StartBotResourceGeneration: StaticOperationSchema = [
+export var StartBotResourceGeneration$: StaticOperationSchema = [
   9,
   n0,
   _SBRG,
   { [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/startgeneration", 202] },
-  () => StartBotResourceGenerationRequest,
-  () => StartBotResourceGenerationResponse,
+  () => StartBotResourceGenerationRequest$,
+  () => StartBotResourceGenerationResponse$,
 ];
-export var StartImport: StaticOperationSchema = [
+export var StartImport$: StaticOperationSchema = [
   9,
   n0,
   _SI,
   { [_h]: ["PUT", "/imports", 202] },
-  () => StartImportRequest,
-  () => StartImportResponse,
+  () => StartImportRequest$,
+  () => StartImportResponse$,
 ];
-export var StartTestExecution: StaticOperationSchema = [
+export var StartTestExecution$: StaticOperationSchema = [
   9,
   n0,
   _STE,
   { [_h]: ["POST", "/testsets/{testSetId}/testexecutions", 202] },
-  () => StartTestExecutionRequest,
-  () => StartTestExecutionResponse,
+  () => StartTestExecutionRequest$,
+  () => StartTestExecutionResponse$,
 ];
-export var StartTestSetGeneration: StaticOperationSchema = [
+export var StartTestSetGeneration$: StaticOperationSchema = [
   9,
   n0,
   _STSG,
   { [_h]: ["PUT", "/testsetgenerations", 202] },
-  () => StartTestSetGenerationRequest,
-  () => StartTestSetGenerationResponse,
+  () => StartTestSetGenerationRequest$,
+  () => StartTestSetGenerationResponse$,
 ];
-export var StopBotRecommendation: StaticOperationSchema = [
+export var StopBotRecommendation$: StaticOperationSchema = [
   9,
   n0,
   _SBRt,
@@ -5307,50 +5299,50 @@ export var StopBotRecommendation: StaticOperationSchema = [
       202,
     ],
   },
-  () => StopBotRecommendationRequest,
-  () => StopBotRecommendationResponse,
+  () => StopBotRecommendationRequest$,
+  () => StopBotRecommendationResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/tags/{resourceARN}", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tags/{resourceARN}", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateBot: StaticOperationSchema = [
+export var UpdateBot$: StaticOperationSchema = [
   9,
   n0,
   _UB,
   { [_h]: ["PUT", "/bots/{botId}", 202] },
-  () => UpdateBotRequest,
-  () => UpdateBotResponse,
+  () => UpdateBotRequest$,
+  () => UpdateBotResponse$,
 ];
-export var UpdateBotAlias: StaticOperationSchema = [
+export var UpdateBotAlias$: StaticOperationSchema = [
   9,
   n0,
   _UBA,
   { [_h]: ["PUT", "/bots/{botId}/botaliases/{botAliasId}", 202] },
-  () => UpdateBotAliasRequest,
-  () => UpdateBotAliasResponse,
+  () => UpdateBotAliasRequest$,
+  () => UpdateBotAliasResponse$,
 ];
-export var UpdateBotLocale: StaticOperationSchema = [
+export var UpdateBotLocale$: StaticOperationSchema = [
   9,
   n0,
   _UBL,
   { [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}", 202] },
-  () => UpdateBotLocaleRequest,
-  () => UpdateBotLocaleResponse,
+  () => UpdateBotLocaleRequest$,
+  () => UpdateBotLocaleResponse$,
 ];
-export var UpdateBotRecommendation: StaticOperationSchema = [
+export var UpdateBotRecommendation$: StaticOperationSchema = [
   9,
   n0,
   _UBRpd,
@@ -5361,34 +5353,34 @@ export var UpdateBotRecommendation: StaticOperationSchema = [
       202,
     ],
   },
-  () => UpdateBotRecommendationRequest,
-  () => UpdateBotRecommendationResponse,
+  () => UpdateBotRecommendationRequest$,
+  () => UpdateBotRecommendationResponse$,
 ];
-export var UpdateExport: StaticOperationSchema = [
+export var UpdateExport$: StaticOperationSchema = [
   9,
   n0,
   _UE,
   { [_h]: ["PUT", "/exports/{exportId}", 202] },
-  () => UpdateExportRequest,
-  () => UpdateExportResponse,
+  () => UpdateExportRequest$,
+  () => UpdateExportResponse$,
 ];
-export var UpdateIntent: StaticOperationSchema = [
+export var UpdateIntent$: StaticOperationSchema = [
   9,
   n0,
   _UI,
   { [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}", 200] },
-  () => UpdateIntentRequest,
-  () => UpdateIntentResponse,
+  () => UpdateIntentRequest$,
+  () => UpdateIntentResponse$,
 ];
-export var UpdateResourcePolicy: StaticOperationSchema = [
+export var UpdateResourcePolicy$: StaticOperationSchema = [
   9,
   n0,
   _URP,
   { [_h]: ["PUT", "/policy/{resourceArn}", 200] },
-  () => UpdateResourcePolicyRequest,
-  () => UpdateResourcePolicyResponse,
+  () => UpdateResourcePolicyRequest$,
+  () => UpdateResourcePolicyResponse$,
 ];
-export var UpdateSlot: StaticOperationSchema = [
+export var UpdateSlot$: StaticOperationSchema = [
   9,
   n0,
   _USp,
@@ -5399,22 +5391,22 @@ export var UpdateSlot: StaticOperationSchema = [
       200,
     ],
   },
-  () => UpdateSlotRequest,
-  () => UpdateSlotResponse,
+  () => UpdateSlotRequest$,
+  () => UpdateSlotResponse$,
 ];
-export var UpdateSlotType: StaticOperationSchema = [
+export var UpdateSlotType$: StaticOperationSchema = [
   9,
   n0,
   _UST,
   { [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes/{slotTypeId}", 202] },
-  () => UpdateSlotTypeRequest,
-  () => UpdateSlotTypeResponse,
+  () => UpdateSlotTypeRequest$,
+  () => UpdateSlotTypeResponse$,
 ];
-export var UpdateTestSet: StaticOperationSchema = [
+export var UpdateTestSet$: StaticOperationSchema = [
   9,
   n0,
   _UTSp,
   { [_h]: ["PUT", "/testsets/{testSetId}", 200] },
-  () => UpdateTestSetRequest,
-  () => UpdateTestSetResponse,
+  () => UpdateTestSetRequest$,
+  () => UpdateTestSetResponse$,
 ];

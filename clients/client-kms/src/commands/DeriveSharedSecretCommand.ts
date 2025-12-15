@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import type { DeriveSharedSecretRequest, DeriveSharedSecretResponse } from "../models/models_0";
-import { DeriveSharedSecret } from "../schemas/schemas_0";
+import { DeriveSharedSecret$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -264,7 +264,7 @@ export class DeriveSharedSecretCommand extends $Command
   })
   .s("TrentService", "DeriveSharedSecret", {})
   .n("KMSClient", "DeriveSharedSecretCommand")
-  .sc(DeriveSharedSecret)
+  .sc(DeriveSharedSecret$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   GetChannelMembershipPreferencesRequest,
   GetChannelMembershipPreferencesResponse,
 } from "../models/models_0";
-import { GetChannelMembershipPreferences } from "../schemas/schemas_0";
+import { GetChannelMembershipPreferences$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class GetChannelMembershipPreferencesCommand extends $Command
   })
   .s("ChimeMessagingService", "GetChannelMembershipPreferences", {})
   .n("ChimeSDKMessagingClient", "GetChannelMembershipPreferencesCommand")
-  .sc(GetChannelMembershipPreferences)
+  .sc(GetChannelMembershipPreferences$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

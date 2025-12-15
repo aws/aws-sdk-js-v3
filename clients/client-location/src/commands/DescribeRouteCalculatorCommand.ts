@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import type { DescribeRouteCalculatorRequest, DescribeRouteCalculatorResponse } from "../models/models_0";
-import { DescribeRouteCalculator } from "../schemas/schemas_0";
+import { DescribeRouteCalculator$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class DescribeRouteCalculatorCommand extends $Command
   })
   .s("LocationService", "DescribeRouteCalculator", {})
   .n("LocationClient", "DescribeRouteCalculatorCommand")
-  .sc(DescribeRouteCalculator)
+  .sc(DescribeRouteCalculator$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

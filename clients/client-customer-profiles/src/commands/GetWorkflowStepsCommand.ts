@@ -10,7 +10,7 @@ import type {
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetWorkflowStepsRequest, GetWorkflowStepsResponse } from "../models/models_0";
-import { GetWorkflowSteps } from "../schemas/schemas_0";
+import { GetWorkflowSteps$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class GetWorkflowStepsCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "GetWorkflowSteps", {})
   .n("CustomerProfilesClient", "GetWorkflowStepsCommand")
-  .sc(GetWorkflowSteps)
+  .sc(GetWorkflowSteps$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

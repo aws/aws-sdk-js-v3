@@ -9,7 +9,7 @@ import type {
   DeleteConfiguredTableAssociationAnalysisRuleInput,
   DeleteConfiguredTableAssociationAnalysisRuleOutput,
 } from "../models/models_0";
-import { DeleteConfiguredTableAssociationAnalysisRule } from "../schemas/schemas_0";
+import { DeleteConfiguredTableAssociationAnalysisRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class DeleteConfiguredTableAssociationAnalysisRuleCommand extends $Comman
   })
   .s("AWSBastionControlPlaneServiceLambda", "DeleteConfiguredTableAssociationAnalysisRule", {})
   .n("CleanRoomsClient", "DeleteConfiguredTableAssociationAnalysisRuleCommand")
-  .sc(DeleteConfiguredTableAssociationAnalysisRule)
+  .sc(DeleteConfiguredTableAssociationAnalysisRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

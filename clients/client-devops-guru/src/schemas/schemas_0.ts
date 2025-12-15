@@ -387,33 +387,33 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { DevOpsGuruServiceException as __DevOpsGuruServiceException } from "../models/DevOpsGuruServiceException";
+import { DevOpsGuruServiceException } from "../models/DevOpsGuruServiceException";
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var AccountHealth: StaticStructureSchema = [3, n0, _AH, 0, [_AI, _I], [0, () => AccountInsightHealth]];
-export var AccountInsightHealth: StaticStructureSchema = [3, n0, _AIH, 0, [_OPI, _ORI], [1, 1]];
-export var AddNotificationChannelRequest: StaticStructureSchema = [
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var AccountHealth$: StaticStructureSchema = [3, n0, _AH, 0, [_AI, _I], [0, () => AccountInsightHealth$]];
+export var AccountInsightHealth$: StaticStructureSchema = [3, n0, _AIH, 0, [_OPI, _ORI], [1, 1]];
+export var AddNotificationChannelRequest$: StaticStructureSchema = [
   3,
   n0,
   _ANCR,
   0,
   [_C],
-  [() => NotificationChannelConfig],
+  [() => NotificationChannelConfig$],
 ];
-export var AddNotificationChannelResponse: StaticStructureSchema = [3, n0, _ANCRd, 0, [_Id], [0]];
-export var AmazonCodeGuruProfilerIntegration: StaticStructureSchema = [3, n0, _ACGPI, 0, [_S], [0]];
-export var AnomalousLogGroup: StaticStructureSchema = [
+export var AddNotificationChannelResponse$: StaticStructureSchema = [3, n0, _ANCRd, 0, [_Id], [0]];
+export var AmazonCodeGuruProfilerIntegration$: StaticStructureSchema = [3, n0, _ACGPI, 0, [_S], [0]];
+export var AnomalousLogGroup$: StaticStructureSchema = [
   3,
   n0,
   _ALG,
@@ -421,9 +421,9 @@ export var AnomalousLogGroup: StaticStructureSchema = [
   [_LGN, _IST, _IET, _NOLLS, _LAS],
   [0, 4, 4, 1, () => LogAnomalyShowcases],
 ];
-export var AnomalyReportedTimeRange: StaticStructureSchema = [3, n0, _ARTR, 0, [_OT, _CT], [4, 4]];
-export var AnomalyResource: StaticStructureSchema = [3, n0, _AR, 0, [_N, _T], [0, 0]];
-export var AnomalySourceDetails: StaticStructureSchema = [
+export var AnomalyReportedTimeRange$: StaticStructureSchema = [3, n0, _ARTR, 0, [_OT, _CT], [4, 4]];
+export var AnomalyResource$: StaticStructureSchema = [3, n0, _AR, 0, [_N, _T], [0, 0]];
+export var AnomalySourceDetails$: StaticStructureSchema = [
   3,
   n0,
   _ASD,
@@ -431,11 +431,11 @@ export var AnomalySourceDetails: StaticStructureSchema = [
   [_CWM, _PIM],
   [() => CloudWatchMetricsDetails, () => PerformanceInsightsMetricsDetails],
 ];
-export var AnomalySourceMetadata: StaticStructureSchema = [3, n0, _ASM, 0, [_So, _SRN, _SRT], [0, 0, 0]];
-export var AnomalyTimeRange: StaticStructureSchema = [3, n0, _ATR, 0, [_ST, _ET], [4, 4]];
-export var CloudFormationCollection: StaticStructureSchema = [3, n0, _CFC, 0, [_SN], [64 | 0]];
-export var CloudFormationCollectionFilter: StaticStructureSchema = [3, n0, _CFCF, 0, [_SN], [64 | 0]];
-export var CloudFormationCostEstimationResourceCollectionFilter: StaticStructureSchema = [
+export var AnomalySourceMetadata$: StaticStructureSchema = [3, n0, _ASM, 0, [_So, _SRN, _SRT], [0, 0, 0]];
+export var AnomalyTimeRange$: StaticStructureSchema = [3, n0, _ATR, 0, [_ST, _ET], [4, 4]];
+export var CloudFormationCollection$: StaticStructureSchema = [3, n0, _CFC, 0, [_SN], [64 | 0]];
+export var CloudFormationCollectionFilter$: StaticStructureSchema = [3, n0, _CFCF, 0, [_SN], [64 | 0]];
+export var CloudFormationCostEstimationResourceCollectionFilter$: StaticStructureSchema = [
   3,
   n0,
   _CFCERCF,
@@ -443,15 +443,15 @@ export var CloudFormationCostEstimationResourceCollectionFilter: StaticStructure
   [_SN],
   [64 | 0],
 ];
-export var CloudFormationHealth: StaticStructureSchema = [
+export var CloudFormationHealth$: StaticStructureSchema = [
   3,
   n0,
   _CFH,
   0,
   [_SNt, _I, _ARC],
-  [0, () => InsightHealth, 1],
+  [0, () => InsightHealth$, 1],
 ];
-export var CloudWatchMetricsDataSummary: StaticStructureSchema = [
+export var CloudWatchMetricsDataSummary$: StaticStructureSchema = [
   3,
   n0,
   _CWMDS,
@@ -459,30 +459,30 @@ export var CloudWatchMetricsDataSummary: StaticStructureSchema = [
   [_TMVPL, _SC],
   [() => TimestampMetricValuePairList, 0],
 ];
-export var CloudWatchMetricsDetail: StaticStructureSchema = [
+export var CloudWatchMetricsDetail$: StaticStructureSchema = [
   3,
   n0,
   _CWMD,
   0,
   [_MN, _Na, _D, _St, _U, _P, _MDS],
-  [0, 0, () => CloudWatchMetricsDimensions, 0, 0, 1, () => CloudWatchMetricsDataSummary],
+  [0, 0, () => CloudWatchMetricsDimensions, 0, 0, 1, () => CloudWatchMetricsDataSummary$],
 ];
-export var CloudWatchMetricsDimension: StaticStructureSchema = [3, n0, _CWMDl, 0, [_N, _V], [0, 0]];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M, _RI, _RT], [0, 0, 0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CostEstimationResourceCollectionFilter: StaticStructureSchema = [
+export var CloudWatchMetricsDimension$: StaticStructureSchema = [3, n0, _CWMDl, 0, [_N, _V], [0, 0]];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M, _RI, _RT], [0, 0, 0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CostEstimationResourceCollectionFilter$: StaticStructureSchema = [
   3,
   n0,
   _CERCF,
   0,
   [_CF, _Ta],
-  [() => CloudFormationCostEstimationResourceCollectionFilter, () => TagCostEstimationResourceCollectionFilters],
+  [() => CloudFormationCostEstimationResourceCollectionFilter$, () => TagCostEstimationResourceCollectionFilters],
 ];
-export var CostEstimationTimeRange: StaticStructureSchema = [3, n0, _CETR, 0, [_ST, _ET], [4, 4]];
-export var DeleteInsightRequest: StaticStructureSchema = [3, n0, _DIR, 0, [_Id], [[0, 1]]];
-export var DeleteInsightResponse: StaticStructureSchema = [3, n0, _DIRe, 0, [], []];
-export var DescribeAccountHealthRequest: StaticStructureSchema = [3, n0, _DAHR, 0, [], []];
-export var DescribeAccountHealthResponse: StaticStructureSchema = [
+export var CostEstimationTimeRange$: StaticStructureSchema = [3, n0, _CETR, 0, [_ST, _ET], [4, 4]];
+export var DeleteInsightRequest$: StaticStructureSchema = [3, n0, _DIR, 0, [_Id], [[0, 1]]];
+export var DeleteInsightResponse$: StaticStructureSchema = [3, n0, _DIRe, 0, [], []];
+export var DescribeAccountHealthRequest$: StaticStructureSchema = [3, n0, _DAHR, 0, [], []];
+export var DescribeAccountHealthResponse$: StaticStructureSchema = [
   3,
   n0,
   _DAHRe,
@@ -490,9 +490,16 @@ export var DescribeAccountHealthResponse: StaticStructureSchema = [
   [_ORI, _OPI, _MA, _RH, _ARC],
   [1, 1, 1, 1, 1],
 ];
-export var DescribeAccountOverviewRequest: StaticStructureSchema = [3, n0, _DAOR, 0, [_FT, _TT], [4, 4]];
-export var DescribeAccountOverviewResponse: StaticStructureSchema = [3, n0, _DAORe, 0, [_RIe, _PI, _MTTRIM], [1, 1, 1]];
-export var DescribeAnomalyRequest: StaticStructureSchema = [
+export var DescribeAccountOverviewRequest$: StaticStructureSchema = [3, n0, _DAOR, 0, [_FT, _TT], [4, 4]];
+export var DescribeAccountOverviewResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _DAORe,
+  0,
+  [_RIe, _PI, _MTTRIM],
+  [1, 1, 1],
+];
+export var DescribeAnomalyRequest$: StaticStructureSchema = [
   3,
   n0,
   _DAR,
@@ -503,26 +510,26 @@ export var DescribeAnomalyRequest: StaticStructureSchema = [
     [0, { [_hQ]: _AI }],
   ],
 ];
-export var DescribeAnomalyResponse: StaticStructureSchema = [
+export var DescribeAnomalyResponse$: StaticStructureSchema = [
   3,
   n0,
   _DARe,
   0,
   [_PA, _RA],
-  [() => ProactiveAnomaly, () => ReactiveAnomaly],
+  [() => ProactiveAnomaly$, () => ReactiveAnomaly$],
 ];
-export var DescribeEventSourcesConfigRequest: StaticStructureSchema = [3, n0, _DESCR, 0, [], []];
-export var DescribeEventSourcesConfigResponse: StaticStructureSchema = [
+export var DescribeEventSourcesConfigRequest$: StaticStructureSchema = [3, n0, _DESCR, 0, [], []];
+export var DescribeEventSourcesConfigResponse$: StaticStructureSchema = [
   3,
   n0,
   _DESCRe,
   0,
   [_ES],
-  [() => EventSourcesConfig],
+  [() => EventSourcesConfig$],
 ];
-export var DescribeFeedbackRequest: StaticStructureSchema = [3, n0, _DFR, 0, [_II], [0]];
-export var DescribeFeedbackResponse: StaticStructureSchema = [3, n0, _DFRe, 0, [_IF], [() => InsightFeedback]];
-export var DescribeInsightRequest: StaticStructureSchema = [
+export var DescribeFeedbackRequest$: StaticStructureSchema = [3, n0, _DFR, 0, [_II], [0]];
+export var DescribeFeedbackResponse$: StaticStructureSchema = [3, n0, _DFRe, 0, [_IF], [() => InsightFeedback$]];
+export var DescribeInsightRequest$: StaticStructureSchema = [
   3,
   n0,
   _DIRes,
@@ -533,16 +540,23 @@ export var DescribeInsightRequest: StaticStructureSchema = [
     [0, { [_hQ]: _AI }],
   ],
 ];
-export var DescribeInsightResponse: StaticStructureSchema = [
+export var DescribeInsightResponse$: StaticStructureSchema = [
   3,
   n0,
   _DIResc,
   0,
   [_PIr, _RIea],
-  [() => ProactiveInsight, () => ReactiveInsight],
+  [() => ProactiveInsight$, () => ReactiveInsight$],
 ];
-export var DescribeOrganizationHealthRequest: StaticStructureSchema = [3, n0, _DOHR, 0, [_AIc, _OUI], [64 | 0, 64 | 0]];
-export var DescribeOrganizationHealthResponse: StaticStructureSchema = [
+export var DescribeOrganizationHealthRequest$: StaticStructureSchema = [
+  3,
+  n0,
+  _DOHR,
+  0,
+  [_AIc, _OUI],
+  [64 | 0, 64 | 0],
+];
+export var DescribeOrganizationHealthResponse$: StaticStructureSchema = [
   3,
   n0,
   _DOHRe,
@@ -550,7 +564,7 @@ export var DescribeOrganizationHealthResponse: StaticStructureSchema = [
   [_ORI, _OPI, _MA, _RH],
   [1, 1, 1, 1],
 ];
-export var DescribeOrganizationOverviewRequest: StaticStructureSchema = [
+export var DescribeOrganizationOverviewRequest$: StaticStructureSchema = [
   3,
   n0,
   _DOOR,
@@ -558,8 +572,8 @@ export var DescribeOrganizationOverviewRequest: StaticStructureSchema = [
   [_FT, _TT, _AIc, _OUI],
   [4, 4, 64 | 0, 64 | 0],
 ];
-export var DescribeOrganizationOverviewResponse: StaticStructureSchema = [3, n0, _DOORe, 0, [_RIe, _PI], [1, 1]];
-export var DescribeOrganizationResourceCollectionHealthRequest: StaticStructureSchema = [
+export var DescribeOrganizationOverviewResponse$: StaticStructureSchema = [3, n0, _DOORe, 0, [_RIe, _PI], [1, 1]];
+export var DescribeOrganizationResourceCollectionHealthRequest$: StaticStructureSchema = [
   3,
   n0,
   _DORCHR,
@@ -567,7 +581,7 @@ export var DescribeOrganizationResourceCollectionHealthRequest: StaticStructureS
   [_ORCT, _AIc, _OUI, _NT, _MR],
   [0, 64 | 0, 64 | 0, 0, 1],
 ];
-export var DescribeOrganizationResourceCollectionHealthResponse: StaticStructureSchema = [
+export var DescribeOrganizationResourceCollectionHealthResponse$: StaticStructureSchema = [
   3,
   n0,
   _DORCHRe,
@@ -575,7 +589,7 @@ export var DescribeOrganizationResourceCollectionHealthResponse: StaticStructure
   [_CF, _Se, _A, _NT, _Ta],
   [() => CloudFormationHealths, () => ServiceHealths, () => AccountHealths, 0, () => TagHealths],
 ];
-export var DescribeResourceCollectionHealthRequest: StaticStructureSchema = [
+export var DescribeResourceCollectionHealthRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRCHR,
@@ -586,7 +600,7 @@ export var DescribeResourceCollectionHealthRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var DescribeResourceCollectionHealthResponse: StaticStructureSchema = [
+export var DescribeResourceCollectionHealthResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRCHRe,
@@ -594,44 +608,44 @@ export var DescribeResourceCollectionHealthResponse: StaticStructureSchema = [
   [_CF, _Se, _NT, _Ta],
   [() => CloudFormationHealths, () => ServiceHealths, 0, () => TagHealths],
 ];
-export var DescribeServiceIntegrationRequest: StaticStructureSchema = [3, n0, _DSIR, 0, [], []];
-export var DescribeServiceIntegrationResponse: StaticStructureSchema = [
+export var DescribeServiceIntegrationRequest$: StaticStructureSchema = [3, n0, _DSIR, 0, [], []];
+export var DescribeServiceIntegrationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DSIRe,
   0,
   [_SI],
-  [() => ServiceIntegrationConfig],
+  [() => ServiceIntegrationConfig$],
 ];
-export var EndTimeRange: StaticStructureSchema = [3, n0, _ETR, 0, [_FT, _TT], [4, 4]];
-export var Event: StaticStructureSchema = [
+export var EndTimeRange$: StaticStructureSchema = [3, n0, _ETR, 0, [_FT, _TT], [4, 4]];
+export var Event$: StaticStructureSchema = [
   3,
   n0,
   _E,
   0,
   [_RC, _Id, _Ti, _ESv, _N, _DS, _EC, _R],
-  [() => ResourceCollection, 0, 4, 0, 0, 0, 0, () => EventResources],
+  [() => ResourceCollection$, 0, 4, 0, 0, 0, 0, () => EventResources],
 ];
-export var EventResource: StaticStructureSchema = [3, n0, _ER, 0, [_T, _N, _Ar], [0, 0, 0]];
-export var EventSourcesConfig: StaticStructureSchema = [
+export var EventResource$: StaticStructureSchema = [3, n0, _ER, 0, [_T, _N, _Ar], [0, 0, 0]];
+export var EventSourcesConfig$: StaticStructureSchema = [
   3,
   n0,
   _ESC,
   0,
   [_ACGP],
-  [() => AmazonCodeGuruProfilerIntegration],
+  [() => AmazonCodeGuruProfilerIntegration$],
 ];
-export var EventTimeRange: StaticStructureSchema = [3, n0, _ETRv, 0, [_FT, _TT], [4, 4]];
-export var GetCostEstimationRequest: StaticStructureSchema = [3, n0, _GCER, 0, [_NT], [[0, { [_hQ]: _NT }]]];
-export var GetCostEstimationResponse: StaticStructureSchema = [
+export var EventTimeRange$: StaticStructureSchema = [3, n0, _ETRv, 0, [_FT, _TT], [4, 4]];
+export var GetCostEstimationRequest$: StaticStructureSchema = [3, n0, _GCER, 0, [_NT], [[0, { [_hQ]: _NT }]]];
+export var GetCostEstimationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCERe,
   0,
   [_RC, _S, _Co, _TR, _TC, _NT],
-  [() => CostEstimationResourceCollectionFilter, 0, () => ServiceResourceCosts, () => CostEstimationTimeRange, 1, 0],
+  [() => CostEstimationResourceCollectionFilter$, 0, () => ServiceResourceCosts, () => CostEstimationTimeRange$, 1, 0],
 ];
-export var GetResourceCollectionRequest: StaticStructureSchema = [
+export var GetResourceCollectionRequest$: StaticStructureSchema = [
   3,
   n0,
   _GRCR,
@@ -642,18 +656,18 @@ export var GetResourceCollectionRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var GetResourceCollectionResponse: StaticStructureSchema = [
+export var GetResourceCollectionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GRCRe,
   0,
   [_RC, _NT],
-  [() => ResourceCollectionFilter, 0],
+  [() => ResourceCollectionFilter$, 0],
 ];
-export var InsightFeedback: StaticStructureSchema = [3, n0, _IF, 0, [_Id, _F], [0, 0]];
-export var InsightHealth: StaticStructureSchema = [3, n0, _IH, 0, [_OPI, _ORI, _MTTRIM], [1, 1, 1]];
-export var InsightTimeRange: StaticStructureSchema = [3, n0, _ITR, 0, [_ST, _ET], [4, 4]];
-export var InternalServerException: StaticErrorSchema = [
+export var InsightFeedback$: StaticStructureSchema = [3, n0, _IF, 0, [_Id, _F], [0, 0]];
+export var InsightHealth$: StaticStructureSchema = [3, n0, _IH, 0, [_OPI, _ORI, _MTTRIM], [1, 1, 1]];
+export var InsightTimeRange$: StaticStructureSchema = [3, n0, _ITR, 0, [_ST, _ET], [4, 4]];
+export var InternalServerException$: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
@@ -661,8 +675,8 @@ export var InternalServerException: StaticErrorSchema = [
   [_M, _RAS],
   [0, [1, { [_hH]: _RA_ }]],
 ];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var KMSServerSideEncryptionIntegration: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var KMSServerSideEncryptionIntegration$: StaticStructureSchema = [
   3,
   n0,
   _KMSSSEI,
@@ -670,7 +684,7 @@ export var KMSServerSideEncryptionIntegration: StaticStructureSchema = [
   [_KMSKI, _OIS, _T],
   [0, 0, 0],
 ];
-export var KMSServerSideEncryptionIntegrationConfig: StaticStructureSchema = [
+export var KMSServerSideEncryptionIntegrationConfig$: StaticStructureSchema = [
   3,
   n0,
   _KMSSSEIC,
@@ -678,23 +692,23 @@ export var KMSServerSideEncryptionIntegrationConfig: StaticStructureSchema = [
   [_KMSKI, _OIS, _T],
   [0, 0, 0],
 ];
-export var ListAnomaliesForInsightFilters: StaticStructureSchema = [
+export var ListAnomaliesForInsightFilters$: StaticStructureSchema = [
   3,
   n0,
   _LAFIF,
   0,
   [_SCe],
-  [() => ServiceCollection],
+  [() => ServiceCollection$],
 ];
-export var ListAnomaliesForInsightRequest: StaticStructureSchema = [
+export var ListAnomaliesForInsightRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAFIR,
   0,
   [_II, _STR, _MR, _NT, _AI, _Fi],
-  [[0, 1], () => StartTimeRange, 1, 0, 0, () => ListAnomaliesForInsightFilters],
+  [[0, 1], () => StartTimeRange$, 1, 0, 0, () => ListAnomaliesForInsightFilters$],
 ];
-export var ListAnomaliesForInsightResponse: StaticStructureSchema = [
+export var ListAnomaliesForInsightResponse$: StaticStructureSchema = [
   3,
   n0,
   _LAFIRi,
@@ -702,8 +716,8 @@ export var ListAnomaliesForInsightResponse: StaticStructureSchema = [
   [_PAr, _RAe, _NT],
   [() => ProactiveAnomalies, () => ReactiveAnomalies, 0],
 ];
-export var ListAnomalousLogGroupsRequest: StaticStructureSchema = [3, n0, _LALGR, 0, [_II, _MR, _NT], [0, 1, 0]];
-export var ListAnomalousLogGroupsResponse: StaticStructureSchema = [
+export var ListAnomalousLogGroupsRequest$: StaticStructureSchema = [3, n0, _LALGR, 0, [_II, _MR, _NT], [0, 1, 0]];
+export var ListAnomalousLogGroupsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LALGRi,
@@ -711,49 +725,49 @@ export var ListAnomalousLogGroupsResponse: StaticStructureSchema = [
   [_II, _ALGn, _NT],
   [0, () => AnomalousLogGroups, 0],
 ];
-export var ListEventsFilters: StaticStructureSchema = [
+export var ListEventsFilters$: StaticStructureSchema = [
   3,
   n0,
   _LEF,
   0,
   [_II, _ETRv, _EC, _ESv, _DS, _RC],
-  [0, () => EventTimeRange, 0, 0, 0, () => ResourceCollection],
+  [0, () => EventTimeRange$, 0, 0, 0, () => ResourceCollection$],
 ];
-export var ListEventsRequest: StaticStructureSchema = [
+export var ListEventsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LER,
   0,
   [_Fi, _MR, _NT, _AI],
-  [() => ListEventsFilters, 1, 0, 0],
+  [() => ListEventsFilters$, 1, 0, 0],
 ];
-export var ListEventsResponse: StaticStructureSchema = [3, n0, _LERi, 0, [_Ev, _NT], [() => Events, 0]];
-export var ListInsightsAnyStatusFilter: StaticStructureSchema = [
+export var ListEventsResponse$: StaticStructureSchema = [3, n0, _LERi, 0, [_Ev, _NT], [() => Events, 0]];
+export var ListInsightsAnyStatusFilter$: StaticStructureSchema = [
   3,
   n0,
   _LIASF,
   0,
   [_T, _STR],
-  [0, () => StartTimeRange],
+  [0, () => StartTimeRange$],
 ];
-export var ListInsightsClosedStatusFilter: StaticStructureSchema = [
+export var ListInsightsClosedStatusFilter$: StaticStructureSchema = [
   3,
   n0,
   _LICSF,
   0,
   [_T, _ETR],
-  [0, () => EndTimeRange],
+  [0, () => EndTimeRange$],
 ];
-export var ListInsightsOngoingStatusFilter: StaticStructureSchema = [3, n0, _LIOSF, 0, [_T], [0]];
-export var ListInsightsRequest: StaticStructureSchema = [
+export var ListInsightsOngoingStatusFilter$: StaticStructureSchema = [3, n0, _LIOSF, 0, [_T], [0]];
+export var ListInsightsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LIR,
   0,
   [_SF, _MR, _NT],
-  [() => ListInsightsStatusFilter, 1, 0],
+  [() => ListInsightsStatusFilter$, 1, 0],
 ];
-export var ListInsightsResponse: StaticStructureSchema = [
+export var ListInsightsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LIRi,
@@ -761,24 +775,24 @@ export var ListInsightsResponse: StaticStructureSchema = [
   [_PI, _RIe, _NT],
   [() => ProactiveInsights, () => ReactiveInsights, 0],
 ];
-export var ListInsightsStatusFilter: StaticStructureSchema = [
+export var ListInsightsStatusFilter$: StaticStructureSchema = [
   3,
   n0,
   _LISF,
   0,
   [_O, _Cl, _An],
-  [() => ListInsightsOngoingStatusFilter, () => ListInsightsClosedStatusFilter, () => ListInsightsAnyStatusFilter],
+  [() => ListInsightsOngoingStatusFilter$, () => ListInsightsClosedStatusFilter$, () => ListInsightsAnyStatusFilter$],
 ];
-export var ListMonitoredResourcesFilters: StaticStructureSchema = [3, n0, _LMRF, 0, [_RP, _RTF], [0, 64 | 0]];
-export var ListMonitoredResourcesRequest: StaticStructureSchema = [
+export var ListMonitoredResourcesFilters$: StaticStructureSchema = [3, n0, _LMRF, 0, [_RP, _RTF], [0, 64 | 0]];
+export var ListMonitoredResourcesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LMRR,
   0,
   [_Fi, _MR, _NT],
-  [() => ListMonitoredResourcesFilters, 1, 0],
+  [() => ListMonitoredResourcesFilters$, 1, 0],
 ];
-export var ListMonitoredResourcesResponse: StaticStructureSchema = [
+export var ListMonitoredResourcesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LMRRi,
@@ -786,8 +800,8 @@ export var ListMonitoredResourcesResponse: StaticStructureSchema = [
   [_MRI, _NT],
   [() => MonitoredResourceIdentifiers, 0],
 ];
-export var ListNotificationChannelsRequest: StaticStructureSchema = [3, n0, _LNCR, 0, [_NT], [0]];
-export var ListNotificationChannelsResponse: StaticStructureSchema = [
+export var ListNotificationChannelsRequest$: StaticStructureSchema = [3, n0, _LNCR, 0, [_NT], [0]];
+export var ListNotificationChannelsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LNCRi,
@@ -795,15 +809,15 @@ export var ListNotificationChannelsResponse: StaticStructureSchema = [
   [_Ch, _NT],
   [() => Channels, 0],
 ];
-export var ListOrganizationInsightsRequest: StaticStructureSchema = [
+export var ListOrganizationInsightsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LOIR,
   0,
   [_SF, _MR, _AIc, _OUI, _NT],
-  [() => ListInsightsStatusFilter, 1, 64 | 0, 64 | 0, 0],
+  [() => ListInsightsStatusFilter$, 1, 64 | 0, 64 | 0, 0],
 ];
-export var ListOrganizationInsightsResponse: StaticStructureSchema = [
+export var ListOrganizationInsightsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LOIRi,
@@ -811,8 +825,8 @@ export var ListOrganizationInsightsResponse: StaticStructureSchema = [
   [_PI, _RIe, _NT],
   [() => ProactiveOrganizationInsights, () => ReactiveOrganizationInsights, 0],
 ];
-export var ListRecommendationsRequest: StaticStructureSchema = [3, n0, _LRR, 0, [_II, _NT, _L, _AI], [0, 0, 0, 0]];
-export var ListRecommendationsResponse: StaticStructureSchema = [
+export var ListRecommendationsRequest$: StaticStructureSchema = [3, n0, _LRR, 0, [_II, _NT, _L, _AI], [0, 0, 0, 0]];
+export var ListRecommendationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRRi,
@@ -820,7 +834,7 @@ export var ListRecommendationsResponse: StaticStructureSchema = [
   [_Re, _NT],
   [() => Recommendations, 0],
 ];
-export var LogAnomalyClass: StaticStructureSchema = [
+export var LogAnomalyClass$: StaticStructureSchema = [
   3,
   n0,
   _LAC,
@@ -828,37 +842,37 @@ export var LogAnomalyClass: StaticStructureSchema = [
   [_LSN, _LAT, _LATo, _LEI, _Ex, _NOLLO, _LET],
   [0, 0, 0, 0, 0, 1, 4],
 ];
-export var LogAnomalyShowcase: StaticStructureSchema = [3, n0, _LASo, 0, [_LACo], [() => LogAnomalyClasses]];
-export var LogsAnomalyDetectionIntegration: StaticStructureSchema = [3, n0, _LADI, 0, [_OIS], [0]];
-export var LogsAnomalyDetectionIntegrationConfig: StaticStructureSchema = [3, n0, _LADIC, 0, [_OIS], [0]];
-export var MonitoredResourceIdentifier: StaticStructureSchema = [
+export var LogAnomalyShowcase$: StaticStructureSchema = [3, n0, _LASo, 0, [_LACo], [() => LogAnomalyClasses]];
+export var LogsAnomalyDetectionIntegration$: StaticStructureSchema = [3, n0, _LADI, 0, [_OIS], [0]];
+export var LogsAnomalyDetectionIntegrationConfig$: StaticStructureSchema = [3, n0, _LADIC, 0, [_OIS], [0]];
+export var MonitoredResourceIdentifier$: StaticStructureSchema = [
   3,
   n0,
   _MRIo,
   0,
   [_MRN, _T, _RP, _LU, _RC],
-  [0, 0, 0, 4, () => ResourceCollection],
+  [0, 0, 0, 4, () => ResourceCollection$],
 ];
-export var NotificationChannel: StaticStructureSchema = [
+export var NotificationChannel$: StaticStructureSchema = [
   3,
   n0,
   _NC,
   0,
   [_Id, _C],
-  [0, () => NotificationChannelConfig],
+  [0, () => NotificationChannelConfig$],
 ];
-export var NotificationChannelConfig: StaticStructureSchema = [
+export var NotificationChannelConfig$: StaticStructureSchema = [
   3,
   n0,
   _NCC,
   0,
   [_Sn, _Fi],
-  [() => SnsChannelConfig, () => NotificationFilterConfig],
+  [() => SnsChannelConfig$, () => NotificationFilterConfig$],
 ];
-export var NotificationFilterConfig: StaticStructureSchema = [3, n0, _NFC, 0, [_Sev, _MT], [64 | 0, 64 | 0]];
-export var OpsCenterIntegration: StaticStructureSchema = [3, n0, _OCI, 0, [_OIS], [0]];
-export var OpsCenterIntegrationConfig: StaticStructureSchema = [3, n0, _OCIC, 0, [_OIS], [0]];
-export var PerformanceInsightsMetricDimensionGroup: StaticStructureSchema = [
+export var NotificationFilterConfig$: StaticStructureSchema = [3, n0, _NFC, 0, [_Sev, _MT], [64 | 0, 64 | 0]];
+export var OpsCenterIntegration$: StaticStructureSchema = [3, n0, _OCI, 0, [_OIS], [0]];
+export var OpsCenterIntegrationConfig$: StaticStructureSchema = [3, n0, _OCIC, 0, [_OIS], [0]];
+export var PerformanceInsightsMetricDimensionGroup$: StaticStructureSchema = [
   3,
   n0,
   _PIMDG,
@@ -866,15 +880,15 @@ export var PerformanceInsightsMetricDimensionGroup: StaticStructureSchema = [
   [_G, _D, _Li],
   [0, 64 | 0, 1],
 ];
-export var PerformanceInsightsMetricQuery: StaticStructureSchema = [
+export var PerformanceInsightsMetricQuery$: StaticStructureSchema = [
   3,
   n0,
   _PIMQ,
   0,
   [_Me, _GB, _Fil],
-  [0, () => PerformanceInsightsMetricDimensionGroup, 128 | 0],
+  [0, () => PerformanceInsightsMetricDimensionGroup$, 128 | 0],
 ];
-export var PerformanceInsightsMetricsDetail: StaticStructureSchema = [
+export var PerformanceInsightsMetricsDetail$: StaticStructureSchema = [
   3,
   n0,
   _PIMD,
@@ -883,40 +897,40 @@ export var PerformanceInsightsMetricsDetail: StaticStructureSchema = [
   [
     0,
     0,
-    () => PerformanceInsightsMetricQuery,
+    () => PerformanceInsightsMetricQuery$,
     () => PerformanceInsightsReferenceDataList,
     () => PerformanceInsightsStats,
     () => PerformanceInsightsStats,
   ],
 ];
-export var PerformanceInsightsReferenceComparisonValues: StaticStructureSchema = [
+export var PerformanceInsightsReferenceComparisonValues$: StaticStructureSchema = [
   3,
   n0,
   _PIRCV,
   0,
   [_RS, _RM],
-  [() => PerformanceInsightsReferenceScalar, () => PerformanceInsightsReferenceMetric],
+  [() => PerformanceInsightsReferenceScalar$, () => PerformanceInsightsReferenceMetric$],
 ];
-export var PerformanceInsightsReferenceData: StaticStructureSchema = [
+export var PerformanceInsightsReferenceData$: StaticStructureSchema = [
   3,
   n0,
   _PIRD,
   0,
   [_N, _CV],
-  [0, () => PerformanceInsightsReferenceComparisonValues],
+  [0, () => PerformanceInsightsReferenceComparisonValues$],
 ];
-export var PerformanceInsightsReferenceMetric: StaticStructureSchema = [
+export var PerformanceInsightsReferenceMetric$: StaticStructureSchema = [
   3,
   n0,
   _PIRM,
   0,
   [_MQ],
-  [() => PerformanceInsightsMetricQuery],
+  [() => PerformanceInsightsMetricQuery$],
 ];
-export var PerformanceInsightsReferenceScalar: StaticStructureSchema = [3, n0, _PIRS, 0, [_V], [1]];
-export var PerformanceInsightsStat: StaticStructureSchema = [3, n0, _PIS, 0, [_T, _V], [0, 1]];
-export var PredictionTimeRange: StaticStructureSchema = [3, n0, _PTR, 0, [_ST, _ET], [4, 4]];
-export var ProactiveAnomaly: StaticStructureSchema = [
+export var PerformanceInsightsReferenceScalar$: StaticStructureSchema = [3, n0, _PIRS, 0, [_V], [1]];
+export var PerformanceInsightsStat$: StaticStructureSchema = [3, n0, _PIS, 0, [_T, _V], [0, 1]];
+export var PredictionTimeRange$: StaticStructureSchema = [3, n0, _PTR, 0, [_ST, _ET], [4, 4]];
+export var ProactiveAnomaly$: StaticStructureSchema = [
   3,
   n0,
   _PA,
@@ -927,19 +941,19 @@ export var ProactiveAnomaly: StaticStructureSchema = [
     0,
     0,
     4,
-    () => AnomalyTimeRange,
-    () => AnomalyReportedTimeRange,
-    () => PredictionTimeRange,
-    () => AnomalySourceDetails,
+    () => AnomalyTimeRange$,
+    () => AnomalyReportedTimeRange$,
+    () => PredictionTimeRange$,
+    () => AnomalySourceDetails$,
     0,
-    () => ResourceCollection,
+    () => ResourceCollection$,
     1,
-    () => AnomalySourceMetadata,
+    () => AnomalySourceMetadata$,
     () => AnomalyResources,
     0,
   ],
 ];
-export var ProactiveAnomalySummary: StaticStructureSchema = [
+export var ProactiveAnomalySummary$: StaticStructureSchema = [
   3,
   n0,
   _PAS,
@@ -950,27 +964,27 @@ export var ProactiveAnomalySummary: StaticStructureSchema = [
     0,
     0,
     4,
-    () => AnomalyTimeRange,
-    () => AnomalyReportedTimeRange,
-    () => PredictionTimeRange,
-    () => AnomalySourceDetails,
+    () => AnomalyTimeRange$,
+    () => AnomalyReportedTimeRange$,
+    () => PredictionTimeRange$,
+    () => AnomalySourceDetails$,
     0,
-    () => ResourceCollection,
+    () => ResourceCollection$,
     1,
-    () => AnomalySourceMetadata,
+    () => AnomalySourceMetadata$,
     () => AnomalyResources,
     0,
   ],
 ];
-export var ProactiveInsight: StaticStructureSchema = [
+export var ProactiveInsight$: StaticStructureSchema = [
   3,
   n0,
   _PIr,
   0,
   [_Id, _N, _Seve, _S, _ITR, _PTR, _RC, _SOII, _De],
-  [0, 0, 0, 0, () => InsightTimeRange, () => PredictionTimeRange, () => ResourceCollection, 0, 0],
+  [0, 0, 0, 0, () => InsightTimeRange$, () => PredictionTimeRange$, () => ResourceCollection$, 0, 0],
 ];
-export var ProactiveInsightSummary: StaticStructureSchema = [
+export var ProactiveInsightSummary$: StaticStructureSchema = [
   3,
   n0,
   _PISr,
@@ -981,14 +995,14 @@ export var ProactiveInsightSummary: StaticStructureSchema = [
     0,
     0,
     0,
-    () => InsightTimeRange,
-    () => PredictionTimeRange,
-    () => ResourceCollection,
-    () => ServiceCollection,
+    () => InsightTimeRange$,
+    () => PredictionTimeRange$,
+    () => ResourceCollection$,
+    () => ServiceCollection$,
     64 | 0,
   ],
 ];
-export var ProactiveOrganizationInsightSummary: StaticStructureSchema = [
+export var ProactiveOrganizationInsightSummary$: StaticStructureSchema = [
   3,
   n0,
   _POIS,
@@ -1001,15 +1015,15 @@ export var ProactiveOrganizationInsightSummary: StaticStructureSchema = [
     0,
     0,
     0,
-    () => InsightTimeRange,
-    () => PredictionTimeRange,
-    () => ResourceCollection,
-    () => ServiceCollection,
+    () => InsightTimeRange$,
+    () => PredictionTimeRange$,
+    () => ResourceCollection$,
+    () => ServiceCollection$,
   ],
 ];
-export var PutFeedbackRequest: StaticStructureSchema = [3, n0, _PFR, 0, [_IF], [() => InsightFeedback]];
-export var PutFeedbackResponse: StaticStructureSchema = [3, n0, _PFRu, 0, [], []];
-export var ReactiveAnomaly: StaticStructureSchema = [
+export var PutFeedbackRequest$: StaticStructureSchema = [3, n0, _PFR, 0, [_IF], [() => InsightFeedback$]];
+export var PutFeedbackResponse$: StaticStructureSchema = [3, n0, _PFRu, 0, [], []];
+export var ReactiveAnomaly$: StaticStructureSchema = [
   3,
   n0,
   _RA,
@@ -1019,11 +1033,11 @@ export var ReactiveAnomaly: StaticStructureSchema = [
     0,
     0,
     0,
-    () => AnomalyTimeRange,
-    () => AnomalyReportedTimeRange,
-    () => AnomalySourceDetails,
+    () => AnomalyTimeRange$,
+    () => AnomalyReportedTimeRange$,
+    () => AnomalySourceDetails$,
     0,
-    () => ResourceCollection,
+    () => ResourceCollection$,
     0,
     0,
     0,
@@ -1031,7 +1045,7 @@ export var ReactiveAnomaly: StaticStructureSchema = [
     () => AnomalyResources,
   ],
 ];
-export var ReactiveAnomalySummary: StaticStructureSchema = [
+export var ReactiveAnomalySummary$: StaticStructureSchema = [
   3,
   n0,
   _RASe,
@@ -1041,11 +1055,11 @@ export var ReactiveAnomalySummary: StaticStructureSchema = [
     0,
     0,
     0,
-    () => AnomalyTimeRange,
-    () => AnomalyReportedTimeRange,
-    () => AnomalySourceDetails,
+    () => AnomalyTimeRange$,
+    () => AnomalyReportedTimeRange$,
+    () => AnomalySourceDetails$,
     0,
-    () => ResourceCollection,
+    () => ResourceCollection$,
     0,
     0,
     0,
@@ -1053,31 +1067,31 @@ export var ReactiveAnomalySummary: StaticStructureSchema = [
     () => AnomalyResources,
   ],
 ];
-export var ReactiveInsight: StaticStructureSchema = [
+export var ReactiveInsight$: StaticStructureSchema = [
   3,
   n0,
   _RIea,
   0,
   [_Id, _N, _Seve, _S, _ITR, _RC, _SOII, _De],
-  [0, 0, 0, 0, () => InsightTimeRange, () => ResourceCollection, 0, 0],
+  [0, 0, 0, 0, () => InsightTimeRange$, () => ResourceCollection$, 0, 0],
 ];
-export var ReactiveInsightSummary: StaticStructureSchema = [
+export var ReactiveInsightSummary$: StaticStructureSchema = [
   3,
   n0,
   _RIS,
   0,
   [_Id, _N, _Seve, _S, _ITR, _RC, _SCe, _ARA],
-  [0, 0, 0, 0, () => InsightTimeRange, () => ResourceCollection, () => ServiceCollection, 64 | 0],
+  [0, 0, 0, 0, () => InsightTimeRange$, () => ResourceCollection$, () => ServiceCollection$, 64 | 0],
 ];
-export var ReactiveOrganizationInsightSummary: StaticStructureSchema = [
+export var ReactiveOrganizationInsightSummary$: StaticStructureSchema = [
   3,
   n0,
   _ROIS,
   0,
   [_Id, _AI, _OUIr, _N, _Seve, _S, _ITR, _RC, _SCe],
-  [0, 0, 0, 0, 0, 0, () => InsightTimeRange, () => ResourceCollection, () => ServiceCollection],
+  [0, 0, 0, 0, 0, 0, () => InsightTimeRange$, () => ResourceCollection$, () => ServiceCollection$],
 ];
-export var Recommendation: StaticStructureSchema = [
+export var Recommendation$: StaticStructureSchema = [
   3,
   n0,
   _Rec,
@@ -1085,7 +1099,7 @@ export var Recommendation: StaticStructureSchema = [
   [_De, _Lin, _N, _Rea, _RE, _RAel, _Ca],
   [0, 0, 0, 0, () => RecommendationRelatedEvents, () => RecommendationRelatedAnomalies, 0],
 ];
-export var RecommendationRelatedAnomaly: StaticStructureSchema = [
+export var RecommendationRelatedAnomaly$: StaticStructureSchema = [
   3,
   n0,
   _RRA,
@@ -1093,8 +1107,8 @@ export var RecommendationRelatedAnomaly: StaticStructureSchema = [
   [_R, _SD, _AIn],
   [() => RecommendationRelatedAnomalyResources, () => RelatedAnomalySourceDetails, 0],
 ];
-export var RecommendationRelatedAnomalyResource: StaticStructureSchema = [3, n0, _RRAR, 0, [_N, _T], [0, 0]];
-export var RecommendationRelatedAnomalySourceDetail: StaticStructureSchema = [
+export var RecommendationRelatedAnomalyResource$: StaticStructureSchema = [3, n0, _RRAR, 0, [_N, _T], [0, 0]];
+export var RecommendationRelatedAnomalySourceDetail$: StaticStructureSchema = [
   3,
   n0,
   _RRASD,
@@ -1102,7 +1116,7 @@ export var RecommendationRelatedAnomalySourceDetail: StaticStructureSchema = [
   [_CWM],
   [() => RecommendationRelatedCloudWatchMetricsSourceDetails],
 ];
-export var RecommendationRelatedCloudWatchMetricsSourceDetail: StaticStructureSchema = [
+export var RecommendationRelatedCloudWatchMetricsSourceDetail$: StaticStructureSchema = [
   3,
   n0,
   _RRCWMSD,
@@ -1110,7 +1124,7 @@ export var RecommendationRelatedCloudWatchMetricsSourceDetail: StaticStructureSc
   [_MN, _Na],
   [0, 0],
 ];
-export var RecommendationRelatedEvent: StaticStructureSchema = [
+export var RecommendationRelatedEvent$: StaticStructureSchema = [
   3,
   n0,
   _RRE,
@@ -1118,26 +1132,26 @@ export var RecommendationRelatedEvent: StaticStructureSchema = [
   [_N, _R],
   [0, () => RecommendationRelatedEventResources],
 ];
-export var RecommendationRelatedEventResource: StaticStructureSchema = [3, n0, _RRER, 0, [_N, _T], [0, 0]];
-export var RemoveNotificationChannelRequest: StaticStructureSchema = [3, n0, _RNCR, 0, [_Id], [[0, 1]]];
-export var RemoveNotificationChannelResponse: StaticStructureSchema = [3, n0, _RNCRe, 0, [], []];
-export var ResourceCollection: StaticStructureSchema = [
+export var RecommendationRelatedEventResource$: StaticStructureSchema = [3, n0, _RRER, 0, [_N, _T], [0, 0]];
+export var RemoveNotificationChannelRequest$: StaticStructureSchema = [3, n0, _RNCR, 0, [_Id], [[0, 1]]];
+export var RemoveNotificationChannelResponse$: StaticStructureSchema = [3, n0, _RNCRe, 0, [], []];
+export var ResourceCollection$: StaticStructureSchema = [
   3,
   n0,
   _RC,
   0,
   [_CF, _Ta],
-  [() => CloudFormationCollection, () => TagCollections],
+  [() => CloudFormationCollection$, () => TagCollections],
 ];
-export var ResourceCollectionFilter: StaticStructureSchema = [
+export var ResourceCollectionFilter$: StaticStructureSchema = [
   3,
   n0,
   _RCF,
   0,
   [_CF, _Ta],
-  [() => CloudFormationCollectionFilter, () => TagCollectionFilters],
+  [() => CloudFormationCollectionFilter$, () => TagCollectionFilters],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
+export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
@@ -1145,24 +1159,24 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   [_M, _RI, _RT],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var SearchInsightsFilters: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var SearchInsightsFilters$: StaticStructureSchema = [
   3,
   n0,
   _SIF,
   0,
   [_Sev, _Sta, _RC, _SCe],
-  [64 | 0, 64 | 0, () => ResourceCollection, () => ServiceCollection],
+  [64 | 0, 64 | 0, () => ResourceCollection$, () => ServiceCollection$],
 ];
-export var SearchInsightsRequest: StaticStructureSchema = [
+export var SearchInsightsRequest$: StaticStructureSchema = [
   3,
   n0,
   _SIR,
   0,
   [_STR, _Fi, _MR, _NT, _T],
-  [() => StartTimeRange, () => SearchInsightsFilters, 1, 0, 0],
+  [() => StartTimeRange$, () => SearchInsightsFilters$, 1, 0, 0],
 ];
-export var SearchInsightsResponse: StaticStructureSchema = [
+export var SearchInsightsResponse$: StaticStructureSchema = [
   3,
   n0,
   _SIRe,
@@ -1170,23 +1184,23 @@ export var SearchInsightsResponse: StaticStructureSchema = [
   [_PI, _RIe, _NT],
   [() => ProactiveInsights, () => ReactiveInsights, 0],
 ];
-export var SearchOrganizationInsightsFilters: StaticStructureSchema = [
+export var SearchOrganizationInsightsFilters$: StaticStructureSchema = [
   3,
   n0,
   _SOIF,
   0,
   [_Sev, _Sta, _RC, _SCe],
-  [64 | 0, 64 | 0, () => ResourceCollection, () => ServiceCollection],
+  [64 | 0, 64 | 0, () => ResourceCollection$, () => ServiceCollection$],
 ];
-export var SearchOrganizationInsightsRequest: StaticStructureSchema = [
+export var SearchOrganizationInsightsRequest$: StaticStructureSchema = [
   3,
   n0,
   _SOIR,
   0,
   [_AIc, _STR, _Fi, _MR, _NT, _T],
-  [64 | 0, () => StartTimeRange, () => SearchOrganizationInsightsFilters, 1, 0, 0],
+  [64 | 0, () => StartTimeRange$, () => SearchOrganizationInsightsFilters$, 1, 0, 0],
 ];
-export var SearchOrganizationInsightsResponse: StaticStructureSchema = [
+export var SearchOrganizationInsightsResponse$: StaticStructureSchema = [
   3,
   n0,
   _SOIRe,
@@ -1194,41 +1208,48 @@ export var SearchOrganizationInsightsResponse: StaticStructureSchema = [
   [_PI, _RIe, _NT],
   [() => ProactiveInsights, () => ReactiveInsights, 0],
 ];
-export var ServiceCollection: StaticStructureSchema = [3, n0, _SCe, 0, [_SNe], [64 | 0]];
-export var ServiceHealth: StaticStructureSchema = [
+export var ServiceCollection$: StaticStructureSchema = [3, n0, _SCe, 0, [_SNe], [64 | 0]];
+export var ServiceHealth$: StaticStructureSchema = [
   3,
   n0,
   _SH,
   0,
   [_SNer, _I, _ARC],
-  [0, () => ServiceInsightHealth, 1],
+  [0, () => ServiceInsightHealth$, 1],
 ];
-export var ServiceInsightHealth: StaticStructureSchema = [3, n0, _SIH, 0, [_OPI, _ORI], [1, 1]];
-export var ServiceIntegrationConfig: StaticStructureSchema = [
+export var ServiceInsightHealth$: StaticStructureSchema = [3, n0, _SIH, 0, [_OPI, _ORI], [1, 1]];
+export var ServiceIntegrationConfig$: StaticStructureSchema = [
   3,
   n0,
   _SIC,
   0,
   [_OC, _LAD, _KMSSSE],
-  [() => OpsCenterIntegration, () => LogsAnomalyDetectionIntegration, () => KMSServerSideEncryptionIntegration],
+  [() => OpsCenterIntegration$, () => LogsAnomalyDetectionIntegration$, () => KMSServerSideEncryptionIntegration$],
 ];
-export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var ServiceResourceCost: StaticStructureSchema = [3, n0, _SRC, 0, [_T, _Stat, _Cou, _UC, _Cos], [0, 0, 1, 1, 1]];
-export var SnsChannelConfig: StaticStructureSchema = [3, n0, _SCC, 0, [_TA], [0]];
-export var StartCostEstimationRequest: StaticStructureSchema = [
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ServiceResourceCost$: StaticStructureSchema = [
+  3,
+  n0,
+  _SRC,
+  0,
+  [_T, _Stat, _Cou, _UC, _Cos],
+  [0, 0, 1, 1, 1],
+];
+export var SnsChannelConfig$: StaticStructureSchema = [3, n0, _SCC, 0, [_TA], [0]];
+export var StartCostEstimationRequest$: StaticStructureSchema = [
   3,
   n0,
   _SCER,
   0,
   [_RC, _CTl],
-  [() => CostEstimationResourceCollectionFilter, [0, 4]],
+  [() => CostEstimationResourceCollectionFilter$, [0, 4]],
 ];
-export var StartCostEstimationResponse: StaticStructureSchema = [3, n0, _SCERt, 0, [], []];
-export var StartTimeRange: StaticStructureSchema = [3, n0, _STR, 0, [_FT, _TT], [4, 4]];
-export var TagCollection: StaticStructureSchema = [3, n0, _TCa, 0, [_ABK, _TV], [0, 64 | 0]];
-export var TagCollectionFilter: StaticStructureSchema = [3, n0, _TCF, 0, [_ABK, _TV], [0, 64 | 0]];
-export var TagCostEstimationResourceCollectionFilter: StaticStructureSchema = [
+export var StartCostEstimationResponse$: StaticStructureSchema = [3, n0, _SCERt, 0, [], []];
+export var StartTimeRange$: StaticStructureSchema = [3, n0, _STR, 0, [_FT, _TT], [4, 4]];
+export var TagCollection$: StaticStructureSchema = [3, n0, _TCa, 0, [_ABK, _TV], [0, 64 | 0]];
+export var TagCollectionFilter$: StaticStructureSchema = [3, n0, _TCF, 0, [_ABK, _TV], [0, 64 | 0]];
+export var TagCostEstimationResourceCollectionFilter$: StaticStructureSchema = [
   3,
   n0,
   _TCERCF,
@@ -1236,8 +1257,8 @@ export var TagCostEstimationResourceCollectionFilter: StaticStructureSchema = [
   [_ABK, _TV],
   [0, 64 | 0],
 ];
-export var TagHealth: StaticStructureSchema = [3, n0, _TH, 0, [_ABK, _TVa, _I, _ARC], [0, 0, () => InsightHealth, 1]];
-export var ThrottlingException: StaticErrorSchema = [
+export var TagHealth$: StaticStructureSchema = [3, n0, _TH, 0, [_ABK, _TVa, _I, _ARC], [0, 0, () => InsightHealth$, 1]];
+export var ThrottlingException$: StaticErrorSchema = [
   -3,
   n0,
   _TE,
@@ -1245,58 +1266,58 @@ export var ThrottlingException: StaticErrorSchema = [
   [_M, _QC, _SCer, _RAS],
   [0, 0, 0, [1, { [_hH]: _RA_ }]],
 ];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var TimestampMetricValuePair: StaticStructureSchema = [3, n0, _TMVP, 0, [_Tim, _MV], [4, 1]];
-export var UpdateCloudFormationCollectionFilter: StaticStructureSchema = [3, n0, _UCFCF, 0, [_SN], [64 | 0]];
-export var UpdateEventSourcesConfigRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var TimestampMetricValuePair$: StaticStructureSchema = [3, n0, _TMVP, 0, [_Tim, _MV], [4, 1]];
+export var UpdateCloudFormationCollectionFilter$: StaticStructureSchema = [3, n0, _UCFCF, 0, [_SN], [64 | 0]];
+export var UpdateEventSourcesConfigRequest$: StaticStructureSchema = [
   3,
   n0,
   _UESCR,
   0,
   [_ES],
-  [() => EventSourcesConfig],
+  [() => EventSourcesConfig$],
 ];
-export var UpdateEventSourcesConfigResponse: StaticStructureSchema = [3, n0, _UESCRp, 0, [], []];
-export var UpdateResourceCollectionFilter: StaticStructureSchema = [
+export var UpdateEventSourcesConfigResponse$: StaticStructureSchema = [3, n0, _UESCRp, 0, [], []];
+export var UpdateResourceCollectionFilter$: StaticStructureSchema = [
   3,
   n0,
   _URCF,
   0,
   [_CF, _Ta],
-  [() => UpdateCloudFormationCollectionFilter, () => UpdateTagCollectionFilters],
+  [() => UpdateCloudFormationCollectionFilter$, () => UpdateTagCollectionFilters],
 ];
-export var UpdateResourceCollectionRequest: StaticStructureSchema = [
+export var UpdateResourceCollectionRequest$: StaticStructureSchema = [
   3,
   n0,
   _URCR,
   0,
   [_Ac, _RC],
-  [0, () => UpdateResourceCollectionFilter],
+  [0, () => UpdateResourceCollectionFilter$],
 ];
-export var UpdateResourceCollectionResponse: StaticStructureSchema = [3, n0, _URCRp, 0, [], []];
-export var UpdateServiceIntegrationConfig: StaticStructureSchema = [
+export var UpdateResourceCollectionResponse$: StaticStructureSchema = [3, n0, _URCRp, 0, [], []];
+export var UpdateServiceIntegrationConfig$: StaticStructureSchema = [
   3,
   n0,
   _USIC,
   0,
   [_OC, _LAD, _KMSSSE],
   [
-    () => OpsCenterIntegrationConfig,
-    () => LogsAnomalyDetectionIntegrationConfig,
-    () => KMSServerSideEncryptionIntegrationConfig,
+    () => OpsCenterIntegrationConfig$,
+    () => LogsAnomalyDetectionIntegrationConfig$,
+    () => KMSServerSideEncryptionIntegrationConfig$,
   ],
 ];
-export var UpdateServiceIntegrationRequest: StaticStructureSchema = [
+export var UpdateServiceIntegrationRequest$: StaticStructureSchema = [
   3,
   n0,
   _USIR,
   0,
   [_SI],
-  [() => UpdateServiceIntegrationConfig],
+  [() => UpdateServiceIntegrationConfig$],
 ];
-export var UpdateServiceIntegrationResponse: StaticStructureSchema = [3, n0, _USIRp, 0, [], []];
-export var UpdateTagCollectionFilter: StaticStructureSchema = [3, n0, _UTCF, 0, [_ABK, _TV], [0, 64 | 0]];
-export var ValidationException: StaticErrorSchema = [
+export var UpdateServiceIntegrationResponse$: StaticStructureSchema = [3, n0, _USIRp, 0, [], []];
+export var UpdateTagCollectionFilter$: StaticStructureSchema = [3, n0, _UTCF, 0, [_ABK, _TV], [0, 64 | 0]];
+export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VE,
@@ -1304,359 +1325,341 @@ export var ValidationException: StaticErrorSchema = [
   [_M, _Rea, _Fie],
   [0, 0, () => ValidationExceptionFields],
 ];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_N, _M], [0, 0]];
-export var DevOpsGuruServiceException: StaticErrorSchema = [-3, _sm, "DevOpsGuruServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(DevOpsGuruServiceException, __DevOpsGuruServiceException);
-export var AccountHealths: StaticListSchema = [1, n0, _AHc, 0, () => AccountHealth];
-export var AccountIdList = 64 | 0;
-export var AnomalousLogGroups: StaticListSchema = [1, n0, _ALGn, 0, () => AnomalousLogGroup];
-export var AnomalyResources: StaticListSchema = [1, n0, _ARn, 0, () => AnomalyResource];
-export var AssociatedResourceArns = 64 | 0;
-export var Channels: StaticListSchema = [1, n0, _Ch, 0, () => NotificationChannel];
-export var CloudFormationHealths: StaticListSchema = [1, n0, _CFHl, 0, () => CloudFormationHealth];
-export var CloudWatchMetricsDetails: StaticListSchema = [1, n0, _CWMDlo, 0, () => CloudWatchMetricsDetail];
-export var CloudWatchMetricsDimensions: StaticListSchema = [1, n0, _CWMDlou, 0, () => CloudWatchMetricsDimension];
-export var CostEstimationStackNames = 64 | 0;
-export var CostEstimationTagValues = 64 | 0;
-export var EventResources: StaticListSchema = [1, n0, _ERv, 0, () => EventResource];
-export var Events: StaticListSchema = [1, n0, _Ev, 0, () => Event];
-export var InsightSeverities = 64 | 0;
-export var InsightStatuses = 64 | 0;
-export var ListInsightsAccountIdList = 64 | 0;
-export var ListInsightsOrganizationalUnitIdList = 64 | 0;
-export var LogAnomalyClasses: StaticListSchema = [1, n0, _LACo, 0, () => LogAnomalyClass];
-export var LogAnomalyShowcases: StaticListSchema = [1, n0, _LAS, 0, () => LogAnomalyShowcase];
-export var MonitoredResourceIdentifiers: StaticListSchema = [1, n0, _MRI, 0, () => MonitoredResourceIdentifier];
-export var NotificationMessageTypes = 64 | 0;
-export var OrganizationalUnitIdList = 64 | 0;
-export var PerformanceInsightsMetricDimensions = 64 | 0;
-export var PerformanceInsightsMetricsDetails: StaticListSchema = [
-  1,
-  n0,
-  _PIMDe,
-  0,
-  () => PerformanceInsightsMetricsDetail,
-];
-export var PerformanceInsightsReferenceDataList: StaticListSchema = [
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF, 0, [_N, _M], [0, 0]];
+export var DevOpsGuruServiceException$: StaticErrorSchema = [-3, _sm, "DevOpsGuruServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(DevOpsGuruServiceException$, DevOpsGuruServiceException);
+var AccountHealths: StaticListSchema = [1, n0, _AHc, 0, () => AccountHealth$];
+var AccountIdList = 64 | 0;
+var AnomalousLogGroups: StaticListSchema = [1, n0, _ALGn, 0, () => AnomalousLogGroup$];
+var AnomalyResources: StaticListSchema = [1, n0, _ARn, 0, () => AnomalyResource$];
+var AssociatedResourceArns = 64 | 0;
+var Channels: StaticListSchema = [1, n0, _Ch, 0, () => NotificationChannel$];
+var CloudFormationHealths: StaticListSchema = [1, n0, _CFHl, 0, () => CloudFormationHealth$];
+var CloudWatchMetricsDetails: StaticListSchema = [1, n0, _CWMDlo, 0, () => CloudWatchMetricsDetail$];
+var CloudWatchMetricsDimensions: StaticListSchema = [1, n0, _CWMDlou, 0, () => CloudWatchMetricsDimension$];
+var CostEstimationStackNames = 64 | 0;
+var CostEstimationTagValues = 64 | 0;
+var EventResources: StaticListSchema = [1, n0, _ERv, 0, () => EventResource$];
+var Events: StaticListSchema = [1, n0, _Ev, 0, () => Event$];
+var InsightSeverities = 64 | 0;
+var InsightStatuses = 64 | 0;
+var ListInsightsAccountIdList = 64 | 0;
+var ListInsightsOrganizationalUnitIdList = 64 | 0;
+var LogAnomalyClasses: StaticListSchema = [1, n0, _LACo, 0, () => LogAnomalyClass$];
+var LogAnomalyShowcases: StaticListSchema = [1, n0, _LAS, 0, () => LogAnomalyShowcase$];
+var MonitoredResourceIdentifiers: StaticListSchema = [1, n0, _MRI, 0, () => MonitoredResourceIdentifier$];
+var NotificationMessageTypes = 64 | 0;
+var OrganizationalUnitIdList = 64 | 0;
+var PerformanceInsightsMetricDimensions = 64 | 0;
+var PerformanceInsightsMetricsDetails: StaticListSchema = [1, n0, _PIMDe, 0, () => PerformanceInsightsMetricsDetail$];
+var PerformanceInsightsReferenceDataList: StaticListSchema = [
   1,
   n0,
   _PIRDL,
   0,
-  () => PerformanceInsightsReferenceData,
+  () => PerformanceInsightsReferenceData$,
 ];
-export var PerformanceInsightsStats: StaticListSchema = [1, n0, _PISe, 0, () => PerformanceInsightsStat];
-export var ProactiveAnomalies: StaticListSchema = [1, n0, _PAr, 0, () => ProactiveAnomalySummary];
-export var ProactiveInsights: StaticListSchema = [1, n0, _PI, 0, () => ProactiveInsightSummary];
-export var ProactiveOrganizationInsights: StaticListSchema = [
-  1,
-  n0,
-  _POI,
-  0,
-  () => ProactiveOrganizationInsightSummary,
-];
-export var ReactiveAnomalies: StaticListSchema = [1, n0, _RAe, 0, () => ReactiveAnomalySummary];
-export var ReactiveInsights: StaticListSchema = [1, n0, _RIe, 0, () => ReactiveInsightSummary];
-export var ReactiveOrganizationInsights: StaticListSchema = [1, n0, _ROI, 0, () => ReactiveOrganizationInsightSummary];
-export var RecommendationRelatedAnomalies: StaticListSchema = [1, n0, _RRAe, 0, () => RecommendationRelatedAnomaly];
-export var RecommendationRelatedAnomalyResources: StaticListSchema = [
+var PerformanceInsightsStats: StaticListSchema = [1, n0, _PISe, 0, () => PerformanceInsightsStat$];
+var ProactiveAnomalies: StaticListSchema = [1, n0, _PAr, 0, () => ProactiveAnomalySummary$];
+var ProactiveInsights: StaticListSchema = [1, n0, _PI, 0, () => ProactiveInsightSummary$];
+var ProactiveOrganizationInsights: StaticListSchema = [1, n0, _POI, 0, () => ProactiveOrganizationInsightSummary$];
+var ReactiveAnomalies: StaticListSchema = [1, n0, _RAe, 0, () => ReactiveAnomalySummary$];
+var ReactiveInsights: StaticListSchema = [1, n0, _RIe, 0, () => ReactiveInsightSummary$];
+var ReactiveOrganizationInsights: StaticListSchema = [1, n0, _ROI, 0, () => ReactiveOrganizationInsightSummary$];
+var RecommendationRelatedAnomalies: StaticListSchema = [1, n0, _RRAe, 0, () => RecommendationRelatedAnomaly$];
+var RecommendationRelatedAnomalyResources: StaticListSchema = [
   1,
   n0,
   _RRARe,
   0,
-  () => RecommendationRelatedAnomalyResource,
+  () => RecommendationRelatedAnomalyResource$,
 ];
-export var RecommendationRelatedCloudWatchMetricsSourceDetails: StaticListSchema = [
+var RecommendationRelatedCloudWatchMetricsSourceDetails: StaticListSchema = [
   1,
   n0,
   _RRCWMSDe,
   0,
-  () => RecommendationRelatedCloudWatchMetricsSourceDetail,
+  () => RecommendationRelatedCloudWatchMetricsSourceDetail$,
 ];
-export var RecommendationRelatedEventResources: StaticListSchema = [
+var RecommendationRelatedEventResources: StaticListSchema = [
   1,
   n0,
   _RRERe,
   0,
-  () => RecommendationRelatedEventResource,
+  () => RecommendationRelatedEventResource$,
 ];
-export var RecommendationRelatedEvents: StaticListSchema = [1, n0, _RREe, 0, () => RecommendationRelatedEvent];
-export var Recommendations: StaticListSchema = [1, n0, _Re, 0, () => Recommendation];
-export var RelatedAnomalySourceDetails: StaticListSchema = [
-  1,
-  n0,
-  _RASD,
-  0,
-  () => RecommendationRelatedAnomalySourceDetail,
-];
-export var ResourceTypeFilters = 64 | 0;
-export var SearchInsightsAccountIdList = 64 | 0;
-export var ServiceHealths: StaticListSchema = [1, n0, _SHe, 0, () => ServiceHealth];
-export var ServiceNames = 64 | 0;
-export var ServiceResourceCosts: StaticListSchema = [1, n0, _SRCe, 0, () => ServiceResourceCost];
-export var StackNames = 64 | 0;
-export var TagCollectionFilters: StaticListSchema = [1, n0, _TCFa, 0, () => TagCollectionFilter];
-export var TagCollections: StaticListSchema = [1, n0, _TCag, 0, () => TagCollection];
-export var TagCostEstimationResourceCollectionFilters: StaticListSchema = [
+var RecommendationRelatedEvents: StaticListSchema = [1, n0, _RREe, 0, () => RecommendationRelatedEvent$];
+var Recommendations: StaticListSchema = [1, n0, _Re, 0, () => Recommendation$];
+var RelatedAnomalySourceDetails: StaticListSchema = [1, n0, _RASD, 0, () => RecommendationRelatedAnomalySourceDetail$];
+var ResourceTypeFilters = 64 | 0;
+var SearchInsightsAccountIdList = 64 | 0;
+var ServiceHealths: StaticListSchema = [1, n0, _SHe, 0, () => ServiceHealth$];
+var ServiceNames = 64 | 0;
+var ServiceResourceCosts: StaticListSchema = [1, n0, _SRCe, 0, () => ServiceResourceCost$];
+var StackNames = 64 | 0;
+var TagCollectionFilters: StaticListSchema = [1, n0, _TCFa, 0, () => TagCollectionFilter$];
+var TagCollections: StaticListSchema = [1, n0, _TCag, 0, () => TagCollection$];
+var TagCostEstimationResourceCollectionFilters: StaticListSchema = [
   1,
   n0,
   _TCERCFa,
   0,
-  () => TagCostEstimationResourceCollectionFilter,
+  () => TagCostEstimationResourceCollectionFilter$,
 ];
-export var TagHealths: StaticListSchema = [1, n0, _THa, 0, () => TagHealth];
-export var TagValues = 64 | 0;
-export var TimestampMetricValuePairList: StaticListSchema = [1, n0, _TMVPL, 0, () => TimestampMetricValuePair];
-export var UpdateStackNames = 64 | 0;
-export var UpdateTagCollectionFilters: StaticListSchema = [1, n0, _UTCFp, 0, () => UpdateTagCollectionFilter];
-export var UpdateTagValues = 64 | 0;
-export var ValidationExceptionFields: StaticListSchema = [1, n0, _VEFa, 0, () => ValidationExceptionField];
-export var PerformanceInsightsMetricFilterMap = 128 | 0;
-export var AddNotificationChannel: StaticOperationSchema = [
+var TagHealths: StaticListSchema = [1, n0, _THa, 0, () => TagHealth$];
+var TagValues = 64 | 0;
+var TimestampMetricValuePairList: StaticListSchema = [1, n0, _TMVPL, 0, () => TimestampMetricValuePair$];
+var UpdateStackNames = 64 | 0;
+var UpdateTagCollectionFilters: StaticListSchema = [1, n0, _UTCFp, 0, () => UpdateTagCollectionFilter$];
+var UpdateTagValues = 64 | 0;
+var ValidationExceptionFields: StaticListSchema = [1, n0, _VEFa, 0, () => ValidationExceptionField$];
+var PerformanceInsightsMetricFilterMap = 128 | 0;
+export var AddNotificationChannel$: StaticOperationSchema = [
   9,
   n0,
   _ANC,
   { [_h]: ["PUT", "/channels", 200] },
-  () => AddNotificationChannelRequest,
-  () => AddNotificationChannelResponse,
+  () => AddNotificationChannelRequest$,
+  () => AddNotificationChannelResponse$,
 ];
-export var DeleteInsight: StaticOperationSchema = [
+export var DeleteInsight$: StaticOperationSchema = [
   9,
   n0,
   _DI,
   { [_h]: ["DELETE", "/insights/{Id}", 200] },
-  () => DeleteInsightRequest,
-  () => DeleteInsightResponse,
+  () => DeleteInsightRequest$,
+  () => DeleteInsightResponse$,
 ];
-export var DescribeAccountHealth: StaticOperationSchema = [
+export var DescribeAccountHealth$: StaticOperationSchema = [
   9,
   n0,
   _DAH,
   { [_h]: ["GET", "/accounts/health", 200] },
-  () => DescribeAccountHealthRequest,
-  () => DescribeAccountHealthResponse,
+  () => DescribeAccountHealthRequest$,
+  () => DescribeAccountHealthResponse$,
 ];
-export var DescribeAccountOverview: StaticOperationSchema = [
+export var DescribeAccountOverview$: StaticOperationSchema = [
   9,
   n0,
   _DAO,
   { [_h]: ["POST", "/accounts/overview", 200] },
-  () => DescribeAccountOverviewRequest,
-  () => DescribeAccountOverviewResponse,
+  () => DescribeAccountOverviewRequest$,
+  () => DescribeAccountOverviewResponse$,
 ];
-export var DescribeAnomaly: StaticOperationSchema = [
+export var DescribeAnomaly$: StaticOperationSchema = [
   9,
   n0,
   _DA,
   { [_h]: ["GET", "/anomalies/{Id}", 200] },
-  () => DescribeAnomalyRequest,
-  () => DescribeAnomalyResponse,
+  () => DescribeAnomalyRequest$,
+  () => DescribeAnomalyResponse$,
 ];
-export var DescribeEventSourcesConfig: StaticOperationSchema = [
+export var DescribeEventSourcesConfig$: StaticOperationSchema = [
   9,
   n0,
   _DESC,
   { [_h]: ["POST", "/event-sources", 200] },
-  () => DescribeEventSourcesConfigRequest,
-  () => DescribeEventSourcesConfigResponse,
+  () => DescribeEventSourcesConfigRequest$,
+  () => DescribeEventSourcesConfigResponse$,
 ];
-export var DescribeFeedback: StaticOperationSchema = [
+export var DescribeFeedback$: StaticOperationSchema = [
   9,
   n0,
   _DF,
   { [_h]: ["POST", "/feedback", 200] },
-  () => DescribeFeedbackRequest,
-  () => DescribeFeedbackResponse,
+  () => DescribeFeedbackRequest$,
+  () => DescribeFeedbackResponse$,
 ];
-export var DescribeInsight: StaticOperationSchema = [
+export var DescribeInsight$: StaticOperationSchema = [
   9,
   n0,
   _DIe,
   { [_h]: ["GET", "/insights/{Id}", 200] },
-  () => DescribeInsightRequest,
-  () => DescribeInsightResponse,
+  () => DescribeInsightRequest$,
+  () => DescribeInsightResponse$,
 ];
-export var DescribeOrganizationHealth: StaticOperationSchema = [
+export var DescribeOrganizationHealth$: StaticOperationSchema = [
   9,
   n0,
   _DOH,
   { [_h]: ["POST", "/organization/health", 200] },
-  () => DescribeOrganizationHealthRequest,
-  () => DescribeOrganizationHealthResponse,
+  () => DescribeOrganizationHealthRequest$,
+  () => DescribeOrganizationHealthResponse$,
 ];
-export var DescribeOrganizationOverview: StaticOperationSchema = [
+export var DescribeOrganizationOverview$: StaticOperationSchema = [
   9,
   n0,
   _DOO,
   { [_h]: ["POST", "/organization/overview", 200] },
-  () => DescribeOrganizationOverviewRequest,
-  () => DescribeOrganizationOverviewResponse,
+  () => DescribeOrganizationOverviewRequest$,
+  () => DescribeOrganizationOverviewResponse$,
 ];
-export var DescribeOrganizationResourceCollectionHealth: StaticOperationSchema = [
+export var DescribeOrganizationResourceCollectionHealth$: StaticOperationSchema = [
   9,
   n0,
   _DORCH,
   { [_h]: ["POST", "/organization/health/resource-collection", 200] },
-  () => DescribeOrganizationResourceCollectionHealthRequest,
-  () => DescribeOrganizationResourceCollectionHealthResponse,
+  () => DescribeOrganizationResourceCollectionHealthRequest$,
+  () => DescribeOrganizationResourceCollectionHealthResponse$,
 ];
-export var DescribeResourceCollectionHealth: StaticOperationSchema = [
+export var DescribeResourceCollectionHealth$: StaticOperationSchema = [
   9,
   n0,
   _DRCH,
   { [_h]: ["GET", "/accounts/health/resource-collection/{ResourceCollectionType}", 200] },
-  () => DescribeResourceCollectionHealthRequest,
-  () => DescribeResourceCollectionHealthResponse,
+  () => DescribeResourceCollectionHealthRequest$,
+  () => DescribeResourceCollectionHealthResponse$,
 ];
-export var DescribeServiceIntegration: StaticOperationSchema = [
+export var DescribeServiceIntegration$: StaticOperationSchema = [
   9,
   n0,
   _DSI,
   { [_h]: ["GET", "/service-integrations", 200] },
-  () => DescribeServiceIntegrationRequest,
-  () => DescribeServiceIntegrationResponse,
+  () => DescribeServiceIntegrationRequest$,
+  () => DescribeServiceIntegrationResponse$,
 ];
-export var GetCostEstimation: StaticOperationSchema = [
+export var GetCostEstimation$: StaticOperationSchema = [
   9,
   n0,
   _GCE,
   { [_h]: ["GET", "/cost-estimation", 200] },
-  () => GetCostEstimationRequest,
-  () => GetCostEstimationResponse,
+  () => GetCostEstimationRequest$,
+  () => GetCostEstimationResponse$,
 ];
-export var GetResourceCollection: StaticOperationSchema = [
+export var GetResourceCollection$: StaticOperationSchema = [
   9,
   n0,
   _GRC,
   { [_h]: ["GET", "/resource-collections/{ResourceCollectionType}", 200] },
-  () => GetResourceCollectionRequest,
-  () => GetResourceCollectionResponse,
+  () => GetResourceCollectionRequest$,
+  () => GetResourceCollectionResponse$,
 ];
-export var ListAnomaliesForInsight: StaticOperationSchema = [
+export var ListAnomaliesForInsight$: StaticOperationSchema = [
   9,
   n0,
   _LAFI,
   { [_h]: ["POST", "/anomalies/insight/{InsightId}", 200] },
-  () => ListAnomaliesForInsightRequest,
-  () => ListAnomaliesForInsightResponse,
+  () => ListAnomaliesForInsightRequest$,
+  () => ListAnomaliesForInsightResponse$,
 ];
-export var ListAnomalousLogGroups: StaticOperationSchema = [
+export var ListAnomalousLogGroups$: StaticOperationSchema = [
   9,
   n0,
   _LALG,
   { [_h]: ["POST", "/list-log-anomalies", 200] },
-  () => ListAnomalousLogGroupsRequest,
-  () => ListAnomalousLogGroupsResponse,
+  () => ListAnomalousLogGroupsRequest$,
+  () => ListAnomalousLogGroupsResponse$,
 ];
-export var ListEvents: StaticOperationSchema = [
+export var ListEvents$: StaticOperationSchema = [
   9,
   n0,
   _LE,
   { [_h]: ["POST", "/events", 200] },
-  () => ListEventsRequest,
-  () => ListEventsResponse,
+  () => ListEventsRequest$,
+  () => ListEventsResponse$,
 ];
-export var ListInsights: StaticOperationSchema = [
+export var ListInsights$: StaticOperationSchema = [
   9,
   n0,
   _LI,
   { [_h]: ["POST", "/insights", 200] },
-  () => ListInsightsRequest,
-  () => ListInsightsResponse,
+  () => ListInsightsRequest$,
+  () => ListInsightsResponse$,
 ];
-export var ListMonitoredResources: StaticOperationSchema = [
+export var ListMonitoredResources$: StaticOperationSchema = [
   9,
   n0,
   _LMR,
   { [_h]: ["POST", "/monitoredResources", 200] },
-  () => ListMonitoredResourcesRequest,
-  () => ListMonitoredResourcesResponse,
+  () => ListMonitoredResourcesRequest$,
+  () => ListMonitoredResourcesResponse$,
 ];
-export var ListNotificationChannels: StaticOperationSchema = [
+export var ListNotificationChannels$: StaticOperationSchema = [
   9,
   n0,
   _LNC,
   { [_h]: ["POST", "/channels", 200] },
-  () => ListNotificationChannelsRequest,
-  () => ListNotificationChannelsResponse,
+  () => ListNotificationChannelsRequest$,
+  () => ListNotificationChannelsResponse$,
 ];
-export var ListOrganizationInsights: StaticOperationSchema = [
+export var ListOrganizationInsights$: StaticOperationSchema = [
   9,
   n0,
   _LOI,
   { [_h]: ["POST", "/organization/insights", 200] },
-  () => ListOrganizationInsightsRequest,
-  () => ListOrganizationInsightsResponse,
+  () => ListOrganizationInsightsRequest$,
+  () => ListOrganizationInsightsResponse$,
 ];
-export var ListRecommendations: StaticOperationSchema = [
+export var ListRecommendations$: StaticOperationSchema = [
   9,
   n0,
   _LR,
   { [_h]: ["POST", "/recommendations", 200] },
-  () => ListRecommendationsRequest,
-  () => ListRecommendationsResponse,
+  () => ListRecommendationsRequest$,
+  () => ListRecommendationsResponse$,
 ];
-export var PutFeedback: StaticOperationSchema = [
+export var PutFeedback$: StaticOperationSchema = [
   9,
   n0,
   _PF,
   { [_h]: ["PUT", "/feedback", 200] },
-  () => PutFeedbackRequest,
-  () => PutFeedbackResponse,
+  () => PutFeedbackRequest$,
+  () => PutFeedbackResponse$,
 ];
-export var RemoveNotificationChannel: StaticOperationSchema = [
+export var RemoveNotificationChannel$: StaticOperationSchema = [
   9,
   n0,
   _RNC,
   { [_h]: ["DELETE", "/channels/{Id}", 200] },
-  () => RemoveNotificationChannelRequest,
-  () => RemoveNotificationChannelResponse,
+  () => RemoveNotificationChannelRequest$,
+  () => RemoveNotificationChannelResponse$,
 ];
-export var SearchInsights: StaticOperationSchema = [
+export var SearchInsights$: StaticOperationSchema = [
   9,
   n0,
   _SIe,
   { [_h]: ["POST", "/insights/search", 200] },
-  () => SearchInsightsRequest,
-  () => SearchInsightsResponse,
+  () => SearchInsightsRequest$,
+  () => SearchInsightsResponse$,
 ];
-export var SearchOrganizationInsights: StaticOperationSchema = [
+export var SearchOrganizationInsights$: StaticOperationSchema = [
   9,
   n0,
   _SOI,
   { [_h]: ["POST", "/organization/insights/search", 200] },
-  () => SearchOrganizationInsightsRequest,
-  () => SearchOrganizationInsightsResponse,
+  () => SearchOrganizationInsightsRequest$,
+  () => SearchOrganizationInsightsResponse$,
 ];
-export var StartCostEstimation: StaticOperationSchema = [
+export var StartCostEstimation$: StaticOperationSchema = [
   9,
   n0,
   _SCE,
   { [_h]: ["PUT", "/cost-estimation", 200] },
-  () => StartCostEstimationRequest,
-  () => StartCostEstimationResponse,
+  () => StartCostEstimationRequest$,
+  () => StartCostEstimationResponse$,
 ];
-export var UpdateEventSourcesConfig: StaticOperationSchema = [
+export var UpdateEventSourcesConfig$: StaticOperationSchema = [
   9,
   n0,
   _UESC,
   { [_h]: ["PUT", "/event-sources", 200] },
-  () => UpdateEventSourcesConfigRequest,
-  () => UpdateEventSourcesConfigResponse,
+  () => UpdateEventSourcesConfigRequest$,
+  () => UpdateEventSourcesConfigResponse$,
 ];
-export var UpdateResourceCollection: StaticOperationSchema = [
+export var UpdateResourceCollection$: StaticOperationSchema = [
   9,
   n0,
   _URC,
   { [_h]: ["PUT", "/resource-collections", 200] },
-  () => UpdateResourceCollectionRequest,
-  () => UpdateResourceCollectionResponse,
+  () => UpdateResourceCollectionRequest$,
+  () => UpdateResourceCollectionResponse$,
 ];
-export var UpdateServiceIntegration: StaticOperationSchema = [
+export var UpdateServiceIntegration$: StaticOperationSchema = [
   9,
   n0,
   _USI,
   { [_h]: ["PUT", "/service-integrations", 200] },
-  () => UpdateServiceIntegrationRequest,
-  () => UpdateServiceIntegrationResponse,
+  () => UpdateServiceIntegrationRequest$,
+  () => UpdateServiceIntegrationResponse$,
 ];

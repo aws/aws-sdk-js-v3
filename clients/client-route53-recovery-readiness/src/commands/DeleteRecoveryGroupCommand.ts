@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
-import { DeleteRecoveryGroup } from "../schemas/schemas_0";
+import { DeleteRecoveryGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeleteRecoveryGroupCommand extends $Command
   })
   .s("Route53RecoveryReadiness", "DeleteRecoveryGroup", {})
   .n("Route53RecoveryReadinessClient", "DeleteRecoveryGroupCommand")
-  .sc(DeleteRecoveryGroup)
+  .sc(DeleteRecoveryGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

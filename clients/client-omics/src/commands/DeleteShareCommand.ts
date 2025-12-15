@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteShareRequest, DeleteShareResponse } from "../models/models_0";
 import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { DeleteShare } from "../schemas/schemas_0";
+import { DeleteShare$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DeleteShareCommand extends $Command
   })
   .s("Omics", "DeleteShare", {})
   .n("OmicsClient", "DeleteShareCommand")
-  .sc(DeleteShare)
+  .sc(DeleteShare$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

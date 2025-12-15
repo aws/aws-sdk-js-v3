@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import type { UntagStreamInput, UntagStreamOutput } from "../models/models_0";
-import { UntagStream } from "../schemas/schemas_0";
+import { UntagStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class UntagStreamCommand extends $Command
   })
   .s("KinesisVideo_20170930", "UntagStream", {})
   .n("KinesisVideoClient", "UntagStreamCommand")
-  .sc(UntagStream)
+  .sc(UntagStream$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

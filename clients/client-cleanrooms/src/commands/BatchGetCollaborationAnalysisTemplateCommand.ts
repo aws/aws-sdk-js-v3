@@ -9,7 +9,7 @@ import type {
   BatchGetCollaborationAnalysisTemplateInput,
   BatchGetCollaborationAnalysisTemplateOutput,
 } from "../models/models_0";
-import { BatchGetCollaborationAnalysisTemplate } from "../schemas/schemas_0";
+import { BatchGetCollaborationAnalysisTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -189,7 +189,7 @@ export class BatchGetCollaborationAnalysisTemplateCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "BatchGetCollaborationAnalysisTemplate", {})
   .n("CleanRoomsClient", "BatchGetCollaborationAnalysisTemplateCommand")
-  .sc(BatchGetCollaborationAnalysisTemplate)
+  .sc(BatchGetCollaborationAnalysisTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { UpdateEndpointAccess } from "../schemas/schemas_0";
+import { UpdateEndpointAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -125,7 +125,7 @@ export class UpdateEndpointAccessCommand extends $Command
   })
   .s("RedshiftServerless", "UpdateEndpointAccess", {})
   .n("RedshiftServerlessClient", "UpdateEndpointAccessCommand")
-  .sc(UpdateEndpointAccess)
+  .sc(UpdateEndpointAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

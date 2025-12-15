@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import type { DescribeFileCachesRequest, DescribeFileCachesResponse } from "../models/models_0";
-import { DescribeFileCaches } from "../schemas/schemas_0";
+import { DescribeFileCaches$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -153,7 +153,7 @@ export class DescribeFileCachesCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "DescribeFileCaches", {})
   .n("FSxClient", "DescribeFileCachesCommand")
-  .sc(DescribeFileCaches)
+  .sc(DescribeFileCaches$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

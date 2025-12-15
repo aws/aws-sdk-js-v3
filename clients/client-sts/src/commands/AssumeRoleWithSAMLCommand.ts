@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssumeRoleWithSAMLRequest, AssumeRoleWithSAMLResponse } from "../models/models_0";
-import { AssumeRoleWithSAML } from "../schemas/schemas_0";
+import { AssumeRoleWithSAML$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
@@ -298,7 +298,7 @@ export class AssumeRoleWithSAMLCommand extends $Command
   })
   .s("AWSSecurityTokenServiceV20110615", "AssumeRoleWithSAML", {})
   .n("STSClient", "AssumeRoleWithSAMLCommand")
-  .sc(AssumeRoleWithSAML)
+  .sc(AssumeRoleWithSAML$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ResetEnabledBaselineInput, ResetEnabledBaselineOutput } from "../models/models_0";
-import { ResetEnabledBaseline } from "../schemas/schemas_0";
+import { ResetEnabledBaseline$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class ResetEnabledBaselineCommand extends $Command
   })
   .s("AWSControlTowerApis", "ResetEnabledBaseline", {})
   .n("ControlTowerClient", "ResetEnabledBaselineCommand")
-  .sc(ResetEnabledBaseline)
+  .sc(ResetEnabledBaseline$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

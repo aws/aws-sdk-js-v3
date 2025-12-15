@@ -9,7 +9,7 @@ import type {
   DeleteAutomatedReasoningPolicyBuildWorkflowRequest,
   DeleteAutomatedReasoningPolicyBuildWorkflowResponse,
 } from "../models/models_0";
-import { DeleteAutomatedReasoningPolicyBuildWorkflow } from "../schemas/schemas_0";
+import { DeleteAutomatedReasoningPolicyBuildWorkflow$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class DeleteAutomatedReasoningPolicyBuildWorkflowCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "DeleteAutomatedReasoningPolicyBuildWorkflow", {})
   .n("BedrockClient", "DeleteAutomatedReasoningPolicyBuildWorkflowCommand")
-  .sc(DeleteAutomatedReasoningPolicyBuildWorkflow)
+  .sc(DeleteAutomatedReasoningPolicyBuildWorkflow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

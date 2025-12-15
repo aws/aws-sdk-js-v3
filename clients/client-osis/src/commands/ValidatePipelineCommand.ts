@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ValidatePipelineRequest, ValidatePipelineResponse } from "../models/models_0";
 import type { OSISClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OSISClient";
-import { ValidatePipeline } from "../schemas/schemas_0";
+import { ValidatePipeline$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class ValidatePipelineCommand extends $Command
   })
   .s("AmazonOpenSearchIngestionService", "ValidatePipeline", {})
   .n("OSISClient", "ValidatePipelineCommand")
-  .sc(ValidatePipeline)
+  .sc(ValidatePipeline$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

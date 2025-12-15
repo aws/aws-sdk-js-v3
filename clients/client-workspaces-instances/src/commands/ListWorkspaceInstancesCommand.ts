@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListWorkspaceInstancesRequest, ListWorkspaceInstancesResponse } from "../models/models_0";
-import { ListWorkspaceInstances } from "../schemas/schemas_0";
+import { ListWorkspaceInstances$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -102,7 +102,7 @@ export class ListWorkspaceInstancesCommand extends $Command
   })
   .s("EUCMIFrontendAPIService", "ListWorkspaceInstances", {})
   .n("WorkspacesInstancesClient", "ListWorkspaceInstancesCommand")
-  .sc(ListWorkspaceInstances)
+  .sc(ListWorkspaceInstances$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   UpdateResourceProfileDetectionsRequest,
   UpdateResourceProfileDetectionsResponse,
 } from "../models/models_0";
-import { UpdateResourceProfileDetections } from "../schemas/schemas_0";
+import { UpdateResourceProfileDetections$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class UpdateResourceProfileDetectionsCommand extends $Command
   })
   .s("Macie2", "UpdateResourceProfileDetections", {})
   .n("Macie2Client", "UpdateResourceProfileDetectionsCommand")
-  .sc(UpdateResourceProfileDetections)
+  .sc(UpdateResourceProfileDetections$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: LightsailClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.lightsail",
-        serviceTarget: "Lightsail_20161128",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.lightsail",
+      version: "2016-11-28",
+      serviceTarget: "Lightsail_20161128",
+    },
     serviceId: config?.serviceId ?? "Lightsail",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

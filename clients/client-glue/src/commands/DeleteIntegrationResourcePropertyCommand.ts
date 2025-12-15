@@ -9,7 +9,7 @@ import type {
   DeleteIntegrationResourcePropertyRequest,
   DeleteIntegrationResourcePropertyResponse,
 } from "../models/models_1";
-import { DeleteIntegrationResourceProperty } from "../schemas/schemas_0";
+import { DeleteIntegrationResourceProperty$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class DeleteIntegrationResourcePropertyCommand extends $Command
   })
   .s("AWSGlue", "DeleteIntegrationResourceProperty", {})
   .n("GlueClient", "DeleteIntegrationResourcePropertyCommand")
-  .sc(DeleteIntegrationResourceProperty)
+  .sc(DeleteIntegrationResourceProperty$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

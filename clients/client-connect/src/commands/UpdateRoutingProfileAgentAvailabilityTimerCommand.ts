@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateRoutingProfileAgentAvailabilityTimerRequest } from "../models/models_3";
-import { UpdateRoutingProfileAgentAvailabilityTimer } from "../schemas/schemas_0";
+import { UpdateRoutingProfileAgentAvailabilityTimer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class UpdateRoutingProfileAgentAvailabilityTimerCommand extends $Command
   })
   .s("AmazonConnectService", "UpdateRoutingProfileAgentAvailabilityTimer", {})
   .n("ConnectClient", "UpdateRoutingProfileAgentAvailabilityTimerCommand")
-  .sc(UpdateRoutingProfileAgentAvailabilityTimer)
+  .sc(UpdateRoutingProfileAgentAvailabilityTimer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

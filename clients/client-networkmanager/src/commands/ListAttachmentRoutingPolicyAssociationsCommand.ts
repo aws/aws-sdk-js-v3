@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { ListAttachmentRoutingPolicyAssociations } from "../schemas/schemas_0";
+import { ListAttachmentRoutingPolicyAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class ListAttachmentRoutingPolicyAssociationsCommand extends $Command
   })
   .s("NetworkManager", "ListAttachmentRoutingPolicyAssociations", {})
   .n("NetworkManagerClient", "ListAttachmentRoutingPolicyAssociationsCommand")
-  .sc(ListAttachmentRoutingPolicyAssociations)
+  .sc(ListAttachmentRoutingPolicyAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

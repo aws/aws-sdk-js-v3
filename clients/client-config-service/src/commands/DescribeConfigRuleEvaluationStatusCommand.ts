@@ -9,7 +9,7 @@ import type {
   DescribeConfigRuleEvaluationStatusRequest,
   DescribeConfigRuleEvaluationStatusResponse,
 } from "../models/models_0";
-import { DescribeConfigRuleEvaluationStatus } from "../schemas/schemas_0";
+import { DescribeConfigRuleEvaluationStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class DescribeConfigRuleEvaluationStatusCommand extends $Command
   })
   .s("StarlingDoveService", "DescribeConfigRuleEvaluationStatus", {})
   .n("ConfigServiceClient", "DescribeConfigRuleEvaluationStatusCommand")
-  .sc(DescribeConfigRuleEvaluationStatus)
+  .sc(DescribeConfigRuleEvaluationStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

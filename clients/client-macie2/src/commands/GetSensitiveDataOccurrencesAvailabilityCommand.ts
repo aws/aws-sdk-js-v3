@@ -9,7 +9,7 @@ import type {
   GetSensitiveDataOccurrencesAvailabilityRequest,
   GetSensitiveDataOccurrencesAvailabilityResponse,
 } from "../models/models_0";
-import { GetSensitiveDataOccurrencesAvailability } from "../schemas/schemas_0";
+import { GetSensitiveDataOccurrencesAvailability$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class GetSensitiveDataOccurrencesAvailabilityCommand extends $Command
   })
   .s("Macie2", "GetSensitiveDataOccurrencesAvailability", {})
   .n("Macie2Client", "GetSensitiveDataOccurrencesAvailabilityCommand")
-  .sc(GetSensitiveDataOccurrencesAvailability)
+  .sc(GetSensitiveDataOccurrencesAvailability$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

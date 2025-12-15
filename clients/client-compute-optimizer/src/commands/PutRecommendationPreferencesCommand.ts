@@ -10,7 +10,7 @@ import type {
 } from "../ComputeOptimizerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutRecommendationPreferencesRequest, PutRecommendationPreferencesResponse } from "../models/models_0";
-import { PutRecommendationPreferences } from "../schemas/schemas_0";
+import { PutRecommendationPreferences$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -137,7 +137,7 @@ export class PutRecommendationPreferencesCommand extends $Command
   })
   .s("ComputeOptimizerService", "PutRecommendationPreferences", {})
   .n("ComputeOptimizerClient", "PutRecommendationPreferencesCommand")
-  .sc(PutRecommendationPreferences)
+  .sc(PutRecommendationPreferences$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

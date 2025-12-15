@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetGlossaryTermInput, GetGlossaryTermOutput } from "../models/models_1";
-import { GetGlossaryTerm } from "../schemas/schemas_0";
+import { GetGlossaryTerm$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class GetGlossaryTermCommand extends $Command
   })
   .s("DataZone", "GetGlossaryTerm", {})
   .n("DataZoneClient", "GetGlossaryTermCommand")
-  .sc(GetGlossaryTerm)
+  .sc(GetGlossaryTerm$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

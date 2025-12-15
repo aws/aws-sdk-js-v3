@@ -9,7 +9,7 @@ import type {
   ListSubscriptionDefinitionVersionsRequest,
   ListSubscriptionDefinitionVersionsResponse,
 } from "../models/models_0";
-import { ListSubscriptionDefinitionVersions } from "../schemas/schemas_0";
+import { ListSubscriptionDefinitionVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class ListSubscriptionDefinitionVersionsCommand extends $Command
   })
   .s("Greengrass", "ListSubscriptionDefinitionVersions", {})
   .n("GreengrassClient", "ListSubscriptionDefinitionVersionsCommand")
-  .sc(ListSubscriptionDefinitionVersions)
+  .sc(ListSubscriptionDefinitionVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

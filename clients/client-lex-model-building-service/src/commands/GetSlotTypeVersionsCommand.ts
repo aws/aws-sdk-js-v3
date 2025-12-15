@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import type { GetSlotTypeVersionsRequest, GetSlotTypeVersionsResponse } from "../models/models_0";
-import { GetSlotTypeVersions } from "../schemas/schemas_0";
+import { GetSlotTypeVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class GetSlotTypeVersionsCommand extends $Command
   })
   .s("AWSDeepSenseModelBuildingService", "GetSlotTypeVersions", {})
   .n("LexModelBuildingServiceClient", "GetSlotTypeVersionsCommand")
-  .sc(GetSlotTypeVersions)
+  .sc(GetSlotTypeVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

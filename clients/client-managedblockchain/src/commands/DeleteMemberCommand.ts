@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
 import type { DeleteMemberInput, DeleteMemberOutput } from "../models/models_0";
-import { DeleteMember } from "../schemas/schemas_0";
+import { DeleteMember$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class DeleteMemberCommand extends $Command
   })
   .s("TaigaWebService", "DeleteMember", {})
   .n("ManagedBlockchainClient", "DeleteMemberCommand")
-  .sc(DeleteMember)
+  .sc(DeleteMember$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

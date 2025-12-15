@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateProjectInput, UpdateProjectOutput } from "../models/models_0";
-import { UpdateProject } from "../schemas/schemas_0";
+import { UpdateProject$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -485,7 +485,7 @@ export class UpdateProjectCommand extends $Command
   })
   .s("CodeBuild_20161006", "UpdateProject", {})
   .n("CodeBuildClient", "UpdateProjectCommand")
-  .sc(UpdateProject)
+  .sc(UpdateProject$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { TimestampFormatHeaders } from "../schemas/schemas_0";
+import { TimestampFormatHeaders$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class TimestampFormatHeadersCommand extends $Command
   })
   .s("RestJson", "TimestampFormatHeaders", {})
   .n("RestJsonProtocolClient", "TimestampFormatHeadersCommand")
-  .sc(TimestampFormatHeaders)
+  .sc(TimestampFormatHeaders$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

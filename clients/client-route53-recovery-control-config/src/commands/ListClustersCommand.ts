@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryControlConfigClient";
-import { ListClusters } from "../schemas/schemas_0";
+import { ListClusters$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class ListClustersCommand extends $Command
   })
   .s("Route53RecoveryControlConfig", "ListClusters", {})
   .n("Route53RecoveryControlConfigClient", "ListClustersCommand")
-  .sc(ListClusters)
+  .sc(ListClusters$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

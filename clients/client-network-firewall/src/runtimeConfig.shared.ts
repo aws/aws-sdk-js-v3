@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: NetworkFirewallClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_0Protocol({
-        defaultNamespace: "com.amazonaws.networkfirewall",
-        serviceTarget: "NetworkFirewall_20201112",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_0Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.networkfirewall",
+      version: "2020-11-12",
+      serviceTarget: "NetworkFirewall_20201112",
+    },
     serviceId: config?.serviceId ?? "Network Firewall",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

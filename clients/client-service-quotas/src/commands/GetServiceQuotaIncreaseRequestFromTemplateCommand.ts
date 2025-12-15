@@ -8,7 +8,7 @@ import type {
   GetServiceQuotaIncreaseRequestFromTemplateRequest,
   GetServiceQuotaIncreaseRequestFromTemplateResponse,
 } from "../models/models_0";
-import { GetServiceQuotaIncreaseRequestFromTemplate } from "../schemas/schemas_0";
+import { GetServiceQuotaIncreaseRequestFromTemplate$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
@@ -120,7 +120,7 @@ export class GetServiceQuotaIncreaseRequestFromTemplateCommand extends $Command
   })
   .s("ServiceQuotasV20190624", "GetServiceQuotaIncreaseRequestFromTemplate", {})
   .n("ServiceQuotasClient", "GetServiceQuotaIncreaseRequestFromTemplateCommand")
-  .sc(GetServiceQuotaIncreaseRequestFromTemplate)
+  .sc(GetServiceQuotaIncreaseRequestFromTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeEffectivePolicyRequest, DescribeEffectivePolicyResponse } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { DescribeEffectivePolicy } from "../schemas/schemas_0";
+import { DescribeEffectivePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -516,7 +516,7 @@ export class DescribeEffectivePolicyCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "DescribeEffectivePolicy", {})
   .n("OrganizationsClient", "DescribeEffectivePolicyCommand")
-  .sc(DescribeEffectivePolicy)
+  .sc(DescribeEffectivePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

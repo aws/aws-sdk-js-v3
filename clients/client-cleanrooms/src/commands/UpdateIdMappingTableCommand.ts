@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateIdMappingTableInput, UpdateIdMappingTableOutput } from "../models/models_0";
-import { UpdateIdMappingTable } from "../schemas/schemas_0";
+import { UpdateIdMappingTable$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class UpdateIdMappingTableCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "UpdateIdMappingTable", {})
   .n("CleanRoomsClient", "UpdateIdMappingTableCommand")
-  .sc(UpdateIdMappingTable)
+  .sc(UpdateIdMappingTable$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetQuotaUtilizationReportRequest, GetQuotaUtilizationReportResponse } from "../models/models_0";
-import { GetQuotaUtilizationReport } from "../schemas/schemas_0";
+import { GetQuotaUtilizationReport$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
@@ -119,7 +119,7 @@ export class GetQuotaUtilizationReportCommand extends $Command
   })
   .s("ServiceQuotasV20190624", "GetQuotaUtilizationReport", {})
   .n("ServiceQuotasClient", "GetQuotaUtilizationReportCommand")
-  .sc(GetQuotaUtilizationReport)
+  .sc(GetQuotaUtilizationReport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

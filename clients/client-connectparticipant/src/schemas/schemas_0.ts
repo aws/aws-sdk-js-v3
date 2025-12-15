@@ -145,29 +145,29 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { ConnectParticipantServiceException as __ConnectParticipantServiceException } from "../models/ConnectParticipantServiceException";
+import { ConnectParticipantServiceException } from "../models/ConnectParticipantServiceException";
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var JoinToken: StaticSimpleSchema = [0, n0, _JT, 8, 0];
-export var ViewAction: StaticSimpleSchema = [0, n0, _VA, 8, 0];
-export var ViewInputSchema: StaticSimpleSchema = [0, n0, _VIS, 8, 0];
-export var ViewName: StaticSimpleSchema = [0, n0, _VN, 8, 0];
-export var ViewTemplate: StaticSimpleSchema = [0, n0, _VT, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var AttachmentItem: StaticStructureSchema = [3, n0, _AI, 0, [_CT, _AIt, _AN, _S], [0, 0, 0, 0]];
-export var Attendee: StaticStructureSchema = [3, n0, _A, 0, [_AItt, _JT], [0, [() => JoinToken, 0]]];
-export var AudioFeatures: StaticStructureSchema = [3, n0, _AF, 0, [_ER], [0]];
-export var CancelParticipantAuthenticationRequest: StaticStructureSchema = [
+var JoinToken: StaticSimpleSchema = [0, n0, _JT, 8, 0];
+var ViewAction: StaticSimpleSchema = [0, n0, _VA, 8, 0];
+var ViewInputSchema: StaticSimpleSchema = [0, n0, _VIS, 8, 0];
+var ViewName: StaticSimpleSchema = [0, n0, _VN, 8, 0];
+var ViewTemplate: StaticSimpleSchema = [0, n0, _VT, 8, 0];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var AttachmentItem$: StaticStructureSchema = [3, n0, _AI, 0, [_CT, _AIt, _AN, _S], [0, 0, 0, 0]];
+export var Attendee$: StaticStructureSchema = [3, n0, _A, 0, [_AItt, _JT], [0, [() => JoinToken, 0]]];
+export var AudioFeatures$: StaticStructureSchema = [3, n0, _AF, 0, [_ER], [0]];
+export var CancelParticipantAuthenticationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPAR,
@@ -175,8 +175,8 @@ export var CancelParticipantAuthenticationRequest: StaticStructureSchema = [
   [_SI, _CTo],
   [0, [0, { [_hH]: _XAB }]],
 ];
-export var CancelParticipantAuthenticationResponse: StaticStructureSchema = [3, n0, _CPARa, 0, [], []];
-export var CompleteAttachmentUploadRequest: StaticStructureSchema = [
+export var CancelParticipantAuthenticationResponse$: StaticStructureSchema = [3, n0, _CPARa, 0, [], []];
+export var CompleteAttachmentUploadRequest$: StaticStructureSchema = [
   3,
   n0,
   _CAUR,
@@ -184,11 +184,11 @@ export var CompleteAttachmentUploadRequest: StaticStructureSchema = [
   [_AItta, _CTl, _CTo],
   [64 | 0, [0, 4], [0, { [_hH]: _XAB }]],
 ];
-export var CompleteAttachmentUploadResponse: StaticStructureSchema = [3, n0, _CAURo, 0, [], []];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var ConnectionCredentials: StaticStructureSchema = [3, n0, _CC, 0, [_CTo, _E], [0, 0]];
-export var CreateParticipantConnectionRequest: StaticStructureSchema = [
+export var CompleteAttachmentUploadResponse$: StaticStructureSchema = [3, n0, _CAURo, 0, [], []];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var ConnectionCredentials$: StaticStructureSchema = [3, n0, _CC, 0, [_CTo, _E], [0, 0]];
+export var CreateParticipantConnectionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPCR,
@@ -196,15 +196,15 @@ export var CreateParticipantConnectionRequest: StaticStructureSchema = [
   [_T, _PT, _CP],
   [64 | 0, [0, { [_hH]: _XAB }], 2],
 ];
-export var CreateParticipantConnectionResponse: StaticStructureSchema = [
+export var CreateParticipantConnectionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CPCRr,
   0,
   [_W, _CC, _WRTCC],
-  [() => Websocket, () => ConnectionCredentials, [() => WebRTCConnection, 0]],
+  [() => Websocket$, () => ConnectionCredentials$, [() => WebRTCConnection$, 0]],
 ];
-export var DescribeViewRequest: StaticStructureSchema = [
+export var DescribeViewRequest$: StaticStructureSchema = [
   3,
   n0,
   _DVR,
@@ -215,8 +215,8 @@ export var DescribeViewRequest: StaticStructureSchema = [
     [0, { [_hH]: _XAB }],
   ],
 ];
-export var DescribeViewResponse: StaticStructureSchema = [3, n0, _DVRe, 0, [_V], [[() => View, 0]]];
-export var DisconnectParticipantRequest: StaticStructureSchema = [
+export var DescribeViewResponse$: StaticStructureSchema = [3, n0, _DVRe, 0, [_V], [[() => View$, 0]]];
+export var DisconnectParticipantRequest$: StaticStructureSchema = [
   3,
   n0,
   _DPR,
@@ -227,8 +227,8 @@ export var DisconnectParticipantRequest: StaticStructureSchema = [
     [0, { [_hH]: _XAB }],
   ],
 ];
-export var DisconnectParticipantResponse: StaticStructureSchema = [3, n0, _DPRi, 0, [], []];
-export var GetAttachmentRequest: StaticStructureSchema = [
+export var DisconnectParticipantResponse$: StaticStructureSchema = [3, n0, _DPRi, 0, [], []];
+export var GetAttachmentRequest$: StaticStructureSchema = [
   3,
   n0,
   _GAR,
@@ -236,8 +236,8 @@ export var GetAttachmentRequest: StaticStructureSchema = [
   [_AIt, _CTo, _UEIS],
   [0, [0, { [_hH]: _XAB }], 1],
 ];
-export var GetAttachmentResponse: StaticStructureSchema = [3, n0, _GARe, 0, [_U, _UE, _ASIB], [0, 0, 1]];
-export var GetAuthenticationUrlRequest: StaticStructureSchema = [
+export var GetAttachmentResponse$: StaticStructureSchema = [3, n0, _GARe, 0, [_U, _UE, _ASIB], [0, 0, 1]];
+export var GetAuthenticationUrlRequest$: StaticStructureSchema = [
   3,
   n0,
   _GAUR,
@@ -245,31 +245,38 @@ export var GetAuthenticationUrlRequest: StaticStructureSchema = [
   [_SI, _RU, _CTo],
   [0, 0, [0, { [_hH]: _XAB }]],
 ];
-export var GetAuthenticationUrlResponse: StaticStructureSchema = [3, n0, _GAURe, 0, [_AU], [0]];
-export var GetTranscriptRequest: StaticStructureSchema = [
+export var GetAuthenticationUrlResponse$: StaticStructureSchema = [3, n0, _GAURe, 0, [_AU], [0]];
+export var GetTranscriptRequest$: StaticStructureSchema = [
   3,
   n0,
   _GTR,
   0,
   [_CI, _MR, _NT, _SD, _SO, _SP, _CTo],
-  [0, 1, 0, 0, 0, () => StartPosition, [0, { [_hH]: _XAB }]],
+  [0, 1, 0, 0, 0, () => StartPosition$, [0, { [_hH]: _XAB }]],
 ];
-export var GetTranscriptResponse: StaticStructureSchema = [3, n0, _GTRe, 0, [_ICI, _Tr, _NT], [0, () => Transcript, 0]];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var Item: StaticStructureSchema = [
+export var GetTranscriptResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _GTRe,
+  0,
+  [_ICI, _Tr, _NT],
+  [0, () => Transcript, 0],
+];
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var Item$: StaticStructureSchema = [
   3,
   n0,
   _I,
   0,
   [_AT, _C, _CT, _Id, _T, _PI, _DN, _PR, _At, _MM, _RCI, _CI],
-  [0, 0, 0, 0, 0, 0, 0, 0, () => Attachments, () => MessageMetadata, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, () => Attachments, () => MessageMetadata$, 0, 0],
 ];
-export var MeetingFeaturesConfiguration: StaticStructureSchema = [3, n0, _MFC, 0, [_Au], [() => AudioFeatures]];
-export var MessageMetadata: StaticStructureSchema = [3, n0, _MM, 0, [_MI, _R, _MPS], [0, () => Receipts, 0]];
-export var MessageProcessingMetadata: StaticStructureSchema = [3, n0, _MPM, 0, [_MPS], [0]];
-export var Receipt: StaticStructureSchema = [3, n0, _Re, 0, [_DT, _RT, _RPI], [0, 0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
+export var MeetingFeaturesConfiguration$: StaticStructureSchema = [3, n0, _MFC, 0, [_Au], [() => AudioFeatures$]];
+export var MessageMetadata$: StaticStructureSchema = [3, n0, _MM, 0, [_MI, _R, _MPS], [0, () => Receipts, 0]];
+export var MessageProcessingMetadata$: StaticStructureSchema = [3, n0, _MPM, 0, [_MPS], [0]];
+export var Receipt$: StaticStructureSchema = [3, n0, _Re, 0, [_DT, _RT, _RPI], [0, 0, 0]];
+export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
@@ -277,8 +284,8 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   [_M, _RI, _RTe],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var SendEventRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var SendEventRequest$: StaticStructureSchema = [
   3,
   n0,
   _SER,
@@ -286,8 +293,8 @@ export var SendEventRequest: StaticStructureSchema = [
   [_CT, _C, _CTl, _CTo],
   [0, 0, [0, 4], [0, { [_hH]: _XAB }]],
 ];
-export var SendEventResponse: StaticStructureSchema = [3, n0, _SERe, 0, [_Id, _AT], [0, 0]];
-export var SendMessageRequest: StaticStructureSchema = [
+export var SendEventResponse$: StaticStructureSchema = [3, n0, _SERe, 0, [_Id, _AT], [0, 0]];
+export var SendMessageRequest$: StaticStructureSchema = [
   3,
   n0,
   _SMR,
@@ -295,17 +302,17 @@ export var SendMessageRequest: StaticStructureSchema = [
   [_CT, _C, _CTl, _CTo],
   [0, 0, [0, 4], [0, { [_hH]: _XAB }]],
 ];
-export var SendMessageResponse: StaticStructureSchema = [
+export var SendMessageResponse$: StaticStructureSchema = [
   3,
   n0,
   _SMRe,
   0,
   [_Id, _AT, _MM],
-  [0, 0, () => MessageProcessingMetadata],
+  [0, 0, () => MessageProcessingMetadata$],
 ];
-export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var StartAttachmentUploadRequest: StaticStructureSchema = [
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var StartAttachmentUploadRequest$: StaticStructureSchema = [
   3,
   n0,
   _SAUR,
@@ -313,29 +320,29 @@ export var StartAttachmentUploadRequest: StaticStructureSchema = [
   [_CT, _ASIB, _AN, _CTl, _CTo],
   [0, 1, 0, [0, 4], [0, { [_hH]: _XAB }]],
 ];
-export var StartAttachmentUploadResponse: StaticStructureSchema = [
+export var StartAttachmentUploadResponse$: StaticStructureSchema = [
   3,
   n0,
   _SAURt,
   0,
   [_AIt, _UM],
-  [0, () => UploadMetadata],
+  [0, () => UploadMetadata$],
 ];
-export var StartPosition: StaticStructureSchema = [3, n0, _SP, 0, [_Id, _AT, _MRo], [0, 0, 1]];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var UploadMetadata: StaticStructureSchema = [3, n0, _UM, 0, [_U, _UE, _HTI], [0, 0, 128 | 0]];
-export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var View: StaticStructureSchema = [
+export var StartPosition$: StaticStructureSchema = [3, n0, _SP, 0, [_Id, _AT, _MRo], [0, 0, 1]];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var UploadMetadata$: StaticStructureSchema = [3, n0, _UM, 0, [_U, _UE, _HTI], [0, 0, 128 | 0]];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var View$: StaticStructureSchema = [
   3,
   n0,
   _V,
   0,
   [_Id, _Ar, _N, _Ve, _C],
-  [0, 0, [() => ViewName, 0], 1, [() => ViewContent, 0]],
+  [0, 0, [() => ViewName, 0], 1, [() => ViewContent$, 0]],
 ];
-export var ViewContent: StaticStructureSchema = [
+export var ViewContent$: StaticStructureSchema = [
   3,
   n0,
   _VC,
@@ -347,25 +354,25 @@ export var ViewContent: StaticStructureSchema = [
     [() => ViewActions, 0],
   ],
 ];
-export var WebRTCConnection: StaticStructureSchema = [
+export var WebRTCConnection$: StaticStructureSchema = [
   3,
   n0,
   _WRTCC,
   0,
   [_A, _Me],
-  [[() => Attendee, 0], () => WebRTCMeeting],
+  [[() => Attendee$, 0], () => WebRTCMeeting$],
 ];
-export var WebRTCMediaPlacement: StaticStructureSchema = [3, n0, _WRTCMP, 0, [_AHU, _AFU, _SU, _EIU], [0, 0, 0, 0]];
-export var WebRTCMeeting: StaticStructureSchema = [
+export var WebRTCMediaPlacement$: StaticStructureSchema = [3, n0, _WRTCMP, 0, [_AHU, _AFU, _SU, _EIU], [0, 0, 0, 0]];
+export var WebRTCMeeting$: StaticStructureSchema = [
   3,
   n0,
   _WRTCM,
   0,
   [_MP, _MF, _MIe],
-  [() => WebRTCMediaPlacement, () => MeetingFeaturesConfiguration, 0],
+  [() => WebRTCMediaPlacement$, () => MeetingFeaturesConfiguration$, 0],
 ];
-export var Websocket: StaticStructureSchema = [3, n0, _W, 0, [_U, _CEo], [0, 0]];
-export var ConnectParticipantServiceException: StaticErrorSchema = [
+export var Websocket$: StaticStructureSchema = [3, n0, _W, 0, [_U, _CEo], [0, 0]];
+export var ConnectParticipantServiceException$: StaticErrorSchema = [
   -3,
   _sm,
   "ConnectParticipantServiceException",
@@ -373,99 +380,99 @@ export var ConnectParticipantServiceException: StaticErrorSchema = [
   [],
   [],
 ];
-TypeRegistry.for(_sm).registerError(ConnectParticipantServiceException, __ConnectParticipantServiceException);
-export var AttachmentIdList = 64 | 0;
-export var Attachments: StaticListSchema = [1, n0, _At, 0, () => AttachmentItem];
-export var ConnectionTypeList = 64 | 0;
-export var Receipts: StaticListSchema = [1, n0, _R, 0, () => Receipt];
-export var Transcript: StaticListSchema = [1, n0, _Tr, 0, () => Item];
-export var ViewActions: StaticListSchema = [1, n0, _VAi, 0, [() => ViewAction, 0]];
-export var UploadMetadataSignedHeaders = 128 | 0;
-export var CancelParticipantAuthentication: StaticOperationSchema = [
+TypeRegistry.for(_sm).registerError(ConnectParticipantServiceException$, ConnectParticipantServiceException);
+var AttachmentIdList = 64 | 0;
+var Attachments: StaticListSchema = [1, n0, _At, 0, () => AttachmentItem$];
+var ConnectionTypeList = 64 | 0;
+var Receipts: StaticListSchema = [1, n0, _R, 0, () => Receipt$];
+var Transcript: StaticListSchema = [1, n0, _Tr, 0, () => Item$];
+var ViewActions: StaticListSchema = [1, n0, _VAi, 0, [() => ViewAction, 0]];
+var UploadMetadataSignedHeaders = 128 | 0;
+export var CancelParticipantAuthentication$: StaticOperationSchema = [
   9,
   n0,
   _CPA,
   { [_h]: ["POST", "/participant/cancel-authentication", 200] },
-  () => CancelParticipantAuthenticationRequest,
-  () => CancelParticipantAuthenticationResponse,
+  () => CancelParticipantAuthenticationRequest$,
+  () => CancelParticipantAuthenticationResponse$,
 ];
-export var CompleteAttachmentUpload: StaticOperationSchema = [
+export var CompleteAttachmentUpload$: StaticOperationSchema = [
   9,
   n0,
   _CAU,
   { [_h]: ["POST", "/participant/complete-attachment-upload", 200] },
-  () => CompleteAttachmentUploadRequest,
-  () => CompleteAttachmentUploadResponse,
+  () => CompleteAttachmentUploadRequest$,
+  () => CompleteAttachmentUploadResponse$,
 ];
-export var CreateParticipantConnection: StaticOperationSchema = [
+export var CreateParticipantConnection$: StaticOperationSchema = [
   9,
   n0,
   _CPC,
   { [_h]: ["POST", "/participant/connection", 200] },
-  () => CreateParticipantConnectionRequest,
-  () => CreateParticipantConnectionResponse,
+  () => CreateParticipantConnectionRequest$,
+  () => CreateParticipantConnectionResponse$,
 ];
-export var DescribeView: StaticOperationSchema = [
+export var DescribeView$: StaticOperationSchema = [
   9,
   n0,
   _DV,
   { [_h]: ["GET", "/participant/views/{ViewToken}", 200] },
-  () => DescribeViewRequest,
-  () => DescribeViewResponse,
+  () => DescribeViewRequest$,
+  () => DescribeViewResponse$,
 ];
-export var DisconnectParticipant: StaticOperationSchema = [
+export var DisconnectParticipant$: StaticOperationSchema = [
   9,
   n0,
   _DP,
   { [_h]: ["POST", "/participant/disconnect", 200] },
-  () => DisconnectParticipantRequest,
-  () => DisconnectParticipantResponse,
+  () => DisconnectParticipantRequest$,
+  () => DisconnectParticipantResponse$,
 ];
-export var GetAttachment: StaticOperationSchema = [
+export var GetAttachment$: StaticOperationSchema = [
   9,
   n0,
   _GA,
   { [_h]: ["POST", "/participant/attachment", 200] },
-  () => GetAttachmentRequest,
-  () => GetAttachmentResponse,
+  () => GetAttachmentRequest$,
+  () => GetAttachmentResponse$,
 ];
-export var GetAuthenticationUrl: StaticOperationSchema = [
+export var GetAuthenticationUrl$: StaticOperationSchema = [
   9,
   n0,
   _GAU,
   { [_h]: ["POST", "/participant/authentication-url", 200] },
-  () => GetAuthenticationUrlRequest,
-  () => GetAuthenticationUrlResponse,
+  () => GetAuthenticationUrlRequest$,
+  () => GetAuthenticationUrlResponse$,
 ];
-export var GetTranscript: StaticOperationSchema = [
+export var GetTranscript$: StaticOperationSchema = [
   9,
   n0,
   _GT,
   { [_h]: ["POST", "/participant/transcript", 200] },
-  () => GetTranscriptRequest,
-  () => GetTranscriptResponse,
+  () => GetTranscriptRequest$,
+  () => GetTranscriptResponse$,
 ];
-export var SendEvent: StaticOperationSchema = [
+export var SendEvent$: StaticOperationSchema = [
   9,
   n0,
   _SE,
   { [_h]: ["POST", "/participant/event", 200] },
-  () => SendEventRequest,
-  () => SendEventResponse,
+  () => SendEventRequest$,
+  () => SendEventResponse$,
 ];
-export var SendMessage: StaticOperationSchema = [
+export var SendMessage$: StaticOperationSchema = [
   9,
   n0,
   _SM,
   { [_h]: ["POST", "/participant/message", 200] },
-  () => SendMessageRequest,
-  () => SendMessageResponse,
+  () => SendMessageRequest$,
+  () => SendMessageResponse$,
 ];
-export var StartAttachmentUpload: StaticOperationSchema = [
+export var StartAttachmentUpload$: StaticOperationSchema = [
   9,
   n0,
   _SAU,
   { [_h]: ["POST", "/participant/start-attachment-upload", 200] },
-  () => StartAttachmentUploadRequest,
-  () => StartAttachmentUploadResponse,
+  () => StartAttachmentUploadRequest$,
+  () => StartAttachmentUploadResponse$,
 ];

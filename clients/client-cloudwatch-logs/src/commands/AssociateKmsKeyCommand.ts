@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateKmsKeyRequest } from "../models/models_0";
-import { AssociateKmsKey } from "../schemas/schemas_0";
+import { AssociateKmsKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -133,7 +133,7 @@ export class AssociateKmsKeyCommand extends $Command
   })
   .s("Logs_20140328", "AssociateKmsKey", {})
   .n("CloudWatchLogsClient", "AssociateKmsKeyCommand")
-  .sc(AssociateKmsKey)
+  .sc(AssociateKmsKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

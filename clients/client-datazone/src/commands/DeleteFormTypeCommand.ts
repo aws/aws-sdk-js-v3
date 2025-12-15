@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteFormTypeInput, DeleteFormTypeOutput } from "../models/models_1";
-import { DeleteFormType } from "../schemas/schemas_0";
+import { DeleteFormType$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeleteFormTypeCommand extends $Command
   })
   .s("DataZone", "DeleteFormType", {})
   .n("DataZoneClient", "DeleteFormTypeCommand")
-  .sc(DeleteFormType)
+  .sc(DeleteFormType$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

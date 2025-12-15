@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
 import type { StartPipelineReprocessingRequest, StartPipelineReprocessingResponse } from "../models/models_0";
-import { StartPipelineReprocessing } from "../schemas/schemas_0";
+import { StartPipelineReprocessing$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class StartPipelineReprocessingCommand extends $Command
   })
   .s("AWSIoTAnalytics", "StartPipelineReprocessing", {})
   .n("IoTAnalyticsClient", "StartPipelineReprocessingCommand")
-  .sc(StartPipelineReprocessing)
+  .sc(StartPipelineReprocessing$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

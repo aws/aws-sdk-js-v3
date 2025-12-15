@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListDeviceResourcesInput, ListDeviceResourcesOutput } from "../models/models_0";
-import { ListDeviceResources } from "../schemas/schemas_0";
+import { ListDeviceResources$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -102,7 +102,7 @@ export class ListDeviceResourcesCommand extends $Command
   })
   .s("SnowDeviceManagement", "ListDeviceResources", {})
   .n("SnowDeviceManagementClient", "ListDeviceResourcesCommand")
-  .sc(ListDeviceResources)
+  .sc(ListDeviceResources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import { BatchGetVpcEndpoint } from "../schemas/schemas_0";
+import { BatchGetVpcEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class BatchGetVpcEndpointCommand extends $Command
   })
   .s("OpenSearchServerless", "BatchGetVpcEndpoint", {})
   .n("OpenSearchServerlessClient", "BatchGetVpcEndpointCommand")
-  .sc(BatchGetVpcEndpoint)
+  .sc(BatchGetVpcEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeRouteInput, DescribeRouteOutput } from "../models/models_0";
-import { DescribeRoute } from "../schemas/schemas_0";
+import { DescribeRoute$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -315,7 +315,7 @@ export class DescribeRouteCommand extends $Command
   })
   .s("AppMesh", "DescribeRoute", {})
   .n("AppMeshClient", "DescribeRouteCommand")
-  .sc(DescribeRoute)
+  .sc(DescribeRoute$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

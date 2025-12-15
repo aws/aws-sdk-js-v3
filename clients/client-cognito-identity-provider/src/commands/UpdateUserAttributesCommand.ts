@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateUserAttributesRequest, UpdateUserAttributesResponse } from "../models/models_0";
-import { UpdateUserAttributes } from "../schemas/schemas_0";
+import { UpdateUserAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -193,7 +193,7 @@ export class UpdateUserAttributesCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "UpdateUserAttributes", {})
   .n("CognitoIdentityProviderClient", "UpdateUserAttributesCommand")
-  .sc(UpdateUserAttributes)
+  .sc(UpdateUserAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

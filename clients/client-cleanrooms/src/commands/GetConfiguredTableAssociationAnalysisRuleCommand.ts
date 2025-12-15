@@ -9,7 +9,7 @@ import type {
   GetConfiguredTableAssociationAnalysisRuleInput,
   GetConfiguredTableAssociationAnalysisRuleOutput,
 } from "../models/models_0";
-import { GetConfiguredTableAssociationAnalysisRule } from "../schemas/schemas_0";
+import { GetConfiguredTableAssociationAnalysisRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -131,7 +131,7 @@ export class GetConfiguredTableAssociationAnalysisRuleCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "GetConfiguredTableAssociationAnalysisRule", {})
   .n("CleanRoomsClient", "GetConfiguredTableAssociationAnalysisRuleCommand")
-  .sc(GetConfiguredTableAssociationAnalysisRule)
+  .sc(GetConfiguredTableAssociationAnalysisRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

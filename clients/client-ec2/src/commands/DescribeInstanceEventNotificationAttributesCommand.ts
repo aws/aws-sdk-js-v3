@@ -9,7 +9,7 @@ import type {
   DescribeInstanceEventNotificationAttributesRequest,
   DescribeInstanceEventNotificationAttributesResult,
 } from "../models/models_3";
-import { DescribeInstanceEventNotificationAttributes } from "../schemas/schemas_0";
+import { DescribeInstanceEventNotificationAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class DescribeInstanceEventNotificationAttributesCommand extends $Command
   })
   .s("AmazonEC2", "DescribeInstanceEventNotificationAttributes", {})
   .n("EC2Client", "DescribeInstanceEventNotificationAttributesCommand")
-  .sc(DescribeInstanceEventNotificationAttributes)
+  .sc(DescribeInstanceEventNotificationAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

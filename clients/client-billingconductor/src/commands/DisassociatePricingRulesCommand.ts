@@ -10,7 +10,7 @@ import type {
 } from "../BillingconductorClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociatePricingRulesInput, DisassociatePricingRulesOutput } from "../models/models_0";
-import { DisassociatePricingRules } from "../schemas/schemas_0";
+import { DisassociatePricingRules$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class DisassociatePricingRulesCommand extends $Command
   })
   .s("AWSBillingConductor", "DisassociatePricingRules", {})
   .n("BillingconductorClient", "DisassociatePricingRulesCommand")
-  .sc(DisassociatePricingRules)
+  .sc(DisassociatePricingRules$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

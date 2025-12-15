@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateVpcPeeringConnectionRequest, CreateVpcPeeringConnectionResult } from "../models/models_2";
-import { CreateVpcPeeringConnection } from "../schemas/schemas_0";
+import { CreateVpcPeeringConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -155,7 +155,7 @@ export class CreateVpcPeeringConnectionCommand extends $Command
   })
   .s("AmazonEC2", "CreateVpcPeeringConnection", {})
   .n("EC2Client", "CreateVpcPeeringConnectionCommand")
-  .sc(CreateVpcPeeringConnection)
+  .sc(CreateVpcPeeringConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

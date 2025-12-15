@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeFastSnapshotRestoresRequest, DescribeFastSnapshotRestoresResult } from "../models/models_3";
-import { DescribeFastSnapshotRestores } from "../schemas/schemas_0";
+import { DescribeFastSnapshotRestores$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class DescribeFastSnapshotRestoresCommand extends $Command
   })
   .s("AmazonEC2", "DescribeFastSnapshotRestores", {})
   .n("EC2Client", "DescribeFastSnapshotRestoresCommand")
-  .sc(DescribeFastSnapshotRestores)
+  .sc(DescribeFastSnapshotRestores$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

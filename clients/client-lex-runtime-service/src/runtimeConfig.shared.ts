@@ -32,7 +32,7 @@ export const getRuntimeConfig = (config: LexRuntimeServiceClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.lexruntimeservice" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
     sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     serviceId: config?.serviceId ?? "Lex Runtime Service",
     urlParser: config?.urlParser ?? parseUrl,

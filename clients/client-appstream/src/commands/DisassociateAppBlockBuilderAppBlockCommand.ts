@@ -9,7 +9,7 @@ import type {
   DisassociateAppBlockBuilderAppBlockRequest,
   DisassociateAppBlockBuilderAppBlockResult,
 } from "../models/models_0";
-import { DisassociateAppBlockBuilderAppBlock } from "../schemas/schemas_0";
+import { DisassociateAppBlockBuilderAppBlock$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class DisassociateAppBlockBuilderAppBlockCommand extends $Command
   })
   .s("PhotonAdminProxyService", "DisassociateAppBlockBuilderAppBlock", {})
   .n("AppStreamClient", "DisassociateAppBlockBuilderAppBlockCommand")
-  .sc(DisassociateAppBlockBuilderAppBlock)
+  .sc(DisassociateAppBlockBuilderAppBlock$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

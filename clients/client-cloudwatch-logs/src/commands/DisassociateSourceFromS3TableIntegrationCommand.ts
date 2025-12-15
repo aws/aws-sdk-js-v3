@@ -13,7 +13,7 @@ import type {
   DisassociateSourceFromS3TableIntegrationRequest,
   DisassociateSourceFromS3TableIntegrationResponse,
 } from "../models/models_0";
-import { DisassociateSourceFromS3TableIntegration } from "../schemas/schemas_0";
+import { DisassociateSourceFromS3TableIntegration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class DisassociateSourceFromS3TableIntegrationCommand extends $Command
   })
   .s("Logs_20140328", "DisassociateSourceFromS3TableIntegration", {})
   .n("CloudWatchLogsClient", "DisassociateSourceFromS3TableIntegrationCommand")
-  .sc(DisassociateSourceFromS3TableIntegration)
+  .sc(DisassociateSourceFromS3TableIntegration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

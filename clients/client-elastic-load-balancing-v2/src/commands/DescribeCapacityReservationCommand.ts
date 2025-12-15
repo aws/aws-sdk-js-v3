@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeCapacityReservationInput, DescribeCapacityReservationOutput } from "../models/models_0";
-import { DescribeCapacityReservation } from "../schemas/schemas_0";
+import { DescribeCapacityReservation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DescribeCapacityReservationCommand extends $Command
   })
   .s("ElasticLoadBalancing_v10", "DescribeCapacityReservation", {})
   .n("ElasticLoadBalancingV2Client", "DescribeCapacityReservationCommand")
-  .sc(DescribeCapacityReservation)
+  .sc(DescribeCapacityReservation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

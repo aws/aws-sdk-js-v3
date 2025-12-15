@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeEventsRequest, DescribeEventsResponse } from "../models/models_0";
-import { DescribeEvents } from "../schemas/schemas_0";
+import { DescribeEvents$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class DescribeEventsCommand extends $Command
   })
   .s("AmazonDAXV3", "DescribeEvents", {})
   .n("DAXClient", "DescribeEventsCommand")
-  .sc(DescribeEvents)
+  .sc(DescribeEvents$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

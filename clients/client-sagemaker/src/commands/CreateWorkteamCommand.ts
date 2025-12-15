@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateWorkteamRequest, CreateWorkteamResponse } from "../models/models_2";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { CreateWorkteam } from "../schemas/schemas_0";
+import { CreateWorkteam$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class CreateWorkteamCommand extends $Command
   })
   .s("SageMaker", "CreateWorkteam", {})
   .n("SageMakerClient", "CreateWorkteamCommand")
-  .sc(CreateWorkteam)
+  .sc(CreateWorkteam$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

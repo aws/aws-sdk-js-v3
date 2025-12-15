@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetRandomPasswordRequest, GetRandomPasswordResponse } from "../models/models_0";
-import { GetRandomPassword } from "../schemas/schemas_0";
+import { GetRandomPassword$ } from "../schemas/schemas_0";
 import type {
   SecretsManagerClientResolvedConfig,
   ServiceInputTypes,
@@ -138,7 +138,7 @@ export class GetRandomPasswordCommand extends $Command
   })
   .s("secretsmanager", "GetRandomPassword", {})
   .n("SecretsManagerClient", "GetRandomPasswordCommand")
-  .sc(GetRandomPassword)
+  .sc(GetRandomPassword$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { TerminateWorkspacesPoolRequest, TerminateWorkspacesPoolResult } from "../models/models_0";
-import { TerminateWorkspacesPool } from "../schemas/schemas_0";
+import { TerminateWorkspacesPool$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -86,7 +86,7 @@ export class TerminateWorkspacesPoolCommand extends $Command
   })
   .s("WorkspacesService", "TerminateWorkspacesPool", {})
   .n("WorkSpacesClient", "TerminateWorkspacesPoolCommand")
-  .sc(TerminateWorkspacesPool)
+  .sc(TerminateWorkspacesPool$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

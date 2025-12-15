@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateContentRequest, UpdateContentResponse } from "../models/models_0";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { UpdateContent } from "../schemas/schemas_0";
+import { UpdateContent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class UpdateContentCommand extends $Command
   })
   .s("WisdomService", "UpdateContent", {})
   .n("QConnectClient", "UpdateContentCommand")
-  .sc(UpdateContent)
+  .sc(UpdateContent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

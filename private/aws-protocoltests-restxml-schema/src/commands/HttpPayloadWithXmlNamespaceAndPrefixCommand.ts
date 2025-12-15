@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestXmlProtocolClient";
-import { HttpPayloadWithXmlNamespaceAndPrefix } from "../schemas/schemas_0";
+import { HttpPayloadWithXmlNamespaceAndPrefix$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class HttpPayloadWithXmlNamespaceAndPrefixCommand extends $Command
   })
   .s("RestXml", "HttpPayloadWithXmlNamespaceAndPrefix", {})
   .n("RestXmlProtocolClient", "HttpPayloadWithXmlNamespaceAndPrefixCommand")
-  .sc(HttpPayloadWithXmlNamespaceAndPrefix)
+  .sc(HttpPayloadWithXmlNamespaceAndPrefix$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

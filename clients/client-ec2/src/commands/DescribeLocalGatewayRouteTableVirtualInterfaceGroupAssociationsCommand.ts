@@ -9,7 +9,7 @@ import type {
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest,
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult,
 } from "../models/models_4";
-import { DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations } from "../schemas/schemas_0";
+import { DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsComm
   })
   .s("AmazonEC2", "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations", {})
   .n("EC2Client", "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand")
-  .sc(DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations)
+  .sc(DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

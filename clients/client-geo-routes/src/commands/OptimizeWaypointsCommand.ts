@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GeoRoutesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoRoutesClient";
 import type { OptimizeWaypointsRequest, OptimizeWaypointsResponse } from "../models/models_0";
-import { OptimizeWaypoints } from "../schemas/schemas_0";
+import { OptimizeWaypoints$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -258,7 +258,7 @@ export class OptimizeWaypointsCommand extends $Command
   })
   .s("RoutesService", "OptimizeWaypoints", {})
   .n("GeoRoutesClient", "OptimizeWaypointsCommand")
-  .sc(OptimizeWaypoints)
+  .sc(OptimizeWaypoints$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

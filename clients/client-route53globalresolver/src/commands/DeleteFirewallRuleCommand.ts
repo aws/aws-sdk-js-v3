@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53GlobalResolverClient";
-import { DeleteFirewallRule } from "../schemas/schemas_0";
+import { DeleteFirewallRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class DeleteFirewallRuleCommand extends $Command
   })
   .s("EC2DNSGlobalResolverCustomerAPI", "DeleteFirewallRule", {})
   .n("Route53GlobalResolverClient", "DeleteFirewallRuleCommand")
-  .sc(DeleteFirewallRule)
+  .sc(DeleteFirewallRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

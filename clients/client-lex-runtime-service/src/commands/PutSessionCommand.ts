@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LexRuntimeServiceClient";
 import { type PutSessionRequest, PutSessionResponse } from "../models/models_0";
-import { PutSession } from "../schemas/schemas_0";
+import { PutSession$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -184,7 +184,7 @@ export class PutSessionCommand extends $Command
   })
   .s("AWSDeepSenseRunTimeService", "PutSession", {})
   .n("LexRuntimeServiceClient", "PutSessionCommand")
-  .sc(PutSession)
+  .sc(PutSession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

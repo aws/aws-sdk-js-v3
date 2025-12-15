@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../InternetMonitorClient";
 import type { StopQueryInput, StopQueryOutput } from "../models/models_0";
-import { StopQuery } from "../schemas/schemas_0";
+import { StopQuery$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class StopQueryCommand extends $Command
   })
   .s("InternetMonitor20210603", "StopQuery", {})
   .n("InternetMonitorClient", "StopQueryCommand")
-  .sc(StopQuery)
+  .sc(StopQuery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

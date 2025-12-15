@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateAccountCustomizationRequest, UpdateAccountCustomizationResponse } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { UpdateAccountCustomization } from "../schemas/schemas_0";
+import { UpdateAccountCustomization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class UpdateAccountCustomizationCommand extends $Command
   })
   .s("QuickSight_20180401", "UpdateAccountCustomization", {})
   .n("QuickSightClient", "UpdateAccountCustomizationCommand")
-  .sc(UpdateAccountCustomization)
+  .sc(UpdateAccountCustomization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

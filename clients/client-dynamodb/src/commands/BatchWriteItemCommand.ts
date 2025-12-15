@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchWriteItemInput, BatchWriteItemOutput } from "../models/models_0";
-import { BatchWriteItem } from "../schemas/schemas_0";
+import { BatchWriteItem$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -416,7 +416,7 @@ export class BatchWriteItemCommand extends $Command
   })
   .s("DynamoDB_20120810", "BatchWriteItem", {})
   .n("DynamoDBClient", "BatchWriteItemCommand")
-  .sc(BatchWriteItem)
+  .sc(BatchWriteItem$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

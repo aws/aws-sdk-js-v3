@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { RemoveAttachmentRoutingPolicyLabel } from "../schemas/schemas_0";
+import { RemoveAttachmentRoutingPolicyLabel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class RemoveAttachmentRoutingPolicyLabelCommand extends $Command
   })
   .s("NetworkManager", "RemoveAttachmentRoutingPolicyLabel", {})
   .n("NetworkManagerClient", "RemoveAttachmentRoutingPolicyLabelCommand")
-  .sc(RemoveAttachmentRoutingPolicyLabel)
+  .sc(RemoveAttachmentRoutingPolicyLabel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

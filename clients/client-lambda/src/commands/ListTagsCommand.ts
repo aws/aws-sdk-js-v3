@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import type { ListTagsRequest, ListTagsResponse } from "../models/models_0";
-import { ListTags } from "../schemas/schemas_0";
+import { ListTags$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class ListTagsCommand extends $Command
   })
   .s("AWSGirApiService", "ListTags", {})
   .n("LambdaClient", "ListTagsCommand")
-  .sc(ListTags)
+  .sc(ListTags$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

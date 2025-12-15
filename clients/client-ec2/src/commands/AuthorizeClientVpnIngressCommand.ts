@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AuthorizeClientVpnIngressRequest, AuthorizeClientVpnIngressResult } from "../models/models_0";
-import { AuthorizeClientVpnIngress } from "../schemas/schemas_0";
+import { AuthorizeClientVpnIngress$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class AuthorizeClientVpnIngressCommand extends $Command
   })
   .s("AmazonEC2", "AuthorizeClientVpnIngress", {})
   .n("EC2Client", "AuthorizeClientVpnIngressCommand")
-  .sc(AuthorizeClientVpnIngress)
+  .sc(AuthorizeClientVpnIngress$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

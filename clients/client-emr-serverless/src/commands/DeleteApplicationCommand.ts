@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteApplicationRequest, DeleteApplicationResponse } from "../models/models_0";
-import { DeleteApplication } from "../schemas/schemas_0";
+import { DeleteApplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -80,7 +80,7 @@ export class DeleteApplicationCommand extends $Command
   })
   .s("AwsToledoWebService", "DeleteApplication", {})
   .n("EMRServerlessClient", "DeleteApplicationCommand")
-  .sc(DeleteApplication)
+  .sc(DeleteApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

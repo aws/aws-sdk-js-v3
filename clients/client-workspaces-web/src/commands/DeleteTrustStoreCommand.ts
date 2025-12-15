@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteTrustStoreRequest, DeleteTrustStoreResponse } from "../models/models_0";
-import { DeleteTrustStore } from "../schemas/schemas_0";
+import { DeleteTrustStore$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -86,7 +86,7 @@ export class DeleteTrustStoreCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "DeleteTrustStore", {})
   .n("WorkSpacesWebClient", "DeleteTrustStoreCommand")
-  .sc(DeleteTrustStore)
+  .sc(DeleteTrustStore$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

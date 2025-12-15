@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RevokeIpRulesRequest, RevokeIpRulesResult } from "../models/models_0";
-import { RevokeIpRules } from "../schemas/schemas_0";
+import { RevokeIpRules$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -86,7 +86,7 @@ export class RevokeIpRulesCommand extends $Command
   })
   .s("WorkspacesService", "RevokeIpRules", {})
   .n("WorkSpacesClient", "RevokeIpRulesCommand")
-  .sc(RevokeIpRules)
+  .sc(RevokeIpRules$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

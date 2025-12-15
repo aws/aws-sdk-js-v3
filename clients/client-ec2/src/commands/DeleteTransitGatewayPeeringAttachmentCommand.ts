@@ -9,7 +9,7 @@ import type {
   DeleteTransitGatewayPeeringAttachmentRequest,
   DeleteTransitGatewayPeeringAttachmentResult,
 } from "../models/models_2";
-import { DeleteTransitGatewayPeeringAttachment } from "../schemas/schemas_0";
+import { DeleteTransitGatewayPeeringAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class DeleteTransitGatewayPeeringAttachmentCommand extends $Command
   })
   .s("AmazonEC2", "DeleteTransitGatewayPeeringAttachment", {})
   .n("EC2Client", "DeleteTransitGatewayPeeringAttachmentCommand")
-  .sc(DeleteTransitGatewayPeeringAttachment)
+  .sc(DeleteTransitGatewayPeeringAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

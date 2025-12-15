@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RegisterCertificateRequest, RegisterCertificateResult } from "../models/models_0";
-import { RegisterCertificate } from "../schemas/schemas_0";
+import { RegisterCertificate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class RegisterCertificateCommand extends $Command
   })
   .s("DirectoryService_20150416", "RegisterCertificate", {})
   .n("DirectoryServiceClient", "RegisterCertificateCommand")
-  .sc(RegisterCertificate)
+  .sc(RegisterCertificate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

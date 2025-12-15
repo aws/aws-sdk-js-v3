@@ -9,7 +9,7 @@ import type {
   StartAutomatedReasoningPolicyBuildWorkflowRequest,
   StartAutomatedReasoningPolicyBuildWorkflowResponse,
 } from "../models/models_0";
-import { StartAutomatedReasoningPolicyBuildWorkflow } from "../schemas/schemas_0";
+import { StartAutomatedReasoningPolicyBuildWorkflow$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -229,7 +229,7 @@ export class StartAutomatedReasoningPolicyBuildWorkflowCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "StartAutomatedReasoningPolicyBuildWorkflow", {})
   .n("BedrockClient", "StartAutomatedReasoningPolicyBuildWorkflowCommand")
-  .sc(StartAutomatedReasoningPolicyBuildWorkflow)
+  .sc(StartAutomatedReasoningPolicyBuildWorkflow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

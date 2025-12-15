@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SendMessageBatchRequest, SendMessageBatchResult } from "../models/models_0";
-import { SendMessageBatch } from "../schemas/schemas_0";
+import { SendMessageBatch$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -222,7 +222,7 @@ export class SendMessageBatchCommand extends $Command
   })
   .s("AmazonSQS", "SendMessageBatch", {})
   .n("SQSClient", "SendMessageBatchCommand")
-  .sc(SendMessageBatch)
+  .sc(SendMessageBatch$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RegisterDeviceRequest, RegisterDeviceResponse } from "../models/models_0";
-import { RegisterDevice } from "../schemas/schemas_0";
+import { RegisterDevice$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -142,7 +142,7 @@ export class RegisterDeviceCommand extends $Command
   })
   .s("AWSCognitoSyncService", "RegisterDevice", {})
   .n("CognitoSyncClient", "RegisterDeviceCommand")
-  .sc(RegisterDevice)
+  .sc(RegisterDevice$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

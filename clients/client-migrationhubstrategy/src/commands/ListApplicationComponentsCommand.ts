@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
 import type { ListApplicationComponentsRequest, ListApplicationComponentsResponse } from "../models/models_0";
-import { ListApplicationComponents } from "../schemas/schemas_0";
+import { ListApplicationComponents$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -178,7 +178,7 @@ export class ListApplicationComponentsCommand extends $Command
   })
   .s("AWSMigrationHubStrategyRecommendation", "ListApplicationComponents", {})
   .n("MigrationHubStrategyClient", "ListApplicationComponentsCommand")
-  .sc(ListApplicationComponents)
+  .sc(ListApplicationComponents$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

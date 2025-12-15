@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetVariantImportRequest, GetVariantImportResponse } from "../models/models_0";
 import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { GetVariantImportJob } from "../schemas/schemas_0";
+import { GetVariantImportJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class GetVariantImportJobCommand extends $Command
   })
   .s("Omics", "GetVariantImportJob", {})
   .n("OmicsClient", "GetVariantImportJobCommand")
-  .sc(GetVariantImportJob)
+  .sc(GetVariantImportJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

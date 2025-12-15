@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteHoursOfOperationRequest } from "../models/models_1";
-import { DeleteHoursOfOperation } from "../schemas/schemas_0";
+import { DeleteHoursOfOperation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DeleteHoursOfOperationCommand extends $Command
   })
   .s("AmazonConnectService", "DeleteHoursOfOperation", {})
   .n("ConnectClient", "DeleteHoursOfOperationCommand")
-  .sc(DeleteHoursOfOperation)
+  .sc(DeleteHoursOfOperation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeprovisionIpamByoasnRequest, DeprovisionIpamByoasnResult } from "../models/models_3";
-import { DeprovisionIpamByoasn } from "../schemas/schemas_0";
+import { DeprovisionIpamByoasn$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -81,7 +81,7 @@ export class DeprovisionIpamByoasnCommand extends $Command
   })
   .s("AmazonEC2", "DeprovisionIpamByoasn", {})
   .n("EC2Client", "DeprovisionIpamByoasnCommand")
-  .sc(DeprovisionIpamByoasn)
+  .sc(DeprovisionIpamByoasn$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

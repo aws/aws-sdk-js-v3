@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import type { SendCisSessionHealthRequest, SendCisSessionHealthResponse } from "../models/models_0";
-import { SendCisSessionHealth } from "../schemas/schemas_0";
+import { SendCisSessionHealth$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class SendCisSessionHealthCommand extends $Command
   })
   .s("Inspector2", "SendCisSessionHealth", {})
   .n("Inspector2Client", "SendCisSessionHealthCommand")
-  .sc(SendCisSessionHealth)
+  .sc(SendCisSessionHealth$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

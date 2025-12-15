@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutPackageOriginConfigurationRequest, PutPackageOriginConfigurationResult } from "../models/models_0";
-import { PutPackageOriginConfiguration } from "../schemas/schemas_0";
+import { PutPackageOriginConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class PutPackageOriginConfigurationCommand extends $Command
   })
   .s("CodeArtifactControlPlaneService", "PutPackageOriginConfiguration", {})
   .n("CodeartifactClient", "PutPackageOriginConfigurationCommand")
-  .sc(PutPackageOriginConfiguration)
+  .sc(PutPackageOriginConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

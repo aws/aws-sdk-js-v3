@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { DocumentTypeAsMapValue } from "../schemas/schemas_0";
+import { DocumentTypeAsMapValue$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -81,7 +81,7 @@ export class DocumentTypeAsMapValueCommand extends $Command
   })
   .s("RestJson", "DocumentTypeAsMapValue", {})
   .n("RestJsonProtocolClient", "DocumentTypeAsMapValueCommand")
-  .sc(DocumentTypeAsMapValue)
+  .sc(DocumentTypeAsMapValue$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

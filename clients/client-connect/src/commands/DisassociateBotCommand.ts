@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateBotRequest } from "../models/models_1";
-import { DisassociateBot } from "../schemas/schemas_0";
+import { DisassociateBot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class DisassociateBotCommand extends $Command
   })
   .s("AmazonConnectService", "DisassociateBot", {})
   .n("ConnectClient", "DisassociateBotCommand")
-  .sc(DisassociateBot)
+  .sc(DisassociateBot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

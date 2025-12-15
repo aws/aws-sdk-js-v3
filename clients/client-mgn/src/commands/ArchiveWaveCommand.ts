@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import type { ArchiveWaveRequest, Wave } from "../models/models_0";
-import { ArchiveWave } from "../schemas/schemas_0";
+import { ArchiveWave$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class ArchiveWaveCommand extends $Command
   })
   .s("ApplicationMigrationService", "ArchiveWave", {})
   .n("MgnClient", "ArchiveWaveCommand")
-  .sc(ArchiveWave)
+  .sc(ArchiveWave$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAgentCardRequest, GetAgentCardResponse } from "../models/models_0";
-import { GetAgentCard } from "../schemas/schemas_0";
+import { GetAgentCard$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class GetAgentCardCommand extends $Command
   })
   .s("AmazonBedrockAgentCore", "GetAgentCard", {})
   .n("BedrockAgentCoreClient", "GetAgentCardCommand")
-  .sc(GetAgentCard)
+  .sc(GetAgentCard$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

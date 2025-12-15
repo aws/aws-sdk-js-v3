@@ -13,7 +13,7 @@ import type {
   ListDataIntegrationAssociationsRequest,
   ListDataIntegrationAssociationsResponse,
 } from "../models/models_0";
-import { ListDataIntegrationAssociations } from "../schemas/schemas_0";
+import { ListDataIntegrationAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class ListDataIntegrationAssociationsCommand extends $Command
   })
   .s("AmazonAppIntegrationService", "ListDataIntegrationAssociations", {})
   .n("AppIntegrationsClient", "ListDataIntegrationAssociationsCommand")
-  .sc(ListDataIntegrationAssociations)
+  .sc(ListDataIntegrationAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

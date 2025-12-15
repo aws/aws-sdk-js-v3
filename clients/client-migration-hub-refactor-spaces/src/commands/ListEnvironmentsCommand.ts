@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MigrationHubRefactorSpacesClient";
 import type { ListEnvironmentsRequest, ListEnvironmentsResponse } from "../models/models_0";
-import { ListEnvironments } from "../schemas/schemas_0";
+import { ListEnvironments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -122,7 +122,7 @@ export class ListEnvironmentsCommand extends $Command
   })
   .s("RefactorSpaces", "ListEnvironments", {})
   .n("MigrationHubRefactorSpacesClient", "ListEnvironmentsCommand")
-  .sc(ListEnvironments)
+  .sc(ListEnvironments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

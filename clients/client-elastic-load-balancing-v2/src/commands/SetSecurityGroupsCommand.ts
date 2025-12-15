@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SetSecurityGroupsInput, SetSecurityGroupsOutput } from "../models/models_0";
-import { SetSecurityGroups } from "../schemas/schemas_0";
+import { SetSecurityGroups$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class SetSecurityGroupsCommand extends $Command
   })
   .s("ElasticLoadBalancing_v10", "SetSecurityGroups", {})
   .n("ElasticLoadBalancingV2Client", "SetSecurityGroupsCommand")
-  .sc(SetSecurityGroups)
+  .sc(SetSecurityGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

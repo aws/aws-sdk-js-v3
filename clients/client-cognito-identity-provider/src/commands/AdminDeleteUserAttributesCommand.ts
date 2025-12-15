@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AdminDeleteUserAttributesRequest, AdminDeleteUserAttributesResponse } from "../models/models_0";
-import { AdminDeleteUserAttributes } from "../schemas/schemas_0";
+import { AdminDeleteUserAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -122,7 +122,7 @@ export class AdminDeleteUserAttributesCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "AdminDeleteUserAttributes", {})
   .n("CognitoIdentityProviderClient", "AdminDeleteUserAttributesCommand")
-  .sc(AdminDeleteUserAttributes)
+  .sc(AdminDeleteUserAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationAutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeregisterScalableTargetRequest, DeregisterScalableTargetResponse } from "../models/models_0";
-import { DeregisterScalableTarget } from "../schemas/schemas_0";
+import { DeregisterScalableTarget$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class DeregisterScalableTargetCommand extends $Command
   })
   .s("AnyScaleFrontendService", "DeregisterScalableTarget", {})
   .n("ApplicationAutoScalingClient", "DeregisterScalableTargetCommand")
-  .sc(DeregisterScalableTarget)
+  .sc(DeregisterScalableTarget$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

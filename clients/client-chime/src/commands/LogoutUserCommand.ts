@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LogoutUserRequest, LogoutUserResponse } from "../models/models_0";
-import { LogoutUser } from "../schemas/schemas_0";
+import { LogoutUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class LogoutUserCommand extends $Command
   })
   .s("UCBuzzConsoleService", "LogoutUser", {})
   .n("ChimeClient", "LogoutUserCommand")
-  .sc(LogoutUser)
+  .sc(LogoutUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

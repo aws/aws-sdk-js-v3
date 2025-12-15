@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetMemoryRecordInput, GetMemoryRecordOutput } from "../models/models_0";
-import { GetMemoryRecord } from "../schemas/schemas_0";
+import { GetMemoryRecord$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class GetMemoryRecordCommand extends $Command
   })
   .s("AmazonBedrockAgentCore", "GetMemoryRecord", {})
   .n("BedrockAgentCoreClient", "GetMemoryRecordCommand")
-  .sc(GetMemoryRecord)
+  .sc(GetMemoryRecord$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

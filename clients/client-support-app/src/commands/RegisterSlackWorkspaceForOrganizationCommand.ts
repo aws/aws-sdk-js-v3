@@ -8,7 +8,7 @@ import type {
   RegisterSlackWorkspaceForOrganizationRequest,
   RegisterSlackWorkspaceForOrganizationResult,
 } from "../models/models_0";
-import { RegisterSlackWorkspaceForOrganization } from "../schemas/schemas_0";
+import { RegisterSlackWorkspaceForOrganization$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
@@ -152,7 +152,7 @@ export class RegisterSlackWorkspaceForOrganizationCommand extends $Command
   })
   .s("SupportApp", "RegisterSlackWorkspaceForOrganization", {})
   .n("SupportAppClient", "RegisterSlackWorkspaceForOrganizationCommand")
-  .sc(RegisterSlackWorkspaceForOrganization)
+  .sc(RegisterSlackWorkspaceForOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

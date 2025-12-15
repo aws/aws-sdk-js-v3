@@ -9,7 +9,7 @@ import type {
   DeregisterTransitGatewayMulticastGroupSourcesRequest,
   DeregisterTransitGatewayMulticastGroupSourcesResult,
 } from "../models/models_3";
-import { DeregisterTransitGatewayMulticastGroupSources } from "../schemas/schemas_0";
+import { DeregisterTransitGatewayMulticastGroupSources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeregisterTransitGatewayMulticastGroupSourcesCommand extends $Comma
   })
   .s("AmazonEC2", "DeregisterTransitGatewayMulticastGroupSources", {})
   .n("EC2Client", "DeregisterTransitGatewayMulticastGroupSourcesCommand")
-  .sc(DeregisterTransitGatewayMulticastGroupSources)
+  .sc(DeregisterTransitGatewayMulticastGroupSources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

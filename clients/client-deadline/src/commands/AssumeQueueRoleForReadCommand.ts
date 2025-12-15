@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssumeQueueRoleForReadRequest, AssumeQueueRoleForReadResponse } from "../models/models_0";
-import { AssumeQueueRoleForRead } from "../schemas/schemas_0";
+import { AssumeQueueRoleForRead$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class AssumeQueueRoleForReadCommand extends $Command
   })
   .s("Deadline", "AssumeQueueRoleForRead", {})
   .n("DeadlineClient", "AssumeQueueRoleForReadCommand")
-  .sc(AssumeQueueRoleForRead)
+  .sc(AssumeQueueRoleForRead$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

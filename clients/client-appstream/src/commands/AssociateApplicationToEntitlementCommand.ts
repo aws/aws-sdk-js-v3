@@ -9,7 +9,7 @@ import type {
   AssociateApplicationToEntitlementRequest,
   AssociateApplicationToEntitlementResult,
 } from "../models/models_0";
-import { AssociateApplicationToEntitlement } from "../schemas/schemas_0";
+import { AssociateApplicationToEntitlement$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class AssociateApplicationToEntitlementCommand extends $Command
   })
   .s("PhotonAdminProxyService", "AssociateApplicationToEntitlement", {})
   .n("AppStreamClient", "AssociateApplicationToEntitlementCommand")
-  .sc(AssociateApplicationToEntitlement)
+  .sc(AssociateApplicationToEntitlement$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

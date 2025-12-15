@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationSignalsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateServiceLevelObjectiveInput, UpdateServiceLevelObjectiveOutput } from "../models/models_0";
-import { UpdateServiceLevelObjective } from "../schemas/schemas_0";
+import { UpdateServiceLevelObjective$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -410,7 +410,7 @@ export class UpdateServiceLevelObjectiveCommand extends $Command
   })
   .s("ApplicationSignals", "UpdateServiceLevelObjective", {})
   .n("ApplicationSignalsClient", "UpdateServiceLevelObjectiveCommand")
-  .sc(UpdateServiceLevelObjective)
+  .sc(UpdateServiceLevelObjective$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

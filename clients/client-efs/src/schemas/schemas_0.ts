@@ -216,44 +216,44 @@ const n0 = "com.amazonaws.efs";
 import { TypeRegistry } from "@smithy/core/schema";
 import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
-import { EFSServiceException as __EFSServiceException } from "../models/EFSServiceException";
+import { EFSServiceException } from "../models/EFSServiceException";
 import {
-  AccessPointAlreadyExists as __AccessPointAlreadyExists,
-  AccessPointLimitExceeded as __AccessPointLimitExceeded,
-  AccessPointNotFound as __AccessPointNotFound,
-  AvailabilityZonesMismatch as __AvailabilityZonesMismatch,
-  BadRequest as __BadRequest,
-  ConflictException as __ConflictException,
-  DependencyTimeout as __DependencyTimeout,
-  FileSystemAlreadyExists as __FileSystemAlreadyExists,
-  FileSystemInUse as __FileSystemInUse,
-  FileSystemLimitExceeded as __FileSystemLimitExceeded,
-  FileSystemNotFound as __FileSystemNotFound,
-  IncorrectFileSystemLifeCycleState as __IncorrectFileSystemLifeCycleState,
-  IncorrectMountTargetState as __IncorrectMountTargetState,
-  InsufficientThroughputCapacity as __InsufficientThroughputCapacity,
-  InternalServerError as __InternalServerError,
-  InvalidPolicyException as __InvalidPolicyException,
-  IpAddressInUse as __IpAddressInUse,
-  MountTargetConflict as __MountTargetConflict,
-  MountTargetNotFound as __MountTargetNotFound,
-  NetworkInterfaceLimitExceeded as __NetworkInterfaceLimitExceeded,
-  NoFreeAddressesInSubnet as __NoFreeAddressesInSubnet,
-  PolicyNotFound as __PolicyNotFound,
-  ReplicationAlreadyExists as __ReplicationAlreadyExists,
-  ReplicationNotFound as __ReplicationNotFound,
-  SecurityGroupLimitExceeded as __SecurityGroupLimitExceeded,
-  SecurityGroupNotFound as __SecurityGroupNotFound,
-  SubnetNotFound as __SubnetNotFound,
-  ThrottlingException as __ThrottlingException,
-  ThroughputLimitExceeded as __ThroughputLimitExceeded,
-  TooManyRequests as __TooManyRequests,
-  UnsupportedAvailabilityZone as __UnsupportedAvailabilityZone,
-  ValidationException as __ValidationException,
+  AccessPointAlreadyExists,
+  AccessPointLimitExceeded,
+  AccessPointNotFound,
+  AvailabilityZonesMismatch,
+  BadRequest,
+  ConflictException,
+  DependencyTimeout,
+  FileSystemAlreadyExists,
+  FileSystemInUse,
+  FileSystemLimitExceeded,
+  FileSystemNotFound,
+  IncorrectFileSystemLifeCycleState,
+  IncorrectMountTargetState,
+  InsufficientThroughputCapacity,
+  InternalServerError,
+  InvalidPolicyException,
+  IpAddressInUse,
+  MountTargetConflict,
+  MountTargetNotFound,
+  NetworkInterfaceLimitExceeded,
+  NoFreeAddressesInSubnet,
+  PolicyNotFound,
+  ReplicationAlreadyExists,
+  ReplicationNotFound,
+  SecurityGroupLimitExceeded,
+  SecurityGroupNotFound,
+  SubnetNotFound,
+  ThrottlingException,
+  ThroughputLimitExceeded,
+  TooManyRequests,
+  UnsupportedAvailabilityZone,
+  ValidationException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var AccessPointAlreadyExists: StaticErrorSchema = [
+export var AccessPointAlreadyExists$: StaticErrorSchema = [
   -3,
   n0,
   _APAE,
@@ -261,36 +261,36 @@ export var AccessPointAlreadyExists: StaticErrorSchema = [
   [_EC, _M, _API],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(AccessPointAlreadyExists, __AccessPointAlreadyExists);
-export var AccessPointDescription: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(AccessPointAlreadyExists$, AccessPointAlreadyExists);
+export var AccessPointDescription$: StaticStructureSchema = [
   3,
   n0,
   _APD,
   0,
   [_CT, _N, _T, _API, _APA, _FSI, _PU, _RD, _OI, _LCS],
-  [0, 0, () => Tags, 0, 0, 0, () => PosixUser, () => RootDirectory, 0, 0],
+  [0, 0, () => Tags, 0, 0, 0, () => PosixUser$, () => RootDirectory$, 0, 0],
 ];
-export var AccessPointLimitExceeded: StaticErrorSchema = [-3, n0, _APLE, { [_e]: _c, [_hE]: 403 }, [_EC, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(AccessPointLimitExceeded, __AccessPointLimitExceeded);
-export var AccessPointNotFound: StaticErrorSchema = [-3, n0, _APNF, { [_e]: _c, [_hE]: 404 }, [_EC, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(AccessPointNotFound, __AccessPointNotFound);
-export var AvailabilityZonesMismatch: StaticErrorSchema = [-3, n0, _AZM, { [_e]: _c, [_hE]: 400 }, [_EC, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(AvailabilityZonesMismatch, __AvailabilityZonesMismatch);
-export var BackupPolicy: StaticStructureSchema = [3, n0, _BP, 0, [_S], [0]];
-export var BackupPolicyDescription: StaticStructureSchema = [3, n0, _BPD, 0, [_BP], [() => BackupPolicy]];
-export var BadRequest: StaticErrorSchema = [-3, n0, _BR, { [_e]: _c, [_hE]: 400 }, [_EC, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(BadRequest, __BadRequest);
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_EC, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateAccessPointRequest: StaticStructureSchema = [
+export var AccessPointLimitExceeded$: StaticErrorSchema = [-3, n0, _APLE, { [_e]: _c, [_hE]: 403 }, [_EC, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(AccessPointLimitExceeded$, AccessPointLimitExceeded);
+export var AccessPointNotFound$: StaticErrorSchema = [-3, n0, _APNF, { [_e]: _c, [_hE]: 404 }, [_EC, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(AccessPointNotFound$, AccessPointNotFound);
+export var AvailabilityZonesMismatch$: StaticErrorSchema = [-3, n0, _AZM, { [_e]: _c, [_hE]: 400 }, [_EC, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(AvailabilityZonesMismatch$, AvailabilityZonesMismatch);
+export var BackupPolicy$: StaticStructureSchema = [3, n0, _BP, 0, [_S], [0]];
+export var BackupPolicyDescription$: StaticStructureSchema = [3, n0, _BPD, 0, [_BP], [() => BackupPolicy$]];
+export var BadRequest$: StaticErrorSchema = [-3, n0, _BR, { [_e]: _c, [_hE]: 400 }, [_EC, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(BadRequest$, BadRequest);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_EC, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateAccessPointRequest$: StaticStructureSchema = [
   3,
   n0,
   _CAPR,
   0,
   [_CT, _T, _FSI, _PU, _RD],
-  [[0, 4], () => Tags, 0, () => PosixUser, () => RootDirectory],
+  [[0, 4], () => Tags, 0, () => PosixUser$, () => RootDirectory$],
 ];
-export var CreateFileSystemRequest: StaticStructureSchema = [
+export var CreateFileSystemRequest$: StaticStructureSchema = [
   3,
   n0,
   _CFSR,
@@ -298,7 +298,7 @@ export var CreateFileSystemRequest: StaticStructureSchema = [
   [_CTr, _PM, _E, _KKI, _TM, _PTIM, _AZN, _B, _T],
   [[0, 4], 0, 2, 0, 0, 1, 0, 2, () => Tags],
 ];
-export var CreateMountTargetRequest: StaticStructureSchema = [
+export var CreateMountTargetRequest$: StaticStructureSchema = [
   3,
   n0,
   _CMTR,
@@ -306,7 +306,7 @@ export var CreateMountTargetRequest: StaticStructureSchema = [
   [_FSI, _SI, _IA, _IAp, _IAT, _SG],
   [0, 0, 0, 0, 0, 64 | 0],
 ];
-export var CreateReplicationConfigurationRequest: StaticStructureSchema = [
+export var CreateReplicationConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRCR,
@@ -314,13 +314,13 @@ export var CreateReplicationConfigurationRequest: StaticStructureSchema = [
   [_SFSI, _D],
   [[0, 1], () => DestinationsToCreate],
 ];
-export var CreateTagsRequest: StaticStructureSchema = [3, n0, _CTR, 0, [_FSI, _T], [[0, 1], () => Tags]];
-export var CreationInfo: StaticStructureSchema = [3, n0, _CI, 0, [_OU, _OG, _P], [1, 1, 0]];
-export var DeleteAccessPointRequest: StaticStructureSchema = [3, n0, _DAPR, 0, [_API], [[0, 1]]];
-export var DeleteFileSystemPolicyRequest: StaticStructureSchema = [3, n0, _DFSPR, 0, [_FSI], [[0, 1]]];
-export var DeleteFileSystemRequest: StaticStructureSchema = [3, n0, _DFSR, 0, [_FSI], [[0, 1]]];
-export var DeleteMountTargetRequest: StaticStructureSchema = [3, n0, _DMTR, 0, [_MTI], [[0, 1]]];
-export var DeleteReplicationConfigurationRequest: StaticStructureSchema = [
+export var CreateTagsRequest$: StaticStructureSchema = [3, n0, _CTR, 0, [_FSI, _T], [[0, 1], () => Tags]];
+export var CreationInfo$: StaticStructureSchema = [3, n0, _CI, 0, [_OU, _OG, _P], [1, 1, 0]];
+export var DeleteAccessPointRequest$: StaticStructureSchema = [3, n0, _DAPR, 0, [_API], [[0, 1]]];
+export var DeleteFileSystemPolicyRequest$: StaticStructureSchema = [3, n0, _DFSPR, 0, [_FSI], [[0, 1]]];
+export var DeleteFileSystemRequest$: StaticStructureSchema = [3, n0, _DFSR, 0, [_FSI], [[0, 1]]];
+export var DeleteMountTargetRequest$: StaticStructureSchema = [3, n0, _DMTR, 0, [_MTI], [[0, 1]]];
+export var DeleteReplicationConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRCR,
@@ -331,10 +331,10 @@ export var DeleteReplicationConfigurationRequest: StaticStructureSchema = [
     [0, { [_hQ]: _dM }],
   ],
 ];
-export var DeleteTagsRequest: StaticStructureSchema = [3, n0, _DTR, 0, [_FSI, _TK], [[0, 1], 64 | 0]];
-export var DependencyTimeout: StaticErrorSchema = [-3, n0, _DT, { [_e]: _s, [_hE]: 504 }, [_EC, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(DependencyTimeout, __DependencyTimeout);
-export var DescribeAccessPointsRequest: StaticStructureSchema = [
+export var DeleteTagsRequest$: StaticStructureSchema = [3, n0, _DTR, 0, [_FSI, _TK], [[0, 1], 64 | 0]];
+export var DependencyTimeout$: StaticErrorSchema = [-3, n0, _DT, { [_e]: _s, [_hE]: 504 }, [_EC, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(DependencyTimeout$, DependencyTimeout);
+export var DescribeAccessPointsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DAPRe,
@@ -347,7 +347,7 @@ export var DescribeAccessPointsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _FSI }],
   ],
 ];
-export var DescribeAccessPointsResponse: StaticStructureSchema = [
+export var DescribeAccessPointsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DAPRes,
@@ -355,18 +355,18 @@ export var DescribeAccessPointsResponse: StaticStructureSchema = [
   [_AP, _NT],
   [() => AccessPointDescriptions, 0],
 ];
-export var DescribeAccountPreferencesRequest: StaticStructureSchema = [3, n0, _DAPResc, 0, [_NT, _MR], [0, 1]];
-export var DescribeAccountPreferencesResponse: StaticStructureSchema = [
+export var DescribeAccountPreferencesRequest$: StaticStructureSchema = [3, n0, _DAPResc, 0, [_NT, _MR], [0, 1]];
+export var DescribeAccountPreferencesResponse$: StaticStructureSchema = [
   3,
   n0,
   _DAPRescr,
   0,
   [_RIP, _NT],
-  [() => ResourceIdPreference, 0],
+  [() => ResourceIdPreference$, 0],
 ];
-export var DescribeBackupPolicyRequest: StaticStructureSchema = [3, n0, _DBPR, 0, [_FSI], [[0, 1]]];
-export var DescribeFileSystemPolicyRequest: StaticStructureSchema = [3, n0, _DFSPRe, 0, [_FSI], [[0, 1]]];
-export var DescribeFileSystemsRequest: StaticStructureSchema = [
+export var DescribeBackupPolicyRequest$: StaticStructureSchema = [3, n0, _DBPR, 0, [_FSI], [[0, 1]]];
+export var DescribeFileSystemPolicyRequest$: StaticStructureSchema = [3, n0, _DFSPRe, 0, [_FSI], [[0, 1]]];
+export var DescribeFileSystemsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DFSRe,
@@ -379,7 +379,7 @@ export var DescribeFileSystemsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _FSI }],
   ],
 ];
-export var DescribeFileSystemsResponse: StaticStructureSchema = [
+export var DescribeFileSystemsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DFSRes,
@@ -387,10 +387,10 @@ export var DescribeFileSystemsResponse: StaticStructureSchema = [
   [_Ma, _FS, _NM],
   [0, () => FileSystemDescriptions, 0],
 ];
-export var DescribeLifecycleConfigurationRequest: StaticStructureSchema = [3, n0, _DLCR, 0, [_FSI], [[0, 1]]];
-export var DescribeMountTargetSecurityGroupsRequest: StaticStructureSchema = [3, n0, _DMTSGR, 0, [_MTI], [[0, 1]]];
-export var DescribeMountTargetSecurityGroupsResponse: StaticStructureSchema = [3, n0, _DMTSGRe, 0, [_SG], [64 | 0]];
-export var DescribeMountTargetsRequest: StaticStructureSchema = [
+export var DescribeLifecycleConfigurationRequest$: StaticStructureSchema = [3, n0, _DLCR, 0, [_FSI], [[0, 1]]];
+export var DescribeMountTargetSecurityGroupsRequest$: StaticStructureSchema = [3, n0, _DMTSGR, 0, [_MTI], [[0, 1]]];
+export var DescribeMountTargetSecurityGroupsResponse$: StaticStructureSchema = [3, n0, _DMTSGRe, 0, [_SG], [64 | 0]];
+export var DescribeMountTargetsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DMTRe,
@@ -404,7 +404,7 @@ export var DescribeMountTargetsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _API }],
   ],
 ];
-export var DescribeMountTargetsResponse: StaticStructureSchema = [
+export var DescribeMountTargetsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DMTRes,
@@ -412,7 +412,7 @@ export var DescribeMountTargetsResponse: StaticStructureSchema = [
   [_Ma, _MT, _NM],
   [0, () => MountTargetDescriptions, 0],
 ];
-export var DescribeReplicationConfigurationsRequest: StaticStructureSchema = [
+export var DescribeReplicationConfigurationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRCRe,
@@ -424,7 +424,7 @@ export var DescribeReplicationConfigurationsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _MR }],
   ],
 ];
-export var DescribeReplicationConfigurationsResponse: StaticStructureSchema = [
+export var DescribeReplicationConfigurationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRCRes,
@@ -432,7 +432,7 @@ export var DescribeReplicationConfigurationsResponse: StaticStructureSchema = [
   [_R, _NT],
   [() => ReplicationConfigurationDescriptions, 0],
 ];
-export var DescribeTagsRequest: StaticStructureSchema = [
+export var DescribeTagsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTRe,
@@ -444,8 +444,8 @@ export var DescribeTagsRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeTagsResponse: StaticStructureSchema = [3, n0, _DTRes, 0, [_Ma, _T, _NM], [0, () => Tags, 0]];
-export var Destination: StaticStructureSchema = [
+export var DescribeTagsResponse$: StaticStructureSchema = [3, n0, _DTRes, 0, [_Ma, _T, _NM], [0, () => Tags, 0]];
+export var Destination$: StaticStructureSchema = [
   3,
   n0,
   _De,
@@ -453,8 +453,15 @@ export var Destination: StaticStructureSchema = [
   [_S, _FSI, _Re, _LRT, _OI, _SM, _RA],
   [0, 0, 0, 4, 0, 0, 0],
 ];
-export var DestinationToCreate: StaticStructureSchema = [3, n0, _DTC, 0, [_Re, _AZN, _KKI, _FSI, _RA], [0, 0, 0, 0, 0]];
-export var FileSystemAlreadyExists: StaticErrorSchema = [
+export var DestinationToCreate$: StaticStructureSchema = [
+  3,
+  n0,
+  _DTC,
+  0,
+  [_Re, _AZN, _KKI, _FSI, _RA],
+  [0, 0, 0, 0, 0],
+];
+export var FileSystemAlreadyExists$: StaticErrorSchema = [
   -3,
   n0,
   _FSAE,
@@ -462,8 +469,8 @@ export var FileSystemAlreadyExists: StaticErrorSchema = [
   [_EC, _M, _FSI],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(FileSystemAlreadyExists, __FileSystemAlreadyExists);
-export var FileSystemDescription: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(FileSystemAlreadyExists$, FileSystemAlreadyExists);
+export var FileSystemDescription$: StaticStructureSchema = [
   3,
   n0,
   _FSD,
@@ -478,7 +485,7 @@ export var FileSystemDescription: StaticStructureSchema = [
     0,
     0,
     1,
-    () => FileSystemSize,
+    () => FileSystemSize$,
     0,
     2,
     0,
@@ -487,19 +494,19 @@ export var FileSystemDescription: StaticStructureSchema = [
     0,
     0,
     () => Tags,
-    () => FileSystemProtectionDescription,
+    () => FileSystemProtectionDescription$,
   ],
 ];
-export var FileSystemInUse: StaticErrorSchema = [-3, n0, _FSIU, { [_e]: _c, [_hE]: 409 }, [_EC, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(FileSystemInUse, __FileSystemInUse);
-export var FileSystemLimitExceeded: StaticErrorSchema = [-3, n0, _FSLE, { [_e]: _c, [_hE]: 403 }, [_EC, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(FileSystemLimitExceeded, __FileSystemLimitExceeded);
-export var FileSystemNotFound: StaticErrorSchema = [-3, n0, _FSNF, { [_e]: _c, [_hE]: 404 }, [_EC, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(FileSystemNotFound, __FileSystemNotFound);
-export var FileSystemPolicyDescription: StaticStructureSchema = [3, n0, _FSPD, 0, [_FSI, _Po], [0, 0]];
-export var FileSystemProtectionDescription: StaticStructureSchema = [3, n0, _FSPDi, 0, [_ROP], [0]];
-export var FileSystemSize: StaticStructureSchema = [3, n0, _FSS, 0, [_V, _Ti, _VIIA, _VIS, _VIA], [1, 4, 1, 1, 1]];
-export var IncorrectFileSystemLifeCycleState: StaticErrorSchema = [
+export var FileSystemInUse$: StaticErrorSchema = [-3, n0, _FSIU, { [_e]: _c, [_hE]: 409 }, [_EC, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(FileSystemInUse$, FileSystemInUse);
+export var FileSystemLimitExceeded$: StaticErrorSchema = [-3, n0, _FSLE, { [_e]: _c, [_hE]: 403 }, [_EC, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(FileSystemLimitExceeded$, FileSystemLimitExceeded);
+export var FileSystemNotFound$: StaticErrorSchema = [-3, n0, _FSNF, { [_e]: _c, [_hE]: 404 }, [_EC, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(FileSystemNotFound$, FileSystemNotFound);
+export var FileSystemPolicyDescription$: StaticStructureSchema = [3, n0, _FSPD, 0, [_FSI, _Po], [0, 0]];
+export var FileSystemProtectionDescription$: StaticStructureSchema = [3, n0, _FSPDi, 0, [_ROP], [0]];
+export var FileSystemSize$: StaticStructureSchema = [3, n0, _FSS, 0, [_V, _Ti, _VIIA, _VIS, _VIA], [1, 4, 1, 1, 1]];
+export var IncorrectFileSystemLifeCycleState$: StaticErrorSchema = [
   -3,
   n0,
   _IFSLCS,
@@ -507,10 +514,10 @@ export var IncorrectFileSystemLifeCycleState: StaticErrorSchema = [
   [_EC, _M],
   [0, 0],
 ];
-TypeRegistry.for(n0).registerError(IncorrectFileSystemLifeCycleState, __IncorrectFileSystemLifeCycleState);
-export var IncorrectMountTargetState: StaticErrorSchema = [-3, n0, _IMTS, { [_e]: _c, [_hE]: 409 }, [_EC, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(IncorrectMountTargetState, __IncorrectMountTargetState);
-export var InsufficientThroughputCapacity: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(IncorrectFileSystemLifeCycleState$, IncorrectFileSystemLifeCycleState);
+export var IncorrectMountTargetState$: StaticErrorSchema = [-3, n0, _IMTS, { [_e]: _c, [_hE]: 409 }, [_EC, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(IncorrectMountTargetState$, IncorrectMountTargetState);
+export var InsufficientThroughputCapacity$: StaticErrorSchema = [
   -3,
   n0,
   _ITC,
@@ -518,14 +525,14 @@ export var InsufficientThroughputCapacity: StaticErrorSchema = [
   [_EC, _M],
   [0, 0],
 ];
-TypeRegistry.for(n0).registerError(InsufficientThroughputCapacity, __InsufficientThroughputCapacity);
-export var InternalServerError: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_EC, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(InternalServerError, __InternalServerError);
-export var InvalidPolicyException: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c, [_hE]: 400 }, [_EC, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(InvalidPolicyException, __InvalidPolicyException);
-export var IpAddressInUse: StaticErrorSchema = [-3, n0, _IAIU, { [_e]: _c, [_hE]: 409 }, [_EC, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(IpAddressInUse, __IpAddressInUse);
-export var LifecycleConfigurationDescription: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InsufficientThroughputCapacity$, InsufficientThroughputCapacity);
+export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_EC, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(InternalServerError$, InternalServerError);
+export var InvalidPolicyException$: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c, [_hE]: 400 }, [_EC, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(InvalidPolicyException$, InvalidPolicyException);
+export var IpAddressInUse$: StaticErrorSchema = [-3, n0, _IAIU, { [_e]: _c, [_hE]: 409 }, [_EC, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(IpAddressInUse$, IpAddressInUse);
+export var LifecycleConfigurationDescription$: StaticStructureSchema = [
   3,
   n0,
   _LCD,
@@ -533,8 +540,8 @@ export var LifecycleConfigurationDescription: StaticStructureSchema = [
   [_LP],
   [() => LifecyclePolicies],
 ];
-export var LifecyclePolicy: StaticStructureSchema = [3, n0, _LPi, 0, [_TTIA, _TTPSC, _TTA], [0, 0, 0]];
-export var ListTagsForResourceRequest: StaticStructureSchema = [
+export var LifecyclePolicy$: StaticStructureSchema = [3, n0, _LPi, 0, [_TTIA, _TTPSC, _TTA], [0, 0, 0]];
+export var ListTagsForResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _LTFRR,
@@ -546,8 +553,8 @@ export var ListTagsForResourceRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T, _NT], [() => Tags, 0]];
-export var ModifyMountTargetSecurityGroupsRequest: StaticStructureSchema = [
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T, _NT], [() => Tags, 0]];
+export var ModifyMountTargetSecurityGroupsRequest$: StaticStructureSchema = [
   3,
   n0,
   _MMTSGR,
@@ -555,9 +562,9 @@ export var ModifyMountTargetSecurityGroupsRequest: StaticStructureSchema = [
   [_MTI, _SG],
   [[0, 1], 64 | 0],
 ];
-export var MountTargetConflict: StaticErrorSchema = [-3, n0, _MTC, { [_e]: _c, [_hE]: 409 }, [_EC, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(MountTargetConflict, __MountTargetConflict);
-export var MountTargetDescription: StaticStructureSchema = [
+export var MountTargetConflict$: StaticErrorSchema = [-3, n0, _MTC, { [_e]: _c, [_hE]: 409 }, [_EC, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(MountTargetConflict$, MountTargetConflict);
+export var MountTargetDescription$: StaticStructureSchema = [
   3,
   n0,
   _MTD,
@@ -565,9 +572,9 @@ export var MountTargetDescription: StaticStructureSchema = [
   [_OI, _MTI, _FSI, _SI, _LCS, _IA, _IAp, _NII, _AZI, _AZN, _VI],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var MountTargetNotFound: StaticErrorSchema = [-3, n0, _MTNF, { [_e]: _c, [_hE]: 404 }, [_EC, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(MountTargetNotFound, __MountTargetNotFound);
-export var NetworkInterfaceLimitExceeded: StaticErrorSchema = [
+export var MountTargetNotFound$: StaticErrorSchema = [-3, n0, _MTNF, { [_e]: _c, [_hE]: 404 }, [_EC, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(MountTargetNotFound$, MountTargetNotFound);
+export var NetworkInterfaceLimitExceeded$: StaticErrorSchema = [
   -3,
   n0,
   _NILE,
@@ -575,24 +582,31 @@ export var NetworkInterfaceLimitExceeded: StaticErrorSchema = [
   [_EC, _M],
   [0, 0],
 ];
-TypeRegistry.for(n0).registerError(NetworkInterfaceLimitExceeded, __NetworkInterfaceLimitExceeded);
-export var NoFreeAddressesInSubnet: StaticErrorSchema = [-3, n0, _NFAIS, { [_e]: _c, [_hE]: 409 }, [_EC, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(NoFreeAddressesInSubnet, __NoFreeAddressesInSubnet);
-export var PolicyNotFound: StaticErrorSchema = [-3, n0, _PNF, { [_e]: _c, [_hE]: 404 }, [_EC, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(PolicyNotFound, __PolicyNotFound);
-export var PosixUser: StaticStructureSchema = [3, n0, _PU, 0, [_U, _G, _SGe], [1, 1, 64 | 1]];
-export var PutAccountPreferencesRequest: StaticStructureSchema = [3, n0, _PAPR, 0, [_RIT], [0]];
-export var PutAccountPreferencesResponse: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(NetworkInterfaceLimitExceeded$, NetworkInterfaceLimitExceeded);
+export var NoFreeAddressesInSubnet$: StaticErrorSchema = [-3, n0, _NFAIS, { [_e]: _c, [_hE]: 409 }, [_EC, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(NoFreeAddressesInSubnet$, NoFreeAddressesInSubnet);
+export var PolicyNotFound$: StaticErrorSchema = [-3, n0, _PNF, { [_e]: _c, [_hE]: 404 }, [_EC, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(PolicyNotFound$, PolicyNotFound);
+export var PosixUser$: StaticStructureSchema = [3, n0, _PU, 0, [_U, _G, _SGe], [1, 1, 64 | 1]];
+export var PutAccountPreferencesRequest$: StaticStructureSchema = [3, n0, _PAPR, 0, [_RIT], [0]];
+export var PutAccountPreferencesResponse$: StaticStructureSchema = [
   3,
   n0,
   _PAPRu,
   0,
   [_RIP],
-  [() => ResourceIdPreference],
+  [() => ResourceIdPreference$],
 ];
-export var PutBackupPolicyRequest: StaticStructureSchema = [3, n0, _PBPR, 0, [_FSI, _BP], [[0, 1], () => BackupPolicy]];
-export var PutFileSystemPolicyRequest: StaticStructureSchema = [3, n0, _PFSPR, 0, [_FSI, _Po, _BPLSC], [[0, 1], 0, 2]];
-export var PutLifecycleConfigurationRequest: StaticStructureSchema = [
+export var PutBackupPolicyRequest$: StaticStructureSchema = [
+  3,
+  n0,
+  _PBPR,
+  0,
+  [_FSI, _BP],
+  [[0, 1], () => BackupPolicy$],
+];
+export var PutFileSystemPolicyRequest$: StaticStructureSchema = [3, n0, _PFSPR, 0, [_FSI, _Po, _BPLSC], [[0, 1], 0, 2]];
+export var PutLifecycleConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _PLCR,
@@ -600,9 +614,9 @@ export var PutLifecycleConfigurationRequest: StaticStructureSchema = [
   [_FSI, _LP],
   [[0, 1], () => LifecyclePolicies],
 ];
-export var ReplicationAlreadyExists: StaticErrorSchema = [-3, n0, _RAE, { [_e]: _c, [_hE]: 409 }, [_EC, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(ReplicationAlreadyExists, __ReplicationAlreadyExists);
-export var ReplicationConfigurationDescription: StaticStructureSchema = [
+export var ReplicationAlreadyExists$: StaticErrorSchema = [-3, n0, _RAE, { [_e]: _c, [_hE]: 409 }, [_EC, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(ReplicationAlreadyExists$, ReplicationAlreadyExists);
+export var ReplicationConfigurationDescription$: StaticStructureSchema = [
   3,
   n0,
   _RCD,
@@ -610,27 +624,41 @@ export var ReplicationConfigurationDescription: StaticStructureSchema = [
   [_SFSI, _SFSR, _SFSA, _OSFSA, _CTre, _D, _SFSOI],
   [0, 0, 0, 0, 4, () => Destinations, 0],
 ];
-export var ReplicationNotFound: StaticErrorSchema = [-3, n0, _RNF, { [_e]: _c, [_hE]: 404 }, [_EC, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(ReplicationNotFound, __ReplicationNotFound);
-export var ResourceIdPreference: StaticStructureSchema = [3, n0, _RIP, 0, [_RIT, _Res], [0, 64 | 0]];
-export var RootDirectory: StaticStructureSchema = [3, n0, _RD, 0, [_Pa, _CI], [0, () => CreationInfo]];
-export var SecurityGroupLimitExceeded: StaticErrorSchema = [-3, n0, _SGLE, { [_e]: _c, [_hE]: 400 }, [_EC, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(SecurityGroupLimitExceeded, __SecurityGroupLimitExceeded);
-export var SecurityGroupNotFound: StaticErrorSchema = [-3, n0, _SGNF, { [_e]: _c, [_hE]: 400 }, [_EC, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(SecurityGroupNotFound, __SecurityGroupNotFound);
-export var SubnetNotFound: StaticErrorSchema = [-3, n0, _SNF, { [_e]: _c, [_hE]: 400 }, [_EC, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(SubnetNotFound, __SubnetNotFound);
-export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RI, _T], [[0, 1], () => Tags]];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_EC, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var ThroughputLimitExceeded: StaticErrorSchema = [-3, n0, _TLE, { [_e]: _c, [_hE]: 400 }, [_EC, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(ThroughputLimitExceeded, __ThroughputLimitExceeded);
-export var TooManyRequests: StaticErrorSchema = [-3, n0, _TMR, { [_e]: _c, [_hE]: 429 }, [_EC, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(TooManyRequests, __TooManyRequests);
-export var UnsupportedAvailabilityZone: StaticErrorSchema = [-3, n0, _UAZ, { [_e]: _c, [_hE]: 400 }, [_EC, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(UnsupportedAvailabilityZone, __UnsupportedAvailabilityZone);
-export var UntagResourceRequest: StaticStructureSchema = [
+export var ReplicationNotFound$: StaticErrorSchema = [-3, n0, _RNF, { [_e]: _c, [_hE]: 404 }, [_EC, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(ReplicationNotFound$, ReplicationNotFound);
+export var ResourceIdPreference$: StaticStructureSchema = [3, n0, _RIP, 0, [_RIT, _Res], [0, 64 | 0]];
+export var RootDirectory$: StaticStructureSchema = [3, n0, _RD, 0, [_Pa, _CI], [0, () => CreationInfo$]];
+export var SecurityGroupLimitExceeded$: StaticErrorSchema = [
+  -3,
+  n0,
+  _SGLE,
+  { [_e]: _c, [_hE]: 400 },
+  [_EC, _M],
+  [0, 0],
+];
+TypeRegistry.for(n0).registerError(SecurityGroupLimitExceeded$, SecurityGroupLimitExceeded);
+export var SecurityGroupNotFound$: StaticErrorSchema = [-3, n0, _SGNF, { [_e]: _c, [_hE]: 400 }, [_EC, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(SecurityGroupNotFound$, SecurityGroupNotFound);
+export var SubnetNotFound$: StaticErrorSchema = [-3, n0, _SNF, { [_e]: _c, [_hE]: 400 }, [_EC, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(SubnetNotFound$, SubnetNotFound);
+export var Tag$: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_RI, _T], [[0, 1], () => Tags]];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_EC, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var ThroughputLimitExceeded$: StaticErrorSchema = [-3, n0, _TLE, { [_e]: _c, [_hE]: 400 }, [_EC, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(ThroughputLimitExceeded$, ThroughputLimitExceeded);
+export var TooManyRequests$: StaticErrorSchema = [-3, n0, _TMR, { [_e]: _c, [_hE]: 429 }, [_EC, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(TooManyRequests$, TooManyRequests);
+export var UnsupportedAvailabilityZone$: StaticErrorSchema = [
+  -3,
+  n0,
+  _UAZ,
+  { [_e]: _c, [_hE]: 400 },
+  [_EC, _M],
+  [0, 0],
+];
+TypeRegistry.for(n0).registerError(UnsupportedAvailabilityZone$, UnsupportedAvailabilityZone);
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -641,276 +669,276 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UpdateFileSystemProtectionRequest: StaticStructureSchema = [3, n0, _UFSPR, 0, [_FSI, _ROP], [[0, 1], 0]];
-export var UpdateFileSystemRequest: StaticStructureSchema = [3, n0, _UFSR, 0, [_FSI, _TM, _PTIM], [[0, 1], 0, 1]];
-export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_EC, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
-export var EFSServiceException: StaticErrorSchema = [-3, _sm, "EFSServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(EFSServiceException, __EFSServiceException);
-export var AccessPointDescriptions: StaticListSchema = [1, n0, _APDc, 0, () => AccessPointDescription];
-export var Destinations: StaticListSchema = [1, n0, _D, 0, () => Destination];
-export var DestinationsToCreate: StaticListSchema = [1, n0, _DTCe, 0, () => DestinationToCreate];
-export var FileSystemDescriptions: StaticListSchema = [1, n0, _FSDi, 0, () => FileSystemDescription];
-export var LifecyclePolicies: StaticListSchema = [1, n0, _LP, 0, () => LifecyclePolicy];
-export var MountTargetDescriptions: StaticListSchema = [1, n0, _MTDo, 0, () => MountTargetDescription];
-export var ReplicationConfigurationDescriptions: StaticListSchema = [
+export var UpdateFileSystemProtectionRequest$: StaticStructureSchema = [3, n0, _UFSPR, 0, [_FSI, _ROP], [[0, 1], 0]];
+export var UpdateFileSystemRequest$: StaticStructureSchema = [3, n0, _UFSR, 0, [_FSI, _TM, _PTIM], [[0, 1], 0, 1]];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_EC, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+var __Unit = "unit" as const;
+export var EFSServiceException$: StaticErrorSchema = [-3, _sm, "EFSServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(EFSServiceException$, EFSServiceException);
+var AccessPointDescriptions: StaticListSchema = [1, n0, _APDc, 0, () => AccessPointDescription$];
+var Destinations: StaticListSchema = [1, n0, _D, 0, () => Destination$];
+var DestinationsToCreate: StaticListSchema = [1, n0, _DTCe, 0, () => DestinationToCreate$];
+var FileSystemDescriptions: StaticListSchema = [1, n0, _FSDi, 0, () => FileSystemDescription$];
+var LifecyclePolicies: StaticListSchema = [1, n0, _LP, 0, () => LifecyclePolicy$];
+var MountTargetDescriptions: StaticListSchema = [1, n0, _MTDo, 0, () => MountTargetDescription$];
+var ReplicationConfigurationDescriptions: StaticListSchema = [
   1,
   n0,
   _RCDe,
   0,
-  () => ReplicationConfigurationDescription,
+  () => ReplicationConfigurationDescription$,
 ];
-export var Resources = 64 | 0;
-export var SecondaryGids = 64 | 1;
-export var SecurityGroups = 64 | 0;
-export var TagKeys = 64 | 0;
-export var Tags: StaticListSchema = [1, n0, _T, 0, () => Tag];
-export var CreateAccessPoint: StaticOperationSchema = [
+var Resources = 64 | 0;
+var SecondaryGids = 64 | 1;
+var SecurityGroups = 64 | 0;
+var TagKeys = 64 | 0;
+var Tags: StaticListSchema = [1, n0, _T, 0, () => Tag$];
+export var CreateAccessPoint$: StaticOperationSchema = [
   9,
   n0,
   _CAP,
   { [_h]: ["POST", "/2015-02-01/access-points", 200] },
-  () => CreateAccessPointRequest,
-  () => AccessPointDescription,
+  () => CreateAccessPointRequest$,
+  () => AccessPointDescription$,
 ];
-export var CreateFileSystem: StaticOperationSchema = [
+export var CreateFileSystem$: StaticOperationSchema = [
   9,
   n0,
   _CFS,
   { [_h]: ["POST", "/2015-02-01/file-systems", 201] },
-  () => CreateFileSystemRequest,
-  () => FileSystemDescription,
+  () => CreateFileSystemRequest$,
+  () => FileSystemDescription$,
 ];
-export var CreateMountTarget: StaticOperationSchema = [
+export var CreateMountTarget$: StaticOperationSchema = [
   9,
   n0,
   _CMT,
   { [_h]: ["POST", "/2015-02-01/mount-targets", 200] },
-  () => CreateMountTargetRequest,
-  () => MountTargetDescription,
+  () => CreateMountTargetRequest$,
+  () => MountTargetDescription$,
 ];
-export var CreateReplicationConfiguration: StaticOperationSchema = [
+export var CreateReplicationConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _CRC,
   { [_h]: ["POST", "/2015-02-01/file-systems/{SourceFileSystemId}/replication-configuration", 200] },
-  () => CreateReplicationConfigurationRequest,
-  () => ReplicationConfigurationDescription,
+  () => CreateReplicationConfigurationRequest$,
+  () => ReplicationConfigurationDescription$,
 ];
-export var CreateTags: StaticOperationSchema = [
+export var CreateTags$: StaticOperationSchema = [
   9,
   n0,
   _CTrea,
   { [_h]: ["POST", "/2015-02-01/create-tags/{FileSystemId}", 204] },
-  () => CreateTagsRequest,
+  () => CreateTagsRequest$,
   () => __Unit,
 ];
-export var DeleteAccessPoint: StaticOperationSchema = [
+export var DeleteAccessPoint$: StaticOperationSchema = [
   9,
   n0,
   _DAP,
   { [_h]: ["DELETE", "/2015-02-01/access-points/{AccessPointId}", 204] },
-  () => DeleteAccessPointRequest,
+  () => DeleteAccessPointRequest$,
   () => __Unit,
 ];
-export var DeleteFileSystem: StaticOperationSchema = [
+export var DeleteFileSystem$: StaticOperationSchema = [
   9,
   n0,
   _DFS,
   { [_h]: ["DELETE", "/2015-02-01/file-systems/{FileSystemId}", 204] },
-  () => DeleteFileSystemRequest,
+  () => DeleteFileSystemRequest$,
   () => __Unit,
 ];
-export var DeleteFileSystemPolicy: StaticOperationSchema = [
+export var DeleteFileSystemPolicy$: StaticOperationSchema = [
   9,
   n0,
   _DFSP,
   { [_h]: ["DELETE", "/2015-02-01/file-systems/{FileSystemId}/policy", 200] },
-  () => DeleteFileSystemPolicyRequest,
+  () => DeleteFileSystemPolicyRequest$,
   () => __Unit,
 ];
-export var DeleteMountTarget: StaticOperationSchema = [
+export var DeleteMountTarget$: StaticOperationSchema = [
   9,
   n0,
   _DMT,
   { [_h]: ["DELETE", "/2015-02-01/mount-targets/{MountTargetId}", 204] },
-  () => DeleteMountTargetRequest,
+  () => DeleteMountTargetRequest$,
   () => __Unit,
 ];
-export var DeleteReplicationConfiguration: StaticOperationSchema = [
+export var DeleteReplicationConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DRC,
   { [_h]: ["DELETE", "/2015-02-01/file-systems/{SourceFileSystemId}/replication-configuration", 204] },
-  () => DeleteReplicationConfigurationRequest,
+  () => DeleteReplicationConfigurationRequest$,
   () => __Unit,
 ];
-export var DeleteTags: StaticOperationSchema = [
+export var DeleteTags$: StaticOperationSchema = [
   9,
   n0,
   _DTe,
   { [_h]: ["POST", "/2015-02-01/delete-tags/{FileSystemId}", 204] },
-  () => DeleteTagsRequest,
+  () => DeleteTagsRequest$,
   () => __Unit,
 ];
-export var DescribeAccessPoints: StaticOperationSchema = [
+export var DescribeAccessPoints$: StaticOperationSchema = [
   9,
   n0,
   _DAPe,
   { [_h]: ["GET", "/2015-02-01/access-points", 200] },
-  () => DescribeAccessPointsRequest,
-  () => DescribeAccessPointsResponse,
+  () => DescribeAccessPointsRequest$,
+  () => DescribeAccessPointsResponse$,
 ];
-export var DescribeAccountPreferences: StaticOperationSchema = [
+export var DescribeAccountPreferences$: StaticOperationSchema = [
   9,
   n0,
   _DAPes,
   { [_h]: ["GET", "/2015-02-01/account-preferences", 200] },
-  () => DescribeAccountPreferencesRequest,
-  () => DescribeAccountPreferencesResponse,
+  () => DescribeAccountPreferencesRequest$,
+  () => DescribeAccountPreferencesResponse$,
 ];
-export var DescribeBackupPolicy: StaticOperationSchema = [
+export var DescribeBackupPolicy$: StaticOperationSchema = [
   9,
   n0,
   _DBP,
   { [_h]: ["GET", "/2015-02-01/file-systems/{FileSystemId}/backup-policy", 200] },
-  () => DescribeBackupPolicyRequest,
-  () => BackupPolicyDescription,
+  () => DescribeBackupPolicyRequest$,
+  () => BackupPolicyDescription$,
 ];
-export var DescribeFileSystemPolicy: StaticOperationSchema = [
+export var DescribeFileSystemPolicy$: StaticOperationSchema = [
   9,
   n0,
   _DFSPe,
   { [_h]: ["GET", "/2015-02-01/file-systems/{FileSystemId}/policy", 200] },
-  () => DescribeFileSystemPolicyRequest,
-  () => FileSystemPolicyDescription,
+  () => DescribeFileSystemPolicyRequest$,
+  () => FileSystemPolicyDescription$,
 ];
-export var DescribeFileSystems: StaticOperationSchema = [
+export var DescribeFileSystems$: StaticOperationSchema = [
   9,
   n0,
   _DFSe,
   { [_h]: ["GET", "/2015-02-01/file-systems", 200] },
-  () => DescribeFileSystemsRequest,
-  () => DescribeFileSystemsResponse,
+  () => DescribeFileSystemsRequest$,
+  () => DescribeFileSystemsResponse$,
 ];
-export var DescribeLifecycleConfiguration: StaticOperationSchema = [
+export var DescribeLifecycleConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DLC,
   { [_h]: ["GET", "/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration", 200] },
-  () => DescribeLifecycleConfigurationRequest,
-  () => LifecycleConfigurationDescription,
+  () => DescribeLifecycleConfigurationRequest$,
+  () => LifecycleConfigurationDescription$,
 ];
-export var DescribeMountTargets: StaticOperationSchema = [
+export var DescribeMountTargets$: StaticOperationSchema = [
   9,
   n0,
   _DMTe,
   { [_h]: ["GET", "/2015-02-01/mount-targets", 200] },
-  () => DescribeMountTargetsRequest,
-  () => DescribeMountTargetsResponse,
+  () => DescribeMountTargetsRequest$,
+  () => DescribeMountTargetsResponse$,
 ];
-export var DescribeMountTargetSecurityGroups: StaticOperationSchema = [
+export var DescribeMountTargetSecurityGroups$: StaticOperationSchema = [
   9,
   n0,
   _DMTSG,
   { [_h]: ["GET", "/2015-02-01/mount-targets/{MountTargetId}/security-groups", 200] },
-  () => DescribeMountTargetSecurityGroupsRequest,
-  () => DescribeMountTargetSecurityGroupsResponse,
+  () => DescribeMountTargetSecurityGroupsRequest$,
+  () => DescribeMountTargetSecurityGroupsResponse$,
 ];
-export var DescribeReplicationConfigurations: StaticOperationSchema = [
+export var DescribeReplicationConfigurations$: StaticOperationSchema = [
   9,
   n0,
   _DRCe,
   { [_h]: ["GET", "/2015-02-01/file-systems/replication-configurations", 200] },
-  () => DescribeReplicationConfigurationsRequest,
-  () => DescribeReplicationConfigurationsResponse,
+  () => DescribeReplicationConfigurationsRequest$,
+  () => DescribeReplicationConfigurationsResponse$,
 ];
-export var DescribeTags: StaticOperationSchema = [
+export var DescribeTags$: StaticOperationSchema = [
   9,
   n0,
   _DTes,
   { [_h]: ["GET", "/2015-02-01/tags/{FileSystemId}", 200] },
-  () => DescribeTagsRequest,
-  () => DescribeTagsResponse,
+  () => DescribeTagsRequest$,
+  () => DescribeTagsResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/2015-02-01/resource-tags/{ResourceId}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var ModifyMountTargetSecurityGroups: StaticOperationSchema = [
+export var ModifyMountTargetSecurityGroups$: StaticOperationSchema = [
   9,
   n0,
   _MMTSG,
   { [_h]: ["PUT", "/2015-02-01/mount-targets/{MountTargetId}/security-groups", 204] },
-  () => ModifyMountTargetSecurityGroupsRequest,
+  () => ModifyMountTargetSecurityGroupsRequest$,
   () => __Unit,
 ];
-export var PutAccountPreferences: StaticOperationSchema = [
+export var PutAccountPreferences$: StaticOperationSchema = [
   9,
   n0,
   _PAP,
   { [_h]: ["PUT", "/2015-02-01/account-preferences", 200] },
-  () => PutAccountPreferencesRequest,
-  () => PutAccountPreferencesResponse,
+  () => PutAccountPreferencesRequest$,
+  () => PutAccountPreferencesResponse$,
 ];
-export var PutBackupPolicy: StaticOperationSchema = [
+export var PutBackupPolicy$: StaticOperationSchema = [
   9,
   n0,
   _PBP,
   { [_h]: ["PUT", "/2015-02-01/file-systems/{FileSystemId}/backup-policy", 200] },
-  () => PutBackupPolicyRequest,
-  () => BackupPolicyDescription,
+  () => PutBackupPolicyRequest$,
+  () => BackupPolicyDescription$,
 ];
-export var PutFileSystemPolicy: StaticOperationSchema = [
+export var PutFileSystemPolicy$: StaticOperationSchema = [
   9,
   n0,
   _PFSP,
   { [_h]: ["PUT", "/2015-02-01/file-systems/{FileSystemId}/policy", 200] },
-  () => PutFileSystemPolicyRequest,
-  () => FileSystemPolicyDescription,
+  () => PutFileSystemPolicyRequest$,
+  () => FileSystemPolicyDescription$,
 ];
-export var PutLifecycleConfiguration: StaticOperationSchema = [
+export var PutLifecycleConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _PLC,
   { [_h]: ["PUT", "/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration", 200] },
-  () => PutLifecycleConfigurationRequest,
-  () => LifecycleConfigurationDescription,
+  () => PutLifecycleConfigurationRequest$,
+  () => LifecycleConfigurationDescription$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/2015-02-01/resource-tags/{ResourceId}", 200] },
-  () => TagResourceRequest,
+  () => TagResourceRequest$,
   () => __Unit,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/2015-02-01/resource-tags/{ResourceId}", 200] },
-  () => UntagResourceRequest,
+  () => UntagResourceRequest$,
   () => __Unit,
 ];
-export var UpdateFileSystem: StaticOperationSchema = [
+export var UpdateFileSystem$: StaticOperationSchema = [
   9,
   n0,
   _UFS,
   { [_h]: ["PUT", "/2015-02-01/file-systems/{FileSystemId}", 202] },
-  () => UpdateFileSystemRequest,
-  () => FileSystemDescription,
+  () => UpdateFileSystemRequest$,
+  () => FileSystemDescription$,
 ];
-export var UpdateFileSystemProtection: StaticOperationSchema = [
+export var UpdateFileSystemProtection$: StaticOperationSchema = [
   9,
   n0,
   _UFSP,
   { [_h]: ["PUT", "/2015-02-01/file-systems/{FileSystemId}/protection", 200] },
-  () => UpdateFileSystemProtectionRequest,
-  () => FileSystemProtectionDescription,
+  () => UpdateFileSystemProtectionRequest$,
+  () => FileSystemProtectionDescription$,
 ];

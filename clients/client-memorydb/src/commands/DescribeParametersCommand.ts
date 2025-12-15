@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
 import type { DescribeParametersRequest, DescribeParametersResponse } from "../models/models_0";
-import { DescribeParameters } from "../schemas/schemas_0";
+import { DescribeParameters$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class DescribeParametersCommand extends $Command
   })
   .s("AmazonMemoryDB", "DescribeParameters", {})
   .n("MemoryDBClient", "DescribeParametersCommand")
-  .sc(DescribeParameters)
+  .sc(DescribeParameters$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

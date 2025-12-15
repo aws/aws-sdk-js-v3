@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RestoreAnalysisRequest, RestoreAnalysisResponse } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { RestoreAnalysis } from "../schemas/schemas_0";
+import { RestoreAnalysis$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class RestoreAnalysisCommand extends $Command
   })
   .s("QuickSight_20180401", "RestoreAnalysis", {})
   .n("QuickSightClient", "RestoreAnalysisCommand")
-  .sc(RestoreAnalysis)
+  .sc(RestoreAnalysis$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

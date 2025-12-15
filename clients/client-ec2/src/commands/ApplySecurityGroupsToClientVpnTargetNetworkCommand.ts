@@ -9,7 +9,7 @@ import type {
   ApplySecurityGroupsToClientVpnTargetNetworkRequest,
   ApplySecurityGroupsToClientVpnTargetNetworkResult,
 } from "../models/models_0";
-import { ApplySecurityGroupsToClientVpnTargetNetwork } from "../schemas/schemas_0";
+import { ApplySecurityGroupsToClientVpnTargetNetwork$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class ApplySecurityGroupsToClientVpnTargetNetworkCommand extends $Command
   })
   .s("AmazonEC2", "ApplySecurityGroupsToClientVpnTargetNetwork", {})
   .n("EC2Client", "ApplySecurityGroupsToClientVpnTargetNetworkCommand")
-  .sc(ApplySecurityGroupsToClientVpnTargetNetwork)
+  .sc(ApplySecurityGroupsToClientVpnTargetNetwork$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

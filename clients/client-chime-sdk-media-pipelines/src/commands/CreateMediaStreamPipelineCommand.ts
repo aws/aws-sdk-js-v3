@@ -10,7 +10,7 @@ import type {
 } from "../ChimeSDKMediaPipelinesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateMediaStreamPipelineRequest, CreateMediaStreamPipelineResponse } from "../models/models_0";
-import { CreateMediaStreamPipeline } from "../schemas/schemas_0";
+import { CreateMediaStreamPipeline$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -141,7 +141,7 @@ export class CreateMediaStreamPipelineCommand extends $Command
   })
   .s("ChimeSDKMediaPipelinesService", "CreateMediaStreamPipeline", {})
   .n("ChimeSDKMediaPipelinesClient", "CreateMediaStreamPipelineCommand")
-  .sc(CreateMediaStreamPipeline)
+  .sc(CreateMediaStreamPipeline$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

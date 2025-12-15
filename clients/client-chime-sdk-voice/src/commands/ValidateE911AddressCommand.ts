@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ValidateE911AddressRequest, ValidateE911AddressResponse } from "../models/models_0";
-import { ValidateE911Address } from "../schemas/schemas_0";
+import { ValidateE911Address$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -130,7 +130,7 @@ export class ValidateE911AddressCommand extends $Command
   })
   .s("ChimeSDKTelephonyService", "ValidateE911Address", {})
   .n("ChimeSDKVoiceClient", "ValidateE911AddressCommand")
-  .sc(ValidateE911Address)
+  .sc(ValidateE911Address$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

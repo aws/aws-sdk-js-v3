@@ -9,7 +9,7 @@ import type {
   RemoveDraftAppVersionResourceMappingsResponse,
 } from "../models/models_0";
 import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
-import { RemoveDraftAppVersionResourceMappings } from "../schemas/schemas_0";
+import { RemoveDraftAppVersionResourceMappings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -122,7 +122,7 @@ export class RemoveDraftAppVersionResourceMappingsCommand extends $Command
   })
   .s("AwsResilienceHub", "RemoveDraftAppVersionResourceMappings", {})
   .n("ResiliencehubClient", "RemoveDraftAppVersionResourceMappingsCommand")
-  .sc(RemoveDraftAppVersionResourceMappings)
+  .sc(RemoveDraftAppVersionResourceMappings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

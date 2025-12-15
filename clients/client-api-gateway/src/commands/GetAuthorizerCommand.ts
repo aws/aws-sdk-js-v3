@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Authorizer, GetAuthorizerRequest } from "../models/models_0";
-import { GetAuthorizer } from "../schemas/schemas_0";
+import { GetAuthorizer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class GetAuthorizerCommand extends $Command
   })
   .s("BackplaneControlService", "GetAuthorizer", {})
   .n("APIGatewayClient", "GetAuthorizerCommand")
-  .sc(GetAuthorizer)
+  .sc(GetAuthorizer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

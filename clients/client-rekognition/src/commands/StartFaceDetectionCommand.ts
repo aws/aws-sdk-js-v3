@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartFaceDetectionRequest, StartFaceDetectionResponse } from "../models/models_0";
 import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
-import { StartFaceDetection } from "../schemas/schemas_0";
+import { StartFaceDetection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class StartFaceDetectionCommand extends $Command
   })
   .s("RekognitionService", "StartFaceDetection", {})
   .n("RekognitionClient", "StartFaceDetectionCommand")
-  .sc(StartFaceDetection)
+  .sc(StartFaceDetection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

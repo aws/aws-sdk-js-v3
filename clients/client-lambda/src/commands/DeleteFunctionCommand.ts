@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import type { DeleteFunctionRequest, DeleteFunctionResponse } from "../models/models_0";
-import { DeleteFunction } from "../schemas/schemas_0";
+import { DeleteFunction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class DeleteFunctionCommand extends $Command
   })
   .s("AWSGirApiService", "DeleteFunction", {})
   .n("LambdaClient", "DeleteFunctionCommand")
-  .sc(DeleteFunction)
+  .sc(DeleteFunction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

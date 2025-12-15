@@ -9,7 +9,7 @@ import type {
   DescribeValidDBInstanceModificationsResult,
 } from "../models/models_0";
 import type { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { DescribeValidDBInstanceModifications } from "../schemas/schemas_0";
+import { DescribeValidDBInstanceModifications$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command
   })
   .s("AmazonRDSv19", "DescribeValidDBInstanceModifications", {})
   .n("NeptuneClient", "DescribeValidDBInstanceModificationsCommand")
-  .sc(DescribeValidDBInstanceModifications)
+  .sc(DescribeValidDBInstanceModifications$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

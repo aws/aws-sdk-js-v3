@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RemoveNotificationChannelRequest, RemoveNotificationChannelResponse } from "../models/models_0";
-import { RemoveNotificationChannel } from "../schemas/schemas_0";
+import { RemoveNotificationChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class RemoveNotificationChannelCommand extends $Command
   })
   .s("CapstoneControlPlaneService", "RemoveNotificationChannel", {})
   .n("DevOpsGuruClient", "RemoveNotificationChannelCommand")
-  .sc(RemoveNotificationChannel)
+  .sc(RemoveNotificationChannel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

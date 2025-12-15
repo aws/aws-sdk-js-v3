@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: RDSClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsQueryProtocol({
-        defaultNamespace: "com.amazonaws.rds",
-        xmlNamespace: "http://rds.amazonaws.com/doc/2014-10-31/",
-        version: "2014-10-31",
-      }),
+    protocol: config?.protocol ?? AwsQueryProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.rds",
+      xmlNamespace: "http://rds.amazonaws.com/doc/2014-10-31/",
+      version: "2014-10-31",
+      serviceTarget: "AmazonRDSv19",
+    },
     serviceId: config?.serviceId ?? "RDS",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

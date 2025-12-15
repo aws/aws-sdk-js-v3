@@ -8,7 +8,7 @@ import type {
   CreateCustomVerificationEmailTemplateRequest,
   CreateCustomVerificationEmailTemplateResponse,
 } from "../models/models_0";
-import { CreateCustomVerificationEmailTemplate } from "../schemas/schemas_0";
+import { CreateCustomVerificationEmailTemplate$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -101,7 +101,7 @@ export class CreateCustomVerificationEmailTemplateCommand extends $Command
   })
   .s("SimpleEmailService_v2", "CreateCustomVerificationEmailTemplate", {})
   .n("SESv2Client", "CreateCustomVerificationEmailTemplateCommand")
-  .sc(CreateCustomVerificationEmailTemplate)
+  .sc(CreateCustomVerificationEmailTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

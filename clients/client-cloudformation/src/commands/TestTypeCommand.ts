@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { TestTypeInput, TestTypeOutput } from "../models/models_0";
-import { TestType } from "../schemas/schemas_0";
+import { TestType$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class TestTypeCommand extends $Command
   })
   .s("CloudFormation", "TestType", {})
   .n("CloudFormationClient", "TestTypeCommand")
-  .sc(TestType)
+  .sc(TestType$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

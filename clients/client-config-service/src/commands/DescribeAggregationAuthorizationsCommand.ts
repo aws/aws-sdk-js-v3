@@ -9,7 +9,7 @@ import type {
   DescribeAggregationAuthorizationsRequest,
   DescribeAggregationAuthorizationsResponse,
 } from "../models/models_0";
-import { DescribeAggregationAuthorizations } from "../schemas/schemas_0";
+import { DescribeAggregationAuthorizations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class DescribeAggregationAuthorizationsCommand extends $Command
   })
   .s("StarlingDoveService", "DescribeAggregationAuthorizations", {})
   .n("ConfigServiceClient", "DescribeAggregationAuthorizationsCommand")
-  .sc(DescribeAggregationAuthorizations)
+  .sc(DescribeAggregationAuthorizations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

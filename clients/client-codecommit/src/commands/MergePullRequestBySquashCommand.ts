@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MergePullRequestBySquashInput, MergePullRequestBySquashOutput } from "../models/models_0";
-import { MergePullRequestBySquash } from "../schemas/schemas_0";
+import { MergePullRequestBySquash$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -270,7 +270,7 @@ export class MergePullRequestBySquashCommand extends $Command
   })
   .s("CodeCommit_20150413", "MergePullRequestBySquash", {})
   .n("CodeCommitClient", "MergePullRequestBySquashCommand")
-  .sc(MergePullRequestBySquash)
+  .sc(MergePullRequestBySquash$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

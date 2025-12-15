@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { DeleteTagsRequest } from "../models/models_1";
-import { DeleteTags } from "../schemas/schemas_0";
+import { DeleteTags$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class DeleteTagsCommand extends $Command
   })
   .s("MediaLive", "DeleteTags", {})
   .n("MediaLiveClient", "DeleteTagsCommand")
-  .sc(DeleteTags)
+  .sc(DeleteTags$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

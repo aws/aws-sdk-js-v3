@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import type { PutResourcePolicyInput } from "../models/models_0";
-import { PutResourcePolicy } from "../schemas/schemas_0";
+import { PutResourcePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class PutResourcePolicyCommand extends $Command
   })
   .s("Kinesis_20131202", "PutResourcePolicy", {})
   .n("KinesisClient", "PutResourcePolicyCommand")
-  .sc(PutResourcePolicy)
+  .sc(PutResourcePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

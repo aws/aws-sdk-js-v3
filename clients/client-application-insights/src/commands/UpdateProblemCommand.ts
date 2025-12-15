@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationInsightsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateProblemRequest, UpdateProblemResponse } from "../models/models_0";
-import { UpdateProblem } from "../schemas/schemas_0";
+import { UpdateProblem$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class UpdateProblemCommand extends $Command
   })
   .s("EC2WindowsBarleyService", "UpdateProblem", {})
   .n("ApplicationInsightsClient", "UpdateProblemCommand")
-  .sc(UpdateProblem)
+  .sc(UpdateProblem$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

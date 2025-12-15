@@ -9,7 +9,7 @@ import type {
   ModifyVerifiedAccessTrustProviderRequest,
   ModifyVerifiedAccessTrustProviderResult,
 } from "../models/models_7";
-import { ModifyVerifiedAccessTrustProvider } from "../schemas/schemas_0";
+import { ModifyVerifiedAccessTrustProvider$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -148,7 +148,7 @@ export class ModifyVerifiedAccessTrustProviderCommand extends $Command
   })
   .s("AmazonEC2", "ModifyVerifiedAccessTrustProvider", {})
   .n("EC2Client", "ModifyVerifiedAccessTrustProviderCommand")
-  .sc(ModifyVerifiedAccessTrustProvider)
+  .sc(ModifyVerifiedAccessTrustProvider$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

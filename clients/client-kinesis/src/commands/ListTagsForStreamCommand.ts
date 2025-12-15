@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import type { ListTagsForStreamInput, ListTagsForStreamOutput } from "../models/models_0";
-import { ListTagsForStream } from "../schemas/schemas_0";
+import { ListTagsForStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class ListTagsForStreamCommand extends $Command
   })
   .s("Kinesis_20131202", "ListTagsForStream", {})
   .n("KinesisClient", "ListTagsForStreamCommand")
-  .sc(ListTagsForStream)
+  .sc(ListTagsForStream$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

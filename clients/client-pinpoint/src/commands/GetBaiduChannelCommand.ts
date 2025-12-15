@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetBaiduChannelRequest, GetBaiduChannelResponse } from "../models/models_0";
 import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { GetBaiduChannel } from "../schemas/schemas_0";
+import { GetBaiduChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class GetBaiduChannelCommand extends $Command
   })
   .s("Pinpoint", "GetBaiduChannel", {})
   .n("PinpointClient", "GetBaiduChannelCommand")
-  .sc(GetBaiduChannel)
+  .sc(GetBaiduChannel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

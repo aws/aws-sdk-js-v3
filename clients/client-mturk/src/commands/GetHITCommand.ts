@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetHITRequest, GetHITResponse } from "../models/models_0";
 import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { GetHIT } from "../schemas/schemas_0";
+import { GetHIT$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class GetHITCommand extends $Command
   })
   .s("MTurkRequesterServiceV20170117", "GetHIT", {})
   .n("MTurkClient", "GetHITCommand")
-  .sc(GetHIT)
+  .sc(GetHIT$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

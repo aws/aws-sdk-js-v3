@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteApprovalRuleTemplateInput, DeleteApprovalRuleTemplateOutput } from "../models/models_0";
-import { DeleteApprovalRuleTemplate } from "../schemas/schemas_0";
+import { DeleteApprovalRuleTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class DeleteApprovalRuleTemplateCommand extends $Command
   })
   .s("CodeCommit_20150413", "DeleteApprovalRuleTemplate", {})
   .n("CodeCommitClient", "DeleteApprovalRuleTemplateCommand")
-  .sc(DeleteApprovalRuleTemplate)
+  .sc(DeleteApprovalRuleTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

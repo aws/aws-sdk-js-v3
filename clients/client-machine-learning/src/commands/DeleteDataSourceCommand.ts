@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MachineLearningClient";
 import type { DeleteDataSourceInput, DeleteDataSourceOutput } from "../models/models_0";
-import { DeleteDataSource } from "../schemas/schemas_0";
+import { DeleteDataSource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class DeleteDataSourceCommand extends $Command
   })
   .s("AmazonML_20141212", "DeleteDataSource", {})
   .n("MachineLearningClient", "DeleteDataSourceCommand")
-  .sc(DeleteDataSource)
+  .sc(DeleteDataSource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

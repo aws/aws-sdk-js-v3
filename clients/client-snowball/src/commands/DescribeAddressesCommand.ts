@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeAddressesRequest, DescribeAddressesResult } from "../models/models_0";
-import { DescribeAddresses } from "../schemas/schemas_0";
+import { DescribeAddresses$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
@@ -129,7 +129,7 @@ export class DescribeAddressesCommand extends $Command
   })
   .s("AWSIESnowballJobManagementService", "DescribeAddresses", {})
   .n("SnowballClient", "DescribeAddressesCommand")
-  .sc(DescribeAddresses)
+  .sc(DescribeAddresses$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

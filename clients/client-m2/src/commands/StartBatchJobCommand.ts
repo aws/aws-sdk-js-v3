@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
 import type { StartBatchJobRequest, StartBatchJobResponse } from "../models/models_0";
-import { StartBatchJob } from "../schemas/schemas_0";
+import { StartBatchJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,7 +124,7 @@ export class StartBatchJobCommand extends $Command
   })
   .s("AwsSupernovaControlPlaneService", "StartBatchJob", {})
   .n("M2Client", "StartBatchJobCommand")
-  .sc(StartBatchJob)
+  .sc(StartBatchJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { DeleteWorkflowRequest, DeleteWorkflowResponse } from "../models/models_1";
-import { DeleteWorkflow } from "../schemas/schemas_0";
+import { DeleteWorkflow$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class DeleteWorkflowCommand extends $Command
   })
   .s("AWSGlue", "DeleteWorkflow", {})
   .n("GlueClient", "DeleteWorkflowCommand")
-  .sc(DeleteWorkflow)
+  .sc(DeleteWorkflow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

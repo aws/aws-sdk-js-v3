@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateReferenceStoreRequest, CreateReferenceStoreResponse } from "../models/models_0";
 import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { CreateReferenceStore } from "../schemas/schemas_0";
+import { CreateReferenceStore$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class CreateReferenceStoreCommand extends $Command
   })
   .s("Omics", "CreateReferenceStore", {})
   .n("OmicsClient", "CreateReferenceStoreCommand")
-  .sc(CreateReferenceStore)
+  .sc(CreateReferenceStore$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

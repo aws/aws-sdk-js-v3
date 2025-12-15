@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RequestSpotFleetRequest, RequestSpotFleetResponse } from "../models/models_7";
-import { RequestSpotFleet } from "../schemas/schemas_0";
+import { RequestSpotFleet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -601,7 +601,7 @@ export class RequestSpotFleetCommand extends $Command
   })
   .s("AmazonEC2", "RequestSpotFleet", {})
   .n("EC2Client", "RequestSpotFleetCommand")
-  .sc(RequestSpotFleet)
+  .sc(RequestSpotFleet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

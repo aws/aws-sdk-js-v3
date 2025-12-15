@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateIamInstanceProfileRequest, AssociateIamInstanceProfileResult } from "../models/models_0";
-import { AssociateIamInstanceProfile } from "../schemas/schemas_0";
+import { AssociateIamInstanceProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class AssociateIamInstanceProfileCommand extends $Command
   })
   .s("AmazonEC2", "AssociateIamInstanceProfile", {})
   .n("EC2Client", "AssociateIamInstanceProfileCommand")
-  .sc(AssociateIamInstanceProfile)
+  .sc(AssociateIamInstanceProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

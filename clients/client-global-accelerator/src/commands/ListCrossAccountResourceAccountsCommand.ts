@@ -13,7 +13,7 @@ import type {
   ListCrossAccountResourceAccountsRequest,
   ListCrossAccountResourceAccountsResponse,
 } from "../models/models_0";
-import { ListCrossAccountResourceAccounts } from "../schemas/schemas_0";
+import { ListCrossAccountResourceAccounts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class ListCrossAccountResourceAccountsCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "ListCrossAccountResourceAccounts", {})
   .n("GlobalAcceleratorClient", "ListCrossAccountResourceAccountsCommand")
-  .sc(ListCrossAccountResourceAccounts)
+  .sc(ListCrossAccountResourceAccounts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

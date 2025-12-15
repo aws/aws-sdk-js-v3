@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import type { SplitShardInput } from "../models/models_0";
-import { SplitShard } from "../schemas/schemas_0";
+import { SplitShard$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -148,7 +148,7 @@ export class SplitShardCommand extends $Command
   })
   .s("Kinesis_20131202", "SplitShard", {})
   .n("KinesisClient", "SplitShardCommand")
-  .sc(SplitShard)
+  .sc(SplitShard$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

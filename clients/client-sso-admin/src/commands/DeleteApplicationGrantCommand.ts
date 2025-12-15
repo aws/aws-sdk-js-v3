@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteApplicationGrantRequest } from "../models/models_0";
-import { DeleteApplicationGrant } from "../schemas/schemas_0";
+import { DeleteApplicationGrant$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -90,7 +90,7 @@ export class DeleteApplicationGrantCommand extends $Command
   })
   .s("SWBExternalService", "DeleteApplicationGrant", {})
   .n("SSOAdminClient", "DeleteApplicationGrantCommand")
-  .sc(DeleteApplicationGrant)
+  .sc(DeleteApplicationGrant$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

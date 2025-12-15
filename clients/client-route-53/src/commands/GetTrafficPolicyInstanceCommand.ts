@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetTrafficPolicyInstanceRequest, GetTrafficPolicyInstanceResponse } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { GetTrafficPolicyInstance } from "../schemas/schemas_0";
+import { GetTrafficPolicyInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class GetTrafficPolicyInstanceCommand extends $Command
   })
   .s("AWSDnsV20130401", "GetTrafficPolicyInstance", {})
   .n("Route53Client", "GetTrafficPolicyInstanceCommand")
-  .sc(GetTrafficPolicyInstance)
+  .sc(GetTrafficPolicyInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

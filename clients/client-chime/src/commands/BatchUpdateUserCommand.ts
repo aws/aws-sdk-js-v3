@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchUpdateUserRequest, BatchUpdateUserResponse } from "../models/models_0";
-import { BatchUpdateUser } from "../schemas/schemas_0";
+import { BatchUpdateUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class BatchUpdateUserCommand extends $Command
   })
   .s("UCBuzzConsoleService", "BatchUpdateUser", {})
   .n("ChimeClient", "BatchUpdateUserCommand")
-  .sc(BatchUpdateUser)
+  .sc(BatchUpdateUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

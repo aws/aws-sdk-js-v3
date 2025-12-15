@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateBatchLoadTaskRequest, CreateBatchLoadTaskResponse } from "../models/models_0";
-import { CreateBatchLoadTask } from "../schemas/schemas_0";
+import { CreateBatchLoadTask$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -189,7 +189,7 @@ export class CreateBatchLoadTaskCommand extends $Command
   })
   .s("Timestream_20181101", "CreateBatchLoadTask", {})
   .n("TimestreamWriteClient", "CreateBatchLoadTaskCommand")
-  .sc(CreateBatchLoadTask)
+  .sc(CreateBatchLoadTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../ElasticBeanstalkClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteApplicationVersionMessage } from "../models/models_0";
-import { DeleteApplicationVersion } from "../schemas/schemas_0";
+import { DeleteApplicationVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,7 +123,7 @@ export class DeleteApplicationVersionCommand extends $Command
   })
   .s("AWSElasticBeanstalkService", "DeleteApplicationVersion", {})
   .n("ElasticBeanstalkClient", "DeleteApplicationVersionCommand")
-  .sc(DeleteApplicationVersion)
+  .sc(DeleteApplicationVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

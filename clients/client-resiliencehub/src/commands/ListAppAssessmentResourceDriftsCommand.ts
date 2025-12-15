@@ -9,7 +9,7 @@ import type {
   ListAppAssessmentResourceDriftsResponse,
 } from "../models/models_0";
 import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
-import { ListAppAssessmentResourceDrifts } from "../schemas/schemas_0";
+import { ListAppAssessmentResourceDrifts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class ListAppAssessmentResourceDriftsCommand extends $Command
   })
   .s("AwsResilienceHub", "ListAppAssessmentResourceDrifts", {})
   .n("ResiliencehubClient", "ListAppAssessmentResourceDriftsCommand")
-  .sc(ListAppAssessmentResourceDrifts)
+  .sc(ListAppAssessmentResourceDrifts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

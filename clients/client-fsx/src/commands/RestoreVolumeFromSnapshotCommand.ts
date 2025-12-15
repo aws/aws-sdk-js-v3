@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import type { RestoreVolumeFromSnapshotRequest, RestoreVolumeFromSnapshotResponse } from "../models/models_0";
-import { RestoreVolumeFromSnapshot } from "../schemas/schemas_0";
+import { RestoreVolumeFromSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -717,7 +717,7 @@ export class RestoreVolumeFromSnapshotCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "RestoreVolumeFromSnapshot", {})
   .n("FSxClient", "RestoreVolumeFromSnapshotCommand")
-  .sc(RestoreVolumeFromSnapshot)
+  .sc(RestoreVolumeFromSnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

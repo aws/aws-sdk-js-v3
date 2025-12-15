@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LicenseManagerClient";
 import type { RejectGrantRequest, RejectGrantResponse } from "../models/models_0";
-import { RejectGrant } from "../schemas/schemas_0";
+import { RejectGrant$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class RejectGrantCommand extends $Command
   })
   .s("AWSLicenseManager", "RejectGrant", {})
   .n("LicenseManagerClient", "RejectGrantCommand")
-  .sc(RejectGrant)
+  .sc(RejectGrant$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

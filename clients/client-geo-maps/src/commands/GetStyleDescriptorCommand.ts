@@ -7,7 +7,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GeoMapsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoMapsClient";
 import { type GetStyleDescriptorRequest, GetStyleDescriptorResponse } from "../models/models_0";
-import { GetStyleDescriptor } from "../schemas/schemas_0";
+import { GetStyleDescriptor$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class GetStyleDescriptorCommand extends $Command
   })
   .s("MapsService", "GetStyleDescriptor", {})
   .n("GeoMapsClient", "GetStyleDescriptorCommand")
-  .sc(GetStyleDescriptor)
+  .sc(GetStyleDescriptor$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

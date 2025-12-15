@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MachineLearningClient";
 import type { GetEvaluationInput, GetEvaluationOutput } from "../models/models_0";
-import { GetEvaluation } from "../schemas/schemas_0";
+import { GetEvaluation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class GetEvaluationCommand extends $Command
   })
   .s("AmazonML_20141212", "GetEvaluation", {})
   .n("MachineLearningClient", "GetEvaluationCommand")
-  .sc(GetEvaluation)
+  .sc(GetEvaluation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTSecureTunnelingClient";
 import type { OpenTunnelRequest, OpenTunnelResponse } from "../models/models_0";
-import { OpenTunnel } from "../schemas/schemas_0";
+import { OpenTunnel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class OpenTunnelCommand extends $Command
   })
   .s("IoTSecuredTunneling", "OpenTunnel", {})
   .n("IoTSecureTunnelingClient", "OpenTunnelCommand")
-  .sc(OpenTunnel)
+  .sc(OpenTunnel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

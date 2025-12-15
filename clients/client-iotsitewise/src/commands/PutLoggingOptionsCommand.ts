@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import type { PutLoggingOptionsRequest, PutLoggingOptionsResponse } from "../models/models_1";
-import { PutLoggingOptions } from "../schemas/schemas_0";
+import { PutLoggingOptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class PutLoggingOptionsCommand extends $Command
   })
   .s("AWSIoTSiteWise", "PutLoggingOptions", {})
   .n("IoTSiteWiseClient", "PutLoggingOptionsCommand")
-  .sc(PutLoggingOptions)
+  .sc(PutLoggingOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

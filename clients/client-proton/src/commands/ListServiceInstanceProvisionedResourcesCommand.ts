@@ -9,7 +9,7 @@ import type {
   ListServiceInstanceProvisionedResourcesOutput,
 } from "../models/models_0";
 import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
-import { ListServiceInstanceProvisionedResources } from "../schemas/schemas_0";
+import { ListServiceInstanceProvisionedResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class ListServiceInstanceProvisionedResourcesCommand extends $Command
   })
   .s("AwsProton20200720", "ListServiceInstanceProvisionedResources", {})
   .n("ProtonClient", "ListServiceInstanceProvisionedResourcesCommand")
-  .sc(ListServiceInstanceProvisionedResources)
+  .sc(ListServiceInstanceProvisionedResources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

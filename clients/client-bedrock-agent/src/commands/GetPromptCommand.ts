@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetPromptRequest, GetPromptResponse } from "../models/models_1";
-import { GetPrompt } from "../schemas/schemas_0";
+import { GetPrompt$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -186,7 +186,7 @@ export class GetPromptCommand extends $Command
   })
   .s("AmazonBedrockAgentBuildTimeLambda", "GetPrompt", {})
   .n("BedrockAgentClient", "GetPromptCommand")
-  .sc(GetPrompt)
+  .sc(GetPrompt$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

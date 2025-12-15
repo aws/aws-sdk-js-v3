@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { GetRelationalDatabaseParametersRequest, GetRelationalDatabaseParametersResult } from "../models/models_1";
-import { GetRelationalDatabaseParameters } from "../schemas/schemas_0";
+import { GetRelationalDatabaseParameters$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class GetRelationalDatabaseParametersCommand extends $Command
   })
   .s("Lightsail_20161128", "GetRelationalDatabaseParameters", {})
   .n("LightsailClient", "GetRelationalDatabaseParametersCommand")
-  .sc(GetRelationalDatabaseParameters)
+  .sc(GetRelationalDatabaseParameters$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

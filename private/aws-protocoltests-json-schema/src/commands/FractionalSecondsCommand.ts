@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import type { FractionalSecondsOutput } from "../models/models_0";
-import { FractionalSeconds } from "../schemas/schemas_0";
+import { FractionalSeconds$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -71,7 +71,7 @@ export class FractionalSecondsCommand extends $Command
   })
   .s("JsonProtocol", "FractionalSeconds", {})
   .n("JsonProtocolClient", "FractionalSecondsCommand")
-  .sc(FractionalSeconds)
+  .sc(FractionalSeconds$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

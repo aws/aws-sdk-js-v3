@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteDataAccessorRequest, DeleteDataAccessorResponse } from "../models/models_0";
 import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
-import { DeleteDataAccessor } from "../schemas/schemas_0";
+import { DeleteDataAccessor$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeleteDataAccessorCommand extends $Command
   })
   .s("ExpertQ", "DeleteDataAccessor", {})
   .n("QBusinessClient", "DeleteDataAccessorCommand")
-  .sc(DeleteDataAccessor)
+  .sc(DeleteDataAccessor$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

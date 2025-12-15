@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateEventTrackerRequest, CreateEventTrackerResponse } from "../models/models_0";
 import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { CreateEventTracker } from "../schemas/schemas_0";
+import { CreateEventTracker$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -144,7 +144,7 @@ export class CreateEventTrackerCommand extends $Command
   })
   .s("AmazonPersonalize", "CreateEventTracker", {})
   .n("PersonalizeClient", "CreateEventTrackerCommand")
-  .sc(CreateEventTracker)
+  .sc(CreateEventTracker$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

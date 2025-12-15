@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateNamespaceRequest, CreateNamespaceResponse } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { CreateNamespace } from "../schemas/schemas_0";
+import { CreateNamespace$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,7 +127,7 @@ export class CreateNamespaceCommand extends $Command
   })
   .s("QuickSight_20180401", "CreateNamespace", {})
   .n("QuickSightClient", "CreateNamespaceCommand")
-  .sc(CreateNamespace)
+  .sc(CreateNamespace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

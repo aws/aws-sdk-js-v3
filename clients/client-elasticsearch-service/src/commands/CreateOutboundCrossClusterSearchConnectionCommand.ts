@@ -13,7 +13,7 @@ import type {
   CreateOutboundCrossClusterSearchConnectionRequest,
   CreateOutboundCrossClusterSearchConnectionResponse,
 } from "../models/models_0";
-import { CreateOutboundCrossClusterSearchConnection } from "../schemas/schemas_0";
+import { CreateOutboundCrossClusterSearchConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class CreateOutboundCrossClusterSearchConnectionCommand extends $Command
   })
   .s("AmazonElasticsearchService2015", "CreateOutboundCrossClusterSearchConnection", {})
   .n("ElasticsearchServiceClient", "CreateOutboundCrossClusterSearchConnectionCommand")
-  .sc(CreateOutboundCrossClusterSearchConnection)
+  .sc(CreateOutboundCrossClusterSearchConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

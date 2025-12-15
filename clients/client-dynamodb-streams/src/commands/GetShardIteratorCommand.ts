@@ -10,7 +10,7 @@ import type {
 } from "../DynamoDBStreamsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetShardIteratorInput, GetShardIteratorOutput } from "../models/models_0";
-import { GetShardIterator } from "../schemas/schemas_0";
+import { GetShardIterator$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class GetShardIteratorCommand extends $Command
   })
   .s("DynamoDBStreams_20120810", "GetShardIterator", {})
   .n("DynamoDBStreamsClient", "GetShardIteratorCommand")
-  .sc(GetShardIterator)
+  .sc(GetShardIterator$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

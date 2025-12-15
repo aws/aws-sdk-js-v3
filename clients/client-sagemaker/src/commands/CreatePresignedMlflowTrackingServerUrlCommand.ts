@@ -9,7 +9,7 @@ import type {
   CreatePresignedMlflowTrackingServerUrlResponse,
 } from "../models/models_1";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { CreatePresignedMlflowTrackingServerUrl } from "../schemas/schemas_0";
+import { CreatePresignedMlflowTrackingServerUrl$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class CreatePresignedMlflowTrackingServerUrlCommand extends $Command
   })
   .s("SageMaker", "CreatePresignedMlflowTrackingServerUrl", {})
   .n("SageMakerClient", "CreatePresignedMlflowTrackingServerUrlCommand")
-  .sc(CreatePresignedMlflowTrackingServerUrl)
+  .sc(CreatePresignedMlflowTrackingServerUrl$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "
 import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutRestApiRequest, RestApi } from "../models/models_0";
-import { PutRestApi } from "../schemas/schemas_0";
+import { PutRestApi$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -136,7 +136,7 @@ export class PutRestApiCommand extends $Command
   })
   .s("BackplaneControlService", "PutRestApi", {})
   .n("APIGatewayClient", "PutRestApiCommand")
-  .sc(PutRestApi)
+  .sc(PutRestApi$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   DescribeElasticsearchInstanceTypeLimitsRequest,
   DescribeElasticsearchInstanceTypeLimitsResponse,
 } from "../models/models_0";
-import { DescribeElasticsearchInstanceTypeLimits } from "../schemas/schemas_0";
+import { DescribeElasticsearchInstanceTypeLimits$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -141,7 +141,7 @@ export class DescribeElasticsearchInstanceTypeLimitsCommand extends $Command
   })
   .s("AmazonElasticsearchService2015", "DescribeElasticsearchInstanceTypeLimits", {})
   .n("ElasticsearchServiceClient", "DescribeElasticsearchInstanceTypeLimitsCommand")
-  .sc(DescribeElasticsearchInstanceTypeLimits)
+  .sc(DescribeElasticsearchInstanceTypeLimits$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

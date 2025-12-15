@@ -9,7 +9,7 @@ import type {
   EnableOrganizationsRootCredentialsManagementRequest,
   EnableOrganizationsRootCredentialsManagementResponse,
 } from "../models/models_0";
-import { EnableOrganizationsRootCredentialsManagement } from "../schemas/schemas_0";
+import { EnableOrganizationsRootCredentialsManagement$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -131,7 +131,7 @@ export class EnableOrganizationsRootCredentialsManagementCommand extends $Comman
   })
   .s("AWSIdentityManagementV20100508", "EnableOrganizationsRootCredentialsManagement", {})
   .n("IAMClient", "EnableOrganizationsRootCredentialsManagementCommand")
-  .sc(EnableOrganizationsRootCredentialsManagement)
+  .sc(EnableOrganizationsRootCredentialsManagement$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

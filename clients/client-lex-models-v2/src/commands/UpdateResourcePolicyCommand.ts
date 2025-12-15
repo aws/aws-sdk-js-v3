@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import type { UpdateResourcePolicyRequest, UpdateResourcePolicyResponse } from "../models/models_1";
-import { UpdateResourcePolicy } from "../schemas/schemas_0";
+import { UpdateResourcePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class UpdateResourcePolicyCommand extends $Command
   })
   .s("LexModelBuildingServiceV2", "UpdateResourcePolicy", {})
   .n("LexModelsV2Client", "UpdateResourcePolicyCommand")
-  .sc(UpdateResourcePolicy)
+  .sc(UpdateResourcePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

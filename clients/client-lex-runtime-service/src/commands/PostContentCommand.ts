@@ -14,7 +14,7 @@ import type {
   ServiceOutputTypes,
 } from "../LexRuntimeServiceClient";
 import { PostContentRequest, PostContentResponse } from "../models/models_0";
-import { PostContent } from "../schemas/schemas_0";
+import { PostContent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -247,7 +247,7 @@ export class PostContentCommand extends $Command
   })
   .s("AWSDeepSenseRunTimeService", "PostContent", {})
   .n("LexRuntimeServiceClient", "PostContentCommand")
-  .sc(PostContent)
+  .sc(PostContent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

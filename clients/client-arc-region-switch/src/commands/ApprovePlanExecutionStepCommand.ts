@@ -10,7 +10,7 @@ import type {
 } from "../ARCRegionSwitchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ApprovePlanExecutionStepRequest, ApprovePlanExecutionStepResponse } from "../models/models_0";
-import { ApprovePlanExecutionStep } from "../schemas/schemas_0";
+import { ApprovePlanExecutionStep$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class ApprovePlanExecutionStepCommand extends $Command
   })
   .s("ArcRegionSwitch", "ApprovePlanExecutionStep", {})
   .n("ARCRegionSwitchClient", "ApprovePlanExecutionStepCommand")
-  .sc(ApprovePlanExecutionStep)
+  .sc(ApprovePlanExecutionStep$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
 import type { DeleteMessageRequest, DeleteMessageResponse } from "../models/models_0";
-import { DeleteMessage } from "../schemas/schemas_0";
+import { DeleteMessage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeleteMessageCommand extends $Command
   })
   .s("AmazonInteractiveVideoServiceChat", "DeleteMessage", {})
   .n("IvschatClient", "DeleteMessageCommand")
-  .sc(DeleteMessage)
+  .sc(DeleteMessage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

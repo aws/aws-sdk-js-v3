@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetLaunchTemplateDataRequest, GetLaunchTemplateDataResult } from "../models/models_6";
-import { GetLaunchTemplateData } from "../schemas/schemas_0";
+import { GetLaunchTemplateData$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -413,7 +413,7 @@ export class GetLaunchTemplateDataCommand extends $Command
   })
   .s("AmazonEC2", "GetLaunchTemplateData", {})
   .n("EC2Client", "GetLaunchTemplateDataCommand")
-  .sc(GetLaunchTemplateData)
+  .sc(GetLaunchTemplateData$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

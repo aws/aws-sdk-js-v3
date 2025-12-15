@@ -9,7 +9,7 @@ import type {
   RegisterPullTimeUpdateExclusionRequest,
   RegisterPullTimeUpdateExclusionResponse,
 } from "../models/models_0";
-import { RegisterPullTimeUpdateExclusion } from "../schemas/schemas_0";
+import { RegisterPullTimeUpdateExclusion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class RegisterPullTimeUpdateExclusionCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "RegisterPullTimeUpdateExclusion", {})
   .n("ECRClient", "RegisterPullTimeUpdateExclusionCommand")
-  .sc(RegisterPullTimeUpdateExclusion)
+  .sc(RegisterPullTimeUpdateExclusion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

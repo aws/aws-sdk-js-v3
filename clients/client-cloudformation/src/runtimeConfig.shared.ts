@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: CloudFormationClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsQueryProtocol({
-        defaultNamespace: "com.amazonaws.cloudformation",
-        xmlNamespace: "http://cloudformation.amazonaws.com/doc/2010-05-15/",
-        version: "2010-05-15",
-      }),
+    protocol: config?.protocol ?? AwsQueryProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.cloudformation",
+      xmlNamespace: "http://cloudformation.amazonaws.com/doc/2010-05-15/",
+      version: "2010-05-15",
+      serviceTarget: "CloudFormation",
+    },
     serviceId: config?.serviceId ?? "CloudFormation",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

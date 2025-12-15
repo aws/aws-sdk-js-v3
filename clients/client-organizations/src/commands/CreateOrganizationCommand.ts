@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateOrganizationRequest, CreateOrganizationResponse } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { CreateOrganization } from "../schemas/schemas_0";
+import { CreateOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -574,7 +574,7 @@ export class CreateOrganizationCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "CreateOrganization", {})
   .n("OrganizationsClient", "CreateOrganizationCommand")
-  .sc(CreateOrganization)
+  .sc(CreateOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

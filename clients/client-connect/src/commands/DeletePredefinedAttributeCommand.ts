@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeletePredefinedAttributeRequest } from "../models/models_1";
-import { DeletePredefinedAttribute } from "../schemas/schemas_0";
+import { DeletePredefinedAttribute$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class DeletePredefinedAttributeCommand extends $Command
   })
   .s("AmazonConnectService", "DeletePredefinedAttribute", {})
   .n("ConnectClient", "DeletePredefinedAttributeCommand")
-  .sc(DeletePredefinedAttribute)
+  .sc(DeletePredefinedAttribute$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

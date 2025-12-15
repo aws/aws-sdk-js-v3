@@ -13,7 +13,7 @@ import type {
   DescribeMetadataModelExportsAsScriptMessage,
   DescribeMetadataModelExportsAsScriptResponse,
 } from "../models/models_0";
-import { DescribeMetadataModelExportsAsScript } from "../schemas/schemas_0";
+import { DescribeMetadataModelExportsAsScript$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -153,7 +153,7 @@ export class DescribeMetadataModelExportsAsScriptCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribeMetadataModelExportsAsScript", {})
   .n("DatabaseMigrationServiceClient", "DescribeMetadataModelExportsAsScriptCommand")
-  .sc(DescribeMetadataModelExportsAsScript)
+  .sc(DescribeMetadataModelExportsAsScript$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

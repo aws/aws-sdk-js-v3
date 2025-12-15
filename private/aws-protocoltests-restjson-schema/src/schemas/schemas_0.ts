@@ -644,24 +644,18 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import {
-  ComplexError as __ComplexError,
-  ErrorEvent as __ErrorEvent,
-  FooError as __FooError,
-  InvalidGreeting as __InvalidGreeting,
-  ServiceUnavailableError as __ServiceUnavailableError,
-} from "../models/errors";
-import { RestJsonProtocolServiceException as __RestJsonProtocolServiceException } from "../models/RestJsonProtocolServiceException";
+import { ComplexError, ErrorEvent, FooError, InvalidGreeting, ServiceUnavailableError } from "../models/errors";
+import { RestJsonProtocolServiceException } from "../models/RestJsonProtocolServiceException";
 
 /* eslint no-var: 0 */
-export var FiniteStreamingBlob: StaticSimpleSchema = [0, n0, _FSB, { [_rL]: 1, [_s]: 1 }, 42];
-export var JsonHeaderString: StaticSimpleSchema = [0, n0, _JHS, { [_mT]: _a }, 0];
-export var JsonValue: StaticSimpleSchema = [0, n0, _JV, { [_mT]: _a }, 0];
-export var StreamingBlob: StaticSimpleSchema = [0, n0, _SB, { [_s]: 1 }, 42];
-export var StreamingTextPlainBlob: StaticSimpleSchema = [0, n0, _STPB, { [_mT]: _t, [_s]: 1 }, 42];
-export var JpegBlob: StaticSimpleSchema = [0, n1, _JB, { [_mT]: _i }, 21];
-export var TextPlainBlob: StaticSimpleSchema = [0, n1, _TPB, { [_mT]: _t }, 21];
-export var AllQueryStringTypesInput: StaticStructureSchema = [
+var FiniteStreamingBlob: StaticSimpleSchema = [0, n0, _FSB, { [_rL]: 1, [_s]: 1 }, 42];
+var JsonHeaderString: StaticSimpleSchema = [0, n0, _JHS, { [_mT]: _a }, 0];
+var JsonValue: StaticSimpleSchema = [0, n0, _JV, { [_mT]: _a }, 0];
+var StreamingBlob: StaticSimpleSchema = [0, n0, _SB, { [_s]: 1 }, 42];
+var StreamingTextPlainBlob: StaticSimpleSchema = [0, n0, _STPB, { [_mT]: _t, [_s]: 1 }, 42];
+var JpegBlob: StaticSimpleSchema = [0, n1, _JB, { [_mT]: _i }, 21];
+var TextPlainBlob: StaticSimpleSchema = [0, n1, _TPB, { [_mT]: _t }, 21];
+export var AllQueryStringTypesInput$: StaticStructureSchema = [
   3,
   n0,
   _AQSTI,
@@ -713,19 +707,19 @@ export var AllQueryStringTypesInput: StaticStructureSchema = [
     [[2, n1, _SLM, 0, 0, 64 | 0], 64],
   ],
 ];
-export var BlobPayloadEvent: StaticStructureSchema = [3, n0, _BPE, 0, [_p], [[21, { [_eP]: 1 }]]];
-export var ClientOptionalDefaults: StaticStructureSchema = [3, n0, _COD, 0, [_m], [1]];
-export var ComplexError: StaticErrorSchema = [
+export var BlobPayloadEvent$: StaticStructureSchema = [3, n0, _BPE, 0, [_p], [[21, { [_eP]: 1 }]]];
+export var ClientOptionalDefaults$: StaticStructureSchema = [3, n0, _COD, 0, [_m], [1]];
+export var ComplexError$: StaticErrorSchema = [
   -3,
   n0,
   _CE,
   { [_e]: _c, [_hE]: 403 },
   [_H, _TLo, _N],
-  [[0, { [_hH]: _XH }], 0, [() => ComplexNestedErrorData, 0]],
+  [[0, { [_hH]: _XH }], 0, [() => ComplexNestedErrorData$, 0]],
 ];
-TypeRegistry.for(n0).registerError(ComplexError, __ComplexError);
-export var ComplexNestedErrorData: StaticStructureSchema = [3, n0, _CNED, 0, [_Fo], [[0, { [_jN]: _Foo }]]];
-export var ConstantAndVariableQueryStringInput: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ComplexError$, ComplexError);
+export var ComplexNestedErrorData$: StaticStructureSchema = [3, n0, _CNED, 0, [_Fo], [[0, { [_jN]: _Foo }]]];
+export var ConstantAndVariableQueryStringInput$: StaticStructureSchema = [
   3,
   n0,
   _CAVQSI,
@@ -736,11 +730,11 @@ export var ConstantAndVariableQueryStringInput: StaticStructureSchema = [
     [0, { [_hQ]: _mS }],
   ],
 ];
-export var ConstantQueryStringInput: StaticStructureSchema = [3, n0, _CQSI, 0, [_h], [[0, 1]]];
-export var ContentTypeParametersInput: StaticStructureSchema = [3, n0, _CTPI, 0, [_v], [1]];
-export var ContentTypeParametersOutput: StaticStructureSchema = [3, n0, _CTPO, 0, [], []];
-export var DatetimeOffsetsOutput: StaticStructureSchema = [3, n0, _DOO, 0, [_d], [5]];
-export var Defaults: StaticStructureSchema = [
+export var ConstantQueryStringInput$: StaticStructureSchema = [3, n0, _CQSI, 0, [_h], [[0, 1]]];
+export var ContentTypeParametersInput$: StaticStructureSchema = [3, n0, _CTPI, 0, [_v], [1]];
+export var ContentTypeParametersOutput$: StaticStructureSchema = [3, n0, _CTPO, 0, [], []];
+export var DatetimeOffsetsOutput$: StaticStructureSchema = [3, n0, _DOO, 0, [_d], [5]];
+export var Defaults$: StaticStructureSchema = [
   3,
   n0,
   _De,
@@ -777,29 +771,29 @@ export var Defaults: StaticStructureSchema = [
   ],
   [0, 2, 64 | 0, 15, 15, 15, 15, 15, 4, 21, 1, 1, 1, 1, 1, 1, 128 | 0, 0, 1, 0, 2, 21, 1, 1, 1, 1, 1, 1],
 ];
-export var Dialog: StaticStructureSchema = [3, n0, _Di, 0, [_l, _g, _f], [0, 0, () => Farewell]];
-export var DocumentTypeAsMapValueInputOutput: StaticStructureSchema = [3, n0, _DTAMVIO, 0, [_dVM], [128 | 15]];
-export var DocumentTypeAsPayloadInputOutput: StaticStructureSchema = [3, n0, _DTAPIO, 0, [_dV], [[15, 16]]];
-export var DocumentTypeInputOutput: StaticStructureSchema = [3, n0, _DTIO, 0, [_sV, _dV], [0, 15]];
-export var DuplexStreamInput: StaticStructureSchema = [3, n0, _DSI, 0, [_st], [[() => EventStream, 16]]];
-export var DuplexStreamOutput: StaticStructureSchema = [3, n0, _DSO, 0, [_st], [[() => EventStream, 16]]];
-export var DuplexStreamWithDistinctStreamsInput: StaticStructureSchema = [
+export var Dialog$: StaticStructureSchema = [3, n0, _Di, 0, [_l, _g, _f], [0, 0, () => Farewell$]];
+export var DocumentTypeAsMapValueInputOutput$: StaticStructureSchema = [3, n0, _DTAMVIO, 0, [_dVM], [128 | 15]];
+export var DocumentTypeAsPayloadInputOutput$: StaticStructureSchema = [3, n0, _DTAPIO, 0, [_dV], [[15, 16]]];
+export var DocumentTypeInputOutput$: StaticStructureSchema = [3, n0, _DTIO, 0, [_sV, _dV], [0, 15]];
+export var DuplexStreamInput$: StaticStructureSchema = [3, n0, _DSI, 0, [_st], [[() => EventStream$, 16]]];
+export var DuplexStreamOutput$: StaticStructureSchema = [3, n0, _DSO, 0, [_st], [[() => EventStream$, 16]]];
+export var DuplexStreamWithDistinctStreamsInput$: StaticStructureSchema = [
   3,
   n0,
   _DSWDSI,
   0,
   [_st],
-  [[() => EventStream, 16]],
+  [[() => EventStream$, 16]],
 ];
-export var DuplexStreamWithDistinctStreamsOutput: StaticStructureSchema = [
+export var DuplexStreamWithDistinctStreamsOutput$: StaticStructureSchema = [
   3,
   n0,
   _DSWDSO,
   0,
   [_st],
-  [[() => SingletonEventStream, 16]],
+  [[() => SingletonEventStream$, 16]],
 ];
-export var DuplexStreamWithInitialMessagesInput: StaticStructureSchema = [
+export var DuplexStreamWithInitialMessagesInput$: StaticStructureSchema = [
   3,
   n0,
   _DSWIMI,
@@ -807,10 +801,10 @@ export var DuplexStreamWithInitialMessagesInput: StaticStructureSchema = [
   [_iRM, _st],
   [
     [0, { [_hH]: _irm }],
-    [() => EventStream, 16],
+    [() => EventStream$, 16],
   ],
 ];
-export var DuplexStreamWithInitialMessagesOutput: StaticStructureSchema = [
+export var DuplexStreamWithInitialMessagesOutput$: StaticStructureSchema = [
   3,
   n0,
   _DSWIMO,
@@ -818,20 +812,20 @@ export var DuplexStreamWithInitialMessagesOutput: StaticStructureSchema = [
   [_iRMn, _st],
   [
     [0, { [_hH]: _irm_ }],
-    [() => EventStream, 16],
+    [() => EventStream$, 16],
   ],
 ];
-export var EmptyInputAndEmptyOutputInput: StaticStructureSchema = [3, n0, _EIAEOI, 0, [], []];
-export var EmptyInputAndEmptyOutputOutput: StaticStructureSchema = [3, n0, _EIAEOO, 0, [], []];
-export var EnumPayloadInput: StaticStructureSchema = [3, n0, _EPI, 0, [_p], [[0, 16]]];
-export var ErrorEvent: StaticErrorSchema = [-3, n0, _EE, { [_e]: _c }, [_me], [0]];
-TypeRegistry.for(n0).registerError(ErrorEvent, __ErrorEvent);
-export var Farewell: StaticStructureSchema = [3, n0, _Fa, 0, [_ph], [0]];
-export var FooError: StaticErrorSchema = [-3, n0, _FE, { [_e]: _se, [_hE]: 500 }, [], []];
-TypeRegistry.for(n0).registerError(FooError, __FooError);
-export var FractionalSecondsOutput: StaticStructureSchema = [3, n0, _FSO, 0, [_d], [5]];
-export var GreetingWithErrorsOutput: StaticStructureSchema = [3, n0, _GWEO, 0, [_g], [[0, { [_hH]: _XG }]]];
-export var HeadersAndExplicitPayloadEvent: StaticStructureSchema = [
+export var EmptyInputAndEmptyOutputInput$: StaticStructureSchema = [3, n0, _EIAEOI, 0, [], []];
+export var EmptyInputAndEmptyOutputOutput$: StaticStructureSchema = [3, n0, _EIAEOO, 0, [], []];
+export var EnumPayloadInput$: StaticStructureSchema = [3, n0, _EPI, 0, [_p], [[0, 16]]];
+export var ErrorEvent$: StaticErrorSchema = [-3, n0, _EE, { [_e]: _c }, [_me], [0]];
+TypeRegistry.for(n0).registerError(ErrorEvent$, ErrorEvent);
+export var Farewell$: StaticStructureSchema = [3, n0, _Fa, 0, [_ph], [0]];
+export var FooError$: StaticErrorSchema = [-3, n0, _FE, { [_e]: _se, [_hE]: 500 }, [], []];
+TypeRegistry.for(n0).registerError(FooError$, FooError);
+export var FractionalSecondsOutput$: StaticStructureSchema = [3, n0, _FSO, 0, [_d], [5]];
+export var GreetingWithErrorsOutput$: StaticStructureSchema = [3, n0, _GWEO, 0, [_g], [[0, { [_hH]: _XG }]]];
+export var HeadersAndExplicitPayloadEvent$: StaticStructureSchema = [
   3,
   n0,
   _HAEPE,
@@ -839,10 +833,10 @@ export var HeadersAndExplicitPayloadEvent: StaticStructureSchema = [
   [_he, _p],
   [
     [0, { [_eH]: 1 }],
-    [() => PayloadStructure, { [_eP]: 1 }],
+    [() => PayloadStructure$, { [_eP]: 1 }],
   ],
 ];
-export var HeadersAndImplicitPayloadEvent: StaticStructureSchema = [
+export var HeadersAndImplicitPayloadEvent$: StaticStructureSchema = [
   3,
   n0,
   _HAIPE,
@@ -850,7 +844,7 @@ export var HeadersAndImplicitPayloadEvent: StaticStructureSchema = [
   [_he, _p],
   [[0, { [_eH]: 1 }], 0],
 ];
-export var HeadersEvent: StaticStructureSchema = [
+export var HeadersEvent$: StaticStructureSchema = [
   3,
   n0,
   _HE,
@@ -867,9 +861,9 @@ export var HeadersEvent: StaticStructureSchema = [
     [5, { [_eH]: 1 }],
   ],
 ];
-export var HostLabelInput: StaticStructureSchema = [3, n0, _HLI, 0, [_la], [[0, { [_hL]: 1 }]]];
-export var HttpChecksumRequiredInputOutput: StaticStructureSchema = [3, n0, _HCRIO, 0, [_fo], [0]];
-export var HttpEmptyPrefixHeadersInput: StaticStructureSchema = [
+export var HostLabelInput$: StaticStructureSchema = [3, n0, _HLI, 0, [_la], [[0, { [_hL]: 1 }]]];
+export var HttpChecksumRequiredInputOutput$: StaticStructureSchema = [3, n0, _HCRIO, 0, [_fo], [0]];
+export var HttpEmptyPrefixHeadersInput$: StaticStructureSchema = [
   3,
   n0,
   _HEPHI,
@@ -880,7 +874,7 @@ export var HttpEmptyPrefixHeadersInput: StaticStructureSchema = [
     [0, { [_hH]: _h }],
   ],
 ];
-export var HttpEmptyPrefixHeadersOutput: StaticStructureSchema = [
+export var HttpEmptyPrefixHeadersOutput$: StaticStructureSchema = [
   3,
   n0,
   _HEPHO,
@@ -891,7 +885,7 @@ export var HttpEmptyPrefixHeadersOutput: StaticStructureSchema = [
     [0, { [_hH]: _h }],
   ],
 ];
-export var HttpPayloadTraitsInputOutput: StaticStructureSchema = [
+export var HttpPayloadTraitsInputOutput$: StaticStructureSchema = [
   3,
   n0,
   _HPTIO,
@@ -902,7 +896,7 @@ export var HttpPayloadTraitsInputOutput: StaticStructureSchema = [
     [21, 16],
   ],
 ];
-export var HttpPayloadTraitsWithMediaTypeInputOutput: StaticStructureSchema = [
+export var HttpPayloadTraitsWithMediaTypeInputOutput$: StaticStructureSchema = [
   3,
   n0,
   _HPTWMTIO,
@@ -913,23 +907,23 @@ export var HttpPayloadTraitsWithMediaTypeInputOutput: StaticStructureSchema = [
     [() => TextPlainBlob, 16],
   ],
 ];
-export var HttpPayloadWithStructureInputOutput: StaticStructureSchema = [
+export var HttpPayloadWithStructureInputOutput$: StaticStructureSchema = [
   3,
   n0,
   _HPWSIO,
   0,
   [_n],
-  [[() => NestedPayload, 16]],
+  [[() => NestedPayload$, 16]],
 ];
-export var HttpPayloadWithUnionInputOutput: StaticStructureSchema = [
+export var HttpPayloadWithUnionInputOutput$: StaticStructureSchema = [
   3,
   n0,
   _HPWUIO,
   0,
   [_n],
-  [[() => UnionPayload, 16]],
+  [[() => UnionPayload$, 16]],
 ];
-export var HttpPrefixHeadersInput: StaticStructureSchema = [
+export var HttpPrefixHeadersInput$: StaticStructureSchema = [
   3,
   n0,
   _HPHI,
@@ -940,8 +934,8 @@ export var HttpPrefixHeadersInput: StaticStructureSchema = [
     [128 | 0, { [_hPH]: _xf_ }],
   ],
 ];
-export var HttpPrefixHeadersInResponseInput: StaticStructureSchema = [3, n0, _HPHIRI, 0, [], []];
-export var HttpPrefixHeadersInResponseOutput: StaticStructureSchema = [
+export var HttpPrefixHeadersInResponseInput$: StaticStructureSchema = [3, n0, _HPHIRI, 0, [], []];
+export var HttpPrefixHeadersInResponseOutput$: StaticStructureSchema = [
   3,
   n0,
   _HPHIRO,
@@ -949,7 +943,7 @@ export var HttpPrefixHeadersInResponseOutput: StaticStructureSchema = [
   [_pH],
   [[128 | 0, { [_hPH]: _ }]],
 ];
-export var HttpPrefixHeadersOutput: StaticStructureSchema = [
+export var HttpPrefixHeadersOutput$: StaticStructureSchema = [
   3,
   n0,
   _HPHO,
@@ -960,8 +954,8 @@ export var HttpPrefixHeadersOutput: StaticStructureSchema = [
     [128 | 0, { [_hPH]: _xf_ }],
   ],
 ];
-export var HttpQueryParamsOnlyInput: StaticStructureSchema = [3, n0, _HQPOI, 0, [_qM], [[128 | 0, 64]]];
-export var HttpRequestWithFloatLabelsInput: StaticStructureSchema = [
+export var HttpQueryParamsOnlyInput$: StaticStructureSchema = [3, n0, _HQPOI, 0, [_qM], [[128 | 0, 64]]];
+export var HttpRequestWithFloatLabelsInput$: StaticStructureSchema = [
   3,
   n0,
   _HRWFLI,
@@ -972,7 +966,7 @@ export var HttpRequestWithFloatLabelsInput: StaticStructureSchema = [
     [1, 1],
   ],
 ];
-export var HttpRequestWithGreedyLabelInPathInput: StaticStructureSchema = [
+export var HttpRequestWithGreedyLabelInPathInput$: StaticStructureSchema = [
   3,
   n0,
   _HRWGLIPI,
@@ -983,7 +977,7 @@ export var HttpRequestWithGreedyLabelInPathInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var HttpRequestWithLabelsAndTimestampFormatInput: StaticStructureSchema = [
+export var HttpRequestWithLabelsAndTimestampFormatInput$: StaticStructureSchema = [
   3,
   n0,
   _HRWLATFI,
@@ -999,7 +993,7 @@ export var HttpRequestWithLabelsAndTimestampFormatInput: StaticStructureSchema =
     [5, 1],
   ],
 ];
-export var HttpRequestWithLabelsInput: StaticStructureSchema = [
+export var HttpRequestWithLabelsInput$: StaticStructureSchema = [
   3,
   n0,
   _HRWLI,
@@ -1016,10 +1010,10 @@ export var HttpRequestWithLabelsInput: StaticStructureSchema = [
     [4, 1],
   ],
 ];
-export var HttpRequestWithRegexLiteralInput: StaticStructureSchema = [3, n0, _HRWRLI, 0, [_str_], [[0, 1]]];
-export var HttpResponseCodeOutput: StaticStructureSchema = [3, n0, _HRCO, 0, [_St], [[1, 32]]];
-export var IgnoreQueryParamsInResponseOutput: StaticStructureSchema = [3, n0, _IQPIRO, 0, [_b], [[0, { [_hQ]: _b }]]];
-export var InputAndOutputWithHeadersIO: StaticStructureSchema = [
+export var HttpRequestWithRegexLiteralInput$: StaticStructureSchema = [3, n0, _HRWRLI, 0, [_str_], [[0, 1]]];
+export var HttpResponseCodeOutput$: StaticStructureSchema = [3, n0, _HRCO, 0, [_St], [[1, 32]]];
+export var IgnoreQueryParamsInResponseOutput$: StaticStructureSchema = [3, n0, _IQPIRO, 0, [_b], [[0, { [_hQ]: _b }]]];
+export var InputAndOutputWithHeadersIO$: StaticStructureSchema = [
   3,
   n0,
   _IAOWHIO,
@@ -1046,8 +1040,8 @@ export var InputAndOutputWithHeadersIO: StaticStructureSchema = [
     [64 | 1, { [_hH]: _XI___ }],
   ],
 ];
-export var InputStreamInput: StaticStructureSchema = [3, n0, _ISI, 0, [_st], [[() => EventStream, 16]]];
-export var InputStreamWithInitialRequestInput: StaticStructureSchema = [
+export var InputStreamInput$: StaticStructureSchema = [3, n0, _ISI, 0, [_st], [[() => EventStream$, 16]]];
+export var InputStreamWithInitialRequestInput$: StaticStructureSchema = [
   3,
   n0,
   _ISWIRI,
@@ -1055,13 +1049,13 @@ export var InputStreamWithInitialRequestInput: StaticStructureSchema = [
   [_iRM, _st],
   [
     [0, { [_hH]: _irm }],
-    [() => EventStream, 16],
+    [() => EventStream$, 16],
   ],
 ];
-export var InvalidGreeting: StaticErrorSchema = [-3, n0, _IG, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidGreeting, __InvalidGreeting);
-export var JsonBlobsInputOutput: StaticStructureSchema = [3, n0, _JBIO, 0, [_da], [21]];
-export var JsonEnumsInputOutput: StaticStructureSchema = [
+export var InvalidGreeting$: StaticErrorSchema = [-3, n0, _IG, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InvalidGreeting$, InvalidGreeting);
+export var JsonBlobsInputOutput$: StaticStructureSchema = [3, n0, _JBIO, 0, [_da], [21]];
+export var JsonEnumsInputOutput$: StaticStructureSchema = [
   3,
   n0,
   _JEIO,
@@ -1069,7 +1063,7 @@ export var JsonEnumsInputOutput: StaticStructureSchema = [
   [_fE, _fEo, _fEoo, _fEL, _fES, _fEM],
   [0, 0, 0, 64 | 0, 64 | 0, 128 | 0],
 ];
-export var JsonIntEnumsInputOutput: StaticStructureSchema = [
+export var JsonIntEnumsInputOutput$: StaticStructureSchema = [
   3,
   n0,
   _JIEIO,
@@ -1077,7 +1071,7 @@ export var JsonIntEnumsInputOutput: StaticStructureSchema = [
   [_iE, _iEn, _iEnt, _iEL, _iES, _iEM],
   [1, 1, 1, 64 | 1, 64 | 1, 128 | 1],
 ];
-export var JsonListsInputOutput: StaticStructureSchema = [
+export var JsonListsInputOutput$: StaticStructureSchema = [
   3,
   n0,
   _JLIO,
@@ -1095,7 +1089,7 @@ export var JsonListsInputOutput: StaticStructureSchema = [
     [() => StructureList, { [_jN]: _mSL }],
   ],
 ];
-export var JsonMapsInputOutput: StaticStructureSchema = [
+export var JsonMapsInputOutput$: StaticStructureSchema = [
   3,
   n0,
   _JMIO,
@@ -1103,7 +1097,7 @@ export var JsonMapsInputOutput: StaticStructureSchema = [
   [_dSM, _dNM, _dBM, _dSMe, _dSMen],
   [() => DenseStructMap, 128 | 1, 128 | 2, 128 | 0, [2, n0, _DSM, 0, 0, 64 | 0]],
 ];
-export var JsonTimestampsInputOutput: StaticStructureSchema = [
+export var JsonTimestampsInputOutput$: StaticStructureSchema = [
   3,
   n0,
   _JTIO,
@@ -1111,10 +1105,10 @@ export var JsonTimestampsInputOutput: StaticStructureSchema = [
   [_no, _dTa, _dTOT, _eSp, _eSOT, _hDt, _hDOT],
   [4, 5, 5, 7, 7, 6, 6],
 ];
-export var MalformedAcceptWithGenericStringOutput: StaticStructureSchema = [3, n0, _MAWGSO, 0, [_p], [[0, 16]]];
-export var MalformedAcceptWithPayloadOutput: StaticStructureSchema = [3, n0, _MAWPO, 0, [_p], [[() => JpegBlob, 16]]];
-export var MalformedBlobInput: StaticStructureSchema = [3, n0, _MBI, 0, [_bl], [21]];
-export var MalformedBooleanInput: StaticStructureSchema = [
+export var MalformedAcceptWithGenericStringOutput$: StaticStructureSchema = [3, n0, _MAWGSO, 0, [_p], [[0, 16]]];
+export var MalformedAcceptWithPayloadOutput$: StaticStructureSchema = [3, n0, _MAWPO, 0, [_p], [[() => JpegBlob, 16]]];
+export var MalformedBlobInput$: StaticStructureSchema = [3, n0, _MBI, 0, [_bl], [21]];
+export var MalformedBooleanInput$: StaticStructureSchema = [
   3,
   n0,
   _MBIa,
@@ -1122,7 +1116,7 @@ export var MalformedBooleanInput: StaticStructureSchema = [
   [_bIB, _bIP, _bIQ, _bIH],
   [2, [2, 1], [2, { [_hQ]: _bIQ }], [2, { [_hH]: _bIH }]],
 ];
-export var MalformedByteInput: StaticStructureSchema = [
+export var MalformedByteInput$: StaticStructureSchema = [
   3,
   n0,
   _MBIal,
@@ -1130,8 +1124,8 @@ export var MalformedByteInput: StaticStructureSchema = [
   [_bIBy, _bIPy, _bIQy, _bIHy],
   [1, [1, 1], [1, { [_hQ]: _bIQy }], [1, { [_hH]: _bIHy }]],
 ];
-export var MalformedContentTypeWithGenericStringInput: StaticStructureSchema = [3, n0, _MCTWGSI, 0, [_p], [[0, 16]]];
-export var MalformedContentTypeWithoutBodyEmptyInputInput: StaticStructureSchema = [
+export var MalformedContentTypeWithGenericStringInput$: StaticStructureSchema = [3, n0, _MCTWGSI, 0, [_p], [[0, 16]]];
+export var MalformedContentTypeWithoutBodyEmptyInputInput$: StaticStructureSchema = [
   3,
   n0,
   _MCTWBEII,
@@ -1139,7 +1133,7 @@ export var MalformedContentTypeWithoutBodyEmptyInputInput: StaticStructureSchema
   [_he],
   [[0, { [_hH]: _he }]],
 ];
-export var MalformedContentTypeWithPayloadInput: StaticStructureSchema = [
+export var MalformedContentTypeWithPayloadInput$: StaticStructureSchema = [
   3,
   n0,
   _MCTWPI,
@@ -1147,7 +1141,7 @@ export var MalformedContentTypeWithPayloadInput: StaticStructureSchema = [
   [_p],
   [[() => JpegBlob, 16]],
 ];
-export var MalformedDoubleInput: StaticStructureSchema = [
+export var MalformedDoubleInput$: StaticStructureSchema = [
   3,
   n0,
   _MDI,
@@ -1155,7 +1149,7 @@ export var MalformedDoubleInput: StaticStructureSchema = [
   [_dIB, _dIP, _dIQ, _dIH],
   [1, [1, 1], [1, { [_hQ]: _dIQ }], [1, { [_hH]: _dIH }]],
 ];
-export var MalformedFloatInput: StaticStructureSchema = [
+export var MalformedFloatInput$: StaticStructureSchema = [
   3,
   n0,
   _MFI,
@@ -1163,7 +1157,7 @@ export var MalformedFloatInput: StaticStructureSchema = [
   [_fIB, _fIP, _fIQ, _fIH],
   [1, [1, 1], [1, { [_hQ]: _fIQ }], [1, { [_hH]: _fIH }]],
 ];
-export var MalformedIntegerInput: StaticStructureSchema = [
+export var MalformedIntegerInput$: StaticStructureSchema = [
   3,
   n0,
   _MII,
@@ -1171,8 +1165,8 @@ export var MalformedIntegerInput: StaticStructureSchema = [
   [_iIB, _iIP, _iIQ, _iIH],
   [1, [1, 1], [1, { [_hQ]: _iIQ }], [1, { [_hH]: _iIH }]],
 ];
-export var MalformedListInput: StaticStructureSchema = [3, n0, _MLI, 0, [_bLo], [64 | 0]];
-export var MalformedLongInput: StaticStructureSchema = [
+export var MalformedListInput$: StaticStructureSchema = [3, n0, _MLI, 0, [_bLo], [64 | 0]];
+export var MalformedLongInput$: StaticStructureSchema = [
   3,
   n0,
   _MLIa,
@@ -1180,9 +1174,9 @@ export var MalformedLongInput: StaticStructureSchema = [
   [_lIB, _lIP, _lIQ, _lIH],
   [1, [1, 1], [1, { [_hQ]: _lIQ }], [1, { [_hH]: _lIH }]],
 ];
-export var MalformedMapInput: StaticStructureSchema = [3, n0, _MMI, 0, [_bM], [128 | 0]];
-export var MalformedRequestBodyInput: StaticStructureSchema = [3, n0, _MRBI, 0, [_int, _fl], [1, 1]];
-export var MalformedShortInput: StaticStructureSchema = [
+export var MalformedMapInput$: StaticStructureSchema = [3, n0, _MMI, 0, [_bM], [128 | 0]];
+export var MalformedRequestBodyInput$: StaticStructureSchema = [3, n0, _MRBI, 0, [_int, _fl], [1, 1]];
+export var MalformedShortInput$: StaticStructureSchema = [
   3,
   n0,
   _MSI,
@@ -1190,7 +1184,7 @@ export var MalformedShortInput: StaticStructureSchema = [
   [_sIB, _sIP, _sIQ, _sIH],
   [1, [1, 1], [1, { [_hQ]: _sIQ }], [1, { [_hH]: _sIH }]],
 ];
-export var MalformedStringInput: StaticStructureSchema = [
+export var MalformedStringInput$: StaticStructureSchema = [
   3,
   n0,
   _MSIa,
@@ -1198,10 +1192,10 @@ export var MalformedStringInput: StaticStructureSchema = [
   [_bl],
   [[() => JsonHeaderString, { [_hH]: _amth }]],
 ];
-export var MalformedTimestampBodyDateTimeInput: StaticStructureSchema = [3, n0, _MTBDTI, 0, [_ti], [5]];
-export var MalformedTimestampBodyDefaultInput: StaticStructureSchema = [3, n0, _MTBDI, 0, [_ti], [4]];
-export var MalformedTimestampBodyHttpDateInput: StaticStructureSchema = [3, n0, _MTBHDI, 0, [_ti], [6]];
-export var MalformedTimestampHeaderDateTimeInput: StaticStructureSchema = [
+export var MalformedTimestampBodyDateTimeInput$: StaticStructureSchema = [3, n0, _MTBDTI, 0, [_ti], [5]];
+export var MalformedTimestampBodyDefaultInput$: StaticStructureSchema = [3, n0, _MTBDI, 0, [_ti], [4]];
+export var MalformedTimestampBodyHttpDateInput$: StaticStructureSchema = [3, n0, _MTBHDI, 0, [_ti], [6]];
+export var MalformedTimestampHeaderDateTimeInput$: StaticStructureSchema = [
   3,
   n0,
   _MTHDTI,
@@ -1209,7 +1203,7 @@ export var MalformedTimestampHeaderDateTimeInput: StaticStructureSchema = [
   [_ti],
   [[5, { [_hH]: _ti }]],
 ];
-export var MalformedTimestampHeaderDefaultInput: StaticStructureSchema = [
+export var MalformedTimestampHeaderDefaultInput$: StaticStructureSchema = [
   3,
   n0,
   _MTHDI,
@@ -1217,11 +1211,18 @@ export var MalformedTimestampHeaderDefaultInput: StaticStructureSchema = [
   [_ti],
   [[4, { [_hH]: _ti }]],
 ];
-export var MalformedTimestampHeaderEpochInput: StaticStructureSchema = [3, n0, _MTHEI, 0, [_ti], [[7, { [_hH]: _ti }]]];
-export var MalformedTimestampPathDefaultInput: StaticStructureSchema = [3, n0, _MTPDI, 0, [_ti], [[4, 1]]];
-export var MalformedTimestampPathEpochInput: StaticStructureSchema = [3, n0, _MTPEI, 0, [_ti], [[7, 1]]];
-export var MalformedTimestampPathHttpDateInput: StaticStructureSchema = [3, n0, _MTPHDI, 0, [_ti], [[6, 1]]];
-export var MalformedTimestampQueryDefaultInput: StaticStructureSchema = [
+export var MalformedTimestampHeaderEpochInput$: StaticStructureSchema = [
+  3,
+  n0,
+  _MTHEI,
+  0,
+  [_ti],
+  [[7, { [_hH]: _ti }]],
+];
+export var MalformedTimestampPathDefaultInput$: StaticStructureSchema = [3, n0, _MTPDI, 0, [_ti], [[4, 1]]];
+export var MalformedTimestampPathEpochInput$: StaticStructureSchema = [3, n0, _MTPEI, 0, [_ti], [[7, 1]]];
+export var MalformedTimestampPathHttpDateInput$: StaticStructureSchema = [3, n0, _MTPHDI, 0, [_ti], [[6, 1]]];
+export var MalformedTimestampQueryDefaultInput$: StaticStructureSchema = [
   3,
   n0,
   _MTQDI,
@@ -1229,8 +1230,8 @@ export var MalformedTimestampQueryDefaultInput: StaticStructureSchema = [
   [_ti],
   [[4, { [_hQ]: _ti }]],
 ];
-export var MalformedTimestampQueryEpochInput: StaticStructureSchema = [3, n0, _MTQEI, 0, [_ti], [[7, { [_hQ]: _ti }]]];
-export var MalformedTimestampQueryHttpDateInput: StaticStructureSchema = [
+export var MalformedTimestampQueryEpochInput$: StaticStructureSchema = [3, n0, _MTQEI, 0, [_ti], [[7, { [_hQ]: _ti }]]];
+export var MalformedTimestampQueryHttpDateInput$: StaticStructureSchema = [
   3,
   n0,
   _MTQHDI,
@@ -1238,12 +1239,12 @@ export var MalformedTimestampQueryHttpDateInput: StaticStructureSchema = [
   [_ti],
   [[6, { [_hQ]: _ti }]],
 ];
-export var MalformedUnionInput: StaticStructureSchema = [3, n0, _MUI, 0, [_u], [() => SimpleUnion]];
-export var MediaTypeHeaderInput: StaticStructureSchema = [3, n0, _MTHI, 0, [_j], [[() => JsonValue, { [_hH]: _XJ }]]];
-export var MediaTypeHeaderOutput: StaticStructureSchema = [3, n0, _MTHO, 0, [_j], [[() => JsonValue, { [_hH]: _XJ }]]];
-export var NestedPayload: StaticStructureSchema = [3, n0, _NP, 0, [_g, _na], [0, 0]];
-export var NoInputAndOutputOutput: StaticStructureSchema = [3, n0, _NIAOO, 0, [], []];
-export var NullAndEmptyHeadersIO: StaticStructureSchema = [
+export var MalformedUnionInput$: StaticStructureSchema = [3, n0, _MUI, 0, [_u], [() => SimpleUnion$]];
+export var MediaTypeHeaderInput$: StaticStructureSchema = [3, n0, _MTHI, 0, [_j], [[() => JsonValue, { [_hH]: _XJ }]]];
+export var MediaTypeHeaderOutput$: StaticStructureSchema = [3, n0, _MTHO, 0, [_j], [[() => JsonValue, { [_hH]: _XJ }]]];
+export var NestedPayload$: StaticStructureSchema = [3, n0, _NP, 0, [_g, _na], [0, 0]];
+export var NoInputAndOutputOutput$: StaticStructureSchema = [3, n0, _NIAOO, 0, [], []];
+export var NullAndEmptyHeadersIO$: StaticStructureSchema = [
   3,
   n0,
   _NAEHIO,
@@ -1255,7 +1256,7 @@ export var NullAndEmptyHeadersIO: StaticStructureSchema = [
     [64 | 0, { [_hH]: _XC }],
   ],
 ];
-export var OmitsNullSerializesEmptyStringInput: StaticStructureSchema = [
+export var OmitsNullSerializesEmptyStringInput$: StaticStructureSchema = [
   3,
   n0,
   _ONSESI,
@@ -1266,7 +1267,7 @@ export var OmitsNullSerializesEmptyStringInput: StaticStructureSchema = [
     [0, { [_hQ]: _Em }],
   ],
 ];
-export var OmitsSerializingEmptyListsInput: StaticStructureSchema = [
+export var OmitsSerializingEmptyListsInput$: StaticStructureSchema = [
   3,
   n0,
   _OSELI,
@@ -1282,15 +1283,15 @@ export var OmitsSerializingEmptyListsInput: StaticStructureSchema = [
     [64 | 1, { [_hQ]: _IEL }],
   ],
 ];
-export var OperationWithDefaultsInput: StaticStructureSchema = [
+export var OperationWithDefaultsInput$: StaticStructureSchema = [
   3,
   n0,
   _OWDI,
   0,
   [_de, _cOD, _tLD, _oTLD],
-  [() => Defaults, () => ClientOptionalDefaults, 0, 1],
+  [() => Defaults$, () => ClientOptionalDefaults$, 0, 1],
 ];
-export var OperationWithDefaultsOutput: StaticStructureSchema = [
+export var OperationWithDefaultsOutput$: StaticStructureSchema = [
   3,
   n0,
   _OWDO,
@@ -1327,17 +1328,17 @@ export var OperationWithDefaultsOutput: StaticStructureSchema = [
   ],
   [0, 2, 64 | 0, 15, 15, 15, 15, 15, 4, 21, 1, 1, 1, 1, 1, 1, 128 | 0, 0, 1, 0, 2, 21, 1, 1, 1, 1, 1, 1],
 ];
-export var OperationWithNestedStructureInput: StaticStructureSchema = [3, n0, _OWNSI, 0, [_tLo], [() => TopLevel]];
-export var OperationWithNestedStructureOutput: StaticStructureSchema = [
+export var OperationWithNestedStructureInput$: StaticStructureSchema = [3, n0, _OWNSI, 0, [_tLo], [() => TopLevel$]];
+export var OperationWithNestedStructureOutput$: StaticStructureSchema = [
   3,
   n0,
   _OWNSO,
   0,
   [_di, _dLi, _dMi],
-  [() => Dialog, () => DialogList, () => DialogMap],
+  [() => Dialog$, () => DialogList, () => DialogMap],
 ];
-export var OutputStreamOutput: StaticStructureSchema = [3, n0, _OSO, 0, [_st], [[() => EventStream, 16]]];
-export var OutputStreamWithInitialResponseOutput: StaticStructureSchema = [
+export var OutputStreamOutput$: StaticStructureSchema = [3, n0, _OSO, 0, [_st], [[() => EventStream$, 16]]];
+export var OutputStreamWithInitialResponseOutput$: StaticStructureSchema = [
   3,
   n0,
   _OSWIRO,
@@ -1345,30 +1346,30 @@ export var OutputStreamWithInitialResponseOutput: StaticStructureSchema = [
   [_iRMn, _st],
   [
     [0, { [_hH]: _irm_ }],
-    [() => EventStream, 16],
+    [() => EventStream$, 16],
   ],
 ];
-export var PayloadConfig: StaticStructureSchema = [3, n0, _PC, 0, [_da], [1]];
-export var PayloadStructure: StaticStructureSchema = [3, n0, _PS, 0, [_sM], [0]];
-export var PostPlayerActionInput: StaticStructureSchema = [3, n0, _PPAI, 0, [_ac], [() => PlayerAction]];
-export var PostPlayerActionOutput: StaticStructureSchema = [3, n0, _PPAO, 0, [_ac], [() => PlayerAction]];
-export var PostUnionWithJsonNameInput: StaticStructureSchema = [
+export var PayloadConfig$: StaticStructureSchema = [3, n0, _PC, 0, [_da], [1]];
+export var PayloadStructure$: StaticStructureSchema = [3, n0, _PS, 0, [_sM], [0]];
+export var PostPlayerActionInput$: StaticStructureSchema = [3, n0, _PPAI, 0, [_ac], [() => PlayerAction$]];
+export var PostPlayerActionOutput$: StaticStructureSchema = [3, n0, _PPAO, 0, [_ac], [() => PlayerAction$]];
+export var PostUnionWithJsonNameInput$: StaticStructureSchema = [
   3,
   n0,
   _PUWJNI,
   0,
   [_v],
-  [[() => UnionWithJsonName, 0]],
+  [[() => UnionWithJsonName$, 0]],
 ];
-export var PostUnionWithJsonNameOutput: StaticStructureSchema = [
+export var PostUnionWithJsonNameOutput$: StaticStructureSchema = [
   3,
   n0,
   _PUWJNO,
   0,
   [_v],
-  [[() => UnionWithJsonName, 0]],
+  [[() => UnionWithJsonName$, 0]],
 ];
-export var PutWithContentEncodingInput: StaticStructureSchema = [
+export var PutWithContentEncodingInput$: StaticStructureSchema = [
   3,
   n0,
   _PWCEI,
@@ -1376,7 +1377,7 @@ export var PutWithContentEncodingInput: StaticStructureSchema = [
   [_en, _da],
   [[0, { [_hH]: _CE_ }], 0],
 ];
-export var QueryIdempotencyTokenAutoFillInput: StaticStructureSchema = [
+export var QueryIdempotencyTokenAutoFillInput$: StaticStructureSchema = [
   3,
   n0,
   _QITAFI,
@@ -1384,7 +1385,7 @@ export var QueryIdempotencyTokenAutoFillInput: StaticStructureSchema = [
   [_to],
   [[0, { [_iT]: 1, [_hQ]: _to }]],
 ];
-export var QueryParamsAsStringListMapInput: StaticStructureSchema = [
+export var QueryParamsAsStringListMapInput$: StaticStructureSchema = [
   3,
   n0,
   _QPASLMI,
@@ -1395,7 +1396,7 @@ export var QueryParamsAsStringListMapInput: StaticStructureSchema = [
     [[2, n1, _SLM, 0, 0, 64 | 0], 64],
   ],
 ];
-export var QueryPrecedenceInput: StaticStructureSchema = [
+export var QueryPrecedenceInput$: StaticStructureSchema = [
   3,
   n0,
   _QPI,
@@ -1406,35 +1407,35 @@ export var QueryPrecedenceInput: StaticStructureSchema = [
     [128 | 0, 64],
   ],
 ];
-export var RecursiveShapesInputOutput: StaticStructureSchema = [
+export var RecursiveShapesInputOutput$: StaticStructureSchema = [
   3,
   n0,
   _RSIO,
   0,
   [_n],
-  [() => RecursiveShapesInputOutputNested1],
+  [() => RecursiveShapesInputOutputNested1$],
 ];
-export var RecursiveShapesInputOutputNested1: StaticStructureSchema = [
+export var RecursiveShapesInputOutputNested1$: StaticStructureSchema = [
   3,
   n0,
   _RSION,
   0,
   [_fo, _n],
-  [0, () => RecursiveShapesInputOutputNested2],
+  [0, () => RecursiveShapesInputOutputNested2$],
 ];
-export var RecursiveShapesInputOutputNested2: StaticStructureSchema = [
+export var RecursiveShapesInputOutputNested2$: StaticStructureSchema = [
   3,
   n0,
   _RSIONe,
   0,
   [_ba, _rM],
-  [0, () => RecursiveShapesInputOutputNested1],
+  [0, () => RecursiveShapesInputOutputNested1$],
 ];
-export var ResponseCodeHttpFallbackInputOutput: StaticStructureSchema = [3, n0, _RCHFIO, 0, [], []];
-export var ResponseCodeRequiredOutput: StaticStructureSchema = [3, n0, _RCRO, 0, [_rC], [[1, 32]]];
-export var ServiceUnavailableError: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _se, [_hE]: 500 }, [_me], [0]];
-TypeRegistry.for(n0).registerError(ServiceUnavailableError, __ServiceUnavailableError);
-export var SimpleScalarPropertiesInputOutput: StaticStructureSchema = [
+export var ResponseCodeHttpFallbackInputOutput$: StaticStructureSchema = [3, n0, _RCHFIO, 0, [], []];
+export var ResponseCodeRequiredOutput$: StaticStructureSchema = [3, n0, _RCRO, 0, [_rC], [[1, 32]]];
+export var ServiceUnavailableError$: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _se, [_hE]: 500 }, [_me], [0]];
+TypeRegistry.for(n0).registerError(ServiceUnavailableError$, ServiceUnavailableError);
+export var SimpleScalarPropertiesInputOutput$: StaticStructureSchema = [
   3,
   n0,
   _SSPIO,
@@ -1442,8 +1443,8 @@ export var SimpleScalarPropertiesInputOutput: StaticStructureSchema = [
   [_fo, _sV, _tBV, _fBV, _bV, _sVh, _iV, _lV, _fV, _dVo],
   [[0, { [_hH]: _XF }], 0, 2, 2, 1, 1, 1, 1, 1, [1, { [_jN]: _DD }]],
 ];
-export var SingletonEvent: StaticStructureSchema = [3, n0, _SE, 0, [_v], [0]];
-export var SparseJsonListsInputOutput: StaticStructureSchema = [
+export var SingletonEvent$: StaticStructureSchema = [3, n0, _SE, 0, [_v], [0]];
+export var SparseJsonListsInputOutput$: StaticStructureSchema = [
   3,
   n0,
   _SJLIO,
@@ -1454,7 +1455,7 @@ export var SparseJsonListsInputOutput: StaticStructureSchema = [
     [() => SparseShortList, 0],
   ],
 ];
-export var SparseJsonMapsInputOutput: StaticStructureSchema = [
+export var SparseJsonMapsInputOutput$: StaticStructureSchema = [
   3,
   n0,
   _SJMIO,
@@ -1468,7 +1469,7 @@ export var SparseJsonMapsInputOutput: StaticStructureSchema = [
     [() => SparseSetMap, 0],
   ],
 ];
-export var StreamingTraitsInputOutput: StaticStructureSchema = [
+export var StreamingTraitsInputOutput$: StaticStructureSchema = [
   3,
   n0,
   _STIO,
@@ -1479,7 +1480,7 @@ export var StreamingTraitsInputOutput: StaticStructureSchema = [
     [() => StreamingBlob, 16],
   ],
 ];
-export var StreamingTraitsRequireLengthInput: StaticStructureSchema = [
+export var StreamingTraitsRequireLengthInput$: StaticStructureSchema = [
   3,
   n0,
   _STRLI,
@@ -1490,7 +1491,7 @@ export var StreamingTraitsRequireLengthInput: StaticStructureSchema = [
     [() => FiniteStreamingBlob, 16],
   ],
 ];
-export var StreamingTraitsWithMediaTypeInputOutput: StaticStructureSchema = [
+export var StreamingTraitsWithMediaTypeInputOutput$: StaticStructureSchema = [
   3,
   n0,
   _STWMTIO,
@@ -1501,9 +1502,9 @@ export var StreamingTraitsWithMediaTypeInputOutput: StaticStructureSchema = [
     [() => StreamingTextPlainBlob, 16],
   ],
 ];
-export var StringPayloadEvent: StaticStructureSchema = [3, n0, _SPE, 0, [_p], [[0, { [_eP]: 1 }]]];
-export var StringPayloadInput: StaticStructureSchema = [3, n0, _SPI, 0, [_p], [[0, 16]]];
-export var StructureListMember: StaticStructureSchema = [
+export var StringPayloadEvent$: StaticStructureSchema = [3, n0, _SPE, 0, [_p], [[0, { [_eP]: 1 }]]];
+export var StringPayloadInput$: StaticStructureSchema = [3, n0, _SPI, 0, [_p], [[0, 16]]];
+export var StructureListMember$: StaticStructureSchema = [
   3,
   n0,
   _SLMt,
@@ -1514,25 +1515,25 @@ export var StructureListMember: StaticStructureSchema = [
     [0, { [_jN]: _o }],
   ],
 ];
-export var StructurePayloadEvent: StaticStructureSchema = [
+export var StructurePayloadEvent$: StaticStructureSchema = [
   3,
   n0,
   _SPEt,
   0,
   [_p],
-  [[() => PayloadStructure, { [_eP]: 1 }]],
+  [[() => PayloadStructure$, { [_eP]: 1 }]],
 ];
-export var TestBodyStructureInputOutput: StaticStructureSchema = [
+export var TestBodyStructureInputOutput$: StaticStructureSchema = [
   3,
   n0,
   _TBSIO,
   0,
   [_tI, _tC],
-  [[0, { [_hH]: _xati }], () => TestConfig],
+  [[0, { [_hH]: _xati }], () => TestConfig$],
 ];
-export var TestConfig: StaticStructureSchema = [3, n0, _TC, 0, [_tim], [1]];
-export var TestNoPayloadInputOutput: StaticStructureSchema = [3, n0, _TNPIO, 0, [_tI], [[0, { [_hH]: _XATI }]]];
-export var TestPayloadBlobInputOutput: StaticStructureSchema = [
+export var TestConfig$: StaticStructureSchema = [3, n0, _TC, 0, [_tim], [1]];
+export var TestNoPayloadInputOutput$: StaticStructureSchema = [3, n0, _TNPIO, 0, [_tI], [[0, { [_hH]: _XATI }]]];
+export var TestPayloadBlobInputOutput$: StaticStructureSchema = [
   3,
   n0,
   _TPBIO,
@@ -1543,7 +1544,7 @@ export var TestPayloadBlobInputOutput: StaticStructureSchema = [
     [21, 16],
   ],
 ];
-export var TestPayloadStructureInputOutput: StaticStructureSchema = [
+export var TestPayloadStructureInputOutput$: StaticStructureSchema = [
   3,
   n0,
   _TPSIO,
@@ -1551,10 +1552,10 @@ export var TestPayloadStructureInputOutput: StaticStructureSchema = [
   [_tI, _pC],
   [
     [0, { [_hH]: _xati }],
-    [() => PayloadConfig, 16],
+    [() => PayloadConfig$, 16],
   ],
 ];
-export var TimestampFormatHeadersIO: StaticStructureSchema = [
+export var TimestampFormatHeadersIO$: StaticStructureSchema = [
   3,
   n0,
   _TFHIO,
@@ -1570,20 +1571,20 @@ export var TimestampFormatHeadersIO: StaticStructureSchema = [
     [5, { [_hH]: _Xt__ }],
   ],
 ];
-export var TopLevel: StaticStructureSchema = [
+export var TopLevel$: StaticStructureSchema = [
   3,
   n0,
   _TLo,
   0,
   [_di, _dLi, _dMi],
-  [() => Dialog, () => DialogList, () => DialogMap],
+  [() => Dialog$, () => DialogList, () => DialogMap],
 ];
-export var UnionInputOutput: StaticStructureSchema = [3, n0, _UIO, 0, [_con], [() => MyUnion]];
-export var UnionPayloadEvent: StaticStructureSchema = [3, n0, _UPE, 0, [_p], [[() => PayloadUnion, { [_eP]: 1 }]]];
-export var GreetingStruct: StaticStructureSchema = [3, n2, _GS, 0, [_sa], [0]];
-export var GreetingStruct_n1: StaticStructureSchema = [3, n1, _GS, 0, [_hi], [0]];
-export var __Unit = "unit" as const;
-export var RestJsonProtocolServiceException: StaticErrorSchema = [
+export var UnionInputOutput$: StaticStructureSchema = [3, n0, _UIO, 0, [_con], [() => MyUnion$]];
+export var UnionPayloadEvent$: StaticStructureSchema = [3, n0, _UPE, 0, [_p], [[() => PayloadUnion$, { [_eP]: 1 }]]];
+export var GreetingStruct$: StaticStructureSchema = [3, n2, _GS, 0, [_sa], [0]];
+export var GreetingStruct_n1$: StaticStructureSchema = [3, n1, _GS, 0, [_hi], [0]];
+var __Unit = "unit" as const;
+export var RestJsonProtocolServiceException$: StaticErrorSchema = [
   -3,
   _sm,
   "RestJsonProtocolServiceException",
@@ -1591,75 +1592,75 @@ export var RestJsonProtocolServiceException: StaticErrorSchema = [
   [],
   [],
 ];
-TypeRegistry.for(_sm).registerError(RestJsonProtocolServiceException, __RestJsonProtocolServiceException);
-export var DialogList: StaticListSchema = [1, n0, _DLi, 0, () => Dialog];
-export var SimpleList = 64 | 0;
-export var StructureList: StaticListSchema = [1, n0, _SLt, 0, [() => StructureListMember, 0]];
-export var TestStringList = 64 | 0;
-export var BooleanList = 64 | 2;
-export var DoubleList = 64 | 1;
-export var FooEnumList = 64 | 0;
-export var FooEnumSet = 64 | 0;
-export var IntegerEnumList = 64 | 1;
-export var IntegerEnumSet = 64 | 1;
-export var IntegerList = 64 | 1;
-export var IntegerSet = 64 | 1;
-export var NestedStringList: StaticListSchema = [1, n1, _NSL, 0, 64 | 0];
-export var SparseShortList: StaticListSchema = [1, n1, _SSL, { [_sp]: 1 }, 1];
-export var SparseStringList: StaticListSchema = [1, n1, _SSLp, { [_sp]: 1 }, 0];
-export var StringList = 64 | 0;
-export var StringSet = 64 | 0;
-export var TimestampList = 64 | 4;
-export var DenseBooleanMap = 128 | 2;
-export var DenseNumberMap = 128 | 1;
-export var DenseSetMap: StaticMapSchema = [2, n0, _DSM, 0, 0, 64 | 0];
-export var DenseStringMap = 128 | 0;
-export var DenseStructMap: StaticMapSchema = [2, n0, _DSMe, 0, 0, () => GreetingStruct_n1];
-export var DialogMap: StaticMapSchema = [2, n0, _DM, 0, 0, () => Dialog];
-export var DocumentValuedMap = 128 | 15;
-export var QueryMap = 128 | 0;
-export var SimpleMap = 128 | 0;
-export var SparseBooleanMap: StaticMapSchema = [2, n0, _SBM, { [_sp]: 1 }, 0, 2];
-export var SparseNumberMap: StaticMapSchema = [2, n0, _SNM, { [_sp]: 1 }, 0, 1];
-export var SparseSetMap: StaticMapSchema = [2, n0, _SSM, { [_sp]: 1 }, 0, 64 | 0];
-export var SparseStructMap: StaticMapSchema = [2, n0, _SSMp, { [_sp]: 1 }, 0, () => GreetingStruct_n1];
-export var TestStringMap = 128 | 0;
-export var FooEnumMap = 128 | 0;
-export var IntegerEnumMap = 128 | 1;
-export var SparseStringMap: StaticMapSchema = [2, n1, _SSMpa, { [_sp]: 1 }, 0, 0];
-export var StringListMap: StaticMapSchema = [2, n1, _SLM, 0, 0, 64 | 0];
-export var StringMap = 128 | 0;
-export var EventStream: StaticStructureSchema = [
+TypeRegistry.for(_sm).registerError(RestJsonProtocolServiceException$, RestJsonProtocolServiceException);
+var DialogList: StaticListSchema = [1, n0, _DLi, 0, () => Dialog$];
+var SimpleList = 64 | 0;
+var StructureList: StaticListSchema = [1, n0, _SLt, 0, [() => StructureListMember$, 0]];
+var TestStringList = 64 | 0;
+var BooleanList = 64 | 2;
+var DoubleList = 64 | 1;
+var FooEnumList = 64 | 0;
+var FooEnumSet = 64 | 0;
+var IntegerEnumList = 64 | 1;
+var IntegerEnumSet = 64 | 1;
+var IntegerList = 64 | 1;
+var IntegerSet = 64 | 1;
+var NestedStringList: StaticListSchema = [1, n1, _NSL, 0, 64 | 0];
+var SparseShortList: StaticListSchema = [1, n1, _SSL, { [_sp]: 1 }, 1];
+var SparseStringList: StaticListSchema = [1, n1, _SSLp, { [_sp]: 1 }, 0];
+var StringList = 64 | 0;
+var StringSet = 64 | 0;
+var TimestampList = 64 | 4;
+var DenseBooleanMap = 128 | 2;
+var DenseNumberMap = 128 | 1;
+var DenseSetMap: StaticMapSchema = [2, n0, _DSM, 0, 0, 64 | 0];
+var DenseStringMap = 128 | 0;
+var DenseStructMap: StaticMapSchema = [2, n0, _DSMe, 0, 0, () => GreetingStruct_n1$];
+var DialogMap: StaticMapSchema = [2, n0, _DM, 0, 0, () => Dialog$];
+var DocumentValuedMap = 128 | 15;
+var QueryMap = 128 | 0;
+var SimpleMap = 128 | 0;
+var SparseBooleanMap: StaticMapSchema = [2, n0, _SBM, { [_sp]: 1 }, 0, 2];
+var SparseNumberMap: StaticMapSchema = [2, n0, _SNM, { [_sp]: 1 }, 0, 1];
+var SparseSetMap: StaticMapSchema = [2, n0, _SSM, { [_sp]: 1 }, 0, 64 | 0];
+var SparseStructMap: StaticMapSchema = [2, n0, _SSMp, { [_sp]: 1 }, 0, () => GreetingStruct_n1$];
+var TestStringMap = 128 | 0;
+var FooEnumMap = 128 | 0;
+var IntegerEnumMap = 128 | 1;
+var SparseStringMap: StaticMapSchema = [2, n1, _SSMpa, { [_sp]: 1 }, 0, 0];
+var StringListMap: StaticMapSchema = [2, n1, _SLM, 0, 0, 64 | 0];
+var StringMap = 128 | 0;
+export var EventStream$: StaticStructureSchema = [
   3,
   n0,
   _ES,
   { [_s]: 1 },
   [_hea, _bP, _sP, _sPt, _uP, _hAEP, _hAIP, _e],
   [
-    [() => HeadersEvent, 0],
-    [() => BlobPayloadEvent, 0],
-    [() => StringPayloadEvent, 0],
-    [() => StructurePayloadEvent, 0],
-    [() => UnionPayloadEvent, 0],
-    [() => HeadersAndExplicitPayloadEvent, 0],
-    [() => HeadersAndImplicitPayloadEvent, 0],
-    [() => ErrorEvent, 0],
+    [() => HeadersEvent$, 0],
+    [() => BlobPayloadEvent$, 0],
+    [() => StringPayloadEvent$, 0],
+    [() => StructurePayloadEvent$, 0],
+    [() => UnionPayloadEvent$, 0],
+    [() => HeadersAndExplicitPayloadEvent$, 0],
+    [() => HeadersAndImplicitPayloadEvent$, 0],
+    [() => ErrorEvent$, 0],
   ],
 ];
-export var MyUnion: StaticStructureSchema = [
+export var MyUnion$: StaticStructureSchema = [
   3,
   n0,
   _MU,
   0,
   [_sV, _bVo, _nVu, _bVl, _tV, _eV, _lVi, _mV, _sVt, _rSV],
-  [0, 2, 1, 21, 4, 0, 64 | 0, 128 | 0, () => GreetingStruct_n1, () => GreetingStruct],
+  [0, 2, 1, 21, 4, 0, 64 | 0, 128 | 0, () => GreetingStruct_n1$, () => GreetingStruct$],
 ];
-export var PayloadUnion: StaticStructureSchema = [3, n0, _PU, 0, [_uM], [0]];
-export var PlayerAction: StaticStructureSchema = [3, n0, _PA, 0, [_qu], [() => __Unit]];
-export var SimpleUnion: StaticStructureSchema = [3, n0, _SU, 0, [_int, _str], [1, 0]];
-export var SingletonEventStream: StaticStructureSchema = [3, n0, _SES, 0, [_si], [() => SingletonEvent]];
-export var UnionPayload: StaticStructureSchema = [3, n0, _UP, 0, [_g], [0]];
-export var UnionWithJsonName: StaticStructureSchema = [
+export var PayloadUnion$: StaticStructureSchema = [3, n0, _PU, 0, [_uM], [0]];
+export var PlayerAction$: StaticStructureSchema = [3, n0, _PA, 0, [_qu], [() => __Unit]];
+export var SimpleUnion$: StaticStructureSchema = [3, n0, _SU, 0, [_int, _str], [1, 0]];
+export var SingletonEventStream$: StaticStructureSchema = [3, n0, _SES, 0, [_si], [() => SingletonEvent$]];
+export var UnionPayload$: StaticStructureSchema = [3, n0, _UP, 0, [_g], [0]];
+export var UnionWithJsonName$: StaticStructureSchema = [
   3,
   n0,
   _UWJN,
@@ -1667,103 +1668,103 @@ export var UnionWithJsonName: StaticStructureSchema = [
   [_fo, _ba, _b],
   [[0, { [_jN]: _FOO }], 0, [0, { [_jN]: _baz }]],
 ];
-export var AllQueryStringTypes: StaticOperationSchema = [
+export var AllQueryStringTypes$: StaticOperationSchema = [
   9,
   n0,
   _AQST,
   { [_ht]: ["GET", "/AllQueryStringTypesInput", 200] },
-  () => AllQueryStringTypesInput,
+  () => AllQueryStringTypesInput$,
   () => __Unit,
 ];
-export var ConstantAndVariableQueryString: StaticOperationSchema = [
+export var ConstantAndVariableQueryString$: StaticOperationSchema = [
   9,
   n0,
   _CAVQS,
   { [_ht]: ["GET", "/ConstantAndVariableQueryString?foo=bar", 200] },
-  () => ConstantAndVariableQueryStringInput,
+  () => ConstantAndVariableQueryStringInput$,
   () => __Unit,
 ];
-export var ConstantQueryString: StaticOperationSchema = [
+export var ConstantQueryString$: StaticOperationSchema = [
   9,
   n0,
   _CQS,
   { [_ht]: ["GET", "/ConstantQueryString/{hello}?foo=bar&hello", 200] },
-  () => ConstantQueryStringInput,
+  () => ConstantQueryStringInput$,
   () => __Unit,
 ];
-export var ContentTypeParameters: StaticOperationSchema = [
+export var ContentTypeParameters$: StaticOperationSchema = [
   9,
   n0,
   _CTP,
   { [_ht]: ["POST", "/ContentTypeParameters", 200] },
-  () => ContentTypeParametersInput,
-  () => ContentTypeParametersOutput,
+  () => ContentTypeParametersInput$,
+  () => ContentTypeParametersOutput$,
 ];
-export var DatetimeOffsets: StaticOperationSchema = [
+export var DatetimeOffsets$: StaticOperationSchema = [
   9,
   n0,
   _DO,
   { [_ht]: ["POST", "/DatetimeOffsets", 200] },
   () => __Unit,
-  () => DatetimeOffsetsOutput,
+  () => DatetimeOffsetsOutput$,
 ];
-export var DocumentType: StaticOperationSchema = [
+export var DocumentType$: StaticOperationSchema = [
   9,
   n0,
   _DT,
   { [_ht]: ["PUT", "/DocumentType", 200] },
-  () => DocumentTypeInputOutput,
-  () => DocumentTypeInputOutput,
+  () => DocumentTypeInputOutput$,
+  () => DocumentTypeInputOutput$,
 ];
-export var DocumentTypeAsMapValue: StaticOperationSchema = [
+export var DocumentTypeAsMapValue$: StaticOperationSchema = [
   9,
   n0,
   _DTAMV,
   { [_ht]: ["PUT", "/DocumentTypeAsMapValue", 200] },
-  () => DocumentTypeAsMapValueInputOutput,
-  () => DocumentTypeAsMapValueInputOutput,
+  () => DocumentTypeAsMapValueInputOutput$,
+  () => DocumentTypeAsMapValueInputOutput$,
 ];
-export var DocumentTypeAsPayload: StaticOperationSchema = [
+export var DocumentTypeAsPayload$: StaticOperationSchema = [
   9,
   n0,
   _DTAP,
   { [_ht]: ["PUT", "/DocumentTypeAsPayload", 200] },
-  () => DocumentTypeAsPayloadInputOutput,
-  () => DocumentTypeAsPayloadInputOutput,
+  () => DocumentTypeAsPayloadInputOutput$,
+  () => DocumentTypeAsPayloadInputOutput$,
 ];
-export var DuplexStream: StaticOperationSchema = [
+export var DuplexStream$: StaticOperationSchema = [
   9,
   n0,
   _DS,
   { [_ht]: ["POST", "/DuplexStream", 200] },
-  () => DuplexStreamInput,
-  () => DuplexStreamOutput,
+  () => DuplexStreamInput$,
+  () => DuplexStreamOutput$,
 ];
-export var DuplexStreamWithDistinctStreams: StaticOperationSchema = [
+export var DuplexStreamWithDistinctStreams$: StaticOperationSchema = [
   9,
   n0,
   _DSWDS,
   { [_ht]: ["POST", "/DuplexStreamWithDistinctStreams", 200] },
-  () => DuplexStreamWithDistinctStreamsInput,
-  () => DuplexStreamWithDistinctStreamsOutput,
+  () => DuplexStreamWithDistinctStreamsInput$,
+  () => DuplexStreamWithDistinctStreamsOutput$,
 ];
-export var DuplexStreamWithInitialMessages: StaticOperationSchema = [
+export var DuplexStreamWithInitialMessages$: StaticOperationSchema = [
   9,
   n0,
   _DSWIM,
   { [_ht]: ["POST", "/DuplexStreamWithInitialMessages", 200] },
-  () => DuplexStreamWithInitialMessagesInput,
-  () => DuplexStreamWithInitialMessagesOutput,
+  () => DuplexStreamWithInitialMessagesInput$,
+  () => DuplexStreamWithInitialMessagesOutput$,
 ];
-export var EmptyInputAndEmptyOutput: StaticOperationSchema = [
+export var EmptyInputAndEmptyOutput$: StaticOperationSchema = [
   9,
   n0,
   _EIAEO,
   { [_ht]: ["POST", "/EmptyInputAndEmptyOutput", 200] },
-  () => EmptyInputAndEmptyOutputInput,
-  () => EmptyInputAndEmptyOutputOutput,
+  () => EmptyInputAndEmptyOutputInput$,
+  () => EmptyInputAndEmptyOutputOutput$,
 ];
-export var EndpointOperation: StaticOperationSchema = [
+export var EndpointOperation$: StaticOperationSchema = [
   9,
   n0,
   _EO,
@@ -1771,31 +1772,31 @@ export var EndpointOperation: StaticOperationSchema = [
   () => __Unit,
   () => __Unit,
 ];
-export var EndpointWithHostLabelOperation: StaticOperationSchema = [
+export var EndpointWithHostLabelOperation$: StaticOperationSchema = [
   9,
   n0,
   _EWHLO,
   { [_ht]: ["POST", "/EndpointWithHostLabelOperation", 200], [_end]: ["foo.{label}."] },
-  () => HostLabelInput,
+  () => HostLabelInput$,
   () => __Unit,
 ];
-export var FractionalSeconds: StaticOperationSchema = [
+export var FractionalSeconds$: StaticOperationSchema = [
   9,
   n0,
   _FS,
   { [_ht]: ["POST", "/FractionalSeconds", 200] },
   () => __Unit,
-  () => FractionalSecondsOutput,
+  () => FractionalSecondsOutput$,
 ];
-export var GreetingWithErrors: StaticOperationSchema = [
+export var GreetingWithErrors$: StaticOperationSchema = [
   9,
   n0,
   _GWE,
   { [_ht]: ["PUT", "/GreetingWithErrors", 200] },
   () => __Unit,
-  () => GreetingWithErrorsOutput,
+  () => GreetingWithErrorsOutput$,
 ];
-export var HostWithPathOperation: StaticOperationSchema = [
+export var HostWithPathOperation$: StaticOperationSchema = [
   9,
   n0,
   _HWPO,
@@ -1803,103 +1804,103 @@ export var HostWithPathOperation: StaticOperationSchema = [
   () => __Unit,
   () => __Unit,
 ];
-export var HttpChecksumRequired: StaticOperationSchema = [
+export var HttpChecksumRequired$: StaticOperationSchema = [
   9,
   n0,
   _HCR,
   { [_ht]: ["POST", "/HttpChecksumRequired", 200], [_hCR]: 1 },
-  () => HttpChecksumRequiredInputOutput,
-  () => HttpChecksumRequiredInputOutput,
+  () => HttpChecksumRequiredInputOutput$,
+  () => HttpChecksumRequiredInputOutput$,
 ];
-export var HttpEmptyPrefixHeaders: StaticOperationSchema = [
+export var HttpEmptyPrefixHeaders$: StaticOperationSchema = [
   9,
   n0,
   _HEPH,
   { [_ht]: ["GET", "/HttpEmptyPrefixHeaders", 200] },
-  () => HttpEmptyPrefixHeadersInput,
-  () => HttpEmptyPrefixHeadersOutput,
+  () => HttpEmptyPrefixHeadersInput$,
+  () => HttpEmptyPrefixHeadersOutput$,
 ];
-export var HttpEnumPayload: StaticOperationSchema = [
+export var HttpEnumPayload$: StaticOperationSchema = [
   9,
   n0,
   _HEP,
   { [_ht]: ["POST", "/EnumPayload", 200] },
-  () => EnumPayloadInput,
-  () => EnumPayloadInput,
+  () => EnumPayloadInput$,
+  () => EnumPayloadInput$,
 ];
-export var HttpPayloadTraits: StaticOperationSchema = [
+export var HttpPayloadTraits$: StaticOperationSchema = [
   9,
   n0,
   _HPT,
   { [_ht]: ["POST", "/HttpPayloadTraits", 200] },
-  () => HttpPayloadTraitsInputOutput,
-  () => HttpPayloadTraitsInputOutput,
+  () => HttpPayloadTraitsInputOutput$,
+  () => HttpPayloadTraitsInputOutput$,
 ];
-export var HttpPayloadTraitsWithMediaType: StaticOperationSchema = [
+export var HttpPayloadTraitsWithMediaType$: StaticOperationSchema = [
   9,
   n0,
   _HPTWMT,
   { [_ht]: ["POST", "/HttpPayloadTraitsWithMediaType", 200] },
-  () => HttpPayloadTraitsWithMediaTypeInputOutput,
-  () => HttpPayloadTraitsWithMediaTypeInputOutput,
+  () => HttpPayloadTraitsWithMediaTypeInputOutput$,
+  () => HttpPayloadTraitsWithMediaTypeInputOutput$,
 ];
-export var HttpPayloadWithStructure: StaticOperationSchema = [
+export var HttpPayloadWithStructure$: StaticOperationSchema = [
   9,
   n0,
   _HPWS,
   { [_ht]: ["PUT", "/HttpPayloadWithStructure", 200] },
-  () => HttpPayloadWithStructureInputOutput,
-  () => HttpPayloadWithStructureInputOutput,
+  () => HttpPayloadWithStructureInputOutput$,
+  () => HttpPayloadWithStructureInputOutput$,
 ];
-export var HttpPayloadWithUnion: StaticOperationSchema = [
+export var HttpPayloadWithUnion$: StaticOperationSchema = [
   9,
   n0,
   _HPWU,
   { [_ht]: ["PUT", "/HttpPayloadWithUnion", 200] },
-  () => HttpPayloadWithUnionInputOutput,
-  () => HttpPayloadWithUnionInputOutput,
+  () => HttpPayloadWithUnionInputOutput$,
+  () => HttpPayloadWithUnionInputOutput$,
 ];
-export var HttpPrefixHeaders: StaticOperationSchema = [
+export var HttpPrefixHeaders$: StaticOperationSchema = [
   9,
   n0,
   _HPH,
   { [_ht]: ["GET", "/HttpPrefixHeaders", 200] },
-  () => HttpPrefixHeadersInput,
-  () => HttpPrefixHeadersOutput,
+  () => HttpPrefixHeadersInput$,
+  () => HttpPrefixHeadersOutput$,
 ];
-export var HttpPrefixHeadersInResponse: StaticOperationSchema = [
+export var HttpPrefixHeadersInResponse$: StaticOperationSchema = [
   9,
   n0,
   _HPHIR,
   { [_ht]: ["GET", "/HttpPrefixHeadersResponse", 200] },
-  () => HttpPrefixHeadersInResponseInput,
-  () => HttpPrefixHeadersInResponseOutput,
+  () => HttpPrefixHeadersInResponseInput$,
+  () => HttpPrefixHeadersInResponseOutput$,
 ];
-export var HttpQueryParamsOnlyOperation: StaticOperationSchema = [
+export var HttpQueryParamsOnlyOperation$: StaticOperationSchema = [
   9,
   n0,
   _HQPOO,
   { [_ht]: ["GET", "/http-query-params-only", 200] },
-  () => HttpQueryParamsOnlyInput,
+  () => HttpQueryParamsOnlyInput$,
   () => __Unit,
 ];
-export var HttpRequestWithFloatLabels: StaticOperationSchema = [
+export var HttpRequestWithFloatLabels$: StaticOperationSchema = [
   9,
   n0,
   _HRWFL,
   { [_ht]: ["GET", "/FloatHttpLabels/{float}/{double}", 200] },
-  () => HttpRequestWithFloatLabelsInput,
+  () => HttpRequestWithFloatLabelsInput$,
   () => __Unit,
 ];
-export var HttpRequestWithGreedyLabelInPath: StaticOperationSchema = [
+export var HttpRequestWithGreedyLabelInPath$: StaticOperationSchema = [
   9,
   n0,
   _HRWGLIP,
   { [_ht]: ["GET", "/HttpRequestWithGreedyLabelInPath/foo/{foo}/baz/{baz+}", 200] },
-  () => HttpRequestWithGreedyLabelInPathInput,
+  () => HttpRequestWithGreedyLabelInPathInput$,
   () => __Unit,
 ];
-export var HttpRequestWithLabels: StaticOperationSchema = [
+export var HttpRequestWithLabels$: StaticOperationSchema = [
   9,
   n0,
   _HRWL,
@@ -1910,10 +1911,10 @@ export var HttpRequestWithLabels: StaticOperationSchema = [
       200,
     ],
   },
-  () => HttpRequestWithLabelsInput,
+  () => HttpRequestWithLabelsInput$,
   () => __Unit,
 ];
-export var HttpRequestWithLabelsAndTimestampFormat: StaticOperationSchema = [
+export var HttpRequestWithLabelsAndTimestampFormat$: StaticOperationSchema = [
   9,
   n0,
   _HRWLATF,
@@ -1924,186 +1925,186 @@ export var HttpRequestWithLabelsAndTimestampFormat: StaticOperationSchema = [
       200,
     ],
   },
-  () => HttpRequestWithLabelsAndTimestampFormatInput,
+  () => HttpRequestWithLabelsAndTimestampFormatInput$,
   () => __Unit,
 ];
-export var HttpRequestWithRegexLiteral: StaticOperationSchema = [
+export var HttpRequestWithRegexLiteral$: StaticOperationSchema = [
   9,
   n0,
   _HRWRL,
   { [_ht]: ["GET", "/ReDosLiteral/{str}/(a+)+", 200] },
-  () => HttpRequestWithRegexLiteralInput,
+  () => HttpRequestWithRegexLiteralInput$,
   () => __Unit,
 ];
-export var HttpResponseCode: StaticOperationSchema = [
+export var HttpResponseCode$: StaticOperationSchema = [
   9,
   n0,
   _HRC,
   { [_ht]: ["PUT", "/HttpResponseCode", 200] },
   () => __Unit,
-  () => HttpResponseCodeOutput,
+  () => HttpResponseCodeOutput$,
 ];
-export var HttpStringPayload: StaticOperationSchema = [
+export var HttpStringPayload$: StaticOperationSchema = [
   9,
   n0,
   _HSP,
   { [_ht]: ["POST", "/StringPayload", 200] },
-  () => StringPayloadInput,
-  () => StringPayloadInput,
+  () => StringPayloadInput$,
+  () => StringPayloadInput$,
 ];
-export var IgnoreQueryParamsInResponse: StaticOperationSchema = [
+export var IgnoreQueryParamsInResponse$: StaticOperationSchema = [
   9,
   n0,
   _IQPIR,
   { [_ht]: ["GET", "/IgnoreQueryParamsInResponse", 200] },
   () => __Unit,
-  () => IgnoreQueryParamsInResponseOutput,
+  () => IgnoreQueryParamsInResponseOutput$,
 ];
-export var InputAndOutputWithHeaders: StaticOperationSchema = [
+export var InputAndOutputWithHeaders$: StaticOperationSchema = [
   9,
   n0,
   _IAOWH,
   { [_ht]: ["POST", "/InputAndOutputWithHeaders", 200] },
-  () => InputAndOutputWithHeadersIO,
-  () => InputAndOutputWithHeadersIO,
+  () => InputAndOutputWithHeadersIO$,
+  () => InputAndOutputWithHeadersIO$,
 ];
-export var InputStream: StaticOperationSchema = [
+export var InputStream$: StaticOperationSchema = [
   9,
   n0,
   _ISn,
   { [_ht]: ["POST", "/InputStream", 200] },
-  () => InputStreamInput,
+  () => InputStreamInput$,
   () => __Unit,
 ];
-export var InputStreamWithInitialRequest: StaticOperationSchema = [
+export var InputStreamWithInitialRequest$: StaticOperationSchema = [
   9,
   n0,
   _ISWIR,
   { [_ht]: ["POST", "/InputStreamWithInitialRequest", 200] },
-  () => InputStreamWithInitialRequestInput,
+  () => InputStreamWithInitialRequestInput$,
   () => __Unit,
 ];
-export var JsonBlobs: StaticOperationSchema = [
+export var JsonBlobs$: StaticOperationSchema = [
   9,
   n0,
   _JBs,
   { [_ht]: ["POST", "/JsonBlobs", 200] },
-  () => JsonBlobsInputOutput,
-  () => JsonBlobsInputOutput,
+  () => JsonBlobsInputOutput$,
+  () => JsonBlobsInputOutput$,
 ];
-export var JsonEnums: StaticOperationSchema = [
+export var JsonEnums$: StaticOperationSchema = [
   9,
   n0,
   _JE,
   { [_ht]: ["PUT", "/JsonEnums", 200] },
-  () => JsonEnumsInputOutput,
-  () => JsonEnumsInputOutput,
+  () => JsonEnumsInputOutput$,
+  () => JsonEnumsInputOutput$,
 ];
-export var JsonIntEnums: StaticOperationSchema = [
+export var JsonIntEnums$: StaticOperationSchema = [
   9,
   n0,
   _JIE,
   { [_ht]: ["PUT", "/JsonIntEnums", 200] },
-  () => JsonIntEnumsInputOutput,
-  () => JsonIntEnumsInputOutput,
+  () => JsonIntEnumsInputOutput$,
+  () => JsonIntEnumsInputOutput$,
 ];
-export var JsonLists: StaticOperationSchema = [
+export var JsonLists$: StaticOperationSchema = [
   9,
   n0,
   _JL,
   { [_ht]: ["PUT", "/JsonLists", 200] },
-  () => JsonListsInputOutput,
-  () => JsonListsInputOutput,
+  () => JsonListsInputOutput$,
+  () => JsonListsInputOutput$,
 ];
-export var JsonMaps: StaticOperationSchema = [
+export var JsonMaps$: StaticOperationSchema = [
   9,
   n0,
   _JM,
   { [_ht]: ["POST", "/JsonMaps", 200] },
-  () => JsonMapsInputOutput,
-  () => JsonMapsInputOutput,
+  () => JsonMapsInputOutput$,
+  () => JsonMapsInputOutput$,
 ];
-export var JsonTimestamps: StaticOperationSchema = [
+export var JsonTimestamps$: StaticOperationSchema = [
   9,
   n0,
   _JT,
   { [_ht]: ["POST", "/JsonTimestamps", 200] },
-  () => JsonTimestampsInputOutput,
-  () => JsonTimestampsInputOutput,
+  () => JsonTimestampsInputOutput$,
+  () => JsonTimestampsInputOutput$,
 ];
-export var JsonUnions: StaticOperationSchema = [
+export var JsonUnions$: StaticOperationSchema = [
   9,
   n0,
   _JU,
   { [_ht]: ["PUT", "/JsonUnions", 200] },
-  () => UnionInputOutput,
-  () => UnionInputOutput,
+  () => UnionInputOutput$,
+  () => UnionInputOutput$,
 ];
-export var MalformedAcceptWithBody: StaticOperationSchema = [
+export var MalformedAcceptWithBody$: StaticOperationSchema = [
   9,
   n0,
   _MAWB,
   { [_ht]: ["POST", "/MalformedAcceptWithBody", 200] },
   () => __Unit,
-  () => GreetingStruct_n1,
+  () => GreetingStruct_n1$,
 ];
-export var MalformedAcceptWithGenericString: StaticOperationSchema = [
+export var MalformedAcceptWithGenericString$: StaticOperationSchema = [
   9,
   n0,
   _MAWGS,
   { [_ht]: ["POST", "/MalformedAcceptWithGenericString", 200] },
   () => __Unit,
-  () => MalformedAcceptWithGenericStringOutput,
+  () => MalformedAcceptWithGenericStringOutput$,
 ];
-export var MalformedAcceptWithPayload: StaticOperationSchema = [
+export var MalformedAcceptWithPayload$: StaticOperationSchema = [
   9,
   n0,
   _MAWP,
   { [_ht]: ["POST", "/MalformedAcceptWithPayload", 200] },
   () => __Unit,
-  () => MalformedAcceptWithPayloadOutput,
+  () => MalformedAcceptWithPayloadOutput$,
 ];
-export var MalformedBlob: StaticOperationSchema = [
+export var MalformedBlob$: StaticOperationSchema = [
   9,
   n0,
   _MB,
   { [_ht]: ["POST", "/MalformedBlob", 200] },
-  () => MalformedBlobInput,
+  () => MalformedBlobInput$,
   () => __Unit,
 ];
-export var MalformedBoolean: StaticOperationSchema = [
+export var MalformedBoolean$: StaticOperationSchema = [
   9,
   n0,
   _MBa,
   { [_ht]: ["POST", "/MalformedBoolean/{booleanInPath}", 200] },
-  () => MalformedBooleanInput,
+  () => MalformedBooleanInput$,
   () => __Unit,
 ];
-export var MalformedByte: StaticOperationSchema = [
+export var MalformedByte$: StaticOperationSchema = [
   9,
   n0,
   _MBal,
   { [_ht]: ["POST", "/MalformedByte/{byteInPath}", 200] },
-  () => MalformedByteInput,
+  () => MalformedByteInput$,
   () => __Unit,
 ];
-export var MalformedContentTypeWithBody: StaticOperationSchema = [
+export var MalformedContentTypeWithBody$: StaticOperationSchema = [
   9,
   n0,
   _MCTWB,
   { [_ht]: ["POST", "/MalformedContentTypeWithBody", 200] },
-  () => GreetingStruct_n1,
+  () => GreetingStruct_n1$,
   () => __Unit,
 ];
-export var MalformedContentTypeWithGenericString: StaticOperationSchema = [
+export var MalformedContentTypeWithGenericString$: StaticOperationSchema = [
   9,
   n0,
   _MCTWGS,
   { [_ht]: ["POST", "/MalformedContentTypeWithGenericString", 200] },
-  () => MalformedContentTypeWithGenericStringInput,
+  () => MalformedContentTypeWithGenericStringInput$,
   () => __Unit,
 ];
-export var MalformedContentTypeWithoutBody: StaticOperationSchema = [
+export var MalformedContentTypeWithoutBody$: StaticOperationSchema = [
   9,
   n0,
   _MCTWBa,
@@ -2111,207 +2112,207 @@ export var MalformedContentTypeWithoutBody: StaticOperationSchema = [
   () => __Unit,
   () => __Unit,
 ];
-export var MalformedContentTypeWithoutBodyEmptyInput: StaticOperationSchema = [
+export var MalformedContentTypeWithoutBodyEmptyInput$: StaticOperationSchema = [
   9,
   n0,
   _MCTWBEI,
   { [_ht]: ["POST", "/MalformedContentTypeWithoutBodyEmptyInput", 200] },
-  () => MalformedContentTypeWithoutBodyEmptyInputInput,
+  () => MalformedContentTypeWithoutBodyEmptyInputInput$,
   () => __Unit,
 ];
-export var MalformedContentTypeWithPayload: StaticOperationSchema = [
+export var MalformedContentTypeWithPayload$: StaticOperationSchema = [
   9,
   n0,
   _MCTWP,
   { [_ht]: ["POST", "/MalformedContentTypeWithPayload", 200] },
-  () => MalformedContentTypeWithPayloadInput,
+  () => MalformedContentTypeWithPayloadInput$,
   () => __Unit,
 ];
-export var MalformedDouble: StaticOperationSchema = [
+export var MalformedDouble$: StaticOperationSchema = [
   9,
   n0,
   _MD,
   { [_ht]: ["POST", "/MalformedDouble/{doubleInPath}", 200] },
-  () => MalformedDoubleInput,
+  () => MalformedDoubleInput$,
   () => __Unit,
 ];
-export var MalformedFloat: StaticOperationSchema = [
+export var MalformedFloat$: StaticOperationSchema = [
   9,
   n0,
   _MF,
   { [_ht]: ["POST", "/MalformedFloat/{floatInPath}", 200] },
-  () => MalformedFloatInput,
+  () => MalformedFloatInput$,
   () => __Unit,
 ];
-export var MalformedInteger: StaticOperationSchema = [
+export var MalformedInteger$: StaticOperationSchema = [
   9,
   n0,
   _MI,
   { [_ht]: ["POST", "/MalformedInteger/{integerInPath}", 200] },
-  () => MalformedIntegerInput,
+  () => MalformedIntegerInput$,
   () => __Unit,
 ];
-export var MalformedList: StaticOperationSchema = [
+export var MalformedList$: StaticOperationSchema = [
   9,
   n0,
   _ML,
   { [_ht]: ["POST", "/MalformedList", 200] },
-  () => MalformedListInput,
+  () => MalformedListInput$,
   () => __Unit,
 ];
-export var MalformedLong: StaticOperationSchema = [
+export var MalformedLong$: StaticOperationSchema = [
   9,
   n0,
   _MLa,
   { [_ht]: ["POST", "/MalformedLong/{longInPath}", 200] },
-  () => MalformedLongInput,
+  () => MalformedLongInput$,
   () => __Unit,
 ];
-export var MalformedMap: StaticOperationSchema = [
+export var MalformedMap$: StaticOperationSchema = [
   9,
   n0,
   _MM,
   { [_ht]: ["POST", "/MalformedMap", 200] },
-  () => MalformedMapInput,
+  () => MalformedMapInput$,
   () => __Unit,
 ];
-export var MalformedRequestBody: StaticOperationSchema = [
+export var MalformedRequestBody$: StaticOperationSchema = [
   9,
   n0,
   _MRB,
   { [_ht]: ["POST", "/MalformedRequestBody", 200] },
-  () => MalformedRequestBodyInput,
+  () => MalformedRequestBodyInput$,
   () => __Unit,
 ];
-export var MalformedShort: StaticOperationSchema = [
+export var MalformedShort$: StaticOperationSchema = [
   9,
   n0,
   _MS,
   { [_ht]: ["POST", "/MalformedShort/{shortInPath}", 200] },
-  () => MalformedShortInput,
+  () => MalformedShortInput$,
   () => __Unit,
 ];
-export var MalformedString: StaticOperationSchema = [
+export var MalformedString$: StaticOperationSchema = [
   9,
   n0,
   _MSa,
   { [_ht]: ["POST", "/MalformedString", 200] },
-  () => MalformedStringInput,
+  () => MalformedStringInput$,
   () => __Unit,
 ];
-export var MalformedTimestampBodyDateTime: StaticOperationSchema = [
+export var MalformedTimestampBodyDateTime$: StaticOperationSchema = [
   9,
   n0,
   _MTBDT,
   { [_ht]: ["POST", "/MalformedTimestampBodyDateTime", 200] },
-  () => MalformedTimestampBodyDateTimeInput,
+  () => MalformedTimestampBodyDateTimeInput$,
   () => __Unit,
 ];
-export var MalformedTimestampBodyDefault: StaticOperationSchema = [
+export var MalformedTimestampBodyDefault$: StaticOperationSchema = [
   9,
   n0,
   _MTBD,
   { [_ht]: ["POST", "/MalformedTimestampBodyDefault", 200] },
-  () => MalformedTimestampBodyDefaultInput,
+  () => MalformedTimestampBodyDefaultInput$,
   () => __Unit,
 ];
-export var MalformedTimestampBodyHttpDate: StaticOperationSchema = [
+export var MalformedTimestampBodyHttpDate$: StaticOperationSchema = [
   9,
   n0,
   _MTBHD,
   { [_ht]: ["POST", "/MalformedTimestampBodyHttpDate", 200] },
-  () => MalformedTimestampBodyHttpDateInput,
+  () => MalformedTimestampBodyHttpDateInput$,
   () => __Unit,
 ];
-export var MalformedTimestampHeaderDateTime: StaticOperationSchema = [
+export var MalformedTimestampHeaderDateTime$: StaticOperationSchema = [
   9,
   n0,
   _MTHDT,
   { [_ht]: ["POST", "/MalformedTimestampHeaderDateTime", 200] },
-  () => MalformedTimestampHeaderDateTimeInput,
+  () => MalformedTimestampHeaderDateTimeInput$,
   () => __Unit,
 ];
-export var MalformedTimestampHeaderDefault: StaticOperationSchema = [
+export var MalformedTimestampHeaderDefault$: StaticOperationSchema = [
   9,
   n0,
   _MTHD,
   { [_ht]: ["POST", "/MalformedTimestampHeaderDefault", 200] },
-  () => MalformedTimestampHeaderDefaultInput,
+  () => MalformedTimestampHeaderDefaultInput$,
   () => __Unit,
 ];
-export var MalformedTimestampHeaderEpoch: StaticOperationSchema = [
+export var MalformedTimestampHeaderEpoch$: StaticOperationSchema = [
   9,
   n0,
   _MTHE,
   { [_ht]: ["POST", "/MalformedTimestampHeaderEpoch", 200] },
-  () => MalformedTimestampHeaderEpochInput,
+  () => MalformedTimestampHeaderEpochInput$,
   () => __Unit,
 ];
-export var MalformedTimestampPathDefault: StaticOperationSchema = [
+export var MalformedTimestampPathDefault$: StaticOperationSchema = [
   9,
   n0,
   _MTPD,
   { [_ht]: ["POST", "/MalformedTimestampPathDefault/{timestamp}", 200] },
-  () => MalformedTimestampPathDefaultInput,
+  () => MalformedTimestampPathDefaultInput$,
   () => __Unit,
 ];
-export var MalformedTimestampPathEpoch: StaticOperationSchema = [
+export var MalformedTimestampPathEpoch$: StaticOperationSchema = [
   9,
   n0,
   _MTPE,
   { [_ht]: ["POST", "/MalformedTimestampPathEpoch/{timestamp}", 200] },
-  () => MalformedTimestampPathEpochInput,
+  () => MalformedTimestampPathEpochInput$,
   () => __Unit,
 ];
-export var MalformedTimestampPathHttpDate: StaticOperationSchema = [
+export var MalformedTimestampPathHttpDate$: StaticOperationSchema = [
   9,
   n0,
   _MTPHD,
   { [_ht]: ["POST", "/MalformedTimestampPathHttpDate/{timestamp}", 200] },
-  () => MalformedTimestampPathHttpDateInput,
+  () => MalformedTimestampPathHttpDateInput$,
   () => __Unit,
 ];
-export var MalformedTimestampQueryDefault: StaticOperationSchema = [
+export var MalformedTimestampQueryDefault$: StaticOperationSchema = [
   9,
   n0,
   _MTQD,
   { [_ht]: ["POST", "/MalformedTimestampQueryDefault", 200] },
-  () => MalformedTimestampQueryDefaultInput,
+  () => MalformedTimestampQueryDefaultInput$,
   () => __Unit,
 ];
-export var MalformedTimestampQueryEpoch: StaticOperationSchema = [
+export var MalformedTimestampQueryEpoch$: StaticOperationSchema = [
   9,
   n0,
   _MTQE,
   { [_ht]: ["POST", "/MalformedTimestampQueryEpoch", 200] },
-  () => MalformedTimestampQueryEpochInput,
+  () => MalformedTimestampQueryEpochInput$,
   () => __Unit,
 ];
-export var MalformedTimestampQueryHttpDate: StaticOperationSchema = [
+export var MalformedTimestampQueryHttpDate$: StaticOperationSchema = [
   9,
   n0,
   _MTQHD,
   { [_ht]: ["POST", "/MalformedTimestampQueryHttpDate", 200] },
-  () => MalformedTimestampQueryHttpDateInput,
+  () => MalformedTimestampQueryHttpDateInput$,
   () => __Unit,
 ];
-export var MalformedUnion: StaticOperationSchema = [
+export var MalformedUnion$: StaticOperationSchema = [
   9,
   n0,
   _MUa,
   { [_ht]: ["POST", "/MalformedUnion", 200] },
-  () => MalformedUnionInput,
+  () => MalformedUnionInput$,
   () => __Unit,
 ];
-export var MediaTypeHeader: StaticOperationSchema = [
+export var MediaTypeHeader$: StaticOperationSchema = [
   9,
   n0,
   _MTH,
   { [_ht]: ["GET", "/MediaTypeHeader", 200] },
-  () => MediaTypeHeaderInput,
-  () => MediaTypeHeaderOutput,
+  () => MediaTypeHeaderInput$,
+  () => MediaTypeHeaderOutput$,
 ];
-export var NoInputAndNoOutput: StaticOperationSchema = [
+export var NoInputAndNoOutput$: StaticOperationSchema = [
   9,
   n0,
   _NIANO,
@@ -2319,263 +2320,263 @@ export var NoInputAndNoOutput: StaticOperationSchema = [
   () => __Unit,
   () => __Unit,
 ];
-export var NoInputAndOutput: StaticOperationSchema = [
+export var NoInputAndOutput$: StaticOperationSchema = [
   9,
   n0,
   _NIAO,
   { [_ht]: ["POST", "/NoInputAndOutputOutput", 200] },
   () => __Unit,
-  () => NoInputAndOutputOutput,
+  () => NoInputAndOutputOutput$,
 ];
-export var NullAndEmptyHeadersClient: StaticOperationSchema = [
+export var NullAndEmptyHeadersClient$: StaticOperationSchema = [
   9,
   n0,
   _NAEHC,
   { [_ht]: ["GET", "/NullAndEmptyHeadersClient", 200] },
-  () => NullAndEmptyHeadersIO,
-  () => NullAndEmptyHeadersIO,
+  () => NullAndEmptyHeadersIO$,
+  () => NullAndEmptyHeadersIO$,
 ];
-export var NullAndEmptyHeadersServer: StaticOperationSchema = [
+export var NullAndEmptyHeadersServer$: StaticOperationSchema = [
   9,
   n0,
   _NAEHS,
   { [_ht]: ["GET", "/NullAndEmptyHeadersServer", 200] },
-  () => NullAndEmptyHeadersIO,
-  () => NullAndEmptyHeadersIO,
+  () => NullAndEmptyHeadersIO$,
+  () => NullAndEmptyHeadersIO$,
 ];
-export var OmitsNullSerializesEmptyString: StaticOperationSchema = [
+export var OmitsNullSerializesEmptyString$: StaticOperationSchema = [
   9,
   n0,
   _ONSES,
   { [_ht]: ["GET", "/OmitsNullSerializesEmptyString", 200] },
-  () => OmitsNullSerializesEmptyStringInput,
+  () => OmitsNullSerializesEmptyStringInput$,
   () => __Unit,
 ];
-export var OmitsSerializingEmptyLists: StaticOperationSchema = [
+export var OmitsSerializingEmptyLists$: StaticOperationSchema = [
   9,
   n0,
   _OSEL,
   { [_ht]: ["POST", "/OmitsSerializingEmptyLists", 200] },
-  () => OmitsSerializingEmptyListsInput,
+  () => OmitsSerializingEmptyListsInput$,
   () => __Unit,
 ];
-export var OperationWithDefaults: StaticOperationSchema = [
+export var OperationWithDefaults$: StaticOperationSchema = [
   9,
   n0,
   _OWD,
   { [_ht]: ["POST", "/OperationWithDefaults", 200] },
-  () => OperationWithDefaultsInput,
-  () => OperationWithDefaultsOutput,
+  () => OperationWithDefaultsInput$,
+  () => OperationWithDefaultsOutput$,
 ];
-export var OperationWithNestedStructure: StaticOperationSchema = [
+export var OperationWithNestedStructure$: StaticOperationSchema = [
   9,
   n0,
   _OWNS,
   { [_ht]: ["POST", "/OperationWithNestedStructure", 200] },
-  () => OperationWithNestedStructureInput,
-  () => OperationWithNestedStructureOutput,
+  () => OperationWithNestedStructureInput$,
+  () => OperationWithNestedStructureOutput$,
 ];
-export var OutputStream: StaticOperationSchema = [
+export var OutputStream$: StaticOperationSchema = [
   9,
   n0,
   _OS,
   { [_ht]: ["POST", "/OutputStream", 200] },
   () => __Unit,
-  () => OutputStreamOutput,
+  () => OutputStreamOutput$,
 ];
-export var OutputStreamWithInitialResponse: StaticOperationSchema = [
+export var OutputStreamWithInitialResponse$: StaticOperationSchema = [
   9,
   n0,
   _OSWIR,
   { [_ht]: ["POST", "/OutputStreamWithInitialResponse", 200] },
   () => __Unit,
-  () => OutputStreamWithInitialResponseOutput,
+  () => OutputStreamWithInitialResponseOutput$,
 ];
-export var PostPlayerAction: StaticOperationSchema = [
+export var PostPlayerAction$: StaticOperationSchema = [
   9,
   n0,
   _PPA,
   { [_ht]: ["POST", "/PostPlayerAction", 200] },
-  () => PostPlayerActionInput,
-  () => PostPlayerActionOutput,
+  () => PostPlayerActionInput$,
+  () => PostPlayerActionOutput$,
 ];
-export var PostUnionWithJsonName: StaticOperationSchema = [
+export var PostUnionWithJsonName$: StaticOperationSchema = [
   9,
   n0,
   _PUWJN,
   { [_ht]: ["POST", "/PostUnionWithJsonName", 200] },
-  () => PostUnionWithJsonNameInput,
-  () => PostUnionWithJsonNameOutput,
+  () => PostUnionWithJsonNameInput$,
+  () => PostUnionWithJsonNameOutput$,
 ];
-export var PutWithContentEncoding: StaticOperationSchema = [
+export var PutWithContentEncoding$: StaticOperationSchema = [
   9,
   n0,
   _PWCE,
   { [_ht]: ["POST", "/requestcompression/putcontentwithencoding", 200] },
-  () => PutWithContentEncodingInput,
+  () => PutWithContentEncodingInput$,
   () => __Unit,
 ];
-export var QueryIdempotencyTokenAutoFill: StaticOperationSchema = [
+export var QueryIdempotencyTokenAutoFill$: StaticOperationSchema = [
   9,
   n0,
   _QITAF,
   { [_ht]: ["POST", "/QueryIdempotencyTokenAutoFill", 200] },
-  () => QueryIdempotencyTokenAutoFillInput,
+  () => QueryIdempotencyTokenAutoFillInput$,
   () => __Unit,
 ];
-export var QueryParamsAsStringListMap: StaticOperationSchema = [
+export var QueryParamsAsStringListMap$: StaticOperationSchema = [
   9,
   n0,
   _QPASLM,
   { [_ht]: ["POST", "/StringListMap", 200] },
-  () => QueryParamsAsStringListMapInput,
+  () => QueryParamsAsStringListMapInput$,
   () => __Unit,
 ];
-export var QueryPrecedence: StaticOperationSchema = [
+export var QueryPrecedence$: StaticOperationSchema = [
   9,
   n0,
   _QP,
   { [_ht]: ["POST", "/Precedence", 200] },
-  () => QueryPrecedenceInput,
+  () => QueryPrecedenceInput$,
   () => __Unit,
 ];
-export var RecursiveShapes: StaticOperationSchema = [
+export var RecursiveShapes$: StaticOperationSchema = [
   9,
   n0,
   _RS,
   { [_ht]: ["PUT", "/RecursiveShapes", 200] },
-  () => RecursiveShapesInputOutput,
-  () => RecursiveShapesInputOutput,
+  () => RecursiveShapesInputOutput$,
+  () => RecursiveShapesInputOutput$,
 ];
-export var ResponseCodeHttpFallback: StaticOperationSchema = [
+export var ResponseCodeHttpFallback$: StaticOperationSchema = [
   9,
   n0,
   _RCHF,
   { [_ht]: ["GET", "/responseCodeHttpFallback", 201] },
-  () => ResponseCodeHttpFallbackInputOutput,
-  () => ResponseCodeHttpFallbackInputOutput,
+  () => ResponseCodeHttpFallbackInputOutput$,
+  () => ResponseCodeHttpFallbackInputOutput$,
 ];
-export var ResponseCodeRequired: StaticOperationSchema = [
+export var ResponseCodeRequired$: StaticOperationSchema = [
   9,
   n0,
   _RCR,
   { [_ht]: ["GET", "/responseCodeRequired", 200] },
   () => __Unit,
-  () => ResponseCodeRequiredOutput,
+  () => ResponseCodeRequiredOutput$,
 ];
-export var SimpleScalarProperties: StaticOperationSchema = [
+export var SimpleScalarProperties$: StaticOperationSchema = [
   9,
   n0,
   _SSP,
   { [_ht]: ["PUT", "/SimpleScalarProperties", 200] },
-  () => SimpleScalarPropertiesInputOutput,
-  () => SimpleScalarPropertiesInputOutput,
+  () => SimpleScalarPropertiesInputOutput$,
+  () => SimpleScalarPropertiesInputOutput$,
 ];
-export var SparseJsonLists: StaticOperationSchema = [
+export var SparseJsonLists$: StaticOperationSchema = [
   9,
   n0,
   _SJL,
   { [_ht]: ["PUT", "/SparseJsonLists", 200] },
-  () => SparseJsonListsInputOutput,
-  () => SparseJsonListsInputOutput,
+  () => SparseJsonListsInputOutput$,
+  () => SparseJsonListsInputOutput$,
 ];
-export var SparseJsonMaps: StaticOperationSchema = [
+export var SparseJsonMaps$: StaticOperationSchema = [
   9,
   n0,
   _SJM,
   { [_ht]: ["POST", "/SparseJsonMaps", 200] },
-  () => SparseJsonMapsInputOutput,
-  () => SparseJsonMapsInputOutput,
+  () => SparseJsonMapsInputOutput$,
+  () => SparseJsonMapsInputOutput$,
 ];
-export var StreamingTraits: StaticOperationSchema = [
+export var StreamingTraits$: StaticOperationSchema = [
   9,
   n0,
   _ST,
   { [_ht]: ["POST", "/StreamingTraits", 200] },
-  () => StreamingTraitsInputOutput,
-  () => StreamingTraitsInputOutput,
+  () => StreamingTraitsInputOutput$,
+  () => StreamingTraitsInputOutput$,
 ];
-export var StreamingTraitsRequireLength: StaticOperationSchema = [
+export var StreamingTraitsRequireLength$: StaticOperationSchema = [
   9,
   n0,
   _STRL,
   { [_ht]: ["POST", "/StreamingTraitsRequireLength", 200] },
-  () => StreamingTraitsRequireLengthInput,
+  () => StreamingTraitsRequireLengthInput$,
   () => __Unit,
 ];
-export var StreamingTraitsWithMediaType: StaticOperationSchema = [
+export var StreamingTraitsWithMediaType$: StaticOperationSchema = [
   9,
   n0,
   _STWMT,
   { [_ht]: ["POST", "/StreamingTraitsWithMediaType", 200] },
-  () => StreamingTraitsWithMediaTypeInputOutput,
-  () => StreamingTraitsWithMediaTypeInputOutput,
+  () => StreamingTraitsWithMediaTypeInputOutput$,
+  () => StreamingTraitsWithMediaTypeInputOutput$,
 ];
-export var TestBodyStructure: StaticOperationSchema = [
+export var TestBodyStructure$: StaticOperationSchema = [
   9,
   n0,
   _TBS,
   { [_ht]: ["POST", "/body", 200] },
-  () => TestBodyStructureInputOutput,
-  () => TestBodyStructureInputOutput,
+  () => TestBodyStructureInputOutput$,
+  () => TestBodyStructureInputOutput$,
 ];
-export var TestGetNoInputNoPayload: StaticOperationSchema = [
+export var TestGetNoInputNoPayload$: StaticOperationSchema = [
   9,
   n0,
   _TGNINP,
   { [_ht]: ["GET", "/no_input_no_payload", 200] },
   () => __Unit,
-  () => TestNoPayloadInputOutput,
+  () => TestNoPayloadInputOutput$,
 ];
-export var TestGetNoPayload: StaticOperationSchema = [
+export var TestGetNoPayload$: StaticOperationSchema = [
   9,
   n0,
   _TGNP,
   { [_ht]: ["GET", "/no_payload", 200] },
-  () => TestNoPayloadInputOutput,
-  () => TestNoPayloadInputOutput,
+  () => TestNoPayloadInputOutput$,
+  () => TestNoPayloadInputOutput$,
 ];
-export var TestPayloadBlob: StaticOperationSchema = [
+export var TestPayloadBlob$: StaticOperationSchema = [
   9,
   n0,
   _TPBe,
   { [_ht]: ["POST", "/blob_payload", 200] },
-  () => TestPayloadBlobInputOutput,
-  () => TestPayloadBlobInputOutput,
+  () => TestPayloadBlobInputOutput$,
+  () => TestPayloadBlobInputOutput$,
 ];
-export var TestPayloadStructure: StaticOperationSchema = [
+export var TestPayloadStructure$: StaticOperationSchema = [
   9,
   n0,
   _TPS,
   { [_ht]: ["POST", "/payload", 200] },
-  () => TestPayloadStructureInputOutput,
-  () => TestPayloadStructureInputOutput,
+  () => TestPayloadStructureInputOutput$,
+  () => TestPayloadStructureInputOutput$,
 ];
-export var TestPostNoInputNoPayload: StaticOperationSchema = [
+export var TestPostNoInputNoPayload$: StaticOperationSchema = [
   9,
   n0,
   _TPNINP,
   { [_ht]: ["POST", "/no_input_no_payload", 200] },
   () => __Unit,
-  () => TestNoPayloadInputOutput,
+  () => TestNoPayloadInputOutput$,
 ];
-export var TestPostNoPayload: StaticOperationSchema = [
+export var TestPostNoPayload$: StaticOperationSchema = [
   9,
   n0,
   _TPNP,
   { [_ht]: ["POST", "/no_payload", 200] },
-  () => TestNoPayloadInputOutput,
-  () => TestNoPayloadInputOutput,
+  () => TestNoPayloadInputOutput$,
+  () => TestNoPayloadInputOutput$,
 ];
-export var TimestampFormatHeaders: StaticOperationSchema = [
+export var TimestampFormatHeaders$: StaticOperationSchema = [
   9,
   n0,
   _TFH,
   { [_ht]: ["POST", "/TimestampFormatHeaders", 200] },
-  () => TimestampFormatHeadersIO,
-  () => TimestampFormatHeadersIO,
+  () => TimestampFormatHeadersIO$,
+  () => TimestampFormatHeadersIO$,
 ];
-export var UnitInputAndOutput: StaticOperationSchema = [
+export var UnitInputAndOutput$: StaticOperationSchema = [
   9,
   n0,
   _UIAO,

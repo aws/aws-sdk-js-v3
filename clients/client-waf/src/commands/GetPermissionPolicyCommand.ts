@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetPermissionPolicyRequest, GetPermissionPolicyResponse } from "../models/models_0";
-import { GetPermissionPolicy } from "../schemas/schemas_0";
+import { GetPermissionPolicy$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -87,7 +87,7 @@ export class GetPermissionPolicyCommand extends $Command
   })
   .s("AWSWAF_20150824", "GetPermissionPolicy", {})
   .n("WAFClient", "GetPermissionPolicyCommand")
-  .sc(GetPermissionPolicy)
+  .sc(GetPermissionPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

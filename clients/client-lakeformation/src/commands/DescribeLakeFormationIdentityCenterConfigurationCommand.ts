@@ -9,7 +9,7 @@ import type {
   DescribeLakeFormationIdentityCenterConfigurationRequest,
   DescribeLakeFormationIdentityCenterConfigurationResponse,
 } from "../models/models_0";
-import { DescribeLakeFormationIdentityCenterConfiguration } from "../schemas/schemas_0";
+import { DescribeLakeFormationIdentityCenterConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class DescribeLakeFormationIdentityCenterConfigurationCommand extends $Co
   })
   .s("AWSLakeFormation", "DescribeLakeFormationIdentityCenterConfiguration", {})
   .n("LakeFormationClient", "DescribeLakeFormationIdentityCenterConfigurationCommand")
-  .sc(DescribeLakeFormationIdentityCenterConfiguration)
+  .sc(DescribeLakeFormationIdentityCenterConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

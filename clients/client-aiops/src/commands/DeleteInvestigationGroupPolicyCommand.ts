@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AIOpsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AIOpsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteInvestigationGroupPolicyOutput, DeleteInvestigationGroupPolicyRequest } from "../models/models_0";
-import { DeleteInvestigationGroupPolicy } from "../schemas/schemas_0";
+import { DeleteInvestigationGroupPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DeleteInvestigationGroupPolicyCommand extends $Command
   })
   .s("AIOps", "DeleteInvestigationGroupPolicy", {})
   .n("AIOpsClient", "DeleteInvestigationGroupPolicyCommand")
-  .sc(DeleteInvestigationGroupPolicy)
+  .sc(DeleteInvestigationGroupPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

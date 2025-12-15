@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import type { ListByoipCidrsRequest, ListByoipCidrsResponse } from "../models/models_0";
-import { ListByoipCidrs } from "../schemas/schemas_0";
+import { ListByoipCidrs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class ListByoipCidrsCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "ListByoipCidrs", {})
   .n("GlobalAcceleratorClient", "ListByoipCidrsCommand")
-  .sc(ListByoipCidrs)
+  .sc(ListByoipCidrs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

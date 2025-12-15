@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MediaPackageV2Client";
 import type { GetOriginEndpointPolicyRequest, GetOriginEndpointPolicyResponse } from "../models/models_0";
-import { GetOriginEndpointPolicy } from "../schemas/schemas_0";
+import { GetOriginEndpointPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,7 +123,7 @@ export class GetOriginEndpointPolicyCommand extends $Command
   })
   .s("mediapackagev2", "GetOriginEndpointPolicy", {})
   .n("MediaPackageV2Client", "GetOriginEndpointPolicyCommand")
-  .sc(GetOriginEndpointPolicy)
+  .sc(GetOriginEndpointPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ArtifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ArtifactClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetReportRequest, GetReportResponse } from "../models/models_0";
-import { GetReport } from "../schemas/schemas_0";
+import { GetReport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class GetReportCommand extends $Command
   })
   .s("Artifact", "GetReport", {})
   .n("ArtifactClient", "GetReportCommand")
-  .sc(GetReport)
+  .sc(GetReport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetMobileDeviceAccessEffectRequest, GetMobileDeviceAccessEffectResponse } from "../models/models_0";
-import { GetMobileDeviceAccessEffect } from "../schemas/schemas_0";
+import { GetMobileDeviceAccessEffect$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -97,7 +97,7 @@ export class GetMobileDeviceAccessEffectCommand extends $Command
   })
   .s("WorkMailService", "GetMobileDeviceAccessEffect", {})
   .n("WorkMailClient", "GetMobileDeviceAccessEffectCommand")
-  .sc(GetMobileDeviceAccessEffect)
+  .sc(GetMobileDeviceAccessEffect$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

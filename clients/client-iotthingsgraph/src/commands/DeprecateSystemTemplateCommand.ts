@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTThingsGraphClient";
 import type { DeprecateSystemTemplateRequest, DeprecateSystemTemplateResponse } from "../models/models_0";
-import { DeprecateSystemTemplate } from "../schemas/schemas_0";
+import { DeprecateSystemTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class DeprecateSystemTemplateCommand extends $Command
   })
   .s("IotThingsGraphFrontEndService", "DeprecateSystemTemplate", {})
   .n("IoTThingsGraphClient", "DeprecateSystemTemplateCommand")
-  .sc(DeprecateSystemTemplate)
+  .sc(DeprecateSystemTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

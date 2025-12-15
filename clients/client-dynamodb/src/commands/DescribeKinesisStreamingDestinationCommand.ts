@@ -9,7 +9,7 @@ import type {
   DescribeKinesisStreamingDestinationInput,
   DescribeKinesisStreamingDestinationOutput,
 } from "../models/models_0";
-import { DescribeKinesisStreamingDestination } from "../schemas/schemas_0";
+import { DescribeKinesisStreamingDestination$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class DescribeKinesisStreamingDestinationCommand extends $Command
   })
   .s("DynamoDB_20120810", "DescribeKinesisStreamingDestination", {})
   .n("DynamoDBClient", "DescribeKinesisStreamingDestinationCommand")
-  .sc(DescribeKinesisStreamingDestination)
+  .sc(DescribeKinesisStreamingDestination$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

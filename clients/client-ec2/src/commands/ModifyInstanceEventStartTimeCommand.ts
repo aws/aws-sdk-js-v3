@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyInstanceEventStartTimeRequest, ModifyInstanceEventStartTimeResult } from "../models/models_6";
-import { ModifyInstanceEventStartTime } from "../schemas/schemas_0";
+import { ModifyInstanceEventStartTime$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class ModifyInstanceEventStartTimeCommand extends $Command
   })
   .s("AmazonEC2", "ModifyInstanceEventStartTime", {})
   .n("EC2Client", "ModifyInstanceEventStartTimeCommand")
-  .sc(ModifyInstanceEventStartTime)
+  .sc(ModifyInstanceEventStartTime$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

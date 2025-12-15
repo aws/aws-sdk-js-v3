@@ -32,8 +32,7 @@ export const getRuntimeConfig = (config: KinesisVideoArchivedMediaClientConfig) 
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.kinesisvideoarchivedmedia" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
     sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     serviceId: config?.serviceId ?? "Kinesis Video Archived Media",
     urlParser: config?.urlParser ?? parseUrl,

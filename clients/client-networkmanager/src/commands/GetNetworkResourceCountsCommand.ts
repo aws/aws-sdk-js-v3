@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { GetNetworkResourceCounts } from "../schemas/schemas_0";
+import { GetNetworkResourceCounts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class GetNetworkResourceCountsCommand extends $Command
   })
   .s("NetworkManager", "GetNetworkResourceCounts", {})
   .n("NetworkManagerClient", "GetNetworkResourceCountsCommand")
-  .sc(GetNetworkResourceCounts)
+  .sc(GetNetworkResourceCounts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

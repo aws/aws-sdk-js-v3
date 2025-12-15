@@ -31,12 +31,13 @@ export const getRuntimeConfig = (config: S3ControlClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsRestXmlProtocol({
-        defaultNamespace: "com.amazonaws.s3control",
-        xmlNamespace: "http://awss3control.amazonaws.com/doc/2018-08-20/",
-      }),
+    protocol: config?.protocol ?? AwsRestXmlProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.s3control",
+      xmlNamespace: "http://awss3control.amazonaws.com/doc/2018-08-20/",
+      version: "2018-08-20",
+      serviceTarget: "AWSS3ControlServiceV20180820",
+    },
     serviceId: config?.serviceId ?? "S3 Control",
     signingEscapePath: config?.signingEscapePath ?? false,
     urlParser: config?.urlParser ?? parseUrl,

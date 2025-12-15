@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MWAAServerlessClient";
-import { StopWorkflowRun } from "../schemas/schemas_0";
+import { StopWorkflowRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class StopWorkflowRunCommand extends $Command
   })
   .s("AmazonMWAAServerless", "StopWorkflowRun", {})
   .n("MWAAServerlessClient", "StopWorkflowRunCommand")
-  .sc(StopWorkflowRun)
+  .sc(StopWorkflowRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

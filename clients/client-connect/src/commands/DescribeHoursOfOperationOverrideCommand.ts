@@ -9,7 +9,7 @@ import type {
   DescribeHoursOfOperationOverrideRequest,
   DescribeHoursOfOperationOverrideResponse,
 } from "../models/models_1";
-import { DescribeHoursOfOperationOverride } from "../schemas/schemas_0";
+import { DescribeHoursOfOperationOverride$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class DescribeHoursOfOperationOverrideCommand extends $Command
   })
   .s("AmazonConnectService", "DescribeHoursOfOperationOverride", {})
   .n("ConnectClient", "DescribeHoursOfOperationOverrideCommand")
-  .sc(DescribeHoursOfOperationOverride)
+  .sc(DescribeHoursOfOperationOverride$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DomainNameAccessAssociations, GetDomainNameAccessAssociationsRequest } from "../models/models_0";
-import { GetDomainNameAccessAssociations } from "../schemas/schemas_0";
+import { GetDomainNameAccessAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class GetDomainNameAccessAssociationsCommand extends $Command
   })
   .s("BackplaneControlService", "GetDomainNameAccessAssociations", {})
   .n("APIGatewayClient", "GetDomainNameAccessAssociationsCommand")
-  .sc(GetDomainNameAccessAssociations)
+  .sc(GetDomainNameAccessAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyEbsDefaultKmsKeyIdRequest, ModifyEbsDefaultKmsKeyIdResult } from "../models/models_6";
-import { ModifyEbsDefaultKmsKeyId } from "../schemas/schemas_0";
+import { ModifyEbsDefaultKmsKeyId$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -81,7 +81,7 @@ export class ModifyEbsDefaultKmsKeyIdCommand extends $Command
   })
   .s("AmazonEC2", "ModifyEbsDefaultKmsKeyId", {})
   .n("EC2Client", "ModifyEbsDefaultKmsKeyIdCommand")
-  .sc(ModifyEbsDefaultKmsKeyId)
+  .sc(ModifyEbsDefaultKmsKeyId$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

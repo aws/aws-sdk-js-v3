@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateRouteRequest, CreateRouteResult } from "../models/models_0";
-import { CreateRoute } from "../schemas/schemas_0";
+import { CreateRoute$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,7 +124,7 @@ export class CreateRouteCommand extends $Command
   })
   .s("ApiGatewayV2", "CreateRoute", {})
   .n("ApiGatewayV2Client", "CreateRouteCommand")
-  .sc(CreateRoute)
+  .sc(CreateRoute$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

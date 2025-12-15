@@ -9,7 +9,7 @@ import type {
   ListDistributionsByRealtimeLogConfigRequest,
   ListDistributionsByRealtimeLogConfigResult,
 } from "../models/models_1";
-import { ListDistributionsByRealtimeLogConfig } from "../schemas/schemas_0";
+import { ListDistributionsByRealtimeLogConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -411,7 +411,7 @@ export class ListDistributionsByRealtimeLogConfigCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "ListDistributionsByRealtimeLogConfig", {})
   .n("CloudFrontClient", "ListDistributionsByRealtimeLogConfigCommand")
-  .sc(ListDistributionsByRealtimeLogConfig)
+  .sc(ListDistributionsByRealtimeLogConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

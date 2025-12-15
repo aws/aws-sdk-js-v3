@@ -11,7 +11,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { PutWithContentEncoding } from "../schemas/schemas_0";
+import { PutWithContentEncoding$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -82,7 +82,7 @@ export class PutWithContentEncodingCommand extends $Command
   })
   .s("RestJson", "PutWithContentEncoding", {})
   .n("RestJsonProtocolClient", "PutWithContentEncodingCommand")
-  .sc(PutWithContentEncoding)
+  .sc(PutWithContentEncoding$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

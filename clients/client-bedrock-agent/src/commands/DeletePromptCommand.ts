@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeletePromptRequest, DeletePromptResponse } from "../models/models_1";
-import { DeletePrompt } from "../schemas/schemas_0";
+import { DeletePrompt$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeletePromptCommand extends $Command
   })
   .s("AmazonBedrockAgentBuildTimeLambda", "DeletePrompt", {})
   .n("BedrockAgentClient", "DeletePromptCommand")
-  .sc(DeletePrompt)
+  .sc(DeletePrompt$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

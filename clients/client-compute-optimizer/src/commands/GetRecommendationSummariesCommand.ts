@@ -10,7 +10,7 @@ import type {
 } from "../ComputeOptimizerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetRecommendationSummariesRequest, GetRecommendationSummariesResponse } from "../models/models_0";
-import { GetRecommendationSummaries } from "../schemas/schemas_0";
+import { GetRecommendationSummaries$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -197,7 +197,7 @@ export class GetRecommendationSummariesCommand extends $Command
   })
   .s("ComputeOptimizerService", "GetRecommendationSummaries", {})
   .n("ComputeOptimizerClient", "GetRecommendationSummariesCommand")
-  .sc(GetRecommendationSummaries)
+  .sc(GetRecommendationSummaries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

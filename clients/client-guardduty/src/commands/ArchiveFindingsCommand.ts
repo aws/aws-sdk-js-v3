@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import type { ArchiveFindingsRequest, ArchiveFindingsResponse } from "../models/models_0";
-import { ArchiveFindings } from "../schemas/schemas_0";
+import { ArchiveFindings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class ArchiveFindingsCommand extends $Command
   })
   .s("GuardDutyAPIService", "ArchiveFindings", {})
   .n("GuardDutyClient", "ArchiveFindingsCommand")
-  .sc(ArchiveFindings)
+  .sc(ArchiveFindings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

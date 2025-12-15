@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateServiceIntegrationRequest, UpdateServiceIntegrationResponse } from "../models/models_0";
-import { UpdateServiceIntegration } from "../schemas/schemas_0";
+import { UpdateServiceIntegration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class UpdateServiceIntegrationCommand extends $Command
   })
   .s("CapstoneControlPlaneService", "UpdateServiceIntegration", {})
   .n("DevOpsGuruClient", "UpdateServiceIntegrationCommand")
-  .sc(UpdateServiceIntegration)
+  .sc(UpdateServiceIntegration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

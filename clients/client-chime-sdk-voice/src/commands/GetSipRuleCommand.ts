@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetSipRuleRequest, GetSipRuleResponse } from "../models/models_0";
-import { GetSipRule } from "../schemas/schemas_0";
+import { GetSipRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class GetSipRuleCommand extends $Command
   })
   .s("ChimeSDKTelephonyService", "GetSipRule", {})
   .n("ChimeSDKVoiceClient", "GetSipRuleCommand")
-  .sc(GetSipRule)
+  .sc(GetSipRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

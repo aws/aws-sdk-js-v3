@@ -13,7 +13,7 @@ import type {
   DescribeChannelModeratedByAppInstanceUserRequest,
   DescribeChannelModeratedByAppInstanceUserResponse,
 } from "../models/models_0";
-import { DescribeChannelModeratedByAppInstanceUser } from "../schemas/schemas_0";
+import { DescribeChannelModeratedByAppInstanceUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class DescribeChannelModeratedByAppInstanceUserCommand extends $Command
   })
   .s("ChimeMessagingService", "DescribeChannelModeratedByAppInstanceUser", {})
   .n("ChimeSDKMessagingClient", "DescribeChannelModeratedByAppInstanceUserCommand")
-  .sc(DescribeChannelModeratedByAppInstanceUser)
+  .sc(DescribeChannelModeratedByAppInstanceUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

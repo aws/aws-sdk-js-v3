@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { TestPostNoInputNoPayload } from "../schemas/schemas_0";
+import { TestPostNoInputNoPayload$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -79,7 +79,7 @@ export class TestPostNoInputNoPayloadCommand extends $Command
   })
   .s("RestJson", "TestPostNoInputNoPayload", {})
   .n("RestJsonProtocolClient", "TestPostNoInputNoPayloadCommand")
-  .sc(TestPostNoInputNoPayload)
+  .sc(TestPostNoInputNoPayload$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

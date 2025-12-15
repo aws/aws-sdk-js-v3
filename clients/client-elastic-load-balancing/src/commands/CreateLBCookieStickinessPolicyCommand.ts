@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateLBCookieStickinessPolicyInput, CreateLBCookieStickinessPolicyOutput } from "../models/models_0";
-import { CreateLBCookieStickinessPolicy } from "../schemas/schemas_0";
+import { CreateLBCookieStickinessPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class CreateLBCookieStickinessPolicyCommand extends $Command
   })
   .s("ElasticLoadBalancing_v7", "CreateLBCookieStickinessPolicy", {})
   .n("ElasticLoadBalancingClient", "CreateLBCookieStickinessPolicyCommand")
-  .sc(CreateLBCookieStickinessPolicy)
+  .sc(CreateLBCookieStickinessPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

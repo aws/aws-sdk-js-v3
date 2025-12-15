@@ -8,7 +8,7 @@ import type {
   ListProvisioningArtifactsForServiceActionInput,
   ListProvisioningArtifactsForServiceActionOutput,
 } from "../models/models_0";
-import { ListProvisioningArtifactsForServiceAction } from "../schemas/schemas_0";
+import { ListProvisioningArtifactsForServiceAction$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -116,7 +116,7 @@ export class ListProvisioningArtifactsForServiceActionCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "ListProvisioningArtifactsForServiceAction", {})
   .n("ServiceCatalogClient", "ListProvisioningArtifactsForServiceActionCommand")
-  .sc(ListProvisioningArtifactsForServiceAction)
+  .sc(ListProvisioningArtifactsForServiceAction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

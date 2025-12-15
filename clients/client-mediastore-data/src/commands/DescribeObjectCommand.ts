@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MediaStoreDataClient";
 import type { DescribeObjectRequest, DescribeObjectResponse } from "../models/models_0";
-import { DescribeObject } from "../schemas/schemas_0";
+import { DescribeObject$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DescribeObjectCommand extends $Command
   })
   .s("MediaStoreObject_20170901", "DescribeObject", {})
   .n("MediaStoreDataClient", "DescribeObjectCommand")
-  .sc(DescribeObject)
+  .sc(DescribeObject$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

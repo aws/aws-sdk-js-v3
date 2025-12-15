@@ -10,7 +10,7 @@ import type {
 } from "../ComputeOptimizerAutomationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RollbackAutomationEventRequest, RollbackAutomationEventResponse } from "../models/models_0";
-import { RollbackAutomationEvent } from "../schemas/schemas_0";
+import { RollbackAutomationEvent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class RollbackAutomationEventCommand extends $Command
   })
   .s("ComputeOptimizerAutomationService", "RollbackAutomationEvent", {})
   .n("ComputeOptimizerAutomationClient", "RollbackAutomationEventCommand")
-  .sc(RollbackAutomationEvent)
+  .sc(RollbackAutomationEvent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

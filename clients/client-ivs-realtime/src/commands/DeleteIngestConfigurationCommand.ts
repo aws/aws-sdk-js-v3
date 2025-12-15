@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IVSRealTimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IVSRealTimeClient";
 import type { DeleteIngestConfigurationRequest, DeleteIngestConfigurationResponse } from "../models/models_0";
-import { DeleteIngestConfiguration } from "../schemas/schemas_0";
+import { DeleteIngestConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DeleteIngestConfigurationCommand extends $Command
   })
   .s("AmazonInteractiveVideoServiceRealTime", "DeleteIngestConfiguration", {})
   .n("IVSRealTimeClient", "DeleteIngestConfigurationCommand")
-  .sc(DeleteIngestConfiguration)
+  .sc(DeleteIngestConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

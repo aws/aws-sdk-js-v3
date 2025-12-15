@@ -10,7 +10,7 @@ import type {
 } from "../ConnectParticipantClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateParticipantConnectionRequest, CreateParticipantConnectionResponse } from "../models/models_0";
-import { CreateParticipantConnection } from "../schemas/schemas_0";
+import { CreateParticipantConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -179,7 +179,7 @@ export class CreateParticipantConnectionCommand extends $Command
   })
   .s("AmazonConnectParticipantServiceLambda", "CreateParticipantConnection", {})
   .n("ConnectParticipantClient", "CreateParticipantConnectionCommand")
-  .sc(CreateParticipantConnection)
+  .sc(CreateParticipantConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

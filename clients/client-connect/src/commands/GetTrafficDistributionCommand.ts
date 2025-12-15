@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetTrafficDistributionRequest, GetTrafficDistributionResponse } from "../models/models_1";
-import { GetTrafficDistribution } from "../schemas/schemas_0";
+import { GetTrafficDistribution$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class GetTrafficDistributionCommand extends $Command
   })
   .s("AmazonConnectService", "GetTrafficDistribution", {})
   .n("ConnectClient", "GetTrafficDistributionCommand")
-  .sc(GetTrafficDistribution)
+  .sc(GetTrafficDistribution$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

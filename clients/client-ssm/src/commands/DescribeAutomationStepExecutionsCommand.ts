@@ -8,7 +8,7 @@ import type {
   DescribeAutomationStepExecutionsRequest,
   DescribeAutomationStepExecutionsResult,
 } from "../models/models_0";
-import { DescribeAutomationStepExecutions } from "../schemas/schemas_0";
+import { DescribeAutomationStepExecutions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -204,7 +204,7 @@ export class DescribeAutomationStepExecutionsCommand extends $Command
   })
   .s("AmazonSSM", "DescribeAutomationStepExecutions", {})
   .n("SSMClient", "DescribeAutomationStepExecutionsCommand")
-  .sc(DescribeAutomationStepExecutions)
+  .sc(DescribeAutomationStepExecutions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

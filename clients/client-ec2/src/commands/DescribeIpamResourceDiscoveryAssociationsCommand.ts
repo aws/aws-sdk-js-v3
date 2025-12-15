@@ -9,7 +9,7 @@ import type {
   DescribeIpamResourceDiscoveryAssociationsRequest,
   DescribeIpamResourceDiscoveryAssociationsResult,
 } from "../models/models_4";
-import { DescribeIpamResourceDiscoveryAssociations } from "../schemas/schemas_0";
+import { DescribeIpamResourceDiscoveryAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class DescribeIpamResourceDiscoveryAssociationsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeIpamResourceDiscoveryAssociations", {})
   .n("EC2Client", "DescribeIpamResourceDiscoveryAssociationsCommand")
-  .sc(DescribeIpamResourceDiscoveryAssociations)
+  .sc(DescribeIpamResourceDiscoveryAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

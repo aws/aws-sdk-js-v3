@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateHealthCheckRequest, UpdateHealthCheckResponse } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { UpdateHealthCheck } from "../schemas/schemas_0";
+import { UpdateHealthCheck$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -161,7 +161,7 @@ export class UpdateHealthCheckCommand extends $Command
   })
   .s("AWSDnsV20130401", "UpdateHealthCheck", {})
   .n("Route53Client", "UpdateHealthCheckCommand")
-  .sc(UpdateHealthCheck)
+  .sc(UpdateHealthCheck$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

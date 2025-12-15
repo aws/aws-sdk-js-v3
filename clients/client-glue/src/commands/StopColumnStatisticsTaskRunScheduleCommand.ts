@@ -9,7 +9,7 @@ import type {
   StopColumnStatisticsTaskRunScheduleRequest,
   StopColumnStatisticsTaskRunScheduleResponse,
 } from "../models/models_2";
-import { StopColumnStatisticsTaskRunSchedule } from "../schemas/schemas_0";
+import { StopColumnStatisticsTaskRunSchedule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class StopColumnStatisticsTaskRunScheduleCommand extends $Command
   })
   .s("AWSGlue", "StopColumnStatisticsTaskRunSchedule", {})
   .n("GlueClient", "StopColumnStatisticsTaskRunScheduleCommand")
-  .sc(StopColumnStatisticsTaskRunSchedule)
+  .sc(StopColumnStatisticsTaskRunSchedule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

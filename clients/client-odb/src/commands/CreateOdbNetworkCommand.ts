@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateOdbNetworkInput, CreateOdbNetworkOutput } from "../models/models_0";
 import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
-import { CreateOdbNetwork } from "../schemas/schemas_0";
+import { CreateOdbNetwork$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class CreateOdbNetworkCommand extends $Command
   })
   .s("Odb", "CreateOdbNetwork", {})
   .n("OdbClient", "CreateOdbNetworkCommand")
-  .sc(CreateOdbNetwork)
+  .sc(CreateOdbNetwork$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

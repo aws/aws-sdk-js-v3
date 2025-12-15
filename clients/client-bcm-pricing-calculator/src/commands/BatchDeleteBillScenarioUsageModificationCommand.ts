@@ -13,7 +13,7 @@ import type {
   BatchDeleteBillScenarioUsageModificationRequest,
   BatchDeleteBillScenarioUsageModificationResponse,
 } from "../models/models_0";
-import { BatchDeleteBillScenarioUsageModification } from "../schemas/schemas_0";
+import { BatchDeleteBillScenarioUsageModification$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class BatchDeleteBillScenarioUsageModificationCommand extends $Command
   })
   .s("AWSBCMPricingCalculator", "BatchDeleteBillScenarioUsageModification", {})
   .n("BCMPricingCalculatorClient", "BatchDeleteBillScenarioUsageModificationCommand")
-  .sc(BatchDeleteBillScenarioUsageModification)
+  .sc(BatchDeleteBillScenarioUsageModification$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

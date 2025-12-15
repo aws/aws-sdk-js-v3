@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DatetimeOffsetsOutput } from "../models/models_0";
 import type { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { DatetimeOffsets } from "../schemas/schemas_0";
+import { DatetimeOffsets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -71,7 +71,7 @@ export class DatetimeOffsetsCommand extends $Command
   })
   .s("AwsQuery", "DatetimeOffsets", {})
   .n("QueryProtocolClient", "DatetimeOffsetsCommand")
-  .sc(DatetimeOffsets)
+  .sc(DatetimeOffsets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

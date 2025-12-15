@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetVoiceConnectorRequest, GetVoiceConnectorResponse } from "../models/models_0";
-import { GetVoiceConnector } from "../schemas/schemas_0";
+import { GetVoiceConnector$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class GetVoiceConnectorCommand extends $Command
   })
   .s("ChimeSDKTelephonyService", "GetVoiceConnector", {})
   .n("ChimeSDKVoiceClient", "GetVoiceConnectorCommand")
-  .sc(GetVoiceConnector)
+  .sc(GetVoiceConnector$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

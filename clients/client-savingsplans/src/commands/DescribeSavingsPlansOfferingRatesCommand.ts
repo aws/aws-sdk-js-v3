@@ -9,7 +9,7 @@ import type {
   DescribeSavingsPlansOfferingRatesResponse,
 } from "../models/models_0";
 import type { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
-import { DescribeSavingsPlansOfferingRates } from "../schemas/schemas_0";
+import { DescribeSavingsPlansOfferingRates$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -138,7 +138,7 @@ export class DescribeSavingsPlansOfferingRatesCommand extends $Command
   })
   .s("AWSSavingsPlan", "DescribeSavingsPlansOfferingRates", {})
   .n("SavingsplansClient", "DescribeSavingsPlansOfferingRatesCommand")
-  .sc(DescribeSavingsPlansOfferingRates)
+  .sc(DescribeSavingsPlansOfferingRates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

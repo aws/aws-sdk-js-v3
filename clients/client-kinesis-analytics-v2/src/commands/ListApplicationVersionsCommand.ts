@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
 import type { ListApplicationVersionsRequest, ListApplicationVersionsResponse } from "../models/models_0";
-import { ListApplicationVersions } from "../schemas/schemas_0";
+import { ListApplicationVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class ListApplicationVersionsCommand extends $Command
   })
   .s("KinesisAnalytics_20180523", "ListApplicationVersions", {})
   .n("KinesisAnalyticsV2Client", "ListApplicationVersionsCommand")
-  .sc(ListApplicationVersions)
+  .sc(ListApplicationVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

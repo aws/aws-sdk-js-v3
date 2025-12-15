@@ -9,7 +9,7 @@ import type {
   GetSavingsPlansPurchaseRecommendationRequest,
   GetSavingsPlansPurchaseRecommendationResponse,
 } from "../models/models_0";
-import { GetSavingsPlansPurchaseRecommendation } from "../schemas/schemas_0";
+import { GetSavingsPlansPurchaseRecommendation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -211,7 +211,7 @@ export class GetSavingsPlansPurchaseRecommendationCommand extends $Command
   })
   .s("AWSInsightsIndexService", "GetSavingsPlansPurchaseRecommendation", {})
   .n("CostExplorerClient", "GetSavingsPlansPurchaseRecommendationCommand")
-  .sc(GetSavingsPlansPurchaseRecommendation)
+  .sc(GetSavingsPlansPurchaseRecommendation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

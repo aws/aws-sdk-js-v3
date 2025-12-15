@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AdminResetUserPasswordRequest, AdminResetUserPasswordResponse } from "../models/models_0";
-import { AdminResetUserPassword } from "../schemas/schemas_0";
+import { AdminResetUserPassword$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -173,7 +173,7 @@ export class AdminResetUserPasswordCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "AdminResetUserPassword", {})
   .n("CognitoIdentityProviderClient", "AdminResetUserPasswordCommand")
-  .sc(AdminResetUserPassword)
+  .sc(AdminResetUserPassword$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

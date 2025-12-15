@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CopyOptionGroupMessage, CopyOptionGroupResult } from "../models/models_0";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { CopyOptionGroup } from "../schemas/schemas_0";
+import { CopyOptionGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -161,7 +161,7 @@ export class CopyOptionGroupCommand extends $Command
   })
   .s("AmazonRDSv19", "CopyOptionGroup", {})
   .n("RDSClient", "CopyOptionGroupCommand")
-  .sc(CopyOptionGroup)
+  .sc(CopyOptionGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   CreateNotificationConfigurationRequest,
   CreateNotificationConfigurationResponse,
 } from "../models/models_0";
-import { CreateNotificationConfiguration } from "../schemas/schemas_0";
+import { CreateNotificationConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class CreateNotificationConfigurationCommand extends $Command
   })
   .s("IotManagedIntegrations", "CreateNotificationConfiguration", {})
   .n("IoTManagedIntegrationsClient", "CreateNotificationConfigurationCommand")
-  .sc(CreateNotificationConfiguration)
+  .sc(CreateNotificationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

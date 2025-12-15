@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateContactChannelRequest, UpdateContactChannelResult } from "../models/models_0";
-import { UpdateContactChannel } from "../schemas/schemas_0";
+import { UpdateContactChannel$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -97,7 +97,7 @@ export class UpdateContactChannelCommand extends $Command
   })
   .s("SSMContacts", "UpdateContactChannel", {})
   .n("SSMContactsClient", "UpdateContactChannelCommand")
-  .sc(UpdateContactChannel)
+  .sc(UpdateContactChannel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

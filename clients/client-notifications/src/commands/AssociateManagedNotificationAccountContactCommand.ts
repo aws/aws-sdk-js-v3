@@ -9,7 +9,7 @@ import type {
   AssociateManagedNotificationAccountContactResponse,
 } from "../models/models_0";
 import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { AssociateManagedNotificationAccountContact } from "../schemas/schemas_0";
+import { AssociateManagedNotificationAccountContact$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class AssociateManagedNotificationAccountContactCommand extends $Command
   })
   .s("Notifications", "AssociateManagedNotificationAccountContact", {})
   .n("NotificationsClient", "AssociateManagedNotificationAccountContactCommand")
-  .sc(AssociateManagedNotificationAccountContact)
+  .sc(AssociateManagedNotificationAccountContact$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

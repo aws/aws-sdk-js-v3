@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListResourcesForWebACLRequest, ListResourcesForWebACLResponse } from "../models/models_0";
-import { ListResourcesForWebACL } from "../schemas/schemas_0";
+import { ListResourcesForWebACL$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -133,7 +133,7 @@ export class ListResourcesForWebACLCommand extends $Command
   })
   .s("AWSWAF_Regional_20161128", "ListResourcesForWebACL", {})
   .n("WAFRegionalClient", "ListResourcesForWebACLCommand")
-  .sc(ListResourcesForWebACL)
+  .sc(ListResourcesForWebACL$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

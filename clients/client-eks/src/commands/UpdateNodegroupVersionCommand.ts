@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateNodegroupVersionRequest, UpdateNodegroupVersionResponse } from "../models/models_0";
-import { UpdateNodegroupVersion } from "../schemas/schemas_0";
+import { UpdateNodegroupVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -149,7 +149,7 @@ export class UpdateNodegroupVersionCommand extends $Command
   })
   .s("AWSWesleyFrontend", "UpdateNodegroupVersion", {})
   .n("EKSClient", "UpdateNodegroupVersionCommand")
-  .sc(UpdateNodegroupVersion)
+  .sc(UpdateNodegroupVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

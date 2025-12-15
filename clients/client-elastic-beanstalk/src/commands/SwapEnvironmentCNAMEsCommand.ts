@@ -10,7 +10,7 @@ import type {
 } from "../ElasticBeanstalkClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SwapEnvironmentCNAMEsMessage } from "../models/models_0";
-import { SwapEnvironmentCNAMEs } from "../schemas/schemas_0";
+import { SwapEnvironmentCNAMEs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class SwapEnvironmentCNAMEsCommand extends $Command
   })
   .s("AWSElasticBeanstalkService", "SwapEnvironmentCNAMEs", {})
   .n("ElasticBeanstalkClient", "SwapEnvironmentCNAMEsCommand")
-  .sc(SwapEnvironmentCNAMEs)
+  .sc(SwapEnvironmentCNAMEs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

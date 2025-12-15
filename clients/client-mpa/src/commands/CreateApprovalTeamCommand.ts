@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateApprovalTeamRequest, CreateApprovalTeamResponse } from "../models/models_0";
 import type { MPAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MPAClient";
-import { CreateApprovalTeam } from "../schemas/schemas_0";
+import { CreateApprovalTeam$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class CreateApprovalTeamCommand extends $Command
   })
   .s("AWSFluffyCoreService", "CreateApprovalTeam", {})
   .n("MPAClient", "CreateApprovalTeamCommand")
-  .sc(CreateApprovalTeam)
+  .sc(CreateApprovalTeam$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

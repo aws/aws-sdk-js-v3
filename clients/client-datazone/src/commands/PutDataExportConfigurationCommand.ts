@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutDataExportConfigurationInput, PutDataExportConfigurationOutput } from "../models/models_1";
-import { PutDataExportConfiguration } from "../schemas/schemas_0";
+import { PutDataExportConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class PutDataExportConfigurationCommand extends $Command
   })
   .s("DataZone", "PutDataExportConfiguration", {})
   .n("DataZoneClient", "PutDataExportConfigurationCommand")
-  .sc(PutDataExportConfiguration)
+  .sc(PutDataExportConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

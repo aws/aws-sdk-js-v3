@@ -10,7 +10,7 @@ import type {
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
 import { RecognizeUtteranceRequest, RecognizeUtteranceResponse } from "../models/models_0";
-import { RecognizeUtterance } from "../schemas/schemas_0";
+import { RecognizeUtterance$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -192,7 +192,7 @@ export class RecognizeUtteranceCommand extends $Command
   })
   .s("AWSDeepSenseRunTimeServiceApi2_0", "RecognizeUtterance", {})
   .n("LexRuntimeV2Client", "RecognizeUtteranceCommand")
-  .sc(RecognizeUtterance)
+  .sc(RecognizeUtterance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

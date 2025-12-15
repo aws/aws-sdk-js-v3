@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeInstanceSqlHaStatesRequest, DescribeInstanceSqlHaStatesResult } from "../models/models_4";
-import { DescribeInstanceSqlHaStates } from "../schemas/schemas_0";
+import { DescribeInstanceSqlHaStates$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class DescribeInstanceSqlHaStatesCommand extends $Command
   })
   .s("AmazonEC2", "DescribeInstanceSqlHaStates", {})
   .n("EC2Client", "DescribeInstanceSqlHaStatesCommand")
-  .sc(DescribeInstanceSqlHaStates)
+  .sc(DescribeInstanceSqlHaStates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

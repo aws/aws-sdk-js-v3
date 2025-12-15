@@ -8,7 +8,7 @@ import type {
   DescribeInstancePatchStatesForPatchGroupRequest,
   DescribeInstancePatchStatesForPatchGroupResult,
 } from "../models/models_0";
-import { DescribeInstancePatchStatesForPatchGroup } from "../schemas/schemas_0";
+import { DescribeInstancePatchStatesForPatchGroup$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -127,7 +127,7 @@ export class DescribeInstancePatchStatesForPatchGroupCommand extends $Command
   })
   .s("AmazonSSM", "DescribeInstancePatchStatesForPatchGroup", {})
   .n("SSMClient", "DescribeInstancePatchStatesForPatchGroupCommand")
-  .sc(DescribeInstancePatchStatesForPatchGroup)
+  .sc(DescribeInstancePatchStatesForPatchGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

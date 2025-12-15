@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateDocumentRequest } from "../models/models_0";
-import { UpdateDocument } from "../schemas/schemas_0";
+import { UpdateDocument$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -108,7 +108,7 @@ export class UpdateDocumentCommand extends $Command
   })
   .s("AWSGorillaBoyService", "UpdateDocument", {})
   .n("WorkDocsClient", "UpdateDocumentCommand")
-  .sc(UpdateDocument)
+  .sc(UpdateDocument$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

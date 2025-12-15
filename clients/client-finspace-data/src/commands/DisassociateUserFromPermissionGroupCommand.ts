@@ -9,7 +9,7 @@ import type {
   DisassociateUserFromPermissionGroupRequest,
   DisassociateUserFromPermissionGroupResponse,
 } from "../models/models_0";
-import { DisassociateUserFromPermissionGroup } from "../schemas/schemas_0";
+import { DisassociateUserFromPermissionGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class DisassociateUserFromPermissionGroupCommand extends $Command
   })
   .s("AWSHabaneroPublicAPI", "DisassociateUserFromPermissionGroup", {})
   .n("FinspaceDataClient", "DisassociateUserFromPermissionGroupCommand")
-  .sc(DisassociateUserFromPermissionGroup)
+  .sc(DisassociateUserFromPermissionGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

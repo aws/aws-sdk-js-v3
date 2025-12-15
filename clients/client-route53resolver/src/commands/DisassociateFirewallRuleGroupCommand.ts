@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ResolverClient";
-import { DisassociateFirewallRuleGroup } from "../schemas/schemas_0";
+import { DisassociateFirewallRuleGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class DisassociateFirewallRuleGroupCommand extends $Command
   })
   .s("Route53Resolver", "DisassociateFirewallRuleGroup", {})
   .n("Route53ResolverClient", "DisassociateFirewallRuleGroupCommand")
-  .sc(DisassociateFirewallRuleGroup)
+  .sc(DisassociateFirewallRuleGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

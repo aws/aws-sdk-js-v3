@@ -9,7 +9,7 @@ import type {
   AssociateMulticastGroupWithFuotaTaskRequest,
   AssociateMulticastGroupWithFuotaTaskResponse,
 } from "../models/models_0";
-import { AssociateMulticastGroupWithFuotaTask } from "../schemas/schemas_0";
+import { AssociateMulticastGroupWithFuotaTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class AssociateMulticastGroupWithFuotaTaskCommand extends $Command
   })
   .s("iotwireless", "AssociateMulticastGroupWithFuotaTask", {})
   .n("IoTWirelessClient", "AssociateMulticastGroupWithFuotaTaskCommand")
-  .sc(AssociateMulticastGroupWithFuotaTask)
+  .sc(AssociateMulticastGroupWithFuotaTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

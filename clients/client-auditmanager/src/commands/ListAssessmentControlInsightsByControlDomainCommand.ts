@@ -9,7 +9,7 @@ import type {
   ListAssessmentControlInsightsByControlDomainRequest,
   ListAssessmentControlInsightsByControlDomainResponse,
 } from "../models/models_0";
-import { ListAssessmentControlInsightsByControlDomain } from "../schemas/schemas_0";
+import { ListAssessmentControlInsightsByControlDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class ListAssessmentControlInsightsByControlDomainCommand extends $Comman
   })
   .s("BedrockAssessmentManagerLambda", "ListAssessmentControlInsightsByControlDomain", {})
   .n("AuditManagerClient", "ListAssessmentControlInsightsByControlDomainCommand")
-  .sc(ListAssessmentControlInsightsByControlDomain)
+  .sc(ListAssessmentControlInsightsByControlDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

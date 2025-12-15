@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteDeviceRequest, DeleteDeviceResponse } from "../models/models_0";
 import type { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import { DeleteDevice } from "../schemas/schemas_0";
+import { DeleteDevice$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class DeleteDeviceCommand extends $Command
   })
   .s("OmniCloudServiceLambda", "DeleteDevice", {})
   .n("PanoramaClient", "DeleteDeviceCommand")
-  .sc(DeleteDevice)
+  .sc(DeleteDevice$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

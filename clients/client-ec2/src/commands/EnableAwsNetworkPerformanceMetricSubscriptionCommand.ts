@@ -9,7 +9,7 @@ import type {
   EnableAwsNetworkPerformanceMetricSubscriptionRequest,
   EnableAwsNetworkPerformanceMetricSubscriptionResult,
 } from "../models/models_5";
-import { EnableAwsNetworkPerformanceMetricSubscription } from "../schemas/schemas_0";
+import { EnableAwsNetworkPerformanceMetricSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class EnableAwsNetworkPerformanceMetricSubscriptionCommand extends $Comma
   })
   .s("AmazonEC2", "EnableAwsNetworkPerformanceMetricSubscription", {})
   .n("EC2Client", "EnableAwsNetworkPerformanceMetricSubscriptionCommand")
-  .sc(EnableAwsNetworkPerformanceMetricSubscription)
+  .sc(EnableAwsNetworkPerformanceMetricSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

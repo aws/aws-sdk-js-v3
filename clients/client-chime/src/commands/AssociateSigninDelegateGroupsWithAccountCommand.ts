@@ -9,7 +9,7 @@ import type {
   AssociateSigninDelegateGroupsWithAccountRequest,
   AssociateSigninDelegateGroupsWithAccountResponse,
 } from "../models/models_0";
-import { AssociateSigninDelegateGroupsWithAccount } from "../schemas/schemas_0";
+import { AssociateSigninDelegateGroupsWithAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class AssociateSigninDelegateGroupsWithAccountCommand extends $Command
   })
   .s("UCBuzzConsoleService", "AssociateSigninDelegateGroupsWithAccount", {})
   .n("ChimeClient", "AssociateSigninDelegateGroupsWithAccountCommand")
-  .sc(AssociateSigninDelegateGroupsWithAccount)
+  .sc(AssociateSigninDelegateGroupsWithAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

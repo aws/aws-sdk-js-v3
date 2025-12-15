@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateApplicationRequest, UpdateApplicationResponse } from "../models/models_0";
-import { UpdateApplication } from "../schemas/schemas_0";
+import { UpdateApplication$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -112,7 +112,7 @@ export class UpdateApplicationCommand extends $Command
   })
   .s("AWS242AppRegistry", "UpdateApplication", {})
   .n("ServiceCatalogAppRegistryClient", "UpdateApplicationCommand")
-  .sc(UpdateApplication)
+  .sc(UpdateApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

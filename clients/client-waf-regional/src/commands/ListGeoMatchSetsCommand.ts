@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListGeoMatchSetsRequest, ListGeoMatchSetsResponse } from "../models/models_0";
-import { ListGeoMatchSets } from "../schemas/schemas_0";
+import { ListGeoMatchSets$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -94,7 +94,7 @@ export class ListGeoMatchSetsCommand extends $Command
   })
   .s("AWSWAF_Regional_20161128", "ListGeoMatchSets", {})
   .n("WAFRegionalClient", "ListGeoMatchSetsCommand")
-  .sc(ListGeoMatchSets)
+  .sc(ListGeoMatchSets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

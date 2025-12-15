@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
 import type { DeleteUserRequest, DeleteUserResponse } from "../models/models_0";
-import { DeleteUser } from "../schemas/schemas_0";
+import { DeleteUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DeleteUserCommand extends $Command
   })
   .s("AmazonMemoryDB", "DeleteUser", {})
   .n("MemoryDBClient", "DeleteUserCommand")
-  .sc(DeleteUser)
+  .sc(DeleteUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

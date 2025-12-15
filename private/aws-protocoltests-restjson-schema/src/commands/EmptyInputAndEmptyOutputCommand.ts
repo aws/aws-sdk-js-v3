@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { EmptyInputAndEmptyOutput } from "../schemas/schemas_0";
+import { EmptyInputAndEmptyOutput$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -76,7 +76,7 @@ export class EmptyInputAndEmptyOutputCommand extends $Command
   })
   .s("RestJson", "EmptyInputAndEmptyOutput", {})
   .n("RestJsonProtocolClient", "EmptyInputAndEmptyOutputCommand")
-  .sc(EmptyInputAndEmptyOutput)
+  .sc(EmptyInputAndEmptyOutput$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

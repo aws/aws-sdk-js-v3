@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAccessControlEffectRequest, GetAccessControlEffectResponse } from "../models/models_0";
-import { GetAccessControlEffect } from "../schemas/schemas_0";
+import { GetAccessControlEffect$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -99,7 +99,7 @@ export class GetAccessControlEffectCommand extends $Command
   })
   .s("WorkMailService", "GetAccessControlEffect", {})
   .n("WorkMailClient", "GetAccessControlEffectCommand")
-  .sc(GetAccessControlEffect)
+  .sc(GetAccessControlEffect$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

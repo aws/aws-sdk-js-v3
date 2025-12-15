@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateWebACLRequest, DisassociateWebACLResponse } from "../models/models_0";
-import { DisassociateWebACL } from "../schemas/schemas_0";
+import { DisassociateWebACL$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -112,7 +112,7 @@ export class DisassociateWebACLCommand extends $Command
   })
   .s("AWSWAF_20190729", "DisassociateWebACL", {})
   .n("WAFV2Client", "DisassociateWebACLCommand")
-  .sc(DisassociateWebACL)
+  .sc(DisassociateWebACL$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

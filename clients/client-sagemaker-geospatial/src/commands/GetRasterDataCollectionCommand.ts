@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../SageMakerGeospatialClient";
-import { GetRasterDataCollection } from "../schemas/schemas_0";
+import { GetRasterDataCollection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class GetRasterDataCollectionCommand extends $Command
   })
   .s("SageMakerGeospatial", "GetRasterDataCollection", {})
   .n("SageMakerGeospatialClient", "GetRasterDataCollectionCommand")
-  .sc(GetRasterDataCollection)
+  .sc(GetRasterDataCollection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

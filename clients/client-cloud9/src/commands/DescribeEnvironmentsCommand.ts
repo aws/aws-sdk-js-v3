@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeEnvironmentsRequest, DescribeEnvironmentsResult } from "../models/models_0";
-import { DescribeEnvironments } from "../schemas/schemas_0";
+import { DescribeEnvironments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -159,7 +159,7 @@ export class DescribeEnvironmentsCommand extends $Command
   })
   .s("AWSCloud9WorkspaceManagementService", "DescribeEnvironments", {})
   .n("Cloud9Client", "DescribeEnvironmentsCommand")
-  .sc(DescribeEnvironments)
+  .sc(DescribeEnvironments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

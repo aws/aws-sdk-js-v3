@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateDomainEndpointOptionsRequest, UpdateDomainEndpointOptionsResponse } from "../models/models_0";
-import { UpdateDomainEndpointOptions } from "../schemas/schemas_0";
+import { UpdateDomainEndpointOptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class UpdateDomainEndpointOptionsCommand extends $Command
   })
   .s("A9SearchCloudConfigService2013", "UpdateDomainEndpointOptions", {})
   .n("CloudSearchClient", "UpdateDomainEndpointOptionsCommand")
-  .sc(UpdateDomainEndpointOptions)
+  .sc(UpdateDomainEndpointOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../KinesisAnalyticsClient";
 import type { StartApplicationRequest, StartApplicationResponse } from "../models/models_0";
-import { StartApplication } from "../schemas/schemas_0";
+import { StartApplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class StartApplicationCommand extends $Command
   })
   .s("KinesisAnalytics_20150814", "StartApplication", {})
   .n("KinesisAnalyticsClient", "StartApplicationCommand")
-  .sc(StartApplication)
+  .sc(StartApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

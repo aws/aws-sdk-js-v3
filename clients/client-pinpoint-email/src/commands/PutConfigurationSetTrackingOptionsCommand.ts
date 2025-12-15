@@ -9,7 +9,7 @@ import type {
   PutConfigurationSetTrackingOptionsResponse,
 } from "../models/models_0";
 import type { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { PutConfigurationSetTrackingOptions } from "../schemas/schemas_0";
+import { PutConfigurationSetTrackingOptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class PutConfigurationSetTrackingOptionsCommand extends $Command
   })
   .s("AmazonPinpointEmailService", "PutConfigurationSetTrackingOptions", {})
   .n("PinpointEmailClient", "PutConfigurationSetTrackingOptionsCommand")
-  .sc(PutConfigurationSetTrackingOptions)
+  .sc(PutConfigurationSetTrackingOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

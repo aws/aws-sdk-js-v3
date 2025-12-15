@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LaunchWizardClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LaunchWizardClient";
 import type { DeleteDeploymentInput, DeleteDeploymentOutput } from "../models/models_0";
-import { DeleteDeployment } from "../schemas/schemas_0";
+import { DeleteDeployment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class DeleteDeploymentCommand extends $Command
   })
   .s("LaunchWizard", "DeleteDeployment", {})
   .n("LaunchWizardClient", "DeleteDeploymentCommand")
-  .sc(DeleteDeployment)
+  .sc(DeleteDeployment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

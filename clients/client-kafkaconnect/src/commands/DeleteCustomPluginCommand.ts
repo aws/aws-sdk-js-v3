@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
 import type { DeleteCustomPluginRequest, DeleteCustomPluginResponse } from "../models/models_0";
-import { DeleteCustomPlugin } from "../schemas/schemas_0";
+import { DeleteCustomPlugin$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class DeleteCustomPluginCommand extends $Command
   })
   .s("KafkaConnect", "DeleteCustomPlugin", {})
   .n("KafkaConnectClient", "DeleteCustomPluginCommand")
-  .sc(DeleteCustomPlugin)
+  .sc(DeleteCustomPlugin$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

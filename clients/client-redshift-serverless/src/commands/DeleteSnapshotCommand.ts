@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { DeleteSnapshot } from "../schemas/schemas_0";
+import { DeleteSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class DeleteSnapshotCommand extends $Command
   })
   .s("RedshiftServerless", "DeleteSnapshot", {})
   .n("RedshiftServerlessClient", "DeleteSnapshotCommand")
-  .sc(DeleteSnapshot)
+  .sc(DeleteSnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

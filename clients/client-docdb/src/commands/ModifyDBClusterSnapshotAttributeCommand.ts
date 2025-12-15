@@ -9,7 +9,7 @@ import type {
   ModifyDBClusterSnapshotAttributeMessage,
   ModifyDBClusterSnapshotAttributeResult,
 } from "../models/models_0";
-import { ModifyDBClusterSnapshotAttribute } from "../schemas/schemas_0";
+import { ModifyDBClusterSnapshotAttribute$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class ModifyDBClusterSnapshotAttributeCommand extends $Command
   })
   .s("AmazonRDSv19", "ModifyDBClusterSnapshotAttribute", {})
   .n("DocDBClient", "ModifyDBClusterSnapshotAttributeCommand")
-  .sc(ModifyDBClusterSnapshotAttribute)
+  .sc(ModifyDBClusterSnapshotAttribute$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

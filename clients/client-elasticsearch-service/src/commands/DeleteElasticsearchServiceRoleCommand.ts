@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteElasticsearchServiceRole } from "../schemas/schemas_0";
+import { DeleteElasticsearchServiceRole$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -81,7 +81,7 @@ export class DeleteElasticsearchServiceRoleCommand extends $Command
   })
   .s("AmazonElasticsearchService2015", "DeleteElasticsearchServiceRole", {})
   .n("ElasticsearchServiceClient", "DeleteElasticsearchServiceRoleCommand")
-  .sc(DeleteElasticsearchServiceRole)
+  .sc(DeleteElasticsearchServiceRole$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

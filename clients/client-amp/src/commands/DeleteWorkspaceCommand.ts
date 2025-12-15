@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteWorkspaceRequest } from "../models/models_0";
-import { DeleteWorkspace } from "../schemas/schemas_0";
+import { DeleteWorkspace$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeleteWorkspaceCommand extends $Command
   })
   .s("AmazonPrometheusService", "DeleteWorkspace", {})
   .n("AmpClient", "DeleteWorkspaceCommand")
-  .sc(DeleteWorkspace)
+  .sc(DeleteWorkspace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

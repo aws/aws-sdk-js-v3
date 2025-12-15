@@ -9,7 +9,7 @@ import type {
   ListFieldLevelEncryptionProfilesRequest,
   ListFieldLevelEncryptionProfilesResult,
 } from "../models/models_1";
-import { ListFieldLevelEncryptionProfiles } from "../schemas/schemas_0";
+import { ListFieldLevelEncryptionProfiles$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class ListFieldLevelEncryptionProfilesCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "ListFieldLevelEncryptionProfiles", {})
   .n("CloudFrontClient", "ListFieldLevelEncryptionProfilesCommand")
-  .sc(ListFieldLevelEncryptionProfiles)
+  .sc(ListFieldLevelEncryptionProfiles$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

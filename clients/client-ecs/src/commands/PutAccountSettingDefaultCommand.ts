@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutAccountSettingDefaultRequest, PutAccountSettingDefaultResponse } from "../models/models_0";
-import { PutAccountSettingDefault } from "../schemas/schemas_0";
+import { PutAccountSettingDefault$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class PutAccountSettingDefaultCommand extends $Command
   })
   .s("AmazonEC2ContainerServiceV20141113", "PutAccountSettingDefault", {})
   .n("ECSClient", "PutAccountSettingDefaultCommand")
-  .sc(PutAccountSettingDefault)
+  .sc(PutAccountSettingDefault$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

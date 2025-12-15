@@ -10,7 +10,7 @@ import type {
 } from "../CostAndUsageReportServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutReportDefinitionRequest, PutReportDefinitionResponse } from "../models/models_0";
-import { PutReportDefinition } from "../schemas/schemas_0";
+import { PutReportDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -145,7 +145,7 @@ export class PutReportDefinitionCommand extends $Command
   })
   .s("AWSOrigamiServiceGatewayService", "PutReportDefinition", {})
   .n("CostAndUsageReportServiceClient", "PutReportDefinitionCommand")
-  .sc(PutReportDefinition)
+  .sc(PutReportDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

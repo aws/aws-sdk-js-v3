@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeBatchSegmentJobRequest, DescribeBatchSegmentJobResponse } from "../models/models_0";
 import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { DescribeBatchSegmentJob } from "../schemas/schemas_0";
+import { DescribeBatchSegmentJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class DescribeBatchSegmentJobCommand extends $Command
   })
   .s("AmazonPersonalize", "DescribeBatchSegmentJob", {})
   .n("PersonalizeClient", "DescribeBatchSegmentJobCommand")
-  .sc(DescribeBatchSegmentJob)
+  .sc(DescribeBatchSegmentJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

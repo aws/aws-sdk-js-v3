@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDeliverabilityTestReportRequest, GetDeliverabilityTestReportResponse } from "../models/models_0";
 import type { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { GetDeliverabilityTestReport } from "../schemas/schemas_0";
+import { GetDeliverabilityTestReport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class GetDeliverabilityTestReportCommand extends $Command
   })
   .s("AmazonPinpointEmailService", "GetDeliverabilityTestReport", {})
   .n("PinpointEmailClient", "GetDeliverabilityTestReportCommand")
-  .sc(GetDeliverabilityTestReport)
+  .sc(GetDeliverabilityTestReport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

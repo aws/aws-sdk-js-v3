@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { StopRelationalDatabaseRequest, StopRelationalDatabaseResult } from "../models/models_1";
-import { StopRelationalDatabase } from "../schemas/schemas_0";
+import { StopRelationalDatabase$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -134,7 +134,7 @@ export class StopRelationalDatabaseCommand extends $Command
   })
   .s("Lightsail_20161128", "StopRelationalDatabase", {})
   .n("LightsailClient", "StopRelationalDatabaseCommand")
-  .sc(StopRelationalDatabase)
+  .sc(StopRelationalDatabase$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

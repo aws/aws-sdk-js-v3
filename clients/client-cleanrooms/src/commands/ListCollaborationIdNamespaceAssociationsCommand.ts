@@ -9,7 +9,7 @@ import type {
   ListCollaborationIdNamespaceAssociationsInput,
   ListCollaborationIdNamespaceAssociationsOutput,
 } from "../models/models_0";
-import { ListCollaborationIdNamespaceAssociations } from "../schemas/schemas_0";
+import { ListCollaborationIdNamespaceAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class ListCollaborationIdNamespaceAssociationsCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "ListCollaborationIdNamespaceAssociations", {})
   .n("CleanRoomsClient", "ListCollaborationIdNamespaceAssociationsCommand")
-  .sc(ListCollaborationIdNamespaceAssociations)
+  .sc(ListCollaborationIdNamespaceAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

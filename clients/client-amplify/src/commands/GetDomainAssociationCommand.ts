@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDomainAssociationRequest, GetDomainAssociationResult } from "../models/models_0";
-import { GetDomainAssociation } from "../schemas/schemas_0";
+import { GetDomainAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class GetDomainAssociationCommand extends $Command
   })
   .s("Amplify", "GetDomainAssociation", {})
   .n("AmplifyClient", "GetDomainAssociationCommand")
-  .sc(GetDomainAssociation)
+  .sc(GetDomainAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

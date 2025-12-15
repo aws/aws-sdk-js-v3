@@ -9,7 +9,7 @@ import type {
   ListClientDevicesAssociatedWithCoreDeviceRequest,
   ListClientDevicesAssociatedWithCoreDeviceResponse,
 } from "../models/models_0";
-import { ListClientDevicesAssociatedWithCoreDevice } from "../schemas/schemas_0";
+import { ListClientDevicesAssociatedWithCoreDevice$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class ListClientDevicesAssociatedWithCoreDeviceCommand extends $Command
   })
   .s("GreengrassV2", "ListClientDevicesAssociatedWithCoreDevice", {})
   .n("GreengrassV2Client", "ListClientDevicesAssociatedWithCoreDeviceCommand")
-  .sc(ListClientDevicesAssociatedWithCoreDevice)
+  .sc(ListClientDevicesAssociatedWithCoreDevice$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

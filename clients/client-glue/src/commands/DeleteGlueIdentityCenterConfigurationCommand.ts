@@ -9,7 +9,7 @@ import type {
   DeleteGlueIdentityCenterConfigurationRequest,
   DeleteGlueIdentityCenterConfigurationResponse,
 } from "../models/models_1";
-import { DeleteGlueIdentityCenterConfiguration } from "../schemas/schemas_0";
+import { DeleteGlueIdentityCenterConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DeleteGlueIdentityCenterConfigurationCommand extends $Command
   })
   .s("AWSGlue", "DeleteGlueIdentityCenterConfiguration", {})
   .n("GlueClient", "DeleteGlueIdentityCenterConfigurationCommand")
-  .sc(DeleteGlueIdentityCenterConfiguration)
+  .sc(DeleteGlueIdentityCenterConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

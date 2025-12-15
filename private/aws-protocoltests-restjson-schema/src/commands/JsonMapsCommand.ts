@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { JsonMaps } from "../schemas/schemas_0";
+import { JsonMaps$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class JsonMapsCommand extends $Command
   })
   .s("RestJson", "JsonMaps", {})
   .n("RestJsonProtocolClient", "JsonMapsCommand")
-  .sc(JsonMaps)
+  .sc(JsonMaps$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

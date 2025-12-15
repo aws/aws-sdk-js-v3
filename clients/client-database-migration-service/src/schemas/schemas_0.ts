@@ -1161,44 +1161,44 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { DatabaseMigrationServiceServiceException as __DatabaseMigrationServiceServiceException } from "../models/DatabaseMigrationServiceServiceException";
+import { DatabaseMigrationServiceServiceException } from "../models/DatabaseMigrationServiceServiceException";
 import {
-  AccessDeniedFault as __AccessDeniedFault,
-  CollectorNotFoundFault as __CollectorNotFoundFault,
-  FailedDependencyFault as __FailedDependencyFault,
-  InsufficientResourceCapacityFault as __InsufficientResourceCapacityFault,
-  InvalidCertificateFault as __InvalidCertificateFault,
-  InvalidOperationFault as __InvalidOperationFault,
-  InvalidResourceStateFault as __InvalidResourceStateFault,
-  InvalidSubnet as __InvalidSubnet,
-  KMSAccessDeniedFault as __KMSAccessDeniedFault,
-  KMSDisabledFault as __KMSDisabledFault,
-  KMSFault as __KMSFault,
-  KMSInvalidStateFault as __KMSInvalidStateFault,
-  KMSKeyNotAccessibleFault as __KMSKeyNotAccessibleFault,
-  KMSNotFoundFault as __KMSNotFoundFault,
-  KMSThrottlingFault as __KMSThrottlingFault,
-  ReplicationSubnetGroupDoesNotCoverEnoughAZs as __ReplicationSubnetGroupDoesNotCoverEnoughAZs,
-  ResourceAlreadyExistsFault as __ResourceAlreadyExistsFault,
-  ResourceNotFoundFault as __ResourceNotFoundFault,
-  ResourceQuotaExceededFault as __ResourceQuotaExceededFault,
-  S3AccessDeniedFault as __S3AccessDeniedFault,
-  S3ResourceNotFoundFault as __S3ResourceNotFoundFault,
-  SNSInvalidTopicFault as __SNSInvalidTopicFault,
-  SNSNoAuthorizationFault as __SNSNoAuthorizationFault,
-  StorageQuotaExceededFault as __StorageQuotaExceededFault,
-  SubnetAlreadyInUse as __SubnetAlreadyInUse,
-  UpgradeDependencyFailureFault as __UpgradeDependencyFailureFault,
+  AccessDeniedFault,
+  CollectorNotFoundFault,
+  FailedDependencyFault,
+  InsufficientResourceCapacityFault,
+  InvalidCertificateFault,
+  InvalidOperationFault,
+  InvalidResourceStateFault,
+  InvalidSubnet,
+  KMSAccessDeniedFault,
+  KMSDisabledFault,
+  KMSFault,
+  KMSInvalidStateFault,
+  KMSKeyNotAccessibleFault,
+  KMSNotFoundFault,
+  KMSThrottlingFault,
+  ReplicationSubnetGroupDoesNotCoverEnoughAZs,
+  ResourceAlreadyExistsFault,
+  ResourceNotFoundFault,
+  ResourceQuotaExceededFault,
+  S3AccessDeniedFault,
+  S3ResourceNotFoundFault,
+  SNSInvalidTopicFault,
+  SNSNoAuthorizationFault,
+  StorageQuotaExceededFault,
+  SubnetAlreadyInUse,
+  UpgradeDependencyFailureFault,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var SecretString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
-export var AccessDeniedFault: StaticErrorSchema = [-3, n0, _ADF, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedFault, __AccessDeniedFault);
-export var AccountQuota: StaticStructureSchema = [3, n0, _AQ, 0, [_AQN, _U, _M], [0, 1, 1]];
-export var AddTagsToResourceMessage: StaticStructureSchema = [3, n0, _ATTRM, 0, [_RA, _T], [0, [() => TagList, 0]]];
-export var AddTagsToResourceResponse: StaticStructureSchema = [3, n0, _ATTRR, 0, [], []];
-export var ApplyPendingMaintenanceActionMessage: StaticStructureSchema = [
+var SecretString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
+export var AccessDeniedFault$: StaticErrorSchema = [-3, n0, _ADF, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedFault$, AccessDeniedFault);
+export var AccountQuota$: StaticStructureSchema = [3, n0, _AQ, 0, [_AQN, _U, _M], [0, 1, 1]];
+export var AddTagsToResourceMessage$: StaticStructureSchema = [3, n0, _ATTRM, 0, [_RA, _T], [0, [() => TagList, 0]]];
+export var AddTagsToResourceResponse$: StaticStructureSchema = [3, n0, _ATTRR, 0, [], []];
+export var ApplyPendingMaintenanceActionMessage$: StaticStructureSchema = [
   3,
   n0,
   _APMAM,
@@ -1206,17 +1206,17 @@ export var ApplyPendingMaintenanceActionMessage: StaticStructureSchema = [
   [_RIA, _AA, _OIT],
   [0, 0, 0],
 ];
-export var ApplyPendingMaintenanceActionResponse: StaticStructureSchema = [
+export var ApplyPendingMaintenanceActionResponse$: StaticStructureSchema = [
   3,
   n0,
   _APMAR,
   0,
   [_RPMA],
-  [[() => ResourcePendingMaintenanceActions, 0]],
+  [[() => ResourcePendingMaintenanceActions$, 0]],
 ];
-export var AvailabilityZone: StaticStructureSchema = [3, n0, _AZ, 0, [_N], [0]];
-export var BatchStartRecommendationsErrorEntry: StaticStructureSchema = [3, n0, _BSREE, 0, [_DI, _Me, _C], [0, 0, 0]];
-export var BatchStartRecommendationsRequest: StaticStructureSchema = [
+export var AvailabilityZone$: StaticStructureSchema = [3, n0, _AZ, 0, [_N], [0]];
+export var BatchStartRecommendationsErrorEntry$: StaticStructureSchema = [3, n0, _BSREE, 0, [_DI, _Me, _C], [0, 0, 0]];
+export var BatchStartRecommendationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _BSRR,
@@ -1224,7 +1224,7 @@ export var BatchStartRecommendationsRequest: StaticStructureSchema = [
   [_D],
   [() => StartRecommendationsRequestEntryList],
 ];
-export var BatchStartRecommendationsResponse: StaticStructureSchema = [
+export var BatchStartRecommendationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _BSRRa,
@@ -1232,34 +1232,34 @@ export var BatchStartRecommendationsResponse: StaticStructureSchema = [
   [_EE],
   [() => BatchStartRecommendationsErrorEntryList],
 ];
-export var CancelMetadataModelConversionMessage: StaticStructureSchema = [3, n0, _CMMCM, 0, [_MPI, _RI], [0, 0]];
-export var CancelMetadataModelConversionResponse: StaticStructureSchema = [
+export var CancelMetadataModelConversionMessage$: StaticStructureSchema = [3, n0, _CMMCM, 0, [_MPI, _RI], [0, 0]];
+export var CancelMetadataModelConversionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CMMCR,
   0,
   [_R],
-  [() => SchemaConversionRequest],
+  [() => SchemaConversionRequest$],
 ];
-export var CancelMetadataModelCreationMessage: StaticStructureSchema = [3, n0, _CMMCMa, 0, [_MPI, _RI], [0, 0]];
-export var CancelMetadataModelCreationResponse: StaticStructureSchema = [
+export var CancelMetadataModelCreationMessage$: StaticStructureSchema = [3, n0, _CMMCMa, 0, [_MPI, _RI], [0, 0]];
+export var CancelMetadataModelCreationResponse$: StaticStructureSchema = [
   3,
   n0,
   _CMMCRa,
   0,
   [_R],
-  [() => SchemaConversionRequest],
+  [() => SchemaConversionRequest$],
 ];
-export var CancelReplicationTaskAssessmentRunMessage: StaticStructureSchema = [3, n0, _CRTARM, 0, [_RTARA], [0]];
-export var CancelReplicationTaskAssessmentRunResponse: StaticStructureSchema = [
+export var CancelReplicationTaskAssessmentRunMessage$: StaticStructureSchema = [3, n0, _CRTARM, 0, [_RTARA], [0]];
+export var CancelReplicationTaskAssessmentRunResponse$: StaticStructureSchema = [
   3,
   n0,
   _CRTARR,
   0,
   [_RTAR],
-  [() => ReplicationTaskAssessmentRun],
+  [() => ReplicationTaskAssessmentRun$],
 ];
-export var Certificate: StaticStructureSchema = [
+export var Certificate$: StaticStructureSchema = [
   3,
   n0,
   _Ce,
@@ -1267,19 +1267,19 @@ export var Certificate: StaticStructureSchema = [
   [_CI, _CCD, _CP, _CW, _CA, _CO, _VFD, _VTD, _SA, _KL, _KKI],
   [0, 4, 0, 21, 0, 0, 4, 4, 0, 1, 0],
 ];
-export var CollectorHealthCheck: StaticStructureSchema = [3, n0, _CHC, 0, [_CS, _LCSA, _WCSA, _WCGRBA], [0, 2, 2, 2]];
-export var CollectorNotFoundFault: StaticErrorSchema = [-3, n0, _CNFF, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(CollectorNotFoundFault, __CollectorNotFoundFault);
-export var CollectorResponse: StaticStructureSchema = [
+export var CollectorHealthCheck$: StaticStructureSchema = [3, n0, _CHC, 0, [_CS, _LCSA, _WCSA, _WCGRBA], [0, 2, 2, 2]];
+export var CollectorNotFoundFault$: StaticErrorSchema = [-3, n0, _CNFF, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(CollectorNotFoundFault$, CollectorNotFoundFault);
+export var CollectorResponse$: StaticStructureSchema = [
   3,
   n0,
   _CR,
   0,
   [_CRI, _CN, _CV, _VS, _De, _SBN, _SARA, _CHC, _LDR, _RD, _CD, _MD, _ID],
-  [0, 0, 0, 0, 0, 0, 0, () => CollectorHealthCheck, 0, 0, 0, 0, () => InventoryData],
+  [0, 0, 0, 0, 0, 0, 0, () => CollectorHealthCheck$, 0, 0, 0, 0, () => InventoryData$],
 ];
-export var CollectorShortInfoResponse: StaticStructureSchema = [3, n0, _CSIR, 0, [_CRI, _CN], [0, 0]];
-export var ComputeConfig: StaticStructureSchema = [
+export var CollectorShortInfoResponse$: StaticStructureSchema = [3, n0, _CSIR, 0, [_CRI, _CN], [0, 0]];
+export var ComputeConfig$: StaticStructureSchema = [
   3,
   n0,
   _CC,
@@ -1287,8 +1287,8 @@ export var ComputeConfig: StaticStructureSchema = [
   [_AZ, _DNS, _KKI, _MCU, _MCUi, _MAZ, _PMW, _RSGI, _VSGI],
   [0, 0, 0, 1, 1, 2, 0, 0, 64 | 0],
 ];
-export var Connection: StaticStructureSchema = [3, n0, _Co, 0, [_RIA, _EA, _S, _LFM, _EI, _RII], [0, 0, 0, 0, 0, 0]];
-export var CreateDataMigrationMessage: StaticStructureSchema = [
+export var Connection$: StaticStructureSchema = [3, n0, _Co, 0, [_RIA, _EA, _S, _LFM, _EI, _RII], [0, 0, 0, 0, 0, 0]];
+export var CreateDataMigrationMessage$: StaticStructureSchema = [
   3,
   n0,
   _CDMM,
@@ -1296,17 +1296,17 @@ export var CreateDataMigrationMessage: StaticStructureSchema = [
   [_DMN, _MPI, _DMT, _SARA, _ECL, _SDS, _TDS, _NOJ, _T, _SR],
   [0, 0, 0, 0, 2, () => SourceDataSettings, () => TargetDataSettings, 1, [() => TagList, 0], [() => SecretString, 0]],
 ];
-export var CreateDataMigrationResponse: StaticStructureSchema = [3, n0, _CDMR, 0, [_DM], [[() => DataMigration, 0]]];
-export var CreateDataProviderMessage: StaticStructureSchema = [
+export var CreateDataMigrationResponse$: StaticStructureSchema = [3, n0, _CDMR, 0, [_DM], [[() => DataMigration$, 0]]];
+export var CreateDataProviderMessage$: StaticStructureSchema = [
   3,
   n0,
   _CDPM,
   0,
   [_DPN, _De, _E, _V, _Se, _T],
-  [0, 0, 0, 2, () => DataProviderSettings, [() => TagList, 0]],
+  [0, 0, 0, 2, () => DataProviderSettings$, [() => TagList, 0]],
 ];
-export var CreateDataProviderResponse: StaticStructureSchema = [3, n0, _CDPR, 0, [_DP], [() => DataProvider]];
-export var CreateEndpointMessage: StaticStructureSchema = [
+export var CreateDataProviderResponse$: StaticStructureSchema = [3, n0, _CDPR, 0, [_DP], [() => DataProvider$]];
+export var CreateEndpointMessage$: StaticStructureSchema = [
   3,
   n0,
   _CEM,
@@ -1364,30 +1364,30 @@ export var CreateEndpointMessage: StaticStructureSchema = [
     0,
     0,
     0,
-    () => DynamoDbSettings,
-    () => S3Settings,
-    () => DmsTransferSettings,
-    [() => MongoDbSettings, 0],
-    () => KinesisSettings,
-    [() => KafkaSettings, 0],
-    () => ElasticsearchSettings,
-    () => NeptuneSettings,
-    [() => RedshiftSettings, 0],
-    [() => PostgreSQLSettings, 0],
-    [() => MySQLSettings, 0],
-    [() => OracleSettings, 0],
-    [() => SybaseSettings, 0],
-    [() => MicrosoftSQLServerSettings, 0],
-    [() => IBMDb2Settings, 0],
+    () => DynamoDbSettings$,
+    () => S3Settings$,
+    () => DmsTransferSettings$,
+    [() => MongoDbSettings$, 0],
+    () => KinesisSettings$,
+    [() => KafkaSettings$, 0],
+    () => ElasticsearchSettings$,
+    () => NeptuneSettings$,
+    [() => RedshiftSettings$, 0],
+    [() => PostgreSQLSettings$, 0],
+    [() => MySQLSettings$, 0],
+    [() => OracleSettings$, 0],
+    [() => SybaseSettings$, 0],
+    [() => MicrosoftSQLServerSettings$, 0],
+    [() => IBMDb2Settings$, 0],
     0,
-    [() => DocDbSettings, 0],
-    [() => RedisSettings, 0],
-    [() => GcpMySQLSettings, 0],
-    () => TimestreamSettings,
+    [() => DocDbSettings$, 0],
+    [() => RedisSettings$, 0],
+    [() => GcpMySQLSettings$, 0],
+    () => TimestreamSettings$,
   ],
 ];
-export var CreateEndpointResponse: StaticStructureSchema = [3, n0, _CER, 0, [_En], [[() => Endpoint, 0]]];
-export var CreateEventSubscriptionMessage: StaticStructureSchema = [
+export var CreateEndpointResponse$: StaticStructureSchema = [3, n0, _CER, 0, [_En], [[() => Endpoint$, 0]]];
+export var CreateEventSubscriptionMessage$: StaticStructureSchema = [
   3,
   n0,
   _CESM,
@@ -1395,15 +1395,15 @@ export var CreateEventSubscriptionMessage: StaticStructureSchema = [
   [_SNu, _STA, _ST, _EC, _SI, _Ena, _T],
   [0, 0, 0, [() => EventCategoriesList, 0], [() => SourceIdsList, 0], 2, [() => TagList, 0]],
 ];
-export var CreateEventSubscriptionResponse: StaticStructureSchema = [
+export var CreateEventSubscriptionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CESR,
   0,
   [_ESv],
-  [[() => EventSubscription, 0]],
+  [[() => EventSubscription$, 0]],
 ];
-export var CreateFleetAdvisorCollectorRequest: StaticStructureSchema = [
+export var CreateFleetAdvisorCollectorRequest$: StaticStructureSchema = [
   3,
   n0,
   _CFACR,
@@ -1411,7 +1411,7 @@ export var CreateFleetAdvisorCollectorRequest: StaticStructureSchema = [
   [_CN, _De, _SARA, _SBN],
   [0, 0, 0, 0],
 ];
-export var CreateFleetAdvisorCollectorResponse: StaticStructureSchema = [
+export var CreateFleetAdvisorCollectorResponse$: StaticStructureSchema = [
   3,
   n0,
   _CFACRr,
@@ -1419,7 +1419,7 @@ export var CreateFleetAdvisorCollectorResponse: StaticStructureSchema = [
   [_CRI, _CN, _De, _SARA, _SBN],
   [0, 0, 0, 0, 0],
 ];
-export var CreateInstanceProfileMessage: StaticStructureSchema = [
+export var CreateInstanceProfileMessage$: StaticStructureSchema = [
   3,
   n0,
   _CIPM,
@@ -1427,8 +1427,8 @@ export var CreateInstanceProfileMessage: StaticStructureSchema = [
   [_AZ, _KKA, _PA, _T, _NT, _IPN, _De, _SGI, _VSG],
   [0, 0, 2, [() => TagList, 0], 0, 0, 0, 0, 64 | 0],
 ];
-export var CreateInstanceProfileResponse: StaticStructureSchema = [3, n0, _CIPR, 0, [_IP], [() => InstanceProfile]];
-export var CreateMigrationProjectMessage: StaticStructureSchema = [
+export var CreateInstanceProfileResponse$: StaticStructureSchema = [3, n0, _CIPR, 0, [_IP], [() => InstanceProfile$]];
+export var CreateMigrationProjectMessage$: StaticStructureSchema = [
   3,
   n0,
   _CMPM,
@@ -1442,20 +1442,27 @@ export var CreateMigrationProjectMessage: StaticStructureSchema = [
     0,
     0,
     [() => TagList, 0],
-    () => SCApplicationAttributes,
+    () => SCApplicationAttributes$,
   ],
 ];
-export var CreateMigrationProjectResponse: StaticStructureSchema = [3, n0, _CMPR, 0, [_MP], [() => MigrationProject]];
-export var CreateReplicationConfigMessage: StaticStructureSchema = [
+export var CreateMigrationProjectResponse$: StaticStructureSchema = [3, n0, _CMPR, 0, [_MP], [() => MigrationProject$]];
+export var CreateReplicationConfigMessage$: StaticStructureSchema = [
   3,
   n0,
   _CRCM,
   0,
   [_RCI, _SEA, _TEA, _CC, _RT, _TM, _RSep, _SSu, _RIe, _T],
-  [0, 0, 0, () => ComputeConfig, 0, 0, 0, 0, 0, [() => TagList, 0]],
+  [0, 0, 0, () => ComputeConfig$, 0, 0, 0, 0, 0, [() => TagList, 0]],
 ];
-export var CreateReplicationConfigResponse: StaticStructureSchema = [3, n0, _CRCR, 0, [_RC], [() => ReplicationConfig]];
-export var CreateReplicationInstanceMessage: StaticStructureSchema = [
+export var CreateReplicationConfigResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _CRCR,
+  0,
+  [_RC],
+  [() => ReplicationConfig$],
+];
+export var CreateReplicationInstanceMessage$: StaticStructureSchema = [
   3,
   n0,
   _CRIM,
@@ -1478,18 +1485,18 @@ export var CreateReplicationInstanceMessage: StaticStructureSchema = [
     0,
     0,
     0,
-    () => KerberosAuthenticationSettings,
+    () => KerberosAuthenticationSettings$,
   ],
 ];
-export var CreateReplicationInstanceResponse: StaticStructureSchema = [
+export var CreateReplicationInstanceResponse$: StaticStructureSchema = [
   3,
   n0,
   _CRIR,
   0,
   [_RIep],
-  [[() => ReplicationInstance, 0]],
+  [[() => ReplicationInstance$, 0]],
 ];
-export var CreateReplicationSubnetGroupMessage: StaticStructureSchema = [
+export var CreateReplicationSubnetGroupMessage$: StaticStructureSchema = [
   3,
   n0,
   _CRSGM,
@@ -1497,15 +1504,15 @@ export var CreateReplicationSubnetGroupMessage: StaticStructureSchema = [
   [_RSGIe, _RSGD, _SIu, _T],
   [0, 0, [() => SubnetIdentifierList, 0], [() => TagList, 0]],
 ];
-export var CreateReplicationSubnetGroupResponse: StaticStructureSchema = [
+export var CreateReplicationSubnetGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _CRSGR,
   0,
   [_RSG],
-  [[() => ReplicationSubnetGroup, 0]],
+  [[() => ReplicationSubnetGroup$, 0]],
 ];
-export var CreateReplicationTaskMessage: StaticStructureSchema = [
+export var CreateReplicationTaskMessage$: StaticStructureSchema = [
   3,
   n0,
   _CRTM,
@@ -1513,8 +1520,8 @@ export var CreateReplicationTaskMessage: StaticStructureSchema = [
   [_RTI, _SEA, _TEA, _RIA, _MT, _TM, _RTS, _CST, _CSP, _CSPd, _T, _TD, _RIe],
   [0, 0, 0, 0, 0, 0, 0, 4, 0, 0, [() => TagList, 0], 0, 0],
 ];
-export var CreateReplicationTaskResponse: StaticStructureSchema = [3, n0, _CRTR, 0, [_RTe], [() => ReplicationTask]];
-export var DatabaseInstanceSoftwareDetailsResponse: StaticStructureSchema = [
+export var CreateReplicationTaskResponse$: StaticStructureSchema = [3, n0, _CRTR, 0, [_RTe], [() => ReplicationTask$]];
+export var DatabaseInstanceSoftwareDetailsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DISDR,
@@ -1522,16 +1529,16 @@ export var DatabaseInstanceSoftwareDetailsResponse: StaticStructureSchema = [
   [_E, _EV, _EEn, _SP, _SL, _OA, _To],
   [0, 0, 0, 0, 0, 1, 0],
 ];
-export var DatabaseResponse: StaticStructureSchema = [
+export var DatabaseResponse$: StaticStructureSchema = [
   3,
   n0,
   _DR,
   0,
   [_DI, _DN, _IA, _NOS, _Ser, _SD, _Col],
-  [0, 0, 0, 1, () => ServerShortInfoResponse, () => DatabaseInstanceSoftwareDetailsResponse, () => CollectorsList],
+  [0, 0, 0, 1, () => ServerShortInfoResponse$, () => DatabaseInstanceSoftwareDetailsResponse$, () => CollectorsList],
 ];
-export var DatabaseShortInfoResponse: StaticStructureSchema = [3, n0, _DSIR, 0, [_DI, _DN, _DIA, _DE], [0, 0, 0, 0]];
-export var DataMigration: StaticStructureSchema = [
+export var DatabaseShortInfoResponse$: StaticStructureSchema = [3, n0, _DSIR, 0, [_DI, _DN, _DIA, _DE], [0, 0, 0, 0]];
+export var DataMigration$: StaticStructureSchema = [
   3,
   n0,
   _DM,
@@ -1546,10 +1553,10 @@ export var DataMigration: StaticStructureSchema = [
     0,
     0,
     0,
-    [() => DataMigrationSettings, 0],
+    [() => DataMigrationSettings$, 0],
     () => SourceDataSettings,
     () => TargetDataSettings,
-    () => DataMigrationStatistics,
+    () => DataMigrationStatistics$,
     0,
     [() => PublicIpAddressList, 0],
     64 | 0,
@@ -1557,7 +1564,7 @@ export var DataMigration: StaticStructureSchema = [
     0,
   ],
 ];
-export var DataMigrationSettings: StaticStructureSchema = [
+export var DataMigrationSettings$: StaticStructureSchema = [
   3,
   n0,
   _DMS,
@@ -1565,7 +1572,7 @@ export var DataMigrationSettings: StaticStructureSchema = [
   [_NOJ, _CLE, _SR],
   [1, 2, [() => SecretString, 0]],
 ];
-export var DataMigrationStatistics: StaticStructureSchema = [
+export var DataMigrationStatistics$: StaticStructureSchema = [
   3,
   n0,
   _DMSa,
@@ -1573,16 +1580,16 @@ export var DataMigrationStatistics: StaticStructureSchema = [
   [_TL, _ETM, _TLa, _FLP, _CDCL, _TQ, _TE, _STt, _STto],
   [1, 1, 1, 1, 1, 1, 1, 5, 5],
 ];
-export var DataProvider: StaticStructureSchema = [
+export var DataProvider$: StaticStructureSchema = [
   3,
   n0,
   _DP,
   0,
   [_DPN, _DPA, _DPCT, _De, _E, _V, _Se],
-  [0, 0, 5, 0, 0, 2, () => DataProviderSettings],
+  [0, 0, 5, 0, 0, 2, () => DataProviderSettings$],
 ];
-export var DataProviderDescriptor: StaticStructureSchema = [3, n0, _DPD, 0, [_SMSI, _SMARA, _DPN, _DPA], [0, 0, 0, 0]];
-export var DataProviderDescriptorDefinition: StaticStructureSchema = [
+export var DataProviderDescriptor$: StaticStructureSchema = [3, n0, _DPD, 0, [_SMSI, _SMARA, _DPN, _DPA], [0, 0, 0, 0]];
+export var DataProviderDescriptorDefinition$: StaticStructureSchema = [
   3,
   n0,
   _DPDD,
@@ -1590,59 +1597,66 @@ export var DataProviderDescriptorDefinition: StaticStructureSchema = [
   [_DPI, _SMSI, _SMARA],
   [0, 0, 0],
 ];
-export var DefaultErrorDetails: StaticStructureSchema = [3, n0, _DED, 0, [_Me], [0]];
-export var DeleteCertificateMessage: StaticStructureSchema = [3, n0, _DCM, 0, [_CA], [0]];
-export var DeleteCertificateResponse: StaticStructureSchema = [3, n0, _DCR, 0, [_Ce], [() => Certificate]];
-export var DeleteCollectorRequest: StaticStructureSchema = [3, n0, _DCRe, 0, [_CRI], [0]];
-export var DeleteConnectionMessage: StaticStructureSchema = [3, n0, _DCMe, 0, [_EA, _RIA], [0, 0]];
-export var DeleteConnectionResponse: StaticStructureSchema = [3, n0, _DCRel, 0, [_Co], [() => Connection]];
-export var DeleteDataMigrationMessage: StaticStructureSchema = [3, n0, _DDMM, 0, [_DMI], [0]];
-export var DeleteDataMigrationResponse: StaticStructureSchema = [3, n0, _DDMR, 0, [_DM], [[() => DataMigration, 0]]];
-export var DeleteDataProviderMessage: StaticStructureSchema = [3, n0, _DDPM, 0, [_DPI], [0]];
-export var DeleteDataProviderResponse: StaticStructureSchema = [3, n0, _DDPR, 0, [_DP], [() => DataProvider]];
-export var DeleteEndpointMessage: StaticStructureSchema = [3, n0, _DEM, 0, [_EA], [0]];
-export var DeleteEndpointResponse: StaticStructureSchema = [3, n0, _DER, 0, [_En], [[() => Endpoint, 0]]];
-export var DeleteEventSubscriptionMessage: StaticStructureSchema = [3, n0, _DESM, 0, [_SNu], [0]];
-export var DeleteEventSubscriptionResponse: StaticStructureSchema = [
+export var DefaultErrorDetails$: StaticStructureSchema = [3, n0, _DED, 0, [_Me], [0]];
+export var DeleteCertificateMessage$: StaticStructureSchema = [3, n0, _DCM, 0, [_CA], [0]];
+export var DeleteCertificateResponse$: StaticStructureSchema = [3, n0, _DCR, 0, [_Ce], [() => Certificate$]];
+export var DeleteCollectorRequest$: StaticStructureSchema = [3, n0, _DCRe, 0, [_CRI], [0]];
+export var DeleteConnectionMessage$: StaticStructureSchema = [3, n0, _DCMe, 0, [_EA, _RIA], [0, 0]];
+export var DeleteConnectionResponse$: StaticStructureSchema = [3, n0, _DCRel, 0, [_Co], [() => Connection$]];
+export var DeleteDataMigrationMessage$: StaticStructureSchema = [3, n0, _DDMM, 0, [_DMI], [0]];
+export var DeleteDataMigrationResponse$: StaticStructureSchema = [3, n0, _DDMR, 0, [_DM], [[() => DataMigration$, 0]]];
+export var DeleteDataProviderMessage$: StaticStructureSchema = [3, n0, _DDPM, 0, [_DPI], [0]];
+export var DeleteDataProviderResponse$: StaticStructureSchema = [3, n0, _DDPR, 0, [_DP], [() => DataProvider$]];
+export var DeleteEndpointMessage$: StaticStructureSchema = [3, n0, _DEM, 0, [_EA], [0]];
+export var DeleteEndpointResponse$: StaticStructureSchema = [3, n0, _DER, 0, [_En], [[() => Endpoint$, 0]]];
+export var DeleteEventSubscriptionMessage$: StaticStructureSchema = [3, n0, _DESM, 0, [_SNu], [0]];
+export var DeleteEventSubscriptionResponse$: StaticStructureSchema = [
   3,
   n0,
   _DESR,
   0,
   [_ESv],
-  [[() => EventSubscription, 0]],
+  [[() => EventSubscription$, 0]],
 ];
-export var DeleteFleetAdvisorDatabasesRequest: StaticStructureSchema = [3, n0, _DFADR, 0, [_DIa], [64 | 0]];
-export var DeleteFleetAdvisorDatabasesResponse: StaticStructureSchema = [3, n0, _DFADRe, 0, [_DIa], [64 | 0]];
-export var DeleteInstanceProfileMessage: StaticStructureSchema = [3, n0, _DIPM, 0, [_IPI], [0]];
-export var DeleteInstanceProfileResponse: StaticStructureSchema = [3, n0, _DIPR, 0, [_IP], [() => InstanceProfile]];
-export var DeleteMigrationProjectMessage: StaticStructureSchema = [3, n0, _DMPM, 0, [_MPI], [0]];
-export var DeleteMigrationProjectResponse: StaticStructureSchema = [3, n0, _DMPR, 0, [_MP], [() => MigrationProject]];
-export var DeleteReplicationConfigMessage: StaticStructureSchema = [3, n0, _DRCM, 0, [_RCA], [0]];
-export var DeleteReplicationConfigResponse: StaticStructureSchema = [3, n0, _DRCR, 0, [_RC], [() => ReplicationConfig]];
-export var DeleteReplicationInstanceMessage: StaticStructureSchema = [3, n0, _DRIM, 0, [_RIA], [0]];
-export var DeleteReplicationInstanceResponse: StaticStructureSchema = [
+export var DeleteFleetAdvisorDatabasesRequest$: StaticStructureSchema = [3, n0, _DFADR, 0, [_DIa], [64 | 0]];
+export var DeleteFleetAdvisorDatabasesResponse$: StaticStructureSchema = [3, n0, _DFADRe, 0, [_DIa], [64 | 0]];
+export var DeleteInstanceProfileMessage$: StaticStructureSchema = [3, n0, _DIPM, 0, [_IPI], [0]];
+export var DeleteInstanceProfileResponse$: StaticStructureSchema = [3, n0, _DIPR, 0, [_IP], [() => InstanceProfile$]];
+export var DeleteMigrationProjectMessage$: StaticStructureSchema = [3, n0, _DMPM, 0, [_MPI], [0]];
+export var DeleteMigrationProjectResponse$: StaticStructureSchema = [3, n0, _DMPR, 0, [_MP], [() => MigrationProject$]];
+export var DeleteReplicationConfigMessage$: StaticStructureSchema = [3, n0, _DRCM, 0, [_RCA], [0]];
+export var DeleteReplicationConfigResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _DRCR,
+  0,
+  [_RC],
+  [() => ReplicationConfig$],
+];
+export var DeleteReplicationInstanceMessage$: StaticStructureSchema = [3, n0, _DRIM, 0, [_RIA], [0]];
+export var DeleteReplicationInstanceResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRIR,
   0,
   [_RIep],
-  [[() => ReplicationInstance, 0]],
+  [[() => ReplicationInstance$, 0]],
 ];
-export var DeleteReplicationSubnetGroupMessage: StaticStructureSchema = [3, n0, _DRSGM, 0, [_RSGIe], [0]];
-export var DeleteReplicationSubnetGroupResponse: StaticStructureSchema = [3, n0, _DRSGR, 0, [], []];
-export var DeleteReplicationTaskAssessmentRunMessage: StaticStructureSchema = [3, n0, _DRTARM, 0, [_RTARA], [0]];
-export var DeleteReplicationTaskAssessmentRunResponse: StaticStructureSchema = [
+export var DeleteReplicationSubnetGroupMessage$: StaticStructureSchema = [3, n0, _DRSGM, 0, [_RSGIe], [0]];
+export var DeleteReplicationSubnetGroupResponse$: StaticStructureSchema = [3, n0, _DRSGR, 0, [], []];
+export var DeleteReplicationTaskAssessmentRunMessage$: StaticStructureSchema = [3, n0, _DRTARM, 0, [_RTARA], [0]];
+export var DeleteReplicationTaskAssessmentRunResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRTARR,
   0,
   [_RTAR],
-  [() => ReplicationTaskAssessmentRun],
+  [() => ReplicationTaskAssessmentRun$],
 ];
-export var DeleteReplicationTaskMessage: StaticStructureSchema = [3, n0, _DRTM, 0, [_RTA], [0]];
-export var DeleteReplicationTaskResponse: StaticStructureSchema = [3, n0, _DRTR, 0, [_RTe], [() => ReplicationTask]];
-export var DescribeAccountAttributesMessage: StaticStructureSchema = [3, n0, _DAAM, 0, [], []];
-export var DescribeAccountAttributesResponse: StaticStructureSchema = [
+export var DeleteReplicationTaskMessage$: StaticStructureSchema = [3, n0, _DRTM, 0, [_RTA], [0]];
+export var DeleteReplicationTaskResponse$: StaticStructureSchema = [3, n0, _DRTR, 0, [_RTe], [() => ReplicationTask$]];
+export var DescribeAccountAttributesMessage$: StaticStructureSchema = [3, n0, _DAAM, 0, [], []];
+export var DescribeAccountAttributesResponse$: StaticStructureSchema = [
   3,
   n0,
   _DAAR,
@@ -1650,7 +1664,7 @@ export var DescribeAccountAttributesResponse: StaticStructureSchema = [
   [_AQc, _UAI],
   [[() => AccountQuotaList, 0], 0],
 ];
-export var DescribeApplicableIndividualAssessmentsMessage: StaticStructureSchema = [
+export var DescribeApplicableIndividualAssessmentsMessage$: StaticStructureSchema = [
   3,
   n0,
   _DAIAM,
@@ -1658,7 +1672,7 @@ export var DescribeApplicableIndividualAssessmentsMessage: StaticStructureSchema
   [_RTA, _RIA, _RCA, _SEN, _TEN, _MT, _MR, _Ma],
   [0, 0, 0, 0, 0, 0, 1, 0],
 ];
-export var DescribeApplicableIndividualAssessmentsResponse: StaticStructureSchema = [
+export var DescribeApplicableIndividualAssessmentsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DAIAR,
@@ -1666,7 +1680,7 @@ export var DescribeApplicableIndividualAssessmentsResponse: StaticStructureSchem
   [_IAN, _Ma],
   [64 | 0, 0],
 ];
-export var DescribeCertificatesMessage: StaticStructureSchema = [
+export var DescribeCertificatesMessage$: StaticStructureSchema = [
   3,
   n0,
   _DCMes,
@@ -1674,7 +1688,7 @@ export var DescribeCertificatesMessage: StaticStructureSchema = [
   [_F, _MR, _Ma],
   [[() => FilterList, 0], 1, 0],
 ];
-export var DescribeCertificatesResponse: StaticStructureSchema = [
+export var DescribeCertificatesResponse$: StaticStructureSchema = [
   3,
   n0,
   _DCRes,
@@ -1682,7 +1696,7 @@ export var DescribeCertificatesResponse: StaticStructureSchema = [
   [_Ma, _Cer],
   [0, [() => CertificateList, 0]],
 ];
-export var DescribeConnectionsMessage: StaticStructureSchema = [
+export var DescribeConnectionsMessage$: StaticStructureSchema = [
   3,
   n0,
   _DCMesc,
@@ -1690,7 +1704,7 @@ export var DescribeConnectionsMessage: StaticStructureSchema = [
   [_F, _MR, _Ma],
   [[() => FilterList, 0], 1, 0],
 ];
-export var DescribeConnectionsResponse: StaticStructureSchema = [
+export var DescribeConnectionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DCResc,
@@ -1698,9 +1712,9 @@ export var DescribeConnectionsResponse: StaticStructureSchema = [
   [_Ma, _Con],
   [0, [() => ConnectionList, 0]],
 ];
-export var DescribeConversionConfigurationMessage: StaticStructureSchema = [3, n0, _DCCM, 0, [_MPI], [0]];
-export var DescribeConversionConfigurationResponse: StaticStructureSchema = [3, n0, _DCCR, 0, [_MPI, _CCo], [0, 0]];
-export var DescribeDataMigrationsMessage: StaticStructureSchema = [
+export var DescribeConversionConfigurationMessage$: StaticStructureSchema = [3, n0, _DCCM, 0, [_MPI], [0]];
+export var DescribeConversionConfigurationResponse$: StaticStructureSchema = [3, n0, _DCCR, 0, [_MPI, _CCo], [0, 0]];
+export var DescribeDataMigrationsMessage$: StaticStructureSchema = [
   3,
   n0,
   _DDMMe,
@@ -1708,7 +1722,7 @@ export var DescribeDataMigrationsMessage: StaticStructureSchema = [
   [_F, _MR, _Ma, _WS, _WSi],
   [[() => FilterList, 0], 1, 0, 2, 2],
 ];
-export var DescribeDataMigrationsResponse: StaticStructureSchema = [
+export var DescribeDataMigrationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DDMRe,
@@ -1716,7 +1730,7 @@ export var DescribeDataMigrationsResponse: StaticStructureSchema = [
   [_DMa, _Ma],
   [[() => DataMigrations, 0], 0],
 ];
-export var DescribeDataProvidersMessage: StaticStructureSchema = [
+export var DescribeDataProvidersMessage$: StaticStructureSchema = [
   3,
   n0,
   _DDPMe,
@@ -1724,7 +1738,7 @@ export var DescribeDataProvidersMessage: StaticStructureSchema = [
   [_F, _MR, _Ma],
   [[() => FilterList, 0], 1, 0],
 ];
-export var DescribeDataProvidersResponse: StaticStructureSchema = [
+export var DescribeDataProvidersResponse$: StaticStructureSchema = [
   3,
   n0,
   _DDPRe,
@@ -1732,8 +1746,8 @@ export var DescribeDataProvidersResponse: StaticStructureSchema = [
   [_Ma, _DPa],
   [0, [() => DataProviderList, 0]],
 ];
-export var DescribeEndpointSettingsMessage: StaticStructureSchema = [3, n0, _DESMe, 0, [_EN, _MR, _Ma], [0, 1, 0]];
-export var DescribeEndpointSettingsResponse: StaticStructureSchema = [
+export var DescribeEndpointSettingsMessage$: StaticStructureSchema = [3, n0, _DESMe, 0, [_EN, _MR, _Ma], [0, 1, 0]];
+export var DescribeEndpointSettingsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DESRe,
@@ -1741,7 +1755,7 @@ export var DescribeEndpointSettingsResponse: StaticStructureSchema = [
   [_Ma, _ESn],
   [0, () => EndpointSettingsList],
 ];
-export var DescribeEndpointsMessage: StaticStructureSchema = [
+export var DescribeEndpointsMessage$: StaticStructureSchema = [
   3,
   n0,
   _DEMe,
@@ -1749,7 +1763,7 @@ export var DescribeEndpointsMessage: StaticStructureSchema = [
   [_F, _MR, _Ma],
   [[() => FilterList, 0], 1, 0],
 ];
-export var DescribeEndpointsResponse: StaticStructureSchema = [
+export var DescribeEndpointsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DERe,
@@ -1757,7 +1771,7 @@ export var DescribeEndpointsResponse: StaticStructureSchema = [
   [_Ma, _End],
   [0, [() => EndpointList, 0]],
 ];
-export var DescribeEndpointTypesMessage: StaticStructureSchema = [
+export var DescribeEndpointTypesMessage$: StaticStructureSchema = [
   3,
   n0,
   _DETM,
@@ -1765,7 +1779,7 @@ export var DescribeEndpointTypesMessage: StaticStructureSchema = [
   [_F, _MR, _Ma],
   [[() => FilterList, 0], 1, 0],
 ];
-export var DescribeEndpointTypesResponse: StaticStructureSchema = [
+export var DescribeEndpointTypesResponse$: StaticStructureSchema = [
   3,
   n0,
   _DETR,
@@ -1773,8 +1787,8 @@ export var DescribeEndpointTypesResponse: StaticStructureSchema = [
   [_Ma, _SET],
   [0, [() => SupportedEndpointTypeList, 0]],
 ];
-export var DescribeEngineVersionsMessage: StaticStructureSchema = [3, n0, _DEVM, 0, [_MR, _Ma], [1, 0]];
-export var DescribeEngineVersionsResponse: StaticStructureSchema = [
+export var DescribeEngineVersionsMessage$: StaticStructureSchema = [3, n0, _DEVM, 0, [_MR, _Ma], [1, 0]];
+export var DescribeEngineVersionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DEVR,
@@ -1782,7 +1796,7 @@ export var DescribeEngineVersionsResponse: StaticStructureSchema = [
   [_EVn, _Ma],
   [[() => EngineVersionList, 0], 0],
 ];
-export var DescribeEventCategoriesMessage: StaticStructureSchema = [
+export var DescribeEventCategoriesMessage$: StaticStructureSchema = [
   3,
   n0,
   _DECM,
@@ -1790,7 +1804,7 @@ export var DescribeEventCategoriesMessage: StaticStructureSchema = [
   [_ST, _F],
   [0, [() => FilterList, 0]],
 ];
-export var DescribeEventCategoriesResponse: StaticStructureSchema = [
+export var DescribeEventCategoriesResponse$: StaticStructureSchema = [
   3,
   n0,
   _DECR,
@@ -1798,7 +1812,7 @@ export var DescribeEventCategoriesResponse: StaticStructureSchema = [
   [_ECGL],
   [[() => EventCategoryGroupList, 0]],
 ];
-export var DescribeEventsMessage: StaticStructureSchema = [
+export var DescribeEventsMessage$: StaticStructureSchema = [
   3,
   n0,
   _DEMes,
@@ -1806,8 +1820,8 @@ export var DescribeEventsMessage: StaticStructureSchema = [
   [_SIo, _ST, _STt, _ETn, _Du, _EC, _F, _MR, _Ma],
   [0, 0, 4, 4, 1, [() => EventCategoriesList, 0], [() => FilterList, 0], 1, 0],
 ];
-export var DescribeEventsResponse: StaticStructureSchema = [3, n0, _DERes, 0, [_Ma, _Ev], [0, [() => EventList, 0]]];
-export var DescribeEventSubscriptionsMessage: StaticStructureSchema = [
+export var DescribeEventsResponse$: StaticStructureSchema = [3, n0, _DERes, 0, [_Ma, _Ev], [0, [() => EventList, 0]]];
+export var DescribeEventSubscriptionsMessage$: StaticStructureSchema = [
   3,
   n0,
   _DESMes,
@@ -1815,7 +1829,7 @@ export var DescribeEventSubscriptionsMessage: StaticStructureSchema = [
   [_SNu, _F, _MR, _Ma],
   [0, [() => FilterList, 0], 1, 0],
 ];
-export var DescribeEventSubscriptionsResponse: StaticStructureSchema = [
+export var DescribeEventSubscriptionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DESRes,
@@ -1823,7 +1837,7 @@ export var DescribeEventSubscriptionsResponse: StaticStructureSchema = [
   [_Ma, _ESL],
   [0, [() => EventSubscriptionsList, 0]],
 ];
-export var DescribeExtensionPackAssociationsMessage: StaticStructureSchema = [
+export var DescribeExtensionPackAssociationsMessage$: StaticStructureSchema = [
   3,
   n0,
   _DEPAM,
@@ -1831,7 +1845,7 @@ export var DescribeExtensionPackAssociationsMessage: StaticStructureSchema = [
   [_MPI, _F, _Ma, _MR],
   [0, [() => FilterList, 0], 0, 1],
 ];
-export var DescribeExtensionPackAssociationsResponse: StaticStructureSchema = [
+export var DescribeExtensionPackAssociationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DEPAR,
@@ -1839,7 +1853,7 @@ export var DescribeExtensionPackAssociationsResponse: StaticStructureSchema = [
   [_Ma, _Re],
   [0, () => SchemaConversionRequestList],
 ];
-export var DescribeFleetAdvisorCollectorsRequest: StaticStructureSchema = [
+export var DescribeFleetAdvisorCollectorsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DFACR,
@@ -1847,7 +1861,7 @@ export var DescribeFleetAdvisorCollectorsRequest: StaticStructureSchema = [
   [_F, _MR, _NTe],
   [[() => FilterList, 0], 1, 0],
 ];
-export var DescribeFleetAdvisorCollectorsResponse: StaticStructureSchema = [
+export var DescribeFleetAdvisorCollectorsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DFACRe,
@@ -1855,7 +1869,7 @@ export var DescribeFleetAdvisorCollectorsResponse: StaticStructureSchema = [
   [_Col, _NTe],
   [() => CollectorResponses, 0],
 ];
-export var DescribeFleetAdvisorDatabasesRequest: StaticStructureSchema = [
+export var DescribeFleetAdvisorDatabasesRequest$: StaticStructureSchema = [
   3,
   n0,
   _DFADRes,
@@ -1863,7 +1877,7 @@ export var DescribeFleetAdvisorDatabasesRequest: StaticStructureSchema = [
   [_F, _MR, _NTe],
   [[() => FilterList, 0], 1, 0],
 ];
-export var DescribeFleetAdvisorDatabasesResponse: StaticStructureSchema = [
+export var DescribeFleetAdvisorDatabasesResponse$: StaticStructureSchema = [
   3,
   n0,
   _DFADResc,
@@ -1871,8 +1885,8 @@ export var DescribeFleetAdvisorDatabasesResponse: StaticStructureSchema = [
   [_Da, _NTe],
   [() => DatabaseList, 0],
 ];
-export var DescribeFleetAdvisorLsaAnalysisRequest: StaticStructureSchema = [3, n0, _DFALAR, 0, [_MR, _NTe], [1, 0]];
-export var DescribeFleetAdvisorLsaAnalysisResponse: StaticStructureSchema = [
+export var DescribeFleetAdvisorLsaAnalysisRequest$: StaticStructureSchema = [3, n0, _DFALAR, 0, [_MR, _NTe], [1, 0]];
+export var DescribeFleetAdvisorLsaAnalysisResponse$: StaticStructureSchema = [
   3,
   n0,
   _DFALARe,
@@ -1880,7 +1894,7 @@ export var DescribeFleetAdvisorLsaAnalysisResponse: StaticStructureSchema = [
   [_A, _NTe],
   [() => FleetAdvisorLsaAnalysisResponseList, 0],
 ];
-export var DescribeFleetAdvisorSchemaObjectSummaryRequest: StaticStructureSchema = [
+export var DescribeFleetAdvisorSchemaObjectSummaryRequest$: StaticStructureSchema = [
   3,
   n0,
   _DFASOSR,
@@ -1888,7 +1902,7 @@ export var DescribeFleetAdvisorSchemaObjectSummaryRequest: StaticStructureSchema
   [_F, _MR, _NTe],
   [[() => FilterList, 0], 1, 0],
 ];
-export var DescribeFleetAdvisorSchemaObjectSummaryResponse: StaticStructureSchema = [
+export var DescribeFleetAdvisorSchemaObjectSummaryResponse$: StaticStructureSchema = [
   3,
   n0,
   _DFASOSRe,
@@ -1896,7 +1910,7 @@ export var DescribeFleetAdvisorSchemaObjectSummaryResponse: StaticStructureSchem
   [_FASO, _NTe],
   [() => FleetAdvisorSchemaObjectList, 0],
 ];
-export var DescribeFleetAdvisorSchemasRequest: StaticStructureSchema = [
+export var DescribeFleetAdvisorSchemasRequest$: StaticStructureSchema = [
   3,
   n0,
   _DFASR,
@@ -1904,7 +1918,7 @@ export var DescribeFleetAdvisorSchemasRequest: StaticStructureSchema = [
   [_F, _MR, _NTe],
   [[() => FilterList, 0], 1, 0],
 ];
-export var DescribeFleetAdvisorSchemasResponse: StaticStructureSchema = [
+export var DescribeFleetAdvisorSchemasResponse$: StaticStructureSchema = [
   3,
   n0,
   _DFASRe,
@@ -1912,7 +1926,7 @@ export var DescribeFleetAdvisorSchemasResponse: StaticStructureSchema = [
   [_FAS, _NTe],
   [() => FleetAdvisorSchemaList, 0],
 ];
-export var DescribeInstanceProfilesMessage: StaticStructureSchema = [
+export var DescribeInstanceProfilesMessage$: StaticStructureSchema = [
   3,
   n0,
   _DIPMe,
@@ -1920,7 +1934,7 @@ export var DescribeInstanceProfilesMessage: StaticStructureSchema = [
   [_F, _MR, _Ma],
   [[() => FilterList, 0], 1, 0],
 ];
-export var DescribeInstanceProfilesResponse: StaticStructureSchema = [
+export var DescribeInstanceProfilesResponse$: StaticStructureSchema = [
   3,
   n0,
   _DIPRe,
@@ -1928,7 +1942,7 @@ export var DescribeInstanceProfilesResponse: StaticStructureSchema = [
   [_Ma, _IPn],
   [0, [() => InstanceProfileList, 0]],
 ];
-export var DescribeMetadataModelAssessmentsMessage: StaticStructureSchema = [
+export var DescribeMetadataModelAssessmentsMessage$: StaticStructureSchema = [
   3,
   n0,
   _DMMAM,
@@ -1936,7 +1950,7 @@ export var DescribeMetadataModelAssessmentsMessage: StaticStructureSchema = [
   [_MPI, _F, _Ma, _MR],
   [0, [() => FilterList, 0], 0, 1],
 ];
-export var DescribeMetadataModelAssessmentsResponse: StaticStructureSchema = [
+export var DescribeMetadataModelAssessmentsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DMMAR,
@@ -1944,7 +1958,7 @@ export var DescribeMetadataModelAssessmentsResponse: StaticStructureSchema = [
   [_Ma, _Re],
   [0, () => SchemaConversionRequestList],
 ];
-export var DescribeMetadataModelChildrenMessage: StaticStructureSchema = [
+export var DescribeMetadataModelChildrenMessage$: StaticStructureSchema = [
   3,
   n0,
   _DMMCM,
@@ -1952,7 +1966,7 @@ export var DescribeMetadataModelChildrenMessage: StaticStructureSchema = [
   [_SR, _MPI, _O, _Ma, _MR],
   [0, 0, 0, 0, 1],
 ];
-export var DescribeMetadataModelChildrenResponse: StaticStructureSchema = [
+export var DescribeMetadataModelChildrenResponse$: StaticStructureSchema = [
   3,
   n0,
   _DMMCR,
@@ -1960,7 +1974,7 @@ export var DescribeMetadataModelChildrenResponse: StaticStructureSchema = [
   [_Ma, _MMC],
   [0, () => MetadataModelReferenceList],
 ];
-export var DescribeMetadataModelConversionsMessage: StaticStructureSchema = [
+export var DescribeMetadataModelConversionsMessage$: StaticStructureSchema = [
   3,
   n0,
   _DMMCMe,
@@ -1968,7 +1982,7 @@ export var DescribeMetadataModelConversionsMessage: StaticStructureSchema = [
   [_MPI, _F, _Ma, _MR],
   [0, [() => FilterList, 0], 0, 1],
 ];
-export var DescribeMetadataModelConversionsResponse: StaticStructureSchema = [
+export var DescribeMetadataModelConversionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DMMCRe,
@@ -1976,7 +1990,7 @@ export var DescribeMetadataModelConversionsResponse: StaticStructureSchema = [
   [_Ma, _Re],
   [0, () => SchemaConversionRequestList],
 ];
-export var DescribeMetadataModelCreationsMessage: StaticStructureSchema = [
+export var DescribeMetadataModelCreationsMessage$: StaticStructureSchema = [
   3,
   n0,
   _DMMCMes,
@@ -1984,7 +1998,7 @@ export var DescribeMetadataModelCreationsMessage: StaticStructureSchema = [
   [_F, _Ma, _MR, _MPI],
   [[() => FilterList, 0], 0, 1, 0],
 ];
-export var DescribeMetadataModelCreationsResponse: StaticStructureSchema = [
+export var DescribeMetadataModelCreationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DMMCRes,
@@ -1992,7 +2006,7 @@ export var DescribeMetadataModelCreationsResponse: StaticStructureSchema = [
   [_Ma, _Re],
   [0, () => SchemaConversionRequestList],
 ];
-export var DescribeMetadataModelExportsAsScriptMessage: StaticStructureSchema = [
+export var DescribeMetadataModelExportsAsScriptMessage$: StaticStructureSchema = [
   3,
   n0,
   _DMMEASM,
@@ -2000,7 +2014,7 @@ export var DescribeMetadataModelExportsAsScriptMessage: StaticStructureSchema = 
   [_MPI, _F, _Ma, _MR],
   [0, [() => FilterList, 0], 0, 1],
 ];
-export var DescribeMetadataModelExportsAsScriptResponse: StaticStructureSchema = [
+export var DescribeMetadataModelExportsAsScriptResponse$: StaticStructureSchema = [
   3,
   n0,
   _DMMEASR,
@@ -2008,7 +2022,7 @@ export var DescribeMetadataModelExportsAsScriptResponse: StaticStructureSchema =
   [_Ma, _Re],
   [0, () => SchemaConversionRequestList],
 ];
-export var DescribeMetadataModelExportsToTargetMessage: StaticStructureSchema = [
+export var DescribeMetadataModelExportsToTargetMessage$: StaticStructureSchema = [
   3,
   n0,
   _DMMETTM,
@@ -2016,7 +2030,7 @@ export var DescribeMetadataModelExportsToTargetMessage: StaticStructureSchema = 
   [_MPI, _F, _Ma, _MR],
   [0, [() => FilterList, 0], 0, 1],
 ];
-export var DescribeMetadataModelExportsToTargetResponse: StaticStructureSchema = [
+export var DescribeMetadataModelExportsToTargetResponse$: StaticStructureSchema = [
   3,
   n0,
   _DMMETTR,
@@ -2024,7 +2038,7 @@ export var DescribeMetadataModelExportsToTargetResponse: StaticStructureSchema =
   [_Ma, _Re],
   [0, () => SchemaConversionRequestList],
 ];
-export var DescribeMetadataModelImportsMessage: StaticStructureSchema = [
+export var DescribeMetadataModelImportsMessage$: StaticStructureSchema = [
   3,
   n0,
   _DMMIM,
@@ -2032,7 +2046,7 @@ export var DescribeMetadataModelImportsMessage: StaticStructureSchema = [
   [_MPI, _F, _Ma, _MR],
   [0, [() => FilterList, 0], 0, 1],
 ];
-export var DescribeMetadataModelImportsResponse: StaticStructureSchema = [
+export var DescribeMetadataModelImportsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DMMIR,
@@ -2040,8 +2054,8 @@ export var DescribeMetadataModelImportsResponse: StaticStructureSchema = [
   [_Ma, _Re],
   [0, () => SchemaConversionRequestList],
 ];
-export var DescribeMetadataModelMessage: StaticStructureSchema = [3, n0, _DMMM, 0, [_SR, _MPI, _O], [0, 0, 0]];
-export var DescribeMetadataModelResponse: StaticStructureSchema = [
+export var DescribeMetadataModelMessage$: StaticStructureSchema = [3, n0, _DMMM, 0, [_SR, _MPI, _O], [0, 0, 0]];
+export var DescribeMetadataModelResponse$: StaticStructureSchema = [
   3,
   n0,
   _DMMR,
@@ -2049,7 +2063,7 @@ export var DescribeMetadataModelResponse: StaticStructureSchema = [
   [_MMN, _MMT, _TMM, _Def],
   [0, 0, () => MetadataModelReferenceList, 0],
 ];
-export var DescribeMigrationProjectsMessage: StaticStructureSchema = [
+export var DescribeMigrationProjectsMessage$: StaticStructureSchema = [
   3,
   n0,
   _DMPMe,
@@ -2057,7 +2071,7 @@ export var DescribeMigrationProjectsMessage: StaticStructureSchema = [
   [_F, _MR, _Ma],
   [[() => FilterList, 0], 1, 0],
 ];
-export var DescribeMigrationProjectsResponse: StaticStructureSchema = [
+export var DescribeMigrationProjectsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DMPRe,
@@ -2065,8 +2079,15 @@ export var DescribeMigrationProjectsResponse: StaticStructureSchema = [
   [_Ma, _MPi],
   [0, [() => MigrationProjectList, 0]],
 ];
-export var DescribeOrderableReplicationInstancesMessage: StaticStructureSchema = [3, n0, _DORIM, 0, [_MR, _Ma], [1, 0]];
-export var DescribeOrderableReplicationInstancesResponse: StaticStructureSchema = [
+export var DescribeOrderableReplicationInstancesMessage$: StaticStructureSchema = [
+  3,
+  n0,
+  _DORIM,
+  0,
+  [_MR, _Ma],
+  [1, 0],
+];
+export var DescribeOrderableReplicationInstancesResponse$: StaticStructureSchema = [
   3,
   n0,
   _DORIR,
@@ -2074,7 +2095,7 @@ export var DescribeOrderableReplicationInstancesResponse: StaticStructureSchema 
   [_ORI, _Ma],
   [[() => OrderableReplicationInstanceList, 0], 0],
 ];
-export var DescribePendingMaintenanceActionsMessage: StaticStructureSchema = [
+export var DescribePendingMaintenanceActionsMessage$: StaticStructureSchema = [
   3,
   n0,
   _DPMAM,
@@ -2082,7 +2103,7 @@ export var DescribePendingMaintenanceActionsMessage: StaticStructureSchema = [
   [_RIA, _F, _Ma, _MR],
   [0, [() => FilterList, 0], 0, 1],
 ];
-export var DescribePendingMaintenanceActionsResponse: StaticStructureSchema = [
+export var DescribePendingMaintenanceActionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DPMAR,
@@ -2090,7 +2111,7 @@ export var DescribePendingMaintenanceActionsResponse: StaticStructureSchema = [
   [_PMA, _Ma],
   [[() => PendingMaintenanceActions, 0], 0],
 ];
-export var DescribeRecommendationLimitationsRequest: StaticStructureSchema = [
+export var DescribeRecommendationLimitationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRLR,
@@ -2098,7 +2119,7 @@ export var DescribeRecommendationLimitationsRequest: StaticStructureSchema = [
   [_F, _MR, _NTe],
   [[() => FilterList, 0], 1, 0],
 ];
-export var DescribeRecommendationLimitationsResponse: StaticStructureSchema = [
+export var DescribeRecommendationLimitationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRLRe,
@@ -2106,7 +2127,7 @@ export var DescribeRecommendationLimitationsResponse: StaticStructureSchema = [
   [_NTe, _L],
   [0, () => LimitationList],
 ];
-export var DescribeRecommendationsRequest: StaticStructureSchema = [
+export var DescribeRecommendationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRR,
@@ -2114,7 +2135,7 @@ export var DescribeRecommendationsRequest: StaticStructureSchema = [
   [_F, _MR, _NTe],
   [[() => FilterList, 0], 1, 0],
 ];
-export var DescribeRecommendationsResponse: StaticStructureSchema = [
+export var DescribeRecommendationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRRe,
@@ -2122,16 +2143,16 @@ export var DescribeRecommendationsResponse: StaticStructureSchema = [
   [_NTe, _Rec],
   [0, () => RecommendationList],
 ];
-export var DescribeRefreshSchemasStatusMessage: StaticStructureSchema = [3, n0, _DRSSM, 0, [_EA], [0]];
-export var DescribeRefreshSchemasStatusResponse: StaticStructureSchema = [
+export var DescribeRefreshSchemasStatusMessage$: StaticStructureSchema = [3, n0, _DRSSM, 0, [_EA], [0]];
+export var DescribeRefreshSchemasStatusResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRSSR,
   0,
   [_RSS],
-  [() => RefreshSchemasStatus],
+  [() => RefreshSchemasStatus$],
 ];
-export var DescribeReplicationConfigsMessage: StaticStructureSchema = [
+export var DescribeReplicationConfigsMessage$: StaticStructureSchema = [
   3,
   n0,
   _DRCMe,
@@ -2139,7 +2160,7 @@ export var DescribeReplicationConfigsMessage: StaticStructureSchema = [
   [_F, _MR, _Ma],
   [[() => FilterList, 0], 1, 0],
 ];
-export var DescribeReplicationConfigsResponse: StaticStructureSchema = [
+export var DescribeReplicationConfigsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRCRe,
@@ -2147,7 +2168,7 @@ export var DescribeReplicationConfigsResponse: StaticStructureSchema = [
   [_Ma, _RCe],
   [0, [() => ReplicationConfigList, 0]],
 ];
-export var DescribeReplicationInstancesMessage: StaticStructureSchema = [
+export var DescribeReplicationInstancesMessage$: StaticStructureSchema = [
   3,
   n0,
   _DRIMe,
@@ -2155,7 +2176,7 @@ export var DescribeReplicationInstancesMessage: StaticStructureSchema = [
   [_F, _MR, _Ma],
   [[() => FilterList, 0], 1, 0],
 ];
-export var DescribeReplicationInstancesResponse: StaticStructureSchema = [
+export var DescribeReplicationInstancesResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRIRe,
@@ -2163,7 +2184,7 @@ export var DescribeReplicationInstancesResponse: StaticStructureSchema = [
   [_Ma, _RIepl],
   [0, [() => ReplicationInstanceList, 0]],
 ];
-export var DescribeReplicationInstanceTaskLogsMessage: StaticStructureSchema = [
+export var DescribeReplicationInstanceTaskLogsMessage$: StaticStructureSchema = [
   3,
   n0,
   _DRITLM,
@@ -2171,7 +2192,7 @@ export var DescribeReplicationInstanceTaskLogsMessage: StaticStructureSchema = [
   [_RIA, _MR, _Ma],
   [0, 1, 0],
 ];
-export var DescribeReplicationInstanceTaskLogsResponse: StaticStructureSchema = [
+export var DescribeReplicationInstanceTaskLogsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRITLR,
@@ -2179,7 +2200,7 @@ export var DescribeReplicationInstanceTaskLogsResponse: StaticStructureSchema = 
   [_RIA, _RITL, _Ma],
   [0, () => ReplicationInstanceTaskLogsList, 0],
 ];
-export var DescribeReplicationsMessage: StaticStructureSchema = [
+export var DescribeReplicationsMessage$: StaticStructureSchema = [
   3,
   n0,
   _DRM,
@@ -2187,7 +2208,7 @@ export var DescribeReplicationsMessage: StaticStructureSchema = [
   [_F, _MR, _Ma],
   [[() => FilterList, 0], 1, 0],
 ];
-export var DescribeReplicationsResponse: StaticStructureSchema = [
+export var DescribeReplicationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRRes,
@@ -2195,7 +2216,7 @@ export var DescribeReplicationsResponse: StaticStructureSchema = [
   [_Ma, _Rep],
   [0, [() => ReplicationList, 0]],
 ];
-export var DescribeReplicationSubnetGroupsMessage: StaticStructureSchema = [
+export var DescribeReplicationSubnetGroupsMessage$: StaticStructureSchema = [
   3,
   n0,
   _DRSGMe,
@@ -2203,7 +2224,7 @@ export var DescribeReplicationSubnetGroupsMessage: StaticStructureSchema = [
   [_F, _MR, _Ma],
   [[() => FilterList, 0], 1, 0],
 ];
-export var DescribeReplicationSubnetGroupsResponse: StaticStructureSchema = [
+export var DescribeReplicationSubnetGroupsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRSGRe,
@@ -2211,7 +2232,7 @@ export var DescribeReplicationSubnetGroupsResponse: StaticStructureSchema = [
   [_Ma, _RSGe],
   [0, [() => ReplicationSubnetGroups, 0]],
 ];
-export var DescribeReplicationTableStatisticsMessage: StaticStructureSchema = [
+export var DescribeReplicationTableStatisticsMessage$: StaticStructureSchema = [
   3,
   n0,
   _DRTSM,
@@ -2219,7 +2240,7 @@ export var DescribeReplicationTableStatisticsMessage: StaticStructureSchema = [
   [_RCA, _MR, _Ma, _F],
   [0, 1, 0, [() => FilterList, 0]],
 ];
-export var DescribeReplicationTableStatisticsResponse: StaticStructureSchema = [
+export var DescribeReplicationTableStatisticsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRTSR,
@@ -2227,7 +2248,7 @@ export var DescribeReplicationTableStatisticsResponse: StaticStructureSchema = [
   [_RCA, _Ma, _RTSe],
   [0, 0, () => ReplicationTableStatisticsList],
 ];
-export var DescribeReplicationTaskAssessmentResultsMessage: StaticStructureSchema = [
+export var DescribeReplicationTaskAssessmentResultsMessage$: StaticStructureSchema = [
   3,
   n0,
   _DRTARMe,
@@ -2235,7 +2256,7 @@ export var DescribeReplicationTaskAssessmentResultsMessage: StaticStructureSchem
   [_RTA, _MR, _Ma],
   [0, 1, 0],
 ];
-export var DescribeReplicationTaskAssessmentResultsResponse: StaticStructureSchema = [
+export var DescribeReplicationTaskAssessmentResultsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRTARRe,
@@ -2243,7 +2264,7 @@ export var DescribeReplicationTaskAssessmentResultsResponse: StaticStructureSche
   [_Ma, _BN, _RTARe],
   [0, 0, [() => ReplicationTaskAssessmentResultList, 0]],
 ];
-export var DescribeReplicationTaskAssessmentRunsMessage: StaticStructureSchema = [
+export var DescribeReplicationTaskAssessmentRunsMessage$: StaticStructureSchema = [
   3,
   n0,
   _DRTARMes,
@@ -2251,7 +2272,7 @@ export var DescribeReplicationTaskAssessmentRunsMessage: StaticStructureSchema =
   [_F, _MR, _Ma],
   [[() => FilterList, 0], 1, 0],
 ];
-export var DescribeReplicationTaskAssessmentRunsResponse: StaticStructureSchema = [
+export var DescribeReplicationTaskAssessmentRunsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRTARRes,
@@ -2259,7 +2280,7 @@ export var DescribeReplicationTaskAssessmentRunsResponse: StaticStructureSchema 
   [_Ma, _RTARep],
   [0, () => ReplicationTaskAssessmentRunList],
 ];
-export var DescribeReplicationTaskIndividualAssessmentsMessage: StaticStructureSchema = [
+export var DescribeReplicationTaskIndividualAssessmentsMessage$: StaticStructureSchema = [
   3,
   n0,
   _DRTIAM,
@@ -2267,7 +2288,7 @@ export var DescribeReplicationTaskIndividualAssessmentsMessage: StaticStructureS
   [_F, _MR, _Ma],
   [[() => FilterList, 0], 1, 0],
 ];
-export var DescribeReplicationTaskIndividualAssessmentsResponse: StaticStructureSchema = [
+export var DescribeReplicationTaskIndividualAssessmentsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRTIAR,
@@ -2275,7 +2296,7 @@ export var DescribeReplicationTaskIndividualAssessmentsResponse: StaticStructure
   [_Ma, _RTIA],
   [0, () => ReplicationTaskIndividualAssessmentList],
 ];
-export var DescribeReplicationTasksMessage: StaticStructureSchema = [
+export var DescribeReplicationTasksMessage$: StaticStructureSchema = [
   3,
   n0,
   _DRTMe,
@@ -2283,7 +2304,7 @@ export var DescribeReplicationTasksMessage: StaticStructureSchema = [
   [_F, _MR, _Ma, _WS],
   [[() => FilterList, 0], 1, 0, 2],
 ];
-export var DescribeReplicationTasksResponse: StaticStructureSchema = [
+export var DescribeReplicationTasksResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRTRe,
@@ -2291,9 +2312,9 @@ export var DescribeReplicationTasksResponse: StaticStructureSchema = [
   [_Ma, _RTep],
   [0, [() => ReplicationTaskList, 0]],
 ];
-export var DescribeSchemasMessage: StaticStructureSchema = [3, n0, _DSM, 0, [_EA, _MR, _Ma], [0, 1, 0]];
-export var DescribeSchemasResponse: StaticStructureSchema = [3, n0, _DSR, 0, [_Ma, _Sc], [0, 64 | 0]];
-export var DescribeTableStatisticsMessage: StaticStructureSchema = [
+export var DescribeSchemasMessage$: StaticStructureSchema = [3, n0, _DSM, 0, [_EA, _MR, _Ma], [0, 1, 0]];
+export var DescribeSchemasResponse$: StaticStructureSchema = [3, n0, _DSR, 0, [_Ma, _Sc], [0, 64 | 0]];
+export var DescribeTableStatisticsMessage$: StaticStructureSchema = [
   3,
   n0,
   _DTSM,
@@ -2301,7 +2322,7 @@ export var DescribeTableStatisticsMessage: StaticStructureSchema = [
   [_RTA, _MR, _Ma, _F],
   [0, 1, 0, [() => FilterList, 0]],
 ];
-export var DescribeTableStatisticsResponse: StaticStructureSchema = [
+export var DescribeTableStatisticsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DTSR,
@@ -2309,8 +2330,8 @@ export var DescribeTableStatisticsResponse: StaticStructureSchema = [
   [_RTA, _TSa, _Ma],
   [0, () => TableStatisticsList, 0],
 ];
-export var DmsTransferSettings: StaticStructureSchema = [3, n0, _DTS, 0, [_SARA, _BN], [0, 0]];
-export var DocDbDataProviderSettings: StaticStructureSchema = [
+export var DmsTransferSettings$: StaticStructureSchema = [3, n0, _DTS, 0, [_SARA, _BN], [0, 0]];
+export var DocDbDataProviderSettings$: StaticStructureSchema = [
   3,
   n0,
   _DDDPS,
@@ -2318,7 +2339,7 @@ export var DocDbDataProviderSettings: StaticStructureSchema = [
   [_SN, _Po, _DN, _SM, _CA],
   [0, 1, 0, 0, 0],
 ];
-export var DocDbSettings: StaticStructureSchema = [
+export var DocDbSettings$: StaticStructureSchema = [
   3,
   n0,
   _DDSo,
@@ -2326,8 +2347,8 @@ export var DocDbSettings: StaticStructureSchema = [
   [_Us, _P, _SN, _Po, _DN, _NL, _EDI, _DTI, _KKI, _SMARA, _SMSI, _UULU, _RSC],
   [0, [() => SecretString, 0], 0, 1, 0, 0, 2, 1, 0, 0, 0, 2, 2],
 ];
-export var DynamoDbSettings: StaticStructureSchema = [3, n0, _DDS, 0, [_SARA], [0]];
-export var ElasticsearchSettings: StaticStructureSchema = [
+export var DynamoDbSettings$: StaticStructureSchema = [3, n0, _DDS, 0, [_SARA], [0]];
+export var ElasticsearchSettings$: StaticStructureSchema = [
   3,
   n0,
   _ES,
@@ -2335,7 +2356,7 @@ export var ElasticsearchSettings: StaticStructureSchema = [
   [_SARA, _EU, _FLEP, _ERD, _UNMT],
   [0, 0, 1, 1, 2],
 ];
-export var Endpoint: StaticStructureSchema = [
+export var Endpoint$: StaticStructureSchema = [
   3,
   n0,
   _En,
@@ -2399,29 +2420,29 @@ export var Endpoint: StaticStructureSchema = [
     0,
     0,
     2,
-    () => DynamoDbSettings,
-    () => S3Settings,
-    () => DmsTransferSettings,
-    [() => MongoDbSettings, 0],
-    () => KinesisSettings,
-    [() => KafkaSettings, 0],
-    () => ElasticsearchSettings,
-    () => NeptuneSettings,
-    [() => RedshiftSettings, 0],
-    [() => PostgreSQLSettings, 0],
-    [() => MySQLSettings, 0],
-    [() => OracleSettings, 0],
-    [() => SybaseSettings, 0],
-    [() => MicrosoftSQLServerSettings, 0],
-    [() => IBMDb2Settings, 0],
-    [() => DocDbSettings, 0],
-    [() => RedisSettings, 0],
-    [() => GcpMySQLSettings, 0],
-    () => TimestreamSettings,
-    () => LakehouseSettings,
+    () => DynamoDbSettings$,
+    () => S3Settings$,
+    () => DmsTransferSettings$,
+    [() => MongoDbSettings$, 0],
+    () => KinesisSettings$,
+    [() => KafkaSettings$, 0],
+    () => ElasticsearchSettings$,
+    () => NeptuneSettings$,
+    [() => RedshiftSettings$, 0],
+    [() => PostgreSQLSettings$, 0],
+    [() => MySQLSettings$, 0],
+    [() => OracleSettings$, 0],
+    [() => SybaseSettings$, 0],
+    [() => MicrosoftSQLServerSettings$, 0],
+    [() => IBMDb2Settings$, 0],
+    [() => DocDbSettings$, 0],
+    [() => RedisSettings$, 0],
+    [() => GcpMySQLSettings$, 0],
+    () => TimestreamSettings$,
+    () => LakehouseSettings$,
   ],
 ];
-export var EndpointSetting: StaticStructureSchema = [
+export var EndpointSetting$: StaticStructureSchema = [
   3,
   n0,
   _ESnd,
@@ -2429,7 +2450,7 @@ export var EndpointSetting: StaticStructureSchema = [
   [_N, _Ty, _EVnu, _Sen, _Un, _Ap, _IVM, _IVMn, _DV],
   [0, 0, 64 | 0, 2, 0, 0, 1, 1, 0],
 ];
-export var EngineVersion: StaticStructureSchema = [
+export var EngineVersion$: StaticStructureSchema = [
   3,
   n0,
   _EV,
@@ -2437,7 +2458,7 @@ export var EngineVersion: StaticStructureSchema = [
   [_Ve, _Li, _RSel, _LD, _AUD, _DD, _FUD, _AU],
   [0, 0, 0, 4, 4, 4, 4, 64 | 0],
 ];
-export var Event: StaticStructureSchema = [
+export var Event$: StaticStructureSchema = [
   3,
   n0,
   _Eve,
@@ -2445,7 +2466,7 @@ export var Event: StaticStructureSchema = [
   [_SIo, _ST, _Me, _EC, _Dat],
   [0, 0, 0, [() => EventCategoriesList, 0], 4],
 ];
-export var EventCategoryGroup: StaticStructureSchema = [
+export var EventCategoryGroup$: StaticStructureSchema = [
   3,
   n0,
   _ECG,
@@ -2453,7 +2474,7 @@ export var EventCategoryGroup: StaticStructureSchema = [
   [_ST, _EC],
   [0, [() => EventCategoriesList, 0]],
 ];
-export var EventSubscription: StaticStructureSchema = [
+export var EventSubscription$: StaticStructureSchema = [
   3,
   n0,
   _ESv,
@@ -2461,7 +2482,7 @@ export var EventSubscription: StaticStructureSchema = [
   [_CAI, _CSI, _STA, _S, _SCT, _ST, _SIL, _ECLv, _Ena],
   [0, 0, 0, 0, 0, 0, [() => SourceIdsList, 0], [() => EventCategoriesList, 0], 2],
 ];
-export var ExportMetadataModelAssessmentMessage: StaticStructureSchema = [
+export var ExportMetadataModelAssessmentMessage$: StaticStructureSchema = [
   3,
   n0,
   _EMMAM,
@@ -2469,21 +2490,28 @@ export var ExportMetadataModelAssessmentMessage: StaticStructureSchema = [
   [_MPI, _SR, _FN, _ART],
   [0, 0, 0, 64 | 0],
 ];
-export var ExportMetadataModelAssessmentResponse: StaticStructureSchema = [
+export var ExportMetadataModelAssessmentResponse$: StaticStructureSchema = [
   3,
   n0,
   _EMMAR,
   0,
   [_PR, _CRs],
-  [() => ExportMetadataModelAssessmentResultEntry, () => ExportMetadataModelAssessmentResultEntry],
+  [() => ExportMetadataModelAssessmentResultEntry$, () => ExportMetadataModelAssessmentResultEntry$],
 ];
-export var ExportMetadataModelAssessmentResultEntry: StaticStructureSchema = [3, n0, _EMMARE, 0, [_SOK, _OURL], [0, 0]];
-export var ExportSqlDetails: StaticStructureSchema = [3, n0, _ESD, 0, [_SOK, _OURL], [0, 0]];
-export var FailedDependencyFault: StaticErrorSchema = [-3, n0, _FDF, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(FailedDependencyFault, __FailedDependencyFault);
-export var Filter: StaticStructureSchema = [3, n0, _Fi, 0, [_N, _Va], [0, [() => FilterValueList, 0]]];
-export var FleetAdvisorLsaAnalysisResponse: StaticStructureSchema = [3, n0, _FALAR, 0, [_LAI, _S], [0, 0]];
-export var FleetAdvisorSchemaObjectResponse: StaticStructureSchema = [
+export var ExportMetadataModelAssessmentResultEntry$: StaticStructureSchema = [
+  3,
+  n0,
+  _EMMARE,
+  0,
+  [_SOK, _OURL],
+  [0, 0],
+];
+export var ExportSqlDetails$: StaticStructureSchema = [3, n0, _ESD, 0, [_SOK, _OURL], [0, 0]];
+export var FailedDependencyFault$: StaticErrorSchema = [-3, n0, _FDF, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(FailedDependencyFault$, FailedDependencyFault);
+export var Filter$: StaticStructureSchema = [3, n0, _Fi, 0, [_N, _Va], [0, [() => FilterValueList, 0]]];
+export var FleetAdvisorLsaAnalysisResponse$: StaticStructureSchema = [3, n0, _FALAR, 0, [_LAI, _S], [0, 0]];
+export var FleetAdvisorSchemaObjectResponse$: StaticStructureSchema = [
   3,
   n0,
   _FASOR,
@@ -2491,7 +2519,7 @@ export var FleetAdvisorSchemaObjectResponse: StaticStructureSchema = [
   [_SIc, _OT, _NOO, _CLC, _CSo],
   [0, 0, 1, 1, 1],
 ];
-export var GcpMySQLSettings: StaticStructureSchema = [
+export var GcpMySQLSettings$: StaticStructureSchema = [
   3,
   n0,
   _GMSQLS,
@@ -2499,9 +2527,9 @@ export var GcpMySQLSettings: StaticStructureSchema = [
   [_ACS, _CSMOM, _DN, _EPI, _TDT, _MFS, _PLT, _P, _Po, _SN, _STe, _Us, _SMARA, _SMSI],
   [0, 2, 0, 1, 0, 1, 1, [() => SecretString, 0], 1, 0, 0, 0, 0, 0],
 ];
-export var GetTargetSelectionRulesMessage: StaticStructureSchema = [3, n0, _GTSRM, 0, [_MPI, _SR], [0, 0]];
-export var GetTargetSelectionRulesResponse: StaticStructureSchema = [3, n0, _GTSRR, 0, [_TSR], [0]];
-export var IbmDb2LuwDataProviderSettings: StaticStructureSchema = [
+export var GetTargetSelectionRulesMessage$: StaticStructureSchema = [3, n0, _GTSRM, 0, [_MPI, _SR], [0, 0]];
+export var GetTargetSelectionRulesResponse$: StaticStructureSchema = [3, n0, _GTSRR, 0, [_TSR], [0]];
+export var IbmDb2LuwDataProviderSettings$: StaticStructureSchema = [
   3,
   n0,
   _IDLDPS,
@@ -2509,7 +2537,7 @@ export var IbmDb2LuwDataProviderSettings: StaticStructureSchema = [
   [_SN, _Po, _DN, _SM, _CA, _SPa, _SARAc],
   [0, 1, 0, 0, 0, 0, 0],
 ];
-export var IBMDb2Settings: StaticStructureSchema = [
+export var IBMDb2Settings$: StaticStructureSchema = [
   3,
   n0,
   _IBMDS,
@@ -2517,7 +2545,7 @@ export var IBMDb2Settings: StaticStructureSchema = [
   [_DN, _P, _Po, _SN, _SDCC, _CL, _MKBPR, _Us, _SMARA, _SMSI, _LT, _WBS, _MFS, _KCF],
   [0, [() => SecretString, 0], 1, 0, 2, 0, 1, 0, 0, 0, 1, 1, 1, 2],
 ];
-export var IbmDb2zOsDataProviderSettings: StaticStructureSchema = [
+export var IbmDb2zOsDataProviderSettings$: StaticStructureSchema = [
   3,
   n0,
   _IDODPS,
@@ -2525,7 +2553,7 @@ export var IbmDb2zOsDataProviderSettings: StaticStructureSchema = [
   [_SN, _Po, _DN, _SM, _CA, _SPa, _SARAc],
   [0, 1, 0, 0, 0, 0, 0],
 ];
-export var ImportCertificateMessage: StaticStructureSchema = [
+export var ImportCertificateMessage$: StaticStructureSchema = [
   3,
   n0,
   _ICM,
@@ -2533,8 +2561,8 @@ export var ImportCertificateMessage: StaticStructureSchema = [
   [_CI, _CP, _CW, _T, _KKI],
   [0, [() => SecretString, 0], 21, [() => TagList, 0], 0],
 ];
-export var ImportCertificateResponse: StaticStructureSchema = [3, n0, _ICR, 0, [_Ce], [() => Certificate]];
-export var InstanceProfile: StaticStructureSchema = [
+export var ImportCertificateResponse$: StaticStructureSchema = [3, n0, _ICR, 0, [_Ce], [() => Certificate$]];
+export var InstanceProfile$: StaticStructureSchema = [
   3,
   n0,
   _IP,
@@ -2542,18 +2570,18 @@ export var InstanceProfile: StaticStructureSchema = [
   [_IPA, _AZ, _KKA, _PA, _NT, _IPN, _De, _IPCT, _SGI, _VSG],
   [0, 0, 0, 2, 0, 0, 0, 5, 0, 64 | 0],
 ];
-export var InsufficientResourceCapacityFault: StaticErrorSchema = [-3, n0, _IRCF, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InsufficientResourceCapacityFault, __InsufficientResourceCapacityFault);
-export var InvalidCertificateFault: StaticErrorSchema = [-3, n0, _ICF, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InvalidCertificateFault, __InvalidCertificateFault);
-export var InvalidOperationFault: StaticErrorSchema = [-3, n0, _IOF, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InvalidOperationFault, __InvalidOperationFault);
-export var InvalidResourceStateFault: StaticErrorSchema = [-3, n0, _IRSF, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InvalidResourceStateFault, __InvalidResourceStateFault);
-export var InvalidSubnet: StaticErrorSchema = [-3, n0, _IS, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InvalidSubnet, __InvalidSubnet);
-export var InventoryData: StaticStructureSchema = [3, n0, _ID, 0, [_NOD, _NOS], [1, 1]];
-export var KafkaSettings: StaticStructureSchema = [
+export var InsufficientResourceCapacityFault$: StaticErrorSchema = [-3, n0, _IRCF, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InsufficientResourceCapacityFault$, InsufficientResourceCapacityFault);
+export var InvalidCertificateFault$: StaticErrorSchema = [-3, n0, _ICF, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InvalidCertificateFault$, InvalidCertificateFault);
+export var InvalidOperationFault$: StaticErrorSchema = [-3, n0, _IOF, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InvalidOperationFault$, InvalidOperationFault);
+export var InvalidResourceStateFault$: StaticErrorSchema = [-3, n0, _IRSF, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InvalidResourceStateFault$, InvalidResourceStateFault);
+export var InvalidSubnet$: StaticErrorSchema = [-3, n0, _IS, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InvalidSubnet$, InvalidSubnet);
+export var InventoryData$: StaticStructureSchema = [3, n0, _ID, 0, [_NOD, _NOS], [1, 1]];
+export var KafkaSettings$: StaticStructureSchema = [
   3,
   n0,
   _KSa,
@@ -2583,8 +2611,8 @@ export var KafkaSettings: StaticStructureSchema = [
   ],
   [0, 0, 0, 2, 2, 2, 2, 2, 1, 2, 0, 0, 0, [() => SecretString, 0], 0, 0, [() => SecretString, 0], 2, 0, 0, 2],
 ];
-export var KerberosAuthenticationSettings: StaticStructureSchema = [3, n0, _KAS, 0, [_KCSI, _KCSIA, _KFC], [0, 0, 0]];
-export var KinesisSettings: StaticStructureSchema = [
+export var KerberosAuthenticationSettings$: StaticStructureSchema = [3, n0, _KAS, 0, [_KCSI, _KCSIA, _KFC], [0, 0, 0]];
+export var KinesisSettings$: StaticStructureSchema = [
   3,
   n0,
   _KS,
@@ -2592,25 +2620,25 @@ export var KinesisSettings: StaticStructureSchema = [
   [_SAt, _MF, _SARA, _ITD, _IPV, _PIST, _ITAO, _ICD, _INAE, _NHP, _ULIV],
   [0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2],
 ];
-export var KMSAccessDeniedFault: StaticErrorSchema = [-3, n0, _KMSADF, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(KMSAccessDeniedFault, __KMSAccessDeniedFault);
-export var KMSDisabledFault: StaticErrorSchema = [-3, n0, _KMSDF, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(KMSDisabledFault, __KMSDisabledFault);
-export var KMSFault: StaticErrorSchema = [-3, n0, _KMSF, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(KMSFault, __KMSFault);
-export var KMSInvalidStateFault: StaticErrorSchema = [-3, n0, _KMSISF, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(KMSInvalidStateFault, __KMSInvalidStateFault);
-export var KMSKeyNotAccessibleFault: StaticErrorSchema = [-3, n0, _KMSKNAF, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(KMSKeyNotAccessibleFault, __KMSKeyNotAccessibleFault);
-export var KMSNotFoundFault: StaticErrorSchema = [-3, n0, _KMSNFF, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(KMSNotFoundFault, __KMSNotFoundFault);
-export var KMSThrottlingFault: StaticErrorSchema = [-3, n0, _KMSTF, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(KMSThrottlingFault, __KMSThrottlingFault);
-export var LakehouseSettings: StaticStructureSchema = [3, n0, _LS, 0, [_Ar], [0]];
-export var Limitation: StaticStructureSchema = [3, n0, _Lim, 0, [_DI, _EN, _N, _De, _I, _Ty], [0, 0, 0, 0, 0, 0]];
-export var ListTagsForResourceMessage: StaticStructureSchema = [3, n0, _LTFRM, 0, [_RA, _RAL], [0, 64 | 0]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRR, 0, [_TLag], [[() => TagList, 0]]];
-export var MariaDbDataProviderSettings: StaticStructureSchema = [
+export var KMSAccessDeniedFault$: StaticErrorSchema = [-3, n0, _KMSADF, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(KMSAccessDeniedFault$, KMSAccessDeniedFault);
+export var KMSDisabledFault$: StaticErrorSchema = [-3, n0, _KMSDF, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(KMSDisabledFault$, KMSDisabledFault);
+export var KMSFault$: StaticErrorSchema = [-3, n0, _KMSF, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(KMSFault$, KMSFault);
+export var KMSInvalidStateFault$: StaticErrorSchema = [-3, n0, _KMSISF, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(KMSInvalidStateFault$, KMSInvalidStateFault);
+export var KMSKeyNotAccessibleFault$: StaticErrorSchema = [-3, n0, _KMSKNAF, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(KMSKeyNotAccessibleFault$, KMSKeyNotAccessibleFault);
+export var KMSNotFoundFault$: StaticErrorSchema = [-3, n0, _KMSNFF, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(KMSNotFoundFault$, KMSNotFoundFault);
+export var KMSThrottlingFault$: StaticErrorSchema = [-3, n0, _KMSTF, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(KMSThrottlingFault$, KMSThrottlingFault);
+export var LakehouseSettings$: StaticStructureSchema = [3, n0, _LS, 0, [_Ar], [0]];
+export var Limitation$: StaticStructureSchema = [3, n0, _Lim, 0, [_DI, _EN, _N, _De, _I, _Ty], [0, 0, 0, 0, 0, 0]];
+export var ListTagsForResourceMessage$: StaticStructureSchema = [3, n0, _LTFRM, 0, [_RA, _RAL], [0, 64 | 0]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_TLag], [[() => TagList, 0]]];
+export var MariaDbDataProviderSettings$: StaticStructureSchema = [
   3,
   n0,
   _MDDPS,
@@ -2618,8 +2646,8 @@ export var MariaDbDataProviderSettings: StaticStructureSchema = [
   [_SN, _Po, _SM, _CA, _SPa, _SARAc],
   [0, 1, 0, 0, 0, 0],
 ];
-export var MetadataModelReference: StaticStructureSchema = [3, n0, _MMR, 0, [_MMN, _SR], [0, 0]];
-export var MicrosoftSqlServerDataProviderSettings: StaticStructureSchema = [
+export var MetadataModelReference$: StaticStructureSchema = [3, n0, _MMR, 0, [_MMN, _SR], [0, 0]];
+export var MicrosoftSqlServerDataProviderSettings$: StaticStructureSchema = [
   3,
   n0,
   _MSSDPS,
@@ -2627,7 +2655,7 @@ export var MicrosoftSqlServerDataProviderSettings: StaticStructureSchema = [
   [_SN, _Po, _DN, _SM, _CA, _SPa, _SARAc],
   [0, 1, 0, 0, 0, 0, 0],
 ];
-export var MicrosoftSQLServerSettings: StaticStructureSchema = [
+export var MicrosoftSQLServerSettings$: StaticStructureSchema = [
   3,
   n0,
   _MSQLSS,
@@ -2635,7 +2663,7 @@ export var MicrosoftSQLServerSettings: StaticStructureSchema = [
   [_Po, _BPS, _DN, _CTFG, _P, _QSAON, _RBO, _SPaf, _SN, _Us, _UBFL, _UTPBD, _SMARA, _SMSI, _TSIC, _TAM, _FLL, _AM],
   [1, 1, 0, 0, [() => SecretString, 0], 2, 2, 0, 0, 0, 2, 2, 0, 0, 2, 0, 2, 0],
 ];
-export var MigrationProject: StaticStructureSchema = [
+export var MigrationProject$: StaticStructureSchema = [
   3,
   n0,
   _MP,
@@ -2651,12 +2679,12 @@ export var MigrationProject: StaticStructureSchema = [
     0,
     0,
     0,
-    () => SCApplicationAttributes,
+    () => SCApplicationAttributes$,
   ],
 ];
-export var ModifyConversionConfigurationMessage: StaticStructureSchema = [3, n0, _MCCM, 0, [_MPI, _CCo], [0, 0]];
-export var ModifyConversionConfigurationResponse: StaticStructureSchema = [3, n0, _MCCR, 0, [_MPI], [0]];
-export var ModifyDataMigrationMessage: StaticStructureSchema = [
+export var ModifyConversionConfigurationMessage$: StaticStructureSchema = [3, n0, _MCCM, 0, [_MPI, _CCo], [0, 0]];
+export var ModifyConversionConfigurationResponse$: StaticStructureSchema = [3, n0, _MCCR, 0, [_MPI], [0]];
+export var ModifyDataMigrationMessage$: StaticStructureSchema = [
   3,
   n0,
   _MDMM,
@@ -2664,17 +2692,17 @@ export var ModifyDataMigrationMessage: StaticStructureSchema = [
   [_DMI, _DMN, _ECL, _SARA, _DMT, _SDS, _TDS, _NOJ, _SR],
   [0, 0, 2, 0, 0, () => SourceDataSettings, () => TargetDataSettings, 1, [() => SecretString, 0]],
 ];
-export var ModifyDataMigrationResponse: StaticStructureSchema = [3, n0, _MDMR, 0, [_DM], [[() => DataMigration, 0]]];
-export var ModifyDataProviderMessage: StaticStructureSchema = [
+export var ModifyDataMigrationResponse$: StaticStructureSchema = [3, n0, _MDMR, 0, [_DM], [[() => DataMigration$, 0]]];
+export var ModifyDataProviderMessage$: StaticStructureSchema = [
   3,
   n0,
   _MDPM,
   0,
   [_DPI, _DPN, _De, _E, _V, _ESx, _Se],
-  [0, 0, 0, 0, 2, 2, () => DataProviderSettings],
+  [0, 0, 0, 0, 2, 2, () => DataProviderSettings$],
 ];
-export var ModifyDataProviderResponse: StaticStructureSchema = [3, n0, _MDPR, 0, [_DP], [() => DataProvider]];
-export var ModifyEndpointMessage: StaticStructureSchema = [
+export var ModifyDataProviderResponse$: StaticStructureSchema = [3, n0, _MDPR, 0, [_DP], [() => DataProvider$]];
+export var ModifyEndpointMessage$: StaticStructureSchema = [
   3,
   n0,
   _MEM,
@@ -2730,30 +2758,30 @@ export var ModifyEndpointMessage: StaticStructureSchema = [
     0,
     0,
     0,
-    () => DynamoDbSettings,
-    () => S3Settings,
-    () => DmsTransferSettings,
-    [() => MongoDbSettings, 0],
-    () => KinesisSettings,
-    [() => KafkaSettings, 0],
-    () => ElasticsearchSettings,
-    () => NeptuneSettings,
-    [() => RedshiftSettings, 0],
-    [() => PostgreSQLSettings, 0],
-    [() => MySQLSettings, 0],
-    [() => OracleSettings, 0],
-    [() => SybaseSettings, 0],
-    [() => MicrosoftSQLServerSettings, 0],
-    [() => IBMDb2Settings, 0],
-    [() => DocDbSettings, 0],
-    [() => RedisSettings, 0],
+    () => DynamoDbSettings$,
+    () => S3Settings$,
+    () => DmsTransferSettings$,
+    [() => MongoDbSettings$, 0],
+    () => KinesisSettings$,
+    [() => KafkaSettings$, 0],
+    () => ElasticsearchSettings$,
+    () => NeptuneSettings$,
+    [() => RedshiftSettings$, 0],
+    [() => PostgreSQLSettings$, 0],
+    [() => MySQLSettings$, 0],
+    [() => OracleSettings$, 0],
+    [() => SybaseSettings$, 0],
+    [() => MicrosoftSQLServerSettings$, 0],
+    [() => IBMDb2Settings$, 0],
+    [() => DocDbSettings$, 0],
+    [() => RedisSettings$, 0],
     2,
-    [() => GcpMySQLSettings, 0],
-    () => TimestreamSettings,
+    [() => GcpMySQLSettings$, 0],
+    () => TimestreamSettings$,
   ],
 ];
-export var ModifyEndpointResponse: StaticStructureSchema = [3, n0, _MER, 0, [_En], [[() => Endpoint, 0]]];
-export var ModifyEventSubscriptionMessage: StaticStructureSchema = [
+export var ModifyEndpointResponse$: StaticStructureSchema = [3, n0, _MER, 0, [_En], [[() => Endpoint$, 0]]];
+export var ModifyEventSubscriptionMessage$: StaticStructureSchema = [
   3,
   n0,
   _MESM,
@@ -2761,15 +2789,15 @@ export var ModifyEventSubscriptionMessage: StaticStructureSchema = [
   [_SNu, _STA, _ST, _EC, _Ena],
   [0, 0, 0, [() => EventCategoriesList, 0], 2],
 ];
-export var ModifyEventSubscriptionResponse: StaticStructureSchema = [
+export var ModifyEventSubscriptionResponse$: StaticStructureSchema = [
   3,
   n0,
   _MESR,
   0,
   [_ESv],
-  [[() => EventSubscription, 0]],
+  [[() => EventSubscription$, 0]],
 ];
-export var ModifyInstanceProfileMessage: StaticStructureSchema = [
+export var ModifyInstanceProfileMessage$: StaticStructureSchema = [
   3,
   n0,
   _MIPM,
@@ -2777,8 +2805,8 @@ export var ModifyInstanceProfileMessage: StaticStructureSchema = [
   [_IPI, _AZ, _KKA, _PA, _NT, _IPN, _De, _SGI, _VSG],
   [0, 0, 0, 2, 0, 0, 0, 0, 64 | 0],
 ];
-export var ModifyInstanceProfileResponse: StaticStructureSchema = [3, n0, _MIPR, 0, [_IP], [() => InstanceProfile]];
-export var ModifyMigrationProjectMessage: StaticStructureSchema = [
+export var ModifyInstanceProfileResponse$: StaticStructureSchema = [3, n0, _MIPR, 0, [_IP], [() => InstanceProfile$]];
+export var ModifyMigrationProjectMessage$: StaticStructureSchema = [
   3,
   n0,
   _MMPM,
@@ -2792,36 +2820,43 @@ export var ModifyMigrationProjectMessage: StaticStructureSchema = [
     0,
     0,
     0,
-    () => SCApplicationAttributes,
+    () => SCApplicationAttributes$,
   ],
 ];
-export var ModifyMigrationProjectResponse: StaticStructureSchema = [3, n0, _MMPR, 0, [_MP], [() => MigrationProject]];
-export var ModifyReplicationConfigMessage: StaticStructureSchema = [
+export var ModifyMigrationProjectResponse$: StaticStructureSchema = [3, n0, _MMPR, 0, [_MP], [() => MigrationProject$]];
+export var ModifyReplicationConfigMessage$: StaticStructureSchema = [
   3,
   n0,
   _MRCM,
   0,
   [_RCA, _RCI, _RT, _TM, _RSep, _SSu, _CC, _SEA, _TEA],
-  [0, 0, 0, 0, 0, 0, () => ComputeConfig, 0, 0],
+  [0, 0, 0, 0, 0, 0, () => ComputeConfig$, 0, 0],
 ];
-export var ModifyReplicationConfigResponse: StaticStructureSchema = [3, n0, _MRCR, 0, [_RC], [() => ReplicationConfig]];
-export var ModifyReplicationInstanceMessage: StaticStructureSchema = [
+export var ModifyReplicationConfigResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _MRCR,
+  0,
+  [_RC],
+  [() => ReplicationConfig$],
+];
+export var ModifyReplicationInstanceMessage$: StaticStructureSchema = [
   3,
   n0,
   _MRIM,
   0,
   [_RIA, _AS, _AI, _RIC, _VSGI, _PMW, _MAZ, _EV, _AMVUl, _AMVU, _RII, _NT, _KAS],
-  [0, 1, 2, 0, [() => VpcSecurityGroupIdList, 0], 0, 2, 0, 2, 2, 0, 0, () => KerberosAuthenticationSettings],
+  [0, 1, 2, 0, [() => VpcSecurityGroupIdList, 0], 0, 2, 0, 2, 2, 0, 0, () => KerberosAuthenticationSettings$],
 ];
-export var ModifyReplicationInstanceResponse: StaticStructureSchema = [
+export var ModifyReplicationInstanceResponse$: StaticStructureSchema = [
   3,
   n0,
   _MRIR,
   0,
   [_RIep],
-  [[() => ReplicationInstance, 0]],
+  [[() => ReplicationInstance$, 0]],
 ];
-export var ModifyReplicationSubnetGroupMessage: StaticStructureSchema = [
+export var ModifyReplicationSubnetGroupMessage$: StaticStructureSchema = [
   3,
   n0,
   _MRSGM,
@@ -2829,15 +2864,15 @@ export var ModifyReplicationSubnetGroupMessage: StaticStructureSchema = [
   [_RSGIe, _RSGD, _SIu],
   [0, 0, [() => SubnetIdentifierList, 0]],
 ];
-export var ModifyReplicationSubnetGroupResponse: StaticStructureSchema = [
+export var ModifyReplicationSubnetGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _MRSGR,
   0,
   [_RSG],
-  [[() => ReplicationSubnetGroup, 0]],
+  [[() => ReplicationSubnetGroup$, 0]],
 ];
-export var ModifyReplicationTaskMessage: StaticStructureSchema = [
+export var ModifyReplicationTaskMessage$: StaticStructureSchema = [
   3,
   n0,
   _MRTM,
@@ -2845,8 +2880,8 @@ export var ModifyReplicationTaskMessage: StaticStructureSchema = [
   [_RTA, _RTI, _MT, _TM, _RTS, _CST, _CSP, _CSPd, _TD],
   [0, 0, 0, 0, 0, 4, 0, 0, 0],
 ];
-export var ModifyReplicationTaskResponse: StaticStructureSchema = [3, n0, _MRTR, 0, [_RTe], [() => ReplicationTask]];
-export var MongoDbDataProviderSettings: StaticStructureSchema = [
+export var ModifyReplicationTaskResponse$: StaticStructureSchema = [3, n0, _MRTR, 0, [_RTe], [() => ReplicationTask$]];
+export var MongoDbDataProviderSettings$: StaticStructureSchema = [
   3,
   n0,
   _MDDPSo,
@@ -2854,7 +2889,7 @@ export var MongoDbDataProviderSettings: StaticStructureSchema = [
   [_SN, _Po, _DN, _SM, _CA, _AT, _ASu, _AMu],
   [0, 1, 0, 0, 0, 0, 0, 0],
 ];
-export var MongoDbSettings: StaticStructureSchema = [
+export var MongoDbSettings$: StaticStructureSchema = [
   3,
   n0,
   _MDS,
@@ -2862,9 +2897,9 @@ export var MongoDbSettings: StaticStructureSchema = [
   [_Us, _P, _SN, _Po, _DN, _AT, _AMu, _NL, _EDI, _DTI, _ASu, _KKI, _SMARA, _SMSI, _UULU, _RSC],
   [0, [() => SecretString, 0], 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2],
 ];
-export var MoveReplicationTaskMessage: StaticStructureSchema = [3, n0, _MRTMo, 0, [_RTA, _TRIA], [0, 0]];
-export var MoveReplicationTaskResponse: StaticStructureSchema = [3, n0, _MRTRo, 0, [_RTe], [() => ReplicationTask]];
-export var MySqlDataProviderSettings: StaticStructureSchema = [
+export var MoveReplicationTaskMessage$: StaticStructureSchema = [3, n0, _MRTMo, 0, [_RTA, _TRIA], [0, 0]];
+export var MoveReplicationTaskResponse$: StaticStructureSchema = [3, n0, _MRTRo, 0, [_RTe], [() => ReplicationTask$]];
+export var MySqlDataProviderSettings$: StaticStructureSchema = [
   3,
   n0,
   _MSDPS,
@@ -2872,7 +2907,7 @@ export var MySqlDataProviderSettings: StaticStructureSchema = [
   [_SN, _Po, _SM, _CA, _SPa, _SARAc],
   [0, 1, 0, 0, 0, 0],
 ];
-export var MySQLSettings: StaticStructureSchema = [
+export var MySQLSettings$: StaticStructureSchema = [
   3,
   n0,
   _MSQLS,
@@ -2880,7 +2915,7 @@ export var MySQLSettings: StaticStructureSchema = [
   [_ACS, _CSMOM, _DN, _EPI, _TDT, _MFS, _PLT, _P, _Po, _SN, _STe, _Us, _SMARA, _SMSI, _ETx, _SARA, _AM],
   [0, 2, 0, 1, 0, 1, 1, [() => SecretString, 0], 1, 0, 0, 0, 0, 0, 1, 0, 0],
 ];
-export var NeptuneSettings: StaticStructureSchema = [
+export var NeptuneSettings$: StaticStructureSchema = [
   3,
   n0,
   _NS,
@@ -2888,7 +2923,7 @@ export var NeptuneSettings: StaticStructureSchema = [
   [_SARA, _SBN, _SBF, _ERD, _MFS, _MRC, _IAE],
   [0, 0, 0, 1, 1, 1, 2],
 ];
-export var OracleDataProviderSettings: StaticStructureSchema = [
+export var OracleDataProviderSettings$: StaticStructureSchema = [
   3,
   n0,
   _ODPS,
@@ -2896,7 +2931,7 @@ export var OracleDataProviderSettings: StaticStructureSchema = [
   [_SN, _Po, _DN, _SM, _CA, _ASs, _SMOASI, _SMOAARA, _SMSDESI, _SMSDEARA, _SPa, _SARAc],
   [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var OracleSettings: StaticStructureSchema = [
+export var OracleSettings$: StaticStructureSchema = [
   3,
   n0,
   _OS,
@@ -2994,7 +3029,7 @@ export var OracleSettings: StaticStructureSchema = [
     0,
   ],
 ];
-export var OrderableReplicationInstance: StaticStructureSchema = [
+export var OrderableReplicationInstance$: StaticStructureSchema = [
   3,
   n0,
   _ORIr,
@@ -3002,7 +3037,7 @@ export var OrderableReplicationInstance: StaticStructureSchema = [
   [_EV, _RIC, _STtor, _MAS, _MASa, _DAS, _IAS, _AZv, _RSel],
   [0, 0, 0, 1, 1, 1, 1, 64 | 0, 0],
 ];
-export var PendingMaintenanceAction: StaticStructureSchema = [
+export var PendingMaintenanceAction$: StaticStructureSchema = [
   3,
   n0,
   _PMAe,
@@ -3010,7 +3045,7 @@ export var PendingMaintenanceAction: StaticStructureSchema = [
   [_Ac, _AAAD, _FAD, _OIS, _CAD, _De],
   [0, 4, 4, 0, 4, 0],
 ];
-export var PostgreSqlDataProviderSettings: StaticStructureSchema = [
+export var PostgreSqlDataProviderSettings$: StaticStructureSchema = [
   3,
   n0,
   _PSDPS,
@@ -3018,7 +3053,7 @@ export var PostgreSqlDataProviderSettings: StaticStructureSchema = [
   [_SN, _Po, _DN, _SM, _CA, _SPa, _SARAc],
   [0, 1, 0, 0, 0, 0, 0],
 ];
-export var PostgreSQLSettings: StaticStructureSchema = [
+export var PostgreSQLSettings$: StaticStructureSchema = [
   3,
   n0,
   _PSQLS,
@@ -3054,7 +3089,7 @@ export var PostgreSQLSettings: StaticStructureSchema = [
   ],
   [0, 2, 1, 0, 0, 1, 2, 2, 0, 1, [() => SecretString, 0], 1, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 2, 0, 0],
 ];
-export var PremigrationAssessmentStatus: StaticStructureSchema = [
+export var PremigrationAssessmentStatus$: StaticStructureSchema = [
   3,
   n0,
   _PAS,
@@ -3065,18 +3100,18 @@ export var PremigrationAssessmentStatus: StaticStructureSchema = [
     2,
     0,
     4,
-    () => ReplicationTaskAssessmentRunProgress,
+    () => ReplicationTaskAssessmentRunProgress$,
     0,
     0,
     0,
     0,
     0,
-    () => ReplicationTaskAssessmentRunResultStatistic,
+    () => ReplicationTaskAssessmentRunResultStatistic$,
   ],
 ];
-export var ProcessedObject: StaticStructureSchema = [3, n0, _PO, 0, [_N, _Ty, _ET], [0, 0, 0]];
-export var Progress: StaticStructureSchema = [3, n0, _Pr, 0, [_PP, _TO, _PS, _PO], [1, 1, 0, () => ProcessedObject]];
-export var ProvisionData: StaticStructureSchema = [
+export var ProcessedObject$: StaticStructureSchema = [3, n0, _PO, 0, [_N, _Ty, _ET], [0, 0, 0]];
+export var Progress$: StaticStructureSchema = [3, n0, _Pr, 0, [_PP, _TO, _PS, _PO], [1, 1, 0, () => ProcessedObject$]];
+export var ProvisionData$: StaticStructureSchema = [
   3,
   n0,
   _PD,
@@ -3084,7 +3119,7 @@ export var ProvisionData: StaticStructureSchema = [
   [_PSr, _PCU, _DPat, _INPA, _DNPDA, _RFNPD],
   [0, 1, 4, 2, 4, 0],
 ];
-export var RdsConfiguration: StaticStructureSchema = [
+export var RdsConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RCd,
@@ -3092,15 +3127,15 @@ export var RdsConfiguration: StaticStructureSchema = [
   [_EEn, _IT, _IV, _IM, _STtor, _SSt, _SIt, _DO, _EV],
   [0, 0, 1, 1, 0, 1, 1, 0, 0],
 ];
-export var RdsRecommendation: StaticStructureSchema = [
+export var RdsRecommendation$: StaticStructureSchema = [
   3,
   n0,
   _RR,
   0,
   [_RTT, _TC],
-  [() => RdsRequirements, () => RdsConfiguration],
+  [() => RdsRequirements$, () => RdsConfiguration$],
 ];
-export var RdsRequirements: StaticStructureSchema = [
+export var RdsRequirements$: StaticStructureSchema = [
   3,
   n0,
   _RRd,
@@ -3108,26 +3143,26 @@ export var RdsRequirements: StaticStructureSchema = [
   [_EEn, _IV, _IM, _SSt, _SIt, _DO, _EV],
   [0, 1, 1, 1, 1, 0, 0],
 ];
-export var RebootReplicationInstanceMessage: StaticStructureSchema = [3, n0, _RRIM, 0, [_RIA, _FF, _FPF], [0, 2, 2]];
-export var RebootReplicationInstanceResponse: StaticStructureSchema = [
+export var RebootReplicationInstanceMessage$: StaticStructureSchema = [3, n0, _RRIM, 0, [_RIA, _FF, _FPF], [0, 2, 2]];
+export var RebootReplicationInstanceResponse$: StaticStructureSchema = [
   3,
   n0,
   _RRIR,
   0,
   [_RIep],
-  [[() => ReplicationInstance, 0]],
+  [[() => ReplicationInstance$, 0]],
 ];
-export var Recommendation: StaticStructureSchema = [
+export var Recommendation$: StaticStructureSchema = [
   3,
   n0,
   _Reco,
   0,
   [_DI, _EN, _CD, _S, _Pre, _Se, _D],
-  [0, 0, 0, 0, 2, () => RecommendationSettings, () => RecommendationData],
+  [0, 0, 0, 0, 2, () => RecommendationSettings$, () => RecommendationData$],
 ];
-export var RecommendationData: StaticStructureSchema = [3, n0, _RDe, 0, [_RE], [() => RdsRecommendation]];
-export var RecommendationSettings: StaticStructureSchema = [3, n0, _RSec, 0, [_IST, _WT], [0, 0]];
-export var RedisSettings: StaticStructureSchema = [
+export var RecommendationData$: StaticStructureSchema = [3, n0, _RDe, 0, [_RE], [() => RdsRecommendation$]];
+export var RecommendationSettings$: StaticStructureSchema = [3, n0, _RSec, 0, [_IST, _WT], [0, 0]];
+export var RedisSettings$: StaticStructureSchema = [
   3,
   n0,
   _RSe,
@@ -3135,7 +3170,7 @@ export var RedisSettings: StaticStructureSchema = [
   [_SN, _Po, _SSP, _AT, _AUN, _APu, _SCCAs],
   [0, 1, 0, 0, 0, [() => SecretString, 0], 0],
 ];
-export var RedshiftDataProviderSettings: StaticStructureSchema = [
+export var RedshiftDataProviderSettings$: StaticStructureSchema = [
   3,
   n0,
   _RDPS,
@@ -3143,7 +3178,7 @@ export var RedshiftDataProviderSettings: StaticStructureSchema = [
   [_SN, _Po, _DN, _SPa, _SARAc],
   [0, 1, 0, 0, 0],
 ];
-export var RedshiftSettings: StaticStructureSchema = [
+export var RedshiftSettings$: StaticStructureSchema = [
   3,
   n0,
   _RS,
@@ -3183,10 +3218,17 @@ export var RedshiftSettings: StaticStructureSchema = [
   ],
   [2, 0, 0, 0, 2, 2, 1, 0, 0, 2, 0, 2, 1, 1, 1, [() => SecretString, 0], 1, 2, 0, 0, 0, 0, 0, 0, 2, 2, 0, 1, 0, 0, 2],
 ];
-export var RefreshSchemasMessage: StaticStructureSchema = [3, n0, _RSM, 0, [_EA, _RIA], [0, 0]];
-export var RefreshSchemasResponse: StaticStructureSchema = [3, n0, _RSR, 0, [_RSS], [() => RefreshSchemasStatus]];
-export var RefreshSchemasStatus: StaticStructureSchema = [3, n0, _RSS, 0, [_EA, _RIA, _S, _LRD, _LFM], [0, 0, 0, 4, 0]];
-export var ReloadReplicationTablesMessage: StaticStructureSchema = [
+export var RefreshSchemasMessage$: StaticStructureSchema = [3, n0, _RSM, 0, [_EA, _RIA], [0, 0]];
+export var RefreshSchemasResponse$: StaticStructureSchema = [3, n0, _RSR, 0, [_RSS], [() => RefreshSchemasStatus$]];
+export var RefreshSchemasStatus$: StaticStructureSchema = [
+  3,
+  n0,
+  _RSS,
+  0,
+  [_EA, _RIA, _S, _LRD, _LFM],
+  [0, 0, 0, 4, 0],
+];
+export var ReloadReplicationTablesMessage$: StaticStructureSchema = [
   3,
   n0,
   _RRTM,
@@ -3194,8 +3236,8 @@ export var ReloadReplicationTablesMessage: StaticStructureSchema = [
   [_RCA, _TTR, _RO],
   [0, () => TableListToReload, 0],
 ];
-export var ReloadReplicationTablesResponse: StaticStructureSchema = [3, n0, _RRTR, 0, [_RCA], [0]];
-export var ReloadTablesMessage: StaticStructureSchema = [
+export var ReloadReplicationTablesResponse$: StaticStructureSchema = [3, n0, _RRTR, 0, [_RCA], [0]];
+export var ReloadTablesMessage$: StaticStructureSchema = [
   3,
   n0,
   _RTM,
@@ -3203,10 +3245,10 @@ export var ReloadTablesMessage: StaticStructureSchema = [
   [_RTA, _TTR, _RO],
   [0, () => TableListToReload, 0],
 ];
-export var ReloadTablesResponse: StaticStructureSchema = [3, n0, _RTR, 0, [_RTA], [0]];
-export var RemoveTagsFromResourceMessage: StaticStructureSchema = [3, n0, _RTFRM, 0, [_RA, _TK], [0, 64 | 0]];
-export var RemoveTagsFromResourceResponse: StaticStructureSchema = [3, n0, _RTFRR, 0, [], []];
-export var Replication: StaticStructureSchema = [
+export var ReloadTablesResponse$: StaticStructureSchema = [3, n0, _RTR, 0, [_RTA], [0]];
+export var RemoveTagsFromResourceMessage$: StaticStructureSchema = [3, n0, _RTFRM, 0, [_RA, _TK], [0, 64 | 0]];
+export var RemoveTagsFromResourceResponse$: StaticStructureSchema = [3, n0, _RTFRR, 0, [], []];
+export var Replication$: StaticStructureSchema = [
   3,
   n0,
   _Repl,
@@ -3241,11 +3283,11 @@ export var Replication: StaticStructureSchema = [
     0,
     0,
     0,
-    () => ProvisionData,
+    () => ProvisionData$,
     () => PremigrationAssessmentStatusList,
     0,
     64 | 0,
-    () => ReplicationStats,
+    () => ReplicationStats$,
     0,
     4,
     0,
@@ -3258,15 +3300,15 @@ export var Replication: StaticStructureSchema = [
     2,
   ],
 ];
-export var ReplicationConfig: StaticStructureSchema = [
+export var ReplicationConfig$: StaticStructureSchema = [
   3,
   n0,
   _RC,
   0,
   [_RCI, _RCA, _SEA, _TEA, _RT, _CC, _RSep, _SSu, _TM, _RCCT, _RCUT, _IRO],
-  [0, 0, 0, 0, 0, () => ComputeConfig, 0, 0, 0, 4, 4, 2],
+  [0, 0, 0, 0, 0, () => ComputeConfig$, 0, 0, 0, 4, 4, 2],
 ];
-export var ReplicationInstance: StaticStructureSchema = [
+export var ReplicationInstance$: StaticStructureSchema = [
   3,
   n0,
   _RIep,
@@ -3307,9 +3349,9 @@ export var ReplicationInstance: StaticStructureSchema = [
     4,
     [() => VpcSecurityGroupMembershipList, 0],
     0,
-    [() => ReplicationSubnetGroup, 0],
+    [() => ReplicationSubnetGroup$, 0],
     0,
-    () => ReplicationPendingModifiedValues,
+    () => ReplicationPendingModifiedValues$,
     2,
     0,
     2,
@@ -3325,11 +3367,11 @@ export var ReplicationInstance: StaticStructureSchema = [
     4,
     0,
     0,
-    () => KerberosAuthenticationSettings,
+    () => KerberosAuthenticationSettings$,
   ],
 ];
-export var ReplicationInstanceTaskLog: StaticStructureSchema = [3, n0, _RITLe, 0, [_RTN, _RTA, _RITLS], [0, 0, 1]];
-export var ReplicationPendingModifiedValues: StaticStructureSchema = [
+export var ReplicationInstanceTaskLog$: StaticStructureSchema = [3, n0, _RITLe, 0, [_RTN, _RTA, _RITLS], [0, 0, 1]];
+export var ReplicationPendingModifiedValues$: StaticStructureSchema = [
   3,
   n0,
   _RPMV,
@@ -3337,7 +3379,7 @@ export var ReplicationPendingModifiedValues: StaticStructureSchema = [
   [_RIC, _AS, _MAZ, _EV, _NT],
   [0, 1, 2, 0, 0],
 ];
-export var ReplicationStats: StaticStructureSchema = [
+export var ReplicationStats$: StaticStructureSchema = [
   3,
   n0,
   _RSepl,
@@ -3345,7 +3387,7 @@ export var ReplicationStats: StaticStructureSchema = [
   [_FLPP, _ETM, _TL, _TLa, _TQ, _TE, _FSD, _SDt, _SDto, _FLSD, _FLFD],
   [1, 1, 1, 1, 1, 1, 4, 4, 4, 4, 4],
 ];
-export var ReplicationSubnetGroup: StaticStructureSchema = [
+export var ReplicationSubnetGroup$: StaticStructureSchema = [
   3,
   n0,
   _RSG,
@@ -3353,7 +3395,7 @@ export var ReplicationSubnetGroup: StaticStructureSchema = [
   [_RSGIe, _RSGD, _VI, _SGS, _Su, _SNT, _IRO],
   [0, 0, 0, 0, [() => SubnetList, 0], 64 | 0, 2],
 ];
-export var ReplicationSubnetGroupDoesNotCoverEnoughAZs: StaticErrorSchema = [
+export var ReplicationSubnetGroupDoesNotCoverEnoughAZs$: StaticErrorSchema = [
   -3,
   n0,
   _RSGDNCEAZ,
@@ -3362,18 +3404,18 @@ export var ReplicationSubnetGroupDoesNotCoverEnoughAZs: StaticErrorSchema = [
   [0],
 ];
 TypeRegistry.for(n0).registerError(
-  ReplicationSubnetGroupDoesNotCoverEnoughAZs,
-  __ReplicationSubnetGroupDoesNotCoverEnoughAZs
+  ReplicationSubnetGroupDoesNotCoverEnoughAZs$,
+  ReplicationSubnetGroupDoesNotCoverEnoughAZs
 );
-export var ReplicationTask: StaticStructureSchema = [
+export var ReplicationTask$: StaticStructureSchema = [
   3,
   n0,
   _RTe,
   0,
   [_RTI, _SEA, _TEA, _RIA, _MT, _TM, _RTS, _S, _LFM, _SRt, _RTCD, _RTSD, _CSP, _CSPd, _RCec, _RTA, _RTSep, _TD, _TRIA],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, () => ReplicationTaskStats, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, () => ReplicationTaskStats$, 0, 0],
 ];
-export var ReplicationTaskAssessmentResult: StaticStructureSchema = [
+export var ReplicationTaskAssessmentResult$: StaticStructureSchema = [
   3,
   n0,
   _RTARepl,
@@ -3381,7 +3423,7 @@ export var ReplicationTaskAssessmentResult: StaticStructureSchema = [
   [_RTI, _RTA, _RTLAD, _ASss, _ARF, _AR, _SOU],
   [0, 0, 4, 0, 0, 0, [() => SecretString, 0]],
 ];
-export var ReplicationTaskAssessmentRun: StaticStructureSchema = [
+export var ReplicationTaskAssessmentRun$: StaticStructureSchema = [
   3,
   n0,
   _RTAR,
@@ -3392,7 +3434,7 @@ export var ReplicationTaskAssessmentRun: StaticStructureSchema = [
     0,
     0,
     4,
-    () => ReplicationTaskAssessmentRunProgress,
+    () => ReplicationTaskAssessmentRunProgress$,
     0,
     0,
     0,
@@ -3401,11 +3443,11 @@ export var ReplicationTaskAssessmentRun: StaticStructureSchema = [
     0,
     0,
     2,
-    () => ReplicationTaskAssessmentRunResultStatistic,
+    () => ReplicationTaskAssessmentRunResultStatistic$,
   ],
 ];
-export var ReplicationTaskAssessmentRunProgress: StaticStructureSchema = [3, n0, _RTARP, 0, [_IAC, _IACC], [1, 1]];
-export var ReplicationTaskAssessmentRunResultStatistic: StaticStructureSchema = [
+export var ReplicationTaskAssessmentRunProgress$: StaticStructureSchema = [3, n0, _RTARP, 0, [_IAC, _IACC], [1, 1]];
+export var ReplicationTaskAssessmentRunResultStatistic$: StaticStructureSchema = [
   3,
   n0,
   _RTARRS,
@@ -3413,7 +3455,7 @@ export var ReplicationTaskAssessmentRunResultStatistic: StaticStructureSchema = 
   [_Pa, _Fa, _Er, _W, _Ca, _Sk],
   [1, 1, 1, 1, 1, 1],
 ];
-export var ReplicationTaskIndividualAssessment: StaticStructureSchema = [
+export var ReplicationTaskIndividualAssessment$: StaticStructureSchema = [
   3,
   n0,
   _RTIAe,
@@ -3421,7 +3463,7 @@ export var ReplicationTaskIndividualAssessment: StaticStructureSchema = [
   [_RTIAA, _RTARA, _IANn, _S, _RTIASD],
   [0, 0, 0, 0, 4],
 ];
-export var ReplicationTaskStats: StaticStructureSchema = [
+export var ReplicationTaskStats$: StaticStructureSchema = [
   3,
   n0,
   _RTSep,
@@ -3429,11 +3471,11 @@ export var ReplicationTaskStats: StaticStructureSchema = [
   [_FLPP, _ETM, _TL, _TLa, _TQ, _TE, _FSD, _SDt, _SDto, _FLSD, _FLFD],
   [1, 1, 1, 1, 1, 1, 4, 4, 4, 4, 4],
 ];
-export var ResourceAlreadyExistsFault: StaticErrorSchema = [-3, n0, _RAEF, { [_e]: _c }, [_m, _rA], [0, 0]];
-TypeRegistry.for(n0).registerError(ResourceAlreadyExistsFault, __ResourceAlreadyExistsFault);
-export var ResourceNotFoundFault: StaticErrorSchema = [-3, n0, _RNFF, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundFault, __ResourceNotFoundFault);
-export var ResourcePendingMaintenanceActions: StaticStructureSchema = [
+export var ResourceAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _RAEF, { [_e]: _c }, [_m, _rA], [0, 0]];
+TypeRegistry.for(n0).registerError(ResourceAlreadyExistsFault$, ResourceAlreadyExistsFault);
+export var ResourceNotFoundFault$: StaticErrorSchema = [-3, n0, _RNFF, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundFault$, ResourceNotFoundFault);
+export var ResourcePendingMaintenanceActions$: StaticStructureSchema = [
   3,
   n0,
   _RPMA,
@@ -3441,14 +3483,14 @@ export var ResourcePendingMaintenanceActions: StaticStructureSchema = [
   [_RIe, _PMAD],
   [0, [() => PendingMaintenanceActionDetails, 0]],
 ];
-export var ResourceQuotaExceededFault: StaticErrorSchema = [-3, n0, _RQEF, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ResourceQuotaExceededFault, __ResourceQuotaExceededFault);
-export var RunFleetAdvisorLsaAnalysisResponse: StaticStructureSchema = [3, n0, _RFALAR, 0, [_LAI, _S], [0, 0]];
-export var S3AccessDeniedFault: StaticErrorSchema = [-3, n0, _SADF, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(S3AccessDeniedFault, __S3AccessDeniedFault);
-export var S3ResourceNotFoundFault: StaticErrorSchema = [-3, n0, _SRNFF, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(S3ResourceNotFoundFault, __S3ResourceNotFoundFault);
-export var S3Settings: StaticStructureSchema = [
+export var ResourceQuotaExceededFault$: StaticErrorSchema = [-3, n0, _RQEF, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ResourceQuotaExceededFault$, ResourceQuotaExceededFault);
+export var RunFleetAdvisorLsaAnalysisResponse$: StaticStructureSchema = [3, n0, _RFALAR, 0, [_LAI, _S], [0, 0]];
+export var S3AccessDeniedFault$: StaticErrorSchema = [-3, n0, _SADF, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(S3AccessDeniedFault$, S3AccessDeniedFault);
+export var S3ResourceNotFoundFault$: StaticErrorSchema = [-3, n0, _SRNFF, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(S3ResourceNotFoundFault$, S3ResourceNotFoundFault);
+export var S3Settings$: StaticStructureSchema = [
   3,
   n0,
   _SSe,
@@ -3501,24 +3543,24 @@ export var S3Settings: StaticStructureSchema = [
     0, 2,
   ],
 ];
-export var SCApplicationAttributes: StaticStructureSchema = [3, n0, _SCAAp, 0, [_SBP, _SBRA], [0, 0]];
-export var SchemaConversionRequest: StaticStructureSchema = [
+export var SCApplicationAttributes$: StaticStructureSchema = [3, n0, _SCAAp, 0, [_SBP, _SBRA], [0, 0]];
+export var SchemaConversionRequest$: StaticStructureSchema = [
   3,
   n0,
   _SCR,
   0,
   [_S, _RI, _MPA, _Er, _ESD, _Pr],
-  [0, 0, 0, () => ErrorDetails, () => ExportSqlDetails, () => Progress],
+  [0, 0, 0, () => ErrorDetails$, () => ExportSqlDetails$, () => Progress$],
 ];
-export var SchemaResponse: StaticStructureSchema = [
+export var SchemaResponse$: StaticStructureSchema = [
   3,
   n0,
   _SRc,
   0,
   [_CLC, _CSo, _Com, _Ser, _DIat, _SIc, _SNc, _OSr, _Si],
-  [1, 1, 0, () => ServerShortInfoResponse, () => DatabaseShortInfoResponse, 0, 0, () => SchemaShortInfoResponse, 1],
+  [1, 1, 0, () => ServerShortInfoResponse$, () => DatabaseShortInfoResponse$, 0, 0, () => SchemaShortInfoResponse$, 1],
 ];
-export var SchemaShortInfoResponse: StaticStructureSchema = [
+export var SchemaShortInfoResponse$: StaticStructureSchema = [
   3,
   n0,
   _SSIR,
@@ -3526,30 +3568,30 @@ export var SchemaShortInfoResponse: StaticStructureSchema = [
   [_SIc, _SNc, _DI, _DN, _DIA],
   [0, 0, 0, 0, 0],
 ];
-export var ServerShortInfoResponse: StaticStructureSchema = [3, n0, _SSIRe, 0, [_SIe, _IA, _SN], [0, 0, 0]];
-export var SNSInvalidTopicFault: StaticErrorSchema = [-3, n0, _SNSITF, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(SNSInvalidTopicFault, __SNSInvalidTopicFault);
-export var SNSNoAuthorizationFault: StaticErrorSchema = [-3, n0, _SNSNAF, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(SNSNoAuthorizationFault, __SNSNoAuthorizationFault);
-export var SourceDataSetting: StaticStructureSchema = [3, n0, _SDSo, 0, [_CDCSP, _CDCST, _CDCSTt, _SNl], [0, 5, 5, 0]];
-export var StartDataMigrationMessage: StaticStructureSchema = [3, n0, _SDMM, 0, [_DMI, _STta], [0, 0]];
-export var StartDataMigrationResponse: StaticStructureSchema = [3, n0, _SDMR, 0, [_DM], [[() => DataMigration, 0]]];
-export var StartExtensionPackAssociationMessage: StaticStructureSchema = [3, n0, _SEPAM, 0, [_MPI], [0]];
-export var StartExtensionPackAssociationResponse: StaticStructureSchema = [3, n0, _SEPAR, 0, [_RI], [0]];
-export var StartMetadataModelAssessmentMessage: StaticStructureSchema = [3, n0, _SMMAM, 0, [_MPI, _SR], [0, 0]];
-export var StartMetadataModelAssessmentResponse: StaticStructureSchema = [3, n0, _SMMAR, 0, [_RI], [0]];
-export var StartMetadataModelConversionMessage: StaticStructureSchema = [3, n0, _SMMCM, 0, [_MPI, _SR], [0, 0]];
-export var StartMetadataModelConversionResponse: StaticStructureSchema = [3, n0, _SMMCR, 0, [_RI], [0]];
-export var StartMetadataModelCreationMessage: StaticStructureSchema = [
+export var ServerShortInfoResponse$: StaticStructureSchema = [3, n0, _SSIRe, 0, [_SIe, _IA, _SN], [0, 0, 0]];
+export var SNSInvalidTopicFault$: StaticErrorSchema = [-3, n0, _SNSITF, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(SNSInvalidTopicFault$, SNSInvalidTopicFault);
+export var SNSNoAuthorizationFault$: StaticErrorSchema = [-3, n0, _SNSNAF, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(SNSNoAuthorizationFault$, SNSNoAuthorizationFault);
+export var SourceDataSetting$: StaticStructureSchema = [3, n0, _SDSo, 0, [_CDCSP, _CDCST, _CDCSTt, _SNl], [0, 5, 5, 0]];
+export var StartDataMigrationMessage$: StaticStructureSchema = [3, n0, _SDMM, 0, [_DMI, _STta], [0, 0]];
+export var StartDataMigrationResponse$: StaticStructureSchema = [3, n0, _SDMR, 0, [_DM], [[() => DataMigration$, 0]]];
+export var StartExtensionPackAssociationMessage$: StaticStructureSchema = [3, n0, _SEPAM, 0, [_MPI], [0]];
+export var StartExtensionPackAssociationResponse$: StaticStructureSchema = [3, n0, _SEPAR, 0, [_RI], [0]];
+export var StartMetadataModelAssessmentMessage$: StaticStructureSchema = [3, n0, _SMMAM, 0, [_MPI, _SR], [0, 0]];
+export var StartMetadataModelAssessmentResponse$: StaticStructureSchema = [3, n0, _SMMAR, 0, [_RI], [0]];
+export var StartMetadataModelConversionMessage$: StaticStructureSchema = [3, n0, _SMMCM, 0, [_MPI, _SR], [0, 0]];
+export var StartMetadataModelConversionResponse$: StaticStructureSchema = [3, n0, _SMMCR, 0, [_RI], [0]];
+export var StartMetadataModelCreationMessage$: StaticStructureSchema = [
   3,
   n0,
   _SMMCMt,
   0,
   [_MPI, _SR, _MMN, _Pro],
-  [0, 0, 0, () => MetadataModelProperties],
+  [0, 0, 0, () => MetadataModelProperties$],
 ];
-export var StartMetadataModelCreationResponse: StaticStructureSchema = [3, n0, _SMMCRt, 0, [_RI], [0]];
-export var StartMetadataModelExportAsScriptMessage: StaticStructureSchema = [
+export var StartMetadataModelCreationResponse$: StaticStructureSchema = [3, n0, _SMMCRt, 0, [_RI], [0]];
+export var StartMetadataModelExportAsScriptMessage$: StaticStructureSchema = [
   3,
   n0,
   _SMMEASM,
@@ -3557,8 +3599,8 @@ export var StartMetadataModelExportAsScriptMessage: StaticStructureSchema = [
   [_MPI, _SR, _O, _FN],
   [0, 0, 0, 0],
 ];
-export var StartMetadataModelExportAsScriptResponse: StaticStructureSchema = [3, n0, _SMMEASR, 0, [_RI], [0]];
-export var StartMetadataModelExportToTargetMessage: StaticStructureSchema = [
+export var StartMetadataModelExportAsScriptResponse$: StaticStructureSchema = [3, n0, _SMMEASR, 0, [_RI], [0]];
+export var StartMetadataModelExportToTargetMessage$: StaticStructureSchema = [
   3,
   n0,
   _SMMETTM,
@@ -3566,8 +3608,8 @@ export var StartMetadataModelExportToTargetMessage: StaticStructureSchema = [
   [_MPI, _SR, _OEP],
   [0, 0, 2],
 ];
-export var StartMetadataModelExportToTargetResponse: StaticStructureSchema = [3, n0, _SMMETTR, 0, [_RI], [0]];
-export var StartMetadataModelImportMessage: StaticStructureSchema = [
+export var StartMetadataModelExportToTargetResponse$: StaticStructureSchema = [3, n0, _SMMETTR, 0, [_RI], [0]];
+export var StartMetadataModelImportMessage$: StaticStructureSchema = [
   3,
   n0,
   _SMMIM,
@@ -3575,24 +3617,24 @@ export var StartMetadataModelImportMessage: StaticStructureSchema = [
   [_MPI, _SR, _O, _Ref],
   [0, 0, 0, 2],
 ];
-export var StartMetadataModelImportResponse: StaticStructureSchema = [3, n0, _SMMIR, 0, [_RI], [0]];
-export var StartRecommendationsRequest: StaticStructureSchema = [
+export var StartMetadataModelImportResponse$: StaticStructureSchema = [3, n0, _SMMIR, 0, [_RI], [0]];
+export var StartRecommendationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _SRR,
   0,
   [_DI, _Se],
-  [0, () => RecommendationSettings],
+  [0, () => RecommendationSettings$],
 ];
-export var StartRecommendationsRequestEntry: StaticStructureSchema = [
+export var StartRecommendationsRequestEntry$: StaticStructureSchema = [
   3,
   n0,
   _SRRE,
   0,
   [_DI, _Se],
-  [0, () => RecommendationSettings],
+  [0, () => RecommendationSettings$],
 ];
-export var StartReplicationMessage: StaticStructureSchema = [
+export var StartReplicationMessage$: StaticStructureSchema = [
   3,
   n0,
   _SRM,
@@ -3600,17 +3642,17 @@ export var StartReplicationMessage: StaticStructureSchema = [
   [_RCA, _SRT, _PASre, _CST, _CSP, _CSPd],
   [0, 0, 0, 4, 0, 0],
 ];
-export var StartReplicationResponse: StaticStructureSchema = [3, n0, _SRRt, 0, [_Repl], [() => Replication]];
-export var StartReplicationTaskAssessmentMessage: StaticStructureSchema = [3, n0, _SRTAM, 0, [_RTA], [0]];
-export var StartReplicationTaskAssessmentResponse: StaticStructureSchema = [
+export var StartReplicationResponse$: StaticStructureSchema = [3, n0, _SRRt, 0, [_Repl], [() => Replication$]];
+export var StartReplicationTaskAssessmentMessage$: StaticStructureSchema = [3, n0, _SRTAM, 0, [_RTA], [0]];
+export var StartReplicationTaskAssessmentResponse$: StaticStructureSchema = [
   3,
   n0,
   _SRTAR,
   0,
   [_RTe],
-  [() => ReplicationTask],
+  [() => ReplicationTask$],
 ];
-export var StartReplicationTaskAssessmentRunMessage: StaticStructureSchema = [
+export var StartReplicationTaskAssessmentRunMessage$: StaticStructureSchema = [
   3,
   n0,
   _SRTARM,
@@ -3618,15 +3660,15 @@ export var StartReplicationTaskAssessmentRunMessage: StaticStructureSchema = [
   [_RTA, _SARA, _RLB, _RLF, _REM, _RKKA, _ARN, _IO, _Ex, _T],
   [0, 0, 0, 0, 0, 0, 0, 64 | 0, 64 | 0, [() => TagList, 0]],
 ];
-export var StartReplicationTaskAssessmentRunResponse: StaticStructureSchema = [
+export var StartReplicationTaskAssessmentRunResponse$: StaticStructureSchema = [
   3,
   n0,
   _SRTARR,
   0,
   [_RTAR],
-  [() => ReplicationTaskAssessmentRun],
+  [() => ReplicationTaskAssessmentRun$],
 ];
-export var StartReplicationTaskMessage: StaticStructureSchema = [
+export var StartReplicationTaskMessage$: StaticStructureSchema = [
   3,
   n0,
   _SRTM,
@@ -3634,20 +3676,20 @@ export var StartReplicationTaskMessage: StaticStructureSchema = [
   [_RTA, _SRTT, _CST, _CSP, _CSPd],
   [0, 0, 4, 0, 0],
 ];
-export var StartReplicationTaskResponse: StaticStructureSchema = [3, n0, _SRTR, 0, [_RTe], [() => ReplicationTask]];
-export var StatementProperties: StaticStructureSchema = [3, n0, _SPt, 0, [_Def], [0]];
-export var StopDataMigrationMessage: StaticStructureSchema = [3, n0, _SDMMt, 0, [_DMI], [0]];
-export var StopDataMigrationResponse: StaticStructureSchema = [3, n0, _SDMRt, 0, [_DM], [[() => DataMigration, 0]]];
-export var StopReplicationMessage: StaticStructureSchema = [3, n0, _SRMt, 0, [_RCA], [0]];
-export var StopReplicationResponse: StaticStructureSchema = [3, n0, _SRRto, 0, [_Repl], [() => Replication]];
-export var StopReplicationTaskMessage: StaticStructureSchema = [3, n0, _SRTMt, 0, [_RTA], [0]];
-export var StopReplicationTaskResponse: StaticStructureSchema = [3, n0, _SRTRt, 0, [_RTe], [() => ReplicationTask]];
-export var StorageQuotaExceededFault: StaticErrorSchema = [-3, n0, _SQEF, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(StorageQuotaExceededFault, __StorageQuotaExceededFault);
-export var Subnet: StaticStructureSchema = [3, n0, _Sub, 0, [_SIub, _SAZu, _SSub], [0, () => AvailabilityZone, 0]];
-export var SubnetAlreadyInUse: StaticErrorSchema = [-3, n0, _SAIU, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(SubnetAlreadyInUse, __SubnetAlreadyInUse);
-export var SupportedEndpointType: StaticStructureSchema = [
+export var StartReplicationTaskResponse$: StaticStructureSchema = [3, n0, _SRTR, 0, [_RTe], [() => ReplicationTask$]];
+export var StatementProperties$: StaticStructureSchema = [3, n0, _SPt, 0, [_Def], [0]];
+export var StopDataMigrationMessage$: StaticStructureSchema = [3, n0, _SDMMt, 0, [_DMI], [0]];
+export var StopDataMigrationResponse$: StaticStructureSchema = [3, n0, _SDMRt, 0, [_DM], [[() => DataMigration$, 0]]];
+export var StopReplicationMessage$: StaticStructureSchema = [3, n0, _SRMt, 0, [_RCA], [0]];
+export var StopReplicationResponse$: StaticStructureSchema = [3, n0, _SRRto, 0, [_Repl], [() => Replication$]];
+export var StopReplicationTaskMessage$: StaticStructureSchema = [3, n0, _SRTMt, 0, [_RTA], [0]];
+export var StopReplicationTaskResponse$: StaticStructureSchema = [3, n0, _SRTRt, 0, [_RTe], [() => ReplicationTask$]];
+export var StorageQuotaExceededFault$: StaticErrorSchema = [-3, n0, _SQEF, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(StorageQuotaExceededFault$, StorageQuotaExceededFault);
+export var Subnet$: StaticStructureSchema = [3, n0, _Sub, 0, [_SIub, _SAZu, _SSub], [0, () => AvailabilityZone$, 0]];
+export var SubnetAlreadyInUse$: StaticErrorSchema = [-3, n0, _SAIU, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(SubnetAlreadyInUse$, SubnetAlreadyInUse);
+export var SupportedEndpointType$: StaticStructureSchema = [
   3,
   n0,
   _SETu,
@@ -3655,7 +3697,7 @@ export var SupportedEndpointType: StaticStructureSchema = [
   [_EN, _SCDC, _ET, _RIEMV, _EDN],
   [0, 2, 0, 0, 0],
 ];
-export var SybaseAseDataProviderSettings: StaticStructureSchema = [
+export var SybaseAseDataProviderSettings$: StaticStructureSchema = [
   3,
   n0,
   _SADPS,
@@ -3663,7 +3705,7 @@ export var SybaseAseDataProviderSettings: StaticStructureSchema = [
   [_SN, _Po, _DN, _SM, _EP, _CA],
   [0, 1, 0, 0, 2, 0],
 ];
-export var SybaseSettings: StaticStructureSchema = [
+export var SybaseSettings$: StaticStructureSchema = [
   3,
   n0,
   _SSy,
@@ -3671,7 +3713,7 @@ export var SybaseSettings: StaticStructureSchema = [
   [_DN, _P, _Po, _SN, _Us, _SMARA, _SMSI],
   [0, [() => SecretString, 0], 1, 0, 0, 0, 0],
 ];
-export var TableStatistics: StaticStructureSchema = [
+export var TableStatistics$: StaticStructureSchema = [
   3,
   n0,
   _TSa,
@@ -3708,12 +3750,12 @@ export var TableStatistics: StaticStructureSchema = [
   ],
   [0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 4, 2, 4, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1],
 ];
-export var TableToReload: StaticStructureSchema = [3, n0, _TTRa, 0, [_SNc, _TN], [0, 0]];
-export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _Val, _RA], [0, 0, 0]];
-export var TargetDataSetting: StaticStructureSchema = [3, n0, _TDSa, 0, [_TPM], [0]];
-export var TestConnectionMessage: StaticStructureSchema = [3, n0, _TCM, 0, [_RIA, _EA], [0, 0]];
-export var TestConnectionResponse: StaticStructureSchema = [3, n0, _TCR, 0, [_Co], [() => Connection]];
-export var TimestreamSettings: StaticStructureSchema = [
+export var TableToReload$: StaticStructureSchema = [3, n0, _TTRa, 0, [_SNc, _TN], [0, 0]];
+export var Tag$: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _Val, _RA], [0, 0, 0]];
+export var TargetDataSetting$: StaticStructureSchema = [3, n0, _TDSa, 0, [_TPM], [0]];
+export var TestConnectionMessage$: StaticStructureSchema = [3, n0, _TCM, 0, [_RIA, _EA], [0, 0]];
+export var TestConnectionResponse$: StaticStructureSchema = [3, n0, _TCR, 0, [_Co], [() => Connection$]];
+export var TimestreamSettings$: StaticStructureSchema = [
   3,
   n0,
   _TS,
@@ -3721,13 +3763,13 @@ export var TimestreamSettings: StaticStructureSchema = [
   [_DN, _MDe, _MDa, _CIAU, _EMSW],
   [0, 1, 1, 2, 2],
 ];
-export var UpdateSubscriptionsToEventBridgeMessage: StaticStructureSchema = [3, n0, _USTEBM, 0, [_FMo], [2]];
-export var UpdateSubscriptionsToEventBridgeResponse: StaticStructureSchema = [3, n0, _USTEBR, 0, [_Res], [0]];
-export var UpgradeDependencyFailureFault: StaticErrorSchema = [-3, n0, _UDFF, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(UpgradeDependencyFailureFault, __UpgradeDependencyFailureFault);
-export var VpcSecurityGroupMembership: StaticStructureSchema = [3, n0, _VSGM, 0, [_VSGIp, _S], [0, 0]];
-export var __Unit = "unit" as const;
-export var DatabaseMigrationServiceServiceException: StaticErrorSchema = [
+export var UpdateSubscriptionsToEventBridgeMessage$: StaticStructureSchema = [3, n0, _USTEBM, 0, [_FMo], [2]];
+export var UpdateSubscriptionsToEventBridgeResponse$: StaticStructureSchema = [3, n0, _USTEBR, 0, [_Res], [0]];
+export var UpgradeDependencyFailureFault$: StaticErrorSchema = [-3, n0, _UDFF, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(UpgradeDependencyFailureFault$, UpgradeDependencyFailureFault);
+export var VpcSecurityGroupMembership$: StaticStructureSchema = [3, n0, _VSGM, 0, [_VSGIp, _S], [0, 0]];
+var __Unit = "unit" as const;
+export var DatabaseMigrationServiceServiceException$: StaticErrorSchema = [
   -3,
   _s,
   "DatabaseMigrationServiceServiceException",
@@ -3735,1125 +3777,1104 @@ export var DatabaseMigrationServiceServiceException: StaticErrorSchema = [
   [],
   [],
 ];
-TypeRegistry.for(_s).registerError(
-  DatabaseMigrationServiceServiceException,
-  __DatabaseMigrationServiceServiceException
-);
-export var AccountQuotaList: StaticListSchema = [1, n0, _AQL, 0, [() => AccountQuota, { [_xN]: _AQ }]];
-export var ArnList = 64 | 0;
-export var AssessmentReportTypesList = 64 | 0;
-export var AvailabilityZonesList = 64 | 0;
-export var AvailableUpgradesList = 64 | 0;
-export var BatchStartRecommendationsErrorEntryList: StaticListSchema = [
+TypeRegistry.for(_s).registerError(DatabaseMigrationServiceServiceException$, DatabaseMigrationServiceServiceException);
+var AccountQuotaList: StaticListSchema = [1, n0, _AQL, 0, [() => AccountQuota$, { [_xN]: _AQ }]];
+var ArnList = 64 | 0;
+var AssessmentReportTypesList = 64 | 0;
+var AvailabilityZonesList = 64 | 0;
+var AvailableUpgradesList = 64 | 0;
+var BatchStartRecommendationsErrorEntryList: StaticListSchema = [
   1,
   n0,
   _BSREEL,
   0,
-  () => BatchStartRecommendationsErrorEntry,
+  () => BatchStartRecommendationsErrorEntry$,
 ];
-export var CertificateList: StaticListSchema = [1, n0, _CLe, 0, [() => Certificate, { [_xN]: _Ce }]];
-export var CollectorResponses: StaticListSchema = [1, n0, _CRo, 0, () => CollectorResponse];
-export var CollectorsList: StaticListSchema = [1, n0, _CLo, 0, () => CollectorShortInfoResponse];
-export var ConnectionList: StaticListSchema = [1, n0, _CLon, 0, [() => Connection, { [_xN]: _Co }]];
-export var DatabaseList: StaticListSchema = [1, n0, _DL, 0, () => DatabaseResponse];
-export var DataMigrationCidrBlock = 64 | 0;
-export var DataMigrations: StaticListSchema = [1, n0, _DMa, 0, [() => DataMigration, 0]];
-export var DataProviderDescriptorDefinitionList: StaticListSchema = [
+var CertificateList: StaticListSchema = [1, n0, _CLe, 0, [() => Certificate$, { [_xN]: _Ce }]];
+var CollectorResponses: StaticListSchema = [1, n0, _CRo, 0, () => CollectorResponse$];
+var CollectorsList: StaticListSchema = [1, n0, _CLo, 0, () => CollectorShortInfoResponse$];
+var ConnectionList: StaticListSchema = [1, n0, _CLon, 0, [() => Connection$, { [_xN]: _Co }]];
+var DatabaseList: StaticListSchema = [1, n0, _DL, 0, () => DatabaseResponse$];
+var DataMigrationCidrBlock = 64 | 0;
+var DataMigrations: StaticListSchema = [1, n0, _DMa, 0, [() => DataMigration$, 0]];
+var DataProviderDescriptorDefinitionList: StaticListSchema = [
   1,
   n0,
   _DPDDL,
   0,
-  () => DataProviderDescriptorDefinition,
+  () => DataProviderDescriptorDefinition$,
 ];
-export var DataProviderDescriptorList: StaticListSchema = [1, n0, _DPDL, 0, () => DataProviderDescriptor];
-export var DataProviderList: StaticListSchema = [1, n0, _DPL, 0, [() => DataProvider, { [_xN]: _DP }]];
-export var EndpointList: StaticListSchema = [1, n0, _EL, 0, [() => Endpoint, { [_xN]: _En }]];
-export var EndpointSettingEnumValues = 64 | 0;
-export var EndpointSettingsList: StaticListSchema = [1, n0, _ESLn, 0, () => EndpointSetting];
-export var EngineVersionList: StaticListSchema = [1, n0, _EVL, 0, [() => EngineVersion, { [_xN]: _EV }]];
-export var EventCategoriesList: StaticListSchema = [1, n0, _ECLv, 0, [0, { [_xN]: _ECv }]];
-export var EventCategoryGroupList: StaticListSchema = [1, n0, _ECGL, 0, [() => EventCategoryGroup, { [_xN]: _ECG }]];
-export var EventList: StaticListSchema = [1, n0, _ELv, 0, [() => Event, { [_xN]: _Eve }]];
-export var EventSubscriptionsList: StaticListSchema = [1, n0, _ESL, 0, [() => EventSubscription, { [_xN]: _ESv }]];
-export var ExcludeTestList = 64 | 0;
-export var FilterList: StaticListSchema = [1, n0, _FL, 0, [() => Filter, { [_xN]: _Fi }]];
-export var FilterValueList: StaticListSchema = [1, n0, _FVL, 0, [0, { [_xN]: _Val }]];
-export var FleetAdvisorLsaAnalysisResponseList: StaticListSchema = [
-  1,
-  n0,
-  _FALARL,
-  0,
-  () => FleetAdvisorLsaAnalysisResponse,
-];
-export var FleetAdvisorSchemaList: StaticListSchema = [1, n0, _FASL, 0, () => SchemaResponse];
-export var FleetAdvisorSchemaObjectList: StaticListSchema = [1, n0, _FASOL, 0, () => FleetAdvisorSchemaObjectResponse];
-export var IncludeTestList = 64 | 0;
-export var IndividualAssessmentNameList = 64 | 0;
-export var InstanceProfileList: StaticListSchema = [1, n0, _IPL, 0, [() => InstanceProfile, { [_xN]: _IP }]];
-export var IntegerList = 64 | 1;
-export var KeyList = 64 | 0;
-export var LimitationList: StaticListSchema = [1, n0, _LL, 0, () => Limitation];
-export var MetadataModelReferenceList: StaticListSchema = [1, n0, _MMRL, 0, () => MetadataModelReference];
-export var MigrationProjectList: StaticListSchema = [1, n0, _MPL, 0, [() => MigrationProject, { [_xN]: _MP }]];
-export var OrderableReplicationInstanceList: StaticListSchema = [
+var DataProviderDescriptorList: StaticListSchema = [1, n0, _DPDL, 0, () => DataProviderDescriptor$];
+var DataProviderList: StaticListSchema = [1, n0, _DPL, 0, [() => DataProvider$, { [_xN]: _DP }]];
+var EndpointList: StaticListSchema = [1, n0, _EL, 0, [() => Endpoint$, { [_xN]: _En }]];
+var EndpointSettingEnumValues = 64 | 0;
+var EndpointSettingsList: StaticListSchema = [1, n0, _ESLn, 0, () => EndpointSetting$];
+var EngineVersionList: StaticListSchema = [1, n0, _EVL, 0, [() => EngineVersion$, { [_xN]: _EV }]];
+var EventCategoriesList: StaticListSchema = [1, n0, _ECLv, 0, [0, { [_xN]: _ECv }]];
+var EventCategoryGroupList: StaticListSchema = [1, n0, _ECGL, 0, [() => EventCategoryGroup$, { [_xN]: _ECG }]];
+var EventList: StaticListSchema = [1, n0, _ELv, 0, [() => Event$, { [_xN]: _Eve }]];
+var EventSubscriptionsList: StaticListSchema = [1, n0, _ESL, 0, [() => EventSubscription$, { [_xN]: _ESv }]];
+var ExcludeTestList = 64 | 0;
+var FilterList: StaticListSchema = [1, n0, _FL, 0, [() => Filter$, { [_xN]: _Fi }]];
+var FilterValueList: StaticListSchema = [1, n0, _FVL, 0, [0, { [_xN]: _Val }]];
+var FleetAdvisorLsaAnalysisResponseList: StaticListSchema = [1, n0, _FALARL, 0, () => FleetAdvisorLsaAnalysisResponse$];
+var FleetAdvisorSchemaList: StaticListSchema = [1, n0, _FASL, 0, () => SchemaResponse$];
+var FleetAdvisorSchemaObjectList: StaticListSchema = [1, n0, _FASOL, 0, () => FleetAdvisorSchemaObjectResponse$];
+var IncludeTestList = 64 | 0;
+var IndividualAssessmentNameList = 64 | 0;
+var InstanceProfileList: StaticListSchema = [1, n0, _IPL, 0, [() => InstanceProfile$, { [_xN]: _IP }]];
+var IntegerList = 64 | 1;
+var KeyList = 64 | 0;
+var LimitationList: StaticListSchema = [1, n0, _LL, 0, () => Limitation$];
+var MetadataModelReferenceList: StaticListSchema = [1, n0, _MMRL, 0, () => MetadataModelReference$];
+var MigrationProjectList: StaticListSchema = [1, n0, _MPL, 0, [() => MigrationProject$, { [_xN]: _MP }]];
+var OrderableReplicationInstanceList: StaticListSchema = [
   1,
   n0,
   _ORIL,
   0,
-  [() => OrderableReplicationInstance, { [_xN]: _ORIr }],
+  [() => OrderableReplicationInstance$, { [_xN]: _ORIr }],
 ];
-export var PendingMaintenanceActionDetails: StaticListSchema = [
+var PendingMaintenanceActionDetails: StaticListSchema = [
   1,
   n0,
   _PMAD,
   0,
-  [() => PendingMaintenanceAction, { [_xN]: _PMAe }],
+  [() => PendingMaintenanceAction$, { [_xN]: _PMAe }],
 ];
-export var PendingMaintenanceActions: StaticListSchema = [
+var PendingMaintenanceActions: StaticListSchema = [
   1,
   n0,
   _PMA,
   0,
-  [() => ResourcePendingMaintenanceActions, { [_xN]: _RPMA }],
+  [() => ResourcePendingMaintenanceActions$, { [_xN]: _RPMA }],
 ];
-export var PremigrationAssessmentStatusList: StaticListSchema = [1, n0, _PASL, 0, () => PremigrationAssessmentStatus];
-export var PublicIpAddressList: StaticListSchema = [1, n0, _PIAL, 8, 0];
-export var RecommendationList: StaticListSchema = [1, n0, _RL, 0, () => Recommendation];
-export var ReplicationConfigList: StaticListSchema = [1, n0, _RCL, 0, [() => ReplicationConfig, { [_xN]: _RC }]];
-export var ReplicationInstanceIpv6AddressList = 64 | 0;
-export var ReplicationInstanceList: StaticListSchema = [1, n0, _RIL, 0, [() => ReplicationInstance, { [_xN]: _RIep }]];
-export var ReplicationInstancePrivateIpAddressList = 64 | 0;
-export var ReplicationInstancePublicIpAddressList = 64 | 0;
-export var ReplicationInstanceTaskLogsList: StaticListSchema = [1, n0, _RITLL, 0, () => ReplicationInstanceTaskLog];
-export var ReplicationList: StaticListSchema = [1, n0, _RLe, 0, [() => Replication, { [_xN]: _Repl }]];
-export var ReplicationSubnetGroups: StaticListSchema = [
-  1,
-  n0,
-  _RSGe,
-  0,
-  [() => ReplicationSubnetGroup, { [_xN]: _RSG }],
-];
-export var ReplicationTableStatisticsList: StaticListSchema = [1, n0, _RTSL, 0, () => TableStatistics];
-export var ReplicationTaskAssessmentResultList: StaticListSchema = [
+var PremigrationAssessmentStatusList: StaticListSchema = [1, n0, _PASL, 0, () => PremigrationAssessmentStatus$];
+var PublicIpAddressList: StaticListSchema = [1, n0, _PIAL, 8, 0];
+var RecommendationList: StaticListSchema = [1, n0, _RL, 0, () => Recommendation$];
+var ReplicationConfigList: StaticListSchema = [1, n0, _RCL, 0, [() => ReplicationConfig$, { [_xN]: _RC }]];
+var ReplicationInstanceIpv6AddressList = 64 | 0;
+var ReplicationInstanceList: StaticListSchema = [1, n0, _RIL, 0, [() => ReplicationInstance$, { [_xN]: _RIep }]];
+var ReplicationInstancePrivateIpAddressList = 64 | 0;
+var ReplicationInstancePublicIpAddressList = 64 | 0;
+var ReplicationInstanceTaskLogsList: StaticListSchema = [1, n0, _RITLL, 0, () => ReplicationInstanceTaskLog$];
+var ReplicationList: StaticListSchema = [1, n0, _RLe, 0, [() => Replication$, { [_xN]: _Repl }]];
+var ReplicationSubnetGroups: StaticListSchema = [1, n0, _RSGe, 0, [() => ReplicationSubnetGroup$, { [_xN]: _RSG }]];
+var ReplicationTableStatisticsList: StaticListSchema = [1, n0, _RTSL, 0, () => TableStatistics$];
+var ReplicationTaskAssessmentResultList: StaticListSchema = [
   1,
   n0,
   _RTARL,
   0,
-  [() => ReplicationTaskAssessmentResult, { [_xN]: _RTARepl }],
+  [() => ReplicationTaskAssessmentResult$, { [_xN]: _RTARepl }],
 ];
-export var ReplicationTaskAssessmentRunList: StaticListSchema = [1, n0, _RTARLe, 0, () => ReplicationTaskAssessmentRun];
-export var ReplicationTaskIndividualAssessmentList: StaticListSchema = [
+var ReplicationTaskAssessmentRunList: StaticListSchema = [1, n0, _RTARLe, 0, () => ReplicationTaskAssessmentRun$];
+var ReplicationTaskIndividualAssessmentList: StaticListSchema = [
   1,
   n0,
   _RTIAL,
   0,
-  () => ReplicationTaskIndividualAssessment,
+  () => ReplicationTaskIndividualAssessment$,
 ];
-export var ReplicationTaskList: StaticListSchema = [1, n0, _RTL, 0, [() => ReplicationTask, { [_xN]: _RTe }]];
-export var SchemaConversionRequestList: StaticListSchema = [1, n0, _SCRL, 0, () => SchemaConversionRequest];
-export var SchemaList = 64 | 0;
-export var SourceDataSettings: StaticListSchema = [1, n0, _SDS, 0, () => SourceDataSetting];
-export var SourceIdsList: StaticListSchema = [1, n0, _SIL, 0, [0, { [_xN]: _SIou }]];
-export var StartRecommendationsRequestEntryList: StaticListSchema = [
+var ReplicationTaskList: StaticListSchema = [1, n0, _RTL, 0, [() => ReplicationTask$, { [_xN]: _RTe }]];
+var SchemaConversionRequestList: StaticListSchema = [1, n0, _SCRL, 0, () => SchemaConversionRequest$];
+var SchemaList = 64 | 0;
+var SourceDataSettings: StaticListSchema = [1, n0, _SDS, 0, () => SourceDataSetting$];
+var SourceIdsList: StaticListSchema = [1, n0, _SIL, 0, [0, { [_xN]: _SIou }]];
+var StartRecommendationsRequestEntryList: StaticListSchema = [
   1,
   n0,
   _SRREL,
   0,
-  () => StartRecommendationsRequestEntry,
+  () => StartRecommendationsRequestEntry$,
 ];
-export var StringList = 64 | 0;
-export var SubnetIdentifierList: StaticListSchema = [1, n0, _SILu, 0, [0, { [_xN]: _SIub }]];
-export var SubnetList: StaticListSchema = [1, n0, _SLu, 0, [() => Subnet, { [_xN]: _Sub }]];
-export var SupportedEndpointTypeList: StaticListSchema = [
-  1,
-  n0,
-  _SETL,
-  0,
-  [() => SupportedEndpointType, { [_xN]: _SETu }],
-];
-export var TableListToReload: StaticListSchema = [1, n0, _TLTR, 0, () => TableToReload];
-export var TableStatisticsList: StaticListSchema = [1, n0, _TSL, 0, () => TableStatistics];
-export var TagList: StaticListSchema = [1, n0, _TLag, 0, [() => Tag, { [_xN]: _Ta }]];
-export var TargetDataSettings: StaticListSchema = [1, n0, _TDS, 0, () => TargetDataSetting];
-export var VpcSecurityGroupIdList: StaticListSchema = [1, n0, _VSGIL, 0, [0, { [_xN]: _VSGIp }]];
-export var VpcSecurityGroupMembershipList: StaticListSchema = [
+var StringList = 64 | 0;
+var SubnetIdentifierList: StaticListSchema = [1, n0, _SILu, 0, [0, { [_xN]: _SIub }]];
+var SubnetList: StaticListSchema = [1, n0, _SLu, 0, [() => Subnet$, { [_xN]: _Sub }]];
+var SupportedEndpointTypeList: StaticListSchema = [1, n0, _SETL, 0, [() => SupportedEndpointType$, { [_xN]: _SETu }]];
+var TableListToReload: StaticListSchema = [1, n0, _TLTR, 0, () => TableToReload$];
+var TableStatisticsList: StaticListSchema = [1, n0, _TSL, 0, () => TableStatistics$];
+var TagList: StaticListSchema = [1, n0, _TLag, 0, [() => Tag$, { [_xN]: _Ta }]];
+var TargetDataSettings: StaticListSchema = [1, n0, _TDS, 0, () => TargetDataSetting$];
+var VpcSecurityGroupIdList: StaticListSchema = [1, n0, _VSGIL, 0, [0, { [_xN]: _VSGIp }]];
+var VpcSecurityGroupMembershipList: StaticListSchema = [
   1,
   n0,
   _VSGML,
   0,
-  [() => VpcSecurityGroupMembership, { [_xN]: _VSGM }],
+  [() => VpcSecurityGroupMembership$, { [_xN]: _VSGM }],
 ];
-export var DataProviderSettings: StaticStructureSchema = [
+export var DataProviderSettings$: StaticStructureSchema = [
   3,
   n0,
   _DPSat,
   0,
   [_RS, _PSS, _MSS, _OS, _SAS, _MSSS, _DDSo, _MDSa, _IDLS, _IDOS, _MDS],
   [
-    () => RedshiftDataProviderSettings,
-    () => PostgreSqlDataProviderSettings,
-    () => MySqlDataProviderSettings,
-    () => OracleDataProviderSettings,
-    () => SybaseAseDataProviderSettings,
-    () => MicrosoftSqlServerDataProviderSettings,
-    () => DocDbDataProviderSettings,
-    () => MariaDbDataProviderSettings,
-    () => IbmDb2LuwDataProviderSettings,
-    () => IbmDb2zOsDataProviderSettings,
-    () => MongoDbDataProviderSettings,
+    () => RedshiftDataProviderSettings$,
+    () => PostgreSqlDataProviderSettings$,
+    () => MySqlDataProviderSettings$,
+    () => OracleDataProviderSettings$,
+    () => SybaseAseDataProviderSettings$,
+    () => MicrosoftSqlServerDataProviderSettings$,
+    () => DocDbDataProviderSettings$,
+    () => MariaDbDataProviderSettings$,
+    () => IbmDb2LuwDataProviderSettings$,
+    () => IbmDb2zOsDataProviderSettings$,
+    () => MongoDbDataProviderSettings$,
   ],
 ];
-export var ErrorDetails: StaticStructureSchema = [3, n0, _ED, 0, [_dED], [() => DefaultErrorDetails]];
-export var MetadataModelProperties: StaticStructureSchema = [3, n0, _MMP, 0, [_SPt], [() => StatementProperties]];
-export var AddTagsToResource: StaticOperationSchema = [
+export var ErrorDetails$: StaticStructureSchema = [3, n0, _ED, 0, [_dED], [() => DefaultErrorDetails$]];
+export var MetadataModelProperties$: StaticStructureSchema = [3, n0, _MMP, 0, [_SPt], [() => StatementProperties$]];
+export var AddTagsToResource$: StaticOperationSchema = [
   9,
   n0,
   _ATTR,
   0,
-  () => AddTagsToResourceMessage,
-  () => AddTagsToResourceResponse,
+  () => AddTagsToResourceMessage$,
+  () => AddTagsToResourceResponse$,
 ];
-export var ApplyPendingMaintenanceAction: StaticOperationSchema = [
+export var ApplyPendingMaintenanceAction$: StaticOperationSchema = [
   9,
   n0,
   _APMA,
   0,
-  () => ApplyPendingMaintenanceActionMessage,
-  () => ApplyPendingMaintenanceActionResponse,
+  () => ApplyPendingMaintenanceActionMessage$,
+  () => ApplyPendingMaintenanceActionResponse$,
 ];
-export var BatchStartRecommendations: StaticOperationSchema = [
+export var BatchStartRecommendations$: StaticOperationSchema = [
   9,
   n0,
   _BSR,
   0,
-  () => BatchStartRecommendationsRequest,
-  () => BatchStartRecommendationsResponse,
+  () => BatchStartRecommendationsRequest$,
+  () => BatchStartRecommendationsResponse$,
 ];
-export var CancelMetadataModelConversion: StaticOperationSchema = [
+export var CancelMetadataModelConversion$: StaticOperationSchema = [
   9,
   n0,
   _CMMC,
   0,
-  () => CancelMetadataModelConversionMessage,
-  () => CancelMetadataModelConversionResponse,
+  () => CancelMetadataModelConversionMessage$,
+  () => CancelMetadataModelConversionResponse$,
 ];
-export var CancelMetadataModelCreation: StaticOperationSchema = [
+export var CancelMetadataModelCreation$: StaticOperationSchema = [
   9,
   n0,
   _CMMCa,
   0,
-  () => CancelMetadataModelCreationMessage,
-  () => CancelMetadataModelCreationResponse,
+  () => CancelMetadataModelCreationMessage$,
+  () => CancelMetadataModelCreationResponse$,
 ];
-export var CancelReplicationTaskAssessmentRun: StaticOperationSchema = [
+export var CancelReplicationTaskAssessmentRun$: StaticOperationSchema = [
   9,
   n0,
   _CRTAR,
   0,
-  () => CancelReplicationTaskAssessmentRunMessage,
-  () => CancelReplicationTaskAssessmentRunResponse,
+  () => CancelReplicationTaskAssessmentRunMessage$,
+  () => CancelReplicationTaskAssessmentRunResponse$,
 ];
-export var CreateDataMigration: StaticOperationSchema = [
+export var CreateDataMigration$: StaticOperationSchema = [
   9,
   n0,
   _CDM,
   0,
-  () => CreateDataMigrationMessage,
-  () => CreateDataMigrationResponse,
+  () => CreateDataMigrationMessage$,
+  () => CreateDataMigrationResponse$,
 ];
-export var CreateDataProvider: StaticOperationSchema = [
+export var CreateDataProvider$: StaticOperationSchema = [
   9,
   n0,
   _CDP,
   0,
-  () => CreateDataProviderMessage,
-  () => CreateDataProviderResponse,
+  () => CreateDataProviderMessage$,
+  () => CreateDataProviderResponse$,
 ];
-export var CreateEndpoint: StaticOperationSchema = [
+export var CreateEndpoint$: StaticOperationSchema = [
   9,
   n0,
   _CE,
   0,
-  () => CreateEndpointMessage,
-  () => CreateEndpointResponse,
+  () => CreateEndpointMessage$,
+  () => CreateEndpointResponse$,
 ];
-export var CreateEventSubscription: StaticOperationSchema = [
+export var CreateEventSubscription$: StaticOperationSchema = [
   9,
   n0,
   _CES,
   0,
-  () => CreateEventSubscriptionMessage,
-  () => CreateEventSubscriptionResponse,
+  () => CreateEventSubscriptionMessage$,
+  () => CreateEventSubscriptionResponse$,
 ];
-export var CreateFleetAdvisorCollector: StaticOperationSchema = [
+export var CreateFleetAdvisorCollector$: StaticOperationSchema = [
   9,
   n0,
   _CFAC,
   0,
-  () => CreateFleetAdvisorCollectorRequest,
-  () => CreateFleetAdvisorCollectorResponse,
+  () => CreateFleetAdvisorCollectorRequest$,
+  () => CreateFleetAdvisorCollectorResponse$,
 ];
-export var CreateInstanceProfile: StaticOperationSchema = [
+export var CreateInstanceProfile$: StaticOperationSchema = [
   9,
   n0,
   _CIP,
   0,
-  () => CreateInstanceProfileMessage,
-  () => CreateInstanceProfileResponse,
+  () => CreateInstanceProfileMessage$,
+  () => CreateInstanceProfileResponse$,
 ];
-export var CreateMigrationProject: StaticOperationSchema = [
+export var CreateMigrationProject$: StaticOperationSchema = [
   9,
   n0,
   _CMP,
   0,
-  () => CreateMigrationProjectMessage,
-  () => CreateMigrationProjectResponse,
+  () => CreateMigrationProjectMessage$,
+  () => CreateMigrationProjectResponse$,
 ];
-export var CreateReplicationConfig: StaticOperationSchema = [
+export var CreateReplicationConfig$: StaticOperationSchema = [
   9,
   n0,
   _CRC,
   0,
-  () => CreateReplicationConfigMessage,
-  () => CreateReplicationConfigResponse,
+  () => CreateReplicationConfigMessage$,
+  () => CreateReplicationConfigResponse$,
 ];
-export var CreateReplicationInstance: StaticOperationSchema = [
+export var CreateReplicationInstance$: StaticOperationSchema = [
   9,
   n0,
   _CRIr,
   0,
-  () => CreateReplicationInstanceMessage,
-  () => CreateReplicationInstanceResponse,
+  () => CreateReplicationInstanceMessage$,
+  () => CreateReplicationInstanceResponse$,
 ];
-export var CreateReplicationSubnetGroup: StaticOperationSchema = [
+export var CreateReplicationSubnetGroup$: StaticOperationSchema = [
   9,
   n0,
   _CRSG,
   0,
-  () => CreateReplicationSubnetGroupMessage,
-  () => CreateReplicationSubnetGroupResponse,
+  () => CreateReplicationSubnetGroupMessage$,
+  () => CreateReplicationSubnetGroupResponse$,
 ];
-export var CreateReplicationTask: StaticOperationSchema = [
+export var CreateReplicationTask$: StaticOperationSchema = [
   9,
   n0,
   _CRT,
   0,
-  () => CreateReplicationTaskMessage,
-  () => CreateReplicationTaskResponse,
+  () => CreateReplicationTaskMessage$,
+  () => CreateReplicationTaskResponse$,
 ];
-export var DeleteCertificate: StaticOperationSchema = [
+export var DeleteCertificate$: StaticOperationSchema = [
   9,
   n0,
   _DC,
   0,
-  () => DeleteCertificateMessage,
-  () => DeleteCertificateResponse,
+  () => DeleteCertificateMessage$,
+  () => DeleteCertificateResponse$,
 ];
-export var DeleteConnection: StaticOperationSchema = [
+export var DeleteConnection$: StaticOperationSchema = [
   9,
   n0,
   _DCe,
   0,
-  () => DeleteConnectionMessage,
-  () => DeleteConnectionResponse,
+  () => DeleteConnectionMessage$,
+  () => DeleteConnectionResponse$,
 ];
-export var DeleteDataMigration: StaticOperationSchema = [
+export var DeleteDataMigration$: StaticOperationSchema = [
   9,
   n0,
   _DDM,
   0,
-  () => DeleteDataMigrationMessage,
-  () => DeleteDataMigrationResponse,
+  () => DeleteDataMigrationMessage$,
+  () => DeleteDataMigrationResponse$,
 ];
-export var DeleteDataProvider: StaticOperationSchema = [
+export var DeleteDataProvider$: StaticOperationSchema = [
   9,
   n0,
   _DDP,
   0,
-  () => DeleteDataProviderMessage,
-  () => DeleteDataProviderResponse,
+  () => DeleteDataProviderMessage$,
+  () => DeleteDataProviderResponse$,
 ];
-export var DeleteEndpoint: StaticOperationSchema = [
+export var DeleteEndpoint$: StaticOperationSchema = [
   9,
   n0,
   _DEe,
   0,
-  () => DeleteEndpointMessage,
-  () => DeleteEndpointResponse,
+  () => DeleteEndpointMessage$,
+  () => DeleteEndpointResponse$,
 ];
-export var DeleteEventSubscription: StaticOperationSchema = [
+export var DeleteEventSubscription$: StaticOperationSchema = [
   9,
   n0,
   _DES,
   0,
-  () => DeleteEventSubscriptionMessage,
-  () => DeleteEventSubscriptionResponse,
+  () => DeleteEventSubscriptionMessage$,
+  () => DeleteEventSubscriptionResponse$,
 ];
-export var DeleteFleetAdvisorCollector: StaticOperationSchema = [
+export var DeleteFleetAdvisorCollector$: StaticOperationSchema = [
   9,
   n0,
   _DFAC,
   0,
-  () => DeleteCollectorRequest,
+  () => DeleteCollectorRequest$,
   () => __Unit,
 ];
-export var DeleteFleetAdvisorDatabases: StaticOperationSchema = [
+export var DeleteFleetAdvisorDatabases$: StaticOperationSchema = [
   9,
   n0,
   _DFAD,
   0,
-  () => DeleteFleetAdvisorDatabasesRequest,
-  () => DeleteFleetAdvisorDatabasesResponse,
+  () => DeleteFleetAdvisorDatabasesRequest$,
+  () => DeleteFleetAdvisorDatabasesResponse$,
 ];
-export var DeleteInstanceProfile: StaticOperationSchema = [
+export var DeleteInstanceProfile$: StaticOperationSchema = [
   9,
   n0,
   _DIP,
   0,
-  () => DeleteInstanceProfileMessage,
-  () => DeleteInstanceProfileResponse,
+  () => DeleteInstanceProfileMessage$,
+  () => DeleteInstanceProfileResponse$,
 ];
-export var DeleteMigrationProject: StaticOperationSchema = [
+export var DeleteMigrationProject$: StaticOperationSchema = [
   9,
   n0,
   _DMP,
   0,
-  () => DeleteMigrationProjectMessage,
-  () => DeleteMigrationProjectResponse,
+  () => DeleteMigrationProjectMessage$,
+  () => DeleteMigrationProjectResponse$,
 ];
-export var DeleteReplicationConfig: StaticOperationSchema = [
+export var DeleteReplicationConfig$: StaticOperationSchema = [
   9,
   n0,
   _DRC,
   0,
-  () => DeleteReplicationConfigMessage,
-  () => DeleteReplicationConfigResponse,
+  () => DeleteReplicationConfigMessage$,
+  () => DeleteReplicationConfigResponse$,
 ];
-export var DeleteReplicationInstance: StaticOperationSchema = [
+export var DeleteReplicationInstance$: StaticOperationSchema = [
   9,
   n0,
   _DRI,
   0,
-  () => DeleteReplicationInstanceMessage,
-  () => DeleteReplicationInstanceResponse,
+  () => DeleteReplicationInstanceMessage$,
+  () => DeleteReplicationInstanceResponse$,
 ];
-export var DeleteReplicationSubnetGroup: StaticOperationSchema = [
+export var DeleteReplicationSubnetGroup$: StaticOperationSchema = [
   9,
   n0,
   _DRSG,
   0,
-  () => DeleteReplicationSubnetGroupMessage,
-  () => DeleteReplicationSubnetGroupResponse,
+  () => DeleteReplicationSubnetGroupMessage$,
+  () => DeleteReplicationSubnetGroupResponse$,
 ];
-export var DeleteReplicationTask: StaticOperationSchema = [
+export var DeleteReplicationTask$: StaticOperationSchema = [
   9,
   n0,
   _DRT,
   0,
-  () => DeleteReplicationTaskMessage,
-  () => DeleteReplicationTaskResponse,
+  () => DeleteReplicationTaskMessage$,
+  () => DeleteReplicationTaskResponse$,
 ];
-export var DeleteReplicationTaskAssessmentRun: StaticOperationSchema = [
+export var DeleteReplicationTaskAssessmentRun$: StaticOperationSchema = [
   9,
   n0,
   _DRTAR,
   0,
-  () => DeleteReplicationTaskAssessmentRunMessage,
-  () => DeleteReplicationTaskAssessmentRunResponse,
+  () => DeleteReplicationTaskAssessmentRunMessage$,
+  () => DeleteReplicationTaskAssessmentRunResponse$,
 ];
-export var DescribeAccountAttributes: StaticOperationSchema = [
+export var DescribeAccountAttributes$: StaticOperationSchema = [
   9,
   n0,
   _DAA,
   0,
-  () => DescribeAccountAttributesMessage,
-  () => DescribeAccountAttributesResponse,
+  () => DescribeAccountAttributesMessage$,
+  () => DescribeAccountAttributesResponse$,
 ];
-export var DescribeApplicableIndividualAssessments: StaticOperationSchema = [
+export var DescribeApplicableIndividualAssessments$: StaticOperationSchema = [
   9,
   n0,
   _DAIA,
   0,
-  () => DescribeApplicableIndividualAssessmentsMessage,
-  () => DescribeApplicableIndividualAssessmentsResponse,
+  () => DescribeApplicableIndividualAssessmentsMessage$,
+  () => DescribeApplicableIndividualAssessmentsResponse$,
 ];
-export var DescribeCertificates: StaticOperationSchema = [
+export var DescribeCertificates$: StaticOperationSchema = [
   9,
   n0,
   _DCes,
   0,
-  () => DescribeCertificatesMessage,
-  () => DescribeCertificatesResponse,
+  () => DescribeCertificatesMessage$,
+  () => DescribeCertificatesResponse$,
 ];
-export var DescribeConnections: StaticOperationSchema = [
+export var DescribeConnections$: StaticOperationSchema = [
   9,
   n0,
   _DCesc,
   0,
-  () => DescribeConnectionsMessage,
-  () => DescribeConnectionsResponse,
+  () => DescribeConnectionsMessage$,
+  () => DescribeConnectionsResponse$,
 ];
-export var DescribeConversionConfiguration: StaticOperationSchema = [
+export var DescribeConversionConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DCC,
   0,
-  () => DescribeConversionConfigurationMessage,
-  () => DescribeConversionConfigurationResponse,
+  () => DescribeConversionConfigurationMessage$,
+  () => DescribeConversionConfigurationResponse$,
 ];
-export var DescribeDataMigrations: StaticOperationSchema = [
+export var DescribeDataMigrations$: StaticOperationSchema = [
   9,
   n0,
   _DDMe,
   0,
-  () => DescribeDataMigrationsMessage,
-  () => DescribeDataMigrationsResponse,
+  () => DescribeDataMigrationsMessage$,
+  () => DescribeDataMigrationsResponse$,
 ];
-export var DescribeDataProviders: StaticOperationSchema = [
+export var DescribeDataProviders$: StaticOperationSchema = [
   9,
   n0,
   _DDPe,
   0,
-  () => DescribeDataProvidersMessage,
-  () => DescribeDataProvidersResponse,
+  () => DescribeDataProvidersMessage$,
+  () => DescribeDataProvidersResponse$,
 ];
-export var DescribeEndpoints: StaticOperationSchema = [
+export var DescribeEndpoints$: StaticOperationSchema = [
   9,
   n0,
   _DEes,
   0,
-  () => DescribeEndpointsMessage,
-  () => DescribeEndpointsResponse,
+  () => DescribeEndpointsMessage$,
+  () => DescribeEndpointsResponse$,
 ];
-export var DescribeEndpointSettings: StaticOperationSchema = [
+export var DescribeEndpointSettings$: StaticOperationSchema = [
   9,
   n0,
   _DESe,
   0,
-  () => DescribeEndpointSettingsMessage,
-  () => DescribeEndpointSettingsResponse,
+  () => DescribeEndpointSettingsMessage$,
+  () => DescribeEndpointSettingsResponse$,
 ];
-export var DescribeEndpointTypes: StaticOperationSchema = [
+export var DescribeEndpointTypes$: StaticOperationSchema = [
   9,
   n0,
   _DET,
   0,
-  () => DescribeEndpointTypesMessage,
-  () => DescribeEndpointTypesResponse,
+  () => DescribeEndpointTypesMessage$,
+  () => DescribeEndpointTypesResponse$,
 ];
-export var DescribeEngineVersions: StaticOperationSchema = [
+export var DescribeEngineVersions$: StaticOperationSchema = [
   9,
   n0,
   _DEV,
   0,
-  () => DescribeEngineVersionsMessage,
-  () => DescribeEngineVersionsResponse,
+  () => DescribeEngineVersionsMessage$,
+  () => DescribeEngineVersionsResponse$,
 ];
-export var DescribeEventCategories: StaticOperationSchema = [
+export var DescribeEventCategories$: StaticOperationSchema = [
   9,
   n0,
   _DEC,
   0,
-  () => DescribeEventCategoriesMessage,
-  () => DescribeEventCategoriesResponse,
+  () => DescribeEventCategoriesMessage$,
+  () => DescribeEventCategoriesResponse$,
 ];
-export var DescribeEvents: StaticOperationSchema = [
+export var DescribeEvents$: StaticOperationSchema = [
   9,
   n0,
   _DEesc,
   0,
-  () => DescribeEventsMessage,
-  () => DescribeEventsResponse,
+  () => DescribeEventsMessage$,
+  () => DescribeEventsResponse$,
 ];
-export var DescribeEventSubscriptions: StaticOperationSchema = [
+export var DescribeEventSubscriptions$: StaticOperationSchema = [
   9,
   n0,
   _DESes,
   0,
-  () => DescribeEventSubscriptionsMessage,
-  () => DescribeEventSubscriptionsResponse,
+  () => DescribeEventSubscriptionsMessage$,
+  () => DescribeEventSubscriptionsResponse$,
 ];
-export var DescribeExtensionPackAssociations: StaticOperationSchema = [
+export var DescribeExtensionPackAssociations$: StaticOperationSchema = [
   9,
   n0,
   _DEPA,
   0,
-  () => DescribeExtensionPackAssociationsMessage,
-  () => DescribeExtensionPackAssociationsResponse,
+  () => DescribeExtensionPackAssociationsMessage$,
+  () => DescribeExtensionPackAssociationsResponse$,
 ];
-export var DescribeFleetAdvisorCollectors: StaticOperationSchema = [
+export var DescribeFleetAdvisorCollectors$: StaticOperationSchema = [
   9,
   n0,
   _DFACe,
   0,
-  () => DescribeFleetAdvisorCollectorsRequest,
-  () => DescribeFleetAdvisorCollectorsResponse,
+  () => DescribeFleetAdvisorCollectorsRequest$,
+  () => DescribeFleetAdvisorCollectorsResponse$,
 ];
-export var DescribeFleetAdvisorDatabases: StaticOperationSchema = [
+export var DescribeFleetAdvisorDatabases$: StaticOperationSchema = [
   9,
   n0,
   _DFADe,
   0,
-  () => DescribeFleetAdvisorDatabasesRequest,
-  () => DescribeFleetAdvisorDatabasesResponse,
+  () => DescribeFleetAdvisorDatabasesRequest$,
+  () => DescribeFleetAdvisorDatabasesResponse$,
 ];
-export var DescribeFleetAdvisorLsaAnalysis: StaticOperationSchema = [
+export var DescribeFleetAdvisorLsaAnalysis$: StaticOperationSchema = [
   9,
   n0,
   _DFALA,
   0,
-  () => DescribeFleetAdvisorLsaAnalysisRequest,
-  () => DescribeFleetAdvisorLsaAnalysisResponse,
+  () => DescribeFleetAdvisorLsaAnalysisRequest$,
+  () => DescribeFleetAdvisorLsaAnalysisResponse$,
 ];
-export var DescribeFleetAdvisorSchemaObjectSummary: StaticOperationSchema = [
+export var DescribeFleetAdvisorSchemaObjectSummary$: StaticOperationSchema = [
   9,
   n0,
   _DFASOS,
   0,
-  () => DescribeFleetAdvisorSchemaObjectSummaryRequest,
-  () => DescribeFleetAdvisorSchemaObjectSummaryResponse,
+  () => DescribeFleetAdvisorSchemaObjectSummaryRequest$,
+  () => DescribeFleetAdvisorSchemaObjectSummaryResponse$,
 ];
-export var DescribeFleetAdvisorSchemas: StaticOperationSchema = [
+export var DescribeFleetAdvisorSchemas$: StaticOperationSchema = [
   9,
   n0,
   _DFAS,
   0,
-  () => DescribeFleetAdvisorSchemasRequest,
-  () => DescribeFleetAdvisorSchemasResponse,
+  () => DescribeFleetAdvisorSchemasRequest$,
+  () => DescribeFleetAdvisorSchemasResponse$,
 ];
-export var DescribeInstanceProfiles: StaticOperationSchema = [
+export var DescribeInstanceProfiles$: StaticOperationSchema = [
   9,
   n0,
   _DIPe,
   0,
-  () => DescribeInstanceProfilesMessage,
-  () => DescribeInstanceProfilesResponse,
+  () => DescribeInstanceProfilesMessage$,
+  () => DescribeInstanceProfilesResponse$,
 ];
-export var DescribeMetadataModel: StaticOperationSchema = [
+export var DescribeMetadataModel$: StaticOperationSchema = [
   9,
   n0,
   _DMM,
   0,
-  () => DescribeMetadataModelMessage,
-  () => DescribeMetadataModelResponse,
+  () => DescribeMetadataModelMessage$,
+  () => DescribeMetadataModelResponse$,
 ];
-export var DescribeMetadataModelAssessments: StaticOperationSchema = [
+export var DescribeMetadataModelAssessments$: StaticOperationSchema = [
   9,
   n0,
   _DMMA,
   0,
-  () => DescribeMetadataModelAssessmentsMessage,
-  () => DescribeMetadataModelAssessmentsResponse,
+  () => DescribeMetadataModelAssessmentsMessage$,
+  () => DescribeMetadataModelAssessmentsResponse$,
 ];
-export var DescribeMetadataModelChildren: StaticOperationSchema = [
+export var DescribeMetadataModelChildren$: StaticOperationSchema = [
   9,
   n0,
   _DMMC,
   0,
-  () => DescribeMetadataModelChildrenMessage,
-  () => DescribeMetadataModelChildrenResponse,
+  () => DescribeMetadataModelChildrenMessage$,
+  () => DescribeMetadataModelChildrenResponse$,
 ];
-export var DescribeMetadataModelConversions: StaticOperationSchema = [
+export var DescribeMetadataModelConversions$: StaticOperationSchema = [
   9,
   n0,
   _DMMCe,
   0,
-  () => DescribeMetadataModelConversionsMessage,
-  () => DescribeMetadataModelConversionsResponse,
+  () => DescribeMetadataModelConversionsMessage$,
+  () => DescribeMetadataModelConversionsResponse$,
 ];
-export var DescribeMetadataModelCreations: StaticOperationSchema = [
+export var DescribeMetadataModelCreations$: StaticOperationSchema = [
   9,
   n0,
   _DMMCes,
   0,
-  () => DescribeMetadataModelCreationsMessage,
-  () => DescribeMetadataModelCreationsResponse,
+  () => DescribeMetadataModelCreationsMessage$,
+  () => DescribeMetadataModelCreationsResponse$,
 ];
-export var DescribeMetadataModelExportsAsScript: StaticOperationSchema = [
+export var DescribeMetadataModelExportsAsScript$: StaticOperationSchema = [
   9,
   n0,
   _DMMEAS,
   0,
-  () => DescribeMetadataModelExportsAsScriptMessage,
-  () => DescribeMetadataModelExportsAsScriptResponse,
+  () => DescribeMetadataModelExportsAsScriptMessage$,
+  () => DescribeMetadataModelExportsAsScriptResponse$,
 ];
-export var DescribeMetadataModelExportsToTarget: StaticOperationSchema = [
+export var DescribeMetadataModelExportsToTarget$: StaticOperationSchema = [
   9,
   n0,
   _DMMETT,
   0,
-  () => DescribeMetadataModelExportsToTargetMessage,
-  () => DescribeMetadataModelExportsToTargetResponse,
+  () => DescribeMetadataModelExportsToTargetMessage$,
+  () => DescribeMetadataModelExportsToTargetResponse$,
 ];
-export var DescribeMetadataModelImports: StaticOperationSchema = [
+export var DescribeMetadataModelImports$: StaticOperationSchema = [
   9,
   n0,
   _DMMI,
   0,
-  () => DescribeMetadataModelImportsMessage,
-  () => DescribeMetadataModelImportsResponse,
+  () => DescribeMetadataModelImportsMessage$,
+  () => DescribeMetadataModelImportsResponse$,
 ];
-export var DescribeMigrationProjects: StaticOperationSchema = [
+export var DescribeMigrationProjects$: StaticOperationSchema = [
   9,
   n0,
   _DMPe,
   0,
-  () => DescribeMigrationProjectsMessage,
-  () => DescribeMigrationProjectsResponse,
+  () => DescribeMigrationProjectsMessage$,
+  () => DescribeMigrationProjectsResponse$,
 ];
-export var DescribeOrderableReplicationInstances: StaticOperationSchema = [
+export var DescribeOrderableReplicationInstances$: StaticOperationSchema = [
   9,
   n0,
   _DORI,
   0,
-  () => DescribeOrderableReplicationInstancesMessage,
-  () => DescribeOrderableReplicationInstancesResponse,
+  () => DescribeOrderableReplicationInstancesMessage$,
+  () => DescribeOrderableReplicationInstancesResponse$,
 ];
-export var DescribePendingMaintenanceActions: StaticOperationSchema = [
+export var DescribePendingMaintenanceActions$: StaticOperationSchema = [
   9,
   n0,
   _DPMA,
   0,
-  () => DescribePendingMaintenanceActionsMessage,
-  () => DescribePendingMaintenanceActionsResponse,
+  () => DescribePendingMaintenanceActionsMessage$,
+  () => DescribePendingMaintenanceActionsResponse$,
 ];
-export var DescribeRecommendationLimitations: StaticOperationSchema = [
+export var DescribeRecommendationLimitations$: StaticOperationSchema = [
   9,
   n0,
   _DRL,
   0,
-  () => DescribeRecommendationLimitationsRequest,
-  () => DescribeRecommendationLimitationsResponse,
+  () => DescribeRecommendationLimitationsRequest$,
+  () => DescribeRecommendationLimitationsResponse$,
 ];
-export var DescribeRecommendations: StaticOperationSchema = [
+export var DescribeRecommendations$: StaticOperationSchema = [
   9,
   n0,
   _DRe,
   0,
-  () => DescribeRecommendationsRequest,
-  () => DescribeRecommendationsResponse,
+  () => DescribeRecommendationsRequest$,
+  () => DescribeRecommendationsResponse$,
 ];
-export var DescribeRefreshSchemasStatus: StaticOperationSchema = [
+export var DescribeRefreshSchemasStatus$: StaticOperationSchema = [
   9,
   n0,
   _DRSS,
   0,
-  () => DescribeRefreshSchemasStatusMessage,
-  () => DescribeRefreshSchemasStatusResponse,
+  () => DescribeRefreshSchemasStatusMessage$,
+  () => DescribeRefreshSchemasStatusResponse$,
 ];
-export var DescribeReplicationConfigs: StaticOperationSchema = [
+export var DescribeReplicationConfigs$: StaticOperationSchema = [
   9,
   n0,
   _DRCe,
   0,
-  () => DescribeReplicationConfigsMessage,
-  () => DescribeReplicationConfigsResponse,
+  () => DescribeReplicationConfigsMessage$,
+  () => DescribeReplicationConfigsResponse$,
 ];
-export var DescribeReplicationInstances: StaticOperationSchema = [
+export var DescribeReplicationInstances$: StaticOperationSchema = [
   9,
   n0,
   _DRIe,
   0,
-  () => DescribeReplicationInstancesMessage,
-  () => DescribeReplicationInstancesResponse,
+  () => DescribeReplicationInstancesMessage$,
+  () => DescribeReplicationInstancesResponse$,
 ];
-export var DescribeReplicationInstanceTaskLogs: StaticOperationSchema = [
+export var DescribeReplicationInstanceTaskLogs$: StaticOperationSchema = [
   9,
   n0,
   _DRITL,
   0,
-  () => DescribeReplicationInstanceTaskLogsMessage,
-  () => DescribeReplicationInstanceTaskLogsResponse,
+  () => DescribeReplicationInstanceTaskLogsMessage$,
+  () => DescribeReplicationInstanceTaskLogsResponse$,
 ];
-export var DescribeReplications: StaticOperationSchema = [
+export var DescribeReplications$: StaticOperationSchema = [
   9,
   n0,
   _DRes,
   0,
-  () => DescribeReplicationsMessage,
-  () => DescribeReplicationsResponse,
+  () => DescribeReplicationsMessage$,
+  () => DescribeReplicationsResponse$,
 ];
-export var DescribeReplicationSubnetGroups: StaticOperationSchema = [
+export var DescribeReplicationSubnetGroups$: StaticOperationSchema = [
   9,
   n0,
   _DRSGe,
   0,
-  () => DescribeReplicationSubnetGroupsMessage,
-  () => DescribeReplicationSubnetGroupsResponse,
+  () => DescribeReplicationSubnetGroupsMessage$,
+  () => DescribeReplicationSubnetGroupsResponse$,
 ];
-export var DescribeReplicationTableStatistics: StaticOperationSchema = [
+export var DescribeReplicationTableStatistics$: StaticOperationSchema = [
   9,
   n0,
   _DRTS,
   0,
-  () => DescribeReplicationTableStatisticsMessage,
-  () => DescribeReplicationTableStatisticsResponse,
+  () => DescribeReplicationTableStatisticsMessage$,
+  () => DescribeReplicationTableStatisticsResponse$,
 ];
-export var DescribeReplicationTaskAssessmentResults: StaticOperationSchema = [
+export var DescribeReplicationTaskAssessmentResults$: StaticOperationSchema = [
   9,
   n0,
   _DRTARe,
   0,
-  () => DescribeReplicationTaskAssessmentResultsMessage,
-  () => DescribeReplicationTaskAssessmentResultsResponse,
+  () => DescribeReplicationTaskAssessmentResultsMessage$,
+  () => DescribeReplicationTaskAssessmentResultsResponse$,
 ];
-export var DescribeReplicationTaskAssessmentRuns: StaticOperationSchema = [
+export var DescribeReplicationTaskAssessmentRuns$: StaticOperationSchema = [
   9,
   n0,
   _DRTARes,
   0,
-  () => DescribeReplicationTaskAssessmentRunsMessage,
-  () => DescribeReplicationTaskAssessmentRunsResponse,
+  () => DescribeReplicationTaskAssessmentRunsMessage$,
+  () => DescribeReplicationTaskAssessmentRunsResponse$,
 ];
-export var DescribeReplicationTaskIndividualAssessments: StaticOperationSchema = [
+export var DescribeReplicationTaskIndividualAssessments$: StaticOperationSchema = [
   9,
   n0,
   _DRTIA,
   0,
-  () => DescribeReplicationTaskIndividualAssessmentsMessage,
-  () => DescribeReplicationTaskIndividualAssessmentsResponse,
+  () => DescribeReplicationTaskIndividualAssessmentsMessage$,
+  () => DescribeReplicationTaskIndividualAssessmentsResponse$,
 ];
-export var DescribeReplicationTasks: StaticOperationSchema = [
+export var DescribeReplicationTasks$: StaticOperationSchema = [
   9,
   n0,
   _DRTe,
   0,
-  () => DescribeReplicationTasksMessage,
-  () => DescribeReplicationTasksResponse,
+  () => DescribeReplicationTasksMessage$,
+  () => DescribeReplicationTasksResponse$,
 ];
-export var DescribeSchemas: StaticOperationSchema = [
+export var DescribeSchemas$: StaticOperationSchema = [
   9,
   n0,
   _DS,
   0,
-  () => DescribeSchemasMessage,
-  () => DescribeSchemasResponse,
+  () => DescribeSchemasMessage$,
+  () => DescribeSchemasResponse$,
 ];
-export var DescribeTableStatistics: StaticOperationSchema = [
+export var DescribeTableStatistics$: StaticOperationSchema = [
   9,
   n0,
   _DTSe,
   0,
-  () => DescribeTableStatisticsMessage,
-  () => DescribeTableStatisticsResponse,
+  () => DescribeTableStatisticsMessage$,
+  () => DescribeTableStatisticsResponse$,
 ];
-export var ExportMetadataModelAssessment: StaticOperationSchema = [
+export var ExportMetadataModelAssessment$: StaticOperationSchema = [
   9,
   n0,
   _EMMA,
   0,
-  () => ExportMetadataModelAssessmentMessage,
-  () => ExportMetadataModelAssessmentResponse,
+  () => ExportMetadataModelAssessmentMessage$,
+  () => ExportMetadataModelAssessmentResponse$,
 ];
-export var GetTargetSelectionRules: StaticOperationSchema = [
+export var GetTargetSelectionRules$: StaticOperationSchema = [
   9,
   n0,
   _GTSR,
   0,
-  () => GetTargetSelectionRulesMessage,
-  () => GetTargetSelectionRulesResponse,
+  () => GetTargetSelectionRulesMessage$,
+  () => GetTargetSelectionRulesResponse$,
 ];
-export var ImportCertificate: StaticOperationSchema = [
+export var ImportCertificate$: StaticOperationSchema = [
   9,
   n0,
   _IC,
   0,
-  () => ImportCertificateMessage,
-  () => ImportCertificateResponse,
+  () => ImportCertificateMessage$,
+  () => ImportCertificateResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   0,
-  () => ListTagsForResourceMessage,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceMessage$,
+  () => ListTagsForResourceResponse$,
 ];
-export var ModifyConversionConfiguration: StaticOperationSchema = [
+export var ModifyConversionConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _MCC,
   0,
-  () => ModifyConversionConfigurationMessage,
-  () => ModifyConversionConfigurationResponse,
+  () => ModifyConversionConfigurationMessage$,
+  () => ModifyConversionConfigurationResponse$,
 ];
-export var ModifyDataMigration: StaticOperationSchema = [
+export var ModifyDataMigration$: StaticOperationSchema = [
   9,
   n0,
   _MDM,
   0,
-  () => ModifyDataMigrationMessage,
-  () => ModifyDataMigrationResponse,
+  () => ModifyDataMigrationMessage$,
+  () => ModifyDataMigrationResponse$,
 ];
-export var ModifyDataProvider: StaticOperationSchema = [
+export var ModifyDataProvider$: StaticOperationSchema = [
   9,
   n0,
   _MDP,
   0,
-  () => ModifyDataProviderMessage,
-  () => ModifyDataProviderResponse,
+  () => ModifyDataProviderMessage$,
+  () => ModifyDataProviderResponse$,
 ];
-export var ModifyEndpoint: StaticOperationSchema = [
+export var ModifyEndpoint$: StaticOperationSchema = [
   9,
   n0,
   _ME,
   0,
-  () => ModifyEndpointMessage,
-  () => ModifyEndpointResponse,
+  () => ModifyEndpointMessage$,
+  () => ModifyEndpointResponse$,
 ];
-export var ModifyEventSubscription: StaticOperationSchema = [
+export var ModifyEventSubscription$: StaticOperationSchema = [
   9,
   n0,
   _MES,
   0,
-  () => ModifyEventSubscriptionMessage,
-  () => ModifyEventSubscriptionResponse,
+  () => ModifyEventSubscriptionMessage$,
+  () => ModifyEventSubscriptionResponse$,
 ];
-export var ModifyInstanceProfile: StaticOperationSchema = [
+export var ModifyInstanceProfile$: StaticOperationSchema = [
   9,
   n0,
   _MIP,
   0,
-  () => ModifyInstanceProfileMessage,
-  () => ModifyInstanceProfileResponse,
+  () => ModifyInstanceProfileMessage$,
+  () => ModifyInstanceProfileResponse$,
 ];
-export var ModifyMigrationProject: StaticOperationSchema = [
+export var ModifyMigrationProject$: StaticOperationSchema = [
   9,
   n0,
   _MMPo,
   0,
-  () => ModifyMigrationProjectMessage,
-  () => ModifyMigrationProjectResponse,
+  () => ModifyMigrationProjectMessage$,
+  () => ModifyMigrationProjectResponse$,
 ];
-export var ModifyReplicationConfig: StaticOperationSchema = [
+export var ModifyReplicationConfig$: StaticOperationSchema = [
   9,
   n0,
   _MRCo,
   0,
-  () => ModifyReplicationConfigMessage,
-  () => ModifyReplicationConfigResponse,
+  () => ModifyReplicationConfigMessage$,
+  () => ModifyReplicationConfigResponse$,
 ];
-export var ModifyReplicationInstance: StaticOperationSchema = [
+export var ModifyReplicationInstance$: StaticOperationSchema = [
   9,
   n0,
   _MRI,
   0,
-  () => ModifyReplicationInstanceMessage,
-  () => ModifyReplicationInstanceResponse,
+  () => ModifyReplicationInstanceMessage$,
+  () => ModifyReplicationInstanceResponse$,
 ];
-export var ModifyReplicationSubnetGroup: StaticOperationSchema = [
+export var ModifyReplicationSubnetGroup$: StaticOperationSchema = [
   9,
   n0,
   _MRSG,
   0,
-  () => ModifyReplicationSubnetGroupMessage,
-  () => ModifyReplicationSubnetGroupResponse,
+  () => ModifyReplicationSubnetGroupMessage$,
+  () => ModifyReplicationSubnetGroupResponse$,
 ];
-export var ModifyReplicationTask: StaticOperationSchema = [
+export var ModifyReplicationTask$: StaticOperationSchema = [
   9,
   n0,
   _MRT,
   0,
-  () => ModifyReplicationTaskMessage,
-  () => ModifyReplicationTaskResponse,
+  () => ModifyReplicationTaskMessage$,
+  () => ModifyReplicationTaskResponse$,
 ];
-export var MoveReplicationTask: StaticOperationSchema = [
+export var MoveReplicationTask$: StaticOperationSchema = [
   9,
   n0,
   _MRTo,
   0,
-  () => MoveReplicationTaskMessage,
-  () => MoveReplicationTaskResponse,
+  () => MoveReplicationTaskMessage$,
+  () => MoveReplicationTaskResponse$,
 ];
-export var RebootReplicationInstance: StaticOperationSchema = [
+export var RebootReplicationInstance$: StaticOperationSchema = [
   9,
   n0,
   _RRI,
   0,
-  () => RebootReplicationInstanceMessage,
-  () => RebootReplicationInstanceResponse,
+  () => RebootReplicationInstanceMessage$,
+  () => RebootReplicationInstanceResponse$,
 ];
-export var RefreshSchemas: StaticOperationSchema = [
+export var RefreshSchemas$: StaticOperationSchema = [
   9,
   n0,
   _RSef,
   0,
-  () => RefreshSchemasMessage,
-  () => RefreshSchemasResponse,
+  () => RefreshSchemasMessage$,
+  () => RefreshSchemasResponse$,
 ];
-export var ReloadReplicationTables: StaticOperationSchema = [
+export var ReloadReplicationTables$: StaticOperationSchema = [
   9,
   n0,
   _RRT,
   0,
-  () => ReloadReplicationTablesMessage,
-  () => ReloadReplicationTablesResponse,
+  () => ReloadReplicationTablesMessage$,
+  () => ReloadReplicationTablesResponse$,
 ];
-export var ReloadTables: StaticOperationSchema = [
+export var ReloadTables$: StaticOperationSchema = [
   9,
   n0,
   _RTel,
   0,
-  () => ReloadTablesMessage,
-  () => ReloadTablesResponse,
+  () => ReloadTablesMessage$,
+  () => ReloadTablesResponse$,
 ];
-export var RemoveTagsFromResource: StaticOperationSchema = [
+export var RemoveTagsFromResource$: StaticOperationSchema = [
   9,
   n0,
   _RTFR,
   0,
-  () => RemoveTagsFromResourceMessage,
-  () => RemoveTagsFromResourceResponse,
+  () => RemoveTagsFromResourceMessage$,
+  () => RemoveTagsFromResourceResponse$,
 ];
-export var RunFleetAdvisorLsaAnalysis: StaticOperationSchema = [
+export var RunFleetAdvisorLsaAnalysis$: StaticOperationSchema = [
   9,
   n0,
   _RFALA,
   0,
   () => __Unit,
-  () => RunFleetAdvisorLsaAnalysisResponse,
+  () => RunFleetAdvisorLsaAnalysisResponse$,
 ];
-export var StartDataMigration: StaticOperationSchema = [
+export var StartDataMigration$: StaticOperationSchema = [
   9,
   n0,
   _SDM,
   0,
-  () => StartDataMigrationMessage,
-  () => StartDataMigrationResponse,
+  () => StartDataMigrationMessage$,
+  () => StartDataMigrationResponse$,
 ];
-export var StartExtensionPackAssociation: StaticOperationSchema = [
+export var StartExtensionPackAssociation$: StaticOperationSchema = [
   9,
   n0,
   _SEPA,
   0,
-  () => StartExtensionPackAssociationMessage,
-  () => StartExtensionPackAssociationResponse,
+  () => StartExtensionPackAssociationMessage$,
+  () => StartExtensionPackAssociationResponse$,
 ];
-export var StartMetadataModelAssessment: StaticOperationSchema = [
+export var StartMetadataModelAssessment$: StaticOperationSchema = [
   9,
   n0,
   _SMMA,
   0,
-  () => StartMetadataModelAssessmentMessage,
-  () => StartMetadataModelAssessmentResponse,
+  () => StartMetadataModelAssessmentMessage$,
+  () => StartMetadataModelAssessmentResponse$,
 ];
-export var StartMetadataModelConversion: StaticOperationSchema = [
+export var StartMetadataModelConversion$: StaticOperationSchema = [
   9,
   n0,
   _SMMC,
   0,
-  () => StartMetadataModelConversionMessage,
-  () => StartMetadataModelConversionResponse,
+  () => StartMetadataModelConversionMessage$,
+  () => StartMetadataModelConversionResponse$,
 ];
-export var StartMetadataModelCreation: StaticOperationSchema = [
+export var StartMetadataModelCreation$: StaticOperationSchema = [
   9,
   n0,
   _SMMCt,
   0,
-  () => StartMetadataModelCreationMessage,
-  () => StartMetadataModelCreationResponse,
+  () => StartMetadataModelCreationMessage$,
+  () => StartMetadataModelCreationResponse$,
 ];
-export var StartMetadataModelExportAsScript: StaticOperationSchema = [
+export var StartMetadataModelExportAsScript$: StaticOperationSchema = [
   9,
   n0,
   _SMMEAS,
   0,
-  () => StartMetadataModelExportAsScriptMessage,
-  () => StartMetadataModelExportAsScriptResponse,
+  () => StartMetadataModelExportAsScriptMessage$,
+  () => StartMetadataModelExportAsScriptResponse$,
 ];
-export var StartMetadataModelExportToTarget: StaticOperationSchema = [
+export var StartMetadataModelExportToTarget$: StaticOperationSchema = [
   9,
   n0,
   _SMMETT,
   0,
-  () => StartMetadataModelExportToTargetMessage,
-  () => StartMetadataModelExportToTargetResponse,
+  () => StartMetadataModelExportToTargetMessage$,
+  () => StartMetadataModelExportToTargetResponse$,
 ];
-export var StartMetadataModelImport: StaticOperationSchema = [
+export var StartMetadataModelImport$: StaticOperationSchema = [
   9,
   n0,
   _SMMI,
   0,
-  () => StartMetadataModelImportMessage,
-  () => StartMetadataModelImportResponse,
+  () => StartMetadataModelImportMessage$,
+  () => StartMetadataModelImportResponse$,
 ];
-export var StartRecommendations: StaticOperationSchema = [
+export var StartRecommendations$: StaticOperationSchema = [
   9,
   n0,
   _SRta,
   0,
-  () => StartRecommendationsRequest,
+  () => StartRecommendationsRequest$,
   () => __Unit,
 ];
-export var StartReplication: StaticOperationSchema = [
+export var StartReplication$: StaticOperationSchema = [
   9,
   n0,
   _SRtar,
   0,
-  () => StartReplicationMessage,
-  () => StartReplicationResponse,
+  () => StartReplicationMessage$,
+  () => StartReplicationResponse$,
 ];
-export var StartReplicationTask: StaticOperationSchema = [
+export var StartReplicationTask$: StaticOperationSchema = [
   9,
   n0,
   _SRTt,
   0,
-  () => StartReplicationTaskMessage,
-  () => StartReplicationTaskResponse,
+  () => StartReplicationTaskMessage$,
+  () => StartReplicationTaskResponse$,
 ];
-export var StartReplicationTaskAssessment: StaticOperationSchema = [
+export var StartReplicationTaskAssessment$: StaticOperationSchema = [
   9,
   n0,
   _SRTA,
   0,
-  () => StartReplicationTaskAssessmentMessage,
-  () => StartReplicationTaskAssessmentResponse,
+  () => StartReplicationTaskAssessmentMessage$,
+  () => StartReplicationTaskAssessmentResponse$,
 ];
-export var StartReplicationTaskAssessmentRun: StaticOperationSchema = [
+export var StartReplicationTaskAssessmentRun$: StaticOperationSchema = [
   9,
   n0,
   _SRTARt,
   0,
-  () => StartReplicationTaskAssessmentRunMessage,
-  () => StartReplicationTaskAssessmentRunResponse,
+  () => StartReplicationTaskAssessmentRunMessage$,
+  () => StartReplicationTaskAssessmentRunResponse$,
 ];
-export var StopDataMigration: StaticOperationSchema = [
+export var StopDataMigration$: StaticOperationSchema = [
   9,
   n0,
   _SDMt,
   0,
-  () => StopDataMigrationMessage,
-  () => StopDataMigrationResponse,
+  () => StopDataMigrationMessage$,
+  () => StopDataMigrationResponse$,
 ];
-export var StopReplication: StaticOperationSchema = [
+export var StopReplication$: StaticOperationSchema = [
   9,
   n0,
   _SRto,
   0,
-  () => StopReplicationMessage,
-  () => StopReplicationResponse,
+  () => StopReplicationMessage$,
+  () => StopReplicationResponse$,
 ];
-export var StopReplicationTask: StaticOperationSchema = [
+export var StopReplicationTask$: StaticOperationSchema = [
   9,
   n0,
   _SRTto,
   0,
-  () => StopReplicationTaskMessage,
-  () => StopReplicationTaskResponse,
+  () => StopReplicationTaskMessage$,
+  () => StopReplicationTaskResponse$,
 ];
-export var TestConnection: StaticOperationSchema = [
+export var TestConnection$: StaticOperationSchema = [
   9,
   n0,
   _TCe,
   0,
-  () => TestConnectionMessage,
-  () => TestConnectionResponse,
+  () => TestConnectionMessage$,
+  () => TestConnectionResponse$,
 ];
-export var UpdateSubscriptionsToEventBridge: StaticOperationSchema = [
+export var UpdateSubscriptionsToEventBridge$: StaticOperationSchema = [
   9,
   n0,
   _USTEB,
   0,
-  () => UpdateSubscriptionsToEventBridgeMessage,
-  () => UpdateSubscriptionsToEventBridgeResponse,
+  () => UpdateSubscriptionsToEventBridgeMessage$,
+  () => UpdateSubscriptionsToEventBridgeResponse$,
 ];

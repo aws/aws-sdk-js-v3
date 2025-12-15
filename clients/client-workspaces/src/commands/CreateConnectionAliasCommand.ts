@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateConnectionAliasRequest, CreateConnectionAliasResult } from "../models/models_0";
-import { CreateConnectionAlias } from "../schemas/schemas_0";
+import { CreateConnectionAlias$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -99,7 +99,7 @@ export class CreateConnectionAliasCommand extends $Command
   })
   .s("WorkspacesService", "CreateConnectionAlias", {})
   .n("WorkSpacesClient", "CreateConnectionAliasCommand")
-  .sc(CreateConnectionAlias)
+  .sc(CreateConnectionAlias$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

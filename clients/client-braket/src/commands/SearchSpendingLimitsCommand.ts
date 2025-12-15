@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SearchSpendingLimitsRequest, SearchSpendingLimitsResponse } from "../models/models_0";
-import { SearchSpendingLimits } from "../schemas/schemas_0";
+import { SearchSpendingLimits$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class SearchSpendingLimitsCommand extends $Command
   })
   .s("Braket", "SearchSpendingLimits", {})
   .n("BraketClient", "SearchSpendingLimitsCommand")
-  .sc(SearchSpendingLimits)
+  .sc(SearchSpendingLimits$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

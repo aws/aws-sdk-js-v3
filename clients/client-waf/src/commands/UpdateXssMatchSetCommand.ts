@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateXssMatchSetRequest, UpdateXssMatchSetResponse } from "../models/models_0";
-import { UpdateXssMatchSet } from "../schemas/schemas_0";
+import { UpdateXssMatchSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -262,7 +262,7 @@ export class UpdateXssMatchSetCommand extends $Command
   })
   .s("AWSWAF_20150824", "UpdateXssMatchSet", {})
   .n("WAFClient", "UpdateXssMatchSetCommand")
-  .sc(UpdateXssMatchSet)
+  .sc(UpdateXssMatchSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

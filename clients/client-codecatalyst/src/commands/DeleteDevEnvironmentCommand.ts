@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteDevEnvironmentRequest, DeleteDevEnvironmentResponse } from "../models/models_0";
-import { DeleteDevEnvironment } from "../schemas/schemas_0";
+import { DeleteDevEnvironment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class DeleteDevEnvironmentCommand extends $Command
   })
   .s("CodeCatalyst", "DeleteDevEnvironment", {})
   .n("CodeCatalystClient", "DeleteDevEnvironmentCommand")
-  .sc(DeleteDevEnvironment)
+  .sc(DeleteDevEnvironment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

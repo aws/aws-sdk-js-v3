@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteCachePolicyRequest } from "../models/models_0";
-import { DeleteCachePolicy } from "../schemas/schemas_0";
+import { DeleteCachePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeleteCachePolicyCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "DeleteCachePolicy", {})
   .n("CloudFrontClient", "DeleteCachePolicyCommand")
-  .sc(DeleteCachePolicy)
+  .sc(DeleteCachePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

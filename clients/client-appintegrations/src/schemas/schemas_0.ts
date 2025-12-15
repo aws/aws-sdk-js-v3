@@ -192,25 +192,25 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { AppIntegrationsServiceException as __AppIntegrationsServiceException } from "../models/AppIntegrationsServiceException";
+import { AppIntegrationsServiceException } from "../models/AppIntegrationsServiceException";
 import {
-  AccessDeniedException as __AccessDeniedException,
-  DuplicateResourceException as __DuplicateResourceException,
-  InternalServiceError as __InternalServiceError,
-  InvalidRequestException as __InvalidRequestException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ResourceQuotaExceededException as __ResourceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  UnsupportedOperationException as __UnsupportedOperationException,
+  AccessDeniedException,
+  DuplicateResourceException,
+  InternalServiceError,
+  InvalidRequestException,
+  ResourceNotFoundException,
+  ResourceQuotaExceededException,
+  ThrottlingException,
+  UnsupportedOperationException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var ApplicationAssociationSummary: StaticStructureSchema = [3, n0, _AAS, 0, [_AAA, _AA, _CI], [0, 0, 0]];
-export var ApplicationConfig: StaticStructureSchema = [3, n0, _AC, 0, [_CH], [() => ContactHandling]];
-export var ApplicationSourceConfig: StaticStructureSchema = [3, n0, _ASC, 0, [_EUC], [() => ExternalUrlConfig]];
-export var ApplicationSummary: StaticStructureSchema = [
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var ApplicationAssociationSummary$: StaticStructureSchema = [3, n0, _AAS, 0, [_AAA, _AA, _CI], [0, 0, 0]];
+export var ApplicationConfig$: StaticStructureSchema = [3, n0, _AC, 0, [_CH], [() => ContactHandling$]];
+export var ApplicationSourceConfig$: StaticStructureSchema = [3, n0, _ASC, 0, [_EUC], [() => ExternalUrlConfig$]];
+export var ApplicationSummary$: StaticStructureSchema = [
   3,
   n0,
   _AS,
@@ -218,8 +218,8 @@ export var ApplicationSummary: StaticStructureSchema = [
   [_A, _I, _N, _Na, _CT, _LMT, _IS, _AT],
   [0, 0, 0, 0, 4, 4, 2, 0],
 ];
-export var ContactHandling: StaticStructureSchema = [3, n0, _CH, 0, [_S], [0]];
-export var CreateApplicationRequest: StaticStructureSchema = [
+export var ContactHandling$: StaticStructureSchema = [3, n0, _CH, 0, [_S], [0]];
+export var CreateApplicationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CAR,
@@ -229,7 +229,7 @@ export var CreateApplicationRequest: StaticStructureSchema = [
     0,
     0,
     0,
-    () => ApplicationSourceConfig,
+    () => ApplicationSourceConfig$,
     () => SubscriptionList,
     () => PublicationList,
     [0, 4],
@@ -237,22 +237,29 @@ export var CreateApplicationRequest: StaticStructureSchema = [
     64 | 0,
     2,
     1,
-    () => ApplicationConfig,
-    () => IframeConfig,
+    () => ApplicationConfig$,
+    () => IframeConfig$,
     0,
   ],
 ];
-export var CreateApplicationResponse: StaticStructureSchema = [3, n0, _CARr, 0, [_A, _I], [0, 0]];
-export var CreateDataIntegrationAssociationRequest: StaticStructureSchema = [
+export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr, 0, [_A, _I], [0, 0]];
+export var CreateDataIntegrationAssociationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDIAR,
   0,
   [_DII, _CI, _OC, _DURI, _CAM, _CTl, _EC],
-  [[0, 1], 0, [2, n0, _OC, 0, 0, [2, n0, _FM, 0, 0, 64 | 0]], 0, 128 | 0, [0, 4], () => ExecutionConfiguration],
+  [[0, 1], 0, [2, n0, _OC, 0, 0, [2, n0, _FM, 0, 0, 64 | 0]], 0, 128 | 0, [0, 4], () => ExecutionConfiguration$],
 ];
-export var CreateDataIntegrationAssociationResponse: StaticStructureSchema = [3, n0, _CDIARr, 0, [_DIAI, _DIA], [0, 0]];
-export var CreateDataIntegrationRequest: StaticStructureSchema = [
+export var CreateDataIntegrationAssociationResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _CDIARr,
+  0,
+  [_DIAI, _DIA],
+  [0, 0],
+];
+export var CreateDataIntegrationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDIR,
@@ -263,14 +270,14 @@ export var CreateDataIntegrationRequest: StaticStructureSchema = [
     0,
     0,
     0,
-    () => ScheduleConfiguration,
+    () => ScheduleConfiguration$,
     128 | 0,
     [0, 4],
-    () => FileConfiguration,
+    () => FileConfiguration$,
     [2, n0, _OC, 0, 0, [2, n0, _FM, 0, 0, 64 | 0]],
   ],
 ];
-export var CreateDataIntegrationResponse: StaticStructureSchema = [
+export var CreateDataIntegrationResponse$: StaticStructureSchema = [
   3,
   n0,
   _CDIRr,
@@ -283,49 +290,49 @@ export var CreateDataIntegrationResponse: StaticStructureSchema = [
     0,
     0,
     0,
-    () => ScheduleConfiguration,
+    () => ScheduleConfiguration$,
     128 | 0,
     0,
-    () => FileConfiguration,
+    () => FileConfiguration$,
     [2, n0, _OC, 0, 0, [2, n0, _FM, 0, 0, 64 | 0]],
   ],
 ];
-export var CreateEventIntegrationRequest: StaticStructureSchema = [
+export var CreateEventIntegrationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CEIR,
   0,
   [_N, _D, _EF, _EBB, _CTl, _T],
-  [0, 0, () => EventFilter, 0, [0, 4], 128 | 0],
+  [0, 0, () => EventFilter$, 0, [0, 4], 128 | 0],
 ];
-export var CreateEventIntegrationResponse: StaticStructureSchema = [3, n0, _CEIRr, 0, [_EIA], [0]];
-export var DataIntegrationAssociationSummary: StaticStructureSchema = [
+export var CreateEventIntegrationResponse$: StaticStructureSchema = [3, n0, _CEIRr, 0, [_EIA], [0]];
+export var DataIntegrationAssociationSummary$: StaticStructureSchema = [
   3,
   n0,
   _DIAS,
   0,
   [_DIAA, _DIA, _CI, _DURI, _LES, _EC],
-  [0, 0, 0, 0, () => LastExecutionStatus, () => ExecutionConfiguration],
+  [0, 0, 0, 0, () => LastExecutionStatus$, () => ExecutionConfiguration$],
 ];
-export var DataIntegrationSummary: StaticStructureSchema = [3, n0, _DIS, 0, [_A, _N, _SURI], [0, 0, 0]];
-export var DeleteApplicationRequest: StaticStructureSchema = [3, n0, _DAR, 0, [_A], [[0, 1]]];
-export var DeleteApplicationResponse: StaticStructureSchema = [3, n0, _DARe, 0, [], []];
-export var DeleteDataIntegrationRequest: StaticStructureSchema = [3, n0, _DDIR, 0, [_DII], [[0, 1]]];
-export var DeleteDataIntegrationResponse: StaticStructureSchema = [3, n0, _DDIRe, 0, [], []];
-export var DeleteEventIntegrationRequest: StaticStructureSchema = [3, n0, _DEIR, 0, [_N], [[0, 1]]];
-export var DeleteEventIntegrationResponse: StaticStructureSchema = [3, n0, _DEIRe, 0, [], []];
-export var DuplicateResourceException: StaticErrorSchema = [-3, n0, _DRE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(DuplicateResourceException, __DuplicateResourceException);
-export var EventFilter: StaticStructureSchema = [3, n0, _EF, 0, [_So], [0]];
-export var EventIntegration: StaticStructureSchema = [
+export var DataIntegrationSummary$: StaticStructureSchema = [3, n0, _DIS, 0, [_A, _N, _SURI], [0, 0, 0]];
+export var DeleteApplicationRequest$: StaticStructureSchema = [3, n0, _DAR, 0, [_A], [[0, 1]]];
+export var DeleteApplicationResponse$: StaticStructureSchema = [3, n0, _DARe, 0, [], []];
+export var DeleteDataIntegrationRequest$: StaticStructureSchema = [3, n0, _DDIR, 0, [_DII], [[0, 1]]];
+export var DeleteDataIntegrationResponse$: StaticStructureSchema = [3, n0, _DDIRe, 0, [], []];
+export var DeleteEventIntegrationRequest$: StaticStructureSchema = [3, n0, _DEIR, 0, [_N], [[0, 1]]];
+export var DeleteEventIntegrationResponse$: StaticStructureSchema = [3, n0, _DEIRe, 0, [], []];
+export var DuplicateResourceException$: StaticErrorSchema = [-3, n0, _DRE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(DuplicateResourceException$, DuplicateResourceException);
+export var EventFilter$: StaticStructureSchema = [3, n0, _EF, 0, [_So], [0]];
+export var EventIntegration$: StaticStructureSchema = [
   3,
   n0,
   _EI,
   0,
   [_EIA, _N, _D, _EF, _EBB, _T],
-  [0, 0, 0, () => EventFilter, 0, 128 | 0],
+  [0, 0, 0, () => EventFilter$, 0, 128 | 0],
 ];
-export var EventIntegrationAssociation: StaticStructureSchema = [
+export var EventIntegrationAssociation$: StaticStructureSchema = [
   3,
   n0,
   _EIAv,
@@ -333,18 +340,18 @@ export var EventIntegrationAssociation: StaticStructureSchema = [
   [_EIAA, _EIAI, _EIN, _CI, _EBRN, _CAM],
   [0, 0, 0, 0, 0, 128 | 0],
 ];
-export var ExecutionConfiguration: StaticStructureSchema = [
+export var ExecutionConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _EC,
   0,
   [_EM, _ODC, _SCc],
-  [0, () => OnDemandConfiguration, () => ScheduleConfiguration],
+  [0, () => OnDemandConfiguration$, () => ScheduleConfiguration$],
 ];
-export var ExternalUrlConfig: StaticStructureSchema = [3, n0, _EUC, 0, [_AU, _AO], [0, 64 | 0]];
-export var FileConfiguration: StaticStructureSchema = [3, n0, _FC, 0, [_F, _Fi], [64 | 0, [2, n0, _FM, 0, 0, 64 | 0]]];
-export var GetApplicationRequest: StaticStructureSchema = [3, n0, _GAR, 0, [_A], [[0, 1]]];
-export var GetApplicationResponse: StaticStructureSchema = [
+export var ExternalUrlConfig$: StaticStructureSchema = [3, n0, _EUC, 0, [_AU, _AO], [0, 64 | 0]];
+export var FileConfiguration$: StaticStructureSchema = [3, n0, _FC, 0, [_F, _Fi], [64 | 0, [2, n0, _FM, 0, 0, 64 | 0]]];
+export var GetApplicationRequest$: StaticStructureSchema = [3, n0, _GAR, 0, [_A], [[0, 1]]];
+export var GetApplicationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GARe,
@@ -356,7 +363,7 @@ export var GetApplicationResponse: StaticStructureSchema = [
     0,
     0,
     0,
-    () => ApplicationSourceConfig,
+    () => ApplicationSourceConfig$,
     () => SubscriptionList,
     () => PublicationList,
     4,
@@ -365,13 +372,13 @@ export var GetApplicationResponse: StaticStructureSchema = [
     64 | 0,
     2,
     1,
-    () => ApplicationConfig,
-    () => IframeConfig,
+    () => ApplicationConfig$,
+    () => IframeConfig$,
     0,
   ],
 ];
-export var GetDataIntegrationRequest: StaticStructureSchema = [3, n0, _GDIR, 0, [_Id], [[0, 1]]];
-export var GetDataIntegrationResponse: StaticStructureSchema = [
+export var GetDataIntegrationRequest$: StaticStructureSchema = [3, n0, _GDIR, 0, [_Id], [[0, 1]]];
+export var GetDataIntegrationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GDIRe,
@@ -384,28 +391,28 @@ export var GetDataIntegrationResponse: StaticStructureSchema = [
     0,
     0,
     0,
-    () => ScheduleConfiguration,
+    () => ScheduleConfiguration$,
     128 | 0,
-    () => FileConfiguration,
+    () => FileConfiguration$,
     [2, n0, _OC, 0, 0, [2, n0, _FM, 0, 0, 64 | 0]],
   ],
 ];
-export var GetEventIntegrationRequest: StaticStructureSchema = [3, n0, _GEIR, 0, [_N], [[0, 1]]];
-export var GetEventIntegrationResponse: StaticStructureSchema = [
+export var GetEventIntegrationRequest$: StaticStructureSchema = [3, n0, _GEIR, 0, [_N], [[0, 1]]];
+export var GetEventIntegrationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GEIRe,
   0,
   [_N, _D, _EIA, _EBB, _EF, _T],
-  [0, 0, 0, 0, () => EventFilter, 128 | 0],
+  [0, 0, 0, 0, () => EventFilter$, 128 | 0],
 ];
-export var IframeConfig: StaticStructureSchema = [3, n0, _IC, 0, [_Al, _Sa], [64 | 0, 64 | 0]];
-export var InternalServiceError: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InternalServiceError, __InternalServiceError);
-export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-export var LastExecutionStatus: StaticStructureSchema = [3, n0, _LES, 0, [_ES, _SM], [0, 0]];
-export var ListApplicationAssociationsRequest: StaticStructureSchema = [
+export var IframeConfig$: StaticStructureSchema = [3, n0, _IC, 0, [_Al, _Sa], [64 | 0, 64 | 0]];
+export var InternalServiceError$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InternalServiceError$, InternalServiceError);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
+export var LastExecutionStatus$: StaticStructureSchema = [3, n0, _LES, 0, [_ES, _SM], [0, 0]];
+export var ListApplicationAssociationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAAR,
@@ -417,7 +424,7 @@ export var ListApplicationAssociationsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListApplicationAssociationsResponse: StaticStructureSchema = [
+export var ListApplicationAssociationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LAARi,
@@ -425,7 +432,7 @@ export var ListApplicationAssociationsResponse: StaticStructureSchema = [
   [_AAp, _NT],
   [() => ApplicationAssociationsList, 0],
 ];
-export var ListApplicationsRequest: StaticStructureSchema = [
+export var ListApplicationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAR,
@@ -437,8 +444,15 @@ export var ListApplicationsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _aT }],
   ],
 ];
-export var ListApplicationsResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_Ap, _NT], [() => ApplicationsList, 0]];
-export var ListDataIntegrationAssociationsRequest: StaticStructureSchema = [
+export var ListApplicationsResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _LARi,
+  0,
+  [_Ap, _NT],
+  [() => ApplicationsList, 0],
+];
+export var ListDataIntegrationAssociationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDIAR,
@@ -450,7 +464,7 @@ export var ListDataIntegrationAssociationsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListDataIntegrationAssociationsResponse: StaticStructureSchema = [
+export var ListDataIntegrationAssociationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LDIARi,
@@ -458,7 +472,7 @@ export var ListDataIntegrationAssociationsResponse: StaticStructureSchema = [
   [_DIAa, _NT],
   [() => DataIntegrationAssociationsList, 0],
 ];
-export var ListDataIntegrationsRequest: StaticStructureSchema = [
+export var ListDataIntegrationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDIR,
@@ -469,7 +483,7 @@ export var ListDataIntegrationsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListDataIntegrationsResponse: StaticStructureSchema = [
+export var ListDataIntegrationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LDIRi,
@@ -477,7 +491,7 @@ export var ListDataIntegrationsResponse: StaticStructureSchema = [
   [_DI, _NT],
   [() => DataIntegrationsList, 0],
 ];
-export var ListEventIntegrationAssociationsRequest: StaticStructureSchema = [
+export var ListEventIntegrationAssociationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LEIAR,
@@ -489,7 +503,7 @@ export var ListEventIntegrationAssociationsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListEventIntegrationAssociationsResponse: StaticStructureSchema = [
+export var ListEventIntegrationAssociationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LEIARi,
@@ -497,7 +511,7 @@ export var ListEventIntegrationAssociationsResponse: StaticStructureSchema = [
   [_EIAve, _NT],
   [() => EventIntegrationAssociationsList, 0],
 ];
-export var ListEventIntegrationsRequest: StaticStructureSchema = [
+export var ListEventIntegrationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LEIR,
@@ -508,7 +522,7 @@ export var ListEventIntegrationsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListEventIntegrationsResponse: StaticStructureSchema = [
+export var ListEventIntegrationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LEIRi,
@@ -516,23 +530,23 @@ export var ListEventIntegrationsResponse: StaticStructureSchema = [
   [_EIv, _NT],
   [() => EventIntegrationsList, 0],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
-export var OnDemandConfiguration: StaticStructureSchema = [3, n0, _ODC, 0, [_ST, _ET], [0, 0]];
-export var Publication: StaticStructureSchema = [3, n0, _Pu, 0, [_E, _Sc, _D], [0, 0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ResourceQuotaExceededException: StaticErrorSchema = [-3, n0, _RQEE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ResourceQuotaExceededException, __ResourceQuotaExceededException);
-export var ScheduleConfiguration: StaticStructureSchema = [3, n0, _SCc, 0, [_FEF, _O, _SE], [0, 0, 0]];
-export var Subscription: StaticStructureSchema = [3, n0, _Sub, 0, [_E, _D], [0, 0]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [[0, 1], 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var UnsupportedOperationException: StaticErrorSchema = [-3, n0, _UOE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(UnsupportedOperationException, __UnsupportedOperationException);
-export var UntagResourceRequest: StaticStructureSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
+export var OnDemandConfiguration$: StaticStructureSchema = [3, n0, _ODC, 0, [_ST, _ET], [0, 0]];
+export var Publication$: StaticStructureSchema = [3, n0, _Pu, 0, [_E, _Sc, _D], [0, 0, 0]];
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourceQuotaExceededException$: StaticErrorSchema = [-3, n0, _RQEE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ResourceQuotaExceededException$, ResourceQuotaExceededException);
+export var ScheduleConfiguration$: StaticStructureSchema = [3, n0, _SCc, 0, [_FEF, _O, _SE], [0, 0, 0]];
+export var Subscription$: StaticStructureSchema = [3, n0, _Sub, 0, [_E, _D], [0, 0]];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [[0, 1], 128 | 0]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(UnsupportedOperationException$, UnsupportedOperationException);
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -543,8 +557,8 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateApplicationRequest: StaticStructureSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateApplicationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UAR,
@@ -554,226 +568,227 @@ export var UpdateApplicationRequest: StaticStructureSchema = [
     [0, 1],
     0,
     0,
-    () => ApplicationSourceConfig,
+    () => ApplicationSourceConfig$,
     () => SubscriptionList,
     () => PublicationList,
     64 | 0,
     2,
     1,
-    () => ApplicationConfig,
-    () => IframeConfig,
+    () => ApplicationConfig$,
+    () => IframeConfig$,
     0,
   ],
 ];
-export var UpdateApplicationResponse: StaticStructureSchema = [3, n0, _UARp, 0, [], []];
-export var UpdateDataIntegrationAssociationRequest: StaticStructureSchema = [
+export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp, 0, [], []];
+export var UpdateDataIntegrationAssociationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UDIAR,
   0,
   [_DII, _DIAIa, _EC],
-  [[0, 1], [0, 1], () => ExecutionConfiguration],
+  [[0, 1], [0, 1], () => ExecutionConfiguration$],
 ];
-export var UpdateDataIntegrationAssociationResponse: StaticStructureSchema = [3, n0, _UDIARp, 0, [], []];
-export var UpdateDataIntegrationRequest: StaticStructureSchema = [3, n0, _UDIR, 0, [_Id, _N, _D], [[0, 1], 0, 0]];
-export var UpdateDataIntegrationResponse: StaticStructureSchema = [3, n0, _UDIRp, 0, [], []];
-export var UpdateEventIntegrationRequest: StaticStructureSchema = [3, n0, _UEIR, 0, [_N, _D], [[0, 1], 0]];
-export var UpdateEventIntegrationResponse: StaticStructureSchema = [3, n0, _UEIRp, 0, [], []];
-export var AppIntegrationsServiceException: StaticErrorSchema = [-3, _sm, "AppIntegrationsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(AppIntegrationsServiceException, __AppIntegrationsServiceException);
-export var ApplicationApprovedOrigins = 64 | 0;
-export var ApplicationAssociationsList: StaticListSchema = [1, n0, _AAL, 0, () => ApplicationAssociationSummary];
-export var ApplicationsList: StaticListSchema = [1, n0, _AL, 0, () => ApplicationSummary];
-export var DataIntegrationAssociationsList: StaticListSchema = [
-  1,
-  n0,
-  _DIAL,
+export var UpdateDataIntegrationAssociationResponse$: StaticStructureSchema = [3, n0, _UDIARp, 0, [], []];
+export var UpdateDataIntegrationRequest$: StaticStructureSchema = [3, n0, _UDIR, 0, [_Id, _N, _D], [[0, 1], 0, 0]];
+export var UpdateDataIntegrationResponse$: StaticStructureSchema = [3, n0, _UDIRp, 0, [], []];
+export var UpdateEventIntegrationRequest$: StaticStructureSchema = [3, n0, _UEIR, 0, [_N, _D], [[0, 1], 0]];
+export var UpdateEventIntegrationResponse$: StaticStructureSchema = [3, n0, _UEIRp, 0, [], []];
+export var AppIntegrationsServiceException$: StaticErrorSchema = [
+  -3,
+  _sm,
+  "AppIntegrationsServiceException",
   0,
-  () => DataIntegrationAssociationSummary,
+  [],
+  [],
 ];
-export var DataIntegrationsList: StaticListSchema = [1, n0, _DIL, 0, () => DataIntegrationSummary];
-export var EventIntegrationAssociationsList: StaticListSchema = [1, n0, _EIAL, 0, () => EventIntegrationAssociation];
-export var EventIntegrationsList: StaticListSchema = [1, n0, _EIL, 0, () => EventIntegration];
-export var FieldsList = 64 | 0;
-export var FolderList = 64 | 0;
-export var IframePermissionList = 64 | 0;
-export var PermissionList = 64 | 0;
-export var PublicationList: StaticListSchema = [1, n0, _PL, 0, () => Publication];
-export var SubscriptionList: StaticListSchema = [1, n0, _SL, 0, () => Subscription];
-export var TagKeyList = 64 | 0;
-export var ClientAssociationMetadata = 128 | 0;
-export var FieldsMap: StaticMapSchema = [2, n0, _FM, 0, 0, 64 | 0];
-export var ObjectConfiguration: StaticMapSchema = [2, n0, _OC, 0, 0, [2, n0, _FM, 0, 0, 64 | 0]];
-export var TagMap = 128 | 0;
-export var CreateApplication: StaticOperationSchema = [
+TypeRegistry.for(_sm).registerError(AppIntegrationsServiceException$, AppIntegrationsServiceException);
+var ApplicationApprovedOrigins = 64 | 0;
+var ApplicationAssociationsList: StaticListSchema = [1, n0, _AAL, 0, () => ApplicationAssociationSummary$];
+var ApplicationsList: StaticListSchema = [1, n0, _AL, 0, () => ApplicationSummary$];
+var DataIntegrationAssociationsList: StaticListSchema = [1, n0, _DIAL, 0, () => DataIntegrationAssociationSummary$];
+var DataIntegrationsList: StaticListSchema = [1, n0, _DIL, 0, () => DataIntegrationSummary$];
+var EventIntegrationAssociationsList: StaticListSchema = [1, n0, _EIAL, 0, () => EventIntegrationAssociation$];
+var EventIntegrationsList: StaticListSchema = [1, n0, _EIL, 0, () => EventIntegration$];
+var FieldsList = 64 | 0;
+var FolderList = 64 | 0;
+var IframePermissionList = 64 | 0;
+var PermissionList = 64 | 0;
+var PublicationList: StaticListSchema = [1, n0, _PL, 0, () => Publication$];
+var SubscriptionList: StaticListSchema = [1, n0, _SL, 0, () => Subscription$];
+var TagKeyList = 64 | 0;
+var ClientAssociationMetadata = 128 | 0;
+var FieldsMap: StaticMapSchema = [2, n0, _FM, 0, 0, 64 | 0];
+var ObjectConfiguration: StaticMapSchema = [2, n0, _OC, 0, 0, [2, n0, _FM, 0, 0, 64 | 0]];
+var TagMap = 128 | 0;
+export var CreateApplication$: StaticOperationSchema = [
   9,
   n0,
   _CA,
   { [_h]: ["POST", "/applications", 200] },
-  () => CreateApplicationRequest,
-  () => CreateApplicationResponse,
+  () => CreateApplicationRequest$,
+  () => CreateApplicationResponse$,
 ];
-export var CreateDataIntegration: StaticOperationSchema = [
+export var CreateDataIntegration$: StaticOperationSchema = [
   9,
   n0,
   _CDI,
   { [_h]: ["POST", "/dataIntegrations", 200] },
-  () => CreateDataIntegrationRequest,
-  () => CreateDataIntegrationResponse,
+  () => CreateDataIntegrationRequest$,
+  () => CreateDataIntegrationResponse$,
 ];
-export var CreateDataIntegrationAssociation: StaticOperationSchema = [
+export var CreateDataIntegrationAssociation$: StaticOperationSchema = [
   9,
   n0,
   _CDIA,
   { [_h]: ["POST", "/dataIntegrations/{DataIntegrationIdentifier}/associations", 200] },
-  () => CreateDataIntegrationAssociationRequest,
-  () => CreateDataIntegrationAssociationResponse,
+  () => CreateDataIntegrationAssociationRequest$,
+  () => CreateDataIntegrationAssociationResponse$,
 ];
-export var CreateEventIntegration: StaticOperationSchema = [
+export var CreateEventIntegration$: StaticOperationSchema = [
   9,
   n0,
   _CEI,
   { [_h]: ["POST", "/eventIntegrations", 200] },
-  () => CreateEventIntegrationRequest,
-  () => CreateEventIntegrationResponse,
+  () => CreateEventIntegrationRequest$,
+  () => CreateEventIntegrationResponse$,
 ];
-export var DeleteApplication: StaticOperationSchema = [
+export var DeleteApplication$: StaticOperationSchema = [
   9,
   n0,
   _DA,
   { [_h]: ["DELETE", "/applications/{Arn}", 200] },
-  () => DeleteApplicationRequest,
-  () => DeleteApplicationResponse,
+  () => DeleteApplicationRequest$,
+  () => DeleteApplicationResponse$,
 ];
-export var DeleteDataIntegration: StaticOperationSchema = [
+export var DeleteDataIntegration$: StaticOperationSchema = [
   9,
   n0,
   _DDI,
   { [_h]: ["DELETE", "/dataIntegrations/{DataIntegrationIdentifier}", 200] },
-  () => DeleteDataIntegrationRequest,
-  () => DeleteDataIntegrationResponse,
+  () => DeleteDataIntegrationRequest$,
+  () => DeleteDataIntegrationResponse$,
 ];
-export var DeleteEventIntegration: StaticOperationSchema = [
+export var DeleteEventIntegration$: StaticOperationSchema = [
   9,
   n0,
   _DEI,
   { [_h]: ["DELETE", "/eventIntegrations/{Name}", 200] },
-  () => DeleteEventIntegrationRequest,
-  () => DeleteEventIntegrationResponse,
+  () => DeleteEventIntegrationRequest$,
+  () => DeleteEventIntegrationResponse$,
 ];
-export var GetApplication: StaticOperationSchema = [
+export var GetApplication$: StaticOperationSchema = [
   9,
   n0,
   _GA,
   { [_h]: ["GET", "/applications/{Arn}", 200] },
-  () => GetApplicationRequest,
-  () => GetApplicationResponse,
+  () => GetApplicationRequest$,
+  () => GetApplicationResponse$,
 ];
-export var GetDataIntegration: StaticOperationSchema = [
+export var GetDataIntegration$: StaticOperationSchema = [
   9,
   n0,
   _GDI,
   { [_h]: ["GET", "/dataIntegrations/{Identifier}", 200] },
-  () => GetDataIntegrationRequest,
-  () => GetDataIntegrationResponse,
+  () => GetDataIntegrationRequest$,
+  () => GetDataIntegrationResponse$,
 ];
-export var GetEventIntegration: StaticOperationSchema = [
+export var GetEventIntegration$: StaticOperationSchema = [
   9,
   n0,
   _GEI,
   { [_h]: ["GET", "/eventIntegrations/{Name}", 200] },
-  () => GetEventIntegrationRequest,
-  () => GetEventIntegrationResponse,
+  () => GetEventIntegrationRequest$,
+  () => GetEventIntegrationResponse$,
 ];
-export var ListApplicationAssociations: StaticOperationSchema = [
+export var ListApplicationAssociations$: StaticOperationSchema = [
   9,
   n0,
   _LAA,
   { [_h]: ["GET", "/applications/{ApplicationId}/associations", 200] },
-  () => ListApplicationAssociationsRequest,
-  () => ListApplicationAssociationsResponse,
+  () => ListApplicationAssociationsRequest$,
+  () => ListApplicationAssociationsResponse$,
 ];
-export var ListApplications: StaticOperationSchema = [
+export var ListApplications$: StaticOperationSchema = [
   9,
   n0,
   _LA,
   { [_h]: ["GET", "/applications", 200] },
-  () => ListApplicationsRequest,
-  () => ListApplicationsResponse,
+  () => ListApplicationsRequest$,
+  () => ListApplicationsResponse$,
 ];
-export var ListDataIntegrationAssociations: StaticOperationSchema = [
+export var ListDataIntegrationAssociations$: StaticOperationSchema = [
   9,
   n0,
   _LDIA,
   { [_h]: ["GET", "/dataIntegrations/{DataIntegrationIdentifier}/associations", 200] },
-  () => ListDataIntegrationAssociationsRequest,
-  () => ListDataIntegrationAssociationsResponse,
+  () => ListDataIntegrationAssociationsRequest$,
+  () => ListDataIntegrationAssociationsResponse$,
 ];
-export var ListDataIntegrations: StaticOperationSchema = [
+export var ListDataIntegrations$: StaticOperationSchema = [
   9,
   n0,
   _LDI,
   { [_h]: ["GET", "/dataIntegrations", 200] },
-  () => ListDataIntegrationsRequest,
-  () => ListDataIntegrationsResponse,
+  () => ListDataIntegrationsRequest$,
+  () => ListDataIntegrationsResponse$,
 ];
-export var ListEventIntegrationAssociations: StaticOperationSchema = [
+export var ListEventIntegrationAssociations$: StaticOperationSchema = [
   9,
   n0,
   _LEIA,
   { [_h]: ["GET", "/eventIntegrations/{EventIntegrationName}/associations", 200] },
-  () => ListEventIntegrationAssociationsRequest,
-  () => ListEventIntegrationAssociationsResponse,
+  () => ListEventIntegrationAssociationsRequest$,
+  () => ListEventIntegrationAssociationsResponse$,
 ];
-export var ListEventIntegrations: StaticOperationSchema = [
+export var ListEventIntegrations$: StaticOperationSchema = [
   9,
   n0,
   _LEI,
   { [_h]: ["GET", "/eventIntegrations", 200] },
-  () => ListEventIntegrationsRequest,
-  () => ListEventIntegrationsResponse,
+  () => ListEventIntegrationsRequest$,
+  () => ListEventIntegrationsResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{resourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/tags/{resourceArn}", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateApplication: StaticOperationSchema = [
+export var UpdateApplication$: StaticOperationSchema = [
   9,
   n0,
   _UA,
   { [_h]: ["PATCH", "/applications/{Arn}", 200] },
-  () => UpdateApplicationRequest,
-  () => UpdateApplicationResponse,
+  () => UpdateApplicationRequest$,
+  () => UpdateApplicationResponse$,
 ];
-export var UpdateDataIntegration: StaticOperationSchema = [
+export var UpdateDataIntegration$: StaticOperationSchema = [
   9,
   n0,
   _UDI,
   { [_h]: ["PATCH", "/dataIntegrations/{Identifier}", 200] },
-  () => UpdateDataIntegrationRequest,
-  () => UpdateDataIntegrationResponse,
+  () => UpdateDataIntegrationRequest$,
+  () => UpdateDataIntegrationResponse$,
 ];
-export var UpdateDataIntegrationAssociation: StaticOperationSchema = [
+export var UpdateDataIntegrationAssociation$: StaticOperationSchema = [
   9,
   n0,
   _UDIA,
@@ -784,14 +799,14 @@ export var UpdateDataIntegrationAssociation: StaticOperationSchema = [
       200,
     ],
   },
-  () => UpdateDataIntegrationAssociationRequest,
-  () => UpdateDataIntegrationAssociationResponse,
+  () => UpdateDataIntegrationAssociationRequest$,
+  () => UpdateDataIntegrationAssociationResponse$,
 ];
-export var UpdateEventIntegration: StaticOperationSchema = [
+export var UpdateEventIntegration$: StaticOperationSchema = [
   9,
   n0,
   _UEI,
   { [_h]: ["PATCH", "/eventIntegrations/{Name}", 200] },
-  () => UpdateEventIntegrationRequest,
-  () => UpdateEventIntegrationResponse,
+  () => UpdateEventIntegrationRequest$,
+  () => UpdateEventIntegrationResponse$,
 ];

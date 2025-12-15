@@ -10,7 +10,7 @@ import type {
 } from "../CostAndUsageReportServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyReportDefinitionRequest, ModifyReportDefinitionResponse } from "../models/models_0";
-import { ModifyReportDefinition } from "../schemas/schemas_0";
+import { ModifyReportDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class ModifyReportDefinitionCommand extends $Command
   })
   .s("AWSOrigamiServiceGatewayService", "ModifyReportDefinition", {})
   .n("CostAndUsageReportServiceClient", "ModifyReportDefinitionCommand")
-  .sc(ModifyReportDefinition)
+  .sc(ModifyReportDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

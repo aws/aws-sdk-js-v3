@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateGroupRequest, CreateGroupResponse } from "../models/models_0";
-import { CreateGroup } from "../schemas/schemas_0";
+import { CreateGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -136,7 +136,7 @@ export class CreateGroupCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "CreateGroup", {})
   .n("CognitoIdentityProviderClient", "CreateGroupCommand")
-  .sc(CreateGroup)
+  .sc(CreateGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

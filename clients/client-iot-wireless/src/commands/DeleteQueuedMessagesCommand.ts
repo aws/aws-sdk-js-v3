@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import type { DeleteQueuedMessagesRequest, DeleteQueuedMessagesResponse } from "../models/models_0";
-import { DeleteQueuedMessages } from "../schemas/schemas_0";
+import { DeleteQueuedMessages$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class DeleteQueuedMessagesCommand extends $Command
   })
   .s("iotwireless", "DeleteQueuedMessages", {})
   .n("IoTWirelessClient", "DeleteQueuedMessagesCommand")
-  .sc(DeleteQueuedMessages)
+  .sc(DeleteQueuedMessages$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

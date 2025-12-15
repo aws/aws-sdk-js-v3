@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateNotebookInstanceInput, UpdateNotebookInstanceOutput } from "../models/models_4";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { UpdateNotebookInstance } from "../schemas/schemas_0";
+import { UpdateNotebookInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class UpdateNotebookInstanceCommand extends $Command
   })
   .s("SageMaker", "UpdateNotebookInstance", {})
   .n("SageMakerClient", "UpdateNotebookInstanceCommand")
-  .sc(UpdateNotebookInstance)
+  .sc(UpdateNotebookInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   GetDataLakeOrganizationConfigurationRequest,
   GetDataLakeOrganizationConfigurationResponse,
 } from "../models/models_0";
-import { GetDataLakeOrganizationConfiguration } from "../schemas/schemas_0";
+import { GetDataLakeOrganizationConfiguration$ } from "../schemas/schemas_0";
 import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -113,7 +113,7 @@ export class GetDataLakeOrganizationConfigurationCommand extends $Command
   })
   .s("SecurityLake", "GetDataLakeOrganizationConfiguration", {})
   .n("SecurityLakeClient", "GetDataLakeOrganizationConfigurationCommand")
-  .sc(GetDataLakeOrganizationConfiguration)
+  .sc(GetDataLakeOrganizationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EKSAuthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSAuthClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssumeRoleForPodIdentityRequest, AssumeRoleForPodIdentityResponse } from "../models/models_0";
-import { AssumeRoleForPodIdentity } from "../schemas/schemas_0";
+import { AssumeRoleForPodIdentity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class AssumeRoleForPodIdentityCommand extends $Command
   })
   .s("EKSAuthFrontend", "AssumeRoleForPodIdentity", {})
   .n("EKSAuthClient", "AssumeRoleForPodIdentityCommand")
-  .sc(AssumeRoleForPodIdentity)
+  .sc(AssumeRoleForPodIdentity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

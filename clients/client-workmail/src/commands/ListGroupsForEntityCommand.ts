@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListGroupsForEntityRequest, ListGroupsForEntityResponse } from "../models/models_0";
-import { ListGroupsForEntity } from "../schemas/schemas_0";
+import { ListGroupsForEntity$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -104,7 +104,7 @@ export class ListGroupsForEntityCommand extends $Command
   })
   .s("WorkMailService", "ListGroupsForEntity", {})
   .n("WorkMailClient", "ListGroupsForEntityCommand")
-  .sc(ListGroupsForEntity)
+  .sc(ListGroupsForEntity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

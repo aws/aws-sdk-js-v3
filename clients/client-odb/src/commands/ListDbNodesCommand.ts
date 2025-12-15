@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListDbNodesInput, ListDbNodesOutput } from "../models/models_0";
 import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
-import { ListDbNodes } from "../schemas/schemas_0";
+import { ListDbNodes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class ListDbNodesCommand extends $Command
   })
   .s("Odb", "ListDbNodes", {})
   .n("OdbClient", "ListDbNodesCommand")
-  .sc(ListDbNodes)
+  .sc(ListDbNodes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EnableUserRequest, EnableUserResult } from "../models/models_0";
-import { EnableUser } from "../schemas/schemas_0";
+import { EnableUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -78,7 +78,7 @@ export class EnableUserCommand extends $Command
   })
   .s("PhotonAdminProxyService", "EnableUser", {})
   .n("AppStreamClient", "EnableUserCommand")
-  .sc(EnableUser)
+  .sc(EnableUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

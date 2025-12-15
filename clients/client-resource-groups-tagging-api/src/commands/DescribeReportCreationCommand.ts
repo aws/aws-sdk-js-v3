@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceGroupsTaggingAPIClient";
-import { DescribeReportCreation } from "../schemas/schemas_0";
+import { DescribeReportCreation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -134,7 +134,7 @@ export class DescribeReportCreationCommand extends $Command
   })
   .s("ResourceGroupsTaggingAPI_20170126", "DescribeReportCreation", {})
   .n("ResourceGroupsTaggingAPIClient", "DescribeReportCreationCommand")
-  .sc(DescribeReportCreation)
+  .sc(DescribeReportCreation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

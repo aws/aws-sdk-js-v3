@@ -9,7 +9,7 @@ import type {
   UpdateScraperLoggingConfigurationRequest,
   UpdateScraperLoggingConfigurationResponse,
 } from "../models/models_0";
-import { UpdateScraperLoggingConfiguration } from "../schemas/schemas_0";
+import { UpdateScraperLoggingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class UpdateScraperLoggingConfigurationCommand extends $Command
   })
   .s("AmazonPrometheusService", "UpdateScraperLoggingConfiguration", {})
   .n("AmpClient", "UpdateScraperLoggingConfigurationCommand")
-  .sc(UpdateScraperLoggingConfiguration)
+  .sc(UpdateScraperLoggingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

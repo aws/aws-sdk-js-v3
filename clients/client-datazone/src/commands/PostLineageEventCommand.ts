@@ -6,7 +6,7 @@ import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type PostLineageEventOutput, PostLineageEventInput } from "../models/models_1";
-import { PostLineageEvent } from "../schemas/schemas_0";
+import { PostLineageEvent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class PostLineageEventCommand extends $Command
   })
   .s("DataZone", "PostLineageEvent", {})
   .n("DataZoneClient", "PostLineageEventCommand")
-  .sc(PostLineageEvent)
+  .sc(PostLineageEvent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import type { AssumeDecoratedRoleWithSAMLRequest, AssumeDecoratedRoleWithSAMLResponse } from "../models/models_0";
-import { AssumeDecoratedRoleWithSAML } from "../schemas/schemas_0";
+import { AssumeDecoratedRoleWithSAML$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class AssumeDecoratedRoleWithSAMLCommand extends $Command
   })
   .s("AWSLakeFormation", "AssumeDecoratedRoleWithSAML", {})
   .n("LakeFormationClient", "AssumeDecoratedRoleWithSAMLCommand")
-  .sc(AssumeDecoratedRoleWithSAML)
+  .sc(AssumeDecoratedRoleWithSAML$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

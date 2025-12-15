@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetCredentialsForIdentityInput, GetCredentialsForIdentityResponse } from "../models/models_0";
-import { GetCredentialsForIdentity } from "../schemas/schemas_0";
+import { GetCredentialsForIdentity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,7 +123,7 @@ export class GetCredentialsForIdentityCommand extends $Command
   })
   .s("AWSCognitoIdentityService", "GetCredentialsForIdentity", {})
   .n("CognitoIdentityClient", "GetCredentialsForIdentityCommand")
-  .sc(GetCredentialsForIdentity)
+  .sc(GetCredentialsForIdentity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

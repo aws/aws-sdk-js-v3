@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { SnapshotSchedule } from "../models/models_0";
 import type { ModifySnapshotScheduleMessage } from "../models/models_1";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { ModifySnapshotSchedule } from "../schemas/schemas_0";
+import { ModifySnapshotSchedule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class ModifySnapshotScheduleCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "ModifySnapshotSchedule", {})
   .n("RedshiftClient", "ModifySnapshotScheduleCommand")
-  .sc(ModifySnapshotSchedule)
+  .sc(ModifySnapshotSchedule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

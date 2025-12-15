@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAccountSettingsRequest, GetAccountSettingsResult } from "../models/models_0";
-import { GetAccountSettings } from "../schemas/schemas_0";
+import { GetAccountSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class GetAccountSettingsCommand extends $Command
   })
   .s("DeviceFarm_20150623", "GetAccountSettings", {})
   .n("DeviceFarmClient", "GetAccountSettingsCommand")
-  .sc(GetAccountSettings)
+  .sc(GetAccountSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

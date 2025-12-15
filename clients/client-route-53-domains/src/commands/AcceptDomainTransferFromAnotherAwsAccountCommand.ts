@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53DomainsClient";
-import { AcceptDomainTransferFromAnotherAwsAccount } from "../schemas/schemas_0";
+import { AcceptDomainTransferFromAnotherAwsAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class AcceptDomainTransferFromAnotherAwsAccountCommand extends $Command
   })
   .s("Route53Domains_v20140515", "AcceptDomainTransferFromAnotherAwsAccount", {})
   .n("Route53DomainsClient", "AcceptDomainTransferFromAnotherAwsAccountCommand")
-  .sc(AcceptDomainTransferFromAnotherAwsAccount)
+  .sc(AcceptDomainTransferFromAnotherAwsAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

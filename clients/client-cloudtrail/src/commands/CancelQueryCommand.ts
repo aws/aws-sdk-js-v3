@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CancelQueryRequest, CancelQueryResponse } from "../models/models_0";
-import { CancelQuery } from "../schemas/schemas_0";
+import { CancelQuery$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class CancelQueryCommand extends $Command
   })
   .s("CloudTrail_20131101", "CancelQuery", {})
   .n("CloudTrailClient", "CancelQueryCommand")
-  .sc(CancelQuery)
+  .sc(CancelQuery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

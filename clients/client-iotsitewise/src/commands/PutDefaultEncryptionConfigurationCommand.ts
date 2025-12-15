@@ -9,7 +9,7 @@ import type {
   PutDefaultEncryptionConfigurationRequest,
   PutDefaultEncryptionConfigurationResponse,
 } from "../models/models_1";
-import { PutDefaultEncryptionConfiguration } from "../schemas/schemas_0";
+import { PutDefaultEncryptionConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class PutDefaultEncryptionConfigurationCommand extends $Command
   })
   .s("AWSIoTSiteWise", "PutDefaultEncryptionConfiguration", {})
   .n("IoTSiteWiseClient", "PutDefaultEncryptionConfigurationCommand")
-  .sc(PutDefaultEncryptionConfiguration)
+  .sc(PutDefaultEncryptionConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DetachCertificateFromDistributionRequest,
   DetachCertificateFromDistributionResult,
 } from "../models/models_0";
-import { DetachCertificateFromDistribution } from "../schemas/schemas_0";
+import { DetachCertificateFromDistribution$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,7 +123,7 @@ export class DetachCertificateFromDistributionCommand extends $Command
   })
   .s("Lightsail_20161128", "DetachCertificateFromDistribution", {})
   .n("LightsailClient", "DetachCertificateFromDistributionCommand")
-  .sc(DetachCertificateFromDistribution)
+  .sc(DetachCertificateFromDistribution$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MarketplaceMeteringClient";
 import type { RegisterUsageRequest, RegisterUsageResult } from "../models/models_0";
-import { RegisterUsage } from "../schemas/schemas_0";
+import { RegisterUsage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -154,7 +154,7 @@ export class RegisterUsageCommand extends $Command
   })
   .s("AWSMPMeteringService", "RegisterUsage", {})
   .n("MarketplaceMeteringClient", "RegisterUsageCommand")
-  .sc(RegisterUsage)
+  .sc(RegisterUsage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

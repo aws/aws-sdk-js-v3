@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchCreateTopicReviewedAnswerResponse } from "../models/models_2";
 import type { BatchCreateTopicReviewedAnswerRequest } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { BatchCreateTopicReviewedAnswer } from "../schemas/schemas_0";
+import { BatchCreateTopicReviewedAnswer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -582,7 +582,7 @@ export class BatchCreateTopicReviewedAnswerCommand extends $Command
   })
   .s("QuickSight_20180401", "BatchCreateTopicReviewedAnswer", {})
   .n("QuickSightClient", "BatchCreateTopicReviewedAnswerCommand")
-  .sc(BatchCreateTopicReviewedAnswer)
+  .sc(BatchCreateTopicReviewedAnswer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

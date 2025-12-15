@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: SageMakerClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.sagemaker",
-        serviceTarget: "SageMaker",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.sagemaker",
+      xmlNamespace: "http://sagemaker.amazonaws.com/doc/2017-05-13/",
+      version: "2017-07-24",
+      serviceTarget: "SageMaker",
+    },
     serviceId: config?.serviceId ?? "SageMaker",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

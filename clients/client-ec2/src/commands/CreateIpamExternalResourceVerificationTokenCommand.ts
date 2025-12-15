@@ -9,7 +9,7 @@ import type {
   CreateIpamExternalResourceVerificationTokenRequest,
   CreateIpamExternalResourceVerificationTokenResult,
 } from "../models/models_1";
-import { CreateIpamExternalResourceVerificationToken } from "../schemas/schemas_0";
+import { CreateIpamExternalResourceVerificationToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class CreateIpamExternalResourceVerificationTokenCommand extends $Command
   })
   .s("AmazonEC2", "CreateIpamExternalResourceVerificationToken", {})
   .n("EC2Client", "CreateIpamExternalResourceVerificationTokenCommand")
-  .sc(CreateIpamExternalResourceVerificationToken)
+  .sc(CreateIpamExternalResourceVerificationToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

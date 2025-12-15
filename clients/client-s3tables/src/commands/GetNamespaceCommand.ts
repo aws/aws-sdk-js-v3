@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetNamespaceRequest, GetNamespaceResponse } from "../models/models_0";
 import type { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
-import { GetNamespace } from "../schemas/schemas_0";
+import { GetNamespace$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class GetNamespaceCommand extends $Command
   })
   .s("S3TableBuckets", "GetNamespace", {})
   .n("S3TablesClient", "GetNamespaceCommand")
-  .sc(GetNamespace)
+  .sc(GetNamespace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DetectStackResourceDriftInput, DetectStackResourceDriftOutput } from "../models/models_0";
-import { DetectStackResourceDrift } from "../schemas/schemas_0";
+import { DetectStackResourceDrift$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class DetectStackResourceDriftCommand extends $Command
   })
   .s("CloudFormation", "DetectStackResourceDrift", {})
   .n("CloudFormationClient", "DetectStackResourceDriftCommand")
-  .sc(DetectStackResourceDrift)
+  .sc(DetectStackResourceDrift$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

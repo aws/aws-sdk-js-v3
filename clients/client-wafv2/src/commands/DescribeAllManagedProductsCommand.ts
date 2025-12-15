@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeAllManagedProductsRequest, DescribeAllManagedProductsResponse } from "../models/models_0";
-import { DescribeAllManagedProducts } from "../schemas/schemas_0";
+import { DescribeAllManagedProducts$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -113,7 +113,7 @@ export class DescribeAllManagedProductsCommand extends $Command
   })
   .s("AWSWAF_20190729", "DescribeAllManagedProducts", {})
   .n("WAFV2Client", "DescribeAllManagedProductsCommand")
-  .sc(DescribeAllManagedProducts)
+  .sc(DescribeAllManagedProducts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

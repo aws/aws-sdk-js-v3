@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import type { UploadServerCertificateRequest, UploadServerCertificateResponse } from "../models/models_1";
-import { UploadServerCertificate } from "../schemas/schemas_0";
+import { UploadServerCertificate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -172,7 +172,7 @@ export class UploadServerCertificateCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "UploadServerCertificate", {})
   .n("IAMClient", "UploadServerCertificateCommand")
-  .sc(UploadServerCertificate)
+  .sc(UploadServerCertificate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

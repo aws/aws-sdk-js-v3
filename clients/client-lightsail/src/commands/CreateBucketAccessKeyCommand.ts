@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { CreateBucketAccessKeyRequest, CreateBucketAccessKeyResult } from "../models/models_0";
-import { CreateBucketAccessKey } from "../schemas/schemas_0";
+import { CreateBucketAccessKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -140,7 +140,7 @@ export class CreateBucketAccessKeyCommand extends $Command
   })
   .s("Lightsail_20161128", "CreateBucketAccessKey", {})
   .n("LightsailClient", "CreateBucketAccessKeyCommand")
-  .sc(CreateBucketAccessKey)
+  .sc(CreateBucketAccessKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

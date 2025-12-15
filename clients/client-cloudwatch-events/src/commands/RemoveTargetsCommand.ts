@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchEventsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RemoveTargetsRequest, RemoveTargetsResponse } from "../models/models_0";
-import { RemoveTargets } from "../schemas/schemas_0";
+import { RemoveTargets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class RemoveTargetsCommand extends $Command
   })
   .s("AWSEvents", "RemoveTargets", {})
   .n("CloudWatchEventsClient", "RemoveTargetsCommand")
-  .sc(RemoveTargets)
+  .sc(RemoveTargets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

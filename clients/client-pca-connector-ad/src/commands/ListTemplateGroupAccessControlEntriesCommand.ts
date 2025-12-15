@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PcaConnectorAdClient";
-import { ListTemplateGroupAccessControlEntries } from "../schemas/schemas_0";
+import { ListTemplateGroupAccessControlEntries$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class ListTemplateGroupAccessControlEntriesCommand extends $Command
   })
   .s("PcaConnectorAd", "ListTemplateGroupAccessControlEntries", {})
   .n("PcaConnectorAdClient", "ListTemplateGroupAccessControlEntriesCommand")
-  .sc(ListTemplateGroupAccessControlEntries)
+  .sc(ListTemplateGroupAccessControlEntries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

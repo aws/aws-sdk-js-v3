@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateIamRoleFromResourceInput, DisassociateIamRoleFromResourceOutput } from "../models/models_0";
 import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
-import { DisassociateIamRoleFromResource } from "../schemas/schemas_0";
+import { DisassociateIamRoleFromResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DisassociateIamRoleFromResourceCommand extends $Command
   })
   .s("Odb", "DisassociateIamRoleFromResource", {})
   .n("OdbClient", "DisassociateIamRoleFromResourceCommand")
-  .sc(DisassociateIamRoleFromResource)
+  .sc(DisassociateIamRoleFromResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

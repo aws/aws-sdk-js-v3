@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { GetNamespace } from "../schemas/schemas_0";
+import { GetNamespace$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class GetNamespaceCommand extends $Command
   })
   .s("RedshiftServerless", "GetNamespace", {})
   .n("RedshiftServerlessClient", "GetNamespaceCommand")
-  .sc(GetNamespace)
+  .sc(GetNamespace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

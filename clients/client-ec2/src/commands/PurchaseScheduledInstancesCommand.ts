@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PurchaseScheduledInstancesRequest, PurchaseScheduledInstancesResult } from "../models/models_7";
-import { PurchaseScheduledInstances } from "../schemas/schemas_0";
+import { PurchaseScheduledInstances$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class PurchaseScheduledInstancesCommand extends $Command
   })
   .s("AmazonEC2", "PurchaseScheduledInstances", {})
   .n("EC2Client", "PurchaseScheduledInstancesCommand")
-  .sc(PurchaseScheduledInstances)
+  .sc(PurchaseScheduledInstances$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

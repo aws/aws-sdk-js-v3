@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationSignalsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutGroupingConfigurationInput, PutGroupingConfigurationOutput } from "../models/models_0";
-import { PutGroupingConfiguration } from "../schemas/schemas_0";
+import { PutGroupingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class PutGroupingConfigurationCommand extends $Command
   })
   .s("ApplicationSignals", "PutGroupingConfiguration", {})
   .n("ApplicationSignalsClient", "PutGroupingConfigurationCommand")
-  .sc(PutGroupingConfiguration)
+  .sc(PutGroupingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

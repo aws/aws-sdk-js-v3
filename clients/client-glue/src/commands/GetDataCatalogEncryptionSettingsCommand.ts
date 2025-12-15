@@ -9,7 +9,7 @@ import type {
   GetDataCatalogEncryptionSettingsRequest,
   GetDataCatalogEncryptionSettingsResponse,
 } from "../models/models_1";
-import { GetDataCatalogEncryptionSettings } from "../schemas/schemas_0";
+import { GetDataCatalogEncryptionSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class GetDataCatalogEncryptionSettingsCommand extends $Command
   })
   .s("AWSGlue", "GetDataCatalogEncryptionSettings", {})
   .n("GlueClient", "GetDataCatalogEncryptionSettingsCommand")
-  .sc(GetDataCatalogEncryptionSettings)
+  .sc(GetDataCatalogEncryptionSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

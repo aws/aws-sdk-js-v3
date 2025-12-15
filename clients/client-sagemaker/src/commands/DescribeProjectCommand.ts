@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeProjectInput } from "../models/models_2";
 import type { DescribeProjectOutput } from "../models/models_3";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DescribeProject } from "../schemas/schemas_0";
+import { DescribeProject$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -135,7 +135,7 @@ export class DescribeProjectCommand extends $Command
   })
   .s("SageMaker", "DescribeProject", {})
   .n("SageMakerClient", "DescribeProjectCommand")
-  .sc(DescribeProject)
+  .sc(DescribeProject$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

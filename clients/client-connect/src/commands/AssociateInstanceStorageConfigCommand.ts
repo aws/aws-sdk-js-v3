@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateInstanceStorageConfigRequest, AssociateInstanceStorageConfigResponse } from "../models/models_0";
-import { AssociateInstanceStorageConfig } from "../schemas/schemas_0";
+import { AssociateInstanceStorageConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,7 +127,7 @@ export class AssociateInstanceStorageConfigCommand extends $Command
   })
   .s("AmazonConnectService", "AssociateInstanceStorageConfig", {})
   .n("ConnectClient", "AssociateInstanceStorageConfigCommand")
-  .sc(AssociateInstanceStorageConfig)
+  .sc(AssociateInstanceStorageConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

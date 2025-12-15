@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutAccessPointScopeRequest } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { PutAccessPointScope } from "../schemas/schemas_0";
+import { PutAccessPointScope$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class PutAccessPointScopeCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "PutAccessPointScope", {})
   .n("S3ControlClient", "PutAccessPointScopeCommand")
-  .sc(PutAccessPointScope)
+  .sc(PutAccessPointScope$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

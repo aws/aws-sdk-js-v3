@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EnableVpcClassicLinkDnsSupportRequest, EnableVpcClassicLinkDnsSupportResult } from "../models/models_5";
-import { EnableVpcClassicLinkDnsSupport } from "../schemas/schemas_0";
+import { EnableVpcClassicLinkDnsSupport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class EnableVpcClassicLinkDnsSupportCommand extends $Command
   })
   .s("AmazonEC2", "EnableVpcClassicLinkDnsSupport", {})
   .n("EC2Client", "EnableVpcClassicLinkDnsSupportCommand")
-  .sc(EnableVpcClassicLinkDnsSupport)
+  .sc(EnableVpcClassicLinkDnsSupport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

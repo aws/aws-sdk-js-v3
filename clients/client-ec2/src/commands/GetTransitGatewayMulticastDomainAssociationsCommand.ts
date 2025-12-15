@@ -9,7 +9,7 @@ import type {
   GetTransitGatewayMulticastDomainAssociationsRequest,
   GetTransitGatewayMulticastDomainAssociationsResult,
 } from "../models/models_6";
-import { GetTransitGatewayMulticastDomainAssociations } from "../schemas/schemas_0";
+import { GetTransitGatewayMulticastDomainAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class GetTransitGatewayMulticastDomainAssociationsCommand extends $Comman
   })
   .s("AmazonEC2", "GetTransitGatewayMulticastDomainAssociations", {})
   .n("EC2Client", "GetTransitGatewayMulticastDomainAssociationsCommand")
-  .sc(GetTransitGatewayMulticastDomainAssociations)
+  .sc(GetTransitGatewayMulticastDomainAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

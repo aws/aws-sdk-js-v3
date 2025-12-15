@@ -9,7 +9,7 @@ import type {
   UpdatePlaybackRestrictionPolicyRequest,
   UpdatePlaybackRestrictionPolicyResponse,
 } from "../models/models_0";
-import { UpdatePlaybackRestrictionPolicy } from "../schemas/schemas_0";
+import { UpdatePlaybackRestrictionPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class UpdatePlaybackRestrictionPolicyCommand extends $Command
   })
   .s("AmazonInteractiveVideoService", "UpdatePlaybackRestrictionPolicy", {})
   .n("IvsClient", "UpdatePlaybackRestrictionPolicyCommand")
-  .sc(UpdatePlaybackRestrictionPolicy)
+  .sc(UpdatePlaybackRestrictionPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

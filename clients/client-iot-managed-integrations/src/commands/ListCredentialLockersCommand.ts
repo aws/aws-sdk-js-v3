@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { ListCredentialLockersRequest, ListCredentialLockersResponse } from "../models/models_0";
-import { ListCredentialLockers } from "../schemas/schemas_0";
+import { ListCredentialLockers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class ListCredentialLockersCommand extends $Command
   })
   .s("IotManagedIntegrations", "ListCredentialLockers", {})
   .n("IoTManagedIntegrationsClient", "ListCredentialLockersCommand")
-  .sc(ListCredentialLockers)
+  .sc(ListCredentialLockers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

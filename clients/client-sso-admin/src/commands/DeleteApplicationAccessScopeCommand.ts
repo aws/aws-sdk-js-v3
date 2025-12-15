@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteApplicationAccessScopeRequest } from "../models/models_0";
-import { DeleteApplicationAccessScope } from "../schemas/schemas_0";
+import { DeleteApplicationAccessScope$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -90,7 +90,7 @@ export class DeleteApplicationAccessScopeCommand extends $Command
   })
   .s("SWBExternalService", "DeleteApplicationAccessScope", {})
   .n("SSOAdminClient", "DeleteApplicationAccessScopeCommand")
-  .sc(DeleteApplicationAccessScope)
+  .sc(DeleteApplicationAccessScope$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

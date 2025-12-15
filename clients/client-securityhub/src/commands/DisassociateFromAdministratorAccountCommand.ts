@@ -8,7 +8,7 @@ import type {
   DisassociateFromAdministratorAccountRequest,
   DisassociateFromAdministratorAccountResponse,
 } from "../models/models_2";
-import { DisassociateFromAdministratorAccount } from "../schemas/schemas_0";
+import { DisassociateFromAdministratorAccount$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -106,7 +106,7 @@ export class DisassociateFromAdministratorAccountCommand extends $Command
   })
   .s("SecurityHubAPIService", "DisassociateFromAdministratorAccount", {})
   .n("SecurityHubClient", "DisassociateFromAdministratorAccountCommand")
-  .sc(DisassociateFromAdministratorAccount)
+  .sc(DisassociateFromAdministratorAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

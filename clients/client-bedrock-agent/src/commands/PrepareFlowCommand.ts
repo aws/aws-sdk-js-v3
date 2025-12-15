@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PrepareFlowRequest, PrepareFlowResponse } from "../models/models_0";
-import { PrepareFlow } from "../schemas/schemas_0";
+import { PrepareFlow$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class PrepareFlowCommand extends $Command
   })
   .s("AmazonBedrockAgentBuildTimeLambda", "PrepareFlow", {})
   .n("BedrockAgentClient", "PrepareFlowCommand")
-  .sc(PrepareFlow)
+  .sc(PrepareFlow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

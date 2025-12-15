@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyClusterSnapshotMessage, ModifyClusterSnapshotResult } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { ModifyClusterSnapshot } from "../schemas/schemas_0";
+import { ModifyClusterSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -137,7 +137,7 @@ export class ModifyClusterSnapshotCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "ModifyClusterSnapshot", {})
   .n("RedshiftClient", "ModifyClusterSnapshotCommand")
-  .sc(ModifyClusterSnapshot)
+  .sc(ModifyClusterSnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

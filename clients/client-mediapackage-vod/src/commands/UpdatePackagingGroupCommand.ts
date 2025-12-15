@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MediaPackageVodClient";
 import type { UpdatePackagingGroupRequest, UpdatePackagingGroupResponse } from "../models/models_0";
-import { UpdatePackagingGroup } from "../schemas/schemas_0";
+import { UpdatePackagingGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class UpdatePackagingGroupCommand extends $Command
   })
   .s("MediaPackageVod", "UpdatePackagingGroup", {})
   .n("MediaPackageVodClient", "UpdatePackagingGroupCommand")
-  .sc(UpdatePackagingGroup)
+  .sc(UpdatePackagingGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

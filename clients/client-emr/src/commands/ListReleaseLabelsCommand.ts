@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListReleaseLabelsInput, ListReleaseLabelsOutput } from "../models/models_0";
-import { ListReleaseLabels } from "../schemas/schemas_0";
+import { ListReleaseLabels$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class ListReleaseLabelsCommand extends $Command
   })
   .s("ElasticMapReduce", "ListReleaseLabels", {})
   .n("EMRClient", "ListReleaseLabelsCommand")
-  .sc(ListReleaseLabels)
+  .sc(ListReleaseLabels$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

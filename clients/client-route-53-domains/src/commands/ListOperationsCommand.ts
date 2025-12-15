@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53DomainsClient";
-import { ListOperations } from "../schemas/schemas_0";
+import { ListOperations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class ListOperationsCommand extends $Command
   })
   .s("Route53Domains_v20140515", "ListOperations", {})
   .n("Route53DomainsClient", "ListOperationsCommand")
-  .sc(ListOperations)
+  .sc(ListOperations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   CreateFunctionDefinitionVersionRequest,
   CreateFunctionDefinitionVersionResponse,
 } from "../models/models_0";
-import { CreateFunctionDefinitionVersion } from "../schemas/schemas_0";
+import { CreateFunctionDefinitionVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class CreateFunctionDefinitionVersionCommand extends $Command
   })
   .s("Greengrass", "CreateFunctionDefinitionVersion", {})
   .n("GreengrassClient", "CreateFunctionDefinitionVersionCommand")
-  .sc(CreateFunctionDefinitionVersion)
+  .sc(CreateFunctionDefinitionVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

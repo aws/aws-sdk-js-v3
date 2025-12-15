@@ -9,7 +9,7 @@ import type {
   AssociateResourceSharePermissionResponse,
 } from "../models/models_0";
 import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
-import { AssociateResourceSharePermission } from "../schemas/schemas_0";
+import { AssociateResourceSharePermission$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class AssociateResourceSharePermissionCommand extends $Command
   })
   .s("AmazonResourceSharing", "AssociateResourceSharePermission", {})
   .n("RAMClient", "AssociateResourceSharePermissionCommand")
-  .sc(AssociateResourceSharePermission)
+  .sc(AssociateResourceSharePermission$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

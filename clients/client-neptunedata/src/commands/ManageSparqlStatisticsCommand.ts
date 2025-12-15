@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ManageSparqlStatisticsInput, ManageSparqlStatisticsOutput } from "../models/models_0";
 import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
-import { ManageSparqlStatistics } from "../schemas/schemas_0";
+import { ManageSparqlStatistics$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class ManageSparqlStatisticsCommand extends $Command
   })
   .s("AmazonNeptuneDataplane", "ManageSparqlStatistics", {})
   .n("NeptunedataClient", "ManageSparqlStatisticsCommand")
-  .sc(ManageSparqlStatistics)
+  .sc(ManageSparqlStatistics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

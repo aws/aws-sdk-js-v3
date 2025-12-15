@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFirewallClient";
-import { UpdateRuleGroup } from "../schemas/schemas_0";
+import { UpdateRuleGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -296,7 +296,7 @@ export class UpdateRuleGroupCommand extends $Command
   })
   .s("NetworkFirewall_20201112", "UpdateRuleGroup", {})
   .n("NetworkFirewallClient", "UpdateRuleGroupCommand")
-  .sc(UpdateRuleGroup)
+  .sc(UpdateRuleGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

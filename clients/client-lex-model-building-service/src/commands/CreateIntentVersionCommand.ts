@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import type { CreateIntentVersionRequest, CreateIntentVersionResponse } from "../models/models_0";
-import { CreateIntentVersion } from "../schemas/schemas_0";
+import { CreateIntentVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -217,7 +217,7 @@ export class CreateIntentVersionCommand extends $Command
   })
   .s("AWSDeepSenseModelBuildingService", "CreateIntentVersion", {})
   .n("LexModelBuildingServiceClient", "CreateIntentVersionCommand")
-  .sc(CreateIntentVersion)
+  .sc(CreateIntentVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

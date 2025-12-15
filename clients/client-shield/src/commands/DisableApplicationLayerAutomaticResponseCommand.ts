@@ -8,7 +8,7 @@ import type {
   DisableApplicationLayerAutomaticResponseRequest,
   DisableApplicationLayerAutomaticResponseResponse,
 } from "../models/models_0";
-import { DisableApplicationLayerAutomaticResponse } from "../schemas/schemas_0";
+import { DisableApplicationLayerAutomaticResponse$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -94,7 +94,7 @@ export class DisableApplicationLayerAutomaticResponseCommand extends $Command
   })
   .s("AWSShield_20160616", "DisableApplicationLayerAutomaticResponse", {})
   .n("ShieldClient", "DisableApplicationLayerAutomaticResponseCommand")
-  .sc(DisableApplicationLayerAutomaticResponse)
+  .sc(DisableApplicationLayerAutomaticResponse$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

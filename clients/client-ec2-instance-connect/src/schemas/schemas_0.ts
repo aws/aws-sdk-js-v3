@@ -36,24 +36,24 @@ const n0 = "com.amazonaws.ec2instanceconnect";
 import { TypeRegistry } from "@smithy/core/schema";
 import type { StaticErrorSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
-import { EC2InstanceConnectServiceException as __EC2InstanceConnectServiceException } from "../models/EC2InstanceConnectServiceException";
+import { EC2InstanceConnectServiceException } from "../models/EC2InstanceConnectServiceException";
 import {
-  AuthException as __AuthException,
-  EC2InstanceNotFoundException as __EC2InstanceNotFoundException,
-  EC2InstanceStateInvalidException as __EC2InstanceStateInvalidException,
-  EC2InstanceTypeInvalidException as __EC2InstanceTypeInvalidException,
-  EC2InstanceUnavailableException as __EC2InstanceUnavailableException,
-  InvalidArgsException as __InvalidArgsException,
-  SerialConsoleAccessDisabledException as __SerialConsoleAccessDisabledException,
-  SerialConsoleSessionLimitExceededException as __SerialConsoleSessionLimitExceededException,
-  SerialConsoleSessionUnavailableException as __SerialConsoleSessionUnavailableException,
-  SerialConsoleSessionUnsupportedException as __SerialConsoleSessionUnsupportedException,
-  ServiceException as __ServiceException,
-  ThrottlingException as __ThrottlingException,
+  AuthException,
+  EC2InstanceNotFoundException,
+  EC2InstanceStateInvalidException,
+  EC2InstanceTypeInvalidException,
+  EC2InstanceUnavailableException,
+  InvalidArgsException,
+  SerialConsoleAccessDisabledException,
+  SerialConsoleSessionLimitExceededException,
+  SerialConsoleSessionUnavailableException,
+  SerialConsoleSessionUnsupportedException,
+  ServiceException,
+  ThrottlingException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var AuthException: StaticErrorSchema = [
+export var AuthException$: StaticErrorSchema = [
   -3,
   n0,
   _AE,
@@ -61,8 +61,8 @@ export var AuthException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(AuthException, __AuthException);
-export var EC2InstanceNotFoundException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(AuthException$, AuthException);
+export var EC2InstanceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _ECINFE,
@@ -70,8 +70,8 @@ export var EC2InstanceNotFoundException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(EC2InstanceNotFoundException, __EC2InstanceNotFoundException);
-export var EC2InstanceStateInvalidException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(EC2InstanceNotFoundException$, EC2InstanceNotFoundException);
+export var EC2InstanceStateInvalidException$: StaticErrorSchema = [
   -3,
   n0,
   _ECISIE,
@@ -79,8 +79,8 @@ export var EC2InstanceStateInvalidException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(EC2InstanceStateInvalidException, __EC2InstanceStateInvalidException);
-export var EC2InstanceTypeInvalidException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(EC2InstanceStateInvalidException$, EC2InstanceStateInvalidException);
+export var EC2InstanceTypeInvalidException$: StaticErrorSchema = [
   -3,
   n0,
   _ECITIE,
@@ -88,8 +88,8 @@ export var EC2InstanceTypeInvalidException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(EC2InstanceTypeInvalidException, __EC2InstanceTypeInvalidException);
-export var EC2InstanceUnavailableException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(EC2InstanceTypeInvalidException$, EC2InstanceTypeInvalidException);
+export var EC2InstanceUnavailableException$: StaticErrorSchema = [
   -3,
   n0,
   _ECIUE,
@@ -97,8 +97,8 @@ export var EC2InstanceUnavailableException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(EC2InstanceUnavailableException, __EC2InstanceUnavailableException);
-export var InvalidArgsException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(EC2InstanceUnavailableException$, EC2InstanceUnavailableException);
+export var InvalidArgsException$: StaticErrorSchema = [
   -3,
   n0,
   _IAE,
@@ -106,8 +106,8 @@ export var InvalidArgsException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(InvalidArgsException, __InvalidArgsException);
-export var SendSerialConsoleSSHPublicKeyRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InvalidArgsException$, InvalidArgsException);
+export var SendSerialConsoleSSHPublicKeyRequest$: StaticStructureSchema = [
   3,
   n0,
   _SSCSSHPKR,
@@ -115,8 +115,8 @@ export var SendSerialConsoleSSHPublicKeyRequest: StaticStructureSchema = [
   [_II, _SP, _SSHPK],
   [0, 1, 0],
 ];
-export var SendSerialConsoleSSHPublicKeyResponse: StaticStructureSchema = [3, n0, _SSCSSHPKRe, 0, [_RI, _S], [0, 2]];
-export var SendSSHPublicKeyRequest: StaticStructureSchema = [
+export var SendSerialConsoleSSHPublicKeyResponse$: StaticStructureSchema = [3, n0, _SSCSSHPKRe, 0, [_RI, _S], [0, 2]];
+export var SendSSHPublicKeyRequest$: StaticStructureSchema = [
   3,
   n0,
   _SSSHPKR,
@@ -124,8 +124,8 @@ export var SendSSHPublicKeyRequest: StaticStructureSchema = [
   [_II, _IOSU, _SSHPK, _AZ],
   [0, 0, 0, 0],
 ];
-export var SendSSHPublicKeyResponse: StaticStructureSchema = [3, n0, _SSSHPKRe, 0, [_RI, _S], [0, 2]];
-export var SerialConsoleAccessDisabledException: StaticErrorSchema = [
+export var SendSSHPublicKeyResponse$: StaticStructureSchema = [3, n0, _SSSHPKRe, 0, [_RI, _S], [0, 2]];
+export var SerialConsoleAccessDisabledException$: StaticErrorSchema = [
   -3,
   n0,
   _SCADE,
@@ -133,8 +133,8 @@ export var SerialConsoleAccessDisabledException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(SerialConsoleAccessDisabledException, __SerialConsoleAccessDisabledException);
-export var SerialConsoleSessionLimitExceededException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(SerialConsoleAccessDisabledException$, SerialConsoleAccessDisabledException);
+export var SerialConsoleSessionLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SCSLEE,
@@ -143,10 +143,10 @@ export var SerialConsoleSessionLimitExceededException: StaticErrorSchema = [
   [0],
 ];
 TypeRegistry.for(n0).registerError(
-  SerialConsoleSessionLimitExceededException,
-  __SerialConsoleSessionLimitExceededException
+  SerialConsoleSessionLimitExceededException$,
+  SerialConsoleSessionLimitExceededException
 );
-export var SerialConsoleSessionUnavailableException: StaticErrorSchema = [
+export var SerialConsoleSessionUnavailableException$: StaticErrorSchema = [
   -3,
   n0,
   _SCSUE,
@@ -154,11 +154,8 @@ export var SerialConsoleSessionUnavailableException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(
-  SerialConsoleSessionUnavailableException,
-  __SerialConsoleSessionUnavailableException
-);
-export var SerialConsoleSessionUnsupportedException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(SerialConsoleSessionUnavailableException$, SerialConsoleSessionUnavailableException);
+export var SerialConsoleSessionUnsupportedException$: StaticErrorSchema = [
   -3,
   n0,
   _SCSUEe,
@@ -166,11 +163,8 @@ export var SerialConsoleSessionUnsupportedException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(
-  SerialConsoleSessionUnsupportedException,
-  __SerialConsoleSessionUnsupportedException
-);
-export var ServiceException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(SerialConsoleSessionUnsupportedException$, SerialConsoleSessionUnsupportedException);
+export var ServiceException$: StaticErrorSchema = [
   -3,
   n0,
   _SE,
@@ -178,8 +172,8 @@ export var ServiceException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(ServiceException, __ServiceException);
-export var ThrottlingException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(ServiceException$, ServiceException);
+export var ThrottlingException$: StaticErrorSchema = [
   -3,
   n0,
   _TE,
@@ -187,8 +181,8 @@ export var ThrottlingException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var EC2InstanceConnectServiceException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var EC2InstanceConnectServiceException$: StaticErrorSchema = [
   -3,
   _sm,
   "EC2InstanceConnectServiceException",
@@ -196,20 +190,20 @@ export var EC2InstanceConnectServiceException: StaticErrorSchema = [
   [],
   [],
 ];
-TypeRegistry.for(_sm).registerError(EC2InstanceConnectServiceException, __EC2InstanceConnectServiceException);
-export var SendSerialConsoleSSHPublicKey: StaticOperationSchema = [
+TypeRegistry.for(_sm).registerError(EC2InstanceConnectServiceException$, EC2InstanceConnectServiceException);
+export var SendSerialConsoleSSHPublicKey$: StaticOperationSchema = [
   9,
   n0,
   _SSCSSHPK,
   0,
-  () => SendSerialConsoleSSHPublicKeyRequest,
-  () => SendSerialConsoleSSHPublicKeyResponse,
+  () => SendSerialConsoleSSHPublicKeyRequest$,
+  () => SendSerialConsoleSSHPublicKeyResponse$,
 ];
-export var SendSSHPublicKey: StaticOperationSchema = [
+export var SendSSHPublicKey$: StaticOperationSchema = [
   9,
   n0,
   _SSSHPK,
   0,
-  () => SendSSHPublicKeyRequest,
-  () => SendSSHPublicKeyResponse,
+  () => SendSSHPublicKeyRequest$,
+  () => SendSSHPublicKeyResponse$,
 ];

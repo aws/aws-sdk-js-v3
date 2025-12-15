@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteConstraintInput, DeleteConstraintOutput } from "../models/models_0";
-import { DeleteConstraint } from "../schemas/schemas_0";
+import { DeleteConstraint$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -83,7 +83,7 @@ export class DeleteConstraintCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "DeleteConstraint", {})
   .n("ServiceCatalogClient", "DeleteConstraintCommand")
-  .sc(DeleteConstraint)
+  .sc(DeleteConstraint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DeleteRepositoryCreationTemplateRequest,
   DeleteRepositoryCreationTemplateResponse,
 } from "../models/models_0";
-import { DeleteRepositoryCreationTemplate } from "../schemas/schemas_0";
+import { DeleteRepositoryCreationTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class DeleteRepositoryCreationTemplateCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "DeleteRepositoryCreationTemplate", {})
   .n("ECRClient", "DeleteRepositoryCreationTemplateCommand")
-  .sc(DeleteRepositoryCreationTemplate)
+  .sc(DeleteRepositoryCreationTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

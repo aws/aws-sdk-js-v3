@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RunJobFlowInput, RunJobFlowOutput } from "../models/models_0";
-import { RunJobFlow } from "../schemas/schemas_0";
+import { RunJobFlow$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -396,7 +396,7 @@ export class RunJobFlowCommand extends $Command
   })
   .s("ElasticMapReduce", "RunJobFlow", {})
   .n("EMRClient", "RunJobFlowCommand")
-  .sc(RunJobFlow)
+  .sc(RunJobFlow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

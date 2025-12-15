@@ -13,7 +13,7 @@ import type {
   DeleteRecommendationPreferencesRequest,
   DeleteRecommendationPreferencesResponse,
 } from "../models/models_0";
-import { DeleteRecommendationPreferences } from "../schemas/schemas_0";
+import { DeleteRecommendationPreferences$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class DeleteRecommendationPreferencesCommand extends $Command
   })
   .s("ComputeOptimizerService", "DeleteRecommendationPreferences", {})
   .n("ComputeOptimizerClient", "DeleteRecommendationPreferencesCommand")
-  .sc(DeleteRecommendationPreferences)
+  .sc(DeleteRecommendationPreferences$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

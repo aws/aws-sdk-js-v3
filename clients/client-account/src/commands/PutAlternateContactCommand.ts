@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutAlternateContactRequest } from "../models/models_0";
-import { PutAlternateContact } from "../schemas/schemas_0";
+import { PutAlternateContact$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class PutAlternateContactCommand extends $Command
   })
   .s("Account", "PutAlternateContact", {})
   .n("AccountClient", "PutAlternateContactCommand")
-  .sc(PutAlternateContact)
+  .sc(PutAlternateContact$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

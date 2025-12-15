@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateComputeQuotaRequest } from "../models/models_0";
 import type { CreateComputeQuotaResponse } from "../models/models_1";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { CreateComputeQuota } from "../schemas/schemas_0";
+import { CreateComputeQuota$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class CreateComputeQuotaCommand extends $Command
   })
   .s("SageMaker", "CreateComputeQuota", {})
   .n("SageMakerClient", "CreateComputeQuotaCommand")
-  .sc(CreateComputeQuota)
+  .sc(CreateComputeQuota$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../AppIntegrationsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListEventIntegrationsRequest, ListEventIntegrationsResponse } from "../models/models_0";
-import { ListEventIntegrations } from "../schemas/schemas_0";
+import { ListEventIntegrations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class ListEventIntegrationsCommand extends $Command
   })
   .s("AmazonAppIntegrationService", "ListEventIntegrations", {})
   .n("AppIntegrationsClient", "ListEventIntegrationsCommand")
-  .sc(ListEventIntegrations)
+  .sc(ListEventIntegrations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -2593,64 +2593,64 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { ConnectServiceException as __ConnectServiceException } from "../models/ConnectServiceException";
+import { ConnectServiceException } from "../models/ConnectServiceException";
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConditionalOperationFailedException as __ConditionalOperationFailedException,
-  ConflictException as __ConflictException,
-  ContactFlowNotPublishedException as __ContactFlowNotPublishedException,
-  ContactNotFoundException as __ContactNotFoundException,
-  DestinationNotAllowedException as __DestinationNotAllowedException,
-  DuplicateResourceException as __DuplicateResourceException,
-  IdempotencyException as __IdempotencyException,
-  InternalServiceException as __InternalServiceException,
-  InvalidContactFlowException as __InvalidContactFlowException,
-  InvalidContactFlowModuleException as __InvalidContactFlowModuleException,
-  InvalidParameterException as __InvalidParameterException,
-  InvalidRequestException as __InvalidRequestException,
-  LimitExceededException as __LimitExceededException,
-  MaximumResultReturnedException as __MaximumResultReturnedException,
-  OutboundContactNotPermittedException as __OutboundContactNotPermittedException,
-  OutputTypeNotFoundException as __OutputTypeNotFoundException,
-  PropertyValidationException as __PropertyValidationException,
-  ResourceConflictException as __ResourceConflictException,
-  ResourceInUseException as __ResourceInUseException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ResourceNotReadyException as __ResourceNotReadyException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  TooManyRequestsException as __TooManyRequestsException,
-  UserNotFoundException as __UserNotFoundException,
+  AccessDeniedException,
+  ConditionalOperationFailedException,
+  ConflictException,
+  ContactFlowNotPublishedException,
+  ContactNotFoundException,
+  DestinationNotAllowedException,
+  DuplicateResourceException,
+  IdempotencyException,
+  InternalServiceException,
+  InvalidContactFlowException,
+  InvalidContactFlowModuleException,
+  InvalidParameterException,
+  InvalidRequestException,
+  LimitExceededException,
+  MaximumResultReturnedException,
+  OutboundContactNotPermittedException,
+  OutputTypeNotFoundException,
+  PropertyValidationException,
+  ResourceConflictException,
+  ResourceInUseException,
+  ResourceNotFoundException,
+  ResourceNotReadyException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  TooManyRequestsException,
+  UserNotFoundException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var AgentFirstName: StaticSimpleSchema = [0, n0, _AFN, 8, 0];
-export var AgentLastName: StaticSimpleSchema = [0, n0, _ALN, 8, 0];
-export var AuthenticationError: StaticSimpleSchema = [0, n0, _AE, 8, 0];
-export var AuthenticationErrorDescription: StaticSimpleSchema = [0, n0, _AED, 8, 0];
-export var AuthorizationCode: StaticSimpleSchema = [0, n0, _AC, 8, 0];
-export var Body: StaticSimpleSchema = [0, n0, _B, 8, 0];
-export var CustomerIdNonEmpty: StaticSimpleSchema = [0, n0, _CINE, 8, 0];
-export var Description: StaticSimpleSchema = [0, n0, _D, 8, 0];
-export var DirectoryAlias: StaticSimpleSchema = [0, n0, _DA, 8, 0];
-export var Email: StaticSimpleSchema = [0, n0, _E, 8, 0];
-export var EmailAddress: StaticSimpleSchema = [0, n0, _EA, 8, 0];
-export var EmailAddressDisplayName: StaticSimpleSchema = [0, n0, _EADN, 8, 0];
-export var InboundSubject: StaticSimpleSchema = [0, n0, _IS, 8, 0];
-export var JoinToken: StaticSimpleSchema = [0, n0, _JT, 8, 0];
-export var Name: StaticSimpleSchema = [0, n0, _N, 8, 0];
-export var OutboundSubject: StaticSimpleSchema = [0, n0, _OS, 8, 0];
-export var Password: StaticSimpleSchema = [0, n0, _P, 8, 0];
-export var SearchableContactAttributeKey: StaticSimpleSchema = [0, n0, _SCAK, 8, 0];
-export var SearchableContactAttributeValue: StaticSimpleSchema = [0, n0, _SCAV, 8, 0];
-export var SearchableSegmentAttributeKey: StaticSimpleSchema = [0, n0, _SSAK, 8, 0];
-export var SearchableSegmentAttributeValue: StaticSimpleSchema = [0, n0, _SSAV, 8, 0];
-export var SearchText: StaticSimpleSchema = [0, n0, _ST, 8, 0];
-export var SecurityToken: StaticSimpleSchema = [0, n0, _STe, 8, 0];
-export var ViewAction: StaticSimpleSchema = [0, n0, _VA, 8, 0];
-export var ViewInputSchema: StaticSimpleSchema = [0, n0, _VIS, 8, 0];
-export var ViewName: StaticSimpleSchema = [0, n0, _VN, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
+var AgentFirstName: StaticSimpleSchema = [0, n0, _AFN, 8, 0];
+var AgentLastName: StaticSimpleSchema = [0, n0, _ALN, 8, 0];
+var AuthenticationError: StaticSimpleSchema = [0, n0, _AE, 8, 0];
+var AuthenticationErrorDescription: StaticSimpleSchema = [0, n0, _AED, 8, 0];
+var AuthorizationCode: StaticSimpleSchema = [0, n0, _AC, 8, 0];
+var Body: StaticSimpleSchema = [0, n0, _B, 8, 0];
+var CustomerIdNonEmpty: StaticSimpleSchema = [0, n0, _CINE, 8, 0];
+var Description: StaticSimpleSchema = [0, n0, _D, 8, 0];
+var DirectoryAlias: StaticSimpleSchema = [0, n0, _DA, 8, 0];
+var Email: StaticSimpleSchema = [0, n0, _E, 8, 0];
+var EmailAddress: StaticSimpleSchema = [0, n0, _EA, 8, 0];
+var EmailAddressDisplayName: StaticSimpleSchema = [0, n0, _EADN, 8, 0];
+var InboundSubject: StaticSimpleSchema = [0, n0, _IS, 8, 0];
+var JoinToken: StaticSimpleSchema = [0, n0, _JT, 8, 0];
+var Name: StaticSimpleSchema = [0, n0, _N, 8, 0];
+var OutboundSubject: StaticSimpleSchema = [0, n0, _OS, 8, 0];
+var Password: StaticSimpleSchema = [0, n0, _P, 8, 0];
+var SearchableContactAttributeKey: StaticSimpleSchema = [0, n0, _SCAK, 8, 0];
+var SearchableContactAttributeValue: StaticSimpleSchema = [0, n0, _SCAV, 8, 0];
+var SearchableSegmentAttributeKey: StaticSimpleSchema = [0, n0, _SSAK, 8, 0];
+var SearchableSegmentAttributeValue: StaticSimpleSchema = [0, n0, _SSAV, 8, 0];
+var SearchText: StaticSimpleSchema = [0, n0, _ST, 8, 0];
+var SecurityToken: StaticSimpleSchema = [0, n0, _STe, 8, 0];
+var ViewAction: StaticSimpleSchema = [0, n0, _VA, 8, 0];
+var ViewInputSchema: StaticSimpleSchema = [0, n0, _VIS, 8, 0];
+var ViewName: StaticSimpleSchema = [0, n0, _VN, 8, 0];
+export var AccessDeniedException$: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
@@ -2658,9 +2658,9 @@ export var AccessDeniedException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var ActionSummary: StaticStructureSchema = [3, n0, _AS, 0, [_AT], [0]];
-export var ActivateEvaluationFormRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var ActionSummary$: StaticStructureSchema = [3, n0, _AS, 0, [_AT], [0]];
+export var ActivateEvaluationFormRequest$: StaticStructureSchema = [
   3,
   n0,
   _AEFR,
@@ -2668,8 +2668,8 @@ export var ActivateEvaluationFormRequest: StaticStructureSchema = [
   [_II, _EFI, _EFV],
   [[0, 1], [0, 1], 1],
 ];
-export var ActivateEvaluationFormResponse: StaticStructureSchema = [3, n0, _AEFRc, 0, [_EFI, _EFA, _EFV], [0, 0, 1]];
-export var AdditionalEmailRecipients: StaticStructureSchema = [
+export var ActivateEvaluationFormResponse$: StaticStructureSchema = [3, n0, _AEFRc, 0, [_EFI, _EFA, _EFV], [0, 0, 1]];
+export var AdditionalEmailRecipients$: StaticStructureSchema = [
   3,
   n0,
   _AER,
@@ -2677,18 +2677,18 @@ export var AdditionalEmailRecipients: StaticStructureSchema = [
   [_TL, _CL],
   [() => EmailRecipientsList, () => EmailRecipientsList],
 ];
-export var AgentConfig: StaticStructureSchema = [3, n0, _ACg, 0, [_Di], [() => DistributionList]];
-export var AgentContactReference: StaticStructureSchema = [
+export var AgentConfig$: StaticStructureSchema = [3, n0, _ACg, 0, [_Di], [() => DistributionList]];
+export var AgentContactReference$: StaticStructureSchema = [
   3,
   n0,
   _ACR,
   0,
   [_CI, _C, _IM, _ACS, _SST, _CTAT, _Q],
-  [0, 0, 0, 0, 4, 4, () => QueueReference],
+  [0, 0, 0, 0, 4, 4, () => QueueReference$],
 ];
-export var AgentFirst: StaticStructureSchema = [3, n0, _AF, 0, [_Pr], [() => Preview]];
-export var AgentHierarchyGroup: StaticStructureSchema = [3, n0, _AHG, 0, [_A], [0]];
-export var AgentHierarchyGroups: StaticStructureSchema = [
+export var AgentFirst$: StaticStructureSchema = [3, n0, _AF, 0, [_Pr], [() => Preview$]];
+export var AgentHierarchyGroup$: StaticStructureSchema = [3, n0, _AHG, 0, [_A], [0]];
+export var AgentHierarchyGroups$: StaticStructureSchema = [
   3,
   n0,
   _AHGg,
@@ -2696,7 +2696,7 @@ export var AgentHierarchyGroups: StaticStructureSchema = [
   [_LI, _LId, _LIds, _LIds_, _LIds__],
   [64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0],
 ];
-export var AgentInfo: StaticStructureSchema = [
+export var AgentInfo$: StaticStructureSchema = [
   3,
   n0,
   _AI,
@@ -2708,9 +2708,9 @@ export var AgentInfo: StaticStructureSchema = [
     4,
     4,
     1,
-    () => HierarchyGroups,
-    () => DeviceInfo,
-    () => ParticipantCapabilities,
+    () => HierarchyGroups$,
+    () => DeviceInfo$,
+    () => ParticipantCapabilities$,
     1,
     4,
     4,
@@ -2718,9 +2718,9 @@ export var AgentInfo: StaticStructureSchema = [
     () => StateTransitions,
   ],
 ];
-export var AgentQualityMetrics: StaticStructureSchema = [3, n0, _AQM, 0, [_Au], [() => AudioQualityMetricsInfo]];
-export var AgentsCriteria: StaticStructureSchema = [3, n0, _ACge, 0, [_AIg], [64 | 0]];
-export var AgentStatus: StaticStructureSchema = [
+export var AgentQualityMetrics$: StaticStructureSchema = [3, n0, _AQM, 0, [_Au], [() => AudioQualityMetricsInfo$]];
+export var AgentsCriteria$: StaticStructureSchema = [3, n0, _ACge, 0, [_AIg], [64 | 0]];
+export var AgentStatus$: StaticStructureSchema = [
   3,
   n0,
   _ASg,
@@ -2728,25 +2728,25 @@ export var AgentStatus: StaticStructureSchema = [
   [_ASARN, _ASI, _N, _D, _T, _DO, _S, _Ta, _LMT, _LMR],
   [0, 0, 0, 0, 0, 1, 0, 128 | 0, 4, 0],
 ];
-export var AgentStatusIdentifier: StaticStructureSchema = [3, n0, _ASIg, 0, [_A, _I], [0, 0]];
-export var AgentStatusReference: StaticStructureSchema = [3, n0, _ASR, 0, [_SSTt, _SA, _SN], [4, 0, 0]];
-export var AgentStatusSearchCriteria: StaticStructureSchema = [
+export var AgentStatusIdentifier$: StaticStructureSchema = [3, n0, _ASIg, 0, [_A, _I], [0, 0]];
+export var AgentStatusReference$: StaticStructureSchema = [3, n0, _ASR, 0, [_SSTt, _SA, _SN], [4, 0, 0]];
+export var AgentStatusSearchCriteria$: StaticStructureSchema = [
   3,
   n0,
   _ASSC,
   0,
   [_OC, _ACn, _SC],
-  [() => AgentStatusSearchConditionList, () => AgentStatusSearchConditionList, () => StringCondition],
+  [() => AgentStatusSearchConditionList, () => AgentStatusSearchConditionList, () => StringCondition$],
 ];
-export var AgentStatusSearchFilter: StaticStructureSchema = [
+export var AgentStatusSearchFilter$: StaticStructureSchema = [
   3,
   n0,
   _ASSF,
   0,
   [_AFt],
-  [() => ControlPlaneAttributeFilter],
+  [() => ControlPlaneAttributeFilter$],
 ];
-export var AgentStatusSummary: StaticStructureSchema = [
+export var AgentStatusSummary$: StaticStructureSchema = [
   3,
   n0,
   _ASS,
@@ -2754,17 +2754,17 @@ export var AgentStatusSummary: StaticStructureSchema = [
   [_I, _A, _N, _T, _LMT, _LMR],
   [0, 0, 0, 0, 4, 0],
 ];
-export var AiAgentInfo: StaticStructureSchema = [3, n0, _AAI, 0, [_AUC, _AAVI, _AAE], [0, 0, 2]];
-export var AliasConfiguration: StaticStructureSchema = [3, n0, _ACl, 0, [_EAI], [0]];
-export var AllowedCapabilities: StaticStructureSchema = [
+export var AiAgentInfo$: StaticStructureSchema = [3, n0, _AAI, 0, [_AUC, _AAVI, _AAE], [0, 0, 2]];
+export var AliasConfiguration$: StaticStructureSchema = [3, n0, _ACl, 0, [_EAI], [0]];
+export var AllowedCapabilities$: StaticStructureSchema = [
   3,
   n0,
   _ACll,
   0,
   [_Cu, _Ag],
-  [() => ParticipantCapabilities, () => ParticipantCapabilities],
+  [() => ParticipantCapabilities$, () => ParticipantCapabilities$],
 ];
-export var AnalyticsDataAssociationResult: StaticStructureSchema = [
+export var AnalyticsDataAssociationResult$: StaticStructureSchema = [
   3,
   n0,
   _ADAR,
@@ -2772,19 +2772,19 @@ export var AnalyticsDataAssociationResult: StaticStructureSchema = [
   [_DSI, _TAI, _RSI, _RSA, _RSS],
   [0, 0, 0, 0, 0],
 ];
-export var AnalyticsDataSetsResult: StaticStructureSchema = [3, n0, _ADSR, 0, [_DSI, _DSN], [0, 0]];
-export var AnswerMachineDetectionConfig: StaticStructureSchema = [3, n0, _AMDC, 0, [_EAMD, _AAMP], [2, 2]];
-export var Application: StaticStructureSchema = [3, n0, _Ap, 0, [_Na, _AP, _T], [0, 64 | 0, 0]];
-export var AssignContactCategoryActionDefinition: StaticStructureSchema = [3, n0, _ACCAD, 0, [], []];
-export var AssignSlaActionDefinition: StaticStructureSchema = [
+export var AnalyticsDataSetsResult$: StaticStructureSchema = [3, n0, _ADSR, 0, [_DSI, _DSN], [0, 0]];
+export var AnswerMachineDetectionConfig$: StaticStructureSchema = [3, n0, _AMDC, 0, [_EAMD, _AAMP], [2, 2]];
+export var Application$: StaticStructureSchema = [3, n0, _Ap, 0, [_Na, _AP, _T], [0, 64 | 0, 0]];
+export var AssignContactCategoryActionDefinition$: StaticStructureSchema = [3, n0, _ACCAD, 0, [], []];
+export var AssignSlaActionDefinition$: StaticStructureSchema = [
   3,
   n0,
   _ASAD,
   0,
   [_SAT, _CSC],
-  [0, () => CaseSlaConfiguration],
+  [0, () => CaseSlaConfiguration$],
 ];
-export var AssociateAnalyticsDataSetRequest: StaticStructureSchema = [
+export var AssociateAnalyticsDataSetRequest$: StaticStructureSchema = [
   3,
   n0,
   _AADSR,
@@ -2792,7 +2792,7 @@ export var AssociateAnalyticsDataSetRequest: StaticStructureSchema = [
   [_II, _DSI, _TAI],
   [[0, 1], 0, 0],
 ];
-export var AssociateAnalyticsDataSetResponse: StaticStructureSchema = [
+export var AssociateAnalyticsDataSetResponse$: StaticStructureSchema = [
   3,
   n0,
   _AADSRs,
@@ -2800,7 +2800,7 @@ export var AssociateAnalyticsDataSetResponse: StaticStructureSchema = [
   [_DSI, _TAI, _RSI, _RSA],
   [0, 0, 0, 0],
 ];
-export var AssociateApprovedOriginRequest: StaticStructureSchema = [
+export var AssociateApprovedOriginRequest$: StaticStructureSchema = [
   3,
   n0,
   _AAOR,
@@ -2808,15 +2808,15 @@ export var AssociateApprovedOriginRequest: StaticStructureSchema = [
   [_II, _O, _CT],
   [[0, 1], 0, [0, 4]],
 ];
-export var AssociateBotRequest: StaticStructureSchema = [
+export var AssociateBotRequest$: StaticStructureSchema = [
   3,
   n0,
   _ABR,
   0,
   [_II, _LB, _LVB, _CT],
-  [[0, 1], () => LexBot, () => LexV2Bot, [0, 4]],
+  [[0, 1], () => LexBot$, () => LexV2Bot$, [0, 4]],
 ];
-export var AssociateContactWithUserRequest: StaticStructureSchema = [
+export var AssociateContactWithUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _ACWUR,
@@ -2824,8 +2824,8 @@ export var AssociateContactWithUserRequest: StaticStructureSchema = [
   [_II, _CI, _UI],
   [[0, 1], [0, 1], 0],
 ];
-export var AssociateContactWithUserResponse: StaticStructureSchema = [3, n0, _ACWURs, 0, [], []];
-export var AssociatedContactSummary: StaticStructureSchema = [
+export var AssociateContactWithUserResponse$: StaticStructureSchema = [3, n0, _ACWURs, 0, [], []];
+export var AssociatedContactSummary$: StaticStructureSchema = [
   3,
   n0,
   _ACSs,
@@ -2833,7 +2833,7 @@ export var AssociatedContactSummary: StaticStructureSchema = [
   [_CI, _CA, _IT, _DT, _ICI, _PCI, _RCI, _IM, _C],
   [0, 0, 4, 4, 0, 0, 0, 0, 0],
 ];
-export var AssociateDefaultVocabularyRequest: StaticStructureSchema = [
+export var AssociateDefaultVocabularyRequest$: StaticStructureSchema = [
   3,
   n0,
   _ADVR,
@@ -2841,28 +2841,28 @@ export var AssociateDefaultVocabularyRequest: StaticStructureSchema = [
   [_II, _LC, _VI],
   [[0, 1], [0, 1], 0],
 ];
-export var AssociateDefaultVocabularyResponse: StaticStructureSchema = [3, n0, _ADVRs, 0, [], []];
-export var AssociateEmailAddressAliasRequest: StaticStructureSchema = [
+export var AssociateDefaultVocabularyResponse$: StaticStructureSchema = [3, n0, _ADVRs, 0, [], []];
+export var AssociateEmailAddressAliasRequest$: StaticStructureSchema = [
   3,
   n0,
   _AEAAR,
   0,
   [_EAI, _II, _ACl, _CT],
-  [[0, 1], [0, 1], () => AliasConfiguration, [0, 4]],
+  [[0, 1], [0, 1], () => AliasConfiguration$, [0, 4]],
 ];
-export var AssociateEmailAddressAliasResponse: StaticStructureSchema = [3, n0, _AEAARs, 0, [], []];
-export var AssociateFlowRequest: StaticStructureSchema = [3, n0, _AFR, 0, [_II, _RI, _FI, _RT], [[0, 1], 0, 0, 0]];
-export var AssociateFlowResponse: StaticStructureSchema = [3, n0, _AFRs, 0, [], []];
-export var AssociateInstanceStorageConfigRequest: StaticStructureSchema = [
+export var AssociateEmailAddressAliasResponse$: StaticStructureSchema = [3, n0, _AEAARs, 0, [], []];
+export var AssociateFlowRequest$: StaticStructureSchema = [3, n0, _AFR, 0, [_II, _RI, _FI, _RT], [[0, 1], 0, 0, 0]];
+export var AssociateFlowResponse$: StaticStructureSchema = [3, n0, _AFRs, 0, [], []];
+export var AssociateInstanceStorageConfigRequest$: StaticStructureSchema = [
   3,
   n0,
   _AISCR,
   0,
   [_II, _RT, _SCt, _CT],
-  [[0, 1], 0, () => InstanceStorageConfig, [0, 4]],
+  [[0, 1], 0, () => InstanceStorageConfig$, [0, 4]],
 ];
-export var AssociateInstanceStorageConfigResponse: StaticStructureSchema = [3, n0, _AISCRs, 0, [_AIs], [0]];
-export var AssociateLambdaFunctionRequest: StaticStructureSchema = [
+export var AssociateInstanceStorageConfigResponse$: StaticStructureSchema = [3, n0, _AISCRs, 0, [_AIs], [0]];
+export var AssociateLambdaFunctionRequest$: StaticStructureSchema = [
   3,
   n0,
   _ALFR,
@@ -2870,15 +2870,15 @@ export var AssociateLambdaFunctionRequest: StaticStructureSchema = [
   [_II, _FA, _CT],
   [[0, 1], 0, [0, 4]],
 ];
-export var AssociateLexBotRequest: StaticStructureSchema = [
+export var AssociateLexBotRequest$: StaticStructureSchema = [
   3,
   n0,
   _ALBR,
   0,
   [_II, _LB, _CT],
-  [[0, 1], () => LexBot, [0, 4]],
+  [[0, 1], () => LexBot$, [0, 4]],
 ];
-export var AssociatePhoneNumberContactFlowRequest: StaticStructureSchema = [
+export var AssociatePhoneNumberContactFlowRequest$: StaticStructureSchema = [
   3,
   n0,
   _APNCFR,
@@ -2886,7 +2886,7 @@ export var AssociatePhoneNumberContactFlowRequest: StaticStructureSchema = [
   [_PNI, _II, _CFI],
   [[0, 1], 0, 0],
 ];
-export var AssociateQueueQuickConnectsRequest: StaticStructureSchema = [
+export var AssociateQueueQuickConnectsRequest$: StaticStructureSchema = [
   3,
   n0,
   _AQQCR,
@@ -2894,7 +2894,7 @@ export var AssociateQueueQuickConnectsRequest: StaticStructureSchema = [
   [_II, _QI, _QCI],
   [[0, 1], [0, 1], 64 | 0],
 ];
-export var AssociateRoutingProfileQueuesRequest: StaticStructureSchema = [
+export var AssociateRoutingProfileQueuesRequest$: StaticStructureSchema = [
   3,
   n0,
   _ARPQR,
@@ -2902,9 +2902,9 @@ export var AssociateRoutingProfileQueuesRequest: StaticStructureSchema = [
   [_II, _RPI, _QC, _MAQC],
   [[0, 1], [0, 1], () => RoutingProfileQueueConfigList, () => RoutingProfileManualAssignmentQueueConfigList],
 ];
-export var AssociateSecurityKeyRequest: StaticStructureSchema = [3, n0, _ASKR, 0, [_II, _K, _CT], [[0, 1], 0, [0, 4]]];
-export var AssociateSecurityKeyResponse: StaticStructureSchema = [3, n0, _ASKRs, 0, [_AIs], [0]];
-export var AssociateSecurityProfilesRequest: StaticStructureSchema = [
+export var AssociateSecurityKeyRequest$: StaticStructureSchema = [3, n0, _ASKR, 0, [_II, _K, _CT], [[0, 1], 0, [0, 4]]];
+export var AssociateSecurityKeyResponse$: StaticStructureSchema = [3, n0, _ASKRs, 0, [_AIs], [0]];
+export var AssociateSecurityProfilesRequest$: StaticStructureSchema = [
   3,
   n0,
   _ASPR,
@@ -2912,7 +2912,7 @@ export var AssociateSecurityProfilesRequest: StaticStructureSchema = [
   [_II, _SP, _ET, _EAn],
   [[0, 1], () => SecurityProfiles, 0, 0],
 ];
-export var AssociateTrafficDistributionGroupUserRequest: StaticStructureSchema = [
+export var AssociateTrafficDistributionGroupUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _ATDGUR,
@@ -2920,8 +2920,8 @@ export var AssociateTrafficDistributionGroupUserRequest: StaticStructureSchema =
   [_TDGI, _UI, _II],
   [[0, 1], 0, 0],
 ];
-export var AssociateTrafficDistributionGroupUserResponse: StaticStructureSchema = [3, n0, _ATDGURs, 0, [], []];
-export var AssociateUserProficienciesRequest: StaticStructureSchema = [
+export var AssociateTrafficDistributionGroupUserResponse$: StaticStructureSchema = [3, n0, _ATDGURs, 0, [], []];
+export var AssociateUserProficienciesRequest$: StaticStructureSchema = [
   3,
   n0,
   _AUPR,
@@ -2929,7 +2929,7 @@ export var AssociateUserProficienciesRequest: StaticStructureSchema = [
   [_II, _UI, _UP],
   [[0, 1], [0, 1], () => UserProficiencyList],
 ];
-export var AssociateWorkspaceRequest: StaticStructureSchema = [
+export var AssociateWorkspaceRequest$: StaticStructureSchema = [
   3,
   n0,
   _AWR,
@@ -2937,7 +2937,7 @@ export var AssociateWorkspaceRequest: StaticStructureSchema = [
   [_II, _WI, _RA],
   [[0, 1], [0, 1], 64 | 0],
 ];
-export var AssociateWorkspaceResponse: StaticStructureSchema = [
+export var AssociateWorkspaceResponse$: StaticStructureSchema = [
   3,
   n0,
   _AWRs,
@@ -2945,37 +2945,37 @@ export var AssociateWorkspaceResponse: StaticStructureSchema = [
   [_SL, _FL],
   [() => SuccessfulBatchAssociationSummaryList, () => FailedBatchAssociationSummaryList],
 ];
-export var AttachedFile: StaticStructureSchema = [
+export var AttachedFile$: StaticStructureSchema = [
   3,
   n0,
   _AFtt,
   0,
   [_CTr, _FAi, _FIi, _FN, _FSIB, _FS, _CB, _FUCT, _ARA, _Ta],
-  [0, 0, 0, 0, 1, 0, () => CreatedByInfo, 0, 0, 128 | 0],
+  [0, 0, 0, 0, 1, 0, () => CreatedByInfo$, 0, 0, 128 | 0],
 ];
-export var AttachedFileError: StaticStructureSchema = [3, n0, _AFE, 0, [_EC, _EM, _FIi], [0, 0, 0]];
-export var AttachmentReference: StaticStructureSchema = [3, n0, _AR, 0, [_N, _V, _St, _A], [0, 0, 0, 0]];
-export var Attendee: StaticStructureSchema = [3, n0, _At, 0, [_AIt, _JT], [0, [() => JoinToken, 0]]];
-export var Attribute: StaticStructureSchema = [3, n0, _Att, 0, [_ATt, _V], [0, 0]];
-export var AttributeAndCondition: StaticStructureSchema = [
+export var AttachedFileError$: StaticStructureSchema = [3, n0, _AFE, 0, [_EC, _EM, _FIi], [0, 0, 0]];
+export var AttachmentReference$: StaticStructureSchema = [3, n0, _AR, 0, [_N, _V, _St, _A], [0, 0, 0, 0]];
+export var Attendee$: StaticStructureSchema = [3, n0, _At, 0, [_AIt, _JT], [0, [() => JoinToken, 0]]];
+export var Attribute$: StaticStructureSchema = [3, n0, _Att, 0, [_ATt, _V], [0, 0]];
+export var AttributeAndCondition$: StaticStructureSchema = [
   3,
   n0,
   _AAC,
   0,
   [_TC, _HGC],
-  [() => TagAndConditionList, () => HierarchyGroupCondition],
+  [() => TagAndConditionList, () => HierarchyGroupCondition$],
 ];
-export var AttributeCondition: StaticStructureSchema = [
+export var AttributeCondition$: StaticStructureSchema = [
   3,
   n0,
   _ACt,
   0,
   [_N, _V, _PL, _R, _MC, _CO],
-  [0, 0, 1, () => Range, () => MatchCriteria, 0],
+  [0, 0, 1, () => Range$, () => MatchCriteria$, 0],
 ];
-export var AudioFeatures: StaticStructureSchema = [3, n0, _AFu, 0, [_ER], [0]];
-export var AudioQualityMetricsInfo: StaticStructureSchema = [3, n0, _AQMI, 0, [_QS, _PQI], [1, 64 | 0]];
-export var AuthenticationProfile: StaticStructureSchema = [
+export var AudioFeatures$: StaticStructureSchema = [3, n0, _AFu, 0, [_ER], [0]];
+export var AudioQualityMetricsInfo$: StaticStructureSchema = [3, n0, _AQMI, 0, [_QS, _PQI], [1, 64 | 0]];
+export var AuthenticationProfile$: StaticStructureSchema = [
   3,
   n0,
   _APu,
@@ -2983,7 +2983,7 @@ export var AuthenticationProfile: StaticStructureSchema = [
   [_I, _A, _N, _D, _AIl, _BI, _ID, _CTre, _LMT, _LMR, _PSD, _MSD, _SID, _SIHE],
   [0, 0, 0, 0, 64 | 0, 64 | 0, 2, 4, 4, 0, 1, 1, 1, 2],
 ];
-export var AuthenticationProfileSummary: StaticStructureSchema = [
+export var AuthenticationProfileSummary$: StaticStructureSchema = [
   3,
   n0,
   _APS,
@@ -2991,11 +2991,11 @@ export var AuthenticationProfileSummary: StaticStructureSchema = [
   [_I, _A, _N, _ID, _LMT, _LMR],
   [0, 0, 0, 2, 4, 0],
 ];
-export var AutoEvaluationConfiguration: StaticStructureSchema = [3, n0, _AEC, 0, [_En], [2]];
-export var AutoEvaluationDetails: StaticStructureSchema = [3, n0, _AEDu, 0, [_AEE, _AES], [2, 0]];
-export var AutomaticFailConfiguration: StaticStructureSchema = [3, n0, _AFC, 0, [_TS], [0]];
-export var AvailableNumberSummary: StaticStructureSchema = [3, n0, _ANS, 0, [_PN, _PNCC, _PNT], [0, 0, 0]];
-export var BatchAssociateAnalyticsDataSetRequest: StaticStructureSchema = [
+export var AutoEvaluationConfiguration$: StaticStructureSchema = [3, n0, _AEC, 0, [_En], [2]];
+export var AutoEvaluationDetails$: StaticStructureSchema = [3, n0, _AEDu, 0, [_AEE, _AES], [2, 0]];
+export var AutomaticFailConfiguration$: StaticStructureSchema = [3, n0, _AFC, 0, [_TS], [0]];
+export var AvailableNumberSummary$: StaticStructureSchema = [3, n0, _ANS, 0, [_PN, _PNCC, _PNT], [0, 0, 0]];
+export var BatchAssociateAnalyticsDataSetRequest$: StaticStructureSchema = [
   3,
   n0,
   _BAADSR,
@@ -3003,7 +3003,7 @@ export var BatchAssociateAnalyticsDataSetRequest: StaticStructureSchema = [
   [_II, _DSIa, _TAI],
   [[0, 1], 64 | 0, 0],
 ];
-export var BatchAssociateAnalyticsDataSetResponse: StaticStructureSchema = [
+export var BatchAssociateAnalyticsDataSetResponse$: StaticStructureSchema = [
   3,
   n0,
   _BAADSRa,
@@ -3011,7 +3011,7 @@ export var BatchAssociateAnalyticsDataSetResponse: StaticStructureSchema = [
   [_Cr, _Er],
   [() => AnalyticsDataAssociationResults, () => ErrorResults],
 ];
-export var BatchCreateDataTableValueFailureResult: StaticStructureSchema = [
+export var BatchCreateDataTableValueFailureResult$: StaticStructureSchema = [
   3,
   n0,
   _BCDTVFR,
@@ -3019,7 +3019,7 @@ export var BatchCreateDataTableValueFailureResult: StaticStructureSchema = [
   [_PV, _AN, _M],
   [() => PrimaryValuesSet, 0, 0],
 ];
-export var BatchCreateDataTableValueRequest: StaticStructureSchema = [
+export var BatchCreateDataTableValueRequest$: StaticStructureSchema = [
   3,
   n0,
   _BCDTVR,
@@ -3027,7 +3027,7 @@ export var BatchCreateDataTableValueRequest: StaticStructureSchema = [
   [_II, _DTI, _Va],
   [[0, 1], [0, 1], () => DataTableValueList],
 ];
-export var BatchCreateDataTableValueResponse: StaticStructureSchema = [
+export var BatchCreateDataTableValueResponse$: StaticStructureSchema = [
   3,
   n0,
   _BCDTVRa,
@@ -3035,15 +3035,15 @@ export var BatchCreateDataTableValueResponse: StaticStructureSchema = [
   [_Su, _F],
   [() => BatchCreateDataTableValueSuccessResultList, () => BatchCreateDataTableValueFailureResultList],
 ];
-export var BatchCreateDataTableValueSuccessResult: StaticStructureSchema = [
+export var BatchCreateDataTableValueSuccessResult$: StaticStructureSchema = [
   3,
   n0,
   _BCDTVSR,
   0,
   [_PV, _AN, _RIe, _LV],
-  [() => PrimaryValuesSet, 0, 0, () => DataTableLockVersion],
+  [() => PrimaryValuesSet, 0, 0, () => DataTableLockVersion$],
 ];
-export var BatchDeleteDataTableValueFailureResult: StaticStructureSchema = [
+export var BatchDeleteDataTableValueFailureResult$: StaticStructureSchema = [
   3,
   n0,
   _BDDTVFR,
@@ -3051,7 +3051,7 @@ export var BatchDeleteDataTableValueFailureResult: StaticStructureSchema = [
   [_PV, _AN, _M],
   [() => PrimaryValuesSet, 0, 0],
 ];
-export var BatchDeleteDataTableValueRequest: StaticStructureSchema = [
+export var BatchDeleteDataTableValueRequest$: StaticStructureSchema = [
   3,
   n0,
   _BDDTVR,
@@ -3059,7 +3059,7 @@ export var BatchDeleteDataTableValueRequest: StaticStructureSchema = [
   [_II, _DTI, _Va],
   [[0, 1], [0, 1], () => DataTableDeleteValueIdentifierList],
 ];
-export var BatchDeleteDataTableValueResponse: StaticStructureSchema = [
+export var BatchDeleteDataTableValueResponse$: StaticStructureSchema = [
   3,
   n0,
   _BDDTVRa,
@@ -3067,15 +3067,15 @@ export var BatchDeleteDataTableValueResponse: StaticStructureSchema = [
   [_Su, _F],
   [() => BatchDeleteDataTableValueSuccessResultList, () => BatchDeleteDataTableValueFailureResultList],
 ];
-export var BatchDeleteDataTableValueSuccessResult: StaticStructureSchema = [
+export var BatchDeleteDataTableValueSuccessResult$: StaticStructureSchema = [
   3,
   n0,
   _BDDTVSR,
   0,
   [_PV, _AN, _LV],
-  [() => PrimaryValuesSet, 0, () => DataTableLockVersion],
+  [() => PrimaryValuesSet, 0, () => DataTableLockVersion$],
 ];
-export var BatchDescribeDataTableValueFailureResult: StaticStructureSchema = [
+export var BatchDescribeDataTableValueFailureResult$: StaticStructureSchema = [
   3,
   n0,
   _BDDTVFRa,
@@ -3083,7 +3083,7 @@ export var BatchDescribeDataTableValueFailureResult: StaticStructureSchema = [
   [_PV, _AN, _M],
   [() => PrimaryValuesSet, 0, 0],
 ];
-export var BatchDescribeDataTableValueRequest: StaticStructureSchema = [
+export var BatchDescribeDataTableValueRequest$: StaticStructureSchema = [
   3,
   n0,
   _BDDTVRat,
@@ -3091,7 +3091,7 @@ export var BatchDescribeDataTableValueRequest: StaticStructureSchema = [
   [_II, _DTI, _Va],
   [[0, 1], [0, 1], () => DataTableValueIdentifierList],
 ];
-export var BatchDescribeDataTableValueResponse: StaticStructureSchema = [
+export var BatchDescribeDataTableValueResponse$: StaticStructureSchema = [
   3,
   n0,
   _BDDTVRatc,
@@ -3099,15 +3099,15 @@ export var BatchDescribeDataTableValueResponse: StaticStructureSchema = [
   [_Su, _F],
   [() => BatchDescribeDataTableValueSuccessResultList, () => BatchDescribeDataTableValueFailureResultList],
 ];
-export var BatchDescribeDataTableValueSuccessResult: StaticStructureSchema = [
+export var BatchDescribeDataTableValueSuccessResult$: StaticStructureSchema = [
   3,
   n0,
   _BDDTVSRa,
   0,
   [_RIe, _AItt, _PV, _AN, _V, _LV, _LMT, _LMR],
-  [0, 0, () => PrimaryValuesResponseSet, 0, 0, () => DataTableLockVersion, 4, 0],
+  [0, 0, () => PrimaryValuesResponseSet, 0, 0, () => DataTableLockVersion$, 4, 0],
 ];
-export var BatchDisassociateAnalyticsDataSetRequest: StaticStructureSchema = [
+export var BatchDisassociateAnalyticsDataSetRequest$: StaticStructureSchema = [
   3,
   n0,
   _BDADSR,
@@ -3115,7 +3115,7 @@ export var BatchDisassociateAnalyticsDataSetRequest: StaticStructureSchema = [
   [_II, _DSIa, _TAI],
   [[0, 1], 64 | 0, 0],
 ];
-export var BatchDisassociateAnalyticsDataSetResponse: StaticStructureSchema = [
+export var BatchDisassociateAnalyticsDataSetResponse$: StaticStructureSchema = [
   3,
   n0,
   _BDADSRa,
@@ -3123,7 +3123,7 @@ export var BatchDisassociateAnalyticsDataSetResponse: StaticStructureSchema = [
   [_De, _Er],
   [64 | 0, () => ErrorResults],
 ];
-export var BatchGetAttachedFileMetadataRequest: StaticStructureSchema = [
+export var BatchGetAttachedFileMetadataRequest$: StaticStructureSchema = [
   3,
   n0,
   _BGAFMR,
@@ -3131,7 +3131,7 @@ export var BatchGetAttachedFileMetadataRequest: StaticStructureSchema = [
   [_FIil, _II, _ARA],
   [64 | 0, [0, 1], [0, { [_hQ]: _aRA }]],
 ];
-export var BatchGetAttachedFileMetadataResponse: StaticStructureSchema = [
+export var BatchGetAttachedFileMetadataResponse$: StaticStructureSchema = [
   3,
   n0,
   _BGAFMRa,
@@ -3139,7 +3139,7 @@ export var BatchGetAttachedFileMetadataResponse: StaticStructureSchema = [
   [_Fi, _Er],
   [() => AttachedFilesList, () => AttachedFileErrorsList],
 ];
-export var BatchGetFlowAssociationRequest: StaticStructureSchema = [
+export var BatchGetFlowAssociationRequest$: StaticStructureSchema = [
   3,
   n0,
   _BGFAR,
@@ -3147,7 +3147,7 @@ export var BatchGetFlowAssociationRequest: StaticStructureSchema = [
   [_II, _RIes, _RT],
   [[0, 1], 64 | 0, 0],
 ];
-export var BatchGetFlowAssociationResponse: StaticStructureSchema = [
+export var BatchGetFlowAssociationResponse$: StaticStructureSchema = [
   3,
   n0,
   _BGFARa,
@@ -3155,7 +3155,7 @@ export var BatchGetFlowAssociationResponse: StaticStructureSchema = [
   [_FASL],
   [() => FlowAssociationSummaryList],
 ];
-export var BatchPutContactRequest: StaticStructureSchema = [
+export var BatchPutContactRequest$: StaticStructureSchema = [
   3,
   n0,
   _BPCR,
@@ -3163,7 +3163,7 @@ export var BatchPutContactRequest: StaticStructureSchema = [
   [_CT, _II, _CDRL],
   [[0, 4], [0, 1], () => ContactDataRequestList],
 ];
-export var BatchPutContactResponse: StaticStructureSchema = [
+export var BatchPutContactResponse$: StaticStructureSchema = [
   3,
   n0,
   _BPCRa,
@@ -3171,7 +3171,7 @@ export var BatchPutContactResponse: StaticStructureSchema = [
   [_SRL, _FRL],
   [() => SuccessfulRequestList, () => FailedRequestList],
 ];
-export var BatchUpdateDataTableValueFailureResult: StaticStructureSchema = [
+export var BatchUpdateDataTableValueFailureResult$: StaticStructureSchema = [
   3,
   n0,
   _BUDTVFR,
@@ -3179,7 +3179,7 @@ export var BatchUpdateDataTableValueFailureResult: StaticStructureSchema = [
   [_PV, _AN, _M],
   [() => PrimaryValuesSet, 0, 0],
 ];
-export var BatchUpdateDataTableValueRequest: StaticStructureSchema = [
+export var BatchUpdateDataTableValueRequest$: StaticStructureSchema = [
   3,
   n0,
   _BUDTVR,
@@ -3187,7 +3187,7 @@ export var BatchUpdateDataTableValueRequest: StaticStructureSchema = [
   [_II, _DTI, _Va],
   [[0, 1], [0, 1], () => DataTableValueList],
 ];
-export var BatchUpdateDataTableValueResponse: StaticStructureSchema = [
+export var BatchUpdateDataTableValueResponse$: StaticStructureSchema = [
   3,
   n0,
   _BUDTVRa,
@@ -3195,17 +3195,17 @@ export var BatchUpdateDataTableValueResponse: StaticStructureSchema = [
   [_Su, _F],
   [() => BatchUpdateDataTableValueSuccessResultList, () => BatchUpdateDataTableValueFailureResultList],
 ];
-export var BatchUpdateDataTableValueSuccessResult: StaticStructureSchema = [
+export var BatchUpdateDataTableValueSuccessResult$: StaticStructureSchema = [
   3,
   n0,
   _BUDTVSR,
   0,
   [_PV, _AN, _LV],
-  [() => PrimaryValuesSet, 0, () => DataTableLockVersion],
+  [() => PrimaryValuesSet, 0, () => DataTableLockVersion$],
 ];
-export var BooleanCondition: StaticStructureSchema = [3, n0, _BC, 0, [_FNi, _CTo], [0, 0]];
-export var Campaign: StaticStructureSchema = [3, n0, _Cam, 0, [_CIa], [0]];
-export var CaseSlaConfiguration: StaticStructureSchema = [
+export var BooleanCondition$: StaticStructureSchema = [3, n0, _BC, 0, [_FNi, _CTo], [0, 0]];
+export var Campaign$: StaticStructureSchema = [3, n0, _Cam, 0, [_CIa], [0]];
+export var CaseSlaConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _CSC,
@@ -3213,7 +3213,7 @@ export var CaseSlaConfiguration: StaticStructureSchema = [
   [_N, _T, _FIie, _TFV, _TSM],
   [0, 0, 0, () => SlaFieldValueUnionList, 1],
 ];
-export var ChatContactMetrics: StaticStructureSchema = [
+export var ChatContactMetrics$: StaticStructureSchema = [
   3,
   n0,
   _CCM,
@@ -3221,17 +3221,17 @@ export var ChatContactMetrics: StaticStructureSchema = [
   [_MP, _TM, _TBM, _TBMLIC, _CCTIM, _CTC, _AFRT, _AFRTIM],
   [2, 1, 1, 1, 1, 1, 4, 1],
 ];
-export var ChatEvent: StaticStructureSchema = [3, n0, _CE, 0, [_T, _CTon, _Co], [0, 0, 0]];
-export var ChatMessage: StaticStructureSchema = [3, n0, _CM, 0, [_CTon, _Co], [0, 0]];
-export var ChatMetrics: StaticStructureSchema = [
+export var ChatEvent$: StaticStructureSchema = [3, n0, _CE, 0, [_T, _CTon, _Co], [0, 0, 0]];
+export var ChatMessage$: StaticStructureSchema = [3, n0, _CM, 0, [_CTon, _Co], [0, 0]];
+export var ChatMetrics$: StaticStructureSchema = [
   3,
   n0,
   _CMh,
   0,
   [_CCM, _AM, _CMu],
-  [() => ChatContactMetrics, () => ParticipantMetrics, () => ParticipantMetrics],
+  [() => ChatContactMetrics$, () => ParticipantMetrics$, () => ParticipantMetrics$],
 ];
-export var ChatParticipantRoleConfig: StaticStructureSchema = [
+export var ChatParticipantRoleConfig$: StaticStructureSchema = [
   3,
   n0,
   _CPRC,
@@ -3239,16 +3239,16 @@ export var ChatParticipantRoleConfig: StaticStructureSchema = [
   [_PTCL],
   [() => ParticipantTimerConfigList],
 ];
-export var ChatStreamingConfiguration: StaticStructureSchema = [3, n0, _CSCh, 0, [_SEA], [0]];
-export var ClaimedPhoneNumberSummary: StaticStructureSchema = [
+export var ChatStreamingConfiguration$: StaticStructureSchema = [3, n0, _CSCh, 0, [_SEA], [0]];
+export var ClaimedPhoneNumberSummary$: StaticStructureSchema = [
   3,
   n0,
   _CPNS,
   0,
   [_PNI, _PNA, _PN, _PNCC, _PNT, _PND, _TA, _II, _Ta, _PNS, _SPNA],
-  [0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, () => PhoneNumberStatus, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, () => PhoneNumberStatus$, 0],
 ];
-export var ClaimPhoneNumberRequest: StaticStructureSchema = [
+export var ClaimPhoneNumberRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPNR,
@@ -3256,9 +3256,9 @@ export var ClaimPhoneNumberRequest: StaticStructureSchema = [
   [_TA, _II, _PN, _PND, _Ta, _CT],
   [0, 0, 0, 0, 128 | 0, [0, 4]],
 ];
-export var ClaimPhoneNumberResponse: StaticStructureSchema = [3, n0, _CPNRl, 0, [_PNI, _PNA], [0, 0]];
-export var CommonAttributeAndCondition: StaticStructureSchema = [3, n0, _CAAC, 0, [_TC], [() => TagAndConditionList]];
-export var CompleteAttachedFileUploadRequest: StaticStructureSchema = [
+export var ClaimPhoneNumberResponse$: StaticStructureSchema = [3, n0, _CPNRl, 0, [_PNI, _PNA], [0, 0]];
+export var CommonAttributeAndCondition$: StaticStructureSchema = [3, n0, _CAAC, 0, [_TC], [() => TagAndConditionList]];
+export var CompleteAttachedFileUploadRequest$: StaticStructureSchema = [
   3,
   n0,
   _CAFUR,
@@ -3270,16 +3270,16 @@ export var CompleteAttachedFileUploadRequest: StaticStructureSchema = [
     [0, { [_hQ]: _aRA }],
   ],
 ];
-export var CompleteAttachedFileUploadResponse: StaticStructureSchema = [3, n0, _CAFURo, 0, [], []];
-export var Condition: StaticStructureSchema = [
+export var CompleteAttachedFileUploadResponse$: StaticStructureSchema = [3, n0, _CAFURo, 0, [], []];
+export var Condition$: StaticStructureSchema = [
   3,
   n0,
   _Con,
   0,
   [_SC, _NC],
-  [() => StringCondition, () => NumberCondition],
+  [() => StringCondition$, () => NumberCondition$],
 ];
-export var ConditionalOperationFailedException: StaticErrorSchema = [
+export var ConditionalOperationFailedException$: StaticErrorSchema = [
   -3,
   n0,
   _COFE,
@@ -3287,11 +3287,11 @@ export var ConditionalOperationFailedException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(ConditionalOperationFailedException, __ConditionalOperationFailedException);
-export var ConflictException: StaticErrorSchema = [-3, n0, _CEo, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var ConnectionData: StaticStructureSchema = [3, n0, _CD, 0, [_At, _Me], [[() => Attendee, 0], () => Meeting]];
-export var Contact: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ConditionalOperationFailedException$, ConditionalOperationFailedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var ConnectionData$: StaticStructureSchema = [3, n0, _CD, 0, [_At, _Me], [[() => Attendee$, 0], () => Meeting$]];
+export var Contact$: StaticStructureSchema = [
   3,
   n0,
   _Cont,
@@ -3355,8 +3355,8 @@ export var Contact: StaticStructureSchema = [
     [() => Name, 0],
     [() => Description, 0],
     0,
-    () => QueueInfo,
-    () => AgentInfo,
+    () => QueueInfo$,
+    () => AgentInfo$,
     4,
     4,
     4,
@@ -3367,46 +3367,46 @@ export var Contact: StaticStructureSchema = [
     1,
     4,
     0,
-    () => WisdomInfo,
+    () => WisdomInfo$,
     0,
-    () => EndpointInfo,
-    () => EndpointInfo,
+    () => EndpointInfo$,
+    () => EndpointInfo$,
     1,
     1,
     128 | 0,
     4,
-    () => RoutingCriteria,
-    () => Customer,
-    () => Campaign,
+    () => RoutingCriteria$,
+    () => Customer$,
+    () => Campaign$,
     0,
-    () => CustomerVoiceActivity,
-    () => QualityMetrics,
-    () => ChatMetrics,
-    () => DisconnectDetails,
-    () => AdditionalEmailRecipients,
+    () => CustomerVoiceActivity$,
+    () => QualityMetrics$,
+    () => ChatMetrics$,
+    () => DisconnectDetails$,
+    () => AdditionalEmailRecipients$,
     () => SegmentAttributes,
     () => Recordings,
     0,
     () => ContactEvaluations,
-    () => TaskTemplateInfoV2,
-    () => ContactDetails,
-    () => OutboundStrategy,
+    () => TaskTemplateInfoV2$,
+    () => ContactDetails$,
+    () => OutboundStrategy$,
     128 | 0,
     () => NextContacts,
   ],
 ];
-export var ContactAnalysis: StaticStructureSchema = [3, n0, _CAo, 0, [_Tr], [[() => Transcript, 0]]];
-export var ContactConfiguration: StaticStructureSchema = [3, n0, _CC, 0, [_CI, _PR, _IRM], [0, 0, 2]];
-export var ContactDataRequest: StaticStructureSchema = [
+export var ContactAnalysis$: StaticStructureSchema = [3, n0, _CAo, 0, [_Tr], [[() => Transcript$, 0]]];
+export var ContactConfiguration$: StaticStructureSchema = [3, n0, _CC, 0, [_CI, _PR, _IRM], [0, 0, 2]];
+export var ContactDataRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDR,
   0,
   [_SE, _CEu, _RIeq, _QI, _Attr, _Cam, _OSu],
-  [() => Endpoint, () => Endpoint, 0, 0, 128 | 0, () => Campaign, () => OutboundStrategy],
+  [() => Endpoint$, () => Endpoint$, 0, 0, 128 | 0, () => Campaign$, () => OutboundStrategy$],
 ];
-export var ContactDetails: StaticStructureSchema = [3, n0, _CDo, 0, [_N, _D], [0, 0]];
-export var ContactEvaluation: StaticStructureSchema = [
+export var ContactDetails$: StaticStructureSchema = [3, n0, _CDo, 0, [_N, _D], [0, 0]];
+export var ContactEvaluation$: StaticStructureSchema = [
   3,
   n0,
   _CEont,
@@ -3414,8 +3414,8 @@ export var ContactEvaluation: StaticStructureSchema = [
   [_FIo, _EAv, _St, _STta, _ETn, _DTe, _EL],
   [0, 0, 0, 4, 4, 4, 0],
 ];
-export var ContactFilter: StaticStructureSchema = [3, n0, _CF, 0, [_CS], [64 | 0]];
-export var ContactFlow: StaticStructureSchema = [
+export var ContactFilter$: StaticStructureSchema = [3, n0, _CF, 0, [_CS], [64 | 0]];
+export var ContactFlow$: StaticStructureSchema = [
   3,
   n0,
   _CFo,
@@ -3423,15 +3423,15 @@ export var ContactFlow: StaticStructureSchema = [
   [_A, _I, _N, _T, _S, _St, _D, _Co, _Ta, _FCS, _Ve, _VD, _LMT, _LMR],
   [0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, 0, 1, 0, 4, 0],
 ];
-export var ContactFlowAttributeAndCondition: StaticStructureSchema = [
+export var ContactFlowAttributeAndCondition$: StaticStructureSchema = [
   3,
   n0,
   _CFAAC,
   0,
   [_TC, _CFTC],
-  [() => TagAndConditionList, () => ContactFlowTypeCondition],
+  [() => TagAndConditionList, () => ContactFlowTypeCondition$],
 ];
-export var ContactFlowAttributeFilter: StaticStructureSchema = [
+export var ContactFlowAttributeFilter$: StaticStructureSchema = [
   3,
   n0,
   _CFAF,
@@ -3439,20 +3439,20 @@ export var ContactFlowAttributeFilter: StaticStructureSchema = [
   [_OC, _ACnd, _TCa, _CFTC],
   [
     () => ContactFlowAttributeOrConditionList,
-    () => ContactFlowAttributeAndCondition,
-    () => TagCondition,
-    () => ContactFlowTypeCondition,
+    () => ContactFlowAttributeAndCondition$,
+    () => TagCondition$,
+    () => ContactFlowTypeCondition$,
   ],
 ];
-export var ContactFlowModule: StaticStructureSchema = [
+export var ContactFlowModule$: StaticStructureSchema = [
   3,
   n0,
   _CFM,
   0,
   [_A, _I, _N, _Co, _D, _S, _St, _Ta, _FMCS, _Ve, _VD, _Se, _EIC],
-  [0, 0, 0, 0, 0, 0, 0, 128 | 0, 0, 1, 0, 0, () => ExternalInvocationConfiguration],
+  [0, 0, 0, 0, 0, 0, 0, 128 | 0, 0, 1, 0, 0, () => ExternalInvocationConfiguration$],
 ];
-export var ContactFlowModuleAliasInfo: StaticStructureSchema = [
+export var ContactFlowModuleAliasInfo$: StaticStructureSchema = [
   3,
   n0,
   _CFMAI,
@@ -3460,7 +3460,7 @@ export var ContactFlowModuleAliasInfo: StaticStructureSchema = [
   [_CFMI, _CFMA, _AIli, _Ve, _N, _D, _LMR, _LMT],
   [0, 0, 0, 1, 0, 0, 0, 4],
 ];
-export var ContactFlowModuleAliasSummary: StaticStructureSchema = [
+export var ContactFlowModuleAliasSummary$: StaticStructureSchema = [
   3,
   n0,
   _CFMAS,
@@ -3468,43 +3468,49 @@ export var ContactFlowModuleAliasSummary: StaticStructureSchema = [
   [_A, _AIli, _Ve, _ANl, _AD, _LMT],
   [0, 0, 1, 0, 0, 4],
 ];
-export var ContactFlowModuleSearchCriteria: StaticStructureSchema = [
+export var ContactFlowModuleSearchCriteria$: StaticStructureSchema = [
   3,
   n0,
   _CFMSC,
   0,
   [_OC, _ACn, _SC, _SCta, _SCtat],
-  [() => ContactFlowModuleSearchConditionList, () => ContactFlowModuleSearchConditionList, () => StringCondition, 0, 0],
+  [
+    () => ContactFlowModuleSearchConditionList,
+    () => ContactFlowModuleSearchConditionList,
+    () => StringCondition$,
+    0,
+    0,
+  ],
 ];
-export var ContactFlowModuleSearchFilter: StaticStructureSchema = [
+export var ContactFlowModuleSearchFilter$: StaticStructureSchema = [
   3,
   n0,
   _CFMSF,
   0,
   [_TF],
-  [() => ControlPlaneTagFilter],
+  [() => ControlPlaneTagFilter$],
 ];
-export var ContactFlowModuleSummary: StaticStructureSchema = [3, n0, _CFMS, 0, [_I, _A, _N, _S], [0, 0, 0, 0]];
-export var ContactFlowModuleVersionSummary: StaticStructureSchema = [3, n0, _CFMVS, 0, [_A, _VD, _Ve], [0, 0, 1]];
-export var ContactFlowNotPublishedException: StaticErrorSchema = [-3, n0, _CFNPE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ContactFlowNotPublishedException, __ContactFlowNotPublishedException);
-export var ContactFlowSearchCriteria: StaticStructureSchema = [
+export var ContactFlowModuleSummary$: StaticStructureSchema = [3, n0, _CFMS, 0, [_I, _A, _N, _S], [0, 0, 0, 0]];
+export var ContactFlowModuleVersionSummary$: StaticStructureSchema = [3, n0, _CFMVS, 0, [_A, _VD, _Ve], [0, 0, 1]];
+export var ContactFlowNotPublishedException$: StaticErrorSchema = [-3, n0, _CFNPE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ContactFlowNotPublishedException$, ContactFlowNotPublishedException);
+export var ContactFlowSearchCriteria$: StaticStructureSchema = [
   3,
   n0,
   _CFSC,
   0,
   [_OC, _ACn, _SC, _TCy, _SCta, _SCtat],
-  [() => ContactFlowSearchConditionList, () => ContactFlowSearchConditionList, () => StringCondition, 0, 0, 0],
+  [() => ContactFlowSearchConditionList, () => ContactFlowSearchConditionList, () => StringCondition$, 0, 0, 0],
 ];
-export var ContactFlowSearchFilter: StaticStructureSchema = [
+export var ContactFlowSearchFilter$: StaticStructureSchema = [
   3,
   n0,
   _CFSF,
   0,
   [_TF, _FAF],
-  [() => ControlPlaneTagFilter, () => ContactFlowAttributeFilter],
+  [() => ControlPlaneTagFilter$, () => ContactFlowAttributeFilter$],
 ];
-export var ContactFlowSummary: StaticStructureSchema = [
+export var ContactFlowSummary$: StaticStructureSchema = [
   3,
   n0,
   _CFS,
@@ -3512,11 +3518,11 @@ export var ContactFlowSummary: StaticStructureSchema = [
   [_I, _A, _N, _CFT, _CFSo, _CFSon],
   [0, 0, 0, 0, 0, 0],
 ];
-export var ContactFlowTypeCondition: StaticStructureSchema = [3, n0, _CFTC, 0, [_CFT], [0]];
-export var ContactFlowVersionSummary: StaticStructureSchema = [3, n0, _CFVS, 0, [_A, _VD, _Ve], [0, 0, 1]];
-export var ContactMetricInfo: StaticStructureSchema = [3, n0, _CMI, 0, [_N], [0]];
-export var ContactMetricResult: StaticStructureSchema = [3, n0, _CMR, 0, [_N, _V], [0, () => ContactMetricValue]];
-export var ContactNotFoundException: StaticErrorSchema = [
+export var ContactFlowTypeCondition$: StaticStructureSchema = [3, n0, _CFTC, 0, [_CFT], [0]];
+export var ContactFlowVersionSummary$: StaticStructureSchema = [3, n0, _CFVS, 0, [_A, _VD, _Ve], [0, 0, 1]];
+export var ContactMetricInfo$: StaticStructureSchema = [3, n0, _CMI, 0, [_N], [0]];
+export var ContactMetricResult$: StaticStructureSchema = [3, n0, _CMR, 0, [_N, _V], [0, () => ContactMetricValue$]];
+export var ContactNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _CNFE,
@@ -3524,8 +3530,8 @@ export var ContactNotFoundException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(ContactNotFoundException, __ContactNotFoundException);
-export var ContactSearchSummary: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ContactNotFoundException$, ContactNotFoundException);
+export var ContactSearchSummary$: StaticStructureSchema = [
   3,
   n0,
   _CSS,
@@ -3538,19 +3544,19 @@ export var ContactSearchSummary: StaticStructureSchema = [
     0,
     0,
     0,
-    () => ContactSearchSummaryQueueInfo,
-    () => ContactSearchSummaryAgentInfo,
+    () => ContactSearchSummaryQueueInfo$,
+    () => ContactSearchSummaryAgentInfo$,
     4,
     4,
     4,
     [() => ContactSearchSummarySegmentAttributes, 0],
     [() => Name, 0],
-    () => RoutingCriteria,
+    () => RoutingCriteria$,
   ],
 ];
-export var ContactSearchSummaryAgentInfo: StaticStructureSchema = [3, n0, _CSSAI, 0, [_I, _CTAT], [0, 4]];
-export var ContactSearchSummaryQueueInfo: StaticStructureSchema = [3, n0, _CSSQI, 0, [_I, _ETnq], [0, 4]];
-export var ContactSearchSummarySegmentAttributeValue: StaticStructureSchema = [
+export var ContactSearchSummaryAgentInfo$: StaticStructureSchema = [3, n0, _CSSAI, 0, [_I, _CTAT], [0, 4]];
+export var ContactSearchSummaryQueueInfo$: StaticStructureSchema = [3, n0, _CSSQI, 0, [_I, _ETnq], [0, 4]];
+export var ContactSearchSummarySegmentAttributeValue$: StaticStructureSchema = [
   3,
   n0,
   _CSSSAV,
@@ -3558,31 +3564,31 @@ export var ContactSearchSummarySegmentAttributeValue: StaticStructureSchema = [
   [_VS, _VM],
   [0, () => SegmentAttributeValueMap],
 ];
-export var ControlPlaneAttributeFilter: StaticStructureSchema = [
+export var ControlPlaneAttributeFilter$: StaticStructureSchema = [
   3,
   n0,
   _CPAF,
   0,
   [_OC, _ACnd, _TCa],
-  [() => CommonAttributeOrConditionList, () => CommonAttributeAndCondition, () => TagCondition],
+  [() => CommonAttributeOrConditionList, () => CommonAttributeAndCondition$, () => TagCondition$],
 ];
-export var ControlPlaneTagFilter: StaticStructureSchema = [
+export var ControlPlaneTagFilter$: StaticStructureSchema = [
   3,
   n0,
   _CPTF,
   0,
   [_OC, _ACn, _TCa],
-  [() => TagOrConditionList, () => TagAndConditionList, () => TagCondition],
+  [() => TagOrConditionList, () => TagAndConditionList, () => TagCondition$],
 ];
-export var ControlPlaneUserAttributeFilter: StaticStructureSchema = [
+export var ControlPlaneUserAttributeFilter$: StaticStructureSchema = [
   3,
   n0,
   _CPUAF,
   0,
   [_OC, _ACnd, _TCa, _HGC],
-  [() => AttributeOrConditionList, () => AttributeAndCondition, () => TagCondition, () => HierarchyGroupCondition],
+  [() => AttributeOrConditionList, () => AttributeAndCondition$, () => TagCondition$, () => HierarchyGroupCondition$],
 ];
-export var CreateAgentStatusRequest: StaticStructureSchema = [
+export var CreateAgentStatusRequest$: StaticStructureSchema = [
   3,
   n0,
   _CASR,
@@ -3590,9 +3596,9 @@ export var CreateAgentStatusRequest: StaticStructureSchema = [
   [_II, _N, _D, _S, _DO, _Ta],
   [[0, 1], 0, 0, 0, 1, 128 | 0],
 ];
-export var CreateAgentStatusResponse: StaticStructureSchema = [3, n0, _CASRr, 0, [_ASARN, _ASI], [0, 0]];
-export var CreateCaseActionDefinition: StaticStructureSchema = [3, n0, _CCAD, 0, [_Fie, _TI], [() => FieldValues, 0]];
-export var CreateContactFlowModuleAliasRequest: StaticStructureSchema = [
+export var CreateAgentStatusResponse$: StaticStructureSchema = [3, n0, _CASRr, 0, [_ASARN, _ASI], [0, 0]];
+export var CreateCaseActionDefinition$: StaticStructureSchema = [3, n0, _CCAD, 0, [_Fie, _TI], [() => FieldValues, 0]];
+export var CreateContactFlowModuleAliasRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCFMAR,
@@ -3600,17 +3606,17 @@ export var CreateContactFlowModuleAliasRequest: StaticStructureSchema = [
   [_II, _D, _CFMI, _CFMV, _ANl],
   [[0, 1], 0, [0, 1], 1, 0],
 ];
-export var CreateContactFlowModuleAliasResponse: StaticStructureSchema = [3, n0, _CCFMARr, 0, [_CFMA, _I], [0, 0]];
-export var CreateContactFlowModuleRequest: StaticStructureSchema = [
+export var CreateContactFlowModuleAliasResponse$: StaticStructureSchema = [3, n0, _CCFMARr, 0, [_CFMA, _I], [0, 0]];
+export var CreateContactFlowModuleRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCFMR,
   0,
   [_II, _N, _D, _Co, _Ta, _CT, _Se, _EIC],
-  [[0, 1], 0, 0, 0, 128 | 0, [0, 4], 0, () => ExternalInvocationConfiguration],
+  [[0, 1], 0, 0, 0, 128 | 0, [0, 4], 0, () => ExternalInvocationConfiguration$],
 ];
-export var CreateContactFlowModuleResponse: StaticStructureSchema = [3, n0, _CCFMRr, 0, [_I, _A], [0, 0]];
-export var CreateContactFlowModuleVersionRequest: StaticStructureSchema = [
+export var CreateContactFlowModuleResponse$: StaticStructureSchema = [3, n0, _CCFMRr, 0, [_I, _A], [0, 0]];
+export var CreateContactFlowModuleVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCFMVR,
@@ -3618,8 +3624,8 @@ export var CreateContactFlowModuleVersionRequest: StaticStructureSchema = [
   [_II, _D, _CFMI, _FMCS],
   [[0, 1], 0, [0, 1], 0],
 ];
-export var CreateContactFlowModuleVersionResponse: StaticStructureSchema = [3, n0, _CCFMVRr, 0, [_CFMA, _Ve], [0, 1]];
-export var CreateContactFlowRequest: StaticStructureSchema = [
+export var CreateContactFlowModuleVersionResponse$: StaticStructureSchema = [3, n0, _CCFMVRr, 0, [_CFMA, _Ve], [0, 1]];
+export var CreateContactFlowRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCFR,
@@ -3627,8 +3633,8 @@ export var CreateContactFlowRequest: StaticStructureSchema = [
   [_II, _N, _T, _D, _Co, _St, _Ta],
   [[0, 1], 0, 0, 0, 0, 0, 128 | 0],
 ];
-export var CreateContactFlowResponse: StaticStructureSchema = [3, n0, _CCFRr, 0, [_CFI, _CFA, _FCS], [0, 0, 0]];
-export var CreateContactFlowVersionRequest: StaticStructureSchema = [
+export var CreateContactFlowResponse$: StaticStructureSchema = [3, n0, _CCFRr, 0, [_CFI, _CFA, _FCS], [0, 0, 0]];
+export var CreateContactFlowVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCFVR,
@@ -3636,8 +3642,8 @@ export var CreateContactFlowVersionRequest: StaticStructureSchema = [
   [_II, _D, _CFI, _FCS, _CFV, _LMT, _LMR],
   [[0, 1], 0, [0, 1], 0, 1, 4, 0],
 ];
-export var CreateContactFlowVersionResponse: StaticStructureSchema = [3, n0, _CCFVRr, 0, [_CFA, _Ve], [0, 1]];
-export var CreateContactRequest: StaticStructureSchema = [
+export var CreateContactFlowVersionResponse$: StaticStructureSchema = [3, n0, _CCFVRr, 0, [_CFA, _Ve], [0, 1]];
+export var CreateContactRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCR,
@@ -3652,7 +3658,7 @@ export var CreateContactRequest: StaticStructureSchema = [
     0,
     0,
     1,
-    () => UserInfo,
+    () => UserInfo$,
     0,
     [() => Name, 0],
     [() => Description, 0],
@@ -3660,24 +3666,24 @@ export var CreateContactRequest: StaticStructureSchema = [
     0,
   ],
 ];
-export var CreateContactResponse: StaticStructureSchema = [3, n0, _CCRr, 0, [_CI, _CA], [0, 0]];
-export var CreateDataTableAttributeRequest: StaticStructureSchema = [
+export var CreateContactResponse$: StaticStructureSchema = [3, n0, _CCRr, 0, [_CI, _CA], [0, 0]];
+export var CreateDataTableAttributeRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDTAR,
   0,
   [_II, _DTI, _N, _VT, _D, _Pri, _Val],
-  [[0, 1], [0, 1], 0, 0, 0, 2, () => Validation],
+  [[0, 1], [0, 1], 0, 0, 0, 2, () => Validation$],
 ];
-export var CreateDataTableAttributeResponse: StaticStructureSchema = [
+export var CreateDataTableAttributeResponse$: StaticStructureSchema = [
   3,
   n0,
   _CDTARr,
   0,
   [_N, _AItt, _LV],
-  [0, 0, () => DataTableLockVersion],
+  [0, 0, () => DataTableLockVersion$],
 ];
-export var CreateDataTableRequest: StaticStructureSchema = [
+export var CreateDataTableRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDTR,
@@ -3685,15 +3691,15 @@ export var CreateDataTableRequest: StaticStructureSchema = [
   [_II, _N, _D, _TZ, _VLL, _St, _Ta],
   [[0, 1], 0, 0, 0, 0, 0, 128 | 0],
 ];
-export var CreateDataTableResponse: StaticStructureSchema = [
+export var CreateDataTableResponse$: StaticStructureSchema = [
   3,
   n0,
   _CDTRr,
   0,
   [_I, _A, _LV],
-  [0, 0, () => DataTableLockVersion],
+  [0, 0, () => DataTableLockVersion$],
 ];
-export var CreateEmailAddressRequest: StaticStructureSchema = [
+export var CreateEmailAddressRequest$: StaticStructureSchema = [
   3,
   n0,
   _CEAR,
@@ -3701,8 +3707,8 @@ export var CreateEmailAddressRequest: StaticStructureSchema = [
   [_D, _II, _EA, _DN, _Ta, _CT],
   [[() => Description, 0], [0, 1], [() => EmailAddress, 0], [() => EmailAddressDisplayName, 0], 128 | 0, 0],
 ];
-export var CreateEmailAddressResponse: StaticStructureSchema = [3, n0, _CEARr, 0, [_EAI, _EAA], [0, 0]];
-export var CreateEvaluationFormRequest: StaticStructureSchema = [
+export var CreateEmailAddressResponse$: StaticStructureSchema = [3, n0, _CEARr, 0, [_EAI, _EAA], [0, 0]];
+export var CreateEvaluationFormRequest$: StaticStructureSchema = [
   3,
   n0,
   _CEFR,
@@ -3713,17 +3719,17 @@ export var CreateEvaluationFormRequest: StaticStructureSchema = [
     0,
     0,
     () => EvaluationFormItemsList,
-    () => EvaluationFormScoringStrategy,
-    () => EvaluationFormAutoEvaluationConfiguration,
+    () => EvaluationFormScoringStrategy$,
+    () => EvaluationFormAutoEvaluationConfiguration$,
     [0, 4],
     2,
     128 | 0,
-    () => EvaluationFormTargetConfiguration,
-    () => EvaluationFormLanguageConfiguration,
+    () => EvaluationFormTargetConfiguration$,
+    () => EvaluationFormLanguageConfiguration$,
   ],
 ];
-export var CreateEvaluationFormResponse: StaticStructureSchema = [3, n0, _CEFRr, 0, [_EFI, _EFA], [0, 0]];
-export var CreateHoursOfOperationOverrideRequest: StaticStructureSchema = [
+export var CreateEvaluationFormResponse$: StaticStructureSchema = [3, n0, _CEFRr, 0, [_EFI, _EFA], [0, 0]];
+export var CreateHoursOfOperationOverrideRequest$: StaticStructureSchema = [
   3,
   n0,
   _CHOOOR,
@@ -3731,8 +3737,8 @@ export var CreateHoursOfOperationOverrideRequest: StaticStructureSchema = [
   [_II, _HOOI, _N, _D, _Conf, _EF, _ETf],
   [[0, 1], [0, 1], 0, 0, () => HoursOfOperationOverrideConfigList, 0, 0],
 ];
-export var CreateHoursOfOperationOverrideResponse: StaticStructureSchema = [3, n0, _CHOOORr, 0, [_HOOOI], [0]];
-export var CreateHoursOfOperationRequest: StaticStructureSchema = [
+export var CreateHoursOfOperationOverrideResponse$: StaticStructureSchema = [3, n0, _CHOOORr, 0, [_HOOOI], [0]];
+export var CreateHoursOfOperationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CHOOR,
@@ -3740,8 +3746,8 @@ export var CreateHoursOfOperationRequest: StaticStructureSchema = [
   [_II, _N, _D, _TZ, _Conf, _Ta],
   [[0, 1], 0, 0, 0, () => HoursOfOperationConfigList, 128 | 0],
 ];
-export var CreateHoursOfOperationResponse: StaticStructureSchema = [3, n0, _CHOORr, 0, [_HOOI, _HOOA], [0, 0]];
-export var CreateInstanceRequest: StaticStructureSchema = [
+export var CreateHoursOfOperationResponse$: StaticStructureSchema = [3, n0, _CHOORr, 0, [_HOOI, _HOOA], [0, 0]];
+export var CreateInstanceRequest$: StaticStructureSchema = [
   3,
   n0,
   _CIR,
@@ -3749,8 +3755,8 @@ export var CreateInstanceRequest: StaticStructureSchema = [
   [_CT, _IMT, _IAn, _DIi, _ICE, _OCE, _Ta],
   [[0, 4], 0, [() => DirectoryAlias, 0], 0, 2, 2, 128 | 0],
 ];
-export var CreateInstanceResponse: StaticStructureSchema = [3, n0, _CIRr, 0, [_I, _A], [0, 0]];
-export var CreateIntegrationAssociationRequest: StaticStructureSchema = [
+export var CreateInstanceResponse$: StaticStructureSchema = [3, n0, _CIRr, 0, [_I, _A], [0, 0]];
+export var CreateIntegrationAssociationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CIAR,
@@ -3758,24 +3764,24 @@ export var CreateIntegrationAssociationRequest: StaticStructureSchema = [
   [_II, _ITn, _IAnt, _SAU, _SAN, _STo, _Ta],
   [[0, 1], 0, 0, 0, 0, 0, 128 | 0],
 ];
-export var CreateIntegrationAssociationResponse: StaticStructureSchema = [3, n0, _CIARr, 0, [_IAI, _IAA], [0, 0]];
-export var CreateParticipantRequest: StaticStructureSchema = [
+export var CreateIntegrationAssociationResponse$: StaticStructureSchema = [3, n0, _CIARr, 0, [_IAI, _IAA], [0, 0]];
+export var CreateParticipantRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPR,
   0,
   [_II, _CI, _CT, _PD],
-  [0, 0, [0, 4], () => ParticipantDetailsToAdd],
+  [0, 0, [0, 4], () => ParticipantDetailsToAdd$],
 ];
-export var CreateParticipantResponse: StaticStructureSchema = [
+export var CreateParticipantResponse$: StaticStructureSchema = [
   3,
   n0,
   _CPRr,
   0,
   [_PC, _PI],
-  [() => ParticipantTokenCredentials, 0],
+  [() => ParticipantTokenCredentials$, 0],
 ];
-export var CreatePersistentContactAssociationRequest: StaticStructureSchema = [
+export var CreatePersistentContactAssociationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPCAR,
@@ -3783,16 +3789,16 @@ export var CreatePersistentContactAssociationRequest: StaticStructureSchema = [
   [_II, _ICI, _RTe, _SCI, _CT],
   [[0, 1], [0, 1], 0, 0, 0],
 ];
-export var CreatePersistentContactAssociationResponse: StaticStructureSchema = [3, n0, _CPCARr, 0, [_CFCI], [0]];
-export var CreatePredefinedAttributeRequest: StaticStructureSchema = [
+export var CreatePersistentContactAssociationResponse$: StaticStructureSchema = [3, n0, _CPCARr, 0, [_CFCI], [0]];
+export var CreatePredefinedAttributeRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPAR,
   0,
   [_II, _N, _Va, _Pu, _ACtt],
-  [[0, 1], 0, () => PredefinedAttributeValues, 64 | 0, () => InputPredefinedAttributeConfiguration],
+  [[0, 1], 0, () => PredefinedAttributeValues$, 64 | 0, () => InputPredefinedAttributeConfiguration$],
 ];
-export var CreatePromptRequest: StaticStructureSchema = [
+export var CreatePromptRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPRre,
@@ -3800,35 +3806,35 @@ export var CreatePromptRequest: StaticStructureSchema = [
   [_II, _N, _D, _SU, _Ta],
   [[0, 1], 0, 0, 0, 128 | 0],
 ];
-export var CreatePromptResponse: StaticStructureSchema = [3, n0, _CPRrea, 0, [_PARN, _PIr], [0, 0]];
-export var CreatePushNotificationRegistrationRequest: StaticStructureSchema = [
+export var CreatePromptResponse$: StaticStructureSchema = [3, n0, _CPRrea, 0, [_PARN, _PIr], [0, 0]];
+export var CreatePushNotificationRegistrationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPNRR,
   0,
   [_II, _CT, _PAA, _DTev, _DTevi, _CC],
-  [[0, 1], [0, 4], 0, 0, 0, () => ContactConfiguration],
+  [[0, 1], [0, 4], 0, 0, 0, () => ContactConfiguration$],
 ];
-export var CreatePushNotificationRegistrationResponse: StaticStructureSchema = [3, n0, _CPNRRr, 0, [_RIeg], [0]];
-export var CreateQueueRequest: StaticStructureSchema = [
+export var CreatePushNotificationRegistrationResponse$: StaticStructureSchema = [3, n0, _CPNRRr, 0, [_RIeg], [0]];
+export var CreateQueueRequest$: StaticStructureSchema = [
   3,
   n0,
   _CQR,
   0,
   [_II, _N, _D, _OCC, _OEC, _HOOI, _MCa, _QCI, _Ta],
-  [[0, 1], 0, 0, () => OutboundCallerConfig, () => OutboundEmailConfig, 0, 1, 64 | 0, 128 | 0],
+  [[0, 1], 0, 0, () => OutboundCallerConfig$, () => OutboundEmailConfig$, 0, 1, 64 | 0, 128 | 0],
 ];
-export var CreateQueueResponse: StaticStructureSchema = [3, n0, _CQRr, 0, [_QA, _QI], [0, 0]];
-export var CreateQuickConnectRequest: StaticStructureSchema = [
+export var CreateQueueResponse$: StaticStructureSchema = [3, n0, _CQRr, 0, [_QA, _QI], [0, 0]];
+export var CreateQuickConnectRequest$: StaticStructureSchema = [
   3,
   n0,
   _CQCR,
   0,
   [_II, _N, _D, _QCC, _Ta],
-  [[0, 1], 0, 0, () => QuickConnectConfig, 128 | 0],
+  [[0, 1], 0, 0, () => QuickConnectConfig$, 128 | 0],
 ];
-export var CreateQuickConnectResponse: StaticStructureSchema = [3, n0, _CQCRr, 0, [_QCARN, _QCIu], [0, 0]];
-export var CreateRoutingProfileRequest: StaticStructureSchema = [
+export var CreateQuickConnectResponse$: StaticStructureSchema = [3, n0, _CQCRr, 0, [_QCARN, _QCIu], [0, 0]];
+export var CreateRoutingProfileRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRPR,
@@ -3846,17 +3852,17 @@ export var CreateRoutingProfileRequest: StaticStructureSchema = [
     0,
   ],
 ];
-export var CreateRoutingProfileResponse: StaticStructureSchema = [3, n0, _CRPRr, 0, [_RPA, _RPI], [0, 0]];
-export var CreateRuleRequest: StaticStructureSchema = [
+export var CreateRoutingProfileResponse$: StaticStructureSchema = [3, n0, _CRPRr, 0, [_RPA, _RPI], [0, 0]];
+export var CreateRuleRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRR,
   0,
   [_II, _N, _TES, _Fu, _Ac, _PS, _CT],
-  [[0, 1], 0, () => RuleTriggerEventSource, 0, () => RuleActions, 0, [0, 4]],
+  [[0, 1], 0, () => RuleTriggerEventSource$, 0, () => RuleActions, 0, [0, 4]],
 ];
-export var CreateRuleResponse: StaticStructureSchema = [3, n0, _CRRr, 0, [_RAu, _RIu], [0, 0]];
-export var CreateSecurityProfileRequest: StaticStructureSchema = [
+export var CreateRuleResponse$: StaticStructureSchema = [3, n0, _CRRr, 0, [_RAu, _RIu], [0, 0]];
+export var CreateSecurityProfileRequest$: StaticStructureSchema = [
   3,
   n0,
   _CSPR,
@@ -3874,20 +3880,31 @@ export var CreateSecurityProfileRequest: StaticStructureSchema = [
     64 | 0,
     0,
     () => AllowedFlowModules,
-    () => GranularAccessControlConfiguration,
+    () => GranularAccessControlConfiguration$,
   ],
 ];
-export var CreateSecurityProfileResponse: StaticStructureSchema = [3, n0, _CSPRr, 0, [_SPI, _SPA], [0, 0]];
-export var CreateTaskTemplateRequest: StaticStructureSchema = [
+export var CreateSecurityProfileResponse$: StaticStructureSchema = [3, n0, _CSPRr, 0, [_SPI, _SPA], [0, 0]];
+export var CreateTaskTemplateRequest$: StaticStructureSchema = [
   3,
   n0,
   _CTTR,
   0,
   [_II, _N, _D, _CFI, _SAFI, _Cons, _Def, _St, _Fie, _CT],
-  [[0, 1], 0, 0, 0, 0, () => TaskTemplateConstraints, () => TaskTemplateDefaults, 0, () => TaskTemplateFields, [0, 4]],
+  [
+    [0, 1],
+    0,
+    0,
+    0,
+    0,
+    () => TaskTemplateConstraints$,
+    () => TaskTemplateDefaults$,
+    0,
+    () => TaskTemplateFields,
+    [0, 4],
+  ],
 ];
-export var CreateTaskTemplateResponse: StaticStructureSchema = [3, n0, _CTTRr, 0, [_I, _A], [0, 0]];
-export var CreateTrafficDistributionGroupRequest: StaticStructureSchema = [
+export var CreateTaskTemplateResponse$: StaticStructureSchema = [3, n0, _CTTRr, 0, [_I, _A], [0, 0]];
+export var CreateTrafficDistributionGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _CTDGR,
@@ -3895,8 +3912,8 @@ export var CreateTrafficDistributionGroupRequest: StaticStructureSchema = [
   [_N, _D, _II, _CT, _Ta],
   [0, 0, 0, [0, 4], 128 | 0],
 ];
-export var CreateTrafficDistributionGroupResponse: StaticStructureSchema = [3, n0, _CTDGRr, 0, [_I, _A], [0, 0]];
-export var CreateUseCaseRequest: StaticStructureSchema = [
+export var CreateTrafficDistributionGroupResponse$: StaticStructureSchema = [3, n0, _CTDGRr, 0, [_I, _A], [0, 0]];
+export var CreateUseCaseRequest$: StaticStructureSchema = [
   3,
   n0,
   _CUCR,
@@ -3904,8 +3921,8 @@ export var CreateUseCaseRequest: StaticStructureSchema = [
   [_II, _IAI, _UCT, _Ta],
   [[0, 1], [0, 1], 0, 128 | 0],
 ];
-export var CreateUseCaseResponse: StaticStructureSchema = [3, n0, _CUCRr, 0, [_UCI, _UCA], [0, 0]];
-export var CreateUserHierarchyGroupRequest: StaticStructureSchema = [
+export var CreateUseCaseResponse$: StaticStructureSchema = [3, n0, _CUCRr, 0, [_UCI, _UCA], [0, 0]];
+export var CreateUserHierarchyGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _CUHGR,
@@ -3913,26 +3930,26 @@ export var CreateUserHierarchyGroupRequest: StaticStructureSchema = [
   [_N, _PGI, _II, _Ta],
   [0, 0, [0, 1], 128 | 0],
 ];
-export var CreateUserHierarchyGroupResponse: StaticStructureSchema = [3, n0, _CUHGRr, 0, [_HGI, _HGA], [0, 0]];
-export var CreateUserRequest: StaticStructureSchema = [
+export var CreateUserHierarchyGroupResponse$: StaticStructureSchema = [3, n0, _CUHGRr, 0, [_HGI, _HGA], [0, 0]];
+export var CreateUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _CUR,
   0,
   [_U, _P, _IId, _PCh, _DUI, _SPIe, _RPI, _HGI, _II, _Ta],
-  [0, [() => Password, 0], [() => UserIdentityInfo, 0], () => UserPhoneConfig, 0, 64 | 0, 0, 0, [0, 1], 128 | 0],
+  [0, [() => Password, 0], [() => UserIdentityInfo$, 0], () => UserPhoneConfig$, 0, 64 | 0, 0, 0, [0, 1], 128 | 0],
 ];
-export var CreateUserResponse: StaticStructureSchema = [3, n0, _CURr, 0, [_UI, _UA], [0, 0]];
-export var CreateViewRequest: StaticStructureSchema = [
+export var CreateUserResponse$: StaticStructureSchema = [3, n0, _CURr, 0, [_UI, _UA], [0, 0]];
+export var CreateViewRequest$: StaticStructureSchema = [
   3,
   n0,
   _CVR,
   0,
   [_II, _CT, _St, _Co, _D, _N, _Ta],
-  [[0, 1], 0, 0, [() => ViewInputContent, 0], 0, [() => ViewName, 0], 128 | 0],
+  [[0, 1], 0, 0, [() => ViewInputContent$, 0], 0, [() => ViewName, 0], 128 | 0],
 ];
-export var CreateViewResponse: StaticStructureSchema = [3, n0, _CVRr, 0, [_Vi], [[() => View, 0]]];
-export var CreateViewVersionRequest: StaticStructureSchema = [
+export var CreateViewResponse$: StaticStructureSchema = [3, n0, _CVRr, 0, [_Vi], [[() => View$, 0]]];
+export var CreateViewVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CVVR,
@@ -3940,8 +3957,8 @@ export var CreateViewVersionRequest: StaticStructureSchema = [
   [_II, _VIi, _VD, _VCS],
   [[0, 1], [0, 1], 0, 0],
 ];
-export var CreateViewVersionResponse: StaticStructureSchema = [3, n0, _CVVRr, 0, [_Vi], [[() => View, 0]]];
-export var CreateVocabularyRequest: StaticStructureSchema = [
+export var CreateViewVersionResponse$: StaticStructureSchema = [3, n0, _CVVRr, 0, [_Vi], [[() => View$, 0]]];
+export var CreateVocabularyRequest$: StaticStructureSchema = [
   3,
   n0,
   _CVRre,
@@ -3949,8 +3966,8 @@ export var CreateVocabularyRequest: StaticStructureSchema = [
   [_CT, _II, _VNo, _LC, _Co, _Ta],
   [[0, 4], [0, 1], 0, 0, 0, 128 | 0],
 ];
-export var CreateVocabularyResponse: StaticStructureSchema = [3, n0, _CVRrea, 0, [_VAo, _VI, _S], [0, 0, 0]];
-export var CreateWorkspacePageRequest: StaticStructureSchema = [
+export var CreateVocabularyResponse$: StaticStructureSchema = [3, n0, _CVRrea, 0, [_VAo, _VI, _S], [0, 0, 0]];
+export var CreateWorkspacePageRequest$: StaticStructureSchema = [
   3,
   n0,
   _CWPR,
@@ -3958,17 +3975,17 @@ export var CreateWorkspacePageRequest: StaticStructureSchema = [
   [_II, _WI, _RAe, _Pa, _Sl, _IDn],
   [[0, 1], [0, 1], 0, 0, 0, 0],
 ];
-export var CreateWorkspacePageResponse: StaticStructureSchema = [3, n0, _CWPRr, 0, [], []];
-export var CreateWorkspaceRequest: StaticStructureSchema = [
+export var CreateWorkspacePageResponse$: StaticStructureSchema = [3, n0, _CWPRr, 0, [], []];
+export var CreateWorkspaceRequest$: StaticStructureSchema = [
   3,
   n0,
   _CWR,
   0,
   [_II, _N, _D, _Th, _Ti, _Ta],
-  [[0, 1], 0, 0, () => WorkspaceTheme, 0, 128 | 0],
+  [[0, 1], 0, 0, () => WorkspaceTheme$, 0, 128 | 0],
 ];
-export var CreateWorkspaceResponse: StaticStructureSchema = [3, n0, _CWRr, 0, [_WI, _WA], [0, 0]];
-export var Credentials: StaticStructureSchema = [
+export var CreateWorkspaceResponse$: StaticStructureSchema = [3, n0, _CWRr, 0, [_WI, _WA], [0, 0]];
+export var Credentials$: StaticStructureSchema = [
   3,
   n0,
   _Cre,
@@ -3976,61 +3993,61 @@ export var Credentials: StaticStructureSchema = [
   [_ATc, _ATE, _RTef, _RTE],
   [[() => SecurityToken, 0], 4, [() => SecurityToken, 0], 4],
 ];
-export var CrossChannelBehavior: StaticStructureSchema = [3, n0, _CCB, 0, [_BT], [0]];
-export var CurrentMetric: StaticStructureSchema = [3, n0, _CMur, 0, [_N, _Un], [0, 0]];
-export var CurrentMetricData: StaticStructureSchema = [3, n0, _CMD, 0, [_Met, _V], [() => CurrentMetric, 1]];
-export var CurrentMetricResult: StaticStructureSchema = [
+export var CrossChannelBehavior$: StaticStructureSchema = [3, n0, _CCB, 0, [_BT], [0]];
+export var CurrentMetric$: StaticStructureSchema = [3, n0, _CMur, 0, [_N, _Un], [0, 0]];
+export var CurrentMetricData$: StaticStructureSchema = [3, n0, _CMD, 0, [_Met, _V], [() => CurrentMetric$, 1]];
+export var CurrentMetricResult$: StaticStructureSchema = [
   3,
   n0,
   _CMRu,
   0,
   [_Dim, _Col],
-  [() => Dimensions, () => CurrentMetricDataCollections],
+  [() => Dimensions$, () => CurrentMetricDataCollections],
 ];
-export var CurrentMetricSortCriteria: StaticStructureSchema = [3, n0, _CMSC, 0, [_SBM, _SO], [0, 0]];
-export var Customer: StaticStructureSchema = [
+export var CurrentMetricSortCriteria$: StaticStructureSchema = [3, n0, _CMSC, 0, [_SBM, _SO], [0, 0]];
+export var Customer$: StaticStructureSchema = [
   3,
   n0,
   _Cu,
   0,
   [_DI, _Ca],
-  [() => DeviceInfo, () => ParticipantCapabilities],
+  [() => DeviceInfo$, () => ParticipantCapabilities$],
 ];
-export var CustomerQualityMetrics: StaticStructureSchema = [3, n0, _CQM, 0, [_Au], [() => AudioQualityMetricsInfo]];
-export var CustomerVoiceActivity: StaticStructureSchema = [3, n0, _CVA, 0, [_GST, _GET], [4, 4]];
-export var DataTable: StaticStructureSchema = [
+export var CustomerQualityMetrics$: StaticStructureSchema = [3, n0, _CQM, 0, [_Au], [() => AudioQualityMetricsInfo$]];
+export var CustomerVoiceActivity$: StaticStructureSchema = [3, n0, _CVA, 0, [_GST, _GET], [4, 4]];
+export var DataTable$: StaticStructureSchema = [
   3,
   n0,
   _DTa,
   0,
   [_N, _I, _A, _TZ, _D, _VLL, _LV, _Ve, _VD, _St, _CTre, _LMT, _LMR, _Ta],
-  [0, 0, 0, 0, 0, 0, () => DataTableLockVersion, 0, 0, 0, 4, 4, 0, 128 | 0],
+  [0, 0, 0, 0, 0, 0, () => DataTableLockVersion$, 0, 0, 0, 4, 4, 0, 128 | 0],
 ];
-export var DataTableAccessControlConfiguration: StaticStructureSchema = [
+export var DataTableAccessControlConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _DTACC,
   0,
   [_PAACC],
-  [() => PrimaryAttributeAccessControlConfigurationItem],
+  [() => PrimaryAttributeAccessControlConfigurationItem$],
 ];
-export var DataTableAttribute: StaticStructureSchema = [
+export var DataTableAttribute$: StaticStructureSchema = [
   3,
   n0,
   _DTA,
   0,
   [_AItt, _N, _VT, _D, _DTI, _DTAa, _Pri, _Ve, _LV, _LMT, _LMR, _Val],
-  [0, 0, 0, 0, 0, 0, 2, 0, () => DataTableLockVersion, 4, 0, () => Validation],
+  [0, 0, 0, 0, 0, 0, 2, 0, () => DataTableLockVersion$, 4, 0, () => Validation$],
 ];
-export var DataTableDeleteValueIdentifier: StaticStructureSchema = [
+export var DataTableDeleteValueIdentifier$: StaticStructureSchema = [
   3,
   n0,
   _DTDVI,
   0,
   [_PV, _AN, _LV],
-  [() => PrimaryValuesSet, 0, () => DataTableLockVersion],
+  [() => PrimaryValuesSet, 0, () => DataTableLockVersion$],
 ];
-export var DataTableEvaluatedValue: StaticStructureSchema = [
+export var DataTableEvaluatedValue$: StaticStructureSchema = [
   3,
   n0,
   _DTEV,
@@ -4038,33 +4055,33 @@ export var DataTableEvaluatedValue: StaticStructureSchema = [
   [_RIe, _PV, _AN, _VT, _Fo, _Err, _EV],
   [0, () => PrimaryValuesSet, 0, 0, 2, 2, 0],
 ];
-export var DataTableLockVersion: StaticStructureSchema = [3, n0, _DTLV, 0, [_DTa, _Att, _PV, _V], [0, 0, 0, 0]];
-export var DataTableSearchCriteria: StaticStructureSchema = [
+export var DataTableLockVersion$: StaticStructureSchema = [3, n0, _DTLV, 0, [_DTa, _Att, _PV, _V], [0, 0, 0, 0]];
+export var DataTableSearchCriteria$: StaticStructureSchema = [
   3,
   n0,
   _DTSC,
   0,
   [_OC, _ACn, _SC],
-  [() => DataTableSearchConditionList, () => DataTableSearchConditionList, () => StringCondition],
+  [() => DataTableSearchConditionList, () => DataTableSearchConditionList, () => StringCondition$],
 ];
-export var DataTableSearchFilter: StaticStructureSchema = [
+export var DataTableSearchFilter$: StaticStructureSchema = [
   3,
   n0,
   _DTSF,
   0,
   [_AFt],
-  [() => ControlPlaneAttributeFilter],
+  [() => ControlPlaneAttributeFilter$],
 ];
-export var DataTableSummary: StaticStructureSchema = [3, n0, _DTS, 0, [_N, _I, _A, _LMT, _LMR], [0, 0, 0, 4, 0]];
-export var DataTableValue: StaticStructureSchema = [
+export var DataTableSummary$: StaticStructureSchema = [3, n0, _DTS, 0, [_N, _I, _A, _LMT, _LMR], [0, 0, 0, 4, 0]];
+export var DataTableValue$: StaticStructureSchema = [
   3,
   n0,
   _DTV,
   0,
   [_PV, _AN, _V, _LV, _LMT, _LMR],
-  [() => PrimaryValuesSet, 0, 0, () => DataTableLockVersion, 4, 0],
+  [() => PrimaryValuesSet, 0, 0, () => DataTableLockVersion$, 4, 0],
 ];
-export var DataTableValueEvaluationSet: StaticStructureSchema = [
+export var DataTableValueEvaluationSet$: StaticStructureSchema = [
   3,
   n0,
   _DTVES,
@@ -4072,19 +4089,26 @@ export var DataTableValueEvaluationSet: StaticStructureSchema = [
   [_PV, _ANt],
   [() => PrimaryValuesSet, 64 | 0],
 ];
-export var DataTableValueIdentifier: StaticStructureSchema = [3, n0, _DTVI, 0, [_PV, _AN], [() => PrimaryValuesSet, 0]];
-export var DataTableValueSummary: StaticStructureSchema = [
+export var DataTableValueIdentifier$: StaticStructureSchema = [
+  3,
+  n0,
+  _DTVI,
+  0,
+  [_PV, _AN],
+  [() => PrimaryValuesSet, 0],
+];
+export var DataTableValueSummary$: StaticStructureSchema = [
   3,
   n0,
   _DTVS,
   0,
   [_RIe, _AItt, _PV, _AN, _VT, _V, _LV, _LMT, _LMR],
-  [0, 0, () => PrimaryValuesResponseSet, 0, 0, 0, () => DataTableLockVersion, 4, 0],
+  [0, 0, () => PrimaryValuesResponseSet, 0, 0, 0, () => DataTableLockVersion$, 4, 0],
 ];
-export var DateCondition: StaticStructureSchema = [3, n0, _DC, 0, [_FNi, _V, _CTo], [0, 0, 0]];
-export var DateReference: StaticStructureSchema = [3, n0, _DRa, 0, [_N, _V], [0, 0]];
-export var DateTimeCondition: StaticStructureSchema = [3, n0, _DTC, 0, [_FNi, _MV, _MVa, _CTo], [0, 0, 0, 0]];
-export var DeactivateEvaluationFormRequest: StaticStructureSchema = [
+export var DateCondition$: StaticStructureSchema = [3, n0, _DC, 0, [_FNi, _V, _CTo], [0, 0, 0]];
+export var DateReference$: StaticStructureSchema = [3, n0, _DRa, 0, [_N, _V], [0, 0]];
+export var DateTimeCondition$: StaticStructureSchema = [3, n0, _DTC, 0, [_FNi, _MV, _MVa, _CTo], [0, 0, 0, 0]];
+export var DeactivateEvaluationFormRequest$: StaticStructureSchema = [
   3,
   n0,
   _DEFR,
@@ -4092,10 +4116,10 @@ export var DeactivateEvaluationFormRequest: StaticStructureSchema = [
   [_II, _EFI, _EFV],
   [[0, 1], [0, 1], 1],
 ];
-export var DeactivateEvaluationFormResponse: StaticStructureSchema = [3, n0, _DEFRe, 0, [_EFI, _EFA, _EFV], [0, 0, 1]];
-export var DecimalCondition: StaticStructureSchema = [3, n0, _DCe, 0, [_FNi, _MV, _MVa, _CTo], [0, 1, 1, 0]];
-export var DefaultVocabulary: StaticStructureSchema = [3, n0, _DV, 0, [_II, _LC, _VI, _VNo], [0, 0, 0, 0]];
-export var DeleteAttachedFileRequest: StaticStructureSchema = [
+export var DeactivateEvaluationFormResponse$: StaticStructureSchema = [3, n0, _DEFRe, 0, [_EFI, _EFA, _EFV], [0, 0, 1]];
+export var DecimalCondition$: StaticStructureSchema = [3, n0, _DCe, 0, [_FNi, _MV, _MVa, _CTo], [0, 1, 1, 0]];
+export var DefaultVocabulary$: StaticStructureSchema = [3, n0, _DV, 0, [_II, _LC, _VI, _VNo], [0, 0, 0, 0]];
+export var DeleteAttachedFileRequest$: StaticStructureSchema = [
   3,
   n0,
   _DAFR,
@@ -4107,8 +4131,8 @@ export var DeleteAttachedFileRequest: StaticStructureSchema = [
     [0, { [_hQ]: _aRA }],
   ],
 ];
-export var DeleteAttachedFileResponse: StaticStructureSchema = [3, n0, _DAFRe, 0, [], []];
-export var DeleteContactEvaluationRequest: StaticStructureSchema = [
+export var DeleteAttachedFileResponse$: StaticStructureSchema = [3, n0, _DAFRe, 0, [], []];
+export var DeleteContactEvaluationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCER,
@@ -4119,7 +4143,7 @@ export var DeleteContactEvaluationRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteContactFlowModuleAliasRequest: StaticStructureSchema = [
+export var DeleteContactFlowModuleAliasRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCFMAR,
@@ -4131,8 +4155,8 @@ export var DeleteContactFlowModuleAliasRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteContactFlowModuleAliasResponse: StaticStructureSchema = [3, n0, _DCFMARe, 0, [], []];
-export var DeleteContactFlowModuleRequest: StaticStructureSchema = [
+export var DeleteContactFlowModuleAliasResponse$: StaticStructureSchema = [3, n0, _DCFMARe, 0, [], []];
+export var DeleteContactFlowModuleRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCFMR,
@@ -4143,8 +4167,8 @@ export var DeleteContactFlowModuleRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteContactFlowModuleResponse: StaticStructureSchema = [3, n0, _DCFMRe, 0, [], []];
-export var DeleteContactFlowModuleVersionRequest: StaticStructureSchema = [
+export var DeleteContactFlowModuleResponse$: StaticStructureSchema = [3, n0, _DCFMRe, 0, [], []];
+export var DeleteContactFlowModuleVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCFMVR,
@@ -4156,8 +4180,8 @@ export var DeleteContactFlowModuleVersionRequest: StaticStructureSchema = [
     [1, 1],
   ],
 ];
-export var DeleteContactFlowModuleVersionResponse: StaticStructureSchema = [3, n0, _DCFMVRe, 0, [], []];
-export var DeleteContactFlowRequest: StaticStructureSchema = [
+export var DeleteContactFlowModuleVersionResponse$: StaticStructureSchema = [3, n0, _DCFMVRe, 0, [], []];
+export var DeleteContactFlowRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCFR,
@@ -4168,8 +4192,8 @@ export var DeleteContactFlowRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteContactFlowResponse: StaticStructureSchema = [3, n0, _DCFRe, 0, [], []];
-export var DeleteContactFlowVersionRequest: StaticStructureSchema = [
+export var DeleteContactFlowResponse$: StaticStructureSchema = [3, n0, _DCFRe, 0, [], []];
+export var DeleteContactFlowVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCFVR,
@@ -4181,8 +4205,8 @@ export var DeleteContactFlowVersionRequest: StaticStructureSchema = [
     [1, 1],
   ],
 ];
-export var DeleteContactFlowVersionResponse: StaticStructureSchema = [3, n0, _DCFVRe, 0, [], []];
-export var DeleteDataTableAttributeRequest: StaticStructureSchema = [
+export var DeleteContactFlowVersionResponse$: StaticStructureSchema = [3, n0, _DCFVRe, 0, [], []];
+export var DeleteDataTableAttributeRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDTAR,
@@ -4194,15 +4218,15 @@ export var DeleteDataTableAttributeRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteDataTableAttributeResponse: StaticStructureSchema = [
+export var DeleteDataTableAttributeResponse$: StaticStructureSchema = [
   3,
   n0,
   _DDTARe,
   0,
   [_LV],
-  [() => DataTableLockVersion],
+  [() => DataTableLockVersion$],
 ];
-export var DeleteDataTableRequest: StaticStructureSchema = [
+export var DeleteDataTableRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDTR,
@@ -4213,8 +4237,8 @@ export var DeleteDataTableRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteDataTableResponse: StaticStructureSchema = [3, n0, _DDTRe, 0, [], []];
-export var DeleteEmailAddressRequest: StaticStructureSchema = [
+export var DeleteDataTableResponse$: StaticStructureSchema = [3, n0, _DDTRe, 0, [], []];
+export var DeleteEmailAddressRequest$: StaticStructureSchema = [
   3,
   n0,
   _DEAR,
@@ -4225,8 +4249,8 @@ export var DeleteEmailAddressRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteEmailAddressResponse: StaticStructureSchema = [3, n0, _DEARe, 0, [], []];
-export var DeleteEvaluationFormRequest: StaticStructureSchema = [
+export var DeleteEmailAddressResponse$: StaticStructureSchema = [3, n0, _DEARe, 0, [], []];
+export var DeleteEvaluationFormRequest$: StaticStructureSchema = [
   3,
   n0,
   _DEFRel,
@@ -4238,7 +4262,7 @@ export var DeleteEvaluationFormRequest: StaticStructureSchema = [
     [1, { [_hQ]: _v }],
   ],
 ];
-export var DeleteHoursOfOperationOverrideRequest: StaticStructureSchema = [
+export var DeleteHoursOfOperationOverrideRequest$: StaticStructureSchema = [
   3,
   n0,
   _DHOOOR,
@@ -4250,7 +4274,7 @@ export var DeleteHoursOfOperationOverrideRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteHoursOfOperationRequest: StaticStructureSchema = [
+export var DeleteHoursOfOperationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DHOOR,
@@ -4261,7 +4285,7 @@ export var DeleteHoursOfOperationRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteInstanceRequest: StaticStructureSchema = [
+export var DeleteInstanceRequest$: StaticStructureSchema = [
   3,
   n0,
   _DIR,
@@ -4272,7 +4296,7 @@ export var DeleteInstanceRequest: StaticStructureSchema = [
     [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
-export var DeleteIntegrationAssociationRequest: StaticStructureSchema = [
+export var DeleteIntegrationAssociationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DIAR,
@@ -4283,7 +4307,7 @@ export var DeleteIntegrationAssociationRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeletePredefinedAttributeRequest: StaticStructureSchema = [
+export var DeletePredefinedAttributeRequest$: StaticStructureSchema = [
   3,
   n0,
   _DPAR,
@@ -4294,7 +4318,7 @@ export var DeletePredefinedAttributeRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeletePromptRequest: StaticStructureSchema = [
+export var DeletePromptRequest$: StaticStructureSchema = [
   3,
   n0,
   _DPR,
@@ -4305,7 +4329,7 @@ export var DeletePromptRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeletePushNotificationRegistrationRequest: StaticStructureSchema = [
+export var DeletePushNotificationRegistrationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DPNRR,
@@ -4317,8 +4341,8 @@ export var DeletePushNotificationRegistrationRequest: StaticStructureSchema = [
     [0, { [_hQ]: _cI }],
   ],
 ];
-export var DeletePushNotificationRegistrationResponse: StaticStructureSchema = [3, n0, _DPNRRe, 0, [], []];
-export var DeleteQueueRequest: StaticStructureSchema = [
+export var DeletePushNotificationRegistrationResponse$: StaticStructureSchema = [3, n0, _DPNRRe, 0, [], []];
+export var DeleteQueueRequest$: StaticStructureSchema = [
   3,
   n0,
   _DQR,
@@ -4329,7 +4353,7 @@ export var DeleteQueueRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteQuickConnectRequest: StaticStructureSchema = [
+export var DeleteQuickConnectRequest$: StaticStructureSchema = [
   3,
   n0,
   _DQCR,
@@ -4340,7 +4364,7 @@ export var DeleteQuickConnectRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteRoutingProfileRequest: StaticStructureSchema = [
+export var DeleteRoutingProfileRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRPR,
@@ -4351,7 +4375,7 @@ export var DeleteRoutingProfileRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteRuleRequest: StaticStructureSchema = [
+export var DeleteRuleRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRR,
@@ -4362,7 +4386,7 @@ export var DeleteRuleRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteSecurityProfileRequest: StaticStructureSchema = [
+export var DeleteSecurityProfileRequest$: StaticStructureSchema = [
   3,
   n0,
   _DSPR,
@@ -4373,7 +4397,7 @@ export var DeleteSecurityProfileRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteTaskTemplateRequest: StaticStructureSchema = [
+export var DeleteTaskTemplateRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTTR,
@@ -4384,10 +4408,10 @@ export var DeleteTaskTemplateRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteTaskTemplateResponse: StaticStructureSchema = [3, n0, _DTTRe, 0, [], []];
-export var DeleteTrafficDistributionGroupRequest: StaticStructureSchema = [3, n0, _DTDGR, 0, [_TDGI], [[0, 1]]];
-export var DeleteTrafficDistributionGroupResponse: StaticStructureSchema = [3, n0, _DTDGRe, 0, [], []];
-export var DeleteUseCaseRequest: StaticStructureSchema = [
+export var DeleteTaskTemplateResponse$: StaticStructureSchema = [3, n0, _DTTRe, 0, [], []];
+export var DeleteTrafficDistributionGroupRequest$: StaticStructureSchema = [3, n0, _DTDGR, 0, [_TDGI], [[0, 1]]];
+export var DeleteTrafficDistributionGroupResponse$: StaticStructureSchema = [3, n0, _DTDGRe, 0, [], []];
+export var DeleteUseCaseRequest$: StaticStructureSchema = [
   3,
   n0,
   _DUCR,
@@ -4399,7 +4423,7 @@ export var DeleteUseCaseRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteUserHierarchyGroupRequest: StaticStructureSchema = [
+export var DeleteUserHierarchyGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _DUHGR,
@@ -4410,7 +4434,7 @@ export var DeleteUserHierarchyGroupRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteUserRequest: StaticStructureSchema = [
+export var DeleteUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _DUR,
@@ -4421,7 +4445,7 @@ export var DeleteUserRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteViewRequest: StaticStructureSchema = [
+export var DeleteViewRequest$: StaticStructureSchema = [
   3,
   n0,
   _DVR,
@@ -4432,8 +4456,8 @@ export var DeleteViewRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteViewResponse: StaticStructureSchema = [3, n0, _DVRe, 0, [], []];
-export var DeleteViewVersionRequest: StaticStructureSchema = [
+export var DeleteViewResponse$: StaticStructureSchema = [3, n0, _DVRe, 0, [], []];
+export var DeleteViewVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _DVVR,
@@ -4445,8 +4469,8 @@ export var DeleteViewVersionRequest: StaticStructureSchema = [
     [1, 1],
   ],
 ];
-export var DeleteViewVersionResponse: StaticStructureSchema = [3, n0, _DVVRe, 0, [], []];
-export var DeleteVocabularyRequest: StaticStructureSchema = [
+export var DeleteViewVersionResponse$: StaticStructureSchema = [3, n0, _DVVRe, 0, [], []];
+export var DeleteVocabularyRequest$: StaticStructureSchema = [
   3,
   n0,
   _DVRel,
@@ -4457,8 +4481,8 @@ export var DeleteVocabularyRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteVocabularyResponse: StaticStructureSchema = [3, n0, _DVRele, 0, [_VAo, _VI, _S], [0, 0, 0]];
-export var DeleteWorkspaceMediaRequest: StaticStructureSchema = [
+export var DeleteVocabularyResponse$: StaticStructureSchema = [3, n0, _DVRele, 0, [_VAo, _VI, _S], [0, 0, 0]];
+export var DeleteWorkspaceMediaRequest$: StaticStructureSchema = [
   3,
   n0,
   _DWMR,
@@ -4470,8 +4494,8 @@ export var DeleteWorkspaceMediaRequest: StaticStructureSchema = [
     [0, { [_hQ]: _mT }],
   ],
 ];
-export var DeleteWorkspaceMediaResponse: StaticStructureSchema = [3, n0, _DWMRe, 0, [], []];
-export var DeleteWorkspacePageRequest: StaticStructureSchema = [
+export var DeleteWorkspaceMediaResponse$: StaticStructureSchema = [3, n0, _DWMRe, 0, [], []];
+export var DeleteWorkspacePageRequest$: StaticStructureSchema = [
   3,
   n0,
   _DWPR,
@@ -4483,8 +4507,8 @@ export var DeleteWorkspacePageRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteWorkspacePageResponse: StaticStructureSchema = [3, n0, _DWPRe, 0, [], []];
-export var DeleteWorkspaceRequest: StaticStructureSchema = [
+export var DeleteWorkspacePageResponse$: StaticStructureSchema = [3, n0, _DWPRe, 0, [], []];
+export var DeleteWorkspaceRequest$: StaticStructureSchema = [
   3,
   n0,
   _DWR,
@@ -4495,8 +4519,8 @@ export var DeleteWorkspaceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteWorkspaceResponse: StaticStructureSchema = [3, n0, _DWRe, 0, [], []];
-export var DescribeAgentStatusRequest: StaticStructureSchema = [
+export var DeleteWorkspaceResponse$: StaticStructureSchema = [3, n0, _DWRe, 0, [], []];
+export var DescribeAgentStatusRequest$: StaticStructureSchema = [
   3,
   n0,
   _DASR,
@@ -4507,8 +4531,8 @@ export var DescribeAgentStatusRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeAgentStatusResponse: StaticStructureSchema = [3, n0, _DASRe, 0, [_ASg], [() => AgentStatus]];
-export var DescribeAuthenticationProfileRequest: StaticStructureSchema = [
+export var DescribeAgentStatusResponse$: StaticStructureSchema = [3, n0, _DASRe, 0, [_ASg], [() => AgentStatus$]];
+export var DescribeAuthenticationProfileRequest$: StaticStructureSchema = [
   3,
   n0,
   _DAPR,
@@ -4519,15 +4543,15 @@ export var DescribeAuthenticationProfileRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeAuthenticationProfileResponse: StaticStructureSchema = [
+export var DescribeAuthenticationProfileResponse$: StaticStructureSchema = [
   3,
   n0,
   _DAPRe,
   0,
   [_APu],
-  [() => AuthenticationProfile],
+  [() => AuthenticationProfile$],
 ];
-export var DescribeContactEvaluationRequest: StaticStructureSchema = [
+export var DescribeContactEvaluationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCERe,
@@ -4538,15 +4562,15 @@ export var DescribeContactEvaluationRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeContactEvaluationResponse: StaticStructureSchema = [
+export var DescribeContactEvaluationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DCERes,
   0,
   [_Ev, _EFv],
-  [() => Evaluation, () => EvaluationFormContent],
+  [() => Evaluation$, () => EvaluationFormContent$],
 ];
-export var DescribeContactFlowModuleAliasRequest: StaticStructureSchema = [
+export var DescribeContactFlowModuleAliasRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCFMARes,
@@ -4558,15 +4582,15 @@ export var DescribeContactFlowModuleAliasRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeContactFlowModuleAliasResponse: StaticStructureSchema = [
+export var DescribeContactFlowModuleAliasResponse$: StaticStructureSchema = [
   3,
   n0,
   _DCFMAResc,
   0,
   [_CFMAo],
-  [() => ContactFlowModuleAliasInfo],
+  [() => ContactFlowModuleAliasInfo$],
 ];
-export var DescribeContactFlowModuleRequest: StaticStructureSchema = [
+export var DescribeContactFlowModuleRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCFMRes,
@@ -4577,15 +4601,15 @@ export var DescribeContactFlowModuleRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeContactFlowModuleResponse: StaticStructureSchema = [
+export var DescribeContactFlowModuleResponse$: StaticStructureSchema = [
   3,
   n0,
   _DCFMResc,
   0,
   [_CFM],
-  [() => ContactFlowModule],
+  [() => ContactFlowModule$],
 ];
-export var DescribeContactFlowRequest: StaticStructureSchema = [
+export var DescribeContactFlowRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCFRes,
@@ -4596,8 +4620,8 @@ export var DescribeContactFlowRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeContactFlowResponse: StaticStructureSchema = [3, n0, _DCFResc, 0, [_CFo], [() => ContactFlow]];
-export var DescribeContactRequest: StaticStructureSchema = [
+export var DescribeContactFlowResponse$: StaticStructureSchema = [3, n0, _DCFResc, 0, [_CFo], [() => ContactFlow$]];
+export var DescribeContactRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCR,
@@ -4608,8 +4632,8 @@ export var DescribeContactRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeContactResponse: StaticStructureSchema = [3, n0, _DCRe, 0, [_Cont], [[() => Contact, 0]]];
-export var DescribeDataTableAttributeRequest: StaticStructureSchema = [
+export var DescribeContactResponse$: StaticStructureSchema = [3, n0, _DCRe, 0, [_Cont], [[() => Contact$, 0]]];
+export var DescribeDataTableAttributeRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDTARes,
@@ -4621,15 +4645,15 @@ export var DescribeDataTableAttributeRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeDataTableAttributeResponse: StaticStructureSchema = [
+export var DescribeDataTableAttributeResponse$: StaticStructureSchema = [
   3,
   n0,
   _DDTAResc,
   0,
   [_Att],
-  [() => DataTableAttribute],
+  [() => DataTableAttribute$],
 ];
-export var DescribeDataTableRequest: StaticStructureSchema = [
+export var DescribeDataTableRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDTRes,
@@ -4640,8 +4664,8 @@ export var DescribeDataTableRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeDataTableResponse: StaticStructureSchema = [3, n0, _DDTResc, 0, [_DTa], [() => DataTable]];
-export var DescribeEmailAddressRequest: StaticStructureSchema = [
+export var DescribeDataTableResponse$: StaticStructureSchema = [3, n0, _DDTResc, 0, [_DTa], [() => DataTable$]];
+export var DescribeEmailAddressRequest$: StaticStructureSchema = [
   3,
   n0,
   _DEARes,
@@ -4652,7 +4676,7 @@ export var DescribeEmailAddressRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeEmailAddressResponse: StaticStructureSchema = [
+export var DescribeEmailAddressResponse$: StaticStructureSchema = [
   3,
   n0,
   _DEAResc,
@@ -4670,7 +4694,7 @@ export var DescribeEmailAddressResponse: StaticStructureSchema = [
     128 | 0,
   ],
 ];
-export var DescribeEvaluationFormRequest: StaticStructureSchema = [
+export var DescribeEvaluationFormRequest$: StaticStructureSchema = [
   3,
   n0,
   _DEFRes,
@@ -4682,8 +4706,15 @@ export var DescribeEvaluationFormRequest: StaticStructureSchema = [
     [1, { [_hQ]: _v }],
   ],
 ];
-export var DescribeEvaluationFormResponse: StaticStructureSchema = [3, n0, _DEFResc, 0, [_EFv], [() => EvaluationForm]];
-export var DescribeHoursOfOperationOverrideRequest: StaticStructureSchema = [
+export var DescribeEvaluationFormResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _DEFResc,
+  0,
+  [_EFv],
+  [() => EvaluationForm$],
+];
+export var DescribeHoursOfOperationOverrideRequest$: StaticStructureSchema = [
   3,
   n0,
   _DHOOORe,
@@ -4695,15 +4726,15 @@ export var DescribeHoursOfOperationOverrideRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeHoursOfOperationOverrideResponse: StaticStructureSchema = [
+export var DescribeHoursOfOperationOverrideResponse$: StaticStructureSchema = [
   3,
   n0,
   _DHOOORes,
   0,
   [_HOOO],
-  [() => HoursOfOperationOverride],
+  [() => HoursOfOperationOverride$],
 ];
-export var DescribeHoursOfOperationRequest: StaticStructureSchema = [
+export var DescribeHoursOfOperationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DHOORe,
@@ -4714,15 +4745,15 @@ export var DescribeHoursOfOperationRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeHoursOfOperationResponse: StaticStructureSchema = [
+export var DescribeHoursOfOperationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DHOORes,
   0,
   [_HOO],
-  [() => HoursOfOperation],
+  [() => HoursOfOperation$],
 ];
-export var DescribeInstanceAttributeRequest: StaticStructureSchema = [
+export var DescribeInstanceAttributeRequest$: StaticStructureSchema = [
   3,
   n0,
   _DIARe,
@@ -4733,17 +4764,17 @@ export var DescribeInstanceAttributeRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeInstanceAttributeResponse: StaticStructureSchema = [3, n0, _DIARes, 0, [_Att], [() => Attribute]];
-export var DescribeInstanceRequest: StaticStructureSchema = [3, n0, _DIRe, 0, [_II], [[0, 1]]];
-export var DescribeInstanceResponse: StaticStructureSchema = [
+export var DescribeInstanceAttributeResponse$: StaticStructureSchema = [3, n0, _DIARes, 0, [_Att], [() => Attribute$]];
+export var DescribeInstanceRequest$: StaticStructureSchema = [3, n0, _DIRe, 0, [_II], [[0, 1]]];
+export var DescribeInstanceResponse$: StaticStructureSchema = [
   3,
   n0,
   _DIRes,
   0,
   [_In, _RCe],
-  [[() => Instance, 0], () => ReplicationConfiguration],
+  [[() => Instance$, 0], () => ReplicationConfiguration$],
 ];
-export var DescribeInstanceStorageConfigRequest: StaticStructureSchema = [
+export var DescribeInstanceStorageConfigRequest$: StaticStructureSchema = [
   3,
   n0,
   _DISCR,
@@ -4755,24 +4786,24 @@ export var DescribeInstanceStorageConfigRequest: StaticStructureSchema = [
     [0, { [_hQ]: _rT }],
   ],
 ];
-export var DescribeInstanceStorageConfigResponse: StaticStructureSchema = [
+export var DescribeInstanceStorageConfigResponse$: StaticStructureSchema = [
   3,
   n0,
   _DISCRe,
   0,
   [_SCt],
-  [() => InstanceStorageConfig],
+  [() => InstanceStorageConfig$],
 ];
-export var DescribePhoneNumberRequest: StaticStructureSchema = [3, n0, _DPNR, 0, [_PNI], [[0, 1]]];
-export var DescribePhoneNumberResponse: StaticStructureSchema = [
+export var DescribePhoneNumberRequest$: StaticStructureSchema = [3, n0, _DPNR, 0, [_PNI], [[0, 1]]];
+export var DescribePhoneNumberResponse$: StaticStructureSchema = [
   3,
   n0,
   _DPNRe,
   0,
   [_CPNS],
-  [() => ClaimedPhoneNumberSummary],
+  [() => ClaimedPhoneNumberSummary$],
 ];
-export var DescribePredefinedAttributeRequest: StaticStructureSchema = [
+export var DescribePredefinedAttributeRequest$: StaticStructureSchema = [
   3,
   n0,
   _DPARe,
@@ -4783,15 +4814,15 @@ export var DescribePredefinedAttributeRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribePredefinedAttributeResponse: StaticStructureSchema = [
+export var DescribePredefinedAttributeResponse$: StaticStructureSchema = [
   3,
   n0,
   _DPARes,
   0,
   [_PA],
-  [() => PredefinedAttribute],
+  [() => PredefinedAttribute$],
 ];
-export var DescribePromptRequest: StaticStructureSchema = [
+export var DescribePromptRequest$: StaticStructureSchema = [
   3,
   n0,
   _DPRe,
@@ -4802,8 +4833,8 @@ export var DescribePromptRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribePromptResponse: StaticStructureSchema = [3, n0, _DPRes, 0, [_Pro], [() => Prompt]];
-export var DescribeQueueRequest: StaticStructureSchema = [
+export var DescribePromptResponse$: StaticStructureSchema = [3, n0, _DPRes, 0, [_Pro], [() => Prompt$]];
+export var DescribeQueueRequest$: StaticStructureSchema = [
   3,
   n0,
   _DQRe,
@@ -4814,8 +4845,8 @@ export var DescribeQueueRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeQueueResponse: StaticStructureSchema = [3, n0, _DQRes, 0, [_Q], [() => Queue]];
-export var DescribeQuickConnectRequest: StaticStructureSchema = [
+export var DescribeQueueResponse$: StaticStructureSchema = [3, n0, _DQRes, 0, [_Q], [() => Queue$]];
+export var DescribeQuickConnectRequest$: StaticStructureSchema = [
   3,
   n0,
   _DQCRe,
@@ -4826,8 +4857,8 @@ export var DescribeQuickConnectRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeQuickConnectResponse: StaticStructureSchema = [3, n0, _DQCRes, 0, [_QCu], [() => QuickConnect]];
-export var DescribeRoutingProfileRequest: StaticStructureSchema = [
+export var DescribeQuickConnectResponse$: StaticStructureSchema = [3, n0, _DQCRes, 0, [_QCu], [() => QuickConnect$]];
+export var DescribeRoutingProfileRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRPRe,
@@ -4838,8 +4869,8 @@ export var DescribeRoutingProfileRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeRoutingProfileResponse: StaticStructureSchema = [3, n0, _DRPRes, 0, [_RP], [() => RoutingProfile]];
-export var DescribeRuleRequest: StaticStructureSchema = [
+export var DescribeRoutingProfileResponse$: StaticStructureSchema = [3, n0, _DRPRes, 0, [_RP], [() => RoutingProfile$]];
+export var DescribeRuleRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRRe,
@@ -4850,8 +4881,8 @@ export var DescribeRuleRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeRuleResponse: StaticStructureSchema = [3, n0, _DRRes, 0, [_Ru], [() => Rule]];
-export var DescribeSecurityProfileRequest: StaticStructureSchema = [
+export var DescribeRuleResponse$: StaticStructureSchema = [3, n0, _DRRes, 0, [_Ru], [() => Rule$]];
+export var DescribeSecurityProfileRequest$: StaticStructureSchema = [
   3,
   n0,
   _DSPRe,
@@ -4862,24 +4893,24 @@ export var DescribeSecurityProfileRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeSecurityProfileResponse: StaticStructureSchema = [
+export var DescribeSecurityProfileResponse$: StaticStructureSchema = [
   3,
   n0,
   _DSPRes,
   0,
   [_SPe],
-  [() => SecurityProfile],
+  [() => SecurityProfile$],
 ];
-export var DescribeTrafficDistributionGroupRequest: StaticStructureSchema = [3, n0, _DTDGRes, 0, [_TDGI], [[0, 1]]];
-export var DescribeTrafficDistributionGroupResponse: StaticStructureSchema = [
+export var DescribeTrafficDistributionGroupRequest$: StaticStructureSchema = [3, n0, _DTDGRes, 0, [_TDGI], [[0, 1]]];
+export var DescribeTrafficDistributionGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _DTDGResc,
   0,
   [_TDG],
-  [() => TrafficDistributionGroup],
+  [() => TrafficDistributionGroup$],
 ];
-export var DescribeUserHierarchyGroupRequest: StaticStructureSchema = [
+export var DescribeUserHierarchyGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _DUHGRe,
@@ -4890,24 +4921,24 @@ export var DescribeUserHierarchyGroupRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeUserHierarchyGroupResponse: StaticStructureSchema = [
+export var DescribeUserHierarchyGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _DUHGRes,
   0,
   [_HGi],
-  [() => HierarchyGroup],
+  [() => HierarchyGroup$],
 ];
-export var DescribeUserHierarchyStructureRequest: StaticStructureSchema = [3, n0, _DUHSR, 0, [_II], [[0, 1]]];
-export var DescribeUserHierarchyStructureResponse: StaticStructureSchema = [
+export var DescribeUserHierarchyStructureRequest$: StaticStructureSchema = [3, n0, _DUHSR, 0, [_II], [[0, 1]]];
+export var DescribeUserHierarchyStructureResponse$: StaticStructureSchema = [
   3,
   n0,
   _DUHSRe,
   0,
   [_HS],
-  [() => HierarchyStructure],
+  [() => HierarchyStructure$],
 ];
-export var DescribeUserRequest: StaticStructureSchema = [
+export var DescribeUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _DURe,
@@ -4918,8 +4949,8 @@ export var DescribeUserRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeUserResponse: StaticStructureSchema = [3, n0, _DURes, 0, [_Us], [[() => User, 0]]];
-export var DescribeViewRequest: StaticStructureSchema = [
+export var DescribeUserResponse$: StaticStructureSchema = [3, n0, _DURes, 0, [_Us], [[() => User$, 0]]];
+export var DescribeViewRequest$: StaticStructureSchema = [
   3,
   n0,
   _DVRes,
@@ -4930,8 +4961,8 @@ export var DescribeViewRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeViewResponse: StaticStructureSchema = [3, n0, _DVResc, 0, [_Vi], [[() => View, 0]]];
-export var DescribeVocabularyRequest: StaticStructureSchema = [
+export var DescribeViewResponse$: StaticStructureSchema = [3, n0, _DVResc, 0, [_Vi], [[() => View$, 0]]];
+export var DescribeVocabularyRequest$: StaticStructureSchema = [
   3,
   n0,
   _DVRescr,
@@ -4942,8 +4973,8 @@ export var DescribeVocabularyRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeVocabularyResponse: StaticStructureSchema = [3, n0, _DVRescri, 0, [_Vo], [() => Vocabulary]];
-export var DescribeWorkspaceRequest: StaticStructureSchema = [
+export var DescribeVocabularyResponse$: StaticStructureSchema = [3, n0, _DVRescri, 0, [_Vo], [() => Vocabulary$]];
+export var DescribeWorkspaceRequest$: StaticStructureSchema = [
   3,
   n0,
   _DWRes,
@@ -4954,8 +4985,8 @@ export var DescribeWorkspaceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeWorkspaceResponse: StaticStructureSchema = [3, n0, _DWResc, 0, [_W], [() => Workspace]];
-export var DestinationNotAllowedException: StaticErrorSchema = [
+export var DescribeWorkspaceResponse$: StaticStructureSchema = [3, n0, _DWResc, 0, [_W], [() => Workspace$]];
+export var DestinationNotAllowedException$: StaticErrorSchema = [
   -3,
   n0,
   _DNAE,
@@ -4963,17 +4994,17 @@ export var DestinationNotAllowedException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(DestinationNotAllowedException, __DestinationNotAllowedException);
-export var DeviceInfo: StaticStructureSchema = [3, n0, _DI, 0, [_PNl, _PVl, _OSp], [0, 0, 0]];
-export var Dimensions: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(DestinationNotAllowedException$, DestinationNotAllowedException);
+export var DeviceInfo$: StaticStructureSchema = [3, n0, _DI, 0, [_PNl, _PVl, _OSp], [0, 0, 0]];
+export var Dimensions$: StaticStructureSchema = [
   3,
   n0,
   _Dim,
   0,
   [_Q, _C, _RP, _RSE, _ASg],
-  [() => QueueReference, 0, () => RoutingProfileReference, 0, () => AgentStatusIdentifier],
+  [() => QueueReference$, 0, () => RoutingProfileReference$, 0, () => AgentStatusIdentifier$],
 ];
-export var DisassociateAnalyticsDataSetRequest: StaticStructureSchema = [
+export var DisassociateAnalyticsDataSetRequest$: StaticStructureSchema = [
   3,
   n0,
   _DADSR,
@@ -4981,7 +5012,7 @@ export var DisassociateAnalyticsDataSetRequest: StaticStructureSchema = [
   [_II, _DSI, _TAI],
   [[0, 1], 0, 0],
 ];
-export var DisassociateApprovedOriginRequest: StaticStructureSchema = [
+export var DisassociateApprovedOriginRequest$: StaticStructureSchema = [
   3,
   n0,
   _DAOR,
@@ -4993,24 +5024,24 @@ export var DisassociateApprovedOriginRequest: StaticStructureSchema = [
     [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
-export var DisassociateBotRequest: StaticStructureSchema = [
+export var DisassociateBotRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBR,
   0,
   [_II, _LB, _LVB, _CT],
-  [[0, 1], () => LexBot, () => LexV2Bot, [0, 4]],
+  [[0, 1], () => LexBot$, () => LexV2Bot$, [0, 4]],
 ];
-export var DisassociateEmailAddressAliasRequest: StaticStructureSchema = [
+export var DisassociateEmailAddressAliasRequest$: StaticStructureSchema = [
   3,
   n0,
   _DEAAR,
   0,
   [_EAI, _II, _ACl, _CT],
-  [[0, 1], [0, 1], () => AliasConfiguration, [0, 4]],
+  [[0, 1], [0, 1], () => AliasConfiguration$, [0, 4]],
 ];
-export var DisassociateEmailAddressAliasResponse: StaticStructureSchema = [3, n0, _DEAARi, 0, [], []];
-export var DisassociateFlowRequest: StaticStructureSchema = [
+export var DisassociateEmailAddressAliasResponse$: StaticStructureSchema = [3, n0, _DEAARi, 0, [], []];
+export var DisassociateFlowRequest$: StaticStructureSchema = [
   3,
   n0,
   _DFR,
@@ -5022,8 +5053,8 @@ export var DisassociateFlowRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DisassociateFlowResponse: StaticStructureSchema = [3, n0, _DFRi, 0, [], []];
-export var DisassociateInstanceStorageConfigRequest: StaticStructureSchema = [
+export var DisassociateFlowResponse$: StaticStructureSchema = [3, n0, _DFRi, 0, [], []];
+export var DisassociateInstanceStorageConfigRequest$: StaticStructureSchema = [
   3,
   n0,
   _DISCRi,
@@ -5036,7 +5067,7 @@ export var DisassociateInstanceStorageConfigRequest: StaticStructureSchema = [
     [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
-export var DisassociateLambdaFunctionRequest: StaticStructureSchema = [
+export var DisassociateLambdaFunctionRequest$: StaticStructureSchema = [
   3,
   n0,
   _DLFR,
@@ -5048,7 +5079,7 @@ export var DisassociateLambdaFunctionRequest: StaticStructureSchema = [
     [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
-export var DisassociateLexBotRequest: StaticStructureSchema = [
+export var DisassociateLexBotRequest$: StaticStructureSchema = [
   3,
   n0,
   _DLBR,
@@ -5061,7 +5092,7 @@ export var DisassociateLexBotRequest: StaticStructureSchema = [
     [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
-export var DisassociatePhoneNumberContactFlowRequest: StaticStructureSchema = [
+export var DisassociatePhoneNumberContactFlowRequest$: StaticStructureSchema = [
   3,
   n0,
   _DPNCFR,
@@ -5072,7 +5103,7 @@ export var DisassociatePhoneNumberContactFlowRequest: StaticStructureSchema = [
     [0, { [_hQ]: _iI }],
   ],
 ];
-export var DisassociateQueueQuickConnectsRequest: StaticStructureSchema = [
+export var DisassociateQueueQuickConnectsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DQQCR,
@@ -5080,7 +5111,7 @@ export var DisassociateQueueQuickConnectsRequest: StaticStructureSchema = [
   [_II, _QI, _QCI],
   [[0, 1], [0, 1], 64 | 0],
 ];
-export var DisassociateRoutingProfileQueuesRequest: StaticStructureSchema = [
+export var DisassociateRoutingProfileQueuesRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRPQR,
@@ -5088,7 +5119,7 @@ export var DisassociateRoutingProfileQueuesRequest: StaticStructureSchema = [
   [_II, _RPI, _QR, _MAQR],
   [[0, 1], [0, 1], () => RoutingProfileQueueReferenceList, () => RoutingProfileQueueReferenceList],
 ];
-export var DisassociateSecurityKeyRequest: StaticStructureSchema = [
+export var DisassociateSecurityKeyRequest$: StaticStructureSchema = [
   3,
   n0,
   _DSKR,
@@ -5100,7 +5131,7 @@ export var DisassociateSecurityKeyRequest: StaticStructureSchema = [
     [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
-export var DisassociateSecurityProfilesRequest: StaticStructureSchema = [
+export var DisassociateSecurityProfilesRequest$: StaticStructureSchema = [
   3,
   n0,
   _DSPRi,
@@ -5108,7 +5139,7 @@ export var DisassociateSecurityProfilesRequest: StaticStructureSchema = [
   [_II, _SP, _ET, _EAn],
   [[0, 1], () => SecurityProfiles, 0, 0],
 ];
-export var DisassociateTrafficDistributionGroupUserRequest: StaticStructureSchema = [
+export var DisassociateTrafficDistributionGroupUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTDGUR,
@@ -5120,8 +5151,8 @@ export var DisassociateTrafficDistributionGroupUserRequest: StaticStructureSchem
     [0, { [_hQ]: _II }],
   ],
 ];
-export var DisassociateTrafficDistributionGroupUserResponse: StaticStructureSchema = [3, n0, _DTDGURi, 0, [], []];
-export var DisassociateUserProficienciesRequest: StaticStructureSchema = [
+export var DisassociateTrafficDistributionGroupUserResponse$: StaticStructureSchema = [3, n0, _DTDGURi, 0, [], []];
+export var DisassociateUserProficienciesRequest$: StaticStructureSchema = [
   3,
   n0,
   _DUPR,
@@ -5129,7 +5160,7 @@ export var DisassociateUserProficienciesRequest: StaticStructureSchema = [
   [_II, _UI, _UP],
   [[0, 1], [0, 1], () => UserProficiencyDisassociateList],
 ];
-export var DisassociateWorkspaceRequest: StaticStructureSchema = [
+export var DisassociateWorkspaceRequest$: StaticStructureSchema = [
   3,
   n0,
   _DWRi,
@@ -5137,7 +5168,7 @@ export var DisassociateWorkspaceRequest: StaticStructureSchema = [
   [_II, _WI, _RA],
   [[0, 1], [0, 1], 64 | 0],
 ];
-export var DisassociateWorkspaceResponse: StaticStructureSchema = [
+export var DisassociateWorkspaceResponse$: StaticStructureSchema = [
   3,
   n0,
   _DWRis,
@@ -5145,15 +5176,15 @@ export var DisassociateWorkspaceResponse: StaticStructureSchema = [
   [_SL, _FL],
   [() => SuccessfulBatchAssociationSummaryList, () => FailedBatchAssociationSummaryList],
 ];
-export var DisconnectDetails: StaticStructureSchema = [3, n0, _DD, 0, [_PDI], [0]];
-export var DisconnectReason: StaticStructureSchema = [3, n0, _DR, 0, [_Cod], [0]];
-export var DismissUserContactRequest: StaticStructureSchema = [3, n0, _DUCRi, 0, [_UI, _II, _CI], [[0, 1], [0, 1], 0]];
-export var DismissUserContactResponse: StaticStructureSchema = [3, n0, _DUCRis, 0, [], []];
-export var Distribution: StaticStructureSchema = [3, n0, _Dis, 0, [_Reg, _Per], [0, 1]];
-export var DownloadUrlMetadata: StaticStructureSchema = [3, n0, _DUM, 0, [_Ur, _UE], [0, 0]];
-export var DuplicateResourceException: StaticErrorSchema = [-3, n0, _DRE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(DuplicateResourceException, __DuplicateResourceException);
-export var EffectiveHoursOfOperations: StaticStructureSchema = [
+export var DisconnectDetails$: StaticStructureSchema = [3, n0, _DD, 0, [_PDI], [0]];
+export var DisconnectReason$: StaticStructureSchema = [3, n0, _DR, 0, [_Cod], [0]];
+export var DismissUserContactRequest$: StaticStructureSchema = [3, n0, _DUCRi, 0, [_UI, _II, _CI], [[0, 1], [0, 1], 0]];
+export var DismissUserContactResponse$: StaticStructureSchema = [3, n0, _DUCRis, 0, [], []];
+export var Distribution$: StaticStructureSchema = [3, n0, _Dis, 0, [_Reg, _Per], [0, 1]];
+export var DownloadUrlMetadata$: StaticStructureSchema = [3, n0, _DUM, 0, [_Ur, _UE], [0, 0]];
+export var DuplicateResourceException$: StaticErrorSchema = [-3, n0, _DRE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(DuplicateResourceException$, DuplicateResourceException);
+export var EffectiveHoursOfOperations$: StaticStructureSchema = [
   3,
   n0,
   _EHOO,
@@ -5161,7 +5192,7 @@ export var EffectiveHoursOfOperations: StaticStructureSchema = [
   [_Da, _OH],
   [0, () => OperationalHours],
 ];
-export var EmailAddressInfo: StaticStructureSchema = [
+export var EmailAddressInfo$: StaticStructureSchema = [
   3,
   n0,
   _EAIm,
@@ -5172,7 +5203,7 @@ export var EmailAddressInfo: StaticStructureSchema = [
     [() => EmailAddressDisplayName, 0],
   ],
 ];
-export var EmailAddressMetadata: StaticStructureSchema = [
+export var EmailAddressMetadata$: StaticStructureSchema = [
   3,
   n0,
   _EAM,
@@ -5187,26 +5218,26 @@ export var EmailAddressMetadata: StaticStructureSchema = [
     () => AliasConfigurationList,
   ],
 ];
-export var EmailAddressSearchCriteria: StaticStructureSchema = [
+export var EmailAddressSearchCriteria$: StaticStructureSchema = [
   3,
   n0,
   _EASC,
   0,
   [_OC, _ACn, _SC],
-  [() => EmailAddressSearchConditionList, () => EmailAddressSearchConditionList, () => StringCondition],
+  [() => EmailAddressSearchConditionList, () => EmailAddressSearchConditionList, () => StringCondition$],
 ];
-export var EmailAddressSearchFilter: StaticStructureSchema = [3, n0, _EASF, 0, [_TF], [() => ControlPlaneTagFilter]];
-export var EmailAttachment: StaticStructureSchema = [3, n0, _EAm, 0, [_FN, _SUr], [0, 0]];
-export var EmailMessageReference: StaticStructureSchema = [3, n0, _EMR, 0, [_N, _A], [0, 0]];
-export var EmailRecipient: StaticStructureSchema = [3, n0, _ERm, 0, [_Ad, _DN], [0, 0]];
-export var EmailReference: StaticStructureSchema = [3, n0, _ERma, 0, [_N, _V], [0, 0]];
-export var EmptyFieldValue: StaticStructureSchema = [3, n0, _EFVm, 0, [], []];
-export var EncryptionConfig: StaticStructureSchema = [3, n0, _ECn, 0, [_ETnc, _KI], [0, 0]];
-export var EndAssociatedTasksActionDefinition: StaticStructureSchema = [3, n0, _EATAD, 0, [], []];
-export var Endpoint: StaticStructureSchema = [3, n0, _End, 0, [_T, _Ad], [0, 0]];
-export var EndpointInfo: StaticStructureSchema = [3, n0, _EIn, 0, [_T, _Ad, _DN], [0, 0, 0]];
-export var ErrorResult: StaticStructureSchema = [3, n0, _ERr, 0, [_EC, _EM], [0, 0]];
-export var EvaluateDataTableValuesRequest: StaticStructureSchema = [
+export var EmailAddressSearchFilter$: StaticStructureSchema = [3, n0, _EASF, 0, [_TF], [() => ControlPlaneTagFilter$]];
+export var EmailAttachment$: StaticStructureSchema = [3, n0, _EAm, 0, [_FN, _SUr], [0, 0]];
+export var EmailMessageReference$: StaticStructureSchema = [3, n0, _EMR, 0, [_N, _A], [0, 0]];
+export var EmailRecipient$: StaticStructureSchema = [3, n0, _ERm, 0, [_Ad, _DN], [0, 0]];
+export var EmailReference$: StaticStructureSchema = [3, n0, _ERma, 0, [_N, _V], [0, 0]];
+export var EmptyFieldValue$: StaticStructureSchema = [3, n0, _EFVm, 0, [], []];
+export var EncryptionConfig$: StaticStructureSchema = [3, n0, _ECn, 0, [_ETnc, _KI], [0, 0]];
+export var EndAssociatedTasksActionDefinition$: StaticStructureSchema = [3, n0, _EATAD, 0, [], []];
+export var Endpoint$: StaticStructureSchema = [3, n0, _End, 0, [_T, _Ad], [0, 0]];
+export var EndpointInfo$: StaticStructureSchema = [3, n0, _EIn, 0, [_T, _Ad, _DN], [0, 0, 0]];
+export var ErrorResult$: StaticStructureSchema = [3, n0, _ERr, 0, [_EC, _EM], [0, 0]];
+export var EvaluateDataTableValuesRequest$: StaticStructureSchema = [
   3,
   n0,
   _EDTVR,
@@ -5214,7 +5245,7 @@ export var EvaluateDataTableValuesRequest: StaticStructureSchema = [
   [_II, _DTI, _Va, _TZ, _NT, _MR],
   [[0, 1], [0, 1], () => DataTableValueEvaluationSetList, 0, [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]],
 ];
-export var EvaluateDataTableValuesResponse: StaticStructureSchema = [
+export var EvaluateDataTableValuesResponse$: StaticStructureSchema = [
   3,
   n0,
   _EDTVRv,
@@ -5222,7 +5253,7 @@ export var EvaluateDataTableValuesResponse: StaticStructureSchema = [
   [_Va, _NT],
   [() => DataTableEvaluatedValueList, 0],
 ];
-export var Evaluation: StaticStructureSchema = [
+export var Evaluation$: StaticStructureSchema = [
   3,
   n0,
   _Ev,
@@ -5231,7 +5262,7 @@ export var Evaluation: StaticStructureSchema = [
   [
     0,
     0,
-    () => EvaluationMetadata,
+    () => EvaluationMetadata$,
     () => EvaluationAnswersOutputMap,
     () => EvaluationNotesMap,
     0,
@@ -5242,18 +5273,18 @@ export var Evaluation: StaticStructureSchema = [
     128 | 0,
   ],
 ];
-export var EvaluationAcknowledgement: StaticStructureSchema = [3, n0, _EAva, 0, [_ATck, _AB, _ACc], [4, 0, 0]];
-export var EvaluationAcknowledgementSummary: StaticStructureSchema = [3, n0, _EAS, 0, [_ATck, _AB, _ACc], [4, 0, 0]];
-export var EvaluationAnswerInput: StaticStructureSchema = [3, n0, _EAIv, 0, [_V], [() => EvaluationAnswerData]];
-export var EvaluationAnswerOutput: StaticStructureSchema = [
+export var EvaluationAcknowledgement$: StaticStructureSchema = [3, n0, _EAva, 0, [_ATck, _AB, _ACc], [4, 0, 0]];
+export var EvaluationAcknowledgementSummary$: StaticStructureSchema = [3, n0, _EAS, 0, [_ATck, _AB, _ACc], [4, 0, 0]];
+export var EvaluationAnswerInput$: StaticStructureSchema = [3, n0, _EAIv, 0, [_V], [() => EvaluationAnswerData$]];
+export var EvaluationAnswerOutput$: StaticStructureSchema = [
   3,
   n0,
   _EAO,
   0,
   [_V, _SSV, _SAu],
-  [() => EvaluationAnswerData, () => EvaluationAnswerData, () => EvaluationSuggestedAnswersList],
+  [() => EvaluationAnswerData$, () => EvaluationAnswerData$, () => EvaluationSuggestedAnswersList],
 ];
-export var EvaluationAutomationRuleCategory: StaticStructureSchema = [
+export var EvaluationAutomationRuleCategory$: StaticStructureSchema = [
   3,
   n0,
   _EARC,
@@ -5261,7 +5292,7 @@ export var EvaluationAutomationRuleCategory: StaticStructureSchema = [
   [_Cat, _Con, _POI],
   [0, 0, () => EvaluationTranscriptPointsOfInterest],
 ];
-export var EvaluationContactLensAnswerAnalysisDetails: StaticStructureSchema = [
+export var EvaluationContactLensAnswerAnalysisDetails$: StaticStructureSchema = [
   3,
   n0,
   _ECLAAD,
@@ -5269,8 +5300,8 @@ export var EvaluationContactLensAnswerAnalysisDetails: StaticStructureSchema = [
   [_MRC],
   [() => EvaluationAutomationRuleCategoryList],
 ];
-export var EvaluationContactParticipant: StaticStructureSchema = [3, n0, _ECP, 0, [_CPRo, _CPI], [0, 0]];
-export var EvaluationForm: StaticStructureSchema = [
+export var EvaluationContactParticipant$: StaticStructureSchema = [3, n0, _ECP, 0, [_CPRo, _CPI], [0, 0]];
+export var EvaluationForm$: StaticStructureSchema = [
   3,
   n0,
   _EFv,
@@ -5285,19 +5316,19 @@ export var EvaluationForm: StaticStructureSchema = [
     0,
     0,
     () => EvaluationFormItemsList,
-    () => EvaluationFormScoringStrategy,
+    () => EvaluationFormScoringStrategy$,
     4,
     0,
     4,
     0,
-    () => EvaluationFormAutoEvaluationConfiguration,
+    () => EvaluationFormAutoEvaluationConfiguration$,
     128 | 0,
-    () => EvaluationFormTargetConfiguration,
-    () => EvaluationFormLanguageConfiguration,
+    () => EvaluationFormTargetConfiguration$,
+    () => EvaluationFormLanguageConfiguration$,
   ],
 ];
-export var EvaluationFormAutoEvaluationConfiguration: StaticStructureSchema = [3, n0, _EFAEC, 0, [_En], [2]];
-export var EvaluationFormContent: StaticStructureSchema = [
+export var EvaluationFormAutoEvaluationConfiguration$: StaticStructureSchema = [3, n0, _EFAEC, 0, [_En], [2]];
+export var EvaluationFormContent$: StaticStructureSchema = [
   3,
   n0,
   _EFC,
@@ -5310,13 +5341,13 @@ export var EvaluationFormContent: StaticStructureSchema = [
     0,
     0,
     () => EvaluationFormItemsList,
-    () => EvaluationFormScoringStrategy,
-    () => EvaluationFormAutoEvaluationConfiguration,
-    () => EvaluationFormTargetConfiguration,
-    () => EvaluationFormLanguageConfiguration,
+    () => EvaluationFormScoringStrategy$,
+    () => EvaluationFormAutoEvaluationConfiguration$,
+    () => EvaluationFormTargetConfiguration$,
+    () => EvaluationFormLanguageConfiguration$,
   ],
 ];
-export var EvaluationFormItemEnablementCondition: StaticStructureSchema = [
+export var EvaluationFormItemEnablementCondition$: StaticStructureSchema = [
   3,
   n0,
   _EFIEC,
@@ -5324,26 +5355,26 @@ export var EvaluationFormItemEnablementCondition: StaticStructureSchema = [
   [_Op, _Ope],
   [() => EvaluationFormItemEnablementConditionOperandList, 0],
 ];
-export var EvaluationFormItemEnablementConfiguration: StaticStructureSchema = [
+export var EvaluationFormItemEnablementConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _EFIECv,
   0,
   [_Con, _Act, _DAe],
-  [() => EvaluationFormItemEnablementCondition, 0, 0],
+  [() => EvaluationFormItemEnablementCondition$, 0, 0],
 ];
-export var EvaluationFormItemEnablementExpression: StaticStructureSchema = [
+export var EvaluationFormItemEnablementExpression$: StaticStructureSchema = [
   3,
   n0,
   _EFIEE,
   0,
   [_So, _Va, _Com],
-  [() => EvaluationFormItemEnablementSource, () => EvaluationFormItemEnablementSourceValueList, 0],
+  [() => EvaluationFormItemEnablementSource$, () => EvaluationFormItemEnablementSourceValueList, 0],
 ];
-export var EvaluationFormItemEnablementSource: StaticStructureSchema = [3, n0, _EFIES, 0, [_T, _RIef], [0, 0]];
-export var EvaluationFormItemEnablementSourceValue: StaticStructureSchema = [3, n0, _EFIESV, 0, [_T, _RIef], [0, 0]];
-export var EvaluationFormLanguageConfiguration: StaticStructureSchema = [3, n0, _EFLC, 0, [_FLo], [0]];
-export var EvaluationFormMultiSelectQuestionAutomation: StaticStructureSchema = [
+export var EvaluationFormItemEnablementSource$: StaticStructureSchema = [3, n0, _EFIES, 0, [_T, _RIef], [0, 0]];
+export var EvaluationFormItemEnablementSourceValue$: StaticStructureSchema = [3, n0, _EFIESV, 0, [_T, _RIef], [0, 0]];
+export var EvaluationFormLanguageConfiguration$: StaticStructureSchema = [3, n0, _EFLC, 0, [_FLo], [0]];
+export var EvaluationFormMultiSelectQuestionAutomation$: StaticStructureSchema = [
   3,
   n0,
   _EFMSQA,
@@ -5352,45 +5383,45 @@ export var EvaluationFormMultiSelectQuestionAutomation: StaticStructureSchema = 
   [
     () => EvaluationFormMultiSelectQuestionAutomationOptionList,
     64 | 0,
-    () => EvaluationFormQuestionAutomationAnswerSource,
+    () => EvaluationFormQuestionAutomationAnswerSource$,
   ],
 ];
-export var EvaluationFormMultiSelectQuestionOption: StaticStructureSchema = [3, n0, _EFMSQO, 0, [_RIef, _Te], [0, 0]];
-export var EvaluationFormMultiSelectQuestionProperties: StaticStructureSchema = [
+export var EvaluationFormMultiSelectQuestionOption$: StaticStructureSchema = [3, n0, _EFMSQO, 0, [_RIef, _Te], [0, 0]];
+export var EvaluationFormMultiSelectQuestionProperties$: StaticStructureSchema = [
   3,
   n0,
   _EFMSQP,
   0,
   [_Opt, _DAi, _Aut],
-  [() => EvaluationFormMultiSelectQuestionOptionList, 0, () => EvaluationFormMultiSelectQuestionAutomation],
+  [() => EvaluationFormMultiSelectQuestionOptionList, 0, () => EvaluationFormMultiSelectQuestionAutomation$],
 ];
-export var EvaluationFormNumericQuestionOption: StaticStructureSchema = [
+export var EvaluationFormNumericQuestionOption$: StaticStructureSchema = [
   3,
   n0,
   _EFNQO,
   0,
   [_MV, _MVa, _Sco, _AFut, _AFC],
-  [1, 1, 1, 2, () => AutomaticFailConfiguration],
+  [1, 1, 1, 2, () => AutomaticFailConfiguration$],
 ];
-export var EvaluationFormNumericQuestionProperties: StaticStructureSchema = [
+export var EvaluationFormNumericQuestionProperties$: StaticStructureSchema = [
   3,
   n0,
   _EFNQP,
   0,
   [_MV, _MVa, _Opt, _Aut],
-  [1, 1, () => EvaluationFormNumericQuestionOptionList, () => EvaluationFormNumericQuestionAutomation],
+  [1, 1, () => EvaluationFormNumericQuestionOptionList, () => EvaluationFormNumericQuestionAutomation$],
 ];
-export var EvaluationFormQuestion: StaticStructureSchema = [
+export var EvaluationFormQuestion$: StaticStructureSchema = [
   3,
   n0,
   _EFQ,
   0,
   [_Ti, _Ins, _RIef, _NAE, _QT, _QTP, _Ena, _We],
-  [0, 0, 0, 2, 0, () => EvaluationFormQuestionTypeProperties, () => EvaluationFormItemEnablementConfiguration, 1],
+  [0, 0, 0, 2, 0, () => EvaluationFormQuestionTypeProperties$, () => EvaluationFormItemEnablementConfiguration$, 1],
 ];
-export var EvaluationFormQuestionAutomationAnswerSource: StaticStructureSchema = [3, n0, _EFQAAS, 0, [_STo], [0]];
-export var EvaluationFormScoringStrategy: StaticStructureSchema = [3, n0, _EFSS, 0, [_Mo, _St], [0, 0]];
-export var EvaluationFormSearchCriteria: StaticStructureSchema = [
+export var EvaluationFormQuestionAutomationAnswerSource$: StaticStructureSchema = [3, n0, _EFQAAS, 0, [_STo], [0]];
+export var EvaluationFormScoringStrategy$: StaticStructureSchema = [3, n0, _EFSS, 0, [_Mo, _St], [0, 0]];
+export var EvaluationFormSearchCriteria$: StaticStructureSchema = [
   3,
   n0,
   _EFSC,
@@ -5399,21 +5430,21 @@ export var EvaluationFormSearchCriteria: StaticStructureSchema = [
   [
     () => EvaluationFormSearchConditionList,
     () => EvaluationFormSearchConditionList,
-    () => StringCondition,
-    () => NumberCondition,
-    () => BooleanCondition,
-    () => DateTimeCondition,
+    () => StringCondition$,
+    () => NumberCondition$,
+    () => BooleanCondition$,
+    () => DateTimeCondition$,
   ],
 ];
-export var EvaluationFormSearchFilter: StaticStructureSchema = [
+export var EvaluationFormSearchFilter$: StaticStructureSchema = [
   3,
   n0,
   _EFSF,
   0,
   [_AFt],
-  [() => ControlPlaneAttributeFilter],
+  [() => ControlPlaneAttributeFilter$],
 ];
-export var EvaluationFormSearchSummary: StaticStructureSchema = [
+export var EvaluationFormSearchSummary$: StaticStructureSchema = [
   3,
   n0,
   _EFSSv,
@@ -5421,7 +5452,7 @@ export var EvaluationFormSearchSummary: StaticStructureSchema = [
   [_EFI, _EFA, _Ti, _St, _D, _CTre, _CB, _LMT, _LMB, _LAT, _LAB, _LVa, _AV, _AEE, _EFL, _CIT, _Ta],
   [0, 0, 0, 0, 0, 4, 0, 4, 0, 4, 0, 1, 1, 2, 0, 0, 128 | 0],
 ];
-export var EvaluationFormSection: StaticStructureSchema = [
+export var EvaluationFormSection$: StaticStructureSchema = [
   3,
   n0,
   _EFS,
@@ -5429,31 +5460,35 @@ export var EvaluationFormSection: StaticStructureSchema = [
   [_Ti, _RIef, _Ins, _It, _We],
   [0, 0, 0, () => EvaluationFormItemsList, 1],
 ];
-export var EvaluationFormSingleSelectQuestionAutomation: StaticStructureSchema = [
+export var EvaluationFormSingleSelectQuestionAutomation$: StaticStructureSchema = [
   3,
   n0,
   _EFSSQA,
   0,
   [_Opt, _DORIe, _ASn],
-  [() => EvaluationFormSingleSelectQuestionAutomationOptionList, 0, () => EvaluationFormQuestionAutomationAnswerSource],
+  [
+    () => EvaluationFormSingleSelectQuestionAutomationOptionList,
+    0,
+    () => EvaluationFormQuestionAutomationAnswerSource$,
+  ],
 ];
-export var EvaluationFormSingleSelectQuestionOption: StaticStructureSchema = [
+export var EvaluationFormSingleSelectQuestionOption$: StaticStructureSchema = [
   3,
   n0,
   _EFSSQO,
   0,
   [_RIef, _Te, _Sco, _AFut, _AFC],
-  [0, 0, 1, 2, () => AutomaticFailConfiguration],
+  [0, 0, 1, 2, () => AutomaticFailConfiguration$],
 ];
-export var EvaluationFormSingleSelectQuestionProperties: StaticStructureSchema = [
+export var EvaluationFormSingleSelectQuestionProperties$: StaticStructureSchema = [
   3,
   n0,
   _EFSSQP,
   0,
   [_Opt, _DAi, _Aut],
-  [() => EvaluationFormSingleSelectQuestionOptionList, 0, () => EvaluationFormSingleSelectQuestionAutomation],
+  [() => EvaluationFormSingleSelectQuestionOptionList, 0, () => EvaluationFormSingleSelectQuestionAutomation$],
 ];
-export var EvaluationFormSummary: StaticStructureSchema = [
+export var EvaluationFormSummary$: StaticStructureSchema = [
   3,
   n0,
   _EFSv,
@@ -5461,24 +5496,24 @@ export var EvaluationFormSummary: StaticStructureSchema = [
   [_EFI, _EFA, _Ti, _CTre, _CB, _LMT, _LMB, _LAT, _LAB, _LVa, _AV],
   [0, 0, 0, 4, 0, 4, 0, 4, 0, 1, 1],
 ];
-export var EvaluationFormTargetConfiguration: StaticStructureSchema = [3, n0, _EFTC, 0, [_CIT], [0]];
-export var EvaluationFormTextQuestionAutomation: StaticStructureSchema = [
+export var EvaluationFormTargetConfiguration$: StaticStructureSchema = [3, n0, _EFTC, 0, [_CIT], [0]];
+export var EvaluationFormTextQuestionAutomation$: StaticStructureSchema = [
   3,
   n0,
   _EFTQA,
   0,
   [_ASn],
-  [() => EvaluationFormQuestionAutomationAnswerSource],
+  [() => EvaluationFormQuestionAutomationAnswerSource$],
 ];
-export var EvaluationFormTextQuestionProperties: StaticStructureSchema = [
+export var EvaluationFormTextQuestionProperties$: StaticStructureSchema = [
   3,
   n0,
   _EFTQP,
   0,
   [_Aut],
-  [() => EvaluationFormTextQuestionAutomation],
+  [() => EvaluationFormTextQuestionAutomation$],
 ];
-export var EvaluationFormVersionSummary: StaticStructureSchema = [
+export var EvaluationFormVersionSummary$: StaticStructureSchema = [
   3,
   n0,
   _EFVS,
@@ -5486,7 +5521,7 @@ export var EvaluationFormVersionSummary: StaticStructureSchema = [
   [_EFA, _EFI, _EFV, _L, _St, _CTre, _CB, _LMT, _LMB],
   [0, 0, 1, 2, 0, 4, 0, 4, 0],
 ];
-export var EvaluationGenAIAnswerAnalysisDetails: StaticStructureSchema = [
+export var EvaluationGenAIAnswerAnalysisDetails$: StaticStructureSchema = [
   3,
   n0,
   _EGAIAAD,
@@ -5494,7 +5529,7 @@ export var EvaluationGenAIAnswerAnalysisDetails: StaticStructureSchema = [
   [_J, _POI],
   [0, () => EvaluationTranscriptPointsOfInterest],
 ];
-export var EvaluationMetadata: StaticStructureSchema = [
+export var EvaluationMetadata$: StaticStructureSchema = [
   3,
   n0,
   _EMv,
@@ -5505,17 +5540,17 @@ export var EvaluationMetadata: StaticStructureSchema = [
     0,
     0,
     0,
-    () => EvaluationScore,
-    () => AutoEvaluationDetails,
-    () => EvaluationAcknowledgement,
-    () => EvaluationContactParticipant,
+    () => EvaluationScore$,
+    () => AutoEvaluationDetails$,
+    () => EvaluationAcknowledgement$,
+    () => EvaluationContactParticipant$,
     0,
   ],
 ];
-export var EvaluationNote: StaticStructureSchema = [3, n0, _EN, 0, [_V], [0]];
-export var EvaluationQuestionInputDetails: StaticStructureSchema = [3, n0, _EQID, 0, [_TT], [0]];
-export var EvaluationScore: StaticStructureSchema = [3, n0, _ES, 0, [_Per, _NA, _AFut, _AW], [1, 2, 2, 1]];
-export var EvaluationSearchCriteria: StaticStructureSchema = [
+export var EvaluationNote$: StaticStructureSchema = [3, n0, _EN, 0, [_V], [0]];
+export var EvaluationQuestionInputDetails$: StaticStructureSchema = [3, n0, _EQID, 0, [_TT], [0]];
+export var EvaluationScore$: StaticStructureSchema = [3, n0, _ES, 0, [_Per, _NA, _AFut, _AW], [1, 2, 2, 1]];
+export var EvaluationSearchCriteria$: StaticStructureSchema = [
   3,
   n0,
   _ESC,
@@ -5524,22 +5559,22 @@ export var EvaluationSearchCriteria: StaticStructureSchema = [
   [
     () => EvaluationSearchConditionList,
     () => EvaluationSearchConditionList,
-    () => StringCondition,
-    () => NumberCondition,
-    () => BooleanCondition,
-    () => DateTimeCondition,
-    () => DecimalCondition,
+    () => StringCondition$,
+    () => NumberCondition$,
+    () => BooleanCondition$,
+    () => DateTimeCondition$,
+    () => DecimalCondition$,
   ],
 ];
-export var EvaluationSearchFilter: StaticStructureSchema = [
+export var EvaluationSearchFilter$: StaticStructureSchema = [
   3,
   n0,
   _ESF,
   0,
   [_AFt],
-  [() => ControlPlaneAttributeFilter],
+  [() => ControlPlaneAttributeFilter$],
 ];
-export var EvaluationSearchMetadata: StaticStructureSchema = [
+export var EvaluationSearchMetadata$: StaticStructureSchema = [
   3,
   n0,
   _ESM,
@@ -5547,29 +5582,29 @@ export var EvaluationSearchMetadata: StaticStructureSchema = [
   [_CI, _EAval, _CAIo, _CSI, _SPc, _SAF, _SNA, _AEE, _AES, _ATck, _AB, _ACc, _SJI, _RIev, _CPRo, _CPI],
   [0, 0, 0, 0, 1, 2, 2, 2, 0, 4, 0, 0, 0, 0, 0, 0],
 ];
-export var EvaluationSearchSummary: StaticStructureSchema = [
+export var EvaluationSearchSummary$: StaticStructureSchema = [
   3,
   n0,
   _ESS,
   0,
   [_EI, _EAv, _EFI, _EFV, _EFT, _Meta, _St, _ETv, _CTre, _LMT, _Ta],
-  [0, 0, 0, 1, 0, () => EvaluationSearchMetadata, 0, 0, 4, 4, 128 | 0],
+  [0, 0, 0, 1, 0, () => EvaluationSearchMetadata$, 0, 0, 4, 4, 128 | 0],
 ];
-export var EvaluationSuggestedAnswer: StaticStructureSchema = [
+export var EvaluationSuggestedAnswer$: StaticStructureSchema = [
   3,
   n0,
   _ESA,
   0,
   [_V, _St, _Inp, _ATn, _ADn],
   [
-    () => EvaluationAnswerData,
+    () => EvaluationAnswerData$,
     0,
-    () => EvaluationQuestionInputDetails,
+    () => EvaluationQuestionInputDetails$,
     0,
-    () => EvaluationQuestionAnswerAnalysisDetails,
+    () => EvaluationQuestionAnswerAnalysisDetails$,
   ],
 ];
-export var EvaluationSuggestedAnswerTranscriptMillisecondOffsets: StaticStructureSchema = [
+export var EvaluationSuggestedAnswerTranscriptMillisecondOffsets$: StaticStructureSchema = [
   3,
   n0,
   _ESATMO,
@@ -5577,7 +5612,7 @@ export var EvaluationSuggestedAnswerTranscriptMillisecondOffsets: StaticStructur
   [_BOM],
   [1],
 ];
-export var EvaluationSummary: StaticStructureSchema = [
+export var EvaluationSummary$: StaticStructureSchema = [
   3,
   n0,
   _ESv,
@@ -5593,45 +5628,45 @@ export var EvaluationSummary: StaticStructureSchema = [
     2,
     0,
     0,
-    () => EvaluationScore,
-    () => EvaluationAcknowledgementSummary,
+    () => EvaluationScore$,
+    () => EvaluationAcknowledgementSummary$,
     0,
     4,
     4,
-    () => EvaluationContactParticipant,
+    () => EvaluationContactParticipant$,
   ],
 ];
-export var EvaluationTranscriptPointOfInterest: StaticStructureSchema = [
+export var EvaluationTranscriptPointOfInterest$: StaticStructureSchema = [
   3,
   n0,
   _ETPOI,
   0,
   [_MO, _TSr],
-  [() => EvaluationSuggestedAnswerTranscriptMillisecondOffsets, 0],
+  [() => EvaluationSuggestedAnswerTranscriptMillisecondOffsets$, 0],
 ];
-export var EventBridgeActionDefinition: StaticStructureSchema = [3, n0, _EBAD, 0, [_N], [0]];
-export var Expiry: StaticStructureSchema = [3, n0, _Ex, 0, [_DIS, _ETx], [1, 4]];
-export var Expression: StaticStructureSchema = [
+export var EventBridgeActionDefinition$: StaticStructureSchema = [3, n0, _EBAD, 0, [_N], [0]];
+export var Expiry$: StaticStructureSchema = [3, n0, _Ex, 0, [_DIS, _ETx], [1, 4]];
+export var Expression$: StaticStructureSchema = [
   3,
   n0,
   _Exp,
   0,
   [_ACt, _AEn, _OE, _NAC],
-  [() => AttributeCondition, () => Expressions, () => Expressions, () => AttributeCondition],
+  [() => AttributeCondition$, () => Expressions, () => Expressions, () => AttributeCondition$],
 ];
-export var ExternalInvocationConfiguration: StaticStructureSchema = [3, n0, _EIC, 0, [_En], [2]];
-export var FailedBatchAssociationSummary: StaticStructureSchema = [3, n0, _FBAS, 0, [_RAe, _EC, _EM], [0, 0, 0]];
-export var FailedRequest: StaticStructureSchema = [3, n0, _FR, 0, [_RIeq, _FRC, _FRM], [0, 0, 0]];
-export var FieldValue: StaticStructureSchema = [3, n0, _FV, 0, [_I, _V], [0, () => FieldValueUnion]];
-export var FieldValueUnion: StaticStructureSchema = [
+export var ExternalInvocationConfiguration$: StaticStructureSchema = [3, n0, _EIC, 0, [_En], [2]];
+export var FailedBatchAssociationSummary$: StaticStructureSchema = [3, n0, _FBAS, 0, [_RAe, _EC, _EM], [0, 0, 0]];
+export var FailedRequest$: StaticStructureSchema = [3, n0, _FR, 0, [_RIeq, _FRC, _FRM], [0, 0, 0]];
+export var FieldValue$: StaticStructureSchema = [3, n0, _FV, 0, [_I, _V], [0, () => FieldValueUnion$]];
+export var FieldValueUnion$: StaticStructureSchema = [
   3,
   n0,
   _FVU,
   0,
   [_BV, _DVo, _EVm, _SV],
-  [2, 1, () => EmptyFieldValue, 0],
+  [2, 1, () => EmptyFieldValue$, 0],
 ];
-export var Filters: StaticStructureSchema = [
+export var Filters$: StaticStructureSchema = [
   3,
   n0,
   _Fil,
@@ -5639,20 +5674,20 @@ export var Filters: StaticStructureSchema = [
   [_Qu, _Ch, _RPo, _RSEo, _ASge],
   [64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0],
 ];
-export var FilterV2: StaticStructureSchema = [
+export var FilterV2$: StaticStructureSchema = [
   3,
   n0,
   _FVi,
   0,
   [_FK, _FVil, _SC],
-  [0, 64 | 0, () => FilterV2StringCondition],
+  [0, 64 | 0, () => FilterV2StringCondition$],
 ];
-export var FilterV2StringCondition: StaticStructureSchema = [3, n0, _FVSC, 0, [_Comp], [0]];
-export var FlowAssociationSummary: StaticStructureSchema = [3, n0, _FAS, 0, [_RI, _FI, _RT], [0, 0, 0]];
-export var FlowModule: StaticStructureSchema = [3, n0, _FM, 0, [_T, _FMI], [0, 0]];
-export var FlowQuickConnectConfig: StaticStructureSchema = [3, n0, _FQCC, 0, [_CFI], [0]];
-export var FontFamily: StaticStructureSchema = [3, n0, _FF, 0, [_Defa], [0]];
-export var GetAttachedFileRequest: StaticStructureSchema = [
+export var FilterV2StringCondition$: StaticStructureSchema = [3, n0, _FVSC, 0, [_Comp], [0]];
+export var FlowAssociationSummary$: StaticStructureSchema = [3, n0, _FAS, 0, [_RI, _FI, _RT], [0, 0, 0]];
+export var FlowModule$: StaticStructureSchema = [3, n0, _FM, 0, [_T, _FMI], [0, 0]];
+export var FlowQuickConnectConfig$: StaticStructureSchema = [3, n0, _FQCC, 0, [_CFI], [0]];
+export var FontFamily$: StaticStructureSchema = [3, n0, _FF, 0, [_Defa], [0]];
+export var GetAttachedFileRequest$: StaticStructureSchema = [
   3,
   n0,
   _GAFR,
@@ -5665,15 +5700,15 @@ export var GetAttachedFileRequest: StaticStructureSchema = [
     [0, { [_hQ]: _aRA }],
   ],
 ];
-export var GetAttachedFileResponse: StaticStructureSchema = [
+export var GetAttachedFileResponse$: StaticStructureSchema = [
   3,
   n0,
   _GAFRe,
   0,
   [_FAi, _FIi, _CTr, _FS, _FN, _FSIB, _ARA, _FUCT, _CB, _DUM, _Ta],
-  [0, 0, 0, 0, 0, 1, 0, 0, () => CreatedByInfo, () => DownloadUrlMetadata, 128 | 0],
+  [0, 0, 0, 0, 0, 1, 0, 0, () => CreatedByInfo$, () => DownloadUrlMetadata$, 128 | 0],
 ];
-export var GetContactAttributesRequest: StaticStructureSchema = [
+export var GetContactAttributesRequest$: StaticStructureSchema = [
   3,
   n0,
   _GCAR,
@@ -5684,8 +5719,8 @@ export var GetContactAttributesRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetContactAttributesResponse: StaticStructureSchema = [3, n0, _GCARe, 0, [_Attr], [128 | 0]];
-export var GetContactMetricsRequest: StaticStructureSchema = [
+export var GetContactAttributesResponse$: StaticStructureSchema = [3, n0, _GCARe, 0, [_Attr], [128 | 0]];
+export var GetContactMetricsRequest$: StaticStructureSchema = [
   3,
   n0,
   _GCMR,
@@ -5693,7 +5728,7 @@ export var GetContactMetricsRequest: StaticStructureSchema = [
   [_II, _CI, _Metr],
   [0, 0, () => ContactMetrics],
 ];
-export var GetContactMetricsResponse: StaticStructureSchema = [
+export var GetContactMetricsResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCMRe,
@@ -5701,15 +5736,15 @@ export var GetContactMetricsResponse: StaticStructureSchema = [
   [_MRe, _I, _A],
   [() => ContactMetricResults, 0, 0],
 ];
-export var GetCurrentMetricDataRequest: StaticStructureSchema = [
+export var GetCurrentMetricDataRequest$: StaticStructureSchema = [
   3,
   n0,
   _GCMDR,
   0,
   [_II, _Fil, _G, _CMurr, _NT, _MR, _SCo],
-  [[0, 1], () => Filters, 64 | 0, () => CurrentMetrics, 0, 1, () => CurrentMetricSortCriteriaMaxOne],
+  [[0, 1], () => Filters$, 64 | 0, () => CurrentMetrics, 0, 1, () => CurrentMetricSortCriteriaMaxOne],
 ];
-export var GetCurrentMetricDataResponse: StaticStructureSchema = [
+export var GetCurrentMetricDataResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCMDRe,
@@ -5717,15 +5752,15 @@ export var GetCurrentMetricDataResponse: StaticStructureSchema = [
   [_NT, _MRe, _DST, _ATC],
   [0, () => CurrentMetricResults, 4, 1],
 ];
-export var GetCurrentUserDataRequest: StaticStructureSchema = [
+export var GetCurrentUserDataRequest$: StaticStructureSchema = [
   3,
   n0,
   _GCUDR,
   0,
   [_II, _Fil, _NT, _MR],
-  [[0, 1], () => UserDataFilters, 0, 1],
+  [[0, 1], () => UserDataFilters$, 0, 1],
 ];
-export var GetCurrentUserDataResponse: StaticStructureSchema = [
+export var GetCurrentUserDataResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCUDRe,
@@ -5733,7 +5768,7 @@ export var GetCurrentUserDataResponse: StaticStructureSchema = [
   [_NT, _UDL, _ATC],
   [0, () => UserDataList, 1],
 ];
-export var GetEffectiveHoursOfOperationsRequest: StaticStructureSchema = [
+export var GetEffectiveHoursOfOperationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _GEHOOR,
@@ -5746,7 +5781,7 @@ export var GetEffectiveHoursOfOperationsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _tD }],
   ],
 ];
-export var GetEffectiveHoursOfOperationsResponse: StaticStructureSchema = [
+export var GetEffectiveHoursOfOperationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _GEHOORe,
@@ -5754,16 +5789,16 @@ export var GetEffectiveHoursOfOperationsResponse: StaticStructureSchema = [
   [_EHOOL, _TZ],
   [() => EffectiveHoursOfOperationList, 0],
 ];
-export var GetFederationTokenRequest: StaticStructureSchema = [3, n0, _GFTR, 0, [_II], [[0, 1]]];
-export var GetFederationTokenResponse: StaticStructureSchema = [
+export var GetFederationTokenRequest$: StaticStructureSchema = [3, n0, _GFTR, 0, [_II], [[0, 1]]];
+export var GetFederationTokenResponse$: StaticStructureSchema = [
   3,
   n0,
   _GFTRe,
   0,
   [_Cre, _SIU, _UA, _UI],
-  [[() => Credentials, 0], 0, 0, 0],
+  [[() => Credentials$, 0], 0, 0, 0],
 ];
-export var GetFlowAssociationRequest: StaticStructureSchema = [
+export var GetFlowAssociationRequest$: StaticStructureSchema = [
   3,
   n0,
   _GFAR,
@@ -5775,16 +5810,16 @@ export var GetFlowAssociationRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetFlowAssociationResponse: StaticStructureSchema = [3, n0, _GFARe, 0, [_RI, _FI, _RT], [0, 0, 0]];
-export var GetMetricDataRequest: StaticStructureSchema = [
+export var GetFlowAssociationResponse$: StaticStructureSchema = [3, n0, _GFARe, 0, [_RI, _FI, _RT], [0, 0, 0]];
+export var GetMetricDataRequest$: StaticStructureSchema = [
   3,
   n0,
   _GMDR,
   0,
   [_II, _STtar, _ETnd, _Fil, _G, _HM, _NT, _MR],
-  [[0, 1], 4, 4, () => Filters, 64 | 0, () => HistoricalMetrics, 0, 1],
+  [[0, 1], 4, 4, () => Filters$, 64 | 0, () => HistoricalMetrics, 0, 1],
 ];
-export var GetMetricDataResponse: StaticStructureSchema = [
+export var GetMetricDataResponse$: StaticStructureSchema = [
   3,
   n0,
   _GMDRe,
@@ -5792,15 +5827,15 @@ export var GetMetricDataResponse: StaticStructureSchema = [
   [_NT, _MRe],
   [0, () => HistoricalMetricResults],
 ];
-export var GetMetricDataV2Request: StaticStructureSchema = [
+export var GetMetricDataV2Request$: StaticStructureSchema = [
   3,
   n0,
   _GMDVR,
   0,
   [_RAe, _STtar, _ETnd, _Int, _Fil, _G, _Metr, _NT, _MR],
-  [0, 4, 4, () => IntervalDetails, () => FiltersV2List, 64 | 0, () => MetricsV2, 0, 1],
+  [0, 4, 4, () => IntervalDetails$, () => FiltersV2List, 64 | 0, () => MetricsV2, 0, 1],
 ];
-export var GetMetricDataV2Response: StaticStructureSchema = [
+export var GetMetricDataV2Response$: StaticStructureSchema = [
   3,
   n0,
   _GMDVRe,
@@ -5808,7 +5843,7 @@ export var GetMetricDataV2Response: StaticStructureSchema = [
   [_NT, _MRe],
   [0, () => MetricResultsV2],
 ];
-export var GetPromptFileRequest: StaticStructureSchema = [
+export var GetPromptFileRequest$: StaticStructureSchema = [
   3,
   n0,
   _GPFR,
@@ -5819,8 +5854,8 @@ export var GetPromptFileRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetPromptFileResponse: StaticStructureSchema = [3, n0, _GPFRe, 0, [_PPU, _LMT, _LMR], [0, 4, 0]];
-export var GetTaskTemplateRequest: StaticStructureSchema = [
+export var GetPromptFileResponse$: StaticStructureSchema = [3, n0, _GPFRe, 0, [_PPU, _LMT, _LMR], [0, 4, 0]];
+export var GetTaskTemplateRequest$: StaticStructureSchema = [
   3,
   n0,
   _GTTR,
@@ -5832,7 +5867,7 @@ export var GetTaskTemplateRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sV }],
   ],
 ];
-export var GetTaskTemplateResponse: StaticStructureSchema = [
+export var GetTaskTemplateResponse$: StaticStructureSchema = [
   3,
   n0,
   _GTTRe,
@@ -5846,8 +5881,8 @@ export var GetTaskTemplateResponse: StaticStructureSchema = [
     0,
     0,
     0,
-    () => TaskTemplateConstraints,
-    () => TaskTemplateDefaults,
+    () => TaskTemplateConstraints$,
+    () => TaskTemplateDefaults$,
     () => TaskTemplateFields,
     0,
     4,
@@ -5855,118 +5890,118 @@ export var GetTaskTemplateResponse: StaticStructureSchema = [
     128 | 0,
   ],
 ];
-export var GetTrafficDistributionRequest: StaticStructureSchema = [3, n0, _GTDR, 0, [_I], [[0, 1]]];
-export var GetTrafficDistributionResponse: StaticStructureSchema = [
+export var GetTrafficDistributionRequest$: StaticStructureSchema = [3, n0, _GTDR, 0, [_I], [[0, 1]]];
+export var GetTrafficDistributionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GTDRe,
   0,
   [_TCe, _I, _A, _SIC, _ACg],
-  [() => TelephonyConfig, 0, 0, () => SignInConfig, () => AgentConfig],
+  [() => TelephonyConfig$, 0, 0, () => SignInConfig$, () => AgentConfig$],
 ];
-export var GranularAccessControlConfiguration: StaticStructureSchema = [
+export var GranularAccessControlConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _GACC,
   0,
   [_DTACC],
-  [() => DataTableAccessControlConfiguration],
+  [() => DataTableAccessControlConfiguration$],
 ];
-export var HierarchyGroup: StaticStructureSchema = [
+export var HierarchyGroup$: StaticStructureSchema = [
   3,
   n0,
   _HGi,
   0,
   [_I, _A, _N, _LIe, _HP, _Ta, _LMT, _LMR],
-  [0, 0, 0, 0, () => HierarchyPath, 128 | 0, 4, 0],
+  [0, 0, 0, 0, () => HierarchyPath$, 128 | 0, 4, 0],
 ];
-export var HierarchyGroupCondition: StaticStructureSchema = [3, n0, _HGC, 0, [_V, _HGMT], [0, 0]];
-export var HierarchyGroups: StaticStructureSchema = [
+export var HierarchyGroupCondition$: StaticStructureSchema = [3, n0, _HGC, 0, [_V, _HGMT], [0, 0]];
+export var HierarchyGroups$: StaticStructureSchema = [
   3,
   n0,
   _HG,
   0,
   [_Le, _Lev, _Leve, _Level, _Level_],
   [
-    () => AgentHierarchyGroup,
-    () => AgentHierarchyGroup,
-    () => AgentHierarchyGroup,
-    () => AgentHierarchyGroup,
-    () => AgentHierarchyGroup,
+    () => AgentHierarchyGroup$,
+    () => AgentHierarchyGroup$,
+    () => AgentHierarchyGroup$,
+    () => AgentHierarchyGroup$,
+    () => AgentHierarchyGroup$,
   ],
 ];
-export var HierarchyGroupSummary: StaticStructureSchema = [3, n0, _HGS, 0, [_I, _A, _N, _LMT, _LMR], [0, 0, 0, 4, 0]];
-export var HierarchyGroupSummaryReference: StaticStructureSchema = [3, n0, _HGSR, 0, [_I, _A], [0, 0]];
-export var HierarchyLevel: StaticStructureSchema = [3, n0, _HL, 0, [_I, _A, _N, _LMT, _LMR], [0, 0, 0, 4, 0]];
-export var HierarchyLevelUpdate: StaticStructureSchema = [3, n0, _HLU, 0, [_N], [0]];
-export var HierarchyPath: StaticStructureSchema = [
+export var HierarchyGroupSummary$: StaticStructureSchema = [3, n0, _HGS, 0, [_I, _A, _N, _LMT, _LMR], [0, 0, 0, 4, 0]];
+export var HierarchyGroupSummaryReference$: StaticStructureSchema = [3, n0, _HGSR, 0, [_I, _A], [0, 0]];
+export var HierarchyLevel$: StaticStructureSchema = [3, n0, _HL, 0, [_I, _A, _N, _LMT, _LMR], [0, 0, 0, 4, 0]];
+export var HierarchyLevelUpdate$: StaticStructureSchema = [3, n0, _HLU, 0, [_N], [0]];
+export var HierarchyPath$: StaticStructureSchema = [
   3,
   n0,
   _HP,
   0,
   [_LO, _LT, _LTe, _LF, _LFe],
   [
-    () => HierarchyGroupSummary,
-    () => HierarchyGroupSummary,
-    () => HierarchyGroupSummary,
-    () => HierarchyGroupSummary,
-    () => HierarchyGroupSummary,
+    () => HierarchyGroupSummary$,
+    () => HierarchyGroupSummary$,
+    () => HierarchyGroupSummary$,
+    () => HierarchyGroupSummary$,
+    () => HierarchyGroupSummary$,
   ],
 ];
-export var HierarchyPathReference: StaticStructureSchema = [
+export var HierarchyPathReference$: StaticStructureSchema = [
   3,
   n0,
   _HPR,
   0,
   [_LO, _LT, _LTe, _LF, _LFe],
   [
-    () => HierarchyGroupSummaryReference,
-    () => HierarchyGroupSummaryReference,
-    () => HierarchyGroupSummaryReference,
-    () => HierarchyGroupSummaryReference,
-    () => HierarchyGroupSummaryReference,
+    () => HierarchyGroupSummaryReference$,
+    () => HierarchyGroupSummaryReference$,
+    () => HierarchyGroupSummaryReference$,
+    () => HierarchyGroupSummaryReference$,
+    () => HierarchyGroupSummaryReference$,
   ],
 ];
-export var HierarchyStructure: StaticStructureSchema = [
+export var HierarchyStructure$: StaticStructureSchema = [
   3,
   n0,
   _HS,
   0,
   [_LO, _LT, _LTe, _LF, _LFe],
-  [() => HierarchyLevel, () => HierarchyLevel, () => HierarchyLevel, () => HierarchyLevel, () => HierarchyLevel],
+  [() => HierarchyLevel$, () => HierarchyLevel$, () => HierarchyLevel$, () => HierarchyLevel$, () => HierarchyLevel$],
 ];
-export var HierarchyStructureUpdate: StaticStructureSchema = [
+export var HierarchyStructureUpdate$: StaticStructureSchema = [
   3,
   n0,
   _HSU,
   0,
   [_LO, _LT, _LTe, _LF, _LFe],
   [
-    () => HierarchyLevelUpdate,
-    () => HierarchyLevelUpdate,
-    () => HierarchyLevelUpdate,
-    () => HierarchyLevelUpdate,
-    () => HierarchyLevelUpdate,
+    () => HierarchyLevelUpdate$,
+    () => HierarchyLevelUpdate$,
+    () => HierarchyLevelUpdate$,
+    () => HierarchyLevelUpdate$,
+    () => HierarchyLevelUpdate$,
   ],
 ];
-export var HistoricalMetric: StaticStructureSchema = [
+export var HistoricalMetric$: StaticStructureSchema = [
   3,
   n0,
   _HMi,
   0,
   [_N, _Thr, _Sta, _Un],
-  [0, () => Threshold, 0, 0],
+  [0, () => Threshold$, 0, 0],
 ];
-export var HistoricalMetricData: StaticStructureSchema = [3, n0, _HMD, 0, [_Met, _V], [() => HistoricalMetric, 1]];
-export var HistoricalMetricResult: StaticStructureSchema = [
+export var HistoricalMetricData$: StaticStructureSchema = [3, n0, _HMD, 0, [_Met, _V], [() => HistoricalMetric$, 1]];
+export var HistoricalMetricResult$: StaticStructureSchema = [
   3,
   n0,
   _HMR,
   0,
   [_Dim, _Col],
-  [() => Dimensions, () => HistoricalMetricDataCollections],
+  [() => Dimensions$, () => HistoricalMetricDataCollections],
 ];
-export var HoursOfOperation: StaticStructureSchema = [
+export var HoursOfOperation$: StaticStructureSchema = [
   3,
   n0,
   _HOO,
@@ -5974,15 +6009,15 @@ export var HoursOfOperation: StaticStructureSchema = [
   [_HOOI, _HOOA, _N, _D, _TZ, _Conf, _Ta, _LMT, _LMR],
   [0, 0, 0, 0, 0, () => HoursOfOperationConfigList, 128 | 0, 4, 0],
 ];
-export var HoursOfOperationConfig: StaticStructureSchema = [
+export var HoursOfOperationConfig$: StaticStructureSchema = [
   3,
   n0,
   _HOOC,
   0,
   [_Day, _STtar, _ETnd],
-  [0, () => HoursOfOperationTimeSlice, () => HoursOfOperationTimeSlice],
+  [0, () => HoursOfOperationTimeSlice$, () => HoursOfOperationTimeSlice$],
 ];
-export var HoursOfOperationOverride: StaticStructureSchema = [
+export var HoursOfOperationOverride$: StaticStructureSchema = [
   3,
   n0,
   _HOOO,
@@ -5990,15 +6025,15 @@ export var HoursOfOperationOverride: StaticStructureSchema = [
   [_HOOOI, _HOOI, _HOOA, _N, _D, _Conf, _EF, _ETf],
   [0, 0, 0, 0, 0, () => HoursOfOperationOverrideConfigList, 0, 0],
 ];
-export var HoursOfOperationOverrideConfig: StaticStructureSchema = [
+export var HoursOfOperationOverrideConfig$: StaticStructureSchema = [
   3,
   n0,
   _HOOOC,
   0,
   [_Day, _STtar, _ETnd],
-  [0, () => OverrideTimeSlice, () => OverrideTimeSlice],
+  [0, () => OverrideTimeSlice$, () => OverrideTimeSlice$],
 ];
-export var HoursOfOperationOverrideSearchCriteria: StaticStructureSchema = [
+export var HoursOfOperationOverrideSearchCriteria$: StaticStructureSchema = [
   3,
   n0,
   _HOOOSC,
@@ -6007,27 +6042,27 @@ export var HoursOfOperationOverrideSearchCriteria: StaticStructureSchema = [
   [
     () => HoursOfOperationOverrideSearchConditionList,
     () => HoursOfOperationOverrideSearchConditionList,
-    () => StringCondition,
-    () => DateCondition,
+    () => StringCondition$,
+    () => DateCondition$,
   ],
 ];
-export var HoursOfOperationSearchCriteria: StaticStructureSchema = [
+export var HoursOfOperationSearchCriteria$: StaticStructureSchema = [
   3,
   n0,
   _HOOSC,
   0,
   [_OC, _ACn, _SC],
-  [() => HoursOfOperationSearchConditionList, () => HoursOfOperationSearchConditionList, () => StringCondition],
+  [() => HoursOfOperationSearchConditionList, () => HoursOfOperationSearchConditionList, () => StringCondition$],
 ];
-export var HoursOfOperationSearchFilter: StaticStructureSchema = [
+export var HoursOfOperationSearchFilter$: StaticStructureSchema = [
   3,
   n0,
   _HOOSF,
   0,
   [_TF],
-  [() => ControlPlaneTagFilter],
+  [() => ControlPlaneTagFilter$],
 ];
-export var HoursOfOperationSummary: StaticStructureSchema = [
+export var HoursOfOperationSummary$: StaticStructureSchema = [
   3,
   n0,
   _HOOS,
@@ -6035,11 +6070,11 @@ export var HoursOfOperationSummary: StaticStructureSchema = [
   [_I, _A, _N, _LMT, _LMR],
   [0, 0, 0, 4, 0],
 ];
-export var HoursOfOperationTimeSlice: StaticStructureSchema = [3, n0, _HOOTS, 0, [_H, _Mi], [1, 1]];
-export var IdempotencyException: StaticErrorSchema = [-3, n0, _IE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(IdempotencyException, __IdempotencyException);
-export var ImagesLogo: StaticStructureSchema = [3, n0, _IL, 0, [_Defa, _Fa], [0, 0]];
-export var ImportPhoneNumberRequest: StaticStructureSchema = [
+export var HoursOfOperationTimeSlice$: StaticStructureSchema = [3, n0, _HOOTS, 0, [_H, _Mi], [1, 1]];
+export var IdempotencyException$: StaticErrorSchema = [-3, n0, _IE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(IdempotencyException$, IdempotencyException);
+export var ImagesLogo$: StaticStructureSchema = [3, n0, _IL, 0, [_Defa, _Fa], [0, 0]];
+export var ImportPhoneNumberRequest$: StaticStructureSchema = [
   3,
   n0,
   _IPNR,
@@ -6047,8 +6082,8 @@ export var ImportPhoneNumberRequest: StaticStructureSchema = [
   [_II, _SPNA, _PND, _Ta, _CT],
   [0, 0, 0, 128 | 0, [0, 4]],
 ];
-export var ImportPhoneNumberResponse: StaticStructureSchema = [3, n0, _IPNRm, 0, [_PNI, _PNA], [0, 0]];
-export var ImportWorkspaceMediaRequest: StaticStructureSchema = [
+export var ImportPhoneNumberResponse$: StaticStructureSchema = [3, n0, _IPNRm, 0, [_PNI, _PNA], [0, 0]];
+export var ImportWorkspaceMediaRequest$: StaticStructureSchema = [
   3,
   n0,
   _IWMR,
@@ -6056,8 +6091,8 @@ export var ImportWorkspaceMediaRequest: StaticStructureSchema = [
   [_II, _WI, _MT, _MS],
   [[0, 1], [0, 1], 0, 0],
 ];
-export var ImportWorkspaceMediaResponse: StaticStructureSchema = [3, n0, _IWMRm, 0, [], []];
-export var InboundAdditionalRecipients: StaticStructureSchema = [
+export var ImportWorkspaceMediaResponse$: StaticStructureSchema = [3, n0, _IWMRm, 0, [], []];
+export var InboundAdditionalRecipients$: StaticStructureSchema = [
   3,
   n0,
   _IAR,
@@ -6068,15 +6103,15 @@ export var InboundAdditionalRecipients: StaticStructureSchema = [
     [() => EmailAddressRecipientList, 0],
   ],
 ];
-export var InboundEmailContent: StaticStructureSchema = [
+export var InboundEmailContent$: StaticStructureSchema = [
   3,
   n0,
   _IEC,
   0,
   [_MST, _RM],
-  [0, [() => InboundRawMessage, 0]],
+  [0, [() => InboundRawMessage$, 0]],
 ];
-export var InboundRawMessage: StaticStructureSchema = [
+export var InboundRawMessage$: StaticStructureSchema = [
   3,
   n0,
   _IRMn,
@@ -6084,25 +6119,25 @@ export var InboundRawMessage: StaticStructureSchema = [
   [_Sub, _B, _CTon, _He],
   [[() => InboundSubject, 0], [() => Body, 0], 0, 128 | 0],
 ];
-export var InputPredefinedAttributeConfiguration: StaticStructureSchema = [3, n0, _IPAC, 0, [_EVVOA], [2]];
-export var Instance: StaticStructureSchema = [
+export var InputPredefinedAttributeConfiguration$: StaticStructureSchema = [3, n0, _IPAC, 0, [_EVVOA], [2]];
+export var Instance$: StaticStructureSchema = [
   3,
   n0,
   _In,
   0,
   [_I, _A, _IMT, _IAn, _CTre, _SR, _ISn, _SRt, _ICE, _OCE, _IAU, _Ta],
-  [0, 0, 0, [() => DirectoryAlias, 0], 4, 0, 0, () => InstanceStatusReason, 2, 2, 0, 128 | 0],
+  [0, 0, 0, [() => DirectoryAlias, 0], 4, 0, 0, () => InstanceStatusReason$, 2, 2, 0, 128 | 0],
 ];
-export var InstanceStatusReason: StaticStructureSchema = [3, n0, _ISR, 0, [_M], [0]];
-export var InstanceStorageConfig: StaticStructureSchema = [
+export var InstanceStatusReason$: StaticStructureSchema = [3, n0, _ISR, 0, [_M], [0]];
+export var InstanceStorageConfig$: StaticStructureSchema = [
   3,
   n0,
   _ISC,
   0,
   [_AIs, _STto, _SCon, _KVSC, _KSC, _KFC],
-  [0, 0, () => S3Config, () => KinesisVideoStreamConfig, () => KinesisStreamConfig, () => KinesisFirehoseConfig],
+  [0, 0, () => S3Config$, () => KinesisVideoStreamConfig$, () => KinesisStreamConfig$, () => KinesisFirehoseConfig$],
 ];
-export var InstanceSummary: StaticStructureSchema = [
+export var InstanceSummary$: StaticStructureSchema = [
   3,
   n0,
   _ISns,
@@ -6110,7 +6145,7 @@ export var InstanceSummary: StaticStructureSchema = [
   [_I, _A, _IMT, _IAn, _CTre, _SR, _ISn, _ICE, _OCE, _IAU],
   [0, 0, 0, [() => DirectoryAlias, 0], 4, 0, 0, 2, 2, 0],
 ];
-export var IntegrationAssociationSummary: StaticStructureSchema = [
+export var IntegrationAssociationSummary$: StaticStructureSchema = [
   3,
   n0,
   _IAS,
@@ -6118,10 +6153,10 @@ export var IntegrationAssociationSummary: StaticStructureSchema = [
   [_IAI, _IAA, _II, _ITn, _IAnt, _SAU, _SAN, _STo],
   [0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var InternalServiceException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InternalServiceException, __InternalServiceException);
-export var IntervalDetails: StaticStructureSchema = [3, n0, _IDnt, 0, [_TZ, _IP], [0, 0]];
-export var InvalidContactFlowException: StaticErrorSchema = [
+export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InternalServiceException$, InternalServiceException);
+export var IntervalDetails$: StaticStructureSchema = [3, n0, _IDnt, 0, [_TZ, _IP], [0, 0]];
+export var InvalidContactFlowException$: StaticErrorSchema = [
   -3,
   n0,
   _ICFE,
@@ -6129,8 +6164,8 @@ export var InvalidContactFlowException: StaticErrorSchema = [
   [_p],
   [() => Problems],
 ];
-TypeRegistry.for(n0).registerError(InvalidContactFlowException, __InvalidContactFlowException);
-export var InvalidContactFlowModuleException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(InvalidContactFlowException$, InvalidContactFlowException);
+export var InvalidContactFlowModuleException$: StaticErrorSchema = [
   -3,
   n0,
   _ICFME,
@@ -6138,33 +6173,33 @@ export var InvalidContactFlowModuleException: StaticErrorSchema = [
   [_Prob],
   [() => Problems],
 ];
-TypeRegistry.for(n0).registerError(InvalidContactFlowModuleException, __InvalidContactFlowModuleException);
-export var InvalidParameterException: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-export var InvalidRequestException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(InvalidContactFlowModuleException$, InvalidContactFlowModuleException);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
+export var InvalidRequestException$: StaticErrorSchema = [
   -3,
   n0,
   _IRE,
   { [_e]: _c, [_hE]: 400 },
   [_M, _Rea],
-  [0, () => InvalidRequestExceptionReason],
+  [0, () => InvalidRequestExceptionReason$],
 ];
-TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-export var InvisibleFieldInfo: StaticStructureSchema = [3, n0, _IFI, 0, [_I], [() => TaskTemplateFieldIdentifier]];
-export var KinesisFirehoseConfig: StaticStructureSchema = [3, n0, _KFC, 0, [_FAir], [0]];
-export var KinesisStreamConfig: StaticStructureSchema = [3, n0, _KSC, 0, [_SAt], [0]];
-export var KinesisVideoStreamConfig: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
+export var InvisibleFieldInfo$: StaticStructureSchema = [3, n0, _IFI, 0, [_I], [() => TaskTemplateFieldIdentifier$]];
+export var KinesisFirehoseConfig$: StaticStructureSchema = [3, n0, _KFC, 0, [_FAir], [0]];
+export var KinesisStreamConfig$: StaticStructureSchema = [3, n0, _KSC, 0, [_SAt], [0]];
+export var KinesisVideoStreamConfig$: StaticStructureSchema = [
   3,
   n0,
   _KVSC,
   0,
   [_Pre, _RPH, _ECn],
-  [0, 1, () => EncryptionConfig],
+  [0, 1, () => EncryptionConfig$],
 ];
-export var LexBot: StaticStructureSchema = [3, n0, _LB, 0, [_N, _LR], [0, 0]];
-export var LexBotConfig: StaticStructureSchema = [3, n0, _LBC, 0, [_LB, _LVB], [() => LexBot, () => LexV2Bot]];
-export var LexV2Bot: StaticStructureSchema = [3, n0, _LVB, 0, [_AA], [0]];
-export var LimitExceededException: StaticErrorSchema = [
+export var LexBot$: StaticStructureSchema = [3, n0, _LB, 0, [_N, _LR], [0, 0]];
+export var LexBotConfig$: StaticStructureSchema = [3, n0, _LBC, 0, [_LB, _LVB], [() => LexBot$, () => LexV2Bot$]];
+export var LexV2Bot$: StaticStructureSchema = [3, n0, _LVB, 0, [_AA], [0]];
+export var LimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
@@ -6172,8 +6207,8 @@ export var LimitExceededException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-export var ListAgentStatusRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
+export var ListAgentStatusRequest$: StaticStructureSchema = [
   3,
   n0,
   _LASR,
@@ -6186,7 +6221,7 @@ export var ListAgentStatusRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _AST }],
   ],
 ];
-export var ListAgentStatusResponse: StaticStructureSchema = [
+export var ListAgentStatusResponse$: StaticStructureSchema = [
   3,
   n0,
   _LASRi,
@@ -6194,7 +6229,7 @@ export var ListAgentStatusResponse: StaticStructureSchema = [
   [_NT, _ASSL],
   [0, () => AgentStatusSummaryList],
 ];
-export var ListAnalyticsDataAssociationsRequest: StaticStructureSchema = [
+export var ListAnalyticsDataAssociationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LADAR,
@@ -6207,7 +6242,7 @@ export var ListAnalyticsDataAssociationsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListAnalyticsDataAssociationsResponse: StaticStructureSchema = [
+export var ListAnalyticsDataAssociationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LADARi,
@@ -6215,7 +6250,7 @@ export var ListAnalyticsDataAssociationsResponse: StaticStructureSchema = [
   [_Res, _NT],
   [() => AnalyticsDataAssociationResults, 0],
 ];
-export var ListAnalyticsDataLakeDataSetsRequest: StaticStructureSchema = [
+export var ListAnalyticsDataLakeDataSetsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LADLDSR,
@@ -6227,7 +6262,7 @@ export var ListAnalyticsDataLakeDataSetsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListAnalyticsDataLakeDataSetsResponse: StaticStructureSchema = [
+export var ListAnalyticsDataLakeDataSetsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LADLDSRi,
@@ -6235,7 +6270,7 @@ export var ListAnalyticsDataLakeDataSetsResponse: StaticStructureSchema = [
   [_Res, _NT],
   [() => AnalyticsDataSetsResults, 0],
 ];
-export var ListApprovedOriginsRequest: StaticStructureSchema = [
+export var ListApprovedOriginsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAOR,
@@ -6247,8 +6282,8 @@ export var ListApprovedOriginsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListApprovedOriginsResponse: StaticStructureSchema = [3, n0, _LAORi, 0, [_Or, _NT], [64 | 0, 0]];
-export var ListAssociatedContactsRequest: StaticStructureSchema = [
+export var ListApprovedOriginsResponse$: StaticStructureSchema = [3, n0, _LAORi, 0, [_Or, _NT], [64 | 0, 0]];
+export var ListAssociatedContactsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LACR,
@@ -6261,7 +6296,7 @@ export var ListAssociatedContactsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListAssociatedContactsResponse: StaticStructureSchema = [
+export var ListAssociatedContactsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LACRi,
@@ -6269,7 +6304,7 @@ export var ListAssociatedContactsResponse: StaticStructureSchema = [
   [_CSL, _NT],
   [() => AssociatedContactSummaryList, 0],
 ];
-export var ListAuthenticationProfilesRequest: StaticStructureSchema = [
+export var ListAuthenticationProfilesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAPR,
@@ -6281,7 +6316,7 @@ export var ListAuthenticationProfilesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListAuthenticationProfilesResponse: StaticStructureSchema = [
+export var ListAuthenticationProfilesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LAPRi,
@@ -6289,7 +6324,7 @@ export var ListAuthenticationProfilesResponse: StaticStructureSchema = [
   [_APSL, _NT],
   [() => AuthenticationProfileSummaryList, 0],
 ];
-export var ListBotsRequest: StaticStructureSchema = [
+export var ListBotsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LBR,
@@ -6302,9 +6337,9 @@ export var ListBotsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _lV }],
   ],
 ];
-export var ListBotsResponse: StaticStructureSchema = [3, n0, _LBRi, 0, [_LBe, _NT], [() => LexBotConfigList, 0]];
-export var ListCondition: StaticStructureSchema = [3, n0, _LCi, 0, [_TLT, _Cond], [0, () => Conditions]];
-export var ListContactEvaluationsRequest: StaticStructureSchema = [
+export var ListBotsResponse$: StaticStructureSchema = [3, n0, _LBRi, 0, [_LBe, _NT], [() => LexBotConfigList, 0]];
+export var ListCondition$: StaticStructureSchema = [3, n0, _LCi, 0, [_TLT, _Cond], [0, () => Conditions]];
+export var ListContactEvaluationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCER,
@@ -6316,7 +6351,7 @@ export var ListContactEvaluationsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListContactEvaluationsResponse: StaticStructureSchema = [
+export var ListContactEvaluationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCERi,
@@ -6324,7 +6359,7 @@ export var ListContactEvaluationsResponse: StaticStructureSchema = [
   [_ESL, _NT],
   [() => EvaluationSummaryList, 0],
 ];
-export var ListContactFlowModuleAliasesRequest: StaticStructureSchema = [
+export var ListContactFlowModuleAliasesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCFMAR,
@@ -6337,7 +6372,7 @@ export var ListContactFlowModuleAliasesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListContactFlowModuleAliasesResponse: StaticStructureSchema = [
+export var ListContactFlowModuleAliasesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCFMARi,
@@ -6345,7 +6380,7 @@ export var ListContactFlowModuleAliasesResponse: StaticStructureSchema = [
   [_CFMASL, _NT],
   [() => ContactFlowModuleAliasSummaryList, 0],
 ];
-export var ListContactFlowModulesRequest: StaticStructureSchema = [
+export var ListContactFlowModulesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCFMR,
@@ -6358,7 +6393,7 @@ export var ListContactFlowModulesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _st }],
   ],
 ];
-export var ListContactFlowModulesResponse: StaticStructureSchema = [
+export var ListContactFlowModulesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCFMRi,
@@ -6366,7 +6401,7 @@ export var ListContactFlowModulesResponse: StaticStructureSchema = [
   [_CFMSL, _NT],
   [() => ContactFlowModulesSummaryList, 0],
 ];
-export var ListContactFlowModuleVersionsRequest: StaticStructureSchema = [
+export var ListContactFlowModuleVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCFMVR,
@@ -6379,7 +6414,7 @@ export var ListContactFlowModuleVersionsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListContactFlowModuleVersionsResponse: StaticStructureSchema = [
+export var ListContactFlowModuleVersionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCFMVRi,
@@ -6387,7 +6422,7 @@ export var ListContactFlowModuleVersionsResponse: StaticStructureSchema = [
   [_CFMVSL, _NT],
   [() => ContactFlowModuleVersionSummaryList, 0],
 ];
-export var ListContactFlowsRequest: StaticStructureSchema = [
+export var ListContactFlowsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCFR,
@@ -6400,7 +6435,7 @@ export var ListContactFlowsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListContactFlowsResponse: StaticStructureSchema = [
+export var ListContactFlowsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCFRi,
@@ -6408,7 +6443,7 @@ export var ListContactFlowsResponse: StaticStructureSchema = [
   [_CFSL, _NT],
   [() => ContactFlowSummaryList, 0],
 ];
-export var ListContactFlowVersionsRequest: StaticStructureSchema = [
+export var ListContactFlowVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCFVR,
@@ -6421,7 +6456,7 @@ export var ListContactFlowVersionsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListContactFlowVersionsResponse: StaticStructureSchema = [
+export var ListContactFlowVersionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCFVRi,
@@ -6429,7 +6464,7 @@ export var ListContactFlowVersionsResponse: StaticStructureSchema = [
   [_CFVSL, _NT],
   [() => ContactFlowVersionSummaryList, 0],
 ];
-export var ListContactReferencesRequest: StaticStructureSchema = [
+export var ListContactReferencesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCRR,
@@ -6442,7 +6477,7 @@ export var ListContactReferencesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListContactReferencesResponse: StaticStructureSchema = [
+export var ListContactReferencesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCRRi,
@@ -6450,7 +6485,7 @@ export var ListContactReferencesResponse: StaticStructureSchema = [
   [_RSL, _NT],
   [() => ReferenceSummaryList, 0],
 ];
-export var ListDataTableAttributesRequest: StaticStructureSchema = [
+export var ListDataTableAttributesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDTAR,
@@ -6458,7 +6493,7 @@ export var ListDataTableAttributesRequest: StaticStructureSchema = [
   [_II, _DTI, _AIttr, _NT, _MR],
   [[0, 1], [0, 1], 64 | 0, [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]],
 ];
-export var ListDataTableAttributesResponse: StaticStructureSchema = [
+export var ListDataTableAttributesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LDTARi,
@@ -6466,7 +6501,7 @@ export var ListDataTableAttributesResponse: StaticStructureSchema = [
   [_NT, _Attr],
   [0, () => AttributeList],
 ];
-export var ListDataTablePrimaryValuesRequest: StaticStructureSchema = [
+export var ListDataTablePrimaryValuesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDTPVR,
@@ -6474,7 +6509,7 @@ export var ListDataTablePrimaryValuesRequest: StaticStructureSchema = [
   [_II, _DTI, _RIec, _PAV, _NT, _MR],
   [[0, 1], [0, 1], 64 | 0, () => PrimaryAttributeValueFilters, [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]],
 ];
-export var ListDataTablePrimaryValuesResponse: StaticStructureSchema = [
+export var ListDataTablePrimaryValuesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LDTPVRi,
@@ -6482,7 +6517,7 @@ export var ListDataTablePrimaryValuesResponse: StaticStructureSchema = [
   [_NT, _PVL],
   [0, () => PrimaryValuesList],
 ];
-export var ListDataTablesRequest: StaticStructureSchema = [
+export var ListDataTablesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDTR,
@@ -6494,7 +6529,7 @@ export var ListDataTablesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListDataTablesResponse: StaticStructureSchema = [
+export var ListDataTablesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LDTRi,
@@ -6502,7 +6537,7 @@ export var ListDataTablesResponse: StaticStructureSchema = [
   [_NT, _DTSL],
   [0, () => DataTableSummaryList],
 ];
-export var ListDataTableValuesRequest: StaticStructureSchema = [
+export var ListDataTableValuesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDTVR,
@@ -6510,7 +6545,7 @@ export var ListDataTableValuesRequest: StaticStructureSchema = [
   [_II, _DTI, _RIec, _PAV, _NT, _MR],
   [[0, 1], [0, 1], 64 | 0, () => PrimaryAttributeValueFilters, [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]],
 ];
-export var ListDataTableValuesResponse: StaticStructureSchema = [
+export var ListDataTableValuesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LDTVRi,
@@ -6518,7 +6553,7 @@ export var ListDataTableValuesResponse: StaticStructureSchema = [
   [_NT, _Va],
   [0, () => DataTableValueSummaryList],
 ];
-export var ListDefaultVocabulariesRequest: StaticStructureSchema = [
+export var ListDefaultVocabulariesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDVR,
@@ -6526,7 +6561,7 @@ export var ListDefaultVocabulariesRequest: StaticStructureSchema = [
   [_II, _LC, _MR, _NT],
   [[0, 1], 0, 1, 0],
 ];
-export var ListDefaultVocabulariesResponse: StaticStructureSchema = [
+export var ListDefaultVocabulariesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LDVRi,
@@ -6534,7 +6569,7 @@ export var ListDefaultVocabulariesResponse: StaticStructureSchema = [
   [_DVL, _NT],
   [() => DefaultVocabularyList, 0],
 ];
-export var ListEntitySecurityProfilesRequest: StaticStructureSchema = [
+export var ListEntitySecurityProfilesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LESPR,
@@ -6542,7 +6577,7 @@ export var ListEntitySecurityProfilesRequest: StaticStructureSchema = [
   [_II, _ET, _EAn, _NT, _MR],
   [[0, 1], 0, 0, 0, 1],
 ];
-export var ListEntitySecurityProfilesResponse: StaticStructureSchema = [
+export var ListEntitySecurityProfilesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LESPRi,
@@ -6550,7 +6585,7 @@ export var ListEntitySecurityProfilesResponse: StaticStructureSchema = [
   [_SP, _NT],
   [() => SecurityProfiles100, 0],
 ];
-export var ListEvaluationFormsRequest: StaticStructureSchema = [
+export var ListEvaluationFormsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LEFR,
@@ -6562,7 +6597,7 @@ export var ListEvaluationFormsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListEvaluationFormsResponse: StaticStructureSchema = [
+export var ListEvaluationFormsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LEFRi,
@@ -6570,7 +6605,7 @@ export var ListEvaluationFormsResponse: StaticStructureSchema = [
   [_EFSL, _NT],
   [() => EvaluationFormSummaryList, 0],
 ];
-export var ListEvaluationFormVersionsRequest: StaticStructureSchema = [
+export var ListEvaluationFormVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LEFVR,
@@ -6583,7 +6618,7 @@ export var ListEvaluationFormVersionsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListEvaluationFormVersionsResponse: StaticStructureSchema = [
+export var ListEvaluationFormVersionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LEFVRi,
@@ -6591,7 +6626,7 @@ export var ListEvaluationFormVersionsResponse: StaticStructureSchema = [
   [_EFVSL, _NT],
   [() => EvaluationFormVersionSummaryList, 0],
 ];
-export var ListFlowAssociationsRequest: StaticStructureSchema = [
+export var ListFlowAssociationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LFAR,
@@ -6604,7 +6639,7 @@ export var ListFlowAssociationsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListFlowAssociationsResponse: StaticStructureSchema = [
+export var ListFlowAssociationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LFARi,
@@ -6612,7 +6647,7 @@ export var ListFlowAssociationsResponse: StaticStructureSchema = [
   [_FASL, _NT],
   [() => FlowAssociationSummaryList, 0],
 ];
-export var ListHoursOfOperationOverridesRequest: StaticStructureSchema = [
+export var ListHoursOfOperationOverridesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LHOOOR,
@@ -6625,7 +6660,7 @@ export var ListHoursOfOperationOverridesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListHoursOfOperationOverridesResponse: StaticStructureSchema = [
+export var ListHoursOfOperationOverridesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LHOOORi,
@@ -6633,7 +6668,7 @@ export var ListHoursOfOperationOverridesResponse: StaticStructureSchema = [
   [_NT, _HOOOL, _LMR, _LMT],
   [0, () => HoursOfOperationOverrideList, 0, 4],
 ];
-export var ListHoursOfOperationsRequest: StaticStructureSchema = [
+export var ListHoursOfOperationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LHOOR,
@@ -6645,7 +6680,7 @@ export var ListHoursOfOperationsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListHoursOfOperationsResponse: StaticStructureSchema = [
+export var ListHoursOfOperationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LHOORi,
@@ -6653,7 +6688,7 @@ export var ListHoursOfOperationsResponse: StaticStructureSchema = [
   [_HOOSL, _NT],
   [() => HoursOfOperationSummaryList, 0],
 ];
-export var ListInstanceAttributesRequest: StaticStructureSchema = [
+export var ListInstanceAttributesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LIAR,
@@ -6665,7 +6700,7 @@ export var ListInstanceAttributesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListInstanceAttributesResponse: StaticStructureSchema = [
+export var ListInstanceAttributesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LIARi,
@@ -6673,7 +6708,7 @@ export var ListInstanceAttributesResponse: StaticStructureSchema = [
   [_Attr, _NT],
   [() => AttributesList, 0],
 ];
-export var ListInstancesRequest: StaticStructureSchema = [
+export var ListInstancesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LIR,
@@ -6684,7 +6719,7 @@ export var ListInstancesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListInstancesResponse: StaticStructureSchema = [
+export var ListInstancesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LIRi,
@@ -6692,7 +6727,7 @@ export var ListInstancesResponse: StaticStructureSchema = [
   [_ISL, _NT],
   [[() => InstanceSummaryList, 0], 0],
 ];
-export var ListInstanceStorageConfigsRequest: StaticStructureSchema = [
+export var ListInstanceStorageConfigsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LISCR,
@@ -6705,7 +6740,7 @@ export var ListInstanceStorageConfigsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListInstanceStorageConfigsResponse: StaticStructureSchema = [
+export var ListInstanceStorageConfigsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LISCRi,
@@ -6713,7 +6748,7 @@ export var ListInstanceStorageConfigsResponse: StaticStructureSchema = [
   [_SCto, _NT],
   [() => InstanceStorageConfigs, 0],
 ];
-export var ListIntegrationAssociationsRequest: StaticStructureSchema = [
+export var ListIntegrationAssociationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LIARis,
@@ -6727,7 +6762,7 @@ export var ListIntegrationAssociationsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _iA }],
   ],
 ];
-export var ListIntegrationAssociationsResponse: StaticStructureSchema = [
+export var ListIntegrationAssociationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LIARist,
@@ -6735,7 +6770,7 @@ export var ListIntegrationAssociationsResponse: StaticStructureSchema = [
   [_IASL, _NT],
   [() => IntegrationAssociationSummaryList, 0],
 ];
-export var ListLambdaFunctionsRequest: StaticStructureSchema = [
+export var ListLambdaFunctionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LLFR,
@@ -6747,8 +6782,8 @@ export var ListLambdaFunctionsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListLambdaFunctionsResponse: StaticStructureSchema = [3, n0, _LLFRi, 0, [_LFa, _NT], [64 | 0, 0]];
-export var ListLexBotsRequest: StaticStructureSchema = [
+export var ListLambdaFunctionsResponse$: StaticStructureSchema = [3, n0, _LLFRi, 0, [_LFa, _NT], [64 | 0, 0]];
+export var ListLexBotsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LLBR,
@@ -6760,8 +6795,8 @@ export var ListLexBotsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListLexBotsResponse: StaticStructureSchema = [3, n0, _LLBRi, 0, [_LBe, _NT], [() => LexBotsList, 0]];
-export var ListPhoneNumbersRequest: StaticStructureSchema = [
+export var ListLexBotsResponse$: StaticStructureSchema = [3, n0, _LLBRi, 0, [_LBe, _NT], [() => LexBotsList, 0]];
+export var ListPhoneNumbersRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPNR,
@@ -6775,7 +6810,7 @@ export var ListPhoneNumbersRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListPhoneNumbersResponse: StaticStructureSchema = [
+export var ListPhoneNumbersResponse$: StaticStructureSchema = [
   3,
   n0,
   _LPNRi,
@@ -6783,7 +6818,7 @@ export var ListPhoneNumbersResponse: StaticStructureSchema = [
   [_PNSL, _NT],
   [() => PhoneNumberSummaryList, 0],
 ];
-export var ListPhoneNumbersSummary: StaticStructureSchema = [
+export var ListPhoneNumbersSummary$: StaticStructureSchema = [
   3,
   n0,
   _LPNS,
@@ -6791,7 +6826,7 @@ export var ListPhoneNumbersSummary: StaticStructureSchema = [
   [_PNI, _PNA, _PN, _PNCC, _PNT, _TA, _II, _PND, _SPNA],
   [0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var ListPhoneNumbersV2Request: StaticStructureSchema = [
+export var ListPhoneNumbersV2Request$: StaticStructureSchema = [
   3,
   n0,
   _LPNVR,
@@ -6799,7 +6834,7 @@ export var ListPhoneNumbersV2Request: StaticStructureSchema = [
   [_TA, _II, _MR, _NT, _PNCCh, _PNTh, _PNP],
   [0, 0, 1, 0, 64 | 0, 64 | 0, 0],
 ];
-export var ListPhoneNumbersV2Response: StaticStructureSchema = [
+export var ListPhoneNumbersV2Response$: StaticStructureSchema = [
   3,
   n0,
   _LPNVRi,
@@ -6807,7 +6842,7 @@ export var ListPhoneNumbersV2Response: StaticStructureSchema = [
   [_NT, _LPNSL],
   [0, () => ListPhoneNumbersSummaryList],
 ];
-export var ListPredefinedAttributesRequest: StaticStructureSchema = [
+export var ListPredefinedAttributesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPAR,
@@ -6819,7 +6854,7 @@ export var ListPredefinedAttributesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListPredefinedAttributesResponse: StaticStructureSchema = [
+export var ListPredefinedAttributesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LPARi,
@@ -6827,7 +6862,7 @@ export var ListPredefinedAttributesResponse: StaticStructureSchema = [
   [_NT, _PASL],
   [0, () => PredefinedAttributeSummaryList],
 ];
-export var ListPromptsRequest: StaticStructureSchema = [
+export var ListPromptsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPR,
@@ -6839,8 +6874,8 @@ export var ListPromptsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListPromptsResponse: StaticStructureSchema = [3, n0, _LPRi, 0, [_PSL, _NT], [() => PromptSummaryList, 0]];
-export var ListQueueQuickConnectsRequest: StaticStructureSchema = [
+export var ListPromptsResponse$: StaticStructureSchema = [3, n0, _LPRi, 0, [_PSL, _NT], [() => PromptSummaryList, 0]];
+export var ListQueueQuickConnectsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LQQCR,
@@ -6853,7 +6888,7 @@ export var ListQueueQuickConnectsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListQueueQuickConnectsResponse: StaticStructureSchema = [
+export var ListQueueQuickConnectsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LQQCRi,
@@ -6861,7 +6896,7 @@ export var ListQueueQuickConnectsResponse: StaticStructureSchema = [
   [_NT, _QCSL, _LMT, _LMR],
   [0, () => QuickConnectSummaryList, 4, 0],
 ];
-export var ListQueuesRequest: StaticStructureSchema = [
+export var ListQueuesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LQR,
@@ -6874,8 +6909,8 @@ export var ListQueuesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListQueuesResponse: StaticStructureSchema = [3, n0, _LQRi, 0, [_QSL, _NT], [() => QueueSummaryList, 0]];
-export var ListQuickConnectsRequest: StaticStructureSchema = [
+export var ListQueuesResponse$: StaticStructureSchema = [3, n0, _LQRi, 0, [_QSL, _NT], [() => QueueSummaryList, 0]];
+export var ListQuickConnectsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LQCR,
@@ -6888,7 +6923,7 @@ export var ListQuickConnectsRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _QCT }],
   ],
 ];
-export var ListQuickConnectsResponse: StaticStructureSchema = [
+export var ListQuickConnectsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LQCRi,
@@ -6896,7 +6931,7 @@ export var ListQuickConnectsResponse: StaticStructureSchema = [
   [_QCSL, _NT],
   [() => QuickConnectSummaryList, 0],
 ];
-export var ListRealtimeContactAnalysisSegmentsV2Request: StaticStructureSchema = [
+export var ListRealtimeContactAnalysisSegmentsV2Request$: StaticStructureSchema = [
   3,
   n0,
   _LRCASVR,
@@ -6904,7 +6939,7 @@ export var ListRealtimeContactAnalysisSegmentsV2Request: StaticStructureSchema =
   [_II, _CI, _MR, _NT, _OT, _STeg],
   [[0, 1], [0, 1], 1, 0, 0, 64 | 0],
 ];
-export var ListRealtimeContactAnalysisSegmentsV2Response: StaticStructureSchema = [
+export var ListRealtimeContactAnalysisSegmentsV2Response$: StaticStructureSchema = [
   3,
   n0,
   _LRCASVRi,
@@ -6912,7 +6947,7 @@ export var ListRealtimeContactAnalysisSegmentsV2Response: StaticStructureSchema 
   [_C, _St, _Seg, _NT],
   [0, 0, () => RealtimeContactAnalysisSegments, 0],
 ];
-export var ListRoutingProfileManualAssignmentQueuesRequest: StaticStructureSchema = [
+export var ListRoutingProfileManualAssignmentQueuesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRPMAQR,
@@ -6925,7 +6960,7 @@ export var ListRoutingProfileManualAssignmentQueuesRequest: StaticStructureSchem
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListRoutingProfileManualAssignmentQueuesResponse: StaticStructureSchema = [
+export var ListRoutingProfileManualAssignmentQueuesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRPMAQRi,
@@ -6933,7 +6968,7 @@ export var ListRoutingProfileManualAssignmentQueuesResponse: StaticStructureSche
   [_NT, _RPMAQCSL, _LMT, _LMR],
   [0, () => RoutingProfileManualAssignmentQueueConfigSummaryList, 4, 0],
 ];
-export var ListRoutingProfileQueuesRequest: StaticStructureSchema = [
+export var ListRoutingProfileQueuesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRPQR,
@@ -6946,7 +6981,7 @@ export var ListRoutingProfileQueuesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListRoutingProfileQueuesResponse: StaticStructureSchema = [
+export var ListRoutingProfileQueuesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRPQRi,
@@ -6954,7 +6989,7 @@ export var ListRoutingProfileQueuesResponse: StaticStructureSchema = [
   [_NT, _RPQCSL, _LMT, _LMR],
   [0, () => RoutingProfileQueueConfigSummaryList, 4, 0],
 ];
-export var ListRoutingProfilesRequest: StaticStructureSchema = [
+export var ListRoutingProfilesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRPR,
@@ -6966,7 +7001,7 @@ export var ListRoutingProfilesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListRoutingProfilesResponse: StaticStructureSchema = [
+export var ListRoutingProfilesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRPRi,
@@ -6974,7 +7009,7 @@ export var ListRoutingProfilesResponse: StaticStructureSchema = [
   [_RPSL, _NT],
   [() => RoutingProfileSummaryList, 0],
 ];
-export var ListRulesRequest: StaticStructureSchema = [
+export var ListRulesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRR,
@@ -6988,8 +7023,8 @@ export var ListRulesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListRulesResponse: StaticStructureSchema = [3, n0, _LRRi, 0, [_RSLu, _NT], [() => RuleSummaryList, 0]];
-export var ListSecurityKeysRequest: StaticStructureSchema = [
+export var ListRulesResponse$: StaticStructureSchema = [3, n0, _LRRi, 0, [_RSLu, _NT], [() => RuleSummaryList, 0]];
+export var ListSecurityKeysRequest$: StaticStructureSchema = [
   3,
   n0,
   _LSKR,
@@ -7001,7 +7036,7 @@ export var ListSecurityKeysRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListSecurityKeysResponse: StaticStructureSchema = [
+export var ListSecurityKeysResponse$: StaticStructureSchema = [
   3,
   n0,
   _LSKRi,
@@ -7009,7 +7044,7 @@ export var ListSecurityKeysResponse: StaticStructureSchema = [
   [_SK, _NT],
   [() => SecurityKeysList, 0],
 ];
-export var ListSecurityProfileApplicationsRequest: StaticStructureSchema = [
+export var ListSecurityProfileApplicationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LSPAR,
@@ -7022,7 +7057,7 @@ export var ListSecurityProfileApplicationsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListSecurityProfileApplicationsResponse: StaticStructureSchema = [
+export var ListSecurityProfileApplicationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LSPARi,
@@ -7030,7 +7065,7 @@ export var ListSecurityProfileApplicationsResponse: StaticStructureSchema = [
   [_App, _NT, _LMT, _LMR],
   [() => Applications, 0, 4, 0],
 ];
-export var ListSecurityProfileFlowModulesRequest: StaticStructureSchema = [
+export var ListSecurityProfileFlowModulesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LSPFMR,
@@ -7043,7 +7078,7 @@ export var ListSecurityProfileFlowModulesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListSecurityProfileFlowModulesResponse: StaticStructureSchema = [
+export var ListSecurityProfileFlowModulesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LSPFMRi,
@@ -7051,7 +7086,7 @@ export var ListSecurityProfileFlowModulesResponse: StaticStructureSchema = [
   [_AFM, _NT, _LMT, _LMR],
   [() => AllowedFlowModules, 0, 4, 0],
 ];
-export var ListSecurityProfilePermissionsRequest: StaticStructureSchema = [
+export var ListSecurityProfilePermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LSPPR,
@@ -7064,7 +7099,7 @@ export var ListSecurityProfilePermissionsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListSecurityProfilePermissionsResponse: StaticStructureSchema = [
+export var ListSecurityProfilePermissionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LSPPRi,
@@ -7072,7 +7107,7 @@ export var ListSecurityProfilePermissionsResponse: StaticStructureSchema = [
   [_Pe, _NT, _LMT, _LMR],
   [64 | 0, 0, 4, 0],
 ];
-export var ListSecurityProfilesRequest: StaticStructureSchema = [
+export var ListSecurityProfilesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LSPR,
@@ -7084,7 +7119,7 @@ export var ListSecurityProfilesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListSecurityProfilesResponse: StaticStructureSchema = [
+export var ListSecurityProfilesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LSPRi,
@@ -7092,9 +7127,9 @@ export var ListSecurityProfilesResponse: StaticStructureSchema = [
   [_SPSL, _NT],
   [() => SecurityProfileSummaryList, 0],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
-export var ListTaskTemplatesRequest: StaticStructureSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
+export var ListTaskTemplatesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LTTR,
@@ -7108,7 +7143,7 @@ export var ListTaskTemplatesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _n }],
   ],
 ];
-export var ListTaskTemplatesResponse: StaticStructureSchema = [
+export var ListTaskTemplatesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LTTRi,
@@ -7116,7 +7151,7 @@ export var ListTaskTemplatesResponse: StaticStructureSchema = [
   [_TTa, _NT],
   [() => TaskTemplateList, 0],
 ];
-export var ListTrafficDistributionGroupsRequest: StaticStructureSchema = [
+export var ListTrafficDistributionGroupsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LTDGR,
@@ -7128,7 +7163,7 @@ export var ListTrafficDistributionGroupsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _iI }],
   ],
 ];
-export var ListTrafficDistributionGroupsResponse: StaticStructureSchema = [
+export var ListTrafficDistributionGroupsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LTDGRi,
@@ -7136,7 +7171,7 @@ export var ListTrafficDistributionGroupsResponse: StaticStructureSchema = [
   [_NT, _TDGSL],
   [0, () => TrafficDistributionGroupSummaryList],
 ];
-export var ListTrafficDistributionGroupUsersRequest: StaticStructureSchema = [
+export var ListTrafficDistributionGroupUsersRequest$: StaticStructureSchema = [
   3,
   n0,
   _LTDGUR,
@@ -7148,7 +7183,7 @@ export var ListTrafficDistributionGroupUsersRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListTrafficDistributionGroupUsersResponse: StaticStructureSchema = [
+export var ListTrafficDistributionGroupUsersResponse$: StaticStructureSchema = [
   3,
   n0,
   _LTDGURi,
@@ -7156,7 +7191,7 @@ export var ListTrafficDistributionGroupUsersResponse: StaticStructureSchema = [
   [_NT, _TDGUSL],
   [0, () => TrafficDistributionGroupUserSummaryList],
 ];
-export var ListUseCasesRequest: StaticStructureSchema = [
+export var ListUseCasesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LUCR,
@@ -7169,7 +7204,7 @@ export var ListUseCasesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListUseCasesResponse: StaticStructureSchema = [
+export var ListUseCasesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LUCRi,
@@ -7177,7 +7212,7 @@ export var ListUseCasesResponse: StaticStructureSchema = [
   [_UCSL, _NT],
   [() => UseCaseSummaryList, 0],
 ];
-export var ListUserHierarchyGroupsRequest: StaticStructureSchema = [
+export var ListUserHierarchyGroupsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LUHGR,
@@ -7189,7 +7224,7 @@ export var ListUserHierarchyGroupsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListUserHierarchyGroupsResponse: StaticStructureSchema = [
+export var ListUserHierarchyGroupsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LUHGRi,
@@ -7197,7 +7232,7 @@ export var ListUserHierarchyGroupsResponse: StaticStructureSchema = [
   [_UHGSL, _NT],
   [() => HierarchyGroupSummaryList, 0],
 ];
-export var ListUserProficienciesRequest: StaticStructureSchema = [
+export var ListUserProficienciesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LUPR,
@@ -7210,7 +7245,7 @@ export var ListUserProficienciesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListUserProficienciesResponse: StaticStructureSchema = [
+export var ListUserProficienciesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LUPRi,
@@ -7218,7 +7253,7 @@ export var ListUserProficienciesResponse: StaticStructureSchema = [
   [_NT, _UPL, _LMT, _LMR],
   [0, () => UserProficiencyList, 4, 0],
 ];
-export var ListUsersRequest: StaticStructureSchema = [
+export var ListUsersRequest$: StaticStructureSchema = [
   3,
   n0,
   _LUR,
@@ -7230,8 +7265,8 @@ export var ListUsersRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListUsersResponse: StaticStructureSchema = [3, n0, _LURi, 0, [_USL, _NT], [() => UserSummaryList, 0]];
-export var ListViewsRequest: StaticStructureSchema = [
+export var ListUsersResponse$: StaticStructureSchema = [3, n0, _LURi, 0, [_USL, _NT], [() => UserSummaryList, 0]];
+export var ListViewsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LVR,
@@ -7244,8 +7279,8 @@ export var ListViewsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListViewsResponse: StaticStructureSchema = [3, n0, _LVRi, 0, [_VSL, _NT], [[() => ViewsSummaryList, 0], 0]];
-export var ListViewVersionsRequest: StaticStructureSchema = [
+export var ListViewsResponse$: StaticStructureSchema = [3, n0, _LVRi, 0, [_VSL, _NT], [[() => ViewsSummaryList, 0], 0]];
+export var ListViewVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LVVR,
@@ -7258,7 +7293,7 @@ export var ListViewVersionsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListViewVersionsResponse: StaticStructureSchema = [
+export var ListViewVersionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LVVRi,
@@ -7266,7 +7301,7 @@ export var ListViewVersionsResponse: StaticStructureSchema = [
   [_VVSL, _NT],
   [[() => ViewVersionSummaryList, 0], 0],
 ];
-export var ListWorkspaceMediaRequest: StaticStructureSchema = [
+export var ListWorkspaceMediaRequest$: StaticStructureSchema = [
   3,
   n0,
   _LWMR,
@@ -7277,8 +7312,8 @@ export var ListWorkspaceMediaRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var ListWorkspaceMediaResponse: StaticStructureSchema = [3, n0, _LWMRi, 0, [_Med], [() => MediaList]];
-export var ListWorkspacePagesRequest: StaticStructureSchema = [
+export var ListWorkspaceMediaResponse$: StaticStructureSchema = [3, n0, _LWMRi, 0, [_Med], [() => MediaList]];
+export var ListWorkspacePagesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LWPR,
@@ -7291,7 +7326,7 @@ export var ListWorkspacePagesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListWorkspacePagesResponse: StaticStructureSchema = [
+export var ListWorkspacePagesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LWPRi,
@@ -7299,7 +7334,7 @@ export var ListWorkspacePagesResponse: StaticStructureSchema = [
   [_NT, _WPL],
   [0, () => WorkspacePageList],
 ];
-export var ListWorkspacesRequest: StaticStructureSchema = [
+export var ListWorkspacesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LWR,
@@ -7311,7 +7346,7 @@ export var ListWorkspacesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListWorkspacesResponse: StaticStructureSchema = [
+export var ListWorkspacesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LWRi,
@@ -7319,40 +7354,40 @@ export var ListWorkspacesResponse: StaticStructureSchema = [
   [_NT, _WSL],
   [0, () => WorkspaceSummaryList],
 ];
-export var MatchCriteria: StaticStructureSchema = [3, n0, _MC, 0, [_ACge], [() => AgentsCriteria]];
-export var MaximumResultReturnedException: StaticErrorSchema = [-3, n0, _MRRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(MaximumResultReturnedException, __MaximumResultReturnedException);
-export var MediaConcurrency: StaticStructureSchema = [
+export var MatchCriteria$: StaticStructureSchema = [3, n0, _MC, 0, [_ACge], [() => AgentsCriteria$]];
+export var MaximumResultReturnedException$: StaticErrorSchema = [-3, n0, _MRRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(MaximumResultReturnedException$, MaximumResultReturnedException);
+export var MediaConcurrency$: StaticStructureSchema = [
   3,
   n0,
   _MCed,
   0,
   [_C, _Conc, _CCB],
-  [0, 1, () => CrossChannelBehavior],
+  [0, 1, () => CrossChannelBehavior$],
 ];
-export var MediaItem: StaticStructureSchema = [3, n0, _MI, 0, [_T, _So], [0, 0]];
-export var MediaPlacement: StaticStructureSchema = [3, n0, _MPe, 0, [_AHU, _AFU, _SUi, _TCU, _EIU], [0, 0, 0, 0, 0]];
-export var Meeting: StaticStructureSchema = [
+export var MediaItem$: StaticStructureSchema = [3, n0, _MI, 0, [_T, _So], [0, 0]];
+export var MediaPlacement$: StaticStructureSchema = [3, n0, _MPe, 0, [_AHU, _AFU, _SUi, _TCU, _EIU], [0, 0, 0, 0, 0]];
+export var Meeting$: StaticStructureSchema = [
   3,
   n0,
   _Me,
   0,
   [_MRed, _MPe, _MF, _MIe],
-  [0, () => MediaPlacement, () => MeetingFeaturesConfiguration, 0],
+  [0, () => MediaPlacement$, () => MeetingFeaturesConfiguration$, 0],
 ];
-export var MeetingFeaturesConfiguration: StaticStructureSchema = [3, n0, _MFC, 0, [_Au], [() => AudioFeatures]];
-export var MetricDataV2: StaticStructureSchema = [3, n0, _MDV, 0, [_Met, _V], [() => MetricV2, 1]];
-export var MetricFilterV2: StaticStructureSchema = [3, n0, _MFV, 0, [_MFK, _MFVe, _Ne], [0, 64 | 0, 2]];
-export var MetricInterval: StaticStructureSchema = [3, n0, _MIet, 0, [_Int, _STtar, _ETnd], [0, 4, 4]];
-export var MetricResultV2: StaticStructureSchema = [
+export var MeetingFeaturesConfiguration$: StaticStructureSchema = [3, n0, _MFC, 0, [_Au], [() => AudioFeatures$]];
+export var MetricDataV2$: StaticStructureSchema = [3, n0, _MDV, 0, [_Met, _V], [() => MetricV2$, 1]];
+export var MetricFilterV2$: StaticStructureSchema = [3, n0, _MFV, 0, [_MFK, _MFVe, _Ne], [0, 64 | 0, 2]];
+export var MetricInterval$: StaticStructureSchema = [3, n0, _MIet, 0, [_Int, _STtar, _ETnd], [0, 4, 4]];
+export var MetricResultV2$: StaticStructureSchema = [
   3,
   n0,
   _MRV,
   0,
   [_Dim, _MIet, _Col],
-  [128 | 0, () => MetricInterval, () => MetricDataCollectionsV2],
+  [128 | 0, () => MetricInterval$, () => MetricDataCollectionsV2],
 ];
-export var MetricV2: StaticStructureSchema = [
+export var MetricV2$: StaticStructureSchema = [
   3,
   n0,
   _MVe,
@@ -7360,7 +7395,7 @@ export var MetricV2: StaticStructureSchema = [
   [_N, _Thr, _MIetr, _MFe],
   [0, () => ThresholdCollections, 0, () => MetricFiltersV2List],
 ];
-export var MonitorContactRequest: StaticStructureSchema = [
+export var MonitorContactRequest$: StaticStructureSchema = [
   3,
   n0,
   _MCR,
@@ -7368,8 +7403,8 @@ export var MonitorContactRequest: StaticStructureSchema = [
   [_II, _CI, _UI, _AMC, _CT],
   [0, 0, 0, 64 | 0, [0, 4]],
 ];
-export var MonitorContactResponse: StaticStructureSchema = [3, n0, _MCRo, 0, [_CI, _CA], [0, 0]];
-export var MultiSelectQuestionRuleCategoryAutomation: StaticStructureSchema = [
+export var MonitorContactResponse$: StaticStructureSchema = [3, n0, _MCRo, 0, [_CI, _CA], [0, 0]];
+export var MultiSelectQuestionRuleCategoryAutomation$: StaticStructureSchema = [
   3,
   n0,
   _MSQRCA,
@@ -7377,29 +7412,29 @@ export var MultiSelectQuestionRuleCategoryAutomation: StaticStructureSchema = [
   [_Cat, _Con, _ORI],
   [0, 0, 64 | 0],
 ];
-export var NameCriteria: StaticStructureSchema = [3, n0, _NCa, 0, [_ST, _MTa], [[() => SearchTextList, 0], 0]];
-export var NewSessionDetails: StaticStructureSchema = [
+export var NameCriteria$: StaticStructureSchema = [3, n0, _NCa, 0, [_ST, _MTa], [[() => SearchTextList, 0], 0]];
+export var NewSessionDetails$: StaticStructureSchema = [
   3,
   n0,
   _NSD,
   0,
   [_SMCT, _PD, _Attr, _SCtr],
-  [64 | 0, () => ParticipantDetails, 128 | 0, () => ChatStreamingConfiguration],
+  [64 | 0, () => ParticipantDetails$, 128 | 0, () => ChatStreamingConfiguration$],
 ];
-export var NextContactEntry: StaticStructureSchema = [3, n0, _NCE, 0, [_T, _NCM], [0, () => NextContactMetadata]];
-export var NotificationRecipientType: StaticStructureSchema = [3, n0, _NRT, 0, [_UT, _UIse], [128 | 0, 64 | 0]];
-export var NumberCondition: StaticStructureSchema = [3, n0, _NC, 0, [_FNi, _MV, _MVa, _CTo], [0, 1, 1, 0]];
-export var NumberReference: StaticStructureSchema = [3, n0, _NR, 0, [_N, _V], [0, 0]];
-export var NumericQuestionPropertyValueAutomation: StaticStructureSchema = [3, n0, _NQPVA, 0, [_La], [0]];
-export var OperationalHour: StaticStructureSchema = [
+export var NextContactEntry$: StaticStructureSchema = [3, n0, _NCE, 0, [_T, _NCM], [0, () => NextContactMetadata$]];
+export var NotificationRecipientType$: StaticStructureSchema = [3, n0, _NRT, 0, [_UT, _UIse], [128 | 0, 64 | 0]];
+export var NumberCondition$: StaticStructureSchema = [3, n0, _NC, 0, [_FNi, _MV, _MVa, _CTo], [0, 1, 1, 0]];
+export var NumberReference$: StaticStructureSchema = [3, n0, _NR, 0, [_N, _V], [0, 0]];
+export var NumericQuestionPropertyValueAutomation$: StaticStructureSchema = [3, n0, _NQPVA, 0, [_La], [0]];
+export var OperationalHour$: StaticStructureSchema = [
   3,
   n0,
   _OHp,
   0,
   [_Star, _End_],
-  [() => OverrideTimeSlice, () => OverrideTimeSlice],
+  [() => OverrideTimeSlice$, () => OverrideTimeSlice$],
 ];
-export var OutboundAdditionalRecipients: StaticStructureSchema = [
+export var OutboundAdditionalRecipients$: StaticStructureSchema = [
   3,
   n0,
   _OAR,
@@ -7407,8 +7442,8 @@ export var OutboundAdditionalRecipients: StaticStructureSchema = [
   [_CEA],
   [[() => EmailAddressRecipientList, 0]],
 ];
-export var OutboundCallerConfig: StaticStructureSchema = [3, n0, _OCC, 0, [_OCIN, _OCINI, _OFI], [0, 0, 0]];
-export var OutboundContactNotPermittedException: StaticErrorSchema = [
+export var OutboundCallerConfig$: StaticStructureSchema = [3, n0, _OCC, 0, [_OCIN, _OCINI, _OFI], [0, 0, 0]];
+export var OutboundContactNotPermittedException$: StaticErrorSchema = [
   -3,
   n0,
   _OCNPE,
@@ -7416,17 +7451,17 @@ export var OutboundContactNotPermittedException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(OutboundContactNotPermittedException, __OutboundContactNotPermittedException);
-export var OutboundEmailConfig: StaticStructureSchema = [3, n0, _OEC, 0, [_OEAI], [0]];
-export var OutboundEmailContent: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(OutboundContactNotPermittedException$, OutboundContactNotPermittedException);
+export var OutboundEmailConfig$: StaticStructureSchema = [3, n0, _OEC, 0, [_OEAI], [0]];
+export var OutboundEmailContent$: StaticStructureSchema = [
   3,
   n0,
   _OECu,
   0,
   [_MST, _TMC, _RM],
-  [0, () => TemplatedMessageConfig, [() => OutboundRawMessage, 0]],
+  [0, () => TemplatedMessageConfig$, [() => OutboundRawMessage$, 0]],
 ];
-export var OutboundRawMessage: StaticStructureSchema = [
+export var OutboundRawMessage$: StaticStructureSchema = [
   3,
   n0,
   _ORM,
@@ -7434,14 +7469,14 @@ export var OutboundRawMessage: StaticStructureSchema = [
   [_Sub, _B, _CTon],
   [[() => OutboundSubject, 0], [() => Body, 0], 0],
 ];
-export var OutboundStrategy: StaticStructureSchema = [3, n0, _OSu, 0, [_T, _Conf], [0, () => OutboundStrategyConfig]];
-export var OutboundStrategyConfig: StaticStructureSchema = [3, n0, _OSC, 0, [_AF], [() => AgentFirst]];
-export var OutputTypeNotFoundException: StaticErrorSchema = [-3, n0, _OTNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(OutputTypeNotFoundException, __OutputTypeNotFoundException);
-export var OverrideTimeSlice: StaticStructureSchema = [3, n0, _OTS, 0, [_H, _Mi], [1, 1]];
-export var PaletteCanvas: StaticStructureSchema = [3, n0, _PCa, 0, [_CBo, _PB, _ABc], [0, 0, 0]];
-export var PaletteHeader: StaticStructureSchema = [3, n0, _PH, 0, [_Ba, _Te, _TH, _IAC], [0, 0, 0, 2]];
-export var PaletteNavigation: StaticStructureSchema = [
+export var OutboundStrategy$: StaticStructureSchema = [3, n0, _OSu, 0, [_T, _Conf], [0, () => OutboundStrategyConfig$]];
+export var OutboundStrategyConfig$: StaticStructureSchema = [3, n0, _OSC, 0, [_AF], [() => AgentFirst$]];
+export var OutputTypeNotFoundException$: StaticErrorSchema = [-3, n0, _OTNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(OutputTypeNotFoundException$, OutputTypeNotFoundException);
+export var OverrideTimeSlice$: StaticStructureSchema = [3, n0, _OTS, 0, [_H, _Mi], [1, 1]];
+export var PaletteCanvas$: StaticStructureSchema = [3, n0, _PCa, 0, [_CBo, _PB, _ABc], [0, 0, 0]];
+export var PaletteHeader$: StaticStructureSchema = [3, n0, _PH, 0, [_Ba, _Te, _TH, _IAC], [0, 0, 0, 2]];
+export var PaletteNavigation$: StaticStructureSchema = [
   3,
   n0,
   _PNa,
@@ -7449,19 +7484,19 @@ export var PaletteNavigation: StaticStructureSchema = [
   [_Ba, _TBH, _TBA, _Te, _TH, _TAe, _IAC],
   [0, 0, 0, 0, 0, 0, 2],
 ];
-export var PalettePrimary: StaticStructureSchema = [3, n0, _PP, 0, [_Defa, _Acti, _CTont], [0, 0, 0]];
-export var ParticipantCapabilities: StaticStructureSchema = [3, n0, _PCar, 0, [_Vid, _SSc], [0, 0]];
-export var ParticipantConfiguration: StaticStructureSchema = [3, n0, _PCart, 0, [_RMe], [0]];
-export var ParticipantDetails: StaticStructureSchema = [3, n0, _PD, 0, [_DN], [0]];
-export var ParticipantDetailsToAdd: StaticStructureSchema = [
+export var PalettePrimary$: StaticStructureSchema = [3, n0, _PP, 0, [_Defa, _Acti, _CTont], [0, 0, 0]];
+export var ParticipantCapabilities$: StaticStructureSchema = [3, n0, _PCar, 0, [_Vid, _SSc], [0, 0]];
+export var ParticipantConfiguration$: StaticStructureSchema = [3, n0, _PCart, 0, [_RMe], [0]];
+export var ParticipantDetails$: StaticStructureSchema = [3, n0, _PD, 0, [_DN], [0]];
+export var ParticipantDetailsToAdd$: StaticStructureSchema = [
   3,
   n0,
   _PDTA,
   0,
   [_PR, _DN, _PCar],
-  [0, 0, () => ParticipantCapabilities],
+  [0, 0, () => ParticipantCapabilities$],
 ];
-export var ParticipantMetrics: StaticStructureSchema = [
+export var ParticipantMetrics$: StaticStructureSchema = [
   3,
   n0,
   _PM,
@@ -7469,42 +7504,42 @@ export var ParticipantMetrics: StaticStructureSchema = [
   [_PI, _PT, _CAon, _MSe, _NRu, _MLIC, _TRTIM, _MRTIM, _LMTa],
   [0, 0, 2, 1, 1, 1, 1, 1, 4],
 ];
-export var ParticipantTimerConfiguration: StaticStructureSchema = [
+export var ParticipantTimerConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _PTC,
   0,
   [_PR, _TTi, _TV],
-  [0, 0, () => ParticipantTimerValue],
+  [0, 0, () => ParticipantTimerValue$],
 ];
-export var ParticipantTokenCredentials: StaticStructureSchema = [3, n0, _PTCa, 0, [_PTa, _Ex], [0, 0]];
-export var PauseContactRequest: StaticStructureSchema = [3, n0, _PCR, 0, [_CI, _II, _CFI], [0, 0, 0]];
-export var PauseContactResponse: StaticStructureSchema = [3, n0, _PCRa, 0, [], []];
-export var PersistentChat: StaticStructureSchema = [3, n0, _PCe, 0, [_RTe, _SCI], [0, 0]];
-export var PhoneNumberQuickConnectConfig: StaticStructureSchema = [3, n0, _PNQCC, 0, [_PN], [0]];
-export var PhoneNumberStatus: StaticStructureSchema = [3, n0, _PNS, 0, [_St, _M], [0, 0]];
-export var PhoneNumberSummary: StaticStructureSchema = [3, n0, _PNSh, 0, [_I, _A, _PN, _PNT, _PNCC], [0, 0, 0, 0, 0]];
-export var PostAcceptTimeoutConfig: StaticStructureSchema = [3, n0, _PATC, 0, [_DIS], [1]];
-export var PredefinedAttribute: StaticStructureSchema = [
+export var ParticipantTokenCredentials$: StaticStructureSchema = [3, n0, _PTCa, 0, [_PTa, _Ex], [0, 0]];
+export var PauseContactRequest$: StaticStructureSchema = [3, n0, _PCR, 0, [_CI, _II, _CFI], [0, 0, 0]];
+export var PauseContactResponse$: StaticStructureSchema = [3, n0, _PCRa, 0, [], []];
+export var PersistentChat$: StaticStructureSchema = [3, n0, _PCe, 0, [_RTe, _SCI], [0, 0]];
+export var PhoneNumberQuickConnectConfig$: StaticStructureSchema = [3, n0, _PNQCC, 0, [_PN], [0]];
+export var PhoneNumberStatus$: StaticStructureSchema = [3, n0, _PNS, 0, [_St, _M], [0, 0]];
+export var PhoneNumberSummary$: StaticStructureSchema = [3, n0, _PNSh, 0, [_I, _A, _PN, _PNT, _PNCC], [0, 0, 0, 0, 0]];
+export var PostAcceptTimeoutConfig$: StaticStructureSchema = [3, n0, _PATC, 0, [_DIS], [1]];
+export var PredefinedAttribute$: StaticStructureSchema = [
   3,
   n0,
   _PA,
   0,
   [_N, _Va, _Pu, _ACtt, _LMT, _LMR],
-  [0, () => PredefinedAttributeValues, 64 | 0, () => PredefinedAttributeConfiguration, 4, 0],
+  [0, () => PredefinedAttributeValues$, 64 | 0, () => PredefinedAttributeConfiguration$, 4, 0],
 ];
-export var PredefinedAttributeConfiguration: StaticStructureSchema = [3, n0, _PAC, 0, [_EVVOA, _IRO], [2, 2]];
-export var PredefinedAttributeSearchCriteria: StaticStructureSchema = [
+export var PredefinedAttributeConfiguration$: StaticStructureSchema = [3, n0, _PAC, 0, [_EVVOA, _IRO], [2, 2]];
+export var PredefinedAttributeSearchCriteria$: StaticStructureSchema = [
   3,
   n0,
   _PASC,
   0,
   [_OC, _ACn, _SC],
-  [() => PredefinedAttributeSearchConditionList, () => PredefinedAttributeSearchConditionList, () => StringCondition],
+  [() => PredefinedAttributeSearchConditionList, () => PredefinedAttributeSearchConditionList, () => StringCondition$],
 ];
-export var PredefinedAttributeSummary: StaticStructureSchema = [3, n0, _PAS, 0, [_N, _LMT, _LMR], [0, 4, 0]];
-export var Preview: StaticStructureSchema = [3, n0, _Pr, 0, [_PATC, _AUA], [() => PostAcceptTimeoutConfig, 64 | 0]];
-export var PrimaryAttributeAccessControlConfigurationItem: StaticStructureSchema = [
+export var PredefinedAttributeSummary$: StaticStructureSchema = [3, n0, _PAS, 0, [_N, _LMT, _LMR], [0, 4, 0]];
+export var Preview$: StaticStructureSchema = [3, n0, _Pr, 0, [_PATC, _AUA], [() => PostAcceptTimeoutConfig$, 64 | 0]];
+export var PrimaryAttributeAccessControlConfigurationItem$: StaticStructureSchema = [
   3,
   n0,
   _PAACCI,
@@ -7512,12 +7547,12 @@ export var PrimaryAttributeAccessControlConfigurationItem: StaticStructureSchema
   [_PAV],
   [() => PrimaryAttributeValuesSet],
 ];
-export var PrimaryAttributeValue: StaticStructureSchema = [3, n0, _PAVr, 0, [_ATcc, _AN, _Va], [0, 0, 64 | 0]];
-export var PrimaryAttributeValueFilter: StaticStructureSchema = [3, n0, _PAVF, 0, [_AN, _Va], [0, 64 | 0]];
-export var PrimaryValue: StaticStructureSchema = [3, n0, _PVr, 0, [_AN, _V], [0, 0]];
-export var PrimaryValueResponse: StaticStructureSchema = [3, n0, _PVR, 0, [_AN, _AItt, _V], [0, 0, 0]];
-export var ProblemDetail: StaticStructureSchema = [3, n0, _PDr, 0, [_m], [0]];
-export var Prompt: StaticStructureSchema = [
+export var PrimaryAttributeValue$: StaticStructureSchema = [3, n0, _PAVr, 0, [_ATcc, _AN, _Va], [0, 0, 64 | 0]];
+export var PrimaryAttributeValueFilter$: StaticStructureSchema = [3, n0, _PAVF, 0, [_AN, _Va], [0, 64 | 0]];
+export var PrimaryValue$: StaticStructureSchema = [3, n0, _PVr, 0, [_AN, _V], [0, 0]];
+export var PrimaryValueResponse$: StaticStructureSchema = [3, n0, _PVR, 0, [_AN, _AItt, _V], [0, 0, 0]];
+export var ProblemDetail$: StaticStructureSchema = [3, n0, _PDr, 0, [_m], [0]];
+export var Prompt$: StaticStructureSchema = [
   3,
   n0,
   _Pro,
@@ -7525,17 +7560,17 @@ export var Prompt: StaticStructureSchema = [
   [_PARN, _PIr, _N, _D, _Ta, _LMT, _LMR],
   [0, 0, 0, 0, 128 | 0, 4, 0],
 ];
-export var PromptSearchCriteria: StaticStructureSchema = [
+export var PromptSearchCriteria$: StaticStructureSchema = [
   3,
   n0,
   _PSC,
   0,
   [_OC, _ACn, _SC],
-  [() => PromptSearchConditionList, () => PromptSearchConditionList, () => StringCondition],
+  [() => PromptSearchConditionList, () => PromptSearchConditionList, () => StringCondition$],
 ];
-export var PromptSearchFilter: StaticStructureSchema = [3, n0, _PSF, 0, [_TF], [() => ControlPlaneTagFilter]];
-export var PromptSummary: StaticStructureSchema = [3, n0, _PSr, 0, [_I, _A, _N, _LMT, _LMR], [0, 0, 0, 4, 0]];
-export var PropertyValidationException: StaticErrorSchema = [
+export var PromptSearchFilter$: StaticStructureSchema = [3, n0, _PSF, 0, [_TF], [() => ControlPlaneTagFilter$]];
+export var PromptSummary$: StaticStructureSchema = [3, n0, _PSr, 0, [_I, _A, _N, _LMT, _LMR], [0, 0, 0, 4, 0]];
+export var PropertyValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _PVE,
@@ -7543,49 +7578,49 @@ export var PropertyValidationException: StaticErrorSchema = [
   [_M, _PLr],
   [0, () => PropertyValidationExceptionPropertyList],
 ];
-TypeRegistry.for(n0).registerError(PropertyValidationException, __PropertyValidationException);
-export var PropertyValidationExceptionProperty: StaticStructureSchema = [3, n0, _PVEP, 0, [_PPr, _Rea, _M], [0, 0, 0]];
-export var PutUserStatusRequest: StaticStructureSchema = [3, n0, _PUSR, 0, [_UI, _II, _ASI], [[0, 1], [0, 1], 0]];
-export var PutUserStatusResponse: StaticStructureSchema = [3, n0, _PUSRu, 0, [], []];
-export var QualityMetrics: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(PropertyValidationException$, PropertyValidationException);
+export var PropertyValidationExceptionProperty$: StaticStructureSchema = [3, n0, _PVEP, 0, [_PPr, _Rea, _M], [0, 0, 0]];
+export var PutUserStatusRequest$: StaticStructureSchema = [3, n0, _PUSR, 0, [_UI, _II, _ASI], [[0, 1], [0, 1], 0]];
+export var PutUserStatusResponse$: StaticStructureSchema = [3, n0, _PUSRu, 0, [], []];
+export var QualityMetrics$: StaticStructureSchema = [
   3,
   n0,
   _QM,
   0,
   [_Ag, _Cu],
-  [() => AgentQualityMetrics, () => CustomerQualityMetrics],
+  [() => AgentQualityMetrics$, () => CustomerQualityMetrics$],
 ];
-export var Queue: StaticStructureSchema = [
+export var Queue$: StaticStructureSchema = [
   3,
   n0,
   _Q,
   0,
   [_N, _QA, _QI, _D, _OCC, _OEC, _HOOI, _MCa, _St, _Ta, _LMT, _LMR],
-  [0, 0, 0, 0, () => OutboundCallerConfig, () => OutboundEmailConfig, 0, 1, 0, 128 | 0, 4, 0],
+  [0, 0, 0, 0, () => OutboundCallerConfig$, () => OutboundEmailConfig$, 0, 1, 0, 128 | 0, 4, 0],
 ];
-export var QueueInfo: StaticStructureSchema = [3, n0, _QIu, 0, [_I, _ETnq], [0, 4]];
-export var QueueInfoInput: StaticStructureSchema = [3, n0, _QII, 0, [_I], [0]];
-export var QueueQuickConnectConfig: StaticStructureSchema = [3, n0, _QQCC, 0, [_QI, _CFI], [0, 0]];
-export var QueueReference: StaticStructureSchema = [3, n0, _QRu, 0, [_I, _A], [0, 0]];
-export var QueueSearchCriteria: StaticStructureSchema = [
+export var QueueInfo$: StaticStructureSchema = [3, n0, _QIu, 0, [_I, _ETnq], [0, 4]];
+export var QueueInfoInput$: StaticStructureSchema = [3, n0, _QII, 0, [_I], [0]];
+export var QueueQuickConnectConfig$: StaticStructureSchema = [3, n0, _QQCC, 0, [_QI, _CFI], [0, 0]];
+export var QueueReference$: StaticStructureSchema = [3, n0, _QRu, 0, [_I, _A], [0, 0]];
+export var QueueSearchCriteria$: StaticStructureSchema = [
   3,
   n0,
   _QSC,
   0,
   [_OC, _ACn, _SC, _QTC],
-  [() => QueueSearchConditionList, () => QueueSearchConditionList, () => StringCondition, 0],
+  [() => QueueSearchConditionList, () => QueueSearchConditionList, () => StringCondition$, 0],
 ];
-export var QueueSearchFilter: StaticStructureSchema = [3, n0, _QSF, 0, [_TF], [() => ControlPlaneTagFilter]];
-export var QueueSummary: StaticStructureSchema = [3, n0, _QSu, 0, [_I, _A, _N, _QTue, _LMT, _LMR], [0, 0, 0, 0, 4, 0]];
-export var QuickConnect: StaticStructureSchema = [
+export var QueueSearchFilter$: StaticStructureSchema = [3, n0, _QSF, 0, [_TF], [() => ControlPlaneTagFilter$]];
+export var QueueSummary$: StaticStructureSchema = [3, n0, _QSu, 0, [_I, _A, _N, _QTue, _LMT, _LMR], [0, 0, 0, 0, 4, 0]];
+export var QuickConnect$: StaticStructureSchema = [
   3,
   n0,
   _QCu,
   0,
   [_QCARN, _QCIu, _N, _D, _QCC, _Ta, _LMT, _LMR],
-  [0, 0, 0, 0, () => QuickConnectConfig, 128 | 0, 4, 0],
+  [0, 0, 0, 0, () => QuickConnectConfig$, 128 | 0, 4, 0],
 ];
-export var QuickConnectConfig: StaticStructureSchema = [
+export var QuickConnectConfig$: StaticStructureSchema = [
   3,
   n0,
   _QCC,
@@ -7593,13 +7628,13 @@ export var QuickConnectConfig: StaticStructureSchema = [
   [_QCTu, _UC, _QCue, _PCh, _FC],
   [
     0,
-    () => UserQuickConnectConfig,
-    () => QueueQuickConnectConfig,
-    () => PhoneNumberQuickConnectConfig,
-    () => FlowQuickConnectConfig,
+    () => UserQuickConnectConfig$,
+    () => QueueQuickConnectConfig$,
+    () => PhoneNumberQuickConnectConfig$,
+    () => FlowQuickConnectConfig$,
   ],
 ];
-export var QuickConnectContactData: StaticStructureSchema = [
+export var QuickConnectContactData$: StaticStructureSchema = [
   3,
   n0,
   _QCCD,
@@ -7607,16 +7642,16 @@ export var QuickConnectContactData: StaticStructureSchema = [
   [_CI, _IT, _QCIu, _QCN, _QCTu],
   [0, 4, 0, 0, 0],
 ];
-export var QuickConnectSearchCriteria: StaticStructureSchema = [
+export var QuickConnectSearchCriteria$: StaticStructureSchema = [
   3,
   n0,
   _QCSC,
   0,
   [_OC, _ACn, _SC],
-  [() => QuickConnectSearchConditionList, () => QuickConnectSearchConditionList, () => StringCondition],
+  [() => QuickConnectSearchConditionList, () => QuickConnectSearchConditionList, () => StringCondition$],
 ];
-export var QuickConnectSearchFilter: StaticStructureSchema = [3, n0, _QCSF, 0, [_TF], [() => ControlPlaneTagFilter]];
-export var QuickConnectSummary: StaticStructureSchema = [
+export var QuickConnectSearchFilter$: StaticStructureSchema = [3, n0, _QCSF, 0, [_TF], [() => ControlPlaneTagFilter$]];
+export var QuickConnectSummary$: StaticStructureSchema = [
   3,
   n0,
   _QCS,
@@ -7624,9 +7659,9 @@ export var QuickConnectSummary: StaticStructureSchema = [
   [_I, _A, _N, _QCTu, _LMT, _LMR],
   [0, 0, 0, 0, 4, 0],
 ];
-export var Range: StaticStructureSchema = [3, n0, _R, 0, [_MPL, _MPLa], [1, 1]];
-export var ReadOnlyFieldInfo: StaticStructureSchema = [3, n0, _ROFI, 0, [_I], [() => TaskTemplateFieldIdentifier]];
-export var RealTimeContactAnalysisAttachment: StaticStructureSchema = [
+export var Range$: StaticStructureSchema = [3, n0, _R, 0, [_MPL, _MPLa], [1, 1]];
+export var ReadOnlyFieldInfo$: StaticStructureSchema = [3, n0, _ROFI, 0, [_I], [() => TaskTemplateFieldIdentifier$]];
+export var RealTimeContactAnalysisAttachment$: StaticStructureSchema = [
   3,
   n0,
   _RTCAA,
@@ -7634,7 +7669,7 @@ export var RealTimeContactAnalysisAttachment: StaticStructureSchema = [
   [_ANtt, _CTon, _AItta, _St],
   [0, 0, 0, 0],
 ];
-export var RealTimeContactAnalysisCategoryDetails: StaticStructureSchema = [
+export var RealTimeContactAnalysisCategoryDetails$: StaticStructureSchema = [
   3,
   n0,
   _RTCACD,
@@ -7642,8 +7677,8 @@ export var RealTimeContactAnalysisCategoryDetails: StaticStructureSchema = [
   [_POI],
   [() => RealTimeContactAnalysisPointsOfInterest],
 ];
-export var RealTimeContactAnalysisCharacterInterval: StaticStructureSchema = [3, n0, _RTCACI, 0, [_BOC, _EOC], [1, 1]];
-export var RealTimeContactAnalysisIssueDetected: StaticStructureSchema = [
+export var RealTimeContactAnalysisCharacterInterval$: StaticStructureSchema = [3, n0, _RTCACI, 0, [_BOC, _EOC], [1, 1]];
+export var RealTimeContactAnalysisIssueDetected$: StaticStructureSchema = [
   3,
   n0,
   _RTCAID,
@@ -7651,7 +7686,7 @@ export var RealTimeContactAnalysisIssueDetected: StaticStructureSchema = [
   [_TIr],
   [() => RealTimeContactAnalysisTranscriptItemsWithContent],
 ];
-export var RealTimeContactAnalysisPointOfInterest: StaticStructureSchema = [
+export var RealTimeContactAnalysisPointOfInterest$: StaticStructureSchema = [
   3,
   n0,
   _RTCAPOI,
@@ -7659,15 +7694,15 @@ export var RealTimeContactAnalysisPointOfInterest: StaticStructureSchema = [
   [_TIr],
   [() => RealTimeContactAnalysisTranscriptItemsWithCharacterOffsets],
 ];
-export var RealTimeContactAnalysisSegmentAttachments: StaticStructureSchema = [
+export var RealTimeContactAnalysisSegmentAttachments$: StaticStructureSchema = [
   3,
   n0,
   _RTCASA,
   0,
   [_I, _PI, _PR, _DN, _Atta, _Tim],
-  [0, 0, 0, 0, () => RealTimeContactAnalysisAttachments, () => RealTimeContactAnalysisTimeData],
+  [0, 0, 0, 0, () => RealTimeContactAnalysisAttachments, () => RealTimeContactAnalysisTimeData$],
 ];
-export var RealTimeContactAnalysisSegmentCategories: StaticStructureSchema = [
+export var RealTimeContactAnalysisSegmentCategories$: StaticStructureSchema = [
   3,
   n0,
   _RTCASC,
@@ -7675,15 +7710,15 @@ export var RealTimeContactAnalysisSegmentCategories: StaticStructureSchema = [
   [_MD],
   [() => RealTimeContactAnalysisMatchedDetails],
 ];
-export var RealTimeContactAnalysisSegmentEvent: StaticStructureSchema = [
+export var RealTimeContactAnalysisSegmentEvent$: StaticStructureSchema = [
   3,
   n0,
   _RTCASE,
   0,
   [_I, _PI, _PR, _DN, _ETve, _Tim],
-  [0, 0, 0, 0, 0, () => RealTimeContactAnalysisTimeData],
+  [0, 0, 0, 0, 0, () => RealTimeContactAnalysisTimeData$],
 ];
-export var RealTimeContactAnalysisSegmentIssues: StaticStructureSchema = [
+export var RealTimeContactAnalysisSegmentIssues$: StaticStructureSchema = [
   3,
   n0,
   _RTCASI,
@@ -7691,7 +7726,7 @@ export var RealTimeContactAnalysisSegmentIssues: StaticStructureSchema = [
   [_IDs],
   [() => RealTimeContactAnalysisIssuesDetected],
 ];
-export var RealTimeContactAnalysisSegmentPostContactSummary: StaticStructureSchema = [
+export var RealTimeContactAnalysisSegmentPostContactSummary$: StaticStructureSchema = [
   3,
   n0,
   _RTCASPCS,
@@ -7699,15 +7734,15 @@ export var RealTimeContactAnalysisSegmentPostContactSummary: StaticStructureSche
   [_Co, _St, _FCa],
   [0, 0, 0],
 ];
-export var RealTimeContactAnalysisSegmentTranscript: StaticStructureSchema = [
+export var RealTimeContactAnalysisSegmentTranscript$: StaticStructureSchema = [
   3,
   n0,
   _RTCAST,
   0,
   [_I, _PI, _PR, _DN, _Co, _CTon, _Tim, _Red, _Sen],
-  [0, 0, 0, 0, 0, 0, () => RealTimeContactAnalysisTimeData, () => RealTimeContactAnalysisTranscriptItemRedaction, 0],
+  [0, 0, 0, 0, 0, 0, () => RealTimeContactAnalysisTimeData$, () => RealTimeContactAnalysisTranscriptItemRedaction$, 0],
 ];
-export var RealTimeContactAnalysisTranscriptItemRedaction: StaticStructureSchema = [
+export var RealTimeContactAnalysisTranscriptItemRedaction$: StaticStructureSchema = [
   3,
   n0,
   _RTCATIR,
@@ -7715,23 +7750,23 @@ export var RealTimeContactAnalysisTranscriptItemRedaction: StaticStructureSchema
   [_COh],
   [() => RealTimeContactAnalysisCharacterIntervals],
 ];
-export var RealTimeContactAnalysisTranscriptItemWithCharacterOffsets: StaticStructureSchema = [
+export var RealTimeContactAnalysisTranscriptItemWithCharacterOffsets$: StaticStructureSchema = [
   3,
   n0,
   _RTCATIWCO,
   0,
   [_I, _COh],
-  [0, () => RealTimeContactAnalysisCharacterInterval],
+  [0, () => RealTimeContactAnalysisCharacterInterval$],
 ];
-export var RealTimeContactAnalysisTranscriptItemWithContent: StaticStructureSchema = [
+export var RealTimeContactAnalysisTranscriptItemWithContent$: StaticStructureSchema = [
   3,
   n0,
   _RTCATIWC,
   0,
   [_Co, _I, _COh],
-  [0, 0, () => RealTimeContactAnalysisCharacterInterval],
+  [0, 0, () => RealTimeContactAnalysisCharacterInterval$],
 ];
-export var RecordingInfo: StaticStructureSchema = [
+export var RecordingInfo$: StaticStructureSchema = [
   3,
   n0,
   _RIeco,
@@ -7739,7 +7774,7 @@ export var RecordingInfo: StaticStructureSchema = [
   [_STto, _Lo, _MSTe, _PT, _FSN, _FSNr, _STta, _STtop, _St, _DRe, _UTL],
   [0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0],
 ];
-export var RecordPrimaryValue: StaticStructureSchema = [
+export var RecordPrimaryValue$: StaticStructureSchema = [
   3,
   n0,
   _RPV,
@@ -7747,8 +7782,8 @@ export var RecordPrimaryValue: StaticStructureSchema = [
   [_RIe, _PV, _LMT, _LMR],
   [0, () => PrimaryValuesResponseSet, 4, 0],
 ];
-export var Reference: StaticStructureSchema = [3, n0, _Refe, 0, [_V, _T, _St, _A, _SRt], [0, 0, 0, 0, 0]];
-export var ReleasePhoneNumberRequest: StaticStructureSchema = [
+export var Reference$: StaticStructureSchema = [3, n0, _Refe, 0, [_V, _T, _St, _A, _SRt], [0, 0, 0, 0, 0]];
+export var ReleasePhoneNumberRequest$: StaticStructureSchema = [
   3,
   n0,
   _RPNR,
@@ -7759,7 +7794,7 @@ export var ReleasePhoneNumberRequest: StaticStructureSchema = [
     [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
-export var ReplicateInstanceRequest: StaticStructureSchema = [
+export var ReplicateInstanceRequest$: StaticStructureSchema = [
   3,
   n0,
   _RIR,
@@ -7767,8 +7802,8 @@ export var ReplicateInstanceRequest: StaticStructureSchema = [
   [_II, _RR, _CT, _RAep],
   [[0, 1], 0, [0, 4], [() => DirectoryAlias, 0]],
 ];
-export var ReplicateInstanceResponse: StaticStructureSchema = [3, n0, _RIRe, 0, [_I, _A], [0, 0]];
-export var ReplicationConfiguration: StaticStructureSchema = [
+export var ReplicateInstanceResponse$: StaticStructureSchema = [3, n0, _RIRe, 0, [_I, _A], [0, 0]];
+export var ReplicationConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RCe,
@@ -7776,11 +7811,11 @@ export var ReplicationConfiguration: StaticStructureSchema = [
   [_RSSL, _SRo, _GSIE],
   [() => ReplicationStatusSummaryList, 0, 0],
 ];
-export var ReplicationStatusSummary: StaticStructureSchema = [3, n0, _RSSe, 0, [_Reg, _RS, _RSR], [0, 0, 0]];
-export var RequiredFieldInfo: StaticStructureSchema = [3, n0, _RFI, 0, [_I], [() => TaskTemplateFieldIdentifier]];
-export var ResourceConflictException: StaticErrorSchema = [-3, n0, _RCE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ResourceConflictException, __ResourceConflictException);
-export var ResourceInUseException: StaticErrorSchema = [
+export var ReplicationStatusSummary$: StaticStructureSchema = [3, n0, _RSSe, 0, [_Reg, _RS, _RSR], [0, 0, 0]];
+export var RequiredFieldInfo$: StaticStructureSchema = [3, n0, _RFI, 0, [_I], [() => TaskTemplateFieldIdentifier$]];
+export var ResourceConflictException$: StaticErrorSchema = [-3, n0, _RCE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ResourceConflictException$, ResourceConflictException);
+export var ResourceInUseException$: StaticErrorSchema = [
   -3,
   n0,
   _RIUE,
@@ -7788,13 +7823,13 @@ export var ResourceInUseException: StaticErrorSchema = [
   [_M, _RT, _RI],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ResourceNotReadyException: StaticErrorSchema = [-3, n0, _RNRE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotReadyException, __ResourceNotReadyException);
-export var ResourceTagsSearchCriteria: StaticStructureSchema = [3, n0, _RTSC, 0, [_TSC], [() => TagSearchCondition]];
-export var ResumeContactRecordingRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourceNotReadyException$: StaticErrorSchema = [-3, n0, _RNRE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotReadyException$, ResourceNotReadyException);
+export var ResourceTagsSearchCriteria$: StaticStructureSchema = [3, n0, _RTSC, 0, [_TSC], [() => TagSearchCondition$]];
+export var ResumeContactRecordingRequest$: StaticStructureSchema = [
   3,
   n0,
   _RCRR,
@@ -7802,21 +7837,21 @@ export var ResumeContactRecordingRequest: StaticStructureSchema = [
   [_II, _CI, _ICI, _CRT],
   [0, 0, 0, 0],
 ];
-export var ResumeContactRecordingResponse: StaticStructureSchema = [3, n0, _RCRRe, 0, [], []];
-export var ResumeContactRequest: StaticStructureSchema = [3, n0, _RCR, 0, [_CI, _II, _CFI], [0, 0, 0]];
-export var ResumeContactResponse: StaticStructureSchema = [3, n0, _RCRe, 0, [], []];
-export var RoutingCriteria: StaticStructureSchema = [3, n0, _RC, 0, [_Ste, _ATct, _Ind], [() => Steps, 4, 1]];
-export var RoutingCriteriaInput: StaticStructureSchema = [3, n0, _RCIo, 0, [_Ste], [() => RoutingCriteriaInputSteps]];
-export var RoutingCriteriaInputStep: StaticStructureSchema = [
+export var ResumeContactRecordingResponse$: StaticStructureSchema = [3, n0, _RCRRe, 0, [], []];
+export var ResumeContactRequest$: StaticStructureSchema = [3, n0, _RCR, 0, [_CI, _II, _CFI], [0, 0, 0]];
+export var ResumeContactResponse$: StaticStructureSchema = [3, n0, _RCRe, 0, [], []];
+export var RoutingCriteria$: StaticStructureSchema = [3, n0, _RC, 0, [_Ste, _ATct, _Ind], [() => Steps, 4, 1]];
+export var RoutingCriteriaInput$: StaticStructureSchema = [3, n0, _RCIo, 0, [_Ste], [() => RoutingCriteriaInputSteps]];
+export var RoutingCriteriaInputStep$: StaticStructureSchema = [
   3,
   n0,
   _RCIS,
   0,
   [_Ex, _Exp],
-  [() => RoutingCriteriaInputStepExpiry, () => Expression],
+  [() => RoutingCriteriaInputStepExpiry$, () => Expression$],
 ];
-export var RoutingCriteriaInputStepExpiry: StaticStructureSchema = [3, n0, _RCISE, 0, [_DIS], [1]];
-export var RoutingProfile: StaticStructureSchema = [
+export var RoutingCriteriaInputStepExpiry$: StaticStructureSchema = [3, n0, _RCISE, 0, [_DIS], [1]];
+export var RoutingProfile$: StaticStructureSchema = [
   3,
   n0,
   _RP,
@@ -7824,15 +7859,15 @@ export var RoutingProfile: StaticStructureSchema = [
   [_II, _N, _RPA, _RPI, _D, _MCe, _DOQI, _Ta, _NOAQ, _NOAMAQ, _NOAU, _AAT, _LMT, _LMR, _ID, _AQI, _AMAQI],
   [0, 0, 0, 0, 0, () => MediaConcurrencies, 0, 128 | 0, 1, 1, 1, 0, 4, 0, 2, 64 | 0, 64 | 0],
 ];
-export var RoutingProfileManualAssignmentQueueConfig: StaticStructureSchema = [
+export var RoutingProfileManualAssignmentQueueConfig$: StaticStructureSchema = [
   3,
   n0,
   _RPMAQC,
   0,
   [_QRu],
-  [() => RoutingProfileQueueReference],
+  [() => RoutingProfileQueueReference$],
 ];
-export var RoutingProfileManualAssignmentQueueConfigSummary: StaticStructureSchema = [
+export var RoutingProfileManualAssignmentQueueConfigSummary$: StaticStructureSchema = [
   3,
   n0,
   _RPMAQCS,
@@ -7840,15 +7875,15 @@ export var RoutingProfileManualAssignmentQueueConfigSummary: StaticStructureSche
   [_QI, _QA, _QN, _C],
   [0, 0, 0, 0],
 ];
-export var RoutingProfileQueueConfig: StaticStructureSchema = [
+export var RoutingProfileQueueConfig$: StaticStructureSchema = [
   3,
   n0,
   _RPQC,
   0,
   [_QRu, _Prio, _Del],
-  [() => RoutingProfileQueueReference, 1, 1],
+  [() => RoutingProfileQueueReference$, 1, 1],
 ];
-export var RoutingProfileQueueConfigSummary: StaticStructureSchema = [
+export var RoutingProfileQueueConfigSummary$: StaticStructureSchema = [
   3,
   n0,
   _RPQCS,
@@ -7856,27 +7891,34 @@ export var RoutingProfileQueueConfigSummary: StaticStructureSchema = [
   [_QI, _QA, _QN, _Prio, _Del, _C],
   [0, 0, 0, 1, 1, 0],
 ];
-export var RoutingProfileQueueReference: StaticStructureSchema = [3, n0, _RPQR, 0, [_QI, _C], [0, 0]];
-export var RoutingProfileReference: StaticStructureSchema = [3, n0, _RPR, 0, [_I, _A], [0, 0]];
-export var RoutingProfileSearchCriteria: StaticStructureSchema = [
+export var RoutingProfileQueueReference$: StaticStructureSchema = [3, n0, _RPQR, 0, [_QI, _C], [0, 0]];
+export var RoutingProfileReference$: StaticStructureSchema = [3, n0, _RPR, 0, [_I, _A], [0, 0]];
+export var RoutingProfileSearchCriteria$: StaticStructureSchema = [
   3,
   n0,
   _RPSC,
   0,
   [_OC, _ACn, _SC],
-  [() => RoutingProfileSearchConditionList, () => RoutingProfileSearchConditionList, () => StringCondition],
+  [() => RoutingProfileSearchConditionList, () => RoutingProfileSearchConditionList, () => StringCondition$],
 ];
-export var RoutingProfileSearchFilter: StaticStructureSchema = [3, n0, _RPSF, 0, [_TF], [() => ControlPlaneTagFilter]];
-export var RoutingProfileSummary: StaticStructureSchema = [3, n0, _RPS, 0, [_I, _A, _N, _LMT, _LMR], [0, 0, 0, 4, 0]];
-export var Rule: StaticStructureSchema = [
+export var RoutingProfileSearchFilter$: StaticStructureSchema = [
+  3,
+  n0,
+  _RPSF,
+  0,
+  [_TF],
+  [() => ControlPlaneTagFilter$],
+];
+export var RoutingProfileSummary$: StaticStructureSchema = [3, n0, _RPS, 0, [_I, _A, _N, _LMT, _LMR], [0, 0, 0, 4, 0]];
+export var Rule$: StaticStructureSchema = [
   3,
   n0,
   _Ru,
   0,
   [_N, _RIu, _RAu, _TES, _Fu, _Ac, _PS, _CTre, _LUTa, _LUB, _Ta],
-  [0, 0, 0, () => RuleTriggerEventSource, 0, () => RuleActions, 0, 4, 4, 0, 128 | 0],
+  [0, 0, 0, () => RuleTriggerEventSource$, 0, () => RuleActions, 0, 4, 4, 0, 128 | 0],
 ];
-export var RuleAction: StaticStructureSchema = [
+export var RuleAction$: StaticStructureSchema = [
   3,
   n0,
   _RAul,
@@ -7884,18 +7926,18 @@ export var RuleAction: StaticStructureSchema = [
   [_AT, _TAa, _EBA, _ACCA, _SNAe, _CCA, _UCAp, _ASA, _EATA, _SAEA],
   [
     0,
-    () => TaskActionDefinition,
-    () => EventBridgeActionDefinition,
-    () => AssignContactCategoryActionDefinition,
-    () => SendNotificationActionDefinition,
-    () => CreateCaseActionDefinition,
-    () => UpdateCaseActionDefinition,
-    () => AssignSlaActionDefinition,
-    () => EndAssociatedTasksActionDefinition,
-    () => SubmitAutoEvaluationActionDefinition,
+    () => TaskActionDefinition$,
+    () => EventBridgeActionDefinition$,
+    () => AssignContactCategoryActionDefinition$,
+    () => SendNotificationActionDefinition$,
+    () => CreateCaseActionDefinition$,
+    () => UpdateCaseActionDefinition$,
+    () => AssignSlaActionDefinition$,
+    () => EndAssociatedTasksActionDefinition$,
+    () => SubmitAutoEvaluationActionDefinition$,
   ],
 ];
-export var RuleSummary: StaticStructureSchema = [
+export var RuleSummary$: StaticStructureSchema = [
   3,
   n0,
   _RSu,
@@ -7903,10 +7945,10 @@ export var RuleSummary: StaticStructureSchema = [
   [_N, _RIu, _RAu, _ESN, _PS, _ASc, _CTre, _LUTa],
   [0, 0, 0, 0, 0, () => ActionSummaries, 4, 4],
 ];
-export var RuleTriggerEventSource: StaticStructureSchema = [3, n0, _RTES, 0, [_ESN, _IAI], [0, 0]];
-export var S3Config: StaticStructureSchema = [3, n0, _SCon, 0, [_BNu, _BP, _ECn], [0, 0, () => EncryptionConfig]];
-export var SearchableAgentCriteriaStep: StaticStructureSchema = [3, n0, _SACS, 0, [_AIg, _MTa], [64 | 0, 0]];
-export var SearchableContactAttributes: StaticStructureSchema = [
+export var RuleTriggerEventSource$: StaticStructureSchema = [3, n0, _RTES, 0, [_ESN, _IAI], [0, 0]];
+export var S3Config$: StaticStructureSchema = [3, n0, _SCon, 0, [_BNu, _BP, _ECn], [0, 0, () => EncryptionConfig$]];
+export var SearchableAgentCriteriaStep$: StaticStructureSchema = [3, n0, _SACS, 0, [_AIg, _MTa], [64 | 0, 0]];
+export var SearchableContactAttributes$: StaticStructureSchema = [
   3,
   n0,
   _SCA,
@@ -7914,7 +7956,7 @@ export var SearchableContactAttributes: StaticStructureSchema = [
   [_Cri, _MTa],
   [[() => SearchableContactAttributesCriteriaList, 0], 0],
 ];
-export var SearchableContactAttributesCriteria: StaticStructureSchema = [
+export var SearchableContactAttributesCriteria$: StaticStructureSchema = [
   3,
   n0,
   _SCAC,
@@ -7925,7 +7967,7 @@ export var SearchableContactAttributesCriteria: StaticStructureSchema = [
     [() => SearchableContactAttributeValueList, 0],
   ],
 ];
-export var SearchableRoutingCriteria: StaticStructureSchema = [
+export var SearchableRoutingCriteria$: StaticStructureSchema = [
   3,
   n0,
   _SRC,
@@ -7933,15 +7975,15 @@ export var SearchableRoutingCriteria: StaticStructureSchema = [
   [_Ste],
   [() => SearchableRoutingCriteriaStepList],
 ];
-export var SearchableRoutingCriteriaStep: StaticStructureSchema = [
+export var SearchableRoutingCriteriaStep$: StaticStructureSchema = [
   3,
   n0,
   _SRCS,
   0,
   [_ACgen],
-  [() => SearchableAgentCriteriaStep],
+  [() => SearchableAgentCriteriaStep$],
 ];
-export var SearchableSegmentAttributes: StaticStructureSchema = [
+export var SearchableSegmentAttributes$: StaticStructureSchema = [
   3,
   n0,
   _SSA,
@@ -7949,7 +7991,7 @@ export var SearchableSegmentAttributes: StaticStructureSchema = [
   [_Cri, _MTa],
   [[() => SearchableSegmentAttributesCriteriaList, 0], 0],
 ];
-export var SearchableSegmentAttributesCriteria: StaticStructureSchema = [
+export var SearchableSegmentAttributesCriteria$: StaticStructureSchema = [
   3,
   n0,
   _SSAC,
@@ -7960,15 +8002,15 @@ export var SearchableSegmentAttributesCriteria: StaticStructureSchema = [
     [() => SearchableSegmentAttributeValueList, 0],
   ],
 ];
-export var SearchAgentStatusesRequest: StaticStructureSchema = [
+export var SearchAgentStatusesRequest$: StaticStructureSchema = [
   3,
   n0,
   _SASR,
   0,
   [_II, _NT, _MR, _SF, _SCe],
-  [0, 0, 1, () => AgentStatusSearchFilter, () => AgentStatusSearchCriteria],
+  [0, 0, 1, () => AgentStatusSearchFilter$, () => AgentStatusSearchCriteria$],
 ];
-export var SearchAgentStatusesResponse: StaticStructureSchema = [
+export var SearchAgentStatusesResponse$: StaticStructureSchema = [
   3,
   n0,
   _SASRe,
@@ -7976,7 +8018,7 @@ export var SearchAgentStatusesResponse: StaticStructureSchema = [
   [_ASge, _NT, _ATC],
   [() => AgentStatusList, 0, 1],
 ];
-export var SearchAvailablePhoneNumbersRequest: StaticStructureSchema = [
+export var SearchAvailablePhoneNumbersRequest$: StaticStructureSchema = [
   3,
   n0,
   _SAPNR,
@@ -7984,7 +8026,7 @@ export var SearchAvailablePhoneNumbersRequest: StaticStructureSchema = [
   [_TA, _II, _PNCC, _PNT, _PNP, _MR, _NT],
   [0, 0, 0, 0, 0, 1, 0],
 ];
-export var SearchAvailablePhoneNumbersResponse: StaticStructureSchema = [
+export var SearchAvailablePhoneNumbersResponse$: StaticStructureSchema = [
   3,
   n0,
   _SAPNRe,
@@ -7992,15 +8034,15 @@ export var SearchAvailablePhoneNumbersResponse: StaticStructureSchema = [
   [_NT, _ANL],
   [0, () => AvailableNumbersList],
 ];
-export var SearchContactEvaluationsRequest: StaticStructureSchema = [
+export var SearchContactEvaluationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _SCER,
   0,
   [_II, _NT, _MR, _SCe, _SF],
-  [0, 0, 1, () => EvaluationSearchCriteria, () => EvaluationSearchFilter],
+  [0, 0, 1, () => EvaluationSearchCriteria$, () => EvaluationSearchFilter$],
 ];
-export var SearchContactEvaluationsResponse: StaticStructureSchema = [
+export var SearchContactEvaluationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _SCERe,
@@ -8008,15 +8050,15 @@ export var SearchContactEvaluationsResponse: StaticStructureSchema = [
   [_ESSL, _NT, _ATC],
   [() => EvaluationSearchSummaryList, 0, 1],
 ];
-export var SearchContactFlowModulesRequest: StaticStructureSchema = [
+export var SearchContactFlowModulesRequest$: StaticStructureSchema = [
   3,
   n0,
   _SCFMR,
   0,
   [_II, _NT, _MR, _SF, _SCe],
-  [0, 0, 1, () => ContactFlowModuleSearchFilter, () => ContactFlowModuleSearchCriteria],
+  [0, 0, 1, () => ContactFlowModuleSearchFilter$, () => ContactFlowModuleSearchCriteria$],
 ];
-export var SearchContactFlowModulesResponse: StaticStructureSchema = [
+export var SearchContactFlowModulesResponse$: StaticStructureSchema = [
   3,
   n0,
   _SCFMRe,
@@ -8024,15 +8066,15 @@ export var SearchContactFlowModulesResponse: StaticStructureSchema = [
   [_CFMo, _NT, _ATC],
   [() => ContactFlowModuleSearchSummaryList, 0, 1],
 ];
-export var SearchContactFlowsRequest: StaticStructureSchema = [
+export var SearchContactFlowsRequest$: StaticStructureSchema = [
   3,
   n0,
   _SCFR,
   0,
   [_II, _NT, _MR, _SF, _SCe],
-  [0, 0, 1, () => ContactFlowSearchFilter, () => ContactFlowSearchCriteria],
+  [0, 0, 1, () => ContactFlowSearchFilter$, () => ContactFlowSearchCriteria$],
 ];
-export var SearchContactFlowsResponse: StaticStructureSchema = [
+export var SearchContactFlowsResponse$: StaticStructureSchema = [
   3,
   n0,
   _SCFRe,
@@ -8040,7 +8082,7 @@ export var SearchContactFlowsResponse: StaticStructureSchema = [
   [_CFon, _NT, _ATC],
   [() => ContactFlowSearchSummaryList, 0, 1],
 ];
-export var SearchContactsAdditionalTimeRange: StaticStructureSchema = [
+export var SearchContactsAdditionalTimeRange$: StaticStructureSchema = [
   3,
   n0,
   _SCATR,
@@ -8048,23 +8090,23 @@ export var SearchContactsAdditionalTimeRange: StaticStructureSchema = [
   [_Cri, _MTa],
   [() => SearchContactsAdditionalTimeRangeCriteriaList, 0],
 ];
-export var SearchContactsAdditionalTimeRangeCriteria: StaticStructureSchema = [
+export var SearchContactsAdditionalTimeRangeCriteria$: StaticStructureSchema = [
   3,
   n0,
   _SCATRC,
   0,
   [_TR, _TCi],
-  [() => SearchContactsTimeRange, () => SearchContactsTimestampCondition],
+  [() => SearchContactsTimeRange$, () => SearchContactsTimestampCondition$],
 ];
-export var SearchContactsRequest: StaticStructureSchema = [
+export var SearchContactsRequest$: StaticStructureSchema = [
   3,
   n0,
   _SCR,
   0,
   [_II, _TR, _SCe, _MR, _NT, _Sor],
-  [0, () => SearchContactsTimeRange, [() => SearchCriteria, 0], 1, 0, () => Sort],
+  [0, () => SearchContactsTimeRange$, [() => SearchCriteria$, 0], 1, 0, () => Sort$],
 ];
-export var SearchContactsResponse: StaticStructureSchema = [
+export var SearchContactsResponse$: StaticStructureSchema = [
   3,
   n0,
   _SCRe,
@@ -8072,37 +8114,37 @@ export var SearchContactsResponse: StaticStructureSchema = [
   [_Conta, _NT, _TCo],
   [[() => Contacts, 0], 0, 1],
 ];
-export var SearchContactsTimeRange: StaticStructureSchema = [3, n0, _SCTR, 0, [_T, _STtar, _ETnd], [0, 4, 4]];
-export var SearchContactsTimestampCondition: StaticStructureSchema = [3, n0, _SCTC, 0, [_T, _CTond], [0, 0]];
-export var SearchCriteria: StaticStructureSchema = [
+export var SearchContactsTimeRange$: StaticStructureSchema = [3, n0, _SCTR, 0, [_T, _STtar, _ETnd], [0, 4, 4]];
+export var SearchContactsTimestampCondition$: StaticStructureSchema = [3, n0, _SCTC, 0, [_T, _CTond], [0, 0]];
+export var SearchCriteria$: StaticStructureSchema = [
   3,
   n0,
   _SCe,
   0,
   [_N, _AIg, _AHGg, _Ch, _CAo, _IMn, _QIue, _RC, _ATR, _SCA, _SSA],
   [
-    [() => NameCriteria, 0],
+    [() => NameCriteria$, 0],
     64 | 0,
-    () => AgentHierarchyGroups,
+    () => AgentHierarchyGroups$,
     64 | 0,
-    [() => ContactAnalysis, 0],
+    [() => ContactAnalysis$, 0],
     64 | 0,
     64 | 0,
-    () => SearchableRoutingCriteria,
-    () => SearchContactsAdditionalTimeRange,
-    [() => SearchableContactAttributes, 0],
-    [() => SearchableSegmentAttributes, 0],
+    () => SearchableRoutingCriteria$,
+    () => SearchContactsAdditionalTimeRange$,
+    [() => SearchableContactAttributes$, 0],
+    [() => SearchableSegmentAttributes$, 0],
   ],
 ];
-export var SearchDataTablesRequest: StaticStructureSchema = [
+export var SearchDataTablesRequest$: StaticStructureSchema = [
   3,
   n0,
   _SDTR,
   0,
   [_II, _NT, _MR, _SF, _SCe],
-  [0, 0, 1, () => DataTableSearchFilter, () => DataTableSearchCriteria],
+  [0, 0, 1, () => DataTableSearchFilter$, () => DataTableSearchCriteria$],
 ];
-export var SearchDataTablesResponse: StaticStructureSchema = [
+export var SearchDataTablesResponse$: StaticStructureSchema = [
   3,
   n0,
   _SDTRe,
@@ -8110,15 +8152,15 @@ export var SearchDataTablesResponse: StaticStructureSchema = [
   [_DTat, _NT, _ATC],
   [() => DataTableList, 0, 1],
 ];
-export var SearchEmailAddressesRequest: StaticStructureSchema = [
+export var SearchEmailAddressesRequest$: StaticStructureSchema = [
   3,
   n0,
   _SEAR,
   0,
   [_II, _MR, _NT, _SCe, _SF],
-  [0, 1, 0, () => EmailAddressSearchCriteria, () => EmailAddressSearchFilter],
+  [0, 1, 0, () => EmailAddressSearchCriteria$, () => EmailAddressSearchFilter$],
 ];
-export var SearchEmailAddressesResponse: StaticStructureSchema = [
+export var SearchEmailAddressesResponse$: StaticStructureSchema = [
   3,
   n0,
   _SEARe,
@@ -8126,15 +8168,15 @@ export var SearchEmailAddressesResponse: StaticStructureSchema = [
   [_NT, _EAma, _ATC],
   [0, [() => EmailAddressList, 0], 1],
 ];
-export var SearchEvaluationFormsRequest: StaticStructureSchema = [
+export var SearchEvaluationFormsRequest$: StaticStructureSchema = [
   3,
   n0,
   _SEFR,
   0,
   [_II, _NT, _MR, _SCe, _SF],
-  [0, 0, 1, () => EvaluationFormSearchCriteria, () => EvaluationFormSearchFilter],
+  [0, 0, 1, () => EvaluationFormSearchCriteria$, () => EvaluationFormSearchFilter$],
 ];
-export var SearchEvaluationFormsResponse: StaticStructureSchema = [
+export var SearchEvaluationFormsResponse$: StaticStructureSchema = [
   3,
   n0,
   _SEFRe,
@@ -8142,15 +8184,15 @@ export var SearchEvaluationFormsResponse: StaticStructureSchema = [
   [_EFSSL, _NT, _ATC],
   [() => EvaluationFormSearchSummaryList, 0, 1],
 ];
-export var SearchHoursOfOperationOverridesRequest: StaticStructureSchema = [
+export var SearchHoursOfOperationOverridesRequest$: StaticStructureSchema = [
   3,
   n0,
   _SHOOOR,
   0,
   [_II, _NT, _MR, _SF, _SCe],
-  [0, 0, 1, () => HoursOfOperationSearchFilter, () => HoursOfOperationOverrideSearchCriteria],
+  [0, 0, 1, () => HoursOfOperationSearchFilter$, () => HoursOfOperationOverrideSearchCriteria$],
 ];
-export var SearchHoursOfOperationOverridesResponse: StaticStructureSchema = [
+export var SearchHoursOfOperationOverridesResponse$: StaticStructureSchema = [
   3,
   n0,
   _SHOOORe,
@@ -8158,15 +8200,15 @@ export var SearchHoursOfOperationOverridesResponse: StaticStructureSchema = [
   [_HOOOo, _NT, _ATC],
   [() => HoursOfOperationOverrideList, 0, 1],
 ];
-export var SearchHoursOfOperationsRequest: StaticStructureSchema = [
+export var SearchHoursOfOperationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _SHOOR,
   0,
   [_II, _NT, _MR, _SF, _SCe],
-  [0, 0, 1, () => HoursOfOperationSearchFilter, () => HoursOfOperationSearchCriteria],
+  [0, 0, 1, () => HoursOfOperationSearchFilter$, () => HoursOfOperationSearchCriteria$],
 ];
-export var SearchHoursOfOperationsResponse: StaticStructureSchema = [
+export var SearchHoursOfOperationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _SHOORe,
@@ -8174,15 +8216,15 @@ export var SearchHoursOfOperationsResponse: StaticStructureSchema = [
   [_HOOo, _NT, _ATC],
   [() => HoursOfOperationList, 0, 1],
 ];
-export var SearchPredefinedAttributesRequest: StaticStructureSchema = [
+export var SearchPredefinedAttributesRequest$: StaticStructureSchema = [
   3,
   n0,
   _SPAR,
   0,
   [_II, _NT, _MR, _SCe],
-  [0, 0, 1, () => PredefinedAttributeSearchCriteria],
+  [0, 0, 1, () => PredefinedAttributeSearchCriteria$],
 ];
-export var SearchPredefinedAttributesResponse: StaticStructureSchema = [
+export var SearchPredefinedAttributesResponse$: StaticStructureSchema = [
   3,
   n0,
   _SPARe,
@@ -8190,15 +8232,15 @@ export var SearchPredefinedAttributesResponse: StaticStructureSchema = [
   [_PAr, _NT, _ATC],
   [() => PredefinedAttributeSearchSummaryList, 0, 1],
 ];
-export var SearchPromptsRequest: StaticStructureSchema = [
+export var SearchPromptsRequest$: StaticStructureSchema = [
   3,
   n0,
   _SPR,
   0,
   [_II, _NT, _MR, _SF, _SCe],
-  [0, 0, 1, () => PromptSearchFilter, () => PromptSearchCriteria],
+  [0, 0, 1, () => PromptSearchFilter$, () => PromptSearchCriteria$],
 ];
-export var SearchPromptsResponse: StaticStructureSchema = [
+export var SearchPromptsResponse$: StaticStructureSchema = [
   3,
   n0,
   _SPRe,
@@ -8206,15 +8248,15 @@ export var SearchPromptsResponse: StaticStructureSchema = [
   [_Prom, _NT, _ATC],
   [() => PromptList, 0, 1],
 ];
-export var SearchQueuesRequest: StaticStructureSchema = [
+export var SearchQueuesRequest$: StaticStructureSchema = [
   3,
   n0,
   _SQR,
   0,
   [_II, _NT, _MR, _SF, _SCe],
-  [0, 0, 1, () => QueueSearchFilter, () => QueueSearchCriteria],
+  [0, 0, 1, () => QueueSearchFilter$, () => QueueSearchCriteria$],
 ];
-export var SearchQueuesResponse: StaticStructureSchema = [
+export var SearchQueuesResponse$: StaticStructureSchema = [
   3,
   n0,
   _SQRe,
@@ -8222,15 +8264,15 @@ export var SearchQueuesResponse: StaticStructureSchema = [
   [_Qu, _NT, _ATC],
   [() => QueueSearchSummaryList, 0, 1],
 ];
-export var SearchQuickConnectsRequest: StaticStructureSchema = [
+export var SearchQuickConnectsRequest$: StaticStructureSchema = [
   3,
   n0,
   _SQCR,
   0,
   [_II, _NT, _MR, _SF, _SCe],
-  [0, 0, 1, () => QuickConnectSearchFilter, () => QuickConnectSearchCriteria],
+  [0, 0, 1, () => QuickConnectSearchFilter$, () => QuickConnectSearchCriteria$],
 ];
-export var SearchQuickConnectsResponse: StaticStructureSchema = [
+export var SearchQuickConnectsResponse$: StaticStructureSchema = [
   3,
   n0,
   _SQCRe,
@@ -8238,24 +8280,24 @@ export var SearchQuickConnectsResponse: StaticStructureSchema = [
   [_QCui, _NT, _ATC],
   [() => QuickConnectSearchSummaryList, 0, 1],
 ];
-export var SearchResourceTagsRequest: StaticStructureSchema = [
+export var SearchResourceTagsRequest$: StaticStructureSchema = [
   3,
   n0,
   _SRTR,
   0,
   [_II, _RTes, _NT, _MR, _SCe],
-  [0, 64 | 0, 0, 1, () => ResourceTagsSearchCriteria],
+  [0, 64 | 0, 0, 1, () => ResourceTagsSearchCriteria$],
 ];
-export var SearchResourceTagsResponse: StaticStructureSchema = [3, n0, _SRTRe, 0, [_Ta, _NT], [() => TagsList, 0]];
-export var SearchRoutingProfilesRequest: StaticStructureSchema = [
+export var SearchResourceTagsResponse$: StaticStructureSchema = [3, n0, _SRTRe, 0, [_Ta, _NT], [() => TagsList, 0]];
+export var SearchRoutingProfilesRequest$: StaticStructureSchema = [
   3,
   n0,
   _SRPR,
   0,
   [_II, _NT, _MR, _SF, _SCe],
-  [0, 0, 1, () => RoutingProfileSearchFilter, () => RoutingProfileSearchCriteria],
+  [0, 0, 1, () => RoutingProfileSearchFilter$, () => RoutingProfileSearchCriteria$],
 ];
-export var SearchRoutingProfilesResponse: StaticStructureSchema = [
+export var SearchRoutingProfilesResponse$: StaticStructureSchema = [
   3,
   n0,
   _SRPRe,
@@ -8263,15 +8305,15 @@ export var SearchRoutingProfilesResponse: StaticStructureSchema = [
   [_RPo, _NT, _ATC],
   [() => RoutingProfileList, 0, 1],
 ];
-export var SearchSecurityProfilesRequest: StaticStructureSchema = [
+export var SearchSecurityProfilesRequest$: StaticStructureSchema = [
   3,
   n0,
   _SSPR,
   0,
   [_II, _NT, _MR, _SCe, _SF],
-  [0, 0, 1, () => SecurityProfileSearchCriteria, () => SecurityProfilesSearchFilter],
+  [0, 0, 1, () => SecurityProfileSearchCriteria$, () => SecurityProfilesSearchFilter$],
 ];
-export var SearchSecurityProfilesResponse: StaticStructureSchema = [
+export var SearchSecurityProfilesResponse$: StaticStructureSchema = [
   3,
   n0,
   _SSPRe,
@@ -8279,15 +8321,15 @@ export var SearchSecurityProfilesResponse: StaticStructureSchema = [
   [_SP, _NT, _ATC],
   [() => SecurityProfilesSearchSummaryList, 0, 1],
 ];
-export var SearchUserHierarchyGroupsRequest: StaticStructureSchema = [
+export var SearchUserHierarchyGroupsRequest$: StaticStructureSchema = [
   3,
   n0,
   _SUHGR,
   0,
   [_II, _NT, _MR, _SF, _SCe],
-  [0, 0, 1, () => UserHierarchyGroupSearchFilter, () => UserHierarchyGroupSearchCriteria],
+  [0, 0, 1, () => UserHierarchyGroupSearchFilter$, () => UserHierarchyGroupSearchCriteria$],
 ];
-export var SearchUserHierarchyGroupsResponse: StaticStructureSchema = [
+export var SearchUserHierarchyGroupsResponse$: StaticStructureSchema = [
   3,
   n0,
   _SUHGRe,
@@ -8295,15 +8337,15 @@ export var SearchUserHierarchyGroupsResponse: StaticStructureSchema = [
   [_UHG, _NT, _ATC],
   [() => UserHierarchyGroupList, 0, 1],
 ];
-export var SearchUsersRequest: StaticStructureSchema = [
+export var SearchUsersRequest$: StaticStructureSchema = [
   3,
   n0,
   _SUR,
   0,
   [_II, _NT, _MR, _SF, _SCe],
-  [0, 0, 1, () => UserSearchFilter, () => UserSearchCriteria],
+  [0, 0, 1, () => UserSearchFilter$, () => UserSearchCriteria$],
 ];
-export var SearchUsersResponse: StaticStructureSchema = [
+export var SearchUsersResponse$: StaticStructureSchema = [
   3,
   n0,
   _SURe,
@@ -8311,15 +8353,15 @@ export var SearchUsersResponse: StaticStructureSchema = [
   [_Use, _NT, _ATC],
   [[() => UserSearchSummaryList, 0], 0, 1],
 ];
-export var SearchViewsRequest: StaticStructureSchema = [
+export var SearchViewsRequest$: StaticStructureSchema = [
   3,
   n0,
   _SVR,
   0,
   [_II, _NT, _MR, _SF, _SCe],
-  [0, 0, 1, () => ViewSearchFilter, () => ViewSearchCriteria],
+  [0, 0, 1, () => ViewSearchFilter$, () => ViewSearchCriteria$],
 ];
-export var SearchViewsResponse: StaticStructureSchema = [
+export var SearchViewsResponse$: StaticStructureSchema = [
   3,
   n0,
   _SVRe,
@@ -8327,7 +8369,7 @@ export var SearchViewsResponse: StaticStructureSchema = [
   [_Vie, _NT, _ATC],
   [[() => ViewSearchSummaryList, 0], 0, 1],
 ];
-export var SearchVocabulariesRequest: StaticStructureSchema = [
+export var SearchVocabulariesRequest$: StaticStructureSchema = [
   3,
   n0,
   _SVRea,
@@ -8335,7 +8377,7 @@ export var SearchVocabulariesRequest: StaticStructureSchema = [
   [_II, _MR, _NT, _S, _NSW, _LC],
   [[0, 1], 1, 0, 0, 0, 0],
 ];
-export var SearchVocabulariesResponse: StaticStructureSchema = [
+export var SearchVocabulariesResponse$: StaticStructureSchema = [
   3,
   n0,
   _SVRear,
@@ -8343,15 +8385,15 @@ export var SearchVocabulariesResponse: StaticStructureSchema = [
   [_VSLo, _NT],
   [() => VocabularySummaryList, 0],
 ];
-export var SearchWorkspaceAssociationsRequest: StaticStructureSchema = [
+export var SearchWorkspaceAssociationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _SWAR,
   0,
   [_II, _NT, _MR, _SF, _SCe],
-  [0, 0, 1, () => WorkspaceAssociationSearchFilter, () => WorkspaceAssociationSearchCriteria],
+  [0, 0, 1, () => WorkspaceAssociationSearchFilter$, () => WorkspaceAssociationSearchCriteria$],
 ];
-export var SearchWorkspaceAssociationsResponse: StaticStructureSchema = [
+export var SearchWorkspaceAssociationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _SWARe,
@@ -8359,15 +8401,15 @@ export var SearchWorkspaceAssociationsResponse: StaticStructureSchema = [
   [_NT, _WAo, _ATC],
   [0, () => WorkspaceAssociationSearchSummaryList, 1],
 ];
-export var SearchWorkspacesRequest: StaticStructureSchema = [
+export var SearchWorkspacesRequest$: StaticStructureSchema = [
   3,
   n0,
   _SWR,
   0,
   [_II, _NT, _MR, _SF, _SCe],
-  [0, 0, 1, () => WorkspaceSearchFilter, () => WorkspaceSearchCriteria],
+  [0, 0, 1, () => WorkspaceSearchFilter$, () => WorkspaceSearchCriteria$],
 ];
-export var SearchWorkspacesResponse: StaticStructureSchema = [
+export var SearchWorkspacesResponse$: StaticStructureSchema = [
   3,
   n0,
   _SWRe,
@@ -8375,25 +8417,25 @@ export var SearchWorkspacesResponse: StaticStructureSchema = [
   [_NT, _Wo, _ATC],
   [0, () => WorkspaceSearchSummaryList, 1],
 ];
-export var SecurityKey: StaticStructureSchema = [3, n0, _SKe, 0, [_AIs, _K, _CTr], [0, 0, 4]];
-export var SecurityProfile: StaticStructureSchema = [
+export var SecurityKey$: StaticStructureSchema = [3, n0, _SKe, 0, [_AIs, _K, _CTr], [0, 0, 4]];
+export var SecurityProfile$: StaticStructureSchema = [
   3,
   n0,
   _SPe,
   0,
   [_I, _ORIr, _A, _SPN, _D, _Ta, _AACT, _TRR, _LMT, _LMR, _HRR, _AACHGI, _GACC],
-  [0, 0, 0, 0, 0, 128 | 0, 128 | 0, 64 | 0, 4, 0, 64 | 0, 0, () => GranularAccessControlConfiguration],
+  [0, 0, 0, 0, 0, 128 | 0, 128 | 0, 64 | 0, 4, 0, 64 | 0, 0, () => GranularAccessControlConfiguration$],
 ];
-export var SecurityProfileItem: StaticStructureSchema = [3, n0, _SPIec, 0, [_I], [0]];
-export var SecurityProfileSearchCriteria: StaticStructureSchema = [
+export var SecurityProfileItem$: StaticStructureSchema = [3, n0, _SPIec, 0, [_I], [0]];
+export var SecurityProfileSearchCriteria$: StaticStructureSchema = [
   3,
   n0,
   _SPSC,
   0,
   [_OC, _ACn, _SC],
-  [() => SecurityProfileSearchConditionList, () => SecurityProfileSearchConditionList, () => StringCondition],
+  [() => SecurityProfileSearchConditionList, () => SecurityProfileSearchConditionList, () => StringCondition$],
 ];
-export var SecurityProfileSearchSummary: StaticStructureSchema = [
+export var SecurityProfileSearchSummary$: StaticStructureSchema = [
   3,
   n0,
   _SPSS,
@@ -8401,16 +8443,16 @@ export var SecurityProfileSearchSummary: StaticStructureSchema = [
   [_I, _ORIr, _A, _SPN, _D, _Ta],
   [0, 0, 0, 0, 0, 128 | 0],
 ];
-export var SecurityProfilesSearchFilter: StaticStructureSchema = [
+export var SecurityProfilesSearchFilter$: StaticStructureSchema = [
   3,
   n0,
   _SPSF,
   0,
   [_TF],
-  [() => ControlPlaneTagFilter],
+  [() => ControlPlaneTagFilter$],
 ];
-export var SecurityProfileSummary: StaticStructureSchema = [3, n0, _SPS, 0, [_I, _A, _N, _LMT, _LMR], [0, 0, 0, 4, 0]];
-export var SegmentAttributeValue: StaticStructureSchema = [
+export var SecurityProfileSummary$: StaticStructureSchema = [3, n0, _SPS, 0, [_I, _A, _N, _LMT, _LMR], [0, 0, 0, 4, 0]];
+export var SegmentAttributeValue$: StaticStructureSchema = [
   3,
   n0,
   _SAV,
@@ -8418,24 +8460,24 @@ export var SegmentAttributeValue: StaticStructureSchema = [
   [_VS, _VM, _VIa, _VL, _VAa],
   [0, () => SegmentAttributeValueMap, 1, () => SegmentAttributeValueList, 0],
 ];
-export var SendChatIntegrationEventRequest: StaticStructureSchema = [
+export var SendChatIntegrationEventRequest$: StaticStructureSchema = [
   3,
   n0,
   _SCIER,
   0,
   [_SI, _DIe, _Subt, _Eve, _NSD],
-  [0, 0, 0, () => ChatEvent, () => NewSessionDetails],
+  [0, 0, 0, () => ChatEvent$, () => NewSessionDetails$],
 ];
-export var SendChatIntegrationEventResponse: StaticStructureSchema = [3, n0, _SCIERe, 0, [_ICI, _NCC], [0, 2]];
-export var SendNotificationActionDefinition: StaticStructureSchema = [
+export var SendChatIntegrationEventResponse$: StaticStructureSchema = [3, n0, _SCIERe, 0, [_ICI, _NCC], [0, 2]];
+export var SendNotificationActionDefinition$: StaticStructureSchema = [
   3,
   n0,
   _SNAD,
   0,
   [_DM, _Sub, _Co, _CTon, _Rec, _Exc],
-  [0, 0, 0, 0, () => NotificationRecipientType, () => NotificationRecipientType],
+  [0, 0, 0, 0, () => NotificationRecipientType$, () => NotificationRecipientType$],
 ];
-export var SendOutboundEmailRequest: StaticStructureSchema = [
+export var SendOutboundEmailRequest$: StaticStructureSchema = [
   3,
   n0,
   _SOER,
@@ -8443,28 +8485,28 @@ export var SendOutboundEmailRequest: StaticStructureSchema = [
   [_II, _FEA, _DEA, _ARd, _EMm, _TTr, _SCou, _CT],
   [
     [0, 1],
-    [() => EmailAddressInfo, 0],
-    [() => EmailAddressInfo, 0],
-    [() => OutboundAdditionalRecipients, 0],
-    [() => OutboundEmailContent, 0],
+    [() => EmailAddressInfo$, 0],
+    [() => EmailAddressInfo$, 0],
+    [() => OutboundAdditionalRecipients$, 0],
+    [() => OutboundEmailContent$, 0],
     0,
-    () => SourceCampaign,
+    () => SourceCampaign$,
     [0, 4],
   ],
 ];
-export var SendOutboundEmailResponse: StaticStructureSchema = [3, n0, _SOERe, 0, [], []];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
+export var SendOutboundEmailResponse$: StaticStructureSchema = [3, n0, _SOERe, 0, [], []];
+export var ServiceQuotaExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_M, _Rea],
-  [0, () => ServiceQuotaExceededExceptionReason],
+  [0, () => ServiceQuotaExceededExceptionReason$],
 ];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var SignInConfig: StaticStructureSchema = [3, n0, _SIC, 0, [_Di], [() => SignInDistributionList]];
-export var SignInDistribution: StaticStructureSchema = [3, n0, _SIDi, 0, [_Reg, _En], [0, 2]];
-export var SingleSelectQuestionRuleCategoryAutomation: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var SignInConfig$: StaticStructureSchema = [3, n0, _SIC, 0, [_Di], [() => SignInDistributionList]];
+export var SignInDistribution$: StaticStructureSchema = [3, n0, _SIDi, 0, [_Reg, _En], [0, 2]];
+export var SingleSelectQuestionRuleCategoryAutomation$: StaticStructureSchema = [
   3,
   n0,
   _SSQRCA,
@@ -8472,25 +8514,25 @@ export var SingleSelectQuestionRuleCategoryAutomation: StaticStructureSchema = [
   [_Cat, _Con, _ORIp],
   [0, 0, 0],
 ];
-export var Sort: StaticStructureSchema = [3, n0, _Sor, 0, [_FNi, _Ord], [0, 0]];
-export var SourceCampaign: StaticStructureSchema = [3, n0, _SCou, 0, [_CIa, _ORIu], [0, 0]];
-export var StartAttachedFileUploadRequest: StaticStructureSchema = [
+export var Sort$: StaticStructureSchema = [3, n0, _Sor, 0, [_FNi, _Ord], [0, 0]];
+export var SourceCampaign$: StaticStructureSchema = [3, n0, _SCou, 0, [_CIa, _ORIu], [0, 0]];
+export var StartAttachedFileUploadRequest$: StaticStructureSchema = [
   3,
   n0,
   _SAFUR,
   0,
   [_CT, _II, _FN, _FSIB, _UEIS, _FUCT, _ARA, _CB, _Ta],
-  [[0, 4], [0, 1], 0, 1, 1, 0, [0, { [_hQ]: _aRA }], () => CreatedByInfo, 128 | 0],
+  [[0, 4], [0, 1], 0, 1, 1, 0, [0, { [_hQ]: _aRA }], () => CreatedByInfo$, 128 | 0],
 ];
-export var StartAttachedFileUploadResponse: StaticStructureSchema = [
+export var StartAttachedFileUploadResponse$: StaticStructureSchema = [
   3,
   n0,
   _SAFURt,
   0,
   [_FAi, _FIi, _CTr, _FS, _CB, _UUM],
-  [0, 0, 0, 0, () => CreatedByInfo, () => UploadUrlMetadata],
+  [0, 0, 0, 0, () => CreatedByInfo$, () => UploadUrlMetadata$],
 ];
-export var StartChatContactRequest: StaticStructureSchema = [
+export var StartChatContactRequest$: StaticStructureSchema = [
   3,
   n0,
   _SCCR,
@@ -8500,30 +8542,30 @@ export var StartChatContactRequest: StaticStructureSchema = [
     0,
     0,
     128 | 0,
-    () => ParticipantDetails,
-    () => ParticipantConfiguration,
-    () => ChatMessage,
+    () => ParticipantDetails$,
+    () => ParticipantConfiguration$,
+    () => ChatMessage$,
     [0, 4],
     1,
     64 | 0,
-    () => PersistentChat,
+    () => PersistentChat$,
     0,
     () => SegmentAttributes,
     [() => CustomerIdNonEmpty, 0],
     64 | 0,
   ],
 ];
-export var StartChatContactResponse: StaticStructureSchema = [3, n0, _SCCRt, 0, [_CI, _PI, _PTa, _CFCI], [0, 0, 0, 0]];
-export var StartContactEvaluationRequest: StaticStructureSchema = [
+export var StartChatContactResponse$: StaticStructureSchema = [3, n0, _SCCRt, 0, [_CI, _PI, _PTa, _CFCI], [0, 0, 0, 0]];
+export var StartContactEvaluationRequest$: StaticStructureSchema = [
   3,
   n0,
   _SCERt,
   0,
   [_II, _CI, _EFI, _AEC, _CT, _Ta],
-  [[0, 1], 0, 0, () => AutoEvaluationConfiguration, [0, 4], 128 | 0],
+  [[0, 1], 0, 0, () => AutoEvaluationConfiguration$, [0, 4], 128 | 0],
 ];
-export var StartContactEvaluationResponse: StaticStructureSchema = [3, n0, _SCERta, 0, [_EI, _EAv], [0, 0]];
-export var StartContactMediaProcessingRequest: StaticStructureSchema = [
+export var StartContactEvaluationResponse$: StaticStructureSchema = [3, n0, _SCERta, 0, [_EI, _EAv], [0, 0]];
+export var StartContactMediaProcessingRequest$: StaticStructureSchema = [
   3,
   n0,
   _SCMPR,
@@ -8531,26 +8573,26 @@ export var StartContactMediaProcessingRequest: StaticStructureSchema = [
   [_II, _CI, _PAro, _FMa],
   [0, 0, 0, 0],
 ];
-export var StartContactMediaProcessingResponse: StaticStructureSchema = [3, n0, _SCMPRt, 0, [], []];
-export var StartContactRecordingRequest: StaticStructureSchema = [
+export var StartContactMediaProcessingResponse$: StaticStructureSchema = [3, n0, _SCMPRt, 0, [], []];
+export var StartContactRecordingRequest$: StaticStructureSchema = [
   3,
   n0,
   _SCRR,
   0,
   [_II, _CI, _ICI, _VRC],
-  [0, 0, 0, () => VoiceRecordingConfiguration],
+  [0, 0, 0, () => VoiceRecordingConfiguration$],
 ];
-export var StartContactRecordingResponse: StaticStructureSchema = [3, n0, _SCRRt, 0, [], []];
-export var StartContactStreamingRequest: StaticStructureSchema = [
+export var StartContactRecordingResponse$: StaticStructureSchema = [3, n0, _SCRRt, 0, [], []];
+export var StartContactStreamingRequest$: StaticStructureSchema = [
   3,
   n0,
   _SCSR,
   0,
   [_II, _CI, _CSCh, _CT],
-  [0, 0, () => ChatStreamingConfiguration, [0, 4]],
+  [0, 0, () => ChatStreamingConfiguration$, [0, 4]],
 ];
-export var StartContactStreamingResponse: StaticStructureSchema = [3, n0, _SCSRt, 0, [_SIt], [0]];
-export var StartEmailContactRequest: StaticStructureSchema = [
+export var StartContactStreamingResponse$: StaticStructureSchema = [3, n0, _SCSRt, 0, [_SIt], [0]];
+export var StartEmailContactRequest$: StaticStructureSchema = [
   3,
   n0,
   _SECR,
@@ -8558,13 +8600,13 @@ export var StartEmailContactRequest: StaticStructureSchema = [
   [_II, _FEA, _DEA, _D, _Ref, _N, _EMm, _ARd, _Atta, _CFI, _RCI, _Attr, _SAe, _CT],
   [
     0,
-    [() => EmailAddressInfo, 0],
+    [() => EmailAddressInfo$, 0],
     [() => EmailAddress, 0],
     [() => Description, 0],
     () => ContactReferences,
     [() => Name, 0],
-    [() => InboundEmailContent, 0],
-    [() => InboundAdditionalRecipients, 0],
+    [() => InboundEmailContent$, 0],
+    [() => InboundAdditionalRecipients$, 0],
     [() => EmailAttachments, 0],
     0,
     0,
@@ -8573,31 +8615,31 @@ export var StartEmailContactRequest: StaticStructureSchema = [
     [0, 4],
   ],
 ];
-export var StartEmailContactResponse: StaticStructureSchema = [3, n0, _SECRt, 0, [_CI], [0]];
-export var StartOutboundChatContactRequest: StaticStructureSchema = [
+export var StartEmailContactResponse$: StaticStructureSchema = [3, n0, _SECRt, 0, [_CI], [0]];
+export var StartOutboundChatContactRequest$: StaticStructureSchema = [
   3,
   n0,
   _SOCCR,
   0,
   [_SEo, _DE, _II, _SAe, _Attr, _CFI, _CDIM, _PD, _ISM, _ITSM, _RCI, _SMCT, _CT],
   [
-    () => Endpoint,
-    () => Endpoint,
+    () => Endpoint$,
+    () => Endpoint$,
     0,
     () => SegmentAttributes,
     128 | 0,
     0,
     1,
-    () => ParticipantDetails,
-    () => ChatMessage,
-    () => TemplatedMessageConfig,
+    () => ParticipantDetails$,
+    () => ChatMessage$,
+    () => TemplatedMessageConfig$,
     0,
     64 | 0,
     [0, 4],
   ],
 ];
-export var StartOutboundChatContactResponse: StaticStructureSchema = [3, n0, _SOCCRt, 0, [_CI], [0]];
-export var StartOutboundEmailContactRequest: StaticStructureSchema = [
+export var StartOutboundChatContactResponse$: StaticStructureSchema = [3, n0, _SOCCRt, 0, [_CI], [0]];
+export var StartOutboundEmailContactRequest$: StaticStructureSchema = [
   3,
   n0,
   _SOECR,
@@ -8606,15 +8648,15 @@ export var StartOutboundEmailContactRequest: StaticStructureSchema = [
   [
     0,
     0,
-    [() => EmailAddressInfo, 0],
-    [() => EmailAddressInfo, 0],
-    [() => OutboundAdditionalRecipients, 0],
-    [() => OutboundEmailContent, 0],
+    [() => EmailAddressInfo$, 0],
+    [() => EmailAddressInfo$, 0],
+    [() => OutboundAdditionalRecipients$, 0],
+    [() => OutboundEmailContent$, 0],
     [0, 4],
   ],
 ];
-export var StartOutboundEmailContactResponse: StaticStructureSchema = [3, n0, _SOECRt, 0, [_CI], [0]];
-export var StartOutboundVoiceContactRequest: StaticStructureSchema = [
+export var StartOutboundEmailContactResponse$: StaticStructureSchema = [3, n0, _SOECRt, 0, [_CI], [0]];
+export var StartOutboundVoiceContactRequest$: StaticStructureSchema = [
   3,
   n0,
   _SOVCR,
@@ -8632,17 +8674,17 @@ export var StartOutboundVoiceContactRequest: StaticStructureSchema = [
     0,
     0,
     128 | 0,
-    () => AnswerMachineDetectionConfig,
+    () => AnswerMachineDetectionConfig$,
     0,
     0,
-    () => OutboundStrategy,
+    () => OutboundStrategy$,
     1,
   ],
 ];
-export var StartOutboundVoiceContactResponse: StaticStructureSchema = [3, n0, _SOVCRt, 0, [_CI], [0]];
-export var StartScreenSharingRequest: StaticStructureSchema = [3, n0, _SSSR, 0, [_CT, _II, _CI], [[0, 4], 0, 0]];
-export var StartScreenSharingResponse: StaticStructureSchema = [3, n0, _SSSRt, 0, [], []];
-export var StartTaskContactRequest: StaticStructureSchema = [
+export var StartOutboundVoiceContactResponse$: StaticStructureSchema = [3, n0, _SOVCRt, 0, [_CI], [0]];
+export var StartScreenSharingRequest$: StaticStructureSchema = [3, n0, _SSSR, 0, [_CT, _II, _CI], [[0, 4], 0, 0]];
+export var StartScreenSharingResponse$: StaticStructureSchema = [3, n0, _SSSRt, 0, [], []];
+export var StartTaskContactRequest$: StaticStructureSchema = [
   3,
   n0,
   _STCR,
@@ -8664,8 +8706,8 @@ export var StartTaskContactRequest: StaticStructureSchema = [
     () => SegmentAttributes,
   ],
 ];
-export var StartTaskContactResponse: StaticStructureSchema = [3, n0, _STCRt, 0, [_CI], [0]];
-export var StartWebRTCContactRequest: StaticStructureSchema = [
+export var StartTaskContactResponse$: StaticStructureSchema = [3, n0, _STCRt, 0, [_CI], [0]];
+export var StartWebRTCContactRequest$: StaticStructureSchema = [
   3,
   n0,
   _SWRTCCR,
@@ -8676,26 +8718,26 @@ export var StartWebRTCContactRequest: StaticStructureSchema = [
     [0, 4],
     0,
     0,
-    () => AllowedCapabilities,
-    () => ParticipantDetails,
+    () => AllowedCapabilities$,
+    () => ParticipantDetails$,
     0,
     () => ContactReferences,
     [() => Description, 0],
   ],
 ];
-export var StartWebRTCContactResponse: StaticStructureSchema = [
+export var StartWebRTCContactResponse$: StaticStructureSchema = [
   3,
   n0,
   _SWRTCCRt,
   0,
   [_CD, _CI, _PI, _PTa],
-  [[() => ConnectionData, 0], 0, 0, 0],
+  [[() => ConnectionData$, 0], 0, 0, 0],
 ];
-export var StateTransition: StaticStructureSchema = [3, n0, _STtat, 0, [_S, _SST, _SET], [0, 4, 4]];
-export var Step: StaticStructureSchema = [3, n0, _Step, 0, [_Ex, _Exp, _St], [() => Expiry, () => Expression, 0]];
-export var StopContactMediaProcessingRequest: StaticStructureSchema = [3, n0, _SCMPRto, 0, [_II, _CI], [0, 0]];
-export var StopContactMediaProcessingResponse: StaticStructureSchema = [3, n0, _SCMPRtop, 0, [], []];
-export var StopContactRecordingRequest: StaticStructureSchema = [
+export var StateTransition$: StaticStructureSchema = [3, n0, _STtat, 0, [_S, _SST, _SET], [0, 4, 4]];
+export var Step$: StaticStructureSchema = [3, n0, _Step, 0, [_Ex, _Exp, _St], [() => Expiry$, () => Expression$, 0]];
+export var StopContactMediaProcessingRequest$: StaticStructureSchema = [3, n0, _SCMPRto, 0, [_II, _CI], [0, 0]];
+export var StopContactMediaProcessingResponse$: StaticStructureSchema = [3, n0, _SCMPRtop, 0, [], []];
+export var StopContactRecordingRequest$: StaticStructureSchema = [
   3,
   n0,
   _SCRRto,
@@ -8703,33 +8745,33 @@ export var StopContactRecordingRequest: StaticStructureSchema = [
   [_II, _CI, _ICI, _CRT],
   [0, 0, 0, 0],
 ];
-export var StopContactRecordingResponse: StaticStructureSchema = [3, n0, _SCRRtop, 0, [], []];
-export var StopContactRequest: StaticStructureSchema = [
+export var StopContactRecordingResponse$: StaticStructureSchema = [3, n0, _SCRRtop, 0, [], []];
+export var StopContactRequest$: StaticStructureSchema = [
   3,
   n0,
   _SCRt,
   0,
   [_CI, _II, _DR],
-  [0, 0, () => DisconnectReason],
+  [0, 0, () => DisconnectReason$],
 ];
-export var StopContactResponse: StaticStructureSchema = [3, n0, _SCRto, 0, [], []];
-export var StopContactStreamingRequest: StaticStructureSchema = [3, n0, _SCSRto, 0, [_II, _CI, _SIt], [0, 0, 0]];
-export var StopContactStreamingResponse: StaticStructureSchema = [3, n0, _SCSRtop, 0, [], []];
-export var StringCondition: StaticStructureSchema = [3, n0, _SC, 0, [_FNi, _V, _CTo], [0, 0, 0]];
-export var StringReference: StaticStructureSchema = [3, n0, _SRtr, 0, [_N, _V], [0, 0]];
-export var SubmitAutoEvaluationActionDefinition: StaticStructureSchema = [3, n0, _SAEAD, 0, [_EFI], [0]];
-export var SubmitContactEvaluationRequest: StaticStructureSchema = [
+export var StopContactResponse$: StaticStructureSchema = [3, n0, _SCRto, 0, [], []];
+export var StopContactStreamingRequest$: StaticStructureSchema = [3, n0, _SCSRto, 0, [_II, _CI, _SIt], [0, 0, 0]];
+export var StopContactStreamingResponse$: StaticStructureSchema = [3, n0, _SCSRtop, 0, [], []];
+export var StringCondition$: StaticStructureSchema = [3, n0, _SC, 0, [_FNi, _V, _CTo], [0, 0, 0]];
+export var StringReference$: StaticStructureSchema = [3, n0, _SRtr, 0, [_N, _V], [0, 0]];
+export var SubmitAutoEvaluationActionDefinition$: StaticStructureSchema = [3, n0, _SAEAD, 0, [_EFI], [0]];
+export var SubmitContactEvaluationRequest$: StaticStructureSchema = [
   3,
   n0,
   _SCERu,
   0,
   [_II, _EI, _An, _No, _SB],
-  [[0, 1], [0, 1], () => EvaluationAnswersInputMap, () => EvaluationNotesMap, () => EvaluatorUserUnion],
+  [[0, 1], [0, 1], () => EvaluationAnswersInputMap, () => EvaluationNotesMap, () => EvaluatorUserUnion$],
 ];
-export var SubmitContactEvaluationResponse: StaticStructureSchema = [3, n0, _SCERub, 0, [_EI, _EAv], [0, 0]];
-export var SuccessfulBatchAssociationSummary: StaticStructureSchema = [3, n0, _SBAS, 0, [_RAe], [0]];
-export var SuccessfulRequest: StaticStructureSchema = [3, n0, _SRu, 0, [_RIeq, _CI], [0, 0]];
-export var SuspendContactRecordingRequest: StaticStructureSchema = [
+export var SubmitContactEvaluationResponse$: StaticStructureSchema = [3, n0, _SCERub, 0, [_EI, _EAv], [0, 0]];
+export var SuccessfulBatchAssociationSummary$: StaticStructureSchema = [3, n0, _SBAS, 0, [_RAe], [0]];
+export var SuccessfulRequest$: StaticStructureSchema = [3, n0, _SRu, 0, [_RIeq, _CI], [0, 0]];
+export var SuspendContactRecordingRequest$: StaticStructureSchema = [
   3,
   n0,
   _SCRRu,
@@ -8737,14 +8779,14 @@ export var SuspendContactRecordingRequest: StaticStructureSchema = [
   [_II, _CI, _ICI, _CRT],
   [0, 0, 0, 0],
 ];
-export var SuspendContactRecordingResponse: StaticStructureSchema = [3, n0, _SCRRus, 0, [], []];
-export var TagCondition: StaticStructureSchema = [3, n0, _TCa, 0, [_TK, _TVa], [0, 0]];
-export var TagContactRequest: StaticStructureSchema = [3, n0, _TCR, 0, [_CI, _II, _Ta], [0, 0, 128 | 0]];
-export var TagContactResponse: StaticStructureSchema = [3, n0, _TCRa, 0, [], []];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRRa, 0, [_rA, _t], [[0, 1], 128 | 0]];
-export var TagSearchCondition: StaticStructureSchema = [3, n0, _TSC, 0, [_tK, _tV, _tKCT, _tVCT], [0, 0, 0, 0]];
-export var TagSet: StaticStructureSchema = [3, n0, _TSa, 0, [_k, _va], [0, 0]];
-export var TaskActionDefinition: StaticStructureSchema = [
+export var SuspendContactRecordingResponse$: StaticStructureSchema = [3, n0, _SCRRus, 0, [], []];
+export var TagCondition$: StaticStructureSchema = [3, n0, _TCa, 0, [_TK, _TVa], [0, 0]];
+export var TagContactRequest$: StaticStructureSchema = [3, n0, _TCR, 0, [_CI, _II, _Ta], [0, 0, 128 | 0]];
+export var TagContactResponse$: StaticStructureSchema = [3, n0, _TCRa, 0, [], []];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRRa, 0, [_rA, _t], [[0, 1], 128 | 0]];
+export var TagSearchCondition$: StaticStructureSchema = [3, n0, _TSC, 0, [_tK, _tV, _tKCT, _tVCT], [0, 0, 0, 0]];
+export var TagSet$: StaticStructureSchema = [3, n0, _TSa, 0, [_k, _va], [0, 0]];
+export var TaskActionDefinition$: StaticStructureSchema = [
   3,
   n0,
   _TAD,
@@ -8752,7 +8794,7 @@ export var TaskActionDefinition: StaticStructureSchema = [
   [_N, _D, _CFI, _Ref],
   [0, 0, 0, () => ContactReferences],
 ];
-export var TaskTemplateConstraints: StaticStructureSchema = [
+export var TaskTemplateConstraints$: StaticStructureSchema = [
   3,
   n0,
   _TTC,
@@ -8760,15 +8802,15 @@ export var TaskTemplateConstraints: StaticStructureSchema = [
   [_RF, _ROF, _IF],
   [() => RequiredTaskTemplateFields, () => ReadOnlyTaskTemplateFields, () => InvisibleTaskTemplateFields],
 ];
-export var TaskTemplateDefaultFieldValue: StaticStructureSchema = [
+export var TaskTemplateDefaultFieldValue$: StaticStructureSchema = [
   3,
   n0,
   _TTDFV,
   0,
   [_I, _DVe],
-  [() => TaskTemplateFieldIdentifier, 0],
+  [() => TaskTemplateFieldIdentifier$, 0],
 ];
-export var TaskTemplateDefaults: StaticStructureSchema = [
+export var TaskTemplateDefaults$: StaticStructureSchema = [
   3,
   n0,
   _TTD,
@@ -8776,17 +8818,17 @@ export var TaskTemplateDefaults: StaticStructureSchema = [
   [_DFV],
   [() => TaskTemplateDefaultFieldValueList],
 ];
-export var TaskTemplateField: StaticStructureSchema = [
+export var TaskTemplateField$: StaticStructureSchema = [
   3,
   n0,
   _TTF,
   0,
   [_I, _D, _T, _SSO],
-  [() => TaskTemplateFieldIdentifier, 0, 0, 64 | 0],
+  [() => TaskTemplateFieldIdentifier$, 0, 0, 64 | 0],
 ];
-export var TaskTemplateFieldIdentifier: StaticStructureSchema = [3, n0, _TTFI, 0, [_N], [0]];
-export var TaskTemplateInfoV2: StaticStructureSchema = [3, n0, _TTIV, 0, [_A, _N], [0, 0]];
-export var TaskTemplateMetadata: StaticStructureSchema = [
+export var TaskTemplateFieldIdentifier$: StaticStructureSchema = [3, n0, _TTFI, 0, [_N], [0]];
+export var TaskTemplateInfoV2$: StaticStructureSchema = [3, n0, _TTIV, 0, [_A, _N], [0, 0]];
+export var TaskTemplateMetadata$: StaticStructureSchema = [
   3,
   n0,
   _TTM,
@@ -8794,19 +8836,19 @@ export var TaskTemplateMetadata: StaticStructureSchema = [
   [_I, _A, _N, _D, _St, _LMT, _CTre],
   [0, 0, 0, 0, 0, 4, 4],
 ];
-export var TelephonyConfig: StaticStructureSchema = [3, n0, _TCe, 0, [_Di], [() => DistributionList]];
-export var TemplateAttributes: StaticStructureSchema = [3, n0, _TAem, 0, [_CAu, _CPA], [128 | 0, 0]];
-export var TemplatedMessageConfig: StaticStructureSchema = [
+export var TelephonyConfig$: StaticStructureSchema = [3, n0, _TCe, 0, [_Di], [() => DistributionList]];
+export var TemplateAttributes$: StaticStructureSchema = [3, n0, _TAem, 0, [_CAu, _CPA], [128 | 0, 0]];
+export var TemplatedMessageConfig$: StaticStructureSchema = [
   3,
   n0,
   _TMC,
   0,
   [_KBI, _MTI, _TAem],
-  [0, 0, () => TemplateAttributes],
+  [0, 0, () => TemplateAttributes$],
 ];
-export var Threshold: StaticStructureSchema = [3, n0, _Thr, 0, [_Comp, _TVh], [0, 1]];
-export var ThresholdV2: StaticStructureSchema = [3, n0, _TVhr, 0, [_Comp, _TVh], [0, 1]];
-export var ThrottlingException: StaticErrorSchema = [
+export var Threshold$: StaticStructureSchema = [3, n0, _Thr, 0, [_Comp, _TVh], [0, 1]];
+export var ThresholdV2$: StaticStructureSchema = [3, n0, _TVhr, 0, [_Comp, _TVh], [0, 1]];
+export var ThrottlingException$: StaticErrorSchema = [
   -3,
   n0,
   _TE,
@@ -8814,10 +8856,10 @@ export var ThrottlingException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var TooManyRequestsException: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-export var TrafficDistributionGroup: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
+export var TrafficDistributionGroup$: StaticStructureSchema = [
   3,
   n0,
   _TDG,
@@ -8825,7 +8867,7 @@ export var TrafficDistributionGroup: StaticStructureSchema = [
   [_I, _A, _N, _D, _IAns, _St, _Ta, _ID],
   [0, 0, 0, 0, 0, 0, 128 | 0, 2],
 ];
-export var TrafficDistributionGroupSummary: StaticStructureSchema = [
+export var TrafficDistributionGroupSummary$: StaticStructureSchema = [
   3,
   n0,
   _TDGS,
@@ -8833,9 +8875,9 @@ export var TrafficDistributionGroupSummary: StaticStructureSchema = [
   [_I, _A, _N, _IAns, _St, _ID],
   [0, 0, 0, 0, 0, 2],
 ];
-export var TrafficDistributionGroupUserSummary: StaticStructureSchema = [3, n0, _TDGUS, 0, [_UI], [0]];
-export var Transcript: StaticStructureSchema = [3, n0, _Tr, 0, [_Cri, _MTa], [[() => TranscriptCriteriaList, 0], 0]];
-export var TranscriptCriteria: StaticStructureSchema = [
+export var TrafficDistributionGroupUserSummary$: StaticStructureSchema = [3, n0, _TDGUS, 0, [_UI], [0]];
+export var Transcript$: StaticStructureSchema = [3, n0, _Tr, 0, [_Cri, _MTa], [[() => TranscriptCriteriaList, 0], 0]];
+export var TranscriptCriteria$: StaticStructureSchema = [
   3,
   n0,
   _TCr,
@@ -8843,7 +8885,7 @@ export var TranscriptCriteria: StaticStructureSchema = [
   [_PR, _ST, _MTa],
   [0, [() => SearchTextList, 0], 0],
 ];
-export var TransferContactRequest: StaticStructureSchema = [
+export var TransferContactRequest$: StaticStructureSchema = [
   3,
   n0,
   _TCRr,
@@ -8851,8 +8893,8 @@ export var TransferContactRequest: StaticStructureSchema = [
   [_II, _CI, _QI, _UI, _CFI, _CT],
   [0, 0, 0, 0, 0, [0, 4]],
 ];
-export var TransferContactResponse: StaticStructureSchema = [3, n0, _TCRra, 0, [_CI, _CA], [0, 0]];
-export var UntagContactRequest: StaticStructureSchema = [
+export var TransferContactResponse$: StaticStructureSchema = [3, n0, _TCRra, 0, [_CI, _CA], [0, 0]];
+export var UntagContactRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCR,
@@ -8864,8 +8906,8 @@ export var UntagContactRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _TKa }],
   ],
 ];
-export var UntagContactResponse: StaticStructureSchema = [3, n0, _UCRn, 0, [], []];
-export var UntagResourceRequest: StaticStructureSchema = [
+export var UntagContactResponse$: StaticStructureSchema = [3, n0, _UCRn, 0, [], []];
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -8876,7 +8918,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tKa }],
   ],
 ];
-export var UpdateAgentStatusRequest: StaticStructureSchema = [
+export var UpdateAgentStatusRequest$: StaticStructureSchema = [
   3,
   n0,
   _UASR,
@@ -8884,7 +8926,7 @@ export var UpdateAgentStatusRequest: StaticStructureSchema = [
   [_II, _ASI, _N, _D, _S, _DO, _RON],
   [[0, 1], [0, 1], 0, 0, 0, 1, 2],
 ];
-export var UpdateAuthenticationProfileRequest: StaticStructureSchema = [
+export var UpdateAuthenticationProfileRequest$: StaticStructureSchema = [
   3,
   n0,
   _UAPR,
@@ -8892,8 +8934,8 @@ export var UpdateAuthenticationProfileRequest: StaticStructureSchema = [
   [_API, _II, _N, _D, _AIl, _BI, _PSD, _SID, _SIHE],
   [[0, 1], [0, 1], 0, 0, 64 | 0, 64 | 0, 1, 1, 2],
 ];
-export var UpdateCaseActionDefinition: StaticStructureSchema = [3, n0, _UCAD, 0, [_Fie], [() => FieldValues]];
-export var UpdateContactAttributesRequest: StaticStructureSchema = [
+export var UpdateCaseActionDefinition$: StaticStructureSchema = [3, n0, _UCAD, 0, [_Fie], [() => FieldValues]];
+export var UpdateContactAttributesRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCAR,
@@ -8901,17 +8943,17 @@ export var UpdateContactAttributesRequest: StaticStructureSchema = [
   [_ICI, _II, _Attr],
   [0, 0, 128 | 0],
 ];
-export var UpdateContactAttributesResponse: StaticStructureSchema = [3, n0, _UCARp, 0, [], []];
-export var UpdateContactEvaluationRequest: StaticStructureSchema = [
+export var UpdateContactAttributesResponse$: StaticStructureSchema = [3, n0, _UCARp, 0, [], []];
+export var UpdateContactEvaluationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCER,
   0,
   [_II, _EI, _An, _No, _UB],
-  [[0, 1], [0, 1], () => EvaluationAnswersInputMap, () => EvaluationNotesMap, () => EvaluatorUserUnion],
+  [[0, 1], [0, 1], () => EvaluationAnswersInputMap, () => EvaluationNotesMap, () => EvaluatorUserUnion$],
 ];
-export var UpdateContactEvaluationResponse: StaticStructureSchema = [3, n0, _UCERp, 0, [_EI, _EAv], [0, 0]];
-export var UpdateContactFlowContentRequest: StaticStructureSchema = [
+export var UpdateContactEvaluationResponse$: StaticStructureSchema = [3, n0, _UCERp, 0, [_EI, _EAv], [0, 0]];
+export var UpdateContactFlowContentRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCFCR,
@@ -8919,8 +8961,8 @@ export var UpdateContactFlowContentRequest: StaticStructureSchema = [
   [_II, _CFI, _Co],
   [[0, 1], [0, 1], 0],
 ];
-export var UpdateContactFlowContentResponse: StaticStructureSchema = [3, n0, _UCFCRp, 0, [], []];
-export var UpdateContactFlowMetadataRequest: StaticStructureSchema = [
+export var UpdateContactFlowContentResponse$: StaticStructureSchema = [3, n0, _UCFCRp, 0, [], []];
+export var UpdateContactFlowMetadataRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCFMR,
@@ -8928,8 +8970,8 @@ export var UpdateContactFlowMetadataRequest: StaticStructureSchema = [
   [_II, _CFI, _N, _D, _CFSo],
   [[0, 1], [0, 1], 0, 0, 0],
 ];
-export var UpdateContactFlowMetadataResponse: StaticStructureSchema = [3, n0, _UCFMRp, 0, [], []];
-export var UpdateContactFlowModuleAliasRequest: StaticStructureSchema = [
+export var UpdateContactFlowMetadataResponse$: StaticStructureSchema = [3, n0, _UCFMRp, 0, [], []];
+export var UpdateContactFlowModuleAliasRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCFMAR,
@@ -8937,8 +8979,8 @@ export var UpdateContactFlowModuleAliasRequest: StaticStructureSchema = [
   [_II, _CFMI, _AIli, _N, _D, _CFMV],
   [[0, 1], [0, 1], [0, 1], 0, 0, 1],
 ];
-export var UpdateContactFlowModuleAliasResponse: StaticStructureSchema = [3, n0, _UCFMARp, 0, [], []];
-export var UpdateContactFlowModuleContentRequest: StaticStructureSchema = [
+export var UpdateContactFlowModuleAliasResponse$: StaticStructureSchema = [3, n0, _UCFMARp, 0, [], []];
+export var UpdateContactFlowModuleContentRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCFMCR,
@@ -8946,8 +8988,8 @@ export var UpdateContactFlowModuleContentRequest: StaticStructureSchema = [
   [_II, _CFMI, _Co, _Se],
   [[0, 1], [0, 1], 0, 0],
 ];
-export var UpdateContactFlowModuleContentResponse: StaticStructureSchema = [3, n0, _UCFMCRp, 0, [], []];
-export var UpdateContactFlowModuleMetadataRequest: StaticStructureSchema = [
+export var UpdateContactFlowModuleContentResponse$: StaticStructureSchema = [3, n0, _UCFMCRp, 0, [], []];
+export var UpdateContactFlowModuleMetadataRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCFMMR,
@@ -8955,8 +8997,8 @@ export var UpdateContactFlowModuleMetadataRequest: StaticStructureSchema = [
   [_II, _CFMI, _N, _D, _S],
   [[0, 1], [0, 1], 0, 0, 0],
 ];
-export var UpdateContactFlowModuleMetadataResponse: StaticStructureSchema = [3, n0, _UCFMMRp, 0, [], []];
-export var UpdateContactFlowNameRequest: StaticStructureSchema = [
+export var UpdateContactFlowModuleMetadataResponse$: StaticStructureSchema = [3, n0, _UCFMMRp, 0, [], []];
+export var UpdateContactFlowNameRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCFNR,
@@ -8964,8 +9006,8 @@ export var UpdateContactFlowNameRequest: StaticStructureSchema = [
   [_II, _CFI, _N, _D],
   [[0, 1], [0, 1], 0, 0],
 ];
-export var UpdateContactFlowNameResponse: StaticStructureSchema = [3, n0, _UCFNRp, 0, [], []];
-export var UpdateContactRequest: StaticStructureSchema = [
+export var UpdateContactFlowNameResponse$: StaticStructureSchema = [3, n0, _UCFNRp, 0, [], []];
+export var UpdateContactRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCRp,
@@ -8978,41 +9020,41 @@ export var UpdateContactRequest: StaticStructureSchema = [
     [() => Description, 0],
     () => ContactReferences,
     () => SegmentAttributes,
-    () => QueueInfoInput,
-    () => UserInfo,
-    () => Endpoint,
-    () => Endpoint,
+    () => QueueInfoInput$,
+    () => UserInfo$,
+    () => Endpoint$,
+    () => Endpoint$,
   ],
 ];
-export var UpdateContactResponse: StaticStructureSchema = [3, n0, _UCRpd, 0, [], []];
-export var UpdateContactRoutingDataRequest: StaticStructureSchema = [
+export var UpdateContactResponse$: StaticStructureSchema = [3, n0, _UCRpd, 0, [], []];
+export var UpdateContactRoutingDataRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCRDR,
   0,
   [_II, _CI, _QTAS, _QP, _RC],
-  [[0, 1], [0, 1], 1, 1, () => RoutingCriteriaInput],
+  [[0, 1], [0, 1], 1, 1, () => RoutingCriteriaInput$],
 ];
-export var UpdateContactRoutingDataResponse: StaticStructureSchema = [3, n0, _UCRDRp, 0, [], []];
-export var UpdateContactScheduleRequest: StaticStructureSchema = [3, n0, _UCSR, 0, [_II, _CI, _STch], [0, 0, 4]];
-export var UpdateContactScheduleResponse: StaticStructureSchema = [3, n0, _UCSRp, 0, [], []];
-export var UpdateDataTableAttributeRequest: StaticStructureSchema = [
+export var UpdateContactRoutingDataResponse$: StaticStructureSchema = [3, n0, _UCRDRp, 0, [], []];
+export var UpdateContactScheduleRequest$: StaticStructureSchema = [3, n0, _UCSR, 0, [_II, _CI, _STch], [0, 0, 4]];
+export var UpdateContactScheduleResponse$: StaticStructureSchema = [3, n0, _UCSRp, 0, [], []];
+export var UpdateDataTableAttributeRequest$: StaticStructureSchema = [
   3,
   n0,
   _UDTAR,
   0,
   [_II, _DTI, _AN, _N, _VT, _D, _Pri, _Val],
-  [[0, 1], [0, 1], [0, 1], 0, 0, 0, 2, () => Validation],
+  [[0, 1], [0, 1], [0, 1], 0, 0, 0, 2, () => Validation$],
 ];
-export var UpdateDataTableAttributeResponse: StaticStructureSchema = [
+export var UpdateDataTableAttributeResponse$: StaticStructureSchema = [
   3,
   n0,
   _UDTARp,
   0,
   [_N, _LV],
-  [0, () => DataTableLockVersion],
+  [0, () => DataTableLockVersion$],
 ];
-export var UpdateDataTableMetadataRequest: StaticStructureSchema = [
+export var UpdateDataTableMetadataRequest$: StaticStructureSchema = [
   3,
   n0,
   _UDTMR,
@@ -9020,31 +9062,31 @@ export var UpdateDataTableMetadataRequest: StaticStructureSchema = [
   [_II, _DTI, _N, _D, _VLL, _TZ],
   [[0, 1], [0, 1], 0, 0, 0, 0],
 ];
-export var UpdateDataTableMetadataResponse: StaticStructureSchema = [
+export var UpdateDataTableMetadataResponse$: StaticStructureSchema = [
   3,
   n0,
   _UDTMRp,
   0,
   [_LV],
-  [() => DataTableLockVersion],
+  [() => DataTableLockVersion$],
 ];
-export var UpdateDataTablePrimaryValuesRequest: StaticStructureSchema = [
+export var UpdateDataTablePrimaryValuesRequest$: StaticStructureSchema = [
   3,
   n0,
   _UDTPVR,
   0,
   [_II, _DTI, _PV, _NPV, _LV],
-  [[0, 1], [0, 1], () => PrimaryValuesSet, () => PrimaryValuesSet, () => DataTableLockVersion],
+  [[0, 1], [0, 1], () => PrimaryValuesSet, () => PrimaryValuesSet, () => DataTableLockVersion$],
 ];
-export var UpdateDataTablePrimaryValuesResponse: StaticStructureSchema = [
+export var UpdateDataTablePrimaryValuesResponse$: StaticStructureSchema = [
   3,
   n0,
   _UDTPVRp,
   0,
   [_LV],
-  [() => DataTableLockVersion],
+  [() => DataTableLockVersion$],
 ];
-export var UpdateEmailAddressMetadataRequest: StaticStructureSchema = [
+export var UpdateEmailAddressMetadataRequest$: StaticStructureSchema = [
   3,
   n0,
   _UEAMR,
@@ -9052,8 +9094,8 @@ export var UpdateEmailAddressMetadataRequest: StaticStructureSchema = [
   [_II, _EAI, _D, _DN, _CT],
   [[0, 1], [0, 1], [() => Description, 0], [() => EmailAddressDisplayName, 0], 0],
 ];
-export var UpdateEmailAddressMetadataResponse: StaticStructureSchema = [3, n0, _UEAMRp, 0, [_EAI, _EAA], [0, 0]];
-export var UpdateEvaluationFormRequest: StaticStructureSchema = [
+export var UpdateEmailAddressMetadataResponse$: StaticStructureSchema = [3, n0, _UEAMRp, 0, [_EAI, _EAA], [0, 0]];
+export var UpdateEvaluationFormRequest$: StaticStructureSchema = [
   3,
   n0,
   _UEFR,
@@ -9067,16 +9109,16 @@ export var UpdateEvaluationFormRequest: StaticStructureSchema = [
     0,
     0,
     () => EvaluationFormItemsList,
-    () => EvaluationFormScoringStrategy,
-    () => EvaluationFormAutoEvaluationConfiguration,
+    () => EvaluationFormScoringStrategy$,
+    () => EvaluationFormAutoEvaluationConfiguration$,
     2,
     [0, 4],
-    () => EvaluationFormTargetConfiguration,
-    () => EvaluationFormLanguageConfiguration,
+    () => EvaluationFormTargetConfiguration$,
+    () => EvaluationFormLanguageConfiguration$,
   ],
 ];
-export var UpdateEvaluationFormResponse: StaticStructureSchema = [3, n0, _UEFRp, 0, [_EFI, _EFA, _EFV], [0, 0, 1]];
-export var UpdateHoursOfOperationOverrideRequest: StaticStructureSchema = [
+export var UpdateEvaluationFormResponse$: StaticStructureSchema = [3, n0, _UEFRp, 0, [_EFI, _EFA, _EFV], [0, 0, 1]];
+export var UpdateHoursOfOperationOverrideRequest$: StaticStructureSchema = [
   3,
   n0,
   _UHOOOR,
@@ -9084,7 +9126,7 @@ export var UpdateHoursOfOperationOverrideRequest: StaticStructureSchema = [
   [_II, _HOOI, _HOOOI, _N, _D, _Conf, _EF, _ETf],
   [[0, 1], [0, 1], [0, 1], 0, 0, () => HoursOfOperationOverrideConfigList, 0, 0],
 ];
-export var UpdateHoursOfOperationRequest: StaticStructureSchema = [
+export var UpdateHoursOfOperationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UHOOR,
@@ -9092,7 +9134,7 @@ export var UpdateHoursOfOperationRequest: StaticStructureSchema = [
   [_II, _HOOI, _N, _D, _TZ, _Conf],
   [[0, 1], [0, 1], 0, 0, 0, () => HoursOfOperationConfigList],
 ];
-export var UpdateInstanceAttributeRequest: StaticStructureSchema = [
+export var UpdateInstanceAttributeRequest$: StaticStructureSchema = [
   3,
   n0,
   _UIAR,
@@ -9100,15 +9142,15 @@ export var UpdateInstanceAttributeRequest: StaticStructureSchema = [
   [_II, _ATt, _V, _CT],
   [[0, 1], [0, 1], 0, [0, 4]],
 ];
-export var UpdateInstanceStorageConfigRequest: StaticStructureSchema = [
+export var UpdateInstanceStorageConfigRequest$: StaticStructureSchema = [
   3,
   n0,
   _UISCR,
   0,
   [_II, _AIs, _RT, _SCt, _CT],
-  [[0, 1], [0, 1], [0, { [_hQ]: _rT }], () => InstanceStorageConfig, [0, 4]],
+  [[0, 1], [0, 1], [0, { [_hQ]: _rT }], () => InstanceStorageConfig$, [0, 4]],
 ];
-export var UpdateParticipantAuthenticationRequest: StaticStructureSchema = [
+export var UpdateParticipantAuthenticationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPAR,
@@ -9116,17 +9158,17 @@ export var UpdateParticipantAuthenticationRequest: StaticStructureSchema = [
   [_S, _II, _Cod, _Err, _ED],
   [0, 0, [() => AuthorizationCode, 0], [() => AuthenticationError, 0], [() => AuthenticationErrorDescription, 0]],
 ];
-export var UpdateParticipantAuthenticationResponse: StaticStructureSchema = [3, n0, _UPARp, 0, [], []];
-export var UpdateParticipantRoleConfigRequest: StaticStructureSchema = [
+export var UpdateParticipantAuthenticationResponse$: StaticStructureSchema = [3, n0, _UPARp, 0, [], []];
+export var UpdateParticipantRoleConfigRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPRCR,
   0,
   [_II, _CI, _CCh],
-  [[0, 1], [0, 1], () => UpdateParticipantRoleConfigChannelInfo],
+  [[0, 1], [0, 1], () => UpdateParticipantRoleConfigChannelInfo$],
 ];
-export var UpdateParticipantRoleConfigResponse: StaticStructureSchema = [3, n0, _UPRCRp, 0, [], []];
-export var UpdatePhoneNumberMetadataRequest: StaticStructureSchema = [
+export var UpdateParticipantRoleConfigResponse$: StaticStructureSchema = [3, n0, _UPRCRp, 0, [], []];
+export var UpdatePhoneNumberMetadataRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPNMR,
@@ -9134,7 +9176,7 @@ export var UpdatePhoneNumberMetadataRequest: StaticStructureSchema = [
   [_PNI, _PND, _CT],
   [[0, 1], 0, [0, 4]],
 ];
-export var UpdatePhoneNumberRequest: StaticStructureSchema = [
+export var UpdatePhoneNumberRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPNR,
@@ -9142,16 +9184,16 @@ export var UpdatePhoneNumberRequest: StaticStructureSchema = [
   [_PNI, _TA, _II, _CT],
   [[0, 1], 0, 0, [0, 4]],
 ];
-export var UpdatePhoneNumberResponse: StaticStructureSchema = [3, n0, _UPNRp, 0, [_PNI, _PNA], [0, 0]];
-export var UpdatePredefinedAttributeRequest: StaticStructureSchema = [
+export var UpdatePhoneNumberResponse$: StaticStructureSchema = [3, n0, _UPNRp, 0, [_PNI, _PNA], [0, 0]];
+export var UpdatePredefinedAttributeRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPARpd,
   0,
   [_II, _N, _Va, _Pu, _ACtt],
-  [[0, 1], [0, 1], () => PredefinedAttributeValues, 64 | 0, () => InputPredefinedAttributeConfiguration],
+  [[0, 1], [0, 1], () => PredefinedAttributeValues$, 64 | 0, () => InputPredefinedAttributeConfiguration$],
 ];
-export var UpdatePromptRequest: StaticStructureSchema = [
+export var UpdatePromptRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPR,
@@ -9159,8 +9201,8 @@ export var UpdatePromptRequest: StaticStructureSchema = [
   [_II, _PIr, _N, _D, _SU],
   [[0, 1], [0, 1], 0, 0, 0],
 ];
-export var UpdatePromptResponse: StaticStructureSchema = [3, n0, _UPRp, 0, [_PARN, _PIr], [0, 0]];
-export var UpdateQueueHoursOfOperationRequest: StaticStructureSchema = [
+export var UpdatePromptResponse$: StaticStructureSchema = [3, n0, _UPRp, 0, [_PARN, _PIr], [0, 0]];
+export var UpdateQueueHoursOfOperationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UQHOOR,
@@ -9168,7 +9210,7 @@ export var UpdateQueueHoursOfOperationRequest: StaticStructureSchema = [
   [_II, _QI, _HOOI],
   [[0, 1], [0, 1], 0],
 ];
-export var UpdateQueueMaxContactsRequest: StaticStructureSchema = [
+export var UpdateQueueMaxContactsRequest$: StaticStructureSchema = [
   3,
   n0,
   _UQMCR,
@@ -9176,7 +9218,7 @@ export var UpdateQueueMaxContactsRequest: StaticStructureSchema = [
   [_II, _QI, _MCa],
   [[0, 1], [0, 1], 1],
 ];
-export var UpdateQueueNameRequest: StaticStructureSchema = [
+export var UpdateQueueNameRequest$: StaticStructureSchema = [
   3,
   n0,
   _UQNR,
@@ -9184,32 +9226,32 @@ export var UpdateQueueNameRequest: StaticStructureSchema = [
   [_II, _QI, _N, _D],
   [[0, 1], [0, 1], 0, 0],
 ];
-export var UpdateQueueOutboundCallerConfigRequest: StaticStructureSchema = [
+export var UpdateQueueOutboundCallerConfigRequest$: StaticStructureSchema = [
   3,
   n0,
   _UQOCCR,
   0,
   [_II, _QI, _OCC],
-  [[0, 1], [0, 1], () => OutboundCallerConfig],
+  [[0, 1], [0, 1], () => OutboundCallerConfig$],
 ];
-export var UpdateQueueOutboundEmailConfigRequest: StaticStructureSchema = [
+export var UpdateQueueOutboundEmailConfigRequest$: StaticStructureSchema = [
   3,
   n0,
   _UQOECR,
   0,
   [_II, _QI, _OEC],
-  [[0, 1], [0, 1], () => OutboundEmailConfig],
+  [[0, 1], [0, 1], () => OutboundEmailConfig$],
 ];
-export var UpdateQueueStatusRequest: StaticStructureSchema = [3, n0, _UQSR, 0, [_II, _QI, _St], [[0, 1], [0, 1], 0]];
-export var UpdateQuickConnectConfigRequest: StaticStructureSchema = [
+export var UpdateQueueStatusRequest$: StaticStructureSchema = [3, n0, _UQSR, 0, [_II, _QI, _St], [[0, 1], [0, 1], 0]];
+export var UpdateQuickConnectConfigRequest$: StaticStructureSchema = [
   3,
   n0,
   _UQCCR,
   0,
   [_II, _QCIu, _QCC],
-  [[0, 1], [0, 1], () => QuickConnectConfig],
+  [[0, 1], [0, 1], () => QuickConnectConfig$],
 ];
-export var UpdateQuickConnectNameRequest: StaticStructureSchema = [
+export var UpdateQuickConnectNameRequest$: StaticStructureSchema = [
   3,
   n0,
   _UQCNR,
@@ -9217,7 +9259,7 @@ export var UpdateQuickConnectNameRequest: StaticStructureSchema = [
   [_II, _QCIu, _N, _D],
   [[0, 1], [0, 1], 0, 0],
 ];
-export var UpdateRoutingProfileAgentAvailabilityTimerRequest: StaticStructureSchema = [
+export var UpdateRoutingProfileAgentAvailabilityTimerRequest$: StaticStructureSchema = [
   3,
   n0,
   _URPAATR,
@@ -9225,7 +9267,7 @@ export var UpdateRoutingProfileAgentAvailabilityTimerRequest: StaticStructureSch
   [_II, _RPI, _AAT],
   [[0, 1], [0, 1], 0],
 ];
-export var UpdateRoutingProfileConcurrencyRequest: StaticStructureSchema = [
+export var UpdateRoutingProfileConcurrencyRequest$: StaticStructureSchema = [
   3,
   n0,
   _URPCR,
@@ -9233,7 +9275,7 @@ export var UpdateRoutingProfileConcurrencyRequest: StaticStructureSchema = [
   [_II, _RPI, _MCe],
   [[0, 1], [0, 1], () => MediaConcurrencies],
 ];
-export var UpdateRoutingProfileDefaultOutboundQueueRequest: StaticStructureSchema = [
+export var UpdateRoutingProfileDefaultOutboundQueueRequest$: StaticStructureSchema = [
   3,
   n0,
   _URPDOQR,
@@ -9241,7 +9283,7 @@ export var UpdateRoutingProfileDefaultOutboundQueueRequest: StaticStructureSchem
   [_II, _RPI, _DOQI],
   [[0, 1], [0, 1], 0],
 ];
-export var UpdateRoutingProfileNameRequest: StaticStructureSchema = [
+export var UpdateRoutingProfileNameRequest$: StaticStructureSchema = [
   3,
   n0,
   _URPNR,
@@ -9249,7 +9291,7 @@ export var UpdateRoutingProfileNameRequest: StaticStructureSchema = [
   [_II, _RPI, _N, _D],
   [[0, 1], [0, 1], 0, 0],
 ];
-export var UpdateRoutingProfileQueuesRequest: StaticStructureSchema = [
+export var UpdateRoutingProfileQueuesRequest$: StaticStructureSchema = [
   3,
   n0,
   _URPQR,
@@ -9257,7 +9299,7 @@ export var UpdateRoutingProfileQueuesRequest: StaticStructureSchema = [
   [_II, _RPI, _QC],
   [[0, 1], [0, 1], () => RoutingProfileQueueConfigList],
 ];
-export var UpdateRuleRequest: StaticStructureSchema = [
+export var UpdateRuleRequest$: StaticStructureSchema = [
   3,
   n0,
   _URRp,
@@ -9265,7 +9307,7 @@ export var UpdateRuleRequest: StaticStructureSchema = [
   [_RIu, _II, _N, _Fu, _Ac, _PS],
   [[0, 1], [0, 1], 0, 0, () => RuleActions, 0],
 ];
-export var UpdateSecurityProfileRequest: StaticStructureSchema = [
+export var UpdateSecurityProfileRequest$: StaticStructureSchema = [
   3,
   n0,
   _USPR,
@@ -9282,35 +9324,46 @@ export var UpdateSecurityProfileRequest: StaticStructureSchema = [
     64 | 0,
     0,
     () => AllowedFlowModules,
-    () => GranularAccessControlConfiguration,
+    () => GranularAccessControlConfiguration$,
   ],
 ];
-export var UpdateTaskTemplateRequest: StaticStructureSchema = [
+export var UpdateTaskTemplateRequest$: StaticStructureSchema = [
   3,
   n0,
   _UTTR,
   0,
   [_TTIa, _II, _N, _D, _CFI, _SAFI, _Cons, _Def, _St, _Fie],
-  [[0, 1], [0, 1], 0, 0, 0, 0, () => TaskTemplateConstraints, () => TaskTemplateDefaults, 0, () => TaskTemplateFields],
+  [
+    [0, 1],
+    [0, 1],
+    0,
+    0,
+    0,
+    0,
+    () => TaskTemplateConstraints$,
+    () => TaskTemplateDefaults$,
+    0,
+    () => TaskTemplateFields,
+  ],
 ];
-export var UpdateTaskTemplateResponse: StaticStructureSchema = [
+export var UpdateTaskTemplateResponse$: StaticStructureSchema = [
   3,
   n0,
   _UTTRp,
   0,
   [_II, _I, _A, _N, _D, _CFI, _SAFI, _Cons, _Def, _Fie, _St, _LMT, _CTre],
-  [0, 0, 0, 0, 0, 0, 0, () => TaskTemplateConstraints, () => TaskTemplateDefaults, () => TaskTemplateFields, 0, 4, 4],
+  [0, 0, 0, 0, 0, 0, 0, () => TaskTemplateConstraints$, () => TaskTemplateDefaults$, () => TaskTemplateFields, 0, 4, 4],
 ];
-export var UpdateTrafficDistributionRequest: StaticStructureSchema = [
+export var UpdateTrafficDistributionRequest$: StaticStructureSchema = [
   3,
   n0,
   _UTDR,
   0,
   [_I, _TCe, _SIC, _ACg],
-  [[0, 1], () => TelephonyConfig, () => SignInConfig, () => AgentConfig],
+  [[0, 1], () => TelephonyConfig$, () => SignInConfig$, () => AgentConfig$],
 ];
-export var UpdateTrafficDistributionResponse: StaticStructureSchema = [3, n0, _UTDRp, 0, [], []];
-export var UpdateUserHierarchyGroupNameRequest: StaticStructureSchema = [
+export var UpdateTrafficDistributionResponse$: StaticStructureSchema = [3, n0, _UTDRp, 0, [], []];
+export var UpdateUserHierarchyGroupNameRequest$: StaticStructureSchema = [
   3,
   n0,
   _UUHGNR,
@@ -9318,36 +9371,43 @@ export var UpdateUserHierarchyGroupNameRequest: StaticStructureSchema = [
   [_N, _HGI, _II],
   [0, [0, 1], [0, 1]],
 ];
-export var UpdateUserHierarchyRequest: StaticStructureSchema = [3, n0, _UUHR, 0, [_HGI, _UI, _II], [0, [0, 1], [0, 1]]];
-export var UpdateUserHierarchyStructureRequest: StaticStructureSchema = [
+export var UpdateUserHierarchyRequest$: StaticStructureSchema = [
+  3,
+  n0,
+  _UUHR,
+  0,
+  [_HGI, _UI, _II],
+  [0, [0, 1], [0, 1]],
+];
+export var UpdateUserHierarchyStructureRequest$: StaticStructureSchema = [
   3,
   n0,
   _UUHSR,
   0,
   [_HS, _II],
-  [() => HierarchyStructureUpdate, [0, 1]],
+  [() => HierarchyStructureUpdate$, [0, 1]],
 ];
-export var UpdateUserIdentityInfoRequest: StaticStructureSchema = [
+export var UpdateUserIdentityInfoRequest$: StaticStructureSchema = [
   3,
   n0,
   _UUIIR,
   0,
   [_IId, _UI, _II],
   [
-    [() => UserIdentityInfo, 0],
+    [() => UserIdentityInfo$, 0],
     [0, 1],
     [0, 1],
   ],
 ];
-export var UpdateUserPhoneConfigRequest: StaticStructureSchema = [
+export var UpdateUserPhoneConfigRequest$: StaticStructureSchema = [
   3,
   n0,
   _UUPCR,
   0,
   [_PCh, _UI, _II],
-  [() => UserPhoneConfig, [0, 1], [0, 1]],
+  [() => UserPhoneConfig$, [0, 1], [0, 1]],
 ];
-export var UpdateUserProficienciesRequest: StaticStructureSchema = [
+export var UpdateUserProficienciesRequest$: StaticStructureSchema = [
   3,
   n0,
   _UUPR,
@@ -9355,7 +9415,7 @@ export var UpdateUserProficienciesRequest: StaticStructureSchema = [
   [_II, _UI, _UP],
   [[0, 1], [0, 1], () => UserProficiencyList],
 ];
-export var UpdateUserRoutingProfileRequest: StaticStructureSchema = [
+export var UpdateUserRoutingProfileRequest$: StaticStructureSchema = [
   3,
   n0,
   _UURPR,
@@ -9363,7 +9423,7 @@ export var UpdateUserRoutingProfileRequest: StaticStructureSchema = [
   [_RPI, _UI, _II],
   [0, [0, 1], [0, 1]],
 ];
-export var UpdateUserSecurityProfilesRequest: StaticStructureSchema = [
+export var UpdateUserSecurityProfilesRequest$: StaticStructureSchema = [
   3,
   n0,
   _UUSPR,
@@ -9371,16 +9431,16 @@ export var UpdateUserSecurityProfilesRequest: StaticStructureSchema = [
   [_SPIe, _UI, _II],
   [64 | 0, [0, 1], [0, 1]],
 ];
-export var UpdateViewContentRequest: StaticStructureSchema = [
+export var UpdateViewContentRequest$: StaticStructureSchema = [
   3,
   n0,
   _UVCR,
   0,
   [_II, _VIi, _St, _Co],
-  [[0, 1], [0, 1], 0, [() => ViewInputContent, 0]],
+  [[0, 1], [0, 1], 0, [() => ViewInputContent$, 0]],
 ];
-export var UpdateViewContentResponse: StaticStructureSchema = [3, n0, _UVCRp, 0, [_Vi], [[() => View, 0]]];
-export var UpdateViewMetadataRequest: StaticStructureSchema = [
+export var UpdateViewContentResponse$: StaticStructureSchema = [3, n0, _UVCRp, 0, [_Vi], [[() => View$, 0]]];
+export var UpdateViewMetadataRequest$: StaticStructureSchema = [
   3,
   n0,
   _UVMR,
@@ -9388,8 +9448,8 @@ export var UpdateViewMetadataRequest: StaticStructureSchema = [
   [_II, _VIi, _N, _D],
   [[0, 1], [0, 1], [() => ViewName, 0], 0],
 ];
-export var UpdateViewMetadataResponse: StaticStructureSchema = [3, n0, _UVMRp, 0, [], []];
-export var UpdateWorkspaceMetadataRequest: StaticStructureSchema = [
+export var UpdateViewMetadataResponse$: StaticStructureSchema = [3, n0, _UVMRp, 0, [], []];
+export var UpdateWorkspaceMetadataRequest$: StaticStructureSchema = [
   3,
   n0,
   _UWMR,
@@ -9397,8 +9457,8 @@ export var UpdateWorkspaceMetadataRequest: StaticStructureSchema = [
   [_II, _WI, _N, _D, _Ti],
   [[0, 1], [0, 1], 0, 0, 0],
 ];
-export var UpdateWorkspaceMetadataResponse: StaticStructureSchema = [3, n0, _UWMRp, 0, [], []];
-export var UpdateWorkspacePageRequest: StaticStructureSchema = [
+export var UpdateWorkspaceMetadataResponse$: StaticStructureSchema = [3, n0, _UWMRp, 0, [], []];
+export var UpdateWorkspacePageRequest$: StaticStructureSchema = [
   3,
   n0,
   _UWPR,
@@ -9406,17 +9466,17 @@ export var UpdateWorkspacePageRequest: StaticStructureSchema = [
   [_II, _WI, _Pa, _NP, _RAe, _Sl, _IDn],
   [[0, 1], [0, 1], [0, 1], 0, 0, 0, 0],
 ];
-export var UpdateWorkspacePageResponse: StaticStructureSchema = [3, n0, _UWPRp, 0, [], []];
-export var UpdateWorkspaceThemeRequest: StaticStructureSchema = [
+export var UpdateWorkspacePageResponse$: StaticStructureSchema = [3, n0, _UWPRp, 0, [], []];
+export var UpdateWorkspaceThemeRequest$: StaticStructureSchema = [
   3,
   n0,
   _UWTR,
   0,
   [_II, _WI, _Th],
-  [[0, 1], [0, 1], () => WorkspaceTheme],
+  [[0, 1], [0, 1], () => WorkspaceTheme$],
 ];
-export var UpdateWorkspaceThemeResponse: StaticStructureSchema = [3, n0, _UWTRp, 0, [], []];
-export var UpdateWorkspaceVisibilityRequest: StaticStructureSchema = [
+export var UpdateWorkspaceThemeResponse$: StaticStructureSchema = [3, n0, _UWTRp, 0, [], []];
+export var UpdateWorkspaceVisibilityRequest$: StaticStructureSchema = [
   3,
   n0,
   _UWVR,
@@ -9424,29 +9484,29 @@ export var UpdateWorkspaceVisibilityRequest: StaticStructureSchema = [
   [_II, _WI, _Vis],
   [[0, 1], [0, 1], 0],
 ];
-export var UpdateWorkspaceVisibilityResponse: StaticStructureSchema = [3, n0, _UWVRp, 0, [], []];
-export var UploadUrlMetadata: StaticStructureSchema = [3, n0, _UUM, 0, [_Ur, _UE, _HTI], [0, 0, 128 | 0]];
-export var UrlReference: StaticStructureSchema = [3, n0, _UR, 0, [_N, _V], [0, 0]];
-export var UseCase: StaticStructureSchema = [3, n0, _UCs, 0, [_UCI, _UCA, _UCT], [0, 0, 0]];
-export var User: StaticStructureSchema = [
+export var UpdateWorkspaceVisibilityResponse$: StaticStructureSchema = [3, n0, _UWVRp, 0, [], []];
+export var UploadUrlMetadata$: StaticStructureSchema = [3, n0, _UUM, 0, [_Ur, _UE, _HTI], [0, 0, 128 | 0]];
+export var UrlReference$: StaticStructureSchema = [3, n0, _UR, 0, [_N, _V], [0, 0]];
+export var UseCase$: StaticStructureSchema = [3, n0, _UCs, 0, [_UCI, _UCA, _UCT], [0, 0, 0]];
+export var User$: StaticStructureSchema = [
   3,
   n0,
   _Us,
   0,
   [_I, _A, _U, _IId, _PCh, _DUI, _SPIe, _RPI, _HGI, _Ta, _LMT, _LMR],
-  [0, 0, 0, [() => UserIdentityInfo, 0], () => UserPhoneConfig, 0, 64 | 0, 0, 0, 128 | 0, 4, 0],
+  [0, 0, 0, [() => UserIdentityInfo$, 0], () => UserPhoneConfig$, 0, 64 | 0, 0, 0, 128 | 0, 4, 0],
 ];
-export var UserData: StaticStructureSchema = [
+export var UserData$: StaticStructureSchema = [
   3,
   n0,
   _UD,
   0,
   [_Us, _RP, _HP, _St, _ASBC, _MSBC, _ASBCc, _Conta, _NS],
   [
-    () => UserReference,
-    () => RoutingProfileReference,
-    () => HierarchyPathReference,
-    () => AgentStatusReference,
+    () => UserReference$,
+    () => RoutingProfileReference$,
+    () => HierarchyPathReference$,
+    () => AgentStatusReference$,
     128 | 1,
     128 | 1,
     128 | 1,
@@ -9454,31 +9514,31 @@ export var UserData: StaticStructureSchema = [
     0,
   ],
 ];
-export var UserDataFilters: StaticStructureSchema = [
+export var UserDataFilters$: StaticStructureSchema = [
   3,
   n0,
   _UDF,
   0,
   [_Qu, _CF, _RPo, _Age, _UHG],
-  [64 | 0, () => ContactFilter, 64 | 0, 64 | 0, 64 | 0],
+  [64 | 0, () => ContactFilter$, 64 | 0, 64 | 0, 64 | 0],
 ];
-export var UserHierarchyGroupSearchCriteria: StaticStructureSchema = [
+export var UserHierarchyGroupSearchCriteria$: StaticStructureSchema = [
   3,
   n0,
   _UHGSC,
   0,
   [_OC, _ACn, _SC],
-  [() => UserHierarchyGroupSearchConditionList, () => UserHierarchyGroupSearchConditionList, () => StringCondition],
+  [() => UserHierarchyGroupSearchConditionList, () => UserHierarchyGroupSearchConditionList, () => StringCondition$],
 ];
-export var UserHierarchyGroupSearchFilter: StaticStructureSchema = [
+export var UserHierarchyGroupSearchFilter$: StaticStructureSchema = [
   3,
   n0,
   _UHGSF,
   0,
   [_AFt],
-  [() => ControlPlaneAttributeFilter],
+  [() => ControlPlaneAttributeFilter$],
 ];
-export var UserIdentityInfo: StaticStructureSchema = [
+export var UserIdentityInfo$: StaticStructureSchema = [
   3,
   n0,
   _UII,
@@ -9486,7 +9546,7 @@ export var UserIdentityInfo: StaticStructureSchema = [
   [_FNir, _LN, _E, _SEe, _Mob],
   [[() => AgentFirstName, 0], [() => AgentLastName, 0], [() => Email, 0], [() => Email, 0], 0],
 ];
-export var UserIdentityInfoLite: StaticStructureSchema = [
+export var UserIdentityInfoLite$: StaticStructureSchema = [
   3,
   n0,
   _UIIL,
@@ -9497,10 +9557,10 @@ export var UserIdentityInfoLite: StaticStructureSchema = [
     [() => AgentLastName, 0],
   ],
 ];
-export var UserInfo: StaticStructureSchema = [3, n0, _UIs, 0, [_UI], [0]];
-export var UserNotFoundException: StaticErrorSchema = [-3, n0, _UNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(UserNotFoundException, __UserNotFoundException);
-export var UserPhoneConfig: StaticStructureSchema = [
+export var UserInfo$: StaticStructureSchema = [3, n0, _UIs, 0, [_UI], [0]];
+export var UserNotFoundException$: StaticErrorSchema = [-3, n0, _UNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(UserNotFoundException$, UserNotFoundException);
+export var UserPhoneConfig$: StaticStructureSchema = [
   3,
   n0,
   _UPC,
@@ -9508,11 +9568,11 @@ export var UserPhoneConfig: StaticStructureSchema = [
   [_PTh, _AAu, _ACWTL, _DPNe, _PCer],
   [0, 2, 1, 0, 2],
 ];
-export var UserProficiency: StaticStructureSchema = [3, n0, _UPs, 0, [_AN, _AVt, _Level__], [0, 0, 1]];
-export var UserProficiencyDisassociate: StaticStructureSchema = [3, n0, _UPD, 0, [_AN, _AVt], [0, 0]];
-export var UserQuickConnectConfig: StaticStructureSchema = [3, n0, _UQCC, 0, [_UI, _CFI], [0, 0]];
-export var UserReference: StaticStructureSchema = [3, n0, _URs, 0, [_I, _A], [0, 0]];
-export var UserSearchCriteria: StaticStructureSchema = [
+export var UserProficiency$: StaticStructureSchema = [3, n0, _UPs, 0, [_AN, _AVt, _Level__], [0, 0, 1]];
+export var UserProficiencyDisassociate$: StaticStructureSchema = [3, n0, _UPD, 0, [_AN, _AVt], [0, 0]];
+export var UserQuickConnectConfig$: StaticStructureSchema = [3, n0, _UQCC, 0, [_UI, _CFI], [0, 0]];
+export var UserReference$: StaticStructureSchema = [3, n0, _URs, 0, [_I, _A], [0, 0]];
+export var UserSearchCriteria$: StaticStructureSchema = [
   3,
   n0,
   _USC,
@@ -9521,46 +9581,46 @@ export var UserSearchCriteria: StaticStructureSchema = [
   [
     () => UserSearchConditionList,
     () => UserSearchConditionList,
-    () => StringCondition,
-    () => ListCondition,
-    () => HierarchyGroupCondition,
+    () => StringCondition$,
+    () => ListCondition$,
+    () => HierarchyGroupCondition$,
   ],
 ];
-export var UserSearchFilter: StaticStructureSchema = [
+export var UserSearchFilter$: StaticStructureSchema = [
   3,
   n0,
   _USF,
   0,
   [_TF, _UAF],
-  [() => ControlPlaneTagFilter, () => ControlPlaneUserAttributeFilter],
+  [() => ControlPlaneTagFilter$, () => ControlPlaneUserAttributeFilter$],
 ];
-export var UserSearchSummary: StaticStructureSchema = [
+export var UserSearchSummary$: StaticStructureSchema = [
   3,
   n0,
   _USS,
   0,
   [_A, _DUI, _HGI, _I, _IId, _PCh, _RPI, _SPIe, _Ta, _U],
-  [0, 0, 0, 0, [() => UserIdentityInfoLite, 0], () => UserPhoneConfig, 0, 64 | 0, 128 | 0, 0],
+  [0, 0, 0, 0, [() => UserIdentityInfoLite$, 0], () => UserPhoneConfig$, 0, 64 | 0, 128 | 0, 0],
 ];
-export var UserSummary: StaticStructureSchema = [3, n0, _US, 0, [_I, _A, _U, _LMT, _LMR], [0, 0, 0, 4, 0]];
-export var Validation: StaticStructureSchema = [
+export var UserSummary$: StaticStructureSchema = [3, n0, _US, 0, [_I, _A, _U, _LMT, _LMR], [0, 0, 0, 4, 0]];
+export var Validation$: StaticStructureSchema = [
   3,
   n0,
   _Val,
   0,
   [_ML, _MLa, _MVi, _MVax, _IC, _Min, _Ma, _EMx, _EMxc, _MOu, _Enu],
-  [1, 1, 1, 1, 2, 1, 1, 1, 1, 1, () => ValidationEnum],
+  [1, 1, 1, 1, 2, 1, 1, 1, 1, 1, () => ValidationEnum$],
 ];
-export var ValidationEnum: StaticStructureSchema = [3, n0, _VE, 0, [_Str, _Va], [2, 64 | 0]];
-export var View: StaticStructureSchema = [
+export var ValidationEnum$: StaticStructureSchema = [3, n0, _VE, 0, [_Str, _Va], [2, 64 | 0]];
+export var View$: StaticStructureSchema = [
   3,
   n0,
   _Vi,
   0,
   [_I, _A, _N, _St, _T, _D, _Ve, _VD, _Co, _Ta, _CTre, _LMT, _VCS],
-  [0, 0, [() => ViewName, 0], 0, 0, 0, 1, 0, [() => ViewContent, 0], 128 | 0, 4, 4, 0],
+  [0, 0, [() => ViewName, 0], 0, 0, 0, 1, 0, [() => ViewContent$, 0], 128 | 0, 4, 4, 0],
 ];
-export var ViewContent: StaticStructureSchema = [
+export var ViewContent$: StaticStructureSchema = [
   3,
   n0,
   _VC,
@@ -9568,17 +9628,17 @@ export var ViewContent: StaticStructureSchema = [
   [_ISnp, _Tem, _Ac],
   [[() => ViewInputSchema, 0], 0, [() => ViewActions, 0]],
 ];
-export var ViewInputContent: StaticStructureSchema = [3, n0, _VIC, 0, [_Tem, _Ac], [0, [() => ViewActions, 0]]];
-export var ViewSearchCriteria: StaticStructureSchema = [
+export var ViewInputContent$: StaticStructureSchema = [3, n0, _VIC, 0, [_Tem, _Ac], [0, [() => ViewActions, 0]]];
+export var ViewSearchCriteria$: StaticStructureSchema = [
   3,
   n0,
   _VSC,
   0,
   [_OC, _ACn, _SC, _VTC, _VSCi],
-  [() => ViewSearchConditionList, () => ViewSearchConditionList, () => StringCondition, 0, 0],
+  [() => ViewSearchConditionList, () => ViewSearchConditionList, () => StringCondition$, 0, 0],
 ];
-export var ViewSearchFilter: StaticStructureSchema = [3, n0, _VSF, 0, [_AFt], [() => ControlPlaneAttributeFilter]];
-export var ViewSummary: StaticStructureSchema = [
+export var ViewSearchFilter$: StaticStructureSchema = [3, n0, _VSF, 0, [_AFt], [() => ControlPlaneAttributeFilter$]];
+export var ViewSummary$: StaticStructureSchema = [
   3,
   n0,
   _VSi,
@@ -9586,7 +9646,7 @@ export var ViewSummary: StaticStructureSchema = [
   [_I, _A, _N, _T, _St, _D],
   [0, 0, [() => ViewName, 0], 0, 0, 0],
 ];
-export var ViewVersionSummary: StaticStructureSchema = [
+export var ViewVersionSummary$: StaticStructureSchema = [
   3,
   n0,
   _VVS,
@@ -9594,7 +9654,7 @@ export var ViewVersionSummary: StaticStructureSchema = [
   [_I, _A, _D, _N, _T, _Ve, _VD],
   [0, 0, 0, [() => ViewName, 0], 0, 1, 0],
 ];
-export var Vocabulary: StaticStructureSchema = [
+export var Vocabulary$: StaticStructureSchema = [
   3,
   n0,
   _Vo,
@@ -9602,7 +9662,7 @@ export var Vocabulary: StaticStructureSchema = [
   [_N, _I, _A, _LC, _S, _LMT, _FRa, _Co, _Ta],
   [0, 0, 0, 0, 0, 4, 0, 0, 128 | 0],
 ];
-export var VocabularySummary: StaticStructureSchema = [
+export var VocabularySummary$: StaticStructureSchema = [
   3,
   n0,
   _VSo,
@@ -9610,33 +9670,37 @@ export var VocabularySummary: StaticStructureSchema = [
   [_N, _I, _A, _LC, _S, _LMT, _FRa],
   [0, 0, 0, 0, 0, 4, 0],
 ];
-export var VoiceRecordingConfiguration: StaticStructureSchema = [3, n0, _VRC, 0, [_VRT, _IRT], [0, 0]];
-export var WisdomInfo: StaticStructureSchema = [3, n0, _WIi, 0, [_SAes, _AAi], [0, () => AiAgents]];
-export var Workspace: StaticStructureSchema = [
+export var VoiceRecordingConfiguration$: StaticStructureSchema = [3, n0, _VRC, 0, [_VRT, _IRT], [0, 0]];
+export var WisdomInfo$: StaticStructureSchema = [3, n0, _WIi, 0, [_SAes, _AAi], [0, () => AiAgents]];
+export var Workspace$: StaticStructureSchema = [
   3,
   n0,
   _W,
   0,
   [_Vis, _I, _N, _A, _D, _Th, _Ti, _LMT, _LMR, _Ta],
-  [0, 0, 0, 0, 0, () => WorkspaceTheme, 0, 4, 0, 128 | 0],
+  [0, 0, 0, 0, 0, () => WorkspaceTheme$, 0, 4, 0, 128 | 0],
 ];
-export var WorkspaceAssociationSearchCriteria: StaticStructureSchema = [
+export var WorkspaceAssociationSearchCriteria$: StaticStructureSchema = [
   3,
   n0,
   _WASC,
   0,
   [_OC, _ACn, _SC],
-  [() => WorkspaceAssociationSearchConditionList, () => WorkspaceAssociationSearchConditionList, () => StringCondition],
+  [
+    () => WorkspaceAssociationSearchConditionList,
+    () => WorkspaceAssociationSearchConditionList,
+    () => StringCondition$,
+  ],
 ];
-export var WorkspaceAssociationSearchFilter: StaticStructureSchema = [
+export var WorkspaceAssociationSearchFilter$: StaticStructureSchema = [
   3,
   n0,
   _WASF,
   0,
   [_AFt],
-  [() => ControlPlaneAttributeFilter],
+  [() => ControlPlaneAttributeFilter$],
 ];
-export var WorkspaceAssociationSearchSummary: StaticStructureSchema = [
+export var WorkspaceAssociationSearchSummary$: StaticStructureSchema = [
   3,
   n0,
   _WASS,
@@ -9644,17 +9708,24 @@ export var WorkspaceAssociationSearchSummary: StaticStructureSchema = [
   [_WI, _WA, _RI, _RAe, _RT, _RN],
   [0, 0, 0, 0, 0, 0],
 ];
-export var WorkspacePage: StaticStructureSchema = [3, n0, _WP, 0, [_RAe, _Pa, _Sl, _IDn], [0, 0, 0, 0]];
-export var WorkspaceSearchCriteria: StaticStructureSchema = [
+export var WorkspacePage$: StaticStructureSchema = [3, n0, _WP, 0, [_RAe, _Pa, _Sl, _IDn], [0, 0, 0, 0]];
+export var WorkspaceSearchCriteria$: StaticStructureSchema = [
   3,
   n0,
   _WSC,
   0,
   [_OC, _ACn, _SC],
-  [() => WorkspaceSearchConditionList, () => WorkspaceSearchConditionList, () => StringCondition],
+  [() => WorkspaceSearchConditionList, () => WorkspaceSearchConditionList, () => StringCondition$],
 ];
-export var WorkspaceSearchFilter: StaticStructureSchema = [3, n0, _WSF, 0, [_AFt], [() => ControlPlaneAttributeFilter]];
-export var WorkspaceSearchSummary: StaticStructureSchema = [
+export var WorkspaceSearchFilter$: StaticStructureSchema = [
+  3,
+  n0,
+  _WSF,
+  0,
+  [_AFt],
+  [() => ControlPlaneAttributeFilter$],
+];
+export var WorkspaceSearchSummary$: StaticStructureSchema = [
   3,
   n0,
   _WSS,
@@ -9662,648 +9733,588 @@ export var WorkspaceSearchSummary: StaticStructureSchema = [
   [_I, _N, _Vis, _D, _Ti, _A, _CAr, _Ta],
   [0, 0, 0, 0, 0, 0, 4, 128 | 0],
 ];
-export var WorkspaceSummary: StaticStructureSchema = [3, n0, _WS, 0, [_I, _N, _A, _LMT, _LMR], [0, 0, 0, 4, 0]];
-export var WorkspaceTheme: StaticStructureSchema = [
+export var WorkspaceSummary$: StaticStructureSchema = [3, n0, _WS, 0, [_I, _N, _A, _LMT, _LMR], [0, 0, 0, 4, 0]];
+export var WorkspaceTheme$: StaticStructureSchema = [
   3,
   n0,
   _WT,
   0,
   [_Li, _Dar],
-  [() => WorkspaceThemeConfig, () => WorkspaceThemeConfig],
+  [() => WorkspaceThemeConfig$, () => WorkspaceThemeConfig$],
 ];
-export var WorkspaceThemeConfig: StaticStructureSchema = [
+export var WorkspaceThemeConfig$: StaticStructureSchema = [
   3,
   n0,
   _WTC,
   0,
   [_Pal, _Im, _Ty],
-  [() => WorkspaceThemePalette, () => WorkspaceThemeImages, () => WorkspaceThemeTypography],
+  [() => WorkspaceThemePalette$, () => WorkspaceThemeImages$, () => WorkspaceThemeTypography$],
 ];
-export var WorkspaceThemeImages: StaticStructureSchema = [3, n0, _WTI, 0, [_Log], [() => ImagesLogo]];
-export var WorkspaceThemePalette: StaticStructureSchema = [
+export var WorkspaceThemeImages$: StaticStructureSchema = [3, n0, _WTI, 0, [_Log], [() => ImagesLogo$]];
+export var WorkspaceThemePalette$: StaticStructureSchema = [
   3,
   n0,
   _WTP,
   0,
   [_Hea, _Nav, _Can, _Pri],
-  [() => PaletteHeader, () => PaletteNavigation, () => PaletteCanvas, () => PalettePrimary],
+  [() => PaletteHeader$, () => PaletteNavigation$, () => PaletteCanvas$, () => PalettePrimary$],
 ];
-export var WorkspaceThemeTypography: StaticStructureSchema = [3, n0, _WTT, 0, [_FF], [() => FontFamily]];
-export var __Unit = "unit" as const;
-export var ConnectServiceException: StaticErrorSchema = [-3, _sm, "ConnectServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ConnectServiceException, __ConnectServiceException);
-export var ActionSummaries: StaticListSchema = [1, n0, _ASc, 0, () => ActionSummary];
-export var AgentContactReferenceList: StaticListSchema = [1, n0, _ACRL, 0, () => AgentContactReference];
-export var AgentIds = 64 | 0;
-export var AgentResourceIdList = 64 | 0;
-export var AgentsMinOneMaxHundred = 64 | 0;
-export var AgentStatuses = 64 | 0;
-export var AgentStatusList: StaticListSchema = [1, n0, _ASL, 0, () => AgentStatus];
-export var AgentStatusSearchConditionList: StaticListSchema = [1, n0, _ASSCL, 0, () => AgentStatusSearchCriteria];
-export var AgentStatusSummaryList: StaticListSchema = [1, n0, _ASSL, 0, () => AgentStatusSummary];
-export var AgentStatusTypes = 64 | 0;
-export var AiAgents: StaticListSchema = [1, n0, _AAi, 0, () => AiAgentInfo];
-export var AliasConfigurationList: StaticListSchema = [1, n0, _ACL, 0, () => AliasConfiguration];
-export var AllowedFlowModules: StaticListSchema = [1, n0, _AFM, 0, () => FlowModule];
-export var AllowedMonitorCapabilities = 64 | 0;
-export var AllowedUserActions = 64 | 0;
-export var AnalyticsDataAssociationResults: StaticListSchema = [1, n0, _ADARn, 0, () => AnalyticsDataAssociationResult];
-export var AnalyticsDataSetsResults: StaticListSchema = [1, n0, _ADSRn, 0, () => AnalyticsDataSetsResult];
-export var ApplicationPermissions = 64 | 0;
-export var Applications: StaticListSchema = [1, n0, _App, 0, () => Application];
-export var AssociatedContactSummaryList: StaticListSchema = [1, n0, _ACSL, 0, () => AssociatedContactSummary];
-export var AssociatedQueueIdList = 64 | 0;
-export var AttachedFileErrorsList: StaticListSchema = [1, n0, _AFEL, 0, () => AttachedFileError];
-export var AttachedFilesList: StaticListSchema = [1, n0, _AFL, 0, () => AttachedFile];
-export var AttributeIds = 64 | 0;
-export var AttributeList: StaticListSchema = [1, n0, _AL, 0, () => DataTableAttribute];
-export var AttributeNameList = 64 | 0;
-export var AttributeOrConditionList: StaticListSchema = [1, n0, _AOCL, 0, () => AttributeAndCondition];
-export var AttributesList: StaticListSchema = [1, n0, _ALt, 0, () => Attribute];
-export var AuthenticationProfileSummaryList: StaticListSchema = [1, n0, _APSL, 0, () => AuthenticationProfileSummary];
-export var AvailableNumbersList: StaticListSchema = [1, n0, _ANL, 0, () => AvailableNumberSummary];
-export var BatchCreateDataTableValueFailureResultList: StaticListSchema = [
+export var WorkspaceThemeTypography$: StaticStructureSchema = [3, n0, _WTT, 0, [_FF], [() => FontFamily$]];
+var __Unit = "unit" as const;
+export var ConnectServiceException$: StaticErrorSchema = [-3, _sm, "ConnectServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(ConnectServiceException$, ConnectServiceException);
+var ActionSummaries: StaticListSchema = [1, n0, _ASc, 0, () => ActionSummary$];
+var AgentContactReferenceList: StaticListSchema = [1, n0, _ACRL, 0, () => AgentContactReference$];
+var AgentIds = 64 | 0;
+var AgentResourceIdList = 64 | 0;
+var AgentsMinOneMaxHundred = 64 | 0;
+var AgentStatuses = 64 | 0;
+var AgentStatusList: StaticListSchema = [1, n0, _ASL, 0, () => AgentStatus$];
+var AgentStatusSearchConditionList: StaticListSchema = [1, n0, _ASSCL, 0, () => AgentStatusSearchCriteria$];
+var AgentStatusSummaryList: StaticListSchema = [1, n0, _ASSL, 0, () => AgentStatusSummary$];
+var AgentStatusTypes = 64 | 0;
+var AiAgents: StaticListSchema = [1, n0, _AAi, 0, () => AiAgentInfo$];
+var AliasConfigurationList: StaticListSchema = [1, n0, _ACL, 0, () => AliasConfiguration$];
+var AllowedFlowModules: StaticListSchema = [1, n0, _AFM, 0, () => FlowModule$];
+var AllowedMonitorCapabilities = 64 | 0;
+var AllowedUserActions = 64 | 0;
+var AnalyticsDataAssociationResults: StaticListSchema = [1, n0, _ADARn, 0, () => AnalyticsDataAssociationResult$];
+var AnalyticsDataSetsResults: StaticListSchema = [1, n0, _ADSRn, 0, () => AnalyticsDataSetsResult$];
+var ApplicationPermissions = 64 | 0;
+var Applications: StaticListSchema = [1, n0, _App, 0, () => Application$];
+var AssociatedContactSummaryList: StaticListSchema = [1, n0, _ACSL, 0, () => AssociatedContactSummary$];
+var AssociatedQueueIdList = 64 | 0;
+var AttachedFileErrorsList: StaticListSchema = [1, n0, _AFEL, 0, () => AttachedFileError$];
+var AttachedFilesList: StaticListSchema = [1, n0, _AFL, 0, () => AttachedFile$];
+var AttributeIds = 64 | 0;
+var AttributeList: StaticListSchema = [1, n0, _AL, 0, () => DataTableAttribute$];
+var AttributeNameList = 64 | 0;
+var AttributeOrConditionList: StaticListSchema = [1, n0, _AOCL, 0, () => AttributeAndCondition$];
+var AttributesList: StaticListSchema = [1, n0, _ALt, 0, () => Attribute$];
+var AuthenticationProfileSummaryList: StaticListSchema = [1, n0, _APSL, 0, () => AuthenticationProfileSummary$];
+var AvailableNumbersList: StaticListSchema = [1, n0, _ANL, 0, () => AvailableNumberSummary$];
+var BatchCreateDataTableValueFailureResultList: StaticListSchema = [
   1,
   n0,
   _BCDTVFRL,
   0,
-  () => BatchCreateDataTableValueFailureResult,
+  () => BatchCreateDataTableValueFailureResult$,
 ];
-export var BatchCreateDataTableValueSuccessResultList: StaticListSchema = [
+var BatchCreateDataTableValueSuccessResultList: StaticListSchema = [
   1,
   n0,
   _BCDTVSRL,
   0,
-  () => BatchCreateDataTableValueSuccessResult,
+  () => BatchCreateDataTableValueSuccessResult$,
 ];
-export var BatchDeleteDataTableValueFailureResultList: StaticListSchema = [
+var BatchDeleteDataTableValueFailureResultList: StaticListSchema = [
   1,
   n0,
   _BDDTVFRL,
   0,
-  () => BatchDeleteDataTableValueFailureResult,
+  () => BatchDeleteDataTableValueFailureResult$,
 ];
-export var BatchDeleteDataTableValueSuccessResultList: StaticListSchema = [
+var BatchDeleteDataTableValueSuccessResultList: StaticListSchema = [
   1,
   n0,
   _BDDTVSRL,
   0,
-  () => BatchDeleteDataTableValueSuccessResult,
+  () => BatchDeleteDataTableValueSuccessResult$,
 ];
-export var BatchDescribeDataTableValueFailureResultList: StaticListSchema = [
+var BatchDescribeDataTableValueFailureResultList: StaticListSchema = [
   1,
   n0,
   _BDDTVFRLa,
   0,
-  () => BatchDescribeDataTableValueFailureResult,
+  () => BatchDescribeDataTableValueFailureResult$,
 ];
-export var BatchDescribeDataTableValueSuccessResultList: StaticListSchema = [
+var BatchDescribeDataTableValueSuccessResultList: StaticListSchema = [
   1,
   n0,
   _BDDTVSRLa,
   0,
-  () => BatchDescribeDataTableValueSuccessResult,
+  () => BatchDescribeDataTableValueSuccessResult$,
 ];
-export var BatchUpdateDataTableValueFailureResultList: StaticListSchema = [
+var BatchUpdateDataTableValueFailureResultList: StaticListSchema = [
   1,
   n0,
   _BUDTVFRL,
   0,
-  () => BatchUpdateDataTableValueFailureResult,
+  () => BatchUpdateDataTableValueFailureResult$,
 ];
-export var BatchUpdateDataTableValueSuccessResultList: StaticListSchema = [
+var BatchUpdateDataTableValueSuccessResultList: StaticListSchema = [
   1,
   n0,
   _BUDTVSRL,
   0,
-  () => BatchUpdateDataTableValueSuccessResult,
+  () => BatchUpdateDataTableValueSuccessResult$,
 ];
-export var ChannelList = 64 | 0;
-export var Channels = 64 | 0;
-export var CommonAttributeOrConditionList: StaticListSchema = [1, n0, _CAOCL, 0, () => CommonAttributeAndCondition];
-export var Conditions: StaticListSchema = [1, n0, _Cond, 0, () => Condition];
-export var ContactDataRequestList: StaticListSchema = [1, n0, _CDRL, 0, () => ContactDataRequest];
-export var ContactFlowAttributeOrConditionList: StaticListSchema = [
+var ChannelList = 64 | 0;
+var Channels = 64 | 0;
+var CommonAttributeOrConditionList: StaticListSchema = [1, n0, _CAOCL, 0, () => CommonAttributeAndCondition$];
+var Conditions: StaticListSchema = [1, n0, _Cond, 0, () => Condition$];
+var ContactDataRequestList: StaticListSchema = [1, n0, _CDRL, 0, () => ContactDataRequest$];
+var ContactFlowAttributeOrConditionList: StaticListSchema = [
   1,
   n0,
   _CFAOCL,
   0,
-  () => ContactFlowAttributeAndCondition,
+  () => ContactFlowAttributeAndCondition$,
 ];
-export var ContactFlowModuleAliasSummaryList: StaticListSchema = [
-  1,
-  n0,
-  _CFMASL,
-  0,
-  () => ContactFlowModuleAliasSummary,
-];
-export var ContactFlowModuleSearchConditionList: StaticListSchema = [
+var ContactFlowModuleAliasSummaryList: StaticListSchema = [1, n0, _CFMASL, 0, () => ContactFlowModuleAliasSummary$];
+var ContactFlowModuleSearchConditionList: StaticListSchema = [
   1,
   n0,
   _CFMSCL,
   0,
-  () => ContactFlowModuleSearchCriteria,
+  () => ContactFlowModuleSearchCriteria$,
 ];
-export var ContactFlowModuleSearchSummaryList: StaticListSchema = [1, n0, _CFMSSL, 0, () => ContactFlowModule];
-export var ContactFlowModulesSummaryList: StaticListSchema = [1, n0, _CFMSL, 0, () => ContactFlowModuleSummary];
-export var ContactFlowModuleVersionSummaryList: StaticListSchema = [
-  1,
-  n0,
-  _CFMVSL,
-  0,
-  () => ContactFlowModuleVersionSummary,
-];
-export var ContactFlowSearchConditionList: StaticListSchema = [1, n0, _CFSCL, 0, () => ContactFlowSearchCriteria];
-export var ContactFlowSearchSummaryList: StaticListSchema = [1, n0, _CFSSL, 0, () => ContactFlow];
-export var ContactFlowSummaryList: StaticListSchema = [1, n0, _CFSL, 0, () => ContactFlowSummary];
-export var ContactFlowTypes = 64 | 0;
-export var ContactFlowVersionSummaryList: StaticListSchema = [1, n0, _CFVSL, 0, () => ContactFlowVersionSummary];
-export var ContactMetricResults: StaticListSchema = [1, n0, _CMRo, 0, () => ContactMetricResult];
-export var ContactMetrics: StaticListSchema = [1, n0, _CMo, 0, () => ContactMetricInfo];
-export var Contacts: StaticListSchema = [1, n0, _Conta, 0, [() => ContactSearchSummary, 0]];
-export var ContactStates = 64 | 0;
-export var ContactTagKeys = 64 | 0;
-export var CurrentMetricDataCollections: StaticListSchema = [1, n0, _CMDC, 0, () => CurrentMetricData];
-export var CurrentMetricResults: StaticListSchema = [1, n0, _CMRur, 0, () => CurrentMetricResult];
-export var CurrentMetrics: StaticListSchema = [1, n0, _CMurr, 0, () => CurrentMetric];
-export var CurrentMetricSortCriteriaMaxOne: StaticListSchema = [1, n0, _CMSCMO, 0, () => CurrentMetricSortCriteria];
-export var DataSetIds = 64 | 0;
-export var DataTableDeleteValueIdentifierList: StaticListSchema = [
-  1,
-  n0,
-  _DTDVIL,
-  0,
-  () => DataTableDeleteValueIdentifier,
-];
-export var DataTableEvaluatedValueList: StaticListSchema = [1, n0, _DTEVL, 0, () => DataTableEvaluatedValue];
-export var DataTableList: StaticListSchema = [1, n0, _DTL, 0, () => DataTable];
-export var DataTableSearchConditionList: StaticListSchema = [1, n0, _DTSCL, 0, () => DataTableSearchCriteria];
-export var DataTableSummaryList: StaticListSchema = [1, n0, _DTSL, 0, () => DataTableSummary];
-export var DataTableValueEvaluationSetList: StaticListSchema = [1, n0, _DTVESL, 0, () => DataTableValueEvaluationSet];
-export var DataTableValueIdentifierList: StaticListSchema = [1, n0, _DTVIL, 0, () => DataTableValueIdentifier];
-export var DataTableValueList: StaticListSchema = [1, n0, _DTVL, 0, () => DataTableValue];
-export var DataTableValueSummaryList: StaticListSchema = [1, n0, _DTVSL, 0, () => DataTableValueSummary];
-export var DefaultVocabularyList: StaticListSchema = [1, n0, _DVL, 0, () => DefaultVocabulary];
-export var DisconnectOnCustomerExit = 64 | 0;
-export var DistributionList: StaticListSchema = [1, n0, _DL, 0, () => Distribution];
-export var EffectiveHoursOfOperationList: StaticListSchema = [1, n0, _EHOOL, 0, () => EffectiveHoursOfOperations];
-export var EmailAddressList: StaticListSchema = [1, n0, _EAL, 0, [() => EmailAddressMetadata, 0]];
-export var EmailAddressRecipientList: StaticListSchema = [1, n0, _EARL, 0, [() => EmailAddressInfo, 0]];
-export var EmailAddressSearchConditionList: StaticListSchema = [1, n0, _EASCL, 0, () => EmailAddressSearchCriteria];
-export var EmailAttachments: StaticListSchema = [1, n0, _EAmai, 8, () => EmailAttachment];
-export var EmailRecipientsList: StaticListSchema = [1, n0, _ERL, 0, () => EmailRecipient];
-export var ErrorResults: StaticListSchema = [1, n0, _ERrr, 0, () => ErrorResult];
-export var EvaluationAnswerDataStringValueList = 64 | 0;
-export var EvaluationAutomationRuleCategoryList: StaticListSchema = [
+var ContactFlowModuleSearchSummaryList: StaticListSchema = [1, n0, _CFMSSL, 0, () => ContactFlowModule$];
+var ContactFlowModulesSummaryList: StaticListSchema = [1, n0, _CFMSL, 0, () => ContactFlowModuleSummary$];
+var ContactFlowModuleVersionSummaryList: StaticListSchema = [1, n0, _CFMVSL, 0, () => ContactFlowModuleVersionSummary$];
+var ContactFlowSearchConditionList: StaticListSchema = [1, n0, _CFSCL, 0, () => ContactFlowSearchCriteria$];
+var ContactFlowSearchSummaryList: StaticListSchema = [1, n0, _CFSSL, 0, () => ContactFlow$];
+var ContactFlowSummaryList: StaticListSchema = [1, n0, _CFSL, 0, () => ContactFlowSummary$];
+var ContactFlowTypes = 64 | 0;
+var ContactFlowVersionSummaryList: StaticListSchema = [1, n0, _CFVSL, 0, () => ContactFlowVersionSummary$];
+var ContactMetricResults: StaticListSchema = [1, n0, _CMRo, 0, () => ContactMetricResult$];
+var ContactMetrics: StaticListSchema = [1, n0, _CMo, 0, () => ContactMetricInfo$];
+var Contacts: StaticListSchema = [1, n0, _Conta, 0, [() => ContactSearchSummary$, 0]];
+var ContactStates = 64 | 0;
+var ContactTagKeys = 64 | 0;
+var CurrentMetricDataCollections: StaticListSchema = [1, n0, _CMDC, 0, () => CurrentMetricData$];
+var CurrentMetricResults: StaticListSchema = [1, n0, _CMRur, 0, () => CurrentMetricResult$];
+var CurrentMetrics: StaticListSchema = [1, n0, _CMurr, 0, () => CurrentMetric$];
+var CurrentMetricSortCriteriaMaxOne: StaticListSchema = [1, n0, _CMSCMO, 0, () => CurrentMetricSortCriteria$];
+var DataSetIds = 64 | 0;
+var DataTableDeleteValueIdentifierList: StaticListSchema = [1, n0, _DTDVIL, 0, () => DataTableDeleteValueIdentifier$];
+var DataTableEvaluatedValueList: StaticListSchema = [1, n0, _DTEVL, 0, () => DataTableEvaluatedValue$];
+var DataTableList: StaticListSchema = [1, n0, _DTL, 0, () => DataTable$];
+var DataTableSearchConditionList: StaticListSchema = [1, n0, _DTSCL, 0, () => DataTableSearchCriteria$];
+var DataTableSummaryList: StaticListSchema = [1, n0, _DTSL, 0, () => DataTableSummary$];
+var DataTableValueEvaluationSetList: StaticListSchema = [1, n0, _DTVESL, 0, () => DataTableValueEvaluationSet$];
+var DataTableValueIdentifierList: StaticListSchema = [1, n0, _DTVIL, 0, () => DataTableValueIdentifier$];
+var DataTableValueList: StaticListSchema = [1, n0, _DTVL, 0, () => DataTableValue$];
+var DataTableValueSummaryList: StaticListSchema = [1, n0, _DTVSL, 0, () => DataTableValueSummary$];
+var DefaultVocabularyList: StaticListSchema = [1, n0, _DVL, 0, () => DefaultVocabulary$];
+var DisconnectOnCustomerExit = 64 | 0;
+var DistributionList: StaticListSchema = [1, n0, _DL, 0, () => Distribution$];
+var EffectiveHoursOfOperationList: StaticListSchema = [1, n0, _EHOOL, 0, () => EffectiveHoursOfOperations$];
+var EmailAddressList: StaticListSchema = [1, n0, _EAL, 0, [() => EmailAddressMetadata$, 0]];
+var EmailAddressRecipientList: StaticListSchema = [1, n0, _EARL, 0, [() => EmailAddressInfo$, 0]];
+var EmailAddressSearchConditionList: StaticListSchema = [1, n0, _EASCL, 0, () => EmailAddressSearchCriteria$];
+var EmailAttachments: StaticListSchema = [1, n0, _EAmai, 8, () => EmailAttachment$];
+var EmailRecipientsList: StaticListSchema = [1, n0, _ERL, 0, () => EmailRecipient$];
+var ErrorResults: StaticListSchema = [1, n0, _ERrr, 0, () => ErrorResult$];
+var EvaluationAnswerDataStringValueList = 64 | 0;
+var EvaluationAutomationRuleCategoryList: StaticListSchema = [
   1,
   n0,
   _EARCL,
   0,
-  () => EvaluationAutomationRuleCategory,
+  () => EvaluationAutomationRuleCategory$,
 ];
-export var EvaluationFormItemEnablementConditionOperandList: StaticListSchema = [
+var EvaluationFormItemEnablementConditionOperandList: StaticListSchema = [
   1,
   n0,
   _EFIECOL,
   0,
-  () => EvaluationFormItemEnablementConditionOperand,
+  () => EvaluationFormItemEnablementConditionOperand$,
 ];
-export var EvaluationFormItemEnablementSourceValueList: StaticListSchema = [
+var EvaluationFormItemEnablementSourceValueList: StaticListSchema = [
   1,
   n0,
   _EFIESVL,
   0,
-  () => EvaluationFormItemEnablementSourceValue,
+  () => EvaluationFormItemEnablementSourceValue$,
 ];
-export var EvaluationFormItemsList: StaticListSchema = [1, n0, _EFIL, 0, () => EvaluationFormItem];
-export var EvaluationFormMultiSelectQuestionAutomationOptionList: StaticListSchema = [
+var EvaluationFormItemsList: StaticListSchema = [1, n0, _EFIL, 0, () => EvaluationFormItem$];
+var EvaluationFormMultiSelectQuestionAutomationOptionList: StaticListSchema = [
   1,
   n0,
   _EFMSQAOL,
   0,
-  () => EvaluationFormMultiSelectQuestionAutomationOption,
+  () => EvaluationFormMultiSelectQuestionAutomationOption$,
 ];
-export var EvaluationFormMultiSelectQuestionOptionList: StaticListSchema = [
+var EvaluationFormMultiSelectQuestionOptionList: StaticListSchema = [
   1,
   n0,
   _EFMSQOL,
   0,
-  () => EvaluationFormMultiSelectQuestionOption,
+  () => EvaluationFormMultiSelectQuestionOption$,
 ];
-export var EvaluationFormNumericQuestionOptionList: StaticListSchema = [
+var EvaluationFormNumericQuestionOptionList: StaticListSchema = [
   1,
   n0,
   _EFNQOL,
   0,
-  () => EvaluationFormNumericQuestionOption,
+  () => EvaluationFormNumericQuestionOption$,
 ];
-export var EvaluationFormSearchConditionList: StaticListSchema = [1, n0, _EFSCL, 0, () => EvaluationFormSearchCriteria];
-export var EvaluationFormSearchSummaryList: StaticListSchema = [1, n0, _EFSSL, 0, () => EvaluationFormSearchSummary];
-export var EvaluationFormSingleSelectQuestionAutomationOptionList: StaticListSchema = [
+var EvaluationFormSearchConditionList: StaticListSchema = [1, n0, _EFSCL, 0, () => EvaluationFormSearchCriteria$];
+var EvaluationFormSearchSummaryList: StaticListSchema = [1, n0, _EFSSL, 0, () => EvaluationFormSearchSummary$];
+var EvaluationFormSingleSelectQuestionAutomationOptionList: StaticListSchema = [
   1,
   n0,
   _EFSSQAOL,
   0,
-  () => EvaluationFormSingleSelectQuestionAutomationOption,
+  () => EvaluationFormSingleSelectQuestionAutomationOption$,
 ];
-export var EvaluationFormSingleSelectQuestionOptionList: StaticListSchema = [
+var EvaluationFormSingleSelectQuestionOptionList: StaticListSchema = [
   1,
   n0,
   _EFSSQOL,
   0,
-  () => EvaluationFormSingleSelectQuestionOption,
+  () => EvaluationFormSingleSelectQuestionOption$,
 ];
-export var EvaluationFormSummaryList: StaticListSchema = [1, n0, _EFSL, 0, () => EvaluationFormSummary];
-export var EvaluationFormVersionSummaryList: StaticListSchema = [1, n0, _EFVSL, 0, () => EvaluationFormVersionSummary];
-export var EvaluationSearchConditionList: StaticListSchema = [1, n0, _ESCL, 0, () => EvaluationSearchCriteria];
-export var EvaluationSearchSummaryList: StaticListSchema = [1, n0, _ESSL, 0, () => EvaluationSearchSummary];
-export var EvaluationSuggestedAnswersList: StaticListSchema = [1, n0, _ESAL, 0, () => EvaluationSuggestedAnswer];
-export var EvaluationSummaryList: StaticListSchema = [1, n0, _ESL, 0, () => EvaluationSummary];
-export var EvaluationTranscriptPointsOfInterest: StaticListSchema = [
+var EvaluationFormSummaryList: StaticListSchema = [1, n0, _EFSL, 0, () => EvaluationFormSummary$];
+var EvaluationFormVersionSummaryList: StaticListSchema = [1, n0, _EFVSL, 0, () => EvaluationFormVersionSummary$];
+var EvaluationSearchConditionList: StaticListSchema = [1, n0, _ESCL, 0, () => EvaluationSearchCriteria$];
+var EvaluationSearchSummaryList: StaticListSchema = [1, n0, _ESSL, 0, () => EvaluationSearchSummary$];
+var EvaluationSuggestedAnswersList: StaticListSchema = [1, n0, _ESAL, 0, () => EvaluationSuggestedAnswer$];
+var EvaluationSummaryList: StaticListSchema = [1, n0, _ESL, 0, () => EvaluationSummary$];
+var EvaluationTranscriptPointsOfInterest: StaticListSchema = [
   1,
   n0,
   _ETPOIv,
   0,
-  () => EvaluationTranscriptPointOfInterest,
+  () => EvaluationTranscriptPointOfInterest$,
 ];
-export var Expressions: StaticListSchema = [1, n0, _Expr, 0, () => Expression];
-export var FailedBatchAssociationSummaryList: StaticListSchema = [
-  1,
-  n0,
-  _FBASL,
-  0,
-  () => FailedBatchAssociationSummary,
-];
-export var FailedRequestList: StaticListSchema = [1, n0, _FRL, 0, () => FailedRequest];
-export var FieldValues: StaticListSchema = [1, n0, _FVie, 0, () => FieldValue];
-export var FileIdList = 64 | 0;
-export var FiltersV2List: StaticListSchema = [1, n0, _FVL, 0, () => FilterV2];
-export var FilterValueList = 64 | 0;
-export var FlowAssociationSummaryList: StaticListSchema = [1, n0, _FASL, 0, () => FlowAssociationSummary];
-export var FunctionArnsList = 64 | 0;
-export var Groupings = 64 | 0;
-export var GroupingsV2 = 64 | 0;
-export var HierarchyGroupIdList = 64 | 0;
-export var HierarchyGroupSummaryList: StaticListSchema = [1, n0, _HGSL, 0, () => HierarchyGroupSummary];
-export var HierarchyRestrictedResourceList = 64 | 0;
-export var HistoricalMetricDataCollections: StaticListSchema = [1, n0, _HMDC, 0, () => HistoricalMetricData];
-export var HistoricalMetricResults: StaticListSchema = [1, n0, _HMRi, 0, () => HistoricalMetricResult];
-export var HistoricalMetrics: StaticListSchema = [1, n0, _HM, 0, () => HistoricalMetric];
-export var HoursOfOperationConfigList: StaticListSchema = [1, n0, _HOOCL, 0, () => HoursOfOperationConfig];
-export var HoursOfOperationList: StaticListSchema = [1, n0, _HOOL, 0, () => HoursOfOperation];
-export var HoursOfOperationOverrideConfigList: StaticListSchema = [
-  1,
-  n0,
-  _HOOOCL,
-  0,
-  () => HoursOfOperationOverrideConfig,
-];
-export var HoursOfOperationOverrideList: StaticListSchema = [1, n0, _HOOOL, 0, () => HoursOfOperationOverride];
-export var HoursOfOperationOverrideSearchConditionList: StaticListSchema = [
+var Expressions: StaticListSchema = [1, n0, _Expr, 0, () => Expression$];
+var FailedBatchAssociationSummaryList: StaticListSchema = [1, n0, _FBASL, 0, () => FailedBatchAssociationSummary$];
+var FailedRequestList: StaticListSchema = [1, n0, _FRL, 0, () => FailedRequest$];
+var FieldValues: StaticListSchema = [1, n0, _FVie, 0, () => FieldValue$];
+var FileIdList = 64 | 0;
+var FiltersV2List: StaticListSchema = [1, n0, _FVL, 0, () => FilterV2$];
+var FilterValueList = 64 | 0;
+var FlowAssociationSummaryList: StaticListSchema = [1, n0, _FASL, 0, () => FlowAssociationSummary$];
+var FunctionArnsList = 64 | 0;
+var Groupings = 64 | 0;
+var GroupingsV2 = 64 | 0;
+var HierarchyGroupIdList = 64 | 0;
+var HierarchyGroupSummaryList: StaticListSchema = [1, n0, _HGSL, 0, () => HierarchyGroupSummary$];
+var HierarchyRestrictedResourceList = 64 | 0;
+var HistoricalMetricDataCollections: StaticListSchema = [1, n0, _HMDC, 0, () => HistoricalMetricData$];
+var HistoricalMetricResults: StaticListSchema = [1, n0, _HMRi, 0, () => HistoricalMetricResult$];
+var HistoricalMetrics: StaticListSchema = [1, n0, _HM, 0, () => HistoricalMetric$];
+var HoursOfOperationConfigList: StaticListSchema = [1, n0, _HOOCL, 0, () => HoursOfOperationConfig$];
+var HoursOfOperationList: StaticListSchema = [1, n0, _HOOL, 0, () => HoursOfOperation$];
+var HoursOfOperationOverrideConfigList: StaticListSchema = [1, n0, _HOOOCL, 0, () => HoursOfOperationOverrideConfig$];
+var HoursOfOperationOverrideList: StaticListSchema = [1, n0, _HOOOL, 0, () => HoursOfOperationOverride$];
+var HoursOfOperationOverrideSearchConditionList: StaticListSchema = [
   1,
   n0,
   _HOOOSCL,
   0,
-  () => HoursOfOperationOverrideSearchCriteria,
+  () => HoursOfOperationOverrideSearchCriteria$,
 ];
-export var HoursOfOperationSearchConditionList: StaticListSchema = [
-  1,
-  n0,
-  _HOOSCL,
-  0,
-  () => HoursOfOperationSearchCriteria,
-];
-export var HoursOfOperationSummaryList: StaticListSchema = [1, n0, _HOOSL, 0, () => HoursOfOperationSummary];
-export var InitiationMethodList = 64 | 0;
-export var InstanceStorageConfigs: StaticListSchema = [1, n0, _ISCn, 0, () => InstanceStorageConfig];
-export var InstanceSummaryList: StaticListSchema = [1, n0, _ISL, 0, [() => InstanceSummary, 0]];
-export var IntegrationAssociationSummaryList: StaticListSchema = [1, n0, _IASL, 0, () => IntegrationAssociationSummary];
-export var InvisibleTaskTemplateFields: StaticListSchema = [1, n0, _ITTF, 0, () => InvisibleFieldInfo];
-export var IpCidrList = 64 | 0;
-export var LexBotConfigList: StaticListSchema = [1, n0, _LBCL, 0, () => LexBotConfig];
-export var LexBotsList: StaticListSchema = [1, n0, _LBL, 0, () => LexBot];
-export var ListPhoneNumbersSummaryList: StaticListSchema = [1, n0, _LPNSL, 0, () => ListPhoneNumbersSummary];
-export var MediaConcurrencies: StaticListSchema = [1, n0, _MCe, 0, () => MediaConcurrency];
-export var MediaList: StaticListSchema = [1, n0, _MLe, 0, () => MediaItem];
-export var MetricDataCollectionsV2: StaticListSchema = [1, n0, _MDCV, 0, () => MetricDataV2];
-export var MetricFiltersV2List: StaticListSchema = [1, n0, _MFVL, 0, () => MetricFilterV2];
-export var MetricFilterValueList = 64 | 0;
-export var MetricResultsV2: StaticListSchema = [1, n0, _MRVe, 0, () => MetricResultV2];
-export var MetricsV2: StaticListSchema = [1, n0, _MVet, 0, () => MetricV2];
-export var NextContacts: StaticListSchema = [1, n0, _NCe, 0, () => NextContactEntry];
-export var OperationalHours: StaticListSchema = [1, n0, _OH, 0, () => OperationalHour];
-export var OriginsList = 64 | 0;
-export var ParticipantTimerConfigList: StaticListSchema = [1, n0, _PTCL, 0, () => ParticipantTimerConfiguration];
-export var PermissionsList = 64 | 0;
-export var PhoneNumberCountryCodes = 64 | 0;
-export var PhoneNumberSummaryList: StaticListSchema = [1, n0, _PNSL, 0, () => PhoneNumberSummary];
-export var PhoneNumberTypes = 64 | 0;
-export var PotentialAudioQualityIssues = 64 | 0;
-export var PredefinedAttributePurposeNameList = 64 | 0;
-export var PredefinedAttributeSearchConditionList: StaticListSchema = [
+var HoursOfOperationSearchConditionList: StaticListSchema = [1, n0, _HOOSCL, 0, () => HoursOfOperationSearchCriteria$];
+var HoursOfOperationSummaryList: StaticListSchema = [1, n0, _HOOSL, 0, () => HoursOfOperationSummary$];
+var InitiationMethodList = 64 | 0;
+var InstanceStorageConfigs: StaticListSchema = [1, n0, _ISCn, 0, () => InstanceStorageConfig$];
+var InstanceSummaryList: StaticListSchema = [1, n0, _ISL, 0, [() => InstanceSummary$, 0]];
+var IntegrationAssociationSummaryList: StaticListSchema = [1, n0, _IASL, 0, () => IntegrationAssociationSummary$];
+var InvisibleTaskTemplateFields: StaticListSchema = [1, n0, _ITTF, 0, () => InvisibleFieldInfo$];
+var IpCidrList = 64 | 0;
+var LexBotConfigList: StaticListSchema = [1, n0, _LBCL, 0, () => LexBotConfig$];
+var LexBotsList: StaticListSchema = [1, n0, _LBL, 0, () => LexBot$];
+var ListPhoneNumbersSummaryList: StaticListSchema = [1, n0, _LPNSL, 0, () => ListPhoneNumbersSummary$];
+var MediaConcurrencies: StaticListSchema = [1, n0, _MCe, 0, () => MediaConcurrency$];
+var MediaList: StaticListSchema = [1, n0, _MLe, 0, () => MediaItem$];
+var MetricDataCollectionsV2: StaticListSchema = [1, n0, _MDCV, 0, () => MetricDataV2$];
+var MetricFiltersV2List: StaticListSchema = [1, n0, _MFVL, 0, () => MetricFilterV2$];
+var MetricFilterValueList = 64 | 0;
+var MetricResultsV2: StaticListSchema = [1, n0, _MRVe, 0, () => MetricResultV2$];
+var MetricsV2: StaticListSchema = [1, n0, _MVet, 0, () => MetricV2$];
+var NextContacts: StaticListSchema = [1, n0, _NCe, 0, () => NextContactEntry$];
+var OperationalHours: StaticListSchema = [1, n0, _OH, 0, () => OperationalHour$];
+var OriginsList = 64 | 0;
+var ParticipantTimerConfigList: StaticListSchema = [1, n0, _PTCL, 0, () => ParticipantTimerConfiguration$];
+var PermissionsList = 64 | 0;
+var PhoneNumberCountryCodes = 64 | 0;
+var PhoneNumberSummaryList: StaticListSchema = [1, n0, _PNSL, 0, () => PhoneNumberSummary$];
+var PhoneNumberTypes = 64 | 0;
+var PotentialAudioQualityIssues = 64 | 0;
+var PredefinedAttributePurposeNameList = 64 | 0;
+var PredefinedAttributeSearchConditionList: StaticListSchema = [
   1,
   n0,
   _PASCL,
   0,
-  () => PredefinedAttributeSearchCriteria,
+  () => PredefinedAttributeSearchCriteria$,
 ];
-export var PredefinedAttributeSearchSummaryList: StaticListSchema = [1, n0, _PASSL, 0, () => PredefinedAttribute];
-export var PredefinedAttributeStringValuesList = 64 | 0;
-export var PredefinedAttributeSummaryList: StaticListSchema = [1, n0, _PASL, 0, () => PredefinedAttributeSummary];
-export var PrimaryAttributeValueFilters: StaticListSchema = [1, n0, _PAVFr, 0, () => PrimaryAttributeValueFilter];
-export var PrimaryAttributeValuesSet: StaticListSchema = [1, n0, _PAVS, 0, () => PrimaryAttributeValue];
-export var PrimaryValueList = 64 | 0;
-export var PrimaryValuesList: StaticListSchema = [1, n0, _PVL, 0, () => RecordPrimaryValue];
-export var PrimaryValuesResponseSet: StaticListSchema = [1, n0, _PVRS, 0, () => PrimaryValueResponse];
-export var PrimaryValuesSet: StaticListSchema = [1, n0, _PVS, 0, () => PrimaryValue];
-export var Problems: StaticListSchema = [1, n0, _Prob, 0, () => ProblemDetail];
-export var PromptList: StaticListSchema = [1, n0, _PLro, 0, () => Prompt];
-export var PromptSearchConditionList: StaticListSchema = [1, n0, _PSCL, 0, () => PromptSearchCriteria];
-export var PromptSummaryList: StaticListSchema = [1, n0, _PSL, 0, () => PromptSummary];
-export var PropertyValidationExceptionPropertyList: StaticListSchema = [
+var PredefinedAttributeSearchSummaryList: StaticListSchema = [1, n0, _PASSL, 0, () => PredefinedAttribute$];
+var PredefinedAttributeStringValuesList = 64 | 0;
+var PredefinedAttributeSummaryList: StaticListSchema = [1, n0, _PASL, 0, () => PredefinedAttributeSummary$];
+var PrimaryAttributeValueFilters: StaticListSchema = [1, n0, _PAVFr, 0, () => PrimaryAttributeValueFilter$];
+var PrimaryAttributeValuesSet: StaticListSchema = [1, n0, _PAVS, 0, () => PrimaryAttributeValue$];
+var PrimaryValueList = 64 | 0;
+var PrimaryValuesList: StaticListSchema = [1, n0, _PVL, 0, () => RecordPrimaryValue$];
+var PrimaryValuesResponseSet: StaticListSchema = [1, n0, _PVRS, 0, () => PrimaryValueResponse$];
+var PrimaryValuesSet: StaticListSchema = [1, n0, _PVS, 0, () => PrimaryValue$];
+var Problems: StaticListSchema = [1, n0, _Prob, 0, () => ProblemDetail$];
+var PromptList: StaticListSchema = [1, n0, _PLro, 0, () => Prompt$];
+var PromptSearchConditionList: StaticListSchema = [1, n0, _PSCL, 0, () => PromptSearchCriteria$];
+var PromptSummaryList: StaticListSchema = [1, n0, _PSL, 0, () => PromptSummary$];
+var PropertyValidationExceptionPropertyList: StaticListSchema = [
   1,
   n0,
   _PVEPL,
   0,
-  () => PropertyValidationExceptionProperty,
+  () => PropertyValidationExceptionProperty$,
 ];
-export var QueueIdList = 64 | 0;
-export var Queues = 64 | 0;
-export var QueueSearchConditionList: StaticListSchema = [1, n0, _QSCL, 0, () => QueueSearchCriteria];
-export var QueueSearchSummaryList: StaticListSchema = [1, n0, _QSSL, 0, () => Queue];
-export var QueueSummaryList: StaticListSchema = [1, n0, _QSL, 0, () => QueueSummary];
-export var QueueTypes = 64 | 0;
-export var QuickConnectSearchConditionList: StaticListSchema = [1, n0, _QCSCL, 0, () => QuickConnectSearchCriteria];
-export var QuickConnectSearchSummaryList: StaticListSchema = [1, n0, _QCSSL, 0, () => QuickConnect];
-export var QuickConnectsList = 64 | 0;
-export var QuickConnectSummaryList: StaticListSchema = [1, n0, _QCSL, 0, () => QuickConnectSummary];
-export var QuickConnectTypes = 64 | 0;
-export var ReadOnlyTaskTemplateFields: StaticListSchema = [1, n0, _ROTTF, 0, () => ReadOnlyFieldInfo];
-export var RealTimeContactAnalysisAttachments: StaticListSchema = [
+var QueueIdList = 64 | 0;
+var Queues = 64 | 0;
+var QueueSearchConditionList: StaticListSchema = [1, n0, _QSCL, 0, () => QueueSearchCriteria$];
+var QueueSearchSummaryList: StaticListSchema = [1, n0, _QSSL, 0, () => Queue$];
+var QueueSummaryList: StaticListSchema = [1, n0, _QSL, 0, () => QueueSummary$];
+var QueueTypes = 64 | 0;
+var QuickConnectSearchConditionList: StaticListSchema = [1, n0, _QCSCL, 0, () => QuickConnectSearchCriteria$];
+var QuickConnectSearchSummaryList: StaticListSchema = [1, n0, _QCSSL, 0, () => QuickConnect$];
+var QuickConnectsList = 64 | 0;
+var QuickConnectSummaryList: StaticListSchema = [1, n0, _QCSL, 0, () => QuickConnectSummary$];
+var QuickConnectTypes = 64 | 0;
+var ReadOnlyTaskTemplateFields: StaticListSchema = [1, n0, _ROTTF, 0, () => ReadOnlyFieldInfo$];
+var RealTimeContactAnalysisAttachments: StaticListSchema = [
   1,
   n0,
   _RTCAAe,
   0,
-  () => RealTimeContactAnalysisAttachment,
+  () => RealTimeContactAnalysisAttachment$,
 ];
-export var RealTimeContactAnalysisCharacterIntervals: StaticListSchema = [
+var RealTimeContactAnalysisCharacterIntervals: StaticListSchema = [
   1,
   n0,
   _RTCACIe,
   0,
-  () => RealTimeContactAnalysisCharacterInterval,
+  () => RealTimeContactAnalysisCharacterInterval$,
 ];
-export var RealTimeContactAnalysisIssuesDetected: StaticListSchema = [
+var RealTimeContactAnalysisIssuesDetected: StaticListSchema = [
   1,
   n0,
   _RTCAIDe,
   0,
-  () => RealTimeContactAnalysisIssueDetected,
+  () => RealTimeContactAnalysisIssueDetected$,
 ];
-export var RealTimeContactAnalysisPointsOfInterest: StaticListSchema = [
+var RealTimeContactAnalysisPointsOfInterest: StaticListSchema = [
   1,
   n0,
   _RTCAPOIe,
   0,
-  () => RealTimeContactAnalysisPointOfInterest,
+  () => RealTimeContactAnalysisPointOfInterest$,
 ];
-export var RealtimeContactAnalysisSegments: StaticListSchema = [1, n0, _RCAS, 0, () => RealtimeContactAnalysisSegment];
-export var RealTimeContactAnalysisSegmentTypes = 64 | 0;
-export var RealTimeContactAnalysisTranscriptItemsWithCharacterOffsets: StaticListSchema = [
+var RealtimeContactAnalysisSegments: StaticListSchema = [1, n0, _RCAS, 0, () => RealtimeContactAnalysisSegment$];
+var RealTimeContactAnalysisSegmentTypes = 64 | 0;
+var RealTimeContactAnalysisTranscriptItemsWithCharacterOffsets: StaticListSchema = [
   1,
   n0,
   _RTCATIWCOe,
   0,
-  () => RealTimeContactAnalysisTranscriptItemWithCharacterOffsets,
+  () => RealTimeContactAnalysisTranscriptItemWithCharacterOffsets$,
 ];
-export var RealTimeContactAnalysisTranscriptItemsWithContent: StaticListSchema = [
+var RealTimeContactAnalysisTranscriptItemsWithContent: StaticListSchema = [
   1,
   n0,
   _RTCATIWCe,
   0,
-  () => RealTimeContactAnalysisTranscriptItemWithContent,
+  () => RealTimeContactAnalysisTranscriptItemWithContent$,
 ];
-export var RecordIds = 64 | 0;
-export var Recordings: StaticListSchema = [1, n0, _Re, 0, () => RecordingInfo];
-export var ReferenceIdList = 64 | 0;
-export var ReferenceSummaryList: StaticListSchema = [1, n0, _RSL, 0, () => ReferenceSummary];
-export var ReferenceTypes = 64 | 0;
-export var ReplicationStatusSummaryList: StaticListSchema = [1, n0, _RSSL, 0, () => ReplicationStatusSummary];
-export var RequiredTaskTemplateFields: StaticListSchema = [1, n0, _RTTF, 0, () => RequiredFieldInfo];
-export var resourceArnListMaxLimit100 = 64 | 0;
-export var ResourceTypeList = 64 | 0;
-export var RoutingCriteriaInputSteps: StaticListSchema = [1, n0, _RCISo, 0, () => RoutingCriteriaInputStep];
-export var RoutingExpressions = 64 | 0;
-export var RoutingProfileList: StaticListSchema = [1, n0, _RPL, 0, () => RoutingProfile];
-export var RoutingProfileManualAssignmentQueueConfigList: StaticListSchema = [
+var RecordIds = 64 | 0;
+var Recordings: StaticListSchema = [1, n0, _Re, 0, () => RecordingInfo$];
+var ReferenceIdList = 64 | 0;
+var ReferenceSummaryList: StaticListSchema = [1, n0, _RSL, 0, () => ReferenceSummary$];
+var ReferenceTypes = 64 | 0;
+var ReplicationStatusSummaryList: StaticListSchema = [1, n0, _RSSL, 0, () => ReplicationStatusSummary$];
+var RequiredTaskTemplateFields: StaticListSchema = [1, n0, _RTTF, 0, () => RequiredFieldInfo$];
+var resourceArnListMaxLimit100 = 64 | 0;
+var ResourceTypeList = 64 | 0;
+var RoutingCriteriaInputSteps: StaticListSchema = [1, n0, _RCISo, 0, () => RoutingCriteriaInputStep$];
+var RoutingExpressions = 64 | 0;
+var RoutingProfileList: StaticListSchema = [1, n0, _RPL, 0, () => RoutingProfile$];
+var RoutingProfileManualAssignmentQueueConfigList: StaticListSchema = [
   1,
   n0,
   _RPMAQCL,
   0,
-  () => RoutingProfileManualAssignmentQueueConfig,
+  () => RoutingProfileManualAssignmentQueueConfig$,
 ];
-export var RoutingProfileManualAssignmentQueueConfigSummaryList: StaticListSchema = [
+var RoutingProfileManualAssignmentQueueConfigSummaryList: StaticListSchema = [
   1,
   n0,
   _RPMAQCSL,
   0,
-  () => RoutingProfileManualAssignmentQueueConfigSummary,
+  () => RoutingProfileManualAssignmentQueueConfigSummary$,
 ];
-export var RoutingProfileQueueConfigList: StaticListSchema = [1, n0, _RPQCL, 0, () => RoutingProfileQueueConfig];
-export var RoutingProfileQueueConfigSummaryList: StaticListSchema = [
+var RoutingProfileQueueConfigList: StaticListSchema = [1, n0, _RPQCL, 0, () => RoutingProfileQueueConfig$];
+var RoutingProfileQueueConfigSummaryList: StaticListSchema = [
   1,
   n0,
   _RPQCSL,
   0,
-  () => RoutingProfileQueueConfigSummary,
+  () => RoutingProfileQueueConfigSummary$,
 ];
-export var RoutingProfileQueueReferenceList: StaticListSchema = [1, n0, _RPQRL, 0, () => RoutingProfileQueueReference];
-export var RoutingProfiles = 64 | 0;
-export var RoutingProfileSearchConditionList: StaticListSchema = [1, n0, _RPSCL, 0, () => RoutingProfileSearchCriteria];
-export var RoutingProfileSummaryList: StaticListSchema = [1, n0, _RPSL, 0, () => RoutingProfileSummary];
-export var RuleActions: StaticListSchema = [1, n0, _RAule, 0, () => RuleAction];
-export var RuleSummaryList: StaticListSchema = [1, n0, _RSLu, 0, () => RuleSummary];
-export var SearchableContactAttributesCriteriaList: StaticListSchema = [
+var RoutingProfileQueueReferenceList: StaticListSchema = [1, n0, _RPQRL, 0, () => RoutingProfileQueueReference$];
+var RoutingProfiles = 64 | 0;
+var RoutingProfileSearchConditionList: StaticListSchema = [1, n0, _RPSCL, 0, () => RoutingProfileSearchCriteria$];
+var RoutingProfileSummaryList: StaticListSchema = [1, n0, _RPSL, 0, () => RoutingProfileSummary$];
+var RuleActions: StaticListSchema = [1, n0, _RAule, 0, () => RuleAction$];
+var RuleSummaryList: StaticListSchema = [1, n0, _RSLu, 0, () => RuleSummary$];
+var SearchableContactAttributesCriteriaList: StaticListSchema = [
   1,
   n0,
   _SCACL,
   0,
-  [() => SearchableContactAttributesCriteria, 0],
+  [() => SearchableContactAttributesCriteria$, 0],
 ];
-export var SearchableContactAttributeValueList: StaticListSchema = [
+var SearchableContactAttributeValueList: StaticListSchema = [
   1,
   n0,
   _SCAVL,
   0,
   [() => SearchableContactAttributeValue, 0],
 ];
-export var SearchableRoutingCriteriaStepList: StaticListSchema = [
-  1,
-  n0,
-  _SRCSL,
-  0,
-  () => SearchableRoutingCriteriaStep,
-];
-export var SearchableSegmentAttributesCriteriaList: StaticListSchema = [
+var SearchableRoutingCriteriaStepList: StaticListSchema = [1, n0, _SRCSL, 0, () => SearchableRoutingCriteriaStep$];
+var SearchableSegmentAttributesCriteriaList: StaticListSchema = [
   1,
   n0,
   _SSACL,
   0,
-  [() => SearchableSegmentAttributesCriteria, 0],
+  [() => SearchableSegmentAttributesCriteria$, 0],
 ];
-export var SearchableSegmentAttributeValueList: StaticListSchema = [
+var SearchableSegmentAttributeValueList: StaticListSchema = [
   1,
   n0,
   _SSAVL,
   8,
   [() => SearchableSegmentAttributeValue, 0],
 ];
-export var SearchContactsAdditionalTimeRangeCriteriaList: StaticListSchema = [
+var SearchContactsAdditionalTimeRangeCriteriaList: StaticListSchema = [
   1,
   n0,
   _SCATRCL,
   0,
-  () => SearchContactsAdditionalTimeRangeCriteria,
+  () => SearchContactsAdditionalTimeRangeCriteria$,
 ];
-export var SearchTextList: StaticListSchema = [1, n0, _STL, 0, [() => SearchText, 0]];
-export var SecurityKeysList: StaticListSchema = [1, n0, _SKL, 0, () => SecurityKey];
-export var SecurityProfileIds = 64 | 0;
-export var SecurityProfiles: StaticListSchema = [1, n0, _SP, 0, () => SecurityProfileItem];
-export var SecurityProfiles100: StaticListSchema = [1, n0, _SPec, 0, () => SecurityProfileItem];
-export var SecurityProfileSearchConditionList: StaticListSchema = [
-  1,
-  n0,
-  _SPSCL,
-  0,
-  () => SecurityProfileSearchCriteria,
-];
-export var SecurityProfilesSearchSummaryList: StaticListSchema = [1, n0, _SPSSL, 0, () => SecurityProfileSearchSummary];
-export var SecurityProfileSummaryList: StaticListSchema = [1, n0, _SPSL, 0, () => SecurityProfileSummary];
-export var SegmentAttributeValueList: StaticListSchema = [1, n0, _SAVL, 0, () => SegmentAttributeValue];
-export var SignInDistributionList: StaticListSchema = [1, n0, _SIDL, 0, () => SignInDistribution];
-export var SingleSelectOptions = 64 | 0;
-export var SlaFieldValueUnionList: StaticListSchema = [1, n0, _SFVUL, 0, () => FieldValueUnion];
-export var StateTransitions: StaticListSchema = [1, n0, _STt, 0, () => StateTransition];
-export var Steps: StaticListSchema = [1, n0, _Ste, 0, () => Step];
-export var SuccessfulBatchAssociationSummaryList: StaticListSchema = [
+var SearchTextList: StaticListSchema = [1, n0, _STL, 0, [() => SearchText, 0]];
+var SecurityKeysList: StaticListSchema = [1, n0, _SKL, 0, () => SecurityKey$];
+var SecurityProfileIds = 64 | 0;
+var SecurityProfiles: StaticListSchema = [1, n0, _SP, 0, () => SecurityProfileItem$];
+var SecurityProfiles100: StaticListSchema = [1, n0, _SPec, 0, () => SecurityProfileItem$];
+var SecurityProfileSearchConditionList: StaticListSchema = [1, n0, _SPSCL, 0, () => SecurityProfileSearchCriteria$];
+var SecurityProfilesSearchSummaryList: StaticListSchema = [1, n0, _SPSSL, 0, () => SecurityProfileSearchSummary$];
+var SecurityProfileSummaryList: StaticListSchema = [1, n0, _SPSL, 0, () => SecurityProfileSummary$];
+var SegmentAttributeValueList: StaticListSchema = [1, n0, _SAVL, 0, () => SegmentAttributeValue$];
+var SignInDistributionList: StaticListSchema = [1, n0, _SIDL, 0, () => SignInDistribution$];
+var SingleSelectOptions = 64 | 0;
+var SlaFieldValueUnionList: StaticListSchema = [1, n0, _SFVUL, 0, () => FieldValueUnion$];
+var StateTransitions: StaticListSchema = [1, n0, _STt, 0, () => StateTransition$];
+var Steps: StaticListSchema = [1, n0, _Ste, 0, () => Step$];
+var SuccessfulBatchAssociationSummaryList: StaticListSchema = [
   1,
   n0,
   _SBASL,
   0,
-  () => SuccessfulBatchAssociationSummary,
+  () => SuccessfulBatchAssociationSummary$,
 ];
-export var SuccessfulRequestList: StaticListSchema = [1, n0, _SRL, 0, () => SuccessfulRequest];
-export var SupportedMessagingContentTypes = 64 | 0;
-export var TagAndConditionList: StaticListSchema = [1, n0, _TACL, 0, () => TagCondition];
-export var TagKeyList = 64 | 0;
-export var TagOrConditionList: StaticListSchema = [1, n0, _TOCL, 0, () => TagAndConditionList];
-export var TagRestrictedResourceList = 64 | 0;
-export var TagsList: StaticListSchema = [1, n0, _TLa, 0, () => TagSet];
-export var TaskTemplateDefaultFieldValueList: StaticListSchema = [
-  1,
-  n0,
-  _TTDFVL,
-  0,
-  () => TaskTemplateDefaultFieldValue,
-];
-export var TaskTemplateFields: StaticListSchema = [1, n0, _TTFa, 0, () => TaskTemplateField];
-export var TaskTemplateList: StaticListSchema = [1, n0, _TTL, 0, () => TaskTemplateMetadata];
-export var ThresholdCollections: StaticListSchema = [1, n0, _TCh, 0, () => ThresholdV2];
-export var TrafficDistributionGroupSummaryList: StaticListSchema = [
-  1,
-  n0,
-  _TDGSL,
-  0,
-  () => TrafficDistributionGroupSummary,
-];
-export var TrafficDistributionGroupUserSummaryList: StaticListSchema = [
+var SuccessfulRequestList: StaticListSchema = [1, n0, _SRL, 0, () => SuccessfulRequest$];
+var SupportedMessagingContentTypes = 64 | 0;
+var TagAndConditionList: StaticListSchema = [1, n0, _TACL, 0, () => TagCondition$];
+var TagKeyList = 64 | 0;
+var TagOrConditionList: StaticListSchema = [1, n0, _TOCL, 0, () => TagAndConditionList];
+var TagRestrictedResourceList = 64 | 0;
+var TagsList: StaticListSchema = [1, n0, _TLa, 0, () => TagSet$];
+var TaskTemplateDefaultFieldValueList: StaticListSchema = [1, n0, _TTDFVL, 0, () => TaskTemplateDefaultFieldValue$];
+var TaskTemplateFields: StaticListSchema = [1, n0, _TTFa, 0, () => TaskTemplateField$];
+var TaskTemplateList: StaticListSchema = [1, n0, _TTL, 0, () => TaskTemplateMetadata$];
+var ThresholdCollections: StaticListSchema = [1, n0, _TCh, 0, () => ThresholdV2$];
+var TrafficDistributionGroupSummaryList: StaticListSchema = [1, n0, _TDGSL, 0, () => TrafficDistributionGroupSummary$];
+var TrafficDistributionGroupUserSummaryList: StaticListSchema = [
   1,
   n0,
   _TDGUSL,
   0,
-  () => TrafficDistributionGroupUserSummary,
+  () => TrafficDistributionGroupUserSummary$,
 ];
-export var TranscriptCriteriaList: StaticListSchema = [1, n0, _TCL, 0, [() => TranscriptCriteria, 0]];
-export var UseCaseSummaryList: StaticListSchema = [1, n0, _UCSL, 0, () => UseCase];
-export var UserDataHierarchyGroups = 64 | 0;
-export var UserDataList: StaticListSchema = [1, n0, _UDL, 0, () => UserData];
-export var UserHierarchyGroupList: StaticListSchema = [1, n0, _UHGL, 0, () => HierarchyGroup];
-export var UserHierarchyGroupSearchConditionList: StaticListSchema = [
+var TranscriptCriteriaList: StaticListSchema = [1, n0, _TCL, 0, [() => TranscriptCriteria$, 0]];
+var UseCaseSummaryList: StaticListSchema = [1, n0, _UCSL, 0, () => UseCase$];
+var UserDataHierarchyGroups = 64 | 0;
+var UserDataList: StaticListSchema = [1, n0, _UDL, 0, () => UserData$];
+var UserHierarchyGroupList: StaticListSchema = [1, n0, _UHGL, 0, () => HierarchyGroup$];
+var UserHierarchyGroupSearchConditionList: StaticListSchema = [
   1,
   n0,
   _UHGSCL,
   0,
-  () => UserHierarchyGroupSearchCriteria,
+  () => UserHierarchyGroupSearchCriteria$,
 ];
-export var UserIdList = 64 | 0;
-export var UserProficiencyDisassociateList: StaticListSchema = [1, n0, _UPDL, 0, () => UserProficiencyDisassociate];
-export var UserProficiencyList: StaticListSchema = [1, n0, _UPL, 0, () => UserProficiency];
-export var UserSearchConditionList: StaticListSchema = [1, n0, _USCL, 0, () => UserSearchCriteria];
-export var UserSearchSummaryList: StaticListSchema = [1, n0, _USSL, 0, [() => UserSearchSummary, 0]];
-export var UserSummaryList: StaticListSchema = [1, n0, _USL, 0, () => UserSummary];
-export var ValidationEnumValues = 64 | 0;
-export var ValueList = 64 | 0;
-export var ViewActions: StaticListSchema = [1, n0, _VAi, 0, [() => ViewAction, 0]];
-export var ViewSearchConditionList: StaticListSchema = [1, n0, _VSCL, 0, () => ViewSearchCriteria];
-export var ViewSearchSummaryList: StaticListSchema = [1, n0, _VSSL, 0, [() => View, 0]];
-export var ViewsSummaryList: StaticListSchema = [1, n0, _VSL, 0, [() => ViewSummary, 0]];
-export var ViewVersionSummaryList: StaticListSchema = [1, n0, _VVSL, 0, [() => ViewVersionSummary, 0]];
-export var VocabularySummaryList: StaticListSchema = [1, n0, _VSLo, 0, () => VocabularySummary];
-export var WorkspaceAssociationSearchConditionList: StaticListSchema = [
+var UserIdList = 64 | 0;
+var UserProficiencyDisassociateList: StaticListSchema = [1, n0, _UPDL, 0, () => UserProficiencyDisassociate$];
+var UserProficiencyList: StaticListSchema = [1, n0, _UPL, 0, () => UserProficiency$];
+var UserSearchConditionList: StaticListSchema = [1, n0, _USCL, 0, () => UserSearchCriteria$];
+var UserSearchSummaryList: StaticListSchema = [1, n0, _USSL, 0, [() => UserSearchSummary$, 0]];
+var UserSummaryList: StaticListSchema = [1, n0, _USL, 0, () => UserSummary$];
+var ValidationEnumValues = 64 | 0;
+var ValueList = 64 | 0;
+var ViewActions: StaticListSchema = [1, n0, _VAi, 0, [() => ViewAction, 0]];
+var ViewSearchConditionList: StaticListSchema = [1, n0, _VSCL, 0, () => ViewSearchCriteria$];
+var ViewSearchSummaryList: StaticListSchema = [1, n0, _VSSL, 0, [() => View$, 0]];
+var ViewsSummaryList: StaticListSchema = [1, n0, _VSL, 0, [() => ViewSummary$, 0]];
+var ViewVersionSummaryList: StaticListSchema = [1, n0, _VVSL, 0, [() => ViewVersionSummary$, 0]];
+var VocabularySummaryList: StaticListSchema = [1, n0, _VSLo, 0, () => VocabularySummary$];
+var WorkspaceAssociationSearchConditionList: StaticListSchema = [
   1,
   n0,
   _WASCL,
   0,
-  () => WorkspaceAssociationSearchCriteria,
+  () => WorkspaceAssociationSearchCriteria$,
 ];
-export var WorkspaceAssociationSearchSummaryList: StaticListSchema = [
+var WorkspaceAssociationSearchSummaryList: StaticListSchema = [
   1,
   n0,
   _WASSL,
   0,
-  () => WorkspaceAssociationSearchSummary,
+  () => WorkspaceAssociationSearchSummary$,
 ];
-export var WorkspacePageList: StaticListSchema = [1, n0, _WPL, 0, () => WorkspacePage];
-export var WorkspaceResourceArnList = 64 | 0;
-export var WorkspaceSearchConditionList: StaticListSchema = [1, n0, _WSCL, 0, () => WorkspaceSearchCriteria];
-export var WorkspaceSearchSummaryList: StaticListSchema = [1, n0, _WSSL, 0, () => WorkspaceSearchSummary];
-export var WorkspaceSummaryList: StaticListSchema = [1, n0, _WSL, 0, () => WorkspaceSummary];
-export var AllowedAccessControlTags = 128 | 0;
-export var Attributes = 128 | 0;
-export var ChannelToCountMap = 128 | 1;
-export var ContactEvaluations: StaticMapSchema = [2, n0, _CEon, 0, 0, () => ContactEvaluation];
-export var ContactReferences: StaticMapSchema = [2, n0, _CR, 0, 0, () => Reference];
-export var ContactSearchSummarySegmentAttributes: StaticMapSchema = [
+var WorkspacePageList: StaticListSchema = [1, n0, _WPL, 0, () => WorkspacePage$];
+var WorkspaceResourceArnList = 64 | 0;
+var WorkspaceSearchConditionList: StaticListSchema = [1, n0, _WSCL, 0, () => WorkspaceSearchCriteria$];
+var WorkspaceSearchSummaryList: StaticListSchema = [1, n0, _WSSL, 0, () => WorkspaceSearchSummary$];
+var WorkspaceSummaryList: StaticListSchema = [1, n0, _WSL, 0, () => WorkspaceSummary$];
+var AllowedAccessControlTags = 128 | 0;
+var Attributes = 128 | 0;
+var ChannelToCountMap = 128 | 1;
+var ContactEvaluations: StaticMapSchema = [2, n0, _CEon, 0, 0, () => ContactEvaluation$];
+var ContactReferences: StaticMapSchema = [2, n0, _CR, 0, 0, () => Reference$];
+var ContactSearchSummarySegmentAttributes: StaticMapSchema = [
   2,
   n0,
   _CSSSA,
   8,
   0,
-  () => ContactSearchSummarySegmentAttributeValue,
+  () => ContactSearchSummarySegmentAttributeValue$,
 ];
-export var ContactTagMap = 128 | 0;
-export var DimensionsV2Map = 128 | 0;
-export var EmailHeaders = 128 | 0;
-export var EvaluationAnswersInputMap: StaticMapSchema = [2, n0, _EAIM, 0, 0, () => EvaluationAnswerInput];
-export var EvaluationAnswersOutputMap: StaticMapSchema = [2, n0, _EAOM, 0, 0, () => EvaluationAnswerOutput];
-export var EvaluationNotesMap: StaticMapSchema = [2, n0, _ENM, 0, 0, () => EvaluationNote];
-export var EvaluationScoresMap: StaticMapSchema = [2, n0, _ESMv, 0, 0, () => EvaluationScore];
-export var RealTimeContactAnalysisMatchedDetails: StaticMapSchema = [
+var ContactTagMap = 128 | 0;
+var DimensionsV2Map = 128 | 0;
+var EmailHeaders = 128 | 0;
+var EvaluationAnswersInputMap: StaticMapSchema = [2, n0, _EAIM, 0, 0, () => EvaluationAnswerInput$];
+var EvaluationAnswersOutputMap: StaticMapSchema = [2, n0, _EAOM, 0, 0, () => EvaluationAnswerOutput$];
+var EvaluationNotesMap: StaticMapSchema = [2, n0, _ENM, 0, 0, () => EvaluationNote$];
+var EvaluationScoresMap: StaticMapSchema = [2, n0, _ESMv, 0, 0, () => EvaluationScore$];
+var RealTimeContactAnalysisMatchedDetails: StaticMapSchema = [
   2,
   n0,
   _RTCAMD,
   0,
   0,
-  () => RealTimeContactAnalysisCategoryDetails,
+  () => RealTimeContactAnalysisCategoryDetails$,
 ];
-export var SegmentAttributes: StaticMapSchema = [2, n0, _SAe, 0, 0, () => SegmentAttributeValue];
-export var SegmentAttributeValueMap: StaticMapSchema = [2, n0, _SAVM, 0, 0, () => SegmentAttributeValue];
-export var TagMap = 128 | 0;
-export var UrlMetadataSignedHeaders = 128 | 0;
-export var UserTagMap = 128 | 0;
-export var ContactMetricValue: StaticStructureSchema = [3, n0, _CMV, 0, [_Nu], [1]];
-export var CreatedByInfo: StaticStructureSchema = [3, n0, _CBI, 0, [_CUA, _AWSIA], [0, 0]];
-export var EvaluationAnswerData: StaticStructureSchema = [
+var SegmentAttributes: StaticMapSchema = [2, n0, _SAe, 0, 0, () => SegmentAttributeValue$];
+var SegmentAttributeValueMap: StaticMapSchema = [2, n0, _SAVM, 0, 0, () => SegmentAttributeValue$];
+var TagMap = 128 | 0;
+var UrlMetadataSignedHeaders = 128 | 0;
+var UserTagMap = 128 | 0;
+export var ContactMetricValue$: StaticStructureSchema = [3, n0, _CMV, 0, [_Nu], [1]];
+export var CreatedByInfo$: StaticStructureSchema = [3, n0, _CBI, 0, [_CUA, _AWSIA], [0, 0]];
+export var EvaluationAnswerData$: StaticStructureSchema = [
   3,
   n0,
   _EAD,
@@ -10311,683 +10322,683 @@ export var EvaluationAnswerData: StaticStructureSchema = [
   [_SV, _NV, _SVt, _DTVa, _NA],
   [0, 1, 64 | 0, 0, 2],
 ];
-export var EvaluationFormItem: StaticStructureSchema = [
+export var EvaluationFormItem$: StaticStructureSchema = [
   3,
   n0,
   _EFIv,
   0,
   [_Sec, _Que],
-  [() => EvaluationFormSection, () => EvaluationFormQuestion],
+  [() => EvaluationFormSection$, () => EvaluationFormQuestion$],
 ];
-export var EvaluationFormItemEnablementConditionOperand: StaticStructureSchema = [
+export var EvaluationFormItemEnablementConditionOperand$: StaticStructureSchema = [
   3,
   n0,
   _EFIECO,
   0,
   [_Exp, _Con],
-  [() => EvaluationFormItemEnablementExpression, () => EvaluationFormItemEnablementCondition],
+  [() => EvaluationFormItemEnablementExpression$, () => EvaluationFormItemEnablementCondition$],
 ];
-export var EvaluationFormMultiSelectQuestionAutomationOption: StaticStructureSchema = [
+export var EvaluationFormMultiSelectQuestionAutomationOption$: StaticStructureSchema = [
   3,
   n0,
   _EFMSQAO,
   0,
   [_RCu],
-  [() => MultiSelectQuestionRuleCategoryAutomation],
+  [() => MultiSelectQuestionRuleCategoryAutomation$],
 ];
-export var EvaluationFormNumericQuestionAutomation: StaticStructureSchema = [
+export var EvaluationFormNumericQuestionAutomation$: StaticStructureSchema = [
   3,
   n0,
   _EFNQA,
   0,
   [_PVro, _ASn],
-  [() => NumericQuestionPropertyValueAutomation, () => EvaluationFormQuestionAutomationAnswerSource],
+  [() => NumericQuestionPropertyValueAutomation$, () => EvaluationFormQuestionAutomationAnswerSource$],
 ];
-export var EvaluationFormQuestionTypeProperties: StaticStructureSchema = [
+export var EvaluationFormQuestionTypeProperties$: StaticStructureSchema = [
   3,
   n0,
   _EFQTP,
   0,
   [_Num, _SSi, _Te, _MSu],
   [
-    () => EvaluationFormNumericQuestionProperties,
-    () => EvaluationFormSingleSelectQuestionProperties,
-    () => EvaluationFormTextQuestionProperties,
-    () => EvaluationFormMultiSelectQuestionProperties,
+    () => EvaluationFormNumericQuestionProperties$,
+    () => EvaluationFormSingleSelectQuestionProperties$,
+    () => EvaluationFormTextQuestionProperties$,
+    () => EvaluationFormMultiSelectQuestionProperties$,
   ],
 ];
-export var EvaluationFormSingleSelectQuestionAutomationOption: StaticStructureSchema = [
+export var EvaluationFormSingleSelectQuestionAutomationOption$: StaticStructureSchema = [
   3,
   n0,
   _EFSSQAO,
   0,
   [_RCu],
-  [() => SingleSelectQuestionRuleCategoryAutomation],
+  [() => SingleSelectQuestionRuleCategoryAutomation$],
 ];
-export var EvaluationQuestionAnswerAnalysisDetails: StaticStructureSchema = [
+export var EvaluationQuestionAnswerAnalysisDetails$: StaticStructureSchema = [
   3,
   n0,
   _EQAAD,
   0,
   [_GAI, _CLo],
-  [() => EvaluationGenAIAnswerAnalysisDetails, () => EvaluationContactLensAnswerAnalysisDetails],
+  [() => EvaluationGenAIAnswerAnalysisDetails$, () => EvaluationContactLensAnswerAnalysisDetails$],
 ];
-export var EvaluatorUserUnion: StaticStructureSchema = [3, n0, _EUU, 0, [_CUA], [0]];
-export var InvalidRequestExceptionReason: StaticStructureSchema = [3, n0, _IRER, 0, [_AFIRER], [0]];
-export var NextContactMetadata: StaticStructureSchema = [3, n0, _NCM, 0, [_QCCD], [() => QuickConnectContactData]];
-export var ParticipantTimerValue: StaticStructureSchema = [3, n0, _PTV, 0, [_PTA, _PTDIM], [0, 1]];
-export var PredefinedAttributeValues: StaticStructureSchema = [3, n0, _PAVre, 0, [_SLt], [64 | 0]];
-export var RealtimeContactAnalysisSegment: StaticStructureSchema = [
+export var EvaluatorUserUnion$: StaticStructureSchema = [3, n0, _EUU, 0, [_CUA], [0]];
+export var InvalidRequestExceptionReason$: StaticStructureSchema = [3, n0, _IRER, 0, [_AFIRER], [0]];
+export var NextContactMetadata$: StaticStructureSchema = [3, n0, _NCM, 0, [_QCCD], [() => QuickConnectContactData$]];
+export var ParticipantTimerValue$: StaticStructureSchema = [3, n0, _PTV, 0, [_PTA, _PTDIM], [0, 1]];
+export var PredefinedAttributeValues$: StaticStructureSchema = [3, n0, _PAVre, 0, [_SLt], [64 | 0]];
+export var RealtimeContactAnalysisSegment$: StaticStructureSchema = [
   3,
   n0,
   _RCASe,
   0,
   [_Tr, _Cate, _Is, _Eve, _Atta, _PCS],
   [
-    () => RealTimeContactAnalysisSegmentTranscript,
-    () => RealTimeContactAnalysisSegmentCategories,
-    () => RealTimeContactAnalysisSegmentIssues,
-    () => RealTimeContactAnalysisSegmentEvent,
-    () => RealTimeContactAnalysisSegmentAttachments,
-    () => RealTimeContactAnalysisSegmentPostContactSummary,
+    () => RealTimeContactAnalysisSegmentTranscript$,
+    () => RealTimeContactAnalysisSegmentCategories$,
+    () => RealTimeContactAnalysisSegmentIssues$,
+    () => RealTimeContactAnalysisSegmentEvent$,
+    () => RealTimeContactAnalysisSegmentAttachments$,
+    () => RealTimeContactAnalysisSegmentPostContactSummary$,
   ],
 ];
-export var RealTimeContactAnalysisTimeData: StaticStructureSchema = [3, n0, _RTCATD, 0, [_ATb], [5]];
-export var ReferenceSummary: StaticStructureSchema = [
+export var RealTimeContactAnalysisTimeData$: StaticStructureSchema = [3, n0, _RTCATD, 0, [_ATb], [5]];
+export var ReferenceSummary$: StaticStructureSchema = [
   3,
   n0,
   _RSe,
   0,
   [_Ur, _Attac, _EMm, _EMPT, _Stri, _Nu, _Da, _E],
   [
-    () => UrlReference,
-    () => AttachmentReference,
-    () => EmailMessageReference,
-    () => EmailMessageReference,
-    () => StringReference,
-    () => NumberReference,
-    () => DateReference,
-    () => EmailReference,
+    () => UrlReference$,
+    () => AttachmentReference$,
+    () => EmailMessageReference$,
+    () => EmailMessageReference$,
+    () => StringReference$,
+    () => NumberReference$,
+    () => DateReference$,
+    () => EmailReference$,
   ],
 ];
-export var ServiceQuotaExceededExceptionReason: StaticStructureSchema = [3, n0, _SQEER, 0, [_AFSQEER], [0]];
-export var UpdateParticipantRoleConfigChannelInfo: StaticStructureSchema = [
+export var ServiceQuotaExceededExceptionReason$: StaticStructureSchema = [3, n0, _SQEER, 0, [_AFSQEER], [0]];
+export var UpdateParticipantRoleConfigChannelInfo$: StaticStructureSchema = [
   3,
   n0,
   _UPRCCI,
   0,
   [_Cha],
-  [() => ChatParticipantRoleConfig],
+  [() => ChatParticipantRoleConfig$],
 ];
-export var ActivateEvaluationForm: StaticOperationSchema = [
+export var ActivateEvaluationForm$: StaticOperationSchema = [
   9,
   n0,
   _AEF,
   { [_h]: ["POST", "/evaluation-forms/{InstanceId}/{EvaluationFormId}/activate", 200] },
-  () => ActivateEvaluationFormRequest,
-  () => ActivateEvaluationFormResponse,
+  () => ActivateEvaluationFormRequest$,
+  () => ActivateEvaluationFormResponse$,
 ];
-export var AssociateAnalyticsDataSet: StaticOperationSchema = [
+export var AssociateAnalyticsDataSet$: StaticOperationSchema = [
   9,
   n0,
   _AADS,
   { [_h]: ["PUT", "/analytics-data/instance/{InstanceId}/association", 200] },
-  () => AssociateAnalyticsDataSetRequest,
-  () => AssociateAnalyticsDataSetResponse,
+  () => AssociateAnalyticsDataSetRequest$,
+  () => AssociateAnalyticsDataSetResponse$,
 ];
-export var AssociateApprovedOrigin: StaticOperationSchema = [
+export var AssociateApprovedOrigin$: StaticOperationSchema = [
   9,
   n0,
   _AAO,
   { [_h]: ["PUT", "/instance/{InstanceId}/approved-origin", 200] },
-  () => AssociateApprovedOriginRequest,
+  () => AssociateApprovedOriginRequest$,
   () => __Unit,
 ];
-export var AssociateBot: StaticOperationSchema = [
+export var AssociateBot$: StaticOperationSchema = [
   9,
   n0,
   _ABs,
   { [_h]: ["PUT", "/instance/{InstanceId}/bot", 200] },
-  () => AssociateBotRequest,
+  () => AssociateBotRequest$,
   () => __Unit,
 ];
-export var AssociateContactWithUser: StaticOperationSchema = [
+export var AssociateContactWithUser$: StaticOperationSchema = [
   9,
   n0,
   _ACWU,
   { [_h]: ["POST", "/contacts/{InstanceId}/{ContactId}/associate-user", 200] },
-  () => AssociateContactWithUserRequest,
-  () => AssociateContactWithUserResponse,
+  () => AssociateContactWithUserRequest$,
+  () => AssociateContactWithUserResponse$,
 ];
-export var AssociateDefaultVocabulary: StaticOperationSchema = [
+export var AssociateDefaultVocabulary$: StaticOperationSchema = [
   9,
   n0,
   _ADV,
   { [_h]: ["PUT", "/default-vocabulary/{InstanceId}/{LanguageCode}", 200] },
-  () => AssociateDefaultVocabularyRequest,
-  () => AssociateDefaultVocabularyResponse,
+  () => AssociateDefaultVocabularyRequest$,
+  () => AssociateDefaultVocabularyResponse$,
 ];
-export var AssociateEmailAddressAlias: StaticOperationSchema = [
+export var AssociateEmailAddressAlias$: StaticOperationSchema = [
   9,
   n0,
   _AEAA,
   { [_h]: ["POST", "/email-addresses/{InstanceId}/{EmailAddressId}/associate-alias", 200] },
-  () => AssociateEmailAddressAliasRequest,
-  () => AssociateEmailAddressAliasResponse,
+  () => AssociateEmailAddressAliasRequest$,
+  () => AssociateEmailAddressAliasResponse$,
 ];
-export var AssociateFlow: StaticOperationSchema = [
+export var AssociateFlow$: StaticOperationSchema = [
   9,
   n0,
   _AFs,
   { [_h]: ["PUT", "/flow-associations/{InstanceId}", 200] },
-  () => AssociateFlowRequest,
-  () => AssociateFlowResponse,
+  () => AssociateFlowRequest$,
+  () => AssociateFlowResponse$,
 ];
-export var AssociateInstanceStorageConfig: StaticOperationSchema = [
+export var AssociateInstanceStorageConfig$: StaticOperationSchema = [
   9,
   n0,
   _AISC,
   { [_h]: ["PUT", "/instance/{InstanceId}/storage-config", 200] },
-  () => AssociateInstanceStorageConfigRequest,
-  () => AssociateInstanceStorageConfigResponse,
+  () => AssociateInstanceStorageConfigRequest$,
+  () => AssociateInstanceStorageConfigResponse$,
 ];
-export var AssociateLambdaFunction: StaticOperationSchema = [
+export var AssociateLambdaFunction$: StaticOperationSchema = [
   9,
   n0,
   _ALF,
   { [_h]: ["PUT", "/instance/{InstanceId}/lambda-function", 200] },
-  () => AssociateLambdaFunctionRequest,
+  () => AssociateLambdaFunctionRequest$,
   () => __Unit,
 ];
-export var AssociateLexBot: StaticOperationSchema = [
+export var AssociateLexBot$: StaticOperationSchema = [
   9,
   n0,
   _ALB,
   { [_h]: ["PUT", "/instance/{InstanceId}/lex-bot", 200] },
-  () => AssociateLexBotRequest,
+  () => AssociateLexBotRequest$,
   () => __Unit,
 ];
-export var AssociatePhoneNumberContactFlow: StaticOperationSchema = [
+export var AssociatePhoneNumberContactFlow$: StaticOperationSchema = [
   9,
   n0,
   _APNCF,
   { [_h]: ["PUT", "/phone-number/{PhoneNumberId}/contact-flow", 200] },
-  () => AssociatePhoneNumberContactFlowRequest,
+  () => AssociatePhoneNumberContactFlowRequest$,
   () => __Unit,
 ];
-export var AssociateQueueQuickConnects: StaticOperationSchema = [
+export var AssociateQueueQuickConnects$: StaticOperationSchema = [
   9,
   n0,
   _AQQC,
   { [_h]: ["POST", "/queues/{InstanceId}/{QueueId}/associate-quick-connects", 200] },
-  () => AssociateQueueQuickConnectsRequest,
+  () => AssociateQueueQuickConnectsRequest$,
   () => __Unit,
 ];
-export var AssociateRoutingProfileQueues: StaticOperationSchema = [
+export var AssociateRoutingProfileQueues$: StaticOperationSchema = [
   9,
   n0,
   _ARPQ,
   { [_h]: ["POST", "/routing-profiles/{InstanceId}/{RoutingProfileId}/associate-queues", 200] },
-  () => AssociateRoutingProfileQueuesRequest,
+  () => AssociateRoutingProfileQueuesRequest$,
   () => __Unit,
 ];
-export var AssociateSecurityKey: StaticOperationSchema = [
+export var AssociateSecurityKey$: StaticOperationSchema = [
   9,
   n0,
   _ASK,
   { [_h]: ["PUT", "/instance/{InstanceId}/security-key", 200] },
-  () => AssociateSecurityKeyRequest,
-  () => AssociateSecurityKeyResponse,
+  () => AssociateSecurityKeyRequest$,
+  () => AssociateSecurityKeyResponse$,
 ];
-export var AssociateSecurityProfiles: StaticOperationSchema = [
+export var AssociateSecurityProfiles$: StaticOperationSchema = [
   9,
   n0,
   _ASP,
   { [_h]: ["POST", "/associate-security-profiles/{InstanceId}", 200] },
-  () => AssociateSecurityProfilesRequest,
+  () => AssociateSecurityProfilesRequest$,
   () => __Unit,
 ];
-export var AssociateTrafficDistributionGroupUser: StaticOperationSchema = [
+export var AssociateTrafficDistributionGroupUser$: StaticOperationSchema = [
   9,
   n0,
   _ATDGU,
   { [_h]: ["PUT", "/traffic-distribution-group/{TrafficDistributionGroupId}/user", 200] },
-  () => AssociateTrafficDistributionGroupUserRequest,
-  () => AssociateTrafficDistributionGroupUserResponse,
+  () => AssociateTrafficDistributionGroupUserRequest$,
+  () => AssociateTrafficDistributionGroupUserResponse$,
 ];
-export var AssociateUserProficiencies: StaticOperationSchema = [
+export var AssociateUserProficiencies$: StaticOperationSchema = [
   9,
   n0,
   _AUP,
   { [_h]: ["POST", "/users/{InstanceId}/{UserId}/associate-proficiencies", 200] },
-  () => AssociateUserProficienciesRequest,
+  () => AssociateUserProficienciesRequest$,
   () => __Unit,
 ];
-export var AssociateWorkspace: StaticOperationSchema = [
+export var AssociateWorkspace$: StaticOperationSchema = [
   9,
   n0,
   _AWs,
   { [_h]: ["POST", "/workspaces/{InstanceId}/{WorkspaceId}/associate", 200] },
-  () => AssociateWorkspaceRequest,
-  () => AssociateWorkspaceResponse,
+  () => AssociateWorkspaceRequest$,
+  () => AssociateWorkspaceResponse$,
 ];
-export var BatchAssociateAnalyticsDataSet: StaticOperationSchema = [
+export var BatchAssociateAnalyticsDataSet$: StaticOperationSchema = [
   9,
   n0,
   _BAADS,
   { [_h]: ["PUT", "/analytics-data/instance/{InstanceId}/associations", 200] },
-  () => BatchAssociateAnalyticsDataSetRequest,
-  () => BatchAssociateAnalyticsDataSetResponse,
+  () => BatchAssociateAnalyticsDataSetRequest$,
+  () => BatchAssociateAnalyticsDataSetResponse$,
 ];
-export var BatchCreateDataTableValue: StaticOperationSchema = [
+export var BatchCreateDataTableValue$: StaticOperationSchema = [
   9,
   n0,
   _BCDTV,
   { [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/values/create", 200] },
-  () => BatchCreateDataTableValueRequest,
-  () => BatchCreateDataTableValueResponse,
+  () => BatchCreateDataTableValueRequest$,
+  () => BatchCreateDataTableValueResponse$,
 ];
-export var BatchDeleteDataTableValue: StaticOperationSchema = [
+export var BatchDeleteDataTableValue$: StaticOperationSchema = [
   9,
   n0,
   _BDDTV,
   { [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/values/delete", 200] },
-  () => BatchDeleteDataTableValueRequest,
-  () => BatchDeleteDataTableValueResponse,
+  () => BatchDeleteDataTableValueRequest$,
+  () => BatchDeleteDataTableValueResponse$,
 ];
-export var BatchDescribeDataTableValue: StaticOperationSchema = [
+export var BatchDescribeDataTableValue$: StaticOperationSchema = [
   9,
   n0,
   _BDDTVa,
   { [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/values/describe", 200] },
-  () => BatchDescribeDataTableValueRequest,
-  () => BatchDescribeDataTableValueResponse,
+  () => BatchDescribeDataTableValueRequest$,
+  () => BatchDescribeDataTableValueResponse$,
 ];
-export var BatchDisassociateAnalyticsDataSet: StaticOperationSchema = [
+export var BatchDisassociateAnalyticsDataSet$: StaticOperationSchema = [
   9,
   n0,
   _BDADS,
   { [_h]: ["POST", "/analytics-data/instance/{InstanceId}/associations", 200] },
-  () => BatchDisassociateAnalyticsDataSetRequest,
-  () => BatchDisassociateAnalyticsDataSetResponse,
+  () => BatchDisassociateAnalyticsDataSetRequest$,
+  () => BatchDisassociateAnalyticsDataSetResponse$,
 ];
-export var BatchGetAttachedFileMetadata: StaticOperationSchema = [
+export var BatchGetAttachedFileMetadata$: StaticOperationSchema = [
   9,
   n0,
   _BGAFM,
   { [_h]: ["POST", "/attached-files/{InstanceId}", 200] },
-  () => BatchGetAttachedFileMetadataRequest,
-  () => BatchGetAttachedFileMetadataResponse,
+  () => BatchGetAttachedFileMetadataRequest$,
+  () => BatchGetAttachedFileMetadataResponse$,
 ];
-export var BatchGetFlowAssociation: StaticOperationSchema = [
+export var BatchGetFlowAssociation$: StaticOperationSchema = [
   9,
   n0,
   _BGFA,
   { [_h]: ["POST", "/flow-associations-batch/{InstanceId}", 200] },
-  () => BatchGetFlowAssociationRequest,
-  () => BatchGetFlowAssociationResponse,
+  () => BatchGetFlowAssociationRequest$,
+  () => BatchGetFlowAssociationResponse$,
 ];
-export var BatchPutContact: StaticOperationSchema = [
+export var BatchPutContact$: StaticOperationSchema = [
   9,
   n0,
   _BPC,
   { [_h]: ["PUT", "/contact/batch/{InstanceId}", 200] },
-  () => BatchPutContactRequest,
-  () => BatchPutContactResponse,
+  () => BatchPutContactRequest$,
+  () => BatchPutContactResponse$,
 ];
-export var BatchUpdateDataTableValue: StaticOperationSchema = [
+export var BatchUpdateDataTableValue$: StaticOperationSchema = [
   9,
   n0,
   _BUDTV,
   { [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/values/update", 200] },
-  () => BatchUpdateDataTableValueRequest,
-  () => BatchUpdateDataTableValueResponse,
+  () => BatchUpdateDataTableValueRequest$,
+  () => BatchUpdateDataTableValueResponse$,
 ];
-export var ClaimPhoneNumber: StaticOperationSchema = [
+export var ClaimPhoneNumber$: StaticOperationSchema = [
   9,
   n0,
   _CPN,
   { [_h]: ["POST", "/phone-number/claim", 200] },
-  () => ClaimPhoneNumberRequest,
-  () => ClaimPhoneNumberResponse,
+  () => ClaimPhoneNumberRequest$,
+  () => ClaimPhoneNumberResponse$,
 ];
-export var CompleteAttachedFileUpload: StaticOperationSchema = [
+export var CompleteAttachedFileUpload$: StaticOperationSchema = [
   9,
   n0,
   _CAFU,
   { [_h]: ["POST", "/attached-files/{InstanceId}/{FileId}", 200] },
-  () => CompleteAttachedFileUploadRequest,
-  () => CompleteAttachedFileUploadResponse,
+  () => CompleteAttachedFileUploadRequest$,
+  () => CompleteAttachedFileUploadResponse$,
 ];
-export var CreateAgentStatus: StaticOperationSchema = [
+export var CreateAgentStatus$: StaticOperationSchema = [
   9,
   n0,
   _CAS,
   { [_h]: ["PUT", "/agent-status/{InstanceId}", 200] },
-  () => CreateAgentStatusRequest,
-  () => CreateAgentStatusResponse,
+  () => CreateAgentStatusRequest$,
+  () => CreateAgentStatusResponse$,
 ];
-export var CreateContact: StaticOperationSchema = [
+export var CreateContact$: StaticOperationSchema = [
   9,
   n0,
   _CCr,
   { [_h]: ["PUT", "/contact/create-contact", 200] },
-  () => CreateContactRequest,
-  () => CreateContactResponse,
+  () => CreateContactRequest$,
+  () => CreateContactResponse$,
 ];
-export var CreateContactFlow: StaticOperationSchema = [
+export var CreateContactFlow$: StaticOperationSchema = [
   9,
   n0,
   _CCF,
   { [_h]: ["PUT", "/contact-flows/{InstanceId}", 200] },
-  () => CreateContactFlowRequest,
-  () => CreateContactFlowResponse,
+  () => CreateContactFlowRequest$,
+  () => CreateContactFlowResponse$,
 ];
-export var CreateContactFlowModule: StaticOperationSchema = [
+export var CreateContactFlowModule$: StaticOperationSchema = [
   9,
   n0,
   _CCFM,
   { [_h]: ["PUT", "/contact-flow-modules/{InstanceId}", 200] },
-  () => CreateContactFlowModuleRequest,
-  () => CreateContactFlowModuleResponse,
+  () => CreateContactFlowModuleRequest$,
+  () => CreateContactFlowModuleResponse$,
 ];
-export var CreateContactFlowModuleAlias: StaticOperationSchema = [
+export var CreateContactFlowModuleAlias$: StaticOperationSchema = [
   9,
   n0,
   _CCFMA,
   { [_h]: ["PUT", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/alias", 200] },
-  () => CreateContactFlowModuleAliasRequest,
-  () => CreateContactFlowModuleAliasResponse,
+  () => CreateContactFlowModuleAliasRequest$,
+  () => CreateContactFlowModuleAliasResponse$,
 ];
-export var CreateContactFlowModuleVersion: StaticOperationSchema = [
+export var CreateContactFlowModuleVersion$: StaticOperationSchema = [
   9,
   n0,
   _CCFMV,
   { [_h]: ["PUT", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/version", 200] },
-  () => CreateContactFlowModuleVersionRequest,
-  () => CreateContactFlowModuleVersionResponse,
+  () => CreateContactFlowModuleVersionRequest$,
+  () => CreateContactFlowModuleVersionResponse$,
 ];
-export var CreateContactFlowVersion: StaticOperationSchema = [
+export var CreateContactFlowVersion$: StaticOperationSchema = [
   9,
   n0,
   _CCFV,
   { [_h]: ["PUT", "/contact-flows/{InstanceId}/{ContactFlowId}/version", 200] },
-  () => CreateContactFlowVersionRequest,
-  () => CreateContactFlowVersionResponse,
+  () => CreateContactFlowVersionRequest$,
+  () => CreateContactFlowVersionResponse$,
 ];
-export var CreateDataTable: StaticOperationSchema = [
+export var CreateDataTable$: StaticOperationSchema = [
   9,
   n0,
   _CDT,
   { [_h]: ["PUT", "/data-tables/{InstanceId}", 200] },
-  () => CreateDataTableRequest,
-  () => CreateDataTableResponse,
+  () => CreateDataTableRequest$,
+  () => CreateDataTableResponse$,
 ];
-export var CreateDataTableAttribute: StaticOperationSchema = [
+export var CreateDataTableAttribute$: StaticOperationSchema = [
   9,
   n0,
   _CDTA,
   { [_h]: ["PUT", "/data-tables/{InstanceId}/{DataTableId}/attributes", 200] },
-  () => CreateDataTableAttributeRequest,
-  () => CreateDataTableAttributeResponse,
+  () => CreateDataTableAttributeRequest$,
+  () => CreateDataTableAttributeResponse$,
 ];
-export var CreateEmailAddress: StaticOperationSchema = [
+export var CreateEmailAddress$: StaticOperationSchema = [
   9,
   n0,
   _CEAr,
   { [_h]: ["PUT", "/email-addresses/{InstanceId}", 200] },
-  () => CreateEmailAddressRequest,
-  () => CreateEmailAddressResponse,
+  () => CreateEmailAddressRequest$,
+  () => CreateEmailAddressResponse$,
 ];
-export var CreateEvaluationForm: StaticOperationSchema = [
+export var CreateEvaluationForm$: StaticOperationSchema = [
   9,
   n0,
   _CEF,
   { [_h]: ["PUT", "/evaluation-forms/{InstanceId}", 200] },
-  () => CreateEvaluationFormRequest,
-  () => CreateEvaluationFormResponse,
+  () => CreateEvaluationFormRequest$,
+  () => CreateEvaluationFormResponse$,
 ];
-export var CreateHoursOfOperation: StaticOperationSchema = [
+export var CreateHoursOfOperation$: StaticOperationSchema = [
   9,
   n0,
   _CHOO,
   { [_h]: ["PUT", "/hours-of-operations/{InstanceId}", 200] },
-  () => CreateHoursOfOperationRequest,
-  () => CreateHoursOfOperationResponse,
+  () => CreateHoursOfOperationRequest$,
+  () => CreateHoursOfOperationResponse$,
 ];
-export var CreateHoursOfOperationOverride: StaticOperationSchema = [
+export var CreateHoursOfOperationOverride$: StaticOperationSchema = [
   9,
   n0,
   _CHOOO,
   { [_h]: ["PUT", "/hours-of-operations/{InstanceId}/{HoursOfOperationId}/overrides", 200] },
-  () => CreateHoursOfOperationOverrideRequest,
-  () => CreateHoursOfOperationOverrideResponse,
+  () => CreateHoursOfOperationOverrideRequest$,
+  () => CreateHoursOfOperationOverrideResponse$,
 ];
-export var CreateInstance: StaticOperationSchema = [
+export var CreateInstance$: StaticOperationSchema = [
   9,
   n0,
   _CIr,
   { [_h]: ["PUT", "/instance", 200] },
-  () => CreateInstanceRequest,
-  () => CreateInstanceResponse,
+  () => CreateInstanceRequest$,
+  () => CreateInstanceResponse$,
 ];
-export var CreateIntegrationAssociation: StaticOperationSchema = [
+export var CreateIntegrationAssociation$: StaticOperationSchema = [
   9,
   n0,
   _CIA,
   { [_h]: ["PUT", "/instance/{InstanceId}/integration-associations", 200] },
-  () => CreateIntegrationAssociationRequest,
-  () => CreateIntegrationAssociationResponse,
+  () => CreateIntegrationAssociationRequest$,
+  () => CreateIntegrationAssociationResponse$,
 ];
-export var CreateParticipant: StaticOperationSchema = [
+export var CreateParticipant$: StaticOperationSchema = [
   9,
   n0,
   _CPr,
   { [_h]: ["POST", "/contact/create-participant", 200] },
-  () => CreateParticipantRequest,
-  () => CreateParticipantResponse,
+  () => CreateParticipantRequest$,
+  () => CreateParticipantResponse$,
 ];
-export var CreatePersistentContactAssociation: StaticOperationSchema = [
+export var CreatePersistentContactAssociation$: StaticOperationSchema = [
   9,
   n0,
   _CPCA,
   { [_h]: ["POST", "/contact/persistent-contact-association/{InstanceId}/{InitialContactId}", 200] },
-  () => CreatePersistentContactAssociationRequest,
-  () => CreatePersistentContactAssociationResponse,
+  () => CreatePersistentContactAssociationRequest$,
+  () => CreatePersistentContactAssociationResponse$,
 ];
-export var CreatePredefinedAttribute: StaticOperationSchema = [
+export var CreatePredefinedAttribute$: StaticOperationSchema = [
   9,
   n0,
   _CPAr,
   { [_h]: ["PUT", "/predefined-attributes/{InstanceId}", 200] },
-  () => CreatePredefinedAttributeRequest,
+  () => CreatePredefinedAttributeRequest$,
   () => __Unit,
 ];
-export var CreatePrompt: StaticOperationSchema = [
+export var CreatePrompt$: StaticOperationSchema = [
   9,
   n0,
   _CPre,
   { [_h]: ["PUT", "/prompts/{InstanceId}", 200] },
-  () => CreatePromptRequest,
-  () => CreatePromptResponse,
+  () => CreatePromptRequest$,
+  () => CreatePromptResponse$,
 ];
-export var CreatePushNotificationRegistration: StaticOperationSchema = [
+export var CreatePushNotificationRegistration$: StaticOperationSchema = [
   9,
   n0,
   _CPNRr,
   { [_h]: ["PUT", "/push-notification/{InstanceId}/registrations", 200] },
-  () => CreatePushNotificationRegistrationRequest,
-  () => CreatePushNotificationRegistrationResponse,
+  () => CreatePushNotificationRegistrationRequest$,
+  () => CreatePushNotificationRegistrationResponse$,
 ];
-export var CreateQueue: StaticOperationSchema = [
+export var CreateQueue$: StaticOperationSchema = [
   9,
   n0,
   _CQ,
   { [_h]: ["PUT", "/queues/{InstanceId}", 200] },
-  () => CreateQueueRequest,
-  () => CreateQueueResponse,
+  () => CreateQueueRequest$,
+  () => CreateQueueResponse$,
 ];
-export var CreateQuickConnect: StaticOperationSchema = [
+export var CreateQuickConnect$: StaticOperationSchema = [
   9,
   n0,
   _CQC,
   { [_h]: ["PUT", "/quick-connects/{InstanceId}", 200] },
-  () => CreateQuickConnectRequest,
-  () => CreateQuickConnectResponse,
+  () => CreateQuickConnectRequest$,
+  () => CreateQuickConnectResponse$,
 ];
-export var CreateRoutingProfile: StaticOperationSchema = [
+export var CreateRoutingProfile$: StaticOperationSchema = [
   9,
   n0,
   _CRP,
   { [_h]: ["PUT", "/routing-profiles/{InstanceId}", 200] },
-  () => CreateRoutingProfileRequest,
-  () => CreateRoutingProfileResponse,
+  () => CreateRoutingProfileRequest$,
+  () => CreateRoutingProfileResponse$,
 ];
-export var CreateRule: StaticOperationSchema = [
+export var CreateRule$: StaticOperationSchema = [
   9,
   n0,
   _CRr,
   { [_h]: ["POST", "/rules/{InstanceId}", 200] },
-  () => CreateRuleRequest,
-  () => CreateRuleResponse,
+  () => CreateRuleRequest$,
+  () => CreateRuleResponse$,
 ];
-export var CreateSecurityProfile: StaticOperationSchema = [
+export var CreateSecurityProfile$: StaticOperationSchema = [
   9,
   n0,
   _CSP,
   { [_h]: ["PUT", "/security-profiles/{InstanceId}", 200] },
-  () => CreateSecurityProfileRequest,
-  () => CreateSecurityProfileResponse,
+  () => CreateSecurityProfileRequest$,
+  () => CreateSecurityProfileResponse$,
 ];
-export var CreateTaskTemplate: StaticOperationSchema = [
+export var CreateTaskTemplate$: StaticOperationSchema = [
   9,
   n0,
   _CTT,
   { [_h]: ["PUT", "/instance/{InstanceId}/task/template", 200] },
-  () => CreateTaskTemplateRequest,
-  () => CreateTaskTemplateResponse,
+  () => CreateTaskTemplateRequest$,
+  () => CreateTaskTemplateResponse$,
 ];
-export var CreateTrafficDistributionGroup: StaticOperationSchema = [
+export var CreateTrafficDistributionGroup$: StaticOperationSchema = [
   9,
   n0,
   _CTDG,
   { [_h]: ["PUT", "/traffic-distribution-group", 200] },
-  () => CreateTrafficDistributionGroupRequest,
-  () => CreateTrafficDistributionGroupResponse,
+  () => CreateTrafficDistributionGroupRequest$,
+  () => CreateTrafficDistributionGroupResponse$,
 ];
-export var CreateUseCase: StaticOperationSchema = [
+export var CreateUseCase$: StaticOperationSchema = [
   9,
   n0,
   _CUC,
   { [_h]: ["PUT", "/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}/use-cases", 200] },
-  () => CreateUseCaseRequest,
-  () => CreateUseCaseResponse,
+  () => CreateUseCaseRequest$,
+  () => CreateUseCaseResponse$,
 ];
-export var CreateUser: StaticOperationSchema = [
+export var CreateUser$: StaticOperationSchema = [
   9,
   n0,
   _CU,
   { [_h]: ["PUT", "/users/{InstanceId}", 200] },
-  () => CreateUserRequest,
-  () => CreateUserResponse,
+  () => CreateUserRequest$,
+  () => CreateUserResponse$,
 ];
-export var CreateUserHierarchyGroup: StaticOperationSchema = [
+export var CreateUserHierarchyGroup$: StaticOperationSchema = [
   9,
   n0,
   _CUHG,
   { [_h]: ["PUT", "/user-hierarchy-groups/{InstanceId}", 200] },
-  () => CreateUserHierarchyGroupRequest,
-  () => CreateUserHierarchyGroupResponse,
+  () => CreateUserHierarchyGroupRequest$,
+  () => CreateUserHierarchyGroupResponse$,
 ];
-export var CreateView: StaticOperationSchema = [
+export var CreateView$: StaticOperationSchema = [
   9,
   n0,
   _CV,
   { [_h]: ["PUT", "/views/{InstanceId}", 200] },
-  () => CreateViewRequest,
-  () => CreateViewResponse,
+  () => CreateViewRequest$,
+  () => CreateViewResponse$,
 ];
-export var CreateViewVersion: StaticOperationSchema = [
+export var CreateViewVersion$: StaticOperationSchema = [
   9,
   n0,
   _CVV,
   { [_h]: ["PUT", "/views/{InstanceId}/{ViewId}/versions", 200] },
-  () => CreateViewVersionRequest,
-  () => CreateViewVersionResponse,
+  () => CreateViewVersionRequest$,
+  () => CreateViewVersionResponse$,
 ];
-export var CreateVocabulary: StaticOperationSchema = [
+export var CreateVocabulary$: StaticOperationSchema = [
   9,
   n0,
   _CVr,
   { [_h]: ["POST", "/vocabulary/{InstanceId}", 200] },
-  () => CreateVocabularyRequest,
-  () => CreateVocabularyResponse,
+  () => CreateVocabularyRequest$,
+  () => CreateVocabularyResponse$,
 ];
-export var CreateWorkspace: StaticOperationSchema = [
+export var CreateWorkspace$: StaticOperationSchema = [
   9,
   n0,
   _CW,
   { [_h]: ["PUT", "/workspaces/{InstanceId}", 200] },
-  () => CreateWorkspaceRequest,
-  () => CreateWorkspaceResponse,
+  () => CreateWorkspaceRequest$,
+  () => CreateWorkspaceResponse$,
 ];
-export var CreateWorkspacePage: StaticOperationSchema = [
+export var CreateWorkspacePage$: StaticOperationSchema = [
   9,
   n0,
   _CWP,
   { [_h]: ["PUT", "/workspaces/{InstanceId}/{WorkspaceId}/pages", 200] },
-  () => CreateWorkspacePageRequest,
-  () => CreateWorkspacePageResponse,
+  () => CreateWorkspacePageRequest$,
+  () => CreateWorkspacePageResponse$,
 ];
-export var DeactivateEvaluationForm: StaticOperationSchema = [
+export var DeactivateEvaluationForm$: StaticOperationSchema = [
   9,
   n0,
   _DEF,
   { [_h]: ["POST", "/evaluation-forms/{InstanceId}/{EvaluationFormId}/deactivate", 200] },
-  () => DeactivateEvaluationFormRequest,
-  () => DeactivateEvaluationFormResponse,
+  () => DeactivateEvaluationFormRequest$,
+  () => DeactivateEvaluationFormResponse$,
 ];
-export var DeleteAttachedFile: StaticOperationSchema = [
+export var DeleteAttachedFile$: StaticOperationSchema = [
   9,
   n0,
   _DAF,
   { [_h]: ["DELETE", "/attached-files/{InstanceId}/{FileId}", 200] },
-  () => DeleteAttachedFileRequest,
-  () => DeleteAttachedFileResponse,
+  () => DeleteAttachedFileRequest$,
+  () => DeleteAttachedFileResponse$,
 ];
-export var DeleteContactEvaluation: StaticOperationSchema = [
+export var DeleteContactEvaluation$: StaticOperationSchema = [
   9,
   n0,
   _DCE,
   { [_h]: ["DELETE", "/contact-evaluations/{InstanceId}/{EvaluationId}", 200] },
-  () => DeleteContactEvaluationRequest,
+  () => DeleteContactEvaluationRequest$,
   () => __Unit,
 ];
-export var DeleteContactFlow: StaticOperationSchema = [
+export var DeleteContactFlow$: StaticOperationSchema = [
   9,
   n0,
   _DCF,
   { [_h]: ["DELETE", "/contact-flows/{InstanceId}/{ContactFlowId}", 200] },
-  () => DeleteContactFlowRequest,
-  () => DeleteContactFlowResponse,
+  () => DeleteContactFlowRequest$,
+  () => DeleteContactFlowResponse$,
 ];
-export var DeleteContactFlowModule: StaticOperationSchema = [
+export var DeleteContactFlowModule$: StaticOperationSchema = [
   9,
   n0,
   _DCFM,
   { [_h]: ["DELETE", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}", 200] },
-  () => DeleteContactFlowModuleRequest,
-  () => DeleteContactFlowModuleResponse,
+  () => DeleteContactFlowModuleRequest$,
+  () => DeleteContactFlowModuleResponse$,
 ];
-export var DeleteContactFlowModuleAlias: StaticOperationSchema = [
+export var DeleteContactFlowModuleAlias$: StaticOperationSchema = [
   9,
   n0,
   _DCFMA,
   { [_h]: ["DELETE", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/alias/{AliasId}", 200] },
-  () => DeleteContactFlowModuleAliasRequest,
-  () => DeleteContactFlowModuleAliasResponse,
+  () => DeleteContactFlowModuleAliasRequest$,
+  () => DeleteContactFlowModuleAliasResponse$,
 ];
-export var DeleteContactFlowModuleVersion: StaticOperationSchema = [
+export var DeleteContactFlowModuleVersion$: StaticOperationSchema = [
   9,
   n0,
   _DCFMV,
@@ -10998,58 +11009,58 @@ export var DeleteContactFlowModuleVersion: StaticOperationSchema = [
       200,
     ],
   },
-  () => DeleteContactFlowModuleVersionRequest,
-  () => DeleteContactFlowModuleVersionResponse,
+  () => DeleteContactFlowModuleVersionRequest$,
+  () => DeleteContactFlowModuleVersionResponse$,
 ];
-export var DeleteContactFlowVersion: StaticOperationSchema = [
+export var DeleteContactFlowVersion$: StaticOperationSchema = [
   9,
   n0,
   _DCFV,
   { [_h]: ["DELETE", "/contact-flows/{InstanceId}/{ContactFlowId}/version/{ContactFlowVersion}", 200] },
-  () => DeleteContactFlowVersionRequest,
-  () => DeleteContactFlowVersionResponse,
+  () => DeleteContactFlowVersionRequest$,
+  () => DeleteContactFlowVersionResponse$,
 ];
-export var DeleteDataTable: StaticOperationSchema = [
+export var DeleteDataTable$: StaticOperationSchema = [
   9,
   n0,
   _DDT,
   { [_h]: ["DELETE", "/data-tables/{InstanceId}/{DataTableId}", 200] },
-  () => DeleteDataTableRequest,
-  () => DeleteDataTableResponse,
+  () => DeleteDataTableRequest$,
+  () => DeleteDataTableResponse$,
 ];
-export var DeleteDataTableAttribute: StaticOperationSchema = [
+export var DeleteDataTableAttribute$: StaticOperationSchema = [
   9,
   n0,
   _DDTA,
   { [_h]: ["DELETE", "/data-tables/{InstanceId}/{DataTableId}/attributes/{AttributeName}", 200] },
-  () => DeleteDataTableAttributeRequest,
-  () => DeleteDataTableAttributeResponse,
+  () => DeleteDataTableAttributeRequest$,
+  () => DeleteDataTableAttributeResponse$,
 ];
-export var DeleteEmailAddress: StaticOperationSchema = [
+export var DeleteEmailAddress$: StaticOperationSchema = [
   9,
   n0,
   _DEAe,
   { [_h]: ["DELETE", "/email-addresses/{InstanceId}/{EmailAddressId}", 200] },
-  () => DeleteEmailAddressRequest,
-  () => DeleteEmailAddressResponse,
+  () => DeleteEmailAddressRequest$,
+  () => DeleteEmailAddressResponse$,
 ];
-export var DeleteEvaluationForm: StaticOperationSchema = [
+export var DeleteEvaluationForm$: StaticOperationSchema = [
   9,
   n0,
   _DEFe,
   { [_h]: ["DELETE", "/evaluation-forms/{InstanceId}/{EvaluationFormId}", 200] },
-  () => DeleteEvaluationFormRequest,
+  () => DeleteEvaluationFormRequest$,
   () => __Unit,
 ];
-export var DeleteHoursOfOperation: StaticOperationSchema = [
+export var DeleteHoursOfOperation$: StaticOperationSchema = [
   9,
   n0,
   _DHOO,
   { [_h]: ["DELETE", "/hours-of-operations/{InstanceId}/{HoursOfOperationId}", 200] },
-  () => DeleteHoursOfOperationRequest,
+  () => DeleteHoursOfOperationRequest$,
   () => __Unit,
 ];
-export var DeleteHoursOfOperationOverride: StaticOperationSchema = [
+export var DeleteHoursOfOperationOverride$: StaticOperationSchema = [
   9,
   n0,
   _DHOOO,
@@ -11060,106 +11071,106 @@ export var DeleteHoursOfOperationOverride: StaticOperationSchema = [
       200,
     ],
   },
-  () => DeleteHoursOfOperationOverrideRequest,
+  () => DeleteHoursOfOperationOverrideRequest$,
   () => __Unit,
 ];
-export var DeleteInstance: StaticOperationSchema = [
+export var DeleteInstance$: StaticOperationSchema = [
   9,
   n0,
   _DIel,
   { [_h]: ["DELETE", "/instance/{InstanceId}", 200] },
-  () => DeleteInstanceRequest,
+  () => DeleteInstanceRequest$,
   () => __Unit,
 ];
-export var DeleteIntegrationAssociation: StaticOperationSchema = [
+export var DeleteIntegrationAssociation$: StaticOperationSchema = [
   9,
   n0,
   _DIA,
   { [_h]: ["DELETE", "/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}", 200] },
-  () => DeleteIntegrationAssociationRequest,
+  () => DeleteIntegrationAssociationRequest$,
   () => __Unit,
 ];
-export var DeletePredefinedAttribute: StaticOperationSchema = [
+export var DeletePredefinedAttribute$: StaticOperationSchema = [
   9,
   n0,
   _DPA,
   { [_h]: ["DELETE", "/predefined-attributes/{InstanceId}/{Name}", 200] },
-  () => DeletePredefinedAttributeRequest,
+  () => DeletePredefinedAttributeRequest$,
   () => __Unit,
 ];
-export var DeletePrompt: StaticOperationSchema = [
+export var DeletePrompt$: StaticOperationSchema = [
   9,
   n0,
   _DP,
   { [_h]: ["DELETE", "/prompts/{InstanceId}/{PromptId}", 200] },
-  () => DeletePromptRequest,
+  () => DeletePromptRequest$,
   () => __Unit,
 ];
-export var DeletePushNotificationRegistration: StaticOperationSchema = [
+export var DeletePushNotificationRegistration$: StaticOperationSchema = [
   9,
   n0,
   _DPNRel,
   { [_h]: ["DELETE", "/push-notification/{InstanceId}/registrations/{RegistrationId}", 200] },
-  () => DeletePushNotificationRegistrationRequest,
-  () => DeletePushNotificationRegistrationResponse,
+  () => DeletePushNotificationRegistrationRequest$,
+  () => DeletePushNotificationRegistrationResponse$,
 ];
-export var DeleteQueue: StaticOperationSchema = [
+export var DeleteQueue$: StaticOperationSchema = [
   9,
   n0,
   _DQ,
   { [_h]: ["DELETE", "/queues/{InstanceId}/{QueueId}", 200] },
-  () => DeleteQueueRequest,
+  () => DeleteQueueRequest$,
   () => __Unit,
 ];
-export var DeleteQuickConnect: StaticOperationSchema = [
+export var DeleteQuickConnect$: StaticOperationSchema = [
   9,
   n0,
   _DQC,
   { [_h]: ["DELETE", "/quick-connects/{InstanceId}/{QuickConnectId}", 200] },
-  () => DeleteQuickConnectRequest,
+  () => DeleteQuickConnectRequest$,
   () => __Unit,
 ];
-export var DeleteRoutingProfile: StaticOperationSchema = [
+export var DeleteRoutingProfile$: StaticOperationSchema = [
   9,
   n0,
   _DRP,
   { [_h]: ["DELETE", "/routing-profiles/{InstanceId}/{RoutingProfileId}", 200] },
-  () => DeleteRoutingProfileRequest,
+  () => DeleteRoutingProfileRequest$,
   () => __Unit,
 ];
-export var DeleteRule: StaticOperationSchema = [
+export var DeleteRule$: StaticOperationSchema = [
   9,
   n0,
   _DRel,
   { [_h]: ["DELETE", "/rules/{InstanceId}/{RuleId}", 200] },
-  () => DeleteRuleRequest,
+  () => DeleteRuleRequest$,
   () => __Unit,
 ];
-export var DeleteSecurityProfile: StaticOperationSchema = [
+export var DeleteSecurityProfile$: StaticOperationSchema = [
   9,
   n0,
   _DSP,
   { [_h]: ["DELETE", "/security-profiles/{InstanceId}/{SecurityProfileId}", 200] },
-  () => DeleteSecurityProfileRequest,
+  () => DeleteSecurityProfileRequest$,
   () => __Unit,
 ];
-export var DeleteTaskTemplate: StaticOperationSchema = [
+export var DeleteTaskTemplate$: StaticOperationSchema = [
   9,
   n0,
   _DTT,
   { [_h]: ["DELETE", "/instance/{InstanceId}/task/template/{TaskTemplateId}", 200] },
-  () => DeleteTaskTemplateRequest,
-  () => DeleteTaskTemplateResponse,
+  () => DeleteTaskTemplateRequest$,
+  () => DeleteTaskTemplateResponse$,
 ];
-export var DeleteTrafficDistributionGroup: StaticOperationSchema = [
+export var DeleteTrafficDistributionGroup$: StaticOperationSchema = [
   9,
   n0,
   _DTDG,
   { [_h]: ["DELETE", "/traffic-distribution-group/{TrafficDistributionGroupId}", 200] },
-  () => DeleteTrafficDistributionGroupRequest,
-  () => DeleteTrafficDistributionGroupResponse,
+  () => DeleteTrafficDistributionGroupRequest$,
+  () => DeleteTrafficDistributionGroupResponse$,
 ];
-export var DeleteUseCase: StaticOperationSchema = [
+export var DeleteUseCase$: StaticOperationSchema = [
   9,
   n0,
   _DUC,
@@ -11170,1684 +11181,1684 @@ export var DeleteUseCase: StaticOperationSchema = [
       200,
     ],
   },
-  () => DeleteUseCaseRequest,
+  () => DeleteUseCaseRequest$,
   () => __Unit,
 ];
-export var DeleteUser: StaticOperationSchema = [
+export var DeleteUser$: StaticOperationSchema = [
   9,
   n0,
   _DU,
   { [_h]: ["DELETE", "/users/{InstanceId}/{UserId}", 200] },
-  () => DeleteUserRequest,
+  () => DeleteUserRequest$,
   () => __Unit,
 ];
-export var DeleteUserHierarchyGroup: StaticOperationSchema = [
+export var DeleteUserHierarchyGroup$: StaticOperationSchema = [
   9,
   n0,
   _DUHG,
   { [_h]: ["DELETE", "/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}", 200] },
-  () => DeleteUserHierarchyGroupRequest,
+  () => DeleteUserHierarchyGroupRequest$,
   () => __Unit,
 ];
-export var DeleteView: StaticOperationSchema = [
+export var DeleteView$: StaticOperationSchema = [
   9,
   n0,
   _DVel,
   { [_h]: ["DELETE", "/views/{InstanceId}/{ViewId}", 200] },
-  () => DeleteViewRequest,
-  () => DeleteViewResponse,
+  () => DeleteViewRequest$,
+  () => DeleteViewResponse$,
 ];
-export var DeleteViewVersion: StaticOperationSchema = [
+export var DeleteViewVersion$: StaticOperationSchema = [
   9,
   n0,
   _DVV,
   { [_h]: ["DELETE", "/views/{InstanceId}/{ViewId}/versions/{ViewVersion}", 200] },
-  () => DeleteViewVersionRequest,
-  () => DeleteViewVersionResponse,
+  () => DeleteViewVersionRequest$,
+  () => DeleteViewVersionResponse$,
 ];
-export var DeleteVocabulary: StaticOperationSchema = [
+export var DeleteVocabulary$: StaticOperationSchema = [
   9,
   n0,
   _DVele,
   { [_h]: ["POST", "/vocabulary-remove/{InstanceId}/{VocabularyId}", 200] },
-  () => DeleteVocabularyRequest,
-  () => DeleteVocabularyResponse,
+  () => DeleteVocabularyRequest$,
+  () => DeleteVocabularyResponse$,
 ];
-export var DeleteWorkspace: StaticOperationSchema = [
+export var DeleteWorkspace$: StaticOperationSchema = [
   9,
   n0,
   _DW,
   { [_h]: ["DELETE", "/workspaces/{InstanceId}/{WorkspaceId}", 200] },
-  () => DeleteWorkspaceRequest,
-  () => DeleteWorkspaceResponse,
+  () => DeleteWorkspaceRequest$,
+  () => DeleteWorkspaceResponse$,
 ];
-export var DeleteWorkspaceMedia: StaticOperationSchema = [
+export var DeleteWorkspaceMedia$: StaticOperationSchema = [
   9,
   n0,
   _DWM,
   { [_h]: ["DELETE", "/workspaces/{InstanceId}/{WorkspaceId}/media", 200] },
-  () => DeleteWorkspaceMediaRequest,
-  () => DeleteWorkspaceMediaResponse,
+  () => DeleteWorkspaceMediaRequest$,
+  () => DeleteWorkspaceMediaResponse$,
 ];
-export var DeleteWorkspacePage: StaticOperationSchema = [
+export var DeleteWorkspacePage$: StaticOperationSchema = [
   9,
   n0,
   _DWP,
   { [_h]: ["DELETE", "/workspaces/{InstanceId}/{WorkspaceId}/pages/{Page}", 200] },
-  () => DeleteWorkspacePageRequest,
-  () => DeleteWorkspacePageResponse,
+  () => DeleteWorkspacePageRequest$,
+  () => DeleteWorkspacePageResponse$,
 ];
-export var DescribeAgentStatus: StaticOperationSchema = [
+export var DescribeAgentStatus$: StaticOperationSchema = [
   9,
   n0,
   _DAS,
   { [_h]: ["GET", "/agent-status/{InstanceId}/{AgentStatusId}", 200] },
-  () => DescribeAgentStatusRequest,
-  () => DescribeAgentStatusResponse,
+  () => DescribeAgentStatusRequest$,
+  () => DescribeAgentStatusResponse$,
 ];
-export var DescribeAuthenticationProfile: StaticOperationSchema = [
+export var DescribeAuthenticationProfile$: StaticOperationSchema = [
   9,
   n0,
   _DAP,
   { [_h]: ["GET", "/authentication-profiles/{InstanceId}/{AuthenticationProfileId}", 200] },
-  () => DescribeAuthenticationProfileRequest,
-  () => DescribeAuthenticationProfileResponse,
+  () => DescribeAuthenticationProfileRequest$,
+  () => DescribeAuthenticationProfileResponse$,
 ];
-export var DescribeContact: StaticOperationSchema = [
+export var DescribeContact$: StaticOperationSchema = [
   9,
   n0,
   _DCes,
   { [_h]: ["GET", "/contacts/{InstanceId}/{ContactId}", 200] },
-  () => DescribeContactRequest,
-  () => DescribeContactResponse,
+  () => DescribeContactRequest$,
+  () => DescribeContactResponse$,
 ];
-export var DescribeContactEvaluation: StaticOperationSchema = [
+export var DescribeContactEvaluation$: StaticOperationSchema = [
   9,
   n0,
   _DCEe,
   { [_h]: ["GET", "/contact-evaluations/{InstanceId}/{EvaluationId}", 200] },
-  () => DescribeContactEvaluationRequest,
-  () => DescribeContactEvaluationResponse,
+  () => DescribeContactEvaluationRequest$,
+  () => DescribeContactEvaluationResponse$,
 ];
-export var DescribeContactFlow: StaticOperationSchema = [
+export var DescribeContactFlow$: StaticOperationSchema = [
   9,
   n0,
   _DCFe,
   { [_h]: ["GET", "/contact-flows/{InstanceId}/{ContactFlowId}", 200] },
-  () => DescribeContactFlowRequest,
-  () => DescribeContactFlowResponse,
+  () => DescribeContactFlowRequest$,
+  () => DescribeContactFlowResponse$,
 ];
-export var DescribeContactFlowModule: StaticOperationSchema = [
+export var DescribeContactFlowModule$: StaticOperationSchema = [
   9,
   n0,
   _DCFMe,
   { [_h]: ["GET", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}", 200] },
-  () => DescribeContactFlowModuleRequest,
-  () => DescribeContactFlowModuleResponse,
+  () => DescribeContactFlowModuleRequest$,
+  () => DescribeContactFlowModuleResponse$,
 ];
-export var DescribeContactFlowModuleAlias: StaticOperationSchema = [
+export var DescribeContactFlowModuleAlias$: StaticOperationSchema = [
   9,
   n0,
   _DCFMAe,
   { [_h]: ["GET", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/alias/{AliasId}", 200] },
-  () => DescribeContactFlowModuleAliasRequest,
-  () => DescribeContactFlowModuleAliasResponse,
+  () => DescribeContactFlowModuleAliasRequest$,
+  () => DescribeContactFlowModuleAliasResponse$,
 ];
-export var DescribeDataTable: StaticOperationSchema = [
+export var DescribeDataTable$: StaticOperationSchema = [
   9,
   n0,
   _DDTe,
   { [_h]: ["GET", "/data-tables/{InstanceId}/{DataTableId}", 200] },
-  () => DescribeDataTableRequest,
-  () => DescribeDataTableResponse,
+  () => DescribeDataTableRequest$,
+  () => DescribeDataTableResponse$,
 ];
-export var DescribeDataTableAttribute: StaticOperationSchema = [
+export var DescribeDataTableAttribute$: StaticOperationSchema = [
   9,
   n0,
   _DDTAe,
   { [_h]: ["GET", "/data-tables/{InstanceId}/{DataTableId}/attributes/{AttributeName}", 200] },
-  () => DescribeDataTableAttributeRequest,
-  () => DescribeDataTableAttributeResponse,
+  () => DescribeDataTableAttributeRequest$,
+  () => DescribeDataTableAttributeResponse$,
 ];
-export var DescribeEmailAddress: StaticOperationSchema = [
+export var DescribeEmailAddress$: StaticOperationSchema = [
   9,
   n0,
   _DEAes,
   { [_h]: ["GET", "/email-addresses/{InstanceId}/{EmailAddressId}", 200] },
-  () => DescribeEmailAddressRequest,
-  () => DescribeEmailAddressResponse,
+  () => DescribeEmailAddressRequest$,
+  () => DescribeEmailAddressResponse$,
 ];
-export var DescribeEvaluationForm: StaticOperationSchema = [
+export var DescribeEvaluationForm$: StaticOperationSchema = [
   9,
   n0,
   _DEFes,
   { [_h]: ["GET", "/evaluation-forms/{InstanceId}/{EvaluationFormId}", 200] },
-  () => DescribeEvaluationFormRequest,
-  () => DescribeEvaluationFormResponse,
+  () => DescribeEvaluationFormRequest$,
+  () => DescribeEvaluationFormResponse$,
 ];
-export var DescribeHoursOfOperation: StaticOperationSchema = [
+export var DescribeHoursOfOperation$: StaticOperationSchema = [
   9,
   n0,
   _DHOOe,
   { [_h]: ["GET", "/hours-of-operations/{InstanceId}/{HoursOfOperationId}", 200] },
-  () => DescribeHoursOfOperationRequest,
-  () => DescribeHoursOfOperationResponse,
+  () => DescribeHoursOfOperationRequest$,
+  () => DescribeHoursOfOperationResponse$,
 ];
-export var DescribeHoursOfOperationOverride: StaticOperationSchema = [
+export var DescribeHoursOfOperationOverride$: StaticOperationSchema = [
   9,
   n0,
   _DHOOOe,
   {
     [_h]: ["GET", "/hours-of-operations/{InstanceId}/{HoursOfOperationId}/overrides/{HoursOfOperationOverrideId}", 200],
   },
-  () => DescribeHoursOfOperationOverrideRequest,
-  () => DescribeHoursOfOperationOverrideResponse,
+  () => DescribeHoursOfOperationOverrideRequest$,
+  () => DescribeHoursOfOperationOverrideResponse$,
 ];
-export var DescribeInstance: StaticOperationSchema = [
+export var DescribeInstance$: StaticOperationSchema = [
   9,
   n0,
   _DIes,
   { [_h]: ["GET", "/instance/{InstanceId}", 200] },
-  () => DescribeInstanceRequest,
-  () => DescribeInstanceResponse,
+  () => DescribeInstanceRequest$,
+  () => DescribeInstanceResponse$,
 ];
-export var DescribeInstanceAttribute: StaticOperationSchema = [
+export var DescribeInstanceAttribute$: StaticOperationSchema = [
   9,
   n0,
   _DIAe,
   { [_h]: ["GET", "/instance/{InstanceId}/attribute/{AttributeType}", 200] },
-  () => DescribeInstanceAttributeRequest,
-  () => DescribeInstanceAttributeResponse,
+  () => DescribeInstanceAttributeRequest$,
+  () => DescribeInstanceAttributeResponse$,
 ];
-export var DescribeInstanceStorageConfig: StaticOperationSchema = [
+export var DescribeInstanceStorageConfig$: StaticOperationSchema = [
   9,
   n0,
   _DISC,
   { [_h]: ["GET", "/instance/{InstanceId}/storage-config/{AssociationId}", 200] },
-  () => DescribeInstanceStorageConfigRequest,
-  () => DescribeInstanceStorageConfigResponse,
+  () => DescribeInstanceStorageConfigRequest$,
+  () => DescribeInstanceStorageConfigResponse$,
 ];
-export var DescribePhoneNumber: StaticOperationSchema = [
+export var DescribePhoneNumber$: StaticOperationSchema = [
   9,
   n0,
   _DPNes,
   { [_h]: ["GET", "/phone-number/{PhoneNumberId}", 200] },
-  () => DescribePhoneNumberRequest,
-  () => DescribePhoneNumberResponse,
+  () => DescribePhoneNumberRequest$,
+  () => DescribePhoneNumberResponse$,
 ];
-export var DescribePredefinedAttribute: StaticOperationSchema = [
+export var DescribePredefinedAttribute$: StaticOperationSchema = [
   9,
   n0,
   _DPAe,
   { [_h]: ["GET", "/predefined-attributes/{InstanceId}/{Name}", 200] },
-  () => DescribePredefinedAttributeRequest,
-  () => DescribePredefinedAttributeResponse,
+  () => DescribePredefinedAttributeRequest$,
+  () => DescribePredefinedAttributeResponse$,
 ];
-export var DescribePrompt: StaticOperationSchema = [
+export var DescribePrompt$: StaticOperationSchema = [
   9,
   n0,
   _DPe,
   { [_h]: ["GET", "/prompts/{InstanceId}/{PromptId}", 200] },
-  () => DescribePromptRequest,
-  () => DescribePromptResponse,
+  () => DescribePromptRequest$,
+  () => DescribePromptResponse$,
 ];
-export var DescribeQueue: StaticOperationSchema = [
+export var DescribeQueue$: StaticOperationSchema = [
   9,
   n0,
   _DQe,
   { [_h]: ["GET", "/queues/{InstanceId}/{QueueId}", 200] },
-  () => DescribeQueueRequest,
-  () => DescribeQueueResponse,
+  () => DescribeQueueRequest$,
+  () => DescribeQueueResponse$,
 ];
-export var DescribeQuickConnect: StaticOperationSchema = [
+export var DescribeQuickConnect$: StaticOperationSchema = [
   9,
   n0,
   _DQCe,
   { [_h]: ["GET", "/quick-connects/{InstanceId}/{QuickConnectId}", 200] },
-  () => DescribeQuickConnectRequest,
-  () => DescribeQuickConnectResponse,
+  () => DescribeQuickConnectRequest$,
+  () => DescribeQuickConnectResponse$,
 ];
-export var DescribeRoutingProfile: StaticOperationSchema = [
+export var DescribeRoutingProfile$: StaticOperationSchema = [
   9,
   n0,
   _DRPe,
   { [_h]: ["GET", "/routing-profiles/{InstanceId}/{RoutingProfileId}", 200] },
-  () => DescribeRoutingProfileRequest,
-  () => DescribeRoutingProfileResponse,
+  () => DescribeRoutingProfileRequest$,
+  () => DescribeRoutingProfileResponse$,
 ];
-export var DescribeRule: StaticOperationSchema = [
+export var DescribeRule$: StaticOperationSchema = [
   9,
   n0,
   _DRes,
   { [_h]: ["GET", "/rules/{InstanceId}/{RuleId}", 200] },
-  () => DescribeRuleRequest,
-  () => DescribeRuleResponse,
+  () => DescribeRuleRequest$,
+  () => DescribeRuleResponse$,
 ];
-export var DescribeSecurityProfile: StaticOperationSchema = [
+export var DescribeSecurityProfile$: StaticOperationSchema = [
   9,
   n0,
   _DSPe,
   { [_h]: ["GET", "/security-profiles/{InstanceId}/{SecurityProfileId}", 200] },
-  () => DescribeSecurityProfileRequest,
-  () => DescribeSecurityProfileResponse,
+  () => DescribeSecurityProfileRequest$,
+  () => DescribeSecurityProfileResponse$,
 ];
-export var DescribeTrafficDistributionGroup: StaticOperationSchema = [
+export var DescribeTrafficDistributionGroup$: StaticOperationSchema = [
   9,
   n0,
   _DTDGe,
   { [_h]: ["GET", "/traffic-distribution-group/{TrafficDistributionGroupId}", 200] },
-  () => DescribeTrafficDistributionGroupRequest,
-  () => DescribeTrafficDistributionGroupResponse,
+  () => DescribeTrafficDistributionGroupRequest$,
+  () => DescribeTrafficDistributionGroupResponse$,
 ];
-export var DescribeUser: StaticOperationSchema = [
+export var DescribeUser$: StaticOperationSchema = [
   9,
   n0,
   _DUe,
   { [_h]: ["GET", "/users/{InstanceId}/{UserId}", 200] },
-  () => DescribeUserRequest,
-  () => DescribeUserResponse,
+  () => DescribeUserRequest$,
+  () => DescribeUserResponse$,
 ];
-export var DescribeUserHierarchyGroup: StaticOperationSchema = [
+export var DescribeUserHierarchyGroup$: StaticOperationSchema = [
   9,
   n0,
   _DUHGe,
   { [_h]: ["GET", "/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}", 200] },
-  () => DescribeUserHierarchyGroupRequest,
-  () => DescribeUserHierarchyGroupResponse,
+  () => DescribeUserHierarchyGroupRequest$,
+  () => DescribeUserHierarchyGroupResponse$,
 ];
-export var DescribeUserHierarchyStructure: StaticOperationSchema = [
+export var DescribeUserHierarchyStructure$: StaticOperationSchema = [
   9,
   n0,
   _DUHS,
   { [_h]: ["GET", "/user-hierarchy-structure/{InstanceId}", 200] },
-  () => DescribeUserHierarchyStructureRequest,
-  () => DescribeUserHierarchyStructureResponse,
+  () => DescribeUserHierarchyStructureRequest$,
+  () => DescribeUserHierarchyStructureResponse$,
 ];
-export var DescribeView: StaticOperationSchema = [
+export var DescribeView$: StaticOperationSchema = [
   9,
   n0,
   _DVes,
   { [_h]: ["GET", "/views/{InstanceId}/{ViewId}", 200] },
-  () => DescribeViewRequest,
-  () => DescribeViewResponse,
+  () => DescribeViewRequest$,
+  () => DescribeViewResponse$,
 ];
-export var DescribeVocabulary: StaticOperationSchema = [
+export var DescribeVocabulary$: StaticOperationSchema = [
   9,
   n0,
   _DVesc,
   { [_h]: ["GET", "/vocabulary/{InstanceId}/{VocabularyId}", 200] },
-  () => DescribeVocabularyRequest,
-  () => DescribeVocabularyResponse,
+  () => DescribeVocabularyRequest$,
+  () => DescribeVocabularyResponse$,
 ];
-export var DescribeWorkspace: StaticOperationSchema = [
+export var DescribeWorkspace$: StaticOperationSchema = [
   9,
   n0,
   _DWe,
   { [_h]: ["GET", "/workspaces/{InstanceId}/{WorkspaceId}", 200] },
-  () => DescribeWorkspaceRequest,
-  () => DescribeWorkspaceResponse,
+  () => DescribeWorkspaceRequest$,
+  () => DescribeWorkspaceResponse$,
 ];
-export var DisassociateAnalyticsDataSet: StaticOperationSchema = [
+export var DisassociateAnalyticsDataSet$: StaticOperationSchema = [
   9,
   n0,
   _DADS,
   { [_h]: ["POST", "/analytics-data/instance/{InstanceId}/association", 200] },
-  () => DisassociateAnalyticsDataSetRequest,
+  () => DisassociateAnalyticsDataSetRequest$,
   () => __Unit,
 ];
-export var DisassociateApprovedOrigin: StaticOperationSchema = [
+export var DisassociateApprovedOrigin$: StaticOperationSchema = [
   9,
   n0,
   _DAO,
   { [_h]: ["DELETE", "/instance/{InstanceId}/approved-origin", 200] },
-  () => DisassociateApprovedOriginRequest,
+  () => DisassociateApprovedOriginRequest$,
   () => __Unit,
 ];
-export var DisassociateBot: StaticOperationSchema = [
+export var DisassociateBot$: StaticOperationSchema = [
   9,
   n0,
   _DB,
   { [_h]: ["POST", "/instance/{InstanceId}/bot", 200] },
-  () => DisassociateBotRequest,
+  () => DisassociateBotRequest$,
   () => __Unit,
 ];
-export var DisassociateEmailAddressAlias: StaticOperationSchema = [
+export var DisassociateEmailAddressAlias$: StaticOperationSchema = [
   9,
   n0,
   _DEAA,
   { [_h]: ["POST", "/email-addresses/{InstanceId}/{EmailAddressId}/disassociate-alias", 200] },
-  () => DisassociateEmailAddressAliasRequest,
-  () => DisassociateEmailAddressAliasResponse,
+  () => DisassociateEmailAddressAliasRequest$,
+  () => DisassociateEmailAddressAliasResponse$,
 ];
-export var DisassociateFlow: StaticOperationSchema = [
+export var DisassociateFlow$: StaticOperationSchema = [
   9,
   n0,
   _DF,
   { [_h]: ["DELETE", "/flow-associations/{InstanceId}/{ResourceId}/{ResourceType}", 200] },
-  () => DisassociateFlowRequest,
-  () => DisassociateFlowResponse,
+  () => DisassociateFlowRequest$,
+  () => DisassociateFlowResponse$,
 ];
-export var DisassociateInstanceStorageConfig: StaticOperationSchema = [
+export var DisassociateInstanceStorageConfig$: StaticOperationSchema = [
   9,
   n0,
   _DISCi,
   { [_h]: ["DELETE", "/instance/{InstanceId}/storage-config/{AssociationId}", 200] },
-  () => DisassociateInstanceStorageConfigRequest,
+  () => DisassociateInstanceStorageConfigRequest$,
   () => __Unit,
 ];
-export var DisassociateLambdaFunction: StaticOperationSchema = [
+export var DisassociateLambdaFunction$: StaticOperationSchema = [
   9,
   n0,
   _DLF,
   { [_h]: ["DELETE", "/instance/{InstanceId}/lambda-function", 200] },
-  () => DisassociateLambdaFunctionRequest,
+  () => DisassociateLambdaFunctionRequest$,
   () => __Unit,
 ];
-export var DisassociateLexBot: StaticOperationSchema = [
+export var DisassociateLexBot$: StaticOperationSchema = [
   9,
   n0,
   _DLB,
   { [_h]: ["DELETE", "/instance/{InstanceId}/lex-bot", 200] },
-  () => DisassociateLexBotRequest,
+  () => DisassociateLexBotRequest$,
   () => __Unit,
 ];
-export var DisassociatePhoneNumberContactFlow: StaticOperationSchema = [
+export var DisassociatePhoneNumberContactFlow$: StaticOperationSchema = [
   9,
   n0,
   _DPNCF,
   { [_h]: ["DELETE", "/phone-number/{PhoneNumberId}/contact-flow", 200] },
-  () => DisassociatePhoneNumberContactFlowRequest,
+  () => DisassociatePhoneNumberContactFlowRequest$,
   () => __Unit,
 ];
-export var DisassociateQueueQuickConnects: StaticOperationSchema = [
+export var DisassociateQueueQuickConnects$: StaticOperationSchema = [
   9,
   n0,
   _DQQC,
   { [_h]: ["POST", "/queues/{InstanceId}/{QueueId}/disassociate-quick-connects", 200] },
-  () => DisassociateQueueQuickConnectsRequest,
+  () => DisassociateQueueQuickConnectsRequest$,
   () => __Unit,
 ];
-export var DisassociateRoutingProfileQueues: StaticOperationSchema = [
+export var DisassociateRoutingProfileQueues$: StaticOperationSchema = [
   9,
   n0,
   _DRPQ,
   { [_h]: ["POST", "/routing-profiles/{InstanceId}/{RoutingProfileId}/disassociate-queues", 200] },
-  () => DisassociateRoutingProfileQueuesRequest,
+  () => DisassociateRoutingProfileQueuesRequest$,
   () => __Unit,
 ];
-export var DisassociateSecurityKey: StaticOperationSchema = [
+export var DisassociateSecurityKey$: StaticOperationSchema = [
   9,
   n0,
   _DSK,
   { [_h]: ["DELETE", "/instance/{InstanceId}/security-key/{AssociationId}", 200] },
-  () => DisassociateSecurityKeyRequest,
+  () => DisassociateSecurityKeyRequest$,
   () => __Unit,
 ];
-export var DisassociateSecurityProfiles: StaticOperationSchema = [
+export var DisassociateSecurityProfiles$: StaticOperationSchema = [
   9,
   n0,
   _DSPi,
   { [_h]: ["POST", "/disassociate-security-profiles/{InstanceId}", 200] },
-  () => DisassociateSecurityProfilesRequest,
+  () => DisassociateSecurityProfilesRequest$,
   () => __Unit,
 ];
-export var DisassociateTrafficDistributionGroupUser: StaticOperationSchema = [
+export var DisassociateTrafficDistributionGroupUser$: StaticOperationSchema = [
   9,
   n0,
   _DTDGU,
   { [_h]: ["DELETE", "/traffic-distribution-group/{TrafficDistributionGroupId}/user", 200] },
-  () => DisassociateTrafficDistributionGroupUserRequest,
-  () => DisassociateTrafficDistributionGroupUserResponse,
+  () => DisassociateTrafficDistributionGroupUserRequest$,
+  () => DisassociateTrafficDistributionGroupUserResponse$,
 ];
-export var DisassociateUserProficiencies: StaticOperationSchema = [
+export var DisassociateUserProficiencies$: StaticOperationSchema = [
   9,
   n0,
   _DUP,
   { [_h]: ["POST", "/users/{InstanceId}/{UserId}/disassociate-proficiencies", 200] },
-  () => DisassociateUserProficienciesRequest,
+  () => DisassociateUserProficienciesRequest$,
   () => __Unit,
 ];
-export var DisassociateWorkspace: StaticOperationSchema = [
+export var DisassociateWorkspace$: StaticOperationSchema = [
   9,
   n0,
   _DWi,
   { [_h]: ["POST", "/workspaces/{InstanceId}/{WorkspaceId}/disassociate", 200] },
-  () => DisassociateWorkspaceRequest,
-  () => DisassociateWorkspaceResponse,
+  () => DisassociateWorkspaceRequest$,
+  () => DisassociateWorkspaceResponse$,
 ];
-export var DismissUserContact: StaticOperationSchema = [
+export var DismissUserContact$: StaticOperationSchema = [
   9,
   n0,
   _DUCi,
   { [_h]: ["POST", "/users/{InstanceId}/{UserId}/contact", 200] },
-  () => DismissUserContactRequest,
-  () => DismissUserContactResponse,
+  () => DismissUserContactRequest$,
+  () => DismissUserContactResponse$,
 ];
-export var EvaluateDataTableValues: StaticOperationSchema = [
+export var EvaluateDataTableValues$: StaticOperationSchema = [
   9,
   n0,
   _EDTV,
   { [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/values/evaluate", 200] },
-  () => EvaluateDataTableValuesRequest,
-  () => EvaluateDataTableValuesResponse,
+  () => EvaluateDataTableValuesRequest$,
+  () => EvaluateDataTableValuesResponse$,
 ];
-export var GetAttachedFile: StaticOperationSchema = [
+export var GetAttachedFile$: StaticOperationSchema = [
   9,
   n0,
   _GAF,
   { [_h]: ["GET", "/attached-files/{InstanceId}/{FileId}", 200] },
-  () => GetAttachedFileRequest,
-  () => GetAttachedFileResponse,
+  () => GetAttachedFileRequest$,
+  () => GetAttachedFileResponse$,
 ];
-export var GetContactAttributes: StaticOperationSchema = [
+export var GetContactAttributes$: StaticOperationSchema = [
   9,
   n0,
   _GCA,
   { [_h]: ["GET", "/contact/attributes/{InstanceId}/{InitialContactId}", 200] },
-  () => GetContactAttributesRequest,
-  () => GetContactAttributesResponse,
+  () => GetContactAttributesRequest$,
+  () => GetContactAttributesResponse$,
 ];
-export var GetContactMetrics: StaticOperationSchema = [
+export var GetContactMetrics$: StaticOperationSchema = [
   9,
   n0,
   _GCM,
   { [_h]: ["POST", "/metrics/contact", 200] },
-  () => GetContactMetricsRequest,
-  () => GetContactMetricsResponse,
+  () => GetContactMetricsRequest$,
+  () => GetContactMetricsResponse$,
 ];
-export var GetCurrentMetricData: StaticOperationSchema = [
+export var GetCurrentMetricData$: StaticOperationSchema = [
   9,
   n0,
   _GCMD,
   { [_h]: ["POST", "/metrics/current/{InstanceId}", 200] },
-  () => GetCurrentMetricDataRequest,
-  () => GetCurrentMetricDataResponse,
+  () => GetCurrentMetricDataRequest$,
+  () => GetCurrentMetricDataResponse$,
 ];
-export var GetCurrentUserData: StaticOperationSchema = [
+export var GetCurrentUserData$: StaticOperationSchema = [
   9,
   n0,
   _GCUD,
   { [_h]: ["POST", "/metrics/userdata/{InstanceId}", 200] },
-  () => GetCurrentUserDataRequest,
-  () => GetCurrentUserDataResponse,
+  () => GetCurrentUserDataRequest$,
+  () => GetCurrentUserDataResponse$,
 ];
-export var GetEffectiveHoursOfOperations: StaticOperationSchema = [
+export var GetEffectiveHoursOfOperations$: StaticOperationSchema = [
   9,
   n0,
   _GEHOO,
   { [_h]: ["GET", "/effective-hours-of-operations/{InstanceId}/{HoursOfOperationId}", 200] },
-  () => GetEffectiveHoursOfOperationsRequest,
-  () => GetEffectiveHoursOfOperationsResponse,
+  () => GetEffectiveHoursOfOperationsRequest$,
+  () => GetEffectiveHoursOfOperationsResponse$,
 ];
-export var GetFederationToken: StaticOperationSchema = [
+export var GetFederationToken$: StaticOperationSchema = [
   9,
   n0,
   _GFT,
   { [_h]: ["GET", "/user/federate/{InstanceId}", 200] },
-  () => GetFederationTokenRequest,
-  () => GetFederationTokenResponse,
+  () => GetFederationTokenRequest$,
+  () => GetFederationTokenResponse$,
 ];
-export var GetFlowAssociation: StaticOperationSchema = [
+export var GetFlowAssociation$: StaticOperationSchema = [
   9,
   n0,
   _GFA,
   { [_h]: ["GET", "/flow-associations/{InstanceId}/{ResourceId}/{ResourceType}", 200] },
-  () => GetFlowAssociationRequest,
-  () => GetFlowAssociationResponse,
+  () => GetFlowAssociationRequest$,
+  () => GetFlowAssociationResponse$,
 ];
-export var GetMetricData: StaticOperationSchema = [
+export var GetMetricData$: StaticOperationSchema = [
   9,
   n0,
   _GMD,
   { [_h]: ["POST", "/metrics/historical/{InstanceId}", 200] },
-  () => GetMetricDataRequest,
-  () => GetMetricDataResponse,
+  () => GetMetricDataRequest$,
+  () => GetMetricDataResponse$,
 ];
-export var GetMetricDataV2: StaticOperationSchema = [
+export var GetMetricDataV2$: StaticOperationSchema = [
   9,
   n0,
   _GMDV,
   { [_h]: ["POST", "/metrics/data", 200] },
-  () => GetMetricDataV2Request,
-  () => GetMetricDataV2Response,
+  () => GetMetricDataV2Request$,
+  () => GetMetricDataV2Response$,
 ];
-export var GetPromptFile: StaticOperationSchema = [
+export var GetPromptFile$: StaticOperationSchema = [
   9,
   n0,
   _GPF,
   { [_h]: ["GET", "/prompts/{InstanceId}/{PromptId}/file", 200] },
-  () => GetPromptFileRequest,
-  () => GetPromptFileResponse,
+  () => GetPromptFileRequest$,
+  () => GetPromptFileResponse$,
 ];
-export var GetTaskTemplate: StaticOperationSchema = [
+export var GetTaskTemplate$: StaticOperationSchema = [
   9,
   n0,
   _GTT,
   { [_h]: ["GET", "/instance/{InstanceId}/task/template/{TaskTemplateId}", 200] },
-  () => GetTaskTemplateRequest,
-  () => GetTaskTemplateResponse,
+  () => GetTaskTemplateRequest$,
+  () => GetTaskTemplateResponse$,
 ];
-export var GetTrafficDistribution: StaticOperationSchema = [
+export var GetTrafficDistribution$: StaticOperationSchema = [
   9,
   n0,
   _GTD,
   { [_h]: ["GET", "/traffic-distribution/{Id}", 200] },
-  () => GetTrafficDistributionRequest,
-  () => GetTrafficDistributionResponse,
+  () => GetTrafficDistributionRequest$,
+  () => GetTrafficDistributionResponse$,
 ];
-export var ImportPhoneNumber: StaticOperationSchema = [
+export var ImportPhoneNumber$: StaticOperationSchema = [
   9,
   n0,
   _IPN,
   { [_h]: ["POST", "/phone-number/import", 200] },
-  () => ImportPhoneNumberRequest,
-  () => ImportPhoneNumberResponse,
+  () => ImportPhoneNumberRequest$,
+  () => ImportPhoneNumberResponse$,
 ];
-export var ImportWorkspaceMedia: StaticOperationSchema = [
+export var ImportWorkspaceMedia$: StaticOperationSchema = [
   9,
   n0,
   _IWM,
   { [_h]: ["POST", "/workspaces/{InstanceId}/{WorkspaceId}/media", 200] },
-  () => ImportWorkspaceMediaRequest,
-  () => ImportWorkspaceMediaResponse,
+  () => ImportWorkspaceMediaRequest$,
+  () => ImportWorkspaceMediaResponse$,
 ];
-export var ListAgentStatuses: StaticOperationSchema = [
+export var ListAgentStatuses$: StaticOperationSchema = [
   9,
   n0,
   _LAS,
   { [_h]: ["GET", "/agent-status/{InstanceId}", 200] },
-  () => ListAgentStatusRequest,
-  () => ListAgentStatusResponse,
+  () => ListAgentStatusRequest$,
+  () => ListAgentStatusResponse$,
 ];
-export var ListAnalyticsDataAssociations: StaticOperationSchema = [
+export var ListAnalyticsDataAssociations$: StaticOperationSchema = [
   9,
   n0,
   _LADA,
   { [_h]: ["GET", "/analytics-data/instance/{InstanceId}/association", 200] },
-  () => ListAnalyticsDataAssociationsRequest,
-  () => ListAnalyticsDataAssociationsResponse,
+  () => ListAnalyticsDataAssociationsRequest$,
+  () => ListAnalyticsDataAssociationsResponse$,
 ];
-export var ListAnalyticsDataLakeDataSets: StaticOperationSchema = [
+export var ListAnalyticsDataLakeDataSets$: StaticOperationSchema = [
   9,
   n0,
   _LADLDS,
   { [_h]: ["GET", "/analytics-data/instance/{InstanceId}/datasets", 200] },
-  () => ListAnalyticsDataLakeDataSetsRequest,
-  () => ListAnalyticsDataLakeDataSetsResponse,
+  () => ListAnalyticsDataLakeDataSetsRequest$,
+  () => ListAnalyticsDataLakeDataSetsResponse$,
 ];
-export var ListApprovedOrigins: StaticOperationSchema = [
+export var ListApprovedOrigins$: StaticOperationSchema = [
   9,
   n0,
   _LAO,
   { [_h]: ["GET", "/instance/{InstanceId}/approved-origins", 200] },
-  () => ListApprovedOriginsRequest,
-  () => ListApprovedOriginsResponse,
+  () => ListApprovedOriginsRequest$,
+  () => ListApprovedOriginsResponse$,
 ];
-export var ListAssociatedContacts: StaticOperationSchema = [
+export var ListAssociatedContacts$: StaticOperationSchema = [
   9,
   n0,
   _LAC,
   { [_h]: ["GET", "/contact/associated/{InstanceId}", 200] },
-  () => ListAssociatedContactsRequest,
-  () => ListAssociatedContactsResponse,
+  () => ListAssociatedContactsRequest$,
+  () => ListAssociatedContactsResponse$,
 ];
-export var ListAuthenticationProfiles: StaticOperationSchema = [
+export var ListAuthenticationProfiles$: StaticOperationSchema = [
   9,
   n0,
   _LAP,
   { [_h]: ["GET", "/authentication-profiles-summary/{InstanceId}", 200] },
-  () => ListAuthenticationProfilesRequest,
-  () => ListAuthenticationProfilesResponse,
+  () => ListAuthenticationProfilesRequest$,
+  () => ListAuthenticationProfilesResponse$,
 ];
-export var ListBots: StaticOperationSchema = [
+export var ListBots$: StaticOperationSchema = [
   9,
   n0,
   _LBi,
   { [_h]: ["GET", "/instance/{InstanceId}/bots", 200] },
-  () => ListBotsRequest,
-  () => ListBotsResponse,
+  () => ListBotsRequest$,
+  () => ListBotsResponse$,
 ];
-export var ListContactEvaluations: StaticOperationSchema = [
+export var ListContactEvaluations$: StaticOperationSchema = [
   9,
   n0,
   _LCE,
   { [_h]: ["GET", "/contact-evaluations/{InstanceId}", 200] },
-  () => ListContactEvaluationsRequest,
-  () => ListContactEvaluationsResponse,
+  () => ListContactEvaluationsRequest$,
+  () => ListContactEvaluationsResponse$,
 ];
-export var ListContactFlowModuleAliases: StaticOperationSchema = [
+export var ListContactFlowModuleAliases$: StaticOperationSchema = [
   9,
   n0,
   _LCFMA,
   { [_h]: ["GET", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/aliases", 200] },
-  () => ListContactFlowModuleAliasesRequest,
-  () => ListContactFlowModuleAliasesResponse,
+  () => ListContactFlowModuleAliasesRequest$,
+  () => ListContactFlowModuleAliasesResponse$,
 ];
-export var ListContactFlowModules: StaticOperationSchema = [
+export var ListContactFlowModules$: StaticOperationSchema = [
   9,
   n0,
   _LCFM,
   { [_h]: ["GET", "/contact-flow-modules-summary/{InstanceId}", 200] },
-  () => ListContactFlowModulesRequest,
-  () => ListContactFlowModulesResponse,
+  () => ListContactFlowModulesRequest$,
+  () => ListContactFlowModulesResponse$,
 ];
-export var ListContactFlowModuleVersions: StaticOperationSchema = [
+export var ListContactFlowModuleVersions$: StaticOperationSchema = [
   9,
   n0,
   _LCFMV,
   { [_h]: ["GET", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/versions", 200] },
-  () => ListContactFlowModuleVersionsRequest,
-  () => ListContactFlowModuleVersionsResponse,
+  () => ListContactFlowModuleVersionsRequest$,
+  () => ListContactFlowModuleVersionsResponse$,
 ];
-export var ListContactFlows: StaticOperationSchema = [
+export var ListContactFlows$: StaticOperationSchema = [
   9,
   n0,
   _LCF,
   { [_h]: ["GET", "/contact-flows-summary/{InstanceId}", 200] },
-  () => ListContactFlowsRequest,
-  () => ListContactFlowsResponse,
+  () => ListContactFlowsRequest$,
+  () => ListContactFlowsResponse$,
 ];
-export var ListContactFlowVersions: StaticOperationSchema = [
+export var ListContactFlowVersions$: StaticOperationSchema = [
   9,
   n0,
   _LCFV,
   { [_h]: ["GET", "/contact-flows/{InstanceId}/{ContactFlowId}/versions", 200] },
-  () => ListContactFlowVersionsRequest,
-  () => ListContactFlowVersionsResponse,
+  () => ListContactFlowVersionsRequest$,
+  () => ListContactFlowVersionsResponse$,
 ];
-export var ListContactReferences: StaticOperationSchema = [
+export var ListContactReferences$: StaticOperationSchema = [
   9,
   n0,
   _LCR,
   { [_h]: ["GET", "/contact/references/{InstanceId}/{ContactId}", 200] },
-  () => ListContactReferencesRequest,
-  () => ListContactReferencesResponse,
+  () => ListContactReferencesRequest$,
+  () => ListContactReferencesResponse$,
 ];
-export var ListDataTableAttributes: StaticOperationSchema = [
+export var ListDataTableAttributes$: StaticOperationSchema = [
   9,
   n0,
   _LDTA,
   { [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/attributes", 200] },
-  () => ListDataTableAttributesRequest,
-  () => ListDataTableAttributesResponse,
+  () => ListDataTableAttributesRequest$,
+  () => ListDataTableAttributesResponse$,
 ];
-export var ListDataTablePrimaryValues: StaticOperationSchema = [
+export var ListDataTablePrimaryValues$: StaticOperationSchema = [
   9,
   n0,
   _LDTPV,
   { [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/values/list-primary", 200] },
-  () => ListDataTablePrimaryValuesRequest,
-  () => ListDataTablePrimaryValuesResponse,
+  () => ListDataTablePrimaryValuesRequest$,
+  () => ListDataTablePrimaryValuesResponse$,
 ];
-export var ListDataTables: StaticOperationSchema = [
+export var ListDataTables$: StaticOperationSchema = [
   9,
   n0,
   _LDT,
   { [_h]: ["GET", "/data-tables/{InstanceId}", 200] },
-  () => ListDataTablesRequest,
-  () => ListDataTablesResponse,
+  () => ListDataTablesRequest$,
+  () => ListDataTablesResponse$,
 ];
-export var ListDataTableValues: StaticOperationSchema = [
+export var ListDataTableValues$: StaticOperationSchema = [
   9,
   n0,
   _LDTV,
   { [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/values/list", 200] },
-  () => ListDataTableValuesRequest,
-  () => ListDataTableValuesResponse,
+  () => ListDataTableValuesRequest$,
+  () => ListDataTableValuesResponse$,
 ];
-export var ListDefaultVocabularies: StaticOperationSchema = [
+export var ListDefaultVocabularies$: StaticOperationSchema = [
   9,
   n0,
   _LDV,
   { [_h]: ["POST", "/default-vocabulary-summary/{InstanceId}", 200] },
-  () => ListDefaultVocabulariesRequest,
-  () => ListDefaultVocabulariesResponse,
+  () => ListDefaultVocabulariesRequest$,
+  () => ListDefaultVocabulariesResponse$,
 ];
-export var ListEntitySecurityProfiles: StaticOperationSchema = [
+export var ListEntitySecurityProfiles$: StaticOperationSchema = [
   9,
   n0,
   _LESP,
   { [_h]: ["POST", "/entity-security-profiles-summary/{InstanceId}", 200] },
-  () => ListEntitySecurityProfilesRequest,
-  () => ListEntitySecurityProfilesResponse,
+  () => ListEntitySecurityProfilesRequest$,
+  () => ListEntitySecurityProfilesResponse$,
 ];
-export var ListEvaluationForms: StaticOperationSchema = [
+export var ListEvaluationForms$: StaticOperationSchema = [
   9,
   n0,
   _LEF,
   { [_h]: ["GET", "/evaluation-forms/{InstanceId}", 200] },
-  () => ListEvaluationFormsRequest,
-  () => ListEvaluationFormsResponse,
+  () => ListEvaluationFormsRequest$,
+  () => ListEvaluationFormsResponse$,
 ];
-export var ListEvaluationFormVersions: StaticOperationSchema = [
+export var ListEvaluationFormVersions$: StaticOperationSchema = [
   9,
   n0,
   _LEFV,
   { [_h]: ["GET", "/evaluation-forms/{InstanceId}/{EvaluationFormId}/versions", 200] },
-  () => ListEvaluationFormVersionsRequest,
-  () => ListEvaluationFormVersionsResponse,
+  () => ListEvaluationFormVersionsRequest$,
+  () => ListEvaluationFormVersionsResponse$,
 ];
-export var ListFlowAssociations: StaticOperationSchema = [
+export var ListFlowAssociations$: StaticOperationSchema = [
   9,
   n0,
   _LFA,
   { [_h]: ["GET", "/flow-associations-summary/{InstanceId}", 200] },
-  () => ListFlowAssociationsRequest,
-  () => ListFlowAssociationsResponse,
+  () => ListFlowAssociationsRequest$,
+  () => ListFlowAssociationsResponse$,
 ];
-export var ListHoursOfOperationOverrides: StaticOperationSchema = [
+export var ListHoursOfOperationOverrides$: StaticOperationSchema = [
   9,
   n0,
   _LHOOO,
   { [_h]: ["GET", "/hours-of-operations/{InstanceId}/{HoursOfOperationId}/overrides", 200] },
-  () => ListHoursOfOperationOverridesRequest,
-  () => ListHoursOfOperationOverridesResponse,
+  () => ListHoursOfOperationOverridesRequest$,
+  () => ListHoursOfOperationOverridesResponse$,
 ];
-export var ListHoursOfOperations: StaticOperationSchema = [
+export var ListHoursOfOperations$: StaticOperationSchema = [
   9,
   n0,
   _LHOO,
   { [_h]: ["GET", "/hours-of-operations-summary/{InstanceId}", 200] },
-  () => ListHoursOfOperationsRequest,
-  () => ListHoursOfOperationsResponse,
+  () => ListHoursOfOperationsRequest$,
+  () => ListHoursOfOperationsResponse$,
 ];
-export var ListInstanceAttributes: StaticOperationSchema = [
+export var ListInstanceAttributes$: StaticOperationSchema = [
   9,
   n0,
   _LIA,
   { [_h]: ["GET", "/instance/{InstanceId}/attributes", 200] },
-  () => ListInstanceAttributesRequest,
-  () => ListInstanceAttributesResponse,
+  () => ListInstanceAttributesRequest$,
+  () => ListInstanceAttributesResponse$,
 ];
-export var ListInstances: StaticOperationSchema = [
+export var ListInstances$: StaticOperationSchema = [
   9,
   n0,
   _LIi,
   { [_h]: ["GET", "/instance", 200] },
-  () => ListInstancesRequest,
-  () => ListInstancesResponse,
+  () => ListInstancesRequest$,
+  () => ListInstancesResponse$,
 ];
-export var ListInstanceStorageConfigs: StaticOperationSchema = [
+export var ListInstanceStorageConfigs$: StaticOperationSchema = [
   9,
   n0,
   _LISC,
   { [_h]: ["GET", "/instance/{InstanceId}/storage-configs", 200] },
-  () => ListInstanceStorageConfigsRequest,
-  () => ListInstanceStorageConfigsResponse,
+  () => ListInstanceStorageConfigsRequest$,
+  () => ListInstanceStorageConfigsResponse$,
 ];
-export var ListIntegrationAssociations: StaticOperationSchema = [
+export var ListIntegrationAssociations$: StaticOperationSchema = [
   9,
   n0,
   _LIAi,
   { [_h]: ["GET", "/instance/{InstanceId}/integration-associations", 200] },
-  () => ListIntegrationAssociationsRequest,
-  () => ListIntegrationAssociationsResponse,
+  () => ListIntegrationAssociationsRequest$,
+  () => ListIntegrationAssociationsResponse$,
 ];
-export var ListLambdaFunctions: StaticOperationSchema = [
+export var ListLambdaFunctions$: StaticOperationSchema = [
   9,
   n0,
   _LLF,
   { [_h]: ["GET", "/instance/{InstanceId}/lambda-functions", 200] },
-  () => ListLambdaFunctionsRequest,
-  () => ListLambdaFunctionsResponse,
+  () => ListLambdaFunctionsRequest$,
+  () => ListLambdaFunctionsResponse$,
 ];
-export var ListLexBots: StaticOperationSchema = [
+export var ListLexBots$: StaticOperationSchema = [
   9,
   n0,
   _LLB,
   { [_h]: ["GET", "/instance/{InstanceId}/lex-bots", 200] },
-  () => ListLexBotsRequest,
-  () => ListLexBotsResponse,
+  () => ListLexBotsRequest$,
+  () => ListLexBotsResponse$,
 ];
-export var ListPhoneNumbers: StaticOperationSchema = [
+export var ListPhoneNumbers$: StaticOperationSchema = [
   9,
   n0,
   _LPN,
   { [_h]: ["GET", "/phone-numbers-summary/{InstanceId}", 200] },
-  () => ListPhoneNumbersRequest,
-  () => ListPhoneNumbersResponse,
+  () => ListPhoneNumbersRequest$,
+  () => ListPhoneNumbersResponse$,
 ];
-export var ListPhoneNumbersV2: StaticOperationSchema = [
+export var ListPhoneNumbersV2$: StaticOperationSchema = [
   9,
   n0,
   _LPNV,
   { [_h]: ["POST", "/phone-number/list", 200] },
-  () => ListPhoneNumbersV2Request,
-  () => ListPhoneNumbersV2Response,
+  () => ListPhoneNumbersV2Request$,
+  () => ListPhoneNumbersV2Response$,
 ];
-export var ListPredefinedAttributes: StaticOperationSchema = [
+export var ListPredefinedAttributes$: StaticOperationSchema = [
   9,
   n0,
   _LPA,
   { [_h]: ["GET", "/predefined-attributes/{InstanceId}", 200] },
-  () => ListPredefinedAttributesRequest,
-  () => ListPredefinedAttributesResponse,
+  () => ListPredefinedAttributesRequest$,
+  () => ListPredefinedAttributesResponse$,
 ];
-export var ListPrompts: StaticOperationSchema = [
+export var ListPrompts$: StaticOperationSchema = [
   9,
   n0,
   _LP,
   { [_h]: ["GET", "/prompts-summary/{InstanceId}", 200] },
-  () => ListPromptsRequest,
-  () => ListPromptsResponse,
+  () => ListPromptsRequest$,
+  () => ListPromptsResponse$,
 ];
-export var ListQueueQuickConnects: StaticOperationSchema = [
+export var ListQueueQuickConnects$: StaticOperationSchema = [
   9,
   n0,
   _LQQC,
   { [_h]: ["GET", "/queues/{InstanceId}/{QueueId}/quick-connects", 200] },
-  () => ListQueueQuickConnectsRequest,
-  () => ListQueueQuickConnectsResponse,
+  () => ListQueueQuickConnectsRequest$,
+  () => ListQueueQuickConnectsResponse$,
 ];
-export var ListQueues: StaticOperationSchema = [
+export var ListQueues$: StaticOperationSchema = [
   9,
   n0,
   _LQ,
   { [_h]: ["GET", "/queues-summary/{InstanceId}", 200] },
-  () => ListQueuesRequest,
-  () => ListQueuesResponse,
+  () => ListQueuesRequest$,
+  () => ListQueuesResponse$,
 ];
-export var ListQuickConnects: StaticOperationSchema = [
+export var ListQuickConnects$: StaticOperationSchema = [
   9,
   n0,
   _LQC,
   { [_h]: ["GET", "/quick-connects/{InstanceId}", 200] },
-  () => ListQuickConnectsRequest,
-  () => ListQuickConnectsResponse,
+  () => ListQuickConnectsRequest$,
+  () => ListQuickConnectsResponse$,
 ];
-export var ListRealtimeContactAnalysisSegmentsV2: StaticOperationSchema = [
+export var ListRealtimeContactAnalysisSegmentsV2$: StaticOperationSchema = [
   9,
   n0,
   _LRCASV,
   { [_h]: ["POST", "/contact/list-real-time-analysis-segments-v2/{InstanceId}/{ContactId}", 200] },
-  () => ListRealtimeContactAnalysisSegmentsV2Request,
-  () => ListRealtimeContactAnalysisSegmentsV2Response,
+  () => ListRealtimeContactAnalysisSegmentsV2Request$,
+  () => ListRealtimeContactAnalysisSegmentsV2Response$,
 ];
-export var ListRoutingProfileManualAssignmentQueues: StaticOperationSchema = [
+export var ListRoutingProfileManualAssignmentQueues$: StaticOperationSchema = [
   9,
   n0,
   _LRPMAQ,
   { [_h]: ["GET", "/routing-profiles/{InstanceId}/{RoutingProfileId}/manual-assignment-queues", 200] },
-  () => ListRoutingProfileManualAssignmentQueuesRequest,
-  () => ListRoutingProfileManualAssignmentQueuesResponse,
+  () => ListRoutingProfileManualAssignmentQueuesRequest$,
+  () => ListRoutingProfileManualAssignmentQueuesResponse$,
 ];
-export var ListRoutingProfileQueues: StaticOperationSchema = [
+export var ListRoutingProfileQueues$: StaticOperationSchema = [
   9,
   n0,
   _LRPQ,
   { [_h]: ["GET", "/routing-profiles/{InstanceId}/{RoutingProfileId}/queues", 200] },
-  () => ListRoutingProfileQueuesRequest,
-  () => ListRoutingProfileQueuesResponse,
+  () => ListRoutingProfileQueuesRequest$,
+  () => ListRoutingProfileQueuesResponse$,
 ];
-export var ListRoutingProfiles: StaticOperationSchema = [
+export var ListRoutingProfiles$: StaticOperationSchema = [
   9,
   n0,
   _LRP,
   { [_h]: ["GET", "/routing-profiles-summary/{InstanceId}", 200] },
-  () => ListRoutingProfilesRequest,
-  () => ListRoutingProfilesResponse,
+  () => ListRoutingProfilesRequest$,
+  () => ListRoutingProfilesResponse$,
 ];
-export var ListRules: StaticOperationSchema = [
+export var ListRules$: StaticOperationSchema = [
   9,
   n0,
   _LRi,
   { [_h]: ["GET", "/rules/{InstanceId}", 200] },
-  () => ListRulesRequest,
-  () => ListRulesResponse,
+  () => ListRulesRequest$,
+  () => ListRulesResponse$,
 ];
-export var ListSecurityKeys: StaticOperationSchema = [
+export var ListSecurityKeys$: StaticOperationSchema = [
   9,
   n0,
   _LSK,
   { [_h]: ["GET", "/instance/{InstanceId}/security-keys", 200] },
-  () => ListSecurityKeysRequest,
-  () => ListSecurityKeysResponse,
+  () => ListSecurityKeysRequest$,
+  () => ListSecurityKeysResponse$,
 ];
-export var ListSecurityProfileApplications: StaticOperationSchema = [
+export var ListSecurityProfileApplications$: StaticOperationSchema = [
   9,
   n0,
   _LSPA,
   { [_h]: ["GET", "/security-profiles-applications/{InstanceId}/{SecurityProfileId}", 200] },
-  () => ListSecurityProfileApplicationsRequest,
-  () => ListSecurityProfileApplicationsResponse,
+  () => ListSecurityProfileApplicationsRequest$,
+  () => ListSecurityProfileApplicationsResponse$,
 ];
-export var ListSecurityProfileFlowModules: StaticOperationSchema = [
+export var ListSecurityProfileFlowModules$: StaticOperationSchema = [
   9,
   n0,
   _LSPFM,
   { [_h]: ["GET", "/security-profiles-flow-modules/{InstanceId}/{SecurityProfileId}", 200] },
-  () => ListSecurityProfileFlowModulesRequest,
-  () => ListSecurityProfileFlowModulesResponse,
+  () => ListSecurityProfileFlowModulesRequest$,
+  () => ListSecurityProfileFlowModulesResponse$,
 ];
-export var ListSecurityProfilePermissions: StaticOperationSchema = [
+export var ListSecurityProfilePermissions$: StaticOperationSchema = [
   9,
   n0,
   _LSPP,
   { [_h]: ["GET", "/security-profiles-permissions/{InstanceId}/{SecurityProfileId}", 200] },
-  () => ListSecurityProfilePermissionsRequest,
-  () => ListSecurityProfilePermissionsResponse,
+  () => ListSecurityProfilePermissionsRequest$,
+  () => ListSecurityProfilePermissionsResponse$,
 ];
-export var ListSecurityProfiles: StaticOperationSchema = [
+export var ListSecurityProfiles$: StaticOperationSchema = [
   9,
   n0,
   _LSP,
   { [_h]: ["GET", "/security-profiles-summary/{InstanceId}", 200] },
-  () => ListSecurityProfilesRequest,
-  () => ListSecurityProfilesResponse,
+  () => ListSecurityProfilesRequest$,
+  () => ListSecurityProfilesResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{resourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var ListTaskTemplates: StaticOperationSchema = [
+export var ListTaskTemplates$: StaticOperationSchema = [
   9,
   n0,
   _LTT,
   { [_h]: ["GET", "/instance/{InstanceId}/task/template", 200] },
-  () => ListTaskTemplatesRequest,
-  () => ListTaskTemplatesResponse,
+  () => ListTaskTemplatesRequest$,
+  () => ListTaskTemplatesResponse$,
 ];
-export var ListTrafficDistributionGroups: StaticOperationSchema = [
+export var ListTrafficDistributionGroups$: StaticOperationSchema = [
   9,
   n0,
   _LTDG,
   { [_h]: ["GET", "/traffic-distribution-groups", 200] },
-  () => ListTrafficDistributionGroupsRequest,
-  () => ListTrafficDistributionGroupsResponse,
+  () => ListTrafficDistributionGroupsRequest$,
+  () => ListTrafficDistributionGroupsResponse$,
 ];
-export var ListTrafficDistributionGroupUsers: StaticOperationSchema = [
+export var ListTrafficDistributionGroupUsers$: StaticOperationSchema = [
   9,
   n0,
   _LTDGU,
   { [_h]: ["GET", "/traffic-distribution-group/{TrafficDistributionGroupId}/user", 200] },
-  () => ListTrafficDistributionGroupUsersRequest,
-  () => ListTrafficDistributionGroupUsersResponse,
+  () => ListTrafficDistributionGroupUsersRequest$,
+  () => ListTrafficDistributionGroupUsersResponse$,
 ];
-export var ListUseCases: StaticOperationSchema = [
+export var ListUseCases$: StaticOperationSchema = [
   9,
   n0,
   _LUC,
   { [_h]: ["GET", "/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}/use-cases", 200] },
-  () => ListUseCasesRequest,
-  () => ListUseCasesResponse,
+  () => ListUseCasesRequest$,
+  () => ListUseCasesResponse$,
 ];
-export var ListUserHierarchyGroups: StaticOperationSchema = [
+export var ListUserHierarchyGroups$: StaticOperationSchema = [
   9,
   n0,
   _LUHG,
   { [_h]: ["GET", "/user-hierarchy-groups-summary/{InstanceId}", 200] },
-  () => ListUserHierarchyGroupsRequest,
-  () => ListUserHierarchyGroupsResponse,
+  () => ListUserHierarchyGroupsRequest$,
+  () => ListUserHierarchyGroupsResponse$,
 ];
-export var ListUserProficiencies: StaticOperationSchema = [
+export var ListUserProficiencies$: StaticOperationSchema = [
   9,
   n0,
   _LUP,
   { [_h]: ["GET", "/users/{InstanceId}/{UserId}/proficiencies", 200] },
-  () => ListUserProficienciesRequest,
-  () => ListUserProficienciesResponse,
+  () => ListUserProficienciesRequest$,
+  () => ListUserProficienciesResponse$,
 ];
-export var ListUsers: StaticOperationSchema = [
+export var ListUsers$: StaticOperationSchema = [
   9,
   n0,
   _LU,
   { [_h]: ["GET", "/users-summary/{InstanceId}", 200] },
-  () => ListUsersRequest,
-  () => ListUsersResponse,
+  () => ListUsersRequest$,
+  () => ListUsersResponse$,
 ];
-export var ListViews: StaticOperationSchema = [
+export var ListViews$: StaticOperationSchema = [
   9,
   n0,
   _LVi,
   { [_h]: ["GET", "/views/{InstanceId}", 200] },
-  () => ListViewsRequest,
-  () => ListViewsResponse,
+  () => ListViewsRequest$,
+  () => ListViewsResponse$,
 ];
-export var ListViewVersions: StaticOperationSchema = [
+export var ListViewVersions$: StaticOperationSchema = [
   9,
   n0,
   _LVV,
   { [_h]: ["GET", "/views/{InstanceId}/{ViewId}/versions", 200] },
-  () => ListViewVersionsRequest,
-  () => ListViewVersionsResponse,
+  () => ListViewVersionsRequest$,
+  () => ListViewVersionsResponse$,
 ];
-export var ListWorkspaceMedia: StaticOperationSchema = [
+export var ListWorkspaceMedia$: StaticOperationSchema = [
   9,
   n0,
   _LWM,
   { [_h]: ["GET", "/workspaces/{InstanceId}/{WorkspaceId}/media", 200] },
-  () => ListWorkspaceMediaRequest,
-  () => ListWorkspaceMediaResponse,
+  () => ListWorkspaceMediaRequest$,
+  () => ListWorkspaceMediaResponse$,
 ];
-export var ListWorkspacePages: StaticOperationSchema = [
+export var ListWorkspacePages$: StaticOperationSchema = [
   9,
   n0,
   _LWP,
   { [_h]: ["GET", "/workspaces/{InstanceId}/{WorkspaceId}/pages", 200] },
-  () => ListWorkspacePagesRequest,
-  () => ListWorkspacePagesResponse,
+  () => ListWorkspacePagesRequest$,
+  () => ListWorkspacePagesResponse$,
 ];
-export var ListWorkspaces: StaticOperationSchema = [
+export var ListWorkspaces$: StaticOperationSchema = [
   9,
   n0,
   _LW,
   { [_h]: ["GET", "/workspaces/{InstanceId}", 200] },
-  () => ListWorkspacesRequest,
-  () => ListWorkspacesResponse,
+  () => ListWorkspacesRequest$,
+  () => ListWorkspacesResponse$,
 ];
-export var MonitorContact: StaticOperationSchema = [
+export var MonitorContact$: StaticOperationSchema = [
   9,
   n0,
   _MCo,
   { [_h]: ["POST", "/contact/monitor", 200] },
-  () => MonitorContactRequest,
-  () => MonitorContactResponse,
+  () => MonitorContactRequest$,
+  () => MonitorContactResponse$,
 ];
-export var PauseContact: StaticOperationSchema = [
+export var PauseContact$: StaticOperationSchema = [
   9,
   n0,
   _PCau,
   { [_h]: ["POST", "/contact/pause", 200] },
-  () => PauseContactRequest,
-  () => PauseContactResponse,
+  () => PauseContactRequest$,
+  () => PauseContactResponse$,
 ];
-export var PutUserStatus: StaticOperationSchema = [
+export var PutUserStatus$: StaticOperationSchema = [
   9,
   n0,
   _PUS,
   { [_h]: ["PUT", "/users/{InstanceId}/{UserId}/status", 200] },
-  () => PutUserStatusRequest,
-  () => PutUserStatusResponse,
+  () => PutUserStatusRequest$,
+  () => PutUserStatusResponse$,
 ];
-export var ReleasePhoneNumber: StaticOperationSchema = [
+export var ReleasePhoneNumber$: StaticOperationSchema = [
   9,
   n0,
   _RPN,
   { [_h]: ["DELETE", "/phone-number/{PhoneNumberId}", 200] },
-  () => ReleasePhoneNumberRequest,
+  () => ReleasePhoneNumberRequest$,
   () => __Unit,
 ];
-export var ReplicateInstance: StaticOperationSchema = [
+export var ReplicateInstance$: StaticOperationSchema = [
   9,
   n0,
   _RIep,
   { [_h]: ["POST", "/instance/{InstanceId}/replicate", 200] },
-  () => ReplicateInstanceRequest,
-  () => ReplicateInstanceResponse,
+  () => ReplicateInstanceRequest$,
+  () => ReplicateInstanceResponse$,
 ];
-export var ResumeContact: StaticOperationSchema = [
+export var ResumeContact$: StaticOperationSchema = [
   9,
   n0,
   _RCes,
   { [_h]: ["POST", "/contact/resume", 200] },
-  () => ResumeContactRequest,
-  () => ResumeContactResponse,
+  () => ResumeContactRequest$,
+  () => ResumeContactResponse$,
 ];
-export var ResumeContactRecording: StaticOperationSchema = [
+export var ResumeContactRecording$: StaticOperationSchema = [
   9,
   n0,
   _RCRes,
   { [_h]: ["POST", "/contact/resume-recording", 200] },
-  () => ResumeContactRecordingRequest,
-  () => ResumeContactRecordingResponse,
+  () => ResumeContactRecordingRequest$,
+  () => ResumeContactRecordingResponse$,
 ];
-export var SearchAgentStatuses: StaticOperationSchema = [
+export var SearchAgentStatuses$: StaticOperationSchema = [
   9,
   n0,
   _SAS,
   { [_h]: ["POST", "/search-agent-statuses", 200] },
-  () => SearchAgentStatusesRequest,
-  () => SearchAgentStatusesResponse,
+  () => SearchAgentStatusesRequest$,
+  () => SearchAgentStatusesResponse$,
 ];
-export var SearchAvailablePhoneNumbers: StaticOperationSchema = [
+export var SearchAvailablePhoneNumbers$: StaticOperationSchema = [
   9,
   n0,
   _SAPN,
   { [_h]: ["POST", "/phone-number/search-available", 200] },
-  () => SearchAvailablePhoneNumbersRequest,
-  () => SearchAvailablePhoneNumbersResponse,
+  () => SearchAvailablePhoneNumbersRequest$,
+  () => SearchAvailablePhoneNumbersResponse$,
 ];
-export var SearchContactEvaluations: StaticOperationSchema = [
+export var SearchContactEvaluations$: StaticOperationSchema = [
   9,
   n0,
   _SCE,
   { [_h]: ["POST", "/search-contact-evaluations", 200] },
-  () => SearchContactEvaluationsRequest,
-  () => SearchContactEvaluationsResponse,
+  () => SearchContactEvaluationsRequest$,
+  () => SearchContactEvaluationsResponse$,
 ];
-export var SearchContactFlowModules: StaticOperationSchema = [
+export var SearchContactFlowModules$: StaticOperationSchema = [
   9,
   n0,
   _SCFM,
   { [_h]: ["POST", "/search-contact-flow-modules", 200] },
-  () => SearchContactFlowModulesRequest,
-  () => SearchContactFlowModulesResponse,
+  () => SearchContactFlowModulesRequest$,
+  () => SearchContactFlowModulesResponse$,
 ];
-export var SearchContactFlows: StaticOperationSchema = [
+export var SearchContactFlows$: StaticOperationSchema = [
   9,
   n0,
   _SCF,
   { [_h]: ["POST", "/search-contact-flows", 200] },
-  () => SearchContactFlowsRequest,
-  () => SearchContactFlowsResponse,
+  () => SearchContactFlowsRequest$,
+  () => SearchContactFlowsResponse$,
 ];
-export var SearchContacts: StaticOperationSchema = [
+export var SearchContacts$: StaticOperationSchema = [
   9,
   n0,
   _SCea,
   { [_h]: ["POST", "/search-contacts", 200] },
-  () => SearchContactsRequest,
-  () => SearchContactsResponse,
+  () => SearchContactsRequest$,
+  () => SearchContactsResponse$,
 ];
-export var SearchDataTables: StaticOperationSchema = [
+export var SearchDataTables$: StaticOperationSchema = [
   9,
   n0,
   _SDT,
   { [_h]: ["POST", "/search-data-tables", 200] },
-  () => SearchDataTablesRequest,
-  () => SearchDataTablesResponse,
+  () => SearchDataTablesRequest$,
+  () => SearchDataTablesResponse$,
 ];
-export var SearchEmailAddresses: StaticOperationSchema = [
+export var SearchEmailAddresses$: StaticOperationSchema = [
   9,
   n0,
   _SEAe,
   { [_h]: ["POST", "/search-email-addresses", 200] },
-  () => SearchEmailAddressesRequest,
-  () => SearchEmailAddressesResponse,
+  () => SearchEmailAddressesRequest$,
+  () => SearchEmailAddressesResponse$,
 ];
-export var SearchEvaluationForms: StaticOperationSchema = [
+export var SearchEvaluationForms$: StaticOperationSchema = [
   9,
   n0,
   _SEF,
   { [_h]: ["POST", "/search-evaluation-forms", 200] },
-  () => SearchEvaluationFormsRequest,
-  () => SearchEvaluationFormsResponse,
+  () => SearchEvaluationFormsRequest$,
+  () => SearchEvaluationFormsResponse$,
 ];
-export var SearchHoursOfOperationOverrides: StaticOperationSchema = [
+export var SearchHoursOfOperationOverrides$: StaticOperationSchema = [
   9,
   n0,
   _SHOOO,
   { [_h]: ["POST", "/search-hours-of-operation-overrides", 200] },
-  () => SearchHoursOfOperationOverridesRequest,
-  () => SearchHoursOfOperationOverridesResponse,
+  () => SearchHoursOfOperationOverridesRequest$,
+  () => SearchHoursOfOperationOverridesResponse$,
 ];
-export var SearchHoursOfOperations: StaticOperationSchema = [
+export var SearchHoursOfOperations$: StaticOperationSchema = [
   9,
   n0,
   _SHOO,
   { [_h]: ["POST", "/search-hours-of-operations", 200] },
-  () => SearchHoursOfOperationsRequest,
-  () => SearchHoursOfOperationsResponse,
+  () => SearchHoursOfOperationsRequest$,
+  () => SearchHoursOfOperationsResponse$,
 ];
-export var SearchPredefinedAttributes: StaticOperationSchema = [
+export var SearchPredefinedAttributes$: StaticOperationSchema = [
   9,
   n0,
   _SPAe,
   { [_h]: ["POST", "/search-predefined-attributes", 200] },
-  () => SearchPredefinedAttributesRequest,
-  () => SearchPredefinedAttributesResponse,
+  () => SearchPredefinedAttributesRequest$,
+  () => SearchPredefinedAttributesResponse$,
 ];
-export var SearchPrompts: StaticOperationSchema = [
+export var SearchPrompts$: StaticOperationSchema = [
   9,
   n0,
   _SPea,
   { [_h]: ["POST", "/search-prompts", 200] },
-  () => SearchPromptsRequest,
-  () => SearchPromptsResponse,
+  () => SearchPromptsRequest$,
+  () => SearchPromptsResponse$,
 ];
-export var SearchQueues: StaticOperationSchema = [
+export var SearchQueues$: StaticOperationSchema = [
   9,
   n0,
   _SQ,
   { [_h]: ["POST", "/search-queues", 200] },
-  () => SearchQueuesRequest,
-  () => SearchQueuesResponse,
+  () => SearchQueuesRequest$,
+  () => SearchQueuesResponse$,
 ];
-export var SearchQuickConnects: StaticOperationSchema = [
+export var SearchQuickConnects$: StaticOperationSchema = [
   9,
   n0,
   _SQC,
   { [_h]: ["POST", "/search-quick-connects", 200] },
-  () => SearchQuickConnectsRequest,
-  () => SearchQuickConnectsResponse,
+  () => SearchQuickConnectsRequest$,
+  () => SearchQuickConnectsResponse$,
 ];
-export var SearchResourceTags: StaticOperationSchema = [
+export var SearchResourceTags$: StaticOperationSchema = [
   9,
   n0,
   _SRT,
   { [_h]: ["POST", "/search-resource-tags", 200] },
-  () => SearchResourceTagsRequest,
-  () => SearchResourceTagsResponse,
+  () => SearchResourceTagsRequest$,
+  () => SearchResourceTagsResponse$,
 ];
-export var SearchRoutingProfiles: StaticOperationSchema = [
+export var SearchRoutingProfiles$: StaticOperationSchema = [
   9,
   n0,
   _SRP,
   { [_h]: ["POST", "/search-routing-profiles", 200] },
-  () => SearchRoutingProfilesRequest,
-  () => SearchRoutingProfilesResponse,
+  () => SearchRoutingProfilesRequest$,
+  () => SearchRoutingProfilesResponse$,
 ];
-export var SearchSecurityProfiles: StaticOperationSchema = [
+export var SearchSecurityProfiles$: StaticOperationSchema = [
   9,
   n0,
   _SSP,
   { [_h]: ["POST", "/search-security-profiles", 200] },
-  () => SearchSecurityProfilesRequest,
-  () => SearchSecurityProfilesResponse,
+  () => SearchSecurityProfilesRequest$,
+  () => SearchSecurityProfilesResponse$,
 ];
-export var SearchUserHierarchyGroups: StaticOperationSchema = [
+export var SearchUserHierarchyGroups$: StaticOperationSchema = [
   9,
   n0,
   _SUHG,
   { [_h]: ["POST", "/search-user-hierarchy-groups", 200] },
-  () => SearchUserHierarchyGroupsRequest,
-  () => SearchUserHierarchyGroupsResponse,
+  () => SearchUserHierarchyGroupsRequest$,
+  () => SearchUserHierarchyGroupsResponse$,
 ];
-export var SearchUsers: StaticOperationSchema = [
+export var SearchUsers$: StaticOperationSchema = [
   9,
   n0,
   _SUe,
   { [_h]: ["POST", "/search-users", 200] },
-  () => SearchUsersRequest,
-  () => SearchUsersResponse,
+  () => SearchUsersRequest$,
+  () => SearchUsersResponse$,
 ];
-export var SearchViews: StaticOperationSchema = [
+export var SearchViews$: StaticOperationSchema = [
   9,
   n0,
   _SVe,
   { [_h]: ["POST", "/search-views", 200] },
-  () => SearchViewsRequest,
-  () => SearchViewsResponse,
+  () => SearchViewsRequest$,
+  () => SearchViewsResponse$,
 ];
-export var SearchVocabularies: StaticOperationSchema = [
+export var SearchVocabularies$: StaticOperationSchema = [
   9,
   n0,
   _SVea,
   { [_h]: ["POST", "/vocabulary-summary/{InstanceId}", 200] },
-  () => SearchVocabulariesRequest,
-  () => SearchVocabulariesResponse,
+  () => SearchVocabulariesRequest$,
+  () => SearchVocabulariesResponse$,
 ];
-export var SearchWorkspaceAssociations: StaticOperationSchema = [
+export var SearchWorkspaceAssociations$: StaticOperationSchema = [
   9,
   n0,
   _SWA,
   { [_h]: ["POST", "/search-workspace-associations", 200] },
-  () => SearchWorkspaceAssociationsRequest,
-  () => SearchWorkspaceAssociationsResponse,
+  () => SearchWorkspaceAssociationsRequest$,
+  () => SearchWorkspaceAssociationsResponse$,
 ];
-export var SearchWorkspaces: StaticOperationSchema = [
+export var SearchWorkspaces$: StaticOperationSchema = [
   9,
   n0,
   _SW,
   { [_h]: ["POST", "/search-workspaces", 200] },
-  () => SearchWorkspacesRequest,
-  () => SearchWorkspacesResponse,
+  () => SearchWorkspacesRequest$,
+  () => SearchWorkspacesResponse$,
 ];
-export var SendChatIntegrationEvent: StaticOperationSchema = [
+export var SendChatIntegrationEvent$: StaticOperationSchema = [
   9,
   n0,
   _SCIE,
   { [_h]: ["POST", "/chat-integration-event", 200] },
-  () => SendChatIntegrationEventRequest,
-  () => SendChatIntegrationEventResponse,
+  () => SendChatIntegrationEventRequest$,
+  () => SendChatIntegrationEventResponse$,
 ];
-export var SendOutboundEmail: StaticOperationSchema = [
+export var SendOutboundEmail$: StaticOperationSchema = [
   9,
   n0,
   _SOE,
   { [_h]: ["PUT", "/instance/{InstanceId}/outbound-email", 200] },
-  () => SendOutboundEmailRequest,
-  () => SendOutboundEmailResponse,
+  () => SendOutboundEmailRequest$,
+  () => SendOutboundEmailResponse$,
 ];
-export var StartAttachedFileUpload: StaticOperationSchema = [
+export var StartAttachedFileUpload$: StaticOperationSchema = [
   9,
   n0,
   _SAFU,
   { [_h]: ["PUT", "/attached-files/{InstanceId}", 200] },
-  () => StartAttachedFileUploadRequest,
-  () => StartAttachedFileUploadResponse,
+  () => StartAttachedFileUploadRequest$,
+  () => StartAttachedFileUploadResponse$,
 ];
-export var StartChatContact: StaticOperationSchema = [
+export var StartChatContact$: StaticOperationSchema = [
   9,
   n0,
   _SCC,
   { [_h]: ["PUT", "/contact/chat", 200] },
-  () => StartChatContactRequest,
-  () => StartChatContactResponse,
+  () => StartChatContactRequest$,
+  () => StartChatContactResponse$,
 ];
-export var StartContactEvaluation: StaticOperationSchema = [
+export var StartContactEvaluation$: StaticOperationSchema = [
   9,
   n0,
   _SCEt,
   { [_h]: ["PUT", "/contact-evaluations/{InstanceId}", 200] },
-  () => StartContactEvaluationRequest,
-  () => StartContactEvaluationResponse,
+  () => StartContactEvaluationRequest$,
+  () => StartContactEvaluationResponse$,
 ];
-export var StartContactMediaProcessing: StaticOperationSchema = [
+export var StartContactMediaProcessing$: StaticOperationSchema = [
   9,
   n0,
   _SCMP,
   { [_h]: ["POST", "/contact/start-contact-media-processing", 200] },
-  () => StartContactMediaProcessingRequest,
-  () => StartContactMediaProcessingResponse,
+  () => StartContactMediaProcessingRequest$,
+  () => StartContactMediaProcessingResponse$,
 ];
-export var StartContactRecording: StaticOperationSchema = [
+export var StartContactRecording$: StaticOperationSchema = [
   9,
   n0,
   _SCRta,
   { [_h]: ["POST", "/contact/start-recording", 200] },
-  () => StartContactRecordingRequest,
-  () => StartContactRecordingResponse,
+  () => StartContactRecordingRequest$,
+  () => StartContactRecordingResponse$,
 ];
-export var StartContactStreaming: StaticOperationSchema = [
+export var StartContactStreaming$: StaticOperationSchema = [
   9,
   n0,
   _SCS,
   { [_h]: ["POST", "/contact/start-streaming", 200] },
-  () => StartContactStreamingRequest,
-  () => StartContactStreamingResponse,
+  () => StartContactStreamingRequest$,
+  () => StartContactStreamingResponse$,
 ];
-export var StartEmailContact: StaticOperationSchema = [
+export var StartEmailContact$: StaticOperationSchema = [
   9,
   n0,
   _SEC,
   { [_h]: ["PUT", "/contact/email", 200] },
-  () => StartEmailContactRequest,
-  () => StartEmailContactResponse,
+  () => StartEmailContactRequest$,
+  () => StartEmailContactResponse$,
 ];
-export var StartOutboundChatContact: StaticOperationSchema = [
+export var StartOutboundChatContact$: StaticOperationSchema = [
   9,
   n0,
   _SOCC,
   { [_h]: ["PUT", "/contact/outbound-chat", 200] },
-  () => StartOutboundChatContactRequest,
-  () => StartOutboundChatContactResponse,
+  () => StartOutboundChatContactRequest$,
+  () => StartOutboundChatContactResponse$,
 ];
-export var StartOutboundEmailContact: StaticOperationSchema = [
+export var StartOutboundEmailContact$: StaticOperationSchema = [
   9,
   n0,
   _SOEC,
   { [_h]: ["PUT", "/contact/outbound-email", 200] },
-  () => StartOutboundEmailContactRequest,
-  () => StartOutboundEmailContactResponse,
+  () => StartOutboundEmailContactRequest$,
+  () => StartOutboundEmailContactResponse$,
 ];
-export var StartOutboundVoiceContact: StaticOperationSchema = [
+export var StartOutboundVoiceContact$: StaticOperationSchema = [
   9,
   n0,
   _SOVC,
   { [_h]: ["PUT", "/contact/outbound-voice", 200] },
-  () => StartOutboundVoiceContactRequest,
-  () => StartOutboundVoiceContactResponse,
+  () => StartOutboundVoiceContactRequest$,
+  () => StartOutboundVoiceContactResponse$,
 ];
-export var StartScreenSharing: StaticOperationSchema = [
+export var StartScreenSharing$: StaticOperationSchema = [
   9,
   n0,
   _SSS,
   { [_h]: ["PUT", "/contact/screen-sharing", 200] },
-  () => StartScreenSharingRequest,
-  () => StartScreenSharingResponse,
+  () => StartScreenSharingRequest$,
+  () => StartScreenSharingResponse$,
 ];
-export var StartTaskContact: StaticOperationSchema = [
+export var StartTaskContact$: StaticOperationSchema = [
   9,
   n0,
   _STC,
   { [_h]: ["PUT", "/contact/task", 200] },
-  () => StartTaskContactRequest,
-  () => StartTaskContactResponse,
+  () => StartTaskContactRequest$,
+  () => StartTaskContactResponse$,
 ];
-export var StartWebRTCContact: StaticOperationSchema = [
+export var StartWebRTCContact$: StaticOperationSchema = [
   9,
   n0,
   _SWRTCC,
   { [_h]: ["PUT", "/contact/webrtc", 200] },
-  () => StartWebRTCContactRequest,
-  () => StartWebRTCContactResponse,
+  () => StartWebRTCContactRequest$,
+  () => StartWebRTCContactResponse$,
 ];
-export var StopContact: StaticOperationSchema = [
+export var StopContact$: StaticOperationSchema = [
   9,
   n0,
   _SCtop,
   { [_h]: ["POST", "/contact/stop", 200] },
-  () => StopContactRequest,
-  () => StopContactResponse,
+  () => StopContactRequest$,
+  () => StopContactResponse$,
 ];
-export var StopContactMediaProcessing: StaticOperationSchema = [
+export var StopContactMediaProcessing$: StaticOperationSchema = [
   9,
   n0,
   _SCMPt,
   { [_h]: ["POST", "/contact/stop-contact-media-processing", 200] },
-  () => StopContactMediaProcessingRequest,
-  () => StopContactMediaProcessingResponse,
+  () => StopContactMediaProcessingRequest$,
+  () => StopContactMediaProcessingResponse$,
 ];
-export var StopContactRecording: StaticOperationSchema = [
+export var StopContactRecording$: StaticOperationSchema = [
   9,
   n0,
   _SCRtop,
   { [_h]: ["POST", "/contact/stop-recording", 200] },
-  () => StopContactRecordingRequest,
-  () => StopContactRecordingResponse,
+  () => StopContactRecordingRequest$,
+  () => StopContactRecordingResponse$,
 ];
-export var StopContactStreaming: StaticOperationSchema = [
+export var StopContactStreaming$: StaticOperationSchema = [
   9,
   n0,
   _SCSt,
   { [_h]: ["POST", "/contact/stop-streaming", 200] },
-  () => StopContactStreamingRequest,
-  () => StopContactStreamingResponse,
+  () => StopContactStreamingRequest$,
+  () => StopContactStreamingResponse$,
 ];
-export var SubmitContactEvaluation: StaticOperationSchema = [
+export var SubmitContactEvaluation$: StaticOperationSchema = [
   9,
   n0,
   _SCEu,
   { [_h]: ["POST", "/contact-evaluations/{InstanceId}/{EvaluationId}/submit", 200] },
-  () => SubmitContactEvaluationRequest,
-  () => SubmitContactEvaluationResponse,
+  () => SubmitContactEvaluationRequest$,
+  () => SubmitContactEvaluationResponse$,
 ];
-export var SuspendContactRecording: StaticOperationSchema = [
+export var SuspendContactRecording$: StaticOperationSchema = [
   9,
   n0,
   _SCRu,
   { [_h]: ["POST", "/contact/suspend-recording", 200] },
-  () => SuspendContactRecordingRequest,
-  () => SuspendContactRecordingResponse,
+  () => SuspendContactRecordingRequest$,
+  () => SuspendContactRecordingResponse$,
 ];
-export var TagContact: StaticOperationSchema = [
+export var TagContact$: StaticOperationSchema = [
   9,
   n0,
   _TCag,
   { [_h]: ["POST", "/contact/tags", 200] },
-  () => TagContactRequest,
-  () => TagContactResponse,
+  () => TagContactRequest$,
+  () => TagContactResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TRa,
   { [_h]: ["POST", "/tags/{resourceArn}", 200] },
-  () => TagResourceRequest,
+  () => TagResourceRequest$,
   () => __Unit,
 ];
-export var TransferContact: StaticOperationSchema = [
+export var TransferContact$: StaticOperationSchema = [
   9,
   n0,
   _TCra,
   { [_h]: ["POST", "/contact/transfer", 200] },
-  () => TransferContactRequest,
-  () => TransferContactResponse,
+  () => TransferContactRequest$,
+  () => TransferContactResponse$,
 ];
-export var UntagContact: StaticOperationSchema = [
+export var UntagContact$: StaticOperationSchema = [
   9,
   n0,
   _UCn,
   { [_h]: ["DELETE", "/contact/tags/{InstanceId}/{ContactId}", 200] },
-  () => UntagContactRequest,
-  () => UntagContactResponse,
+  () => UntagContactRequest$,
+  () => UntagContactResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _URn,
   { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
-  () => UntagResourceRequest,
+  () => UntagResourceRequest$,
   () => __Unit,
 ];
-export var UpdateAgentStatus: StaticOperationSchema = [
+export var UpdateAgentStatus$: StaticOperationSchema = [
   9,
   n0,
   _UAS,
   { [_h]: ["POST", "/agent-status/{InstanceId}/{AgentStatusId}", 200] },
-  () => UpdateAgentStatusRequest,
+  () => UpdateAgentStatusRequest$,
   () => __Unit,
 ];
-export var UpdateAuthenticationProfile: StaticOperationSchema = [
+export var UpdateAuthenticationProfile$: StaticOperationSchema = [
   9,
   n0,
   _UAP,
   { [_h]: ["POST", "/authentication-profiles/{InstanceId}/{AuthenticationProfileId}", 200] },
-  () => UpdateAuthenticationProfileRequest,
+  () => UpdateAuthenticationProfileRequest$,
   () => __Unit,
 ];
-export var UpdateContact: StaticOperationSchema = [
+export var UpdateContact$: StaticOperationSchema = [
   9,
   n0,
   _UCp,
   { [_h]: ["POST", "/contacts/{InstanceId}/{ContactId}", 200] },
-  () => UpdateContactRequest,
-  () => UpdateContactResponse,
+  () => UpdateContactRequest$,
+  () => UpdateContactResponse$,
 ];
-export var UpdateContactAttributes: StaticOperationSchema = [
+export var UpdateContactAttributes$: StaticOperationSchema = [
   9,
   n0,
   _UCApd,
   { [_h]: ["POST", "/contact/attributes", 200] },
-  () => UpdateContactAttributesRequest,
-  () => UpdateContactAttributesResponse,
+  () => UpdateContactAttributesRequest$,
+  () => UpdateContactAttributesResponse$,
 ];
-export var UpdateContactEvaluation: StaticOperationSchema = [
+export var UpdateContactEvaluation$: StaticOperationSchema = [
   9,
   n0,
   _UCE,
   { [_h]: ["POST", "/contact-evaluations/{InstanceId}/{EvaluationId}", 200] },
-  () => UpdateContactEvaluationRequest,
-  () => UpdateContactEvaluationResponse,
+  () => UpdateContactEvaluationRequest$,
+  () => UpdateContactEvaluationResponse$,
 ];
-export var UpdateContactFlowContent: StaticOperationSchema = [
+export var UpdateContactFlowContent$: StaticOperationSchema = [
   9,
   n0,
   _UCFC,
   { [_h]: ["POST", "/contact-flows/{InstanceId}/{ContactFlowId}/content", 200] },
-  () => UpdateContactFlowContentRequest,
-  () => UpdateContactFlowContentResponse,
+  () => UpdateContactFlowContentRequest$,
+  () => UpdateContactFlowContentResponse$,
 ];
-export var UpdateContactFlowMetadata: StaticOperationSchema = [
+export var UpdateContactFlowMetadata$: StaticOperationSchema = [
   9,
   n0,
   _UCFM,
   { [_h]: ["POST", "/contact-flows/{InstanceId}/{ContactFlowId}/metadata", 200] },
-  () => UpdateContactFlowMetadataRequest,
-  () => UpdateContactFlowMetadataResponse,
+  () => UpdateContactFlowMetadataRequest$,
+  () => UpdateContactFlowMetadataResponse$,
 ];
-export var UpdateContactFlowModuleAlias: StaticOperationSchema = [
+export var UpdateContactFlowModuleAlias$: StaticOperationSchema = [
   9,
   n0,
   _UCFMA,
   { [_h]: ["POST", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/alias/{AliasId}", 200] },
-  () => UpdateContactFlowModuleAliasRequest,
-  () => UpdateContactFlowModuleAliasResponse,
+  () => UpdateContactFlowModuleAliasRequest$,
+  () => UpdateContactFlowModuleAliasResponse$,
 ];
-export var UpdateContactFlowModuleContent: StaticOperationSchema = [
+export var UpdateContactFlowModuleContent$: StaticOperationSchema = [
   9,
   n0,
   _UCFMC,
   { [_h]: ["POST", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/content", 200] },
-  () => UpdateContactFlowModuleContentRequest,
-  () => UpdateContactFlowModuleContentResponse,
+  () => UpdateContactFlowModuleContentRequest$,
+  () => UpdateContactFlowModuleContentResponse$,
 ];
-export var UpdateContactFlowModuleMetadata: StaticOperationSchema = [
+export var UpdateContactFlowModuleMetadata$: StaticOperationSchema = [
   9,
   n0,
   _UCFMM,
   { [_h]: ["POST", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/metadata", 200] },
-  () => UpdateContactFlowModuleMetadataRequest,
-  () => UpdateContactFlowModuleMetadataResponse,
+  () => UpdateContactFlowModuleMetadataRequest$,
+  () => UpdateContactFlowModuleMetadataResponse$,
 ];
-export var UpdateContactFlowName: StaticOperationSchema = [
+export var UpdateContactFlowName$: StaticOperationSchema = [
   9,
   n0,
   _UCFN,
   { [_h]: ["POST", "/contact-flows/{InstanceId}/{ContactFlowId}/name", 200] },
-  () => UpdateContactFlowNameRequest,
-  () => UpdateContactFlowNameResponse,
+  () => UpdateContactFlowNameRequest$,
+  () => UpdateContactFlowNameResponse$,
 ];
-export var UpdateContactRoutingData: StaticOperationSchema = [
+export var UpdateContactRoutingData$: StaticOperationSchema = [
   9,
   n0,
   _UCRD,
   { [_h]: ["POST", "/contacts/{InstanceId}/{ContactId}/routing-data", 200] },
-  () => UpdateContactRoutingDataRequest,
-  () => UpdateContactRoutingDataResponse,
+  () => UpdateContactRoutingDataRequest$,
+  () => UpdateContactRoutingDataResponse$,
 ];
-export var UpdateContactSchedule: StaticOperationSchema = [
+export var UpdateContactSchedule$: StaticOperationSchema = [
   9,
   n0,
   _UCS,
   { [_h]: ["POST", "/contact/schedule", 200] },
-  () => UpdateContactScheduleRequest,
-  () => UpdateContactScheduleResponse,
+  () => UpdateContactScheduleRequest$,
+  () => UpdateContactScheduleResponse$,
 ];
-export var UpdateDataTableAttribute: StaticOperationSchema = [
+export var UpdateDataTableAttribute$: StaticOperationSchema = [
   9,
   n0,
   _UDTA,
   { [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/attributes/{AttributeName}", 200] },
-  () => UpdateDataTableAttributeRequest,
-  () => UpdateDataTableAttributeResponse,
+  () => UpdateDataTableAttributeRequest$,
+  () => UpdateDataTableAttributeResponse$,
 ];
-export var UpdateDataTableMetadata: StaticOperationSchema = [
+export var UpdateDataTableMetadata$: StaticOperationSchema = [
   9,
   n0,
   _UDTM,
   { [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}", 200] },
-  () => UpdateDataTableMetadataRequest,
-  () => UpdateDataTableMetadataResponse,
+  () => UpdateDataTableMetadataRequest$,
+  () => UpdateDataTableMetadataResponse$,
 ];
-export var UpdateDataTablePrimaryValues: StaticOperationSchema = [
+export var UpdateDataTablePrimaryValues$: StaticOperationSchema = [
   9,
   n0,
   _UDTPV,
   { [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/values/update-primary", 200] },
-  () => UpdateDataTablePrimaryValuesRequest,
-  () => UpdateDataTablePrimaryValuesResponse,
+  () => UpdateDataTablePrimaryValuesRequest$,
+  () => UpdateDataTablePrimaryValuesResponse$,
 ];
-export var UpdateEmailAddressMetadata: StaticOperationSchema = [
+export var UpdateEmailAddressMetadata$: StaticOperationSchema = [
   9,
   n0,
   _UEAM,
   { [_h]: ["POST", "/email-addresses/{InstanceId}/{EmailAddressId}", 200] },
-  () => UpdateEmailAddressMetadataRequest,
-  () => UpdateEmailAddressMetadataResponse,
+  () => UpdateEmailAddressMetadataRequest$,
+  () => UpdateEmailAddressMetadataResponse$,
 ];
-export var UpdateEvaluationForm: StaticOperationSchema = [
+export var UpdateEvaluationForm$: StaticOperationSchema = [
   9,
   n0,
   _UEF,
   { [_h]: ["PUT", "/evaluation-forms/{InstanceId}/{EvaluationFormId}", 200] },
-  () => UpdateEvaluationFormRequest,
-  () => UpdateEvaluationFormResponse,
+  () => UpdateEvaluationFormRequest$,
+  () => UpdateEvaluationFormResponse$,
 ];
-export var UpdateHoursOfOperation: StaticOperationSchema = [
+export var UpdateHoursOfOperation$: StaticOperationSchema = [
   9,
   n0,
   _UHOO,
   { [_h]: ["POST", "/hours-of-operations/{InstanceId}/{HoursOfOperationId}", 200] },
-  () => UpdateHoursOfOperationRequest,
+  () => UpdateHoursOfOperationRequest$,
   () => __Unit,
 ];
-export var UpdateHoursOfOperationOverride: StaticOperationSchema = [
+export var UpdateHoursOfOperationOverride$: StaticOperationSchema = [
   9,
   n0,
   _UHOOO,
@@ -12858,318 +12869,318 @@ export var UpdateHoursOfOperationOverride: StaticOperationSchema = [
       200,
     ],
   },
-  () => UpdateHoursOfOperationOverrideRequest,
+  () => UpdateHoursOfOperationOverrideRequest$,
   () => __Unit,
 ];
-export var UpdateInstanceAttribute: StaticOperationSchema = [
+export var UpdateInstanceAttribute$: StaticOperationSchema = [
   9,
   n0,
   _UIA,
   { [_h]: ["POST", "/instance/{InstanceId}/attribute/{AttributeType}", 200] },
-  () => UpdateInstanceAttributeRequest,
+  () => UpdateInstanceAttributeRequest$,
   () => __Unit,
 ];
-export var UpdateInstanceStorageConfig: StaticOperationSchema = [
+export var UpdateInstanceStorageConfig$: StaticOperationSchema = [
   9,
   n0,
   _UISC,
   { [_h]: ["POST", "/instance/{InstanceId}/storage-config/{AssociationId}", 200] },
-  () => UpdateInstanceStorageConfigRequest,
+  () => UpdateInstanceStorageConfigRequest$,
   () => __Unit,
 ];
-export var UpdateParticipantAuthentication: StaticOperationSchema = [
+export var UpdateParticipantAuthentication$: StaticOperationSchema = [
   9,
   n0,
   _UPA,
   { [_h]: ["POST", "/contact/update-participant-authentication", 200] },
-  () => UpdateParticipantAuthenticationRequest,
-  () => UpdateParticipantAuthenticationResponse,
+  () => UpdateParticipantAuthenticationRequest$,
+  () => UpdateParticipantAuthenticationResponse$,
 ];
-export var UpdateParticipantRoleConfig: StaticOperationSchema = [
+export var UpdateParticipantRoleConfig$: StaticOperationSchema = [
   9,
   n0,
   _UPRC,
   { [_h]: ["PUT", "/contact/participant-role-config/{InstanceId}/{ContactId}", 200] },
-  () => UpdateParticipantRoleConfigRequest,
-  () => UpdateParticipantRoleConfigResponse,
+  () => UpdateParticipantRoleConfigRequest$,
+  () => UpdateParticipantRoleConfigResponse$,
 ];
-export var UpdatePhoneNumber: StaticOperationSchema = [
+export var UpdatePhoneNumber$: StaticOperationSchema = [
   9,
   n0,
   _UPN,
   { [_h]: ["PUT", "/phone-number/{PhoneNumberId}", 200] },
-  () => UpdatePhoneNumberRequest,
-  () => UpdatePhoneNumberResponse,
+  () => UpdatePhoneNumberRequest$,
+  () => UpdatePhoneNumberResponse$,
 ];
-export var UpdatePhoneNumberMetadata: StaticOperationSchema = [
+export var UpdatePhoneNumberMetadata$: StaticOperationSchema = [
   9,
   n0,
   _UPNM,
   { [_h]: ["PUT", "/phone-number/{PhoneNumberId}/metadata", 200] },
-  () => UpdatePhoneNumberMetadataRequest,
+  () => UpdatePhoneNumberMetadataRequest$,
   () => __Unit,
 ];
-export var UpdatePredefinedAttribute: StaticOperationSchema = [
+export var UpdatePredefinedAttribute$: StaticOperationSchema = [
   9,
   n0,
   _UPAp,
   { [_h]: ["POST", "/predefined-attributes/{InstanceId}/{Name}", 200] },
-  () => UpdatePredefinedAttributeRequest,
+  () => UpdatePredefinedAttributeRequest$,
   () => __Unit,
 ];
-export var UpdatePrompt: StaticOperationSchema = [
+export var UpdatePrompt$: StaticOperationSchema = [
   9,
   n0,
   _UPp,
   { [_h]: ["POST", "/prompts/{InstanceId}/{PromptId}", 200] },
-  () => UpdatePromptRequest,
-  () => UpdatePromptResponse,
+  () => UpdatePromptRequest$,
+  () => UpdatePromptResponse$,
 ];
-export var UpdateQueueHoursOfOperation: StaticOperationSchema = [
+export var UpdateQueueHoursOfOperation$: StaticOperationSchema = [
   9,
   n0,
   _UQHOO,
   { [_h]: ["POST", "/queues/{InstanceId}/{QueueId}/hours-of-operation", 200] },
-  () => UpdateQueueHoursOfOperationRequest,
+  () => UpdateQueueHoursOfOperationRequest$,
   () => __Unit,
 ];
-export var UpdateQueueMaxContacts: StaticOperationSchema = [
+export var UpdateQueueMaxContacts$: StaticOperationSchema = [
   9,
   n0,
   _UQMC,
   { [_h]: ["POST", "/queues/{InstanceId}/{QueueId}/max-contacts", 200] },
-  () => UpdateQueueMaxContactsRequest,
+  () => UpdateQueueMaxContactsRequest$,
   () => __Unit,
 ];
-export var UpdateQueueName: StaticOperationSchema = [
+export var UpdateQueueName$: StaticOperationSchema = [
   9,
   n0,
   _UQN,
   { [_h]: ["POST", "/queues/{InstanceId}/{QueueId}/name", 200] },
-  () => UpdateQueueNameRequest,
+  () => UpdateQueueNameRequest$,
   () => __Unit,
 ];
-export var UpdateQueueOutboundCallerConfig: StaticOperationSchema = [
+export var UpdateQueueOutboundCallerConfig$: StaticOperationSchema = [
   9,
   n0,
   _UQOCC,
   { [_h]: ["POST", "/queues/{InstanceId}/{QueueId}/outbound-caller-config", 200] },
-  () => UpdateQueueOutboundCallerConfigRequest,
+  () => UpdateQueueOutboundCallerConfigRequest$,
   () => __Unit,
 ];
-export var UpdateQueueOutboundEmailConfig: StaticOperationSchema = [
+export var UpdateQueueOutboundEmailConfig$: StaticOperationSchema = [
   9,
   n0,
   _UQOEC,
   { [_h]: ["POST", "/queues/{InstanceId}/{QueueId}/outbound-email-config", 200] },
-  () => UpdateQueueOutboundEmailConfigRequest,
+  () => UpdateQueueOutboundEmailConfigRequest$,
   () => __Unit,
 ];
-export var UpdateQueueStatus: StaticOperationSchema = [
+export var UpdateQueueStatus$: StaticOperationSchema = [
   9,
   n0,
   _UQS,
   { [_h]: ["POST", "/queues/{InstanceId}/{QueueId}/status", 200] },
-  () => UpdateQueueStatusRequest,
+  () => UpdateQueueStatusRequest$,
   () => __Unit,
 ];
-export var UpdateQuickConnectConfig: StaticOperationSchema = [
+export var UpdateQuickConnectConfig$: StaticOperationSchema = [
   9,
   n0,
   _UQCCp,
   { [_h]: ["POST", "/quick-connects/{InstanceId}/{QuickConnectId}/config", 200] },
-  () => UpdateQuickConnectConfigRequest,
+  () => UpdateQuickConnectConfigRequest$,
   () => __Unit,
 ];
-export var UpdateQuickConnectName: StaticOperationSchema = [
+export var UpdateQuickConnectName$: StaticOperationSchema = [
   9,
   n0,
   _UQCN,
   { [_h]: ["POST", "/quick-connects/{InstanceId}/{QuickConnectId}/name", 200] },
-  () => UpdateQuickConnectNameRequest,
+  () => UpdateQuickConnectNameRequest$,
   () => __Unit,
 ];
-export var UpdateRoutingProfileAgentAvailabilityTimer: StaticOperationSchema = [
+export var UpdateRoutingProfileAgentAvailabilityTimer$: StaticOperationSchema = [
   9,
   n0,
   _URPAAT,
   { [_h]: ["POST", "/routing-profiles/{InstanceId}/{RoutingProfileId}/agent-availability-timer", 200] },
-  () => UpdateRoutingProfileAgentAvailabilityTimerRequest,
+  () => UpdateRoutingProfileAgentAvailabilityTimerRequest$,
   () => __Unit,
 ];
-export var UpdateRoutingProfileConcurrency: StaticOperationSchema = [
+export var UpdateRoutingProfileConcurrency$: StaticOperationSchema = [
   9,
   n0,
   _URPC,
   { [_h]: ["POST", "/routing-profiles/{InstanceId}/{RoutingProfileId}/concurrency", 200] },
-  () => UpdateRoutingProfileConcurrencyRequest,
+  () => UpdateRoutingProfileConcurrencyRequest$,
   () => __Unit,
 ];
-export var UpdateRoutingProfileDefaultOutboundQueue: StaticOperationSchema = [
+export var UpdateRoutingProfileDefaultOutboundQueue$: StaticOperationSchema = [
   9,
   n0,
   _URPDOQ,
   { [_h]: ["POST", "/routing-profiles/{InstanceId}/{RoutingProfileId}/default-outbound-queue", 200] },
-  () => UpdateRoutingProfileDefaultOutboundQueueRequest,
+  () => UpdateRoutingProfileDefaultOutboundQueueRequest$,
   () => __Unit,
 ];
-export var UpdateRoutingProfileName: StaticOperationSchema = [
+export var UpdateRoutingProfileName$: StaticOperationSchema = [
   9,
   n0,
   _URPN,
   { [_h]: ["POST", "/routing-profiles/{InstanceId}/{RoutingProfileId}/name", 200] },
-  () => UpdateRoutingProfileNameRequest,
+  () => UpdateRoutingProfileNameRequest$,
   () => __Unit,
 ];
-export var UpdateRoutingProfileQueues: StaticOperationSchema = [
+export var UpdateRoutingProfileQueues$: StaticOperationSchema = [
   9,
   n0,
   _URPQ,
   { [_h]: ["POST", "/routing-profiles/{InstanceId}/{RoutingProfileId}/queues", 200] },
-  () => UpdateRoutingProfileQueuesRequest,
+  () => UpdateRoutingProfileQueuesRequest$,
   () => __Unit,
 ];
-export var UpdateRule: StaticOperationSchema = [
+export var UpdateRule$: StaticOperationSchema = [
   9,
   n0,
   _URp,
   { [_h]: ["PUT", "/rules/{InstanceId}/{RuleId}", 200] },
-  () => UpdateRuleRequest,
+  () => UpdateRuleRequest$,
   () => __Unit,
 ];
-export var UpdateSecurityProfile: StaticOperationSchema = [
+export var UpdateSecurityProfile$: StaticOperationSchema = [
   9,
   n0,
   _USP,
   { [_h]: ["POST", "/security-profiles/{InstanceId}/{SecurityProfileId}", 200] },
-  () => UpdateSecurityProfileRequest,
+  () => UpdateSecurityProfileRequest$,
   () => __Unit,
 ];
-export var UpdateTaskTemplate: StaticOperationSchema = [
+export var UpdateTaskTemplate$: StaticOperationSchema = [
   9,
   n0,
   _UTT,
   { [_h]: ["POST", "/instance/{InstanceId}/task/template/{TaskTemplateId}", 200] },
-  () => UpdateTaskTemplateRequest,
-  () => UpdateTaskTemplateResponse,
+  () => UpdateTaskTemplateRequest$,
+  () => UpdateTaskTemplateResponse$,
 ];
-export var UpdateTrafficDistribution: StaticOperationSchema = [
+export var UpdateTrafficDistribution$: StaticOperationSchema = [
   9,
   n0,
   _UTD,
   { [_h]: ["PUT", "/traffic-distribution/{Id}", 200] },
-  () => UpdateTrafficDistributionRequest,
-  () => UpdateTrafficDistributionResponse,
+  () => UpdateTrafficDistributionRequest$,
+  () => UpdateTrafficDistributionResponse$,
 ];
-export var UpdateUserHierarchy: StaticOperationSchema = [
+export var UpdateUserHierarchy$: StaticOperationSchema = [
   9,
   n0,
   _UUH,
   { [_h]: ["POST", "/users/{InstanceId}/{UserId}/hierarchy", 200] },
-  () => UpdateUserHierarchyRequest,
+  () => UpdateUserHierarchyRequest$,
   () => __Unit,
 ];
-export var UpdateUserHierarchyGroupName: StaticOperationSchema = [
+export var UpdateUserHierarchyGroupName$: StaticOperationSchema = [
   9,
   n0,
   _UUHGN,
   { [_h]: ["POST", "/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}/name", 200] },
-  () => UpdateUserHierarchyGroupNameRequest,
+  () => UpdateUserHierarchyGroupNameRequest$,
   () => __Unit,
 ];
-export var UpdateUserHierarchyStructure: StaticOperationSchema = [
+export var UpdateUserHierarchyStructure$: StaticOperationSchema = [
   9,
   n0,
   _UUHS,
   { [_h]: ["POST", "/user-hierarchy-structure/{InstanceId}", 200] },
-  () => UpdateUserHierarchyStructureRequest,
+  () => UpdateUserHierarchyStructureRequest$,
   () => __Unit,
 ];
-export var UpdateUserIdentityInfo: StaticOperationSchema = [
+export var UpdateUserIdentityInfo$: StaticOperationSchema = [
   9,
   n0,
   _UUII,
   { [_h]: ["POST", "/users/{InstanceId}/{UserId}/identity-info", 200] },
-  () => UpdateUserIdentityInfoRequest,
+  () => UpdateUserIdentityInfoRequest$,
   () => __Unit,
 ];
-export var UpdateUserPhoneConfig: StaticOperationSchema = [
+export var UpdateUserPhoneConfig$: StaticOperationSchema = [
   9,
   n0,
   _UUPC,
   { [_h]: ["POST", "/users/{InstanceId}/{UserId}/phone-config", 200] },
-  () => UpdateUserPhoneConfigRequest,
+  () => UpdateUserPhoneConfigRequest$,
   () => __Unit,
 ];
-export var UpdateUserProficiencies: StaticOperationSchema = [
+export var UpdateUserProficiencies$: StaticOperationSchema = [
   9,
   n0,
   _UUP,
   { [_h]: ["POST", "/users/{InstanceId}/{UserId}/proficiencies", 200] },
-  () => UpdateUserProficienciesRequest,
+  () => UpdateUserProficienciesRequest$,
   () => __Unit,
 ];
-export var UpdateUserRoutingProfile: StaticOperationSchema = [
+export var UpdateUserRoutingProfile$: StaticOperationSchema = [
   9,
   n0,
   _UURP,
   { [_h]: ["POST", "/users/{InstanceId}/{UserId}/routing-profile", 200] },
-  () => UpdateUserRoutingProfileRequest,
+  () => UpdateUserRoutingProfileRequest$,
   () => __Unit,
 ];
-export var UpdateUserSecurityProfiles: StaticOperationSchema = [
+export var UpdateUserSecurityProfiles$: StaticOperationSchema = [
   9,
   n0,
   _UUSP,
   { [_h]: ["POST", "/users/{InstanceId}/{UserId}/security-profiles", 200] },
-  () => UpdateUserSecurityProfilesRequest,
+  () => UpdateUserSecurityProfilesRequest$,
   () => __Unit,
 ];
-export var UpdateViewContent: StaticOperationSchema = [
+export var UpdateViewContent$: StaticOperationSchema = [
   9,
   n0,
   _UVC,
   { [_h]: ["POST", "/views/{InstanceId}/{ViewId}", 200] },
-  () => UpdateViewContentRequest,
-  () => UpdateViewContentResponse,
+  () => UpdateViewContentRequest$,
+  () => UpdateViewContentResponse$,
 ];
-export var UpdateViewMetadata: StaticOperationSchema = [
+export var UpdateViewMetadata$: StaticOperationSchema = [
   9,
   n0,
   _UVM,
   { [_h]: ["POST", "/views/{InstanceId}/{ViewId}/metadata", 200] },
-  () => UpdateViewMetadataRequest,
-  () => UpdateViewMetadataResponse,
+  () => UpdateViewMetadataRequest$,
+  () => UpdateViewMetadataResponse$,
 ];
-export var UpdateWorkspaceMetadata: StaticOperationSchema = [
+export var UpdateWorkspaceMetadata$: StaticOperationSchema = [
   9,
   n0,
   _UWM,
   { [_h]: ["POST", "/workspaces/{InstanceId}/{WorkspaceId}/metadata", 200] },
-  () => UpdateWorkspaceMetadataRequest,
-  () => UpdateWorkspaceMetadataResponse,
+  () => UpdateWorkspaceMetadataRequest$,
+  () => UpdateWorkspaceMetadataResponse$,
 ];
-export var UpdateWorkspacePage: StaticOperationSchema = [
+export var UpdateWorkspacePage$: StaticOperationSchema = [
   9,
   n0,
   _UWP,
   { [_h]: ["POST", "/workspaces/{InstanceId}/{WorkspaceId}/pages/{Page}", 200] },
-  () => UpdateWorkspacePageRequest,
-  () => UpdateWorkspacePageResponse,
+  () => UpdateWorkspacePageRequest$,
+  () => UpdateWorkspacePageResponse$,
 ];
-export var UpdateWorkspaceTheme: StaticOperationSchema = [
+export var UpdateWorkspaceTheme$: StaticOperationSchema = [
   9,
   n0,
   _UWT,
   { [_h]: ["POST", "/workspaces/{InstanceId}/{WorkspaceId}/theme", 200] },
-  () => UpdateWorkspaceThemeRequest,
-  () => UpdateWorkspaceThemeResponse,
+  () => UpdateWorkspaceThemeRequest$,
+  () => UpdateWorkspaceThemeResponse$,
 ];
-export var UpdateWorkspaceVisibility: StaticOperationSchema = [
+export var UpdateWorkspaceVisibility$: StaticOperationSchema = [
   9,
   n0,
   _UWV,
   { [_h]: ["POST", "/workspaces/{InstanceId}/{WorkspaceId}/visibility", 200] },
-  () => UpdateWorkspaceVisibilityRequest,
-  () => UpdateWorkspaceVisibilityResponse,
+  () => UpdateWorkspaceVisibilityRequest$,
+  () => UpdateWorkspaceVisibilityResponse$,
 ];

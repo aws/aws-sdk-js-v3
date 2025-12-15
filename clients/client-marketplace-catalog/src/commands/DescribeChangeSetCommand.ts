@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient";
 import type { DescribeChangeSetRequest, DescribeChangeSetResponse } from "../models/models_0";
-import { DescribeChangeSet } from "../schemas/schemas_0";
+import { DescribeChangeSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,7 +124,7 @@ export class DescribeChangeSetCommand extends $Command
   })
   .s("AWSMPSeymour", "DescribeChangeSet", {})
   .n("MarketplaceCatalogClient", "DescribeChangeSetCommand")
-  .sc(DescribeChangeSet)
+  .sc(DescribeChangeSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

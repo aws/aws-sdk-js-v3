@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDashboardEmbedUrlRequest, GetDashboardEmbedUrlResponse } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { GetDashboardEmbedUrl } from "../schemas/schemas_0";
+import { GetDashboardEmbedUrl$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -171,7 +171,7 @@ export class GetDashboardEmbedUrlCommand extends $Command
   })
   .s("QuickSight_20180401", "GetDashboardEmbedUrl", {})
   .n("QuickSightClient", "GetDashboardEmbedUrlCommand")
-  .sc(GetDashboardEmbedUrl)
+  .sc(GetDashboardEmbedUrl$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

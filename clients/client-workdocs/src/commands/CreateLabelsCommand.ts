@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateLabelsRequest, CreateLabelsResponse } from "../models/models_0";
-import { CreateLabels } from "../schemas/schemas_0";
+import { CreateLabels$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -97,7 +97,7 @@ export class CreateLabelsCommand extends $Command
   })
   .s("AWSGorillaBoyService", "CreateLabels", {})
   .n("WorkDocsClient", "CreateLabelsCommand")
-  .sc(CreateLabels)
+  .sc(CreateLabels$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

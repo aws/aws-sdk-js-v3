@@ -8,7 +8,7 @@ import type {
   GetConfigurationSetEventDestinationsRequest,
   GetConfigurationSetEventDestinationsResponse,
 } from "../models/models_0";
-import { GetConfigurationSetEventDestinations } from "../schemas/schemas_0";
+import { GetConfigurationSetEventDestinations$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -123,7 +123,7 @@ export class GetConfigurationSetEventDestinationsCommand extends $Command
   })
   .s("SimpleEmailService_v2", "GetConfigurationSetEventDestinations", {})
   .n("SESv2Client", "GetConfigurationSetEventDestinationsCommand")
-  .sc(GetConfigurationSetEventDestinations)
+  .sc(GetConfigurationSetEventDestinations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

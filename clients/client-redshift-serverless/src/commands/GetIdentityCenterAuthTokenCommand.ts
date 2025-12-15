@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { GetIdentityCenterAuthToken } from "../schemas/schemas_0";
+import { GetIdentityCenterAuthToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class GetIdentityCenterAuthTokenCommand extends $Command
   })
   .s("RedshiftServerless", "GetIdentityCenterAuthToken", {})
   .n("RedshiftServerlessClient", "GetIdentityCenterAuthTokenCommand")
-  .sc(GetIdentityCenterAuthToken)
+  .sc(GetIdentityCenterAuthToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

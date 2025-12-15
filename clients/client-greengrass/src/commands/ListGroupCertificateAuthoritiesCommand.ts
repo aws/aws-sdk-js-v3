@@ -9,7 +9,7 @@ import type {
   ListGroupCertificateAuthoritiesRequest,
   ListGroupCertificateAuthoritiesResponse,
 } from "../models/models_0";
-import { ListGroupCertificateAuthorities } from "../schemas/schemas_0";
+import { ListGroupCertificateAuthorities$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class ListGroupCertificateAuthoritiesCommand extends $Command
   })
   .s("Greengrass", "ListGroupCertificateAuthorities", {})
   .n("GreengrassClient", "ListGroupCertificateAuthoritiesCommand")
-  .sc(ListGroupCertificateAuthorities)
+  .sc(ListGroupCertificateAuthorities$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

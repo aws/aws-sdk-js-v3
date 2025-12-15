@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { OmitsSerializingEmptyLists } from "../schemas/schemas_0";
+import { OmitsSerializingEmptyLists$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class OmitsSerializingEmptyListsCommand extends $Command
   })
   .s("RestJson", "OmitsSerializingEmptyLists", {})
   .n("RestJsonProtocolClient", "OmitsSerializingEmptyListsCommand")
-  .sc(OmitsSerializingEmptyLists)
+  .sc(OmitsSerializingEmptyLists$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

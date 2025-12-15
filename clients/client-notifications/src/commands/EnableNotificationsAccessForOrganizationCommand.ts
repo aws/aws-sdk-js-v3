@@ -9,7 +9,7 @@ import type {
   EnableNotificationsAccessForOrganizationResponse,
 } from "../models/models_0";
 import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { EnableNotificationsAccessForOrganization } from "../schemas/schemas_0";
+import { EnableNotificationsAccessForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class EnableNotificationsAccessForOrganizationCommand extends $Command
   })
   .s("Notifications", "EnableNotificationsAccessForOrganization", {})
   .n("NotificationsClient", "EnableNotificationsAccessForOrganizationCommand")
-  .sc(EnableNotificationsAccessForOrganization)
+  .sc(EnableNotificationsAccessForOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

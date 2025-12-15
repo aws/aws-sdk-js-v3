@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchCheckLayerAvailabilityRequest, BatchCheckLayerAvailabilityResponse } from "../models/models_0";
-import { BatchCheckLayerAvailability } from "../schemas/schemas_0";
+import { BatchCheckLayerAvailability$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class BatchCheckLayerAvailabilityCommand extends $Command
   })
   .s("SpencerFrontendService", "BatchCheckLayerAvailability", {})
   .n("ECRPUBLICClient", "BatchCheckLayerAvailabilityCommand")
-  .sc(BatchCheckLayerAvailability)
+  .sc(BatchCheckLayerAvailability$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

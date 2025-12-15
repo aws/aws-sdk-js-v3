@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteEndpointInput } from "../models/models_0";
-import { DeleteEndpoint } from "../schemas/schemas_0";
+import { DeleteEndpoint$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -85,7 +85,7 @@ export class DeleteEndpointCommand extends $Command
   })
   .s("AmazonSimpleNotificationService", "DeleteEndpoint", {})
   .n("SNSClient", "DeleteEndpointCommand")
-  .sc(DeleteEndpoint)
+  .sc(DeleteEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

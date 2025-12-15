@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
 import type { CreateApplicationPresignedUrlRequest, CreateApplicationPresignedUrlResponse } from "../models/models_0";
-import { CreateApplicationPresignedUrl } from "../schemas/schemas_0";
+import { CreateApplicationPresignedUrl$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class CreateApplicationPresignedUrlCommand extends $Command
   })
   .s("KinesisAnalytics_20180523", "CreateApplicationPresignedUrl", {})
   .n("KinesisAnalyticsV2Client", "CreateApplicationPresignedUrlCommand")
-  .sc(CreateApplicationPresignedUrl)
+  .sc(CreateApplicationPresignedUrl$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

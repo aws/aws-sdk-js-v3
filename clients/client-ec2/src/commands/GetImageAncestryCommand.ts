@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetImageAncestryRequest, GetImageAncestryResult } from "../models/models_5";
-import { GetImageAncestry } from "../schemas/schemas_0";
+import { GetImageAncestry$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class GetImageAncestryCommand extends $Command
   })
   .s("AmazonEC2", "GetImageAncestry", {})
   .n("EC2Client", "GetImageAncestryCommand")
-  .sc(GetImageAncestry)
+  .sc(GetImageAncestry$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

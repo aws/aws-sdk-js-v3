@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../ManagedBlockchainQueryClient";
 import type { ListTransactionEventsInput, ListTransactionEventsOutput } from "../models/models_0";
-import { ListTransactionEvents } from "../schemas/schemas_0";
+import { ListTransactionEvents$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,7 +127,7 @@ export class ListTransactionEventsCommand extends $Command
   })
   .s("TietonChainQueryService", "ListTransactionEvents", {})
   .n("ManagedBlockchainQueryClient", "ListTransactionEventsCommand")
-  .sc(ListTransactionEvents)
+  .sc(ListTransactionEvents$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

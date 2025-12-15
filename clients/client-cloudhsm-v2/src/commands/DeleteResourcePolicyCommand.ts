@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteResourcePolicyRequest, DeleteResourcePolicyResponse } from "../models/models_0";
-import { DeleteResourcePolicy } from "../schemas/schemas_0";
+import { DeleteResourcePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class DeleteResourcePolicyCommand extends $Command
   })
   .s("BaldrApiService", "DeleteResourcePolicy", {})
   .n("CloudHSMV2Client", "DeleteResourcePolicyCommand")
-  .sc(DeleteResourcePolicy)
+  .sc(DeleteResourcePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

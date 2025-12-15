@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ScalingProcessQuery } from "../models/models_0";
-import { ResumeProcesses } from "../schemas/schemas_0";
+import { ResumeProcesses$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class ResumeProcessesCommand extends $Command
   })
   .s("AutoScaling_2011_01_01", "ResumeProcesses", {})
   .n("AutoScalingClient", "ResumeProcessesCommand")
-  .sc(ResumeProcesses)
+  .sc(ResumeProcesses$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

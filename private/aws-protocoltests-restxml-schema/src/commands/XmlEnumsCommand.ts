@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestXmlProtocolClient";
-import { XmlEnums } from "../schemas/schemas_0";
+import { XmlEnums$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class XmlEnumsCommand extends $Command
   })
   .s("RestXml", "XmlEnums", {})
   .n("RestXmlProtocolClient", "XmlEnumsCommand")
-  .sc(XmlEnums)
+  .sc(XmlEnums$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

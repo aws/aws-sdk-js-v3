@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteRunGroupRequest } from "../models/models_0";
 import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { DeleteRunGroup } from "../schemas/schemas_0";
+import { DeleteRunGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DeleteRunGroupCommand extends $Command
   })
   .s("Omics", "DeleteRunGroup", {})
   .n("OmicsClient", "DeleteRunGroupCommand")
-  .sc(DeleteRunGroup)
+  .sc(DeleteRunGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartOutpostDecommissionInput, StartOutpostDecommissionOutput } from "../models/models_0";
 import type { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import { StartOutpostDecommission } from "../schemas/schemas_0";
+import { StartOutpostDecommission$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class StartOutpostDecommissionCommand extends $Command
   })
   .s("OutpostsOlafService", "StartOutpostDecommission", {})
   .n("OutpostsClient", "StartOutpostDecommissionCommand")
-  .sc(StartOutpostDecommission)
+  .sc(StartOutpostDecommission$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

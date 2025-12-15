@@ -9,7 +9,7 @@ import type {
   GetSagemakerServicecatalogPortfolioStatusOutput,
 } from "../models/models_3";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { GetSagemakerServicecatalogPortfolioStatus } from "../schemas/schemas_0";
+import { GetSagemakerServicecatalogPortfolioStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,7 +77,7 @@ export class GetSagemakerServicecatalogPortfolioStatusCommand extends $Command
   })
   .s("SageMaker", "GetSagemakerServicecatalogPortfolioStatus", {})
   .n("SageMakerClient", "GetSagemakerServicecatalogPortfolioStatusCommand")
-  .sc(GetSagemakerServicecatalogPortfolioStatus)
+  .sc(GetSagemakerServicecatalogPortfolioStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

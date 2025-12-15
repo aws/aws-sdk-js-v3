@@ -9,7 +9,7 @@ import type {
   GetJourneyExecutionActivityMetricsResponse,
 } from "../models/models_1";
 import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { GetJourneyExecutionActivityMetrics } from "../schemas/schemas_0";
+import { GetJourneyExecutionActivityMetrics$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class GetJourneyExecutionActivityMetricsCommand extends $Command
   })
   .s("Pinpoint", "GetJourneyExecutionActivityMetrics", {})
   .n("PinpointClient", "GetJourneyExecutionActivityMetricsCommand")
-  .sc(GetJourneyExecutionActivityMetrics)
+  .sc(GetJourneyExecutionActivityMetrics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

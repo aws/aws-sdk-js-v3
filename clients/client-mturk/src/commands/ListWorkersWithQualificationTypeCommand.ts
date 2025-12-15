@@ -9,7 +9,7 @@ import type {
   ListWorkersWithQualificationTypeResponse,
 } from "../models/models_0";
 import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { ListWorkersWithQualificationType } from "../schemas/schemas_0";
+import { ListWorkersWithQualificationType$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class ListWorkersWithQualificationTypeCommand extends $Command
   })
   .s("MTurkRequesterServiceV20170117", "ListWorkersWithQualificationType", {})
   .n("MTurkClient", "ListWorkersWithQualificationTypeCommand")
-  .sc(ListWorkersWithQualificationType)
+  .sc(ListWorkersWithQualificationType$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

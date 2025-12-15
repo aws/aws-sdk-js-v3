@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateFolderMembershipRequest, CreateFolderMembershipResponse } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { CreateFolderMembership } from "../schemas/schemas_0";
+import { CreateFolderMembership$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class CreateFolderMembershipCommand extends $Command
   })
   .s("QuickSight_20180401", "CreateFolderMembership", {})
   .n("QuickSightClient", "CreateFolderMembershipCommand")
-  .sc(CreateFolderMembership)
+  .sc(CreateFolderMembership$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

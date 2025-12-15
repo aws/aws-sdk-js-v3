@@ -9,7 +9,7 @@ import type {
   ModifyVerifiedAccessInstanceLoggingConfigurationRequest,
   ModifyVerifiedAccessInstanceLoggingConfigurationResult,
 } from "../models/models_6";
-import { ModifyVerifiedAccessInstanceLoggingConfiguration } from "../schemas/schemas_0";
+import { ModifyVerifiedAccessInstanceLoggingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -131,7 +131,7 @@ export class ModifyVerifiedAccessInstanceLoggingConfigurationCommand extends $Co
   })
   .s("AmazonEC2", "ModifyVerifiedAccessInstanceLoggingConfiguration", {})
   .n("EC2Client", "ModifyVerifiedAccessInstanceLoggingConfigurationCommand")
-  .sc(ModifyVerifiedAccessInstanceLoggingConfiguration)
+  .sc(ModifyVerifiedAccessInstanceLoggingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

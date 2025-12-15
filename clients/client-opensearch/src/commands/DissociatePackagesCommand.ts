@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DissociatePackagesRequest, DissociatePackagesResponse } from "../models/models_0";
 import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { DissociatePackages } from "../schemas/schemas_0";
+import { DissociatePackages$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class DissociatePackagesCommand extends $Command
   })
   .s("AmazonOpenSearchService", "DissociatePackages", {})
   .n("OpenSearchClient", "DissociatePackagesCommand")
-  .sc(DissociatePackages)
+  .sc(DissociatePackages$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

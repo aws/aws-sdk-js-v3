@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListMessageMoveTasksRequest, ListMessageMoveTasksResult } from "../models/models_0";
-import { ListMessageMoveTasks } from "../schemas/schemas_0";
+import { ListMessageMoveTasks$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -127,7 +127,7 @@ export class ListMessageMoveTasksCommand extends $Command
   })
   .s("AmazonSQS", "ListMessageMoveTasks", {})
   .n("SQSClient", "ListMessageMoveTasksCommand")
-  .sc(ListMessageMoveTasks)
+  .sc(ListMessageMoveTasks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

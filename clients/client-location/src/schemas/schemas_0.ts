@@ -521,31 +521,31 @@ import type {
 } from "@smithy/types";
 
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
-import { LocationServiceException as __LocationServiceException } from "../models/LocationServiceException";
+import { LocationServiceException } from "../models/LocationServiceException";
 
 /* eslint no-var: 0 */
-export var ApiKey: StaticSimpleSchema = [0, n0, _AK, 8, 0];
-export var Base64EncodedGeobuf: StaticSimpleSchema = [0, n0, _BEG, 8, 21];
-export var CountryCode3: StaticSimpleSchema = [0, n0, _CC, 8, 0];
-export var CountryCode3OrEmpty: StaticSimpleSchema = [0, n0, _CCOE, 8, 0];
-export var PlaceCategory: StaticSimpleSchema = [0, n0, _PC, 8, 0];
-export var PlaceId: StaticSimpleSchema = [0, n0, _PI, 8, 0];
-export var PlaceSupplementalCategory: StaticSimpleSchema = [0, n0, _PSC, 8, 0];
-export var RefererPattern: StaticSimpleSchema = [0, n0, _RP, 8, 0];
-export var SensitiveBoolean: StaticSimpleSchema = [0, n0, _SB, 8, 2];
-export var SensitiveDouble: StaticSimpleSchema = [0, n0, _SD, 8, 1];
-export var SensitiveInteger: StaticSimpleSchema = [0, n0, _SI, 8, 1];
-export var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
-export var Timestamp: StaticSimpleSchema = [0, n0, _T, 8, 5];
-export var AccessDeniedException: StaticErrorSchema = [
+var ApiKey: StaticSimpleSchema = [0, n0, _AK, 8, 0];
+var Base64EncodedGeobuf: StaticSimpleSchema = [0, n0, _BEG, 8, 21];
+var CountryCode3: StaticSimpleSchema = [0, n0, _CC, 8, 0];
+var CountryCode3OrEmpty: StaticSimpleSchema = [0, n0, _CCOE, 8, 0];
+var PlaceCategory: StaticSimpleSchema = [0, n0, _PC, 8, 0];
+var PlaceId: StaticSimpleSchema = [0, n0, _PI, 8, 0];
+var PlaceSupplementalCategory: StaticSimpleSchema = [0, n0, _PSC, 8, 0];
+var RefererPattern: StaticSimpleSchema = [0, n0, _RP, 8, 0];
+var SensitiveBoolean: StaticSimpleSchema = [0, n0, _SB, 8, 2];
+var SensitiveDouble: StaticSimpleSchema = [0, n0, _SD, 8, 1];
+var SensitiveInteger: StaticSimpleSchema = [0, n0, _SI, 8, 1];
+var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
+var Timestamp: StaticSimpleSchema = [0, n0, _T, 8, 5];
+export var AccessDeniedException$: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
@@ -553,10 +553,10 @@ export var AccessDeniedException: StaticErrorSchema = [
   [_M],
   [[0, { [_jN]: _m }]],
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var AndroidApp: StaticStructureSchema = [3, n0, _AA, 0, [_P, _CF], [0, 0]];
-export var ApiKeyFilter: StaticStructureSchema = [3, n0, _AKF, 0, [_KS], [0]];
-export var ApiKeyRestrictions: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var AndroidApp$: StaticStructureSchema = [3, n0, _AA, 0, [_P, _CF], [0, 0]];
+export var ApiKeyFilter$: StaticStructureSchema = [3, n0, _AKF, 0, [_KS], [0]];
+export var ApiKeyRestrictions$: StaticStructureSchema = [
   3,
   n0,
   _AKR,
@@ -564,18 +564,18 @@ export var ApiKeyRestrictions: StaticStructureSchema = [
   [_AAl, _AR, _ARl, _AAA, _AAAl],
   [64 | 0, 64 | 0, [() => RefererPatternList, 0], () => AndroidAppList, () => AppleAppList],
 ];
-export var AppleApp: StaticStructureSchema = [3, n0, _AAp, 0, [_BI], [0]];
-export var AssociateTrackerConsumerRequest: StaticStructureSchema = [3, n0, _ATCR, 0, [_TN, _CA], [[0, 1], 0]];
-export var AssociateTrackerConsumerResponse: StaticStructureSchema = [3, n0, _ATCRs, 0, [], []];
-export var BatchDeleteDevicePositionHistoryError: StaticStructureSchema = [
+export var AppleApp$: StaticStructureSchema = [3, n0, _AAp, 0, [_BI], [0]];
+export var AssociateTrackerConsumerRequest$: StaticStructureSchema = [3, n0, _ATCR, 0, [_TN, _CA], [[0, 1], 0]];
+export var AssociateTrackerConsumerResponse$: StaticStructureSchema = [3, n0, _ATCRs, 0, [], []];
+export var BatchDeleteDevicePositionHistoryError$: StaticStructureSchema = [
   3,
   n0,
   _BDDPHE,
   0,
   [_DI, _E],
-  [0, () => BatchItemError],
+  [0, () => BatchItemError$],
 ];
-export var BatchDeleteDevicePositionHistoryRequest: StaticStructureSchema = [
+export var BatchDeleteDevicePositionHistoryRequest$: StaticStructureSchema = [
   3,
   n0,
   _BDDPHR,
@@ -583,7 +583,7 @@ export var BatchDeleteDevicePositionHistoryRequest: StaticStructureSchema = [
   [_TN, _DIe],
   [[0, 1], 64 | 0],
 ];
-export var BatchDeleteDevicePositionHistoryResponse: StaticStructureSchema = [
+export var BatchDeleteDevicePositionHistoryResponse$: StaticStructureSchema = [
   3,
   n0,
   _BDDPHRa,
@@ -591,9 +591,9 @@ export var BatchDeleteDevicePositionHistoryResponse: StaticStructureSchema = [
   [_Er],
   [() => BatchDeleteDevicePositionHistoryErrorList],
 ];
-export var BatchDeleteGeofenceError: StaticStructureSchema = [3, n0, _BDGE, 0, [_GI, _E], [0, () => BatchItemError]];
-export var BatchDeleteGeofenceRequest: StaticStructureSchema = [3, n0, _BDGR, 0, [_CN, _GIe], [[0, 1], 64 | 0]];
-export var BatchDeleteGeofenceResponse: StaticStructureSchema = [
+export var BatchDeleteGeofenceError$: StaticStructureSchema = [3, n0, _BDGE, 0, [_GI, _E], [0, () => BatchItemError$]];
+export var BatchDeleteGeofenceRequest$: StaticStructureSchema = [3, n0, _BDGR, 0, [_CN, _GIe], [[0, 1], 64 | 0]];
+export var BatchDeleteGeofenceResponse$: StaticStructureSchema = [
   3,
   n0,
   _BDGRa,
@@ -601,15 +601,15 @@ export var BatchDeleteGeofenceResponse: StaticStructureSchema = [
   [_Er],
   [() => BatchDeleteGeofenceErrorList],
 ];
-export var BatchEvaluateGeofencesError: StaticStructureSchema = [
+export var BatchEvaluateGeofencesError$: StaticStructureSchema = [
   3,
   n0,
   _BEGE,
   0,
   [_DI, _ST, _E],
-  [0, [() => Timestamp, 0], () => BatchItemError],
+  [0, [() => Timestamp, 0], () => BatchItemError$],
 ];
-export var BatchEvaluateGeofencesRequest: StaticStructureSchema = [
+export var BatchEvaluateGeofencesRequest$: StaticStructureSchema = [
   3,
   n0,
   _BEGR,
@@ -620,7 +620,7 @@ export var BatchEvaluateGeofencesRequest: StaticStructureSchema = [
     [() => DevicePositionUpdateList, 0],
   ],
 ];
-export var BatchEvaluateGeofencesResponse: StaticStructureSchema = [
+export var BatchEvaluateGeofencesResponse$: StaticStructureSchema = [
   3,
   n0,
   _BEGRa,
@@ -628,16 +628,16 @@ export var BatchEvaluateGeofencesResponse: StaticStructureSchema = [
   [_Er],
   [[() => BatchEvaluateGeofencesErrorList, 0]],
 ];
-export var BatchGetDevicePositionError: StaticStructureSchema = [
+export var BatchGetDevicePositionError$: StaticStructureSchema = [
   3,
   n0,
   _BGDPE,
   0,
   [_DI, _E],
-  [0, () => BatchItemError],
+  [0, () => BatchItemError$],
 ];
-export var BatchGetDevicePositionRequest: StaticStructureSchema = [3, n0, _BGDPR, 0, [_TN, _DIe], [[0, 1], 64 | 0]];
-export var BatchGetDevicePositionResponse: StaticStructureSchema = [
+export var BatchGetDevicePositionRequest$: StaticStructureSchema = [3, n0, _BGDPR, 0, [_TN, _DIe], [[0, 1], 64 | 0]];
+export var BatchGetDevicePositionResponse$: StaticStructureSchema = [
   3,
   n0,
   _BGDPRa,
@@ -645,9 +645,9 @@ export var BatchGetDevicePositionResponse: StaticStructureSchema = [
   [_Er, _DP],
   [() => BatchGetDevicePositionErrorList, [() => DevicePositionList, 0]],
 ];
-export var BatchItemError: StaticStructureSchema = [3, n0, _BIE, 0, [_C, _M], [0, 0]];
-export var BatchPutGeofenceError: StaticStructureSchema = [3, n0, _BPGE, 0, [_GI, _E], [0, () => BatchItemError]];
-export var BatchPutGeofenceRequest: StaticStructureSchema = [
+export var BatchItemError$: StaticStructureSchema = [3, n0, _BIE, 0, [_C, _M], [0, 0]];
+export var BatchPutGeofenceError$: StaticStructureSchema = [3, n0, _BPGE, 0, [_GI, _E], [0, () => BatchItemError$]];
+export var BatchPutGeofenceRequest$: StaticStructureSchema = [
   3,
   n0,
   _BPGR,
@@ -658,15 +658,15 @@ export var BatchPutGeofenceRequest: StaticStructureSchema = [
     [() => BatchPutGeofenceRequestEntryList, 0],
   ],
 ];
-export var BatchPutGeofenceRequestEntry: StaticStructureSchema = [
+export var BatchPutGeofenceRequestEntry$: StaticStructureSchema = [
   3,
   n0,
   _BPGRE,
   0,
   [_GI, _G, _GP],
-  [0, [() => GeofenceGeometry, 0], [() => PropertyMap, 0]],
+  [0, [() => GeofenceGeometry$, 0], [() => PropertyMap, 0]],
 ];
-export var BatchPutGeofenceResponse: StaticStructureSchema = [
+export var BatchPutGeofenceResponse$: StaticStructureSchema = [
   3,
   n0,
   _BPGRa,
@@ -674,7 +674,7 @@ export var BatchPutGeofenceResponse: StaticStructureSchema = [
   [_S, _Er],
   [[() => BatchPutGeofenceSuccessList, 0], () => BatchPutGeofenceErrorList],
 ];
-export var BatchPutGeofenceSuccess: StaticStructureSchema = [
+export var BatchPutGeofenceSuccess$: StaticStructureSchema = [
   3,
   n0,
   _BPGS,
@@ -682,15 +682,15 @@ export var BatchPutGeofenceSuccess: StaticStructureSchema = [
   [_GI, _CT, _UT],
   [0, [() => Timestamp, 0], [() => Timestamp, 0]],
 ];
-export var BatchUpdateDevicePositionError: StaticStructureSchema = [
+export var BatchUpdateDevicePositionError$: StaticStructureSchema = [
   3,
   n0,
   _BUDPE,
   0,
   [_DI, _ST, _E],
-  [0, [() => Timestamp, 0], () => BatchItemError],
+  [0, [() => Timestamp, 0], () => BatchItemError$],
 ];
-export var BatchUpdateDevicePositionRequest: StaticStructureSchema = [
+export var BatchUpdateDevicePositionRequest$: StaticStructureSchema = [
   3,
   n0,
   _BUDPR,
@@ -701,7 +701,7 @@ export var BatchUpdateDevicePositionRequest: StaticStructureSchema = [
     [() => DevicePositionUpdateList, 0],
   ],
 ];
-export var BatchUpdateDevicePositionResponse: StaticStructureSchema = [
+export var BatchUpdateDevicePositionResponse$: StaticStructureSchema = [
   3,
   n0,
   _BUDPRa,
@@ -709,7 +709,7 @@ export var BatchUpdateDevicePositionResponse: StaticStructureSchema = [
   [_Er],
   [[() => BatchUpdateDevicePositionErrorList, 0]],
 ];
-export var CalculateRouteCarModeOptions: StaticStructureSchema = [
+export var CalculateRouteCarModeOptions$: StaticStructureSchema = [
   3,
   n0,
   _CRCMO,
@@ -720,7 +720,7 @@ export var CalculateRouteCarModeOptions: StaticStructureSchema = [
     [() => SensitiveBoolean, 0],
   ],
 ];
-export var CalculateRouteMatrixRequest: StaticStructureSchema = [
+export var CalculateRouteMatrixRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRMR,
@@ -734,21 +734,21 @@ export var CalculateRouteMatrixRequest: StaticStructureSchema = [
     [() => Timestamp, 0],
     [() => SensitiveBoolean, 0],
     0,
-    [() => CalculateRouteCarModeOptions, 0],
-    [() => CalculateRouteTruckModeOptions, 0],
+    [() => CalculateRouteCarModeOptions$, 0],
+    [() => CalculateRouteTruckModeOptions$, 0],
     [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
-export var CalculateRouteMatrixResponse: StaticStructureSchema = [
+export var CalculateRouteMatrixResponse$: StaticStructureSchema = [
   3,
   n0,
   _CRMRa,
   0,
   [_RM, _SDP, _SDPn, _Su],
-  [[() => RouteMatrix, 0], [() => PositionList, 0], [() => PositionList, 0], () => CalculateRouteMatrixSummary],
+  [[() => RouteMatrix, 0], [() => PositionList, 0], [() => PositionList, 0], () => CalculateRouteMatrixSummary$],
 ];
-export var CalculateRouteMatrixSummary: StaticStructureSchema = [3, n0, _CRMS, 0, [_DS, _RC, _EC, _DU], [0, 1, 1, 0]];
-export var CalculateRouteRequest: StaticStructureSchema = [
+export var CalculateRouteMatrixSummary$: StaticStructureSchema = [3, n0, _CRMS, 0, [_DS, _RC, _EC, _DU], [0, 1, 1, 0]];
+export var CalculateRouteRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRR,
@@ -764,14 +764,14 @@ export var CalculateRouteRequest: StaticStructureSchema = [
     [() => SensitiveBoolean, 0],
     0,
     [() => SensitiveBoolean, 0],
-    [() => CalculateRouteCarModeOptions, 0],
-    [() => CalculateRouteTruckModeOptions, 0],
+    [() => CalculateRouteCarModeOptions$, 0],
+    [() => CalculateRouteTruckModeOptions$, 0],
     [() => Timestamp, 0],
     0,
     [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
-export var CalculateRouteResponse: StaticStructureSchema = [
+export var CalculateRouteResponse$: StaticStructureSchema = [
   3,
   n0,
   _CRRa,
@@ -779,10 +779,10 @@ export var CalculateRouteResponse: StaticStructureSchema = [
   [_L, _Su],
   [
     [() => LegList, 0],
-    [() => CalculateRouteSummary, 0],
+    [() => CalculateRouteSummary$, 0],
   ],
 ];
-export var CalculateRouteSummary: StaticStructureSchema = [
+export var CalculateRouteSummary$: StaticStructureSchema = [
   3,
   n0,
   _CRS,
@@ -790,7 +790,7 @@ export var CalculateRouteSummary: StaticStructureSchema = [
   [_RBB, _DS, _D, _DSu, _DU],
   [[() => BoundingBox, 0], 0, [() => SensitiveDouble, 0], [() => SensitiveDouble, 0], 0],
 ];
-export var CalculateRouteTruckModeOptions: StaticStructureSchema = [
+export var CalculateRouteTruckModeOptions$: StaticStructureSchema = [
   3,
   n0,
   _CRTMO,
@@ -799,12 +799,12 @@ export var CalculateRouteTruckModeOptions: StaticStructureSchema = [
   [
     [() => SensitiveBoolean, 0],
     [() => SensitiveBoolean, 0],
-    [() => TruckDimensions, 0],
-    [() => TruckWeight, 0],
+    [() => TruckDimensions$, 0],
+    [() => TruckWeight$, 0],
   ],
 ];
-export var CellSignals: StaticStructureSchema = [3, n0, _CS, 0, [_LCD], [() => LteCellDetailsList]];
-export var Circle: StaticStructureSchema = [
+export var CellSignals$: StaticStructureSchema = [3, n0, _CS, 0, [_LCD], [() => LteCellDetailsList]];
+export var Circle$: StaticStructureSchema = [
   3,
   n0,
   _Ci,
@@ -815,9 +815,9 @@ export var Circle: StaticStructureSchema = [
     [() => SensitiveDouble, 0],
   ],
 ];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [[0, { [_jN]: _m }]]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateGeofenceCollectionRequest: StaticStructureSchema = [
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [[0, { [_jN]: _m }]]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateGeofenceCollectionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CGCR,
@@ -825,7 +825,7 @@ export var CreateGeofenceCollectionRequest: StaticStructureSchema = [
   [_CN, _PP, _PPDS, _De, _Ta, _KKI],
   [0, 0, 0, 0, 128 | 0, 0],
 ];
-export var CreateGeofenceCollectionResponse: StaticStructureSchema = [
+export var CreateGeofenceCollectionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CGCRr,
@@ -833,15 +833,15 @@ export var CreateGeofenceCollectionResponse: StaticStructureSchema = [
   [_CN, _CAo, _CT],
   [0, 0, [() => Timestamp, 0]],
 ];
-export var CreateKeyRequest: StaticStructureSchema = [
+export var CreateKeyRequest$: StaticStructureSchema = [
   3,
   n0,
   _CKR,
   0,
   [_KN, _Re, _De, _ET, _NE, _Ta],
-  [0, [() => ApiKeyRestrictions, 0], 0, [() => Timestamp, 0], 2, 128 | 0],
+  [0, [() => ApiKeyRestrictions$, 0], 0, [() => Timestamp, 0], 2, 128 | 0],
 ];
-export var CreateKeyResponse: StaticStructureSchema = [
+export var CreateKeyResponse$: StaticStructureSchema = [
   3,
   n0,
   _CKRr,
@@ -849,24 +849,24 @@ export var CreateKeyResponse: StaticStructureSchema = [
   [_K, _KA, _KN, _CT],
   [[() => ApiKey, 0], 0, 0, [() => Timestamp, 0]],
 ];
-export var CreateMapRequest: StaticStructureSchema = [
+export var CreateMapRequest$: StaticStructureSchema = [
   3,
   n0,
   _CMR,
   0,
   [_MN, _Co, _PP, _De, _Ta],
-  [0, [() => MapConfiguration, 0], 0, 0, 128 | 0],
+  [0, [() => MapConfiguration$, 0], 0, 0, 128 | 0],
 ];
-export var CreateMapResponse: StaticStructureSchema = [3, n0, _CMRr, 0, [_MN, _MA, _CT], [0, 0, [() => Timestamp, 0]]];
-export var CreatePlaceIndexRequest: StaticStructureSchema = [
+export var CreateMapResponse$: StaticStructureSchema = [3, n0, _CMRr, 0, [_MN, _MA, _CT], [0, 0, [() => Timestamp, 0]]];
+export var CreatePlaceIndexRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPIR,
   0,
   [_IN, _DS, _PP, _De, _DSC, _Ta],
-  [0, 0, 0, 0, () => DataSourceConfiguration, 128 | 0],
+  [0, 0, 0, 0, () => DataSourceConfiguration$, 128 | 0],
 ];
-export var CreatePlaceIndexResponse: StaticStructureSchema = [
+export var CreatePlaceIndexResponse$: StaticStructureSchema = [
   3,
   n0,
   _CPIRr,
@@ -874,7 +874,7 @@ export var CreatePlaceIndexResponse: StaticStructureSchema = [
   [_IN, _IA, _CT],
   [0, 0, [() => Timestamp, 0]],
 ];
-export var CreateRouteCalculatorRequest: StaticStructureSchema = [
+export var CreateRouteCalculatorRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRCR,
@@ -882,7 +882,7 @@ export var CreateRouteCalculatorRequest: StaticStructureSchema = [
   [_CNa, _DS, _PP, _De, _Ta],
   [0, 0, 0, 0, 128 | 0],
 ];
-export var CreateRouteCalculatorResponse: StaticStructureSchema = [
+export var CreateRouteCalculatorResponse$: StaticStructureSchema = [
   3,
   n0,
   _CRCRr,
@@ -890,7 +890,7 @@ export var CreateRouteCalculatorResponse: StaticStructureSchema = [
   [_CNa, _CAa, _CT],
   [0, 0, [() => Timestamp, 0]],
 ];
-export var CreateTrackerRequest: StaticStructureSchema = [
+export var CreateTrackerRequest$: StaticStructureSchema = [
   3,
   n0,
   _CTR,
@@ -898,7 +898,7 @@ export var CreateTrackerRequest: StaticStructureSchema = [
   [_TN, _PP, _KKI, _PPDS, _De, _Ta, _PF, _EBE, _KKEGQ],
   [0, 0, 0, 0, 0, 128 | 0, 0, 2, 2],
 ];
-export var CreateTrackerResponse: StaticStructureSchema = [
+export var CreateTrackerResponse$: StaticStructureSchema = [
   3,
   n0,
   _CTRr,
@@ -906,10 +906,10 @@ export var CreateTrackerResponse: StaticStructureSchema = [
   [_TN, _TA, _CT],
   [0, 0, [() => Timestamp, 0]],
 ];
-export var DataSourceConfiguration: StaticStructureSchema = [3, n0, _DSC, 0, [_IU], [0]];
-export var DeleteGeofenceCollectionRequest: StaticStructureSchema = [3, n0, _DGCR, 0, [_CN], [[0, 1]]];
-export var DeleteGeofenceCollectionResponse: StaticStructureSchema = [3, n0, _DGCRe, 0, [], []];
-export var DeleteKeyRequest: StaticStructureSchema = [
+export var DataSourceConfiguration$: StaticStructureSchema = [3, n0, _DSC, 0, [_IU], [0]];
+export var DeleteGeofenceCollectionRequest$: StaticStructureSchema = [3, n0, _DGCR, 0, [_CN], [[0, 1]]];
+export var DeleteGeofenceCollectionResponse$: StaticStructureSchema = [3, n0, _DGCRe, 0, [], []];
+export var DeleteKeyRequest$: StaticStructureSchema = [
   3,
   n0,
   _DKR,
@@ -920,17 +920,17 @@ export var DeleteKeyRequest: StaticStructureSchema = [
     [2, { [_hQ]: _fD }],
   ],
 ];
-export var DeleteKeyResponse: StaticStructureSchema = [3, n0, _DKRe, 0, [], []];
-export var DeleteMapRequest: StaticStructureSchema = [3, n0, _DMR, 0, [_MN], [[0, 1]]];
-export var DeleteMapResponse: StaticStructureSchema = [3, n0, _DMRe, 0, [], []];
-export var DeletePlaceIndexRequest: StaticStructureSchema = [3, n0, _DPIR, 0, [_IN], [[0, 1]]];
-export var DeletePlaceIndexResponse: StaticStructureSchema = [3, n0, _DPIRe, 0, [], []];
-export var DeleteRouteCalculatorRequest: StaticStructureSchema = [3, n0, _DRCR, 0, [_CNa], [[0, 1]]];
-export var DeleteRouteCalculatorResponse: StaticStructureSchema = [3, n0, _DRCRe, 0, [], []];
-export var DeleteTrackerRequest: StaticStructureSchema = [3, n0, _DTR, 0, [_TN], [[0, 1]]];
-export var DeleteTrackerResponse: StaticStructureSchema = [3, n0, _DTRe, 0, [], []];
-export var DescribeGeofenceCollectionRequest: StaticStructureSchema = [3, n0, _DGCRes, 0, [_CN], [[0, 1]]];
-export var DescribeGeofenceCollectionResponse: StaticStructureSchema = [
+export var DeleteKeyResponse$: StaticStructureSchema = [3, n0, _DKRe, 0, [], []];
+export var DeleteMapRequest$: StaticStructureSchema = [3, n0, _DMR, 0, [_MN], [[0, 1]]];
+export var DeleteMapResponse$: StaticStructureSchema = [3, n0, _DMRe, 0, [], []];
+export var DeletePlaceIndexRequest$: StaticStructureSchema = [3, n0, _DPIR, 0, [_IN], [[0, 1]]];
+export var DeletePlaceIndexResponse$: StaticStructureSchema = [3, n0, _DPIRe, 0, [], []];
+export var DeleteRouteCalculatorRequest$: StaticStructureSchema = [3, n0, _DRCR, 0, [_CNa], [[0, 1]]];
+export var DeleteRouteCalculatorResponse$: StaticStructureSchema = [3, n0, _DRCRe, 0, [], []];
+export var DeleteTrackerRequest$: StaticStructureSchema = [3, n0, _DTR, 0, [_TN], [[0, 1]]];
+export var DeleteTrackerResponse$: StaticStructureSchema = [3, n0, _DTRe, 0, [], []];
+export var DescribeGeofenceCollectionRequest$: StaticStructureSchema = [3, n0, _DGCRes, 0, [_CN], [[0, 1]]];
+export var DescribeGeofenceCollectionResponse$: StaticStructureSchema = [
   3,
   n0,
   _DGCResc,
@@ -938,8 +938,8 @@ export var DescribeGeofenceCollectionResponse: StaticStructureSchema = [
   [_CN, _CAo, _De, _PP, _PPDS, _KKI, _Ta, _CT, _UT, _GC],
   [0, 0, 0, 0, 0, 0, 128 | 0, [() => Timestamp, 0], [() => Timestamp, 0], 1],
 ];
-export var DescribeKeyRequest: StaticStructureSchema = [3, n0, _DKRes, 0, [_KN], [[0, 1]]];
-export var DescribeKeyResponse: StaticStructureSchema = [
+export var DescribeKeyRequest$: StaticStructureSchema = [3, n0, _DKRes, 0, [_KN], [[0, 1]]];
+export var DescribeKeyResponse$: StaticStructureSchema = [
   3,
   n0,
   _DKResc,
@@ -949,7 +949,7 @@ export var DescribeKeyResponse: StaticStructureSchema = [
     [() => ApiKey, 0],
     0,
     0,
-    [() => ApiKeyRestrictions, 0],
+    [() => ApiKeyRestrictions$, 0],
     [() => Timestamp, 0],
     [() => Timestamp, 0],
     [() => Timestamp, 0],
@@ -957,26 +957,26 @@ export var DescribeKeyResponse: StaticStructureSchema = [
     128 | 0,
   ],
 ];
-export var DescribeMapRequest: StaticStructureSchema = [3, n0, _DMRes, 0, [_MN], [[0, 1]]];
-export var DescribeMapResponse: StaticStructureSchema = [
+export var DescribeMapRequest$: StaticStructureSchema = [3, n0, _DMRes, 0, [_MN], [[0, 1]]];
+export var DescribeMapResponse$: StaticStructureSchema = [
   3,
   n0,
   _DMResc,
   0,
   [_MN, _MA, _PP, _DS, _Co, _De, _Ta, _CT, _UT],
-  [0, 0, 0, 0, [() => MapConfiguration, 0], 0, 128 | 0, [() => Timestamp, 0], [() => Timestamp, 0]],
+  [0, 0, 0, 0, [() => MapConfiguration$, 0], 0, 128 | 0, [() => Timestamp, 0], [() => Timestamp, 0]],
 ];
-export var DescribePlaceIndexRequest: StaticStructureSchema = [3, n0, _DPIRes, 0, [_IN], [[0, 1]]];
-export var DescribePlaceIndexResponse: StaticStructureSchema = [
+export var DescribePlaceIndexRequest$: StaticStructureSchema = [3, n0, _DPIRes, 0, [_IN], [[0, 1]]];
+export var DescribePlaceIndexResponse$: StaticStructureSchema = [
   3,
   n0,
   _DPIResc,
   0,
   [_IN, _IA, _PP, _De, _CT, _UT, _DS, _DSC, _Ta],
-  [0, 0, 0, 0, [() => Timestamp, 0], [() => Timestamp, 0], 0, () => DataSourceConfiguration, 128 | 0],
+  [0, 0, 0, 0, [() => Timestamp, 0], [() => Timestamp, 0], 0, () => DataSourceConfiguration$, 128 | 0],
 ];
-export var DescribeRouteCalculatorRequest: StaticStructureSchema = [3, n0, _DRCRes, 0, [_CNa], [[0, 1]]];
-export var DescribeRouteCalculatorResponse: StaticStructureSchema = [
+export var DescribeRouteCalculatorRequest$: StaticStructureSchema = [3, n0, _DRCRes, 0, [_CNa], [[0, 1]]];
+export var DescribeRouteCalculatorResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRCResc,
@@ -984,8 +984,8 @@ export var DescribeRouteCalculatorResponse: StaticStructureSchema = [
   [_CNa, _CAa, _PP, _De, _CT, _UT, _DS, _Ta],
   [0, 0, 0, 0, [() => Timestamp, 0], [() => Timestamp, 0], 0, 128 | 0],
 ];
-export var DescribeTrackerRequest: StaticStructureSchema = [3, n0, _DTRes, 0, [_TN], [[0, 1]]];
-export var DescribeTrackerResponse: StaticStructureSchema = [
+export var DescribeTrackerRequest$: StaticStructureSchema = [3, n0, _DTRes, 0, [_TN], [[0, 1]]];
+export var DescribeTrackerResponse$: StaticStructureSchema = [
   3,
   n0,
   _DTResc,
@@ -993,7 +993,7 @@ export var DescribeTrackerResponse: StaticStructureSchema = [
   [_TN, _TA, _De, _PP, _PPDS, _Ta, _CT, _UT, _KKI, _PF, _EBE, _KKEGQ],
   [0, 0, 0, 0, 0, 128 | 0, [() => Timestamp, 0], [() => Timestamp, 0], 0, 0, 2, 2],
 ];
-export var DevicePosition: StaticStructureSchema = [
+export var DevicePosition$: StaticStructureSchema = [
   3,
   n0,
   _DPev,
@@ -1004,19 +1004,19 @@ export var DevicePosition: StaticStructureSchema = [
     [() => Timestamp, 0],
     [() => Timestamp, 0],
     [() => Position, 0],
-    [() => PositionalAccuracy, 0],
+    [() => PositionalAccuracy$, 0],
     [() => PositionPropertyMap, 0],
   ],
 ];
-export var DevicePositionUpdate: StaticStructureSchema = [
+export var DevicePositionUpdate$: StaticStructureSchema = [
   3,
   n0,
   _DPUe,
   0,
   [_DI, _ST, _Po, _A, _PPo],
-  [0, [() => Timestamp, 0], [() => Position, 0], [() => PositionalAccuracy, 0], [() => PositionPropertyMap, 0]],
+  [0, [() => Timestamp, 0], [() => Position, 0], [() => PositionalAccuracy$, 0], [() => PositionPropertyMap, 0]],
 ];
-export var DeviceState: StaticStructureSchema = [
+export var DeviceState$: StaticStructureSchema = [
   3,
   n0,
   _DSe,
@@ -1026,13 +1026,13 @@ export var DeviceState: StaticStructureSchema = [
     0,
     [() => Timestamp, 0],
     [() => Position, 0],
-    [() => PositionalAccuracy, 0],
+    [() => PositionalAccuracy$, 0],
     0,
     () => WiFiAccessPointList,
-    () => CellSignals,
+    () => CellSignals$,
   ],
 ];
-export var DisassociateTrackerConsumerRequest: StaticStructureSchema = [
+export var DisassociateTrackerConsumerRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTCR,
@@ -1043,8 +1043,8 @@ export var DisassociateTrackerConsumerRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DisassociateTrackerConsumerResponse: StaticStructureSchema = [3, n0, _DTCRi, 0, [], []];
-export var ForecastedEvent: StaticStructureSchema = [
+export var DisassociateTrackerConsumerResponse$: StaticStructureSchema = [3, n0, _DTCRi, 0, [], []];
+export var ForecastedEvent$: StaticStructureSchema = [
   3,
   n0,
   _FE,
@@ -1052,7 +1052,7 @@ export var ForecastedEvent: StaticStructureSchema = [
   [_EI, _GI, _IDIG, _ND, _ETv, _FBT, _GP],
   [0, 0, 2, 1, 0, [() => Timestamp, 0], [() => PropertyMap, 0]],
 ];
-export var ForecastGeofenceEventsDeviceState: StaticStructureSchema = [
+export var ForecastGeofenceEventsDeviceState$: StaticStructureSchema = [
   3,
   n0,
   _FGEDS,
@@ -1060,15 +1060,15 @@ export var ForecastGeofenceEventsDeviceState: StaticStructureSchema = [
   [_Po, _Sp],
   [[() => Position, 0], 1],
 ];
-export var ForecastGeofenceEventsRequest: StaticStructureSchema = [
+export var ForecastGeofenceEventsRequest$: StaticStructureSchema = [
   3,
   n0,
   _FGER,
   0,
   [_CN, _DSe, _THM, _DU, _SU, _NT, _MR],
-  [[0, 1], [() => ForecastGeofenceEventsDeviceState, 0], 1, 0, 0, 0, 1],
+  [[0, 1], [() => ForecastGeofenceEventsDeviceState$, 0], 1, 0, 0, 0, 1],
 ];
-export var ForecastGeofenceEventsResponse: StaticStructureSchema = [
+export var ForecastGeofenceEventsResponse$: StaticStructureSchema = [
   3,
   n0,
   _FGERo,
@@ -1076,7 +1076,7 @@ export var ForecastGeofenceEventsResponse: StaticStructureSchema = [
   [_FEo, _NT, _DU, _SU],
   [[() => ForecastedEventsList, 0], 0, 0, 0],
 ];
-export var GeofenceGeometry: StaticStructureSchema = [
+export var GeofenceGeometry$: StaticStructureSchema = [
   3,
   n0,
   _GG,
@@ -1084,12 +1084,12 @@ export var GeofenceGeometry: StaticStructureSchema = [
   [_Pol, _Ci, _Ge, _MP],
   [
     [() => LinearRings, 0],
-    [() => Circle, 0],
+    [() => Circle$, 0],
     [() => Base64EncodedGeobuf, 0],
     [() => MultiLinearRings, 0],
   ],
 ];
-export var GetDevicePositionHistoryRequest: StaticStructureSchema = [
+export var GetDevicePositionHistoryRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDPHR,
@@ -1097,7 +1097,7 @@ export var GetDevicePositionHistoryRequest: StaticStructureSchema = [
   [_TN, _DI, _NT, _STI, _ETE, _MR],
   [[0, 1], [0, 1], 0, [() => Timestamp, 0], [() => Timestamp, 0], 1],
 ];
-export var GetDevicePositionHistoryResponse: StaticStructureSchema = [
+export var GetDevicePositionHistoryResponse$: StaticStructureSchema = [
   3,
   n0,
   _GDPHRe,
@@ -1105,7 +1105,7 @@ export var GetDevicePositionHistoryResponse: StaticStructureSchema = [
   [_DP, _NT],
   [[() => DevicePositionList, 0], 0],
 ];
-export var GetDevicePositionRequest: StaticStructureSchema = [
+export var GetDevicePositionRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDPR,
@@ -1116,7 +1116,7 @@ export var GetDevicePositionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetDevicePositionResponse: StaticStructureSchema = [
+export var GetDevicePositionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GDPRe,
@@ -1127,11 +1127,11 @@ export var GetDevicePositionResponse: StaticStructureSchema = [
     [() => Timestamp, 0],
     [() => Timestamp, 0],
     [() => Position, 0],
-    [() => PositionalAccuracy, 0],
+    [() => PositionalAccuracy$, 0],
     [() => PositionPropertyMap, 0],
   ],
 ];
-export var GetGeofenceRequest: StaticStructureSchema = [
+export var GetGeofenceRequest$: StaticStructureSchema = [
   3,
   n0,
   _GGR,
@@ -1142,15 +1142,15 @@ export var GetGeofenceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetGeofenceResponse: StaticStructureSchema = [
+export var GetGeofenceResponse$: StaticStructureSchema = [
   3,
   n0,
   _GGRe,
   0,
   [_GI, _G, _St, _CT, _UT, _GP],
-  [0, [() => GeofenceGeometry, 0], 0, [() => Timestamp, 0], [() => Timestamp, 0], [() => PropertyMap, 0]],
+  [0, [() => GeofenceGeometry$, 0], 0, [() => Timestamp, 0], [() => Timestamp, 0], [() => PropertyMap, 0]],
 ];
-export var GetMapGlyphsRequest: StaticStructureSchema = [
+export var GetMapGlyphsRequest$: StaticStructureSchema = [
   3,
   n0,
   _GMGR,
@@ -1163,7 +1163,7 @@ export var GetMapGlyphsRequest: StaticStructureSchema = [
     [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
-export var GetMapGlyphsResponse: StaticStructureSchema = [
+export var GetMapGlyphsResponse$: StaticStructureSchema = [
   3,
   n0,
   _GMGRe,
@@ -1175,7 +1175,7 @@ export var GetMapGlyphsResponse: StaticStructureSchema = [
     [0, { [_hH]: _CC_ }],
   ],
 ];
-export var GetMapSpritesRequest: StaticStructureSchema = [
+export var GetMapSpritesRequest$: StaticStructureSchema = [
   3,
   n0,
   _GMSR,
@@ -1187,7 +1187,7 @@ export var GetMapSpritesRequest: StaticStructureSchema = [
     [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
-export var GetMapSpritesResponse: StaticStructureSchema = [
+export var GetMapSpritesResponse$: StaticStructureSchema = [
   3,
   n0,
   _GMSRe,
@@ -1199,7 +1199,7 @@ export var GetMapSpritesResponse: StaticStructureSchema = [
     [0, { [_hH]: _CC_ }],
   ],
 ];
-export var GetMapStyleDescriptorRequest: StaticStructureSchema = [
+export var GetMapStyleDescriptorRequest$: StaticStructureSchema = [
   3,
   n0,
   _GMSDR,
@@ -1210,7 +1210,7 @@ export var GetMapStyleDescriptorRequest: StaticStructureSchema = [
     [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
-export var GetMapStyleDescriptorResponse: StaticStructureSchema = [
+export var GetMapStyleDescriptorResponse$: StaticStructureSchema = [
   3,
   n0,
   _GMSDRe,
@@ -1222,7 +1222,7 @@ export var GetMapStyleDescriptorResponse: StaticStructureSchema = [
     [0, { [_hH]: _CC_ }],
   ],
 ];
-export var GetMapTileRequest: StaticStructureSchema = [
+export var GetMapTileRequest$: StaticStructureSchema = [
   3,
   n0,
   _GMTR,
@@ -1236,7 +1236,7 @@ export var GetMapTileRequest: StaticStructureSchema = [
     [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
-export var GetMapTileResponse: StaticStructureSchema = [
+export var GetMapTileResponse$: StaticStructureSchema = [
   3,
   n0,
   _GMTRe,
@@ -1248,7 +1248,7 @@ export var GetMapTileResponse: StaticStructureSchema = [
     [0, { [_hH]: _CC_ }],
   ],
 ];
-export var GetPlaceRequest: StaticStructureSchema = [
+export var GetPlaceRequest$: StaticStructureSchema = [
   3,
   n0,
   _GPR,
@@ -1261,16 +1261,16 @@ export var GetPlaceRequest: StaticStructureSchema = [
     [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
-export var GetPlaceResponse: StaticStructureSchema = [3, n0, _GPRe, 0, [_Pl], [[() => Place, 0]]];
-export var InferredState: StaticStructureSchema = [
+export var GetPlaceResponse$: StaticStructureSchema = [3, n0, _GPRe, 0, [_Pl], [[() => Place$, 0]]];
+export var InferredState$: StaticStructureSchema = [
   3,
   n0,
   _IS,
   0,
   [_Po, _A, _DD, _PD],
-  [[() => Position, 0], [() => PositionalAccuracy, 0], 1, 2],
+  [[() => Position, 0], [() => PositionalAccuracy$, 0], 1, 2],
 ];
-export var InternalServerException: StaticErrorSchema = [
+export var InternalServerException$: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
@@ -1278,8 +1278,8 @@ export var InternalServerException: StaticErrorSchema = [
   [_M],
   [[0, { [_jN]: _m }]],
 ];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var Leg: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var Leg$: StaticStructureSchema = [
   3,
   n0,
   _Le,
@@ -1290,20 +1290,20 @@ export var Leg: StaticStructureSchema = [
     [() => Position, 0],
     [() => SensitiveDouble, 0],
     [() => SensitiveDouble, 0],
-    [() => LegGeometry, 0],
+    [() => LegGeometry$, 0],
     [() => StepList, 0],
   ],
 ];
-export var LegGeometry: StaticStructureSchema = [3, n0, _LG, 0, [_LS], [[() => LineString, 0]]];
-export var ListDevicePositionsRequest: StaticStructureSchema = [
+export var LegGeometry$: StaticStructureSchema = [3, n0, _LG, 0, [_LS], [[() => LineString, 0]]];
+export var ListDevicePositionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDPR,
   0,
   [_TN, _MR, _NT, _FG],
-  [[0, 1], 1, 0, [() => TrackingFilterGeometry, 0]],
+  [[0, 1], 1, 0, [() => TrackingFilterGeometry$, 0]],
 ];
-export var ListDevicePositionsResponse: StaticStructureSchema = [
+export var ListDevicePositionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LDPRi,
@@ -1311,16 +1311,16 @@ export var ListDevicePositionsResponse: StaticStructureSchema = [
   [_En, _NT],
   [[() => ListDevicePositionsResponseEntryList, 0], 0],
 ];
-export var ListDevicePositionsResponseEntry: StaticStructureSchema = [
+export var ListDevicePositionsResponseEntry$: StaticStructureSchema = [
   3,
   n0,
   _LDPRE,
   0,
   [_DI, _ST, _Po, _A, _PPo],
-  [0, [() => Timestamp, 0], [() => Position, 0], [() => PositionalAccuracy, 0], [() => PositionPropertyMap, 0]],
+  [0, [() => Timestamp, 0], [() => Position, 0], [() => PositionalAccuracy$, 0], [() => PositionPropertyMap, 0]],
 ];
-export var ListGeofenceCollectionsRequest: StaticStructureSchema = [3, n0, _LGCR, 0, [_MR, _NT], [1, 0]];
-export var ListGeofenceCollectionsResponse: StaticStructureSchema = [
+export var ListGeofenceCollectionsRequest$: StaticStructureSchema = [3, n0, _LGCR, 0, [_MR, _NT], [1, 0]];
+export var ListGeofenceCollectionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LGCRi,
@@ -1328,7 +1328,7 @@ export var ListGeofenceCollectionsResponse: StaticStructureSchema = [
   [_En, _NT],
   [[() => ListGeofenceCollectionsResponseEntryList, 0], 0],
 ];
-export var ListGeofenceCollectionsResponseEntry: StaticStructureSchema = [
+export var ListGeofenceCollectionsResponseEntry$: StaticStructureSchema = [
   3,
   n0,
   _LGCRE,
@@ -1336,16 +1336,16 @@ export var ListGeofenceCollectionsResponseEntry: StaticStructureSchema = [
   [_CN, _De, _PP, _PPDS, _CT, _UT],
   [0, 0, 0, 0, [() => Timestamp, 0], [() => Timestamp, 0]],
 ];
-export var ListGeofenceResponseEntry: StaticStructureSchema = [
+export var ListGeofenceResponseEntry$: StaticStructureSchema = [
   3,
   n0,
   _LGRE,
   0,
   [_GI, _G, _St, _CT, _UT, _GP],
-  [0, [() => GeofenceGeometry, 0], 0, [() => Timestamp, 0], [() => Timestamp, 0], [() => PropertyMap, 0]],
+  [0, [() => GeofenceGeometry$, 0], 0, [() => Timestamp, 0], [() => Timestamp, 0], [() => PropertyMap, 0]],
 ];
-export var ListGeofencesRequest: StaticStructureSchema = [3, n0, _LGR, 0, [_CN, _NT, _MR], [[0, 1], 0, 1]];
-export var ListGeofencesResponse: StaticStructureSchema = [
+export var ListGeofencesRequest$: StaticStructureSchema = [3, n0, _LGR, 0, [_CN, _NT, _MR], [[0, 1], 0, 1]];
+export var ListGeofencesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LGRi,
@@ -1353,8 +1353,8 @@ export var ListGeofencesResponse: StaticStructureSchema = [
   [_En, _NT],
   [[() => ListGeofenceResponseEntryList, 0], 0],
 ];
-export var ListKeysRequest: StaticStructureSchema = [3, n0, _LKR, 0, [_MR, _NT, _F], [1, 0, () => ApiKeyFilter]];
-export var ListKeysResponse: StaticStructureSchema = [
+export var ListKeysRequest$: StaticStructureSchema = [3, n0, _LKR, 0, [_MR, _NT, _F], [1, 0, () => ApiKeyFilter$]];
+export var ListKeysResponse$: StaticStructureSchema = [
   3,
   n0,
   _LKRi,
@@ -1362,16 +1362,16 @@ export var ListKeysResponse: StaticStructureSchema = [
   [_En, _NT],
   [[() => ListKeysResponseEntryList, 0], 0],
 ];
-export var ListKeysResponseEntry: StaticStructureSchema = [
+export var ListKeysResponseEntry$: StaticStructureSchema = [
   3,
   n0,
   _LKRE,
   0,
   [_KN, _ET, _De, _Re, _CT, _UT],
-  [0, [() => Timestamp, 0], 0, [() => ApiKeyRestrictions, 0], [() => Timestamp, 0], [() => Timestamp, 0]],
+  [0, [() => Timestamp, 0], 0, [() => ApiKeyRestrictions$, 0], [() => Timestamp, 0], [() => Timestamp, 0]],
 ];
-export var ListMapsRequest: StaticStructureSchema = [3, n0, _LMR, 0, [_MR, _NT], [1, 0]];
-export var ListMapsResponse: StaticStructureSchema = [
+export var ListMapsRequest$: StaticStructureSchema = [3, n0, _LMR, 0, [_MR, _NT], [1, 0]];
+export var ListMapsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LMRi,
@@ -1379,7 +1379,7 @@ export var ListMapsResponse: StaticStructureSchema = [
   [_En, _NT],
   [[() => ListMapsResponseEntryList, 0], 0],
 ];
-export var ListMapsResponseEntry: StaticStructureSchema = [
+export var ListMapsResponseEntry$: StaticStructureSchema = [
   3,
   n0,
   _LMRE,
@@ -1387,8 +1387,8 @@ export var ListMapsResponseEntry: StaticStructureSchema = [
   [_MN, _De, _DS, _PP, _CT, _UT],
   [0, 0, 0, 0, [() => Timestamp, 0], [() => Timestamp, 0]],
 ];
-export var ListPlaceIndexesRequest: StaticStructureSchema = [3, n0, _LPIR, 0, [_MR, _NT], [1, 0]];
-export var ListPlaceIndexesResponse: StaticStructureSchema = [
+export var ListPlaceIndexesRequest$: StaticStructureSchema = [3, n0, _LPIR, 0, [_MR, _NT], [1, 0]];
+export var ListPlaceIndexesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LPIRi,
@@ -1396,7 +1396,7 @@ export var ListPlaceIndexesResponse: StaticStructureSchema = [
   [_En, _NT],
   [[() => ListPlaceIndexesResponseEntryList, 0], 0],
 ];
-export var ListPlaceIndexesResponseEntry: StaticStructureSchema = [
+export var ListPlaceIndexesResponseEntry$: StaticStructureSchema = [
   3,
   n0,
   _LPIRE,
@@ -1404,8 +1404,8 @@ export var ListPlaceIndexesResponseEntry: StaticStructureSchema = [
   [_IN, _De, _DS, _PP, _CT, _UT],
   [0, 0, 0, 0, [() => Timestamp, 0], [() => Timestamp, 0]],
 ];
-export var ListRouteCalculatorsRequest: StaticStructureSchema = [3, n0, _LRCR, 0, [_MR, _NT], [1, 0]];
-export var ListRouteCalculatorsResponse: StaticStructureSchema = [
+export var ListRouteCalculatorsRequest$: StaticStructureSchema = [3, n0, _LRCR, 0, [_MR, _NT], [1, 0]];
+export var ListRouteCalculatorsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRCRi,
@@ -1413,7 +1413,7 @@ export var ListRouteCalculatorsResponse: StaticStructureSchema = [
   [_En, _NT],
   [[() => ListRouteCalculatorsResponseEntryList, 0], 0],
 ];
-export var ListRouteCalculatorsResponseEntry: StaticStructureSchema = [
+export var ListRouteCalculatorsResponseEntry$: StaticStructureSchema = [
   3,
   n0,
   _LRCRE,
@@ -1421,12 +1421,12 @@ export var ListRouteCalculatorsResponseEntry: StaticStructureSchema = [
   [_CNa, _De, _DS, _PP, _CT, _UT],
   [0, 0, 0, 0, [() => Timestamp, 0], [() => Timestamp, 0]],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RA], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [128 | 0]];
-export var ListTrackerConsumersRequest: StaticStructureSchema = [3, n0, _LTCR, 0, [_TN, _MR, _NT], [[0, 1], 1, 0]];
-export var ListTrackerConsumersResponse: StaticStructureSchema = [3, n0, _LTCRi, 0, [_CAon, _NT], [64 | 0, 0]];
-export var ListTrackersRequest: StaticStructureSchema = [3, n0, _LTR, 0, [_MR, _NT], [1, 0]];
-export var ListTrackersResponse: StaticStructureSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RA], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [128 | 0]];
+export var ListTrackerConsumersRequest$: StaticStructureSchema = [3, n0, _LTCR, 0, [_TN, _MR, _NT], [[0, 1], 1, 0]];
+export var ListTrackerConsumersResponse$: StaticStructureSchema = [3, n0, _LTCRi, 0, [_CAon, _NT], [64 | 0, 0]];
+export var ListTrackersRequest$: StaticStructureSchema = [3, n0, _LTR, 0, [_MR, _NT], [1, 0]];
+export var ListTrackersResponse$: StaticStructureSchema = [
   3,
   n0,
   _LTRi,
@@ -1434,7 +1434,7 @@ export var ListTrackersResponse: StaticStructureSchema = [
   [_En, _NT],
   [[() => ListTrackersResponseEntryList, 0], 0],
 ];
-export var ListTrackersResponseEntry: StaticStructureSchema = [
+export var ListTrackersResponseEntry$: StaticStructureSchema = [
   3,
   n0,
   _LTRE,
@@ -1442,16 +1442,16 @@ export var ListTrackersResponseEntry: StaticStructureSchema = [
   [_TN, _De, _PP, _PPDS, _CT, _UT],
   [0, 0, 0, 0, [() => Timestamp, 0], [() => Timestamp, 0]],
 ];
-export var LteCellDetails: StaticStructureSchema = [
+export var LteCellDetails$: StaticStructureSchema = [
   3,
   n0,
   _LCD,
   0,
   [_CI, _Mc, _Mn, _LI, _NM, _TAi, _NC, _Rs, _Rsr, _Tac],
-  [1, 1, 1, () => LteLocalId, () => LteNetworkMeasurementsList, 1, 2, 1, 1, 1],
+  [1, 1, 1, () => LteLocalId$, () => LteNetworkMeasurementsList, 1, 2, 1, 1, 1],
 ];
-export var LteLocalId: StaticStructureSchema = [3, n0, _LLI, 0, [_Ea, _Pc], [1, 1]];
-export var LteNetworkMeasurements: StaticStructureSchema = [
+export var LteLocalId$: StaticStructureSchema = [3, n0, _LLI, 0, [_Ea, _Pc], [1, 1]];
+export var LteNetworkMeasurements$: StaticStructureSchema = [
   3,
   n0,
   _LNM,
@@ -1459,7 +1459,7 @@ export var LteNetworkMeasurements: StaticStructureSchema = [
   [_Ea, _CI, _Pc, _Rs, _Rsr],
   [1, 1, 1, 1, 1],
 ];
-export var MapConfiguration: StaticStructureSchema = [
+export var MapConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _MC,
@@ -1467,7 +1467,7 @@ export var MapConfiguration: StaticStructureSchema = [
   [_Sty, _PV, _CL],
   [0, [() => CountryCode3, 0], 64 | 0],
 ];
-export var MapConfigurationUpdate: StaticStructureSchema = [
+export var MapConfigurationUpdate$: StaticStructureSchema = [
   3,
   n0,
   _MCU,
@@ -1475,7 +1475,7 @@ export var MapConfigurationUpdate: StaticStructureSchema = [
   [_PV, _CL],
   [[() => CountryCode3OrEmpty, 0], 64 | 0],
 ];
-export var Place: StaticStructureSchema = [
+export var Place$: StaticStructureSchema = [
   3,
   n0,
   _Pl,
@@ -1483,7 +1483,7 @@ export var Place: StaticStructureSchema = [
   [_Lab, _G, _AN, _Str, _N, _Mu, _SR, _Reg, _Cou, _PCo, _I, _TZ, _UTn, _UN, _Ca, _SC, _SM],
   [
     [() => SensitiveString, 0],
-    [() => PlaceGeometry, 0],
+    [() => PlaceGeometry$, 0],
     [() => SensitiveString, 0],
     [() => SensitiveString, 0],
     [() => SensitiveString, 0],
@@ -1493,7 +1493,7 @@ export var Place: StaticStructureSchema = [
     [() => SensitiveString, 0],
     [() => SensitiveString, 0],
     [() => SensitiveBoolean, 0],
-    [() => TimeZone, 0],
+    [() => TimeZone$, 0],
     [() => SensitiveString, 0],
     [() => SensitiveString, 0],
     [() => PlaceCategoryList, 0],
@@ -1501,9 +1501,9 @@ export var Place: StaticStructureSchema = [
     [() => SensitiveString, 0],
   ],
 ];
-export var PlaceGeometry: StaticStructureSchema = [3, n0, _PG, 0, [_Poi], [[() => Position, 0]]];
-export var PositionalAccuracy: StaticStructureSchema = [3, n0, _PA, 0, [_H], [[() => SensitiveDouble, 0]]];
-export var PutGeofenceRequest: StaticStructureSchema = [
+export var PlaceGeometry$: StaticStructureSchema = [3, n0, _PG, 0, [_Poi], [[() => Position, 0]]];
+export var PositionalAccuracy$: StaticStructureSchema = [3, n0, _PA, 0, [_H], [[() => SensitiveDouble, 0]]];
+export var PutGeofenceRequest$: StaticStructureSchema = [
   3,
   n0,
   _PGR,
@@ -1512,11 +1512,11 @@ export var PutGeofenceRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [() => GeofenceGeometry, 0],
+    [() => GeofenceGeometry$, 0],
     [() => PropertyMap, 0],
   ],
 ];
-export var PutGeofenceResponse: StaticStructureSchema = [
+export var PutGeofenceResponse$: StaticStructureSchema = [
   3,
   n0,
   _PGRu,
@@ -1524,7 +1524,7 @@ export var PutGeofenceResponse: StaticStructureSchema = [
   [_GI, _CT, _UT],
   [0, [() => Timestamp, 0], [() => Timestamp, 0]],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
+export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
@@ -1532,29 +1532,29 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   [_M],
   [[0, { [_jN]: _m }]],
 ];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var RouteMatrixEntry: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var RouteMatrixEntry$: StaticStructureSchema = [
   3,
   n0,
   _RME,
   0,
   [_D, _DSu, _E],
-  [[() => SensitiveDouble, 0], [() => SensitiveDouble, 0], () => RouteMatrixEntryError],
+  [[() => SensitiveDouble, 0], [() => SensitiveDouble, 0], () => RouteMatrixEntryError$],
 ];
-export var RouteMatrixEntryError: StaticStructureSchema = [3, n0, _RMEE, 0, [_C, _M], [0, 0]];
-export var SearchForPositionResult: StaticStructureSchema = [
+export var RouteMatrixEntryError$: StaticStructureSchema = [3, n0, _RMEE, 0, [_C, _M], [0, 0]];
+export var SearchForPositionResult$: StaticStructureSchema = [
   3,
   n0,
   _SFPR,
   0,
   [_Pl, _D, _PI],
   [
-    [() => Place, 0],
+    [() => Place$, 0],
     [() => SensitiveDouble, 0],
     [() => PlaceId, 0],
   ],
 ];
-export var SearchForSuggestionsResult: StaticStructureSchema = [
+export var SearchForSuggestionsResult$: StaticStructureSchema = [
   3,
   n0,
   _SFSR,
@@ -1567,20 +1567,20 @@ export var SearchForSuggestionsResult: StaticStructureSchema = [
     [() => PlaceSupplementalCategoryList, 0],
   ],
 ];
-export var SearchForTextResult: StaticStructureSchema = [
+export var SearchForTextResult$: StaticStructureSchema = [
   3,
   n0,
   _SFTR,
   0,
   [_Pl, _D, _Rel, _PI],
   [
-    [() => Place, 0],
+    [() => Place$, 0],
     [() => SensitiveDouble, 0],
     [() => SensitiveDouble, 0],
     [() => PlaceId, 0],
   ],
 ];
-export var SearchPlaceIndexForPositionRequest: StaticStructureSchema = [
+export var SearchPlaceIndexForPositionRequest$: StaticStructureSchema = [
   3,
   n0,
   _SPIFPR,
@@ -1588,18 +1588,18 @@ export var SearchPlaceIndexForPositionRequest: StaticStructureSchema = [
   [_IN, _Po, _MR, _La, _K],
   [[0, 1], [() => Position, 0], 1, 0, [() => ApiKey, { [_hQ]: _k }]],
 ];
-export var SearchPlaceIndexForPositionResponse: StaticStructureSchema = [
+export var SearchPlaceIndexForPositionResponse$: StaticStructureSchema = [
   3,
   n0,
   _SPIFPRe,
   0,
   [_Su, _Res],
   [
-    [() => SearchPlaceIndexForPositionSummary, 0],
+    [() => SearchPlaceIndexForPositionSummary$, 0],
     [() => SearchForPositionResultList, 0],
   ],
 ];
-export var SearchPlaceIndexForPositionSummary: StaticStructureSchema = [
+export var SearchPlaceIndexForPositionSummary$: StaticStructureSchema = [
   3,
   n0,
   _SPIFPS,
@@ -1607,7 +1607,7 @@ export var SearchPlaceIndexForPositionSummary: StaticStructureSchema = [
   [_Po, _MR, _DS, _La],
   [[() => Position, 0], 1, 0, 0],
 ];
-export var SearchPlaceIndexForSuggestionsRequest: StaticStructureSchema = [
+export var SearchPlaceIndexForSuggestionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _SPIFSR,
@@ -1625,18 +1625,18 @@ export var SearchPlaceIndexForSuggestionsRequest: StaticStructureSchema = [
     [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
-export var SearchPlaceIndexForSuggestionsResponse: StaticStructureSchema = [
+export var SearchPlaceIndexForSuggestionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _SPIFSRe,
   0,
   [_Su, _Res],
   [
-    [() => SearchPlaceIndexForSuggestionsSummary, 0],
+    [() => SearchPlaceIndexForSuggestionsSummary$, 0],
     [() => SearchForSuggestionsResultList, 0],
   ],
 ];
-export var SearchPlaceIndexForSuggestionsSummary: StaticStructureSchema = [
+export var SearchPlaceIndexForSuggestionsSummary$: StaticStructureSchema = [
   3,
   n0,
   _SPIFSS,
@@ -1653,7 +1653,7 @@ export var SearchPlaceIndexForSuggestionsSummary: StaticStructureSchema = [
     [() => FilterPlaceCategoryList, 0],
   ],
 ];
-export var SearchPlaceIndexForTextRequest: StaticStructureSchema = [
+export var SearchPlaceIndexForTextRequest$: StaticStructureSchema = [
   3,
   n0,
   _SPIFTR,
@@ -1671,18 +1671,18 @@ export var SearchPlaceIndexForTextRequest: StaticStructureSchema = [
     [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
-export var SearchPlaceIndexForTextResponse: StaticStructureSchema = [
+export var SearchPlaceIndexForTextResponse$: StaticStructureSchema = [
   3,
   n0,
   _SPIFTRe,
   0,
   [_Su, _Res],
   [
-    [() => SearchPlaceIndexForTextSummary, 0],
+    [() => SearchPlaceIndexForTextSummary$, 0],
     [() => SearchForTextResultList, 0],
   ],
 ];
-export var SearchPlaceIndexForTextSummary: StaticStructureSchema = [
+export var SearchPlaceIndexForTextSummary$: StaticStructureSchema = [
   3,
   n0,
   _SPIFTS,
@@ -1700,7 +1700,7 @@ export var SearchPlaceIndexForTextSummary: StaticStructureSchema = [
     [() => FilterPlaceCategoryList, 0],
   ],
 ];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
+export var ServiceQuotaExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
@@ -1708,8 +1708,8 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   [_M],
   [[0, { [_jN]: _m }]],
 ];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var Step: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var Step$: StaticStructureSchema = [
   3,
   n0,
   _Step,
@@ -1717,11 +1717,18 @@ export var Step: StaticStructureSchema = [
   [_SP, _EP, _D, _DSu, _GO],
   [[() => Position, 0], [() => Position, 0], [() => SensitiveDouble, 0], [() => SensitiveDouble, 0], 1],
 ];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _Ta], [[0, 1], 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [[0, { [_jN]: _m }]]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var TimeZone: StaticStructureSchema = [
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _Ta], [[0, 1], 128 | 0]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var ThrottlingException$: StaticErrorSchema = [
+  -3,
+  n0,
+  _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [[0, { [_jN]: _m }]],
+];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var TimeZone$: StaticStructureSchema = [
   3,
   n0,
   _TZ,
@@ -1732,8 +1739,8 @@ export var TimeZone: StaticStructureSchema = [
     [() => SensitiveInteger, 0],
   ],
 ];
-export var TrackingFilterGeometry: StaticStructureSchema = [3, n0, _TFG, 0, [_Pol], [[() => LinearRings, 0]]];
-export var TruckDimensions: StaticStructureSchema = [
+export var TrackingFilterGeometry$: StaticStructureSchema = [3, n0, _TFG, 0, [_Pol], [[() => LinearRings, 0]]];
+export var TruckDimensions$: StaticStructureSchema = [
   3,
   n0,
   _TD,
@@ -1741,8 +1748,8 @@ export var TruckDimensions: StaticStructureSchema = [
   [_Len, _He, _Wi, _Un],
   [[() => SensitiveDouble, 0], [() => SensitiveDouble, 0], [() => SensitiveDouble, 0], 0],
 ];
-export var TruckWeight: StaticStructureSchema = [3, n0, _TW, 0, [_To, _Un], [[() => SensitiveDouble, 0], 0]];
-export var UntagResourceRequest: StaticStructureSchema = [
+export var TruckWeight$: StaticStructureSchema = [3, n0, _TW, 0, [_To, _Un], [[() => SensitiveDouble, 0], 0]];
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -1753,8 +1760,8 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateGeofenceCollectionRequest: StaticStructureSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateGeofenceCollectionRequest$: StaticStructureSchema = [
   3,
   n0,
   _UGCR,
@@ -1762,7 +1769,7 @@ export var UpdateGeofenceCollectionRequest: StaticStructureSchema = [
   [_CN, _PP, _PPDS, _De],
   [[0, 1], 0, 0, 0],
 ];
-export var UpdateGeofenceCollectionResponse: StaticStructureSchema = [
+export var UpdateGeofenceCollectionResponse$: StaticStructureSchema = [
   3,
   n0,
   _UGCRp,
@@ -1770,33 +1777,33 @@ export var UpdateGeofenceCollectionResponse: StaticStructureSchema = [
   [_CN, _CAo, _UT],
   [0, 0, [() => Timestamp, 0]],
 ];
-export var UpdateKeyRequest: StaticStructureSchema = [
+export var UpdateKeyRequest$: StaticStructureSchema = [
   3,
   n0,
   _UKR,
   0,
   [_KN, _De, _ET, _NE, _FU, _Re],
-  [[0, 1], 0, [() => Timestamp, 0], 2, 2, [() => ApiKeyRestrictions, 0]],
+  [[0, 1], 0, [() => Timestamp, 0], 2, 2, [() => ApiKeyRestrictions$, 0]],
 ];
-export var UpdateKeyResponse: StaticStructureSchema = [3, n0, _UKRp, 0, [_KA, _KN, _UT], [0, 0, [() => Timestamp, 0]]];
-export var UpdateMapRequest: StaticStructureSchema = [
+export var UpdateKeyResponse$: StaticStructureSchema = [3, n0, _UKRp, 0, [_KA, _KN, _UT], [0, 0, [() => Timestamp, 0]]];
+export var UpdateMapRequest$: StaticStructureSchema = [
   3,
   n0,
   _UMR,
   0,
   [_MN, _PP, _De, _CU],
-  [[0, 1], 0, 0, [() => MapConfigurationUpdate, 0]],
+  [[0, 1], 0, 0, [() => MapConfigurationUpdate$, 0]],
 ];
-export var UpdateMapResponse: StaticStructureSchema = [3, n0, _UMRp, 0, [_MN, _MA, _UT], [0, 0, [() => Timestamp, 0]]];
-export var UpdatePlaceIndexRequest: StaticStructureSchema = [
+export var UpdateMapResponse$: StaticStructureSchema = [3, n0, _UMRp, 0, [_MN, _MA, _UT], [0, 0, [() => Timestamp, 0]]];
+export var UpdatePlaceIndexRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPIR,
   0,
   [_IN, _PP, _De, _DSC],
-  [[0, 1], 0, 0, () => DataSourceConfiguration],
+  [[0, 1], 0, 0, () => DataSourceConfiguration$],
 ];
-export var UpdatePlaceIndexResponse: StaticStructureSchema = [
+export var UpdatePlaceIndexResponse$: StaticStructureSchema = [
   3,
   n0,
   _UPIRp,
@@ -1804,8 +1811,8 @@ export var UpdatePlaceIndexResponse: StaticStructureSchema = [
   [_IN, _IA, _UT],
   [0, 0, [() => Timestamp, 0]],
 ];
-export var UpdateRouteCalculatorRequest: StaticStructureSchema = [3, n0, _URCR, 0, [_CNa, _PP, _De], [[0, 1], 0, 0]];
-export var UpdateRouteCalculatorResponse: StaticStructureSchema = [
+export var UpdateRouteCalculatorRequest$: StaticStructureSchema = [3, n0, _URCR, 0, [_CNa, _PP, _De], [[0, 1], 0, 0]];
+export var UpdateRouteCalculatorResponse$: StaticStructureSchema = [
   3,
   n0,
   _URCRp,
@@ -1813,7 +1820,7 @@ export var UpdateRouteCalculatorResponse: StaticStructureSchema = [
   [_CNa, _CAa, _UT],
   [0, 0, [() => Timestamp, 0]],
 ];
-export var UpdateTrackerRequest: StaticStructureSchema = [
+export var UpdateTrackerRequest$: StaticStructureSchema = [
   3,
   n0,
   _UTR,
@@ -1821,7 +1828,7 @@ export var UpdateTrackerRequest: StaticStructureSchema = [
   [_TN, _PP, _PPDS, _De, _PF, _EBE, _KKEGQ],
   [[0, 1], 0, 0, 0, 0, 2, 2],
 ];
-export var UpdateTrackerResponse: StaticStructureSchema = [
+export var UpdateTrackerResponse$: StaticStructureSchema = [
   3,
   n0,
   _UTRp,
@@ -1829,7 +1836,7 @@ export var UpdateTrackerResponse: StaticStructureSchema = [
   [_TN, _TA, _UT],
   [0, 0, [() => Timestamp, 0]],
 ];
-export var ValidationException: StaticErrorSchema = [
+export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VE,
@@ -1841,8 +1848,8 @@ export var ValidationException: StaticErrorSchema = [
     [() => ValidationExceptionFieldList, { [_jN]: _fL }],
   ],
 ];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var ValidationExceptionField: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var ValidationExceptionField$: StaticStructureSchema = [
   3,
   n0,
   _VEF,
@@ -1853,353 +1860,341 @@ export var ValidationExceptionField: StaticStructureSchema = [
     [0, { [_jN]: _m }],
   ],
 ];
-export var VerifyDevicePositionRequest: StaticStructureSchema = [
+export var VerifyDevicePositionRequest$: StaticStructureSchema = [
   3,
   n0,
   _VDPR,
   0,
   [_TN, _DSe, _DU],
-  [[0, 1], [() => DeviceState, 0], 0],
+  [[0, 1], [() => DeviceState$, 0], 0],
 ];
-export var VerifyDevicePositionResponse: StaticStructureSchema = [
+export var VerifyDevicePositionResponse$: StaticStructureSchema = [
   3,
   n0,
   _VDPRe,
   0,
   [_IS, _DI, _ST, _RT, _DU],
-  [[() => InferredState, 0], 0, [() => Timestamp, 0], [() => Timestamp, 0], 0],
+  [[() => InferredState$, 0], 0, [() => Timestamp, 0], [() => Timestamp, 0], 0],
 ];
-export var WiFiAccessPoint: StaticStructureSchema = [3, n0, _WFAPi, 0, [_MAa, _Rss], [0, 1]];
-export var LocationServiceException: StaticErrorSchema = [-3, _sm, "LocationServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(LocationServiceException, __LocationServiceException);
-export var AndroidAppList: StaticListSchema = [1, n0, _AAL, 0, () => AndroidApp];
-export var ApiKeyActionList = 64 | 0;
-export var AppleAppList: StaticListSchema = [1, n0, _AALp, 0, () => AppleApp];
-export var ArnList = 64 | 0;
-export var BatchDeleteDevicePositionHistoryErrorList: StaticListSchema = [
+export var WiFiAccessPoint$: StaticStructureSchema = [3, n0, _WFAPi, 0, [_MAa, _Rss], [0, 1]];
+export var LocationServiceException$: StaticErrorSchema = [-3, _sm, "LocationServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(LocationServiceException$, LocationServiceException);
+var AndroidAppList: StaticListSchema = [1, n0, _AAL, 0, () => AndroidApp$];
+var ApiKeyActionList = 64 | 0;
+var AppleAppList: StaticListSchema = [1, n0, _AALp, 0, () => AppleApp$];
+var ArnList = 64 | 0;
+var BatchDeleteDevicePositionHistoryErrorList: StaticListSchema = [
   1,
   n0,
   _BDDPHEL,
   0,
-  () => BatchDeleteDevicePositionHistoryError,
+  () => BatchDeleteDevicePositionHistoryError$,
 ];
-export var BatchDeleteGeofenceErrorList: StaticListSchema = [1, n0, _BDGEL, 0, () => BatchDeleteGeofenceError];
-export var BatchEvaluateGeofencesErrorList: StaticListSchema = [
-  1,
-  n0,
-  _BEGEL,
-  0,
-  [() => BatchEvaluateGeofencesError, 0],
-];
-export var BatchGetDevicePositionErrorList: StaticListSchema = [1, n0, _BGDPEL, 0, () => BatchGetDevicePositionError];
-export var BatchPutGeofenceErrorList: StaticListSchema = [1, n0, _BPGEL, 0, () => BatchPutGeofenceError];
-export var BatchPutGeofenceRequestEntryList: StaticListSchema = [
-  1,
-  n0,
-  _BPGREL,
-  0,
-  [() => BatchPutGeofenceRequestEntry, 0],
-];
-export var BatchPutGeofenceSuccessList: StaticListSchema = [1, n0, _BPGSL, 0, [() => BatchPutGeofenceSuccess, 0]];
-export var BatchUpdateDevicePositionErrorList: StaticListSchema = [
+var BatchDeleteGeofenceErrorList: StaticListSchema = [1, n0, _BDGEL, 0, () => BatchDeleteGeofenceError$];
+var BatchEvaluateGeofencesErrorList: StaticListSchema = [1, n0, _BEGEL, 0, [() => BatchEvaluateGeofencesError$, 0]];
+var BatchGetDevicePositionErrorList: StaticListSchema = [1, n0, _BGDPEL, 0, () => BatchGetDevicePositionError$];
+var BatchPutGeofenceErrorList: StaticListSchema = [1, n0, _BPGEL, 0, () => BatchPutGeofenceError$];
+var BatchPutGeofenceRequestEntryList: StaticListSchema = [1, n0, _BPGREL, 0, [() => BatchPutGeofenceRequestEntry$, 0]];
+var BatchPutGeofenceSuccessList: StaticListSchema = [1, n0, _BPGSL, 0, [() => BatchPutGeofenceSuccess$, 0]];
+var BatchUpdateDevicePositionErrorList: StaticListSchema = [
   1,
   n0,
   _BUDPEL,
   0,
-  [() => BatchUpdateDevicePositionError, 0],
+  [() => BatchUpdateDevicePositionError$, 0],
 ];
-export var BoundingBox: StaticListSchema = [1, n0, _BB, 8, 1];
-export var CountryCodeList: StaticListSchema = [1, n0, _CCL, 0, [() => CountryCode3, 0]];
-export var CustomLayerList = 64 | 0;
-export var DeviceIdsList = 64 | 0;
-export var DevicePositionList: StaticListSchema = [1, n0, _DPL, 0, [() => DevicePosition, 0]];
-export var DevicePositionUpdateList: StaticListSchema = [1, n0, _DPUL, 0, [() => DevicePositionUpdate, 0]];
-export var FilterPlaceCategoryList: StaticListSchema = [1, n0, _FPCL, 0, [() => PlaceCategory, 0]];
-export var ForecastedEventsList: StaticListSchema = [1, n0, _FEL, 0, [() => ForecastedEvent, 0]];
-export var GeoArnList = 64 | 0;
-export var IdList = 64 | 0;
-export var LegList: StaticListSchema = [1, n0, _LL, 0, [() => Leg, 0]];
-export var LinearRing: StaticListSchema = [1, n0, _LR, 0, [() => Position, 0]];
-export var LinearRings: StaticListSchema = [1, n0, _LRi, 0, [() => LinearRing, 0]];
-export var LineString: StaticListSchema = [1, n0, _LS, 0, [() => Position, 0]];
-export var ListDevicePositionsResponseEntryList: StaticListSchema = [
+var BoundingBox: StaticListSchema = [1, n0, _BB, 8, 1];
+var CountryCodeList: StaticListSchema = [1, n0, _CCL, 0, [() => CountryCode3, 0]];
+var CustomLayerList = 64 | 0;
+var DeviceIdsList = 64 | 0;
+var DevicePositionList: StaticListSchema = [1, n0, _DPL, 0, [() => DevicePosition$, 0]];
+var DevicePositionUpdateList: StaticListSchema = [1, n0, _DPUL, 0, [() => DevicePositionUpdate$, 0]];
+var FilterPlaceCategoryList: StaticListSchema = [1, n0, _FPCL, 0, [() => PlaceCategory, 0]];
+var ForecastedEventsList: StaticListSchema = [1, n0, _FEL, 0, [() => ForecastedEvent$, 0]];
+var GeoArnList = 64 | 0;
+var IdList = 64 | 0;
+var LegList: StaticListSchema = [1, n0, _LL, 0, [() => Leg$, 0]];
+var LinearRing: StaticListSchema = [1, n0, _LR, 0, [() => Position, 0]];
+var LinearRings: StaticListSchema = [1, n0, _LRi, 0, [() => LinearRing, 0]];
+var LineString: StaticListSchema = [1, n0, _LS, 0, [() => Position, 0]];
+var ListDevicePositionsResponseEntryList: StaticListSchema = [
   1,
   n0,
   _LDPREL,
   0,
-  [() => ListDevicePositionsResponseEntry, 0],
+  [() => ListDevicePositionsResponseEntry$, 0],
 ];
-export var ListGeofenceCollectionsResponseEntryList: StaticListSchema = [
+var ListGeofenceCollectionsResponseEntryList: StaticListSchema = [
   1,
   n0,
   _LGCREL,
   0,
-  [() => ListGeofenceCollectionsResponseEntry, 0],
+  [() => ListGeofenceCollectionsResponseEntry$, 0],
 ];
-export var ListGeofenceResponseEntryList: StaticListSchema = [1, n0, _LGREL, 0, [() => ListGeofenceResponseEntry, 0]];
-export var ListKeysResponseEntryList: StaticListSchema = [1, n0, _LKREL, 0, [() => ListKeysResponseEntry, 0]];
-export var ListMapsResponseEntryList: StaticListSchema = [1, n0, _LMREL, 0, [() => ListMapsResponseEntry, 0]];
-export var ListPlaceIndexesResponseEntryList: StaticListSchema = [
+var ListGeofenceResponseEntryList: StaticListSchema = [1, n0, _LGREL, 0, [() => ListGeofenceResponseEntry$, 0]];
+var ListKeysResponseEntryList: StaticListSchema = [1, n0, _LKREL, 0, [() => ListKeysResponseEntry$, 0]];
+var ListMapsResponseEntryList: StaticListSchema = [1, n0, _LMREL, 0, [() => ListMapsResponseEntry$, 0]];
+var ListPlaceIndexesResponseEntryList: StaticListSchema = [
   1,
   n0,
   _LPIREL,
   0,
-  [() => ListPlaceIndexesResponseEntry, 0],
+  [() => ListPlaceIndexesResponseEntry$, 0],
 ];
-export var ListRouteCalculatorsResponseEntryList: StaticListSchema = [
+var ListRouteCalculatorsResponseEntryList: StaticListSchema = [
   1,
   n0,
   _LRCREL,
   0,
-  [() => ListRouteCalculatorsResponseEntry, 0],
+  [() => ListRouteCalculatorsResponseEntry$, 0],
 ];
-export var ListTrackersResponseEntryList: StaticListSchema = [1, n0, _LTREL, 0, [() => ListTrackersResponseEntry, 0]];
-export var LteCellDetailsList: StaticListSchema = [1, n0, _LCDL, 0, () => LteCellDetails];
-export var LteNetworkMeasurementsList: StaticListSchema = [1, n0, _LNML, 0, () => LteNetworkMeasurements];
-export var MultiLinearRings: StaticListSchema = [1, n0, _MLR, 0, [() => LinearRings, 0]];
-export var PlaceCategoryList: StaticListSchema = [1, n0, _PCL, 0, [() => PlaceCategory, 0]];
-export var PlaceSupplementalCategoryList: StaticListSchema = [1, n0, _PSCL, 0, [() => PlaceSupplementalCategory, 0]];
-export var Position: StaticListSchema = [1, n0, _Po, 8, 1];
-export var PositionList: StaticListSchema = [1, n0, _PL, 0, [() => Position, 0]];
-export var RefererPatternList: StaticListSchema = [1, n0, _RPL, 0, [() => RefererPattern, 0]];
-export var RouteMatrix: StaticListSchema = [1, n0, _RM, 0, [() => RouteMatrixRow, 0]];
-export var RouteMatrixRow: StaticListSchema = [1, n0, _RMR, 0, [() => RouteMatrixEntry, 0]];
-export var SearchForPositionResultList: StaticListSchema = [1, n0, _SFPRL, 0, [() => SearchForPositionResult, 0]];
-export var SearchForSuggestionsResultList: StaticListSchema = [1, n0, _SFSRL, 0, [() => SearchForSuggestionsResult, 0]];
-export var SearchForTextResultList: StaticListSchema = [1, n0, _SFTRL, 0, [() => SearchForTextResult, 0]];
-export var StepList: StaticListSchema = [1, n0, _SL, 0, [() => Step, 0]];
-export var TagKeys = 64 | 0;
-export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, [() => ValidationExceptionField, 0]];
-export var WaypointPositionList: StaticListSchema = [1, n0, _WPL, 0, [() => Position, 0]];
-export var WiFiAccessPointList: StaticListSchema = [1, n0, _WFAPL, 0, () => WiFiAccessPoint];
-export var PositionPropertyMap: StaticMapSchema = [2, n0, _PPM, 8, 0, 0];
-export var PropertyMap: StaticMapSchema = [2, n0, _PM, 8, 0, 0];
-export var TagMap = 128 | 0;
-export var AssociateTrackerConsumer: StaticOperationSchema = [
+var ListTrackersResponseEntryList: StaticListSchema = [1, n0, _LTREL, 0, [() => ListTrackersResponseEntry$, 0]];
+var LteCellDetailsList: StaticListSchema = [1, n0, _LCDL, 0, () => LteCellDetails$];
+var LteNetworkMeasurementsList: StaticListSchema = [1, n0, _LNML, 0, () => LteNetworkMeasurements$];
+var MultiLinearRings: StaticListSchema = [1, n0, _MLR, 0, [() => LinearRings, 0]];
+var PlaceCategoryList: StaticListSchema = [1, n0, _PCL, 0, [() => PlaceCategory, 0]];
+var PlaceSupplementalCategoryList: StaticListSchema = [1, n0, _PSCL, 0, [() => PlaceSupplementalCategory, 0]];
+var Position: StaticListSchema = [1, n0, _Po, 8, 1];
+var PositionList: StaticListSchema = [1, n0, _PL, 0, [() => Position, 0]];
+var RefererPatternList: StaticListSchema = [1, n0, _RPL, 0, [() => RefererPattern, 0]];
+var RouteMatrix: StaticListSchema = [1, n0, _RM, 0, [() => RouteMatrixRow, 0]];
+var RouteMatrixRow: StaticListSchema = [1, n0, _RMR, 0, [() => RouteMatrixEntry$, 0]];
+var SearchForPositionResultList: StaticListSchema = [1, n0, _SFPRL, 0, [() => SearchForPositionResult$, 0]];
+var SearchForSuggestionsResultList: StaticListSchema = [1, n0, _SFSRL, 0, [() => SearchForSuggestionsResult$, 0]];
+var SearchForTextResultList: StaticListSchema = [1, n0, _SFTRL, 0, [() => SearchForTextResult$, 0]];
+var StepList: StaticListSchema = [1, n0, _SL, 0, [() => Step$, 0]];
+var TagKeys = 64 | 0;
+var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, [() => ValidationExceptionField$, 0]];
+var WaypointPositionList: StaticListSchema = [1, n0, _WPL, 0, [() => Position, 0]];
+var WiFiAccessPointList: StaticListSchema = [1, n0, _WFAPL, 0, () => WiFiAccessPoint$];
+var PositionPropertyMap: StaticMapSchema = [2, n0, _PPM, 8, 0, 0];
+var PropertyMap: StaticMapSchema = [2, n0, _PM, 8, 0, 0];
+var TagMap = 128 | 0;
+export var AssociateTrackerConsumer$: StaticOperationSchema = [
   9,
   n0,
   _ATC,
   { [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/consumers", 200], [_en]: ["cp.tracking."] },
-  () => AssociateTrackerConsumerRequest,
-  () => AssociateTrackerConsumerResponse,
+  () => AssociateTrackerConsumerRequest$,
+  () => AssociateTrackerConsumerResponse$,
 ];
-export var BatchDeleteDevicePositionHistory: StaticOperationSchema = [
+export var BatchDeleteDevicePositionHistory$: StaticOperationSchema = [
   9,
   n0,
   _BDDPH,
   { [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/delete-positions", 200], [_en]: ["tracking."] },
-  () => BatchDeleteDevicePositionHistoryRequest,
-  () => BatchDeleteDevicePositionHistoryResponse,
+  () => BatchDeleteDevicePositionHistoryRequest$,
+  () => BatchDeleteDevicePositionHistoryResponse$,
 ];
-export var BatchDeleteGeofence: StaticOperationSchema = [
+export var BatchDeleteGeofence$: StaticOperationSchema = [
   9,
   n0,
   _BDG,
   { [_h]: ["POST", "/geofencing/v0/collections/{CollectionName}/delete-geofences", 200], [_en]: ["geofencing."] },
-  () => BatchDeleteGeofenceRequest,
-  () => BatchDeleteGeofenceResponse,
+  () => BatchDeleteGeofenceRequest$,
+  () => BatchDeleteGeofenceResponse$,
 ];
-export var BatchEvaluateGeofences: StaticOperationSchema = [
+export var BatchEvaluateGeofences$: StaticOperationSchema = [
   9,
   n0,
   _BEGa,
   { [_h]: ["POST", "/geofencing/v0/collections/{CollectionName}/positions", 200], [_en]: ["geofencing."] },
-  () => BatchEvaluateGeofencesRequest,
-  () => BatchEvaluateGeofencesResponse,
+  () => BatchEvaluateGeofencesRequest$,
+  () => BatchEvaluateGeofencesResponse$,
 ];
-export var BatchGetDevicePosition: StaticOperationSchema = [
+export var BatchGetDevicePosition$: StaticOperationSchema = [
   9,
   n0,
   _BGDP,
   { [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/get-positions", 200], [_en]: ["tracking."] },
-  () => BatchGetDevicePositionRequest,
-  () => BatchGetDevicePositionResponse,
+  () => BatchGetDevicePositionRequest$,
+  () => BatchGetDevicePositionResponse$,
 ];
-export var BatchPutGeofence: StaticOperationSchema = [
+export var BatchPutGeofence$: StaticOperationSchema = [
   9,
   n0,
   _BPG,
   { [_h]: ["POST", "/geofencing/v0/collections/{CollectionName}/put-geofences", 200], [_en]: ["geofencing."] },
-  () => BatchPutGeofenceRequest,
-  () => BatchPutGeofenceResponse,
+  () => BatchPutGeofenceRequest$,
+  () => BatchPutGeofenceResponse$,
 ];
-export var BatchUpdateDevicePosition: StaticOperationSchema = [
+export var BatchUpdateDevicePosition$: StaticOperationSchema = [
   9,
   n0,
   _BUDP,
   { [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/positions", 200], [_en]: ["tracking."] },
-  () => BatchUpdateDevicePositionRequest,
-  () => BatchUpdateDevicePositionResponse,
+  () => BatchUpdateDevicePositionRequest$,
+  () => BatchUpdateDevicePositionResponse$,
 ];
-export var CalculateRoute: StaticOperationSchema = [
+export var CalculateRoute$: StaticOperationSchema = [
   9,
   n0,
   _CR,
   { [_h]: ["POST", "/routes/v0/calculators/{CalculatorName}/calculate/route", 200], [_en]: ["routes."] },
-  () => CalculateRouteRequest,
-  () => CalculateRouteResponse,
+  () => CalculateRouteRequest$,
+  () => CalculateRouteResponse$,
 ];
-export var CalculateRouteMatrix: StaticOperationSchema = [
+export var CalculateRouteMatrix$: StaticOperationSchema = [
   9,
   n0,
   _CRM,
   { [_h]: ["POST", "/routes/v0/calculators/{CalculatorName}/calculate/route-matrix", 200], [_en]: ["routes."] },
-  () => CalculateRouteMatrixRequest,
-  () => CalculateRouteMatrixResponse,
+  () => CalculateRouteMatrixRequest$,
+  () => CalculateRouteMatrixResponse$,
 ];
-export var CreateGeofenceCollection: StaticOperationSchema = [
+export var CreateGeofenceCollection$: StaticOperationSchema = [
   9,
   n0,
   _CGC,
   { [_h]: ["POST", "/geofencing/v0/collections", 200], [_en]: ["cp.geofencing."] },
-  () => CreateGeofenceCollectionRequest,
-  () => CreateGeofenceCollectionResponse,
+  () => CreateGeofenceCollectionRequest$,
+  () => CreateGeofenceCollectionResponse$,
 ];
-export var CreateKey: StaticOperationSchema = [
+export var CreateKey$: StaticOperationSchema = [
   9,
   n0,
   _CK,
   { [_h]: ["POST", "/metadata/v0/keys", 200], [_en]: ["cp.metadata."] },
-  () => CreateKeyRequest,
-  () => CreateKeyResponse,
+  () => CreateKeyRequest$,
+  () => CreateKeyResponse$,
 ];
-export var CreateMap: StaticOperationSchema = [
+export var CreateMap$: StaticOperationSchema = [
   9,
   n0,
   _CM,
   { [_h]: ["POST", "/maps/v0/maps", 200], [_en]: ["cp.maps."] },
-  () => CreateMapRequest,
-  () => CreateMapResponse,
+  () => CreateMapRequest$,
+  () => CreateMapResponse$,
 ];
-export var CreatePlaceIndex: StaticOperationSchema = [
+export var CreatePlaceIndex$: StaticOperationSchema = [
   9,
   n0,
   _CPI,
   { [_h]: ["POST", "/places/v0/indexes", 200], [_en]: ["cp.places."] },
-  () => CreatePlaceIndexRequest,
-  () => CreatePlaceIndexResponse,
+  () => CreatePlaceIndexRequest$,
+  () => CreatePlaceIndexResponse$,
 ];
-export var CreateRouteCalculator: StaticOperationSchema = [
+export var CreateRouteCalculator$: StaticOperationSchema = [
   9,
   n0,
   _CRC,
   { [_h]: ["POST", "/routes/v0/calculators", 200], [_en]: ["cp.routes."] },
-  () => CreateRouteCalculatorRequest,
-  () => CreateRouteCalculatorResponse,
+  () => CreateRouteCalculatorRequest$,
+  () => CreateRouteCalculatorResponse$,
 ];
-export var CreateTracker: StaticOperationSchema = [
+export var CreateTracker$: StaticOperationSchema = [
   9,
   n0,
   _CTr,
   { [_h]: ["POST", "/tracking/v0/trackers", 200], [_en]: ["cp.tracking."] },
-  () => CreateTrackerRequest,
-  () => CreateTrackerResponse,
+  () => CreateTrackerRequest$,
+  () => CreateTrackerResponse$,
 ];
-export var DeleteGeofenceCollection: StaticOperationSchema = [
+export var DeleteGeofenceCollection$: StaticOperationSchema = [
   9,
   n0,
   _DGC,
   { [_h]: ["DELETE", "/geofencing/v0/collections/{CollectionName}", 200], [_en]: ["cp.geofencing."] },
-  () => DeleteGeofenceCollectionRequest,
-  () => DeleteGeofenceCollectionResponse,
+  () => DeleteGeofenceCollectionRequest$,
+  () => DeleteGeofenceCollectionResponse$,
 ];
-export var DeleteKey: StaticOperationSchema = [
+export var DeleteKey$: StaticOperationSchema = [
   9,
   n0,
   _DK,
   { [_h]: ["DELETE", "/metadata/v0/keys/{KeyName}", 200], [_en]: ["cp.metadata."] },
-  () => DeleteKeyRequest,
-  () => DeleteKeyResponse,
+  () => DeleteKeyRequest$,
+  () => DeleteKeyResponse$,
 ];
-export var DeleteMap: StaticOperationSchema = [
+export var DeleteMap$: StaticOperationSchema = [
   9,
   n0,
   _DM,
   { [_h]: ["DELETE", "/maps/v0/maps/{MapName}", 200], [_en]: ["cp.maps."] },
-  () => DeleteMapRequest,
-  () => DeleteMapResponse,
+  () => DeleteMapRequest$,
+  () => DeleteMapResponse$,
 ];
-export var DeletePlaceIndex: StaticOperationSchema = [
+export var DeletePlaceIndex$: StaticOperationSchema = [
   9,
   n0,
   _DPI,
   { [_h]: ["DELETE", "/places/v0/indexes/{IndexName}", 200], [_en]: ["cp.places."] },
-  () => DeletePlaceIndexRequest,
-  () => DeletePlaceIndexResponse,
+  () => DeletePlaceIndexRequest$,
+  () => DeletePlaceIndexResponse$,
 ];
-export var DeleteRouteCalculator: StaticOperationSchema = [
+export var DeleteRouteCalculator$: StaticOperationSchema = [
   9,
   n0,
   _DRC,
   { [_h]: ["DELETE", "/routes/v0/calculators/{CalculatorName}", 200], [_en]: ["cp.routes."] },
-  () => DeleteRouteCalculatorRequest,
-  () => DeleteRouteCalculatorResponse,
+  () => DeleteRouteCalculatorRequest$,
+  () => DeleteRouteCalculatorResponse$,
 ];
-export var DeleteTracker: StaticOperationSchema = [
+export var DeleteTracker$: StaticOperationSchema = [
   9,
   n0,
   _DTe,
   { [_h]: ["DELETE", "/tracking/v0/trackers/{TrackerName}", 200], [_en]: ["cp.tracking."] },
-  () => DeleteTrackerRequest,
-  () => DeleteTrackerResponse,
+  () => DeleteTrackerRequest$,
+  () => DeleteTrackerResponse$,
 ];
-export var DescribeGeofenceCollection: StaticOperationSchema = [
+export var DescribeGeofenceCollection$: StaticOperationSchema = [
   9,
   n0,
   _DGCe,
   { [_h]: ["GET", "/geofencing/v0/collections/{CollectionName}", 200], [_en]: ["cp.geofencing."] },
-  () => DescribeGeofenceCollectionRequest,
-  () => DescribeGeofenceCollectionResponse,
+  () => DescribeGeofenceCollectionRequest$,
+  () => DescribeGeofenceCollectionResponse$,
 ];
-export var DescribeKey: StaticOperationSchema = [
+export var DescribeKey$: StaticOperationSchema = [
   9,
   n0,
   _DKe,
   { [_h]: ["GET", "/metadata/v0/keys/{KeyName}", 200], [_en]: ["cp.metadata."] },
-  () => DescribeKeyRequest,
-  () => DescribeKeyResponse,
+  () => DescribeKeyRequest$,
+  () => DescribeKeyResponse$,
 ];
-export var DescribeMap: StaticOperationSchema = [
+export var DescribeMap$: StaticOperationSchema = [
   9,
   n0,
   _DMe,
   { [_h]: ["GET", "/maps/v0/maps/{MapName}", 200], [_en]: ["cp.maps."] },
-  () => DescribeMapRequest,
-  () => DescribeMapResponse,
+  () => DescribeMapRequest$,
+  () => DescribeMapResponse$,
 ];
-export var DescribePlaceIndex: StaticOperationSchema = [
+export var DescribePlaceIndex$: StaticOperationSchema = [
   9,
   n0,
   _DPIe,
   { [_h]: ["GET", "/places/v0/indexes/{IndexName}", 200], [_en]: ["cp.places."] },
-  () => DescribePlaceIndexRequest,
-  () => DescribePlaceIndexResponse,
+  () => DescribePlaceIndexRequest$,
+  () => DescribePlaceIndexResponse$,
 ];
-export var DescribeRouteCalculator: StaticOperationSchema = [
+export var DescribeRouteCalculator$: StaticOperationSchema = [
   9,
   n0,
   _DRCe,
   { [_h]: ["GET", "/routes/v0/calculators/{CalculatorName}", 200], [_en]: ["cp.routes."] },
-  () => DescribeRouteCalculatorRequest,
-  () => DescribeRouteCalculatorResponse,
+  () => DescribeRouteCalculatorRequest$,
+  () => DescribeRouteCalculatorResponse$,
 ];
-export var DescribeTracker: StaticOperationSchema = [
+export var DescribeTracker$: StaticOperationSchema = [
   9,
   n0,
   _DTes,
   { [_h]: ["GET", "/tracking/v0/trackers/{TrackerName}", 200], [_en]: ["cp.tracking."] },
-  () => DescribeTrackerRequest,
-  () => DescribeTrackerResponse,
+  () => DescribeTrackerRequest$,
+  () => DescribeTrackerResponse$,
 ];
-export var DisassociateTrackerConsumer: StaticOperationSchema = [
+export var DisassociateTrackerConsumer$: StaticOperationSchema = [
   9,
   n0,
   _DTC,
   { [_h]: ["DELETE", "/tracking/v0/trackers/{TrackerName}/consumers/{ConsumerArn}", 200], [_en]: ["cp.tracking."] },
-  () => DisassociateTrackerConsumerRequest,
-  () => DisassociateTrackerConsumerResponse,
+  () => DisassociateTrackerConsumerRequest$,
+  () => DisassociateTrackerConsumerResponse$,
 ];
-export var ForecastGeofenceEvents: StaticOperationSchema = [
+export var ForecastGeofenceEvents$: StaticOperationSchema = [
   9,
   n0,
   _FGE,
@@ -2207,10 +2202,10 @@ export var ForecastGeofenceEvents: StaticOperationSchema = [
     [_en]: ["geofencing."],
     [_h]: ["POST", "/geofencing/v0/collections/{CollectionName}/forecast-geofence-events", 200],
   },
-  () => ForecastGeofenceEventsRequest,
-  () => ForecastGeofenceEventsResponse,
+  () => ForecastGeofenceEventsRequest$,
+  () => ForecastGeofenceEventsResponse$,
 ];
-export var GetDevicePosition: StaticOperationSchema = [
+export var GetDevicePosition$: StaticOperationSchema = [
   9,
   n0,
   _GDP,
@@ -2218,10 +2213,10 @@ export var GetDevicePosition: StaticOperationSchema = [
     [_h]: ["GET", "/tracking/v0/trackers/{TrackerName}/devices/{DeviceId}/positions/latest", 200],
     [_en]: ["tracking."],
   },
-  () => GetDevicePositionRequest,
-  () => GetDevicePositionResponse,
+  () => GetDevicePositionRequest$,
+  () => GetDevicePositionResponse$,
 ];
-export var GetDevicePositionHistory: StaticOperationSchema = [
+export var GetDevicePositionHistory$: StaticOperationSchema = [
   9,
   n0,
   _GDPH,
@@ -2229,238 +2224,238 @@ export var GetDevicePositionHistory: StaticOperationSchema = [
     [_en]: ["tracking."],
     [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/devices/{DeviceId}/list-positions", 200],
   },
-  () => GetDevicePositionHistoryRequest,
-  () => GetDevicePositionHistoryResponse,
+  () => GetDevicePositionHistoryRequest$,
+  () => GetDevicePositionHistoryResponse$,
 ];
-export var GetGeofence: StaticOperationSchema = [
+export var GetGeofence$: StaticOperationSchema = [
   9,
   n0,
   _GGe,
   { [_h]: ["GET", "/geofencing/v0/collections/{CollectionName}/geofences/{GeofenceId}", 200], [_en]: ["geofencing."] },
-  () => GetGeofenceRequest,
-  () => GetGeofenceResponse,
+  () => GetGeofenceRequest$,
+  () => GetGeofenceResponse$,
 ];
-export var GetMapGlyphs: StaticOperationSchema = [
+export var GetMapGlyphs$: StaticOperationSchema = [
   9,
   n0,
   _GMG,
   { [_h]: ["GET", "/maps/v0/maps/{MapName}/glyphs/{FontStack}/{FontUnicodeRange}", 200], [_en]: ["maps."] },
-  () => GetMapGlyphsRequest,
-  () => GetMapGlyphsResponse,
+  () => GetMapGlyphsRequest$,
+  () => GetMapGlyphsResponse$,
 ];
-export var GetMapSprites: StaticOperationSchema = [
+export var GetMapSprites$: StaticOperationSchema = [
   9,
   n0,
   _GMS,
   { [_h]: ["GET", "/maps/v0/maps/{MapName}/sprites/{FileName}", 200], [_en]: ["maps."] },
-  () => GetMapSpritesRequest,
-  () => GetMapSpritesResponse,
+  () => GetMapSpritesRequest$,
+  () => GetMapSpritesResponse$,
 ];
-export var GetMapStyleDescriptor: StaticOperationSchema = [
+export var GetMapStyleDescriptor$: StaticOperationSchema = [
   9,
   n0,
   _GMSD,
   { [_h]: ["GET", "/maps/v0/maps/{MapName}/style-descriptor", 200], [_en]: ["maps."] },
-  () => GetMapStyleDescriptorRequest,
-  () => GetMapStyleDescriptorResponse,
+  () => GetMapStyleDescriptorRequest$,
+  () => GetMapStyleDescriptorResponse$,
 ];
-export var GetMapTile: StaticOperationSchema = [
+export var GetMapTile$: StaticOperationSchema = [
   9,
   n0,
   _GMT,
   { [_h]: ["GET", "/maps/v0/maps/{MapName}/tiles/{Z}/{X}/{Y}", 200], [_en]: ["maps."] },
-  () => GetMapTileRequest,
-  () => GetMapTileResponse,
+  () => GetMapTileRequest$,
+  () => GetMapTileResponse$,
 ];
-export var GetPlace: StaticOperationSchema = [
+export var GetPlace$: StaticOperationSchema = [
   9,
   n0,
   _GPe,
   { [_h]: ["GET", "/places/v0/indexes/{IndexName}/places/{PlaceId}", 200], [_en]: ["places."] },
-  () => GetPlaceRequest,
-  () => GetPlaceResponse,
+  () => GetPlaceRequest$,
+  () => GetPlaceResponse$,
 ];
-export var ListDevicePositions: StaticOperationSchema = [
+export var ListDevicePositions$: StaticOperationSchema = [
   9,
   n0,
   _LDP,
   { [_en]: ["tracking."], [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/list-positions", 200] },
-  () => ListDevicePositionsRequest,
-  () => ListDevicePositionsResponse,
+  () => ListDevicePositionsRequest$,
+  () => ListDevicePositionsResponse$,
 ];
-export var ListGeofenceCollections: StaticOperationSchema = [
+export var ListGeofenceCollections$: StaticOperationSchema = [
   9,
   n0,
   _LGC,
   { [_en]: ["cp.geofencing."], [_h]: ["POST", "/geofencing/v0/list-collections", 200] },
-  () => ListGeofenceCollectionsRequest,
-  () => ListGeofenceCollectionsResponse,
+  () => ListGeofenceCollectionsRequest$,
+  () => ListGeofenceCollectionsResponse$,
 ];
-export var ListGeofences: StaticOperationSchema = [
+export var ListGeofences$: StaticOperationSchema = [
   9,
   n0,
   _LGi,
   { [_en]: ["geofencing."], [_h]: ["POST", "/geofencing/v0/collections/{CollectionName}/list-geofences", 200] },
-  () => ListGeofencesRequest,
-  () => ListGeofencesResponse,
+  () => ListGeofencesRequest$,
+  () => ListGeofencesResponse$,
 ];
-export var ListKeys: StaticOperationSchema = [
+export var ListKeys$: StaticOperationSchema = [
   9,
   n0,
   _LK,
   { [_en]: ["cp.metadata."], [_h]: ["POST", "/metadata/v0/list-keys", 200] },
-  () => ListKeysRequest,
-  () => ListKeysResponse,
+  () => ListKeysRequest$,
+  () => ListKeysResponse$,
 ];
-export var ListMaps: StaticOperationSchema = [
+export var ListMaps$: StaticOperationSchema = [
   9,
   n0,
   _LM,
   { [_h]: ["POST", "/maps/v0/list-maps", 200], [_en]: ["cp.maps."] },
-  () => ListMapsRequest,
-  () => ListMapsResponse,
+  () => ListMapsRequest$,
+  () => ListMapsResponse$,
 ];
-export var ListPlaceIndexes: StaticOperationSchema = [
+export var ListPlaceIndexes$: StaticOperationSchema = [
   9,
   n0,
   _LPI,
   { [_h]: ["POST", "/places/v0/list-indexes", 200], [_en]: ["cp.places."] },
-  () => ListPlaceIndexesRequest,
-  () => ListPlaceIndexesResponse,
+  () => ListPlaceIndexesRequest$,
+  () => ListPlaceIndexesResponse$,
 ];
-export var ListRouteCalculators: StaticOperationSchema = [
+export var ListRouteCalculators$: StaticOperationSchema = [
   9,
   n0,
   _LRC,
   { [_h]: ["POST", "/routes/v0/list-calculators", 200], [_en]: ["cp.routes."] },
-  () => ListRouteCalculatorsRequest,
-  () => ListRouteCalculatorsResponse,
+  () => ListRouteCalculatorsRequest$,
+  () => ListRouteCalculatorsResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{ResourceArn}", 200], [_en]: ["cp.metadata."] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var ListTrackerConsumers: StaticOperationSchema = [
+export var ListTrackerConsumers$: StaticOperationSchema = [
   9,
   n0,
   _LTC,
   { [_en]: ["cp.tracking."], [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/list-consumers", 200] },
-  () => ListTrackerConsumersRequest,
-  () => ListTrackerConsumersResponse,
+  () => ListTrackerConsumersRequest$,
+  () => ListTrackerConsumersResponse$,
 ];
-export var ListTrackers: StaticOperationSchema = [
+export var ListTrackers$: StaticOperationSchema = [
   9,
   n0,
   _LT,
   { [_en]: ["cp.tracking."], [_h]: ["POST", "/tracking/v0/list-trackers", 200] },
-  () => ListTrackersRequest,
-  () => ListTrackersResponse,
+  () => ListTrackersRequest$,
+  () => ListTrackersResponse$,
 ];
-export var PutGeofence: StaticOperationSchema = [
+export var PutGeofence$: StaticOperationSchema = [
   9,
   n0,
   _PGu,
   { [_h]: ["PUT", "/geofencing/v0/collections/{CollectionName}/geofences/{GeofenceId}", 200], [_en]: ["geofencing."] },
-  () => PutGeofenceRequest,
-  () => PutGeofenceResponse,
+  () => PutGeofenceRequest$,
+  () => PutGeofenceResponse$,
 ];
-export var SearchPlaceIndexForPosition: StaticOperationSchema = [
+export var SearchPlaceIndexForPosition$: StaticOperationSchema = [
   9,
   n0,
   _SPIFP,
   { [_h]: ["POST", "/places/v0/indexes/{IndexName}/search/position", 200], [_en]: ["places."] },
-  () => SearchPlaceIndexForPositionRequest,
-  () => SearchPlaceIndexForPositionResponse,
+  () => SearchPlaceIndexForPositionRequest$,
+  () => SearchPlaceIndexForPositionResponse$,
 ];
-export var SearchPlaceIndexForSuggestions: StaticOperationSchema = [
+export var SearchPlaceIndexForSuggestions$: StaticOperationSchema = [
   9,
   n0,
   _SPIFS,
   { [_h]: ["POST", "/places/v0/indexes/{IndexName}/search/suggestions", 200], [_en]: ["places."] },
-  () => SearchPlaceIndexForSuggestionsRequest,
-  () => SearchPlaceIndexForSuggestionsResponse,
+  () => SearchPlaceIndexForSuggestionsRequest$,
+  () => SearchPlaceIndexForSuggestionsResponse$,
 ];
-export var SearchPlaceIndexForText: StaticOperationSchema = [
+export var SearchPlaceIndexForText$: StaticOperationSchema = [
   9,
   n0,
   _SPIFT,
   { [_h]: ["POST", "/places/v0/indexes/{IndexName}/search/text", 200], [_en]: ["places."] },
-  () => SearchPlaceIndexForTextRequest,
-  () => SearchPlaceIndexForTextResponse,
+  () => SearchPlaceIndexForTextRequest$,
+  () => SearchPlaceIndexForTextResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/tags/{ResourceArn}", 200], [_en]: ["cp.metadata."] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tags/{ResourceArn}", 200], [_en]: ["cp.metadata."] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateGeofenceCollection: StaticOperationSchema = [
+export var UpdateGeofenceCollection$: StaticOperationSchema = [
   9,
   n0,
   _UGC,
   { [_h]: ["PATCH", "/geofencing/v0/collections/{CollectionName}", 200], [_en]: ["cp.geofencing."] },
-  () => UpdateGeofenceCollectionRequest,
-  () => UpdateGeofenceCollectionResponse,
+  () => UpdateGeofenceCollectionRequest$,
+  () => UpdateGeofenceCollectionResponse$,
 ];
-export var UpdateKey: StaticOperationSchema = [
+export var UpdateKey$: StaticOperationSchema = [
   9,
   n0,
   _UK,
   { [_h]: ["PATCH", "/metadata/v0/keys/{KeyName}", 200], [_en]: ["cp.metadata."] },
-  () => UpdateKeyRequest,
-  () => UpdateKeyResponse,
+  () => UpdateKeyRequest$,
+  () => UpdateKeyResponse$,
 ];
-export var UpdateMap: StaticOperationSchema = [
+export var UpdateMap$: StaticOperationSchema = [
   9,
   n0,
   _UM,
   { [_h]: ["PATCH", "/maps/v0/maps/{MapName}", 200], [_en]: ["cp.maps."] },
-  () => UpdateMapRequest,
-  () => UpdateMapResponse,
+  () => UpdateMapRequest$,
+  () => UpdateMapResponse$,
 ];
-export var UpdatePlaceIndex: StaticOperationSchema = [
+export var UpdatePlaceIndex$: StaticOperationSchema = [
   9,
   n0,
   _UPI,
   { [_h]: ["PATCH", "/places/v0/indexes/{IndexName}", 200], [_en]: ["cp.places."] },
-  () => UpdatePlaceIndexRequest,
-  () => UpdatePlaceIndexResponse,
+  () => UpdatePlaceIndexRequest$,
+  () => UpdatePlaceIndexResponse$,
 ];
-export var UpdateRouteCalculator: StaticOperationSchema = [
+export var UpdateRouteCalculator$: StaticOperationSchema = [
   9,
   n0,
   _URC,
   { [_h]: ["PATCH", "/routes/v0/calculators/{CalculatorName}", 200], [_en]: ["cp.routes."] },
-  () => UpdateRouteCalculatorRequest,
-  () => UpdateRouteCalculatorResponse,
+  () => UpdateRouteCalculatorRequest$,
+  () => UpdateRouteCalculatorResponse$,
 ];
-export var UpdateTracker: StaticOperationSchema = [
+export var UpdateTracker$: StaticOperationSchema = [
   9,
   n0,
   _UTp,
   { [_h]: ["PATCH", "/tracking/v0/trackers/{TrackerName}", 200], [_en]: ["cp.tracking."] },
-  () => UpdateTrackerRequest,
-  () => UpdateTrackerResponse,
+  () => UpdateTrackerRequest$,
+  () => UpdateTrackerResponse$,
 ];
-export var VerifyDevicePosition: StaticOperationSchema = [
+export var VerifyDevicePosition$: StaticOperationSchema = [
   9,
   n0,
   _VDP,
   { [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/positions/verify", 200], [_en]: ["tracking."] },
-  () => VerifyDevicePositionRequest,
-  () => VerifyDevicePositionResponse,
+  () => VerifyDevicePositionRequest$,
+  () => VerifyDevicePositionResponse$,
 ];

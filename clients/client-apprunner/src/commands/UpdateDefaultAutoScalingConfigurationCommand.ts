@@ -9,7 +9,7 @@ import type {
   UpdateDefaultAutoScalingConfigurationRequest,
   UpdateDefaultAutoScalingConfigurationResponse,
 } from "../models/models_0";
-import { UpdateDefaultAutoScalingConfiguration } from "../schemas/schemas_0";
+import { UpdateDefaultAutoScalingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class UpdateDefaultAutoScalingConfigurationCommand extends $Command
   })
   .s("AppRunner", "UpdateDefaultAutoScalingConfiguration", {})
   .n("AppRunnerClient", "UpdateDefaultAutoScalingConfigurationCommand")
-  .sc(UpdateDefaultAutoScalingConfiguration)
+  .sc(UpdateDefaultAutoScalingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

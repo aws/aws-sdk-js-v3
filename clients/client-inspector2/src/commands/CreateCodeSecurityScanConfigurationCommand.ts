@@ -9,7 +9,7 @@ import type {
   CreateCodeSecurityScanConfigurationRequest,
   CreateCodeSecurityScanConfigurationResponse,
 } from "../models/models_0";
-import { CreateCodeSecurityScanConfiguration } from "../schemas/schemas_0";
+import { CreateCodeSecurityScanConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -122,7 +122,7 @@ export class CreateCodeSecurityScanConfigurationCommand extends $Command
   })
   .s("Inspector2", "CreateCodeSecurityScanConfiguration", {})
   .n("Inspector2Client", "CreateCodeSecurityScanConfigurationCommand")
-  .sc(CreateCodeSecurityScanConfiguration)
+  .sc(CreateCodeSecurityScanConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

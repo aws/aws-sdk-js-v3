@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import type { ResetServiceSpecificCredentialRequest, ResetServiceSpecificCredentialResponse } from "../models/models_0";
-import { ResetServiceSpecificCredential } from "../schemas/schemas_0";
+import { ResetServiceSpecificCredential$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class ResetServiceSpecificCredentialCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "ResetServiceSpecificCredential", {})
   .n("IAMClient", "ResetServiceSpecificCredentialCommand")
-  .sc(ResetServiceSpecificCredential)
+  .sc(ResetServiceSpecificCredential$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

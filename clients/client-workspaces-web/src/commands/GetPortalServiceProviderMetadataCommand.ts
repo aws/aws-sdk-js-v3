@@ -8,7 +8,7 @@ import type {
   GetPortalServiceProviderMetadataRequest,
   GetPortalServiceProviderMetadataResponse,
 } from "../models/models_0";
-import { GetPortalServiceProviderMetadata } from "../schemas/schemas_0";
+import { GetPortalServiceProviderMetadata$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -94,7 +94,7 @@ export class GetPortalServiceProviderMetadataCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "GetPortalServiceProviderMetadata", {})
   .n("WorkSpacesWebClient", "GetPortalServiceProviderMetadataCommand")
-  .sc(GetPortalServiceProviderMetadata)
+  .sc(GetPortalServiceProviderMetadata$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

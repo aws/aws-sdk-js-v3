@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateLayoutRequest, CreateLayoutResponse } from "../models/models_0";
-import { CreateLayout } from "../schemas/schemas_0";
+import { CreateLayout$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class CreateLayoutCommand extends $Command
   })
   .s("AmazonConnectCases", "CreateLayout", {})
   .n("ConnectCasesClient", "CreateLayoutCommand")
-  .sc(CreateLayout)
+  .sc(CreateLayout$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

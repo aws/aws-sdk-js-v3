@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteFileSystemPolicyRequest } from "../models/models_0";
-import { DeleteFileSystemPolicy } from "../schemas/schemas_0";
+import { DeleteFileSystemPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class DeleteFileSystemPolicyCommand extends $Command
   })
   .s("MagnolioAPIService_v20150201", "DeleteFileSystemPolicy", {})
   .n("EFSClient", "DeleteFileSystemPolicyCommand")
-  .sc(DeleteFileSystemPolicy)
+  .sc(DeleteFileSystemPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

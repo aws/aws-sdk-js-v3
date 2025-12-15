@@ -9,7 +9,7 @@ import type {
   BatchGetAssetPropertyValueHistoryRequest,
   BatchGetAssetPropertyValueHistoryResponse,
 } from "../models/models_0";
-import { BatchGetAssetPropertyValueHistory } from "../schemas/schemas_0";
+import { BatchGetAssetPropertyValueHistory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -150,7 +150,7 @@ export class BatchGetAssetPropertyValueHistoryCommand extends $Command
   })
   .s("AWSIoTSiteWise", "BatchGetAssetPropertyValueHistory", {})
   .n("IoTSiteWiseClient", "BatchGetAssetPropertyValueHistoryCommand")
-  .sc(BatchGetAssetPropertyValueHistory)
+  .sc(BatchGetAssetPropertyValueHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

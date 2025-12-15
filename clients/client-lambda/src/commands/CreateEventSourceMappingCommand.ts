@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import type { CreateEventSourceMappingRequest, EventSourceMappingConfiguration } from "../models/models_0";
-import { CreateEventSourceMapping } from "../schemas/schemas_0";
+import { CreateEventSourceMapping$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -329,7 +329,7 @@ export class CreateEventSourceMappingCommand extends $Command
   })
   .s("AWSGirApiService", "CreateEventSourceMapping", {})
   .n("LambdaClient", "CreateEventSourceMappingCommand")
-  .sc(CreateEventSourceMapping)
+  .sc(CreateEventSourceMapping$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

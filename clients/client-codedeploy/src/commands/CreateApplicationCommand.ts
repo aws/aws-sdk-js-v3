@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateApplicationInput, CreateApplicationOutput } from "../models/models_0";
-import { CreateApplication } from "../schemas/schemas_0";
+import { CreateApplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class CreateApplicationCommand extends $Command
   })
   .s("CodeDeploy_20141006", "CreateApplication", {})
   .n("CodeDeployClient", "CreateApplicationCommand")
-  .sc(CreateApplication)
+  .sc(CreateApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

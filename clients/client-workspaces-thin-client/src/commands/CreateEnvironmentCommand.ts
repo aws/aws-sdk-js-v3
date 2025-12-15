@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateEnvironmentRequest, CreateEnvironmentResponse } from "../models/models_0";
-import { CreateEnvironment } from "../schemas/schemas_0";
+import { CreateEnvironment$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -147,7 +147,7 @@ export class CreateEnvironmentCommand extends $Command
   })
   .s("ThinClient", "CreateEnvironment", {})
   .n("WorkSpacesThinClientClient", "CreateEnvironmentCommand")
-  .sc(CreateEnvironment)
+  .sc(CreateEnvironment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTThingsGraphClient";
 import type { DeleteNamespaceRequest, DeleteNamespaceResponse } from "../models/models_0";
-import { DeleteNamespace } from "../schemas/schemas_0";
+import { DeleteNamespace$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class DeleteNamespaceCommand extends $Command
   })
   .s("IotThingsGraphFrontEndService", "DeleteNamespace", {})
   .n("IoTThingsGraphClient", "DeleteNamespaceCommand")
-  .sc(DeleteNamespace)
+  .sc(DeleteNamespace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

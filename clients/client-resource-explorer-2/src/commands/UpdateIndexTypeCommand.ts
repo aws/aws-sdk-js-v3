@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
-import { UpdateIndexType } from "../schemas/schemas_0";
+import { UpdateIndexType$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class UpdateIndexTypeCommand extends $Command
   })
   .s("ResourceExplorer", "UpdateIndexType", {})
   .n("ResourceExplorer2Client", "UpdateIndexTypeCommand")
-  .sc(UpdateIndexType)
+  .sc(UpdateIndexType$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

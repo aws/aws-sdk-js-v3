@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetManagedPrefixListEntriesRequest, GetManagedPrefixListEntriesResult } from "../models/models_6";
-import { GetManagedPrefixListEntries } from "../schemas/schemas_0";
+import { GetManagedPrefixListEntries$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class GetManagedPrefixListEntriesCommand extends $Command
   })
   .s("AmazonEC2", "GetManagedPrefixListEntries", {})
   .n("EC2Client", "GetManagedPrefixListEntriesCommand")
-  .sc(GetManagedPrefixListEntries)
+  .sc(GetManagedPrefixListEntries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -594,28 +594,28 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { APIGatewayServiceException as __APIGatewayServiceException } from "../models/APIGatewayServiceException";
+import { APIGatewayServiceException } from "../models/APIGatewayServiceException";
 import {
-  BadRequestException as __BadRequestException,
-  ConflictException as __ConflictException,
-  LimitExceededException as __LimitExceededException,
-  NotFoundException as __NotFoundException,
-  ServiceUnavailableException as __ServiceUnavailableException,
-  TooManyRequestsException as __TooManyRequestsException,
-  UnauthorizedException as __UnauthorizedException,
+  BadRequestException,
+  ConflictException,
+  LimitExceededException,
+  NotFoundException,
+  ServiceUnavailableException,
+  TooManyRequestsException,
+  UnauthorizedException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var AccessLogSettings: StaticStructureSchema = [3, n0, _ALS, 0, [_f, _dA], [0, 0]];
-export var Account: StaticStructureSchema = [
+export var AccessLogSettings$: StaticStructureSchema = [3, n0, _ALS, 0, [_f, _dA], [0, 0]];
+export var Account$: StaticStructureSchema = [
   3,
   n0,
   _A,
   0,
   [_cRA, _tS, _fe, _aKV],
-  [0, () => ThrottleSettings, 64 | 0, 0],
+  [0, () => ThrottleSettings$, 64 | 0, 0],
 ];
-export var ApiKey: StaticStructureSchema = [
+export var ApiKey$: StaticStructureSchema = [
   3,
   n0,
   _AK,
@@ -623,8 +623,8 @@ export var ApiKey: StaticStructureSchema = [
   [_i, _v, _n, _cI, _d, _e, _cD, _lUD, _sK, _t],
   [0, 0, 0, 0, 0, 2, 4, 4, 64 | 0, 128 | 0],
 ];
-export var ApiKeyIds: StaticStructureSchema = [3, n0, _AKI, 0, [_id, _w], [64 | 0, 64 | 0]];
-export var ApiKeys: StaticStructureSchema = [
+export var ApiKeyIds$: StaticStructureSchema = [3, n0, _AKI, 0, [_id, _w], [64 | 0, 64 | 0]];
+export var ApiKeys$: StaticStructureSchema = [
   3,
   n0,
   _AKp,
@@ -632,7 +632,7 @@ export var ApiKeys: StaticStructureSchema = [
   [_w, _it, _p],
   [64 | 0, [() => ListOfApiKey, { [_jN]: _ite }], [0, { [_hQ]: _p }]],
 ];
-export var ApiStage: StaticStructureSchema = [
+export var ApiStage$: StaticStructureSchema = [
   3,
   n0,
   _AS,
@@ -640,7 +640,7 @@ export var ApiStage: StaticStructureSchema = [
   [_aI, _s, _th],
   [0, 0, () => MapOfApiStageThrottleSettings],
 ];
-export var Authorizer: StaticStructureSchema = [
+export var Authorizer$: StaticStructureSchema = [
   3,
   n0,
   _Au,
@@ -648,7 +648,7 @@ export var Authorizer: StaticStructureSchema = [
   [_i, _n, _ty, _pARN, _aT, _aU, _aC, _iS, _iVE, _aRTIS],
   [0, 0, 0, 64 | 0, 0, 0, 0, 0, 0, 1],
 ];
-export var Authorizers: StaticStructureSchema = [
+export var Authorizers$: StaticStructureSchema = [
   3,
   n0,
   _Aut,
@@ -659,10 +659,10 @@ export var Authorizers: StaticStructureSchema = [
     [0, { [_hQ]: _p }],
   ],
 ];
-export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_er]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-export var BasePathMapping: StaticStructureSchema = [3, n0, _BPM, 0, [_bP, _rAI, _s], [0, 0, 0]];
-export var BasePathMappings: StaticStructureSchema = [
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE, { [_er]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
+export var BasePathMapping$: StaticStructureSchema = [3, n0, _BPM, 0, [_bP, _rAI, _s], [0, 0, 0]];
+export var BasePathMappings$: StaticStructureSchema = [
   3,
   n0,
   _BPMa,
@@ -673,8 +673,8 @@ export var BasePathMappings: StaticStructureSchema = [
     [0, { [_hQ]: _p }],
   ],
 ];
-export var CanarySettings: StaticStructureSchema = [3, n0, _CS, 0, [_pT, _dI, _sVO, _uSC], [1, 0, 128 | 0, 2]];
-export var ClientCertificate: StaticStructureSchema = [
+export var CanarySettings$: StaticStructureSchema = [3, n0, _CS, 0, [_pT, _dI, _sVO, _uSC], [1, 0, 128 | 0, 2]];
+export var ClientCertificate$: StaticStructureSchema = [
   3,
   n0,
   _CC,
@@ -682,7 +682,7 @@ export var ClientCertificate: StaticStructureSchema = [
   [_cCI, _d, _pEC, _cD, _eD, _t],
   [0, 0, 0, 4, 4, 128 | 0],
 ];
-export var ClientCertificates: StaticStructureSchema = [
+export var ClientCertificates$: StaticStructureSchema = [
   3,
   n0,
   _CCl,
@@ -693,9 +693,9 @@ export var ClientCertificates: StaticStructureSchema = [
     [0, { [_hQ]: _p }],
   ],
 ];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_er]: _c, [_hE]: 409 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateApiKeyRequest: StaticStructureSchema = [
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_er]: _c, [_hE]: 409 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateApiKeyRequest$: StaticStructureSchema = [
   3,
   n0,
   _CAKR,
@@ -703,7 +703,7 @@ export var CreateApiKeyRequest: StaticStructureSchema = [
   [_n, _d, _e, _gDI, _v, _sK, _cI, _t],
   [0, 0, 2, 2, 0, () => ListOfStageKeys, 0, 128 | 0],
 ];
-export var CreateAuthorizerRequest: StaticStructureSchema = [
+export var CreateAuthorizerRequest$: StaticStructureSchema = [
   3,
   n0,
   _CAR,
@@ -711,7 +711,7 @@ export var CreateAuthorizerRequest: StaticStructureSchema = [
   [_rAI, _n, _ty, _pARN, _aT, _aU, _aC, _iS, _iVE, _aRTIS],
   [[0, 1], 0, 0, 64 | 0, 0, 0, 0, 0, 0, 1],
 ];
-export var CreateBasePathMappingRequest: StaticStructureSchema = [
+export var CreateBasePathMappingRequest$: StaticStructureSchema = [
   3,
   n0,
   _CBPMR,
@@ -719,23 +719,23 @@ export var CreateBasePathMappingRequest: StaticStructureSchema = [
   [_dN, _dNI, _bP, _rAI, _s],
   [[0, 1], [0, { [_hQ]: _dNI }], 0, 0, 0],
 ];
-export var CreateDeploymentRequest: StaticStructureSchema = [
+export var CreateDeploymentRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDR,
   0,
   [_rAI, _sN, _sD, _d, _cCE, _cCS, _va, _cS, _tE],
-  [[0, 1], 0, 0, 0, 2, 0, 128 | 0, () => DeploymentCanarySettings, 2],
+  [[0, 1], 0, 0, 0, 2, 0, 128 | 0, () => DeploymentCanarySettings$, 2],
 ];
-export var CreateDocumentationPartRequest: StaticStructureSchema = [
+export var CreateDocumentationPartRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDPR,
   0,
   [_rAI, _l, _pr],
-  [[0, 1], () => DocumentationPartLocation, 0],
+  [[0, 1], () => DocumentationPartLocation$, 0],
 ];
-export var CreateDocumentationVersionRequest: StaticStructureSchema = [
+export var CreateDocumentationVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDVR,
@@ -743,7 +743,7 @@ export var CreateDocumentationVersionRequest: StaticStructureSchema = [
   [_rAI, _dV, _sN, _d],
   [[0, 1], 0, 0, 0],
 ];
-export var CreateDomainNameAccessAssociationRequest: StaticStructureSchema = [
+export var CreateDomainNameAccessAssociationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDNAAR,
@@ -751,16 +751,23 @@ export var CreateDomainNameAccessAssociationRequest: StaticStructureSchema = [
   [_dNA, _aAST, _aAS, _t],
   [0, 0, 0, 128 | 0],
 ];
-export var CreateDomainNameRequest: StaticStructureSchema = [
+export var CreateDomainNameRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDNR,
   0,
   [_dN, _cN, _cB, _cPK, _cC, _cA, _rCN, _rCA, _eC, _t, _sP, _eAM, _mTA, _oVCA, _po, _rM],
-  [0, 0, 0, 0, 0, 0, 0, 0, () => EndpointConfiguration, 128 | 0, 0, 0, () => MutualTlsAuthenticationInput, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, () => EndpointConfiguration$, 128 | 0, 0, 0, () => MutualTlsAuthenticationInput$, 0, 0, 0],
 ];
-export var CreateModelRequest: StaticStructureSchema = [3, n0, _CMR, 0, [_rAI, _n, _d, _sc, _cT], [[0, 1], 0, 0, 0, 0]];
-export var CreateRequestValidatorRequest: StaticStructureSchema = [
+export var CreateModelRequest$: StaticStructureSchema = [
+  3,
+  n0,
+  _CMR,
+  0,
+  [_rAI, _n, _d, _sc, _cT],
+  [[0, 1], 0, 0, 0, 0],
+];
+export var CreateRequestValidatorRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRVR,
@@ -768,35 +775,35 @@ export var CreateRequestValidatorRequest: StaticStructureSchema = [
   [_rAI, _n, _vRB, _vRP],
   [[0, 1], 0, 2, 2],
 ];
-export var CreateResourceRequest: StaticStructureSchema = [3, n0, _CRR, 0, [_rAI, _pI, _pP], [[0, 1], [0, 1], 0]];
-export var CreateRestApiRequest: StaticStructureSchema = [
+export var CreateResourceRequest$: StaticStructureSchema = [3, n0, _CRR, 0, [_rAI, _pI, _pP], [[0, 1], [0, 1], 0]];
+export var CreateRestApiRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRAR,
   0,
   [_n, _d, _ve, _cF, _bMT, _mCS, _aKS, _eC, _po, _t, _dEAE, _sP, _eAM],
-  [0, 0, 0, 0, 64 | 0, 1, 0, () => EndpointConfiguration, 0, 128 | 0, 2, 0, 0],
+  [0, 0, 0, 0, 64 | 0, 1, 0, () => EndpointConfiguration$, 0, 128 | 0, 2, 0, 0],
 ];
-export var CreateStageRequest: StaticStructureSchema = [
+export var CreateStageRequest$: StaticStructureSchema = [
   3,
   n0,
   _CSR,
   0,
   [_rAI, _sN, _dI, _d, _cCE, _cCS, _va, _dV, _cS, _tE, _t],
-  [[0, 1], 0, 0, 0, 2, 0, 128 | 0, 0, () => CanarySettings, 2, 128 | 0],
+  [[0, 1], 0, 0, 0, 2, 0, 128 | 0, 0, () => CanarySettings$, 2, 128 | 0],
 ];
-export var CreateUsagePlanKeyRequest: StaticStructureSchema = [3, n0, _CUPKR, 0, [_uPI, _kI, _kT], [[0, 1], 0, 0]];
-export var CreateUsagePlanRequest: StaticStructureSchema = [
+export var CreateUsagePlanKeyRequest$: StaticStructureSchema = [3, n0, _CUPKR, 0, [_uPI, _kI, _kT], [[0, 1], 0, 0]];
+export var CreateUsagePlanRequest$: StaticStructureSchema = [
   3,
   n0,
   _CUPR,
   0,
   [_n, _d, _aS, _th, _q, _t],
-  [0, 0, () => ListOfApiStage, () => ThrottleSettings, () => QuotaSettings, 128 | 0],
+  [0, 0, () => ListOfApiStage, () => ThrottleSettings$, () => QuotaSettings$, 128 | 0],
 ];
-export var CreateVpcLinkRequest: StaticStructureSchema = [3, n0, _CVLR, 0, [_n, _d, _tA, _t], [0, 0, 64 | 0, 128 | 0]];
-export var DeleteApiKeyRequest: StaticStructureSchema = [3, n0, _DAKR, 0, [_aK], [[0, 1]]];
-export var DeleteAuthorizerRequest: StaticStructureSchema = [
+export var CreateVpcLinkRequest$: StaticStructureSchema = [3, n0, _CVLR, 0, [_n, _d, _tA, _t], [0, 0, 64 | 0, 128 | 0]];
+export var DeleteApiKeyRequest$: StaticStructureSchema = [3, n0, _DAKR, 0, [_aK], [[0, 1]]];
+export var DeleteAuthorizerRequest$: StaticStructureSchema = [
   3,
   n0,
   _DAR,
@@ -807,7 +814,7 @@ export var DeleteAuthorizerRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteBasePathMappingRequest: StaticStructureSchema = [
+export var DeleteBasePathMappingRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBPMR,
@@ -819,8 +826,8 @@ export var DeleteBasePathMappingRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteClientCertificateRequest: StaticStructureSchema = [3, n0, _DCCR, 0, [_cCI], [[0, 1]]];
-export var DeleteDeploymentRequest: StaticStructureSchema = [
+export var DeleteClientCertificateRequest$: StaticStructureSchema = [3, n0, _DCCR, 0, [_cCI], [[0, 1]]];
+export var DeleteDeploymentRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDR,
@@ -831,7 +838,7 @@ export var DeleteDeploymentRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteDocumentationPartRequest: StaticStructureSchema = [
+export var DeleteDocumentationPartRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDPR,
@@ -842,7 +849,7 @@ export var DeleteDocumentationPartRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteDocumentationVersionRequest: StaticStructureSchema = [
+export var DeleteDocumentationVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDVR,
@@ -853,8 +860,8 @@ export var DeleteDocumentationVersionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteDomainNameAccessAssociationRequest: StaticStructureSchema = [3, n0, _DDNAAR, 0, [_dNAAA], [[0, 1]]];
-export var DeleteDomainNameRequest: StaticStructureSchema = [
+export var DeleteDomainNameAccessAssociationRequest$: StaticStructureSchema = [3, n0, _DDNAAR, 0, [_dNAAA], [[0, 1]]];
+export var DeleteDomainNameRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDNR,
@@ -865,7 +872,7 @@ export var DeleteDomainNameRequest: StaticStructureSchema = [
     [0, { [_hQ]: _dNI }],
   ],
 ];
-export var DeleteGatewayResponseRequest: StaticStructureSchema = [
+export var DeleteGatewayResponseRequest$: StaticStructureSchema = [
   3,
   n0,
   _DGRR,
@@ -876,7 +883,7 @@ export var DeleteGatewayResponseRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteIntegrationRequest: StaticStructureSchema = [
+export var DeleteIntegrationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DIR,
@@ -888,7 +895,7 @@ export var DeleteIntegrationRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteIntegrationResponseRequest: StaticStructureSchema = [
+export var DeleteIntegrationResponseRequest$: StaticStructureSchema = [
   3,
   n0,
   _DIRR,
@@ -901,7 +908,7 @@ export var DeleteIntegrationResponseRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteMethodRequest: StaticStructureSchema = [
+export var DeleteMethodRequest$: StaticStructureSchema = [
   3,
   n0,
   _DMR,
@@ -913,7 +920,7 @@ export var DeleteMethodRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteMethodResponseRequest: StaticStructureSchema = [
+export var DeleteMethodResponseRequest$: StaticStructureSchema = [
   3,
   n0,
   _DMRR,
@@ -926,7 +933,7 @@ export var DeleteMethodResponseRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteModelRequest: StaticStructureSchema = [
+export var DeleteModelRequest$: StaticStructureSchema = [
   3,
   n0,
   _DMRe,
@@ -937,7 +944,7 @@ export var DeleteModelRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteRequestValidatorRequest: StaticStructureSchema = [
+export var DeleteRequestValidatorRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRVR,
@@ -948,7 +955,7 @@ export var DeleteRequestValidatorRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteResourceRequest: StaticStructureSchema = [
+export var DeleteResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRR,
@@ -959,8 +966,8 @@ export var DeleteResourceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteRestApiRequest: StaticStructureSchema = [3, n0, _DRAR, 0, [_rAI], [[0, 1]]];
-export var DeleteStageRequest: StaticStructureSchema = [
+export var DeleteRestApiRequest$: StaticStructureSchema = [3, n0, _DRAR, 0, [_rAI], [[0, 1]]];
+export var DeleteStageRequest$: StaticStructureSchema = [
   3,
   n0,
   _DSR,
@@ -971,7 +978,7 @@ export var DeleteStageRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteUsagePlanKeyRequest: StaticStructureSchema = [
+export var DeleteUsagePlanKeyRequest$: StaticStructureSchema = [
   3,
   n0,
   _DUPKR,
@@ -982,9 +989,9 @@ export var DeleteUsagePlanKeyRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteUsagePlanRequest: StaticStructureSchema = [3, n0, _DUPR, 0, [_uPI], [[0, 1]]];
-export var DeleteVpcLinkRequest: StaticStructureSchema = [3, n0, _DVLR, 0, [_vLI], [[0, 1]]];
-export var Deployment: StaticStructureSchema = [
+export var DeleteUsagePlanRequest$: StaticStructureSchema = [3, n0, _DUPR, 0, [_uPI], [[0, 1]]];
+export var DeleteVpcLinkRequest$: StaticStructureSchema = [3, n0, _DVLR, 0, [_vLI], [[0, 1]]];
+export var Deployment$: StaticStructureSchema = [
   3,
   n0,
   _D,
@@ -992,8 +999,8 @@ export var Deployment: StaticStructureSchema = [
   [_i, _d, _cD, _aSp],
   [0, 0, 4, () => PathToMapOfMethodSnapshot],
 ];
-export var DeploymentCanarySettings: StaticStructureSchema = [3, n0, _DCS, 0, [_pT, _sVO, _uSC], [1, 128 | 0, 2]];
-export var Deployments: StaticStructureSchema = [
+export var DeploymentCanarySettings$: StaticStructureSchema = [3, n0, _DCS, 0, [_pT, _sVO, _uSC], [1, 128 | 0, 2]];
+export var Deployments$: StaticStructureSchema = [
   3,
   n0,
   _De,
@@ -1004,16 +1011,16 @@ export var Deployments: StaticStructureSchema = [
     [0, { [_hQ]: _p }],
   ],
 ];
-export var DocumentationPart: StaticStructureSchema = [
+export var DocumentationPart$: StaticStructureSchema = [
   3,
   n0,
   _DP,
   0,
   [_i, _l, _pr],
-  [0, () => DocumentationPartLocation, 0],
+  [0, () => DocumentationPartLocation$, 0],
 ];
-export var DocumentationPartIds: StaticStructureSchema = [3, n0, _DPI, 0, [_id, _w], [64 | 0, 64 | 0]];
-export var DocumentationPartLocation: StaticStructureSchema = [
+export var DocumentationPartIds$: StaticStructureSchema = [3, n0, _DPI, 0, [_id, _w], [64 | 0, 64 | 0]];
+export var DocumentationPartLocation$: StaticStructureSchema = [
   3,
   n0,
   _DPL,
@@ -1021,7 +1028,7 @@ export var DocumentationPartLocation: StaticStructureSchema = [
   [_ty, _pa, _me, _sC, _n],
   [0, 0, 0, 0, 0],
 ];
-export var DocumentationParts: StaticStructureSchema = [
+export var DocumentationParts$: StaticStructureSchema = [
   3,
   n0,
   _DPo,
@@ -1032,8 +1039,8 @@ export var DocumentationParts: StaticStructureSchema = [
     [0, { [_hQ]: _p }],
   ],
 ];
-export var DocumentationVersion: StaticStructureSchema = [3, n0, _DV, 0, [_ve, _cD, _d], [0, 4, 0]];
-export var DocumentationVersions: StaticStructureSchema = [
+export var DocumentationVersion$: StaticStructureSchema = [3, n0, _DV, 0, [_ve, _cD, _d], [0, 4, 0]];
+export var DocumentationVersions$: StaticStructureSchema = [
   3,
   n0,
   _DVo,
@@ -1044,7 +1051,7 @@ export var DocumentationVersions: StaticStructureSchema = [
     [0, { [_hQ]: _p }],
   ],
 ];
-export var DomainName: StaticStructureSchema = [
+export var DomainName$: StaticStructureSchema = [
   3,
   n0,
   _DN,
@@ -1087,20 +1094,20 @@ export var DomainName: StaticStructureSchema = [
     0,
     0,
     0,
-    () => EndpointConfiguration,
+    () => EndpointConfiguration$,
     0,
     0,
     0,
     0,
     128 | 0,
-    () => MutualTlsAuthentication,
+    () => MutualTlsAuthentication$,
     0,
     0,
     0,
     0,
   ],
 ];
-export var DomainNameAccessAssociation: StaticStructureSchema = [
+export var DomainNameAccessAssociation$: StaticStructureSchema = [
   3,
   n0,
   _DNAA,
@@ -1108,7 +1115,7 @@ export var DomainNameAccessAssociation: StaticStructureSchema = [
   [_dNAAA, _dNA, _aAST, _aAS, _t],
   [0, 0, 0, 0, 128 | 0],
 ];
-export var DomainNameAccessAssociations: StaticStructureSchema = [
+export var DomainNameAccessAssociations$: StaticStructureSchema = [
   3,
   n0,
   _DNAAo,
@@ -1119,7 +1126,7 @@ export var DomainNameAccessAssociations: StaticStructureSchema = [
     [0, { [_hQ]: _p }],
   ],
 ];
-export var DomainNames: StaticStructureSchema = [
+export var DomainNames$: StaticStructureSchema = [
   3,
   n0,
   _DNo,
@@ -1130,8 +1137,8 @@ export var DomainNames: StaticStructureSchema = [
     [0, { [_hQ]: _p }],
   ],
 ];
-export var EndpointConfiguration: StaticStructureSchema = [3, n0, _EC, 0, [_typ, _iAT, _vEI], [64 | 0, 0, 64 | 0]];
-export var ExportResponse: StaticStructureSchema = [
+export var EndpointConfiguration$: StaticStructureSchema = [3, n0, _EC, 0, [_typ, _iAT, _vEI], [64 | 0, 0, 64 | 0]];
+export var ExportResponse$: StaticStructureSchema = [
   3,
   n0,
   _ER,
@@ -1143,7 +1150,7 @@ export var ExportResponse: StaticStructureSchema = [
     [21, 16],
   ],
 ];
-export var FlushStageAuthorizersCacheRequest: StaticStructureSchema = [
+export var FlushStageAuthorizersCacheRequest$: StaticStructureSchema = [
   3,
   n0,
   _FSACR,
@@ -1154,7 +1161,7 @@ export var FlushStageAuthorizersCacheRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var FlushStageCacheRequest: StaticStructureSchema = [
+export var FlushStageCacheRequest$: StaticStructureSchema = [
   3,
   n0,
   _FSCR,
@@ -1165,7 +1172,7 @@ export var FlushStageCacheRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GatewayResponse: StaticStructureSchema = [
+export var GatewayResponse$: StaticStructureSchema = [
   3,
   n0,
   _GR,
@@ -1173,7 +1180,7 @@ export var GatewayResponse: StaticStructureSchema = [
   [_rT, _sC, _rP, _rTe, _dR],
   [0, 0, 128 | 0, 128 | 0, 2],
 ];
-export var GatewayResponses: StaticStructureSchema = [
+export var GatewayResponses$: StaticStructureSchema = [
   3,
   n0,
   _GRa,
@@ -1184,9 +1191,9 @@ export var GatewayResponses: StaticStructureSchema = [
     [0, { [_hQ]: _p }],
   ],
 ];
-export var GenerateClientCertificateRequest: StaticStructureSchema = [3, n0, _GCCR, 0, [_d, _t], [0, 128 | 0]];
-export var GetAccountRequest: StaticStructureSchema = [3, n0, _GAR, 0, [], []];
-export var GetApiKeyRequest: StaticStructureSchema = [
+export var GenerateClientCertificateRequest$: StaticStructureSchema = [3, n0, _GCCR, 0, [_d, _t], [0, 128 | 0]];
+export var GetAccountRequest$: StaticStructureSchema = [3, n0, _GAR, 0, [], []];
+export var GetApiKeyRequest$: StaticStructureSchema = [
   3,
   n0,
   _GAKR,
@@ -1197,7 +1204,7 @@ export var GetApiKeyRequest: StaticStructureSchema = [
     [2, { [_hQ]: _iV }],
   ],
 ];
-export var GetApiKeysRequest: StaticStructureSchema = [
+export var GetApiKeysRequest$: StaticStructureSchema = [
   3,
   n0,
   _GAKRe,
@@ -1211,7 +1218,7 @@ export var GetApiKeysRequest: StaticStructureSchema = [
     [2, { [_hQ]: _iVn }],
   ],
 ];
-export var GetAuthorizerRequest: StaticStructureSchema = [
+export var GetAuthorizerRequest$: StaticStructureSchema = [
   3,
   n0,
   _GARe,
@@ -1222,7 +1229,7 @@ export var GetAuthorizerRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetAuthorizersRequest: StaticStructureSchema = [
+export var GetAuthorizersRequest$: StaticStructureSchema = [
   3,
   n0,
   _GARet,
@@ -1234,7 +1241,7 @@ export var GetAuthorizersRequest: StaticStructureSchema = [
     [1, { [_hQ]: _li }],
   ],
 ];
-export var GetBasePathMappingRequest: StaticStructureSchema = [
+export var GetBasePathMappingRequest$: StaticStructureSchema = [
   3,
   n0,
   _GBPMR,
@@ -1246,7 +1253,7 @@ export var GetBasePathMappingRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetBasePathMappingsRequest: StaticStructureSchema = [
+export var GetBasePathMappingsRequest$: StaticStructureSchema = [
   3,
   n0,
   _GBPMRe,
@@ -1259,8 +1266,8 @@ export var GetBasePathMappingsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _li }],
   ],
 ];
-export var GetClientCertificateRequest: StaticStructureSchema = [3, n0, _GCCRe, 0, [_cCI], [[0, 1]]];
-export var GetClientCertificatesRequest: StaticStructureSchema = [
+export var GetClientCertificateRequest$: StaticStructureSchema = [3, n0, _GCCRe, 0, [_cCI], [[0, 1]]];
+export var GetClientCertificatesRequest$: StaticStructureSchema = [
   3,
   n0,
   _GCCRet,
@@ -1271,7 +1278,7 @@ export var GetClientCertificatesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _li }],
   ],
 ];
-export var GetDeploymentRequest: StaticStructureSchema = [
+export var GetDeploymentRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDR,
@@ -1283,7 +1290,7 @@ export var GetDeploymentRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _em }],
   ],
 ];
-export var GetDeploymentsRequest: StaticStructureSchema = [
+export var GetDeploymentsRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDRe,
@@ -1295,7 +1302,7 @@ export var GetDeploymentsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _li }],
   ],
 ];
-export var GetDocumentationPartRequest: StaticStructureSchema = [
+export var GetDocumentationPartRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDPR,
@@ -1306,7 +1313,7 @@ export var GetDocumentationPartRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetDocumentationPartsRequest: StaticStructureSchema = [
+export var GetDocumentationPartsRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDPRe,
@@ -1322,7 +1329,7 @@ export var GetDocumentationPartsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _lS }],
   ],
 ];
-export var GetDocumentationVersionRequest: StaticStructureSchema = [
+export var GetDocumentationVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDVR,
@@ -1333,7 +1340,7 @@ export var GetDocumentationVersionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetDocumentationVersionsRequest: StaticStructureSchema = [
+export var GetDocumentationVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDVRe,
@@ -1345,7 +1352,7 @@ export var GetDocumentationVersionsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _li }],
   ],
 ];
-export var GetDomainNameAccessAssociationsRequest: StaticStructureSchema = [
+export var GetDomainNameAccessAssociationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDNAAR,
@@ -1357,7 +1364,7 @@ export var GetDomainNameAccessAssociationsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _rO }],
   ],
 ];
-export var GetDomainNameRequest: StaticStructureSchema = [
+export var GetDomainNameRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDNR,
@@ -1368,7 +1375,7 @@ export var GetDomainNameRequest: StaticStructureSchema = [
     [0, { [_hQ]: _dNI }],
   ],
 ];
-export var GetDomainNamesRequest: StaticStructureSchema = [
+export var GetDomainNamesRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDNRe,
@@ -1380,7 +1387,7 @@ export var GetDomainNamesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _rO }],
   ],
 ];
-export var GetExportRequest: StaticStructureSchema = [
+export var GetExportRequest$: StaticStructureSchema = [
   3,
   n0,
   _GER,
@@ -1394,7 +1401,7 @@ export var GetExportRequest: StaticStructureSchema = [
     [0, { [_hH]: _Ac }],
   ],
 ];
-export var GetGatewayResponseRequest: StaticStructureSchema = [
+export var GetGatewayResponseRequest$: StaticStructureSchema = [
   3,
   n0,
   _GGRR,
@@ -1405,7 +1412,7 @@ export var GetGatewayResponseRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetGatewayResponsesRequest: StaticStructureSchema = [
+export var GetGatewayResponsesRequest$: StaticStructureSchema = [
   3,
   n0,
   _GGRRe,
@@ -1417,7 +1424,7 @@ export var GetGatewayResponsesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _li }],
   ],
 ];
-export var GetIntegrationRequest: StaticStructureSchema = [
+export var GetIntegrationRequest$: StaticStructureSchema = [
   3,
   n0,
   _GIR,
@@ -1429,7 +1436,7 @@ export var GetIntegrationRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetIntegrationResponseRequest: StaticStructureSchema = [
+export var GetIntegrationResponseRequest$: StaticStructureSchema = [
   3,
   n0,
   _GIRR,
@@ -1442,7 +1449,7 @@ export var GetIntegrationResponseRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetMethodRequest: StaticStructureSchema = [
+export var GetMethodRequest$: StaticStructureSchema = [
   3,
   n0,
   _GMR,
@@ -1454,7 +1461,7 @@ export var GetMethodRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetMethodResponseRequest: StaticStructureSchema = [
+export var GetMethodResponseRequest$: StaticStructureSchema = [
   3,
   n0,
   _GMRR,
@@ -1467,7 +1474,7 @@ export var GetMethodResponseRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetModelRequest: StaticStructureSchema = [
+export var GetModelRequest$: StaticStructureSchema = [
   3,
   n0,
   _GMRe,
@@ -1479,7 +1486,7 @@ export var GetModelRequest: StaticStructureSchema = [
     [2, { [_hQ]: _fl }],
   ],
 ];
-export var GetModelsRequest: StaticStructureSchema = [
+export var GetModelsRequest$: StaticStructureSchema = [
   3,
   n0,
   _GMRet,
@@ -1491,7 +1498,7 @@ export var GetModelsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _li }],
   ],
 ];
-export var GetModelTemplateRequest: StaticStructureSchema = [
+export var GetModelTemplateRequest$: StaticStructureSchema = [
   3,
   n0,
   _GMTR,
@@ -1502,7 +1509,7 @@ export var GetModelTemplateRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetRequestValidatorRequest: StaticStructureSchema = [
+export var GetRequestValidatorRequest$: StaticStructureSchema = [
   3,
   n0,
   _GRVR,
@@ -1513,7 +1520,7 @@ export var GetRequestValidatorRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetRequestValidatorsRequest: StaticStructureSchema = [
+export var GetRequestValidatorsRequest$: StaticStructureSchema = [
   3,
   n0,
   _GRVRe,
@@ -1525,7 +1532,7 @@ export var GetRequestValidatorsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _li }],
   ],
 ];
-export var GetResourceRequest: StaticStructureSchema = [
+export var GetResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _GRR,
@@ -1537,7 +1544,7 @@ export var GetResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _em }],
   ],
 ];
-export var GetResourcesRequest: StaticStructureSchema = [
+export var GetResourcesRequest$: StaticStructureSchema = [
   3,
   n0,
   _GRRe,
@@ -1550,8 +1557,8 @@ export var GetResourcesRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _em }],
   ],
 ];
-export var GetRestApiRequest: StaticStructureSchema = [3, n0, _GRAR, 0, [_rAI], [[0, 1]]];
-export var GetRestApisRequest: StaticStructureSchema = [
+export var GetRestApiRequest$: StaticStructureSchema = [3, n0, _GRAR, 0, [_rAI], [[0, 1]]];
+export var GetRestApisRequest$: StaticStructureSchema = [
   3,
   n0,
   _GRARe,
@@ -1562,7 +1569,7 @@ export var GetRestApisRequest: StaticStructureSchema = [
     [1, { [_hQ]: _li }],
   ],
 ];
-export var GetSdkRequest: StaticStructureSchema = [
+export var GetSdkRequest$: StaticStructureSchema = [
   3,
   n0,
   _GSR,
@@ -1575,8 +1582,8 @@ export var GetSdkRequest: StaticStructureSchema = [
     [128 | 0, 64],
   ],
 ];
-export var GetSdkTypeRequest: StaticStructureSchema = [3, n0, _GSTR, 0, [_i], [[0, 1]]];
-export var GetSdkTypesRequest: StaticStructureSchema = [
+export var GetSdkTypeRequest$: StaticStructureSchema = [3, n0, _GSTR, 0, [_i], [[0, 1]]];
+export var GetSdkTypesRequest$: StaticStructureSchema = [
   3,
   n0,
   _GSTRe,
@@ -1587,7 +1594,7 @@ export var GetSdkTypesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _li }],
   ],
 ];
-export var GetStageRequest: StaticStructureSchema = [
+export var GetStageRequest$: StaticStructureSchema = [
   3,
   n0,
   _GSRe,
@@ -1598,7 +1605,7 @@ export var GetStageRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetStagesRequest: StaticStructureSchema = [
+export var GetStagesRequest$: StaticStructureSchema = [
   3,
   n0,
   _GSRet,
@@ -1609,7 +1616,7 @@ export var GetStagesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _dI }],
   ],
 ];
-export var GetTagsRequest: StaticStructureSchema = [
+export var GetTagsRequest$: StaticStructureSchema = [
   3,
   n0,
   _GTR,
@@ -1621,7 +1628,7 @@ export var GetTagsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _li }],
   ],
 ];
-export var GetUsagePlanKeyRequest: StaticStructureSchema = [
+export var GetUsagePlanKeyRequest$: StaticStructureSchema = [
   3,
   n0,
   _GUPKR,
@@ -1632,7 +1639,7 @@ export var GetUsagePlanKeyRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetUsagePlanKeysRequest: StaticStructureSchema = [
+export var GetUsagePlanKeysRequest$: StaticStructureSchema = [
   3,
   n0,
   _GUPKRe,
@@ -1645,8 +1652,8 @@ export var GetUsagePlanKeysRequest: StaticStructureSchema = [
     [0, { [_hQ]: _n }],
   ],
 ];
-export var GetUsagePlanRequest: StaticStructureSchema = [3, n0, _GUPR, 0, [_uPI], [[0, 1]]];
-export var GetUsagePlansRequest: StaticStructureSchema = [
+export var GetUsagePlanRequest$: StaticStructureSchema = [3, n0, _GUPR, 0, [_uPI], [[0, 1]]];
+export var GetUsagePlansRequest$: StaticStructureSchema = [
   3,
   n0,
   _GUPRe,
@@ -1658,7 +1665,7 @@ export var GetUsagePlansRequest: StaticStructureSchema = [
     [1, { [_hQ]: _li }],
   ],
 ];
-export var GetUsageRequest: StaticStructureSchema = [
+export var GetUsageRequest$: StaticStructureSchema = [
   3,
   n0,
   _GUR,
@@ -1673,8 +1680,8 @@ export var GetUsageRequest: StaticStructureSchema = [
     [1, { [_hQ]: _li }],
   ],
 ];
-export var GetVpcLinkRequest: StaticStructureSchema = [3, n0, _GVLR, 0, [_vLI], [[0, 1]]];
-export var GetVpcLinksRequest: StaticStructureSchema = [
+export var GetVpcLinkRequest$: StaticStructureSchema = [3, n0, _GVLR, 0, [_vLI], [[0, 1]]];
+export var GetVpcLinksRequest$: StaticStructureSchema = [
   3,
   n0,
   _GVLRe,
@@ -1685,7 +1692,7 @@ export var GetVpcLinksRequest: StaticStructureSchema = [
     [1, { [_hQ]: _li }],
   ],
 ];
-export var ImportApiKeysRequest: StaticStructureSchema = [
+export var ImportApiKeysRequest$: StaticStructureSchema = [
   3,
   n0,
   _IAKR,
@@ -1697,7 +1704,7 @@ export var ImportApiKeysRequest: StaticStructureSchema = [
     [2, { [_hQ]: _fa }],
   ],
 ];
-export var ImportDocumentationPartsRequest: StaticStructureSchema = [
+export var ImportDocumentationPartsRequest$: StaticStructureSchema = [
   3,
   n0,
   _IDPR,
@@ -1710,7 +1717,7 @@ export var ImportDocumentationPartsRequest: StaticStructureSchema = [
     [21, 16],
   ],
 ];
-export var ImportRestApiRequest: StaticStructureSchema = [
+export var ImportRestApiRequest$: StaticStructureSchema = [
   3,
   n0,
   _IRAR,
@@ -1722,15 +1729,15 @@ export var ImportRestApiRequest: StaticStructureSchema = [
     [21, 16],
   ],
 ];
-export var Integration: StaticStructureSchema = [
+export var Integration$: StaticStructureSchema = [
   3,
   n0,
   _I,
   0,
   [_ty, _hM, _u, _cTo, _cIo, _cr, _rPe, _rTeq, _pB, _cH, _tIM, _cNa, _cKP, _iR, _tC, _rTM, _iT],
-  [0, 0, 0, 0, 0, 0, 128 | 0, 128 | 0, 0, 0, 1, 0, 64 | 0, () => MapOfIntegrationResponse, () => TlsConfig, 0, 0],
+  [0, 0, 0, 0, 0, 0, 128 | 0, 128 | 0, 0, 0, 1, 0, 64 | 0, () => MapOfIntegrationResponse, () => TlsConfig$, 0, 0],
 ];
-export var IntegrationResponse: StaticStructureSchema = [
+export var IntegrationResponse$: StaticStructureSchema = [
   3,
   n0,
   _IR,
@@ -1738,7 +1745,7 @@ export var IntegrationResponse: StaticStructureSchema = [
   [_sC, _sPe, _rP, _rTe, _cH],
   [0, 0, 128 | 0, 128 | 0, 0],
 ];
-export var LimitExceededException: StaticErrorSchema = [
+export var LimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
@@ -1746,17 +1753,17 @@ export var LimitExceededException: StaticErrorSchema = [
   [_rAS, _m],
   [[0, { [_hH]: _RA }], 0],
 ];
-TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-export var Method: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
+export var Method$: StaticStructureSchema = [
   3,
   n0,
   _M,
   0,
   [_hM, _aTu, _aIu, _aKR, _rVI, _oN, _rPe, _rMe, _mR, _mI, _aSu],
-  [0, 0, 0, 2, 0, 0, 128 | 2, 128 | 0, () => MapOfMethodResponse, () => Integration, 64 | 0],
+  [0, 0, 0, 2, 0, 0, 128 | 2, 128 | 0, () => MapOfMethodResponse, () => Integration$, 64 | 0],
 ];
-export var MethodResponse: StaticStructureSchema = [3, n0, _MR, 0, [_sC, _rP, _rMes], [0, 128 | 2, 128 | 0]];
-export var MethodSetting: StaticStructureSchema = [
+export var MethodResponse$: StaticStructureSchema = [3, n0, _MR, 0, [_sC, _rP, _rMes], [0, 128 | 2, 128 | 0]];
+export var MethodSetting$: StaticStructureSchema = [
   3,
   n0,
   _MS,
@@ -1764,9 +1771,9 @@ export var MethodSetting: StaticStructureSchema = [
   [_mE, _lL, _dTE, _tBL, _tRL, _cE, _cTIS, _cDE, _rAFCC, _uCCHS],
   [2, 0, 2, 1, 1, 2, 1, 2, 2, 0],
 ];
-export var MethodSnapshot: StaticStructureSchema = [3, n0, _MSe, 0, [_aTu, _aKR], [0, 2]];
-export var Model: StaticStructureSchema = [3, n0, _Mo, 0, [_i, _n, _d, _sc, _cT], [0, 0, 0, 0, 0]];
-export var Models: StaticStructureSchema = [
+export var MethodSnapshot$: StaticStructureSchema = [3, n0, _MSe, 0, [_aTu, _aKR], [0, 2]];
+export var Model$: StaticStructureSchema = [3, n0, _Mo, 0, [_i, _n, _d, _sc, _cT], [0, 0, 0, 0, 0]];
+export var Models$: StaticStructureSchema = [
   3,
   n0,
   _Mod,
@@ -1777,12 +1784,12 @@ export var Models: StaticStructureSchema = [
     [0, { [_hQ]: _p }],
   ],
 ];
-export var MutualTlsAuthentication: StaticStructureSchema = [3, n0, _MTA, 0, [_tU, _tV, _tW], [0, 0, 64 | 0]];
-export var MutualTlsAuthenticationInput: StaticStructureSchema = [3, n0, _MTAI, 0, [_tU, _tV], [0, 0]];
-export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_er]: _c, [_hE]: 404 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-export var PatchOperation: StaticStructureSchema = [3, n0, _PO, 0, [_o, _pa, _v, _fr], [0, 0, 0, 0]];
-export var PutGatewayResponseRequest: StaticStructureSchema = [
+export var MutualTlsAuthentication$: StaticStructureSchema = [3, n0, _MTA, 0, [_tU, _tV, _tW], [0, 0, 64 | 0]];
+export var MutualTlsAuthenticationInput$: StaticStructureSchema = [3, n0, _MTAI, 0, [_tU, _tV], [0, 0]];
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE, { [_er]: _c, [_hE]: 404 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
+export var PatchOperation$: StaticStructureSchema = [3, n0, _PO, 0, [_o, _pa, _v, _fr], [0, 0, 0, 0]];
+export var PutGatewayResponseRequest$: StaticStructureSchema = [
   3,
   n0,
   _PGRR,
@@ -1790,7 +1797,7 @@ export var PutGatewayResponseRequest: StaticStructureSchema = [
   [_rAI, _rT, _sC, _rP, _rTe],
   [[0, 1], [0, 1], 0, 128 | 0, 128 | 0],
 ];
-export var PutIntegrationRequest: StaticStructureSchema = [
+export var PutIntegrationRequest$: StaticStructureSchema = [
   3,
   n0,
   _PIR,
@@ -1813,12 +1820,12 @@ export var PutIntegrationRequest: StaticStructureSchema = [
     64 | 0,
     0,
     1,
-    () => TlsConfig,
+    () => TlsConfig$,
     0,
     0,
   ],
 ];
-export var PutIntegrationResponseRequest: StaticStructureSchema = [
+export var PutIntegrationResponseRequest$: StaticStructureSchema = [
   3,
   n0,
   _PIRR,
@@ -1826,7 +1833,7 @@ export var PutIntegrationResponseRequest: StaticStructureSchema = [
   [_rAI, _rI, _hM, _sC, _sPe, _rP, _rTe, _cH],
   [[0, 1], [0, 1], [0, 1], [0, 1], 0, 128 | 0, 128 | 0, 0],
 ];
-export var PutMethodRequest: StaticStructureSchema = [
+export var PutMethodRequest$: StaticStructureSchema = [
   3,
   n0,
   _PMR,
@@ -1834,7 +1841,7 @@ export var PutMethodRequest: StaticStructureSchema = [
   [_rAI, _rI, _hM, _aTu, _aIu, _aKR, _oN, _rPe, _rMe, _rVI, _aSu],
   [[0, 1], [0, 1], [0, 1], 0, 0, 2, 0, 128 | 2, 128 | 0, 0, 64 | 0],
 ];
-export var PutMethodResponseRequest: StaticStructureSchema = [
+export var PutMethodResponseRequest$: StaticStructureSchema = [
   3,
   n0,
   _PMRR,
@@ -1842,7 +1849,7 @@ export var PutMethodResponseRequest: StaticStructureSchema = [
   [_rAI, _rI, _hM, _sC, _rP, _rMes],
   [[0, 1], [0, 1], [0, 1], [0, 1], 128 | 2, 128 | 0],
 ];
-export var PutRestApiRequest: StaticStructureSchema = [
+export var PutRestApiRequest$: StaticStructureSchema = [
   3,
   n0,
   _PRAR,
@@ -1856,8 +1863,8 @@ export var PutRestApiRequest: StaticStructureSchema = [
     [21, 16],
   ],
 ];
-export var QuotaSettings: StaticStructureSchema = [3, n0, _QS, 0, [_li, _of, _pe], [1, 1, 0]];
-export var RejectDomainNameAccessAssociationRequest: StaticStructureSchema = [
+export var QuotaSettings$: StaticStructureSchema = [3, n0, _QS, 0, [_li, _of, _pe], [1, 1, 0]];
+export var RejectDomainNameAccessAssociationRequest$: StaticStructureSchema = [
   3,
   n0,
   _RDNAAR,
@@ -1868,8 +1875,8 @@ export var RejectDomainNameAccessAssociationRequest: StaticStructureSchema = [
     [0, { [_hQ]: _dNA }],
   ],
 ];
-export var RequestValidator: StaticStructureSchema = [3, n0, _RV, 0, [_i, _n, _vRB, _vRP], [0, 0, 2, 2]];
-export var RequestValidators: StaticStructureSchema = [
+export var RequestValidator$: StaticStructureSchema = [3, n0, _RV, 0, [_i, _n, _vRB, _vRP], [0, 0, 2, 2]];
+export var RequestValidators$: StaticStructureSchema = [
   3,
   n0,
   _RVe,
@@ -1880,7 +1887,7 @@ export var RequestValidators: StaticStructureSchema = [
     [0, { [_hQ]: _p }],
   ],
 ];
-export var Resource: StaticStructureSchema = [
+export var Resource$: StaticStructureSchema = [
   3,
   n0,
   _R,
@@ -1888,7 +1895,7 @@ export var Resource: StaticStructureSchema = [
   [_i, _pI, _pP, _pa, _rMeso],
   [0, 0, 0, 0, () => MapOfMethod],
 ];
-export var Resources: StaticStructureSchema = [
+export var Resources$: StaticStructureSchema = [
   3,
   n0,
   _Re,
@@ -1899,15 +1906,15 @@ export var Resources: StaticStructureSchema = [
     [0, { [_hQ]: _p }],
   ],
 ];
-export var RestApi: StaticStructureSchema = [
+export var RestApi$: StaticStructureSchema = [
   3,
   n0,
   _RAe,
   0,
   [_i, _n, _d, _cD, _ve, _w, _bMT, _mCS, _aKS, _eC, _po, _t, _dEAE, _rRI, _sP, _eAM, _aSpi, _aSM],
-  [0, 0, 0, 4, 0, 64 | 0, 64 | 0, 1, 0, () => EndpointConfiguration, 0, 128 | 0, 2, 0, 0, 0, 0, 0],
+  [0, 0, 0, 4, 0, 64 | 0, 64 | 0, 1, 0, () => EndpointConfiguration$, 0, 128 | 0, 2, 0, 0, 0, 0, 0],
 ];
-export var RestApis: StaticStructureSchema = [
+export var RestApis$: StaticStructureSchema = [
   3,
   n0,
   _RAes,
@@ -1918,8 +1925,15 @@ export var RestApis: StaticStructureSchema = [
     [0, { [_hQ]: _p }],
   ],
 ];
-export var SdkConfigurationProperty: StaticStructureSchema = [3, n0, _SCP, 0, [_n, _fN, _d, _r, _dVe], [0, 0, 0, 2, 0]];
-export var SdkResponse: StaticStructureSchema = [
+export var SdkConfigurationProperty$: StaticStructureSchema = [
+  3,
+  n0,
+  _SCP,
+  0,
+  [_n, _fN, _d, _r, _dVe],
+  [0, 0, 0, 2, 0],
+];
+export var SdkResponse$: StaticStructureSchema = [
   3,
   n0,
   _SR,
@@ -1931,7 +1945,7 @@ export var SdkResponse: StaticStructureSchema = [
     [21, 16],
   ],
 ];
-export var SdkType: StaticStructureSchema = [
+export var SdkType$: StaticStructureSchema = [
   3,
   n0,
   _ST,
@@ -1939,8 +1953,8 @@ export var SdkType: StaticStructureSchema = [
   [_i, _fN, _d, _cP],
   [0, 0, 0, () => ListOfSdkConfigurationProperty],
 ];
-export var SdkTypes: StaticStructureSchema = [3, n0, _STd, 0, [_it], [[() => ListOfSdkType, { [_jN]: _ite }]]];
-export var ServiceUnavailableException: StaticErrorSchema = [
+export var SdkTypes$: StaticStructureSchema = [3, n0, _STd, 0, [_it], [[() => ListOfSdkType, { [_jN]: _ite }]]];
+export var ServiceUnavailableException$: StaticErrorSchema = [
   -3,
   n0,
   _SUE,
@@ -1948,8 +1962,8 @@ export var ServiceUnavailableException: StaticErrorSchema = [
   [_rAS, _m],
   [[0, { [_hH]: _RA }], 0],
 ];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-export var Stage: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var Stage$: StaticStructureSchema = [
   3,
   n0,
   _S,
@@ -1966,8 +1980,8 @@ export var Stage: StaticStructureSchema = [
     () => MapOfMethodSettings,
     128 | 0,
     0,
-    () => AccessLogSettings,
-    () => CanarySettings,
+    () => AccessLogSettings$,
+    () => CanarySettings$,
     2,
     0,
     128 | 0,
@@ -1975,12 +1989,12 @@ export var Stage: StaticStructureSchema = [
     4,
   ],
 ];
-export var StageKey: StaticStructureSchema = [3, n0, _SK, 0, [_rAI, _sN], [0, 0]];
-export var Stages: StaticStructureSchema = [3, n0, _St, 0, [_ite], [() => ListOfStage]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [[0, 1], 128 | 0]];
-export var Tags: StaticStructureSchema = [3, n0, _T, 0, [_t], [128 | 0]];
-export var Template: StaticStructureSchema = [3, n0, _Te, 0, [_v], [0]];
-export var TestInvokeAuthorizerRequest: StaticStructureSchema = [
+export var StageKey$: StaticStructureSchema = [3, n0, _SK, 0, [_rAI, _sN], [0, 0]];
+export var Stages$: StaticStructureSchema = [3, n0, _St, 0, [_ite], [() => ListOfStage]];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [[0, 1], 128 | 0]];
+export var Tags$: StaticStructureSchema = [3, n0, _T, 0, [_t], [128 | 0]];
+export var Template$: StaticStructureSchema = [3, n0, _Te, 0, [_v], [0]];
+export var TestInvokeAuthorizerRequest$: StaticStructureSchema = [
   3,
   n0,
   _TIAR,
@@ -1988,7 +2002,7 @@ export var TestInvokeAuthorizerRequest: StaticStructureSchema = [
   [_rAI, _aIu, _h, _mVH, _pWQS, _b, _sV, _aCd],
   [[0, 1], [0, 1], 128 | 0, [2, n0, _MOSTL, 0, 0, 64 | 0], 0, 0, 128 | 0, 128 | 0],
 ];
-export var TestInvokeAuthorizerResponse: StaticStructureSchema = [
+export var TestInvokeAuthorizerResponse$: StaticStructureSchema = [
   3,
   n0,
   _TIARe,
@@ -1996,7 +2010,7 @@ export var TestInvokeAuthorizerResponse: StaticStructureSchema = [
   [_cSl, _lo, _la, _pIr, _po, _au, _cl],
   [1, 0, 1, 0, 0, [2, n0, _MOSTL, 0, 0, 64 | 0], 128 | 0],
 ];
-export var TestInvokeMethodRequest: StaticStructureSchema = [
+export var TestInvokeMethodRequest$: StaticStructureSchema = [
   3,
   n0,
   _TIMR,
@@ -2004,7 +2018,7 @@ export var TestInvokeMethodRequest: StaticStructureSchema = [
   [_rAI, _rI, _hM, _pWQS, _b, _h, _mVH, _cCI, _sV],
   [[0, 1], [0, 1], [0, 1], 0, 0, 128 | 0, [2, n0, _MOSTL, 0, 0, 64 | 0], 0, 128 | 0],
 ];
-export var TestInvokeMethodResponse: StaticStructureSchema = [
+export var TestInvokeMethodResponse$: StaticStructureSchema = [
   3,
   n0,
   _TIMRe,
@@ -2012,9 +2026,9 @@ export var TestInvokeMethodResponse: StaticStructureSchema = [
   [_st, _b, _h, _mVH, _lo, _la],
   [1, 0, 128 | 0, [2, n0, _MOSTL, 0, 0, 64 | 0], 0, 1],
 ];
-export var ThrottleSettings: StaticStructureSchema = [3, n0, _TS, 0, [_bL, _rL], [1, 1]];
-export var TlsConfig: StaticStructureSchema = [3, n0, _TC, 0, [_iSV], [2]];
-export var TooManyRequestsException: StaticErrorSchema = [
+export var ThrottleSettings$: StaticStructureSchema = [3, n0, _TS, 0, [_bL, _rL], [1, 1]];
+export var TlsConfig$: StaticStructureSchema = [3, n0, _TC, 0, [_iSV], [2]];
+export var TooManyRequestsException$: StaticErrorSchema = [
   -3,
   n0,
   _TMRE,
@@ -2022,10 +2036,10 @@ export var TooManyRequestsException: StaticErrorSchema = [
   [_rAS, _m],
   [[0, { [_hH]: _RA }], 0],
 ];
-TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-export var UnauthorizedException: StaticErrorSchema = [-3, n0, _UE, { [_er]: _c, [_hE]: 401 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
-export var UntagResourceRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE, { [_er]: _c, [_hE]: 401 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -2036,8 +2050,8 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UpdateAccountRequest: StaticStructureSchema = [3, n0, _UAR, 0, [_pO], [() => ListOfPatchOperation]];
-export var UpdateApiKeyRequest: StaticStructureSchema = [
+export var UpdateAccountRequest$: StaticStructureSchema = [3, n0, _UAR, 0, [_pO], [() => ListOfPatchOperation]];
+export var UpdateApiKeyRequest$: StaticStructureSchema = [
   3,
   n0,
   _UAKR,
@@ -2045,7 +2059,7 @@ export var UpdateApiKeyRequest: StaticStructureSchema = [
   [_aK, _pO],
   [[0, 1], () => ListOfPatchOperation],
 ];
-export var UpdateAuthorizerRequest: StaticStructureSchema = [
+export var UpdateAuthorizerRequest$: StaticStructureSchema = [
   3,
   n0,
   _UARp,
@@ -2053,7 +2067,7 @@ export var UpdateAuthorizerRequest: StaticStructureSchema = [
   [_rAI, _aIu, _pO],
   [[0, 1], [0, 1], () => ListOfPatchOperation],
 ];
-export var UpdateBasePathMappingRequest: StaticStructureSchema = [
+export var UpdateBasePathMappingRequest$: StaticStructureSchema = [
   3,
   n0,
   _UBPMR,
@@ -2061,7 +2075,7 @@ export var UpdateBasePathMappingRequest: StaticStructureSchema = [
   [_dN, _dNI, _bP, _pO],
   [[0, 1], [0, { [_hQ]: _dNI }], [0, 1], () => ListOfPatchOperation],
 ];
-export var UpdateClientCertificateRequest: StaticStructureSchema = [
+export var UpdateClientCertificateRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCCR,
@@ -2069,7 +2083,7 @@ export var UpdateClientCertificateRequest: StaticStructureSchema = [
   [_cCI, _pO],
   [[0, 1], () => ListOfPatchOperation],
 ];
-export var UpdateDeploymentRequest: StaticStructureSchema = [
+export var UpdateDeploymentRequest$: StaticStructureSchema = [
   3,
   n0,
   _UDR,
@@ -2077,7 +2091,7 @@ export var UpdateDeploymentRequest: StaticStructureSchema = [
   [_rAI, _dI, _pO],
   [[0, 1], [0, 1], () => ListOfPatchOperation],
 ];
-export var UpdateDocumentationPartRequest: StaticStructureSchema = [
+export var UpdateDocumentationPartRequest$: StaticStructureSchema = [
   3,
   n0,
   _UDPR,
@@ -2085,7 +2099,7 @@ export var UpdateDocumentationPartRequest: StaticStructureSchema = [
   [_rAI, _dPI, _pO],
   [[0, 1], [0, 1], () => ListOfPatchOperation],
 ];
-export var UpdateDocumentationVersionRequest: StaticStructureSchema = [
+export var UpdateDocumentationVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _UDVR,
@@ -2093,7 +2107,7 @@ export var UpdateDocumentationVersionRequest: StaticStructureSchema = [
   [_rAI, _dV, _pO],
   [[0, 1], [0, 1], () => ListOfPatchOperation],
 ];
-export var UpdateDomainNameRequest: StaticStructureSchema = [
+export var UpdateDomainNameRequest$: StaticStructureSchema = [
   3,
   n0,
   _UDNR,
@@ -2101,7 +2115,7 @@ export var UpdateDomainNameRequest: StaticStructureSchema = [
   [_dN, _dNI, _pO],
   [[0, 1], [0, { [_hQ]: _dNI }], () => ListOfPatchOperation],
 ];
-export var UpdateGatewayResponseRequest: StaticStructureSchema = [
+export var UpdateGatewayResponseRequest$: StaticStructureSchema = [
   3,
   n0,
   _UGRR,
@@ -2109,7 +2123,7 @@ export var UpdateGatewayResponseRequest: StaticStructureSchema = [
   [_rAI, _rT, _pO],
   [[0, 1], [0, 1], () => ListOfPatchOperation],
 ];
-export var UpdateIntegrationRequest: StaticStructureSchema = [
+export var UpdateIntegrationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UIR,
@@ -2117,7 +2131,7 @@ export var UpdateIntegrationRequest: StaticStructureSchema = [
   [_rAI, _rI, _hM, _pO],
   [[0, 1], [0, 1], [0, 1], () => ListOfPatchOperation],
 ];
-export var UpdateIntegrationResponseRequest: StaticStructureSchema = [
+export var UpdateIntegrationResponseRequest$: StaticStructureSchema = [
   3,
   n0,
   _UIRR,
@@ -2125,7 +2139,7 @@ export var UpdateIntegrationResponseRequest: StaticStructureSchema = [
   [_rAI, _rI, _hM, _sC, _pO],
   [[0, 1], [0, 1], [0, 1], [0, 1], () => ListOfPatchOperation],
 ];
-export var UpdateMethodRequest: StaticStructureSchema = [
+export var UpdateMethodRequest$: StaticStructureSchema = [
   3,
   n0,
   _UMR,
@@ -2133,7 +2147,7 @@ export var UpdateMethodRequest: StaticStructureSchema = [
   [_rAI, _rI, _hM, _pO],
   [[0, 1], [0, 1], [0, 1], () => ListOfPatchOperation],
 ];
-export var UpdateMethodResponseRequest: StaticStructureSchema = [
+export var UpdateMethodResponseRequest$: StaticStructureSchema = [
   3,
   n0,
   _UMRR,
@@ -2141,7 +2155,7 @@ export var UpdateMethodResponseRequest: StaticStructureSchema = [
   [_rAI, _rI, _hM, _sC, _pO],
   [[0, 1], [0, 1], [0, 1], [0, 1], () => ListOfPatchOperation],
 ];
-export var UpdateModelRequest: StaticStructureSchema = [
+export var UpdateModelRequest$: StaticStructureSchema = [
   3,
   n0,
   _UMRp,
@@ -2149,7 +2163,7 @@ export var UpdateModelRequest: StaticStructureSchema = [
   [_rAI, _mN, _pO],
   [[0, 1], [0, 1], () => ListOfPatchOperation],
 ];
-export var UpdateRequestValidatorRequest: StaticStructureSchema = [
+export var UpdateRequestValidatorRequest$: StaticStructureSchema = [
   3,
   n0,
   _URVR,
@@ -2157,7 +2171,7 @@ export var UpdateRequestValidatorRequest: StaticStructureSchema = [
   [_rAI, _rVI, _pO],
   [[0, 1], [0, 1], () => ListOfPatchOperation],
 ];
-export var UpdateResourceRequest: StaticStructureSchema = [
+export var UpdateResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URRp,
@@ -2165,7 +2179,7 @@ export var UpdateResourceRequest: StaticStructureSchema = [
   [_rAI, _rI, _pO],
   [[0, 1], [0, 1], () => ListOfPatchOperation],
 ];
-export var UpdateRestApiRequest: StaticStructureSchema = [
+export var UpdateRestApiRequest$: StaticStructureSchema = [
   3,
   n0,
   _URAR,
@@ -2173,7 +2187,7 @@ export var UpdateRestApiRequest: StaticStructureSchema = [
   [_rAI, _pO],
   [[0, 1], () => ListOfPatchOperation],
 ];
-export var UpdateStageRequest: StaticStructureSchema = [
+export var UpdateStageRequest$: StaticStructureSchema = [
   3,
   n0,
   _USR,
@@ -2181,7 +2195,7 @@ export var UpdateStageRequest: StaticStructureSchema = [
   [_rAI, _sN, _pO],
   [[0, 1], [0, 1], () => ListOfPatchOperation],
 ];
-export var UpdateUsagePlanRequest: StaticStructureSchema = [
+export var UpdateUsagePlanRequest$: StaticStructureSchema = [
   3,
   n0,
   _UUPR,
@@ -2189,7 +2203,7 @@ export var UpdateUsagePlanRequest: StaticStructureSchema = [
   [_uPI, _pO],
   [[0, 1], () => ListOfPatchOperation],
 ];
-export var UpdateUsageRequest: StaticStructureSchema = [
+export var UpdateUsageRequest$: StaticStructureSchema = [
   3,
   n0,
   _UUR,
@@ -2197,7 +2211,7 @@ export var UpdateUsageRequest: StaticStructureSchema = [
   [_uPI, _kI, _pO],
   [[0, 1], [0, 1], () => ListOfPatchOperation],
 ];
-export var UpdateVpcLinkRequest: StaticStructureSchema = [
+export var UpdateVpcLinkRequest$: StaticStructureSchema = [
   3,
   n0,
   _UVLR,
@@ -2205,7 +2219,7 @@ export var UpdateVpcLinkRequest: StaticStructureSchema = [
   [_vLI, _pO],
   [[0, 1], () => ListOfPatchOperation],
 ];
-export var Usage: StaticStructureSchema = [
+export var Usage$: StaticStructureSchema = [
   3,
   n0,
   _U,
@@ -2213,16 +2227,16 @@ export var Usage: StaticStructureSchema = [
   [_uPI, _sDt, _eDn, _it, _p],
   [0, 0, 0, [[2, n0, _MOKU, 0, 0, [1, n0, _LOU, 0, 64 | 1]], { [_jN]: _val }], [0, { [_hQ]: _p }]],
 ];
-export var UsagePlan: StaticStructureSchema = [
+export var UsagePlan$: StaticStructureSchema = [
   3,
   n0,
   _UP,
   0,
   [_i, _n, _d, _aS, _th, _q, _pC, _t],
-  [0, 0, 0, () => ListOfApiStage, () => ThrottleSettings, () => QuotaSettings, 0, 128 | 0],
+  [0, 0, 0, () => ListOfApiStage, () => ThrottleSettings$, () => QuotaSettings$, 0, 128 | 0],
 ];
-export var UsagePlanKey: StaticStructureSchema = [3, n0, _UPK, 0, [_i, _ty, _v, _n], [0, 0, 0, 0]];
-export var UsagePlanKeys: StaticStructureSchema = [
+export var UsagePlanKey$: StaticStructureSchema = [3, n0, _UPK, 0, [_i, _ty, _v, _n], [0, 0, 0, 0]];
+export var UsagePlanKeys$: StaticStructureSchema = [
   3,
   n0,
   _UPKs,
@@ -2233,7 +2247,7 @@ export var UsagePlanKeys: StaticStructureSchema = [
     [0, { [_hQ]: _p }],
   ],
 ];
-export var UsagePlans: StaticStructureSchema = [
+export var UsagePlans$: StaticStructureSchema = [
   3,
   n0,
   _UPs,
@@ -2244,7 +2258,7 @@ export var UsagePlans: StaticStructureSchema = [
     [0, { [_hQ]: _p }],
   ],
 ];
-export var VpcLink: StaticStructureSchema = [
+export var VpcLink$: StaticStructureSchema = [
   3,
   n0,
   _VL,
@@ -2252,7 +2266,7 @@ export var VpcLink: StaticStructureSchema = [
   [_i, _n, _d, _tA, _st, _sM, _t],
   [0, 0, 0, 64 | 0, 0, 0, 128 | 0],
 ];
-export var VpcLinks: StaticStructureSchema = [
+export var VpcLinks$: StaticStructureSchema = [
   3,
   n0,
   _VLp,
@@ -2263,265 +2277,265 @@ export var VpcLinks: StaticStructureSchema = [
     [0, { [_hQ]: _p }],
   ],
 ];
-export var __Unit = "unit" as const;
-export var APIGatewayServiceException: StaticErrorSchema = [-3, _sm, "APIGatewayServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(APIGatewayServiceException, __APIGatewayServiceException);
-export var ListOfApiKey: StaticListSchema = [1, n0, _LOAK, 0, () => ApiKey];
-export var ListOfApiStage: StaticListSchema = [1, n0, _LOAS, 0, () => ApiStage];
-export var ListOfARNs = 64 | 0;
-export var ListOfAuthorizer: StaticListSchema = [1, n0, _LOA, 0, () => Authorizer];
-export var ListOfBasePathMapping: StaticListSchema = [1, n0, _LOBPM, 0, () => BasePathMapping];
-export var ListOfClientCertificate: StaticListSchema = [1, n0, _LOCC, 0, () => ClientCertificate];
-export var ListOfDeployment: StaticListSchema = [1, n0, _LOD, 0, () => Deployment];
-export var ListOfDocumentationPart: StaticListSchema = [1, n0, _LODP, 0, () => DocumentationPart];
-export var ListOfDocumentationVersion: StaticListSchema = [1, n0, _LODV, 0, () => DocumentationVersion];
-export var ListOfDomainName: StaticListSchema = [1, n0, _LODN, 0, () => DomainName];
-export var ListOfDomainNameAccessAssociation: StaticListSchema = [1, n0, _LODNAA, 0, () => DomainNameAccessAssociation];
-export var ListOfEndpointType = 64 | 0;
-export var ListOfGatewayResponse: StaticListSchema = [1, n0, _LOGR, 0, () => GatewayResponse];
-export var ListOfLong = 64 | 1;
-export var ListOfModel: StaticListSchema = [1, n0, _LOM, 0, () => Model];
-export var ListOfPatchOperation: StaticListSchema = [1, n0, _LOPO, 0, () => PatchOperation];
-export var ListOfRequestValidator: StaticListSchema = [1, n0, _LORV, 0, () => RequestValidator];
-export var ListOfResource: StaticListSchema = [1, n0, _LOR, 0, () => Resource];
-export var ListOfRestApi: StaticListSchema = [1, n0, _LORA, 0, () => RestApi];
-export var ListOfSdkConfigurationProperty: StaticListSchema = [1, n0, _LOSCP, 0, () => SdkConfigurationProperty];
-export var ListOfSdkType: StaticListSchema = [1, n0, _LOST, 0, () => SdkType];
-export var ListOfStage: StaticListSchema = [1, n0, _LOS, 0, () => Stage];
-export var ListOfStageKeys: StaticListSchema = [1, n0, _LOSK, 0, () => StageKey];
-export var ListOfString = 64 | 0;
-export var ListOfUsage: StaticListSchema = [1, n0, _LOU, 0, 64 | 1];
-export var ListOfUsagePlan: StaticListSchema = [1, n0, _LOUP, 0, () => UsagePlan];
-export var ListOfUsagePlanKey: StaticListSchema = [1, n0, _LOUPK, 0, () => UsagePlanKey];
-export var ListOfVpcLink: StaticListSchema = [1, n0, _LOVL, 0, () => VpcLink];
-export var MapOfApiStageThrottleSettings: StaticMapSchema = [2, n0, _MOASTS, 0, 0, () => ThrottleSettings];
-export var MapOfIntegrationResponse: StaticMapSchema = [2, n0, _MOIR, 0, 0, () => IntegrationResponse];
-export var MapOfKeyUsages: StaticMapSchema = [2, n0, _MOKU, 0, 0, [1, n0, _LOU, 0, 64 | 1]];
-export var MapOfMethod: StaticMapSchema = [2, n0, _MOM, 0, 0, () => Method];
-export var MapOfMethodResponse: StaticMapSchema = [2, n0, _MOMR, 0, 0, () => MethodResponse];
-export var MapOfMethodSettings: StaticMapSchema = [2, n0, _MOMS, 0, 0, () => MethodSetting];
-export var MapOfMethodSnapshot: StaticMapSchema = [2, n0, _MOMSa, 0, 0, () => MethodSnapshot];
-export var MapOfStringToBoolean = 128 | 2;
-export var MapOfStringToList: StaticMapSchema = [2, n0, _MOSTL, 0, 0, 64 | 0];
-export var MapOfStringToString = 128 | 0;
-export var PathToMapOfMethodSnapshot: StaticMapSchema = [2, n0, _PTMOMS, 0, 0, () => MapOfMethodSnapshot];
-export var CreateApiKey: StaticOperationSchema = [
+var __Unit = "unit" as const;
+export var APIGatewayServiceException$: StaticErrorSchema = [-3, _sm, "APIGatewayServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(APIGatewayServiceException$, APIGatewayServiceException);
+var ListOfApiKey: StaticListSchema = [1, n0, _LOAK, 0, () => ApiKey$];
+var ListOfApiStage: StaticListSchema = [1, n0, _LOAS, 0, () => ApiStage$];
+var ListOfARNs = 64 | 0;
+var ListOfAuthorizer: StaticListSchema = [1, n0, _LOA, 0, () => Authorizer$];
+var ListOfBasePathMapping: StaticListSchema = [1, n0, _LOBPM, 0, () => BasePathMapping$];
+var ListOfClientCertificate: StaticListSchema = [1, n0, _LOCC, 0, () => ClientCertificate$];
+var ListOfDeployment: StaticListSchema = [1, n0, _LOD, 0, () => Deployment$];
+var ListOfDocumentationPart: StaticListSchema = [1, n0, _LODP, 0, () => DocumentationPart$];
+var ListOfDocumentationVersion: StaticListSchema = [1, n0, _LODV, 0, () => DocumentationVersion$];
+var ListOfDomainName: StaticListSchema = [1, n0, _LODN, 0, () => DomainName$];
+var ListOfDomainNameAccessAssociation: StaticListSchema = [1, n0, _LODNAA, 0, () => DomainNameAccessAssociation$];
+var ListOfEndpointType = 64 | 0;
+var ListOfGatewayResponse: StaticListSchema = [1, n0, _LOGR, 0, () => GatewayResponse$];
+var ListOfLong = 64 | 1;
+var ListOfModel: StaticListSchema = [1, n0, _LOM, 0, () => Model$];
+var ListOfPatchOperation: StaticListSchema = [1, n0, _LOPO, 0, () => PatchOperation$];
+var ListOfRequestValidator: StaticListSchema = [1, n0, _LORV, 0, () => RequestValidator$];
+var ListOfResource: StaticListSchema = [1, n0, _LOR, 0, () => Resource$];
+var ListOfRestApi: StaticListSchema = [1, n0, _LORA, 0, () => RestApi$];
+var ListOfSdkConfigurationProperty: StaticListSchema = [1, n0, _LOSCP, 0, () => SdkConfigurationProperty$];
+var ListOfSdkType: StaticListSchema = [1, n0, _LOST, 0, () => SdkType$];
+var ListOfStage: StaticListSchema = [1, n0, _LOS, 0, () => Stage$];
+var ListOfStageKeys: StaticListSchema = [1, n0, _LOSK, 0, () => StageKey$];
+var ListOfString = 64 | 0;
+var ListOfUsage: StaticListSchema = [1, n0, _LOU, 0, 64 | 1];
+var ListOfUsagePlan: StaticListSchema = [1, n0, _LOUP, 0, () => UsagePlan$];
+var ListOfUsagePlanKey: StaticListSchema = [1, n0, _LOUPK, 0, () => UsagePlanKey$];
+var ListOfVpcLink: StaticListSchema = [1, n0, _LOVL, 0, () => VpcLink$];
+var MapOfApiStageThrottleSettings: StaticMapSchema = [2, n0, _MOASTS, 0, 0, () => ThrottleSettings$];
+var MapOfIntegrationResponse: StaticMapSchema = [2, n0, _MOIR, 0, 0, () => IntegrationResponse$];
+var MapOfKeyUsages: StaticMapSchema = [2, n0, _MOKU, 0, 0, [1, n0, _LOU, 0, 64 | 1]];
+var MapOfMethod: StaticMapSchema = [2, n0, _MOM, 0, 0, () => Method$];
+var MapOfMethodResponse: StaticMapSchema = [2, n0, _MOMR, 0, 0, () => MethodResponse$];
+var MapOfMethodSettings: StaticMapSchema = [2, n0, _MOMS, 0, 0, () => MethodSetting$];
+var MapOfMethodSnapshot: StaticMapSchema = [2, n0, _MOMSa, 0, 0, () => MethodSnapshot$];
+var MapOfStringToBoolean = 128 | 2;
+var MapOfStringToList: StaticMapSchema = [2, n0, _MOSTL, 0, 0, 64 | 0];
+var MapOfStringToString = 128 | 0;
+var PathToMapOfMethodSnapshot: StaticMapSchema = [2, n0, _PTMOMS, 0, 0, () => MapOfMethodSnapshot];
+export var CreateApiKey$: StaticOperationSchema = [
   9,
   n0,
   _CAK,
   { [_ht]: ["POST", "/apikeys", 201] },
-  () => CreateApiKeyRequest,
-  () => ApiKey,
+  () => CreateApiKeyRequest$,
+  () => ApiKey$,
 ];
-export var CreateAuthorizer: StaticOperationSchema = [
+export var CreateAuthorizer$: StaticOperationSchema = [
   9,
   n0,
   _CA,
   { [_ht]: ["POST", "/restapis/{restApiId}/authorizers", 201] },
-  () => CreateAuthorizerRequest,
-  () => Authorizer,
+  () => CreateAuthorizerRequest$,
+  () => Authorizer$,
 ];
-export var CreateBasePathMapping: StaticOperationSchema = [
+export var CreateBasePathMapping$: StaticOperationSchema = [
   9,
   n0,
   _CBPM,
   { [_ht]: ["POST", "/domainnames/{domainName}/basepathmappings", 201] },
-  () => CreateBasePathMappingRequest,
-  () => BasePathMapping,
+  () => CreateBasePathMappingRequest$,
+  () => BasePathMapping$,
 ];
-export var CreateDeployment: StaticOperationSchema = [
+export var CreateDeployment$: StaticOperationSchema = [
   9,
   n0,
   _CDr,
   { [_ht]: ["POST", "/restapis/{restApiId}/deployments", 201] },
-  () => CreateDeploymentRequest,
-  () => Deployment,
+  () => CreateDeploymentRequest$,
+  () => Deployment$,
 ];
-export var CreateDocumentationPart: StaticOperationSchema = [
+export var CreateDocumentationPart$: StaticOperationSchema = [
   9,
   n0,
   _CDP,
   { [_ht]: ["POST", "/restapis/{restApiId}/documentation/parts", 201] },
-  () => CreateDocumentationPartRequest,
-  () => DocumentationPart,
+  () => CreateDocumentationPartRequest$,
+  () => DocumentationPart$,
 ];
-export var CreateDocumentationVersion: StaticOperationSchema = [
+export var CreateDocumentationVersion$: StaticOperationSchema = [
   9,
   n0,
   _CDV,
   { [_ht]: ["POST", "/restapis/{restApiId}/documentation/versions", 201] },
-  () => CreateDocumentationVersionRequest,
-  () => DocumentationVersion,
+  () => CreateDocumentationVersionRequest$,
+  () => DocumentationVersion$,
 ];
-export var CreateDomainName: StaticOperationSchema = [
+export var CreateDomainName$: StaticOperationSchema = [
   9,
   n0,
   _CDN,
   { [_ht]: ["POST", "/domainnames", 201] },
-  () => CreateDomainNameRequest,
-  () => DomainName,
+  () => CreateDomainNameRequest$,
+  () => DomainName$,
 ];
-export var CreateDomainNameAccessAssociation: StaticOperationSchema = [
+export var CreateDomainNameAccessAssociation$: StaticOperationSchema = [
   9,
   n0,
   _CDNAA,
   { [_ht]: ["POST", "/domainnameaccessassociations", 201] },
-  () => CreateDomainNameAccessAssociationRequest,
-  () => DomainNameAccessAssociation,
+  () => CreateDomainNameAccessAssociationRequest$,
+  () => DomainNameAccessAssociation$,
 ];
-export var CreateModel: StaticOperationSchema = [
+export var CreateModel$: StaticOperationSchema = [
   9,
   n0,
   _CM,
   { [_ht]: ["POST", "/restapis/{restApiId}/models", 201] },
-  () => CreateModelRequest,
-  () => Model,
+  () => CreateModelRequest$,
+  () => Model$,
 ];
-export var CreateRequestValidator: StaticOperationSchema = [
+export var CreateRequestValidator$: StaticOperationSchema = [
   9,
   n0,
   _CRV,
   { [_ht]: ["POST", "/restapis/{restApiId}/requestvalidators", 201] },
-  () => CreateRequestValidatorRequest,
-  () => RequestValidator,
+  () => CreateRequestValidatorRequest$,
+  () => RequestValidator$,
 ];
-export var CreateResource: StaticOperationSchema = [
+export var CreateResource$: StaticOperationSchema = [
   9,
   n0,
   _CR,
   { [_ht]: ["POST", "/restapis/{restApiId}/resources/{parentId}", 201] },
-  () => CreateResourceRequest,
-  () => Resource,
+  () => CreateResourceRequest$,
+  () => Resource$,
 ];
-export var CreateRestApi: StaticOperationSchema = [
+export var CreateRestApi$: StaticOperationSchema = [
   9,
   n0,
   _CRA,
   { [_ht]: ["POST", "/restapis", 201] },
-  () => CreateRestApiRequest,
-  () => RestApi,
+  () => CreateRestApiRequest$,
+  () => RestApi$,
 ];
-export var CreateStage: StaticOperationSchema = [
+export var CreateStage$: StaticOperationSchema = [
   9,
   n0,
   _CSr,
   { [_ht]: ["POST", "/restapis/{restApiId}/stages", 201] },
-  () => CreateStageRequest,
-  () => Stage,
+  () => CreateStageRequest$,
+  () => Stage$,
 ];
-export var CreateUsagePlan: StaticOperationSchema = [
+export var CreateUsagePlan$: StaticOperationSchema = [
   9,
   n0,
   _CUP,
   { [_ht]: ["POST", "/usageplans", 201] },
-  () => CreateUsagePlanRequest,
-  () => UsagePlan,
+  () => CreateUsagePlanRequest$,
+  () => UsagePlan$,
 ];
-export var CreateUsagePlanKey: StaticOperationSchema = [
+export var CreateUsagePlanKey$: StaticOperationSchema = [
   9,
   n0,
   _CUPK,
   { [_ht]: ["POST", "/usageplans/{usagePlanId}/keys", 201] },
-  () => CreateUsagePlanKeyRequest,
-  () => UsagePlanKey,
+  () => CreateUsagePlanKeyRequest$,
+  () => UsagePlanKey$,
 ];
-export var CreateVpcLink: StaticOperationSchema = [
+export var CreateVpcLink$: StaticOperationSchema = [
   9,
   n0,
   _CVL,
   { [_ht]: ["POST", "/vpclinks", 202] },
-  () => CreateVpcLinkRequest,
-  () => VpcLink,
+  () => CreateVpcLinkRequest$,
+  () => VpcLink$,
 ];
-export var DeleteApiKey: StaticOperationSchema = [
+export var DeleteApiKey$: StaticOperationSchema = [
   9,
   n0,
   _DAK,
   { [_ht]: ["DELETE", "/apikeys/{apiKey}", 202] },
-  () => DeleteApiKeyRequest,
+  () => DeleteApiKeyRequest$,
   () => __Unit,
 ];
-export var DeleteAuthorizer: StaticOperationSchema = [
+export var DeleteAuthorizer$: StaticOperationSchema = [
   9,
   n0,
   _DA,
   { [_ht]: ["DELETE", "/restapis/{restApiId}/authorizers/{authorizerId}", 202] },
-  () => DeleteAuthorizerRequest,
+  () => DeleteAuthorizerRequest$,
   () => __Unit,
 ];
-export var DeleteBasePathMapping: StaticOperationSchema = [
+export var DeleteBasePathMapping$: StaticOperationSchema = [
   9,
   n0,
   _DBPM,
   { [_ht]: ["DELETE", "/domainnames/{domainName}/basepathmappings/{basePath}", 202] },
-  () => DeleteBasePathMappingRequest,
+  () => DeleteBasePathMappingRequest$,
   () => __Unit,
 ];
-export var DeleteClientCertificate: StaticOperationSchema = [
+export var DeleteClientCertificate$: StaticOperationSchema = [
   9,
   n0,
   _DCC,
   { [_ht]: ["DELETE", "/clientcertificates/{clientCertificateId}", 202] },
-  () => DeleteClientCertificateRequest,
+  () => DeleteClientCertificateRequest$,
   () => __Unit,
 ];
-export var DeleteDeployment: StaticOperationSchema = [
+export var DeleteDeployment$: StaticOperationSchema = [
   9,
   n0,
   _DD,
   { [_ht]: ["DELETE", "/restapis/{restApiId}/deployments/{deploymentId}", 202] },
-  () => DeleteDeploymentRequest,
+  () => DeleteDeploymentRequest$,
   () => __Unit,
 ];
-export var DeleteDocumentationPart: StaticOperationSchema = [
+export var DeleteDocumentationPart$: StaticOperationSchema = [
   9,
   n0,
   _DDP,
   { [_ht]: ["DELETE", "/restapis/{restApiId}/documentation/parts/{documentationPartId}", 202] },
-  () => DeleteDocumentationPartRequest,
+  () => DeleteDocumentationPartRequest$,
   () => __Unit,
 ];
-export var DeleteDocumentationVersion: StaticOperationSchema = [
+export var DeleteDocumentationVersion$: StaticOperationSchema = [
   9,
   n0,
   _DDV,
   { [_ht]: ["DELETE", "/restapis/{restApiId}/documentation/versions/{documentationVersion}", 202] },
-  () => DeleteDocumentationVersionRequest,
+  () => DeleteDocumentationVersionRequest$,
   () => __Unit,
 ];
-export var DeleteDomainName: StaticOperationSchema = [
+export var DeleteDomainName$: StaticOperationSchema = [
   9,
   n0,
   _DDN,
   { [_ht]: ["DELETE", "/domainnames/{domainName}", 202] },
-  () => DeleteDomainNameRequest,
+  () => DeleteDomainNameRequest$,
   () => __Unit,
 ];
-export var DeleteDomainNameAccessAssociation: StaticOperationSchema = [
+export var DeleteDomainNameAccessAssociation$: StaticOperationSchema = [
   9,
   n0,
   _DDNAA,
   { [_ht]: ["DELETE", "/domainnameaccessassociations/{domainNameAccessAssociationArn}", 202] },
-  () => DeleteDomainNameAccessAssociationRequest,
+  () => DeleteDomainNameAccessAssociationRequest$,
   () => __Unit,
 ];
-export var DeleteGatewayResponse: StaticOperationSchema = [
+export var DeleteGatewayResponse$: StaticOperationSchema = [
   9,
   n0,
   _DGR,
   { [_ht]: ["DELETE", "/restapis/{restApiId}/gatewayresponses/{responseType}", 202] },
-  () => DeleteGatewayResponseRequest,
+  () => DeleteGatewayResponseRequest$,
   () => __Unit,
 ];
-export var DeleteIntegration: StaticOperationSchema = [
+export var DeleteIntegration$: StaticOperationSchema = [
   9,
   n0,
   _DI,
   { [_ht]: ["DELETE", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}/integration", 204] },
-  () => DeleteIntegrationRequest,
+  () => DeleteIntegrationRequest$,
   () => __Unit,
 ];
-export var DeleteIntegrationResponse: StaticOperationSchema = [
+export var DeleteIntegrationResponse$: StaticOperationSchema = [
   9,
   n0,
   _DIRe,
@@ -2532,292 +2546,292 @@ export var DeleteIntegrationResponse: StaticOperationSchema = [
       204,
     ],
   },
-  () => DeleteIntegrationResponseRequest,
+  () => DeleteIntegrationResponseRequest$,
   () => __Unit,
 ];
-export var DeleteMethod: StaticOperationSchema = [
+export var DeleteMethod$: StaticOperationSchema = [
   9,
   n0,
   _DM,
   { [_ht]: ["DELETE", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}", 204] },
-  () => DeleteMethodRequest,
+  () => DeleteMethodRequest$,
   () => __Unit,
 ];
-export var DeleteMethodResponse: StaticOperationSchema = [
+export var DeleteMethodResponse$: StaticOperationSchema = [
   9,
   n0,
   _DMRel,
   {
     [_ht]: ["DELETE", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}/responses/{statusCode}", 204],
   },
-  () => DeleteMethodResponseRequest,
+  () => DeleteMethodResponseRequest$,
   () => __Unit,
 ];
-export var DeleteModel: StaticOperationSchema = [
+export var DeleteModel$: StaticOperationSchema = [
   9,
   n0,
   _DMe,
   { [_ht]: ["DELETE", "/restapis/{restApiId}/models/{modelName}", 202] },
-  () => DeleteModelRequest,
+  () => DeleteModelRequest$,
   () => __Unit,
 ];
-export var DeleteRequestValidator: StaticOperationSchema = [
+export var DeleteRequestValidator$: StaticOperationSchema = [
   9,
   n0,
   _DRV,
   { [_ht]: ["DELETE", "/restapis/{restApiId}/requestvalidators/{requestValidatorId}", 202] },
-  () => DeleteRequestValidatorRequest,
+  () => DeleteRequestValidatorRequest$,
   () => __Unit,
 ];
-export var DeleteResource: StaticOperationSchema = [
+export var DeleteResource$: StaticOperationSchema = [
   9,
   n0,
   _DR,
   { [_ht]: ["DELETE", "/restapis/{restApiId}/resources/{resourceId}", 202] },
-  () => DeleteResourceRequest,
+  () => DeleteResourceRequest$,
   () => __Unit,
 ];
-export var DeleteRestApi: StaticOperationSchema = [
+export var DeleteRestApi$: StaticOperationSchema = [
   9,
   n0,
   _DRA,
   { [_ht]: ["DELETE", "/restapis/{restApiId}", 202] },
-  () => DeleteRestApiRequest,
+  () => DeleteRestApiRequest$,
   () => __Unit,
 ];
-export var DeleteStage: StaticOperationSchema = [
+export var DeleteStage$: StaticOperationSchema = [
   9,
   n0,
   _DS,
   { [_ht]: ["DELETE", "/restapis/{restApiId}/stages/{stageName}", 202] },
-  () => DeleteStageRequest,
+  () => DeleteStageRequest$,
   () => __Unit,
 ];
-export var DeleteUsagePlan: StaticOperationSchema = [
+export var DeleteUsagePlan$: StaticOperationSchema = [
   9,
   n0,
   _DUP,
   { [_ht]: ["DELETE", "/usageplans/{usagePlanId}", 202] },
-  () => DeleteUsagePlanRequest,
+  () => DeleteUsagePlanRequest$,
   () => __Unit,
 ];
-export var DeleteUsagePlanKey: StaticOperationSchema = [
+export var DeleteUsagePlanKey$: StaticOperationSchema = [
   9,
   n0,
   _DUPK,
   { [_ht]: ["DELETE", "/usageplans/{usagePlanId}/keys/{keyId}", 202] },
-  () => DeleteUsagePlanKeyRequest,
+  () => DeleteUsagePlanKeyRequest$,
   () => __Unit,
 ];
-export var DeleteVpcLink: StaticOperationSchema = [
+export var DeleteVpcLink$: StaticOperationSchema = [
   9,
   n0,
   _DVL,
   { [_ht]: ["DELETE", "/vpclinks/{vpcLinkId}", 202] },
-  () => DeleteVpcLinkRequest,
+  () => DeleteVpcLinkRequest$,
   () => __Unit,
 ];
-export var FlushStageAuthorizersCache: StaticOperationSchema = [
+export var FlushStageAuthorizersCache$: StaticOperationSchema = [
   9,
   n0,
   _FSAC,
   { [_ht]: ["DELETE", "/restapis/{restApiId}/stages/{stageName}/cache/authorizers", 202] },
-  () => FlushStageAuthorizersCacheRequest,
+  () => FlushStageAuthorizersCacheRequest$,
   () => __Unit,
 ];
-export var FlushStageCache: StaticOperationSchema = [
+export var FlushStageCache$: StaticOperationSchema = [
   9,
   n0,
   _FSC,
   { [_ht]: ["DELETE", "/restapis/{restApiId}/stages/{stageName}/cache/data", 202] },
-  () => FlushStageCacheRequest,
+  () => FlushStageCacheRequest$,
   () => __Unit,
 ];
-export var GenerateClientCertificate: StaticOperationSchema = [
+export var GenerateClientCertificate$: StaticOperationSchema = [
   9,
   n0,
   _GCC,
   { [_ht]: ["POST", "/clientcertificates", 201] },
-  () => GenerateClientCertificateRequest,
-  () => ClientCertificate,
+  () => GenerateClientCertificateRequest$,
+  () => ClientCertificate$,
 ];
-export var GetAccount: StaticOperationSchema = [
+export var GetAccount$: StaticOperationSchema = [
   9,
   n0,
   _GA,
   { [_ht]: ["GET", "/account", 200] },
-  () => GetAccountRequest,
-  () => Account,
+  () => GetAccountRequest$,
+  () => Account$,
 ];
-export var GetApiKey: StaticOperationSchema = [
+export var GetApiKey$: StaticOperationSchema = [
   9,
   n0,
   _GAK,
   { [_ht]: ["GET", "/apikeys/{apiKey}", 200] },
-  () => GetApiKeyRequest,
-  () => ApiKey,
+  () => GetApiKeyRequest$,
+  () => ApiKey$,
 ];
-export var GetApiKeys: StaticOperationSchema = [
+export var GetApiKeys$: StaticOperationSchema = [
   9,
   n0,
   _GAKe,
   { [_ht]: ["GET", "/apikeys", 200] },
-  () => GetApiKeysRequest,
-  () => ApiKeys,
+  () => GetApiKeysRequest$,
+  () => ApiKeys$,
 ];
-export var GetAuthorizer: StaticOperationSchema = [
+export var GetAuthorizer$: StaticOperationSchema = [
   9,
   n0,
   _GAe,
   { [_ht]: ["GET", "/restapis/{restApiId}/authorizers/{authorizerId}", 200] },
-  () => GetAuthorizerRequest,
-  () => Authorizer,
+  () => GetAuthorizerRequest$,
+  () => Authorizer$,
 ];
-export var GetAuthorizers: StaticOperationSchema = [
+export var GetAuthorizers$: StaticOperationSchema = [
   9,
   n0,
   _GAet,
   { [_ht]: ["GET", "/restapis/{restApiId}/authorizers", 200] },
-  () => GetAuthorizersRequest,
-  () => Authorizers,
+  () => GetAuthorizersRequest$,
+  () => Authorizers$,
 ];
-export var GetBasePathMapping: StaticOperationSchema = [
+export var GetBasePathMapping$: StaticOperationSchema = [
   9,
   n0,
   _GBPM,
   { [_ht]: ["GET", "/domainnames/{domainName}/basepathmappings/{basePath}", 200] },
-  () => GetBasePathMappingRequest,
-  () => BasePathMapping,
+  () => GetBasePathMappingRequest$,
+  () => BasePathMapping$,
 ];
-export var GetBasePathMappings: StaticOperationSchema = [
+export var GetBasePathMappings$: StaticOperationSchema = [
   9,
   n0,
   _GBPMe,
   { [_ht]: ["GET", "/domainnames/{domainName}/basepathmappings", 200] },
-  () => GetBasePathMappingsRequest,
-  () => BasePathMappings,
+  () => GetBasePathMappingsRequest$,
+  () => BasePathMappings$,
 ];
-export var GetClientCertificate: StaticOperationSchema = [
+export var GetClientCertificate$: StaticOperationSchema = [
   9,
   n0,
   _GCCe,
   { [_ht]: ["GET", "/clientcertificates/{clientCertificateId}", 200] },
-  () => GetClientCertificateRequest,
-  () => ClientCertificate,
+  () => GetClientCertificateRequest$,
+  () => ClientCertificate$,
 ];
-export var GetClientCertificates: StaticOperationSchema = [
+export var GetClientCertificates$: StaticOperationSchema = [
   9,
   n0,
   _GCCet,
   { [_ht]: ["GET", "/clientcertificates", 200] },
-  () => GetClientCertificatesRequest,
-  () => ClientCertificates,
+  () => GetClientCertificatesRequest$,
+  () => ClientCertificates$,
 ];
-export var GetDeployment: StaticOperationSchema = [
+export var GetDeployment$: StaticOperationSchema = [
   9,
   n0,
   _GD,
   { [_ht]: ["GET", "/restapis/{restApiId}/deployments/{deploymentId}", 200] },
-  () => GetDeploymentRequest,
-  () => Deployment,
+  () => GetDeploymentRequest$,
+  () => Deployment$,
 ];
-export var GetDeployments: StaticOperationSchema = [
+export var GetDeployments$: StaticOperationSchema = [
   9,
   n0,
   _GDe,
   { [_ht]: ["GET", "/restapis/{restApiId}/deployments", 200] },
-  () => GetDeploymentsRequest,
-  () => Deployments,
+  () => GetDeploymentsRequest$,
+  () => Deployments$,
 ];
-export var GetDocumentationPart: StaticOperationSchema = [
+export var GetDocumentationPart$: StaticOperationSchema = [
   9,
   n0,
   _GDP,
   { [_ht]: ["GET", "/restapis/{restApiId}/documentation/parts/{documentationPartId}", 200] },
-  () => GetDocumentationPartRequest,
-  () => DocumentationPart,
+  () => GetDocumentationPartRequest$,
+  () => DocumentationPart$,
 ];
-export var GetDocumentationParts: StaticOperationSchema = [
+export var GetDocumentationParts$: StaticOperationSchema = [
   9,
   n0,
   _GDPe,
   { [_ht]: ["GET", "/restapis/{restApiId}/documentation/parts", 200] },
-  () => GetDocumentationPartsRequest,
-  () => DocumentationParts,
+  () => GetDocumentationPartsRequest$,
+  () => DocumentationParts$,
 ];
-export var GetDocumentationVersion: StaticOperationSchema = [
+export var GetDocumentationVersion$: StaticOperationSchema = [
   9,
   n0,
   _GDV,
   { [_ht]: ["GET", "/restapis/{restApiId}/documentation/versions/{documentationVersion}", 200] },
-  () => GetDocumentationVersionRequest,
-  () => DocumentationVersion,
+  () => GetDocumentationVersionRequest$,
+  () => DocumentationVersion$,
 ];
-export var GetDocumentationVersions: StaticOperationSchema = [
+export var GetDocumentationVersions$: StaticOperationSchema = [
   9,
   n0,
   _GDVe,
   { [_ht]: ["GET", "/restapis/{restApiId}/documentation/versions", 200] },
-  () => GetDocumentationVersionsRequest,
-  () => DocumentationVersions,
+  () => GetDocumentationVersionsRequest$,
+  () => DocumentationVersions$,
 ];
-export var GetDomainName: StaticOperationSchema = [
+export var GetDomainName$: StaticOperationSchema = [
   9,
   n0,
   _GDN,
   { [_ht]: ["GET", "/domainnames/{domainName}", 200] },
-  () => GetDomainNameRequest,
-  () => DomainName,
+  () => GetDomainNameRequest$,
+  () => DomainName$,
 ];
-export var GetDomainNameAccessAssociations: StaticOperationSchema = [
+export var GetDomainNameAccessAssociations$: StaticOperationSchema = [
   9,
   n0,
   _GDNAA,
   { [_ht]: ["GET", "/domainnameaccessassociations", 200] },
-  () => GetDomainNameAccessAssociationsRequest,
-  () => DomainNameAccessAssociations,
+  () => GetDomainNameAccessAssociationsRequest$,
+  () => DomainNameAccessAssociations$,
 ];
-export var GetDomainNames: StaticOperationSchema = [
+export var GetDomainNames$: StaticOperationSchema = [
   9,
   n0,
   _GDNe,
   { [_ht]: ["GET", "/domainnames", 200] },
-  () => GetDomainNamesRequest,
-  () => DomainNames,
+  () => GetDomainNamesRequest$,
+  () => DomainNames$,
 ];
-export var GetExport: StaticOperationSchema = [
+export var GetExport$: StaticOperationSchema = [
   9,
   n0,
   _GE,
   { [_ht]: ["GET", "/restapis/{restApiId}/stages/{stageName}/exports/{exportType}", 200] },
-  () => GetExportRequest,
-  () => ExportResponse,
+  () => GetExportRequest$,
+  () => ExportResponse$,
 ];
-export var GetGatewayResponse: StaticOperationSchema = [
+export var GetGatewayResponse$: StaticOperationSchema = [
   9,
   n0,
   _GGR,
   { [_ht]: ["GET", "/restapis/{restApiId}/gatewayresponses/{responseType}", 200] },
-  () => GetGatewayResponseRequest,
-  () => GatewayResponse,
+  () => GetGatewayResponseRequest$,
+  () => GatewayResponse$,
 ];
-export var GetGatewayResponses: StaticOperationSchema = [
+export var GetGatewayResponses$: StaticOperationSchema = [
   9,
   n0,
   _GGRe,
   { [_ht]: ["GET", "/restapis/{restApiId}/gatewayresponses", 200] },
-  () => GetGatewayResponsesRequest,
-  () => GatewayResponses,
+  () => GetGatewayResponsesRequest$,
+  () => GatewayResponses$,
 ];
-export var GetIntegration: StaticOperationSchema = [
+export var GetIntegration$: StaticOperationSchema = [
   9,
   n0,
   _GI,
   { [_ht]: ["GET", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}/integration", 200] },
-  () => GetIntegrationRequest,
-  () => Integration,
+  () => GetIntegrationRequest$,
+  () => Integration$,
 ];
-export var GetIntegrationResponse: StaticOperationSchema = [
+export var GetIntegrationResponse$: StaticOperationSchema = [
   9,
   n0,
   _GIRe,
@@ -2828,242 +2842,242 @@ export var GetIntegrationResponse: StaticOperationSchema = [
       200,
     ],
   },
-  () => GetIntegrationResponseRequest,
-  () => IntegrationResponse,
+  () => GetIntegrationResponseRequest$,
+  () => IntegrationResponse$,
 ];
-export var GetMethod: StaticOperationSchema = [
+export var GetMethod$: StaticOperationSchema = [
   9,
   n0,
   _GM,
   { [_ht]: ["GET", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}", 200] },
-  () => GetMethodRequest,
-  () => Method,
+  () => GetMethodRequest$,
+  () => Method$,
 ];
-export var GetMethodResponse: StaticOperationSchema = [
+export var GetMethodResponse$: StaticOperationSchema = [
   9,
   n0,
   _GMRete,
   { [_ht]: ["GET", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}/responses/{statusCode}", 200] },
-  () => GetMethodResponseRequest,
-  () => MethodResponse,
+  () => GetMethodResponseRequest$,
+  () => MethodResponse$,
 ];
-export var GetModel: StaticOperationSchema = [
+export var GetModel$: StaticOperationSchema = [
   9,
   n0,
   _GMe,
   { [_ht]: ["GET", "/restapis/{restApiId}/models/{modelName}", 200] },
-  () => GetModelRequest,
-  () => Model,
+  () => GetModelRequest$,
+  () => Model$,
 ];
-export var GetModels: StaticOperationSchema = [
+export var GetModels$: StaticOperationSchema = [
   9,
   n0,
   _GMet,
   { [_ht]: ["GET", "/restapis/{restApiId}/models", 200] },
-  () => GetModelsRequest,
-  () => Models,
+  () => GetModelsRequest$,
+  () => Models$,
 ];
-export var GetModelTemplate: StaticOperationSchema = [
+export var GetModelTemplate$: StaticOperationSchema = [
   9,
   n0,
   _GMT,
   { [_ht]: ["GET", "/restapis/{restApiId}/models/{modelName}/default_template", 200] },
-  () => GetModelTemplateRequest,
-  () => Template,
+  () => GetModelTemplateRequest$,
+  () => Template$,
 ];
-export var GetRequestValidator: StaticOperationSchema = [
+export var GetRequestValidator$: StaticOperationSchema = [
   9,
   n0,
   _GRV,
   { [_ht]: ["GET", "/restapis/{restApiId}/requestvalidators/{requestValidatorId}", 200] },
-  () => GetRequestValidatorRequest,
-  () => RequestValidator,
+  () => GetRequestValidatorRequest$,
+  () => RequestValidator$,
 ];
-export var GetRequestValidators: StaticOperationSchema = [
+export var GetRequestValidators$: StaticOperationSchema = [
   9,
   n0,
   _GRVe,
   { [_ht]: ["GET", "/restapis/{restApiId}/requestvalidators", 200] },
-  () => GetRequestValidatorsRequest,
-  () => RequestValidators,
+  () => GetRequestValidatorsRequest$,
+  () => RequestValidators$,
 ];
-export var GetResource: StaticOperationSchema = [
+export var GetResource$: StaticOperationSchema = [
   9,
   n0,
   _GRe,
   { [_ht]: ["GET", "/restapis/{restApiId}/resources/{resourceId}", 200] },
-  () => GetResourceRequest,
-  () => Resource,
+  () => GetResourceRequest$,
+  () => Resource$,
 ];
-export var GetResources: StaticOperationSchema = [
+export var GetResources$: StaticOperationSchema = [
   9,
   n0,
   _GRet,
   { [_ht]: ["GET", "/restapis/{restApiId}/resources", 200] },
-  () => GetResourcesRequest,
-  () => Resources,
+  () => GetResourcesRequest$,
+  () => Resources$,
 ];
-export var GetRestApi: StaticOperationSchema = [
+export var GetRestApi$: StaticOperationSchema = [
   9,
   n0,
   _GRA,
   { [_ht]: ["GET", "/restapis/{restApiId}", 200] },
-  () => GetRestApiRequest,
-  () => RestApi,
+  () => GetRestApiRequest$,
+  () => RestApi$,
 ];
-export var GetRestApis: StaticOperationSchema = [
+export var GetRestApis$: StaticOperationSchema = [
   9,
   n0,
   _GRAe,
   { [_ht]: ["GET", "/restapis", 200] },
-  () => GetRestApisRequest,
-  () => RestApis,
+  () => GetRestApisRequest$,
+  () => RestApis$,
 ];
-export var GetSdk: StaticOperationSchema = [
+export var GetSdk$: StaticOperationSchema = [
   9,
   n0,
   _GS,
   { [_ht]: ["GET", "/restapis/{restApiId}/stages/{stageName}/sdks/{sdkType}", 200] },
-  () => GetSdkRequest,
-  () => SdkResponse,
+  () => GetSdkRequest$,
+  () => SdkResponse$,
 ];
-export var GetSdkType: StaticOperationSchema = [
+export var GetSdkType$: StaticOperationSchema = [
   9,
   n0,
   _GST,
   { [_ht]: ["GET", "/sdktypes/{id}", 200] },
-  () => GetSdkTypeRequest,
-  () => SdkType,
+  () => GetSdkTypeRequest$,
+  () => SdkType$,
 ];
-export var GetSdkTypes: StaticOperationSchema = [
+export var GetSdkTypes$: StaticOperationSchema = [
   9,
   n0,
   _GSTe,
   { [_ht]: ["GET", "/sdktypes", 200] },
-  () => GetSdkTypesRequest,
-  () => SdkTypes,
+  () => GetSdkTypesRequest$,
+  () => SdkTypes$,
 ];
-export var GetStage: StaticOperationSchema = [
+export var GetStage$: StaticOperationSchema = [
   9,
   n0,
   _GSe,
   { [_ht]: ["GET", "/restapis/{restApiId}/stages/{stageName}", 200] },
-  () => GetStageRequest,
-  () => Stage,
+  () => GetStageRequest$,
+  () => Stage$,
 ];
-export var GetStages: StaticOperationSchema = [
+export var GetStages$: StaticOperationSchema = [
   9,
   n0,
   _GSet,
   { [_ht]: ["GET", "/restapis/{restApiId}/stages", 200] },
-  () => GetStagesRequest,
-  () => Stages,
+  () => GetStagesRequest$,
+  () => Stages$,
 ];
-export var GetTags: StaticOperationSchema = [
+export var GetTags$: StaticOperationSchema = [
   9,
   n0,
   _GT,
   { [_ht]: ["GET", "/tags/{resourceArn}", 200] },
-  () => GetTagsRequest,
-  () => Tags,
+  () => GetTagsRequest$,
+  () => Tags$,
 ];
-export var GetUsage: StaticOperationSchema = [
+export var GetUsage$: StaticOperationSchema = [
   9,
   n0,
   _GU,
   { [_ht]: ["GET", "/usageplans/{usagePlanId}/usage", 200] },
-  () => GetUsageRequest,
-  () => Usage,
+  () => GetUsageRequest$,
+  () => Usage$,
 ];
-export var GetUsagePlan: StaticOperationSchema = [
+export var GetUsagePlan$: StaticOperationSchema = [
   9,
   n0,
   _GUP,
   { [_ht]: ["GET", "/usageplans/{usagePlanId}", 200] },
-  () => GetUsagePlanRequest,
-  () => UsagePlan,
+  () => GetUsagePlanRequest$,
+  () => UsagePlan$,
 ];
-export var GetUsagePlanKey: StaticOperationSchema = [
+export var GetUsagePlanKey$: StaticOperationSchema = [
   9,
   n0,
   _GUPK,
   { [_ht]: ["GET", "/usageplans/{usagePlanId}/keys/{keyId}", 200] },
-  () => GetUsagePlanKeyRequest,
-  () => UsagePlanKey,
+  () => GetUsagePlanKeyRequest$,
+  () => UsagePlanKey$,
 ];
-export var GetUsagePlanKeys: StaticOperationSchema = [
+export var GetUsagePlanKeys$: StaticOperationSchema = [
   9,
   n0,
   _GUPKe,
   { [_ht]: ["GET", "/usageplans/{usagePlanId}/keys", 200] },
-  () => GetUsagePlanKeysRequest,
-  () => UsagePlanKeys,
+  () => GetUsagePlanKeysRequest$,
+  () => UsagePlanKeys$,
 ];
-export var GetUsagePlans: StaticOperationSchema = [
+export var GetUsagePlans$: StaticOperationSchema = [
   9,
   n0,
   _GUPe,
   { [_ht]: ["GET", "/usageplans", 200] },
-  () => GetUsagePlansRequest,
-  () => UsagePlans,
+  () => GetUsagePlansRequest$,
+  () => UsagePlans$,
 ];
-export var GetVpcLink: StaticOperationSchema = [
+export var GetVpcLink$: StaticOperationSchema = [
   9,
   n0,
   _GVL,
   { [_ht]: ["GET", "/vpclinks/{vpcLinkId}", 200] },
-  () => GetVpcLinkRequest,
-  () => VpcLink,
+  () => GetVpcLinkRequest$,
+  () => VpcLink$,
 ];
-export var GetVpcLinks: StaticOperationSchema = [
+export var GetVpcLinks$: StaticOperationSchema = [
   9,
   n0,
   _GVLe,
   { [_ht]: ["GET", "/vpclinks", 200] },
-  () => GetVpcLinksRequest,
-  () => VpcLinks,
+  () => GetVpcLinksRequest$,
+  () => VpcLinks$,
 ];
-export var ImportApiKeys: StaticOperationSchema = [
+export var ImportApiKeys$: StaticOperationSchema = [
   9,
   n0,
   _IAK,
   { [_ht]: ["POST", "/apikeys?mode=import", 201] },
-  () => ImportApiKeysRequest,
-  () => ApiKeyIds,
+  () => ImportApiKeysRequest$,
+  () => ApiKeyIds$,
 ];
-export var ImportDocumentationParts: StaticOperationSchema = [
+export var ImportDocumentationParts$: StaticOperationSchema = [
   9,
   n0,
   _IDP,
   { [_ht]: ["PUT", "/restapis/{restApiId}/documentation/parts", 200] },
-  () => ImportDocumentationPartsRequest,
-  () => DocumentationPartIds,
+  () => ImportDocumentationPartsRequest$,
+  () => DocumentationPartIds$,
 ];
-export var ImportRestApi: StaticOperationSchema = [
+export var ImportRestApi$: StaticOperationSchema = [
   9,
   n0,
   _IRA,
   { [_ht]: ["POST", "/restapis?mode=import", 201] },
-  () => ImportRestApiRequest,
-  () => RestApi,
+  () => ImportRestApiRequest$,
+  () => RestApi$,
 ];
-export var PutGatewayResponse: StaticOperationSchema = [
+export var PutGatewayResponse$: StaticOperationSchema = [
   9,
   n0,
   _PGR,
   { [_ht]: ["PUT", "/restapis/{restApiId}/gatewayresponses/{responseType}", 201] },
-  () => PutGatewayResponseRequest,
-  () => GatewayResponse,
+  () => PutGatewayResponseRequest$,
+  () => GatewayResponse$,
 ];
-export var PutIntegration: StaticOperationSchema = [
+export var PutIntegration$: StaticOperationSchema = [
   9,
   n0,
   _PI,
   { [_ht]: ["PUT", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}/integration", 201] },
-  () => PutIntegrationRequest,
-  () => Integration,
+  () => PutIntegrationRequest$,
+  () => Integration$,
 ];
-export var PutIntegrationResponse: StaticOperationSchema = [
+export var PutIntegrationResponse$: StaticOperationSchema = [
   9,
   n0,
   _PIRu,
@@ -3074,162 +3088,162 @@ export var PutIntegrationResponse: StaticOperationSchema = [
       201,
     ],
   },
-  () => PutIntegrationResponseRequest,
-  () => IntegrationResponse,
+  () => PutIntegrationResponseRequest$,
+  () => IntegrationResponse$,
 ];
-export var PutMethod: StaticOperationSchema = [
+export var PutMethod$: StaticOperationSchema = [
   9,
   n0,
   _PM,
   { [_ht]: ["PUT", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}", 201] },
-  () => PutMethodRequest,
-  () => Method,
+  () => PutMethodRequest$,
+  () => Method$,
 ];
-export var PutMethodResponse: StaticOperationSchema = [
+export var PutMethodResponse$: StaticOperationSchema = [
   9,
   n0,
   _PMRu,
   { [_ht]: ["PUT", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}/responses/{statusCode}", 201] },
-  () => PutMethodResponseRequest,
-  () => MethodResponse,
+  () => PutMethodResponseRequest$,
+  () => MethodResponse$,
 ];
-export var PutRestApi: StaticOperationSchema = [
+export var PutRestApi$: StaticOperationSchema = [
   9,
   n0,
   _PRA,
   { [_ht]: ["PUT", "/restapis/{restApiId}", 200] },
-  () => PutRestApiRequest,
-  () => RestApi,
+  () => PutRestApiRequest$,
+  () => RestApi$,
 ];
-export var RejectDomainNameAccessAssociation: StaticOperationSchema = [
+export var RejectDomainNameAccessAssociation$: StaticOperationSchema = [
   9,
   n0,
   _RDNAA,
   { [_ht]: ["POST", "/rejectdomainnameaccessassociations", 202] },
-  () => RejectDomainNameAccessAssociationRequest,
+  () => RejectDomainNameAccessAssociationRequest$,
   () => __Unit,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_ht]: ["PUT", "/tags/{resourceArn}", 204] },
-  () => TagResourceRequest,
+  () => TagResourceRequest$,
   () => __Unit,
 ];
-export var TestInvokeAuthorizer: StaticOperationSchema = [
+export var TestInvokeAuthorizer$: StaticOperationSchema = [
   9,
   n0,
   _TIA,
   { [_ht]: ["POST", "/restapis/{restApiId}/authorizers/{authorizerId}", 200] },
-  () => TestInvokeAuthorizerRequest,
-  () => TestInvokeAuthorizerResponse,
+  () => TestInvokeAuthorizerRequest$,
+  () => TestInvokeAuthorizerResponse$,
 ];
-export var TestInvokeMethod: StaticOperationSchema = [
+export var TestInvokeMethod$: StaticOperationSchema = [
   9,
   n0,
   _TIM,
   { [_ht]: ["POST", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}", 200] },
-  () => TestInvokeMethodRequest,
-  () => TestInvokeMethodResponse,
+  () => TestInvokeMethodRequest$,
+  () => TestInvokeMethodResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_ht]: ["DELETE", "/tags/{resourceArn}", 204] },
-  () => UntagResourceRequest,
+  () => UntagResourceRequest$,
   () => __Unit,
 ];
-export var UpdateAccount: StaticOperationSchema = [
+export var UpdateAccount$: StaticOperationSchema = [
   9,
   n0,
   _UA,
   { [_ht]: ["PATCH", "/account", 200] },
-  () => UpdateAccountRequest,
-  () => Account,
+  () => UpdateAccountRequest$,
+  () => Account$,
 ];
-export var UpdateApiKey: StaticOperationSchema = [
+export var UpdateApiKey$: StaticOperationSchema = [
   9,
   n0,
   _UAK,
   { [_ht]: ["PATCH", "/apikeys/{apiKey}", 200] },
-  () => UpdateApiKeyRequest,
-  () => ApiKey,
+  () => UpdateApiKeyRequest$,
+  () => ApiKey$,
 ];
-export var UpdateAuthorizer: StaticOperationSchema = [
+export var UpdateAuthorizer$: StaticOperationSchema = [
   9,
   n0,
   _UAp,
   { [_ht]: ["PATCH", "/restapis/{restApiId}/authorizers/{authorizerId}", 200] },
-  () => UpdateAuthorizerRequest,
-  () => Authorizer,
+  () => UpdateAuthorizerRequest$,
+  () => Authorizer$,
 ];
-export var UpdateBasePathMapping: StaticOperationSchema = [
+export var UpdateBasePathMapping$: StaticOperationSchema = [
   9,
   n0,
   _UBPM,
   { [_ht]: ["PATCH", "/domainnames/{domainName}/basepathmappings/{basePath}", 200] },
-  () => UpdateBasePathMappingRequest,
-  () => BasePathMapping,
+  () => UpdateBasePathMappingRequest$,
+  () => BasePathMapping$,
 ];
-export var UpdateClientCertificate: StaticOperationSchema = [
+export var UpdateClientCertificate$: StaticOperationSchema = [
   9,
   n0,
   _UCC,
   { [_ht]: ["PATCH", "/clientcertificates/{clientCertificateId}", 200] },
-  () => UpdateClientCertificateRequest,
-  () => ClientCertificate,
+  () => UpdateClientCertificateRequest$,
+  () => ClientCertificate$,
 ];
-export var UpdateDeployment: StaticOperationSchema = [
+export var UpdateDeployment$: StaticOperationSchema = [
   9,
   n0,
   _UD,
   { [_ht]: ["PATCH", "/restapis/{restApiId}/deployments/{deploymentId}", 200] },
-  () => UpdateDeploymentRequest,
-  () => Deployment,
+  () => UpdateDeploymentRequest$,
+  () => Deployment$,
 ];
-export var UpdateDocumentationPart: StaticOperationSchema = [
+export var UpdateDocumentationPart$: StaticOperationSchema = [
   9,
   n0,
   _UDP,
   { [_ht]: ["PATCH", "/restapis/{restApiId}/documentation/parts/{documentationPartId}", 200] },
-  () => UpdateDocumentationPartRequest,
-  () => DocumentationPart,
+  () => UpdateDocumentationPartRequest$,
+  () => DocumentationPart$,
 ];
-export var UpdateDocumentationVersion: StaticOperationSchema = [
+export var UpdateDocumentationVersion$: StaticOperationSchema = [
   9,
   n0,
   _UDV,
   { [_ht]: ["PATCH", "/restapis/{restApiId}/documentation/versions/{documentationVersion}", 200] },
-  () => UpdateDocumentationVersionRequest,
-  () => DocumentationVersion,
+  () => UpdateDocumentationVersionRequest$,
+  () => DocumentationVersion$,
 ];
-export var UpdateDomainName: StaticOperationSchema = [
+export var UpdateDomainName$: StaticOperationSchema = [
   9,
   n0,
   _UDN,
   { [_ht]: ["PATCH", "/domainnames/{domainName}", 200] },
-  () => UpdateDomainNameRequest,
-  () => DomainName,
+  () => UpdateDomainNameRequest$,
+  () => DomainName$,
 ];
-export var UpdateGatewayResponse: StaticOperationSchema = [
+export var UpdateGatewayResponse$: StaticOperationSchema = [
   9,
   n0,
   _UGR,
   { [_ht]: ["PATCH", "/restapis/{restApiId}/gatewayresponses/{responseType}", 200] },
-  () => UpdateGatewayResponseRequest,
-  () => GatewayResponse,
+  () => UpdateGatewayResponseRequest$,
+  () => GatewayResponse$,
 ];
-export var UpdateIntegration: StaticOperationSchema = [
+export var UpdateIntegration$: StaticOperationSchema = [
   9,
   n0,
   _UI,
   { [_ht]: ["PATCH", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}/integration", 200] },
-  () => UpdateIntegrationRequest,
-  () => Integration,
+  () => UpdateIntegrationRequest$,
+  () => Integration$,
 ];
-export var UpdateIntegrationResponse: StaticOperationSchema = [
+export var UpdateIntegrationResponse$: StaticOperationSchema = [
   9,
   n0,
   _UIRp,
@@ -3240,86 +3254,86 @@ export var UpdateIntegrationResponse: StaticOperationSchema = [
       200,
     ],
   },
-  () => UpdateIntegrationResponseRequest,
-  () => IntegrationResponse,
+  () => UpdateIntegrationResponseRequest$,
+  () => IntegrationResponse$,
 ];
-export var UpdateMethod: StaticOperationSchema = [
+export var UpdateMethod$: StaticOperationSchema = [
   9,
   n0,
   _UM,
   { [_ht]: ["PATCH", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}", 200] },
-  () => UpdateMethodRequest,
-  () => Method,
+  () => UpdateMethodRequest$,
+  () => Method$,
 ];
-export var UpdateMethodResponse: StaticOperationSchema = [
+export var UpdateMethodResponse$: StaticOperationSchema = [
   9,
   n0,
   _UMRpd,
   { [_ht]: ["PATCH", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}/responses/{statusCode}", 201] },
-  () => UpdateMethodResponseRequest,
-  () => MethodResponse,
+  () => UpdateMethodResponseRequest$,
+  () => MethodResponse$,
 ];
-export var UpdateModel: StaticOperationSchema = [
+export var UpdateModel$: StaticOperationSchema = [
   9,
   n0,
   _UMp,
   { [_ht]: ["PATCH", "/restapis/{restApiId}/models/{modelName}", 200] },
-  () => UpdateModelRequest,
-  () => Model,
+  () => UpdateModelRequest$,
+  () => Model$,
 ];
-export var UpdateRequestValidator: StaticOperationSchema = [
+export var UpdateRequestValidator$: StaticOperationSchema = [
   9,
   n0,
   _URV,
   { [_ht]: ["PATCH", "/restapis/{restApiId}/requestvalidators/{requestValidatorId}", 200] },
-  () => UpdateRequestValidatorRequest,
-  () => RequestValidator,
+  () => UpdateRequestValidatorRequest$,
+  () => RequestValidator$,
 ];
-export var UpdateResource: StaticOperationSchema = [
+export var UpdateResource$: StaticOperationSchema = [
   9,
   n0,
   _URp,
   { [_ht]: ["PATCH", "/restapis/{restApiId}/resources/{resourceId}", 200] },
-  () => UpdateResourceRequest,
-  () => Resource,
+  () => UpdateResourceRequest$,
+  () => Resource$,
 ];
-export var UpdateRestApi: StaticOperationSchema = [
+export var UpdateRestApi$: StaticOperationSchema = [
   9,
   n0,
   _URA,
   { [_ht]: ["PATCH", "/restapis/{restApiId}", 200] },
-  () => UpdateRestApiRequest,
-  () => RestApi,
+  () => UpdateRestApiRequest$,
+  () => RestApi$,
 ];
-export var UpdateStage: StaticOperationSchema = [
+export var UpdateStage$: StaticOperationSchema = [
   9,
   n0,
   _US,
   { [_ht]: ["PATCH", "/restapis/{restApiId}/stages/{stageName}", 200] },
-  () => UpdateStageRequest,
-  () => Stage,
+  () => UpdateStageRequest$,
+  () => Stage$,
 ];
-export var UpdateUsage: StaticOperationSchema = [
+export var UpdateUsage$: StaticOperationSchema = [
   9,
   n0,
   _UU,
   { [_ht]: ["PATCH", "/usageplans/{usagePlanId}/keys/{keyId}/usage", 200] },
-  () => UpdateUsageRequest,
-  () => Usage,
+  () => UpdateUsageRequest$,
+  () => Usage$,
 ];
-export var UpdateUsagePlan: StaticOperationSchema = [
+export var UpdateUsagePlan$: StaticOperationSchema = [
   9,
   n0,
   _UUP,
   { [_ht]: ["PATCH", "/usageplans/{usagePlanId}", 200] },
-  () => UpdateUsagePlanRequest,
-  () => UsagePlan,
+  () => UpdateUsagePlanRequest$,
+  () => UsagePlan$,
 ];
-export var UpdateVpcLink: StaticOperationSchema = [
+export var UpdateVpcLink$: StaticOperationSchema = [
   9,
   n0,
   _UVL,
   { [_ht]: ["PATCH", "/vpclinks/{vpcLinkId}", 200] },
-  () => UpdateVpcLinkRequest,
-  () => VpcLink,
+  () => UpdateVpcLinkRequest$,
+  () => VpcLink$,
 ];

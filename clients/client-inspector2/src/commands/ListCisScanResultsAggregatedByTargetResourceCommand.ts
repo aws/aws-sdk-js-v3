@@ -9,7 +9,7 @@ import type {
   ListCisScanResultsAggregatedByTargetResourceRequest,
   ListCisScanResultsAggregatedByTargetResourceResponse,
 } from "../models/models_0";
-import { ListCisScanResultsAggregatedByTargetResource } from "../schemas/schemas_0";
+import { ListCisScanResultsAggregatedByTargetResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -208,7 +208,7 @@ export class ListCisScanResultsAggregatedByTargetResourceCommand extends $Comman
   })
   .s("Inspector2", "ListCisScanResultsAggregatedByTargetResource", {})
   .n("Inspector2Client", "ListCisScanResultsAggregatedByTargetResourceCommand")
-  .sc(ListCisScanResultsAggregatedByTargetResource)
+  .sc(ListCisScanResultsAggregatedByTargetResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

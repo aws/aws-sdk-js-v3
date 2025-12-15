@@ -9,7 +9,7 @@ import type {
   PutCapacityAssignmentConfigurationInput,
   PutCapacityAssignmentConfigurationOutput,
 } from "../models/models_0";
-import { PutCapacityAssignmentConfiguration } from "../schemas/schemas_0";
+import { PutCapacityAssignmentConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class PutCapacityAssignmentConfigurationCommand extends $Command
   })
   .s("AmazonAthena", "PutCapacityAssignmentConfiguration", {})
   .n("AthenaClient", "PutCapacityAssignmentConfigurationCommand")
-  .sc(PutCapacityAssignmentConfiguration)
+  .sc(PutCapacityAssignmentConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

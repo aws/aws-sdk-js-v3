@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import type { HostLabelInput } from "../models/models_0";
-import { EndpointWithHostLabelOperation } from "../schemas/schemas_0";
+import { EndpointWithHostLabelOperation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -71,7 +71,7 @@ export class EndpointWithHostLabelOperationCommand extends $Command
   })
   .s("JsonProtocol", "EndpointWithHostLabelOperation", {})
   .n("JsonProtocolClient", "EndpointWithHostLabelOperationCommand")
-  .sc(EndpointWithHostLabelOperation)
+  .sc(EndpointWithHostLabelOperation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

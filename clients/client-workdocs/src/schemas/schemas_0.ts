@@ -375,47 +375,47 @@ import type {
 } from "@smithy/types";
 
 import {
-  ConcurrentModificationException as __ConcurrentModificationException,
-  ConflictingOperationException as __ConflictingOperationException,
-  CustomMetadataLimitExceededException as __CustomMetadataLimitExceededException,
-  DeactivatingLastSystemUserException as __DeactivatingLastSystemUserException,
-  DocumentLockedForCommentsException as __DocumentLockedForCommentsException,
-  DraftUploadOutOfSyncException as __DraftUploadOutOfSyncException,
-  EntityAlreadyExistsException as __EntityAlreadyExistsException,
-  EntityNotExistsException as __EntityNotExistsException,
-  FailedDependencyException as __FailedDependencyException,
-  IllegalUserStateException as __IllegalUserStateException,
-  InvalidArgumentException as __InvalidArgumentException,
-  InvalidCommentOperationException as __InvalidCommentOperationException,
-  InvalidOperationException as __InvalidOperationException,
-  InvalidPasswordException as __InvalidPasswordException,
-  LimitExceededException as __LimitExceededException,
-  ProhibitedStateException as __ProhibitedStateException,
-  RequestedEntityTooLargeException as __RequestedEntityTooLargeException,
-  ResourceAlreadyCheckedOutException as __ResourceAlreadyCheckedOutException,
-  ServiceUnavailableException as __ServiceUnavailableException,
-  StorageLimitExceededException as __StorageLimitExceededException,
-  StorageLimitWillExceedException as __StorageLimitWillExceedException,
-  TooManyLabelsException as __TooManyLabelsException,
-  TooManySubscriptionsException as __TooManySubscriptionsException,
-  UnauthorizedOperationException as __UnauthorizedOperationException,
-  UnauthorizedResourceAccessException as __UnauthorizedResourceAccessException,
+  ConcurrentModificationException,
+  ConflictingOperationException,
+  CustomMetadataLimitExceededException,
+  DeactivatingLastSystemUserException,
+  DocumentLockedForCommentsException,
+  DraftUploadOutOfSyncException,
+  EntityAlreadyExistsException,
+  EntityNotExistsException,
+  FailedDependencyException,
+  IllegalUserStateException,
+  InvalidArgumentException,
+  InvalidCommentOperationException,
+  InvalidOperationException,
+  InvalidPasswordException,
+  LimitExceededException,
+  ProhibitedStateException,
+  RequestedEntityTooLargeException,
+  ResourceAlreadyCheckedOutException,
+  ServiceUnavailableException,
+  StorageLimitExceededException,
+  StorageLimitWillExceedException,
+  TooManyLabelsException,
+  TooManySubscriptionsException,
+  UnauthorizedOperationException,
+  UnauthorizedResourceAccessException,
 } from "../models/errors";
-import { WorkDocsServiceException as __WorkDocsServiceException } from "../models/WorkDocsServiceException";
+import { WorkDocsServiceException } from "../models/WorkDocsServiceException";
 
 /* eslint no-var: 0 */
-export var AuthenticationHeaderType: StaticSimpleSchema = [0, n0, _AHT, 8, 0];
-export var CommentTextType: StaticSimpleSchema = [0, n0, _CTT, 8, 0];
-export var EmailAddressType: StaticSimpleSchema = [0, n0, _EAT, 8, 0];
-export var MessageType: StaticSimpleSchema = [0, n0, _MT, 8, 0];
-export var PasswordType: StaticSimpleSchema = [0, n0, _PT, 8, 0];
-export var ResourceNameType: StaticSimpleSchema = [0, n0, _RNT, 8, 0];
-export var ResponseItemWebUrl: StaticSimpleSchema = [0, n0, _RIWU, 8, 0];
-export var SearchQueryType: StaticSimpleSchema = [0, n0, _SQT, 8, 0];
-export var UrlType: StaticSimpleSchema = [0, n0, _UT, 8, 0];
-export var UserAttributeValueType: StaticSimpleSchema = [0, n0, _UAVT, 8, 0];
-export var UsernameType: StaticSimpleSchema = [0, n0, _UTs, 8, 0];
-export var AbortDocumentVersionUploadRequest: StaticStructureSchema = [
+var AuthenticationHeaderType: StaticSimpleSchema = [0, n0, _AHT, 8, 0];
+var CommentTextType: StaticSimpleSchema = [0, n0, _CTT, 8, 0];
+var EmailAddressType: StaticSimpleSchema = [0, n0, _EAT, 8, 0];
+var MessageType: StaticSimpleSchema = [0, n0, _MT, 8, 0];
+var PasswordType: StaticSimpleSchema = [0, n0, _PT, 8, 0];
+var ResourceNameType: StaticSimpleSchema = [0, n0, _RNT, 8, 0];
+var ResponseItemWebUrl: StaticSimpleSchema = [0, n0, _RIWU, 8, 0];
+var SearchQueryType: StaticSimpleSchema = [0, n0, _SQT, 8, 0];
+var UrlType: StaticSimpleSchema = [0, n0, _UT, 8, 0];
+var UserAttributeValueType: StaticSimpleSchema = [0, n0, _UAVT, 8, 0];
+var UsernameType: StaticSimpleSchema = [0, n0, _UTs, 8, 0];
+export var AbortDocumentVersionUploadRequest$: StaticStructureSchema = [
   3,
   n0,
   _ADVUR,
@@ -427,7 +427,7 @@ export var AbortDocumentVersionUploadRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var ActivateUserRequest: StaticStructureSchema = [
+export var ActivateUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _AUR,
@@ -438,8 +438,8 @@ export var ActivateUserRequest: StaticStructureSchema = [
     [() => AuthenticationHeaderType, { [_hH]: _A }],
   ],
 ];
-export var ActivateUserResponse: StaticStructureSchema = [3, n0, _AURc, 0, [_U], [[() => User, 0]]];
-export var Activity: StaticStructureSchema = [
+export var ActivateUserResponse$: StaticStructureSchema = [3, n0, _AURc, 0, [_U], [[() => User$, 0]]];
+export var Activity$: StaticStructureSchema = [
   3,
   n0,
   _Ac,
@@ -450,22 +450,22 @@ export var Activity: StaticStructureSchema = [
     4,
     2,
     0,
-    [() => UserMetadata, 0],
-    [() => Participants, 0],
-    [() => ResourceMetadata, 0],
-    [() => ResourceMetadata, 0],
-    [() => CommentMetadata, 0],
+    [() => UserMetadata$, 0],
+    [() => Participants$, 0],
+    [() => ResourceMetadata$, 0],
+    [() => ResourceMetadata$, 0],
+    [() => CommentMetadata$, 0],
   ],
 ];
-export var AddResourcePermissionsRequest: StaticStructureSchema = [
+export var AddResourcePermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _ARPR,
   0,
   [_AT, _RI, _Pr, _NO],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1], () => SharePrincipalList, [() => NotificationOptions, 0]],
+  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1], () => SharePrincipalList, [() => NotificationOptions$, 0]],
 ];
-export var AddResourcePermissionsResponse: StaticStructureSchema = [
+export var AddResourcePermissionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _ARPRd,
@@ -473,27 +473,27 @@ export var AddResourcePermissionsResponse: StaticStructureSchema = [
   [_SR],
   [[() => ShareResultsList, 0]],
 ];
-export var Comment: StaticStructureSchema = [
+export var Comment$: StaticStructureSchema = [
   3,
   n0,
   _C,
   0,
   [_CI, _PI, _TI, _Te, _Co, _CT, _S, _V, _RIe],
-  [0, 0, 0, [() => CommentTextType, 0], [() => User, 0], 4, 0, 0, 0],
+  [0, 0, 0, [() => CommentTextType, 0], [() => User$, 0], 4, 0, 0, 0],
 ];
-export var CommentMetadata: StaticStructureSchema = [
+export var CommentMetadata$: StaticStructureSchema = [
   3,
   n0,
   _CM,
   0,
   [_CI, _Co, _CT, _CS, _RIe, _CIo],
-  [0, [() => User, 0], 4, 0, 0, 0],
+  [0, [() => User$, 0], 4, 0, 0, 0],
 ];
-export var ConcurrentModificationException: StaticErrorSchema = [-3, n0, _CME, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException, __ConcurrentModificationException);
-export var ConflictingOperationException: StaticErrorSchema = [-3, n0, _COE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ConflictingOperationException, __ConflictingOperationException);
-export var CreateCommentRequest: StaticStructureSchema = [
+export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
+export var ConflictingOperationException$: StaticErrorSchema = [-3, n0, _COE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ConflictingOperationException$, ConflictingOperationException);
+export var CreateCommentRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCR,
@@ -501,8 +501,8 @@ export var CreateCommentRequest: StaticStructureSchema = [
   [_AT, _DI, _VI, _PI, _TI, _Te, _V, _NC],
   [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1], [0, 1], 0, 0, [() => CommentTextType, 0], 0, 2],
 ];
-export var CreateCommentResponse: StaticStructureSchema = [3, n0, _CCRr, 0, [_C], [[() => Comment, 0]]];
-export var CreateCustomMetadataRequest: StaticStructureSchema = [
+export var CreateCommentResponse$: StaticStructureSchema = [3, n0, _CCRr, 0, [_C], [[() => Comment$, 0]]];
+export var CreateCustomMetadataRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCMR,
@@ -510,8 +510,8 @@ export var CreateCustomMetadataRequest: StaticStructureSchema = [
   [_AT, _RI, _VI, _CMu],
   [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1], [0, { [_hQ]: _v }], 128 | 0],
 ];
-export var CreateCustomMetadataResponse: StaticStructureSchema = [3, n0, _CCMRr, 0, [], []];
-export var CreateFolderRequest: StaticStructureSchema = [
+export var CreateCustomMetadataResponse$: StaticStructureSchema = [3, n0, _CCMRr, 0, [], []];
+export var CreateFolderRequest$: StaticStructureSchema = [
   3,
   n0,
   _CFR,
@@ -519,8 +519,8 @@ export var CreateFolderRequest: StaticStructureSchema = [
   [_AT, _N, _PFI],
   [[() => AuthenticationHeaderType, { [_hH]: _A }], [() => ResourceNameType, 0], 0],
 ];
-export var CreateFolderResponse: StaticStructureSchema = [3, n0, _CFRr, 0, [_Me], [[() => FolderMetadata, 0]]];
-export var CreateLabelsRequest: StaticStructureSchema = [
+export var CreateFolderResponse$: StaticStructureSchema = [3, n0, _CFRr, 0, [_Me], [[() => FolderMetadata$, 0]]];
+export var CreateLabelsRequest$: StaticStructureSchema = [
   3,
   n0,
   _CLR,
@@ -528,8 +528,8 @@ export var CreateLabelsRequest: StaticStructureSchema = [
   [_RI, _L, _AT],
   [[0, 1], 64 | 0, [() => AuthenticationHeaderType, { [_hH]: _A }]],
 ];
-export var CreateLabelsResponse: StaticStructureSchema = [3, n0, _CLRr, 0, [], []];
-export var CreateNotificationSubscriptionRequest: StaticStructureSchema = [
+export var CreateLabelsResponse$: StaticStructureSchema = [3, n0, _CLRr, 0, [], []];
+export var CreateNotificationSubscriptionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CNSR,
@@ -537,15 +537,15 @@ export var CreateNotificationSubscriptionRequest: StaticStructureSchema = [
   [_OI, _E, _Pro, _ST],
   [[0, 1], 0, 0, 0],
 ];
-export var CreateNotificationSubscriptionResponse: StaticStructureSchema = [
+export var CreateNotificationSubscriptionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CNSRr,
   0,
   [_Su],
-  [() => Subscription],
+  [() => Subscription$],
 ];
-export var CreateUserRequest: StaticStructureSchema = [
+export var CreateUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _CUR,
@@ -559,12 +559,12 @@ export var CreateUserRequest: StaticStructureSchema = [
     [() => UserAttributeValueType, 0],
     [() => PasswordType, 0],
     0,
-    () => StorageRuleType,
+    () => StorageRuleType$,
     [() => AuthenticationHeaderType, { [_hH]: _A }],
   ],
 ];
-export var CreateUserResponse: StaticStructureSchema = [3, n0, _CURr, 0, [_U], [[() => User, 0]]];
-export var CustomMetadataLimitExceededException: StaticErrorSchema = [
+export var CreateUserResponse$: StaticStructureSchema = [3, n0, _CURr, 0, [_U], [[() => User$, 0]]];
+export var CustomMetadataLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _CMLEE,
@@ -572,9 +572,9 @@ export var CustomMetadataLimitExceededException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(CustomMetadataLimitExceededException, __CustomMetadataLimitExceededException);
-export var DateRangeType: StaticStructureSchema = [3, n0, _DRT, 0, [_SV, _EV], [4, 4]];
-export var DeactivateUserRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(CustomMetadataLimitExceededException$, CustomMetadataLimitExceededException);
+export var DateRangeType$: StaticStructureSchema = [3, n0, _DRT, 0, [_SV, _EV], [4, 4]];
+export var DeactivateUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _DUR,
@@ -585,7 +585,7 @@ export var DeactivateUserRequest: StaticStructureSchema = [
     [() => AuthenticationHeaderType, { [_hH]: _A }],
   ],
 ];
-export var DeactivatingLastSystemUserException: StaticErrorSchema = [
+export var DeactivatingLastSystemUserException$: StaticErrorSchema = [
   -3,
   n0,
   _DLSUE,
@@ -593,8 +593,8 @@ export var DeactivatingLastSystemUserException: StaticErrorSchema = [
   [_M, _Cod],
   [0, 0],
 ];
-TypeRegistry.for(n0).registerError(DeactivatingLastSystemUserException, __DeactivatingLastSystemUserException);
-export var DeleteCommentRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(DeactivatingLastSystemUserException$, DeactivatingLastSystemUserException);
+export var DeleteCommentRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCR,
@@ -607,7 +607,7 @@ export var DeleteCommentRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteCustomMetadataRequest: StaticStructureSchema = [
+export var DeleteCustomMetadataRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCMR,
@@ -621,8 +621,8 @@ export var DeleteCustomMetadataRequest: StaticStructureSchema = [
     [2, { [_hQ]: _dA }],
   ],
 ];
-export var DeleteCustomMetadataResponse: StaticStructureSchema = [3, n0, _DCMRe, 0, [], []];
-export var DeleteDocumentRequest: StaticStructureSchema = [
+export var DeleteCustomMetadataResponse$: StaticStructureSchema = [3, n0, _DCMRe, 0, [], []];
+export var DeleteDocumentRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDR,
@@ -633,7 +633,7 @@ export var DeleteDocumentRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteDocumentVersionRequest: StaticStructureSchema = [
+export var DeleteDocumentVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDVR,
@@ -646,7 +646,7 @@ export var DeleteDocumentVersionRequest: StaticStructureSchema = [
     [2, { [_hQ]: _dPV }],
   ],
 ];
-export var DeleteFolderContentsRequest: StaticStructureSchema = [
+export var DeleteFolderContentsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DFCR,
@@ -657,7 +657,7 @@ export var DeleteFolderContentsRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteFolderRequest: StaticStructureSchema = [
+export var DeleteFolderRequest$: StaticStructureSchema = [
   3,
   n0,
   _DFR,
@@ -668,7 +668,7 @@ export var DeleteFolderRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteLabelsRequest: StaticStructureSchema = [
+export var DeleteLabelsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DLR,
@@ -681,8 +681,8 @@ export var DeleteLabelsRequest: StaticStructureSchema = [
     [2, { [_hQ]: _dA }],
   ],
 ];
-export var DeleteLabelsResponse: StaticStructureSchema = [3, n0, _DLRe, 0, [], []];
-export var DeleteNotificationSubscriptionRequest: StaticStructureSchema = [
+export var DeleteLabelsResponse$: StaticStructureSchema = [3, n0, _DLRe, 0, [], []];
+export var DeleteNotificationSubscriptionRequest$: StaticStructureSchema = [
   3,
   n0,
   _DNSR,
@@ -693,7 +693,7 @@ export var DeleteNotificationSubscriptionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteUserRequest: StaticStructureSchema = [
+export var DeleteUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _DURe,
@@ -704,7 +704,7 @@ export var DeleteUserRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeActivitiesRequest: StaticStructureSchema = [
+export var DescribeActivitiesRequest$: StaticStructureSchema = [
   3,
   n0,
   _DAR,
@@ -723,7 +723,7 @@ export var DescribeActivitiesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _m }],
   ],
 ];
-export var DescribeActivitiesResponse: StaticStructureSchema = [
+export var DescribeActivitiesResponse$: StaticStructureSchema = [
   3,
   n0,
   _DARe,
@@ -731,7 +731,7 @@ export var DescribeActivitiesResponse: StaticStructureSchema = [
   [_UA, _Ma],
   [[() => UserActivities, 0], 0],
 ];
-export var DescribeCommentsRequest: StaticStructureSchema = [
+export var DescribeCommentsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCRe,
@@ -745,7 +745,7 @@ export var DescribeCommentsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _m }],
   ],
 ];
-export var DescribeCommentsResponse: StaticStructureSchema = [
+export var DescribeCommentsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DCRes,
@@ -753,7 +753,7 @@ export var DescribeCommentsResponse: StaticStructureSchema = [
   [_Com, _Ma],
   [[() => CommentList, 0], 0],
 ];
-export var DescribeDocumentVersionsRequest: StaticStructureSchema = [
+export var DescribeDocumentVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDVRe,
@@ -768,7 +768,7 @@ export var DescribeDocumentVersionsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _f }],
   ],
 ];
-export var DescribeDocumentVersionsResponse: StaticStructureSchema = [
+export var DescribeDocumentVersionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DDVRes,
@@ -776,7 +776,7 @@ export var DescribeDocumentVersionsResponse: StaticStructureSchema = [
   [_DV, _Ma],
   [[() => DocumentVersionMetadataList, 0], 0],
 ];
-export var DescribeFolderContentsRequest: StaticStructureSchema = [
+export var DescribeFolderContentsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DFCRe,
@@ -793,7 +793,7 @@ export var DescribeFolderContentsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _i }],
   ],
 ];
-export var DescribeFolderContentsResponse: StaticStructureSchema = [
+export var DescribeFolderContentsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DFCRes,
@@ -801,7 +801,7 @@ export var DescribeFolderContentsResponse: StaticStructureSchema = [
   [_Fo, _D, _Ma],
   [[() => FolderMetadataList, 0], [() => DocumentMetadataList, 0], 0],
 ];
-export var DescribeGroupsRequest: StaticStructureSchema = [
+export var DescribeGroupsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DGR,
@@ -815,8 +815,8 @@ export var DescribeGroupsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _li }],
   ],
 ];
-export var DescribeGroupsResponse: StaticStructureSchema = [3, n0, _DGRe, 0, [_G, _Ma], [() => GroupMetadataList, 0]];
-export var DescribeNotificationSubscriptionsRequest: StaticStructureSchema = [
+export var DescribeGroupsResponse$: StaticStructureSchema = [3, n0, _DGRe, 0, [_G, _Ma], [() => GroupMetadataList, 0]];
+export var DescribeNotificationSubscriptionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DNSRe,
@@ -828,7 +828,7 @@ export var DescribeNotificationSubscriptionsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _li }],
   ],
 ];
-export var DescribeNotificationSubscriptionsResponse: StaticStructureSchema = [
+export var DescribeNotificationSubscriptionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DNSRes,
@@ -836,7 +836,7 @@ export var DescribeNotificationSubscriptionsResponse: StaticStructureSchema = [
   [_Sub, _Ma],
   [() => SubscriptionList, 0],
 ];
-export var DescribeResourcePermissionsRequest: StaticStructureSchema = [
+export var DescribeResourcePermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRPR,
@@ -850,7 +850,7 @@ export var DescribeResourcePermissionsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _m }],
   ],
 ];
-export var DescribeResourcePermissionsResponse: StaticStructureSchema = [
+export var DescribeResourcePermissionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRPRe,
@@ -858,7 +858,7 @@ export var DescribeResourcePermissionsResponse: StaticStructureSchema = [
   [_Pr, _Ma],
   [() => PrincipalList, 0],
 ];
-export var DescribeRootFoldersRequest: StaticStructureSchema = [
+export var DescribeRootFoldersRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRFR,
@@ -870,7 +870,7 @@ export var DescribeRootFoldersRequest: StaticStructureSchema = [
     [0, { [_hQ]: _m }],
   ],
 ];
-export var DescribeRootFoldersResponse: StaticStructureSchema = [
+export var DescribeRootFoldersResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRFRe,
@@ -878,7 +878,7 @@ export var DescribeRootFoldersResponse: StaticStructureSchema = [
   [_Fo, _Ma],
   [[() => FolderMetadataList, 0], 0],
 ];
-export var DescribeUsersRequest: StaticStructureSchema = [
+export var DescribeUsersRequest$: StaticStructureSchema = [
   3,
   n0,
   _DURes,
@@ -897,7 +897,7 @@ export var DescribeUsersRequest: StaticStructureSchema = [
     [0, { [_hQ]: _f }],
   ],
 ];
-export var DescribeUsersResponse: StaticStructureSchema = [
+export var DescribeUsersResponse$: StaticStructureSchema = [
   3,
   n0,
   _DUResc,
@@ -905,7 +905,7 @@ export var DescribeUsersResponse: StaticStructureSchema = [
   [_Use, _TNOU, _Ma],
   [[() => OrganizationUserList, 0], 1, 0],
 ];
-export var DocumentLockedForCommentsException: StaticErrorSchema = [
+export var DocumentLockedForCommentsException$: StaticErrorSchema = [
   -3,
   n0,
   _DLFCE,
@@ -913,16 +913,16 @@ export var DocumentLockedForCommentsException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(DocumentLockedForCommentsException, __DocumentLockedForCommentsException);
-export var DocumentMetadata: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(DocumentLockedForCommentsException$, DocumentLockedForCommentsException);
+export var DocumentMetadata$: StaticStructureSchema = [
   3,
   n0,
   _DM,
   0,
   [_Id, _CIr, _PFI, _CT, _MTo, _LVM, _RS, _L],
-  [0, 0, 0, 4, 4, [() => DocumentVersionMetadata, 0], 0, 64 | 0],
+  [0, 0, 0, 4, 4, [() => DocumentVersionMetadata$, 0], 0, 64 | 0],
 ];
-export var DocumentVersionMetadata: StaticStructureSchema = [
+export var DocumentVersionMetadata$: StaticStructureSchema = [
   3,
   n0,
   _DVM,
@@ -944,11 +944,11 @@ export var DocumentVersionMetadata: StaticStructureSchema = [
     [() => DocumentSourceUrlMap, 0],
   ],
 ];
-export var DraftUploadOutOfSyncException: StaticErrorSchema = [-3, n0, _DUOOSE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(DraftUploadOutOfSyncException, __DraftUploadOutOfSyncException);
-export var EntityAlreadyExistsException: StaticErrorSchema = [-3, n0, _EAEE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(EntityAlreadyExistsException, __EntityAlreadyExistsException);
-export var EntityNotExistsException: StaticErrorSchema = [
+export var DraftUploadOutOfSyncException$: StaticErrorSchema = [-3, n0, _DUOOSE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(DraftUploadOutOfSyncException$, DraftUploadOutOfSyncException);
+export var EntityAlreadyExistsException$: StaticErrorSchema = [-3, n0, _EAEE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(EntityAlreadyExistsException$, EntityAlreadyExistsException);
+export var EntityNotExistsException$: StaticErrorSchema = [
   -3,
   n0,
   _ENEE,
@@ -956,10 +956,10 @@ export var EntityNotExistsException: StaticErrorSchema = [
   [_M, _EI],
   [0, 64 | 0],
 ];
-TypeRegistry.for(n0).registerError(EntityNotExistsException, __EntityNotExistsException);
-export var FailedDependencyException: StaticErrorSchema = [-3, n0, _FDE, { [_e]: _c, [_hE]: 424 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(FailedDependencyException, __FailedDependencyException);
-export var Filters: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(EntityNotExistsException$, EntityNotExistsException);
+export var FailedDependencyException$: StaticErrorSchema = [-3, n0, _FDE, { [_e]: _c, [_hE]: 424 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(FailedDependencyException$, FailedDependencyException);
+export var Filters$: StaticStructureSchema = [
   3,
   n0,
   _Fi,
@@ -973,12 +973,12 @@ export var Filters: StaticStructureSchema = [
     () => SearchPrincipalTypeList,
     64 | 0,
     64 | 0,
-    () => LongRangeType,
-    () => DateRangeType,
-    () => DateRangeType,
+    () => LongRangeType$,
+    () => DateRangeType$,
+    () => DateRangeType$,
   ],
 ];
-export var FolderMetadata: StaticStructureSchema = [
+export var FolderMetadata$: StaticStructureSchema = [
   3,
   n0,
   _FM,
@@ -986,7 +986,7 @@ export var FolderMetadata: StaticStructureSchema = [
   [_Id, _N, _CIr, _PFI, _CT, _MTo, _RS, _Sig, _L, _Si, _LVS],
   [0, [() => ResourceNameType, 0], 0, 0, 4, 4, 0, 0, 64 | 0, 1, 1],
 ];
-export var GetCurrentUserRequest: StaticStructureSchema = [
+export var GetCurrentUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _GCUR,
@@ -994,8 +994,8 @@ export var GetCurrentUserRequest: StaticStructureSchema = [
   [_AT],
   [[() => AuthenticationHeaderType, { [_hH]: _A }]],
 ];
-export var GetCurrentUserResponse: StaticStructureSchema = [3, n0, _GCURe, 0, [_U], [[() => User, 0]]];
-export var GetDocumentPathRequest: StaticStructureSchema = [
+export var GetCurrentUserResponse$: StaticStructureSchema = [3, n0, _GCURe, 0, [_U], [[() => User$, 0]]];
+export var GetDocumentPathRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDPR,
@@ -1009,8 +1009,8 @@ export var GetDocumentPathRequest: StaticStructureSchema = [
     [0, { [_hQ]: _m }],
   ],
 ];
-export var GetDocumentPathResponse: StaticStructureSchema = [3, n0, _GDPRe, 0, [_Pat], [[() => ResourcePath, 0]]];
-export var GetDocumentRequest: StaticStructureSchema = [
+export var GetDocumentPathResponse$: StaticStructureSchema = [3, n0, _GDPRe, 0, [_Pat], [[() => ResourcePath$, 0]]];
+export var GetDocumentRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDR,
@@ -1022,15 +1022,15 @@ export var GetDocumentRequest: StaticStructureSchema = [
     [2, { [_hQ]: _iCM }],
   ],
 ];
-export var GetDocumentResponse: StaticStructureSchema = [
+export var GetDocumentResponse$: StaticStructureSchema = [
   3,
   n0,
   _GDRe,
   0,
   [_Me, _CMu],
-  [[() => DocumentMetadata, 0], 128 | 0],
+  [[() => DocumentMetadata$, 0], 128 | 0],
 ];
-export var GetDocumentVersionRequest: StaticStructureSchema = [
+export var GetDocumentVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDVR,
@@ -1044,15 +1044,15 @@ export var GetDocumentVersionRequest: StaticStructureSchema = [
     [2, { [_hQ]: _iCM }],
   ],
 ];
-export var GetDocumentVersionResponse: StaticStructureSchema = [
+export var GetDocumentVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GDVRe,
   0,
   [_Me, _CMu],
-  [[() => DocumentVersionMetadata, 0], 128 | 0],
+  [[() => DocumentVersionMetadata$, 0], 128 | 0],
 ];
-export var GetFolderPathRequest: StaticStructureSchema = [
+export var GetFolderPathRequest$: StaticStructureSchema = [
   3,
   n0,
   _GFPR,
@@ -1066,8 +1066,8 @@ export var GetFolderPathRequest: StaticStructureSchema = [
     [0, { [_hQ]: _m }],
   ],
 ];
-export var GetFolderPathResponse: StaticStructureSchema = [3, n0, _GFPRe, 0, [_Pat], [[() => ResourcePath, 0]]];
-export var GetFolderRequest: StaticStructureSchema = [
+export var GetFolderPathResponse$: StaticStructureSchema = [3, n0, _GFPRe, 0, [_Pat], [[() => ResourcePath$, 0]]];
+export var GetFolderRequest$: StaticStructureSchema = [
   3,
   n0,
   _GFR,
@@ -1079,15 +1079,15 @@ export var GetFolderRequest: StaticStructureSchema = [
     [2, { [_hQ]: _iCM }],
   ],
 ];
-export var GetFolderResponse: StaticStructureSchema = [
+export var GetFolderResponse$: StaticStructureSchema = [
   3,
   n0,
   _GFRe,
   0,
   [_Me, _CMu],
-  [[() => FolderMetadata, 0], 128 | 0],
+  [[() => FolderMetadata$, 0], 128 | 0],
 ];
-export var GetResourcesRequest: StaticStructureSchema = [
+export var GetResourcesRequest$: StaticStructureSchema = [
   3,
   n0,
   _GRR,
@@ -1101,7 +1101,7 @@ export var GetResourcesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _m }],
   ],
 ];
-export var GetResourcesResponse: StaticStructureSchema = [
+export var GetResourcesResponse$: StaticStructureSchema = [
   3,
   n0,
   _GRRe,
@@ -1109,10 +1109,10 @@ export var GetResourcesResponse: StaticStructureSchema = [
   [_Fo, _D, _Ma],
   [[() => FolderMetadataList, 0], [() => DocumentMetadataList, 0], 0],
 ];
-export var GroupMetadata: StaticStructureSchema = [3, n0, _GM, 0, [_Id, _N], [0, 0]];
-export var IllegalUserStateException: StaticErrorSchema = [-3, n0, _IUSE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(IllegalUserStateException, __IllegalUserStateException);
-export var InitiateDocumentVersionUploadRequest: StaticStructureSchema = [
+export var GroupMetadata$: StaticStructureSchema = [3, n0, _GM, 0, [_Id, _N], [0, 0]];
+export var IllegalUserStateException$: StaticErrorSchema = [-3, n0, _IUSE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(IllegalUserStateException$, IllegalUserStateException);
+export var InitiateDocumentVersionUploadRequest$: StaticStructureSchema = [
   3,
   n0,
   _IDVUR,
@@ -1120,30 +1120,30 @@ export var InitiateDocumentVersionUploadRequest: StaticStructureSchema = [
   [_AT, _Id, _N, _CCT, _CMT, _CTo, _DSIB, _PFI],
   [[() => AuthenticationHeaderType, { [_hH]: _A }], 0, [() => ResourceNameType, 0], 4, 4, 0, 1, 0],
 ];
-export var InitiateDocumentVersionUploadResponse: StaticStructureSchema = [
+export var InitiateDocumentVersionUploadResponse$: StaticStructureSchema = [
   3,
   n0,
   _IDVURn,
   0,
   [_Me, _UM],
   [
-    [() => DocumentMetadata, 0],
-    [() => UploadMetadata, 0],
+    [() => DocumentMetadata$, 0],
+    [() => UploadMetadata$, 0],
   ],
 ];
-export var InvalidArgumentException: StaticErrorSchema = [-3, n0, _IAE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidArgumentException, __InvalidArgumentException);
-export var InvalidCommentOperationException: StaticErrorSchema = [-3, n0, _ICOE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidCommentOperationException, __InvalidCommentOperationException);
-export var InvalidOperationException: StaticErrorSchema = [-3, n0, _IOE, { [_e]: _c, [_hE]: 405 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidOperationException, __InvalidOperationException);
-export var InvalidPasswordException: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c, [_hE]: 401 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidPasswordException, __InvalidPasswordException);
-export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-export var LongRangeType: StaticStructureSchema = [3, n0, _LRT, 0, [_SV, _EV], [1, 1]];
-export var NotificationOptions: StaticStructureSchema = [3, n0, _NO, 0, [_SE, _EM], [2, [() => MessageType, 0]]];
-export var Participants: StaticStructureSchema = [
+export var InvalidArgumentException$: StaticErrorSchema = [-3, n0, _IAE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InvalidArgumentException$, InvalidArgumentException);
+export var InvalidCommentOperationException$: StaticErrorSchema = [-3, n0, _ICOE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InvalidCommentOperationException$, InvalidCommentOperationException);
+export var InvalidOperationException$: StaticErrorSchema = [-3, n0, _IOE, { [_e]: _c, [_hE]: 405 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InvalidOperationException$, InvalidOperationException);
+export var InvalidPasswordException$: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c, [_hE]: 401 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InvalidPasswordException$, InvalidPasswordException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
+export var LongRangeType$: StaticStructureSchema = [3, n0, _LRT, 0, [_SV, _EV], [1, 1]];
+export var NotificationOptions$: StaticStructureSchema = [3, n0, _NO, 0, [_SE, _EM], [2, [() => MessageType, 0]]];
+export var Participants$: StaticStructureSchema = [
   3,
   n0,
   _P,
@@ -1151,11 +1151,11 @@ export var Participants: StaticStructureSchema = [
   [_Use, _G],
   [[() => UserMetadataList, 0], () => GroupMetadataList],
 ];
-export var PermissionInfo: StaticStructureSchema = [3, n0, _PIe, 0, [_R, _T], [0, 0]];
-export var Principal: StaticStructureSchema = [3, n0, _Pri, 0, [_Id, _T, _Ro], [0, 0, () => PermissionInfoList]];
-export var ProhibitedStateException: StaticErrorSchema = [-3, n0, _PSE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ProhibitedStateException, __ProhibitedStateException);
-export var RemoveAllResourcePermissionsRequest: StaticStructureSchema = [
+export var PermissionInfo$: StaticStructureSchema = [3, n0, _PIe, 0, [_R, _T], [0, 0]];
+export var Principal$: StaticStructureSchema = [3, n0, _Pri, 0, [_Id, _T, _Ro], [0, 0, () => PermissionInfoList]];
+export var ProhibitedStateException$: StaticErrorSchema = [-3, n0, _PSE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ProhibitedStateException$, ProhibitedStateException);
+export var RemoveAllResourcePermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _RARPR,
@@ -1166,7 +1166,7 @@ export var RemoveAllResourcePermissionsRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var RemoveResourcePermissionRequest: StaticStructureSchema = [
+export var RemoveResourcePermissionRequest$: StaticStructureSchema = [
   3,
   n0,
   _RRPR,
@@ -1179,9 +1179,9 @@ export var RemoveResourcePermissionRequest: StaticStructureSchema = [
     [0, { [_hQ]: _t }],
   ],
 ];
-export var RequestedEntityTooLargeException: StaticErrorSchema = [-3, n0, _RETLE, { [_e]: _c, [_hE]: 413 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(RequestedEntityTooLargeException, __RequestedEntityTooLargeException);
-export var ResourceAlreadyCheckedOutException: StaticErrorSchema = [
+export var RequestedEntityTooLargeException$: StaticErrorSchema = [-3, n0, _RETLE, { [_e]: _c, [_hE]: 413 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(RequestedEntityTooLargeException$, RequestedEntityTooLargeException);
+export var ResourceAlreadyCheckedOutException$: StaticErrorSchema = [
   -3,
   n0,
   _RACOE,
@@ -1189,18 +1189,25 @@ export var ResourceAlreadyCheckedOutException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(ResourceAlreadyCheckedOutException, __ResourceAlreadyCheckedOutException);
-export var ResourceMetadata: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ResourceAlreadyCheckedOutException$, ResourceAlreadyCheckedOutException);
+export var ResourceMetadata$: StaticStructureSchema = [
   3,
   n0,
   _RM,
   0,
   [_T, _N, _ON, _Id, _VI, _Ow, _PI],
-  [0, [() => ResourceNameType, 0], [() => ResourceNameType, 0], 0, 0, [() => UserMetadata, 0], 0],
+  [0, [() => ResourceNameType, 0], [() => ResourceNameType, 0], 0, 0, [() => UserMetadata$, 0], 0],
 ];
-export var ResourcePath: StaticStructureSchema = [3, n0, _RP, 0, [_Comp], [[() => ResourcePathComponentList, 0]]];
-export var ResourcePathComponent: StaticStructureSchema = [3, n0, _RPC, 0, [_Id, _N], [0, [() => ResourceNameType, 0]]];
-export var ResponseItem: StaticStructureSchema = [
+export var ResourcePath$: StaticStructureSchema = [3, n0, _RP, 0, [_Comp], [[() => ResourcePathComponentList, 0]]];
+export var ResourcePathComponent$: StaticStructureSchema = [
+  3,
+  n0,
+  _RPC,
+  0,
+  [_Id, _N],
+  [0, [() => ResourceNameType, 0]],
+];
+export var ResponseItem$: StaticStructureSchema = [
   3,
   n0,
   _RIes,
@@ -1209,13 +1216,13 @@ export var ResponseItem: StaticStructureSchema = [
   [
     0,
     [() => ResponseItemWebUrl, 0],
-    [() => DocumentMetadata, 0],
-    [() => FolderMetadata, 0],
-    [() => CommentMetadata, 0],
-    [() => DocumentVersionMetadata, 0],
+    [() => DocumentMetadata$, 0],
+    [() => FolderMetadata$, 0],
+    [() => CommentMetadata$, 0],
+    [() => DocumentVersionMetadata$, 0],
   ],
 ];
-export var RestoreDocumentVersionsRequest: StaticStructureSchema = [
+export var RestoreDocumentVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _RDVR,
@@ -1226,8 +1233,8 @@ export var RestoreDocumentVersionsRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var SearchPrincipalType: StaticStructureSchema = [3, n0, _SPT, 0, [_Id, _Ro], [0, 64 | 0]];
-export var SearchResourcesRequest: StaticStructureSchema = [
+export var SearchPrincipalType$: StaticStructureSchema = [3, n0, _SPT, 0, [_Id, _Ro], [0, 64 | 0]];
+export var SearchResourcesRequest$: StaticStructureSchema = [
   3,
   n0,
   _SRR,
@@ -1239,13 +1246,13 @@ export var SearchResourcesRequest: StaticStructureSchema = [
     64 | 0,
     0,
     64 | 0,
-    () => Filters,
+    () => Filters$,
     () => SearchResultSortList,
     1,
     0,
   ],
 ];
-export var SearchResourcesResponse: StaticStructureSchema = [
+export var SearchResourcesResponse$: StaticStructureSchema = [
   3,
   n0,
   _SRRe,
@@ -1253,11 +1260,11 @@ export var SearchResourcesResponse: StaticStructureSchema = [
   [_It, _Ma],
   [[() => ResponseItemsList, 0], 0],
 ];
-export var SearchSortResult: StaticStructureSchema = [3, n0, _SSR, 0, [_Fie, _O], [0, 0]];
-export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _se, [_hE]: 503 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-export var SharePrincipal: StaticStructureSchema = [3, n0, _SP, 0, [_Id, _T, _R], [0, 0, 0]];
-export var ShareResult: StaticStructureSchema = [
+export var SearchSortResult$: StaticStructureSchema = [3, n0, _SSR, 0, [_Fie, _O], [0, 0]];
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _se, [_hE]: 503 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var SharePrincipal$: StaticStructureSchema = [3, n0, _SP, 0, [_Id, _T, _R], [0, 0, 0]];
+export var ShareResult$: StaticStructureSchema = [
   3,
   n0,
   _SRh,
@@ -1265,17 +1272,17 @@ export var ShareResult: StaticStructureSchema = [
   [_PIr, _IPI, _R, _S, _SIh, _SM],
   [0, 0, 0, 0, 0, [() => MessageType, 0]],
 ];
-export var StorageLimitExceededException: StaticErrorSchema = [-3, n0, _SLEE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(StorageLimitExceededException, __StorageLimitExceededException);
-export var StorageLimitWillExceedException: StaticErrorSchema = [-3, n0, _SLWEE, { [_e]: _c, [_hE]: 413 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(StorageLimitWillExceedException, __StorageLimitWillExceedException);
-export var StorageRuleType: StaticStructureSchema = [3, n0, _SRT, 0, [_SAIB, _STto], [1, 0]];
-export var Subscription: StaticStructureSchema = [3, n0, _Su, 0, [_SI, _EP, _Pro], [0, 0, 0]];
-export var TooManyLabelsException: StaticErrorSchema = [-3, n0, _TMLE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyLabelsException, __TooManyLabelsException);
-export var TooManySubscriptionsException: StaticErrorSchema = [-3, n0, _TMSE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManySubscriptionsException, __TooManySubscriptionsException);
-export var UnauthorizedOperationException: StaticErrorSchema = [
+export var StorageLimitExceededException$: StaticErrorSchema = [-3, n0, _SLEE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(StorageLimitExceededException$, StorageLimitExceededException);
+export var StorageLimitWillExceedException$: StaticErrorSchema = [-3, n0, _SLWEE, { [_e]: _c, [_hE]: 413 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(StorageLimitWillExceedException$, StorageLimitWillExceedException);
+export var StorageRuleType$: StaticStructureSchema = [3, n0, _SRT, 0, [_SAIB, _STto], [1, 0]];
+export var Subscription$: StaticStructureSchema = [3, n0, _Su, 0, [_SI, _EP, _Pro], [0, 0, 0]];
+export var TooManyLabelsException$: StaticErrorSchema = [-3, n0, _TMLE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(TooManyLabelsException$, TooManyLabelsException);
+export var TooManySubscriptionsException$: StaticErrorSchema = [-3, n0, _TMSE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(TooManySubscriptionsException$, TooManySubscriptionsException);
+export var UnauthorizedOperationException$: StaticErrorSchema = [
   -3,
   n0,
   _UOE,
@@ -1283,8 +1290,8 @@ export var UnauthorizedOperationException: StaticErrorSchema = [
   [_M, _Cod],
   [0, 0],
 ];
-TypeRegistry.for(n0).registerError(UnauthorizedOperationException, __UnauthorizedOperationException);
-export var UnauthorizedResourceAccessException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(UnauthorizedOperationException$, UnauthorizedOperationException);
+export var UnauthorizedResourceAccessException$: StaticErrorSchema = [
   -3,
   n0,
   _URAE,
@@ -1292,8 +1299,8 @@ export var UnauthorizedResourceAccessException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(UnauthorizedResourceAccessException, __UnauthorizedResourceAccessException);
-export var UpdateDocumentRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(UnauthorizedResourceAccessException$, UnauthorizedResourceAccessException);
+export var UpdateDocumentRequest$: StaticStructureSchema = [
   3,
   n0,
   _UDR,
@@ -1301,7 +1308,7 @@ export var UpdateDocumentRequest: StaticStructureSchema = [
   [_AT, _DI, _N, _PFI, _RS],
   [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1], [() => ResourceNameType, 0], 0, 0],
 ];
-export var UpdateDocumentVersionRequest: StaticStructureSchema = [
+export var UpdateDocumentVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _UDVR,
@@ -1309,7 +1316,7 @@ export var UpdateDocumentVersionRequest: StaticStructureSchema = [
   [_AT, _DI, _VI, _VS],
   [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1], [0, 1], 0],
 ];
-export var UpdateFolderRequest: StaticStructureSchema = [
+export var UpdateFolderRequest$: StaticStructureSchema = [
   3,
   n0,
   _UFR,
@@ -1317,7 +1324,7 @@ export var UpdateFolderRequest: StaticStructureSchema = [
   [_AT, _FI, _N, _PFI, _RS],
   [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1], [() => ResourceNameType, 0], 0, 0],
 ];
-export var UpdateUserRequest: StaticStructureSchema = [
+export var UpdateUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _UUR,
@@ -1329,15 +1336,15 @@ export var UpdateUserRequest: StaticStructureSchema = [
     [() => UserAttributeValueType, 0],
     [() => UserAttributeValueType, 0],
     0,
-    () => StorageRuleType,
+    () => StorageRuleType$,
     0,
     0,
     0,
   ],
 ];
-export var UpdateUserResponse: StaticStructureSchema = [3, n0, _UURp, 0, [_U], [[() => User, 0]]];
-export var UploadMetadata: StaticStructureSchema = [3, n0, _UM, 0, [_UU, _SH], [[() => UrlType, 0], 128 | 0]];
-export var User: StaticStructureSchema = [
+export var UpdateUserResponse$: StaticStructureSchema = [3, n0, _UURp, 0, [_U], [[() => User$, 0]]];
+export var UploadMetadata$: StaticStructureSchema = [3, n0, _UM, 0, [_UU, _SH], [[() => UrlType, 0], 128 | 0]];
+export var User$: StaticStructureSchema = [
   3,
   n0,
   _U,
@@ -1358,10 +1365,10 @@ export var User: StaticStructureSchema = [
     4,
     0,
     0,
-    () => UserStorageMetadata,
+    () => UserStorageMetadata$,
   ],
 ];
-export var UserMetadata: StaticStructureSchema = [
+export var UserMetadata$: StaticStructureSchema = [
   3,
   n0,
   _UMs,
@@ -1375,392 +1382,392 @@ export var UserMetadata: StaticStructureSchema = [
     [() => EmailAddressType, 0],
   ],
 ];
-export var UserStorageMetadata: StaticStructureSchema = [3, n0, _USM, 0, [_SUIB, _SRt], [1, () => StorageRuleType]];
-export var __Unit = "unit" as const;
-export var WorkDocsServiceException: StaticErrorSchema = [-3, _sm, "WorkDocsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(WorkDocsServiceException, __WorkDocsServiceException);
-export var AdditionalResponseFieldsList = 64 | 0;
-export var CommentList: StaticListSchema = [1, n0, _CL, 0, [() => Comment, 0]];
-export var CustomMetadataKeyList = 64 | 0;
-export var DocumentMetadataList: StaticListSchema = [1, n0, _DML, 0, [() => DocumentMetadata, 0]];
-export var DocumentVersionMetadataList: StaticListSchema = [1, n0, _DVML, 0, [() => DocumentVersionMetadata, 0]];
-export var EntityIdList = 64 | 0;
-export var FolderMetadataList: StaticListSchema = [1, n0, _FML, 0, [() => FolderMetadata, 0]];
-export var GroupMetadataList: StaticListSchema = [1, n0, _GML, 0, () => GroupMetadata];
-export var OrganizationUserList: StaticListSchema = [1, n0, _OUL, 0, [() => User, 0]];
-export var PermissionInfoList: StaticListSchema = [1, n0, _PIL, 0, () => PermissionInfo];
-export var PrincipalList: StaticListSchema = [1, n0, _PL, 0, () => Principal];
-export var ResourcePathComponentList: StaticListSchema = [1, n0, _RPCL, 0, [() => ResourcePathComponent, 0]];
-export var ResponseItemsList: StaticListSchema = [1, n0, _RIL, 0, [() => ResponseItem, 0]];
-export var SearchAncestorIdList = 64 | 0;
-export var SearchCollectionTypeList = 64 | 0;
-export var SearchContentCategoryTypeList = 64 | 0;
-export var SearchLabelList = 64 | 0;
-export var SearchPrincipalRoleList = 64 | 0;
-export var SearchPrincipalTypeList: StaticListSchema = [1, n0, _SPTL, 0, () => SearchPrincipalType];
-export var SearchQueryScopeTypeList = 64 | 0;
-export var SearchResourceTypeList = 64 | 0;
-export var SearchResultSortList: StaticListSchema = [1, n0, _SRSL, 0, () => SearchSortResult];
-export var SharedLabels = 64 | 0;
-export var SharePrincipalList: StaticListSchema = [1, n0, _SPL, 0, () => SharePrincipal];
-export var ShareResultsList: StaticListSchema = [1, n0, _SRL, 0, [() => ShareResult, 0]];
-export var SubscriptionList: StaticListSchema = [1, n0, _SL, 0, () => Subscription];
-export var TextLocaleTypeList = 64 | 0;
-export var UserActivities: StaticListSchema = [1, n0, _UA, 0, [() => Activity, 0]];
-export var UserMetadataList: StaticListSchema = [1, n0, _UML, 0, [() => UserMetadata, 0]];
-export var CustomMetadataMap = 128 | 0;
-export var DocumentSourceUrlMap: StaticMapSchema = [2, n0, _DSUM, 0, [0, 0], [() => UrlType, 0]];
-export var DocumentThumbnailUrlMap: StaticMapSchema = [2, n0, _DTUM, 0, [0, 0], [() => UrlType, 0]];
-export var SignedHeaderMap = 128 | 0;
-export var AbortDocumentVersionUpload: StaticOperationSchema = [
+export var UserStorageMetadata$: StaticStructureSchema = [3, n0, _USM, 0, [_SUIB, _SRt], [1, () => StorageRuleType$]];
+var __Unit = "unit" as const;
+export var WorkDocsServiceException$: StaticErrorSchema = [-3, _sm, "WorkDocsServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(WorkDocsServiceException$, WorkDocsServiceException);
+var AdditionalResponseFieldsList = 64 | 0;
+var CommentList: StaticListSchema = [1, n0, _CL, 0, [() => Comment$, 0]];
+var CustomMetadataKeyList = 64 | 0;
+var DocumentMetadataList: StaticListSchema = [1, n0, _DML, 0, [() => DocumentMetadata$, 0]];
+var DocumentVersionMetadataList: StaticListSchema = [1, n0, _DVML, 0, [() => DocumentVersionMetadata$, 0]];
+var EntityIdList = 64 | 0;
+var FolderMetadataList: StaticListSchema = [1, n0, _FML, 0, [() => FolderMetadata$, 0]];
+var GroupMetadataList: StaticListSchema = [1, n0, _GML, 0, () => GroupMetadata$];
+var OrganizationUserList: StaticListSchema = [1, n0, _OUL, 0, [() => User$, 0]];
+var PermissionInfoList: StaticListSchema = [1, n0, _PIL, 0, () => PermissionInfo$];
+var PrincipalList: StaticListSchema = [1, n0, _PL, 0, () => Principal$];
+var ResourcePathComponentList: StaticListSchema = [1, n0, _RPCL, 0, [() => ResourcePathComponent$, 0]];
+var ResponseItemsList: StaticListSchema = [1, n0, _RIL, 0, [() => ResponseItem$, 0]];
+var SearchAncestorIdList = 64 | 0;
+var SearchCollectionTypeList = 64 | 0;
+var SearchContentCategoryTypeList = 64 | 0;
+var SearchLabelList = 64 | 0;
+var SearchPrincipalRoleList = 64 | 0;
+var SearchPrincipalTypeList: StaticListSchema = [1, n0, _SPTL, 0, () => SearchPrincipalType$];
+var SearchQueryScopeTypeList = 64 | 0;
+var SearchResourceTypeList = 64 | 0;
+var SearchResultSortList: StaticListSchema = [1, n0, _SRSL, 0, () => SearchSortResult$];
+var SharedLabels = 64 | 0;
+var SharePrincipalList: StaticListSchema = [1, n0, _SPL, 0, () => SharePrincipal$];
+var ShareResultsList: StaticListSchema = [1, n0, _SRL, 0, [() => ShareResult$, 0]];
+var SubscriptionList: StaticListSchema = [1, n0, _SL, 0, () => Subscription$];
+var TextLocaleTypeList = 64 | 0;
+var UserActivities: StaticListSchema = [1, n0, _UA, 0, [() => Activity$, 0]];
+var UserMetadataList: StaticListSchema = [1, n0, _UML, 0, [() => UserMetadata$, 0]];
+var CustomMetadataMap = 128 | 0;
+var DocumentSourceUrlMap: StaticMapSchema = [2, n0, _DSUM, 0, [0, 0], [() => UrlType, 0]];
+var DocumentThumbnailUrlMap: StaticMapSchema = [2, n0, _DTUM, 0, [0, 0], [() => UrlType, 0]];
+var SignedHeaderMap = 128 | 0;
+export var AbortDocumentVersionUpload$: StaticOperationSchema = [
   9,
   n0,
   _ADVU,
   { [_h]: ["DELETE", "/api/v1/documents/{DocumentId}/versions/{VersionId}", 204] },
-  () => AbortDocumentVersionUploadRequest,
+  () => AbortDocumentVersionUploadRequest$,
   () => __Unit,
 ];
-export var ActivateUser: StaticOperationSchema = [
+export var ActivateUser$: StaticOperationSchema = [
   9,
   n0,
   _AU,
   { [_h]: ["POST", "/api/v1/users/{UserId}/activation", 200] },
-  () => ActivateUserRequest,
-  () => ActivateUserResponse,
+  () => ActivateUserRequest$,
+  () => ActivateUserResponse$,
 ];
-export var AddResourcePermissions: StaticOperationSchema = [
+export var AddResourcePermissions$: StaticOperationSchema = [
   9,
   n0,
   _ARP,
   { [_h]: ["POST", "/api/v1/resources/{ResourceId}/permissions", 201] },
-  () => AddResourcePermissionsRequest,
-  () => AddResourcePermissionsResponse,
+  () => AddResourcePermissionsRequest$,
+  () => AddResourcePermissionsResponse$,
 ];
-export var CreateComment: StaticOperationSchema = [
+export var CreateComment$: StaticOperationSchema = [
   9,
   n0,
   _CCr,
   { [_h]: ["POST", "/api/v1/documents/{DocumentId}/versions/{VersionId}/comment", 201] },
-  () => CreateCommentRequest,
-  () => CreateCommentResponse,
+  () => CreateCommentRequest$,
+  () => CreateCommentResponse$,
 ];
-export var CreateCustomMetadata: StaticOperationSchema = [
+export var CreateCustomMetadata$: StaticOperationSchema = [
   9,
   n0,
   _CCM,
   { [_h]: ["PUT", "/api/v1/resources/{ResourceId}/customMetadata", 200] },
-  () => CreateCustomMetadataRequest,
-  () => CreateCustomMetadataResponse,
+  () => CreateCustomMetadataRequest$,
+  () => CreateCustomMetadataResponse$,
 ];
-export var CreateFolder: StaticOperationSchema = [
+export var CreateFolder$: StaticOperationSchema = [
   9,
   n0,
   _CF,
   { [_h]: ["POST", "/api/v1/folders", 201] },
-  () => CreateFolderRequest,
-  () => CreateFolderResponse,
+  () => CreateFolderRequest$,
+  () => CreateFolderResponse$,
 ];
-export var CreateLabels: StaticOperationSchema = [
+export var CreateLabels$: StaticOperationSchema = [
   9,
   n0,
   _CLr,
   { [_h]: ["PUT", "/api/v1/resources/{ResourceId}/labels", 200] },
-  () => CreateLabelsRequest,
-  () => CreateLabelsResponse,
+  () => CreateLabelsRequest$,
+  () => CreateLabelsResponse$,
 ];
-export var CreateNotificationSubscription: StaticOperationSchema = [
+export var CreateNotificationSubscription$: StaticOperationSchema = [
   9,
   n0,
   _CNS,
   { [_h]: ["POST", "/api/v1/organizations/{OrganizationId}/subscriptions", 200] },
-  () => CreateNotificationSubscriptionRequest,
-  () => CreateNotificationSubscriptionResponse,
+  () => CreateNotificationSubscriptionRequest$,
+  () => CreateNotificationSubscriptionResponse$,
 ];
-export var CreateUser: StaticOperationSchema = [
+export var CreateUser$: StaticOperationSchema = [
   9,
   n0,
   _CU,
   { [_h]: ["POST", "/api/v1/users", 201] },
-  () => CreateUserRequest,
-  () => CreateUserResponse,
+  () => CreateUserRequest$,
+  () => CreateUserResponse$,
 ];
-export var DeactivateUser: StaticOperationSchema = [
+export var DeactivateUser$: StaticOperationSchema = [
   9,
   n0,
   _DU,
   { [_h]: ["DELETE", "/api/v1/users/{UserId}/activation", 204] },
-  () => DeactivateUserRequest,
+  () => DeactivateUserRequest$,
   () => __Unit,
 ];
-export var DeleteComment: StaticOperationSchema = [
+export var DeleteComment$: StaticOperationSchema = [
   9,
   n0,
   _DC,
   { [_h]: ["DELETE", "/api/v1/documents/{DocumentId}/versions/{VersionId}/comment/{CommentId}", 204] },
-  () => DeleteCommentRequest,
+  () => DeleteCommentRequest$,
   () => __Unit,
 ];
-export var DeleteCustomMetadata: StaticOperationSchema = [
+export var DeleteCustomMetadata$: StaticOperationSchema = [
   9,
   n0,
   _DCM,
   { [_h]: ["DELETE", "/api/v1/resources/{ResourceId}/customMetadata", 200] },
-  () => DeleteCustomMetadataRequest,
-  () => DeleteCustomMetadataResponse,
+  () => DeleteCustomMetadataRequest$,
+  () => DeleteCustomMetadataResponse$,
 ];
-export var DeleteDocument: StaticOperationSchema = [
+export var DeleteDocument$: StaticOperationSchema = [
   9,
   n0,
   _DD,
   { [_h]: ["DELETE", "/api/v1/documents/{DocumentId}", 204] },
-  () => DeleteDocumentRequest,
+  () => DeleteDocumentRequest$,
   () => __Unit,
 ];
-export var DeleteDocumentVersion: StaticOperationSchema = [
+export var DeleteDocumentVersion$: StaticOperationSchema = [
   9,
   n0,
   _DDV,
   { [_h]: ["DELETE", "/api/v1/documentVersions/{DocumentId}/versions/{VersionId}", 204] },
-  () => DeleteDocumentVersionRequest,
+  () => DeleteDocumentVersionRequest$,
   () => __Unit,
 ];
-export var DeleteFolder: StaticOperationSchema = [
+export var DeleteFolder$: StaticOperationSchema = [
   9,
   n0,
   _DF,
   { [_h]: ["DELETE", "/api/v1/folders/{FolderId}", 204] },
-  () => DeleteFolderRequest,
+  () => DeleteFolderRequest$,
   () => __Unit,
 ];
-export var DeleteFolderContents: StaticOperationSchema = [
+export var DeleteFolderContents$: StaticOperationSchema = [
   9,
   n0,
   _DFC,
   { [_h]: ["DELETE", "/api/v1/folders/{FolderId}/contents", 204] },
-  () => DeleteFolderContentsRequest,
+  () => DeleteFolderContentsRequest$,
   () => __Unit,
 ];
-export var DeleteLabels: StaticOperationSchema = [
+export var DeleteLabels$: StaticOperationSchema = [
   9,
   n0,
   _DL,
   { [_h]: ["DELETE", "/api/v1/resources/{ResourceId}/labels", 200] },
-  () => DeleteLabelsRequest,
-  () => DeleteLabelsResponse,
+  () => DeleteLabelsRequest$,
+  () => DeleteLabelsResponse$,
 ];
-export var DeleteNotificationSubscription: StaticOperationSchema = [
+export var DeleteNotificationSubscription$: StaticOperationSchema = [
   9,
   n0,
   _DNS,
   { [_h]: ["DELETE", "/api/v1/organizations/{OrganizationId}/subscriptions/{SubscriptionId}", 200] },
-  () => DeleteNotificationSubscriptionRequest,
+  () => DeleteNotificationSubscriptionRequest$,
   () => __Unit,
 ];
-export var DeleteUser: StaticOperationSchema = [
+export var DeleteUser$: StaticOperationSchema = [
   9,
   n0,
   _DUe,
   { [_h]: ["DELETE", "/api/v1/users/{UserId}", 204] },
-  () => DeleteUserRequest,
+  () => DeleteUserRequest$,
   () => __Unit,
 ];
-export var DescribeActivities: StaticOperationSchema = [
+export var DescribeActivities$: StaticOperationSchema = [
   9,
   n0,
   _DAe,
   { [_h]: ["GET", "/api/v1/activities", 200] },
-  () => DescribeActivitiesRequest,
-  () => DescribeActivitiesResponse,
+  () => DescribeActivitiesRequest$,
+  () => DescribeActivitiesResponse$,
 ];
-export var DescribeComments: StaticOperationSchema = [
+export var DescribeComments$: StaticOperationSchema = [
   9,
   n0,
   _DCe,
   { [_h]: ["GET", "/api/v1/documents/{DocumentId}/versions/{VersionId}/comments", 200] },
-  () => DescribeCommentsRequest,
-  () => DescribeCommentsResponse,
+  () => DescribeCommentsRequest$,
+  () => DescribeCommentsResponse$,
 ];
-export var DescribeDocumentVersions: StaticOperationSchema = [
+export var DescribeDocumentVersions$: StaticOperationSchema = [
   9,
   n0,
   _DDVe,
   { [_h]: ["GET", "/api/v1/documents/{DocumentId}/versions", 200] },
-  () => DescribeDocumentVersionsRequest,
-  () => DescribeDocumentVersionsResponse,
+  () => DescribeDocumentVersionsRequest$,
+  () => DescribeDocumentVersionsResponse$,
 ];
-export var DescribeFolderContents: StaticOperationSchema = [
+export var DescribeFolderContents$: StaticOperationSchema = [
   9,
   n0,
   _DFCe,
   { [_h]: ["GET", "/api/v1/folders/{FolderId}/contents", 200] },
-  () => DescribeFolderContentsRequest,
-  () => DescribeFolderContentsResponse,
+  () => DescribeFolderContentsRequest$,
+  () => DescribeFolderContentsResponse$,
 ];
-export var DescribeGroups: StaticOperationSchema = [
+export var DescribeGroups$: StaticOperationSchema = [
   9,
   n0,
   _DG,
   { [_h]: ["GET", "/api/v1/groups", 200] },
-  () => DescribeGroupsRequest,
-  () => DescribeGroupsResponse,
+  () => DescribeGroupsRequest$,
+  () => DescribeGroupsResponse$,
 ];
-export var DescribeNotificationSubscriptions: StaticOperationSchema = [
+export var DescribeNotificationSubscriptions$: StaticOperationSchema = [
   9,
   n0,
   _DNSe,
   { [_h]: ["GET", "/api/v1/organizations/{OrganizationId}/subscriptions", 200] },
-  () => DescribeNotificationSubscriptionsRequest,
-  () => DescribeNotificationSubscriptionsResponse,
+  () => DescribeNotificationSubscriptionsRequest$,
+  () => DescribeNotificationSubscriptionsResponse$,
 ];
-export var DescribeResourcePermissions: StaticOperationSchema = [
+export var DescribeResourcePermissions$: StaticOperationSchema = [
   9,
   n0,
   _DRP,
   { [_h]: ["GET", "/api/v1/resources/{ResourceId}/permissions", 200] },
-  () => DescribeResourcePermissionsRequest,
-  () => DescribeResourcePermissionsResponse,
+  () => DescribeResourcePermissionsRequest$,
+  () => DescribeResourcePermissionsResponse$,
 ];
-export var DescribeRootFolders: StaticOperationSchema = [
+export var DescribeRootFolders$: StaticOperationSchema = [
   9,
   n0,
   _DRF,
   { [_h]: ["GET", "/api/v1/me/root", 200] },
-  () => DescribeRootFoldersRequest,
-  () => DescribeRootFoldersResponse,
+  () => DescribeRootFoldersRequest$,
+  () => DescribeRootFoldersResponse$,
 ];
-export var DescribeUsers: StaticOperationSchema = [
+export var DescribeUsers$: StaticOperationSchema = [
   9,
   n0,
   _DUes,
   { [_h]: ["GET", "/api/v1/users", 200] },
-  () => DescribeUsersRequest,
-  () => DescribeUsersResponse,
+  () => DescribeUsersRequest$,
+  () => DescribeUsersResponse$,
 ];
-export var GetCurrentUser: StaticOperationSchema = [
+export var GetCurrentUser$: StaticOperationSchema = [
   9,
   n0,
   _GCU,
   { [_h]: ["GET", "/api/v1/me", 200] },
-  () => GetCurrentUserRequest,
-  () => GetCurrentUserResponse,
+  () => GetCurrentUserRequest$,
+  () => GetCurrentUserResponse$,
 ];
-export var GetDocument: StaticOperationSchema = [
+export var GetDocument$: StaticOperationSchema = [
   9,
   n0,
   _GD,
   { [_h]: ["GET", "/api/v1/documents/{DocumentId}", 200] },
-  () => GetDocumentRequest,
-  () => GetDocumentResponse,
+  () => GetDocumentRequest$,
+  () => GetDocumentResponse$,
 ];
-export var GetDocumentPath: StaticOperationSchema = [
+export var GetDocumentPath$: StaticOperationSchema = [
   9,
   n0,
   _GDP,
   { [_h]: ["GET", "/api/v1/documents/{DocumentId}/path", 200] },
-  () => GetDocumentPathRequest,
-  () => GetDocumentPathResponse,
+  () => GetDocumentPathRequest$,
+  () => GetDocumentPathResponse$,
 ];
-export var GetDocumentVersion: StaticOperationSchema = [
+export var GetDocumentVersion$: StaticOperationSchema = [
   9,
   n0,
   _GDV,
   { [_h]: ["GET", "/api/v1/documents/{DocumentId}/versions/{VersionId}", 200] },
-  () => GetDocumentVersionRequest,
-  () => GetDocumentVersionResponse,
+  () => GetDocumentVersionRequest$,
+  () => GetDocumentVersionResponse$,
 ];
-export var GetFolder: StaticOperationSchema = [
+export var GetFolder$: StaticOperationSchema = [
   9,
   n0,
   _GF,
   { [_h]: ["GET", "/api/v1/folders/{FolderId}", 200] },
-  () => GetFolderRequest,
-  () => GetFolderResponse,
+  () => GetFolderRequest$,
+  () => GetFolderResponse$,
 ];
-export var GetFolderPath: StaticOperationSchema = [
+export var GetFolderPath$: StaticOperationSchema = [
   9,
   n0,
   _GFP,
   { [_h]: ["GET", "/api/v1/folders/{FolderId}/path", 200] },
-  () => GetFolderPathRequest,
-  () => GetFolderPathResponse,
+  () => GetFolderPathRequest$,
+  () => GetFolderPathResponse$,
 ];
-export var GetResources: StaticOperationSchema = [
+export var GetResources$: StaticOperationSchema = [
   9,
   n0,
   _GR,
   { [_h]: ["GET", "/api/v1/resources", 200] },
-  () => GetResourcesRequest,
-  () => GetResourcesResponse,
+  () => GetResourcesRequest$,
+  () => GetResourcesResponse$,
 ];
-export var InitiateDocumentVersionUpload: StaticOperationSchema = [
+export var InitiateDocumentVersionUpload$: StaticOperationSchema = [
   9,
   n0,
   _IDVU,
   { [_h]: ["POST", "/api/v1/documents", 201] },
-  () => InitiateDocumentVersionUploadRequest,
-  () => InitiateDocumentVersionUploadResponse,
+  () => InitiateDocumentVersionUploadRequest$,
+  () => InitiateDocumentVersionUploadResponse$,
 ];
-export var RemoveAllResourcePermissions: StaticOperationSchema = [
+export var RemoveAllResourcePermissions$: StaticOperationSchema = [
   9,
   n0,
   _RARP,
   { [_h]: ["DELETE", "/api/v1/resources/{ResourceId}/permissions", 204] },
-  () => RemoveAllResourcePermissionsRequest,
+  () => RemoveAllResourcePermissionsRequest$,
   () => __Unit,
 ];
-export var RemoveResourcePermission: StaticOperationSchema = [
+export var RemoveResourcePermission$: StaticOperationSchema = [
   9,
   n0,
   _RRP,
   { [_h]: ["DELETE", "/api/v1/resources/{ResourceId}/permissions/{PrincipalId}", 204] },
-  () => RemoveResourcePermissionRequest,
+  () => RemoveResourcePermissionRequest$,
   () => __Unit,
 ];
-export var RestoreDocumentVersions: StaticOperationSchema = [
+export var RestoreDocumentVersions$: StaticOperationSchema = [
   9,
   n0,
   _RDV,
   { [_h]: ["POST", "/api/v1/documentVersions/restore/{DocumentId}", 204] },
-  () => RestoreDocumentVersionsRequest,
+  () => RestoreDocumentVersionsRequest$,
   () => __Unit,
 ];
-export var SearchResources: StaticOperationSchema = [
+export var SearchResources$: StaticOperationSchema = [
   9,
   n0,
   _SRe,
   { [_h]: ["POST", "/api/v1/search", 200] },
-  () => SearchResourcesRequest,
-  () => SearchResourcesResponse,
+  () => SearchResourcesRequest$,
+  () => SearchResourcesResponse$,
 ];
-export var UpdateDocument: StaticOperationSchema = [
+export var UpdateDocument$: StaticOperationSchema = [
   9,
   n0,
   _UD,
   { [_h]: ["PATCH", "/api/v1/documents/{DocumentId}", 200] },
-  () => UpdateDocumentRequest,
+  () => UpdateDocumentRequest$,
   () => __Unit,
 ];
-export var UpdateDocumentVersion: StaticOperationSchema = [
+export var UpdateDocumentVersion$: StaticOperationSchema = [
   9,
   n0,
   _UDV,
   { [_h]: ["PATCH", "/api/v1/documents/{DocumentId}/versions/{VersionId}", 200] },
-  () => UpdateDocumentVersionRequest,
+  () => UpdateDocumentVersionRequest$,
   () => __Unit,
 ];
-export var UpdateFolder: StaticOperationSchema = [
+export var UpdateFolder$: StaticOperationSchema = [
   9,
   n0,
   _UF,
   { [_h]: ["PATCH", "/api/v1/folders/{FolderId}", 200] },
-  () => UpdateFolderRequest,
+  () => UpdateFolderRequest$,
   () => __Unit,
 ];
-export var UpdateUser: StaticOperationSchema = [
+export var UpdateUser$: StaticOperationSchema = [
   9,
   n0,
   _UUp,
   { [_h]: ["PATCH", "/api/v1/users/{UserId}", 200] },
-  () => UpdateUserRequest,
-  () => UpdateUserResponse,
+  () => UpdateUserRequest$,
+  () => UpdateUserResponse$,
 ];

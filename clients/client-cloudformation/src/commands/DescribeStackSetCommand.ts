@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeStackSetInput, DescribeStackSetOutput } from "../models/models_0";
-import { DescribeStackSet } from "../schemas/schemas_0";
+import { DescribeStackSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -138,7 +138,7 @@ export class DescribeStackSetCommand extends $Command
   })
   .s("CloudFormation", "DescribeStackSet", {})
   .n("CloudFormationClient", "DescribeStackSetCommand")
-  .sc(DescribeStackSet)
+  .sc(DescribeStackSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

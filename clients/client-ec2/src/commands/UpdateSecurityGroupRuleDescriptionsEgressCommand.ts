@@ -9,7 +9,7 @@ import type {
   UpdateSecurityGroupRuleDescriptionsEgressRequest,
   UpdateSecurityGroupRuleDescriptionsEgressResult,
 } from "../models/models_7";
-import { UpdateSecurityGroupRuleDescriptionsEgress } from "../schemas/schemas_0";
+import { UpdateSecurityGroupRuleDescriptionsEgress$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -152,7 +152,7 @@ export class UpdateSecurityGroupRuleDescriptionsEgressCommand extends $Command
   })
   .s("AmazonEC2", "UpdateSecurityGroupRuleDescriptionsEgress", {})
   .n("EC2Client", "UpdateSecurityGroupRuleDescriptionsEgressCommand")
-  .sc(UpdateSecurityGroupRuleDescriptionsEgress)
+  .sc(UpdateSecurityGroupRuleDescriptionsEgress$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RegisterTargetsRequest, RegisterTargetsResponse } from "../models/models_0";
-import { RegisterTargets } from "../schemas/schemas_0";
+import { RegisterTargets$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -113,7 +113,7 @@ export class RegisterTargetsCommand extends $Command
   })
   .s("MercuryControlPlane", "RegisterTargets", {})
   .n("VPCLatticeClient", "RegisterTargetsCommand")
-  .sc(RegisterTargets)
+  .sc(RegisterTargets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

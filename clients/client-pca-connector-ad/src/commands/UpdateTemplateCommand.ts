@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PcaConnectorAdClient";
-import { UpdateTemplate } from "../schemas/schemas_0";
+import { UpdateTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -338,7 +338,7 @@ export class UpdateTemplateCommand extends $Command
   })
   .s("PcaConnectorAd", "UpdateTemplate", {})
   .n("PcaConnectorAdClient", "UpdateTemplateCommand")
-  .sc(UpdateTemplate)
+  .sc(UpdateTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

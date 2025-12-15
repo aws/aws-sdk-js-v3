@@ -11,7 +11,7 @@ import type {
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateUserPoolClientRequest } from "../models/models_0";
 import type { UpdateUserPoolClientResponse } from "../models/models_1";
-import { UpdateUserPoolClient } from "../schemas/schemas_0";
+import { UpdateUserPoolClient$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -246,7 +246,7 @@ export class UpdateUserPoolClientCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "UpdateUserPoolClient", {})
   .n("CognitoIdentityProviderClient", "UpdateUserPoolClientCommand")
-  .sc(UpdateUserPoolClient)
+  .sc(UpdateUserPoolClient$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

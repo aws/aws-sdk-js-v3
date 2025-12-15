@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EnableAllowedImagesSettingsRequest, EnableAllowedImagesSettingsResult } from "../models/models_5";
-import { EnableAllowedImagesSettings } from "../schemas/schemas_0";
+import { EnableAllowedImagesSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class EnableAllowedImagesSettingsCommand extends $Command
   })
   .s("AmazonEC2", "EnableAllowedImagesSettings", {})
   .n("EC2Client", "EnableAllowedImagesSettingsCommand")
-  .sc(EnableAllowedImagesSettings)
+  .sc(EnableAllowedImagesSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

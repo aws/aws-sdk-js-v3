@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: DataSyncClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.datasync",
-        serviceTarget: "FmrsService",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.datasync",
+      version: "2018-11-09",
+      serviceTarget: "FmrsService",
+    },
     serviceId: config?.serviceId ?? "DataSync",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

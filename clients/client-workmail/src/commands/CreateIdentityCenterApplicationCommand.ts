@@ -8,7 +8,7 @@ import type {
   CreateIdentityCenterApplicationRequest,
   CreateIdentityCenterApplicationResponse,
 } from "../models/models_0";
-import { CreateIdentityCenterApplication } from "../schemas/schemas_0";
+import { CreateIdentityCenterApplication$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -85,7 +85,7 @@ export class CreateIdentityCenterApplicationCommand extends $Command
   })
   .s("WorkMailService", "CreateIdentityCenterApplication", {})
   .n("WorkMailClient", "CreateIdentityCenterApplicationCommand")
-  .sc(CreateIdentityCenterApplication)
+  .sc(CreateIdentityCenterApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

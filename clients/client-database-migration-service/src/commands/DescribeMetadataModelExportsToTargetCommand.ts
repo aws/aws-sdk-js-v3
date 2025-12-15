@@ -13,7 +13,7 @@ import type {
   DescribeMetadataModelExportsToTargetMessage,
   DescribeMetadataModelExportsToTargetResponse,
 } from "../models/models_0";
-import { DescribeMetadataModelExportsToTarget } from "../schemas/schemas_0";
+import { DescribeMetadataModelExportsToTarget$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -153,7 +153,7 @@ export class DescribeMetadataModelExportsToTargetCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribeMetadataModelExportsToTarget", {})
   .n("DatabaseMigrationServiceClient", "DescribeMetadataModelExportsToTargetCommand")
-  .sc(DescribeMetadataModelExportsToTarget)
+  .sc(DescribeMetadataModelExportsToTarget$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

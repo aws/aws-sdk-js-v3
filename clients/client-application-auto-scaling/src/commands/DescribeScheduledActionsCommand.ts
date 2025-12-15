@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationAutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeScheduledActionsRequest, DescribeScheduledActionsResponse } from "../models/models_0";
-import { DescribeScheduledActions } from "../schemas/schemas_0";
+import { DescribeScheduledActions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -161,7 +161,7 @@ export class DescribeScheduledActionsCommand extends $Command
   })
   .s("AnyScaleFrontendService", "DescribeScheduledActions", {})
   .n("ApplicationAutoScalingClient", "DescribeScheduledActionsCommand")
-  .sc(DescribeScheduledActions)
+  .sc(DescribeScheduledActions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

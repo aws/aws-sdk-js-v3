@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateHypervisorInput, UpdateHypervisorOutput } from "../models/models_0";
-import { UpdateHypervisor } from "../schemas/schemas_0";
+import { UpdateHypervisor$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class UpdateHypervisorCommand extends $Command
   })
   .s("BackupOnPremises_v20210101", "UpdateHypervisor", {})
   .n("BackupGatewayClient", "UpdateHypervisorCommand")
-  .sc(UpdateHypervisor)
+  .sc(UpdateHypervisor$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

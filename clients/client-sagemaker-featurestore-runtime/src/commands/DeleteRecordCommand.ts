@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../SageMakerFeatureStoreRuntimeClient";
-import { DeleteRecord } from "../schemas/schemas_0";
+import { DeleteRecord$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,7 +127,7 @@ export class DeleteRecordCommand extends $Command
   })
   .s("AmazonSageMakerFeatureStoreRuntime", "DeleteRecord", {})
   .n("SageMakerFeatureStoreRuntimeClient", "DeleteRecordCommand")
-  .sc(DeleteRecord)
+  .sc(DeleteRecord$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

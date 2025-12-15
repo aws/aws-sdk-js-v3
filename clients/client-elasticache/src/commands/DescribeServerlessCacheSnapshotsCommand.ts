@@ -9,7 +9,7 @@ import type {
   DescribeServerlessCacheSnapshotsRequest,
   DescribeServerlessCacheSnapshotsResponse,
 } from "../models/models_0";
-import { DescribeServerlessCacheSnapshots } from "../schemas/schemas_0";
+import { DescribeServerlessCacheSnapshots$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class DescribeServerlessCacheSnapshotsCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "DescribeServerlessCacheSnapshots", {})
   .n("ElastiCacheClient", "DescribeServerlessCacheSnapshotsCommand")
-  .sc(DescribeServerlessCacheSnapshots)
+  .sc(DescribeServerlessCacheSnapshots$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

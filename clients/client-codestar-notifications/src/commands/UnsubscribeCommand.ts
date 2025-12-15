@@ -10,7 +10,7 @@ import type {
 } from "../CodestarNotificationsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UnsubscribeRequest, UnsubscribeResult } from "../models/models_0";
-import { Unsubscribe } from "../schemas/schemas_0";
+import { Unsubscribe$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class UnsubscribeCommand extends $Command
   })
   .s("CodeStarNotifications_20191015", "Unsubscribe", {})
   .n("CodestarNotificationsClient", "UnsubscribeCommand")
-  .sc(Unsubscribe)
+  .sc(Unsubscribe$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

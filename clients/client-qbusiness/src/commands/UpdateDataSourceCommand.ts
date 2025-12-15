@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateDataSourceRequest, UpdateDataSourceResponse } from "../models/models_0";
 import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
-import { UpdateDataSource } from "../schemas/schemas_0";
+import { UpdateDataSource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -180,7 +180,7 @@ export class UpdateDataSourceCommand extends $Command
   })
   .s("ExpertQ", "UpdateDataSource", {})
   .n("QBusinessClient", "UpdateDataSourceCommand")
-  .sc(UpdateDataSource)
+  .sc(UpdateDataSource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

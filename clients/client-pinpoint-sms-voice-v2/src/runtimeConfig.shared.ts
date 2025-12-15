@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: PinpointSMSVoiceV2ClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_0Protocol({
-        defaultNamespace: "com.amazonaws.pinpointsmsvoicev2",
-        serviceTarget: "PinpointSMSVoiceV2",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_0Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.pinpointsmsvoicev2",
+      version: "2022-03-31",
+      serviceTarget: "PinpointSMSVoiceV2",
+    },
     serviceId: config?.serviceId ?? "Pinpoint SMS Voice V2",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

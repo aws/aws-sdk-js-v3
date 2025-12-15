@@ -8,7 +8,7 @@ import type {
   PutConfigurationSetDeliveryOptionsRequest,
   PutConfigurationSetDeliveryOptionsResponse,
 } from "../models/models_0";
-import { PutConfigurationSetDeliveryOptions } from "../schemas/schemas_0";
+import { PutConfigurationSetDeliveryOptions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -85,7 +85,7 @@ export class PutConfigurationSetDeliveryOptionsCommand extends $Command
   })
   .s("SimpleEmailService", "PutConfigurationSetDeliveryOptions", {})
   .n("SESClient", "PutConfigurationSetDeliveryOptionsCommand")
-  .sc(PutConfigurationSetDeliveryOptions)
+  .sc(PutConfigurationSetDeliveryOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

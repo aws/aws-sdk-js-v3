@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DomainName, GetDomainNameRequest } from "../models/models_0";
-import { GetDomainName } from "../schemas/schemas_0";
+import { GetDomainName$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,7 +124,7 @@ export class GetDomainNameCommand extends $Command
   })
   .s("BackplaneControlService", "GetDomainName", {})
   .n("APIGatewayClient", "GetDomainNameCommand")
-  .sc(GetDomainName)
+  .sc(GetDomainName$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

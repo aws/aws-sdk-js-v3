@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetIpamResourceCidrsRequest, GetIpamResourceCidrsResult } from "../models/models_6";
-import { GetIpamResourceCidrs } from "../schemas/schemas_0";
+import { GetIpamResourceCidrs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class GetIpamResourceCidrsCommand extends $Command
   })
   .s("AmazonEC2", "GetIpamResourceCidrs", {})
   .n("EC2Client", "GetIpamResourceCidrsCommand")
-  .sc(GetIpamResourceCidrs)
+  .sc(GetIpamResourceCidrs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

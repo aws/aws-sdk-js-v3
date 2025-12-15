@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteCloudFrontOriginAccessIdentityRequest } from "../models/models_0";
-import { DeleteCloudFrontOriginAccessIdentity } from "../schemas/schemas_0";
+import { DeleteCloudFrontOriginAccessIdentity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DeleteCloudFrontOriginAccessIdentityCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "DeleteCloudFrontOriginAccessIdentity", {})
   .n("CloudFrontClient", "DeleteCloudFrontOriginAccessIdentityCommand")
-  .sc(DeleteCloudFrontOriginAccessIdentity)
+  .sc(DeleteCloudFrontOriginAccessIdentity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

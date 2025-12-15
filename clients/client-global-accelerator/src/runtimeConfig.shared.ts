@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: GlobalAcceleratorClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.globalaccelerator",
-        serviceTarget: "GlobalAccelerator_V20180706",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.globalaccelerator",
+      version: "2018-08-08",
+      serviceTarget: "GlobalAccelerator_V20180706",
+    },
     serviceId: config?.serviceId ?? "Global Accelerator",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

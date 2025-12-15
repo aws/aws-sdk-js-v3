@@ -10,7 +10,7 @@ import type {
   CreateAccessPointForObjectLambdaResult,
 } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { CreateAccessPointForObjectLambda } from "../schemas/schemas_0";
+import { CreateAccessPointForObjectLambda$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -131,7 +131,7 @@ export class CreateAccessPointForObjectLambdaCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "CreateAccessPointForObjectLambda", {})
   .n("S3ControlClient", "CreateAccessPointForObjectLambdaCommand")
-  .sc(CreateAccessPointForObjectLambda)
+  .sc(CreateAccessPointForObjectLambda$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

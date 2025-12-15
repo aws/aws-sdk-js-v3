@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeTrustsRequest, DescribeTrustsResult } from "../models/models_0";
-import { DescribeTrusts } from "../schemas/schemas_0";
+import { DescribeTrusts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -149,7 +149,7 @@ export class DescribeTrustsCommand extends $Command
   })
   .s("DirectoryService_20150416", "DescribeTrusts", {})
   .n("DirectoryServiceClient", "DescribeTrustsCommand")
-  .sc(DescribeTrusts)
+  .sc(DescribeTrusts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

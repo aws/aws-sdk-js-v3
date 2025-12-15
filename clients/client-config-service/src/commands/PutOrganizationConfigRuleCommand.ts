@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutOrganizationConfigRuleRequest, PutOrganizationConfigRuleResponse } from "../models/models_0";
-import { PutOrganizationConfigRule } from "../schemas/schemas_0";
+import { PutOrganizationConfigRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -282,7 +282,7 @@ export class PutOrganizationConfigRuleCommand extends $Command
   })
   .s("StarlingDoveService", "PutOrganizationConfigRule", {})
   .n("ConfigServiceClient", "PutOrganizationConfigRuleCommand")
-  .sc(PutOrganizationConfigRule)
+  .sc(PutOrganizationConfigRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

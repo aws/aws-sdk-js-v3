@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAppMonitorsRequest, ListAppMonitorsResponse } from "../models/models_0";
 import type { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
-import { ListAppMonitors } from "../schemas/schemas_0";
+import { ListAppMonitors$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class ListAppMonitorsCommand extends $Command
   })
   .s("RUM", "ListAppMonitors", {})
   .n("RUMClient", "ListAppMonitorsCommand")
-  .sc(ListAppMonitors)
+  .sc(ListAppMonitors$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

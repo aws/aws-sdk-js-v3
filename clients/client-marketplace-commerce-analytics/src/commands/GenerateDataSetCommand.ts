@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MarketplaceCommerceAnalyticsClient";
 import type { GenerateDataSetRequest, GenerateDataSetResult } from "../models/models_0";
-import { GenerateDataSet } from "../schemas/schemas_0";
+import { GenerateDataSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class GenerateDataSetCommand extends $Command
   })
   .s("MarketplaceCommerceAnalytics20150701", "GenerateDataSet", {})
   .n("MarketplaceCommerceAnalyticsClient", "GenerateDataSetCommand")
-  .sc(GenerateDataSet)
+  .sc(GenerateDataSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

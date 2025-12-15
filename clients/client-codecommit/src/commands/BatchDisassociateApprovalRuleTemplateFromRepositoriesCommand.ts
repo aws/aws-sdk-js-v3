@@ -9,7 +9,7 @@ import type {
   BatchDisassociateApprovalRuleTemplateFromRepositoriesInput,
   BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput,
 } from "../models/models_0";
-import { BatchDisassociateApprovalRuleTemplateFromRepositories } from "../schemas/schemas_0";
+import { BatchDisassociateApprovalRuleTemplateFromRepositories$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,7 +124,7 @@ export class BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand extend
   })
   .s("CodeCommit_20150413", "BatchDisassociateApprovalRuleTemplateFromRepositories", {})
   .n("CodeCommitClient", "BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand")
-  .sc(BatchDisassociateApprovalRuleTemplateFromRepositories)
+  .sc(BatchDisassociateApprovalRuleTemplateFromRepositories$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

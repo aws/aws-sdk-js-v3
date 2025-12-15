@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: SupportClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.support",
-        serviceTarget: "AWSSupport_20130415",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.support",
+      xmlNamespace: "http://support.amazonaws.com/doc/2013-04-15/",
+      version: "2013-04-15",
+      serviceTarget: "AWSSupport_20130415",
+    },
     serviceId: config?.serviceId ?? "Support",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

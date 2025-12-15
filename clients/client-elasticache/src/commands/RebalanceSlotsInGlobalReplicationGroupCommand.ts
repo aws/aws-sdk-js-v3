@@ -9,7 +9,7 @@ import type {
   RebalanceSlotsInGlobalReplicationGroupMessage,
   RebalanceSlotsInGlobalReplicationGroupResult,
 } from "../models/models_0";
-import { RebalanceSlotsInGlobalReplicationGroup } from "../schemas/schemas_0";
+import { RebalanceSlotsInGlobalReplicationGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class RebalanceSlotsInGlobalReplicationGroupCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "RebalanceSlotsInGlobalReplicationGroup", {})
   .n("ElastiCacheClient", "RebalanceSlotsInGlobalReplicationGroupCommand")
-  .sc(RebalanceSlotsInGlobalReplicationGroup)
+  .sc(RebalanceSlotsInGlobalReplicationGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

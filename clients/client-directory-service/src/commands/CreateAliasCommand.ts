@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateAliasRequest, CreateAliasResult } from "../models/models_0";
-import { CreateAlias } from "../schemas/schemas_0";
+import { CreateAlias$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class CreateAliasCommand extends $Command
   })
   .s("DirectoryService_20150416", "CreateAlias", {})
   .n("DirectoryServiceClient", "CreateAliasCommand")
-  .sc(CreateAlias)
+  .sc(CreateAlias$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
 import type { CopySnapshotRequest, CopySnapshotResponse } from "../models/models_0";
-import { CopySnapshot } from "../schemas/schemas_0";
+import { CopySnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -142,7 +142,7 @@ export class CopySnapshotCommand extends $Command
   })
   .s("AmazonMemoryDB", "CopySnapshot", {})
   .n("MemoryDBClient", "CopySnapshotCommand")
-  .sc(CopySnapshot)
+  .sc(CopySnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

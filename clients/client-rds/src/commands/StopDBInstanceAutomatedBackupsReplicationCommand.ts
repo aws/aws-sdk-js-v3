@@ -9,7 +9,7 @@ import type {
   StopDBInstanceAutomatedBackupsReplicationResult,
 } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { StopDBInstanceAutomatedBackupsReplication } from "../schemas/schemas_0";
+import { StopDBInstanceAutomatedBackupsReplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -183,7 +183,7 @@ export class StopDBInstanceAutomatedBackupsReplicationCommand extends $Command
   })
   .s("AmazonRDSv19", "StopDBInstanceAutomatedBackupsReplication", {})
   .n("RDSClient", "StopDBInstanceAutomatedBackupsReplicationCommand")
-  .sc(StopDBInstanceAutomatedBackupsReplication)
+  .sc(StopDBInstanceAutomatedBackupsReplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

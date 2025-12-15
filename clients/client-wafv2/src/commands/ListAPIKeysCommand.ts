@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAPIKeysRequest, ListAPIKeysResponse } from "../models/models_0";
-import { ListAPIKeys } from "../schemas/schemas_0";
+import { ListAPIKeys$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -121,7 +121,7 @@ export class ListAPIKeysCommand extends $Command
   })
   .s("AWSWAF_20190729", "ListAPIKeys", {})
   .n("WAFV2Client", "ListAPIKeysCommand")
-  .sc(ListAPIKeys)
+  .sc(ListAPIKeys$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetRequestValidatorRequest, RequestValidator } from "../models/models_0";
-import { GetRequestValidator } from "../schemas/schemas_0";
+import { GetRequestValidator$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class GetRequestValidatorCommand extends $Command
   })
   .s("BackplaneControlService", "GetRequestValidator", {})
   .n("APIGatewayClient", "GetRequestValidatorCommand")
-  .sc(GetRequestValidator)
+  .sc(GetRequestValidator$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

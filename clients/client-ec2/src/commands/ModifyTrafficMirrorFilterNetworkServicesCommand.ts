@@ -9,7 +9,7 @@ import type {
   ModifyTrafficMirrorFilterNetworkServicesRequest,
   ModifyTrafficMirrorFilterNetworkServicesResult,
 } from "../models/models_6";
-import { ModifyTrafficMirrorFilterNetworkServices } from "../schemas/schemas_0";
+import { ModifyTrafficMirrorFilterNetworkServices$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -155,7 +155,7 @@ export class ModifyTrafficMirrorFilterNetworkServicesCommand extends $Command
   })
   .s("AmazonEC2", "ModifyTrafficMirrorFilterNetworkServices", {})
   .n("EC2Client", "ModifyTrafficMirrorFilterNetworkServicesCommand")
-  .sc(ModifyTrafficMirrorFilterNetworkServices)
+  .sc(ModifyTrafficMirrorFilterNetworkServices$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

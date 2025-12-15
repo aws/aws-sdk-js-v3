@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateAliasRequest } from "../models/models_0";
-import { AssociateAlias } from "../schemas/schemas_0";
+import { AssociateAlias$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class AssociateAliasCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "AssociateAlias", {})
   .n("CloudFrontClient", "AssociateAliasCommand")
-  .sc(AssociateAlias)
+  .sc(AssociateAlias$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

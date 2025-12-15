@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetMobileDeviceAccessOverrideRequest, GetMobileDeviceAccessOverrideResponse } from "../models/models_0";
-import { GetMobileDeviceAccessOverride } from "../schemas/schemas_0";
+import { GetMobileDeviceAccessOverride$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -100,7 +100,7 @@ export class GetMobileDeviceAccessOverrideCommand extends $Command
   })
   .s("WorkMailService", "GetMobileDeviceAccessOverride", {})
   .n("WorkMailClient", "GetMobileDeviceAccessOverrideCommand")
-  .sc(GetMobileDeviceAccessOverride)
+  .sc(GetMobileDeviceAccessOverride$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

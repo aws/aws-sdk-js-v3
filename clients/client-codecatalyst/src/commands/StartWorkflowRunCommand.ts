@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartWorkflowRunRequest, StartWorkflowRunResponse } from "../models/models_0";
-import { StartWorkflowRun } from "../schemas/schemas_0";
+import { StartWorkflowRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class StartWorkflowRunCommand extends $Command
   })
   .s("CodeCatalyst", "StartWorkflowRun", {})
   .n("CodeCatalystClient", "StartWorkflowRunCommand")
-  .sc(StartWorkflowRun)
+  .sc(StartWorkflowRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

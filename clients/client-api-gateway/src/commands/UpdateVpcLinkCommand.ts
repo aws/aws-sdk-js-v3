@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateVpcLinkRequest, VpcLink } from "../models/models_0";
-import { UpdateVpcLink } from "../schemas/schemas_0";
+import { UpdateVpcLink$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class UpdateVpcLinkCommand extends $Command
   })
   .s("BackplaneControlService", "UpdateVpcLink", {})
   .n("APIGatewayClient", "UpdateVpcLinkCommand")
-  .sc(UpdateVpcLink)
+  .sc(UpdateVpcLink$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

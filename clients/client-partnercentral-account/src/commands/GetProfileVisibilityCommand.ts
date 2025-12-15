@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralAccountClient";
-import { GetProfileVisibility } from "../schemas/schemas_0";
+import { GetProfileVisibility$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class GetProfileVisibilityCommand extends $Command
   })
   .s("PartnerCentralAccount", "GetProfileVisibility", {})
   .n("PartnerCentralAccountClient", "GetProfileVisibilityCommand")
-  .sc(GetProfileVisibility)
+  .sc(GetProfileVisibility$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

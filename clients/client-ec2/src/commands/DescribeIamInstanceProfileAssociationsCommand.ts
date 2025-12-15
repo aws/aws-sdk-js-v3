@@ -9,7 +9,7 @@ import type {
   DescribeIamInstanceProfileAssociationsRequest,
   DescribeIamInstanceProfileAssociationsResult,
 } from "../models/models_3";
-import { DescribeIamInstanceProfileAssociations } from "../schemas/schemas_0";
+import { DescribeIamInstanceProfileAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -130,7 +130,7 @@ export class DescribeIamInstanceProfileAssociationsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeIamInstanceProfileAssociations", {})
   .n("EC2Client", "DescribeIamInstanceProfileAssociationsCommand")
-  .sc(DescribeIamInstanceProfileAssociations)
+  .sc(DescribeIamInstanceProfileAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

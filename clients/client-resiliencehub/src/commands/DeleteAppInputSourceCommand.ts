@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAppInputSourceRequest, DeleteAppInputSourceResponse } from "../models/models_0";
 import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
-import { DeleteAppInputSource } from "../schemas/schemas_0";
+import { DeleteAppInputSource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class DeleteAppInputSourceCommand extends $Command
   })
   .s("AwsResilienceHub", "DeleteAppInputSource", {})
   .n("ResiliencehubClient", "DeleteAppInputSourceCommand")
-  .sc(DeleteAppInputSource)
+  .sc(DeleteAppInputSource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

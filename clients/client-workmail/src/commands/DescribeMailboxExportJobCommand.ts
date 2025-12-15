@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeMailboxExportJobRequest, DescribeMailboxExportJobResponse } from "../models/models_0";
-import { DescribeMailboxExportJob } from "../schemas/schemas_0";
+import { DescribeMailboxExportJob$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -100,7 +100,7 @@ export class DescribeMailboxExportJobCommand extends $Command
   })
   .s("WorkMailService", "DescribeMailboxExportJob", {})
   .n("WorkMailClient", "DescribeMailboxExportJobCommand")
-  .sc(DescribeMailboxExportJob)
+  .sc(DescribeMailboxExportJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   ListCustomRoutingPortMappingsByDestinationRequest,
   ListCustomRoutingPortMappingsByDestinationResponse,
 } from "../models/models_0";
-import { ListCustomRoutingPortMappingsByDestination } from "../schemas/schemas_0";
+import { ListCustomRoutingPortMappingsByDestination$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class ListCustomRoutingPortMappingsByDestinationCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "ListCustomRoutingPortMappingsByDestination", {})
   .n("GlobalAcceleratorClient", "ListCustomRoutingPortMappingsByDestinationCommand")
-  .sc(ListCustomRoutingPortMappingsByDestination)
+  .sc(ListCustomRoutingPortMappingsByDestination$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

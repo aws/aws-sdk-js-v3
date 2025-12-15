@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { StreamingTraitsRequireLength } from "../schemas/schemas_0";
+import { StreamingTraitsRequireLength$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class StreamingTraitsRequireLengthCommand extends $Command
   })
   .s("RestJson", "StreamingTraitsRequireLength", {})
   .n("RestJsonProtocolClient", "StreamingTraitsRequireLengthCommand")
-  .sc(StreamingTraitsRequireLength)
+  .sc(StreamingTraitsRequireLength$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GameLiftStreamsClient";
 import type { TerminateStreamSessionInput } from "../models/models_0";
-import { TerminateStreamSession } from "../schemas/schemas_0";
+import { TerminateStreamSession$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class TerminateStreamSessionCommand extends $Command
   })
   .s("GameLiftStreams", "TerminateStreamSession", {})
   .n("GameLiftStreamsClient", "TerminateStreamSessionCommand")
-  .sc(TerminateStreamSession)
+  .sc(TerminateStreamSession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

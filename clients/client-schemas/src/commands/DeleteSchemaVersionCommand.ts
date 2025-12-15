@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSchemaVersionRequest } from "../models/models_0";
-import { DeleteSchemaVersion } from "../schemas/schemas_0";
+import { DeleteSchemaVersion$ } from "../schemas/schemas_0";
 import type { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
@@ -85,7 +85,7 @@ export class DeleteSchemaVersionCommand extends $Command
   })
   .s("schemas", "DeleteSchemaVersion", {})
   .n("SchemasClient", "DeleteSchemaVersionCommand")
-  .sc(DeleteSchemaVersion)
+  .sc(DeleteSchemaVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

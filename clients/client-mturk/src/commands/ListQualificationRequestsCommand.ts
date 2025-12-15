@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListQualificationRequestsRequest, ListQualificationRequestsResponse } from "../models/models_0";
 import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { ListQualificationRequests } from "../schemas/schemas_0";
+import { ListQualificationRequests$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class ListQualificationRequestsCommand extends $Command
   })
   .s("MTurkRequesterServiceV20170117", "ListQualificationRequests", {})
   .n("MTurkClient", "ListQualificationRequestsCommand")
-  .sc(ListQualificationRequests)
+  .sc(ListQualificationRequests$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

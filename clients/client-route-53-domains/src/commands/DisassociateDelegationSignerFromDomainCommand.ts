@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53DomainsClient";
-import { DisassociateDelegationSignerFromDomain } from "../schemas/schemas_0";
+import { DisassociateDelegationSignerFromDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class DisassociateDelegationSignerFromDomainCommand extends $Command
   })
   .s("Route53Domains_v20140515", "DisassociateDelegationSignerFromDomain", {})
   .n("Route53DomainsClient", "DisassociateDelegationSignerFromDomainCommand")
-  .sc(DisassociateDelegationSignerFromDomain)
+  .sc(DisassociateDelegationSignerFromDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteDataLakeDatasetRequest, DeleteDataLakeDatasetResponse } from "../models/models_0";
-import { DeleteDataLakeDataset } from "../schemas/schemas_0";
+import { DeleteDataLakeDataset$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupplyChainClientResolvedConfig } from "../SupplyChainClient";
 
 /**
@@ -136,7 +136,7 @@ export class DeleteDataLakeDatasetCommand extends $Command
   })
   .s("GalaxyPublicAPIGateway", "DeleteDataLakeDataset", {})
   .n("SupplyChainClient", "DeleteDataLakeDatasetCommand")
-  .sc(DeleteDataLakeDataset)
+  .sc(DeleteDataLakeDataset$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   CreateInstanceAccessControlAttributeConfigurationRequest,
   CreateInstanceAccessControlAttributeConfigurationResponse,
 } from "../models/models_0";
-import { CreateInstanceAccessControlAttributeConfiguration } from "../schemas/schemas_0";
+import { CreateInstanceAccessControlAttributeConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -107,7 +107,7 @@ export class CreateInstanceAccessControlAttributeConfigurationCommand extends $C
   })
   .s("SWBExternalService", "CreateInstanceAccessControlAttributeConfiguration", {})
   .n("SSOAdminClient", "CreateInstanceAccessControlAttributeConfigurationCommand")
-  .sc(CreateInstanceAccessControlAttributeConfiguration)
+  .sc(CreateInstanceAccessControlAttributeConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

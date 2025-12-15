@@ -9,7 +9,7 @@ import type {
   GetCertificateAuthorityCertificateRequest,
   GetCertificateAuthorityCertificateResponse,
 } from "../models/models_0";
-import { GetCertificateAuthorityCertificate } from "../schemas/schemas_0";
+import { GetCertificateAuthorityCertificate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class GetCertificateAuthorityCertificateCommand extends $Command
   })
   .s("ACMPrivateCA", "GetCertificateAuthorityCertificate", {})
   .n("ACMPCAClient", "GetCertificateAuthorityCertificateCommand")
-  .sc(GetCertificateAuthorityCertificate)
+  .sc(GetCertificateAuthorityCertificate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

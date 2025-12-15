@@ -9,7 +9,7 @@ import type {
   GetAutomatedDiscoveryConfigurationRequest,
   GetAutomatedDiscoveryConfigurationResponse,
 } from "../models/models_0";
-import { GetAutomatedDiscoveryConfiguration } from "../schemas/schemas_0";
+import { GetAutomatedDiscoveryConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class GetAutomatedDiscoveryConfigurationCommand extends $Command
   })
   .s("Macie2", "GetAutomatedDiscoveryConfiguration", {})
   .n("Macie2Client", "GetAutomatedDiscoveryConfigurationCommand")
-  .sc(GetAutomatedDiscoveryConfiguration)
+  .sc(GetAutomatedDiscoveryConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

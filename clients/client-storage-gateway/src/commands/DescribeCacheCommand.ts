@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeCacheInput, DescribeCacheOutput } from "../models/models_0";
-import { DescribeCache } from "../schemas/schemas_0";
+import { DescribeCache$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -120,7 +120,7 @@ export class DescribeCacheCommand extends $Command
   })
   .s("StorageGateway_20130630", "DescribeCache", {})
   .n("StorageGatewayClient", "DescribeCacheCommand")
-  .sc(DescribeCache)
+  .sc(DescribeCache$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

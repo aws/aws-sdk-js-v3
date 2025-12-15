@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateMailboxQuotaRequest, UpdateMailboxQuotaResponse } from "../models/models_0";
-import { UpdateMailboxQuota } from "../schemas/schemas_0";
+import { UpdateMailboxQuota$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -93,7 +93,7 @@ export class UpdateMailboxQuotaCommand extends $Command
   })
   .s("WorkMailService", "UpdateMailboxQuota", {})
   .n("WorkMailClient", "UpdateMailboxQuotaCommand")
-  .sc(UpdateMailboxQuota)
+  .sc(UpdateMailboxQuota$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

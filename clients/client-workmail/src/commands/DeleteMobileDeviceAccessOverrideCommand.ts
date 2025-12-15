@@ -8,7 +8,7 @@ import type {
   DeleteMobileDeviceAccessOverrideRequest,
   DeleteMobileDeviceAccessOverrideResponse,
 } from "../models/models_0";
-import { DeleteMobileDeviceAccessOverride } from "../schemas/schemas_0";
+import { DeleteMobileDeviceAccessOverride$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -96,7 +96,7 @@ export class DeleteMobileDeviceAccessOverrideCommand extends $Command
   })
   .s("WorkMailService", "DeleteMobileDeviceAccessOverride", {})
   .n("WorkMailClient", "DeleteMobileDeviceAccessOverrideCommand")
-  .sc(DeleteMobileDeviceAccessOverride)
+  .sc(DeleteMobileDeviceAccessOverride$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

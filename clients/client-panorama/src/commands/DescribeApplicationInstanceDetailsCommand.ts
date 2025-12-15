@@ -9,7 +9,7 @@ import type {
   DescribeApplicationInstanceDetailsResponse,
 } from "../models/models_0";
 import type { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import { DescribeApplicationInstanceDetails } from "../schemas/schemas_0";
+import { DescribeApplicationInstanceDetails$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class DescribeApplicationInstanceDetailsCommand extends $Command
   })
   .s("OmniCloudServiceLambda", "DescribeApplicationInstanceDetails", {})
   .n("PanoramaClient", "DescribeApplicationInstanceDetailsCommand")
-  .sc(DescribeApplicationInstanceDetails)
+  .sc(DescribeApplicationInstanceDetails$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

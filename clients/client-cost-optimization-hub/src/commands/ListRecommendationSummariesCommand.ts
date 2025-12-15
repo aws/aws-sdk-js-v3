@@ -10,7 +10,7 @@ import type {
 } from "../CostOptimizationHubClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListRecommendationSummariesRequest, ListRecommendationSummariesResponse } from "../models/models_0";
-import { ListRecommendationSummaries } from "../schemas/schemas_0";
+import { ListRecommendationSummaries$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -143,7 +143,7 @@ export class ListRecommendationSummariesCommand extends $Command
   })
   .s("CostOptimizationHubService", "ListRecommendationSummaries", {})
   .n("CostOptimizationHubClient", "ListRecommendationSummariesCommand")
-  .sc(ListRecommendationSummaries)
+  .sc(ListRecommendationSummaries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

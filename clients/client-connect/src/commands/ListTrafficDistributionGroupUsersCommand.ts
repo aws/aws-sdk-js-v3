@@ -9,7 +9,7 @@ import type {
   ListTrafficDistributionGroupUsersRequest,
   ListTrafficDistributionGroupUsersResponse,
 } from "../models/models_2";
-import { ListTrafficDistributionGroupUsers } from "../schemas/schemas_0";
+import { ListTrafficDistributionGroupUsers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class ListTrafficDistributionGroupUsersCommand extends $Command
   })
   .s("AmazonConnectService", "ListTrafficDistributionGroupUsers", {})
   .n("ConnectClient", "ListTrafficDistributionGroupUsersCommand")
-  .sc(ListTrafficDistributionGroupUsers)
+  .sc(ListTrafficDistributionGroupUsers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

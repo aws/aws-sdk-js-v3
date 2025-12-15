@@ -8,7 +8,7 @@ import type {
   DeleteIdentityProviderConfigurationRequest,
   DeleteIdentityProviderConfigurationResponse,
 } from "../models/models_0";
-import { DeleteIdentityProviderConfiguration } from "../schemas/schemas_0";
+import { DeleteIdentityProviderConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -89,7 +89,7 @@ export class DeleteIdentityProviderConfigurationCommand extends $Command
   })
   .s("WorkMailService", "DeleteIdentityProviderConfiguration", {})
   .n("WorkMailClient", "DeleteIdentityProviderConfigurationCommand")
-  .sc(DeleteIdentityProviderConfiguration)
+  .sc(DeleteIdentityProviderConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

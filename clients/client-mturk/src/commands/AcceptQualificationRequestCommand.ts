@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AcceptQualificationRequestRequest, AcceptQualificationRequestResponse } from "../models/models_0";
 import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { AcceptQualificationRequest } from "../schemas/schemas_0";
+import { AcceptQualificationRequest$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class AcceptQualificationRequestCommand extends $Command
   })
   .s("MTurkRequesterServiceV20170117", "AcceptQualificationRequest", {})
   .n("MTurkClient", "AcceptQualificationRequestCommand")
-  .sc(AcceptQualificationRequest)
+  .sc(AcceptQualificationRequest$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

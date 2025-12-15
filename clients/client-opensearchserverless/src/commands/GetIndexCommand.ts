@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import { GetIndex } from "../schemas/schemas_0";
+import { GetIndex$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class GetIndexCommand extends $Command
   })
   .s("OpenSearchServerless", "GetIndex", {})
   .n("OpenSearchServerlessClient", "GetIndexCommand")
-  .sc(GetIndex)
+  .sc(GetIndex$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

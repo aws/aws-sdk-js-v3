@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IotDeviceAdvisorClient";
 import type { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
-import { ListTagsForResource } from "../schemas/schemas_0";
+import { ListTagsForResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class ListTagsForResourceCommand extends $Command
   })
   .s("IotSenateService", "ListTagsForResource", {})
   .n("IotDeviceAdvisorClient", "ListTagsForResourceCommand")
-  .sc(ListTagsForResource)
+  .sc(ListTagsForResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

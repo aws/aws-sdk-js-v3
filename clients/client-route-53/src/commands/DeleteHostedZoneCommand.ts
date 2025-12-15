@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteHostedZoneRequest, DeleteHostedZoneResponse } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { DeleteHostedZone } from "../schemas/schemas_0";
+import { DeleteHostedZone$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -139,7 +139,7 @@ export class DeleteHostedZoneCommand extends $Command
   })
   .s("AWSDnsV20130401", "DeleteHostedZone", {})
   .n("Route53Client", "DeleteHostedZoneCommand")
-  .sc(DeleteHostedZone)
+  .sc(DeleteHostedZone$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

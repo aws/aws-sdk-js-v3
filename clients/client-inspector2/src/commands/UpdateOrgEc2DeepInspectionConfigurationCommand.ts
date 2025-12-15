@@ -9,7 +9,7 @@ import type {
   UpdateOrgEc2DeepInspectionConfigurationRequest,
   UpdateOrgEc2DeepInspectionConfigurationResponse,
 } from "../models/models_1";
-import { UpdateOrgEc2DeepInspectionConfiguration } from "../schemas/schemas_0";
+import { UpdateOrgEc2DeepInspectionConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class UpdateOrgEc2DeepInspectionConfigurationCommand extends $Command
   })
   .s("Inspector2", "UpdateOrgEc2DeepInspectionConfiguration", {})
   .n("Inspector2Client", "UpdateOrgEc2DeepInspectionConfigurationCommand")
-  .sc(UpdateOrgEc2DeepInspectionConfiguration)
+  .sc(UpdateOrgEc2DeepInspectionConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

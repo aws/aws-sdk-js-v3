@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateBotRequest, CreateBotResponse } from "../models/models_0";
-import { CreateBot } from "../schemas/schemas_0";
+import { CreateBot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class CreateBotCommand extends $Command
   })
   .s("UCBuzzConsoleService", "CreateBot", {})
   .n("ChimeClient", "CreateBotCommand")
-  .sc(CreateBot)
+  .sc(CreateBot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

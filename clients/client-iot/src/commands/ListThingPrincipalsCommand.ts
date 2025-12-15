@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import type { ListThingPrincipalsRequest } from "../models/models_1";
 import type { ListThingPrincipalsResponse } from "../models/models_2";
-import { ListThingPrincipals } from "../schemas/schemas_0";
+import { ListThingPrincipals$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class ListThingPrincipalsCommand extends $Command
   })
   .s("AWSIotService", "ListThingPrincipals", {})
   .n("IoTClient", "ListThingPrincipalsCommand")
-  .sc(ListThingPrincipals)
+  .sc(ListThingPrincipals$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

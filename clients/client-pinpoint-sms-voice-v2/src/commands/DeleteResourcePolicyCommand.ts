@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { DeleteResourcePolicy } from "../schemas/schemas_0";
+import { DeleteResourcePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DeleteResourcePolicyCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "DeleteResourcePolicy", {})
   .n("PinpointSMSVoiceV2Client", "DeleteResourcePolicyCommand")
-  .sc(DeleteResourcePolicy)
+  .sc(DeleteResourcePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

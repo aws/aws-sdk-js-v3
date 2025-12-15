@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetIpamAddressHistoryRequest, GetIpamAddressHistoryResult } from "../models/models_6";
-import { GetIpamAddressHistory } from "../schemas/schemas_0";
+import { GetIpamAddressHistory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class GetIpamAddressHistoryCommand extends $Command
   })
   .s("AmazonEC2", "GetIpamAddressHistory", {})
   .n("EC2Client", "GetIpamAddressHistoryCommand")
-  .sc(GetIpamAddressHistory)
+  .sc(GetIpamAddressHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

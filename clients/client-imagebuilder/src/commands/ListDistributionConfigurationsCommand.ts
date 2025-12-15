@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import type { ListDistributionConfigurationsRequest, ListDistributionConfigurationsResponse } from "../models/models_0";
-import { ListDistributionConfigurations } from "../schemas/schemas_0";
+import { ListDistributionConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,7 +124,7 @@ export class ListDistributionConfigurationsCommand extends $Command
   })
   .s("imagebuilder", "ListDistributionConfigurations", {})
   .n("ImagebuilderClient", "ListDistributionConfigurationsCommand")
-  .sc(ListDistributionConfigurations)
+  .sc(ListDistributionConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

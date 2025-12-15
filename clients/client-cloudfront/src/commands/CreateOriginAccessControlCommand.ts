@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateOriginAccessControlRequest, CreateOriginAccessControlResult } from "../models/models_0";
-import { CreateOriginAccessControl } from "../schemas/schemas_0";
+import { CreateOriginAccessControl$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class CreateOriginAccessControlCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "CreateOriginAccessControl", {})
   .n("CloudFrontClient", "CreateOriginAccessControlCommand")
-  .sc(CreateOriginAccessControl)
+  .sc(CreateOriginAccessControl$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

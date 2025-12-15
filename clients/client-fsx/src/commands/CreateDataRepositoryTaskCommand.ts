@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import type { CreateDataRepositoryTaskRequest, CreateDataRepositoryTaskResponse } from "../models/models_0";
-import { CreateDataRepositoryTask } from "../schemas/schemas_0";
+import { CreateDataRepositoryTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -178,7 +178,7 @@ export class CreateDataRepositoryTaskCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "CreateDataRepositoryTask", {})
   .n("FSxClient", "CreateDataRepositoryTaskCommand")
-  .sc(CreateDataRepositoryTask)
+  .sc(CreateDataRepositoryTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

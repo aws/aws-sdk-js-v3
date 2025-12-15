@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetImageBlockPublicAccessStateRequest, GetImageBlockPublicAccessStateResult } from "../models/models_5";
-import { GetImageBlockPublicAccessState } from "../schemas/schemas_0";
+import { GetImageBlockPublicAccessState$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -79,7 +79,7 @@ export class GetImageBlockPublicAccessStateCommand extends $Command
   })
   .s("AmazonEC2", "GetImageBlockPublicAccessState", {})
   .n("EC2Client", "GetImageBlockPublicAccessStateCommand")
-  .sc(GetImageBlockPublicAccessState)
+  .sc(GetImageBlockPublicAccessState$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

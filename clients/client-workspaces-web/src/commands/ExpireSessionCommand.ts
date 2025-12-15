@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ExpireSessionRequest, ExpireSessionResponse } from "../models/models_0";
-import { ExpireSession } from "../schemas/schemas_0";
+import { ExpireSession$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -87,7 +87,7 @@ export class ExpireSessionCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "ExpireSession", {})
   .n("WorkSpacesWebClient", "ExpireSessionCommand")
-  .sc(ExpireSession)
+  .sc(ExpireSession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   DisableImportFindingsForProductRequest,
   DisableImportFindingsForProductResponse,
 } from "../models/models_2";
-import { DisableImportFindingsForProduct } from "../schemas/schemas_0";
+import { DisableImportFindingsForProduct$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -107,7 +107,7 @@ export class DisableImportFindingsForProductCommand extends $Command
   })
   .s("SecurityHubAPIService", "DisableImportFindingsForProduct", {})
   .n("SecurityHubClient", "DisableImportFindingsForProductCommand")
-  .sc(DisableImportFindingsForProduct)
+  .sc(DisableImportFindingsForProduct$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

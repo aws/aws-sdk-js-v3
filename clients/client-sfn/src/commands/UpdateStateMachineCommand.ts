@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateStateMachineInput, UpdateStateMachineOutput } from "../models/models_0";
-import { UpdateStateMachine } from "../schemas/schemas_0";
+import { UpdateStateMachine$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -186,7 +186,7 @@ export class UpdateStateMachineCommand extends $Command
   })
   .s("AWSStepFunctions", "UpdateStateMachine", {})
   .n("SFNClient", "UpdateStateMachineCommand")
-  .sc(UpdateStateMachine)
+  .sc(UpdateStateMachine$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

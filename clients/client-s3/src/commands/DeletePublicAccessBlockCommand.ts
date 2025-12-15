@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeletePublicAccessBlockRequest } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { DeletePublicAccessBlock } from "../schemas/schemas_0";
+import { DeletePublicAccessBlock$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class DeletePublicAccessBlockCommand extends $Command
   })
   .s("AmazonS3", "DeletePublicAccessBlock", {})
   .n("S3Client", "DeletePublicAccessBlockCommand")
-  .sc(DeletePublicAccessBlock)
+  .sc(DeletePublicAccessBlock$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

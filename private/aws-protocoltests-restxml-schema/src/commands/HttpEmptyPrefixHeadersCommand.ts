@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestXmlProtocolClient";
-import { HttpEmptyPrefixHeaders } from "../schemas/schemas_0";
+import { HttpEmptyPrefixHeaders$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class HttpEmptyPrefixHeadersCommand extends $Command
   })
   .s("RestXml", "HttpEmptyPrefixHeaders", {})
   .n("RestXmlProtocolClient", "HttpEmptyPrefixHeadersCommand")
-  .sc(HttpEmptyPrefixHeaders)
+  .sc(HttpEmptyPrefixHeaders$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

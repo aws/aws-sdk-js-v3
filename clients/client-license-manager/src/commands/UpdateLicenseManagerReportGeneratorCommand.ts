@@ -13,7 +13,7 @@ import type {
   UpdateLicenseManagerReportGeneratorRequest,
   UpdateLicenseManagerReportGeneratorResponse,
 } from "../models/models_0";
-import { UpdateLicenseManagerReportGenerator } from "../schemas/schemas_0";
+import { UpdateLicenseManagerReportGenerator$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class UpdateLicenseManagerReportGeneratorCommand extends $Command
   })
   .s("AWSLicenseManager", "UpdateLicenseManagerReportGenerator", {})
   .n("LicenseManagerClient", "UpdateLicenseManagerReportGeneratorCommand")
-  .sc(UpdateLicenseManagerReportGenerator)
+  .sc(UpdateLicenseManagerReportGenerator$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

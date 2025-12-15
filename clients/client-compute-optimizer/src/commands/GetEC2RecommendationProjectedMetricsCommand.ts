@@ -13,7 +13,7 @@ import type {
   GetEC2RecommendationProjectedMetricsRequest,
   GetEC2RecommendationProjectedMetricsResponse,
 } from "../models/models_0";
-import { GetEC2RecommendationProjectedMetrics } from "../schemas/schemas_0";
+import { GetEC2RecommendationProjectedMetrics$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -139,7 +139,7 @@ export class GetEC2RecommendationProjectedMetricsCommand extends $Command
   })
   .s("ComputeOptimizerService", "GetEC2RecommendationProjectedMetrics", {})
   .n("ComputeOptimizerClient", "GetEC2RecommendationProjectedMetricsCommand")
-  .sc(GetEC2RecommendationProjectedMetrics)
+  .sc(GetEC2RecommendationProjectedMetrics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

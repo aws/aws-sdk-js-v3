@@ -13,7 +13,7 @@ import type {
   BatchDeleteWorkloadEstimateUsageRequest,
   BatchDeleteWorkloadEstimateUsageResponse,
 } from "../models/models_0";
-import { BatchDeleteWorkloadEstimateUsage } from "../schemas/schemas_0";
+import { BatchDeleteWorkloadEstimateUsage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class BatchDeleteWorkloadEstimateUsageCommand extends $Command
   })
   .s("AWSBCMPricingCalculator", "BatchDeleteWorkloadEstimateUsage", {})
   .n("BCMPricingCalculatorClient", "BatchDeleteWorkloadEstimateUsageCommand")
-  .sc(BatchDeleteWorkloadEstimateUsage)
+  .sc(BatchDeleteWorkloadEstimateUsage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

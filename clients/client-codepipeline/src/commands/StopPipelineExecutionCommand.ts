@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopPipelineExecutionInput, StopPipelineExecutionOutput } from "../models/models_0";
-import { StopPipelineExecution } from "../schemas/schemas_0";
+import { StopPipelineExecution$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class StopPipelineExecutionCommand extends $Command
   })
   .s("CodePipeline_20150709", "StopPipelineExecution", {})
   .n("CodePipelineClient", "StopPipelineExecutionCommand")
-  .sc(StopPipelineExecution)
+  .sc(StopPipelineExecution$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

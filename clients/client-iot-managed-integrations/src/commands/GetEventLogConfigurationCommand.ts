@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { GetEventLogConfigurationRequest, GetEventLogConfigurationResponse } from "../models/models_0";
-import { GetEventLogConfiguration } from "../schemas/schemas_0";
+import { GetEventLogConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class GetEventLogConfigurationCommand extends $Command
   })
   .s("IotManagedIntegrations", "GetEventLogConfiguration", {})
   .n("IoTManagedIntegrationsClient", "GetEventLogConfigurationCommand")
-  .sc(GetEventLogConfiguration)
+  .sc(GetEventLogConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

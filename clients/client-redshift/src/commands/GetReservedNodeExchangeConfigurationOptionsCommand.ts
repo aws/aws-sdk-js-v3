@@ -9,7 +9,7 @@ import type {
   GetReservedNodeExchangeConfigurationOptionsOutputMessage,
 } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { GetReservedNodeExchangeConfigurationOptions } from "../schemas/schemas_0";
+import { GetReservedNodeExchangeConfigurationOptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -152,7 +152,7 @@ export class GetReservedNodeExchangeConfigurationOptionsCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "GetReservedNodeExchangeConfigurationOptions", {})
   .n("RedshiftClient", "GetReservedNodeExchangeConfigurationOptionsCommand")
-  .sc(GetReservedNodeExchangeConfigurationOptions)
+  .sc(GetReservedNodeExchangeConfigurationOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

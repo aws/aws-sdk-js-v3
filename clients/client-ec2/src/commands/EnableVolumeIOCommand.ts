@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EnableVolumeIORequest } from "../models/models_5";
-import { EnableVolumeIO } from "../schemas/schemas_0";
+import { EnableVolumeIO$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class EnableVolumeIOCommand extends $Command
   })
   .s("AmazonEC2", "EnableVolumeIO", {})
   .n("EC2Client", "EnableVolumeIOCommand")
-  .sc(EnableVolumeIO)
+  .sc(EnableVolumeIO$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

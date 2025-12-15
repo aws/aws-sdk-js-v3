@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
-import { EndpointOperation } from "../schemas/schemas_0";
+import { EndpointOperation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -68,7 +68,7 @@ export class EndpointOperationCommand extends $Command
   })
   .s("JsonRpc10", "EndpointOperation", {})
   .n("JSONRPC10Client", "EndpointOperationCommand")
-  .sc(EndpointOperation)
+  .sc(EndpointOperation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

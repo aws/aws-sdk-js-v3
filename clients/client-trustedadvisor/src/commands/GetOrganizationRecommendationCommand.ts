@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetOrganizationRecommendationRequest, GetOrganizationRecommendationResponse } from "../models/models_0";
-import { GetOrganizationRecommendation } from "../schemas/schemas_0";
+import { GetOrganizationRecommendation$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -167,7 +167,7 @@ export class GetOrganizationRecommendationCommand extends $Command
   })
   .s("TrustedAdvisor", "GetOrganizationRecommendation", {})
   .n("TrustedAdvisorClient", "GetOrganizationRecommendationCommand")
-  .sc(GetOrganizationRecommendation)
+  .sc(GetOrganizationRecommendation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   ListCodeSecurityScanConfigurationsRequest,
   ListCodeSecurityScanConfigurationsResponse,
 } from "../models/models_0";
-import { ListCodeSecurityScanConfigurations } from "../schemas/schemas_0";
+import { ListCodeSecurityScanConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class ListCodeSecurityScanConfigurationsCommand extends $Command
   })
   .s("Inspector2", "ListCodeSecurityScanConfigurations", {})
   .n("Inspector2Client", "ListCodeSecurityScanConfigurationsCommand")
-  .sc(ListCodeSecurityScanConfigurations)
+  .sc(ListCodeSecurityScanConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

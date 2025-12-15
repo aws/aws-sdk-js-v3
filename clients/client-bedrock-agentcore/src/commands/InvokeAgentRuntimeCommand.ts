@@ -14,7 +14,7 @@ import type {
 } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { InvokeAgentRuntimeRequest, InvokeAgentRuntimeResponse } from "../models/models_0";
-import { InvokeAgentRuntime } from "../schemas/schemas_0";
+import { InvokeAgentRuntime$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -140,7 +140,7 @@ export class InvokeAgentRuntimeCommand extends $Command
   })
   .s("AmazonBedrockAgentCore", "InvokeAgentRuntime", {})
   .n("BedrockAgentCoreClient", "InvokeAgentRuntimeCommand")
-  .sc(InvokeAgentRuntime)
+  .sc(InvokeAgentRuntime$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

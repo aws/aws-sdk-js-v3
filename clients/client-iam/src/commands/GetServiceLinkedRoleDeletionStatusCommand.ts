@@ -9,7 +9,7 @@ import type {
   GetServiceLinkedRoleDeletionStatusRequest,
   GetServiceLinkedRoleDeletionStatusResponse,
 } from "../models/models_0";
-import { GetServiceLinkedRoleDeletionStatus } from "../schemas/schemas_0";
+import { GetServiceLinkedRoleDeletionStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class GetServiceLinkedRoleDeletionStatusCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "GetServiceLinkedRoleDeletionStatus", {})
   .n("IAMClient", "GetServiceLinkedRoleDeletionStatusCommand")
-  .sc(GetServiceLinkedRoleDeletionStatus)
+  .sc(GetServiceLinkedRoleDeletionStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

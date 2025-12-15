@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { GetUsageLimit } from "../schemas/schemas_0";
+import { GetUsageLimit$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class GetUsageLimitCommand extends $Command
   })
   .s("RedshiftServerless", "GetUsageLimit", {})
   .n("RedshiftServerlessClient", "GetUsageLimitCommand")
-  .sc(GetUsageLimit)
+  .sc(GetUsageLimit$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

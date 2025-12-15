@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ActivateMessageTemplateRequest, ActivateMessageTemplateResponse } from "../models/models_0";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { ActivateMessageTemplate } from "../schemas/schemas_0";
+import { ActivateMessageTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class ActivateMessageTemplateCommand extends $Command
   })
   .s("WisdomService", "ActivateMessageTemplate", {})
   .n("QConnectClient", "ActivateMessageTemplateCommand")
-  .sc(ActivateMessageTemplate)
+  .sc(ActivateMessageTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

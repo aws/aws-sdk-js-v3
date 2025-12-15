@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import type { GetKeyRotationStatusRequest, GetKeyRotationStatusResponse } from "../models/models_0";
-import { GetKeyRotationStatus } from "../schemas/schemas_0";
+import { GetKeyRotationStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -185,7 +185,7 @@ export class GetKeyRotationStatusCommand extends $Command
   })
   .s("TrentService", "GetKeyRotationStatus", {})
   .n("KMSClient", "GetKeyRotationStatusCommand")
-  .sc(GetKeyRotationStatus)
+  .sc(GetKeyRotationStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

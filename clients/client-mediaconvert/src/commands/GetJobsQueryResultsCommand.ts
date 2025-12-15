@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
 import type { GetJobsQueryResultsRequest, GetJobsQueryResultsResponse } from "../models/models_0";
-import { GetJobsQueryResults } from "../schemas/schemas_0";
+import { GetJobsQueryResults$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -1745,7 +1745,7 @@ export class GetJobsQueryResultsCommand extends $Command
   })
   .s("MediaConvert", "GetJobsQueryResults", {})
   .n("MediaConvertClient", "GetJobsQueryResultsCommand")
-  .sc(GetJobsQueryResults)
+  .sc(GetJobsQueryResults$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

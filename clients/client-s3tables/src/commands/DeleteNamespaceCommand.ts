@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteNamespaceRequest } from "../models/models_0";
 import type { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
-import { DeleteNamespace } from "../schemas/schemas_0";
+import { DeleteNamespace$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeleteNamespaceCommand extends $Command
   })
   .s("S3TableBuckets", "DeleteNamespace", {})
   .n("S3TablesClient", "DeleteNamespaceCommand")
-  .sc(DeleteNamespace)
+  .sc(DeleteNamespace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

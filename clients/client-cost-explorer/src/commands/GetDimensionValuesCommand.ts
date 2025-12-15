@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDimensionValuesRequest, GetDimensionValuesResponse } from "../models/models_0";
-import { GetDimensionValues } from "../schemas/schemas_0";
+import { GetDimensionValues$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -190,7 +190,7 @@ export class GetDimensionValuesCommand extends $Command
   })
   .s("AWSInsightsIndexService", "GetDimensionValues", {})
   .n("CostExplorerClient", "GetDimensionValuesCommand")
-  .sc(GetDimensionValues)
+  .sc(GetDimensionValues$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

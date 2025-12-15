@@ -8,7 +8,7 @@ import type {
   DeleteAutomaticTapeCreationPolicyInput,
   DeleteAutomaticTapeCreationPolicyOutput,
 } from "../models/models_0";
-import { DeleteAutomaticTapeCreationPolicy } from "../schemas/schemas_0";
+import { DeleteAutomaticTapeCreationPolicy$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -92,7 +92,7 @@ export class DeleteAutomaticTapeCreationPolicyCommand extends $Command
   })
   .s("StorageGateway_20130630", "DeleteAutomaticTapeCreationPolicy", {})
   .n("StorageGatewayClient", "DeleteAutomaticTapeCreationPolicyCommand")
-  .sc(DeleteAutomaticTapeCreationPolicy)
+  .sc(DeleteAutomaticTapeCreationPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

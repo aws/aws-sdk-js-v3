@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { DeleteOtaTaskConfigurationRequest } from "../models/models_0";
-import { DeleteOtaTaskConfiguration } from "../schemas/schemas_0";
+import { DeleteOtaTaskConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeleteOtaTaskConfigurationCommand extends $Command
   })
   .s("IotManagedIntegrations", "DeleteOtaTaskConfiguration", {})
   .n("IoTManagedIntegrationsClient", "DeleteOtaTaskConfigurationCommand")
-  .sc(DeleteOtaTaskConfiguration)
+  .sc(DeleteOtaTaskConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

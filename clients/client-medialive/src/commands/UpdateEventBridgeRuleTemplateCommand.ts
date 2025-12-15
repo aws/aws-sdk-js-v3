@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { UpdateEventBridgeRuleTemplateRequest, UpdateEventBridgeRuleTemplateResponse } from "../models/models_1";
-import { UpdateEventBridgeRuleTemplate } from "../schemas/schemas_0";
+import { UpdateEventBridgeRuleTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class UpdateEventBridgeRuleTemplateCommand extends $Command
   })
   .s("MediaLive", "UpdateEventBridgeRuleTemplate", {})
   .n("MediaLiveClient", "UpdateEventBridgeRuleTemplateCommand")
-  .sc(UpdateEventBridgeRuleTemplate)
+  .sc(UpdateEventBridgeRuleTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

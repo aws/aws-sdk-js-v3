@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateMaintenanceStartTimeInput, UpdateMaintenanceStartTimeOutput } from "../models/models_0";
-import { UpdateMaintenanceStartTime } from "../schemas/schemas_0";
+import { UpdateMaintenanceStartTime$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -125,7 +125,7 @@ export class UpdateMaintenanceStartTimeCommand extends $Command
   })
   .s("StorageGateway_20130630", "UpdateMaintenanceStartTime", {})
   .n("StorageGatewayClient", "UpdateMaintenanceStartTimeCommand")
-  .sc(UpdateMaintenanceStartTime)
+  .sc(UpdateMaintenanceStartTime$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   BatchUpdateWorkloadEstimateUsageRequest,
   BatchUpdateWorkloadEstimateUsageResponse,
 } from "../models/models_0";
-import { BatchUpdateWorkloadEstimateUsage } from "../schemas/schemas_0";
+import { BatchUpdateWorkloadEstimateUsage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -198,7 +198,7 @@ export class BatchUpdateWorkloadEstimateUsageCommand extends $Command
   })
   .s("AWSBCMPricingCalculator", "BatchUpdateWorkloadEstimateUsage", {})
   .n("BCMPricingCalculatorClient", "BatchUpdateWorkloadEstimateUsageCommand")
-  .sc(BatchUpdateWorkloadEstimateUsage)
+  .sc(BatchUpdateWorkloadEstimateUsage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

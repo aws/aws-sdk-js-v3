@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
 import type { DeleteAccessorInput, DeleteAccessorOutput } from "../models/models_0";
-import { DeleteAccessor } from "../schemas/schemas_0";
+import { DeleteAccessor$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class DeleteAccessorCommand extends $Command
   })
   .s("TaigaWebService", "DeleteAccessor", {})
   .n("ManagedBlockchainClient", "DeleteAccessorCommand")
-  .sc(DeleteAccessor)
+  .sc(DeleteAccessor$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

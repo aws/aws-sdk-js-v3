@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutAccountSendingAttributesRequest, PutAccountSendingAttributesResponse } from "../models/models_0";
-import { PutAccountSendingAttributes } from "../schemas/schemas_0";
+import { PutAccountSendingAttributes$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -79,7 +79,7 @@ export class PutAccountSendingAttributesCommand extends $Command
   })
   .s("SimpleEmailService_v2", "PutAccountSendingAttributes", {})
   .n("SESv2Client", "PutAccountSendingAttributesCommand")
-  .sc(PutAccountSendingAttributes)
+  .sc(PutAccountSendingAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

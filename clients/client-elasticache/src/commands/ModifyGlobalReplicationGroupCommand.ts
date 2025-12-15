@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyGlobalReplicationGroupMessage, ModifyGlobalReplicationGroupResult } from "../models/models_0";
-import { ModifyGlobalReplicationGroup } from "../schemas/schemas_0";
+import { ModifyGlobalReplicationGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class ModifyGlobalReplicationGroupCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "ModifyGlobalReplicationGroup", {})
   .n("ElastiCacheClient", "ModifyGlobalReplicationGroupCommand")
-  .sc(ModifyGlobalReplicationGroup)
+  .sc(ModifyGlobalReplicationGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

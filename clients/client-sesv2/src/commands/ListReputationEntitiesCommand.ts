@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListReputationEntitiesRequest, ListReputationEntitiesResponse } from "../models/models_0";
-import { ListReputationEntities } from "../schemas/schemas_0";
+import { ListReputationEntities$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -108,7 +108,7 @@ export class ListReputationEntitiesCommand extends $Command
   })
   .s("SimpleEmailService_v2", "ListReputationEntities", {})
   .n("SESv2Client", "ListReputationEntitiesCommand")
-  .sc(ListReputationEntities)
+  .sc(ListReputationEntities$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

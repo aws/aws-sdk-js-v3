@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
 import type { RecognizeTextRequest, RecognizeTextResponse } from "../models/models_0";
-import { RecognizeText } from "../schemas/schemas_0";
+import { RecognizeText$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -359,7 +359,7 @@ export class RecognizeTextCommand extends $Command
   })
   .s("AWSDeepSenseRunTimeServiceApi2_0", "RecognizeText", {})
   .n("LexRuntimeV2Client", "RecognizeTextCommand")
-  .sc(RecognizeText)
+  .sc(RecognizeText$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

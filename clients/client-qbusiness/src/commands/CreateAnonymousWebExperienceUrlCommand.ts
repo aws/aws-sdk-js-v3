@@ -9,7 +9,7 @@ import type {
   CreateAnonymousWebExperienceUrlResponse,
 } from "../models/models_0";
 import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
-import { CreateAnonymousWebExperienceUrl } from "../schemas/schemas_0";
+import { CreateAnonymousWebExperienceUrl$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class CreateAnonymousWebExperienceUrlCommand extends $Command
   })
   .s("ExpertQ", "CreateAnonymousWebExperienceUrl", {})
   .n("QBusinessClient", "CreateAnonymousWebExperienceUrlCommand")
-  .sc(CreateAnonymousWebExperienceUrl)
+  .sc(CreateAnonymousWebExperienceUrl$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -371,23 +371,23 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { DataBrewServiceException as __DataBrewServiceException } from "../models/DataBrewServiceException";
+import { DataBrewServiceException } from "../models/DataBrewServiceException";
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ValidationException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var ClientSessionId: StaticSimpleSchema = [0, n0, _CSI, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var AllowedStatistics: StaticStructureSchema = [3, n0, _AS, 0, [_S], [64 | 0]];
-export var BatchDeleteRecipeVersionRequest: StaticStructureSchema = [3, n0, _BDRVR, 0, [_N, _RV], [[0, 1], 64 | 0]];
-export var BatchDeleteRecipeVersionResponse: StaticStructureSchema = [
+var ClientSessionId: StaticSimpleSchema = [0, n0, _CSI, 8, 0];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var AllowedStatistics$: StaticStructureSchema = [3, n0, _AS, 0, [_S], [64 | 0]];
+export var BatchDeleteRecipeVersionRequest$: StaticStructureSchema = [3, n0, _BDRVR, 0, [_N, _RV], [[0, 1], 64 | 0]];
+export var BatchDeleteRecipeVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _BDRVRa,
@@ -395,28 +395,28 @@ export var BatchDeleteRecipeVersionResponse: StaticStructureSchema = [
   [_N, _E],
   [0, () => RecipeErrorList],
 ];
-export var ColumnSelector: StaticStructureSchema = [3, n0, _CS, 0, [_R, _N], [0, 0]];
-export var ColumnStatisticsConfiguration: StaticStructureSchema = [
+export var ColumnSelector$: StaticStructureSchema = [3, n0, _CS, 0, [_R, _N], [0, 0]];
+export var ColumnStatisticsConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _CSC,
   0,
   [_Se, _S],
-  [() => ColumnSelectorList, () => StatisticsConfiguration],
+  [() => ColumnSelectorList, () => StatisticsConfiguration$],
 ];
-export var ConditionExpression: StaticStructureSchema = [3, n0, _CE, 0, [_C, _V, _TC], [0, 0, 0]];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CEo, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateDatasetRequest: StaticStructureSchema = [
+export var ConditionExpression$: StaticStructureSchema = [3, n0, _CE, 0, [_C, _V, _TC], [0, 0, 0]];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateDatasetRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDR,
   0,
   [_N, _F, _FO, _I, _PO, _T],
-  [0, 0, () => FormatOptions, () => Input, () => PathOptions, 128 | 0],
+  [0, 0, () => FormatOptions$, () => Input$, () => PathOptions$, 128 | 0],
 ];
-export var CreateDatasetResponse: StaticStructureSchema = [3, n0, _CDRr, 0, [_N], [0]];
-export var CreateProfileJobRequest: StaticStructureSchema = [
+export var CreateDatasetResponse$: StaticStructureSchema = [3, n0, _CDRr, 0, [_N], [0]];
+export var CreateProfileJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPJR,
@@ -430,26 +430,26 @@ export var CreateProfileJobRequest: StaticStructureSchema = [
     0,
     1,
     1,
-    () => S3Location,
-    () => ProfileConfiguration,
+    () => S3Location$,
+    () => ProfileConfiguration$,
     () => ValidationConfigurationList,
     0,
     128 | 0,
     1,
-    () => JobSample,
+    () => JobSample$,
   ],
 ];
-export var CreateProfileJobResponse: StaticStructureSchema = [3, n0, _CPJRr, 0, [_N], [0]];
-export var CreateProjectRequest: StaticStructureSchema = [
+export var CreateProfileJobResponse$: StaticStructureSchema = [3, n0, _CPJRr, 0, [_N], [0]];
+export var CreateProjectRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPR,
   0,
   [_DN, _N, _RN, _Sa, _RA, _T],
-  [0, 0, 0, () => Sample, 0, 128 | 0],
+  [0, 0, 0, () => Sample$, 0, 128 | 0],
 ];
-export var CreateProjectResponse: StaticStructureSchema = [3, n0, _CPRr, 0, [_N], [0]];
-export var CreateRecipeJobRequest: StaticStructureSchema = [
+export var CreateProjectResponse$: StaticStructureSchema = [3, n0, _CPRr, 0, [_N], [0]];
+export var CreateRecipeJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRJR,
@@ -467,14 +467,14 @@ export var CreateRecipeJobRequest: StaticStructureSchema = [
     () => DataCatalogOutputList,
     () => DatabaseOutputList,
     0,
-    () => RecipeReference,
+    () => RecipeReference$,
     0,
     128 | 0,
     1,
   ],
 ];
-export var CreateRecipeJobResponse: StaticStructureSchema = [3, n0, _CRJRr, 0, [_N], [0]];
-export var CreateRecipeRequest: StaticStructureSchema = [
+export var CreateRecipeJobResponse$: StaticStructureSchema = [3, n0, _CRJRr, 0, [_N], [0]];
+export var CreateRecipeRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRR,
@@ -482,8 +482,8 @@ export var CreateRecipeRequest: StaticStructureSchema = [
   [_D, _N, _St, _T],
   [0, 0, () => RecipeStepList, 128 | 0],
 ];
-export var CreateRecipeResponse: StaticStructureSchema = [3, n0, _CRRr, 0, [_N], [0]];
-export var CreateRulesetRequest: StaticStructureSchema = [
+export var CreateRecipeResponse$: StaticStructureSchema = [3, n0, _CRRr, 0, [_N], [0]];
+export var CreateRulesetRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRRre,
@@ -491,8 +491,8 @@ export var CreateRulesetRequest: StaticStructureSchema = [
   [_N, _D, _TA, _Ru, _T],
   [0, 0, 0, () => RuleList, 128 | 0],
 ];
-export var CreateRulesetResponse: StaticStructureSchema = [3, n0, _CRRrea, 0, [_N], [0]];
-export var CreateScheduleRequest: StaticStructureSchema = [
+export var CreateRulesetResponse$: StaticStructureSchema = [3, n0, _CRRrea, 0, [_N], [0]];
+export var CreateScheduleRequest$: StaticStructureSchema = [
   3,
   n0,
   _CSR,
@@ -500,66 +500,66 @@ export var CreateScheduleRequest: StaticStructureSchema = [
   [_JN, _CEr, _T, _N],
   [64 | 0, 0, 128 | 0, 0],
 ];
-export var CreateScheduleResponse: StaticStructureSchema = [3, n0, _CSRr, 0, [_N], [0]];
-export var CsvOptions: StaticStructureSchema = [3, n0, _CO, 0, [_De, _HR], [0, 2]];
-export var CsvOutputOptions: StaticStructureSchema = [3, n0, _COO, 0, [_De], [0]];
-export var DatabaseInputDefinition: StaticStructureSchema = [
+export var CreateScheduleResponse$: StaticStructureSchema = [3, n0, _CSRr, 0, [_N], [0]];
+export var CsvOptions$: StaticStructureSchema = [3, n0, _CO, 0, [_De, _HR], [0, 2]];
+export var CsvOutputOptions$: StaticStructureSchema = [3, n0, _COO, 0, [_De], [0]];
+export var DatabaseInputDefinition$: StaticStructureSchema = [
   3,
   n0,
   _DID,
   0,
   [_GCN, _DTN, _TD, _QS],
-  [0, 0, () => S3Location, 0],
+  [0, 0, () => S3Location$, 0],
 ];
-export var DatabaseOutput: StaticStructureSchema = [
+export var DatabaseOutput$: StaticStructureSchema = [
   3,
   n0,
   _DOa,
   0,
   [_GCN, _DOat, _DOM],
-  [0, () => DatabaseTableOutputOptions, 0],
+  [0, () => DatabaseTableOutputOptions$, 0],
 ];
-export var DatabaseTableOutputOptions: StaticStructureSchema = [3, n0, _DTOO, 0, [_TD, _TN], [() => S3Location, 0]];
-export var DataCatalogInputDefinition: StaticStructureSchema = [
+export var DatabaseTableOutputOptions$: StaticStructureSchema = [3, n0, _DTOO, 0, [_TD, _TN], [() => S3Location$, 0]];
+export var DataCatalogInputDefinition$: StaticStructureSchema = [
   3,
   n0,
   _DCID,
   0,
   [_CI, _DNa, _TN, _TD],
-  [0, 0, 0, () => S3Location],
+  [0, 0, 0, () => S3Location$],
 ];
-export var DataCatalogOutput: StaticStructureSchema = [
+export var DataCatalogOutput$: StaticStructureSchema = [
   3,
   n0,
   _DCOa,
   0,
   [_CI, _DNa, _TN, _SO, _DOat, _Ov],
-  [0, 0, 0, () => S3TableOutputOptions, () => DatabaseTableOutputOptions, 2],
+  [0, 0, 0, () => S3TableOutputOptions$, () => DatabaseTableOutputOptions$, 2],
 ];
-export var Dataset: StaticStructureSchema = [
+export var Dataset$: StaticStructureSchema = [
   3,
   n0,
   _Da,
   0,
   [_AI, _CB, _CD, _N, _F, _FO, _I, _LMD, _LMB, _So, _PO, _T, _RAe],
-  [0, 0, 4, 0, 0, () => FormatOptions, () => Input, 4, 0, 0, () => PathOptions, 128 | 0, 0],
+  [0, 0, 4, 0, 0, () => FormatOptions$, () => Input$, 4, 0, 0, () => PathOptions$, 128 | 0, 0],
 ];
-export var DatasetParameter: StaticStructureSchema = [
+export var DatasetParameter$: StaticStructureSchema = [
   3,
   n0,
   _DP,
   0,
   [_N, _Ty, _DOate, _CC, _Fi],
-  [0, 0, () => DatetimeOptions, 2, () => FilterExpression],
+  [0, 0, () => DatetimeOptions$, 2, () => FilterExpression$],
 ];
-export var DatetimeOptions: StaticStructureSchema = [3, n0, _DOate, 0, [_F, _TO, _LC], [0, 0, 0]];
-export var DeleteDatasetRequest: StaticStructureSchema = [3, n0, _DDR, 0, [_N], [[0, 1]]];
-export var DeleteDatasetResponse: StaticStructureSchema = [3, n0, _DDRe, 0, [_N], [0]];
-export var DeleteJobRequest: StaticStructureSchema = [3, n0, _DJR, 0, [_N], [[0, 1]]];
-export var DeleteJobResponse: StaticStructureSchema = [3, n0, _DJRe, 0, [_N], [0]];
-export var DeleteProjectRequest: StaticStructureSchema = [3, n0, _DPR, 0, [_N], [[0, 1]]];
-export var DeleteProjectResponse: StaticStructureSchema = [3, n0, _DPRe, 0, [_N], [0]];
-export var DeleteRecipeVersionRequest: StaticStructureSchema = [
+export var DatetimeOptions$: StaticStructureSchema = [3, n0, _DOate, 0, [_F, _TO, _LC], [0, 0, 0]];
+export var DeleteDatasetRequest$: StaticStructureSchema = [3, n0, _DDR, 0, [_N], [[0, 1]]];
+export var DeleteDatasetResponse$: StaticStructureSchema = [3, n0, _DDRe, 0, [_N], [0]];
+export var DeleteJobRequest$: StaticStructureSchema = [3, n0, _DJR, 0, [_N], [[0, 1]]];
+export var DeleteJobResponse$: StaticStructureSchema = [3, n0, _DJRe, 0, [_N], [0]];
+export var DeleteProjectRequest$: StaticStructureSchema = [3, n0, _DPR, 0, [_N], [[0, 1]]];
+export var DeleteProjectResponse$: StaticStructureSchema = [3, n0, _DPRe, 0, [_N], [0]];
+export var DeleteRecipeVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRVR,
@@ -570,22 +570,22 @@ export var DeleteRecipeVersionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteRecipeVersionResponse: StaticStructureSchema = [3, n0, _DRVRe, 0, [_N, _RVe], [0, 0]];
-export var DeleteRulesetRequest: StaticStructureSchema = [3, n0, _DRR, 0, [_N], [[0, 1]]];
-export var DeleteRulesetResponse: StaticStructureSchema = [3, n0, _DRRe, 0, [_N], [0]];
-export var DeleteScheduleRequest: StaticStructureSchema = [3, n0, _DSR, 0, [_N], [[0, 1]]];
-export var DeleteScheduleResponse: StaticStructureSchema = [3, n0, _DSRe, 0, [_N], [0]];
-export var DescribeDatasetRequest: StaticStructureSchema = [3, n0, _DDRes, 0, [_N], [[0, 1]]];
-export var DescribeDatasetResponse: StaticStructureSchema = [
+export var DeleteRecipeVersionResponse$: StaticStructureSchema = [3, n0, _DRVRe, 0, [_N, _RVe], [0, 0]];
+export var DeleteRulesetRequest$: StaticStructureSchema = [3, n0, _DRR, 0, [_N], [[0, 1]]];
+export var DeleteRulesetResponse$: StaticStructureSchema = [3, n0, _DRRe, 0, [_N], [0]];
+export var DeleteScheduleRequest$: StaticStructureSchema = [3, n0, _DSR, 0, [_N], [[0, 1]]];
+export var DeleteScheduleResponse$: StaticStructureSchema = [3, n0, _DSRe, 0, [_N], [0]];
+export var DescribeDatasetRequest$: StaticStructureSchema = [3, n0, _DDRes, 0, [_N], [[0, 1]]];
+export var DescribeDatasetResponse$: StaticStructureSchema = [
   3,
   n0,
   _DDResc,
   0,
   [_CB, _CD, _N, _F, _FO, _I, _LMD, _LMB, _So, _PO, _T, _RAe],
-  [0, 4, 0, 0, () => FormatOptions, () => Input, 4, 0, 0, () => PathOptions, 128 | 0, 0],
+  [0, 4, 0, 0, () => FormatOptions$, () => Input$, 4, 0, 0, () => PathOptions$, 128 | 0, 0],
 ];
-export var DescribeJobRequest: StaticStructureSchema = [3, n0, _DJRes, 0, [_N], [[0, 1]]];
-export var DescribeJobResponse: StaticStructureSchema = [
+export var DescribeJobRequest$: StaticStructureSchema = [3, n0, _DJRes, 0, [_N], [[0, 1]]];
+export var DescribeJobResponse$: StaticStructureSchema = [
   3,
   n0,
   _DJResc,
@@ -633,17 +633,17 @@ export var DescribeJobResponse: StaticStructureSchema = [
     () => DataCatalogOutputList,
     () => DatabaseOutputList,
     0,
-    () => ProfileConfiguration,
+    () => ProfileConfiguration$,
     () => ValidationConfigurationList,
-    () => RecipeReference,
+    () => RecipeReference$,
     0,
     0,
     128 | 0,
     1,
-    () => JobSample,
+    () => JobSample$,
   ],
 ];
-export var DescribeJobRunRequest: StaticStructureSchema = [
+export var DescribeJobRunRequest$: StaticStructureSchema = [
   3,
   n0,
   _DJRR,
@@ -654,7 +654,7 @@ export var DescribeJobRunRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeJobRunResponse: StaticStructureSchema = [
+export var DescribeJobRunResponse$: StaticStructureSchema = [
   3,
   n0,
   _DJRRe,
@@ -667,7 +667,7 @@ export var DescribeJobRunResponse: StaticStructureSchema = [
     0,
     1,
     0,
-    () => ProfileConfiguration,
+    () => ProfileConfiguration$,
     () => ValidationConfigurationList,
     0,
     0,
@@ -676,22 +676,22 @@ export var DescribeJobRunResponse: StaticStructureSchema = [
     () => OutputList,
     () => DataCatalogOutputList,
     () => DatabaseOutputList,
-    () => RecipeReference,
+    () => RecipeReference$,
     0,
     4,
-    () => JobSample,
+    () => JobSample$,
   ],
 ];
-export var DescribeProjectRequest: StaticStructureSchema = [3, n0, _DPRes, 0, [_N], [[0, 1]]];
-export var DescribeProjectResponse: StaticStructureSchema = [
+export var DescribeProjectRequest$: StaticStructureSchema = [3, n0, _DPRes, 0, [_N], [[0, 1]]];
+export var DescribeProjectResponse$: StaticStructureSchema = [
   3,
   n0,
   _DPResc,
   0,
   [_CD, _CB, _DN, _LMD, _LMB, _N, _RN, _RAe, _Sa, _RA, _T, _SS, _OB, _OD],
-  [4, 0, 0, 4, 0, 0, 0, 0, () => Sample, 0, 128 | 0, 0, 0, 4],
+  [4, 0, 0, 4, 0, 0, 0, 0, () => Sample$, 0, 128 | 0, 0, 0, 4],
 ];
-export var DescribeRecipeRequest: StaticStructureSchema = [
+export var DescribeRecipeRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRRes,
@@ -702,7 +702,7 @@ export var DescribeRecipeRequest: StaticStructureSchema = [
     [0, { [_hQ]: _rV }],
   ],
 ];
-export var DescribeRecipeResponse: StaticStructureSchema = [
+export var DescribeRecipeResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRResc,
@@ -710,8 +710,8 @@ export var DescribeRecipeResponse: StaticStructureSchema = [
   [_CB, _CD, _LMB, _LMD, _PN, _PB, _PD, _D, _N, _St, _T, _RAe, _RVe],
   [0, 4, 0, 4, 0, 0, 4, 0, 0, () => RecipeStepList, 128 | 0, 0, 0],
 ];
-export var DescribeRulesetRequest: StaticStructureSchema = [3, n0, _DRRescr, 0, [_N], [[0, 1]]];
-export var DescribeRulesetResponse: StaticStructureSchema = [
+export var DescribeRulesetRequest$: StaticStructureSchema = [3, n0, _DRRescr, 0, [_N], [[0, 1]]];
+export var DescribeRulesetResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRRescri,
@@ -719,8 +719,8 @@ export var DescribeRulesetResponse: StaticStructureSchema = [
   [_N, _D, _TA, _Ru, _CD, _CB, _LMB, _LMD, _RAe, _T],
   [0, 0, 0, () => RuleList, 4, 0, 0, 4, 0, 128 | 0],
 ];
-export var DescribeScheduleRequest: StaticStructureSchema = [3, n0, _DSRes, 0, [_N], [[0, 1]]];
-export var DescribeScheduleResponse: StaticStructureSchema = [
+export var DescribeScheduleRequest$: StaticStructureSchema = [3, n0, _DSRes, 0, [_N], [[0, 1]]];
+export var DescribeScheduleResponse$: StaticStructureSchema = [
   3,
   n0,
   _DSResc,
@@ -728,7 +728,7 @@ export var DescribeScheduleResponse: StaticStructureSchema = [
   [_CD, _CB, _JN, _LMB, _LMD, _RAe, _CEr, _T, _N],
   [4, 0, 64 | 0, 0, 4, 0, 0, 128 | 0, 0],
 ];
-export var EntityDetectorConfiguration: StaticStructureSchema = [
+export var EntityDetectorConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _EDC,
@@ -736,28 +736,28 @@ export var EntityDetectorConfiguration: StaticStructureSchema = [
   [_ETn, _AS],
   [64 | 0, () => AllowedStatisticList],
 ];
-export var ExcelOptions: StaticStructureSchema = [3, n0, _EO, 0, [_SN, _SI, _HR], [64 | 0, 64 | 1, 2]];
-export var FilesLimit: StaticStructureSchema = [3, n0, _FL, 0, [_MF, _OBr, _Or], [1, 0, 0]];
-export var FilterExpression: StaticStructureSchema = [3, n0, _FE, 0, [_Ex, _VM], [0, 128 | 0]];
-export var FormatOptions: StaticStructureSchema = [
+export var ExcelOptions$: StaticStructureSchema = [3, n0, _EO, 0, [_SN, _SI, _HR], [64 | 0, 64 | 1, 2]];
+export var FilesLimit$: StaticStructureSchema = [3, n0, _FL, 0, [_MF, _OBr, _Or], [1, 0, 0]];
+export var FilterExpression$: StaticStructureSchema = [3, n0, _FE, 0, [_Ex, _VM], [0, 128 | 0]];
+export var FormatOptions$: StaticStructureSchema = [
   3,
   n0,
   _FO,
   0,
   [_J, _Exc, _Cs],
-  [() => JsonOptions, () => ExcelOptions, () => CsvOptions],
+  [() => JsonOptions$, () => ExcelOptions$, () => CsvOptions$],
 ];
-export var Input: StaticStructureSchema = [
+export var Input$: StaticStructureSchema = [
   3,
   n0,
   _I,
   0,
   [_SID, _DCID, _DID, _Me],
-  [() => S3Location, () => DataCatalogInputDefinition, () => DatabaseInputDefinition, () => Metadata],
+  [() => S3Location$, () => DataCatalogInputDefinition$, () => DatabaseInputDefinition$, () => Metadata$],
 ];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var Job: StaticStructureSchema = [
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var Job$: StaticStructureSchema = [
   3,
   n0,
   _Jo,
@@ -806,16 +806,16 @@ export var Job: StaticStructureSchema = [
     () => DataCatalogOutputList,
     () => DatabaseOutputList,
     0,
-    () => RecipeReference,
+    () => RecipeReference$,
     0,
     0,
     1,
     128 | 0,
-    () => JobSample,
+    () => JobSample$,
     () => ValidationConfigurationList,
   ],
 ];
-export var JobRun: StaticStructureSchema = [
+export var JobRun$: StaticStructureSchema = [
   3,
   n0,
   _JR,
@@ -835,16 +835,16 @@ export var JobRun: StaticStructureSchema = [
     () => OutputList,
     () => DataCatalogOutputList,
     () => DatabaseOutputList,
-    () => RecipeReference,
+    () => RecipeReference$,
     0,
     4,
-    () => JobSample,
+    () => JobSample$,
     () => ValidationConfigurationList,
   ],
 ];
-export var JobSample: StaticStructureSchema = [3, n0, _JS, 0, [_Mo, _Si], [0, 1]];
-export var JsonOptions: StaticStructureSchema = [3, n0, _JO, 0, [_ML], [2]];
-export var ListDatasetsRequest: StaticStructureSchema = [
+export var JobSample$: StaticStructureSchema = [3, n0, _JS, 0, [_Mo, _Si], [0, 1]];
+export var JsonOptions$: StaticStructureSchema = [3, n0, _JO, 0, [_ML], [2]];
+export var ListDatasetsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDR,
@@ -855,8 +855,8 @@ export var ListDatasetsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListDatasetsResponse: StaticStructureSchema = [3, n0, _LDRi, 0, [_Dat, _NT], [() => DatasetList, 0]];
-export var ListJobRunsRequest: StaticStructureSchema = [
+export var ListDatasetsResponse$: StaticStructureSchema = [3, n0, _LDRi, 0, [_Dat, _NT], [() => DatasetList, 0]];
+export var ListJobRunsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LJRR,
@@ -868,8 +868,8 @@ export var ListJobRunsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListJobRunsResponse: StaticStructureSchema = [3, n0, _LJRRi, 0, [_JRo, _NT], [() => JobRunList, 0]];
-export var ListJobsRequest: StaticStructureSchema = [
+export var ListJobRunsResponse$: StaticStructureSchema = [3, n0, _LJRRi, 0, [_JRo, _NT], [() => JobRunList, 0]];
+export var ListJobsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LJR,
@@ -882,8 +882,8 @@ export var ListJobsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _pN }],
   ],
 ];
-export var ListJobsResponse: StaticStructureSchema = [3, n0, _LJRi, 0, [_Job, _NT], [() => JobList, 0]];
-export var ListProjectsRequest: StaticStructureSchema = [
+export var ListJobsResponse$: StaticStructureSchema = [3, n0, _LJRi, 0, [_Job, _NT], [() => JobList, 0]];
+export var ListProjectsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPR,
@@ -894,8 +894,8 @@ export var ListProjectsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListProjectsResponse: StaticStructureSchema = [3, n0, _LPRi, 0, [_P, _NT], [() => ProjectList, 0]];
-export var ListRecipesRequest: StaticStructureSchema = [
+export var ListProjectsResponse$: StaticStructureSchema = [3, n0, _LPRi, 0, [_P, _NT], [() => ProjectList, 0]];
+export var ListRecipesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRR,
@@ -907,8 +907,8 @@ export var ListRecipesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _rV }],
   ],
 ];
-export var ListRecipesResponse: StaticStructureSchema = [3, n0, _LRRi, 0, [_Re, _NT], [() => RecipeList, 0]];
-export var ListRecipeVersionsRequest: StaticStructureSchema = [
+export var ListRecipesResponse$: StaticStructureSchema = [3, n0, _LRRi, 0, [_Re, _NT], [() => RecipeList, 0]];
+export var ListRecipeVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRVR,
@@ -920,8 +920,8 @@ export var ListRecipeVersionsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _n }],
   ],
 ];
-export var ListRecipeVersionsResponse: StaticStructureSchema = [3, n0, _LRVRi, 0, [_NT, _Re], [0, () => RecipeList]];
-export var ListRulesetsRequest: StaticStructureSchema = [
+export var ListRecipeVersionsResponse$: StaticStructureSchema = [3, n0, _LRVRi, 0, [_NT, _Re], [0, () => RecipeList]];
+export var ListRulesetsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRRis,
@@ -933,8 +933,8 @@ export var ListRulesetsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListRulesetsResponse: StaticStructureSchema = [3, n0, _LRRist, 0, [_Rul, _NT], [() => RulesetItemList, 0]];
-export var ListSchedulesRequest: StaticStructureSchema = [
+export var ListRulesetsResponse$: StaticStructureSchema = [3, n0, _LRRist, 0, [_Rul, _NT], [() => RulesetItemList, 0]];
+export var ListSchedulesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LSR,
@@ -946,51 +946,51 @@ export var ListSchedulesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListSchedulesResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_Sc, _NT], [() => ScheduleList, 0]];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RAe], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [128 | 0]];
-export var Metadata: StaticStructureSchema = [3, n0, _Me, 0, [_SA], [0]];
-export var Output: StaticStructureSchema = [
+export var ListSchedulesResponse$: StaticStructureSchema = [3, n0, _LSRi, 0, [_Sc, _NT], [() => ScheduleList, 0]];
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RAe], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [128 | 0]];
+export var Metadata$: StaticStructureSchema = [3, n0, _Me, 0, [_SA], [0]];
+export var Output$: StaticStructureSchema = [
   3,
   n0,
   _Ou,
   0,
   [_CF, _F, _PCa, _L, _Ov, _FO, _MOF],
-  [0, 0, 64 | 0, () => S3Location, 2, () => OutputFormatOptions, 1],
+  [0, 0, 64 | 0, () => S3Location$, 2, () => OutputFormatOptions$, 1],
 ];
-export var OutputFormatOptions: StaticStructureSchema = [3, n0, _OFO, 0, [_Cs], [() => CsvOutputOptions]];
-export var PathOptions: StaticStructureSchema = [
+export var OutputFormatOptions$: StaticStructureSchema = [3, n0, _OFO, 0, [_Cs], [() => CsvOutputOptions$]];
+export var PathOptions$: StaticStructureSchema = [
   3,
   n0,
   _PO,
   0,
   [_LMDC, _FL, _Pa],
-  [() => FilterExpression, () => FilesLimit, () => PathParametersMap],
+  [() => FilterExpression$, () => FilesLimit$, () => PathParametersMap],
 ];
-export var ProfileConfiguration: StaticStructureSchema = [
+export var ProfileConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _PC,
   0,
   [_DSC, _PCr, _CSCo, _EDC],
   [
-    () => StatisticsConfiguration,
+    () => StatisticsConfiguration$,
     () => ColumnSelectorList,
     () => ColumnStatisticsConfigurationList,
-    () => EntityDetectorConfiguration,
+    () => EntityDetectorConfiguration$,
   ],
 ];
-export var Project: StaticStructureSchema = [
+export var Project$: StaticStructureSchema = [
   3,
   n0,
   _Pr,
   0,
   [_AI, _CD, _CB, _DN, _LMD, _LMB, _N, _RN, _RAe, _Sa, _T, _RA, _OB, _OD],
-  [0, 4, 0, 0, 4, 0, 0, 0, 0, () => Sample, 128 | 0, 0, 0, 4],
+  [0, 4, 0, 0, 4, 0, 0, 0, 0, () => Sample$, 128 | 0, 0, 0, 4],
 ];
-export var PublishRecipeRequest: StaticStructureSchema = [3, n0, _PRR, 0, [_D, _N], [0, [0, 1]]];
-export var PublishRecipeResponse: StaticStructureSchema = [3, n0, _PRRu, 0, [_N], [0]];
-export var Recipe: StaticStructureSchema = [
+export var PublishRecipeRequest$: StaticStructureSchema = [3, n0, _PRR, 0, [_D, _N], [0, [0, 1]]];
+export var PublishRecipeResponse$: StaticStructureSchema = [3, n0, _PRRu, 0, [_N], [0]];
+export var Recipe$: StaticStructureSchema = [
   3,
   n0,
   _Rec,
@@ -998,28 +998,28 @@ export var Recipe: StaticStructureSchema = [
   [_CB, _CD, _LMB, _LMD, _PN, _PB, _PD, _D, _N, _RAe, _St, _T, _RVe],
   [0, 4, 0, 4, 0, 0, 4, 0, 0, 0, () => RecipeStepList, 128 | 0, 0],
 ];
-export var RecipeAction: StaticStructureSchema = [3, n0, _RAec, 0, [_Op, _Pa], [0, 128 | 0]];
-export var RecipeReference: StaticStructureSchema = [3, n0, _RR, 0, [_N, _RVe], [0, 0]];
-export var RecipeStep: StaticStructureSchema = [
+export var RecipeAction$: StaticStructureSchema = [3, n0, _RAec, 0, [_Op, _Pa], [0, 128 | 0]];
+export var RecipeReference$: StaticStructureSchema = [3, n0, _RR, 0, [_N, _RVe], [0, 0]];
+export var RecipeStep$: StaticStructureSchema = [
   3,
   n0,
   _RS,
   0,
   [_Ac, _CEon],
-  [() => RecipeAction, () => ConditionExpressionList],
+  [() => RecipeAction$, () => ConditionExpressionList],
 ];
-export var RecipeVersionErrorDetail: StaticStructureSchema = [3, n0, _RVED, 0, [_EC, _EMr, _RVe], [0, 0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var Rule: StaticStructureSchema = [
+export var RecipeVersionErrorDetail$: StaticStructureSchema = [3, n0, _RVED, 0, [_EC, _EMr, _RVe], [0, 0, 0]];
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var Rule$: StaticStructureSchema = [
   3,
   n0,
   _Rule,
   0,
   [_N, _Di, _CEh, _SM, _Th, _CSo],
-  [0, 2, 0, 128 | 0, () => Threshold, () => ColumnSelectorList],
+  [0, 2, 0, 128 | 0, () => Threshold$, () => ColumnSelectorList],
 ];
-export var RulesetItem: StaticStructureSchema = [
+export var RulesetItem$: StaticStructureSchema = [
   3,
   n0,
   _RIu,
@@ -1027,10 +1027,10 @@ export var RulesetItem: StaticStructureSchema = [
   [_AI, _CB, _CD, _D, _LMB, _LMD, _N, _RAe, _RC, _T, _TA],
   [0, 0, 4, 0, 0, 4, 0, 0, 1, 128 | 0, 0],
 ];
-export var S3Location: StaticStructureSchema = [3, n0, _SL, 0, [_B, _K, _BO], [0, 0, 0]];
-export var S3TableOutputOptions: StaticStructureSchema = [3, n0, _STOO, 0, [_L], [() => S3Location]];
-export var Sample: StaticStructureSchema = [3, n0, _Sa, 0, [_Si, _Ty], [1, 0]];
-export var Schedule: StaticStructureSchema = [
+export var S3Location$: StaticStructureSchema = [3, n0, _SL, 0, [_B, _K, _BO], [0, 0, 0]];
+export var S3TableOutputOptions$: StaticStructureSchema = [3, n0, _STOO, 0, [_L], [() => S3Location$]];
+export var Sample$: StaticStructureSchema = [3, n0, _Sa, 0, [_Si, _Ty], [1, 0]];
+export var Schedule$: StaticStructureSchema = [
   3,
   n0,
   _Sch,
@@ -1038,21 +1038,21 @@ export var Schedule: StaticStructureSchema = [
   [_AI, _CB, _CD, _JN, _LMB, _LMD, _RAe, _CEr, _T, _N],
   [0, 0, 4, 64 | 0, 0, 4, 0, 0, 128 | 0, 0],
 ];
-export var SendProjectSessionActionRequest: StaticStructureSchema = [
+export var SendProjectSessionActionRequest$: StaticStructureSchema = [
   3,
   n0,
   _SPSAR,
   0,
   [_Pre, _N, _RS, _SIt, _CSI, _VF],
-  [2, [0, 1], () => RecipeStep, 1, [() => ClientSessionId, 0], () => ViewFrame],
+  [2, [0, 1], () => RecipeStep$, 1, [() => ClientSessionId, 0], () => ViewFrame$],
 ];
-export var SendProjectSessionActionResponse: StaticStructureSchema = [3, n0, _SPSARe, 0, [_Res, _N, _AIc], [0, 0, 1]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var StartJobRunRequest: StaticStructureSchema = [3, n0, _SJRR, 0, [_N], [[0, 1]]];
-export var StartJobRunResponse: StaticStructureSchema = [3, n0, _SJRRt, 0, [_RI], [0]];
-export var StartProjectSessionRequest: StaticStructureSchema = [3, n0, _SPSR, 0, [_N, _AC], [[0, 1], 2]];
-export var StartProjectSessionResponse: StaticStructureSchema = [
+export var SendProjectSessionActionResponse$: StaticStructureSchema = [3, n0, _SPSARe, 0, [_Res, _N, _AIc], [0, 0, 1]];
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var StartJobRunRequest$: StaticStructureSchema = [3, n0, _SJRR, 0, [_N], [[0, 1]]];
+export var StartJobRunResponse$: StaticStructureSchema = [3, n0, _SJRRt, 0, [_RI], [0]];
+export var StartProjectSessionRequest$: StaticStructureSchema = [3, n0, _SPSR, 0, [_N, _AC], [[0, 1], 2]];
+export var StartProjectSessionResponse$: StaticStructureSchema = [
   3,
   n0,
   _SPSRt,
@@ -1060,8 +1060,8 @@ export var StartProjectSessionResponse: StaticStructureSchema = [
   [_N, _CSI],
   [0, [() => ClientSessionId, 0]],
 ];
-export var StatisticOverride: StaticStructureSchema = [3, n0, _SOta, 0, [_Stat, _Pa], [0, 128 | 0]];
-export var StatisticsConfiguration: StaticStructureSchema = [
+export var StatisticOverride$: StaticStructureSchema = [3, n0, _SOta, 0, [_Stat, _Pa], [0, 128 | 0]];
+export var StatisticsConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SC,
@@ -1069,7 +1069,7 @@ export var StatisticsConfiguration: StaticStructureSchema = [
   [_IS, _Ove],
   [64 | 0, () => StatisticOverrideList],
 ];
-export var StopJobRunRequest: StaticStructureSchema = [
+export var StopJobRunRequest$: StaticStructureSchema = [
   3,
   n0,
   _SJRRto,
@@ -1080,11 +1080,11 @@ export var StopJobRunRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var StopJobRunResponse: StaticStructureSchema = [3, n0, _SJRRtop, 0, [_RI], [0]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RAe, _T], [[0, 1], 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var Threshold: StaticStructureSchema = [3, n0, _Th, 0, [_V, _Ty, _U], [1, 0, 0]];
-export var UntagResourceRequest: StaticStructureSchema = [
+export var StopJobRunResponse$: StaticStructureSchema = [3, n0, _SJRRtop, 0, [_RI], [0]];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_RAe, _T], [[0, 1], 128 | 0]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var Threshold$: StaticStructureSchema = [3, n0, _Th, 0, [_V, _Ty, _U], [1, 0, 0]];
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -1095,41 +1095,41 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateDatasetRequest: StaticStructureSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateDatasetRequest$: StaticStructureSchema = [
   3,
   n0,
   _UDR,
   0,
   [_N, _F, _FO, _I, _PO],
-  [[0, 1], 0, () => FormatOptions, () => Input, () => PathOptions],
+  [[0, 1], 0, () => FormatOptions$, () => Input$, () => PathOptions$],
 ];
-export var UpdateDatasetResponse: StaticStructureSchema = [3, n0, _UDRp, 0, [_N], [0]];
-export var UpdateProfileJobRequest: StaticStructureSchema = [
+export var UpdateDatasetResponse$: StaticStructureSchema = [3, n0, _UDRp, 0, [_N], [0]];
+export var UpdateProfileJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPJR,
   0,
   [_Co, _EKA, _EM, _N, _LS, _MC, _MR, _OL, _VC, _RA, _Ti, _JS],
   [
-    () => ProfileConfiguration,
+    () => ProfileConfiguration$,
     0,
     0,
     [0, 1],
     0,
     1,
     1,
-    () => S3Location,
+    () => S3Location$,
     () => ValidationConfigurationList,
     0,
     1,
-    () => JobSample,
+    () => JobSample$,
   ],
 ];
-export var UpdateProfileJobResponse: StaticStructureSchema = [3, n0, _UPJRp, 0, [_N], [0]];
-export var UpdateProjectRequest: StaticStructureSchema = [3, n0, _UPR, 0, [_Sa, _RA, _N], [() => Sample, 0, [0, 1]]];
-export var UpdateProjectResponse: StaticStructureSchema = [3, n0, _UPRp, 0, [_LMD, _N], [4, 0]];
-export var UpdateRecipeJobRequest: StaticStructureSchema = [
+export var UpdateProfileJobResponse$: StaticStructureSchema = [3, n0, _UPJRp, 0, [_N], [0]];
+export var UpdateProjectRequest$: StaticStructureSchema = [3, n0, _UPR, 0, [_Sa, _RA, _N], [() => Sample$, 0, [0, 1]]];
+export var UpdateProjectResponse$: StaticStructureSchema = [3, n0, _UPRp, 0, [_LMD, _N], [4, 0]];
+export var UpdateRecipeJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _URJR,
@@ -1137,8 +1137,8 @@ export var UpdateRecipeJobRequest: StaticStructureSchema = [
   [_EKA, _EM, _N, _LS, _MC, _MR, _O, _DCO, _DO, _RA, _Ti],
   [0, 0, [0, 1], 0, 1, 1, () => OutputList, () => DataCatalogOutputList, () => DatabaseOutputList, 0, 1],
 ];
-export var UpdateRecipeJobResponse: StaticStructureSchema = [3, n0, _URJRp, 0, [_N], [0]];
-export var UpdateRecipeRequest: StaticStructureSchema = [
+export var UpdateRecipeJobResponse$: StaticStructureSchema = [3, n0, _URJRp, 0, [_N], [0]];
+export var UpdateRecipeRequest$: StaticStructureSchema = [
   3,
   n0,
   _URRp,
@@ -1146,8 +1146,8 @@ export var UpdateRecipeRequest: StaticStructureSchema = [
   [_D, _N, _St],
   [0, [0, 1], () => RecipeStepList],
 ];
-export var UpdateRecipeResponse: StaticStructureSchema = [3, n0, _URRpd, 0, [_N], [0]];
-export var UpdateRulesetRequest: StaticStructureSchema = [
+export var UpdateRecipeResponse$: StaticStructureSchema = [3, n0, _URRpd, 0, [_N], [0]];
+export var UpdateRulesetRequest$: StaticStructureSchema = [
   3,
   n0,
   _URRpda,
@@ -1155,13 +1155,13 @@ export var UpdateRulesetRequest: StaticStructureSchema = [
   [_N, _D, _Ru],
   [[0, 1], 0, () => RuleList],
 ];
-export var UpdateRulesetResponse: StaticStructureSchema = [3, n0, _URRpdat, 0, [_N], [0]];
-export var UpdateScheduleRequest: StaticStructureSchema = [3, n0, _USR, 0, [_JN, _CEr, _N], [64 | 0, 0, [0, 1]]];
-export var UpdateScheduleResponse: StaticStructureSchema = [3, n0, _USRp, 0, [_N], [0]];
-export var ValidationConfiguration: StaticStructureSchema = [3, n0, _VCa, 0, [_RAu, _VMa], [0, 0]];
-export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var ViewFrame: StaticStructureSchema = [
+export var UpdateRulesetResponse$: StaticStructureSchema = [3, n0, _URRpdat, 0, [_N], [0]];
+export var UpdateScheduleRequest$: StaticStructureSchema = [3, n0, _USR, 0, [_JN, _CEr, _N], [64 | 0, 0, [0, 1]]];
+export var UpdateScheduleResponse$: StaticStructureSchema = [3, n0, _USRp, 0, [_N], [0]];
+export var ValidationConfiguration$: StaticStructureSchema = [3, n0, _VCa, 0, [_RAu, _VMa], [0, 0]];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var ViewFrame$: StaticStructureSchema = [
   3,
   n0,
   _VF,
@@ -1169,389 +1169,389 @@ export var ViewFrame: StaticStructureSchema = [
   [_SCI, _CR, _HC, _SRI, _RRo, _An],
   [1, 1, 64 | 0, 1, 1, 0],
 ];
-export var DataBrewServiceException: StaticErrorSchema = [-3, _sm, "DataBrewServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(DataBrewServiceException, __DataBrewServiceException);
-export var AllowedStatisticList: StaticListSchema = [1, n0, _ASL, 0, () => AllowedStatistics];
-export var ColumnNameList = 64 | 0;
-export var ColumnSelectorList: StaticListSchema = [1, n0, _CSL, 0, () => ColumnSelector];
-export var ColumnStatisticsConfigurationList: StaticListSchema = [1, n0, _CSCL, 0, () => ColumnStatisticsConfiguration];
-export var ConditionExpressionList: StaticListSchema = [1, n0, _CEL, 0, () => ConditionExpression];
-export var DatabaseOutputList: StaticListSchema = [1, n0, _DOL, 0, () => DatabaseOutput];
-export var DataCatalogOutputList: StaticListSchema = [1, n0, _DCOL, 0, () => DataCatalogOutput];
-export var DatasetList: StaticListSchema = [1, n0, _DL, 0, () => Dataset];
-export var EntityTypeList = 64 | 0;
-export var HiddenColumnList = 64 | 0;
-export var JobList: StaticListSchema = [1, n0, _JL, 0, () => Job];
-export var JobNameList = 64 | 0;
-export var JobRunList: StaticListSchema = [1, n0, _JRL, 0, () => JobRun];
-export var OutputList: StaticListSchema = [1, n0, _OLu, 0, () => Output];
-export var ProjectList: StaticListSchema = [1, n0, _PL, 0, () => Project];
-export var RecipeErrorList: StaticListSchema = [1, n0, _REL, 0, () => RecipeVersionErrorDetail];
-export var RecipeList: StaticListSchema = [1, n0, _RL, 0, () => Recipe];
-export var RecipeStepList: StaticListSchema = [1, n0, _RSL, 0, () => RecipeStep];
-export var RecipeVersionList = 64 | 0;
-export var RuleList: StaticListSchema = [1, n0, _RLu, 0, () => Rule];
-export var RulesetItemList: StaticListSchema = [1, n0, _RIL, 0, () => RulesetItem];
-export var ScheduleList: StaticListSchema = [1, n0, _SLc, 0, () => Schedule];
-export var SheetIndexList = 64 | 1;
-export var SheetNameList = 64 | 0;
-export var StatisticList = 64 | 0;
-export var StatisticOverrideList: StaticListSchema = [1, n0, _SOL, 0, () => StatisticOverride];
-export var TagKeyList = 64 | 0;
-export var ValidationConfigurationList: StaticListSchema = [1, n0, _VCL, 0, () => ValidationConfiguration];
-export var ParameterMap = 128 | 0;
-export var PathParametersMap: StaticMapSchema = [2, n0, _PPM, 0, 0, () => DatasetParameter];
-export var TagMap = 128 | 0;
-export var ValuesMap = 128 | 0;
-export var BatchDeleteRecipeVersion: StaticOperationSchema = [
+export var DataBrewServiceException$: StaticErrorSchema = [-3, _sm, "DataBrewServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(DataBrewServiceException$, DataBrewServiceException);
+var AllowedStatisticList: StaticListSchema = [1, n0, _ASL, 0, () => AllowedStatistics$];
+var ColumnNameList = 64 | 0;
+var ColumnSelectorList: StaticListSchema = [1, n0, _CSL, 0, () => ColumnSelector$];
+var ColumnStatisticsConfigurationList: StaticListSchema = [1, n0, _CSCL, 0, () => ColumnStatisticsConfiguration$];
+var ConditionExpressionList: StaticListSchema = [1, n0, _CEL, 0, () => ConditionExpression$];
+var DatabaseOutputList: StaticListSchema = [1, n0, _DOL, 0, () => DatabaseOutput$];
+var DataCatalogOutputList: StaticListSchema = [1, n0, _DCOL, 0, () => DataCatalogOutput$];
+var DatasetList: StaticListSchema = [1, n0, _DL, 0, () => Dataset$];
+var EntityTypeList = 64 | 0;
+var HiddenColumnList = 64 | 0;
+var JobList: StaticListSchema = [1, n0, _JL, 0, () => Job$];
+var JobNameList = 64 | 0;
+var JobRunList: StaticListSchema = [1, n0, _JRL, 0, () => JobRun$];
+var OutputList: StaticListSchema = [1, n0, _OLu, 0, () => Output$];
+var ProjectList: StaticListSchema = [1, n0, _PL, 0, () => Project$];
+var RecipeErrorList: StaticListSchema = [1, n0, _REL, 0, () => RecipeVersionErrorDetail$];
+var RecipeList: StaticListSchema = [1, n0, _RL, 0, () => Recipe$];
+var RecipeStepList: StaticListSchema = [1, n0, _RSL, 0, () => RecipeStep$];
+var RecipeVersionList = 64 | 0;
+var RuleList: StaticListSchema = [1, n0, _RLu, 0, () => Rule$];
+var RulesetItemList: StaticListSchema = [1, n0, _RIL, 0, () => RulesetItem$];
+var ScheduleList: StaticListSchema = [1, n0, _SLc, 0, () => Schedule$];
+var SheetIndexList = 64 | 1;
+var SheetNameList = 64 | 0;
+var StatisticList = 64 | 0;
+var StatisticOverrideList: StaticListSchema = [1, n0, _SOL, 0, () => StatisticOverride$];
+var TagKeyList = 64 | 0;
+var ValidationConfigurationList: StaticListSchema = [1, n0, _VCL, 0, () => ValidationConfiguration$];
+var ParameterMap = 128 | 0;
+var PathParametersMap: StaticMapSchema = [2, n0, _PPM, 0, 0, () => DatasetParameter$];
+var TagMap = 128 | 0;
+var ValuesMap = 128 | 0;
+export var BatchDeleteRecipeVersion$: StaticOperationSchema = [
   9,
   n0,
   _BDRV,
   { [_h]: ["POST", "/recipes/{Name}/batchDeleteRecipeVersion", 200] },
-  () => BatchDeleteRecipeVersionRequest,
-  () => BatchDeleteRecipeVersionResponse,
+  () => BatchDeleteRecipeVersionRequest$,
+  () => BatchDeleteRecipeVersionResponse$,
 ];
-export var CreateDataset: StaticOperationSchema = [
+export var CreateDataset$: StaticOperationSchema = [
   9,
   n0,
   _CDr,
   { [_h]: ["POST", "/datasets", 200] },
-  () => CreateDatasetRequest,
-  () => CreateDatasetResponse,
+  () => CreateDatasetRequest$,
+  () => CreateDatasetResponse$,
 ];
-export var CreateProfileJob: StaticOperationSchema = [
+export var CreateProfileJob$: StaticOperationSchema = [
   9,
   n0,
   _CPJ,
   { [_h]: ["POST", "/profileJobs", 200] },
-  () => CreateProfileJobRequest,
-  () => CreateProfileJobResponse,
+  () => CreateProfileJobRequest$,
+  () => CreateProfileJobResponse$,
 ];
-export var CreateProject: StaticOperationSchema = [
+export var CreateProject$: StaticOperationSchema = [
   9,
   n0,
   _CP,
   { [_h]: ["POST", "/projects", 200] },
-  () => CreateProjectRequest,
-  () => CreateProjectResponse,
+  () => CreateProjectRequest$,
+  () => CreateProjectResponse$,
 ];
-export var CreateRecipe: StaticOperationSchema = [
+export var CreateRecipe$: StaticOperationSchema = [
   9,
   n0,
   _CRr,
   { [_h]: ["POST", "/recipes", 200] },
-  () => CreateRecipeRequest,
-  () => CreateRecipeResponse,
+  () => CreateRecipeRequest$,
+  () => CreateRecipeResponse$,
 ];
-export var CreateRecipeJob: StaticOperationSchema = [
+export var CreateRecipeJob$: StaticOperationSchema = [
   9,
   n0,
   _CRJ,
   { [_h]: ["POST", "/recipeJobs", 200] },
-  () => CreateRecipeJobRequest,
-  () => CreateRecipeJobResponse,
+  () => CreateRecipeJobRequest$,
+  () => CreateRecipeJobResponse$,
 ];
-export var CreateRuleset: StaticOperationSchema = [
+export var CreateRuleset$: StaticOperationSchema = [
   9,
   n0,
   _CRre,
   { [_h]: ["POST", "/rulesets", 200] },
-  () => CreateRulesetRequest,
-  () => CreateRulesetResponse,
+  () => CreateRulesetRequest$,
+  () => CreateRulesetResponse$,
 ];
-export var CreateSchedule: StaticOperationSchema = [
+export var CreateSchedule$: StaticOperationSchema = [
   9,
   n0,
   _CSr,
   { [_h]: ["POST", "/schedules", 200] },
-  () => CreateScheduleRequest,
-  () => CreateScheduleResponse,
+  () => CreateScheduleRequest$,
+  () => CreateScheduleResponse$,
 ];
-export var DeleteDataset: StaticOperationSchema = [
+export var DeleteDataset$: StaticOperationSchema = [
   9,
   n0,
   _DD,
   { [_h]: ["DELETE", "/datasets/{Name}", 200] },
-  () => DeleteDatasetRequest,
-  () => DeleteDatasetResponse,
+  () => DeleteDatasetRequest$,
+  () => DeleteDatasetResponse$,
 ];
-export var DeleteJob: StaticOperationSchema = [
+export var DeleteJob$: StaticOperationSchema = [
   9,
   n0,
   _DJ,
   { [_h]: ["DELETE", "/jobs/{Name}", 200] },
-  () => DeleteJobRequest,
-  () => DeleteJobResponse,
+  () => DeleteJobRequest$,
+  () => DeleteJobResponse$,
 ];
-export var DeleteProject: StaticOperationSchema = [
+export var DeleteProject$: StaticOperationSchema = [
   9,
   n0,
   _DPe,
   { [_h]: ["DELETE", "/projects/{Name}", 200] },
-  () => DeleteProjectRequest,
-  () => DeleteProjectResponse,
+  () => DeleteProjectRequest$,
+  () => DeleteProjectResponse$,
 ];
-export var DeleteRecipeVersion: StaticOperationSchema = [
+export var DeleteRecipeVersion$: StaticOperationSchema = [
   9,
   n0,
   _DRV,
   { [_h]: ["DELETE", "/recipes/{Name}/recipeVersion/{RecipeVersion}", 200] },
-  () => DeleteRecipeVersionRequest,
-  () => DeleteRecipeVersionResponse,
+  () => DeleteRecipeVersionRequest$,
+  () => DeleteRecipeVersionResponse$,
 ];
-export var DeleteRuleset: StaticOperationSchema = [
+export var DeleteRuleset$: StaticOperationSchema = [
   9,
   n0,
   _DR,
   { [_h]: ["DELETE", "/rulesets/{Name}", 200] },
-  () => DeleteRulesetRequest,
-  () => DeleteRulesetResponse,
+  () => DeleteRulesetRequest$,
+  () => DeleteRulesetResponse$,
 ];
-export var DeleteSchedule: StaticOperationSchema = [
+export var DeleteSchedule$: StaticOperationSchema = [
   9,
   n0,
   _DS,
   { [_h]: ["DELETE", "/schedules/{Name}", 200] },
-  () => DeleteScheduleRequest,
-  () => DeleteScheduleResponse,
+  () => DeleteScheduleRequest$,
+  () => DeleteScheduleResponse$,
 ];
-export var DescribeDataset: StaticOperationSchema = [
+export var DescribeDataset$: StaticOperationSchema = [
   9,
   n0,
   _DDe,
   { [_h]: ["GET", "/datasets/{Name}", 200] },
-  () => DescribeDatasetRequest,
-  () => DescribeDatasetResponse,
+  () => DescribeDatasetRequest$,
+  () => DescribeDatasetResponse$,
 ];
-export var DescribeJob: StaticOperationSchema = [
+export var DescribeJob$: StaticOperationSchema = [
   9,
   n0,
   _DJe,
   { [_h]: ["GET", "/jobs/{Name}", 200] },
-  () => DescribeJobRequest,
-  () => DescribeJobResponse,
+  () => DescribeJobRequest$,
+  () => DescribeJobResponse$,
 ];
-export var DescribeJobRun: StaticOperationSchema = [
+export var DescribeJobRun$: StaticOperationSchema = [
   9,
   n0,
   _DJRescr,
   { [_h]: ["GET", "/jobs/{Name}/jobRun/{RunId}", 200] },
-  () => DescribeJobRunRequest,
-  () => DescribeJobRunResponse,
+  () => DescribeJobRunRequest$,
+  () => DescribeJobRunResponse$,
 ];
-export var DescribeProject: StaticOperationSchema = [
+export var DescribeProject$: StaticOperationSchema = [
   9,
   n0,
   _DPes,
   { [_h]: ["GET", "/projects/{Name}", 200] },
-  () => DescribeProjectRequest,
-  () => DescribeProjectResponse,
+  () => DescribeProjectRequest$,
+  () => DescribeProjectResponse$,
 ];
-export var DescribeRecipe: StaticOperationSchema = [
+export var DescribeRecipe$: StaticOperationSchema = [
   9,
   n0,
   _DRe,
   { [_h]: ["GET", "/recipes/{Name}", 200] },
-  () => DescribeRecipeRequest,
-  () => DescribeRecipeResponse,
+  () => DescribeRecipeRequest$,
+  () => DescribeRecipeResponse$,
 ];
-export var DescribeRuleset: StaticOperationSchema = [
+export var DescribeRuleset$: StaticOperationSchema = [
   9,
   n0,
   _DRes,
   { [_h]: ["GET", "/rulesets/{Name}", 200] },
-  () => DescribeRulesetRequest,
-  () => DescribeRulesetResponse,
+  () => DescribeRulesetRequest$,
+  () => DescribeRulesetResponse$,
 ];
-export var DescribeSchedule: StaticOperationSchema = [
+export var DescribeSchedule$: StaticOperationSchema = [
   9,
   n0,
   _DSe,
   { [_h]: ["GET", "/schedules/{Name}", 200] },
-  () => DescribeScheduleRequest,
-  () => DescribeScheduleResponse,
+  () => DescribeScheduleRequest$,
+  () => DescribeScheduleResponse$,
 ];
-export var ListDatasets: StaticOperationSchema = [
+export var ListDatasets$: StaticOperationSchema = [
   9,
   n0,
   _LD,
   { [_h]: ["GET", "/datasets", 200] },
-  () => ListDatasetsRequest,
-  () => ListDatasetsResponse,
+  () => ListDatasetsRequest$,
+  () => ListDatasetsResponse$,
 ];
-export var ListJobRuns: StaticOperationSchema = [
+export var ListJobRuns$: StaticOperationSchema = [
   9,
   n0,
   _LJRis,
   { [_h]: ["GET", "/jobs/{Name}/jobRuns", 200] },
-  () => ListJobRunsRequest,
-  () => ListJobRunsResponse,
+  () => ListJobRunsRequest$,
+  () => ListJobRunsResponse$,
 ];
-export var ListJobs: StaticOperationSchema = [
+export var ListJobs$: StaticOperationSchema = [
   9,
   n0,
   _LJ,
   { [_h]: ["GET", "/jobs", 200] },
-  () => ListJobsRequest,
-  () => ListJobsResponse,
+  () => ListJobsRequest$,
+  () => ListJobsResponse$,
 ];
-export var ListProjects: StaticOperationSchema = [
+export var ListProjects$: StaticOperationSchema = [
   9,
   n0,
   _LP,
   { [_h]: ["GET", "/projects", 200] },
-  () => ListProjectsRequest,
-  () => ListProjectsResponse,
+  () => ListProjectsRequest$,
+  () => ListProjectsResponse$,
 ];
-export var ListRecipes: StaticOperationSchema = [
+export var ListRecipes$: StaticOperationSchema = [
   9,
   n0,
   _LR,
   { [_h]: ["GET", "/recipes", 200] },
-  () => ListRecipesRequest,
-  () => ListRecipesResponse,
+  () => ListRecipesRequest$,
+  () => ListRecipesResponse$,
 ];
-export var ListRecipeVersions: StaticOperationSchema = [
+export var ListRecipeVersions$: StaticOperationSchema = [
   9,
   n0,
   _LRV,
   { [_h]: ["GET", "/recipeVersions", 200] },
-  () => ListRecipeVersionsRequest,
-  () => ListRecipeVersionsResponse,
+  () => ListRecipeVersionsRequest$,
+  () => ListRecipeVersionsResponse$,
 ];
-export var ListRulesets: StaticOperationSchema = [
+export var ListRulesets$: StaticOperationSchema = [
   9,
   n0,
   _LRi,
   { [_h]: ["GET", "/rulesets", 200] },
-  () => ListRulesetsRequest,
-  () => ListRulesetsResponse,
+  () => ListRulesetsRequest$,
+  () => ListRulesetsResponse$,
 ];
-export var ListSchedules: StaticOperationSchema = [
+export var ListSchedules$: StaticOperationSchema = [
   9,
   n0,
   _LSi,
   { [_h]: ["GET", "/schedules", 200] },
-  () => ListSchedulesRequest,
-  () => ListSchedulesResponse,
+  () => ListSchedulesRequest$,
+  () => ListSchedulesResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var PublishRecipe: StaticOperationSchema = [
+export var PublishRecipe$: StaticOperationSchema = [
   9,
   n0,
   _PR,
   { [_h]: ["POST", "/recipes/{Name}/publishRecipe", 200] },
-  () => PublishRecipeRequest,
-  () => PublishRecipeResponse,
+  () => PublishRecipeRequest$,
+  () => PublishRecipeResponse$,
 ];
-export var SendProjectSessionAction: StaticOperationSchema = [
+export var SendProjectSessionAction$: StaticOperationSchema = [
   9,
   n0,
   _SPSA,
   { [_h]: ["PUT", "/projects/{Name}/sendProjectSessionAction", 200] },
-  () => SendProjectSessionActionRequest,
-  () => SendProjectSessionActionResponse,
+  () => SendProjectSessionActionRequest$,
+  () => SendProjectSessionActionResponse$,
 ];
-export var StartJobRun: StaticOperationSchema = [
+export var StartJobRun$: StaticOperationSchema = [
   9,
   n0,
   _SJR,
   { [_h]: ["POST", "/jobs/{Name}/startJobRun", 200] },
-  () => StartJobRunRequest,
-  () => StartJobRunResponse,
+  () => StartJobRunRequest$,
+  () => StartJobRunResponse$,
 ];
-export var StartProjectSession: StaticOperationSchema = [
+export var StartProjectSession$: StaticOperationSchema = [
   9,
   n0,
   _SPS,
   { [_h]: ["PUT", "/projects/{Name}/startProjectSession", 200] },
-  () => StartProjectSessionRequest,
-  () => StartProjectSessionResponse,
+  () => StartProjectSessionRequest$,
+  () => StartProjectSessionResponse$,
 ];
-export var StopJobRun: StaticOperationSchema = [
+export var StopJobRun$: StaticOperationSchema = [
   9,
   n0,
   _SJRt,
   { [_h]: ["POST", "/jobs/{Name}/jobRun/{RunId}/stopJobRun", 200] },
-  () => StopJobRunRequest,
-  () => StopJobRunResponse,
+  () => StopJobRunRequest$,
+  () => StopJobRunResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/tags/{ResourceArn}", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tags/{ResourceArn}", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateDataset: StaticOperationSchema = [
+export var UpdateDataset$: StaticOperationSchema = [
   9,
   n0,
   _UD,
   { [_h]: ["PUT", "/datasets/{Name}", 200] },
-  () => UpdateDatasetRequest,
-  () => UpdateDatasetResponse,
+  () => UpdateDatasetRequest$,
+  () => UpdateDatasetResponse$,
 ];
-export var UpdateProfileJob: StaticOperationSchema = [
+export var UpdateProfileJob$: StaticOperationSchema = [
   9,
   n0,
   _UPJ,
   { [_h]: ["PUT", "/profileJobs/{Name}", 200] },
-  () => UpdateProfileJobRequest,
-  () => UpdateProfileJobResponse,
+  () => UpdateProfileJobRequest$,
+  () => UpdateProfileJobResponse$,
 ];
-export var UpdateProject: StaticOperationSchema = [
+export var UpdateProject$: StaticOperationSchema = [
   9,
   n0,
   _UP,
   { [_h]: ["PUT", "/projects/{Name}", 200] },
-  () => UpdateProjectRequest,
-  () => UpdateProjectResponse,
+  () => UpdateProjectRequest$,
+  () => UpdateProjectResponse$,
 ];
-export var UpdateRecipe: StaticOperationSchema = [
+export var UpdateRecipe$: StaticOperationSchema = [
   9,
   n0,
   _URp,
   { [_h]: ["PUT", "/recipes/{Name}", 200] },
-  () => UpdateRecipeRequest,
-  () => UpdateRecipeResponse,
+  () => UpdateRecipeRequest$,
+  () => UpdateRecipeResponse$,
 ];
-export var UpdateRecipeJob: StaticOperationSchema = [
+export var UpdateRecipeJob$: StaticOperationSchema = [
   9,
   n0,
   _URJ,
   { [_h]: ["PUT", "/recipeJobs/{Name}", 200] },
-  () => UpdateRecipeJobRequest,
-  () => UpdateRecipeJobResponse,
+  () => UpdateRecipeJobRequest$,
+  () => UpdateRecipeJobResponse$,
 ];
-export var UpdateRuleset: StaticOperationSchema = [
+export var UpdateRuleset$: StaticOperationSchema = [
   9,
   n0,
   _URpd,
   { [_h]: ["PUT", "/rulesets/{Name}", 200] },
-  () => UpdateRulesetRequest,
-  () => UpdateRulesetResponse,
+  () => UpdateRulesetRequest$,
+  () => UpdateRulesetResponse$,
 ];
-export var UpdateSchedule: StaticOperationSchema = [
+export var UpdateSchedule$: StaticOperationSchema = [
   9,
   n0,
   _US,
   { [_h]: ["PUT", "/schedules/{Name}", 200] },
-  () => UpdateScheduleRequest,
-  () => UpdateScheduleResponse,
+  () => UpdateScheduleRequest$,
+  () => UpdateScheduleResponse$,
 ];

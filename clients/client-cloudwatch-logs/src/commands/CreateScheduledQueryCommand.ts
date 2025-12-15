@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateScheduledQueryRequest, CreateScheduledQueryResponse } from "../models/models_0";
-import { CreateScheduledQuery } from "../schemas/schemas_0";
+import { CreateScheduledQuery$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class CreateScheduledQueryCommand extends $Command
   })
   .s("Logs_20140328", "CreateScheduledQuery", {})
   .n("CloudWatchLogsClient", "CreateScheduledQueryCommand")
-  .sc(CreateScheduledQuery)
+  .sc(CreateScheduledQuery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

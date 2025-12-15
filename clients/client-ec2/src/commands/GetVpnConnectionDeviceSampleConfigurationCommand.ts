@@ -9,7 +9,7 @@ import type {
   GetVpnConnectionDeviceSampleConfigurationRequest,
   GetVpnConnectionDeviceSampleConfigurationResult,
 } from "../models/models_6";
-import { GetVpnConnectionDeviceSampleConfiguration } from "../schemas/schemas_0";
+import { GetVpnConnectionDeviceSampleConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class GetVpnConnectionDeviceSampleConfigurationCommand extends $Command
   })
   .s("AmazonEC2", "GetVpnConnectionDeviceSampleConfiguration", {})
   .n("EC2Client", "GetVpnConnectionDeviceSampleConfigurationCommand")
-  .sc(GetVpnConnectionDeviceSampleConfiguration)
+  .sc(GetVpnConnectionDeviceSampleConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListPersonalAccessTokensRequest, ListPersonalAccessTokensResponse } from "../models/models_0";
-import { ListPersonalAccessTokens } from "../schemas/schemas_0";
+import { ListPersonalAccessTokens$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -110,7 +110,7 @@ export class ListPersonalAccessTokensCommand extends $Command
   })
   .s("WorkMailService", "ListPersonalAccessTokens", {})
   .n("WorkMailClient", "ListPersonalAccessTokensCommand")
-  .sc(ListPersonalAccessTokens)
+  .sc(ListPersonalAccessTokens$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

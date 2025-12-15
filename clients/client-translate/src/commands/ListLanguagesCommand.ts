@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListLanguagesRequest, ListLanguagesResponse } from "../models/models_0";
-import { ListLanguages } from "../schemas/schemas_0";
+import { ListLanguages$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
@@ -96,7 +96,7 @@ export class ListLanguagesCommand extends $Command
   })
   .s("AWSShineFrontendService_20170701", "ListLanguages", {})
   .n("TranslateClient", "ListLanguagesCommand")
-  .sc(ListLanguages)
+  .sc(ListLanguages$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

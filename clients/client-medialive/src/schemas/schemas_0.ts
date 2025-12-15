@@ -2416,21 +2416,21 @@ import type {
 } from "@smithy/types";
 
 import {
-  BadGatewayException as __BadGatewayException,
-  BadRequestException as __BadRequestException,
-  ConflictException as __ConflictException,
-  ForbiddenException as __ForbiddenException,
-  GatewayTimeoutException as __GatewayTimeoutException,
-  InternalServerErrorException as __InternalServerErrorException,
-  NotFoundException as __NotFoundException,
-  TooManyRequestsException as __TooManyRequestsException,
-  UnprocessableEntityException as __UnprocessableEntityException,
+  BadGatewayException,
+  BadRequestException,
+  ConflictException,
+  ForbiddenException,
+  GatewayTimeoutException,
+  InternalServerErrorException,
+  NotFoundException,
+  TooManyRequestsException,
+  UnprocessableEntityException,
 } from "../models/errors";
-import { MediaLiveServiceException as __MediaLiveServiceException } from "../models/MediaLiveServiceException";
+import { MediaLiveServiceException } from "../models/MediaLiveServiceException";
 
 /* eslint no-var: 0 */
-export var InputDeviceThumbnail: StaticSimpleSchema = [0, n0, _IDT, { [_s]: 1 }, 42];
-export var AacSettings: StaticStructureSchema = [
+var InputDeviceThumbnail: StaticSimpleSchema = [0, n0, _IDT, { [_s]: 1 }, 42];
+export var AacSettings$: StaticStructureSchema = [
   3,
   n0,
   _AS,
@@ -2448,7 +2448,7 @@ export var AacSettings: StaticStructureSchema = [
     [0, { [_jN]: _vQ }],
   ],
 ];
-export var Ac3Settings: StaticStructureSchema = [
+export var Ac3Settings$: StaticStructureSchema = [
   3,
   n0,
   _ASc,
@@ -2465,19 +2465,19 @@ export var Ac3Settings: StaticStructureSchema = [
     [0, { [_jN]: _aC }],
   ],
 ];
-export var AcceptInputDeviceTransferRequest: StaticStructureSchema = [3, n0, _AIDTR, 0, [_IDI], [[0, 1]]];
-export var AcceptInputDeviceTransferResponse: StaticStructureSchema = [3, n0, _AIDTRc, 0, [], []];
-export var AccountConfiguration: StaticStructureSchema = [3, n0, _ACc, 0, [_KKI], [[0, { [_jN]: _kKI }]]];
-export var AdditionalDestinations: StaticStructureSchema = [
+export var AcceptInputDeviceTransferRequest$: StaticStructureSchema = [3, n0, _AIDTR, 0, [_IDI], [[0, 1]]];
+export var AcceptInputDeviceTransferResponse$: StaticStructureSchema = [3, n0, _AIDTRc, 0, [], []];
+export var AccountConfiguration$: StaticStructureSchema = [3, n0, _ACc, 0, [_KKI], [[0, { [_jN]: _kKI }]]];
+export var AdditionalDestinations$: StaticStructureSchema = [
   3,
   n0,
   _AD,
   0,
   [_De],
-  [[() => OutputLocationRef, { [_jN]: _de }]],
+  [[() => OutputLocationRef$, { [_jN]: _de }]],
 ];
-export var AncillarySourceSettings: StaticStructureSchema = [3, n0, _ASS, 0, [_SACN], [[1, { [_jN]: _sACN }]]];
-export var AnywhereSettings: StaticStructureSchema = [
+export var AncillarySourceSettings$: StaticStructureSchema = [3, n0, _ASS, 0, [_SACN], [[1, { [_jN]: _sACN }]]];
+export var AnywhereSettings$: StaticStructureSchema = [
   3,
   n0,
   _ASn,
@@ -2488,53 +2488,53 @@ export var AnywhereSettings: StaticStructureSchema = [
     [0, { [_jN]: _cI }],
   ],
 ];
-export var ArchiveCdnSettings: StaticStructureSchema = [
+export var ArchiveCdnSettings$: StaticStructureSchema = [
   3,
   n0,
   _ACS,
   0,
   [_ASSr],
-  [[() => ArchiveS3Settings, { [_jN]: _aSS }]],
+  [[() => ArchiveS3Settings$, { [_jN]: _aSS }]],
 ];
-export var ArchiveContainerSettings: StaticStructureSchema = [
+export var ArchiveContainerSettings$: StaticStructureSchema = [
   3,
   n0,
   _ACSr,
   0,
   [_MS, _RS],
   [
-    [() => M2tsSettings, { [_jN]: _mS }],
-    [() => RawSettings, { [_jN]: _rS }],
+    [() => M2tsSettings$, { [_jN]: _mS }],
+    [() => RawSettings$, { [_jN]: _rS }],
   ],
 ];
-export var ArchiveGroupSettings: StaticStructureSchema = [
+export var ArchiveGroupSettings$: StaticStructureSchema = [
   3,
   n0,
   _AGS,
   0,
   [_ACS, _De, _RI],
   [
-    [() => ArchiveCdnSettings, { [_jN]: _aCS }],
-    [() => OutputLocationRef, { [_jN]: _de }],
+    [() => ArchiveCdnSettings$, { [_jN]: _aCS }],
+    [() => OutputLocationRef$, { [_jN]: _de }],
     [1, { [_jN]: _rI }],
   ],
 ];
-export var ArchiveOutputSettings: StaticStructureSchema = [
+export var ArchiveOutputSettings$: StaticStructureSchema = [
   3,
   n0,
   _AOS,
   0,
   [_CS, _E, _NM],
   [
-    [() => ArchiveContainerSettings, { [_jN]: _cS }],
+    [() => ArchiveContainerSettings$, { [_jN]: _cS }],
     [0, { [_jN]: _e }],
     [0, { [_jN]: _nM }],
   ],
 ];
-export var ArchiveS3Settings: StaticStructureSchema = [3, n0, _ASSr, 0, [_CA], [[0, { [_jN]: _cA }]]];
-export var AribDestinationSettings: StaticStructureSchema = [3, n0, _ADS, 0, [], []];
-export var AribSourceSettings: StaticStructureSchema = [3, n0, _ASSri, 0, [], []];
-export var AudioChannelMapping: StaticStructureSchema = [
+export var ArchiveS3Settings$: StaticStructureSchema = [3, n0, _ASSr, 0, [_CA], [[0, { [_jN]: _cA }]]];
+export var AribDestinationSettings$: StaticStructureSchema = [3, n0, _ADS, 0, [], []];
+export var AribSourceSettings$: StaticStructureSchema = [3, n0, _ASSri, 0, [], []];
+export var AudioChannelMapping$: StaticStructureSchema = [
   3,
   n0,
   _ACM,
@@ -2545,46 +2545,46 @@ export var AudioChannelMapping: StaticStructureSchema = [
     [1, { [_jN]: _oC }],
   ],
 ];
-export var AudioCodecSettings: StaticStructureSchema = [
+export var AudioCodecSettings$: StaticStructureSchema = [
   3,
   n0,
   _ACSu,
   0,
   [_AS, _ASc, _EAS, _ES, _MSp, _PTS, _WS],
   [
-    [() => AacSettings, { [_jN]: _aS }],
-    [() => Ac3Settings, { [_jN]: _aSc }],
-    [() => Eac3AtmosSettings, { [_jN]: _eAS }],
-    [() => Eac3Settings, { [_jN]: _eS }],
-    [() => Mp2Settings, { [_jN]: _mSp }],
-    [() => PassThroughSettings, { [_jN]: _pTS }],
-    [() => WavSettings, { [_jN]: _wS }],
+    [() => AacSettings$, { [_jN]: _aS }],
+    [() => Ac3Settings$, { [_jN]: _aSc }],
+    [() => Eac3AtmosSettings$, { [_jN]: _eAS }],
+    [() => Eac3Settings$, { [_jN]: _eS }],
+    [() => Mp2Settings$, { [_jN]: _mSp }],
+    [() => PassThroughSettings$, { [_jN]: _pTS }],
+    [() => WavSettings$, { [_jN]: _wS }],
   ],
 ];
-export var AudioDescription: StaticStructureSchema = [
+export var AudioDescription$: StaticStructureSchema = [
   3,
   n0,
   _ADu,
   0,
   [_ANS, _ASN, _AT, _ATC, _AWS, _CSo, _LC, _LCC, _N, _RSe, _SN, _ADR, _DDA],
   [
-    [() => AudioNormalizationSettings, { [_jN]: _aNS }],
+    [() => AudioNormalizationSettings$, { [_jN]: _aNS }],
     [0, { [_jN]: _aSN }],
     [0, { [_jN]: _aT }],
     [0, { [_jN]: _aTC }],
-    [() => AudioWatermarkSettings, { [_jN]: _aWS }],
-    [() => AudioCodecSettings, { [_jN]: _cSo }],
+    [() => AudioWatermarkSettings$, { [_jN]: _aWS }],
+    [() => AudioCodecSettings$, { [_jN]: _cSo }],
     [0, { [_jN]: _lC }],
     [0, { [_jN]: _lCC }],
     [0, { [_jN]: _n }],
-    [() => RemixSettings, { [_jN]: _rSe }],
+    [() => RemixSettings$, { [_jN]: _rSe }],
     [0, { [_jN]: _sN }],
     [64 | 0, { [_jN]: _aDR }],
     [0, { [_jN]: _dDA }],
   ],
 ];
-export var AudioDolbyEDecode: StaticStructureSchema = [3, n0, _ADED, 0, [_PS], [[0, { [_jN]: _pS }]]];
-export var AudioHlsRenditionSelection: StaticStructureSchema = [
+export var AudioDolbyEDecode$: StaticStructureSchema = [3, n0, _ADED, 0, [_PS], [[0, { [_jN]: _pS }]]];
+export var AudioHlsRenditionSelection$: StaticStructureSchema = [
   3,
   n0,
   _AHRS,
@@ -2595,7 +2595,7 @@ export var AudioHlsRenditionSelection: StaticStructureSchema = [
     [0, { [_jN]: _n }],
   ],
 ];
-export var AudioLanguageSelection: StaticStructureSchema = [
+export var AudioLanguageSelection$: StaticStructureSchema = [
   3,
   n0,
   _ALS,
@@ -2606,7 +2606,7 @@ export var AudioLanguageSelection: StaticStructureSchema = [
     [0, { [_jN]: _lSP }],
   ],
 ];
-export var AudioNormalizationSettings: StaticStructureSchema = [
+export var AudioNormalizationSettings$: StaticStructureSchema = [
   3,
   n0,
   _ANS,
@@ -2618,7 +2618,7 @@ export var AudioNormalizationSettings: StaticStructureSchema = [
     [1, { [_jN]: _tL }],
   ],
 ];
-export var AudioOnlyHlsSettings: StaticStructureSchema = [
+export var AudioOnlyHlsSettings$: StaticStructureSchema = [
   3,
   n0,
   _AOHS,
@@ -2626,13 +2626,13 @@ export var AudioOnlyHlsSettings: StaticStructureSchema = [
   [_AGI, _AOI, _ATT, _ST],
   [
     [0, { [_jN]: _aGI }],
-    [() => InputLocation, { [_jN]: _aOI }],
+    [() => InputLocation$, { [_jN]: _aOI }],
     [0, { [_jN]: _aTT }],
     [0, { [_jN]: _sT }],
   ],
 ];
-export var AudioPidSelection: StaticStructureSchema = [3, n0, _APS, 0, [_Pi], [[1, { [_jN]: _pi }]]];
-export var AudioSelector: StaticStructureSchema = [
+export var AudioPidSelection$: StaticStructureSchema = [3, n0, _APS, 0, [_Pi], [[1, { [_jN]: _pi }]]];
+export var AudioSelector$: StaticStructureSchema = [
   3,
   n0,
   _ASu,
@@ -2640,23 +2640,23 @@ export var AudioSelector: StaticStructureSchema = [
   [_N, _SS],
   [
     [0, { [_jN]: _n }],
-    [() => AudioSelectorSettings, { [_jN]: _sS }],
+    [() => AudioSelectorSettings$, { [_jN]: _sS }],
   ],
 ];
-export var AudioSelectorSettings: StaticStructureSchema = [
+export var AudioSelectorSettings$: StaticStructureSchema = [
   3,
   n0,
   _ASSu,
   0,
   [_AHRS, _ALS, _APS, _ATS],
   [
-    [() => AudioHlsRenditionSelection, { [_jN]: _aHRS }],
-    [() => AudioLanguageSelection, { [_jN]: _aLS }],
-    [() => AudioPidSelection, { [_jN]: _aPS }],
-    [() => AudioTrackSelection, { [_jN]: _aTS }],
+    [() => AudioHlsRenditionSelection$, { [_jN]: _aHRS }],
+    [() => AudioLanguageSelection$, { [_jN]: _aLS }],
+    [() => AudioPidSelection$, { [_jN]: _aPS }],
+    [() => AudioTrackSelection$, { [_jN]: _aTS }],
   ],
 ];
-export var AudioSilenceFailoverSettings: StaticStructureSchema = [
+export var AudioSilenceFailoverSettings$: StaticStructureSchema = [
   3,
   n0,
   _ASFS,
@@ -2667,8 +2667,8 @@ export var AudioSilenceFailoverSettings: StaticStructureSchema = [
     [1, { [_jN]: _aSTM }],
   ],
 ];
-export var AudioTrack: StaticStructureSchema = [3, n0, _ATu, 0, [_T], [[1, { [_jN]: _t }]]];
-export var AudioTrackSelection: StaticStructureSchema = [
+export var AudioTrack$: StaticStructureSchema = [3, n0, _ATu, 0, [_T], [[1, { [_jN]: _t }]]];
+export var AudioTrackSelection$: StaticStructureSchema = [
   3,
   n0,
   _ATS,
@@ -2676,18 +2676,18 @@ export var AudioTrackSelection: StaticStructureSchema = [
   [_Tr, _DED],
   [
     [() => __listOfAudioTrack, { [_jN]: _tr }],
-    [() => AudioDolbyEDecode, { [_jN]: _dED }],
+    [() => AudioDolbyEDecode$, { [_jN]: _dED }],
   ],
 ];
-export var AudioWatermarkSettings: StaticStructureSchema = [
+export var AudioWatermarkSettings$: StaticStructureSchema = [
   3,
   n0,
   _AWSu,
   0,
   [_NWS],
-  [[() => NielsenWatermarksSettings, { [_jN]: _nWS }]],
+  [[() => NielsenWatermarksSettings$, { [_jN]: _nWS }]],
 ];
-export var AutomaticInputFailoverSettings: StaticStructureSchema = [
+export var AutomaticInputFailoverSettings$: StaticStructureSchema = [
   3,
   n0,
   _AIFS,
@@ -2700,20 +2700,20 @@ export var AutomaticInputFailoverSettings: StaticStructureSchema = [
     [0, { [_jN]: _sII }],
   ],
 ];
-export var Av1ColorSpaceSettings: StaticStructureSchema = [
+export var Av1ColorSpaceSettings$: StaticStructureSchema = [
   3,
   n0,
   _ACSS,
   0,
   [_CSPS, _HS, _RSec, _RSece],
   [
-    [() => ColorSpacePassthroughSettings, { [_jN]: _cSPS }],
-    [() => Hdr10Settings, { [_jN]: _hS }],
-    [() => Rec601Settings, { [_jN]: _rSec }],
-    [() => Rec709Settings, { [_jN]: _rSece }],
+    [() => ColorSpacePassthroughSettings$, { [_jN]: _cSPS }],
+    [() => Hdr10Settings$, { [_jN]: _hS }],
+    [() => Rec601Settings$, { [_jN]: _rSec }],
+    [() => Rec709Settings$, { [_jN]: _rSece }],
   ],
 ];
-export var Av1Settings: StaticStructureSchema = [
+export var Av1Settings$: StaticStructureSchema = [
   3,
   n0,
   _ASv,
@@ -2745,7 +2745,7 @@ export var Av1Settings: StaticStructureSchema = [
   [
     [0, { [_jN]: _aSf }],
     [1, { [_jN]: _bS }],
-    [() => Av1ColorSpaceSettings, { [_jN]: _cSS }],
+    [() => Av1ColorSpaceSettings$, { [_jN]: _cSS }],
     [0, { [_jN]: _fA }],
     [1, { [_jN]: _fD }],
     [1, { [_jN]: _fN }],
@@ -2759,7 +2759,7 @@ export var Av1Settings: StaticStructureSchema = [
     [1, { [_jN]: _pN }],
     [1, { [_jN]: _qQL }],
     [0, { [_jN]: _sCD }],
-    [() => TimecodeBurninSettings, { [_jN]: _tBS }],
+    [() => TimecodeBurninSettings$, { [_jN]: _tBS }],
     [1, { [_jN]: _b }],
     [0, { [_jN]: _rCM }],
     [1, { [_jN]: _mBi }],
@@ -2767,41 +2767,41 @@ export var Av1Settings: StaticStructureSchema = [
     [0, { [_jN]: _tA }],
   ],
 ];
-export var AvailBlanking: StaticStructureSchema = [
+export var AvailBlanking$: StaticStructureSchema = [
   3,
   n0,
   _AB,
   0,
   [_ABI, _St],
   [
-    [() => InputLocation, { [_jN]: _aBI }],
+    [() => InputLocation$, { [_jN]: _aBI }],
     [0, { [_jN]: _st }],
   ],
 ];
-export var AvailConfiguration: StaticStructureSchema = [
+export var AvailConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ACv,
   0,
   [_ASva, _SSS],
   [
-    [() => AvailSettings, { [_jN]: _aSv }],
+    [() => AvailSettings$, { [_jN]: _aSv }],
     [0, { [_jN]: _sSS }],
   ],
 ];
-export var AvailSettings: StaticStructureSchema = [
+export var AvailSettings$: StaticStructureSchema = [
   3,
   n0,
   _ASva,
   0,
   [_Es, _SSI, _STSA],
   [
-    [() => Esam, { [_jN]: _es }],
-    [() => Scte35SpliceInsert, { [_jN]: _sSI }],
-    [() => Scte35TimeSignalApos, { [_jN]: _sTSA }],
+    [() => Esam$, { [_jN]: _es }],
+    [() => Scte35SpliceInsert$, { [_jN]: _sSI }],
+    [() => Scte35TimeSignalApos$, { [_jN]: _sTSA }],
   ],
 ];
-export var BadGatewayException: StaticErrorSchema = [
+export var BadGatewayException$: StaticErrorSchema = [
   -3,
   n0,
   _BGE,
@@ -2809,8 +2809,8 @@ export var BadGatewayException: StaticErrorSchema = [
   [_M],
   [[0, { [_jN]: _m }]],
 ];
-TypeRegistry.for(n0).registerError(BadGatewayException, __BadGatewayException);
-export var BadRequestException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(BadGatewayException$, BadGatewayException);
+export var BadRequestException$: StaticErrorSchema = [
   -3,
   n0,
   _BRE,
@@ -2818,8 +2818,8 @@ export var BadRequestException: StaticErrorSchema = [
   [_M],
   [[0, { [_jN]: _m }]],
 ];
-TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-export var BandwidthReductionFilterSettings: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
+export var BandwidthReductionFilterSettings$: StaticStructureSchema = [
   3,
   n0,
   _BRFS,
@@ -2830,7 +2830,7 @@ export var BandwidthReductionFilterSettings: StaticStructureSchema = [
     [0, { [_jN]: _str }],
   ],
 ];
-export var BatchDeleteRequest: StaticStructureSchema = [
+export var BatchDeleteRequest$: StaticStructureSchema = [
   3,
   n0,
   _BDR,
@@ -2843,7 +2843,7 @@ export var BatchDeleteRequest: StaticStructureSchema = [
     [64 | 0, { [_jN]: _mI }],
   ],
 ];
-export var BatchDeleteResponse: StaticStructureSchema = [
+export var BatchDeleteResponse$: StaticStructureSchema = [
   3,
   n0,
   _BDRa,
@@ -2854,7 +2854,7 @@ export var BatchDeleteResponse: StaticStructureSchema = [
     [() => __listOfBatchSuccessfulResultModel, { [_jN]: _su }],
   ],
 ];
-export var BatchFailedResultModel: StaticStructureSchema = [
+export var BatchFailedResultModel$: StaticStructureSchema = [
   3,
   n0,
   _BFRM,
@@ -2867,7 +2867,7 @@ export var BatchFailedResultModel: StaticStructureSchema = [
     [0, { [_jN]: _m }],
   ],
 ];
-export var BatchScheduleActionCreateRequest: StaticStructureSchema = [
+export var BatchScheduleActionCreateRequest$: StaticStructureSchema = [
   3,
   n0,
   _BSACR,
@@ -2875,7 +2875,7 @@ export var BatchScheduleActionCreateRequest: StaticStructureSchema = [
   [_SAc],
   [[() => __listOfScheduleAction, { [_jN]: _sAc }]],
 ];
-export var BatchScheduleActionCreateResult: StaticStructureSchema = [
+export var BatchScheduleActionCreateResult$: StaticStructureSchema = [
   3,
   n0,
   _BSACRa,
@@ -2883,7 +2883,7 @@ export var BatchScheduleActionCreateResult: StaticStructureSchema = [
   [_SAc],
   [[() => __listOfScheduleAction, { [_jN]: _sAc }]],
 ];
-export var BatchScheduleActionDeleteRequest: StaticStructureSchema = [
+export var BatchScheduleActionDeleteRequest$: StaticStructureSchema = [
   3,
   n0,
   _BSADR,
@@ -2891,7 +2891,7 @@ export var BatchScheduleActionDeleteRequest: StaticStructureSchema = [
   [_AN],
   [[64 | 0, { [_jN]: _aN }]],
 ];
-export var BatchScheduleActionDeleteResult: StaticStructureSchema = [
+export var BatchScheduleActionDeleteResult$: StaticStructureSchema = [
   3,
   n0,
   _BSADRa,
@@ -2899,7 +2899,7 @@ export var BatchScheduleActionDeleteResult: StaticStructureSchema = [
   [_SAc],
   [[() => __listOfScheduleAction, { [_jN]: _sAc }]],
 ];
-export var BatchStartRequest: StaticStructureSchema = [
+export var BatchStartRequest$: StaticStructureSchema = [
   3,
   n0,
   _BSR,
@@ -2910,7 +2910,7 @@ export var BatchStartRequest: StaticStructureSchema = [
     [64 | 0, { [_jN]: _mI }],
   ],
 ];
-export var BatchStartResponse: StaticStructureSchema = [
+export var BatchStartResponse$: StaticStructureSchema = [
   3,
   n0,
   _BSRa,
@@ -2921,7 +2921,7 @@ export var BatchStartResponse: StaticStructureSchema = [
     [() => __listOfBatchSuccessfulResultModel, { [_jN]: _su }],
   ],
 ];
-export var BatchStopRequest: StaticStructureSchema = [
+export var BatchStopRequest$: StaticStructureSchema = [
   3,
   n0,
   _BSRat,
@@ -2932,7 +2932,7 @@ export var BatchStopRequest: StaticStructureSchema = [
     [64 | 0, { [_jN]: _mI }],
   ],
 ];
-export var BatchStopResponse: StaticStructureSchema = [
+export var BatchStopResponse$: StaticStructureSchema = [
   3,
   n0,
   _BSRatc,
@@ -2943,7 +2943,7 @@ export var BatchStopResponse: StaticStructureSchema = [
     [() => __listOfBatchSuccessfulResultModel, { [_jN]: _su }],
   ],
 ];
-export var BatchSuccessfulResultModel: StaticStructureSchema = [
+export var BatchSuccessfulResultModel$: StaticStructureSchema = [
   3,
   n0,
   _BSRM,
@@ -2955,7 +2955,7 @@ export var BatchSuccessfulResultModel: StaticStructureSchema = [
     [0, { [_jN]: _st }],
   ],
 ];
-export var BatchUpdateScheduleRequest: StaticStructureSchema = [
+export var BatchUpdateScheduleRequest$: StaticStructureSchema = [
   3,
   n0,
   _BUSR,
@@ -2963,36 +2963,36 @@ export var BatchUpdateScheduleRequest: StaticStructureSchema = [
   [_CIha, _Cr, _Del],
   [
     [0, 1],
-    [() => BatchScheduleActionCreateRequest, { [_jN]: _cr }],
-    [() => BatchScheduleActionDeleteRequest, { [_jN]: _del }],
+    [() => BatchScheduleActionCreateRequest$, { [_jN]: _cr }],
+    [() => BatchScheduleActionDeleteRequest$, { [_jN]: _del }],
   ],
 ];
-export var BatchUpdateScheduleResponse: StaticStructureSchema = [
+export var BatchUpdateScheduleResponse$: StaticStructureSchema = [
   3,
   n0,
   _BUSRa,
   0,
   [_Cr, _Del],
   [
-    [() => BatchScheduleActionCreateResult, { [_jN]: _cr }],
-    [() => BatchScheduleActionDeleteResult, { [_jN]: _del }],
+    [() => BatchScheduleActionCreateResult$, { [_jN]: _cr }],
+    [() => BatchScheduleActionDeleteResult$, { [_jN]: _del }],
   ],
 ];
-export var BlackoutSlate: StaticStructureSchema = [
+export var BlackoutSlate$: StaticStructureSchema = [
   3,
   n0,
   _BSl,
   0,
   [_BSI, _NEB, _NEBI, _NI, _St],
   [
-    [() => InputLocation, { [_jN]: _bSI }],
+    [() => InputLocation$, { [_jN]: _bSI }],
     [0, { [_jN]: _nEB }],
-    [() => InputLocation, { [_jN]: _nEBI }],
+    [() => InputLocation$, { [_jN]: _nEBI }],
     [0, { [_jN]: _nI }],
     [0, { [_jN]: _st }],
   ],
 ];
-export var BurnInDestinationSettings: StaticStructureSchema = [
+export var BurnInDestinationSettings$: StaticStructureSchema = [
   3,
   n0,
   _BIDS,
@@ -3002,7 +3002,7 @@ export var BurnInDestinationSettings: StaticStructureSchema = [
     [0, { [_jN]: _al }],
     [0, { [_jN]: _bC }],
     [1, { [_jN]: _bO }],
-    [() => InputLocation, { [_jN]: _fo }],
+    [() => InputLocation$, { [_jN]: _fo }],
     [0, { [_jN]: _fCo }],
     [1, { [_jN]: _fO }],
     [1, { [_jN]: _fR }],
@@ -3019,9 +3019,9 @@ export var BurnInDestinationSettings: StaticStructureSchema = [
     [0, { [_jN]: _sRu }],
   ],
 ];
-export var CancelInputDeviceTransferRequest: StaticStructureSchema = [3, n0, _CIDTR, 0, [_IDI], [[0, 1]]];
-export var CancelInputDeviceTransferResponse: StaticStructureSchema = [3, n0, _CIDTRa, 0, [], []];
-export var CaptionDescription: StaticStructureSchema = [
+export var CancelInputDeviceTransferRequest$: StaticStructureSchema = [3, n0, _CIDTR, 0, [_IDI], [[0, 1]]];
+export var CancelInputDeviceTransferResponse$: StaticStructureSchema = [3, n0, _CIDTRa, 0, [], []];
+export var CaptionDescription$: StaticStructureSchema = [
   3,
   n0,
   _CD,
@@ -3030,7 +3030,7 @@ export var CaptionDescription: StaticStructureSchema = [
   [
     [0, { [_jN]: _ac }],
     [0, { [_jN]: _cSN }],
-    [() => CaptionDestinationSettings, { [_jN]: _dS }],
+    [() => CaptionDestinationSettings$, { [_jN]: _dS }],
     [0, { [_jN]: _lC }],
     [0, { [_jN]: _lD }],
     [0, { [_jN]: _n }],
@@ -3038,29 +3038,29 @@ export var CaptionDescription: StaticStructureSchema = [
     [0, { [_jN]: _dDA }],
   ],
 ];
-export var CaptionDestinationSettings: StaticStructureSchema = [
+export var CaptionDestinationSettings$: StaticStructureSchema = [
   3,
   n0,
   _CDS,
   0,
   [_ADS, _BIDS, _DSDS, _ETDDS, _EDS, _EPSDS, _RCIDS, _SPEDS, _SDS, _STDS, _TDS, _TDSt, _WDS],
   [
-    [() => AribDestinationSettings, { [_jN]: _aDS }],
-    [() => BurnInDestinationSettings, { [_jN]: _bIDS }],
-    [() => DvbSubDestinationSettings, { [_jN]: _dSDS }],
-    [() => EbuTtDDestinationSettings, { [_jN]: _eTDDS }],
-    [() => EmbeddedDestinationSettings, { [_jN]: _eDS }],
-    [() => EmbeddedPlusScte20DestinationSettings, { [_jN]: _ePSDS }],
-    [() => RtmpCaptionInfoDestinationSettings, { [_jN]: _rCIDS }],
-    [() => Scte20PlusEmbeddedDestinationSettings, { [_jN]: _sPEDS }],
-    [() => Scte27DestinationSettings, { [_jN]: _sDS }],
-    [() => SmpteTtDestinationSettings, { [_jN]: _sTDS }],
-    [() => TeletextDestinationSettings, { [_jN]: _tDS }],
-    [() => TtmlDestinationSettings, { [_jN]: _tDSt }],
-    [() => WebvttDestinationSettings, { [_jN]: _wDS }],
+    [() => AribDestinationSettings$, { [_jN]: _aDS }],
+    [() => BurnInDestinationSettings$, { [_jN]: _bIDS }],
+    [() => DvbSubDestinationSettings$, { [_jN]: _dSDS }],
+    [() => EbuTtDDestinationSettings$, { [_jN]: _eTDDS }],
+    [() => EmbeddedDestinationSettings$, { [_jN]: _eDS }],
+    [() => EmbeddedPlusScte20DestinationSettings$, { [_jN]: _ePSDS }],
+    [() => RtmpCaptionInfoDestinationSettings$, { [_jN]: _rCIDS }],
+    [() => Scte20PlusEmbeddedDestinationSettings$, { [_jN]: _sPEDS }],
+    [() => Scte27DestinationSettings$, { [_jN]: _sDS }],
+    [() => SmpteTtDestinationSettings$, { [_jN]: _sTDS }],
+    [() => TeletextDestinationSettings$, { [_jN]: _tDS }],
+    [() => TtmlDestinationSettings$, { [_jN]: _tDSt }],
+    [() => WebvttDestinationSettings$, { [_jN]: _wDS }],
   ],
 ];
-export var CaptionLanguageMapping: StaticStructureSchema = [
+export var CaptionLanguageMapping$: StaticStructureSchema = [
   3,
   n0,
   _CLM,
@@ -3072,7 +3072,7 @@ export var CaptionLanguageMapping: StaticStructureSchema = [
     [0, { [_jN]: _lD }],
   ],
 ];
-export var CaptionRectangle: StaticStructureSchema = [
+export var CaptionRectangle$: StaticStructureSchema = [
   3,
   n0,
   _CR,
@@ -3085,7 +3085,7 @@ export var CaptionRectangle: StaticStructureSchema = [
     [1, { [_jN]: _w }],
   ],
 ];
-export var CaptionSelector: StaticStructureSchema = [
+export var CaptionSelector$: StaticStructureSchema = [
   3,
   n0,
   _CSa,
@@ -3094,27 +3094,27 @@ export var CaptionSelector: StaticStructureSchema = [
   [
     [0, { [_jN]: _lC }],
     [0, { [_jN]: _n }],
-    [() => CaptionSelectorSettings, { [_jN]: _sS }],
+    [() => CaptionSelectorSettings$, { [_jN]: _sS }],
   ],
 ];
-export var CaptionSelectorSettings: StaticStructureSchema = [
+export var CaptionSelectorSettings$: StaticStructureSchema = [
   3,
   n0,
   _CSSa,
   0,
   [_ASS, _ASSri, _DSSS, _ESS, _SSSc, _SSSct, _TSS],
   [
-    [() => AncillarySourceSettings, { [_jN]: _aSSn }],
-    [() => AribSourceSettings, { [_jN]: _aSSr }],
-    [() => DvbSubSourceSettings, { [_jN]: _dSSS }],
-    [() => EmbeddedSourceSettings, { [_jN]: _eSS }],
-    [() => Scte20SourceSettings, { [_jN]: _sSSc }],
-    [() => Scte27SourceSettings, { [_jN]: _sSSct }],
-    [() => TeletextSourceSettings, { [_jN]: _tSS }],
+    [() => AncillarySourceSettings$, { [_jN]: _aSSn }],
+    [() => AribSourceSettings$, { [_jN]: _aSSr }],
+    [() => DvbSubSourceSettings$, { [_jN]: _dSSS }],
+    [() => EmbeddedSourceSettings$, { [_jN]: _eSS }],
+    [() => Scte20SourceSettings$, { [_jN]: _sSSc }],
+    [() => Scte27SourceSettings$, { [_jN]: _sSSct }],
+    [() => TeletextSourceSettings$, { [_jN]: _tSS }],
   ],
 ];
-export var CdiInputSpecification: StaticStructureSchema = [3, n0, _CIS, 0, [_R], [[0, { [_jN]: _r }]]];
-export var Channel: StaticStructureSchema = [
+export var CdiInputSpecification$: StaticStructureSchema = [3, n0, _CIS, 0, [_R], [[0, { [_jN]: _r }]]];
+export var Channel$: StaticStructureSchema = [
   3,
   n0,
   _Ch,
@@ -3122,28 +3122,28 @@ export var Channel: StaticStructureSchema = [
   [_Ar, _CIS, _CCh, _Des, _EE, _ESn, _I, _IA, _IS, _LL, _Ma, _N, _PDi, _PRC, _RA, _St, _Ta, _V, _ASn, _CEV],
   [
     [0, { [_jN]: _ar }],
-    [() => CdiInputSpecification, { [_jN]: _cIS }],
+    [() => CdiInputSpecification$, { [_jN]: _cIS }],
     [0, { [_jN]: _cCh }],
     [() => __listOfOutputDestination, { [_jN]: _des }],
     [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }],
-    [() => EncoderSettings, { [_jN]: _eSn }],
+    [() => EncoderSettings$, { [_jN]: _eSn }],
     [0, { [_jN]: _i }],
     [() => __listOfInputAttachment, { [_jN]: _iA }],
-    [() => InputSpecification, { [_jN]: _iS }],
+    [() => InputSpecification$, { [_jN]: _iS }],
     [0, { [_jN]: _lL }],
-    [() => MaintenanceStatus, { [_jN]: _ma }],
+    [() => MaintenanceStatus$, { [_jN]: _ma }],
     [0, { [_jN]: _n }],
     [() => __listOfPipelineDetail, { [_jN]: _pDi }],
     [1, { [_jN]: _pRC }],
     [0, { [_jN]: _rA }],
     [0, { [_jN]: _st }],
     [128 | 0, { [_jN]: _ta }],
-    [() => VpcOutputSettingsDescription, { [_jN]: _v }],
-    [() => DescribeAnywhereSettings, { [_jN]: _aSn }],
-    [() => ChannelEngineVersionResponse, { [_jN]: _cEV }],
+    [() => VpcOutputSettingsDescription$, { [_jN]: _v }],
+    [() => DescribeAnywhereSettings$, { [_jN]: _aSn }],
+    [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }],
   ],
 ];
-export var ChannelAlert: StaticStructureSchema = [
+export var ChannelAlert$: StaticStructureSchema = [
   3,
   n0,
   _CAh,
@@ -3159,9 +3159,9 @@ export var ChannelAlert: StaticStructureSchema = [
     [0, { [_jN]: _st }],
   ],
 ];
-export var ChannelEgressEndpoint: StaticStructureSchema = [3, n0, _CEE, 0, [_SI], [[0, { [_jN]: _sI }]]];
-export var ChannelEngineVersionRequest: StaticStructureSchema = [3, n0, _CEVR, 0, [_Ve], [[0, { [_jN]: _ve }]]];
-export var ChannelEngineVersionResponse: StaticStructureSchema = [
+export var ChannelEgressEndpoint$: StaticStructureSchema = [3, n0, _CEE, 0, [_SI], [[0, { [_jN]: _sI }]]];
+export var ChannelEngineVersionRequest$: StaticStructureSchema = [3, n0, _CEVR, 0, [_Ve], [[0, { [_jN]: _ve }]]];
+export var ChannelEngineVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CEVRh,
@@ -3172,7 +3172,7 @@ export var ChannelEngineVersionResponse: StaticStructureSchema = [
     [0, { [_jN]: _ve }],
   ],
 ];
-export var ChannelSummary: StaticStructureSchema = [
+export var ChannelSummary$: StaticStructureSchema = [
   3,
   n0,
   _CSh,
@@ -3180,29 +3180,29 @@ export var ChannelSummary: StaticStructureSchema = [
   [_Ar, _CIS, _CCh, _Des, _EE, _I, _IA, _IS, _LL, _Ma, _N, _PRC, _RA, _St, _Ta, _V, _ASn, _CEV, _UCEV],
   [
     [0, { [_jN]: _ar }],
-    [() => CdiInputSpecification, { [_jN]: _cIS }],
+    [() => CdiInputSpecification$, { [_jN]: _cIS }],
     [0, { [_jN]: _cCh }],
     [() => __listOfOutputDestination, { [_jN]: _des }],
     [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }],
     [0, { [_jN]: _i }],
     [() => __listOfInputAttachment, { [_jN]: _iA }],
-    [() => InputSpecification, { [_jN]: _iS }],
+    [() => InputSpecification$, { [_jN]: _iS }],
     [0, { [_jN]: _lL }],
-    [() => MaintenanceStatus, { [_jN]: _ma }],
+    [() => MaintenanceStatus$, { [_jN]: _ma }],
     [0, { [_jN]: _n }],
     [1, { [_jN]: _pRC }],
     [0, { [_jN]: _rA }],
     [0, { [_jN]: _st }],
     [128 | 0, { [_jN]: _ta }],
-    [() => VpcOutputSettingsDescription, { [_jN]: _v }],
-    [() => DescribeAnywhereSettings, { [_jN]: _aSn }],
-    [() => ChannelEngineVersionResponse, { [_jN]: _cEV }],
+    [() => VpcOutputSettingsDescription$, { [_jN]: _v }],
+    [() => DescribeAnywhereSettings$, { [_jN]: _aSn }],
+    [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }],
     [() => __listOfChannelEngineVersionResponse, { [_jN]: _uCEV }],
   ],
 ];
-export var ClaimDeviceRequest: StaticStructureSchema = [3, n0, _CDRl, 0, [_I], [[0, { [_jN]: _i }]]];
-export var ClaimDeviceResponse: StaticStructureSchema = [3, n0, _CDRla, 0, [], []];
-export var CloudWatchAlarmTemplateGroupSummary: StaticStructureSchema = [
+export var ClaimDeviceRequest$: StaticStructureSchema = [3, n0, _CDRl, 0, [_I], [[0, { [_jN]: _i }]]];
+export var ClaimDeviceResponse$: StaticStructureSchema = [3, n0, _CDRla, 0, [], []];
+export var CloudWatchAlarmTemplateGroupSummary$: StaticStructureSchema = [
   3,
   n0,
   _CWATGS,
@@ -3219,7 +3219,7 @@ export var CloudWatchAlarmTemplateGroupSummary: StaticStructureSchema = [
     [1, { [_jN]: _tC }],
   ],
 ];
-export var CloudWatchAlarmTemplateSummary: StaticStructureSchema = [
+export var CloudWatchAlarmTemplateSummary$: StaticStructureSchema = [
   3,
   n0,
   _CWATS,
@@ -3245,7 +3245,7 @@ export var CloudWatchAlarmTemplateSummary: StaticStructureSchema = [
     [0, { [_jN]: _tMD }],
   ],
 ];
-export var ClusterAlert: StaticStructureSchema = [
+export var ClusterAlert$: StaticStructureSchema = [
   3,
   n0,
   _CAl,
@@ -3262,7 +3262,7 @@ export var ClusterAlert: StaticStructureSchema = [
     [0, { [_jN]: _st }],
   ],
 ];
-export var ClusterNetworkSettings: StaticStructureSchema = [
+export var ClusterNetworkSettings$: StaticStructureSchema = [
   3,
   n0,
   _CNS,
@@ -3273,7 +3273,7 @@ export var ClusterNetworkSettings: StaticStructureSchema = [
     [() => __listOfInterfaceMapping, { [_jN]: _iM }],
   ],
 ];
-export var ClusterNetworkSettingsCreateRequest: StaticStructureSchema = [
+export var ClusterNetworkSettingsCreateRequest$: StaticStructureSchema = [
   3,
   n0,
   _CNSCR,
@@ -3284,7 +3284,7 @@ export var ClusterNetworkSettingsCreateRequest: StaticStructureSchema = [
     [() => __listOfInterfaceMappingCreateRequest, { [_jN]: _iM }],
   ],
 ];
-export var ClusterNetworkSettingsUpdateRequest: StaticStructureSchema = [
+export var ClusterNetworkSettingsUpdateRequest$: StaticStructureSchema = [
   3,
   n0,
   _CNSUR,
@@ -3295,7 +3295,7 @@ export var ClusterNetworkSettingsUpdateRequest: StaticStructureSchema = [
     [() => __listOfInterfaceMappingUpdateRequest, { [_jN]: _iM }],
   ],
 ];
-export var CmafIngestCaptionLanguageMapping: StaticStructureSchema = [
+export var CmafIngestCaptionLanguageMapping$: StaticStructureSchema = [
   3,
   n0,
   _CICLM,
@@ -3306,14 +3306,14 @@ export var CmafIngestCaptionLanguageMapping: StaticStructureSchema = [
     [0, { [_jN]: _lC }],
   ],
 ];
-export var CmafIngestGroupSettings: StaticStructureSchema = [
+export var CmafIngestGroupSettings$: StaticStructureSchema = [
   3,
   n0,
   _CIGS,
   0,
   [_De, _NIB, _STc, _SL, _SLU, _SDM, _KB, _KNM, _NINM, _SNM, _IB, _INM, _CLMa, _TMIF, _TMIP, _TMP, _AD],
   [
-    [() => OutputLocationRef, { [_jN]: _de }],
+    [() => OutputLocationRef$, { [_jN]: _de }],
     [0, { [_jN]: _nIB }],
     [0, { [_jN]: _sTc }],
     [1, { [_jN]: _sL }],
@@ -3332,8 +3332,8 @@ export var CmafIngestGroupSettings: StaticStructureSchema = [
     [() => __listOfAdditionalDestinations, { [_jN]: _aD }],
   ],
 ];
-export var CmafIngestOutputSettings: StaticStructureSchema = [3, n0, _CIOS, 0, [_NM], [[0, { [_jN]: _nM }]]];
-export var ColorCorrection: StaticStructureSchema = [
+export var CmafIngestOutputSettings$: StaticStructureSchema = [3, n0, _CIOS, 0, [_NM], [[0, { [_jN]: _nM }]]];
+export var ColorCorrection$: StaticStructureSchema = [
   3,
   n0,
   _CCo,
@@ -3345,7 +3345,7 @@ export var ColorCorrection: StaticStructureSchema = [
     [0, { [_jN]: _u }],
   ],
 ];
-export var ColorCorrectionSettings: StaticStructureSchema = [
+export var ColorCorrectionSettings$: StaticStructureSchema = [
   3,
   n0,
   _CCS,
@@ -3353,10 +3353,10 @@ export var ColorCorrectionSettings: StaticStructureSchema = [
   [_GCC],
   [[() => __listOfColorCorrection, { [_jN]: _gCC }]],
 ];
-export var ColorSpacePassthroughSettings: StaticStructureSchema = [3, n0, _CSPS, 0, [], []];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_er]: _c, [_hE]: 409 }, [_M], [[0, { [_jN]: _m }]]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateChannelPlacementGroupRequest: StaticStructureSchema = [
+export var ColorSpacePassthroughSettings$: StaticStructureSchema = [3, n0, _CSPS, 0, [], []];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_er]: _c, [_hE]: 409 }, [_M], [[0, { [_jN]: _m }]]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateChannelPlacementGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCPGR,
@@ -3370,7 +3370,7 @@ export var CreateChannelPlacementGroupRequest: StaticStructureSchema = [
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var CreateChannelPlacementGroupResponse: StaticStructureSchema = [
+export var CreateChannelPlacementGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _CCPGRr,
@@ -3386,34 +3386,41 @@ export var CreateChannelPlacementGroupResponse: StaticStructureSchema = [
     [0, { [_jN]: _st }],
   ],
 ];
-export var CreateChannelRequest: StaticStructureSchema = [
+export var CreateChannelRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCR,
   0,
   [_CIS, _CCh, _Des, _ESn, _IA, _IS, _LL, _Ma, _N, _RIe, _Re, _RA, _Ta, _V, _ASn, _CEV, _DRr],
   [
-    [() => CdiInputSpecification, { [_jN]: _cIS }],
+    [() => CdiInputSpecification$, { [_jN]: _cIS }],
     [0, { [_jN]: _cCh }],
     [() => __listOfOutputDestination, { [_jN]: _des }],
-    [() => EncoderSettings, { [_jN]: _eSn }],
+    [() => EncoderSettings$, { [_jN]: _eSn }],
     [() => __listOfInputAttachment, { [_jN]: _iA }],
-    [() => InputSpecification, { [_jN]: _iS }],
+    [() => InputSpecification$, { [_jN]: _iS }],
     [0, { [_jN]: _lL }],
-    [() => MaintenanceCreateSettings, { [_jN]: _ma }],
+    [() => MaintenanceCreateSettings$, { [_jN]: _ma }],
     [0, { [_jN]: _n }],
     [0, { [_jN]: _rIe, [_iTd]: 1 }],
     [0, { [_jN]: _re }],
     [0, { [_jN]: _rA }],
     [128 | 0, { [_jN]: _ta }],
-    [() => VpcOutputSettings, { [_jN]: _v }],
-    [() => AnywhereSettings, { [_jN]: _aSn }],
-    [() => ChannelEngineVersionRequest, { [_jN]: _cEV }],
+    [() => VpcOutputSettings$, { [_jN]: _v }],
+    [() => AnywhereSettings$, { [_jN]: _aSn }],
+    [() => ChannelEngineVersionRequest$, { [_jN]: _cEV }],
     [2, { [_jN]: _dRr }],
   ],
 ];
-export var CreateChannelResponse: StaticStructureSchema = [3, n0, _CCRr, 0, [_Ch], [[() => Channel, { [_jN]: _cha }]]];
-export var CreateCloudWatchAlarmTemplateGroupRequest: StaticStructureSchema = [
+export var CreateChannelResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _CCRr,
+  0,
+  [_Ch],
+  [[() => Channel$, { [_jN]: _cha }]],
+];
+export var CreateCloudWatchAlarmTemplateGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCWATGR,
@@ -3426,7 +3433,7 @@ export var CreateCloudWatchAlarmTemplateGroupRequest: StaticStructureSchema = [
     [0, { [_jN]: _rIe, [_iTd]: 1 }],
   ],
 ];
-export var CreateCloudWatchAlarmTemplateGroupResponse: StaticStructureSchema = [
+export var CreateCloudWatchAlarmTemplateGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _CCWATGRr,
@@ -3442,7 +3449,7 @@ export var CreateCloudWatchAlarmTemplateGroupResponse: StaticStructureSchema = [
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var CreateCloudWatchAlarmTemplateRequest: StaticStructureSchema = [
+export var CreateCloudWatchAlarmTemplateRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCWATR,
@@ -3465,7 +3472,7 @@ export var CreateCloudWatchAlarmTemplateRequest: StaticStructureSchema = [
     [0, { [_jN]: _rIe, [_iTd]: 1 }],
   ],
 ];
-export var CreateCloudWatchAlarmTemplateResponse: StaticStructureSchema = [
+export var CreateCloudWatchAlarmTemplateResponse$: StaticStructureSchema = [
   3,
   n0,
   _CCWATRr,
@@ -3491,7 +3498,7 @@ export var CreateCloudWatchAlarmTemplateResponse: StaticStructureSchema = [
     [0, { [_jN]: _tMD }],
   ],
 ];
-export var CreateClusterRequest: StaticStructureSchema = [
+export var CreateClusterRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCRre,
@@ -3501,12 +3508,12 @@ export var CreateClusterRequest: StaticStructureSchema = [
     [0, { [_jN]: _cTl }],
     [0, { [_jN]: _iRA }],
     [0, { [_jN]: _n }],
-    [() => ClusterNetworkSettingsCreateRequest, { [_jN]: _nS }],
+    [() => ClusterNetworkSettingsCreateRequest$, { [_jN]: _nS }],
     [0, { [_jN]: _rIe, [_iTd]: 1 }],
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var CreateClusterResponse: StaticStructureSchema = [
+export var CreateClusterResponse$: StaticStructureSchema = [
   3,
   n0,
   _CCRrea,
@@ -3519,11 +3526,11 @@ export var CreateClusterResponse: StaticStructureSchema = [
     [0, { [_jN]: _i }],
     [0, { [_jN]: _iRA }],
     [0, { [_jN]: _n }],
-    [() => ClusterNetworkSettings, { [_jN]: _nS }],
+    [() => ClusterNetworkSettings$, { [_jN]: _nS }],
     [0, { [_jN]: _st }],
   ],
 ];
-export var CreateEventBridgeRuleTemplateGroupRequest: StaticStructureSchema = [
+export var CreateEventBridgeRuleTemplateGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _CEBRTGR,
@@ -3536,7 +3543,7 @@ export var CreateEventBridgeRuleTemplateGroupRequest: StaticStructureSchema = [
     [0, { [_jN]: _rIe, [_iTd]: 1 }],
   ],
 ];
-export var CreateEventBridgeRuleTemplateGroupResponse: StaticStructureSchema = [
+export var CreateEventBridgeRuleTemplateGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _CEBRTGRr,
@@ -3552,7 +3559,7 @@ export var CreateEventBridgeRuleTemplateGroupResponse: StaticStructureSchema = [
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var CreateEventBridgeRuleTemplateRequest: StaticStructureSchema = [
+export var CreateEventBridgeRuleTemplateRequest$: StaticStructureSchema = [
   3,
   n0,
   _CEBRTR,
@@ -3568,7 +3575,7 @@ export var CreateEventBridgeRuleTemplateRequest: StaticStructureSchema = [
     [0, { [_jN]: _rIe, [_iTd]: 1 }],
   ],
 ];
-export var CreateEventBridgeRuleTemplateResponse: StaticStructureSchema = [
+export var CreateEventBridgeRuleTemplateResponse$: StaticStructureSchema = [
   3,
   n0,
   _CEBRTRr,
@@ -3587,7 +3594,7 @@ export var CreateEventBridgeRuleTemplateResponse: StaticStructureSchema = [
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var CreateInputRequest: StaticStructureSchema = [
+export var CreateInputRequest$: StaticStructureSchema = [
   3,
   n0,
   _CIR,
@@ -3604,17 +3611,17 @@ export var CreateInputRequest: StaticStructureSchema = [
     [() => __listOfInputSourceRequest, { [_jN]: _so }],
     [128 | 0, { [_jN]: _ta }],
     [0, { [_jN]: _ty }],
-    [() => InputVpcRequest, { [_jN]: _v }],
-    [() => SrtSettingsRequest, { [_jN]: _sSr }],
+    [() => InputVpcRequest$, { [_jN]: _v }],
+    [() => SrtSettingsRequest$, { [_jN]: _sSr }],
     [0, { [_jN]: _iNL }],
-    [() => MulticastSettingsCreateRequest, { [_jN]: _mSu }],
-    [() => Smpte2110ReceiverGroupSettings, { [_jN]: _sRGS }],
+    [() => MulticastSettingsCreateRequest$, { [_jN]: _mSu }],
+    [() => Smpte2110ReceiverGroupSettings$, { [_jN]: _sRGS }],
     [64 | 0, { [_jN]: _sSd }],
-    [() => RouterSettings, { [_jN]: _rSo }],
+    [() => RouterSettings$, { [_jN]: _rSo }],
   ],
 ];
-export var CreateInputResponse: StaticStructureSchema = [3, n0, _CIRr, 0, [_In], [[() => Input, { [_jN]: _in }]]];
-export var CreateInputSecurityGroupRequest: StaticStructureSchema = [
+export var CreateInputResponse$: StaticStructureSchema = [3, n0, _CIRr, 0, [_In], [[() => Input$, { [_jN]: _in }]]];
+export var CreateInputSecurityGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _CISGR,
@@ -3625,15 +3632,15 @@ export var CreateInputSecurityGroupRequest: StaticStructureSchema = [
     [() => __listOfInputWhitelistRuleCidr, { [_jN]: _wR }],
   ],
 ];
-export var CreateInputSecurityGroupResponse: StaticStructureSchema = [
+export var CreateInputSecurityGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _CISGRr,
   0,
   [_SG],
-  [[() => InputSecurityGroup, { [_jN]: _sG }]],
+  [[() => InputSecurityGroup$, { [_jN]: _sG }]],
 ];
-export var CreateMultiplexProgramRequest: StaticStructureSchema = [
+export var CreateMultiplexProgramRequest$: StaticStructureSchema = [
   3,
   n0,
   _CMPR,
@@ -3641,20 +3648,20 @@ export var CreateMultiplexProgramRequest: StaticStructureSchema = [
   [_MIu, _MPS, _PNr, _RIe],
   [
     [0, 1],
-    [() => MultiplexProgramSettings, { [_jN]: _mPS }],
+    [() => MultiplexProgramSettings$, { [_jN]: _mPS }],
     [0, { [_jN]: _pNr }],
     [0, { [_jN]: _rIe, [_iTd]: 1 }],
   ],
 ];
-export var CreateMultiplexProgramResponse: StaticStructureSchema = [
+export var CreateMultiplexProgramResponse$: StaticStructureSchema = [
   3,
   n0,
   _CMPRr,
   0,
   [_MP],
-  [[() => MultiplexProgram, { [_jN]: _mP }]],
+  [[() => MultiplexProgram$, { [_jN]: _mP }]],
 ];
-export var CreateMultiplexRequest: StaticStructureSchema = [
+export var CreateMultiplexRequest$: StaticStructureSchema = [
   3,
   n0,
   _CMR,
@@ -3662,21 +3669,21 @@ export var CreateMultiplexRequest: StaticStructureSchema = [
   [_AZ, _MSul, _N, _RIe, _Ta],
   [
     [64 | 0, { [_jN]: _aZ }],
-    [() => MultiplexSettings, { [_jN]: _mSul }],
+    [() => MultiplexSettings$, { [_jN]: _mSul }],
     [0, { [_jN]: _n }],
     [0, { [_jN]: _rIe, [_iTd]: 1 }],
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var CreateMultiplexResponse: StaticStructureSchema = [
+export var CreateMultiplexResponse$: StaticStructureSchema = [
   3,
   n0,
   _CMRr,
   0,
   [_Mu],
-  [[() => Multiplex, { [_jN]: _mu }]],
+  [[() => Multiplex$, { [_jN]: _mu }]],
 ];
-export var CreateNetworkRequest: StaticStructureSchema = [
+export var CreateNetworkRequest$: StaticStructureSchema = [
   3,
   n0,
   _CNR,
@@ -3690,7 +3697,7 @@ export var CreateNetworkRequest: StaticStructureSchema = [
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var CreateNetworkResponse: StaticStructureSchema = [
+export var CreateNetworkResponse$: StaticStructureSchema = [
   3,
   n0,
   _CNRr,
@@ -3706,7 +3713,7 @@ export var CreateNetworkResponse: StaticStructureSchema = [
     [0, { [_jN]: _st }],
   ],
 ];
-export var CreateNodeRegistrationScriptRequest: StaticStructureSchema = [
+export var CreateNodeRegistrationScriptRequest$: StaticStructureSchema = [
   3,
   n0,
   _CNRSR,
@@ -3721,7 +3728,7 @@ export var CreateNodeRegistrationScriptRequest: StaticStructureSchema = [
     [0, { [_jN]: _rol }],
   ],
 ];
-export var CreateNodeRegistrationScriptResponse: StaticStructureSchema = [
+export var CreateNodeRegistrationScriptResponse$: StaticStructureSchema = [
   3,
   n0,
   _CNRSRr,
@@ -3729,7 +3736,7 @@ export var CreateNodeRegistrationScriptResponse: StaticStructureSchema = [
   [_NRS],
   [[0, { [_jN]: _nRS }]],
 ];
-export var CreateNodeRequest: StaticStructureSchema = [
+export var CreateNodeRequest$: StaticStructureSchema = [
   3,
   n0,
   _CNRre,
@@ -3744,7 +3751,7 @@ export var CreateNodeRequest: StaticStructureSchema = [
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var CreateNodeResponse: StaticStructureSchema = [
+export var CreateNodeResponse$: StaticStructureSchema = [
   3,
   n0,
   _CNRrea,
@@ -3764,7 +3771,7 @@ export var CreateNodeResponse: StaticStructureSchema = [
     [() => SdiSourceMappings, { [_jN]: _sSM }],
   ],
 ];
-export var CreatePartnerInputRequest: StaticStructureSchema = [
+export var CreatePartnerInputRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPIR,
@@ -3776,15 +3783,15 @@ export var CreatePartnerInputRequest: StaticStructureSchema = [
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var CreatePartnerInputResponse: StaticStructureSchema = [
+export var CreatePartnerInputResponse$: StaticStructureSchema = [
   3,
   n0,
   _CPIRr,
   0,
   [_In],
-  [[() => Input, { [_jN]: _in }]],
+  [[() => Input$, { [_jN]: _in }]],
 ];
-export var CreateSdiSourceRequest: StaticStructureSchema = [
+export var CreateSdiSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _CSSR,
@@ -3798,15 +3805,15 @@ export var CreateSdiSourceRequest: StaticStructureSchema = [
     [0, { [_jN]: _ty }],
   ],
 ];
-export var CreateSdiSourceResponse: StaticStructureSchema = [
+export var CreateSdiSourceResponse$: StaticStructureSchema = [
   3,
   n0,
   _CSSRr,
   0,
   [_SSdi],
-  [[() => SdiSource, { [_jN]: _sSdi }]],
+  [[() => SdiSource$, { [_jN]: _sSdi }]],
 ];
-export var CreateSignalMapRequest: StaticStructureSchema = [
+export var CreateSignalMapRequest$: StaticStructureSchema = [
   3,
   n0,
   _CSMR,
@@ -3822,7 +3829,7 @@ export var CreateSignalMapRequest: StaticStructureSchema = [
     [0, { [_jN]: _rIe, [_iTd]: 1 }],
   ],
 ];
-export var CreateSignalMapResponse: StaticStructureSchema = [
+export var CreateSignalMapResponse$: StaticStructureSchema = [
   3,
   n0,
   _CSMRr,
@@ -3839,17 +3846,17 @@ export var CreateSignalMapResponse: StaticStructureSchema = [
     [() => FailedMediaResourceMap, { [_jN]: _fMRM }],
     [0, { [_jN]: _i }],
     [5, { [_jN]: _lDA }],
-    [() => SuccessfulMonitorDeployment, { [_jN]: _lSMD }],
+    [() => SuccessfulMonitorDeployment$, { [_jN]: _lSMD }],
     [() => MediaResourceMap, { [_jN]: _mRM }],
     [5, { [_jN]: _mA }],
     [2, { [_jN]: _mCPD }],
-    [() => MonitorDeployment, { [_jN]: _mD }],
+    [() => MonitorDeployment$, { [_jN]: _mD }],
     [0, { [_jN]: _n }],
     [0, { [_jN]: _stat }],
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var CreateTagsRequest: StaticStructureSchema = [
+export var CreateTagsRequest$: StaticStructureSchema = [
   3,
   n0,
   _CTR,
@@ -3860,7 +3867,7 @@ export var CreateTagsRequest: StaticStructureSchema = [
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var DeleteChannelPlacementGroupRequest: StaticStructureSchema = [
+export var DeleteChannelPlacementGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCPGR,
@@ -3871,7 +3878,7 @@ export var DeleteChannelPlacementGroupRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteChannelPlacementGroupResponse: StaticStructureSchema = [
+export var DeleteChannelPlacementGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _DCPGRe,
@@ -3887,8 +3894,8 @@ export var DeleteChannelPlacementGroupResponse: StaticStructureSchema = [
     [0, { [_jN]: _st }],
   ],
 ];
-export var DeleteChannelRequest: StaticStructureSchema = [3, n0, _DCR, 0, [_CIha], [[0, 1]]];
-export var DeleteChannelResponse: StaticStructureSchema = [
+export var DeleteChannelRequest$: StaticStructureSchema = [3, n0, _DCR, 0, [_CIha], [[0, 1]]];
+export var DeleteChannelResponse$: StaticStructureSchema = [
   3,
   n0,
   _DCRe,
@@ -3896,31 +3903,31 @@ export var DeleteChannelResponse: StaticStructureSchema = [
   [_Ar, _CIS, _CCh, _Des, _EE, _ESn, _I, _IA, _IS, _LL, _Ma, _N, _PDi, _PRC, _RA, _St, _Ta, _V, _ASn, _CEV],
   [
     [0, { [_jN]: _ar }],
-    [() => CdiInputSpecification, { [_jN]: _cIS }],
+    [() => CdiInputSpecification$, { [_jN]: _cIS }],
     [0, { [_jN]: _cCh }],
     [() => __listOfOutputDestination, { [_jN]: _des }],
     [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }],
-    [() => EncoderSettings, { [_jN]: _eSn }],
+    [() => EncoderSettings$, { [_jN]: _eSn }],
     [0, { [_jN]: _i }],
     [() => __listOfInputAttachment, { [_jN]: _iA }],
-    [() => InputSpecification, { [_jN]: _iS }],
+    [() => InputSpecification$, { [_jN]: _iS }],
     [0, { [_jN]: _lL }],
-    [() => MaintenanceStatus, { [_jN]: _ma }],
+    [() => MaintenanceStatus$, { [_jN]: _ma }],
     [0, { [_jN]: _n }],
     [() => __listOfPipelineDetail, { [_jN]: _pDi }],
     [1, { [_jN]: _pRC }],
     [0, { [_jN]: _rA }],
     [0, { [_jN]: _st }],
     [128 | 0, { [_jN]: _ta }],
-    [() => VpcOutputSettingsDescription, { [_jN]: _v }],
-    [() => DescribeAnywhereSettings, { [_jN]: _aSn }],
-    [() => ChannelEngineVersionResponse, { [_jN]: _cEV }],
+    [() => VpcOutputSettingsDescription$, { [_jN]: _v }],
+    [() => DescribeAnywhereSettings$, { [_jN]: _aSn }],
+    [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }],
   ],
 ];
-export var DeleteCloudWatchAlarmTemplateGroupRequest: StaticStructureSchema = [3, n0, _DCWATGR, 0, [_Id], [[0, 1]]];
-export var DeleteCloudWatchAlarmTemplateRequest: StaticStructureSchema = [3, n0, _DCWATR, 0, [_Id], [[0, 1]]];
-export var DeleteClusterRequest: StaticStructureSchema = [3, n0, _DCRel, 0, [_CI], [[0, 1]]];
-export var DeleteClusterResponse: StaticStructureSchema = [
+export var DeleteCloudWatchAlarmTemplateGroupRequest$: StaticStructureSchema = [3, n0, _DCWATGR, 0, [_Id], [[0, 1]]];
+export var DeleteCloudWatchAlarmTemplateRequest$: StaticStructureSchema = [3, n0, _DCWATR, 0, [_Id], [[0, 1]]];
+export var DeleteClusterRequest$: StaticStructureSchema = [3, n0, _DCRel, 0, [_CI], [[0, 1]]];
+export var DeleteClusterResponse$: StaticStructureSchema = [
   3,
   n0,
   _DCRele,
@@ -3933,17 +3940,17 @@ export var DeleteClusterResponse: StaticStructureSchema = [
     [0, { [_jN]: _i }],
     [0, { [_jN]: _iRA }],
     [0, { [_jN]: _n }],
-    [() => ClusterNetworkSettings, { [_jN]: _nS }],
+    [() => ClusterNetworkSettings$, { [_jN]: _nS }],
     [0, { [_jN]: _st }],
   ],
 ];
-export var DeleteEventBridgeRuleTemplateGroupRequest: StaticStructureSchema = [3, n0, _DEBRTGR, 0, [_Id], [[0, 1]]];
-export var DeleteEventBridgeRuleTemplateRequest: StaticStructureSchema = [3, n0, _DEBRTR, 0, [_Id], [[0, 1]]];
-export var DeleteInputRequest: StaticStructureSchema = [3, n0, _DIR, 0, [_IIn], [[0, 1]]];
-export var DeleteInputResponse: StaticStructureSchema = [3, n0, _DIRe, 0, [], []];
-export var DeleteInputSecurityGroupRequest: StaticStructureSchema = [3, n0, _DISGR, 0, [_ISGIn], [[0, 1]]];
-export var DeleteInputSecurityGroupResponse: StaticStructureSchema = [3, n0, _DISGRe, 0, [], []];
-export var DeleteMultiplexProgramRequest: StaticStructureSchema = [
+export var DeleteEventBridgeRuleTemplateGroupRequest$: StaticStructureSchema = [3, n0, _DEBRTGR, 0, [_Id], [[0, 1]]];
+export var DeleteEventBridgeRuleTemplateRequest$: StaticStructureSchema = [3, n0, _DEBRTR, 0, [_Id], [[0, 1]]];
+export var DeleteInputRequest$: StaticStructureSchema = [3, n0, _DIR, 0, [_IIn], [[0, 1]]];
+export var DeleteInputResponse$: StaticStructureSchema = [3, n0, _DIRe, 0, [], []];
+export var DeleteInputSecurityGroupRequest$: StaticStructureSchema = [3, n0, _DISGR, 0, [_ISGIn], [[0, 1]]];
+export var DeleteInputSecurityGroupResponse$: StaticStructureSchema = [3, n0, _DISGRe, 0, [], []];
+export var DeleteMultiplexProgramRequest$: StaticStructureSchema = [
   3,
   n0,
   _DMPR,
@@ -3954,7 +3961,7 @@ export var DeleteMultiplexProgramRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteMultiplexProgramResponse: StaticStructureSchema = [
+export var DeleteMultiplexProgramResponse$: StaticStructureSchema = [
   3,
   n0,
   _DMPRe,
@@ -3962,14 +3969,14 @@ export var DeleteMultiplexProgramResponse: StaticStructureSchema = [
   [_CIha, _MPS, _PIM, _PDi, _PNr],
   [
     [0, { [_jN]: _cIha }],
-    [() => MultiplexProgramSettings, { [_jN]: _mPS }],
-    [() => MultiplexProgramPacketIdentifiersMap, { [_jN]: _pIM }],
+    [() => MultiplexProgramSettings$, { [_jN]: _mPS }],
+    [() => MultiplexProgramPacketIdentifiersMap$, { [_jN]: _pIM }],
     [() => __listOfMultiplexProgramPipelineDetail, { [_jN]: _pDi }],
     [0, { [_jN]: _pNr }],
   ],
 ];
-export var DeleteMultiplexRequest: StaticStructureSchema = [3, n0, _DMR, 0, [_MIu], [[0, 1]]];
-export var DeleteMultiplexResponse: StaticStructureSchema = [
+export var DeleteMultiplexRequest$: StaticStructureSchema = [3, n0, _DMR, 0, [_MIu], [[0, 1]]];
+export var DeleteMultiplexResponse$: StaticStructureSchema = [
   3,
   n0,
   _DMRe,
@@ -3980,7 +3987,7 @@ export var DeleteMultiplexResponse: StaticStructureSchema = [
     [64 | 0, { [_jN]: _aZ }],
     [() => __listOfMultiplexOutputDestination, { [_jN]: _des }],
     [0, { [_jN]: _i }],
-    [() => MultiplexSettings, { [_jN]: _mSul }],
+    [() => MultiplexSettings$, { [_jN]: _mSul }],
     [0, { [_jN]: _n }],
     [1, { [_jN]: _pRC }],
     [1, { [_jN]: _pC }],
@@ -3988,8 +3995,8 @@ export var DeleteMultiplexResponse: StaticStructureSchema = [
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var DeleteNetworkRequest: StaticStructureSchema = [3, n0, _DNR, 0, [_NI], [[0, 1]]];
-export var DeleteNetworkResponse: StaticStructureSchema = [
+export var DeleteNetworkRequest$: StaticStructureSchema = [3, n0, _DNR, 0, [_NI], [[0, 1]]];
+export var DeleteNetworkResponse$: StaticStructureSchema = [
   3,
   n0,
   _DNRe,
@@ -4005,7 +4012,7 @@ export var DeleteNetworkResponse: StaticStructureSchema = [
     [0, { [_jN]: _st }],
   ],
 ];
-export var DeleteNodeRequest: StaticStructureSchema = [
+export var DeleteNodeRequest$: StaticStructureSchema = [
   3,
   n0,
   _DNRel,
@@ -4016,7 +4023,7 @@ export var DeleteNodeRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteNodeResponse: StaticStructureSchema = [
+export var DeleteNodeResponse$: StaticStructureSchema = [
   3,
   n0,
   _DNRele,
@@ -4036,8 +4043,8 @@ export var DeleteNodeResponse: StaticStructureSchema = [
     [() => SdiSourceMappings, { [_jN]: _sSM }],
   ],
 ];
-export var DeleteReservationRequest: StaticStructureSchema = [3, n0, _DRR, 0, [_RIes], [[0, 1]]];
-export var DeleteReservationResponse: StaticStructureSchema = [
+export var DeleteReservationRequest$: StaticStructureSchema = [3, n0, _DRR, 0, [_RIes], [[0, 1]]];
+export var DeleteReservationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRRe,
@@ -4056,28 +4063,28 @@ export var DeleteReservationResponse: StaticStructureSchema = [
     [0, { [_jN]: _oI }],
     [0, { [_jN]: _oT }],
     [0, { [_jN]: _reg }],
-    [() => RenewalSettings, { [_jN]: _rSen }],
+    [() => RenewalSettings$, { [_jN]: _rSen }],
     [0, { [_jN]: _rIes }],
-    [() => ReservationResourceSpecification, { [_jN]: _rSes }],
+    [() => ReservationResourceSpecification$, { [_jN]: _rSes }],
     [0, { [_jN]: _star }],
     [0, { [_jN]: _st }],
     [128 | 0, { [_jN]: _ta }],
     [1, { [_jN]: _uP }],
   ],
 ];
-export var DeleteScheduleRequest: StaticStructureSchema = [3, n0, _DSR, 0, [_CIha], [[0, 1]]];
-export var DeleteScheduleResponse: StaticStructureSchema = [3, n0, _DSRe, 0, [], []];
-export var DeleteSdiSourceRequest: StaticStructureSchema = [3, n0, _DSSR, 0, [_SSId], [[0, 1]]];
-export var DeleteSdiSourceResponse: StaticStructureSchema = [
+export var DeleteScheduleRequest$: StaticStructureSchema = [3, n0, _DSR, 0, [_CIha], [[0, 1]]];
+export var DeleteScheduleResponse$: StaticStructureSchema = [3, n0, _DSRe, 0, [], []];
+export var DeleteSdiSourceRequest$: StaticStructureSchema = [3, n0, _DSSR, 0, [_SSId], [[0, 1]]];
+export var DeleteSdiSourceResponse$: StaticStructureSchema = [
   3,
   n0,
   _DSSRe,
   0,
   [_SSdi],
-  [[() => SdiSource, { [_jN]: _sSdi }]],
+  [[() => SdiSource$, { [_jN]: _sSdi }]],
 ];
-export var DeleteSignalMapRequest: StaticStructureSchema = [3, n0, _DSMR, 0, [_Id], [[0, 1]]];
-export var DeleteTagsRequest: StaticStructureSchema = [
+export var DeleteSignalMapRequest$: StaticStructureSchema = [3, n0, _DSMR, 0, [_Id], [[0, 1]]];
+export var DeleteTagsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTR,
@@ -4088,16 +4095,16 @@ export var DeleteTagsRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var DescribeAccountConfigurationRequest: StaticStructureSchema = [3, n0, _DACR, 0, [], []];
-export var DescribeAccountConfigurationResponse: StaticStructureSchema = [
+export var DescribeAccountConfigurationRequest$: StaticStructureSchema = [3, n0, _DACR, 0, [], []];
+export var DescribeAccountConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DACRe,
   0,
   [_ACc],
-  [[() => AccountConfiguration, { [_jN]: _aCc }]],
+  [[() => AccountConfiguration$, { [_jN]: _aCc }]],
 ];
-export var DescribeAnywhereSettings: StaticStructureSchema = [
+export var DescribeAnywhereSettings$: StaticStructureSchema = [
   3,
   n0,
   _DAS,
@@ -4108,7 +4115,7 @@ export var DescribeAnywhereSettings: StaticStructureSchema = [
     [0, { [_jN]: _cI }],
   ],
 ];
-export var DescribeChannelPlacementGroupRequest: StaticStructureSchema = [
+export var DescribeChannelPlacementGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCPGRes,
@@ -4119,7 +4126,7 @@ export var DescribeChannelPlacementGroupRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeChannelPlacementGroupResponse: StaticStructureSchema = [
+export var DescribeChannelPlacementGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _DCPGResc,
@@ -4135,7 +4142,7 @@ export var DescribeChannelPlacementGroupResponse: StaticStructureSchema = [
     [0, { [_jN]: _st }],
   ],
 ];
-export var DescribeChannelPlacementGroupSummary: StaticStructureSchema = [
+export var DescribeChannelPlacementGroupSummary$: StaticStructureSchema = [
   3,
   n0,
   _DCPGS,
@@ -4151,8 +4158,8 @@ export var DescribeChannelPlacementGroupSummary: StaticStructureSchema = [
     [0, { [_jN]: _st }],
   ],
 ];
-export var DescribeChannelRequest: StaticStructureSchema = [3, n0, _DCRes, 0, [_CIha], [[0, 1]]];
-export var DescribeChannelResponse: StaticStructureSchema = [
+export var DescribeChannelRequest$: StaticStructureSchema = [3, n0, _DCRes, 0, [_CIha], [[0, 1]]];
+export var DescribeChannelResponse$: StaticStructureSchema = [
   3,
   n0,
   _DCResc,
@@ -4160,29 +4167,29 @@ export var DescribeChannelResponse: StaticStructureSchema = [
   [_Ar, _CIS, _CCh, _Des, _EE, _ESn, _I, _IA, _IS, _LL, _Ma, _N, _PDi, _PRC, _RA, _St, _Ta, _V, _ASn, _CEV],
   [
     [0, { [_jN]: _ar }],
-    [() => CdiInputSpecification, { [_jN]: _cIS }],
+    [() => CdiInputSpecification$, { [_jN]: _cIS }],
     [0, { [_jN]: _cCh }],
     [() => __listOfOutputDestination, { [_jN]: _des }],
     [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }],
-    [() => EncoderSettings, { [_jN]: _eSn }],
+    [() => EncoderSettings$, { [_jN]: _eSn }],
     [0, { [_jN]: _i }],
     [() => __listOfInputAttachment, { [_jN]: _iA }],
-    [() => InputSpecification, { [_jN]: _iS }],
+    [() => InputSpecification$, { [_jN]: _iS }],
     [0, { [_jN]: _lL }],
-    [() => MaintenanceStatus, { [_jN]: _ma }],
+    [() => MaintenanceStatus$, { [_jN]: _ma }],
     [0, { [_jN]: _n }],
     [() => __listOfPipelineDetail, { [_jN]: _pDi }],
     [1, { [_jN]: _pRC }],
     [0, { [_jN]: _rA }],
     [0, { [_jN]: _st }],
     [128 | 0, { [_jN]: _ta }],
-    [() => VpcOutputSettingsDescription, { [_jN]: _v }],
-    [() => DescribeAnywhereSettings, { [_jN]: _aSn }],
-    [() => ChannelEngineVersionResponse, { [_jN]: _cEV }],
+    [() => VpcOutputSettingsDescription$, { [_jN]: _v }],
+    [() => DescribeAnywhereSettings$, { [_jN]: _aSn }],
+    [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }],
   ],
 ];
-export var DescribeClusterRequest: StaticStructureSchema = [3, n0, _DCRescr, 0, [_CI], [[0, 1]]];
-export var DescribeClusterResponse: StaticStructureSchema = [
+export var DescribeClusterRequest$: StaticStructureSchema = [3, n0, _DCRescr, 0, [_CI], [[0, 1]]];
+export var DescribeClusterResponse$: StaticStructureSchema = [
   3,
   n0,
   _DCRescri,
@@ -4195,11 +4202,11 @@ export var DescribeClusterResponse: StaticStructureSchema = [
     [0, { [_jN]: _i }],
     [0, { [_jN]: _iRA }],
     [0, { [_jN]: _n }],
-    [() => ClusterNetworkSettings, { [_jN]: _nS }],
+    [() => ClusterNetworkSettings$, { [_jN]: _nS }],
     [0, { [_jN]: _st }],
   ],
 ];
-export var DescribeClusterSummary: StaticStructureSchema = [
+export var DescribeClusterSummary$: StaticStructureSchema = [
   3,
   n0,
   _DCS,
@@ -4212,12 +4219,12 @@ export var DescribeClusterSummary: StaticStructureSchema = [
     [0, { [_jN]: _i }],
     [0, { [_jN]: _iRA }],
     [0, { [_jN]: _n }],
-    [() => ClusterNetworkSettings, { [_jN]: _nS }],
+    [() => ClusterNetworkSettings$, { [_jN]: _nS }],
     [0, { [_jN]: _st }],
   ],
 ];
-export var DescribeInputDeviceRequest: StaticStructureSchema = [3, n0, _DIDR, 0, [_IDI], [[0, 1]]];
-export var DescribeInputDeviceResponse: StaticStructureSchema = [
+export var DescribeInputDeviceRequest$: StaticStructureSchema = [3, n0, _DIDR, 0, [_IDI], [[0, 1]]];
+export var DescribeInputDeviceResponse$: StaticStructureSchema = [
   3,
   n0,
   _DIDRe,
@@ -4228,21 +4235,21 @@ export var DescribeInputDeviceResponse: StaticStructureSchema = [
     [0, { [_jN]: _cSon }],
     [0, { [_jN]: _dSSSe }],
     [0, { [_jN]: _dUS }],
-    [() => InputDeviceHdSettings, { [_jN]: _hDS }],
+    [() => InputDeviceHdSettings$, { [_jN]: _hDS }],
     [0, { [_jN]: _i }],
     [0, { [_jN]: _mAa }],
     [0, { [_jN]: _n }],
-    [() => InputDeviceNetworkSettings, { [_jN]: _nS }],
+    [() => InputDeviceNetworkSettings$, { [_jN]: _nS }],
     [0, { [_jN]: _sNe }],
     [0, { [_jN]: _ty }],
-    [() => InputDeviceUhdSettings, { [_jN]: _uDS }],
+    [() => InputDeviceUhdSettings$, { [_jN]: _uDS }],
     [128 | 0, { [_jN]: _ta }],
     [0, { [_jN]: _aZv }],
     [64 | 0, { [_jN]: _mIA }],
     [0, { [_jN]: _oTu }],
   ],
 ];
-export var DescribeInputDeviceThumbnailRequest: StaticStructureSchema = [
+export var DescribeInputDeviceThumbnailRequest$: StaticStructureSchema = [
   3,
   n0,
   _DIDTR,
@@ -4253,7 +4260,7 @@ export var DescribeInputDeviceThumbnailRequest: StaticStructureSchema = [
     [0, { [_hH]: _acc }],
   ],
 ];
-export var DescribeInputDeviceThumbnailResponse: StaticStructureSchema = [
+export var DescribeInputDeviceThumbnailResponse$: StaticStructureSchema = [
   3,
   n0,
   _DIDTRe,
@@ -4267,8 +4274,8 @@ export var DescribeInputDeviceThumbnailResponse: StaticStructureSchema = [
     [4, { [_hH]: _LM_ }],
   ],
 ];
-export var DescribeInputRequest: StaticStructureSchema = [3, n0, _DIRes, 0, [_IIn], [[0, 1]]];
-export var DescribeInputResponse: StaticStructureSchema = [
+export var DescribeInputRequest$: StaticStructureSchema = [3, n0, _DIRes, 0, [_IIn], [[0, 1]]];
+export var DescribeInputResponse$: StaticStructureSchema = [
   3,
   n0,
   _DIResc,
@@ -4314,16 +4321,16 @@ export var DescribeInputResponse: StaticStructureSchema = [
     [0, { [_jN]: _st }],
     [128 | 0, { [_jN]: _ta }],
     [0, { [_jN]: _ty }],
-    [() => SrtSettings, { [_jN]: _sSr }],
+    [() => SrtSettings$, { [_jN]: _sSr }],
     [0, { [_jN]: _iNL }],
-    [() => MulticastSettings, { [_jN]: _mSu }],
-    [() => Smpte2110ReceiverGroupSettings, { [_jN]: _sRGS }],
+    [() => MulticastSettings$, { [_jN]: _mSu }],
+    [() => Smpte2110ReceiverGroupSettings$, { [_jN]: _sRGS }],
     [64 | 0, { [_jN]: _sSd }],
-    [() => RouterInputSettings, { [_jN]: _rSo }],
+    [() => RouterInputSettings$, { [_jN]: _rSo }],
   ],
 ];
-export var DescribeInputSecurityGroupRequest: StaticStructureSchema = [3, n0, _DISGRes, 0, [_ISGIn], [[0, 1]]];
-export var DescribeInputSecurityGroupResponse: StaticStructureSchema = [
+export var DescribeInputSecurityGroupRequest$: StaticStructureSchema = [3, n0, _DISGRes, 0, [_ISGIn], [[0, 1]]];
+export var DescribeInputSecurityGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _DISGResc,
@@ -4338,7 +4345,7 @@ export var DescribeInputSecurityGroupResponse: StaticStructureSchema = [
     [() => __listOfInputWhitelistRule, { [_jN]: _wR }],
   ],
 ];
-export var DescribeMultiplexProgramRequest: StaticStructureSchema = [
+export var DescribeMultiplexProgramRequest$: StaticStructureSchema = [
   3,
   n0,
   _DMPRes,
@@ -4349,7 +4356,7 @@ export var DescribeMultiplexProgramRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeMultiplexProgramResponse: StaticStructureSchema = [
+export var DescribeMultiplexProgramResponse$: StaticStructureSchema = [
   3,
   n0,
   _DMPResc,
@@ -4357,14 +4364,14 @@ export var DescribeMultiplexProgramResponse: StaticStructureSchema = [
   [_CIha, _MPS, _PIM, _PDi, _PNr],
   [
     [0, { [_jN]: _cIha }],
-    [() => MultiplexProgramSettings, { [_jN]: _mPS }],
-    [() => MultiplexProgramPacketIdentifiersMap, { [_jN]: _pIM }],
+    [() => MultiplexProgramSettings$, { [_jN]: _mPS }],
+    [() => MultiplexProgramPacketIdentifiersMap$, { [_jN]: _pIM }],
     [() => __listOfMultiplexProgramPipelineDetail, { [_jN]: _pDi }],
     [0, { [_jN]: _pNr }],
   ],
 ];
-export var DescribeMultiplexRequest: StaticStructureSchema = [3, n0, _DMRes, 0, [_MIu], [[0, 1]]];
-export var DescribeMultiplexResponse: StaticStructureSchema = [
+export var DescribeMultiplexRequest$: StaticStructureSchema = [3, n0, _DMRes, 0, [_MIu], [[0, 1]]];
+export var DescribeMultiplexResponse$: StaticStructureSchema = [
   3,
   n0,
   _DMResc,
@@ -4375,7 +4382,7 @@ export var DescribeMultiplexResponse: StaticStructureSchema = [
     [64 | 0, { [_jN]: _aZ }],
     [() => __listOfMultiplexOutputDestination, { [_jN]: _des }],
     [0, { [_jN]: _i }],
-    [() => MultiplexSettings, { [_jN]: _mSul }],
+    [() => MultiplexSettings$, { [_jN]: _mSul }],
     [0, { [_jN]: _n }],
     [1, { [_jN]: _pRC }],
     [1, { [_jN]: _pC }],
@@ -4383,8 +4390,8 @@ export var DescribeMultiplexResponse: StaticStructureSchema = [
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var DescribeNetworkRequest: StaticStructureSchema = [3, n0, _DNRes, 0, [_NI], [[0, 1]]];
-export var DescribeNetworkResponse: StaticStructureSchema = [
+export var DescribeNetworkRequest$: StaticStructureSchema = [3, n0, _DNRes, 0, [_NI], [[0, 1]]];
+export var DescribeNetworkResponse$: StaticStructureSchema = [
   3,
   n0,
   _DNResc,
@@ -4400,7 +4407,7 @@ export var DescribeNetworkResponse: StaticStructureSchema = [
     [0, { [_jN]: _st }],
   ],
 ];
-export var DescribeNetworkSummary: StaticStructureSchema = [
+export var DescribeNetworkSummary$: StaticStructureSchema = [
   3,
   n0,
   _DNS,
@@ -4416,7 +4423,7 @@ export var DescribeNetworkSummary: StaticStructureSchema = [
     [0, { [_jN]: _st }],
   ],
 ];
-export var DescribeNodeRequest: StaticStructureSchema = [
+export var DescribeNodeRequest$: StaticStructureSchema = [
   3,
   n0,
   _DNRescr,
@@ -4427,7 +4434,7 @@ export var DescribeNodeRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeNodeResponse: StaticStructureSchema = [
+export var DescribeNodeResponse$: StaticStructureSchema = [
   3,
   n0,
   _DNRescri,
@@ -4447,7 +4454,7 @@ export var DescribeNodeResponse: StaticStructureSchema = [
     [() => SdiSourceMappings, { [_jN]: _sSM }],
   ],
 ];
-export var DescribeNodeSummary: StaticStructureSchema = [
+export var DescribeNodeSummary$: StaticStructureSchema = [
   3,
   n0,
   _DNSe,
@@ -4468,8 +4475,8 @@ export var DescribeNodeSummary: StaticStructureSchema = [
     [() => SdiSourceMappings, { [_jN]: _sSM }],
   ],
 ];
-export var DescribeOfferingRequest: StaticStructureSchema = [3, n0, _DOR, 0, [_OI], [[0, 1]]];
-export var DescribeOfferingResponse: StaticStructureSchema = [
+export var DescribeOfferingRequest$: StaticStructureSchema = [3, n0, _DOR, 0, [_OI], [[0, 1]]];
+export var DescribeOfferingResponse$: StaticStructureSchema = [
   3,
   n0,
   _DORe,
@@ -4485,12 +4492,12 @@ export var DescribeOfferingResponse: StaticStructureSchema = [
     [0, { [_jN]: _oI }],
     [0, { [_jN]: _oT }],
     [0, { [_jN]: _reg }],
-    [() => ReservationResourceSpecification, { [_jN]: _rSes }],
+    [() => ReservationResourceSpecification$, { [_jN]: _rSes }],
     [1, { [_jN]: _uP }],
   ],
 ];
-export var DescribeReservationRequest: StaticStructureSchema = [3, n0, _DRRes, 0, [_RIes], [[0, 1]]];
-export var DescribeReservationResponse: StaticStructureSchema = [
+export var DescribeReservationRequest$: StaticStructureSchema = [3, n0, _DRRes, 0, [_RIes], [[0, 1]]];
+export var DescribeReservationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRResc,
@@ -4509,16 +4516,16 @@ export var DescribeReservationResponse: StaticStructureSchema = [
     [0, { [_jN]: _oI }],
     [0, { [_jN]: _oT }],
     [0, { [_jN]: _reg }],
-    [() => RenewalSettings, { [_jN]: _rSen }],
+    [() => RenewalSettings$, { [_jN]: _rSen }],
     [0, { [_jN]: _rIes }],
-    [() => ReservationResourceSpecification, { [_jN]: _rSes }],
+    [() => ReservationResourceSpecification$, { [_jN]: _rSes }],
     [0, { [_jN]: _star }],
     [0, { [_jN]: _st }],
     [128 | 0, { [_jN]: _ta }],
     [1, { [_jN]: _uP }],
   ],
 ];
-export var DescribeScheduleRequest: StaticStructureSchema = [
+export var DescribeScheduleRequest$: StaticStructureSchema = [
   3,
   n0,
   _DSRes,
@@ -4530,7 +4537,7 @@ export var DescribeScheduleRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var DescribeScheduleResponse: StaticStructureSchema = [
+export var DescribeScheduleResponse$: StaticStructureSchema = [
   3,
   n0,
   _DSResc,
@@ -4541,16 +4548,16 @@ export var DescribeScheduleResponse: StaticStructureSchema = [
     [() => __listOfScheduleAction, { [_jN]: _sAc }],
   ],
 ];
-export var DescribeSdiSourceRequest: StaticStructureSchema = [3, n0, _DSSRes, 0, [_SSId], [[0, 1]]];
-export var DescribeSdiSourceResponse: StaticStructureSchema = [
+export var DescribeSdiSourceRequest$: StaticStructureSchema = [3, n0, _DSSRes, 0, [_SSId], [[0, 1]]];
+export var DescribeSdiSourceResponse$: StaticStructureSchema = [
   3,
   n0,
   _DSSResc,
   0,
   [_SSdi],
-  [[() => SdiSource, { [_jN]: _sSdi }]],
+  [[() => SdiSource$, { [_jN]: _sSdi }]],
 ];
-export var DescribeThumbnailsRequest: StaticStructureSchema = [
+export var DescribeThumbnailsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTRe,
@@ -4562,7 +4569,7 @@ export var DescribeThumbnailsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _tT }],
   ],
 ];
-export var DescribeThumbnailsResponse: StaticStructureSchema = [
+export var DescribeThumbnailsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DTRes,
@@ -4570,8 +4577,8 @@ export var DescribeThumbnailsResponse: StaticStructureSchema = [
   [_TD],
   [[() => __listOfThumbnailDetail, { [_jN]: _tD }]],
 ];
-export var DolbyVision81Settings: StaticStructureSchema = [3, n0, _DVS, 0, [], []];
-export var DvbNitSettings: StaticStructureSchema = [
+export var DolbyVision81Settings$: StaticStructureSchema = [3, n0, _DVS, 0, [], []];
+export var DvbNitSettings$: StaticStructureSchema = [
   3,
   n0,
   _DNSv,
@@ -4583,7 +4590,7 @@ export var DvbNitSettings: StaticStructureSchema = [
     [1, { [_jN]: _rIep }],
   ],
 ];
-export var DvbSdtSettings: StaticStructureSchema = [
+export var DvbSdtSettings$: StaticStructureSchema = [
   3,
   n0,
   _DSS,
@@ -4596,7 +4603,7 @@ export var DvbSdtSettings: StaticStructureSchema = [
     [0, { [_jN]: _sPN }],
   ],
 ];
-export var DvbSubDestinationSettings: StaticStructureSchema = [
+export var DvbSubDestinationSettings$: StaticStructureSchema = [
   3,
   n0,
   _DSDS,
@@ -4606,7 +4613,7 @@ export var DvbSubDestinationSettings: StaticStructureSchema = [
     [0, { [_jN]: _al }],
     [0, { [_jN]: _bC }],
     [1, { [_jN]: _bO }],
-    [() => InputLocation, { [_jN]: _fo }],
+    [() => InputLocation$, { [_jN]: _fo }],
     [0, { [_jN]: _fCo }],
     [1, { [_jN]: _fO }],
     [1, { [_jN]: _fR }],
@@ -4623,7 +4630,7 @@ export var DvbSubDestinationSettings: StaticStructureSchema = [
     [0, { [_jN]: _sRu }],
   ],
 ];
-export var DvbSubSourceSettings: StaticStructureSchema = [
+export var DvbSubSourceSettings$: StaticStructureSchema = [
   3,
   n0,
   _DSSS,
@@ -4634,8 +4641,8 @@ export var DvbSubSourceSettings: StaticStructureSchema = [
     [1, { [_jN]: _pi }],
   ],
 ];
-export var DvbTdtSettings: StaticStructureSchema = [3, n0, _DTS, 0, [_RIep], [[1, { [_jN]: _rIep }]]];
-export var Eac3AtmosSettings: StaticStructureSchema = [
+export var DvbTdtSettings$: StaticStructureSchema = [3, n0, _DTS, 0, [_RIep], [[1, { [_jN]: _rIep }]]];
+export var Eac3AtmosSettings$: StaticStructureSchema = [
   3,
   n0,
   _EAS,
@@ -4651,7 +4658,7 @@ export var Eac3AtmosSettings: StaticStructureSchema = [
     [1, { [_jN]: _sTu }],
   ],
 ];
-export var Eac3Settings: StaticStructureSchema = [
+export var Eac3Settings$: StaticStructureSchema = [
   3,
   n0,
   _ES,
@@ -4701,7 +4708,7 @@ export var Eac3Settings: StaticStructureSchema = [
     [0, { [_jN]: _sM }],
   ],
 ];
-export var EbuTtDDestinationSettings: StaticStructureSchema = [
+export var EbuTtDDestinationSettings$: StaticStructureSchema = [
   3,
   n0,
   _ETDDS,
@@ -4716,9 +4723,9 @@ export var EbuTtDDestinationSettings: StaticStructureSchema = [
     [1, { [_jN]: _dLH }],
   ],
 ];
-export var EmbeddedDestinationSettings: StaticStructureSchema = [3, n0, _EDS, 0, [], []];
-export var EmbeddedPlusScte20DestinationSettings: StaticStructureSchema = [3, n0, _EPSDS, 0, [], []];
-export var EmbeddedSourceSettings: StaticStructureSchema = [
+export var EmbeddedDestinationSettings$: StaticStructureSchema = [3, n0, _EDS, 0, [], []];
+export var EmbeddedPlusScte20DestinationSettings$: StaticStructureSchema = [3, n0, _EPSDS, 0, [], []];
+export var EmbeddedSourceSettings$: StaticStructureSchema = [
   3,
   n0,
   _ESS,
@@ -4731,7 +4738,7 @@ export var EmbeddedSourceSettings: StaticStructureSchema = [
     [1, { [_jN]: _sTN }],
   ],
 ];
-export var EncoderSettings: StaticStructureSchema = [
+export var EncoderSettings$: StaticStructureSchema = [
   3,
   n0,
   _ESn,
@@ -4739,22 +4746,22 @@ export var EncoderSettings: StaticStructureSchema = [
   [_ADud, _AB, _ACv, _BSl, _CDa, _FAe, _GC, _MGC, _NC, _OG, _TCi, _VD, _TCh, _CCS],
   [
     [() => __listOfAudioDescription, { [_jN]: _aDu }],
-    [() => AvailBlanking, { [_jN]: _aB }],
-    [() => AvailConfiguration, { [_jN]: _aCv }],
-    [() => BlackoutSlate, { [_jN]: _bSl }],
+    [() => AvailBlanking$, { [_jN]: _aB }],
+    [() => AvailConfiguration$, { [_jN]: _aCv }],
+    [() => BlackoutSlate$, { [_jN]: _bSl }],
     [() => __listOfCaptionDescription, { [_jN]: _cD }],
-    [() => FeatureActivations, { [_jN]: _fAe }],
-    [() => GlobalConfiguration, { [_jN]: _gC }],
-    [() => MotionGraphicsConfiguration, { [_jN]: _mGC }],
-    [() => NielsenConfiguration, { [_jN]: _nC }],
+    [() => FeatureActivations$, { [_jN]: _fAe }],
+    [() => GlobalConfiguration$, { [_jN]: _gC }],
+    [() => MotionGraphicsConfiguration$, { [_jN]: _mGC }],
+    [() => NielsenConfiguration$, { [_jN]: _nC }],
     [() => __listOfOutputGroup, { [_jN]: _oG }],
-    [() => TimecodeConfig, { [_jN]: _tCi }],
+    [() => TimecodeConfig$, { [_jN]: _tCi }],
     [() => __listOfVideoDescription, { [_jN]: _vD }],
-    [() => ThumbnailConfiguration, { [_jN]: _tCh }],
-    [() => ColorCorrectionSettings, { [_jN]: _cCS }],
+    [() => ThumbnailConfiguration$, { [_jN]: _tCh }],
+    [() => ColorCorrectionSettings$, { [_jN]: _cCS }],
   ],
 ];
-export var EpochLockingSettings: StaticStructureSchema = [
+export var EpochLockingSettings$: StaticStructureSchema = [
   3,
   n0,
   _ELS,
@@ -4765,7 +4772,7 @@ export var EpochLockingSettings: StaticStructureSchema = [
     [0, { [_jN]: _jST }],
   ],
 ];
-export var Esam: StaticStructureSchema = [
+export var Esam$: StaticStructureSchema = [
   3,
   n0,
   _Es,
@@ -4780,7 +4787,7 @@ export var Esam: StaticStructureSchema = [
     [0, { [_jN]: _zI }],
   ],
 ];
-export var EventBridgeRuleTemplateGroupSummary: StaticStructureSchema = [
+export var EventBridgeRuleTemplateGroupSummary$: StaticStructureSchema = [
   3,
   n0,
   _EBRTGS,
@@ -4797,7 +4804,7 @@ export var EventBridgeRuleTemplateGroupSummary: StaticStructureSchema = [
     [1, { [_jN]: _tC }],
   ],
 ];
-export var EventBridgeRuleTemplateSummary: StaticStructureSchema = [
+export var EventBridgeRuleTemplateSummary$: StaticStructureSchema = [
   3,
   n0,
   _EBRTS,
@@ -4816,28 +4823,28 @@ export var EventBridgeRuleTemplateSummary: StaticStructureSchema = [
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var EventBridgeRuleTemplateTarget: StaticStructureSchema = [3, n0, _EBRTT, 0, [_Ar], [[0, { [_jN]: _ar }]]];
-export var FailoverCondition: StaticStructureSchema = [
+export var EventBridgeRuleTemplateTarget$: StaticStructureSchema = [3, n0, _EBRTT, 0, [_Ar], [[0, { [_jN]: _ar }]]];
+export var FailoverCondition$: StaticStructureSchema = [
   3,
   n0,
   _FCa,
   0,
   [_FCS],
-  [[() => FailoverConditionSettings, { [_jN]: _fCS }]],
+  [[() => FailoverConditionSettings$, { [_jN]: _fCS }]],
 ];
-export var FailoverConditionSettings: StaticStructureSchema = [
+export var FailoverConditionSettings$: StaticStructureSchema = [
   3,
   n0,
   _FCS,
   0,
   [_ASSud, _ILS, _VBS],
   [
-    [() => AudioSilenceFailoverSettings, { [_jN]: _aSSu }],
-    [() => InputLossFailoverSettings, { [_jN]: _iLS }],
-    [() => VideoBlackFailoverSettings, { [_jN]: _vBS }],
+    [() => AudioSilenceFailoverSettings$, { [_jN]: _aSSu }],
+    [() => InputLossFailoverSettings$, { [_jN]: _iLS }],
+    [() => VideoBlackFailoverSettings$, { [_jN]: _vBS }],
   ],
 ];
-export var FeatureActivations: StaticStructureSchema = [
+export var FeatureActivations$: StaticStructureSchema = [
   3,
   n0,
   _FAe,
@@ -4848,7 +4855,7 @@ export var FeatureActivations: StaticStructureSchema = [
     [0, { [_jN]: _oSIOSA }],
   ],
 ];
-export var FecOutputSettings: StaticStructureSchema = [
+export var FecOutputSettings$: StaticStructureSchema = [
   3,
   n0,
   _FOS,
@@ -4860,7 +4867,7 @@ export var FecOutputSettings: StaticStructureSchema = [
     [1, { [_jN]: _rL }],
   ],
 ];
-export var FixedModeScheduleActionStartSettings: StaticStructureSchema = [
+export var FixedModeScheduleActionStartSettings$: StaticStructureSchema = [
   3,
   n0,
   _FMSASS,
@@ -4868,7 +4875,7 @@ export var FixedModeScheduleActionStartSettings: StaticStructureSchema = [
   [_Ti],
   [[0, { [_jN]: _ti }]],
 ];
-export var Fmp4HlsSettings: StaticStructureSchema = [
+export var Fmp4HlsSettings$: StaticStructureSchema = [
   3,
   n0,
   _FHS,
@@ -4880,7 +4887,7 @@ export var Fmp4HlsSettings: StaticStructureSchema = [
     [0, { [_jN]: _tMB }],
   ],
 ];
-export var FollowModeScheduleActionStartSettings: StaticStructureSchema = [
+export var FollowModeScheduleActionStartSettings$: StaticStructureSchema = [
   3,
   n0,
   _FMSASSo,
@@ -4891,31 +4898,38 @@ export var FollowModeScheduleActionStartSettings: StaticStructureSchema = [
     [0, { [_jN]: _rAN }],
   ],
 ];
-export var ForbiddenException: StaticErrorSchema = [-3, n0, _FE, { [_er]: _c, [_hE]: 403 }, [_M], [[0, { [_jN]: _m }]]];
-TypeRegistry.for(n0).registerError(ForbiddenException, __ForbiddenException);
-export var FrameCaptureCdnSettings: StaticStructureSchema = [
+export var ForbiddenException$: StaticErrorSchema = [
+  -3,
+  n0,
+  _FE,
+  { [_er]: _c, [_hE]: 403 },
+  [_M],
+  [[0, { [_jN]: _m }]],
+];
+TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
+export var FrameCaptureCdnSettings$: StaticStructureSchema = [
   3,
   n0,
   _FCCS,
   0,
   [_FCSS],
-  [[() => FrameCaptureS3Settings, { [_jN]: _fCSS }]],
+  [[() => FrameCaptureS3Settings$, { [_jN]: _fCSS }]],
 ];
-export var FrameCaptureGroupSettings: StaticStructureSchema = [
+export var FrameCaptureGroupSettings$: StaticStructureSchema = [
   3,
   n0,
   _FCGS,
   0,
   [_De, _FCCS],
   [
-    [() => OutputLocationRef, { [_jN]: _de }],
-    [() => FrameCaptureCdnSettings, { [_jN]: _fCCS }],
+    [() => OutputLocationRef$, { [_jN]: _de }],
+    [() => FrameCaptureCdnSettings$, { [_jN]: _fCCS }],
   ],
 ];
-export var FrameCaptureHlsSettings: StaticStructureSchema = [3, n0, _FCHS, 0, [], []];
-export var FrameCaptureOutputSettings: StaticStructureSchema = [3, n0, _FCOS, 0, [_NM], [[0, { [_jN]: _nM }]]];
-export var FrameCaptureS3Settings: StaticStructureSchema = [3, n0, _FCSS, 0, [_CA], [[0, { [_jN]: _cA }]]];
-export var FrameCaptureSettings: StaticStructureSchema = [
+export var FrameCaptureHlsSettings$: StaticStructureSchema = [3, n0, _FCHS, 0, [], []];
+export var FrameCaptureOutputSettings$: StaticStructureSchema = [3, n0, _FCOS, 0, [_NM], [[0, { [_jN]: _nM }]]];
+export var FrameCaptureS3Settings$: StaticStructureSchema = [3, n0, _FCSS, 0, [_CA], [[0, { [_jN]: _cA }]]];
+export var FrameCaptureSettings$: StaticStructureSchema = [
   3,
   n0,
   _FCSr,
@@ -4924,10 +4938,10 @@ export var FrameCaptureSettings: StaticStructureSchema = [
   [
     [1, { [_jN]: _cIa }],
     [0, { [_jN]: _cIU }],
-    [() => TimecodeBurninSettings, { [_jN]: _tBS }],
+    [() => TimecodeBurninSettings$, { [_jN]: _tBS }],
   ],
 ];
-export var GatewayTimeoutException: StaticErrorSchema = [
+export var GatewayTimeoutException$: StaticErrorSchema = [
   -3,
   n0,
   _GTE,
@@ -4935,9 +4949,9 @@ export var GatewayTimeoutException: StaticErrorSchema = [
   [_M],
   [[0, { [_jN]: _m }]],
 ];
-TypeRegistry.for(n0).registerError(GatewayTimeoutException, __GatewayTimeoutException);
-export var GetCloudWatchAlarmTemplateGroupRequest: StaticStructureSchema = [3, n0, _GCWATGR, 0, [_Id], [[0, 1]]];
-export var GetCloudWatchAlarmTemplateGroupResponse: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(GatewayTimeoutException$, GatewayTimeoutException);
+export var GetCloudWatchAlarmTemplateGroupRequest$: StaticStructureSchema = [3, n0, _GCWATGR, 0, [_Id], [[0, 1]]];
+export var GetCloudWatchAlarmTemplateGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCWATGRe,
@@ -4953,8 +4967,8 @@ export var GetCloudWatchAlarmTemplateGroupResponse: StaticStructureSchema = [
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var GetCloudWatchAlarmTemplateRequest: StaticStructureSchema = [3, n0, _GCWATR, 0, [_Id], [[0, 1]]];
-export var GetCloudWatchAlarmTemplateResponse: StaticStructureSchema = [
+export var GetCloudWatchAlarmTemplateRequest$: StaticStructureSchema = [3, n0, _GCWATR, 0, [_Id], [[0, 1]]];
+export var GetCloudWatchAlarmTemplateResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCWATRe,
@@ -4980,8 +4994,8 @@ export var GetCloudWatchAlarmTemplateResponse: StaticStructureSchema = [
     [0, { [_jN]: _tMD }],
   ],
 ];
-export var GetEventBridgeRuleTemplateGroupRequest: StaticStructureSchema = [3, n0, _GEBRTGR, 0, [_Id], [[0, 1]]];
-export var GetEventBridgeRuleTemplateGroupResponse: StaticStructureSchema = [
+export var GetEventBridgeRuleTemplateGroupRequest$: StaticStructureSchema = [3, n0, _GEBRTGR, 0, [_Id], [[0, 1]]];
+export var GetEventBridgeRuleTemplateGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _GEBRTGRe,
@@ -4997,8 +5011,8 @@ export var GetEventBridgeRuleTemplateGroupResponse: StaticStructureSchema = [
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var GetEventBridgeRuleTemplateRequest: StaticStructureSchema = [3, n0, _GEBRTR, 0, [_Id], [[0, 1]]];
-export var GetEventBridgeRuleTemplateResponse: StaticStructureSchema = [
+export var GetEventBridgeRuleTemplateRequest$: StaticStructureSchema = [3, n0, _GEBRTR, 0, [_Id], [[0, 1]]];
+export var GetEventBridgeRuleTemplateResponse$: StaticStructureSchema = [
   3,
   n0,
   _GEBRTRe,
@@ -5017,8 +5031,8 @@ export var GetEventBridgeRuleTemplateResponse: StaticStructureSchema = [
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var GetSignalMapRequest: StaticStructureSchema = [3, n0, _GSMR, 0, [_Id], [[0, 1]]];
-export var GetSignalMapResponse: StaticStructureSchema = [
+export var GetSignalMapRequest$: StaticStructureSchema = [3, n0, _GSMR, 0, [_Id], [[0, 1]]];
+export var GetSignalMapResponse$: StaticStructureSchema = [
   3,
   n0,
   _GSMRe,
@@ -5035,17 +5049,17 @@ export var GetSignalMapResponse: StaticStructureSchema = [
     [() => FailedMediaResourceMap, { [_jN]: _fMRM }],
     [0, { [_jN]: _i }],
     [5, { [_jN]: _lDA }],
-    [() => SuccessfulMonitorDeployment, { [_jN]: _lSMD }],
+    [() => SuccessfulMonitorDeployment$, { [_jN]: _lSMD }],
     [() => MediaResourceMap, { [_jN]: _mRM }],
     [5, { [_jN]: _mA }],
     [2, { [_jN]: _mCPD }],
-    [() => MonitorDeployment, { [_jN]: _mD }],
+    [() => MonitorDeployment$, { [_jN]: _mD }],
     [0, { [_jN]: _n }],
     [0, { [_jN]: _stat }],
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var GlobalConfiguration: StaticStructureSchema = [
+export var GlobalConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _GC,
@@ -5054,37 +5068,37 @@ export var GlobalConfiguration: StaticStructureSchema = [
   [
     [1, { [_jN]: _iAG }],
     [0, { [_jN]: _iEA }],
-    [() => InputLossBehavior, { [_jN]: _iLB }],
+    [() => InputLossBehavior$, { [_jN]: _iLB }],
     [0, { [_jN]: _oLM }],
     [0, { [_jN]: _oTS }],
     [0, { [_jN]: _sLFI }],
-    [() => OutputLockingSettings, { [_jN]: _oLS }],
+    [() => OutputLockingSettings$, { [_jN]: _oLS }],
   ],
 ];
-export var H264ColorSpaceSettings: StaticStructureSchema = [
+export var H264ColorSpaceSettings$: StaticStructureSchema = [
   3,
   n0,
   _HCSS,
   0,
   [_CSPS, _RSec, _RSece],
   [
-    [() => ColorSpacePassthroughSettings, { [_jN]: _cSPS }],
-    [() => Rec601Settings, { [_jN]: _rSec }],
-    [() => Rec709Settings, { [_jN]: _rSece }],
+    [() => ColorSpacePassthroughSettings$, { [_jN]: _cSPS }],
+    [() => Rec601Settings$, { [_jN]: _rSec }],
+    [() => Rec709Settings$, { [_jN]: _rSece }],
   ],
 ];
-export var H264FilterSettings: StaticStructureSchema = [
+export var H264FilterSettings$: StaticStructureSchema = [
   3,
   n0,
   _HFS,
   0,
   [_TFS, _BRFS],
   [
-    [() => TemporalFilterSettings, { [_jN]: _tFS }],
-    [() => BandwidthReductionFilterSettings, { [_jN]: _bRFS }],
+    [() => TemporalFilterSettings$, { [_jN]: _tFS }],
+    [() => BandwidthReductionFilterSettings$, { [_jN]: _bRFS }],
   ],
 ];
-export var H264Settings: StaticStructureSchema = [
+export var H264Settings$: StaticStructureSchema = [
   3,
   n0,
   _HSe,
@@ -5142,9 +5156,9 @@ export var H264Settings: StaticStructureSchema = [
     [1, { [_jN]: _bFP }],
     [1, { [_jN]: _bS }],
     [0, { [_jN]: _cMo }],
-    [() => H264ColorSpaceSettings, { [_jN]: _cSS }],
+    [() => H264ColorSpaceSettings$, { [_jN]: _cSS }],
     [0, { [_jN]: _eEn }],
-    [() => H264FilterSettings, { [_jN]: _fSi }],
+    [() => H264FilterSettings$, { [_jN]: _fSi }],
     [0, { [_jN]: _fA }],
     [0, { [_jN]: _fAl }],
     [0, { [_jN]: _fFP }],
@@ -5177,38 +5191,38 @@ export var H264Settings: StaticStructureSchema = [
     [0, { [_jN]: _sy }],
     [0, { [_jN]: _tA }],
     [0, { [_jN]: _tI }],
-    [() => TimecodeBurninSettings, { [_jN]: _tBS }],
+    [() => TimecodeBurninSettings$, { [_jN]: _tBS }],
     [1, { [_jN]: _mQ }],
     [1, { [_jN]: _mBi }],
   ],
 ];
-export var H265ColorSpaceSettings: StaticStructureSchema = [
+export var H265ColorSpaceSettings$: StaticStructureSchema = [
   3,
   n0,
   _HCSSo,
   0,
   [_CSPS, _DVS, _HS, _RSec, _RSece, _HSl],
   [
-    [() => ColorSpacePassthroughSettings, { [_jN]: _cSPS }],
-    [() => DolbyVision81Settings, { [_jN]: _dVS }],
-    [() => Hdr10Settings, { [_jN]: _hS }],
-    [() => Rec601Settings, { [_jN]: _rSec }],
-    [() => Rec709Settings, { [_jN]: _rSece }],
-    [() => Hlg2020Settings, { [_jN]: _hSl }],
+    [() => ColorSpacePassthroughSettings$, { [_jN]: _cSPS }],
+    [() => DolbyVision81Settings$, { [_jN]: _dVS }],
+    [() => Hdr10Settings$, { [_jN]: _hS }],
+    [() => Rec601Settings$, { [_jN]: _rSec }],
+    [() => Rec709Settings$, { [_jN]: _rSece }],
+    [() => Hlg2020Settings$, { [_jN]: _hSl }],
   ],
 ];
-export var H265FilterSettings: StaticStructureSchema = [
+export var H265FilterSettings$: StaticStructureSchema = [
   3,
   n0,
   _HFSi,
   0,
   [_TFS, _BRFS],
   [
-    [() => TemporalFilterSettings, { [_jN]: _tFS }],
-    [() => BandwidthReductionFilterSettings, { [_jN]: _bRFS }],
+    [() => TemporalFilterSettings$, { [_jN]: _tFS }],
+    [() => BandwidthReductionFilterSettings$, { [_jN]: _bRFS }],
   ],
 ];
-export var H265Settings: StaticStructureSchema = [
+export var H265Settings$: StaticStructureSchema = [
   3,
   n0,
   _HSet,
@@ -5264,8 +5278,8 @@ export var H265Settings: StaticStructureSchema = [
     [1, { [_jN]: _b }],
     [1, { [_jN]: _bS }],
     [0, { [_jN]: _cMo }],
-    [() => H265ColorSpaceSettings, { [_jN]: _cSS }],
-    [() => H265FilterSettings, { [_jN]: _fSi }],
+    [() => H265ColorSpaceSettings$, { [_jN]: _cSS }],
+    [() => H265FilterSettings$, { [_jN]: _fSi }],
     [0, { [_jN]: _fA }],
     [0, { [_jN]: _fAl }],
     [1, { [_jN]: _fD }],
@@ -5287,7 +5301,7 @@ export var H265Settings: StaticStructureSchema = [
     [1, { [_jN]: _sl }],
     [0, { [_jN]: _tie }],
     [0, { [_jN]: _tI }],
-    [() => TimecodeBurninSettings, { [_jN]: _tBS }],
+    [() => TimecodeBurninSettings$, { [_jN]: _tBS }],
     [0, { [_jN]: _mOPB }],
     [0, { [_jN]: _mTP }],
     [1, { [_jN]: _tH }],
@@ -5302,7 +5316,7 @@ export var H265Settings: StaticStructureSchema = [
     [0, { [_jN]: _sLu }],
   ],
 ];
-export var Hdr10Settings: StaticStructureSchema = [
+export var Hdr10Settings$: StaticStructureSchema = [
   3,
   n0,
   _HS,
@@ -5313,8 +5327,8 @@ export var Hdr10Settings: StaticStructureSchema = [
     [1, { [_jN]: _mF }],
   ],
 ];
-export var Hlg2020Settings: StaticStructureSchema = [3, n0, _HSl, 0, [], []];
-export var HlsAkamaiSettings: StaticStructureSchema = [
+export var Hlg2020Settings$: StaticStructureSchema = [3, n0, _HSl, 0, [], []];
+export var HlsAkamaiSettings$: StaticStructureSchema = [
   3,
   n0,
   _HAS,
@@ -5330,7 +5344,7 @@ export var HlsAkamaiSettings: StaticStructureSchema = [
     [0, { [_jN]: _to }],
   ],
 ];
-export var HlsBasicPutSettings: StaticStructureSchema = [
+export var HlsBasicPutSettings$: StaticStructureSchema = [
   3,
   n0,
   _HBPS,
@@ -5343,21 +5357,21 @@ export var HlsBasicPutSettings: StaticStructureSchema = [
     [1, { [_jN]: _rD }],
   ],
 ];
-export var HlsCdnSettings: StaticStructureSchema = [
+export var HlsCdnSettings$: StaticStructureSchema = [
   3,
   n0,
   _HCS,
   0,
   [_HAS, _HBPS, _HMSS, _HSS, _HWS],
   [
-    [() => HlsAkamaiSettings, { [_jN]: _hAS }],
-    [() => HlsBasicPutSettings, { [_jN]: _hBPS }],
-    [() => HlsMediaStoreSettings, { [_jN]: _hMSS }],
-    [() => HlsS3Settings, { [_jN]: _hSS }],
-    [() => HlsWebdavSettings, { [_jN]: _hWS }],
+    [() => HlsAkamaiSettings$, { [_jN]: _hAS }],
+    [() => HlsBasicPutSettings$, { [_jN]: _hBPS }],
+    [() => HlsMediaStoreSettings$, { [_jN]: _hMSS }],
+    [() => HlsS3Settings$, { [_jN]: _hSS }],
+    [() => HlsWebdavSettings$, { [_jN]: _hWS }],
   ],
 ];
-export var HlsGroupSettings: StaticStructureSchema = [
+export var HlsGroupSettings$: StaticStructureSchema = [
   3,
   n0,
   _HGS,
@@ -5418,11 +5432,11 @@ export var HlsGroupSettings: StaticStructureSchema = [
     [0, { [_jN]: _cCl }],
     [0, { [_jN]: _cSod }],
     [0, { [_jN]: _cIo }],
-    [() => OutputLocationRef, { [_jN]: _de }],
+    [() => OutputLocationRef$, { [_jN]: _de }],
     [0, { [_jN]: _dSi }],
     [0, { [_jN]: _dT }],
     [0, { [_jN]: _eTn }],
-    [() => HlsCdnSettings, { [_jN]: _hCS }],
+    [() => HlsCdnSettings$, { [_jN]: _hCS }],
     [0, { [_jN]: _hIST }],
     [0, { [_jN]: _iFOP }],
     [0, { [_jN]: _iSB }],
@@ -5433,7 +5447,7 @@ export var HlsGroupSettings: StaticStructureSchema = [
     [1, { [_jN]: _kS }],
     [0, { [_jN]: _kF }],
     [0, { [_jN]: _kFV }],
-    [() => KeyProviderSettings, { [_jN]: _kPS }],
+    [() => KeyProviderSettings$, { [_jN]: _kPS }],
     [0, { [_jN]: _mCan }],
     [0, { [_jN]: _mDF }],
     [1, { [_jN]: _mSL }],
@@ -5453,7 +5467,7 @@ export var HlsGroupSettings: StaticStructureSchema = [
     [0, { [_jN]: _tFM }],
   ],
 ];
-export var HlsId3SegmentTaggingScheduleActionSettings: StaticStructureSchema = [
+export var HlsId3SegmentTaggingScheduleActionSettings$: StaticStructureSchema = [
   3,
   n0,
   _HISTSAS,
@@ -5464,7 +5478,7 @@ export var HlsId3SegmentTaggingScheduleActionSettings: StaticStructureSchema = [
     [0, { [_jN]: _id }],
   ],
 ];
-export var HlsInputSettings: StaticStructureSchema = [
+export var HlsInputSettings$: StaticStructureSchema = [
   3,
   n0,
   _HIS,
@@ -5478,7 +5492,7 @@ export var HlsInputSettings: StaticStructureSchema = [
     [0, { [_jN]: _sSc }],
   ],
 ];
-export var HlsMediaStoreSettings: StaticStructureSchema = [
+export var HlsMediaStoreSettings$: StaticStructureSchema = [
   3,
   n0,
   _HMSS,
@@ -5492,7 +5506,7 @@ export var HlsMediaStoreSettings: StaticStructureSchema = [
     [1, { [_jN]: _rD }],
   ],
 ];
-export var HlsOutputSettings: StaticStructureSchema = [
+export var HlsOutputSettings$: StaticStructureSchema = [
   3,
   n0,
   _HOS,
@@ -5500,26 +5514,26 @@ export var HlsOutputSettings: StaticStructureSchema = [
   [_HPT, _HSls, _NM, _SMeg],
   [
     [0, { [_jN]: _hPT }],
-    [() => HlsSettings, { [_jN]: _hSls }],
+    [() => HlsSettings$, { [_jN]: _hSls }],
     [0, { [_jN]: _nM }],
     [0, { [_jN]: _sMeg }],
   ],
 ];
-export var HlsS3Settings: StaticStructureSchema = [3, n0, _HSS, 0, [_CA], [[0, { [_jN]: _cA }]]];
-export var HlsSettings: StaticStructureSchema = [
+export var HlsS3Settings$: StaticStructureSchema = [3, n0, _HSS, 0, [_CA], [[0, { [_jN]: _cA }]]];
+export var HlsSettings$: StaticStructureSchema = [
   3,
   n0,
   _HSls,
   0,
   [_AOHS, _FHS, _FCHS, _SHS],
   [
-    [() => AudioOnlyHlsSettings, { [_jN]: _aOHS }],
-    [() => Fmp4HlsSettings, { [_jN]: _fHS }],
-    [() => FrameCaptureHlsSettings, { [_jN]: _fCHS }],
-    [() => StandardHlsSettings, { [_jN]: _sHS }],
+    [() => AudioOnlyHlsSettings$, { [_jN]: _aOHS }],
+    [() => Fmp4HlsSettings$, { [_jN]: _fHS }],
+    [() => FrameCaptureHlsSettings$, { [_jN]: _fCHS }],
+    [() => StandardHlsSettings$, { [_jN]: _sHS }],
   ],
 ];
-export var HlsTimedMetadataScheduleActionSettings: StaticStructureSchema = [
+export var HlsTimedMetadataScheduleActionSettings$: StaticStructureSchema = [
   3,
   n0,
   _HTMSAS,
@@ -5527,7 +5541,7 @@ export var HlsTimedMetadataScheduleActionSettings: StaticStructureSchema = [
   [_Id_],
   [[0, { [_jN]: _id }]],
 ];
-export var HlsWebdavSettings: StaticStructureSchema = [
+export var HlsWebdavSettings$: StaticStructureSchema = [
   3,
   n0,
   _HWS,
@@ -5541,8 +5555,8 @@ export var HlsWebdavSettings: StaticStructureSchema = [
     [1, { [_jN]: _rD }],
   ],
 ];
-export var HtmlMotionGraphicsSettings: StaticStructureSchema = [3, n0, _HMGS, 0, [], []];
-export var Id3SegmentTaggingScheduleActionSettings: StaticStructureSchema = [
+export var HtmlMotionGraphicsSettings$: StaticStructureSchema = [3, n0, _HMGS, 0, [], []];
+export var Id3SegmentTaggingScheduleActionSettings$: StaticStructureSchema = [
   3,
   n0,
   _ISTSAS,
@@ -5553,8 +5567,8 @@ export var Id3SegmentTaggingScheduleActionSettings: StaticStructureSchema = [
     [0, { [_jN]: _tag }],
   ],
 ];
-export var ImmediateModeScheduleActionStartSettings: StaticStructureSchema = [3, n0, _IMSASS, 0, [], []];
-export var Input: StaticStructureSchema = [
+export var ImmediateModeScheduleActionStartSettings$: StaticStructureSchema = [3, n0, _IMSASS, 0, [], []];
+export var Input$: StaticStructureSchema = [
   3,
   n0,
   _In,
@@ -5600,29 +5614,29 @@ export var Input: StaticStructureSchema = [
     [0, { [_jN]: _st }],
     [128 | 0, { [_jN]: _ta }],
     [0, { [_jN]: _ty }],
-    [() => SrtSettings, { [_jN]: _sSr }],
+    [() => SrtSettings$, { [_jN]: _sSr }],
     [0, { [_jN]: _iNL }],
-    [() => MulticastSettings, { [_jN]: _mSu }],
-    [() => Smpte2110ReceiverGroupSettings, { [_jN]: _sRGS }],
+    [() => MulticastSettings$, { [_jN]: _mSu }],
+    [() => Smpte2110ReceiverGroupSettings$, { [_jN]: _sRGS }],
     [64 | 0, { [_jN]: _sSd }],
-    [() => RouterInputSettings, { [_jN]: _rSo }],
+    [() => RouterInputSettings$, { [_jN]: _rSo }],
   ],
 ];
-export var InputAttachment: StaticStructureSchema = [
+export var InputAttachment$: StaticStructureSchema = [
   3,
   n0,
   _IAnp,
   0,
   [_AIFS, _IAN, _IIn, _ISn, _LIN],
   [
-    [() => AutomaticInputFailoverSettings, { [_jN]: _aIFS }],
+    [() => AutomaticInputFailoverSettings$, { [_jN]: _aIFS }],
     [0, { [_jN]: _iAN }],
     [0, { [_jN]: _iIn }],
-    [() => InputSettings, { [_jN]: _iSn }],
+    [() => InputSettings$, { [_jN]: _iSn }],
     [64 | 0, { [_jN]: _lIN }],
   ],
 ];
-export var InputChannelLevel: StaticStructureSchema = [
+export var InputChannelLevel$: StaticStructureSchema = [
   3,
   n0,
   _ICLn,
@@ -5633,7 +5647,7 @@ export var InputChannelLevel: StaticStructureSchema = [
     [1, { [_jN]: _iCn }],
   ],
 ];
-export var InputClippingSettings: StaticStructureSchema = [
+export var InputClippingSettings$: StaticStructureSchema = [
   3,
   n0,
   _ICSn,
@@ -5641,11 +5655,11 @@ export var InputClippingSettings: StaticStructureSchema = [
   [_ITS, _STt, _STto],
   [
     [0, { [_jN]: _iTS }],
-    [() => StartTimecode, { [_jN]: _sTt }],
-    [() => StopTimecode, { [_jN]: _sTto }],
+    [() => StartTimecode$, { [_jN]: _sTt }],
+    [() => StopTimecode$, { [_jN]: _sTto }],
   ],
 ];
-export var InputDestination: StaticStructureSchema = [
+export var InputDestination$: StaticStructureSchema = [
   3,
   n0,
   _IDn,
@@ -5655,12 +5669,12 @@ export var InputDestination: StaticStructureSchema = [
     [0, { [_jN]: _ip }],
     [0, { [_jN]: _po }],
     [0, { [_jN]: _ur }],
-    [() => InputDestinationVpc, { [_jN]: _v }],
+    [() => InputDestinationVpc$, { [_jN]: _v }],
     [0, { [_jN]: _ne }],
     [() => __listOfInputDestinationRoute, { [_jN]: _nRe }],
   ],
 ];
-export var InputDestinationRequest: StaticStructureSchema = [
+export var InputDestinationRequest$: StaticStructureSchema = [
   3,
   n0,
   _IDR,
@@ -5673,7 +5687,7 @@ export var InputDestinationRequest: StaticStructureSchema = [
     [0, { [_jN]: _sIA }],
   ],
 ];
-export var InputDestinationRoute: StaticStructureSchema = [
+export var InputDestinationRoute$: StaticStructureSchema = [
   3,
   n0,
   _IDRn,
@@ -5684,7 +5698,7 @@ export var InputDestinationRoute: StaticStructureSchema = [
     [0, { [_jN]: _ga }],
   ],
 ];
-export var InputDestinationVpc: StaticStructureSchema = [
+export var InputDestinationVpc$: StaticStructureSchema = [
   3,
   n0,
   _IDV,
@@ -5695,7 +5709,7 @@ export var InputDestinationVpc: StaticStructureSchema = [
     [0, { [_jN]: _nII }],
   ],
 ];
-export var InputDeviceConfigurableAudioChannelPairConfig: StaticStructureSchema = [
+export var InputDeviceConfigurableAudioChannelPairConfig$: StaticStructureSchema = [
   3,
   n0,
   _IDCACPC,
@@ -5706,7 +5720,7 @@ export var InputDeviceConfigurableAudioChannelPairConfig: StaticStructureSchema 
     [0, { [_jN]: _p }],
   ],
 ];
-export var InputDeviceConfigurableSettings: StaticStructureSchema = [
+export var InputDeviceConfigurableSettings$: StaticStructureSchema = [
   3,
   n0,
   _IDCS,
@@ -5717,12 +5731,12 @@ export var InputDeviceConfigurableSettings: StaticStructureSchema = [
     [1, { [_jN]: _mB }],
     [1, { [_jN]: _lM }],
     [0, { [_jN]: _cod }],
-    [() => InputDeviceMediaConnectConfigurableSettings, { [_jN]: _mSe }],
+    [() => InputDeviceMediaConnectConfigurableSettings$, { [_jN]: _mSe }],
     [() => __listOfInputDeviceConfigurableAudioChannelPairConfig, { [_jN]: _aCP }],
     [0, { [_jN]: _iR }],
   ],
 ];
-export var InputDeviceHdSettings: StaticStructureSchema = [
+export var InputDeviceHdSettings$: StaticStructureSchema = [
   3,
   n0,
   _IDHS,
@@ -5740,7 +5754,7 @@ export var InputDeviceHdSettings: StaticStructureSchema = [
     [1, { [_jN]: _lM }],
   ],
 ];
-export var InputDeviceMediaConnectConfigurableSettings: StaticStructureSchema = [
+export var InputDeviceMediaConnectConfigurableSettings$: StaticStructureSchema = [
   3,
   n0,
   _IDMCCS,
@@ -5753,7 +5767,7 @@ export var InputDeviceMediaConnectConfigurableSettings: StaticStructureSchema = 
     [0, { [_jN]: _sNo }],
   ],
 ];
-export var InputDeviceMediaConnectSettings: StaticStructureSchema = [
+export var InputDeviceMediaConnectSettings$: StaticStructureSchema = [
   3,
   n0,
   _IDMCS,
@@ -5766,7 +5780,7 @@ export var InputDeviceMediaConnectSettings: StaticStructureSchema = [
     [0, { [_jN]: _sNo }],
   ],
 ];
-export var InputDeviceNetworkSettings: StaticStructureSchema = [
+export var InputDeviceNetworkSettings$: StaticStructureSchema = [
   3,
   n0,
   _IDNS,
@@ -5780,9 +5794,9 @@ export var InputDeviceNetworkSettings: StaticStructureSchema = [
     [0, { [_jN]: _sMu }],
   ],
 ];
-export var InputDeviceRequest: StaticStructureSchema = [3, n0, _IDRnp, 0, [_I], [[0, { [_jN]: _i }]]];
-export var InputDeviceSettings: StaticStructureSchema = [3, n0, _IDS, 0, [_I], [[0, { [_jN]: _i }]]];
-export var InputDeviceSummary: StaticStructureSchema = [
+export var InputDeviceRequest$: StaticStructureSchema = [3, n0, _IDRnp, 0, [_I], [[0, { [_jN]: _i }]]];
+export var InputDeviceSettings$: StaticStructureSchema = [3, n0, _IDS, 0, [_I], [[0, { [_jN]: _i }]]];
+export var InputDeviceSummary$: StaticStructureSchema = [
   3,
   n0,
   _IDSn,
@@ -5793,21 +5807,21 @@ export var InputDeviceSummary: StaticStructureSchema = [
     [0, { [_jN]: _cSon }],
     [0, { [_jN]: _dSSSe }],
     [0, { [_jN]: _dUS }],
-    [() => InputDeviceHdSettings, { [_jN]: _hDS }],
+    [() => InputDeviceHdSettings$, { [_jN]: _hDS }],
     [0, { [_jN]: _i }],
     [0, { [_jN]: _mAa }],
     [0, { [_jN]: _n }],
-    [() => InputDeviceNetworkSettings, { [_jN]: _nS }],
+    [() => InputDeviceNetworkSettings$, { [_jN]: _nS }],
     [0, { [_jN]: _sNe }],
     [0, { [_jN]: _ty }],
-    [() => InputDeviceUhdSettings, { [_jN]: _uDS }],
+    [() => InputDeviceUhdSettings$, { [_jN]: _uDS }],
     [128 | 0, { [_jN]: _ta }],
     [0, { [_jN]: _aZv }],
     [64 | 0, { [_jN]: _mIA }],
     [0, { [_jN]: _oTu }],
   ],
 ];
-export var InputDeviceUhdAudioChannelPairConfig: StaticStructureSchema = [
+export var InputDeviceUhdAudioChannelPairConfig$: StaticStructureSchema = [
   3,
   n0,
   _IDUACPC,
@@ -5818,7 +5832,7 @@ export var InputDeviceUhdAudioChannelPairConfig: StaticStructureSchema = [
     [0, { [_jN]: _p }],
   ],
 ];
-export var InputDeviceUhdSettings: StaticStructureSchema = [
+export var InputDeviceUhdSettings$: StaticStructureSchema = [
   3,
   n0,
   _IDUS,
@@ -5835,12 +5849,12 @@ export var InputDeviceUhdSettings: StaticStructureSchema = [
     [1, { [_jN]: _w }],
     [1, { [_jN]: _lM }],
     [0, { [_jN]: _cod }],
-    [() => InputDeviceMediaConnectSettings, { [_jN]: _mSe }],
+    [() => InputDeviceMediaConnectSettings$, { [_jN]: _mSe }],
     [() => __listOfInputDeviceUhdAudioChannelPairConfig, { [_jN]: _aCP }],
     [0, { [_jN]: _iR }],
   ],
 ];
-export var InputLocation: StaticStructureSchema = [
+export var InputLocation$: StaticStructureSchema = [
   3,
   n0,
   _IL,
@@ -5852,7 +5866,7 @@ export var InputLocation: StaticStructureSchema = [
     [0, { [_jN]: _us }],
   ],
 ];
-export var InputLossBehavior: StaticStructureSchema = [
+export var InputLossBehavior$: StaticStructureSchema = [
   3,
   n0,
   _ILB,
@@ -5861,13 +5875,13 @@ export var InputLossBehavior: StaticStructureSchema = [
   [
     [1, { [_jN]: _bFM }],
     [0, { [_jN]: _iLIC }],
-    [() => InputLocation, { [_jN]: _iLIS }],
+    [() => InputLocation$, { [_jN]: _iLIS }],
     [0, { [_jN]: _iLIT }],
     [1, { [_jN]: _rFM }],
   ],
 ];
-export var InputLossFailoverSettings: StaticStructureSchema = [3, n0, _ILFS, 0, [_ILTM], [[1, { [_jN]: _iLTM }]]];
-export var InputPrepareScheduleActionSettings: StaticStructureSchema = [
+export var InputLossFailoverSettings$: StaticStructureSchema = [3, n0, _ILFS, 0, [_ILTM], [[1, { [_jN]: _iLTM }]]];
+export var InputPrepareScheduleActionSettings$: StaticStructureSchema = [
   3,
   n0,
   _IPSAS,
@@ -5875,11 +5889,11 @@ export var InputPrepareScheduleActionSettings: StaticStructureSchema = [
   [_IANR, _ICSn, _UPr],
   [
     [0, { [_jN]: _iANR }],
-    [() => InputClippingSettings, { [_jN]: _iCSn }],
+    [() => InputClippingSettings$, { [_jN]: _iCSn }],
     [64 | 0, { [_jN]: _uPr }],
   ],
 ];
-export var InputRequestDestinationRoute: StaticStructureSchema = [
+export var InputRequestDestinationRoute$: StaticStructureSchema = [
   3,
   n0,
   _IRDR,
@@ -5890,7 +5904,7 @@ export var InputRequestDestinationRoute: StaticStructureSchema = [
     [0, { [_jN]: _ga }],
   ],
 ];
-export var InputSdpLocation: StaticStructureSchema = [
+export var InputSdpLocation$: StaticStructureSchema = [
   3,
   n0,
   _ISL,
@@ -5901,7 +5915,7 @@ export var InputSdpLocation: StaticStructureSchema = [
     [0, { [_jN]: _sU }],
   ],
 ];
-export var InputSecurityGroup: StaticStructureSchema = [
+export var InputSecurityGroup$: StaticStructureSchema = [
   3,
   n0,
   _ISGn,
@@ -5916,7 +5930,7 @@ export var InputSecurityGroup: StaticStructureSchema = [
     [() => __listOfInputWhitelistRule, { [_jN]: _wR }],
   ],
 ];
-export var InputSettings: StaticStructureSchema = [
+export var InputSettings$: StaticStructureSchema = [
   3,
   n0,
   _ISn,
@@ -5929,14 +5943,14 @@ export var InputSettings: StaticStructureSchema = [
     [0, { [_jN]: _dFen }],
     [1, { [_jN]: _fSil }],
     [0, { [_jN]: _iFn }],
-    [() => NetworkInputSettings, { [_jN]: _nIS }],
+    [() => NetworkInputSettings$, { [_jN]: _nIS }],
     [1, { [_jN]: _sP }],
     [0, { [_jN]: _sDP }],
     [0, { [_jN]: _sEB }],
-    [() => VideoSelector, { [_jN]: _vS }],
+    [() => VideoSelector$, { [_jN]: _vS }],
   ],
 ];
-export var InputSource: StaticStructureSchema = [
+export var InputSource$: StaticStructureSchema = [
   3,
   n0,
   _ISnp,
@@ -5948,7 +5962,7 @@ export var InputSource: StaticStructureSchema = [
     [0, { [_jN]: _us }],
   ],
 ];
-export var InputSourceRequest: StaticStructureSchema = [
+export var InputSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _ISR,
@@ -5960,7 +5974,7 @@ export var InputSourceRequest: StaticStructureSchema = [
     [0, { [_jN]: _us }],
   ],
 ];
-export var InputSpecification: StaticStructureSchema = [
+export var InputSpecification$: StaticStructureSchema = [
   3,
   n0,
   _IS,
@@ -5972,7 +5986,7 @@ export var InputSpecification: StaticStructureSchema = [
     [0, { [_jN]: _r }],
   ],
 ];
-export var InputSwitchScheduleActionSettings: StaticStructureSchema = [
+export var InputSwitchScheduleActionSettings$: StaticStructureSchema = [
   3,
   n0,
   _ISSAS,
@@ -5980,11 +5994,11 @@ export var InputSwitchScheduleActionSettings: StaticStructureSchema = [
   [_IANR, _ICSn, _UPr],
   [
     [0, { [_jN]: _iANR }],
-    [() => InputClippingSettings, { [_jN]: _iCSn }],
+    [() => InputClippingSettings$, { [_jN]: _iCSn }],
     [64 | 0, { [_jN]: _uPr }],
   ],
 ];
-export var InputVpcRequest: StaticStructureSchema = [
+export var InputVpcRequest$: StaticStructureSchema = [
   3,
   n0,
   _IVR,
@@ -5995,9 +6009,9 @@ export var InputVpcRequest: StaticStructureSchema = [
     [64 | 0, { [_jN]: _sIu }],
   ],
 ];
-export var InputWhitelistRule: StaticStructureSchema = [3, n0, _IWR, 0, [_Ci], [[0, { [_jN]: _ci }]]];
-export var InputWhitelistRuleCidr: StaticStructureSchema = [3, n0, _IWRC, 0, [_Ci], [[0, { [_jN]: _ci }]]];
-export var InterfaceMapping: StaticStructureSchema = [
+export var InputWhitelistRule$: StaticStructureSchema = [3, n0, _IWR, 0, [_Ci], [[0, { [_jN]: _ci }]]];
+export var InputWhitelistRuleCidr$: StaticStructureSchema = [3, n0, _IWRC, 0, [_Ci], [[0, { [_jN]: _ci }]]];
+export var InterfaceMapping$: StaticStructureSchema = [
   3,
   n0,
   _IMn,
@@ -6008,7 +6022,7 @@ export var InterfaceMapping: StaticStructureSchema = [
     [0, { [_jN]: _nI }],
   ],
 ];
-export var InterfaceMappingCreateRequest: StaticStructureSchema = [
+export var InterfaceMappingCreateRequest$: StaticStructureSchema = [
   3,
   n0,
   _IMCR,
@@ -6019,7 +6033,7 @@ export var InterfaceMappingCreateRequest: StaticStructureSchema = [
     [0, { [_jN]: _nI }],
   ],
 ];
-export var InterfaceMappingUpdateRequest: StaticStructureSchema = [
+export var InterfaceMappingUpdateRequest$: StaticStructureSchema = [
   3,
   n0,
   _IMUR,
@@ -6030,7 +6044,7 @@ export var InterfaceMappingUpdateRequest: StaticStructureSchema = [
     [0, { [_jN]: _nI }],
   ],
 ];
-export var InternalServerErrorException: StaticErrorSchema = [
+export var InternalServerErrorException$: StaticErrorSchema = [
   -3,
   n0,
   _ISEE,
@@ -6038,19 +6052,19 @@ export var InternalServerErrorException: StaticErrorSchema = [
   [_M],
   [[0, { [_jN]: _m }]],
 ];
-TypeRegistry.for(n0).registerError(InternalServerErrorException, __InternalServerErrorException);
-export var IpPool: StaticStructureSchema = [3, n0, _IPpo, 0, [_Ci], [[0, { [_jN]: _ci }]]];
-export var IpPoolCreateRequest: StaticStructureSchema = [3, n0, _IPCR, 0, [_Ci], [[0, { [_jN]: _ci }]]];
-export var IpPoolUpdateRequest: StaticStructureSchema = [3, n0, _IPUR, 0, [_Ci], [[0, { [_jN]: _ci }]]];
-export var KeyProviderSettings: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
+export var IpPool$: StaticStructureSchema = [3, n0, _IPpo, 0, [_Ci], [[0, { [_jN]: _ci }]]];
+export var IpPoolCreateRequest$: StaticStructureSchema = [3, n0, _IPCR, 0, [_Ci], [[0, { [_jN]: _ci }]]];
+export var IpPoolUpdateRequest$: StaticStructureSchema = [3, n0, _IPUR, 0, [_Ci], [[0, { [_jN]: _ci }]]];
+export var KeyProviderSettings$: StaticStructureSchema = [
   3,
   n0,
   _KPS,
   0,
   [_SKS],
-  [[() => StaticKeySettings, { [_jN]: _sKS }]],
+  [[() => StaticKeySettings$, { [_jN]: _sKS }]],
 ];
-export var ListAlertsRequest: StaticStructureSchema = [
+export var ListAlertsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAR,
@@ -6063,7 +6077,7 @@ export var ListAlertsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sF }],
   ],
 ];
-export var ListAlertsResponse: StaticStructureSchema = [
+export var ListAlertsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LARi,
@@ -6074,7 +6088,7 @@ export var ListAlertsResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListChannelPlacementGroupsRequest: StaticStructureSchema = [
+export var ListChannelPlacementGroupsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCPGR,
@@ -6086,7 +6100,7 @@ export var ListChannelPlacementGroupsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListChannelPlacementGroupsResponse: StaticStructureSchema = [
+export var ListChannelPlacementGroupsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCPGRi,
@@ -6097,7 +6111,7 @@ export var ListChannelPlacementGroupsResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListChannelsRequest: StaticStructureSchema = [
+export var ListChannelsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCR,
@@ -6108,7 +6122,7 @@ export var ListChannelsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListChannelsResponse: StaticStructureSchema = [
+export var ListChannelsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCRi,
@@ -6119,7 +6133,7 @@ export var ListChannelsResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListCloudWatchAlarmTemplateGroupsRequest: StaticStructureSchema = [
+export var ListCloudWatchAlarmTemplateGroupsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCWATGR,
@@ -6132,7 +6146,7 @@ export var ListCloudWatchAlarmTemplateGroupsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sMI }],
   ],
 ];
-export var ListCloudWatchAlarmTemplateGroupsResponse: StaticStructureSchema = [
+export var ListCloudWatchAlarmTemplateGroupsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCWATGRi,
@@ -6143,7 +6157,7 @@ export var ListCloudWatchAlarmTemplateGroupsResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListCloudWatchAlarmTemplatesRequest: StaticStructureSchema = [
+export var ListCloudWatchAlarmTemplatesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCWATR,
@@ -6157,7 +6171,7 @@ export var ListCloudWatchAlarmTemplatesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sMI }],
   ],
 ];
-export var ListCloudWatchAlarmTemplatesResponse: StaticStructureSchema = [
+export var ListCloudWatchAlarmTemplatesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCWATRi,
@@ -6168,7 +6182,7 @@ export var ListCloudWatchAlarmTemplatesResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListClusterAlertsRequest: StaticStructureSchema = [
+export var ListClusterAlertsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCAR,
@@ -6181,7 +6195,7 @@ export var ListClusterAlertsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sF }],
   ],
 ];
-export var ListClusterAlertsResponse: StaticStructureSchema = [
+export var ListClusterAlertsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCARi,
@@ -6192,7 +6206,7 @@ export var ListClusterAlertsResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListClustersRequest: StaticStructureSchema = [
+export var ListClustersRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCRis,
@@ -6203,7 +6217,7 @@ export var ListClustersRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListClustersResponse: StaticStructureSchema = [
+export var ListClustersResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCRist,
@@ -6214,7 +6228,7 @@ export var ListClustersResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListEventBridgeRuleTemplateGroupsRequest: StaticStructureSchema = [
+export var ListEventBridgeRuleTemplateGroupsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LEBRTGR,
@@ -6226,7 +6240,7 @@ export var ListEventBridgeRuleTemplateGroupsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sMI }],
   ],
 ];
-export var ListEventBridgeRuleTemplateGroupsResponse: StaticStructureSchema = [
+export var ListEventBridgeRuleTemplateGroupsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LEBRTGRi,
@@ -6237,7 +6251,7 @@ export var ListEventBridgeRuleTemplateGroupsResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListEventBridgeRuleTemplatesRequest: StaticStructureSchema = [
+export var ListEventBridgeRuleTemplatesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LEBRTR,
@@ -6250,7 +6264,7 @@ export var ListEventBridgeRuleTemplatesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sMI }],
   ],
 ];
-export var ListEventBridgeRuleTemplatesResponse: StaticStructureSchema = [
+export var ListEventBridgeRuleTemplatesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LEBRTRi,
@@ -6261,7 +6275,7 @@ export var ListEventBridgeRuleTemplatesResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListInputDevicesRequest: StaticStructureSchema = [
+export var ListInputDevicesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LIDR,
@@ -6272,7 +6286,7 @@ export var ListInputDevicesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListInputDevicesResponse: StaticStructureSchema = [
+export var ListInputDevicesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LIDRi,
@@ -6283,7 +6297,7 @@ export var ListInputDevicesResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListInputDeviceTransfersRequest: StaticStructureSchema = [
+export var ListInputDeviceTransfersRequest$: StaticStructureSchema = [
   3,
   n0,
   _LIDTR,
@@ -6295,7 +6309,7 @@ export var ListInputDeviceTransfersRequest: StaticStructureSchema = [
     [0, { [_hQ]: _tTr }],
   ],
 ];
-export var ListInputDeviceTransfersResponse: StaticStructureSchema = [
+export var ListInputDeviceTransfersResponse$: StaticStructureSchema = [
   3,
   n0,
   _LIDTRi,
@@ -6306,7 +6320,7 @@ export var ListInputDeviceTransfersResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListInputSecurityGroupsRequest: StaticStructureSchema = [
+export var ListInputSecurityGroupsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LISGR,
@@ -6317,7 +6331,7 @@ export var ListInputSecurityGroupsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListInputSecurityGroupsResponse: StaticStructureSchema = [
+export var ListInputSecurityGroupsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LISGRi,
@@ -6328,7 +6342,7 @@ export var ListInputSecurityGroupsResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListInputsRequest: StaticStructureSchema = [
+export var ListInputsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LIR,
@@ -6339,7 +6353,7 @@ export var ListInputsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListInputsResponse: StaticStructureSchema = [
+export var ListInputsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LIRi,
@@ -6350,7 +6364,7 @@ export var ListInputsResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListMultiplexAlertsRequest: StaticStructureSchema = [
+export var ListMultiplexAlertsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LMAR,
@@ -6363,7 +6377,7 @@ export var ListMultiplexAlertsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sF }],
   ],
 ];
-export var ListMultiplexAlertsResponse: StaticStructureSchema = [
+export var ListMultiplexAlertsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LMARi,
@@ -6374,7 +6388,7 @@ export var ListMultiplexAlertsResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListMultiplexesRequest: StaticStructureSchema = [
+export var ListMultiplexesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LMR,
@@ -6385,7 +6399,7 @@ export var ListMultiplexesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListMultiplexesResponse: StaticStructureSchema = [
+export var ListMultiplexesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LMRi,
@@ -6396,7 +6410,7 @@ export var ListMultiplexesResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListMultiplexProgramsRequest: StaticStructureSchema = [
+export var ListMultiplexProgramsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LMPR,
@@ -6408,7 +6422,7 @@ export var ListMultiplexProgramsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListMultiplexProgramsResponse: StaticStructureSchema = [
+export var ListMultiplexProgramsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LMPRi,
@@ -6419,7 +6433,7 @@ export var ListMultiplexProgramsResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListNetworksRequest: StaticStructureSchema = [
+export var ListNetworksRequest$: StaticStructureSchema = [
   3,
   n0,
   _LNR,
@@ -6430,7 +6444,7 @@ export var ListNetworksRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListNetworksResponse: StaticStructureSchema = [
+export var ListNetworksResponse$: StaticStructureSchema = [
   3,
   n0,
   _LNRi,
@@ -6441,7 +6455,7 @@ export var ListNetworksResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListNodesRequest: StaticStructureSchema = [
+export var ListNodesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LNRis,
@@ -6453,7 +6467,7 @@ export var ListNodesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListNodesResponse: StaticStructureSchema = [
+export var ListNodesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LNRist,
@@ -6464,7 +6478,7 @@ export var ListNodesResponse: StaticStructureSchema = [
     [() => __listOfDescribeNodeSummary, { [_jN]: _no }],
   ],
 ];
-export var ListOfferingsRequest: StaticStructureSchema = [
+export var ListOfferingsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LOR,
@@ -6485,7 +6499,7 @@ export var ListOfferingsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _vQi }],
   ],
 ];
-export var ListOfferingsResponse: StaticStructureSchema = [
+export var ListOfferingsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LORi,
@@ -6496,7 +6510,7 @@ export var ListOfferingsResponse: StaticStructureSchema = [
     [() => __listOfOffering, { [_jN]: _o }],
   ],
 ];
-export var ListReservationsRequest: StaticStructureSchema = [
+export var ListReservationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRR,
@@ -6515,7 +6529,7 @@ export var ListReservationsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _vQi }],
   ],
 ];
-export var ListReservationsResponse: StaticStructureSchema = [
+export var ListReservationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRRi,
@@ -6526,7 +6540,7 @@ export var ListReservationsResponse: StaticStructureSchema = [
     [() => __listOfReservation, { [_jN]: _res }],
   ],
 ];
-export var ListSdiSourcesRequest: StaticStructureSchema = [
+export var ListSdiSourcesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LSSR,
@@ -6537,7 +6551,7 @@ export var ListSdiSourcesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListSdiSourcesResponse: StaticStructureSchema = [
+export var ListSdiSourcesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LSSRi,
@@ -6548,7 +6562,7 @@ export var ListSdiSourcesResponse: StaticStructureSchema = [
     [() => __listOfSdiSourceSummary, { [_jN]: _sSd }],
   ],
 ];
-export var ListSignalMapsRequest: StaticStructureSchema = [
+export var ListSignalMapsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LSMR,
@@ -6561,7 +6575,7 @@ export var ListSignalMapsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListSignalMapsResponse: StaticStructureSchema = [
+export var ListSignalMapsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LSMRi,
@@ -6572,10 +6586,17 @@ export var ListSignalMapsResponse: StaticStructureSchema = [
     [() => __listOfSignalMapSummary, { [_jN]: _sMi }],
   ],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RAe], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [[128 | 0, { [_jN]: _ta }]]];
-export var ListVersionsRequest: StaticStructureSchema = [3, n0, _LVR, 0, [], []];
-export var ListVersionsResponse: StaticStructureSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RAe], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _LTFRRi,
+  0,
+  [_Ta],
+  [[128 | 0, { [_jN]: _ta }]],
+];
+export var ListVersionsRequest$: StaticStructureSchema = [3, n0, _LVR, 0, [], []];
+export var ListVersionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LVRi,
@@ -6583,7 +6604,7 @@ export var ListVersionsResponse: StaticStructureSchema = [
   [_Ver],
   [[() => __listOfChannelEngineVersionResponse, { [_jN]: _ver }]],
 ];
-export var M2tsSettings: StaticStructureSchema = [
+export var M2tsSettings$: StaticStructureSchema = [
   3,
   n0,
   _MS,
@@ -6650,10 +6671,10 @@ export var M2tsSettings: StaticStructureSchema = [
     [1, { [_jN]: _b }],
     [0, { [_jN]: _bMu }],
     [0, { [_jN]: _cDc }],
-    [() => DvbNitSettings, { [_jN]: _dNS }],
-    [() => DvbSdtSettings, { [_jN]: _dSS }],
+    [() => DvbNitSettings$, { [_jN]: _dNS }],
+    [() => DvbSdtSettings$, { [_jN]: _dSS }],
     [0, { [_jN]: _dSP }],
-    [() => DvbTdtSettings, { [_jN]: _dTS }],
+    [() => DvbTdtSettings$, { [_jN]: _dTS }],
     [0, { [_jN]: _dTP }],
     [0, { [_jN]: _eb }],
     [0, { [_jN]: _eAI }],
@@ -6689,7 +6710,7 @@ export var M2tsSettings: StaticStructureSchema = [
     [1, { [_jN]: _sPPM }],
   ],
 ];
-export var M3u8Settings: StaticStructureSchema = [
+export var M3u8Settings$: StaticStructureSchema = [
   3,
   n0,
   _MSue,
@@ -6717,7 +6738,7 @@ export var M3u8Settings: StaticStructureSchema = [
     [0, { [_jN]: _kDP }],
   ],
 ];
-export var MaintenanceCreateSettings: StaticStructureSchema = [
+export var MaintenanceCreateSettings$: StaticStructureSchema = [
   3,
   n0,
   _MCS,
@@ -6728,7 +6749,7 @@ export var MaintenanceCreateSettings: StaticStructureSchema = [
     [0, { [_jN]: _mST }],
   ],
 ];
-export var MaintenanceStatus: StaticStructureSchema = [
+export var MaintenanceStatus$: StaticStructureSchema = [
   3,
   n0,
   _MSa,
@@ -6741,7 +6762,7 @@ export var MaintenanceStatus: StaticStructureSchema = [
     [0, { [_jN]: _mST }],
   ],
 ];
-export var MaintenanceUpdateSettings: StaticStructureSchema = [
+export var MaintenanceUpdateSettings$: StaticStructureSchema = [
   3,
   n0,
   _MUS,
@@ -6753,20 +6774,20 @@ export var MaintenanceUpdateSettings: StaticStructureSchema = [
     [0, { [_jN]: _mST }],
   ],
 ];
-export var MediaConnectFlow: StaticStructureSchema = [3, n0, _MCFe, 0, [_FAlo], [[0, { [_jN]: _fAlo }]]];
-export var MediaConnectFlowRequest: StaticStructureSchema = [3, n0, _MCFR, 0, [_FAlo], [[0, { [_jN]: _fAlo }]]];
-export var MediaPackageGroupSettings: StaticStructureSchema = [
+export var MediaConnectFlow$: StaticStructureSchema = [3, n0, _MCFe, 0, [_FAlo], [[0, { [_jN]: _fAlo }]]];
+export var MediaConnectFlowRequest$: StaticStructureSchema = [3, n0, _MCFR, 0, [_FAlo], [[0, { [_jN]: _fAlo }]]];
+export var MediaPackageGroupSettings$: StaticStructureSchema = [
   3,
   n0,
   _MPGS,
   0,
   [_De, _MVGS],
   [
-    [() => OutputLocationRef, { [_jN]: _de }],
-    [() => MediaPackageV2GroupSettings, { [_jN]: _mVGS }],
+    [() => OutputLocationRef$, { [_jN]: _de }],
+    [() => MediaPackageV2GroupSettings$, { [_jN]: _mVGS }],
   ],
 ];
-export var MediaPackageOutputDestinationSettings: StaticStructureSchema = [
+export var MediaPackageOutputDestinationSettings$: StaticStructureSchema = [
   3,
   n0,
   _MPODS,
@@ -6778,15 +6799,15 @@ export var MediaPackageOutputDestinationSettings: StaticStructureSchema = [
     [0, { [_jN]: _cN }],
   ],
 ];
-export var MediaPackageOutputSettings: StaticStructureSchema = [
+export var MediaPackageOutputSettings$: StaticStructureSchema = [
   3,
   n0,
   _MPOS,
   0,
   [_MPVDS],
-  [[() => MediaPackageV2DestinationSettings, { [_jN]: _mPVDS }]],
+  [[() => MediaPackageV2DestinationSettings$, { [_jN]: _mPVDS }]],
 ];
-export var MediaPackageV2DestinationSettings: StaticStructureSchema = [
+export var MediaPackageV2DestinationSettings$: StaticStructureSchema = [
   3,
   n0,
   _MPVDS,
@@ -6799,7 +6820,7 @@ export var MediaPackageV2DestinationSettings: StaticStructureSchema = [
     [0, { [_jN]: _hD }],
   ],
 ];
-export var MediaPackageV2GroupSettings: StaticStructureSchema = [
+export var MediaPackageV2GroupSettings$: StaticStructureSchema = [
   3,
   n0,
   _MPVGS,
@@ -6818,7 +6839,7 @@ export var MediaPackageV2GroupSettings: StaticStructureSchema = [
     [0, { [_jN]: _tMP }],
   ],
 ];
-export var MediaResource: StaticStructureSchema = [
+export var MediaResource$: StaticStructureSchema = [
   3,
   n0,
   _MRe,
@@ -6830,7 +6851,7 @@ export var MediaResource: StaticStructureSchema = [
     [() => __listOfMediaResourceNeighbor, { [_jN]: _so }],
   ],
 ];
-export var MediaResourceNeighbor: StaticStructureSchema = [
+export var MediaResourceNeighbor$: StaticStructureSchema = [
   3,
   n0,
   _MRN,
@@ -6841,7 +6862,7 @@ export var MediaResourceNeighbor: StaticStructureSchema = [
     [0, { [_jN]: _n }],
   ],
 ];
-export var MonitorDeployment: StaticStructureSchema = [
+export var MonitorDeployment$: StaticStructureSchema = [
   3,
   n0,
   _MD,
@@ -6853,7 +6874,7 @@ export var MonitorDeployment: StaticStructureSchema = [
     [0, { [_jN]: _stat }],
   ],
 ];
-export var MotionGraphicsActivateScheduleActionSettings: StaticStructureSchema = [
+export var MotionGraphicsActivateScheduleActionSettings$: StaticStructureSchema = [
   3,
   n0,
   _MGASAS,
@@ -6866,7 +6887,7 @@ export var MotionGraphicsActivateScheduleActionSettings: StaticStructureSchema =
     [0, { [_jN]: _us }],
   ],
 ];
-export var MotionGraphicsConfiguration: StaticStructureSchema = [
+export var MotionGraphicsConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _MGC,
@@ -6874,19 +6895,19 @@ export var MotionGraphicsConfiguration: StaticStructureSchema = [
   [_MGI, _MGS],
   [
     [0, { [_jN]: _mGI }],
-    [() => MotionGraphicsSettings, { [_jN]: _mGS }],
+    [() => MotionGraphicsSettings$, { [_jN]: _mGS }],
   ],
 ];
-export var MotionGraphicsDeactivateScheduleActionSettings: StaticStructureSchema = [3, n0, _MGDSAS, 0, [], []];
-export var MotionGraphicsSettings: StaticStructureSchema = [
+export var MotionGraphicsDeactivateScheduleActionSettings$: StaticStructureSchema = [3, n0, _MGDSAS, 0, [], []];
+export var MotionGraphicsSettings$: StaticStructureSchema = [
   3,
   n0,
   _MGS,
   0,
   [_HMGS],
-  [[() => HtmlMotionGraphicsSettings, { [_jN]: _hMGS }]],
+  [[() => HtmlMotionGraphicsSettings$, { [_jN]: _hMGS }]],
 ];
-export var Mp2Settings: StaticStructureSchema = [
+export var Mp2Settings$: StaticStructureSchema = [
   3,
   n0,
   _MSp,
@@ -6898,15 +6919,15 @@ export var Mp2Settings: StaticStructureSchema = [
     [1, { [_jN]: _sR }],
   ],
 ];
-export var Mpeg2FilterSettings: StaticStructureSchema = [
+export var Mpeg2FilterSettings$: StaticStructureSchema = [
   3,
   n0,
   _MFS,
   0,
   [_TFS],
-  [[() => TemporalFilterSettings, { [_jN]: _tFS }]],
+  [[() => TemporalFilterSettings$, { [_jN]: _tFS }]],
 ];
-export var Mpeg2Settings: StaticStructureSchema = [
+export var Mpeg2Settings$: StaticStructureSchema = [
   3,
   n0,
   _MSpe,
@@ -6918,7 +6939,7 @@ export var Mpeg2Settings: StaticStructureSchema = [
     [0, { [_jN]: _cMo }],
     [0, { [_jN]: _cSol }],
     [0, { [_jN]: _dAR }],
-    [() => Mpeg2FilterSettings, { [_jN]: _fSi }],
+    [() => Mpeg2FilterSettings$, { [_jN]: _fSi }],
     [0, { [_jN]: _fA }],
     [1, { [_jN]: _fD }],
     [1, { [_jN]: _fN }],
@@ -6929,10 +6950,10 @@ export var Mpeg2Settings: StaticStructureSchema = [
     [0, { [_jN]: _sTca }],
     [0, { [_jN]: _sLu }],
     [0, { [_jN]: _tI }],
-    [() => TimecodeBurninSettings, { [_jN]: _tBS }],
+    [() => TimecodeBurninSettings$, { [_jN]: _tBS }],
   ],
 ];
-export var MsSmoothGroupSettings: StaticStructureSchema = [
+export var MsSmoothGroupSettings$: StaticStructureSchema = [
   3,
   n0,
   _MSGS,
@@ -6943,7 +6964,7 @@ export var MsSmoothGroupSettings: StaticStructureSchema = [
     [0, { [_jN]: _aOTC }],
     [0, { [_jN]: _cMe }],
     [1, { [_jN]: _cRI }],
-    [() => OutputLocationRef, { [_jN]: _de }],
+    [() => OutputLocationRef$, { [_jN]: _de }],
     [0, { [_jN]: _eI }],
     [0, { [_jN]: _eIM }],
     [0, { [_jN]: _eSB }],
@@ -6960,7 +6981,7 @@ export var MsSmoothGroupSettings: StaticStructureSchema = [
     [0, { [_jN]: _tOM }],
   ],
 ];
-export var MsSmoothOutputSettings: StaticStructureSchema = [
+export var MsSmoothOutputSettings$: StaticStructureSchema = [
   3,
   n0,
   _MSOS,
@@ -6971,8 +6992,8 @@ export var MsSmoothOutputSettings: StaticStructureSchema = [
     [0, { [_jN]: _nM }],
   ],
 ];
-export var MulticastInputSettings: StaticStructureSchema = [3, n0, _MIS, 0, [_SIAo], [[0, { [_jN]: _sIAo }]]];
-export var MulticastSettings: StaticStructureSchema = [
+export var MulticastInputSettings$: StaticStructureSchema = [3, n0, _MIS, 0, [_SIAo], [[0, { [_jN]: _sIAo }]]];
+export var MulticastSettings$: StaticStructureSchema = [
   3,
   n0,
   _MSu,
@@ -6980,7 +7001,7 @@ export var MulticastSettings: StaticStructureSchema = [
   [_So],
   [[() => __listOfMulticastSource, { [_jN]: _so }]],
 ];
-export var MulticastSettingsCreateRequest: StaticStructureSchema = [
+export var MulticastSettingsCreateRequest$: StaticStructureSchema = [
   3,
   n0,
   _MSCR,
@@ -6988,7 +7009,7 @@ export var MulticastSettingsCreateRequest: StaticStructureSchema = [
   [_So],
   [[() => __listOfMulticastSourceCreateRequest, { [_jN]: _so }]],
 ];
-export var MulticastSettingsUpdateRequest: StaticStructureSchema = [
+export var MulticastSettingsUpdateRequest$: StaticStructureSchema = [
   3,
   n0,
   _MSUR,
@@ -6996,7 +7017,7 @@ export var MulticastSettingsUpdateRequest: StaticStructureSchema = [
   [_So],
   [[() => __listOfMulticastSourceUpdateRequest, { [_jN]: _so }]],
 ];
-export var MulticastSource: StaticStructureSchema = [
+export var MulticastSource$: StaticStructureSchema = [
   3,
   n0,
   _MSult,
@@ -7007,7 +7028,7 @@ export var MulticastSource: StaticStructureSchema = [
     [0, { [_jN]: _ur }],
   ],
 ];
-export var MulticastSourceCreateRequest: StaticStructureSchema = [
+export var MulticastSourceCreateRequest$: StaticStructureSchema = [
   3,
   n0,
   _MSCRu,
@@ -7018,7 +7039,7 @@ export var MulticastSourceCreateRequest: StaticStructureSchema = [
     [0, { [_jN]: _ur }],
   ],
 ];
-export var MulticastSourceUpdateRequest: StaticStructureSchema = [
+export var MulticastSourceUpdateRequest$: StaticStructureSchema = [
   3,
   n0,
   _MSURu,
@@ -7029,7 +7050,7 @@ export var MulticastSourceUpdateRequest: StaticStructureSchema = [
     [0, { [_jN]: _ur }],
   ],
 ];
-export var Multiplex: StaticStructureSchema = [
+export var Multiplex$: StaticStructureSchema = [
   3,
   n0,
   _Mu,
@@ -7040,7 +7061,7 @@ export var Multiplex: StaticStructureSchema = [
     [64 | 0, { [_jN]: _aZ }],
     [() => __listOfMultiplexOutputDestination, { [_jN]: _des }],
     [0, { [_jN]: _i }],
-    [() => MultiplexSettings, { [_jN]: _mSul }],
+    [() => MultiplexSettings$, { [_jN]: _mSul }],
     [0, { [_jN]: _n }],
     [1, { [_jN]: _pRC }],
     [1, { [_jN]: _pC }],
@@ -7048,7 +7069,7 @@ export var Multiplex: StaticStructureSchema = [
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var MultiplexAlert: StaticStructureSchema = [
+export var MultiplexAlert$: StaticStructureSchema = [
   3,
   n0,
   _MAu,
@@ -7064,16 +7085,16 @@ export var MultiplexAlert: StaticStructureSchema = [
     [0, { [_jN]: _st }],
   ],
 ];
-export var MultiplexContainerSettings: StaticStructureSchema = [
+export var MultiplexContainerSettings$: StaticStructureSchema = [
   3,
   n0,
   _MCSu,
   0,
   [_MMS],
-  [[() => MultiplexM2tsSettings, { [_jN]: _mMS }]],
+  [[() => MultiplexM2tsSettings$, { [_jN]: _mMS }]],
 ];
-export var MultiplexGroupSettings: StaticStructureSchema = [3, n0, _MGSu, 0, [], []];
-export var MultiplexM2tsSettings: StaticStructureSchema = [
+export var MultiplexGroupSettings$: StaticStructureSchema = [3, n0, _MGSu, 0, [], []];
+export var MultiplexM2tsSettings$: StaticStructureSchema = [
   3,
   n0,
   _MMS,
@@ -7096,7 +7117,7 @@ export var MultiplexM2tsSettings: StaticStructureSchema = [
     [1, { [_jN]: _sPPM }],
   ],
 ];
-export var MultiplexMediaConnectOutputDestinationSettings: StaticStructureSchema = [
+export var MultiplexMediaConnectOutputDestinationSettings$: StaticStructureSchema = [
   3,
   n0,
   _MMCODS,
@@ -7104,26 +7125,26 @@ export var MultiplexMediaConnectOutputDestinationSettings: StaticStructureSchema
   [_EA],
   [[0, { [_jN]: _eA }]],
 ];
-export var MultiplexOutputDestination: StaticStructureSchema = [
+export var MultiplexOutputDestination$: StaticStructureSchema = [
   3,
   n0,
   _MOD,
   0,
   [_MCSe],
-  [[() => MultiplexMediaConnectOutputDestinationSettings, { [_jN]: _mCS }]],
+  [[() => MultiplexMediaConnectOutputDestinationSettings$, { [_jN]: _mCS }]],
 ];
-export var MultiplexOutputSettings: StaticStructureSchema = [
+export var MultiplexOutputSettings$: StaticStructureSchema = [
   3,
   n0,
   _MOS,
   0,
   [_De, _CS],
   [
-    [() => OutputLocationRef, { [_jN]: _de }],
-    [() => MultiplexContainerSettings, { [_jN]: _cS }],
+    [() => OutputLocationRef$, { [_jN]: _de }],
+    [() => MultiplexContainerSettings$, { [_jN]: _cS }],
   ],
 ];
-export var MultiplexProgram: StaticStructureSchema = [
+export var MultiplexProgram$: StaticStructureSchema = [
   3,
   n0,
   _MP,
@@ -7131,13 +7152,13 @@ export var MultiplexProgram: StaticStructureSchema = [
   [_CIha, _MPS, _PIM, _PDi, _PNr],
   [
     [0, { [_jN]: _cIha }],
-    [() => MultiplexProgramSettings, { [_jN]: _mPS }],
-    [() => MultiplexProgramPacketIdentifiersMap, { [_jN]: _pIM }],
+    [() => MultiplexProgramSettings$, { [_jN]: _mPS }],
+    [() => MultiplexProgramPacketIdentifiersMap$, { [_jN]: _pIM }],
     [() => __listOfMultiplexProgramPipelineDetail, { [_jN]: _pDi }],
     [0, { [_jN]: _pNr }],
   ],
 ];
-export var MultiplexProgramChannelDestinationSettings: StaticStructureSchema = [
+export var MultiplexProgramChannelDestinationSettings$: StaticStructureSchema = [
   3,
   n0,
   _MPCDS,
@@ -7148,7 +7169,7 @@ export var MultiplexProgramChannelDestinationSettings: StaticStructureSchema = [
     [0, { [_jN]: _pNr }],
   ],
 ];
-export var MultiplexProgramPacketIdentifiersMap: StaticStructureSchema = [
+export var MultiplexProgramPacketIdentifiersMap$: StaticStructureSchema = [
   3,
   n0,
   _MPPIM,
@@ -7174,7 +7195,7 @@ export var MultiplexProgramPacketIdentifiersMap: StaticStructureSchema = [
     [1, { [_jN]: _sPm }],
   ],
 ];
-export var MultiplexProgramPipelineDetail: StaticStructureSchema = [
+export var MultiplexProgramPipelineDetail$: StaticStructureSchema = [
   3,
   n0,
   _MPPD,
@@ -7185,7 +7206,7 @@ export var MultiplexProgramPipelineDetail: StaticStructureSchema = [
     [0, { [_jN]: _pI }],
   ],
 ];
-export var MultiplexProgramServiceDescriptor: StaticStructureSchema = [
+export var MultiplexProgramServiceDescriptor$: StaticStructureSchema = [
   3,
   n0,
   _MPSD,
@@ -7196,7 +7217,7 @@ export var MultiplexProgramServiceDescriptor: StaticStructureSchema = [
     [0, { [_jN]: _sNer }],
   ],
 ];
-export var MultiplexProgramSettings: StaticStructureSchema = [
+export var MultiplexProgramSettings$: StaticStructureSchema = [
   3,
   n0,
   _MPS,
@@ -7205,11 +7226,11 @@ export var MultiplexProgramSettings: StaticStructureSchema = [
   [
     [0, { [_jN]: _pCP }],
     [1, { [_jN]: _pNrog }],
-    [() => MultiplexProgramServiceDescriptor, { [_jN]: _sDe }],
-    [() => MultiplexVideoSettings, { [_jN]: _vSi }],
+    [() => MultiplexProgramServiceDescriptor$, { [_jN]: _sDe }],
+    [() => MultiplexVideoSettings$, { [_jN]: _vSi }],
   ],
 ];
-export var MultiplexProgramSummary: StaticStructureSchema = [
+export var MultiplexProgramSummary$: StaticStructureSchema = [
   3,
   n0,
   _MPSu,
@@ -7220,7 +7241,7 @@ export var MultiplexProgramSummary: StaticStructureSchema = [
     [0, { [_jN]: _pNr }],
   ],
 ];
-export var MultiplexSettings: StaticStructureSchema = [
+export var MultiplexSettings$: StaticStructureSchema = [
   3,
   n0,
   _MSul,
@@ -7233,8 +7254,8 @@ export var MultiplexSettings: StaticStructureSchema = [
     [1, { [_jN]: _tSRB }],
   ],
 ];
-export var MultiplexSettingsSummary: StaticStructureSchema = [3, n0, _MSS, 0, [_TSB], [[1, { [_jN]: _tSB }]]];
-export var MultiplexStatmuxVideoSettings: StaticStructureSchema = [
+export var MultiplexSettingsSummary$: StaticStructureSchema = [3, n0, _MSS, 0, [_TSB], [[1, { [_jN]: _tSB }]]];
+export var MultiplexStatmuxVideoSettings$: StaticStructureSchema = [
   3,
   n0,
   _MSVS,
@@ -7246,7 +7267,7 @@ export var MultiplexStatmuxVideoSettings: StaticStructureSchema = [
     [1, { [_jN]: _pr }],
   ],
 ];
-export var MultiplexSummary: StaticStructureSchema = [
+export var MultiplexSummary$: StaticStructureSchema = [
   3,
   n0,
   _MSulti,
@@ -7256,7 +7277,7 @@ export var MultiplexSummary: StaticStructureSchema = [
     [0, { [_jN]: _ar }],
     [64 | 0, { [_jN]: _aZ }],
     [0, { [_jN]: _i }],
-    [() => MultiplexSettingsSummary, { [_jN]: _mSul }],
+    [() => MultiplexSettingsSummary$, { [_jN]: _mSul }],
     [0, { [_jN]: _n }],
     [1, { [_jN]: _pRC }],
     [1, { [_jN]: _pC }],
@@ -7264,7 +7285,7 @@ export var MultiplexSummary: StaticStructureSchema = [
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var MultiplexVideoSettings: StaticStructureSchema = [
+export var MultiplexVideoSettings$: StaticStructureSchema = [
   3,
   n0,
   _MVS,
@@ -7272,22 +7293,22 @@ export var MultiplexVideoSettings: StaticStructureSchema = [
   [_CB, _SSt],
   [
     [1, { [_jN]: _cB }],
-    [() => MultiplexStatmuxVideoSettings, { [_jN]: _sSt }],
+    [() => MultiplexStatmuxVideoSettings$, { [_jN]: _sSt }],
   ],
 ];
-export var NetworkInputSettings: StaticStructureSchema = [
+export var NetworkInputSettings$: StaticStructureSchema = [
   3,
   n0,
   _NIS,
   0,
   [_HIS, _SV, _MIS],
   [
-    [() => HlsInputSettings, { [_jN]: _hIS }],
+    [() => HlsInputSettings$, { [_jN]: _hIS }],
     [0, { [_jN]: _sV }],
-    [() => MulticastInputSettings, { [_jN]: _mIS }],
+    [() => MulticastInputSettings$, { [_jN]: _mIS }],
   ],
 ];
-export var NielsenCBET: StaticStructureSchema = [
+export var NielsenCBET$: StaticStructureSchema = [
   3,
   n0,
   _NCBET,
@@ -7299,7 +7320,7 @@ export var NielsenCBET: StaticStructureSchema = [
     [0, { [_jN]: _cs }],
   ],
 ];
-export var NielsenConfiguration: StaticStructureSchema = [
+export var NielsenConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _NC,
@@ -7310,7 +7331,7 @@ export var NielsenConfiguration: StaticStructureSchema = [
     [0, { [_jN]: _nPTIT }],
   ],
 ];
-export var NielsenNaesIiNw: StaticStructureSchema = [
+export var NielsenNaesIiNw$: StaticStructureSchema = [
   3,
   n0,
   _NNIN,
@@ -7322,19 +7343,19 @@ export var NielsenNaesIiNw: StaticStructureSchema = [
     [0, { [_jN]: _tim }],
   ],
 ];
-export var NielsenWatermarksSettings: StaticStructureSchema = [
+export var NielsenWatermarksSettings$: StaticStructureSchema = [
   3,
   n0,
   _NWS,
   0,
   [_NCS, _NDT, _NNINS],
   [
-    [() => NielsenCBET, { [_jN]: _nCS }],
+    [() => NielsenCBET$, { [_jN]: _nCS }],
     [0, { [_jN]: _nDT }],
-    [() => NielsenNaesIiNw, { [_jN]: _nNINS }],
+    [() => NielsenNaesIiNw$, { [_jN]: _nNINS }],
   ],
 ];
-export var NodeInterfaceMapping: StaticStructureSchema = [
+export var NodeInterfaceMapping$: StaticStructureSchema = [
   3,
   n0,
   _NIMo,
@@ -7346,7 +7367,7 @@ export var NodeInterfaceMapping: StaticStructureSchema = [
     [0, { [_jN]: _pIN }],
   ],
 ];
-export var NodeInterfaceMappingCreateRequest: StaticStructureSchema = [
+export var NodeInterfaceMappingCreateRequest$: StaticStructureSchema = [
   3,
   n0,
   _NIMCR,
@@ -7358,9 +7379,16 @@ export var NodeInterfaceMappingCreateRequest: StaticStructureSchema = [
     [0, { [_jN]: _pIN }],
   ],
 ];
-export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_er]: _c, [_hE]: 404 }, [_M], [[0, { [_jN]: _m }]]];
-TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-export var Offering: StaticStructureSchema = [
+export var NotFoundException$: StaticErrorSchema = [
+  -3,
+  n0,
+  _NFE,
+  { [_er]: _c, [_hE]: 404 },
+  [_M],
+  [[0, { [_jN]: _m }]],
+];
+TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
+export var Offering$: StaticStructureSchema = [
   3,
   n0,
   _Of,
@@ -7376,11 +7404,11 @@ export var Offering: StaticStructureSchema = [
     [0, { [_jN]: _oI }],
     [0, { [_jN]: _oT }],
     [0, { [_jN]: _reg }],
-    [() => ReservationResourceSpecification, { [_jN]: _rSes }],
+    [() => ReservationResourceSpecification$, { [_jN]: _rSes }],
     [1, { [_jN]: _uP }],
   ],
 ];
-export var Output: StaticStructureSchema = [
+export var Output$: StaticStructureSchema = [
   3,
   n0,
   _Ou,
@@ -7390,11 +7418,11 @@ export var Output: StaticStructureSchema = [
     [64 | 0, { [_jN]: _aDN }],
     [64 | 0, { [_jN]: _cDN }],
     [0, { [_jN]: _oN }],
-    [() => OutputSettings, { [_jN]: _oSutp }],
+    [() => OutputSettings$, { [_jN]: _oSutp }],
     [0, { [_jN]: _vDN }],
   ],
 ];
-export var OutputDestination: StaticStructureSchema = [
+export var OutputDestination$: StaticStructureSchema = [
   3,
   n0,
   _ODu,
@@ -7403,13 +7431,13 @@ export var OutputDestination: StaticStructureSchema = [
   [
     [0, { [_jN]: _i }],
     [() => __listOfMediaPackageOutputDestinationSettings, { [_jN]: _mPSe }],
-    [() => MultiplexProgramChannelDestinationSettings, { [_jN]: _mSul }],
+    [() => MultiplexProgramChannelDestinationSettings$, { [_jN]: _mSul }],
     [() => __listOfOutputDestinationSettings, { [_jN]: _set }],
     [() => __listOfSrtOutputDestinationSettings, { [_jN]: _sSr }],
     [64 | 0, { [_jN]: _lIN }],
   ],
 ];
-export var OutputDestinationSettings: StaticStructureSchema = [
+export var OutputDestinationSettings$: StaticStructureSchema = [
   3,
   n0,
   _ODS,
@@ -7422,7 +7450,7 @@ export var OutputDestinationSettings: StaticStructureSchema = [
     [0, { [_jN]: _us }],
   ],
 ];
-export var OutputGroup: StaticStructureSchema = [
+export var OutputGroup$: StaticStructureSchema = [
   3,
   n0,
   _OGu,
@@ -7430,62 +7458,62 @@ export var OutputGroup: StaticStructureSchema = [
   [_N, _OGS, _Out],
   [
     [0, { [_jN]: _n }],
-    [() => OutputGroupSettings, { [_jN]: _oGS }],
+    [() => OutputGroupSettings$, { [_jN]: _oGS }],
     [() => __listOfOutput, { [_jN]: _ou }],
   ],
 ];
-export var OutputGroupSettings: StaticStructureSchema = [
+export var OutputGroupSettings$: StaticStructureSchema = [
   3,
   n0,
   _OGS,
   0,
   [_AGS, _FCGS, _HGS, _MPGS, _MSGS, _MGSu, _RGS, _UGS, _CIGS, _SGS],
   [
-    [() => ArchiveGroupSettings, { [_jN]: _aGS }],
-    [() => FrameCaptureGroupSettings, { [_jN]: _fCGS }],
-    [() => HlsGroupSettings, { [_jN]: _hGS }],
-    [() => MediaPackageGroupSettings, { [_jN]: _mPGS }],
-    [() => MsSmoothGroupSettings, { [_jN]: _mSGS }],
-    [() => MultiplexGroupSettings, { [_jN]: _mGSu }],
-    [() => RtmpGroupSettings, { [_jN]: _rGS }],
-    [() => UdpGroupSettings, { [_jN]: _uGS }],
-    [() => CmafIngestGroupSettings, { [_jN]: _cIGS }],
-    [() => SrtGroupSettings, { [_jN]: _sGS }],
+    [() => ArchiveGroupSettings$, { [_jN]: _aGS }],
+    [() => FrameCaptureGroupSettings$, { [_jN]: _fCGS }],
+    [() => HlsGroupSettings$, { [_jN]: _hGS }],
+    [() => MediaPackageGroupSettings$, { [_jN]: _mPGS }],
+    [() => MsSmoothGroupSettings$, { [_jN]: _mSGS }],
+    [() => MultiplexGroupSettings$, { [_jN]: _mGSu }],
+    [() => RtmpGroupSettings$, { [_jN]: _rGS }],
+    [() => UdpGroupSettings$, { [_jN]: _uGS }],
+    [() => CmafIngestGroupSettings$, { [_jN]: _cIGS }],
+    [() => SrtGroupSettings$, { [_jN]: _sGS }],
   ],
 ];
-export var OutputLocationRef: StaticStructureSchema = [3, n0, _OLR, 0, [_DRI], [[0, { [_jN]: _dRI }]]];
-export var OutputLockingSettings: StaticStructureSchema = [
+export var OutputLocationRef$: StaticStructureSchema = [3, n0, _OLR, 0, [_DRI], [[0, { [_jN]: _dRI }]]];
+export var OutputLockingSettings$: StaticStructureSchema = [
   3,
   n0,
   _OLS,
   0,
   [_ELS, _PLS],
   [
-    [() => EpochLockingSettings, { [_jN]: _eLS }],
-    [() => PipelineLockingSettings, { [_jN]: _pLS }],
+    [() => EpochLockingSettings$, { [_jN]: _eLS }],
+    [() => PipelineLockingSettings$, { [_jN]: _pLS }],
   ],
 ];
-export var OutputSettings: StaticStructureSchema = [
+export var OutputSettings$: StaticStructureSchema = [
   3,
   n0,
   _OSutp,
   0,
   [_AOS, _FCOS, _HOS, _MPOS, _MSOS, _MOS, _ROS, _UOS, _CIOS, _SOS],
   [
-    [() => ArchiveOutputSettings, { [_jN]: _aOS }],
-    [() => FrameCaptureOutputSettings, { [_jN]: _fCOS }],
-    [() => HlsOutputSettings, { [_jN]: _hOS }],
-    [() => MediaPackageOutputSettings, { [_jN]: _mPOS }],
-    [() => MsSmoothOutputSettings, { [_jN]: _mSOS }],
-    [() => MultiplexOutputSettings, { [_jN]: _mOS }],
-    [() => RtmpOutputSettings, { [_jN]: _rOS }],
-    [() => UdpOutputSettings, { [_jN]: _uOS }],
-    [() => CmafIngestOutputSettings, { [_jN]: _cIOS }],
-    [() => SrtOutputSettings, { [_jN]: _sOS }],
+    [() => ArchiveOutputSettings$, { [_jN]: _aOS }],
+    [() => FrameCaptureOutputSettings$, { [_jN]: _fCOS }],
+    [() => HlsOutputSettings$, { [_jN]: _hOS }],
+    [() => MediaPackageOutputSettings$, { [_jN]: _mPOS }],
+    [() => MsSmoothOutputSettings$, { [_jN]: _mSOS }],
+    [() => MultiplexOutputSettings$, { [_jN]: _mOS }],
+    [() => RtmpOutputSettings$, { [_jN]: _rOS }],
+    [() => UdpOutputSettings$, { [_jN]: _uOS }],
+    [() => CmafIngestOutputSettings$, { [_jN]: _cIOS }],
+    [() => SrtOutputSettings$, { [_jN]: _sOS }],
   ],
 ];
-export var PassThroughSettings: StaticStructureSchema = [3, n0, _PTS, 0, [], []];
-export var PauseStateScheduleActionSettings: StaticStructureSchema = [
+export var PassThroughSettings$: StaticStructureSchema = [3, n0, _PTS, 0, [], []];
+export var PauseStateScheduleActionSettings$: StaticStructureSchema = [
   3,
   n0,
   _PSSAS,
@@ -7493,7 +7521,7 @@ export var PauseStateScheduleActionSettings: StaticStructureSchema = [
   [_Pip],
   [[() => __listOfPipelinePauseStateSettings, { [_jN]: _pip }]],
 ];
-export var PipelineDetail: StaticStructureSchema = [
+export var PipelineDetail$: StaticStructureSchema = [
   3,
   n0,
   _PDip,
@@ -7505,12 +7533,12 @@ export var PipelineDetail: StaticStructureSchema = [
     [0, { [_jN]: _aMGAN }],
     [0, { [_jN]: _aMGU }],
     [0, { [_jN]: _pI }],
-    [() => ChannelEngineVersionResponse, { [_jN]: _cEV }],
+    [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }],
   ],
 ];
-export var PipelineLockingSettings: StaticStructureSchema = [3, n0, _PLS, 0, [], []];
-export var PipelinePauseStateSettings: StaticStructureSchema = [3, n0, _PPSS, 0, [_PI], [[0, { [_jN]: _pI }]]];
-export var PurchaseOfferingRequest: StaticStructureSchema = [
+export var PipelineLockingSettings$: StaticStructureSchema = [3, n0, _PLS, 0, [], []];
+export var PipelinePauseStateSettings$: StaticStructureSchema = [3, n0, _PPSS, 0, [_PI], [[0, { [_jN]: _pI }]]];
+export var PurchaseOfferingRequest$: StaticStructureSchema = [
   3,
   n0,
   _POR,
@@ -7520,22 +7548,22 @@ export var PurchaseOfferingRequest: StaticStructureSchema = [
     [1, { [_jN]: _cou }],
     [0, { [_jN]: _n }],
     [0, 1],
-    [() => RenewalSettings, { [_jN]: _rSen }],
+    [() => RenewalSettings$, { [_jN]: _rSen }],
     [0, { [_jN]: _rIe, [_iTd]: 1 }],
     [0, { [_jN]: _star }],
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var PurchaseOfferingResponse: StaticStructureSchema = [
+export var PurchaseOfferingResponse$: StaticStructureSchema = [
   3,
   n0,
   _PORu,
   0,
   [_Rese],
-  [[() => Reservation, { [_jN]: _rese }]],
+  [[() => Reservation$, { [_jN]: _rese }]],
 ];
-export var RawSettings: StaticStructureSchema = [3, n0, _RS, 0, [], []];
-export var RebootInputDeviceRequest: StaticStructureSchema = [
+export var RawSettings$: StaticStructureSchema = [3, n0, _RS, 0, [], []];
+export var RebootInputDeviceRequest$: StaticStructureSchema = [
   3,
   n0,
   _RIDR,
@@ -7546,12 +7574,12 @@ export var RebootInputDeviceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var RebootInputDeviceResponse: StaticStructureSchema = [3, n0, _RIDRe, 0, [], []];
-export var Rec601Settings: StaticStructureSchema = [3, n0, _RSec, 0, [], []];
-export var Rec709Settings: StaticStructureSchema = [3, n0, _RSece, 0, [], []];
-export var RejectInputDeviceTransferRequest: StaticStructureSchema = [3, n0, _RIDTR, 0, [_IDI], [[0, 1]]];
-export var RejectInputDeviceTransferResponse: StaticStructureSchema = [3, n0, _RIDTRe, 0, [], []];
-export var RemixSettings: StaticStructureSchema = [
+export var RebootInputDeviceResponse$: StaticStructureSchema = [3, n0, _RIDRe, 0, [], []];
+export var Rec601Settings$: StaticStructureSchema = [3, n0, _RSec, 0, [], []];
+export var Rec709Settings$: StaticStructureSchema = [3, n0, _RSece, 0, [], []];
+export var RejectInputDeviceTransferRequest$: StaticStructureSchema = [3, n0, _RIDTR, 0, [_IDI], [[0, 1]]];
+export var RejectInputDeviceTransferResponse$: StaticStructureSchema = [3, n0, _RIDTRe, 0, [], []];
+export var RemixSettings$: StaticStructureSchema = [
   3,
   n0,
   _RSe,
@@ -7563,7 +7591,7 @@ export var RemixSettings: StaticStructureSchema = [
     [1, { [_jN]: _cOh }],
   ],
 ];
-export var RenewalSettings: StaticStructureSchema = [
+export var RenewalSettings$: StaticStructureSchema = [
   3,
   n0,
   _RSen,
@@ -7574,7 +7602,7 @@ export var RenewalSettings: StaticStructureSchema = [
     [1, { [_jN]: _rC }],
   ],
 ];
-export var Reservation: StaticStructureSchema = [
+export var Reservation$: StaticStructureSchema = [
   3,
   n0,
   _Rese,
@@ -7593,16 +7621,16 @@ export var Reservation: StaticStructureSchema = [
     [0, { [_jN]: _oI }],
     [0, { [_jN]: _oT }],
     [0, { [_jN]: _reg }],
-    [() => RenewalSettings, { [_jN]: _rSen }],
+    [() => RenewalSettings$, { [_jN]: _rSen }],
     [0, { [_jN]: _rIes }],
-    [() => ReservationResourceSpecification, { [_jN]: _rSes }],
+    [() => ReservationResourceSpecification$, { [_jN]: _rSes }],
     [0, { [_jN]: _star }],
     [0, { [_jN]: _st }],
     [128 | 0, { [_jN]: _ta }],
     [1, { [_jN]: _uP }],
   ],
 ];
-export var ReservationResourceSpecification: StaticStructureSchema = [
+export var ReservationResourceSpecification$: StaticStructureSchema = [
   3,
   n0,
   _RRS,
@@ -7619,7 +7647,7 @@ export var ReservationResourceSpecification: StaticStructureSchema = [
     [0, { [_jN]: _vQi }],
   ],
 ];
-export var RestartChannelPipelinesRequest: StaticStructureSchema = [
+export var RestartChannelPipelinesRequest$: StaticStructureSchema = [
   3,
   n0,
   _RCPR,
@@ -7630,7 +7658,7 @@ export var RestartChannelPipelinesRequest: StaticStructureSchema = [
     [64 | 0, { [_jN]: _pIi }],
   ],
 ];
-export var RestartChannelPipelinesResponse: StaticStructureSchema = [
+export var RestartChannelPipelinesResponse$: StaticStructureSchema = [
   3,
   n0,
   _RCPRe,
@@ -7638,16 +7666,16 @@ export var RestartChannelPipelinesResponse: StaticStructureSchema = [
   [_Ar, _CIS, _CCh, _Des, _EE, _ESn, _I, _IA, _IS, _LL, _Ma, _MSa, _N, _PDi, _PRC, _RA, _St, _Ta, _V, _ASn, _CEV],
   [
     [0, { [_jN]: _ar }],
-    [() => CdiInputSpecification, { [_jN]: _cIS }],
+    [() => CdiInputSpecification$, { [_jN]: _cIS }],
     [0, { [_jN]: _cCh }],
     [() => __listOfOutputDestination, { [_jN]: _des }],
     [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }],
-    [() => EncoderSettings, { [_jN]: _eSn }],
+    [() => EncoderSettings$, { [_jN]: _eSn }],
     [0, { [_jN]: _i }],
     [() => __listOfInputAttachment, { [_jN]: _iA }],
-    [() => InputSpecification, { [_jN]: _iS }],
+    [() => InputSpecification$, { [_jN]: _iS }],
     [0, { [_jN]: _lL }],
-    [() => MaintenanceStatus, { [_jN]: _ma }],
+    [() => MaintenanceStatus$, { [_jN]: _ma }],
     [0, { [_jN]: _mSa }],
     [0, { [_jN]: _n }],
     [() => __listOfPipelineDetail, { [_jN]: _pDi }],
@@ -7655,12 +7683,12 @@ export var RestartChannelPipelinesResponse: StaticStructureSchema = [
     [0, { [_jN]: _rA }],
     [0, { [_jN]: _st }],
     [128 | 0, { [_jN]: _ta }],
-    [() => VpcOutputSettingsDescription, { [_jN]: _v }],
-    [() => DescribeAnywhereSettings, { [_jN]: _aSn }],
-    [() => ChannelEngineVersionResponse, { [_jN]: _cEV }],
+    [() => VpcOutputSettingsDescription$, { [_jN]: _v }],
+    [() => DescribeAnywhereSettings$, { [_jN]: _aSn }],
+    [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }],
   ],
 ];
-export var Route: StaticStructureSchema = [
+export var Route$: StaticStructureSchema = [
   3,
   n0,
   _Rou,
@@ -7671,7 +7699,7 @@ export var Route: StaticStructureSchema = [
     [0, { [_jN]: _ga }],
   ],
 ];
-export var RouteCreateRequest: StaticStructureSchema = [
+export var RouteCreateRequest$: StaticStructureSchema = [
   3,
   n0,
   _RCR,
@@ -7682,7 +7710,7 @@ export var RouteCreateRequest: StaticStructureSchema = [
     [0, { [_jN]: _ga }],
   ],
 ];
-export var RouterDestination: StaticStructureSchema = [
+export var RouterDestination$: StaticStructureSchema = [
   3,
   n0,
   _RDo,
@@ -7693,8 +7721,8 @@ export var RouterDestination: StaticStructureSchema = [
     [0, { [_jN]: _rOA }],
   ],
 ];
-export var RouterDestinationSettings: StaticStructureSchema = [3, n0, _RDS, 0, [_AZN], [[0, { [_jN]: _aZN }]]];
-export var RouterInputSettings: StaticStructureSchema = [
+export var RouterDestinationSettings$: StaticStructureSchema = [3, n0, _RDS, 0, [_AZN], [[0, { [_jN]: _aZN }]]];
+export var RouterInputSettings$: StaticStructureSchema = [
   3,
   n0,
   _RIS,
@@ -7706,7 +7734,7 @@ export var RouterInputSettings: StaticStructureSchema = [
     [0, { [_jN]: _sAe }],
   ],
 ];
-export var RouterSettings: StaticStructureSchema = [
+export var RouterSettings$: StaticStructureSchema = [
   3,
   n0,
   _RSo,
@@ -7718,7 +7746,7 @@ export var RouterSettings: StaticStructureSchema = [
     [0, { [_jN]: _sAe }],
   ],
 ];
-export var RouteUpdateRequest: StaticStructureSchema = [
+export var RouteUpdateRequest$: StaticStructureSchema = [
   3,
   n0,
   _RUR,
@@ -7729,8 +7757,8 @@ export var RouteUpdateRequest: StaticStructureSchema = [
     [0, { [_jN]: _ga }],
   ],
 ];
-export var RtmpCaptionInfoDestinationSettings: StaticStructureSchema = [3, n0, _RCIDS, 0, [], []];
-export var RtmpGroupSettings: StaticStructureSchema = [
+export var RtmpCaptionInfoDestinationSettings$: StaticStructureSchema = [3, n0, _RCIDS, 0, [], []];
+export var RtmpGroupSettings$: StaticStructureSchema = [
   3,
   n0,
   _RGS,
@@ -7747,7 +7775,7 @@ export var RtmpGroupSettings: StaticStructureSchema = [
     [0, { [_jN]: _iFNU }],
   ],
 ];
-export var RtmpOutputSettings: StaticStructureSchema = [
+export var RtmpOutputSettings$: StaticStructureSchema = [
   3,
   n0,
   _ROS,
@@ -7756,11 +7784,11 @@ export var RtmpOutputSettings: StaticStructureSchema = [
   [
     [0, { [_jN]: _cMe }],
     [1, { [_jN]: _cRI }],
-    [() => OutputLocationRef, { [_jN]: _de }],
+    [() => OutputLocationRef$, { [_jN]: _de }],
     [1, { [_jN]: _nR }],
   ],
 ];
-export var ScheduleAction: StaticStructureSchema = [
+export var ScheduleAction$: StaticStructureSchema = [
   3,
   n0,
   _SAch,
@@ -7768,11 +7796,11 @@ export var ScheduleAction: StaticStructureSchema = [
   [_ANc, _SAS, _SASS],
   [
     [0, { [_jN]: _aNc }],
-    [() => ScheduleActionSettings, { [_jN]: _sAS }],
-    [() => ScheduleActionStartSettings, { [_jN]: _sASS }],
+    [() => ScheduleActionSettings$, { [_jN]: _sAS }],
+    [() => ScheduleActionStartSettings$, { [_jN]: _sASS }],
   ],
 ];
-export var ScheduleActionSettings: StaticStructureSchema = [
+export var ScheduleActionSettings$: StaticStructureSchema = [
   3,
   n0,
   _SAS,
@@ -7797,39 +7825,39 @@ export var ScheduleActionSettings: StaticStructureSchema = [
     _TMS,
   ],
   [
-    [() => HlsId3SegmentTaggingScheduleActionSettings, { [_jN]: _hISTS }],
-    [() => HlsTimedMetadataScheduleActionSettings, { [_jN]: _hTMS }],
-    [() => InputPrepareScheduleActionSettings, { [_jN]: _iPS }],
-    [() => InputSwitchScheduleActionSettings, { [_jN]: _iSS }],
-    [() => MotionGraphicsActivateScheduleActionSettings, { [_jN]: _mGIAS }],
-    [() => MotionGraphicsDeactivateScheduleActionSettings, { [_jN]: _mGIDS }],
-    [() => PauseStateScheduleActionSettings, { [_jN]: _pSS }],
-    [() => Scte35InputScheduleActionSettings, { [_jN]: _sIS }],
-    [() => Scte35ReturnToNetworkScheduleActionSettings, { [_jN]: _sRTNS }],
-    [() => Scte35SpliceInsertScheduleActionSettings, { [_jN]: _sSIS }],
-    [() => Scte35TimeSignalScheduleActionSettings, { [_jN]: _sTSS }],
-    [() => StaticImageActivateScheduleActionSettings, { [_jN]: _sIAS }],
-    [() => StaticImageDeactivateScheduleActionSettings, { [_jN]: _sIDS }],
-    [() => StaticImageOutputActivateScheduleActionSettings, { [_jN]: _sIOAS }],
-    [() => StaticImageOutputDeactivateScheduleActionSettings, { [_jN]: _sIODS }],
-    [() => Id3SegmentTaggingScheduleActionSettings, { [_jN]: _iSTS }],
-    [() => TimedMetadataScheduleActionSettings, { [_jN]: _tMS }],
+    [() => HlsId3SegmentTaggingScheduleActionSettings$, { [_jN]: _hISTS }],
+    [() => HlsTimedMetadataScheduleActionSettings$, { [_jN]: _hTMS }],
+    [() => InputPrepareScheduleActionSettings$, { [_jN]: _iPS }],
+    [() => InputSwitchScheduleActionSettings$, { [_jN]: _iSS }],
+    [() => MotionGraphicsActivateScheduleActionSettings$, { [_jN]: _mGIAS }],
+    [() => MotionGraphicsDeactivateScheduleActionSettings$, { [_jN]: _mGIDS }],
+    [() => PauseStateScheduleActionSettings$, { [_jN]: _pSS }],
+    [() => Scte35InputScheduleActionSettings$, { [_jN]: _sIS }],
+    [() => Scte35ReturnToNetworkScheduleActionSettings$, { [_jN]: _sRTNS }],
+    [() => Scte35SpliceInsertScheduleActionSettings$, { [_jN]: _sSIS }],
+    [() => Scte35TimeSignalScheduleActionSettings$, { [_jN]: _sTSS }],
+    [() => StaticImageActivateScheduleActionSettings$, { [_jN]: _sIAS }],
+    [() => StaticImageDeactivateScheduleActionSettings$, { [_jN]: _sIDS }],
+    [() => StaticImageOutputActivateScheduleActionSettings$, { [_jN]: _sIOAS }],
+    [() => StaticImageOutputDeactivateScheduleActionSettings$, { [_jN]: _sIODS }],
+    [() => Id3SegmentTaggingScheduleActionSettings$, { [_jN]: _iSTS }],
+    [() => TimedMetadataScheduleActionSettings$, { [_jN]: _tMS }],
   ],
 ];
-export var ScheduleActionStartSettings: StaticStructureSchema = [
+export var ScheduleActionStartSettings$: StaticStructureSchema = [
   3,
   n0,
   _SASS,
   0,
   [_FMSASS, _FMSASSo, _IMSASS],
   [
-    [() => FixedModeScheduleActionStartSettings, { [_jN]: _fMSASS }],
-    [() => FollowModeScheduleActionStartSettings, { [_jN]: _fMSASSo }],
-    [() => ImmediateModeScheduleActionStartSettings, { [_jN]: _iMSASS }],
+    [() => FixedModeScheduleActionStartSettings$, { [_jN]: _fMSASS }],
+    [() => FollowModeScheduleActionStartSettings$, { [_jN]: _fMSASSo }],
+    [() => ImmediateModeScheduleActionStartSettings$, { [_jN]: _iMSASS }],
   ],
 ];
-export var Scte20PlusEmbeddedDestinationSettings: StaticStructureSchema = [3, n0, _SPEDS, 0, [], []];
-export var Scte20SourceSettings: StaticStructureSchema = [
+export var Scte20PlusEmbeddedDestinationSettings$: StaticStructureSchema = [3, n0, _SPEDS, 0, [], []];
+export var Scte20SourceSettings$: StaticStructureSchema = [
   3,
   n0,
   _SSSc,
@@ -7840,8 +7868,8 @@ export var Scte20SourceSettings: StaticStructureSchema = [
     [1, { [_jN]: _sCN }],
   ],
 ];
-export var Scte27DestinationSettings: StaticStructureSchema = [3, n0, _SDS, 0, [], []];
-export var Scte27SourceSettings: StaticStructureSchema = [
+export var Scte27DestinationSettings$: StaticStructureSchema = [3, n0, _SDS, 0, [], []];
+export var Scte27SourceSettings$: StaticStructureSchema = [
   3,
   n0,
   _SSSct,
@@ -7852,7 +7880,7 @@ export var Scte27SourceSettings: StaticStructureSchema = [
     [1, { [_jN]: _pi }],
   ],
 ];
-export var Scte35DeliveryRestrictions: StaticStructureSchema = [
+export var Scte35DeliveryRestrictions$: StaticStructureSchema = [
   3,
   n0,
   _SDR,
@@ -7865,23 +7893,23 @@ export var Scte35DeliveryRestrictions: StaticStructureSchema = [
     [0, { [_jN]: _wDAF }],
   ],
 ];
-export var Scte35Descriptor: StaticStructureSchema = [
+export var Scte35Descriptor$: StaticStructureSchema = [
   3,
   n0,
   _SDct,
   0,
   [_SDSc],
-  [[() => Scte35DescriptorSettings, { [_jN]: _sDSc }]],
+  [[() => Scte35DescriptorSettings$, { [_jN]: _sDSc }]],
 ];
-export var Scte35DescriptorSettings: StaticStructureSchema = [
+export var Scte35DescriptorSettings$: StaticStructureSchema = [
   3,
   n0,
   _SDSc,
   0,
   [_SDSDS],
-  [[() => Scte35SegmentationDescriptor, { [_jN]: _sDSDS }]],
+  [[() => Scte35SegmentationDescriptor$, { [_jN]: _sDSDS }]],
 ];
-export var Scte35InputScheduleActionSettings: StaticStructureSchema = [
+export var Scte35InputScheduleActionSettings$: StaticStructureSchema = [
   3,
   n0,
   _SISAS,
@@ -7892,7 +7920,7 @@ export var Scte35InputScheduleActionSettings: StaticStructureSchema = [
     [0, { [_jN]: _mo }],
   ],
 ];
-export var Scte35ReturnToNetworkScheduleActionSettings: StaticStructureSchema = [
+export var Scte35ReturnToNetworkScheduleActionSettings$: StaticStructureSchema = [
   3,
   n0,
   _SRTNSAS,
@@ -7900,14 +7928,14 @@ export var Scte35ReturnToNetworkScheduleActionSettings: StaticStructureSchema = 
   [_SEI],
   [[1, { [_jN]: _sEI }]],
 ];
-export var Scte35SegmentationDescriptor: StaticStructureSchema = [
+export var Scte35SegmentationDescriptor$: StaticStructureSchema = [
   3,
   n0,
   _SSD,
   0,
   [_DRel, _SNeg, _SCI, _SDeg, _SEIe, _STI, _SUe, _SUT, _SE, _SSN, _SSE],
   [
-    [() => Scte35DeliveryRestrictions, { [_jN]: _dRel }],
+    [() => Scte35DeliveryRestrictions$, { [_jN]: _dRel }],
     [1, { [_jN]: _sNeg }],
     [0, { [_jN]: _sCI }],
     [1, { [_jN]: _sDeg }],
@@ -7920,7 +7948,7 @@ export var Scte35SegmentationDescriptor: StaticStructureSchema = [
     [1, { [_jN]: _sSE }],
   ],
 ];
-export var Scte35SpliceInsert: StaticStructureSchema = [
+export var Scte35SpliceInsert$: StaticStructureSchema = [
   3,
   n0,
   _SSI,
@@ -7932,7 +7960,7 @@ export var Scte35SpliceInsert: StaticStructureSchema = [
     [0, { [_jN]: _wDAF }],
   ],
 ];
-export var Scte35SpliceInsertScheduleActionSettings: StaticStructureSchema = [
+export var Scte35SpliceInsertScheduleActionSettings$: StaticStructureSchema = [
   3,
   n0,
   _SSISAS,
@@ -7943,7 +7971,7 @@ export var Scte35SpliceInsertScheduleActionSettings: StaticStructureSchema = [
     [1, { [_jN]: _sEI }],
   ],
 ];
-export var Scte35TimeSignalApos: StaticStructureSchema = [
+export var Scte35TimeSignalApos$: StaticStructureSchema = [
   3,
   n0,
   _STSA,
@@ -7955,7 +7983,7 @@ export var Scte35TimeSignalApos: StaticStructureSchema = [
     [0, { [_jN]: _wDAF }],
   ],
 ];
-export var Scte35TimeSignalScheduleActionSettings: StaticStructureSchema = [
+export var Scte35TimeSignalScheduleActionSettings$: StaticStructureSchema = [
   3,
   n0,
   _STSSAS,
@@ -7963,7 +7991,7 @@ export var Scte35TimeSignalScheduleActionSettings: StaticStructureSchema = [
   [_SDcte],
   [[() => __listOfScte35Descriptor, { [_jN]: _sDct }]],
 ];
-export var SdiSource: StaticStructureSchema = [
+export var SdiSource$: StaticStructureSchema = [
   3,
   n0,
   _SSdi,
@@ -7979,7 +8007,7 @@ export var SdiSource: StaticStructureSchema = [
     [0, { [_jN]: _ty }],
   ],
 ];
-export var SdiSourceMapping: StaticStructureSchema = [
+export var SdiSourceMapping$: StaticStructureSchema = [
   3,
   n0,
   _SSMd,
@@ -7991,7 +8019,7 @@ export var SdiSourceMapping: StaticStructureSchema = [
     [0, { [_jN]: _sSdi }],
   ],
 ];
-export var SdiSourceMappingUpdateRequest: StaticStructureSchema = [
+export var SdiSourceMappingUpdateRequest$: StaticStructureSchema = [
   3,
   n0,
   _SSMUR,
@@ -8003,7 +8031,7 @@ export var SdiSourceMappingUpdateRequest: StaticStructureSchema = [
     [0, { [_jN]: _sSdi }],
   ],
 ];
-export var SdiSourceSummary: StaticStructureSchema = [
+export var SdiSourceSummary$: StaticStructureSchema = [
   3,
   n0,
   _SSSd,
@@ -8019,7 +8047,7 @@ export var SdiSourceSummary: StaticStructureSchema = [
     [0, { [_jN]: _ty }],
   ],
 ];
-export var SignalMapSummary: StaticStructureSchema = [
+export var SignalMapSummary$: StaticStructureSchema = [
   3,
   n0,
   _SMS,
@@ -8037,15 +8065,15 @@ export var SignalMapSummary: StaticStructureSchema = [
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var Smpte2110ReceiverGroup: StaticStructureSchema = [
+export var Smpte2110ReceiverGroup$: StaticStructureSchema = [
   3,
   n0,
   _SRG,
   0,
   [_SSdp],
-  [[() => Smpte2110ReceiverGroupSdpSettings, { [_jN]: _sSdp }]],
+  [[() => Smpte2110ReceiverGroupSdpSettings$, { [_jN]: _sSdp }]],
 ];
-export var Smpte2110ReceiverGroupSdpSettings: StaticStructureSchema = [
+export var Smpte2110ReceiverGroupSdpSettings$: StaticStructureSchema = [
   3,
   n0,
   _SRGSS,
@@ -8054,10 +8082,10 @@ export var Smpte2110ReceiverGroupSdpSettings: StaticStructureSchema = [
   [
     [() => __listOfInputSdpLocation, { [_jN]: _aSnc }],
     [() => __listOfInputSdpLocation, { [_jN]: _aSud }],
-    [() => InputSdpLocation, { [_jN]: _vSid }],
+    [() => InputSdpLocation$, { [_jN]: _vSid }],
   ],
 ];
-export var Smpte2110ReceiverGroupSettings: StaticStructureSchema = [
+export var Smpte2110ReceiverGroupSettings$: StaticStructureSchema = [
   3,
   n0,
   _SRGS,
@@ -8065,9 +8093,9 @@ export var Smpte2110ReceiverGroupSettings: StaticStructureSchema = [
   [_SRGm],
   [[() => __listOfSmpte2110ReceiverGroup, { [_jN]: _sRG }]],
 ];
-export var SmpteTtDestinationSettings: StaticStructureSchema = [3, n0, _STDS, 0, [], []];
-export var SpecialRouterSettings: StaticStructureSchema = [3, n0, _SRS, 0, [_RAo], [[0, { [_jN]: _rAo }]]];
-export var SrtCallerDecryption: StaticStructureSchema = [
+export var SmpteTtDestinationSettings$: StaticStructureSchema = [3, n0, _STDS, 0, [], []];
+export var SpecialRouterSettings$: StaticStructureSchema = [3, n0, _SRS, 0, [_RAo], [[0, { [_jN]: _rAo }]]];
+export var SrtCallerDecryption$: StaticStructureSchema = [
   3,
   n0,
   _SCDr,
@@ -8078,7 +8106,7 @@ export var SrtCallerDecryption: StaticStructureSchema = [
     [0, { [_jN]: _pSA }],
   ],
 ];
-export var SrtCallerDecryptionRequest: StaticStructureSchema = [
+export var SrtCallerDecryptionRequest$: StaticStructureSchema = [
   3,
   n0,
   _SCDR,
@@ -8089,36 +8117,36 @@ export var SrtCallerDecryptionRequest: StaticStructureSchema = [
     [0, { [_jN]: _pSA }],
   ],
 ];
-export var SrtCallerSource: StaticStructureSchema = [
+export var SrtCallerSource$: StaticStructureSchema = [
   3,
   n0,
   _SCS,
   0,
   [_Dec, _ML, _SLA, _SLP, _SIt],
   [
-    [() => SrtCallerDecryption, { [_jN]: _dec }],
+    [() => SrtCallerDecryption$, { [_jN]: _dec }],
     [1, { [_jN]: _mL }],
     [0, { [_jN]: _sLA }],
     [0, { [_jN]: _sLP }],
     [0, { [_jN]: _sIt }],
   ],
 ];
-export var SrtCallerSourceRequest: StaticStructureSchema = [
+export var SrtCallerSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _SCSR,
   0,
   [_Dec, _ML, _SLA, _SLP, _SIt],
   [
-    [() => SrtCallerDecryptionRequest, { [_jN]: _dec }],
+    [() => SrtCallerDecryptionRequest$, { [_jN]: _dec }],
     [1, { [_jN]: _mL }],
     [0, { [_jN]: _sLA }],
     [0, { [_jN]: _sLP }],
     [0, { [_jN]: _sIt }],
   ],
 ];
-export var SrtGroupSettings: StaticStructureSchema = [3, n0, _SGS, 0, [_ILA], [[0, { [_jN]: _iLA }]]];
-export var SrtOutputDestinationSettings: StaticStructureSchema = [
+export var SrtGroupSettings$: StaticStructureSchema = [3, n0, _SGS, 0, [_ILA], [[0, { [_jN]: _iLA }]]];
+export var SrtOutputDestinationSettings$: StaticStructureSchema = [
   3,
   n0,
   _SODS,
@@ -8130,7 +8158,7 @@ export var SrtOutputDestinationSettings: StaticStructureSchema = [
     [0, { [_jN]: _ur }],
   ],
 ];
-export var SrtOutputSettings: StaticStructureSchema = [
+export var SrtOutputSettings$: StaticStructureSchema = [
   3,
   n0,
   _SOS,
@@ -8138,13 +8166,13 @@ export var SrtOutputSettings: StaticStructureSchema = [
   [_BMuf, _CS, _De, _ETn, _La],
   [
     [1, { [_jN]: _bMuf }],
-    [() => UdpContainerSettings, { [_jN]: _cS }],
-    [() => OutputLocationRef, { [_jN]: _de }],
+    [() => UdpContainerSettings$, { [_jN]: _cS }],
+    [() => OutputLocationRef$, { [_jN]: _de }],
     [0, { [_jN]: _eTn }],
     [1, { [_jN]: _la }],
   ],
 ];
-export var SrtSettings: StaticStructureSchema = [
+export var SrtSettings$: StaticStructureSchema = [
   3,
   n0,
   _SSr,
@@ -8152,7 +8180,7 @@ export var SrtSettings: StaticStructureSchema = [
   [_SCSr],
   [[() => __listOfSrtCallerSource, { [_jN]: _sCS }]],
 ];
-export var SrtSettingsRequest: StaticStructureSchema = [
+export var SrtSettingsRequest$: StaticStructureSchema = [
   3,
   n0,
   _SSR,
@@ -8160,7 +8188,7 @@ export var SrtSettingsRequest: StaticStructureSchema = [
   [_SCSr],
   [[() => __listOfSrtCallerSourceRequest, { [_jN]: _sCS }]],
 ];
-export var StandardHlsSettings: StaticStructureSchema = [
+export var StandardHlsSettings$: StaticStructureSchema = [
   3,
   n0,
   _SHS,
@@ -8168,11 +8196,11 @@ export var StandardHlsSettings: StaticStructureSchema = [
   [_ARS, _MSue],
   [
     [0, { [_jN]: _aRS }],
-    [() => M3u8Settings, { [_jN]: _mSue }],
+    [() => M3u8Settings$, { [_jN]: _mSue }],
   ],
 ];
-export var StartChannelRequest: StaticStructureSchema = [3, n0, _SCR, 0, [_CIha], [[0, 1]]];
-export var StartChannelResponse: StaticStructureSchema = [
+export var StartChannelRequest$: StaticStructureSchema = [3, n0, _SCR, 0, [_CIha], [[0, 1]]];
+export var StartChannelResponse$: StaticStructureSchema = [
   3,
   n0,
   _SCRt,
@@ -8180,29 +8208,29 @@ export var StartChannelResponse: StaticStructureSchema = [
   [_Ar, _CIS, _CCh, _Des, _EE, _ESn, _I, _IA, _IS, _LL, _Ma, _N, _PDi, _PRC, _RA, _St, _Ta, _V, _ASn, _CEV],
   [
     [0, { [_jN]: _ar }],
-    [() => CdiInputSpecification, { [_jN]: _cIS }],
+    [() => CdiInputSpecification$, { [_jN]: _cIS }],
     [0, { [_jN]: _cCh }],
     [() => __listOfOutputDestination, { [_jN]: _des }],
     [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }],
-    [() => EncoderSettings, { [_jN]: _eSn }],
+    [() => EncoderSettings$, { [_jN]: _eSn }],
     [0, { [_jN]: _i }],
     [() => __listOfInputAttachment, { [_jN]: _iA }],
-    [() => InputSpecification, { [_jN]: _iS }],
+    [() => InputSpecification$, { [_jN]: _iS }],
     [0, { [_jN]: _lL }],
-    [() => MaintenanceStatus, { [_jN]: _ma }],
+    [() => MaintenanceStatus$, { [_jN]: _ma }],
     [0, { [_jN]: _n }],
     [() => __listOfPipelineDetail, { [_jN]: _pDi }],
     [1, { [_jN]: _pRC }],
     [0, { [_jN]: _rA }],
     [0, { [_jN]: _st }],
     [128 | 0, { [_jN]: _ta }],
-    [() => VpcOutputSettingsDescription, { [_jN]: _v }],
-    [() => DescribeAnywhereSettings, { [_jN]: _aSn }],
-    [() => ChannelEngineVersionResponse, { [_jN]: _cEV }],
+    [() => VpcOutputSettingsDescription$, { [_jN]: _v }],
+    [() => DescribeAnywhereSettings$, { [_jN]: _aSn }],
+    [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }],
   ],
 ];
-export var StartDeleteMonitorDeploymentRequest: StaticStructureSchema = [3, n0, _SDMDR, 0, [_Id], [[0, 1]]];
-export var StartDeleteMonitorDeploymentResponse: StaticStructureSchema = [
+export var StartDeleteMonitorDeploymentRequest$: StaticStructureSchema = [3, n0, _SDMDR, 0, [_Id], [[0, 1]]];
+export var StartDeleteMonitorDeploymentResponse$: StaticStructureSchema = [
   3,
   n0,
   _SDMDRt,
@@ -8219,21 +8247,21 @@ export var StartDeleteMonitorDeploymentResponse: StaticStructureSchema = [
     [() => FailedMediaResourceMap, { [_jN]: _fMRM }],
     [0, { [_jN]: _i }],
     [5, { [_jN]: _lDA }],
-    [() => SuccessfulMonitorDeployment, { [_jN]: _lSMD }],
+    [() => SuccessfulMonitorDeployment$, { [_jN]: _lSMD }],
     [() => MediaResourceMap, { [_jN]: _mRM }],
     [5, { [_jN]: _mA }],
     [2, { [_jN]: _mCPD }],
-    [() => MonitorDeployment, { [_jN]: _mD }],
+    [() => MonitorDeployment$, { [_jN]: _mD }],
     [0, { [_jN]: _n }],
     [0, { [_jN]: _stat }],
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var StartInputDeviceMaintenanceWindowRequest: StaticStructureSchema = [3, n0, _SIDMWR, 0, [_IDI], [[0, 1]]];
-export var StartInputDeviceMaintenanceWindowResponse: StaticStructureSchema = [3, n0, _SIDMWRt, 0, [], []];
-export var StartInputDeviceRequest: StaticStructureSchema = [3, n0, _SIDR, 0, [_IDI], [[0, 1]]];
-export var StartInputDeviceResponse: StaticStructureSchema = [3, n0, _SIDRt, 0, [], []];
-export var StartMonitorDeploymentRequest: StaticStructureSchema = [
+export var StartInputDeviceMaintenanceWindowRequest$: StaticStructureSchema = [3, n0, _SIDMWR, 0, [_IDI], [[0, 1]]];
+export var StartInputDeviceMaintenanceWindowResponse$: StaticStructureSchema = [3, n0, _SIDMWRt, 0, [], []];
+export var StartInputDeviceRequest$: StaticStructureSchema = [3, n0, _SIDR, 0, [_IDI], [[0, 1]]];
+export var StartInputDeviceResponse$: StaticStructureSchema = [3, n0, _SIDRt, 0, [], []];
+export var StartMonitorDeploymentRequest$: StaticStructureSchema = [
   3,
   n0,
   _SMDR,
@@ -8244,7 +8272,7 @@ export var StartMonitorDeploymentRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var StartMonitorDeploymentResponse: StaticStructureSchema = [
+export var StartMonitorDeploymentResponse$: StaticStructureSchema = [
   3,
   n0,
   _SMDRt,
@@ -8261,18 +8289,18 @@ export var StartMonitorDeploymentResponse: StaticStructureSchema = [
     [() => FailedMediaResourceMap, { [_jN]: _fMRM }],
     [0, { [_jN]: _i }],
     [5, { [_jN]: _lDA }],
-    [() => SuccessfulMonitorDeployment, { [_jN]: _lSMD }],
+    [() => SuccessfulMonitorDeployment$, { [_jN]: _lSMD }],
     [() => MediaResourceMap, { [_jN]: _mRM }],
     [5, { [_jN]: _mA }],
     [2, { [_jN]: _mCPD }],
-    [() => MonitorDeployment, { [_jN]: _mD }],
+    [() => MonitorDeployment$, { [_jN]: _mD }],
     [0, { [_jN]: _n }],
     [0, { [_jN]: _stat }],
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var StartMultiplexRequest: StaticStructureSchema = [3, n0, _SMR, 0, [_MIu], [[0, 1]]];
-export var StartMultiplexResponse: StaticStructureSchema = [
+export var StartMultiplexRequest$: StaticStructureSchema = [3, n0, _SMR, 0, [_MIu], [[0, 1]]];
+export var StartMultiplexResponse$: StaticStructureSchema = [
   3,
   n0,
   _SMRt,
@@ -8283,7 +8311,7 @@ export var StartMultiplexResponse: StaticStructureSchema = [
     [64 | 0, { [_jN]: _aZ }],
     [() => __listOfMultiplexOutputDestination, { [_jN]: _des }],
     [0, { [_jN]: _i }],
-    [() => MultiplexSettings, { [_jN]: _mSul }],
+    [() => MultiplexSettings$, { [_jN]: _mSul }],
     [0, { [_jN]: _n }],
     [1, { [_jN]: _pRC }],
     [1, { [_jN]: _pC }],
@@ -8291,8 +8319,8 @@ export var StartMultiplexResponse: StaticStructureSchema = [
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var StartTimecode: StaticStructureSchema = [3, n0, _STt, 0, [_Time], [[0, { [_jN]: _time }]]];
-export var StartUpdateSignalMapRequest: StaticStructureSchema = [
+export var StartTimecode$: StaticStructureSchema = [3, n0, _STt, 0, [_Time], [[0, { [_jN]: _time }]]];
+export var StartUpdateSignalMapRequest$: StaticStructureSchema = [
   3,
   n0,
   _SUSMR,
@@ -8308,7 +8336,7 @@ export var StartUpdateSignalMapRequest: StaticStructureSchema = [
     [0, { [_jN]: _n }],
   ],
 ];
-export var StartUpdateSignalMapResponse: StaticStructureSchema = [
+export var StartUpdateSignalMapResponse$: StaticStructureSchema = [
   3,
   n0,
   _SUSMRt,
@@ -8325,17 +8353,17 @@ export var StartUpdateSignalMapResponse: StaticStructureSchema = [
     [() => FailedMediaResourceMap, { [_jN]: _fMRM }],
     [0, { [_jN]: _i }],
     [5, { [_jN]: _lDA }],
-    [() => SuccessfulMonitorDeployment, { [_jN]: _lSMD }],
+    [() => SuccessfulMonitorDeployment$, { [_jN]: _lSMD }],
     [() => MediaResourceMap, { [_jN]: _mRM }],
     [5, { [_jN]: _mA }],
     [2, { [_jN]: _mCPD }],
-    [() => MonitorDeployment, { [_jN]: _mD }],
+    [() => MonitorDeployment$, { [_jN]: _mD }],
     [0, { [_jN]: _n }],
     [0, { [_jN]: _stat }],
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var StaticImageActivateScheduleActionSettings: StaticStructureSchema = [
+export var StaticImageActivateScheduleActionSettings$: StaticStructureSchema = [
   3,
   n0,
   _SIASAS,
@@ -8346,7 +8374,7 @@ export var StaticImageActivateScheduleActionSettings: StaticStructureSchema = [
     [1, { [_jN]: _fI }],
     [1, { [_jN]: _fOa }],
     [1, { [_jN]: _h }],
-    [() => InputLocation, { [_jN]: _im }],
+    [() => InputLocation$, { [_jN]: _im }],
     [1, { [_jN]: _iX }],
     [1, { [_jN]: _iY }],
     [1, { [_jN]: _lay }],
@@ -8354,7 +8382,7 @@ export var StaticImageActivateScheduleActionSettings: StaticStructureSchema = [
     [1, { [_jN]: _w }],
   ],
 ];
-export var StaticImageDeactivateScheduleActionSettings: StaticStructureSchema = [
+export var StaticImageDeactivateScheduleActionSettings$: StaticStructureSchema = [
   3,
   n0,
   _SIDSAS,
@@ -8365,7 +8393,7 @@ export var StaticImageDeactivateScheduleActionSettings: StaticStructureSchema = 
     [1, { [_jN]: _lay }],
   ],
 ];
-export var StaticImageOutputActivateScheduleActionSettings: StaticStructureSchema = [
+export var StaticImageOutputActivateScheduleActionSettings$: StaticStructureSchema = [
   3,
   n0,
   _SIOASAS,
@@ -8376,7 +8404,7 @@ export var StaticImageOutputActivateScheduleActionSettings: StaticStructureSchem
     [1, { [_jN]: _fI }],
     [1, { [_jN]: _fOa }],
     [1, { [_jN]: _h }],
-    [() => InputLocation, { [_jN]: _im }],
+    [() => InputLocation$, { [_jN]: _im }],
     [1, { [_jN]: _iX }],
     [1, { [_jN]: _iY }],
     [1, { [_jN]: _lay }],
@@ -8385,7 +8413,7 @@ export var StaticImageOutputActivateScheduleActionSettings: StaticStructureSchem
     [1, { [_jN]: _w }],
   ],
 ];
-export var StaticImageOutputDeactivateScheduleActionSettings: StaticStructureSchema = [
+export var StaticImageOutputDeactivateScheduleActionSettings$: StaticStructureSchema = [
   3,
   n0,
   _SIODSAS,
@@ -8397,19 +8425,19 @@ export var StaticImageOutputDeactivateScheduleActionSettings: StaticStructureSch
     [64 | 0, { [_jN]: _oNu }],
   ],
 ];
-export var StaticKeySettings: StaticStructureSchema = [
+export var StaticKeySettings$: StaticStructureSchema = [
   3,
   n0,
   _SKS,
   0,
   [_KPSe, _SKV],
   [
-    [() => InputLocation, { [_jN]: _kPSe }],
+    [() => InputLocation$, { [_jN]: _kPSe }],
     [0, { [_jN]: _sKV }],
   ],
 ];
-export var StopChannelRequest: StaticStructureSchema = [3, n0, _SCRto, 0, [_CIha], [[0, 1]]];
-export var StopChannelResponse: StaticStructureSchema = [
+export var StopChannelRequest$: StaticStructureSchema = [3, n0, _SCRto, 0, [_CIha], [[0, 1]]];
+export var StopChannelResponse$: StaticStructureSchema = [
   3,
   n0,
   _SCRtop,
@@ -8417,31 +8445,31 @@ export var StopChannelResponse: StaticStructureSchema = [
   [_Ar, _CIS, _CCh, _Des, _EE, _ESn, _I, _IA, _IS, _LL, _Ma, _N, _PDi, _PRC, _RA, _St, _Ta, _V, _ASn, _CEV],
   [
     [0, { [_jN]: _ar }],
-    [() => CdiInputSpecification, { [_jN]: _cIS }],
+    [() => CdiInputSpecification$, { [_jN]: _cIS }],
     [0, { [_jN]: _cCh }],
     [() => __listOfOutputDestination, { [_jN]: _des }],
     [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }],
-    [() => EncoderSettings, { [_jN]: _eSn }],
+    [() => EncoderSettings$, { [_jN]: _eSn }],
     [0, { [_jN]: _i }],
     [() => __listOfInputAttachment, { [_jN]: _iA }],
-    [() => InputSpecification, { [_jN]: _iS }],
+    [() => InputSpecification$, { [_jN]: _iS }],
     [0, { [_jN]: _lL }],
-    [() => MaintenanceStatus, { [_jN]: _ma }],
+    [() => MaintenanceStatus$, { [_jN]: _ma }],
     [0, { [_jN]: _n }],
     [() => __listOfPipelineDetail, { [_jN]: _pDi }],
     [1, { [_jN]: _pRC }],
     [0, { [_jN]: _rA }],
     [0, { [_jN]: _st }],
     [128 | 0, { [_jN]: _ta }],
-    [() => VpcOutputSettingsDescription, { [_jN]: _v }],
-    [() => DescribeAnywhereSettings, { [_jN]: _aSn }],
-    [() => ChannelEngineVersionResponse, { [_jN]: _cEV }],
+    [() => VpcOutputSettingsDescription$, { [_jN]: _v }],
+    [() => DescribeAnywhereSettings$, { [_jN]: _aSn }],
+    [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }],
   ],
 ];
-export var StopInputDeviceRequest: StaticStructureSchema = [3, n0, _SIDRto, 0, [_IDI], [[0, 1]]];
-export var StopInputDeviceResponse: StaticStructureSchema = [3, n0, _SIDRtop, 0, [], []];
-export var StopMultiplexRequest: StaticStructureSchema = [3, n0, _SMRto, 0, [_MIu], [[0, 1]]];
-export var StopMultiplexResponse: StaticStructureSchema = [
+export var StopInputDeviceRequest$: StaticStructureSchema = [3, n0, _SIDRto, 0, [_IDI], [[0, 1]]];
+export var StopInputDeviceResponse$: StaticStructureSchema = [3, n0, _SIDRtop, 0, [], []];
+export var StopMultiplexRequest$: StaticStructureSchema = [3, n0, _SMRto, 0, [_MIu], [[0, 1]]];
+export var StopMultiplexResponse$: StaticStructureSchema = [
   3,
   n0,
   _SMRtop,
@@ -8452,7 +8480,7 @@ export var StopMultiplexResponse: StaticStructureSchema = [
     [64 | 0, { [_jN]: _aZ }],
     [() => __listOfMultiplexOutputDestination, { [_jN]: _des }],
     [0, { [_jN]: _i }],
-    [() => MultiplexSettings, { [_jN]: _mSul }],
+    [() => MultiplexSettings$, { [_jN]: _mSul }],
     [0, { [_jN]: _n }],
     [1, { [_jN]: _pRC }],
     [1, { [_jN]: _pC }],
@@ -8460,7 +8488,7 @@ export var StopMultiplexResponse: StaticStructureSchema = [
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var StopTimecode: StaticStructureSchema = [
+export var StopTimecode$: StaticStructureSchema = [
   3,
   n0,
   _STto,
@@ -8471,7 +8499,7 @@ export var StopTimecode: StaticStructureSchema = [
     [0, { [_jN]: _time }],
   ],
 ];
-export var SuccessfulMonitorDeployment: StaticStructureSchema = [
+export var SuccessfulMonitorDeployment$: StaticStructureSchema = [
   3,
   n0,
   _SMD,
@@ -8482,19 +8510,19 @@ export var SuccessfulMonitorDeployment: StaticStructureSchema = [
     [0, { [_jN]: _stat }],
   ],
 ];
-export var TeletextDestinationSettings: StaticStructureSchema = [3, n0, _TDS, 0, [], []];
-export var TeletextSourceSettings: StaticStructureSchema = [
+export var TeletextDestinationSettings$: StaticStructureSchema = [3, n0, _TDS, 0, [], []];
+export var TeletextSourceSettings$: StaticStructureSchema = [
   3,
   n0,
   _TSS,
   0,
   [_OR, _PNa],
   [
-    [() => CaptionRectangle, { [_jN]: _oR }],
+    [() => CaptionRectangle$, { [_jN]: _oR }],
     [0, { [_jN]: _pNa }],
   ],
 ];
-export var TemporalFilterSettings: StaticStructureSchema = [
+export var TemporalFilterSettings$: StaticStructureSchema = [
   3,
   n0,
   _TFS,
@@ -8505,7 +8533,7 @@ export var TemporalFilterSettings: StaticStructureSchema = [
     [0, { [_jN]: _str }],
   ],
 ];
-export var Thumbnail: StaticStructureSchema = [
+export var Thumbnail$: StaticStructureSchema = [
   3,
   n0,
   _Thu,
@@ -8518,8 +8546,8 @@ export var Thumbnail: StaticStructureSchema = [
     [5, { [_jN]: _tSi }],
   ],
 ];
-export var ThumbnailConfiguration: StaticStructureSchema = [3, n0, _TCh, 0, [_St], [[0, { [_jN]: _st }]]];
-export var ThumbnailDetail: StaticStructureSchema = [
+export var ThumbnailConfiguration$: StaticStructureSchema = [3, n0, _TCh, 0, [_St], [[0, { [_jN]: _st }]]];
+export var ThumbnailDetail$: StaticStructureSchema = [
   3,
   n0,
   _TDh,
@@ -8530,7 +8558,7 @@ export var ThumbnailDetail: StaticStructureSchema = [
     [() => __listOfThumbnail, { [_jN]: _thu }],
   ],
 ];
-export var TimecodeBurninSettings: StaticStructureSchema = [
+export var TimecodeBurninSettings$: StaticStructureSchema = [
   3,
   n0,
   _TBS,
@@ -8542,7 +8570,7 @@ export var TimecodeBurninSettings: StaticStructureSchema = [
     [0, { [_jN]: _pre }],
   ],
 ];
-export var TimecodeConfig: StaticStructureSchema = [
+export var TimecodeConfig$: StaticStructureSchema = [
   3,
   n0,
   _TCi,
@@ -8553,7 +8581,7 @@ export var TimecodeConfig: StaticStructureSchema = [
     [1, { [_jN]: _sTy }],
   ],
 ];
-export var TimedMetadataScheduleActionSettings: StaticStructureSchema = [
+export var TimedMetadataScheduleActionSettings$: StaticStructureSchema = [
   3,
   n0,
   _TMSAS,
@@ -8561,7 +8589,7 @@ export var TimedMetadataScheduleActionSettings: StaticStructureSchema = [
   [_Id_],
   [[0, { [_jN]: _id }]],
 ];
-export var TooManyRequestsException: StaticErrorSchema = [
+export var TooManyRequestsException$: StaticErrorSchema = [
   -3,
   n0,
   _TMRE,
@@ -8569,8 +8597,8 @@ export var TooManyRequestsException: StaticErrorSchema = [
   [_M],
   [[0, { [_jN]: _m }]],
 ];
-TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-export var TransferInputDeviceRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
+export var TransferInputDeviceRequest$: StaticStructureSchema = [
   3,
   n0,
   _TIDR,
@@ -8583,8 +8611,8 @@ export var TransferInputDeviceRequest: StaticStructureSchema = [
     [0, { [_jN]: _tM }],
   ],
 ];
-export var TransferInputDeviceResponse: StaticStructureSchema = [3, n0, _TIDRr, 0, [], []];
-export var TransferringInputDeviceSummary: StaticStructureSchema = [
+export var TransferInputDeviceResponse$: StaticStructureSchema = [3, n0, _TIDRr, 0, [], []];
+export var TransferringInputDeviceSummary$: StaticStructureSchema = [
   3,
   n0,
   _TIDS,
@@ -8597,16 +8625,16 @@ export var TransferringInputDeviceSummary: StaticStructureSchema = [
     [0, { [_jN]: _tTr }],
   ],
 ];
-export var TtmlDestinationSettings: StaticStructureSchema = [3, n0, _TDSt, 0, [_SCt], [[0, { [_jN]: _sCt }]]];
-export var UdpContainerSettings: StaticStructureSchema = [
+export var TtmlDestinationSettings$: StaticStructureSchema = [3, n0, _TDSt, 0, [_SCt], [[0, { [_jN]: _sCt }]]];
+export var UdpContainerSettings$: StaticStructureSchema = [
   3,
   n0,
   _UCS,
   0,
   [_MS],
-  [[() => M2tsSettings, { [_jN]: _mS }]],
+  [[() => M2tsSettings$, { [_jN]: _mS }]],
 ];
-export var UdpGroupSettings: StaticStructureSchema = [
+export var UdpGroupSettings$: StaticStructureSchema = [
   3,
   n0,
   _UGS,
@@ -8618,7 +8646,7 @@ export var UdpGroupSettings: StaticStructureSchema = [
     [1, { [_jN]: _tMIP }],
   ],
 ];
-export var UdpOutputSettings: StaticStructureSchema = [
+export var UdpOutputSettings$: StaticStructureSchema = [
   3,
   n0,
   _UOS,
@@ -8626,12 +8654,12 @@ export var UdpOutputSettings: StaticStructureSchema = [
   [_BMuf, _CS, _De, _FOS],
   [
     [1, { [_jN]: _bMuf }],
-    [() => UdpContainerSettings, { [_jN]: _cS }],
-    [() => OutputLocationRef, { [_jN]: _de }],
-    [() => FecOutputSettings, { [_jN]: _fOS }],
+    [() => UdpContainerSettings$, { [_jN]: _cS }],
+    [() => OutputLocationRef$, { [_jN]: _de }],
+    [() => FecOutputSettings$, { [_jN]: _fOS }],
   ],
 ];
-export var UnprocessableEntityException: StaticErrorSchema = [
+export var UnprocessableEntityException$: StaticErrorSchema = [
   -3,
   n0,
   _UEE,
@@ -8642,24 +8670,24 @@ export var UnprocessableEntityException: StaticErrorSchema = [
     [() => __listOfValidationError, { [_jN]: _vE }],
   ],
 ];
-TypeRegistry.for(n0).registerError(UnprocessableEntityException, __UnprocessableEntityException);
-export var UpdateAccountConfigurationRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(UnprocessableEntityException$, UnprocessableEntityException);
+export var UpdateAccountConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UACR,
   0,
   [_ACc],
-  [[() => AccountConfiguration, { [_jN]: _aCc }]],
+  [[() => AccountConfiguration$, { [_jN]: _aCc }]],
 ];
-export var UpdateAccountConfigurationResponse: StaticStructureSchema = [
+export var UpdateAccountConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _UACRp,
   0,
   [_ACc],
-  [[() => AccountConfiguration, { [_jN]: _aCc }]],
+  [[() => AccountConfiguration$, { [_jN]: _aCc }]],
 ];
-export var UpdateChannelClassRequest: StaticStructureSchema = [
+export var UpdateChannelClassRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCCR,
@@ -8671,15 +8699,15 @@ export var UpdateChannelClassRequest: StaticStructureSchema = [
     [() => __listOfOutputDestination, { [_jN]: _des }],
   ],
 ];
-export var UpdateChannelClassResponse: StaticStructureSchema = [
+export var UpdateChannelClassResponse$: StaticStructureSchema = [
   3,
   n0,
   _UCCRp,
   0,
   [_Ch],
-  [[() => Channel, { [_jN]: _cha }]],
+  [[() => Channel$, { [_jN]: _cha }]],
 ];
-export var UpdateChannelPlacementGroupRequest: StaticStructureSchema = [
+export var UpdateChannelPlacementGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCPGR,
@@ -8692,7 +8720,7 @@ export var UpdateChannelPlacementGroupRequest: StaticStructureSchema = [
     [64 | 0, { [_jN]: _no }],
   ],
 ];
-export var UpdateChannelPlacementGroupResponse: StaticStructureSchema = [
+export var UpdateChannelPlacementGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _UCPGRp,
@@ -8708,30 +8736,37 @@ export var UpdateChannelPlacementGroupResponse: StaticStructureSchema = [
     [0, { [_jN]: _st }],
   ],
 ];
-export var UpdateChannelRequest: StaticStructureSchema = [
+export var UpdateChannelRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCR,
   0,
   [_CIS, _CIha, _Des, _ESn, _IA, _IS, _LL, _Ma, _N, _RA, _CEV, _DRr, _ASn],
   [
-    [() => CdiInputSpecification, { [_jN]: _cIS }],
+    [() => CdiInputSpecification$, { [_jN]: _cIS }],
     [0, 1],
     [() => __listOfOutputDestination, { [_jN]: _des }],
-    [() => EncoderSettings, { [_jN]: _eSn }],
+    [() => EncoderSettings$, { [_jN]: _eSn }],
     [() => __listOfInputAttachment, { [_jN]: _iA }],
-    [() => InputSpecification, { [_jN]: _iS }],
+    [() => InputSpecification$, { [_jN]: _iS }],
     [0, { [_jN]: _lL }],
-    [() => MaintenanceUpdateSettings, { [_jN]: _ma }],
+    [() => MaintenanceUpdateSettings$, { [_jN]: _ma }],
     [0, { [_jN]: _n }],
     [0, { [_jN]: _rA }],
-    [() => ChannelEngineVersionRequest, { [_jN]: _cEV }],
+    [() => ChannelEngineVersionRequest$, { [_jN]: _cEV }],
     [2, { [_jN]: _dRr }],
-    [() => AnywhereSettings, { [_jN]: _aSn }],
+    [() => AnywhereSettings$, { [_jN]: _aSn }],
   ],
 ];
-export var UpdateChannelResponse: StaticStructureSchema = [3, n0, _UCRp, 0, [_Ch], [[() => Channel, { [_jN]: _cha }]]];
-export var UpdateCloudWatchAlarmTemplateGroupRequest: StaticStructureSchema = [
+export var UpdateChannelResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _UCRp,
+  0,
+  [_Ch],
+  [[() => Channel$, { [_jN]: _cha }]],
+];
+export var UpdateCloudWatchAlarmTemplateGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCWATGR,
@@ -8742,7 +8777,7 @@ export var UpdateCloudWatchAlarmTemplateGroupRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var UpdateCloudWatchAlarmTemplateGroupResponse: StaticStructureSchema = [
+export var UpdateCloudWatchAlarmTemplateGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _UCWATGRp,
@@ -8758,7 +8793,7 @@ export var UpdateCloudWatchAlarmTemplateGroupResponse: StaticStructureSchema = [
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var UpdateCloudWatchAlarmTemplateRequest: StaticStructureSchema = [
+export var UpdateCloudWatchAlarmTemplateRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCWATR,
@@ -8780,7 +8815,7 @@ export var UpdateCloudWatchAlarmTemplateRequest: StaticStructureSchema = [
     [0, { [_jN]: _tMD }],
   ],
 ];
-export var UpdateCloudWatchAlarmTemplateResponse: StaticStructureSchema = [
+export var UpdateCloudWatchAlarmTemplateResponse$: StaticStructureSchema = [
   3,
   n0,
   _UCWATRp,
@@ -8806,7 +8841,7 @@ export var UpdateCloudWatchAlarmTemplateResponse: StaticStructureSchema = [
     [0, { [_jN]: _tMD }],
   ],
 ];
-export var UpdateClusterRequest: StaticStructureSchema = [
+export var UpdateClusterRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCRpd,
@@ -8815,10 +8850,10 @@ export var UpdateClusterRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, { [_jN]: _n }],
-    [() => ClusterNetworkSettingsUpdateRequest, { [_jN]: _nS }],
+    [() => ClusterNetworkSettingsUpdateRequest$, { [_jN]: _nS }],
   ],
 ];
-export var UpdateClusterResponse: StaticStructureSchema = [
+export var UpdateClusterResponse$: StaticStructureSchema = [
   3,
   n0,
   _UCRpda,
@@ -8830,11 +8865,11 @@ export var UpdateClusterResponse: StaticStructureSchema = [
     [0, { [_jN]: _cTl }],
     [0, { [_jN]: _i }],
     [0, { [_jN]: _n }],
-    [() => ClusterNetworkSettings, { [_jN]: _nS }],
+    [() => ClusterNetworkSettings$, { [_jN]: _nS }],
     [0, { [_jN]: _st }],
   ],
 ];
-export var UpdateEventBridgeRuleTemplateGroupRequest: StaticStructureSchema = [
+export var UpdateEventBridgeRuleTemplateGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _UEBRTGR,
@@ -8845,7 +8880,7 @@ export var UpdateEventBridgeRuleTemplateGroupRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var UpdateEventBridgeRuleTemplateGroupResponse: StaticStructureSchema = [
+export var UpdateEventBridgeRuleTemplateGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _UEBRTGRp,
@@ -8861,7 +8896,7 @@ export var UpdateEventBridgeRuleTemplateGroupResponse: StaticStructureSchema = [
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var UpdateEventBridgeRuleTemplateRequest: StaticStructureSchema = [
+export var UpdateEventBridgeRuleTemplateRequest$: StaticStructureSchema = [
   3,
   n0,
   _UEBRTR,
@@ -8876,7 +8911,7 @@ export var UpdateEventBridgeRuleTemplateRequest: StaticStructureSchema = [
     [0, { [_jN]: _n }],
   ],
 ];
-export var UpdateEventBridgeRuleTemplateResponse: StaticStructureSchema = [
+export var UpdateEventBridgeRuleTemplateResponse$: StaticStructureSchema = [
   3,
   n0,
   _UEBRTRp,
@@ -8895,21 +8930,21 @@ export var UpdateEventBridgeRuleTemplateResponse: StaticStructureSchema = [
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var UpdateInputDeviceRequest: StaticStructureSchema = [
+export var UpdateInputDeviceRequest$: StaticStructureSchema = [
   3,
   n0,
   _UIDR,
   0,
   [_HDS, _IDI, _N, _UDS, _AZv],
   [
-    [() => InputDeviceConfigurableSettings, { [_jN]: _hDS }],
+    [() => InputDeviceConfigurableSettings$, { [_jN]: _hDS }],
     [0, 1],
     [0, { [_jN]: _n }],
-    [() => InputDeviceConfigurableSettings, { [_jN]: _uDS }],
+    [() => InputDeviceConfigurableSettings$, { [_jN]: _uDS }],
     [0, { [_jN]: _aZv }],
   ],
 ];
-export var UpdateInputDeviceResponse: StaticStructureSchema = [
+export var UpdateInputDeviceResponse$: StaticStructureSchema = [
   3,
   n0,
   _UIDRp,
@@ -8920,21 +8955,21 @@ export var UpdateInputDeviceResponse: StaticStructureSchema = [
     [0, { [_jN]: _cSon }],
     [0, { [_jN]: _dSSSe }],
     [0, { [_jN]: _dUS }],
-    [() => InputDeviceHdSettings, { [_jN]: _hDS }],
+    [() => InputDeviceHdSettings$, { [_jN]: _hDS }],
     [0, { [_jN]: _i }],
     [0, { [_jN]: _mAa }],
     [0, { [_jN]: _n }],
-    [() => InputDeviceNetworkSettings, { [_jN]: _nS }],
+    [() => InputDeviceNetworkSettings$, { [_jN]: _nS }],
     [0, { [_jN]: _sNe }],
     [0, { [_jN]: _ty }],
-    [() => InputDeviceUhdSettings, { [_jN]: _uDS }],
+    [() => InputDeviceUhdSettings$, { [_jN]: _uDS }],
     [128 | 0, { [_jN]: _ta }],
     [0, { [_jN]: _aZv }],
     [64 | 0, { [_jN]: _mIA }],
     [0, { [_jN]: _oTu }],
   ],
 ];
-export var UpdateInputRequest: StaticStructureSchema = [
+export var UpdateInputRequest$: StaticStructureSchema = [
   3,
   n0,
   _UIR,
@@ -8949,15 +8984,15 @@ export var UpdateInputRequest: StaticStructureSchema = [
     [0, { [_jN]: _n }],
     [0, { [_jN]: _rA }],
     [() => __listOfInputSourceRequest, { [_jN]: _so }],
-    [() => SrtSettingsRequest, { [_jN]: _sSr }],
-    [() => MulticastSettingsUpdateRequest, { [_jN]: _mSu }],
-    [() => Smpte2110ReceiverGroupSettings, { [_jN]: _sRGS }],
+    [() => SrtSettingsRequest$, { [_jN]: _sSr }],
+    [() => MulticastSettingsUpdateRequest$, { [_jN]: _mSu }],
+    [() => Smpte2110ReceiverGroupSettings$, { [_jN]: _sRGS }],
     [64 | 0, { [_jN]: _sSd }],
-    [() => SpecialRouterSettings, { [_jN]: _sRS }],
+    [() => SpecialRouterSettings$, { [_jN]: _sRS }],
   ],
 ];
-export var UpdateInputResponse: StaticStructureSchema = [3, n0, _UIRp, 0, [_In], [[() => Input, { [_jN]: _in }]]];
-export var UpdateInputSecurityGroupRequest: StaticStructureSchema = [
+export var UpdateInputResponse$: StaticStructureSchema = [3, n0, _UIRp, 0, [_In], [[() => Input$, { [_jN]: _in }]]];
+export var UpdateInputSecurityGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _UISGR,
@@ -8969,15 +9004,15 @@ export var UpdateInputSecurityGroupRequest: StaticStructureSchema = [
     [() => __listOfInputWhitelistRuleCidr, { [_jN]: _wR }],
   ],
 ];
-export var UpdateInputSecurityGroupResponse: StaticStructureSchema = [
+export var UpdateInputSecurityGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _UISGRp,
   0,
   [_SG],
-  [[() => InputSecurityGroup, { [_jN]: _sG }]],
+  [[() => InputSecurityGroup$, { [_jN]: _sG }]],
 ];
-export var UpdateMultiplexProgramRequest: StaticStructureSchema = [
+export var UpdateMultiplexProgramRequest$: StaticStructureSchema = [
   3,
   n0,
   _UMPR,
@@ -8985,19 +9020,19 @@ export var UpdateMultiplexProgramRequest: StaticStructureSchema = [
   [_MIu, _MPS, _PNr],
   [
     [0, 1],
-    [() => MultiplexProgramSettings, { [_jN]: _mPS }],
+    [() => MultiplexProgramSettings$, { [_jN]: _mPS }],
     [0, 1],
   ],
 ];
-export var UpdateMultiplexProgramResponse: StaticStructureSchema = [
+export var UpdateMultiplexProgramResponse$: StaticStructureSchema = [
   3,
   n0,
   _UMPRp,
   0,
   [_MP],
-  [[() => MultiplexProgram, { [_jN]: _mP }]],
+  [[() => MultiplexProgram$, { [_jN]: _mP }]],
 ];
-export var UpdateMultiplexRequest: StaticStructureSchema = [
+export var UpdateMultiplexRequest$: StaticStructureSchema = [
   3,
   n0,
   _UMR,
@@ -9005,20 +9040,20 @@ export var UpdateMultiplexRequest: StaticStructureSchema = [
   [_MIu, _MSul, _N, _PIMa],
   [
     [0, 1],
-    [() => MultiplexSettings, { [_jN]: _mSul }],
+    [() => MultiplexSettings$, { [_jN]: _mSul }],
     [0, { [_jN]: _n }],
     [() => MultiplexPacketIdentifiersMapping, { [_jN]: _pIMa }],
   ],
 ];
-export var UpdateMultiplexResponse: StaticStructureSchema = [
+export var UpdateMultiplexResponse$: StaticStructureSchema = [
   3,
   n0,
   _UMRp,
   0,
   [_Mu],
-  [[() => Multiplex, { [_jN]: _mu }]],
+  [[() => Multiplex$, { [_jN]: _mu }]],
 ];
-export var UpdateNetworkRequest: StaticStructureSchema = [
+export var UpdateNetworkRequest$: StaticStructureSchema = [
   3,
   n0,
   _UNR,
@@ -9031,7 +9066,7 @@ export var UpdateNetworkRequest: StaticStructureSchema = [
     [() => __listOfRouteUpdateRequest, { [_jN]: _ro }],
   ],
 ];
-export var UpdateNetworkResponse: StaticStructureSchema = [
+export var UpdateNetworkResponse$: StaticStructureSchema = [
   3,
   n0,
   _UNRp,
@@ -9047,7 +9082,7 @@ export var UpdateNetworkResponse: StaticStructureSchema = [
     [0, { [_jN]: _st }],
   ],
 ];
-export var UpdateNodeRequest: StaticStructureSchema = [
+export var UpdateNodeRequest$: StaticStructureSchema = [
   3,
   n0,
   _UNRpd,
@@ -9061,7 +9096,7 @@ export var UpdateNodeRequest: StaticStructureSchema = [
     [() => SdiSourceMappingsUpdateRequest, { [_jN]: _sSM }],
   ],
 ];
-export var UpdateNodeResponse: StaticStructureSchema = [
+export var UpdateNodeResponse$: StaticStructureSchema = [
   3,
   n0,
   _UNRpda,
@@ -9081,7 +9116,7 @@ export var UpdateNodeResponse: StaticStructureSchema = [
     [() => SdiSourceMappings, { [_jN]: _sSM }],
   ],
 ];
-export var UpdateNodeStateRequest: StaticStructureSchema = [
+export var UpdateNodeStateRequest$: StaticStructureSchema = [
   3,
   n0,
   _UNSR,
@@ -9093,7 +9128,7 @@ export var UpdateNodeStateRequest: StaticStructureSchema = [
     [0, { [_jN]: _st }],
   ],
 ];
-export var UpdateNodeStateResponse: StaticStructureSchema = [
+export var UpdateNodeStateResponse$: StaticStructureSchema = [
   3,
   n0,
   _UNSRp,
@@ -9113,7 +9148,7 @@ export var UpdateNodeStateResponse: StaticStructureSchema = [
     [() => SdiSourceMappings, { [_jN]: _sSM }],
   ],
 ];
-export var UpdateReservationRequest: StaticStructureSchema = [
+export var UpdateReservationRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -9121,19 +9156,19 @@ export var UpdateReservationRequest: StaticStructureSchema = [
   [_N, _RSen, _RIes],
   [
     [0, { [_jN]: _n }],
-    [() => RenewalSettings, { [_jN]: _rSen }],
+    [() => RenewalSettings$, { [_jN]: _rSen }],
     [0, 1],
   ],
 ];
-export var UpdateReservationResponse: StaticStructureSchema = [
+export var UpdateReservationResponse$: StaticStructureSchema = [
   3,
   n0,
   _URRp,
   0,
   [_Rese],
-  [[() => Reservation, { [_jN]: _rese }]],
+  [[() => Reservation$, { [_jN]: _rese }]],
 ];
-export var UpdateSdiSourceRequest: StaticStructureSchema = [
+export var UpdateSdiSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _USSR,
@@ -9146,15 +9181,15 @@ export var UpdateSdiSourceRequest: StaticStructureSchema = [
     [0, { [_jN]: _ty }],
   ],
 ];
-export var UpdateSdiSourceResponse: StaticStructureSchema = [
+export var UpdateSdiSourceResponse$: StaticStructureSchema = [
   3,
   n0,
   _USSRp,
   0,
   [_SSdi],
-  [[() => SdiSource, { [_jN]: _sSdi }]],
+  [[() => SdiSource$, { [_jN]: _sSdi }]],
 ];
-export var ValidationError: StaticStructureSchema = [
+export var ValidationError$: StaticStructureSchema = [
   3,
   n0,
   _VEa,
@@ -9165,7 +9200,7 @@ export var ValidationError: StaticStructureSchema = [
     [0, { [_jN]: _eM }],
   ],
 ];
-export var VideoBlackFailoverSettings: StaticStructureSchema = [
+export var VideoBlackFailoverSettings$: StaticStructureSchema = [
   3,
   n0,
   _VBFS,
@@ -9176,28 +9211,28 @@ export var VideoBlackFailoverSettings: StaticStructureSchema = [
     [1, { [_jN]: _vBTM }],
   ],
 ];
-export var VideoCodecSettings: StaticStructureSchema = [
+export var VideoCodecSettings$: StaticStructureSchema = [
   3,
   n0,
   _VCS,
   0,
   [_FCSr, _HSe, _HSet, _MSpe, _ASv],
   [
-    [() => FrameCaptureSettings, { [_jN]: _fCSr }],
-    [() => H264Settings, { [_jN]: _hSe }],
-    [() => H265Settings, { [_jN]: _hSet }],
-    [() => Mpeg2Settings, { [_jN]: _mSpe }],
-    [() => Av1Settings, { [_jN]: _aSve }],
+    [() => FrameCaptureSettings$, { [_jN]: _fCSr }],
+    [() => H264Settings$, { [_jN]: _hSe }],
+    [() => H265Settings$, { [_jN]: _hSet }],
+    [() => Mpeg2Settings$, { [_jN]: _mSpe }],
+    [() => Av1Settings$, { [_jN]: _aSve }],
   ],
 ];
-export var VideoDescription: StaticStructureSchema = [
+export var VideoDescription$: StaticStructureSchema = [
   3,
   n0,
   _VDi,
   0,
   [_CSo, _H, _N, _RTA, _SBc, _Sh, _W],
   [
-    [() => VideoCodecSettings, { [_jN]: _cSo }],
+    [() => VideoCodecSettings$, { [_jN]: _cSo }],
     [1, { [_jN]: _h }],
     [0, { [_jN]: _n }],
     [0, { [_jN]: _rTA }],
@@ -9206,7 +9241,7 @@ export var VideoDescription: StaticStructureSchema = [
     [1, { [_jN]: _w }],
   ],
 ];
-export var VideoSelector: StaticStructureSchema = [
+export var VideoSelector$: StaticStructureSchema = [
   3,
   n0,
   _VS,
@@ -9214,33 +9249,33 @@ export var VideoSelector: StaticStructureSchema = [
   [_CSol, _CSS, _CSU, _SS],
   [
     [0, { [_jN]: _cSol }],
-    [() => VideoSelectorColorSpaceSettings, { [_jN]: _cSS }],
+    [() => VideoSelectorColorSpaceSettings$, { [_jN]: _cSS }],
     [0, { [_jN]: _cSU }],
-    [() => VideoSelectorSettings, { [_jN]: _sS }],
+    [() => VideoSelectorSettings$, { [_jN]: _sS }],
   ],
 ];
-export var VideoSelectorColorSpaceSettings: StaticStructureSchema = [
+export var VideoSelectorColorSpaceSettings$: StaticStructureSchema = [
   3,
   n0,
   _VSCSS,
   0,
   [_HS],
-  [[() => Hdr10Settings, { [_jN]: _hS }]],
+  [[() => Hdr10Settings$, { [_jN]: _hS }]],
 ];
-export var VideoSelectorPid: StaticStructureSchema = [3, n0, _VSP, 0, [_Pi], [[1, { [_jN]: _pi }]]];
-export var VideoSelectorProgramId: StaticStructureSchema = [3, n0, _VSPI, 0, [_PIr], [[1, { [_jN]: _pIr }]]];
-export var VideoSelectorSettings: StaticStructureSchema = [
+export var VideoSelectorPid$: StaticStructureSchema = [3, n0, _VSP, 0, [_Pi], [[1, { [_jN]: _pi }]]];
+export var VideoSelectorProgramId$: StaticStructureSchema = [3, n0, _VSPI, 0, [_PIr], [[1, { [_jN]: _pIr }]]];
+export var VideoSelectorSettings$: StaticStructureSchema = [
   3,
   n0,
   _VSS,
   0,
   [_VSP, _VSPI],
   [
-    [() => VideoSelectorPid, { [_jN]: _vSP }],
-    [() => VideoSelectorProgramId, { [_jN]: _vSPI }],
+    [() => VideoSelectorPid$, { [_jN]: _vSP }],
+    [() => VideoSelectorProgramId$, { [_jN]: _vSPI }],
   ],
 ];
-export var VpcOutputSettings: StaticStructureSchema = [
+export var VpcOutputSettings$: StaticStructureSchema = [
   3,
   n0,
   _VOS,
@@ -9252,7 +9287,7 @@ export var VpcOutputSettings: StaticStructureSchema = [
     [64 | 0, { [_jN]: _sIu }],
   ],
 ];
-export var VpcOutputSettingsDescription: StaticStructureSchema = [
+export var VpcOutputSettingsDescription$: StaticStructureSchema = [
   3,
   n0,
   _VOSD,
@@ -9265,7 +9300,7 @@ export var VpcOutputSettingsDescription: StaticStructureSchema = [
     [64 | 0, { [_jN]: _sIu }],
   ],
 ];
-export var WavSettings: StaticStructureSchema = [
+export var WavSettings$: StaticStructureSchema = [
   3,
   n0,
   _WS,
@@ -9277,1262 +9312,1226 @@ export var WavSettings: StaticStructureSchema = [
     [1, { [_jN]: _sR }],
   ],
 ];
-export var WebvttDestinationSettings: StaticStructureSchema = [3, n0, _WDS, 0, [_SCt], [[0, { [_jN]: _sCt }]]];
-export var __Unit = "unit" as const;
-export var MediaLiveServiceException: StaticErrorSchema = [-3, _sm, "MediaLiveServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MediaLiveServiceException, __MediaLiveServiceException);
-export var __listOf__integer = 64 | 1;
-export var __listOf__string = 64 | 0;
-export var __listOf__stringMin7Max11PatternAws097 = 64 | 0;
-export var __listOf__stringPatternS = 64 | 0;
-export var __listOfAdditionalDestinations: StaticListSchema = [1, n0, _lOAD, 0, [() => AdditionalDestinations, 0]];
-export var __listOfAudioChannelMapping: StaticListSchema = [1, n0, _lOACM, 0, [() => AudioChannelMapping, 0]];
-export var __listOfAudioDescription: StaticListSchema = [1, n0, _lOADi, 0, [() => AudioDescription, 0]];
-export var __listOfAudioSelector: StaticListSchema = [1, n0, _lOAS, 0, [() => AudioSelector, 0]];
-export var __listOfAudioTrack: StaticListSchema = [1, n0, _lOAT, 0, [() => AudioTrack, 0]];
-export var __listOfBatchFailedResultModel: StaticListSchema = [1, n0, _lOBFRM, 0, [() => BatchFailedResultModel, 0]];
-export var __listOfBatchSuccessfulResultModel: StaticListSchema = [
-  1,
-  n0,
-  _lOBSRM,
-  0,
-  [() => BatchSuccessfulResultModel, 0],
-];
-export var __listOfCaptionDescription: StaticListSchema = [1, n0, _lOCD, 0, [() => CaptionDescription, 0]];
-export var __listOfCaptionLanguageMapping: StaticListSchema = [1, n0, _lOCLM, 0, [() => CaptionLanguageMapping, 0]];
-export var __listOfCaptionSelector: StaticListSchema = [1, n0, _lOCS, 0, [() => CaptionSelector, 0]];
-export var __listOfChannelAlert: StaticListSchema = [1, n0, _lOCA, 0, [() => ChannelAlert, 0]];
-export var __listOfChannelEgressEndpoint: StaticListSchema = [1, n0, _lOCEE, 0, [() => ChannelEgressEndpoint, 0]];
-export var __listOfChannelEngineVersionResponse: StaticListSchema = [
+export var WebvttDestinationSettings$: StaticStructureSchema = [3, n0, _WDS, 0, [_SCt], [[0, { [_jN]: _sCt }]]];
+var __Unit = "unit" as const;
+export var MediaLiveServiceException$: StaticErrorSchema = [-3, _sm, "MediaLiveServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(MediaLiveServiceException$, MediaLiveServiceException);
+var __listOf__integer = 64 | 1;
+var __listOf__string = 64 | 0;
+var __listOf__stringMin7Max11PatternAws097 = 64 | 0;
+var __listOf__stringPatternS = 64 | 0;
+var __listOfAdditionalDestinations: StaticListSchema = [1, n0, _lOAD, 0, [() => AdditionalDestinations$, 0]];
+var __listOfAudioChannelMapping: StaticListSchema = [1, n0, _lOACM, 0, [() => AudioChannelMapping$, 0]];
+var __listOfAudioDescription: StaticListSchema = [1, n0, _lOADi, 0, [() => AudioDescription$, 0]];
+var __listOfAudioSelector: StaticListSchema = [1, n0, _lOAS, 0, [() => AudioSelector$, 0]];
+var __listOfAudioTrack: StaticListSchema = [1, n0, _lOAT, 0, [() => AudioTrack$, 0]];
+var __listOfBatchFailedResultModel: StaticListSchema = [1, n0, _lOBFRM, 0, [() => BatchFailedResultModel$, 0]];
+var __listOfBatchSuccessfulResultModel: StaticListSchema = [1, n0, _lOBSRM, 0, [() => BatchSuccessfulResultModel$, 0]];
+var __listOfCaptionDescription: StaticListSchema = [1, n0, _lOCD, 0, [() => CaptionDescription$, 0]];
+var __listOfCaptionLanguageMapping: StaticListSchema = [1, n0, _lOCLM, 0, [() => CaptionLanguageMapping$, 0]];
+var __listOfCaptionSelector: StaticListSchema = [1, n0, _lOCS, 0, [() => CaptionSelector$, 0]];
+var __listOfChannelAlert: StaticListSchema = [1, n0, _lOCA, 0, [() => ChannelAlert$, 0]];
+var __listOfChannelEgressEndpoint: StaticListSchema = [1, n0, _lOCEE, 0, [() => ChannelEgressEndpoint$, 0]];
+var __listOfChannelEngineVersionResponse: StaticListSchema = [
   1,
   n0,
   _lOCEVR,
   0,
-  [() => ChannelEngineVersionResponse, 0],
+  [() => ChannelEngineVersionResponse$, 0],
 ];
-export var __listOfChannelPipelineIdToRestart = 64 | 0;
-export var __listOfChannelSummary: StaticListSchema = [1, n0, _lOCSi, 0, [() => ChannelSummary, 0]];
-export var __listOfCloudWatchAlarmTemplateGroupSummary: StaticListSchema = [
+var __listOfChannelPipelineIdToRestart = 64 | 0;
+var __listOfChannelSummary: StaticListSchema = [1, n0, _lOCSi, 0, [() => ChannelSummary$, 0]];
+var __listOfCloudWatchAlarmTemplateGroupSummary: StaticListSchema = [
   1,
   n0,
   _lOCWATGS,
   0,
-  [() => CloudWatchAlarmTemplateGroupSummary, 0],
+  [() => CloudWatchAlarmTemplateGroupSummary$, 0],
 ];
-export var __listOfCloudWatchAlarmTemplateSummary: StaticListSchema = [
+var __listOfCloudWatchAlarmTemplateSummary: StaticListSchema = [
   1,
   n0,
   _lOCWATS,
   0,
-  [() => CloudWatchAlarmTemplateSummary, 0],
+  [() => CloudWatchAlarmTemplateSummary$, 0],
 ];
-export var __listOfClusterAlert: StaticListSchema = [1, n0, _lOCAi, 0, [() => ClusterAlert, 0]];
-export var __listOfCmafIngestCaptionLanguageMapping: StaticListSchema = [
+var __listOfClusterAlert: StaticListSchema = [1, n0, _lOCAi, 0, [() => ClusterAlert$, 0]];
+var __listOfCmafIngestCaptionLanguageMapping: StaticListSchema = [
   1,
   n0,
   _lOCICLM,
   0,
-  [() => CmafIngestCaptionLanguageMapping, 0],
+  [() => CmafIngestCaptionLanguageMapping$, 0],
 ];
-export var __listOfColorCorrection: StaticListSchema = [1, n0, _lOCC, 0, [() => ColorCorrection, 0]];
-export var __listOfDashRoleAudio = 64 | 0;
-export var __listOfDashRoleCaption = 64 | 0;
-export var __listOfDescribeChannelPlacementGroupSummary: StaticListSchema = [
+var __listOfColorCorrection: StaticListSchema = [1, n0, _lOCC, 0, [() => ColorCorrection$, 0]];
+var __listOfDashRoleAudio = 64 | 0;
+var __listOfDashRoleCaption = 64 | 0;
+var __listOfDescribeChannelPlacementGroupSummary: StaticListSchema = [
   1,
   n0,
   _lODCPGS,
   0,
-  [() => DescribeChannelPlacementGroupSummary, 0],
+  [() => DescribeChannelPlacementGroupSummary$, 0],
 ];
-export var __listOfDescribeClusterSummary: StaticListSchema = [1, n0, _lODCS, 0, [() => DescribeClusterSummary, 0]];
-export var __listOfDescribeNetworkSummary: StaticListSchema = [1, n0, _lODNS, 0, [() => DescribeNetworkSummary, 0]];
-export var __listOfDescribeNodeSummary: StaticListSchema = [1, n0, _lODNSi, 0, [() => DescribeNodeSummary, 0]];
-export var __listOfEventBridgeRuleTemplateGroupSummary: StaticListSchema = [
+var __listOfDescribeClusterSummary: StaticListSchema = [1, n0, _lODCS, 0, [() => DescribeClusterSummary$, 0]];
+var __listOfDescribeNetworkSummary: StaticListSchema = [1, n0, _lODNS, 0, [() => DescribeNetworkSummary$, 0]];
+var __listOfDescribeNodeSummary: StaticListSchema = [1, n0, _lODNSi, 0, [() => DescribeNodeSummary$, 0]];
+var __listOfEventBridgeRuleTemplateGroupSummary: StaticListSchema = [
   1,
   n0,
   _lOEBRTGS,
   0,
-  [() => EventBridgeRuleTemplateGroupSummary, 0],
+  [() => EventBridgeRuleTemplateGroupSummary$, 0],
 ];
-export var __listOfEventBridgeRuleTemplateSummary: StaticListSchema = [
+var __listOfEventBridgeRuleTemplateSummary: StaticListSchema = [
   1,
   n0,
   _lOEBRTS,
   0,
-  [() => EventBridgeRuleTemplateSummary, 0],
+  [() => EventBridgeRuleTemplateSummary$, 0],
 ];
-export var __listOfEventBridgeRuleTemplateTarget: StaticListSchema = [
+var __listOfEventBridgeRuleTemplateTarget: StaticListSchema = [
   1,
   n0,
   _lOEBRTT,
   0,
-  [() => EventBridgeRuleTemplateTarget, 0],
+  [() => EventBridgeRuleTemplateTarget$, 0],
 ];
-export var __listOfFailoverCondition: StaticListSchema = [1, n0, _lOFC, 0, [() => FailoverCondition, 0]];
-export var __listOfHlsAdMarkers = 64 | 0;
-export var __listOfInput: StaticListSchema = [1, n0, _lOI, 0, [() => Input, 0]];
-export var __listOfInputAttachment: StaticListSchema = [1, n0, _lOIA, 0, [() => InputAttachment, 0]];
-export var __listOfInputChannelLevel: StaticListSchema = [1, n0, _lOICL, 0, [() => InputChannelLevel, 0]];
-export var __listOfInputDestination: StaticListSchema = [1, n0, _lOID, 0, [() => InputDestination, 0]];
-export var __listOfInputDestinationRequest: StaticListSchema = [1, n0, _lOIDR, 0, [() => InputDestinationRequest, 0]];
-export var __listOfInputDestinationRoute: StaticListSchema = [1, n0, _lOIDRi, 0, [() => InputDestinationRoute, 0]];
-export var __listOfInputDeviceConfigurableAudioChannelPairConfig: StaticListSchema = [
+var __listOfFailoverCondition: StaticListSchema = [1, n0, _lOFC, 0, [() => FailoverCondition$, 0]];
+var __listOfHlsAdMarkers = 64 | 0;
+var __listOfInput: StaticListSchema = [1, n0, _lOI, 0, [() => Input$, 0]];
+var __listOfInputAttachment: StaticListSchema = [1, n0, _lOIA, 0, [() => InputAttachment$, 0]];
+var __listOfInputChannelLevel: StaticListSchema = [1, n0, _lOICL, 0, [() => InputChannelLevel$, 0]];
+var __listOfInputDestination: StaticListSchema = [1, n0, _lOID, 0, [() => InputDestination$, 0]];
+var __listOfInputDestinationRequest: StaticListSchema = [1, n0, _lOIDR, 0, [() => InputDestinationRequest$, 0]];
+var __listOfInputDestinationRoute: StaticListSchema = [1, n0, _lOIDRi, 0, [() => InputDestinationRoute$, 0]];
+var __listOfInputDeviceConfigurableAudioChannelPairConfig: StaticListSchema = [
   1,
   n0,
   _lOIDCACPC,
   0,
-  [() => InputDeviceConfigurableAudioChannelPairConfig, 0],
+  [() => InputDeviceConfigurableAudioChannelPairConfig$, 0],
 ];
-export var __listOfInputDeviceRequest: StaticListSchema = [1, n0, _lOIDRis, 0, [() => InputDeviceRequest, 0]];
-export var __listOfInputDeviceSettings: StaticListSchema = [1, n0, _lOIDS, 0, [() => InputDeviceSettings, 0]];
-export var __listOfInputDeviceSummary: StaticListSchema = [1, n0, _lOIDSi, 0, [() => InputDeviceSummary, 0]];
-export var __listOfInputDeviceUhdAudioChannelPairConfig: StaticListSchema = [
+var __listOfInputDeviceRequest: StaticListSchema = [1, n0, _lOIDRis, 0, [() => InputDeviceRequest$, 0]];
+var __listOfInputDeviceSettings: StaticListSchema = [1, n0, _lOIDS, 0, [() => InputDeviceSettings$, 0]];
+var __listOfInputDeviceSummary: StaticListSchema = [1, n0, _lOIDSi, 0, [() => InputDeviceSummary$, 0]];
+var __listOfInputDeviceUhdAudioChannelPairConfig: StaticListSchema = [
   1,
   n0,
   _lOIDUACPC,
   0,
-  [() => InputDeviceUhdAudioChannelPairConfig, 0],
+  [() => InputDeviceUhdAudioChannelPairConfig$, 0],
 ];
-export var __listOfInputRequestDestinationRoute: StaticListSchema = [
+var __listOfInputRequestDestinationRoute: StaticListSchema = [
   1,
   n0,
   _lOIRDR,
   0,
-  [() => InputRequestDestinationRoute, 0],
+  [() => InputRequestDestinationRoute$, 0],
 ];
-export var __listOfInputSdpLocation: StaticListSchema = [1, n0, _lOISL, 0, [() => InputSdpLocation, 0]];
-export var __listOfInputSecurityGroup: StaticListSchema = [1, n0, _lOISG, 0, [() => InputSecurityGroup, 0]];
-export var __listOfInputSource: StaticListSchema = [1, n0, _lOIS, 0, [() => InputSource, 0]];
-export var __listOfInputSourceRequest: StaticListSchema = [1, n0, _lOISR, 0, [() => InputSourceRequest, 0]];
-export var __listOfInputWhitelistRule: StaticListSchema = [1, n0, _lOIWR, 0, [() => InputWhitelistRule, 0]];
-export var __listOfInputWhitelistRuleCidr: StaticListSchema = [1, n0, _lOIWRC, 0, [() => InputWhitelistRuleCidr, 0]];
-export var __listOfInterfaceMapping: StaticListSchema = [1, n0, _lOIM, 0, [() => InterfaceMapping, 0]];
-export var __listOfInterfaceMappingCreateRequest: StaticListSchema = [
+var __listOfInputSdpLocation: StaticListSchema = [1, n0, _lOISL, 0, [() => InputSdpLocation$, 0]];
+var __listOfInputSecurityGroup: StaticListSchema = [1, n0, _lOISG, 0, [() => InputSecurityGroup$, 0]];
+var __listOfInputSource: StaticListSchema = [1, n0, _lOIS, 0, [() => InputSource$, 0]];
+var __listOfInputSourceRequest: StaticListSchema = [1, n0, _lOISR, 0, [() => InputSourceRequest$, 0]];
+var __listOfInputWhitelistRule: StaticListSchema = [1, n0, _lOIWR, 0, [() => InputWhitelistRule$, 0]];
+var __listOfInputWhitelistRuleCidr: StaticListSchema = [1, n0, _lOIWRC, 0, [() => InputWhitelistRuleCidr$, 0]];
+var __listOfInterfaceMapping: StaticListSchema = [1, n0, _lOIM, 0, [() => InterfaceMapping$, 0]];
+var __listOfInterfaceMappingCreateRequest: StaticListSchema = [
   1,
   n0,
   _lOIMCR,
   0,
-  [() => InterfaceMappingCreateRequest, 0],
+  [() => InterfaceMappingCreateRequest$, 0],
 ];
-export var __listOfInterfaceMappingUpdateRequest: StaticListSchema = [
+var __listOfInterfaceMappingUpdateRequest: StaticListSchema = [
   1,
   n0,
   _lOIMUR,
   0,
-  [() => InterfaceMappingUpdateRequest, 0],
+  [() => InterfaceMappingUpdateRequest$, 0],
 ];
-export var __listOfIpPool: StaticListSchema = [1, n0, _lOIP, 0, [() => IpPool, 0]];
-export var __listOfIpPoolCreateRequest: StaticListSchema = [1, n0, _lOIPCR, 0, [() => IpPoolCreateRequest, 0]];
-export var __listOfIpPoolUpdateRequest: StaticListSchema = [1, n0, _lOIPUR, 0, [() => IpPoolUpdateRequest, 0]];
-export var __listOfMediaConnectFlow: StaticListSchema = [1, n0, _lOMCF, 0, [() => MediaConnectFlow, 0]];
-export var __listOfMediaConnectFlowRequest: StaticListSchema = [1, n0, _lOMCFR, 0, [() => MediaConnectFlowRequest, 0]];
-export var __listOfMediaPackageOutputDestinationSettings: StaticListSchema = [
+var __listOfIpPool: StaticListSchema = [1, n0, _lOIP, 0, [() => IpPool$, 0]];
+var __listOfIpPoolCreateRequest: StaticListSchema = [1, n0, _lOIPCR, 0, [() => IpPoolCreateRequest$, 0]];
+var __listOfIpPoolUpdateRequest: StaticListSchema = [1, n0, _lOIPUR, 0, [() => IpPoolUpdateRequest$, 0]];
+var __listOfMediaConnectFlow: StaticListSchema = [1, n0, _lOMCF, 0, [() => MediaConnectFlow$, 0]];
+var __listOfMediaConnectFlowRequest: StaticListSchema = [1, n0, _lOMCFR, 0, [() => MediaConnectFlowRequest$, 0]];
+var __listOfMediaPackageOutputDestinationSettings: StaticListSchema = [
   1,
   n0,
   _lOMPODS,
   0,
-  [() => MediaPackageOutputDestinationSettings, 0],
+  [() => MediaPackageOutputDestinationSettings$, 0],
 ];
-export var __listOfMediaResourceNeighbor: StaticListSchema = [1, n0, _lOMRN, 0, [() => MediaResourceNeighbor, 0]];
-export var __listOfMulticastSource: StaticListSchema = [1, n0, _lOMS, 0, [() => MulticastSource, 0]];
-export var __listOfMulticastSourceCreateRequest: StaticListSchema = [
+var __listOfMediaResourceNeighbor: StaticListSchema = [1, n0, _lOMRN, 0, [() => MediaResourceNeighbor$, 0]];
+var __listOfMulticastSource: StaticListSchema = [1, n0, _lOMS, 0, [() => MulticastSource$, 0]];
+var __listOfMulticastSourceCreateRequest: StaticListSchema = [
   1,
   n0,
   _lOMSCR,
   0,
-  [() => MulticastSourceCreateRequest, 0],
+  [() => MulticastSourceCreateRequest$, 0],
 ];
-export var __listOfMulticastSourceUpdateRequest: StaticListSchema = [
+var __listOfMulticastSourceUpdateRequest: StaticListSchema = [
   1,
   n0,
   _lOMSUR,
   0,
-  [() => MulticastSourceUpdateRequest, 0],
+  [() => MulticastSourceUpdateRequest$, 0],
 ];
-export var __listOfMultiplexAlert: StaticListSchema = [1, n0, _lOMA, 0, [() => MultiplexAlert, 0]];
-export var __listOfMultiplexOutputDestination: StaticListSchema = [
-  1,
-  n0,
-  _lOMOD,
-  0,
-  [() => MultiplexOutputDestination, 0],
-];
-export var __listOfMultiplexProgramPipelineDetail: StaticListSchema = [
+var __listOfMultiplexAlert: StaticListSchema = [1, n0, _lOMA, 0, [() => MultiplexAlert$, 0]];
+var __listOfMultiplexOutputDestination: StaticListSchema = [1, n0, _lOMOD, 0, [() => MultiplexOutputDestination$, 0]];
+var __listOfMultiplexProgramPipelineDetail: StaticListSchema = [
   1,
   n0,
   _lOMPPD,
   0,
-  [() => MultiplexProgramPipelineDetail, 0],
+  [() => MultiplexProgramPipelineDetail$, 0],
 ];
-export var __listOfMultiplexProgramSummary: StaticListSchema = [1, n0, _lOMPS, 0, [() => MultiplexProgramSummary, 0]];
-export var __listOfMultiplexSummary: StaticListSchema = [1, n0, _lOMSi, 0, [() => MultiplexSummary, 0]];
-export var __listOfNodeInterfaceMapping: StaticListSchema = [1, n0, _lONIM, 0, [() => NodeInterfaceMapping, 0]];
-export var __listOfNodeInterfaceMappingCreateRequest: StaticListSchema = [
+var __listOfMultiplexProgramSummary: StaticListSchema = [1, n0, _lOMPS, 0, [() => MultiplexProgramSummary$, 0]];
+var __listOfMultiplexSummary: StaticListSchema = [1, n0, _lOMSi, 0, [() => MultiplexSummary$, 0]];
+var __listOfNodeInterfaceMapping: StaticListSchema = [1, n0, _lONIM, 0, [() => NodeInterfaceMapping$, 0]];
+var __listOfNodeInterfaceMappingCreateRequest: StaticListSchema = [
   1,
   n0,
   _lONIMCR,
   0,
-  [() => NodeInterfaceMappingCreateRequest, 0],
+  [() => NodeInterfaceMappingCreateRequest$, 0],
 ];
-export var __listOfOffering: StaticListSchema = [1, n0, _lOO, 0, [() => Offering, 0]];
-export var __listOfOutput: StaticListSchema = [1, n0, _lOOi, 0, [() => Output, 0]];
-export var __listOfOutputDestination: StaticListSchema = [1, n0, _lOOD, 0, [() => OutputDestination, 0]];
-export var __listOfOutputDestinationSettings: StaticListSchema = [
-  1,
-  n0,
-  _lOODS,
-  0,
-  [() => OutputDestinationSettings, 0],
-];
-export var __listOfOutputGroup: StaticListSchema = [1, n0, _lOOG, 0, [() => OutputGroup, 0]];
-export var __listOfPipelineDetail: StaticListSchema = [1, n0, _lOPD, 0, [() => PipelineDetail, 0]];
-export var __listOfPipelinePauseStateSettings: StaticListSchema = [
-  1,
-  n0,
-  _lOPPSS,
-  0,
-  [() => PipelinePauseStateSettings, 0],
-];
-export var __listOfReservation: StaticListSchema = [1, n0, _lOR, 0, [() => Reservation, 0]];
-export var __listOfRoute: StaticListSchema = [1, n0, _lORi, 0, [() => Route, 0]];
-export var __listOfRouteCreateRequest: StaticListSchema = [1, n0, _lORCR, 0, [() => RouteCreateRequest, 0]];
-export var __listOfRouterDestination: StaticListSchema = [1, n0, _lORD, 0, [() => RouterDestination, 0]];
-export var __listOfRouterDestinationSettings: StaticListSchema = [
-  1,
-  n0,
-  _lORDS,
-  0,
-  [() => RouterDestinationSettings, 0],
-];
-export var __listOfRouteUpdateRequest: StaticListSchema = [1, n0, _lORUR, 0, [() => RouteUpdateRequest, 0]];
-export var __listOfRtmpAdMarkers = 64 | 0;
-export var __listOfScheduleAction: StaticListSchema = [1, n0, _lOSA, 0, [() => ScheduleAction, 0]];
-export var __listOfScte35Descriptor: StaticListSchema = [1, n0, _lOSD, 0, [() => Scte35Descriptor, 0]];
-export var __listOfSdiSourceSummary: StaticListSchema = [1, n0, _lOSSS, 0, [() => SdiSourceSummary, 0]];
-export var __listOfSignalMapSummary: StaticListSchema = [1, n0, _lOSMS, 0, [() => SignalMapSummary, 0]];
-export var __listOfSmpte2110ReceiverGroup: StaticListSchema = [1, n0, _lOSRG, 0, [() => Smpte2110ReceiverGroup, 0]];
-export var __listOfSrtCallerSource: StaticListSchema = [1, n0, _lOSCS, 0, [() => SrtCallerSource, 0]];
-export var __listOfSrtCallerSourceRequest: StaticListSchema = [1, n0, _lOSCSR, 0, [() => SrtCallerSourceRequest, 0]];
-export var __listOfSrtOutputDestinationSettings: StaticListSchema = [
+var __listOfOffering: StaticListSchema = [1, n0, _lOO, 0, [() => Offering$, 0]];
+var __listOfOutput: StaticListSchema = [1, n0, _lOOi, 0, [() => Output$, 0]];
+var __listOfOutputDestination: StaticListSchema = [1, n0, _lOOD, 0, [() => OutputDestination$, 0]];
+var __listOfOutputDestinationSettings: StaticListSchema = [1, n0, _lOODS, 0, [() => OutputDestinationSettings$, 0]];
+var __listOfOutputGroup: StaticListSchema = [1, n0, _lOOG, 0, [() => OutputGroup$, 0]];
+var __listOfPipelineDetail: StaticListSchema = [1, n0, _lOPD, 0, [() => PipelineDetail$, 0]];
+var __listOfPipelinePauseStateSettings: StaticListSchema = [1, n0, _lOPPSS, 0, [() => PipelinePauseStateSettings$, 0]];
+var __listOfReservation: StaticListSchema = [1, n0, _lOR, 0, [() => Reservation$, 0]];
+var __listOfRoute: StaticListSchema = [1, n0, _lORi, 0, [() => Route$, 0]];
+var __listOfRouteCreateRequest: StaticListSchema = [1, n0, _lORCR, 0, [() => RouteCreateRequest$, 0]];
+var __listOfRouterDestination: StaticListSchema = [1, n0, _lORD, 0, [() => RouterDestination$, 0]];
+var __listOfRouterDestinationSettings: StaticListSchema = [1, n0, _lORDS, 0, [() => RouterDestinationSettings$, 0]];
+var __listOfRouteUpdateRequest: StaticListSchema = [1, n0, _lORUR, 0, [() => RouteUpdateRequest$, 0]];
+var __listOfRtmpAdMarkers = 64 | 0;
+var __listOfScheduleAction: StaticListSchema = [1, n0, _lOSA, 0, [() => ScheduleAction$, 0]];
+var __listOfScte35Descriptor: StaticListSchema = [1, n0, _lOSD, 0, [() => Scte35Descriptor$, 0]];
+var __listOfSdiSourceSummary: StaticListSchema = [1, n0, _lOSSS, 0, [() => SdiSourceSummary$, 0]];
+var __listOfSignalMapSummary: StaticListSchema = [1, n0, _lOSMS, 0, [() => SignalMapSummary$, 0]];
+var __listOfSmpte2110ReceiverGroup: StaticListSchema = [1, n0, _lOSRG, 0, [() => Smpte2110ReceiverGroup$, 0]];
+var __listOfSrtCallerSource: StaticListSchema = [1, n0, _lOSCS, 0, [() => SrtCallerSource$, 0]];
+var __listOfSrtCallerSourceRequest: StaticListSchema = [1, n0, _lOSCSR, 0, [() => SrtCallerSourceRequest$, 0]];
+var __listOfSrtOutputDestinationSettings: StaticListSchema = [
   1,
   n0,
   _lOSODS,
   0,
-  [() => SrtOutputDestinationSettings, 0],
+  [() => SrtOutputDestinationSettings$, 0],
 ];
-export var __listOfThumbnail: StaticListSchema = [1, n0, _lOT, 0, [() => Thumbnail, 0]];
-export var __listOfThumbnailDetail: StaticListSchema = [1, n0, _lOTD, 0, [() => ThumbnailDetail, 0]];
-export var __listOfTransferringInputDeviceSummary: StaticListSchema = [
+var __listOfThumbnail: StaticListSchema = [1, n0, _lOT, 0, [() => Thumbnail$, 0]];
+var __listOfThumbnailDetail: StaticListSchema = [1, n0, _lOTD, 0, [() => ThumbnailDetail$, 0]];
+var __listOfTransferringInputDeviceSummary: StaticListSchema = [
   1,
   n0,
   _lOTIDS,
   0,
-  [() => TransferringInputDeviceSummary, 0],
+  [() => TransferringInputDeviceSummary$, 0],
 ];
-export var __listOfValidationError: StaticListSchema = [1, n0, _lOVE, 0, [() => ValidationError, 0]];
-export var __listOfVideoDescription: StaticListSchema = [1, n0, _lOVD, 0, [() => VideoDescription, 0]];
-export var InputSdiSources = 64 | 0;
-export var SdiSourceMappings: StaticListSchema = [1, n0, _SSM, 0, [() => SdiSourceMapping, 0]];
-export var SdiSourceMappingsUpdateRequest: StaticListSchema = [
-  1,
-  n0,
-  _SSMURd,
-  0,
-  [() => SdiSourceMappingUpdateRequest, 0],
-];
-export var FailedMediaResourceMap: StaticMapSchema = [2, n0, _FMRM, 0, [0, 0], [() => MediaResource, 0]];
-export var MediaResourceMap: StaticMapSchema = [2, n0, _MRM, 0, [0, 0], [() => MediaResource, 0]];
-export var MultiplexPacketIdentifiersMapping: StaticMapSchema = [
+var __listOfValidationError: StaticListSchema = [1, n0, _lOVE, 0, [() => ValidationError$, 0]];
+var __listOfVideoDescription: StaticListSchema = [1, n0, _lOVD, 0, [() => VideoDescription$, 0]];
+var InputSdiSources = 64 | 0;
+var SdiSourceMappings: StaticListSchema = [1, n0, _SSM, 0, [() => SdiSourceMapping$, 0]];
+var SdiSourceMappingsUpdateRequest: StaticListSchema = [1, n0, _SSMURd, 0, [() => SdiSourceMappingUpdateRequest$, 0]];
+var FailedMediaResourceMap: StaticMapSchema = [2, n0, _FMRM, 0, [0, 0], [() => MediaResource$, 0]];
+var MediaResourceMap: StaticMapSchema = [2, n0, _MRM, 0, [0, 0], [() => MediaResource$, 0]];
+var MultiplexPacketIdentifiersMapping: StaticMapSchema = [
   2,
   n0,
   _MPIM,
   0,
   [0, 0],
-  [() => MultiplexProgramPacketIdentifiersMap, 0],
+  [() => MultiplexProgramPacketIdentifiersMap$, 0],
 ];
-export var TagMap = 128 | 0;
-export var Tags = 128 | 0;
-export var AcceptInputDeviceTransfer: StaticOperationSchema = [
+var TagMap = 128 | 0;
+var Tags = 128 | 0;
+export var AcceptInputDeviceTransfer$: StaticOperationSchema = [
   9,
   n0,
   _AIDT,
   { [_ht]: ["POST", "/prod/inputDevices/{InputDeviceId}/accept", 200] },
-  () => AcceptInputDeviceTransferRequest,
-  () => AcceptInputDeviceTransferResponse,
+  () => AcceptInputDeviceTransferRequest$,
+  () => AcceptInputDeviceTransferResponse$,
 ];
-export var BatchDelete: StaticOperationSchema = [
+export var BatchDelete$: StaticOperationSchema = [
   9,
   n0,
   _BDa,
   { [_ht]: ["POST", "/prod/batch/delete", 200] },
-  () => BatchDeleteRequest,
-  () => BatchDeleteResponse,
+  () => BatchDeleteRequest$,
+  () => BatchDeleteResponse$,
 ];
-export var BatchStart: StaticOperationSchema = [
+export var BatchStart$: StaticOperationSchema = [
   9,
   n0,
   _BSa,
   { [_ht]: ["POST", "/prod/batch/start", 200] },
-  () => BatchStartRequest,
-  () => BatchStartResponse,
+  () => BatchStartRequest$,
+  () => BatchStartResponse$,
 ];
-export var BatchStop: StaticOperationSchema = [
+export var BatchStop$: StaticOperationSchema = [
   9,
   n0,
   _BSat,
   { [_ht]: ["POST", "/prod/batch/stop", 200] },
-  () => BatchStopRequest,
-  () => BatchStopResponse,
+  () => BatchStopRequest$,
+  () => BatchStopResponse$,
 ];
-export var BatchUpdateSchedule: StaticOperationSchema = [
+export var BatchUpdateSchedule$: StaticOperationSchema = [
   9,
   n0,
   _BUS,
   { [_ht]: ["PUT", "/prod/channels/{ChannelId}/schedule", 200] },
-  () => BatchUpdateScheduleRequest,
-  () => BatchUpdateScheduleResponse,
+  () => BatchUpdateScheduleRequest$,
+  () => BatchUpdateScheduleResponse$,
 ];
-export var CancelInputDeviceTransfer: StaticOperationSchema = [
+export var CancelInputDeviceTransfer$: StaticOperationSchema = [
   9,
   n0,
   _CIDT,
   { [_ht]: ["POST", "/prod/inputDevices/{InputDeviceId}/cancel", 200] },
-  () => CancelInputDeviceTransferRequest,
-  () => CancelInputDeviceTransferResponse,
+  () => CancelInputDeviceTransferRequest$,
+  () => CancelInputDeviceTransferResponse$,
 ];
-export var ClaimDevice: StaticOperationSchema = [
+export var ClaimDevice$: StaticOperationSchema = [
   9,
   n0,
   _CDl,
   { [_ht]: ["POST", "/prod/claimDevice", 200] },
-  () => ClaimDeviceRequest,
-  () => ClaimDeviceResponse,
+  () => ClaimDeviceRequest$,
+  () => ClaimDeviceResponse$,
 ];
-export var CreateChannel: StaticOperationSchema = [
+export var CreateChannel$: StaticOperationSchema = [
   9,
   n0,
   _CCr,
   { [_ht]: ["POST", "/prod/channels", 201] },
-  () => CreateChannelRequest,
-  () => CreateChannelResponse,
+  () => CreateChannelRequest$,
+  () => CreateChannelResponse$,
 ];
-export var CreateChannelPlacementGroup: StaticOperationSchema = [
+export var CreateChannelPlacementGroup$: StaticOperationSchema = [
   9,
   n0,
   _CCPG,
   { [_ht]: ["POST", "/prod/clusters/{ClusterId}/channelplacementgroups", 201] },
-  () => CreateChannelPlacementGroupRequest,
-  () => CreateChannelPlacementGroupResponse,
+  () => CreateChannelPlacementGroupRequest$,
+  () => CreateChannelPlacementGroupResponse$,
 ];
-export var CreateCloudWatchAlarmTemplate: StaticOperationSchema = [
+export var CreateCloudWatchAlarmTemplate$: StaticOperationSchema = [
   9,
   n0,
   _CCWAT,
   { [_ht]: ["POST", "/prod/cloudwatch-alarm-templates", 201] },
-  () => CreateCloudWatchAlarmTemplateRequest,
-  () => CreateCloudWatchAlarmTemplateResponse,
+  () => CreateCloudWatchAlarmTemplateRequest$,
+  () => CreateCloudWatchAlarmTemplateResponse$,
 ];
-export var CreateCloudWatchAlarmTemplateGroup: StaticOperationSchema = [
+export var CreateCloudWatchAlarmTemplateGroup$: StaticOperationSchema = [
   9,
   n0,
   _CCWATG,
   { [_ht]: ["POST", "/prod/cloudwatch-alarm-template-groups", 201] },
-  () => CreateCloudWatchAlarmTemplateGroupRequest,
-  () => CreateCloudWatchAlarmTemplateGroupResponse,
+  () => CreateCloudWatchAlarmTemplateGroupRequest$,
+  () => CreateCloudWatchAlarmTemplateGroupResponse$,
 ];
-export var CreateCluster: StaticOperationSchema = [
+export var CreateCluster$: StaticOperationSchema = [
   9,
   n0,
   _CCre,
   { [_ht]: ["POST", "/prod/clusters", 201] },
-  () => CreateClusterRequest,
-  () => CreateClusterResponse,
+  () => CreateClusterRequest$,
+  () => CreateClusterResponse$,
 ];
-export var CreateEventBridgeRuleTemplate: StaticOperationSchema = [
+export var CreateEventBridgeRuleTemplate$: StaticOperationSchema = [
   9,
   n0,
   _CEBRT,
   { [_ht]: ["POST", "/prod/eventbridge-rule-templates", 201] },
-  () => CreateEventBridgeRuleTemplateRequest,
-  () => CreateEventBridgeRuleTemplateResponse,
+  () => CreateEventBridgeRuleTemplateRequest$,
+  () => CreateEventBridgeRuleTemplateResponse$,
 ];
-export var CreateEventBridgeRuleTemplateGroup: StaticOperationSchema = [
+export var CreateEventBridgeRuleTemplateGroup$: StaticOperationSchema = [
   9,
   n0,
   _CEBRTG,
   { [_ht]: ["POST", "/prod/eventbridge-rule-template-groups", 201] },
-  () => CreateEventBridgeRuleTemplateGroupRequest,
-  () => CreateEventBridgeRuleTemplateGroupResponse,
+  () => CreateEventBridgeRuleTemplateGroupRequest$,
+  () => CreateEventBridgeRuleTemplateGroupResponse$,
 ];
-export var CreateInput: StaticOperationSchema = [
+export var CreateInput$: StaticOperationSchema = [
   9,
   n0,
   _CIr,
   { [_ht]: ["POST", "/prod/inputs", 201] },
-  () => CreateInputRequest,
-  () => CreateInputResponse,
+  () => CreateInputRequest$,
+  () => CreateInputResponse$,
 ];
-export var CreateInputSecurityGroup: StaticOperationSchema = [
+export var CreateInputSecurityGroup$: StaticOperationSchema = [
   9,
   n0,
   _CISG,
   { [_ht]: ["POST", "/prod/inputSecurityGroups", 200] },
-  () => CreateInputSecurityGroupRequest,
-  () => CreateInputSecurityGroupResponse,
+  () => CreateInputSecurityGroupRequest$,
+  () => CreateInputSecurityGroupResponse$,
 ];
-export var CreateMultiplex: StaticOperationSchema = [
+export var CreateMultiplex$: StaticOperationSchema = [
   9,
   n0,
   _CMr,
   { [_ht]: ["POST", "/prod/multiplexes", 201] },
-  () => CreateMultiplexRequest,
-  () => CreateMultiplexResponse,
+  () => CreateMultiplexRequest$,
+  () => CreateMultiplexResponse$,
 ];
-export var CreateMultiplexProgram: StaticOperationSchema = [
+export var CreateMultiplexProgram$: StaticOperationSchema = [
   9,
   n0,
   _CMP,
   { [_ht]: ["POST", "/prod/multiplexes/{MultiplexId}/programs", 201] },
-  () => CreateMultiplexProgramRequest,
-  () => CreateMultiplexProgramResponse,
+  () => CreateMultiplexProgramRequest$,
+  () => CreateMultiplexProgramResponse$,
 ];
-export var CreateNetwork: StaticOperationSchema = [
+export var CreateNetwork$: StaticOperationSchema = [
   9,
   n0,
   _CNr,
   { [_ht]: ["POST", "/prod/networks", 201] },
-  () => CreateNetworkRequest,
-  () => CreateNetworkResponse,
+  () => CreateNetworkRequest$,
+  () => CreateNetworkResponse$,
 ];
-export var CreateNode: StaticOperationSchema = [
+export var CreateNode$: StaticOperationSchema = [
   9,
   n0,
   _CNre,
   { [_ht]: ["POST", "/prod/clusters/{ClusterId}/nodes", 201] },
-  () => CreateNodeRequest,
-  () => CreateNodeResponse,
+  () => CreateNodeRequest$,
+  () => CreateNodeResponse$,
 ];
-export var CreateNodeRegistrationScript: StaticOperationSchema = [
+export var CreateNodeRegistrationScript$: StaticOperationSchema = [
   9,
   n0,
   _CNRS,
   { [_ht]: ["POST", "/prod/clusters/{ClusterId}/nodeRegistrationScript", 200] },
-  () => CreateNodeRegistrationScriptRequest,
-  () => CreateNodeRegistrationScriptResponse,
+  () => CreateNodeRegistrationScriptRequest$,
+  () => CreateNodeRegistrationScriptResponse$,
 ];
-export var CreatePartnerInput: StaticOperationSchema = [
+export var CreatePartnerInput$: StaticOperationSchema = [
   9,
   n0,
   _CPI,
   { [_ht]: ["POST", "/prod/inputs/{InputId}/partners", 201] },
-  () => CreatePartnerInputRequest,
-  () => CreatePartnerInputResponse,
+  () => CreatePartnerInputRequest$,
+  () => CreatePartnerInputResponse$,
 ];
-export var CreateSdiSource: StaticOperationSchema = [
+export var CreateSdiSource$: StaticOperationSchema = [
   9,
   n0,
   _CSSr,
   { [_ht]: ["POST", "/prod/sdiSources", 200] },
-  () => CreateSdiSourceRequest,
-  () => CreateSdiSourceResponse,
+  () => CreateSdiSourceRequest$,
+  () => CreateSdiSourceResponse$,
 ];
-export var CreateSignalMap: StaticOperationSchema = [
+export var CreateSignalMap$: StaticOperationSchema = [
   9,
   n0,
   _CSM,
   { [_ht]: ["POST", "/prod/signal-maps", 201] },
-  () => CreateSignalMapRequest,
-  () => CreateSignalMapResponse,
+  () => CreateSignalMapRequest$,
+  () => CreateSignalMapResponse$,
 ];
-export var CreateTags: StaticOperationSchema = [
+export var CreateTags$: StaticOperationSchema = [
   9,
   n0,
   _CTr,
   { [_ht]: ["POST", "/prod/tags/{ResourceArn}", 204] },
-  () => CreateTagsRequest,
+  () => CreateTagsRequest$,
   () => __Unit,
 ];
-export var DeleteChannel: StaticOperationSchema = [
+export var DeleteChannel$: StaticOperationSchema = [
   9,
   n0,
   _DC,
   { [_ht]: ["DELETE", "/prod/channels/{ChannelId}", 200] },
-  () => DeleteChannelRequest,
-  () => DeleteChannelResponse,
+  () => DeleteChannelRequest$,
+  () => DeleteChannelResponse$,
 ];
-export var DeleteChannelPlacementGroup: StaticOperationSchema = [
+export var DeleteChannelPlacementGroup$: StaticOperationSchema = [
   9,
   n0,
   _DCPG,
   { [_ht]: ["DELETE", "/prod/clusters/{ClusterId}/channelplacementgroups/{ChannelPlacementGroupId}", 200] },
-  () => DeleteChannelPlacementGroupRequest,
-  () => DeleteChannelPlacementGroupResponse,
+  () => DeleteChannelPlacementGroupRequest$,
+  () => DeleteChannelPlacementGroupResponse$,
 ];
-export var DeleteCloudWatchAlarmTemplate: StaticOperationSchema = [
+export var DeleteCloudWatchAlarmTemplate$: StaticOperationSchema = [
   9,
   n0,
   _DCWAT,
   { [_ht]: ["DELETE", "/prod/cloudwatch-alarm-templates/{Identifier}", 204] },
-  () => DeleteCloudWatchAlarmTemplateRequest,
+  () => DeleteCloudWatchAlarmTemplateRequest$,
   () => __Unit,
 ];
-export var DeleteCloudWatchAlarmTemplateGroup: StaticOperationSchema = [
+export var DeleteCloudWatchAlarmTemplateGroup$: StaticOperationSchema = [
   9,
   n0,
   _DCWATG,
   { [_ht]: ["DELETE", "/prod/cloudwatch-alarm-template-groups/{Identifier}", 204] },
-  () => DeleteCloudWatchAlarmTemplateGroupRequest,
+  () => DeleteCloudWatchAlarmTemplateGroupRequest$,
   () => __Unit,
 ];
-export var DeleteCluster: StaticOperationSchema = [
+export var DeleteCluster$: StaticOperationSchema = [
   9,
   n0,
   _DCe,
   { [_ht]: ["DELETE", "/prod/clusters/{ClusterId}", 202] },
-  () => DeleteClusterRequest,
-  () => DeleteClusterResponse,
+  () => DeleteClusterRequest$,
+  () => DeleteClusterResponse$,
 ];
-export var DeleteEventBridgeRuleTemplate: StaticOperationSchema = [
+export var DeleteEventBridgeRuleTemplate$: StaticOperationSchema = [
   9,
   n0,
   _DEBRT,
   { [_ht]: ["DELETE", "/prod/eventbridge-rule-templates/{Identifier}", 204] },
-  () => DeleteEventBridgeRuleTemplateRequest,
+  () => DeleteEventBridgeRuleTemplateRequest$,
   () => __Unit,
 ];
-export var DeleteEventBridgeRuleTemplateGroup: StaticOperationSchema = [
+export var DeleteEventBridgeRuleTemplateGroup$: StaticOperationSchema = [
   9,
   n0,
   _DEBRTG,
   { [_ht]: ["DELETE", "/prod/eventbridge-rule-template-groups/{Identifier}", 204] },
-  () => DeleteEventBridgeRuleTemplateGroupRequest,
+  () => DeleteEventBridgeRuleTemplateGroupRequest$,
   () => __Unit,
 ];
-export var DeleteInput: StaticOperationSchema = [
+export var DeleteInput$: StaticOperationSchema = [
   9,
   n0,
   _DIe,
   { [_ht]: ["DELETE", "/prod/inputs/{InputId}", 200] },
-  () => DeleteInputRequest,
-  () => DeleteInputResponse,
+  () => DeleteInputRequest$,
+  () => DeleteInputResponse$,
 ];
-export var DeleteInputSecurityGroup: StaticOperationSchema = [
+export var DeleteInputSecurityGroup$: StaticOperationSchema = [
   9,
   n0,
   _DISG,
   { [_ht]: ["DELETE", "/prod/inputSecurityGroups/{InputSecurityGroupId}", 200] },
-  () => DeleteInputSecurityGroupRequest,
-  () => DeleteInputSecurityGroupResponse,
+  () => DeleteInputSecurityGroupRequest$,
+  () => DeleteInputSecurityGroupResponse$,
 ];
-export var DeleteMultiplex: StaticOperationSchema = [
+export var DeleteMultiplex$: StaticOperationSchema = [
   9,
   n0,
   _DM,
   { [_ht]: ["DELETE", "/prod/multiplexes/{MultiplexId}", 202] },
-  () => DeleteMultiplexRequest,
-  () => DeleteMultiplexResponse,
+  () => DeleteMultiplexRequest$,
+  () => DeleteMultiplexResponse$,
 ];
-export var DeleteMultiplexProgram: StaticOperationSchema = [
+export var DeleteMultiplexProgram$: StaticOperationSchema = [
   9,
   n0,
   _DMP,
   { [_ht]: ["DELETE", "/prod/multiplexes/{MultiplexId}/programs/{ProgramName}", 200] },
-  () => DeleteMultiplexProgramRequest,
-  () => DeleteMultiplexProgramResponse,
+  () => DeleteMultiplexProgramRequest$,
+  () => DeleteMultiplexProgramResponse$,
 ];
-export var DeleteNetwork: StaticOperationSchema = [
+export var DeleteNetwork$: StaticOperationSchema = [
   9,
   n0,
   _DN,
   { [_ht]: ["DELETE", "/prod/networks/{NetworkId}", 202] },
-  () => DeleteNetworkRequest,
-  () => DeleteNetworkResponse,
+  () => DeleteNetworkRequest$,
+  () => DeleteNetworkResponse$,
 ];
-export var DeleteNode: StaticOperationSchema = [
+export var DeleteNode$: StaticOperationSchema = [
   9,
   n0,
   _DNe,
   { [_ht]: ["DELETE", "/prod/clusters/{ClusterId}/nodes/{NodeId}", 202] },
-  () => DeleteNodeRequest,
-  () => DeleteNodeResponse,
+  () => DeleteNodeRequest$,
+  () => DeleteNodeResponse$,
 ];
-export var DeleteReservation: StaticOperationSchema = [
+export var DeleteReservation$: StaticOperationSchema = [
   9,
   n0,
   _DRele,
   { [_ht]: ["DELETE", "/prod/reservations/{ReservationId}", 200] },
-  () => DeleteReservationRequest,
-  () => DeleteReservationResponse,
+  () => DeleteReservationRequest$,
+  () => DeleteReservationResponse$,
 ];
-export var DeleteSchedule: StaticOperationSchema = [
+export var DeleteSchedule$: StaticOperationSchema = [
   9,
   n0,
   _DSel,
   { [_ht]: ["DELETE", "/prod/channels/{ChannelId}/schedule", 200] },
-  () => DeleteScheduleRequest,
-  () => DeleteScheduleResponse,
+  () => DeleteScheduleRequest$,
+  () => DeleteScheduleResponse$,
 ];
-export var DeleteSdiSource: StaticOperationSchema = [
+export var DeleteSdiSource$: StaticOperationSchema = [
   9,
   n0,
   _DSSe,
   { [_ht]: ["DELETE", "/prod/sdiSources/{SdiSourceId}", 202] },
-  () => DeleteSdiSourceRequest,
-  () => DeleteSdiSourceResponse,
+  () => DeleteSdiSourceRequest$,
+  () => DeleteSdiSourceResponse$,
 ];
-export var DeleteSignalMap: StaticOperationSchema = [
+export var DeleteSignalMap$: StaticOperationSchema = [
   9,
   n0,
   _DSM,
   { [_ht]: ["DELETE", "/prod/signal-maps/{Identifier}", 204] },
-  () => DeleteSignalMapRequest,
+  () => DeleteSignalMapRequest$,
   () => __Unit,
 ];
-export var DeleteTags: StaticOperationSchema = [
+export var DeleteTags$: StaticOperationSchema = [
   9,
   n0,
   _DTe,
   { [_ht]: ["DELETE", "/prod/tags/{ResourceArn}", 204] },
-  () => DeleteTagsRequest,
+  () => DeleteTagsRequest$,
   () => __Unit,
 ];
-export var DescribeAccountConfiguration: StaticOperationSchema = [
+export var DescribeAccountConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DAC,
   { [_ht]: ["GET", "/prod/accountConfiguration", 200] },
-  () => DescribeAccountConfigurationRequest,
-  () => DescribeAccountConfigurationResponse,
+  () => DescribeAccountConfigurationRequest$,
+  () => DescribeAccountConfigurationResponse$,
 ];
-export var DescribeChannel: StaticOperationSchema = [
+export var DescribeChannel$: StaticOperationSchema = [
   9,
   n0,
   _DCes,
   { [_ht]: ["GET", "/prod/channels/{ChannelId}", 200] },
-  () => DescribeChannelRequest,
-  () => DescribeChannelResponse,
+  () => DescribeChannelRequest$,
+  () => DescribeChannelResponse$,
 ];
-export var DescribeChannelPlacementGroup: StaticOperationSchema = [
+export var DescribeChannelPlacementGroup$: StaticOperationSchema = [
   9,
   n0,
   _DCPGe,
   { [_ht]: ["GET", "/prod/clusters/{ClusterId}/channelplacementgroups/{ChannelPlacementGroupId}", 200] },
-  () => DescribeChannelPlacementGroupRequest,
-  () => DescribeChannelPlacementGroupResponse,
+  () => DescribeChannelPlacementGroupRequest$,
+  () => DescribeChannelPlacementGroupResponse$,
 ];
-export var DescribeCluster: StaticOperationSchema = [
+export var DescribeCluster$: StaticOperationSchema = [
   9,
   n0,
   _DCesc,
   { [_ht]: ["GET", "/prod/clusters/{ClusterId}", 200] },
-  () => DescribeClusterRequest,
-  () => DescribeClusterResponse,
+  () => DescribeClusterRequest$,
+  () => DescribeClusterResponse$,
 ];
-export var DescribeInput: StaticOperationSchema = [
+export var DescribeInput$: StaticOperationSchema = [
   9,
   n0,
   _DIes,
   { [_ht]: ["GET", "/prod/inputs/{InputId}", 200] },
-  () => DescribeInputRequest,
-  () => DescribeInputResponse,
+  () => DescribeInputRequest$,
+  () => DescribeInputResponse$,
 ];
-export var DescribeInputDevice: StaticOperationSchema = [
+export var DescribeInputDevice$: StaticOperationSchema = [
   9,
   n0,
   _DID,
   { [_ht]: ["GET", "/prod/inputDevices/{InputDeviceId}", 200] },
-  () => DescribeInputDeviceRequest,
-  () => DescribeInputDeviceResponse,
+  () => DescribeInputDeviceRequest$,
+  () => DescribeInputDeviceResponse$,
 ];
-export var DescribeInputDeviceThumbnail: StaticOperationSchema = [
+export var DescribeInputDeviceThumbnail$: StaticOperationSchema = [
   9,
   n0,
   _DIDT,
   { [_ht]: ["GET", "/prod/inputDevices/{InputDeviceId}/thumbnailData", 200] },
-  () => DescribeInputDeviceThumbnailRequest,
-  () => DescribeInputDeviceThumbnailResponse,
+  () => DescribeInputDeviceThumbnailRequest$,
+  () => DescribeInputDeviceThumbnailResponse$,
 ];
-export var DescribeInputSecurityGroup: StaticOperationSchema = [
+export var DescribeInputSecurityGroup$: StaticOperationSchema = [
   9,
   n0,
   _DISGe,
   { [_ht]: ["GET", "/prod/inputSecurityGroups/{InputSecurityGroupId}", 200] },
-  () => DescribeInputSecurityGroupRequest,
-  () => DescribeInputSecurityGroupResponse,
+  () => DescribeInputSecurityGroupRequest$,
+  () => DescribeInputSecurityGroupResponse$,
 ];
-export var DescribeMultiplex: StaticOperationSchema = [
+export var DescribeMultiplex$: StaticOperationSchema = [
   9,
   n0,
   _DMe,
   { [_ht]: ["GET", "/prod/multiplexes/{MultiplexId}", 200] },
-  () => DescribeMultiplexRequest,
-  () => DescribeMultiplexResponse,
+  () => DescribeMultiplexRequest$,
+  () => DescribeMultiplexResponse$,
 ];
-export var DescribeMultiplexProgram: StaticOperationSchema = [
+export var DescribeMultiplexProgram$: StaticOperationSchema = [
   9,
   n0,
   _DMPe,
   { [_ht]: ["GET", "/prod/multiplexes/{MultiplexId}/programs/{ProgramName}", 200] },
-  () => DescribeMultiplexProgramRequest,
-  () => DescribeMultiplexProgramResponse,
+  () => DescribeMultiplexProgramRequest$,
+  () => DescribeMultiplexProgramResponse$,
 ];
-export var DescribeNetwork: StaticOperationSchema = [
+export var DescribeNetwork$: StaticOperationSchema = [
   9,
   n0,
   _DNes,
   { [_ht]: ["GET", "/prod/networks/{NetworkId}", 200] },
-  () => DescribeNetworkRequest,
-  () => DescribeNetworkResponse,
+  () => DescribeNetworkRequest$,
+  () => DescribeNetworkResponse$,
 ];
-export var DescribeNode: StaticOperationSchema = [
+export var DescribeNode$: StaticOperationSchema = [
   9,
   n0,
   _DNesc,
   { [_ht]: ["GET", "/prod/clusters/{ClusterId}/nodes/{NodeId}", 200] },
-  () => DescribeNodeRequest,
-  () => DescribeNodeResponse,
+  () => DescribeNodeRequest$,
+  () => DescribeNodeResponse$,
 ];
-export var DescribeOffering: StaticOperationSchema = [
+export var DescribeOffering$: StaticOperationSchema = [
   9,
   n0,
   _DO,
   { [_ht]: ["GET", "/prod/offerings/{OfferingId}", 200] },
-  () => DescribeOfferingRequest,
-  () => DescribeOfferingResponse,
+  () => DescribeOfferingRequest$,
+  () => DescribeOfferingResponse$,
 ];
-export var DescribeReservation: StaticOperationSchema = [
+export var DescribeReservation$: StaticOperationSchema = [
   9,
   n0,
   _DRes,
   { [_ht]: ["GET", "/prod/reservations/{ReservationId}", 200] },
-  () => DescribeReservationRequest,
-  () => DescribeReservationResponse,
+  () => DescribeReservationRequest$,
+  () => DescribeReservationResponse$,
 ];
-export var DescribeSchedule: StaticOperationSchema = [
+export var DescribeSchedule$: StaticOperationSchema = [
   9,
   n0,
   _DSes,
   { [_ht]: ["GET", "/prod/channels/{ChannelId}/schedule", 200] },
-  () => DescribeScheduleRequest,
-  () => DescribeScheduleResponse,
+  () => DescribeScheduleRequest$,
+  () => DescribeScheduleResponse$,
 ];
-export var DescribeSdiSource: StaticOperationSchema = [
+export var DescribeSdiSource$: StaticOperationSchema = [
   9,
   n0,
   _DSSes,
   { [_ht]: ["GET", "/prod/sdiSources/{SdiSourceId}", 200] },
-  () => DescribeSdiSourceRequest,
-  () => DescribeSdiSourceResponse,
+  () => DescribeSdiSourceRequest$,
+  () => DescribeSdiSourceResponse$,
 ];
-export var DescribeThumbnails: StaticOperationSchema = [
+export var DescribeThumbnails$: StaticOperationSchema = [
   9,
   n0,
   _DTes,
   { [_ht]: ["GET", "/prod/channels/{ChannelId}/thumbnails", 200] },
-  () => DescribeThumbnailsRequest,
-  () => DescribeThumbnailsResponse,
+  () => DescribeThumbnailsRequest$,
+  () => DescribeThumbnailsResponse$,
 ];
-export var GetCloudWatchAlarmTemplate: StaticOperationSchema = [
+export var GetCloudWatchAlarmTemplate$: StaticOperationSchema = [
   9,
   n0,
   _GCWAT,
   { [_ht]: ["GET", "/prod/cloudwatch-alarm-templates/{Identifier}", 200] },
-  () => GetCloudWatchAlarmTemplateRequest,
-  () => GetCloudWatchAlarmTemplateResponse,
+  () => GetCloudWatchAlarmTemplateRequest$,
+  () => GetCloudWatchAlarmTemplateResponse$,
 ];
-export var GetCloudWatchAlarmTemplateGroup: StaticOperationSchema = [
+export var GetCloudWatchAlarmTemplateGroup$: StaticOperationSchema = [
   9,
   n0,
   _GCWATG,
   { [_ht]: ["GET", "/prod/cloudwatch-alarm-template-groups/{Identifier}", 200] },
-  () => GetCloudWatchAlarmTemplateGroupRequest,
-  () => GetCloudWatchAlarmTemplateGroupResponse,
+  () => GetCloudWatchAlarmTemplateGroupRequest$,
+  () => GetCloudWatchAlarmTemplateGroupResponse$,
 ];
-export var GetEventBridgeRuleTemplate: StaticOperationSchema = [
+export var GetEventBridgeRuleTemplate$: StaticOperationSchema = [
   9,
   n0,
   _GEBRT,
   { [_ht]: ["GET", "/prod/eventbridge-rule-templates/{Identifier}", 200] },
-  () => GetEventBridgeRuleTemplateRequest,
-  () => GetEventBridgeRuleTemplateResponse,
+  () => GetEventBridgeRuleTemplateRequest$,
+  () => GetEventBridgeRuleTemplateResponse$,
 ];
-export var GetEventBridgeRuleTemplateGroup: StaticOperationSchema = [
+export var GetEventBridgeRuleTemplateGroup$: StaticOperationSchema = [
   9,
   n0,
   _GEBRTG,
   { [_ht]: ["GET", "/prod/eventbridge-rule-template-groups/{Identifier}", 200] },
-  () => GetEventBridgeRuleTemplateGroupRequest,
-  () => GetEventBridgeRuleTemplateGroupResponse,
+  () => GetEventBridgeRuleTemplateGroupRequest$,
+  () => GetEventBridgeRuleTemplateGroupResponse$,
 ];
-export var GetSignalMap: StaticOperationSchema = [
+export var GetSignalMap$: StaticOperationSchema = [
   9,
   n0,
   _GSM,
   { [_ht]: ["GET", "/prod/signal-maps/{Identifier}", 200] },
-  () => GetSignalMapRequest,
-  () => GetSignalMapResponse,
+  () => GetSignalMapRequest$,
+  () => GetSignalMapResponse$,
 ];
-export var ListAlerts: StaticOperationSchema = [
+export var ListAlerts$: StaticOperationSchema = [
   9,
   n0,
   _LA,
   { [_ht]: ["GET", "/prod/channels/{ChannelId}/alerts", 200] },
-  () => ListAlertsRequest,
-  () => ListAlertsResponse,
+  () => ListAlertsRequest$,
+  () => ListAlertsResponse$,
 ];
-export var ListChannelPlacementGroups: StaticOperationSchema = [
+export var ListChannelPlacementGroups$: StaticOperationSchema = [
   9,
   n0,
   _LCPG,
   { [_ht]: ["GET", "/prod/clusters/{ClusterId}/channelplacementgroups", 200] },
-  () => ListChannelPlacementGroupsRequest,
-  () => ListChannelPlacementGroupsResponse,
+  () => ListChannelPlacementGroupsRequest$,
+  () => ListChannelPlacementGroupsResponse$,
 ];
-export var ListChannels: StaticOperationSchema = [
+export var ListChannels$: StaticOperationSchema = [
   9,
   n0,
   _LCi,
   { [_ht]: ["GET", "/prod/channels", 200] },
-  () => ListChannelsRequest,
-  () => ListChannelsResponse,
+  () => ListChannelsRequest$,
+  () => ListChannelsResponse$,
 ];
-export var ListCloudWatchAlarmTemplateGroups: StaticOperationSchema = [
+export var ListCloudWatchAlarmTemplateGroups$: StaticOperationSchema = [
   9,
   n0,
   _LCWATG,
   { [_ht]: ["GET", "/prod/cloudwatch-alarm-template-groups", 200] },
-  () => ListCloudWatchAlarmTemplateGroupsRequest,
-  () => ListCloudWatchAlarmTemplateGroupsResponse,
+  () => ListCloudWatchAlarmTemplateGroupsRequest$,
+  () => ListCloudWatchAlarmTemplateGroupsResponse$,
 ];
-export var ListCloudWatchAlarmTemplates: StaticOperationSchema = [
+export var ListCloudWatchAlarmTemplates$: StaticOperationSchema = [
   9,
   n0,
   _LCWAT,
   { [_ht]: ["GET", "/prod/cloudwatch-alarm-templates", 200] },
-  () => ListCloudWatchAlarmTemplatesRequest,
-  () => ListCloudWatchAlarmTemplatesResponse,
+  () => ListCloudWatchAlarmTemplatesRequest$,
+  () => ListCloudWatchAlarmTemplatesResponse$,
 ];
-export var ListClusterAlerts: StaticOperationSchema = [
+export var ListClusterAlerts$: StaticOperationSchema = [
   9,
   n0,
   _LCA,
   { [_ht]: ["GET", "/prod/clusters/{ClusterId}/alerts", 200] },
-  () => ListClusterAlertsRequest,
-  () => ListClusterAlertsResponse,
+  () => ListClusterAlertsRequest$,
+  () => ListClusterAlertsResponse$,
 ];
-export var ListClusters: StaticOperationSchema = [
+export var ListClusters$: StaticOperationSchema = [
   9,
   n0,
   _LCis,
   { [_ht]: ["GET", "/prod/clusters", 200] },
-  () => ListClustersRequest,
-  () => ListClustersResponse,
+  () => ListClustersRequest$,
+  () => ListClustersResponse$,
 ];
-export var ListEventBridgeRuleTemplateGroups: StaticOperationSchema = [
+export var ListEventBridgeRuleTemplateGroups$: StaticOperationSchema = [
   9,
   n0,
   _LEBRTG,
   { [_ht]: ["GET", "/prod/eventbridge-rule-template-groups", 200] },
-  () => ListEventBridgeRuleTemplateGroupsRequest,
-  () => ListEventBridgeRuleTemplateGroupsResponse,
+  () => ListEventBridgeRuleTemplateGroupsRequest$,
+  () => ListEventBridgeRuleTemplateGroupsResponse$,
 ];
-export var ListEventBridgeRuleTemplates: StaticOperationSchema = [
+export var ListEventBridgeRuleTemplates$: StaticOperationSchema = [
   9,
   n0,
   _LEBRT,
   { [_ht]: ["GET", "/prod/eventbridge-rule-templates", 200] },
-  () => ListEventBridgeRuleTemplatesRequest,
-  () => ListEventBridgeRuleTemplatesResponse,
+  () => ListEventBridgeRuleTemplatesRequest$,
+  () => ListEventBridgeRuleTemplatesResponse$,
 ];
-export var ListInputDevices: StaticOperationSchema = [
+export var ListInputDevices$: StaticOperationSchema = [
   9,
   n0,
   _LID,
   { [_ht]: ["GET", "/prod/inputDevices", 200] },
-  () => ListInputDevicesRequest,
-  () => ListInputDevicesResponse,
+  () => ListInputDevicesRequest$,
+  () => ListInputDevicesResponse$,
 ];
-export var ListInputDeviceTransfers: StaticOperationSchema = [
+export var ListInputDeviceTransfers$: StaticOperationSchema = [
   9,
   n0,
   _LIDT,
   { [_ht]: ["GET", "/prod/inputDeviceTransfers", 200] },
-  () => ListInputDeviceTransfersRequest,
-  () => ListInputDeviceTransfersResponse,
+  () => ListInputDeviceTransfersRequest$,
+  () => ListInputDeviceTransfersResponse$,
 ];
-export var ListInputs: StaticOperationSchema = [
+export var ListInputs$: StaticOperationSchema = [
   9,
   n0,
   _LI,
   { [_ht]: ["GET", "/prod/inputs", 200] },
-  () => ListInputsRequest,
-  () => ListInputsResponse,
+  () => ListInputsRequest$,
+  () => ListInputsResponse$,
 ];
-export var ListInputSecurityGroups: StaticOperationSchema = [
+export var ListInputSecurityGroups$: StaticOperationSchema = [
   9,
   n0,
   _LISG,
   { [_ht]: ["GET", "/prod/inputSecurityGroups", 200] },
-  () => ListInputSecurityGroupsRequest,
-  () => ListInputSecurityGroupsResponse,
+  () => ListInputSecurityGroupsRequest$,
+  () => ListInputSecurityGroupsResponse$,
 ];
-export var ListMultiplexAlerts: StaticOperationSchema = [
+export var ListMultiplexAlerts$: StaticOperationSchema = [
   9,
   n0,
   _LMA,
   { [_ht]: ["GET", "/prod/multiplexes/{MultiplexId}/alerts", 200] },
-  () => ListMultiplexAlertsRequest,
-  () => ListMultiplexAlertsResponse,
+  () => ListMultiplexAlertsRequest$,
+  () => ListMultiplexAlertsResponse$,
 ];
-export var ListMultiplexes: StaticOperationSchema = [
+export var ListMultiplexes$: StaticOperationSchema = [
   9,
   n0,
   _LMi,
   { [_ht]: ["GET", "/prod/multiplexes", 200] },
-  () => ListMultiplexesRequest,
-  () => ListMultiplexesResponse,
+  () => ListMultiplexesRequest$,
+  () => ListMultiplexesResponse$,
 ];
-export var ListMultiplexPrograms: StaticOperationSchema = [
+export var ListMultiplexPrograms$: StaticOperationSchema = [
   9,
   n0,
   _LMP,
   { [_ht]: ["GET", "/prod/multiplexes/{MultiplexId}/programs", 200] },
-  () => ListMultiplexProgramsRequest,
-  () => ListMultiplexProgramsResponse,
+  () => ListMultiplexProgramsRequest$,
+  () => ListMultiplexProgramsResponse$,
 ];
-export var ListNetworks: StaticOperationSchema = [
+export var ListNetworks$: StaticOperationSchema = [
   9,
   n0,
   _LN,
   { [_ht]: ["GET", "/prod/networks", 200] },
-  () => ListNetworksRequest,
-  () => ListNetworksResponse,
+  () => ListNetworksRequest$,
+  () => ListNetworksResponse$,
 ];
-export var ListNodes: StaticOperationSchema = [
+export var ListNodes$: StaticOperationSchema = [
   9,
   n0,
   _LNi,
   { [_ht]: ["GET", "/prod/clusters/{ClusterId}/nodes", 200] },
-  () => ListNodesRequest,
-  () => ListNodesResponse,
+  () => ListNodesRequest$,
+  () => ListNodesResponse$,
 ];
-export var ListOfferings: StaticOperationSchema = [
+export var ListOfferings$: StaticOperationSchema = [
   9,
   n0,
   _LOi,
   { [_ht]: ["GET", "/prod/offerings", 200] },
-  () => ListOfferingsRequest,
-  () => ListOfferingsResponse,
+  () => ListOfferingsRequest$,
+  () => ListOfferingsResponse$,
 ];
-export var ListReservations: StaticOperationSchema = [
+export var ListReservations$: StaticOperationSchema = [
   9,
   n0,
   _LR,
   { [_ht]: ["GET", "/prod/reservations", 200] },
-  () => ListReservationsRequest,
-  () => ListReservationsResponse,
+  () => ListReservationsRequest$,
+  () => ListReservationsResponse$,
 ];
-export var ListSdiSources: StaticOperationSchema = [
+export var ListSdiSources$: StaticOperationSchema = [
   9,
   n0,
   _LSS,
   { [_ht]: ["GET", "/prod/sdiSources", 200] },
-  () => ListSdiSourcesRequest,
-  () => ListSdiSourcesResponse,
+  () => ListSdiSourcesRequest$,
+  () => ListSdiSourcesResponse$,
 ];
-export var ListSignalMaps: StaticOperationSchema = [
+export var ListSignalMaps$: StaticOperationSchema = [
   9,
   n0,
   _LSM,
   { [_ht]: ["GET", "/prod/signal-maps", 200] },
-  () => ListSignalMapsRequest,
-  () => ListSignalMapsResponse,
+  () => ListSignalMapsRequest$,
+  () => ListSignalMapsResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_ht]: ["GET", "/prod/tags/{ResourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var ListVersions: StaticOperationSchema = [
+export var ListVersions$: StaticOperationSchema = [
   9,
   n0,
   _LV,
   { [_ht]: ["GET", "/prod/versions", 200] },
-  () => ListVersionsRequest,
-  () => ListVersionsResponse,
+  () => ListVersionsRequest$,
+  () => ListVersionsResponse$,
 ];
-export var PurchaseOffering: StaticOperationSchema = [
+export var PurchaseOffering$: StaticOperationSchema = [
   9,
   n0,
   _PO,
   { [_ht]: ["POST", "/prod/offerings/{OfferingId}/purchase", 201] },
-  () => PurchaseOfferingRequest,
-  () => PurchaseOfferingResponse,
+  () => PurchaseOfferingRequest$,
+  () => PurchaseOfferingResponse$,
 ];
-export var RebootInputDevice: StaticOperationSchema = [
+export var RebootInputDevice$: StaticOperationSchema = [
   9,
   n0,
   _RID,
   { [_ht]: ["POST", "/prod/inputDevices/{InputDeviceId}/reboot", 200] },
-  () => RebootInputDeviceRequest,
-  () => RebootInputDeviceResponse,
+  () => RebootInputDeviceRequest$,
+  () => RebootInputDeviceResponse$,
 ];
-export var RejectInputDeviceTransfer: StaticOperationSchema = [
+export var RejectInputDeviceTransfer$: StaticOperationSchema = [
   9,
   n0,
   _RIDT,
   { [_ht]: ["POST", "/prod/inputDevices/{InputDeviceId}/reject", 200] },
-  () => RejectInputDeviceTransferRequest,
-  () => RejectInputDeviceTransferResponse,
+  () => RejectInputDeviceTransferRequest$,
+  () => RejectInputDeviceTransferResponse$,
 ];
-export var RestartChannelPipelines: StaticOperationSchema = [
+export var RestartChannelPipelines$: StaticOperationSchema = [
   9,
   n0,
   _RCP,
   { [_ht]: ["POST", "/prod/channels/{ChannelId}/restartChannelPipelines", 200] },
-  () => RestartChannelPipelinesRequest,
-  () => RestartChannelPipelinesResponse,
+  () => RestartChannelPipelinesRequest$,
+  () => RestartChannelPipelinesResponse$,
 ];
-export var StartChannel: StaticOperationSchema = [
+export var StartChannel$: StaticOperationSchema = [
   9,
   n0,
   _SCta,
   { [_ht]: ["POST", "/prod/channels/{ChannelId}/start", 200] },
-  () => StartChannelRequest,
-  () => StartChannelResponse,
+  () => StartChannelRequest$,
+  () => StartChannelResponse$,
 ];
-export var StartDeleteMonitorDeployment: StaticOperationSchema = [
+export var StartDeleteMonitorDeployment$: StaticOperationSchema = [
   9,
   n0,
   _SDMD,
   { [_ht]: ["DELETE", "/prod/signal-maps/{Identifier}/monitor-deployment", 202] },
-  () => StartDeleteMonitorDeploymentRequest,
-  () => StartDeleteMonitorDeploymentResponse,
+  () => StartDeleteMonitorDeploymentRequest$,
+  () => StartDeleteMonitorDeploymentResponse$,
 ];
-export var StartInputDevice: StaticOperationSchema = [
+export var StartInputDevice$: StaticOperationSchema = [
   9,
   n0,
   _SID,
   { [_ht]: ["POST", "/prod/inputDevices/{InputDeviceId}/start", 200] },
-  () => StartInputDeviceRequest,
-  () => StartInputDeviceResponse,
+  () => StartInputDeviceRequest$,
+  () => StartInputDeviceResponse$,
 ];
-export var StartInputDeviceMaintenanceWindow: StaticOperationSchema = [
+export var StartInputDeviceMaintenanceWindow$: StaticOperationSchema = [
   9,
   n0,
   _SIDMW,
   { [_ht]: ["POST", "/prod/inputDevices/{InputDeviceId}/startInputDeviceMaintenanceWindow", 200] },
-  () => StartInputDeviceMaintenanceWindowRequest,
-  () => StartInputDeviceMaintenanceWindowResponse,
+  () => StartInputDeviceMaintenanceWindowRequest$,
+  () => StartInputDeviceMaintenanceWindowResponse$,
 ];
-export var StartMonitorDeployment: StaticOperationSchema = [
+export var StartMonitorDeployment$: StaticOperationSchema = [
   9,
   n0,
   _SMDt,
   { [_ht]: ["POST", "/prod/signal-maps/{Identifier}/monitor-deployment", 202] },
-  () => StartMonitorDeploymentRequest,
-  () => StartMonitorDeploymentResponse,
+  () => StartMonitorDeploymentRequest$,
+  () => StartMonitorDeploymentResponse$,
 ];
-export var StartMultiplex: StaticOperationSchema = [
+export var StartMultiplex$: StaticOperationSchema = [
   9,
   n0,
   _SMt,
   { [_ht]: ["POST", "/prod/multiplexes/{MultiplexId}/start", 202] },
-  () => StartMultiplexRequest,
-  () => StartMultiplexResponse,
+  () => StartMultiplexRequest$,
+  () => StartMultiplexResponse$,
 ];
-export var StartUpdateSignalMap: StaticOperationSchema = [
+export var StartUpdateSignalMap$: StaticOperationSchema = [
   9,
   n0,
   _SUSM,
   { [_ht]: ["PATCH", "/prod/signal-maps/{Identifier}", 202] },
-  () => StartUpdateSignalMapRequest,
-  () => StartUpdateSignalMapResponse,
+  () => StartUpdateSignalMapRequest$,
+  () => StartUpdateSignalMapResponse$,
 ];
-export var StopChannel: StaticOperationSchema = [
+export var StopChannel$: StaticOperationSchema = [
   9,
   n0,
   _SCto,
   { [_ht]: ["POST", "/prod/channels/{ChannelId}/stop", 200] },
-  () => StopChannelRequest,
-  () => StopChannelResponse,
+  () => StopChannelRequest$,
+  () => StopChannelResponse$,
 ];
-export var StopInputDevice: StaticOperationSchema = [
+export var StopInputDevice$: StaticOperationSchema = [
   9,
   n0,
   _SIDt,
   { [_ht]: ["POST", "/prod/inputDevices/{InputDeviceId}/stop", 200] },
-  () => StopInputDeviceRequest,
-  () => StopInputDeviceResponse,
+  () => StopInputDeviceRequest$,
+  () => StopInputDeviceResponse$,
 ];
-export var StopMultiplex: StaticOperationSchema = [
+export var StopMultiplex$: StaticOperationSchema = [
   9,
   n0,
   _SMto,
   { [_ht]: ["POST", "/prod/multiplexes/{MultiplexId}/stop", 202] },
-  () => StopMultiplexRequest,
-  () => StopMultiplexResponse,
+  () => StopMultiplexRequest$,
+  () => StopMultiplexResponse$,
 ];
-export var TransferInputDevice: StaticOperationSchema = [
+export var TransferInputDevice$: StaticOperationSchema = [
   9,
   n0,
   _TID,
   { [_ht]: ["POST", "/prod/inputDevices/{InputDeviceId}/transfer", 200] },
-  () => TransferInputDeviceRequest,
-  () => TransferInputDeviceResponse,
+  () => TransferInputDeviceRequest$,
+  () => TransferInputDeviceResponse$,
 ];
-export var UpdateAccountConfiguration: StaticOperationSchema = [
+export var UpdateAccountConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UAC,
   { [_ht]: ["PUT", "/prod/accountConfiguration", 200] },
-  () => UpdateAccountConfigurationRequest,
-  () => UpdateAccountConfigurationResponse,
+  () => UpdateAccountConfigurationRequest$,
+  () => UpdateAccountConfigurationResponse$,
 ];
-export var UpdateChannel: StaticOperationSchema = [
+export var UpdateChannel$: StaticOperationSchema = [
   9,
   n0,
   _UC,
   { [_ht]: ["PUT", "/prod/channels/{ChannelId}", 200] },
-  () => UpdateChannelRequest,
-  () => UpdateChannelResponse,
+  () => UpdateChannelRequest$,
+  () => UpdateChannelResponse$,
 ];
-export var UpdateChannelClass: StaticOperationSchema = [
+export var UpdateChannelClass$: StaticOperationSchema = [
   9,
   n0,
   _UCC,
   { [_ht]: ["PUT", "/prod/channels/{ChannelId}/channelClass", 200] },
-  () => UpdateChannelClassRequest,
-  () => UpdateChannelClassResponse,
+  () => UpdateChannelClassRequest$,
+  () => UpdateChannelClassResponse$,
 ];
-export var UpdateChannelPlacementGroup: StaticOperationSchema = [
+export var UpdateChannelPlacementGroup$: StaticOperationSchema = [
   9,
   n0,
   _UCPG,
   { [_ht]: ["PUT", "/prod/clusters/{ClusterId}/channelplacementgroups/{ChannelPlacementGroupId}", 200] },
-  () => UpdateChannelPlacementGroupRequest,
-  () => UpdateChannelPlacementGroupResponse,
+  () => UpdateChannelPlacementGroupRequest$,
+  () => UpdateChannelPlacementGroupResponse$,
 ];
-export var UpdateCloudWatchAlarmTemplate: StaticOperationSchema = [
+export var UpdateCloudWatchAlarmTemplate$: StaticOperationSchema = [
   9,
   n0,
   _UCWAT,
   { [_ht]: ["PATCH", "/prod/cloudwatch-alarm-templates/{Identifier}", 200] },
-  () => UpdateCloudWatchAlarmTemplateRequest,
-  () => UpdateCloudWatchAlarmTemplateResponse,
+  () => UpdateCloudWatchAlarmTemplateRequest$,
+  () => UpdateCloudWatchAlarmTemplateResponse$,
 ];
-export var UpdateCloudWatchAlarmTemplateGroup: StaticOperationSchema = [
+export var UpdateCloudWatchAlarmTemplateGroup$: StaticOperationSchema = [
   9,
   n0,
   _UCWATG,
   { [_ht]: ["PATCH", "/prod/cloudwatch-alarm-template-groups/{Identifier}", 200] },
-  () => UpdateCloudWatchAlarmTemplateGroupRequest,
-  () => UpdateCloudWatchAlarmTemplateGroupResponse,
+  () => UpdateCloudWatchAlarmTemplateGroupRequest$,
+  () => UpdateCloudWatchAlarmTemplateGroupResponse$,
 ];
-export var UpdateCluster: StaticOperationSchema = [
+export var UpdateCluster$: StaticOperationSchema = [
   9,
   n0,
   _UCp,
   { [_ht]: ["PUT", "/prod/clusters/{ClusterId}", 200] },
-  () => UpdateClusterRequest,
-  () => UpdateClusterResponse,
+  () => UpdateClusterRequest$,
+  () => UpdateClusterResponse$,
 ];
-export var UpdateEventBridgeRuleTemplate: StaticOperationSchema = [
+export var UpdateEventBridgeRuleTemplate$: StaticOperationSchema = [
   9,
   n0,
   _UEBRT,
   { [_ht]: ["PATCH", "/prod/eventbridge-rule-templates/{Identifier}", 200] },
-  () => UpdateEventBridgeRuleTemplateRequest,
-  () => UpdateEventBridgeRuleTemplateResponse,
+  () => UpdateEventBridgeRuleTemplateRequest$,
+  () => UpdateEventBridgeRuleTemplateResponse$,
 ];
-export var UpdateEventBridgeRuleTemplateGroup: StaticOperationSchema = [
+export var UpdateEventBridgeRuleTemplateGroup$: StaticOperationSchema = [
   9,
   n0,
   _UEBRTG,
   { [_ht]: ["PATCH", "/prod/eventbridge-rule-template-groups/{Identifier}", 200] },
-  () => UpdateEventBridgeRuleTemplateGroupRequest,
-  () => UpdateEventBridgeRuleTemplateGroupResponse,
+  () => UpdateEventBridgeRuleTemplateGroupRequest$,
+  () => UpdateEventBridgeRuleTemplateGroupResponse$,
 ];
-export var UpdateInput: StaticOperationSchema = [
+export var UpdateInput$: StaticOperationSchema = [
   9,
   n0,
   _UI,
   { [_ht]: ["PUT", "/prod/inputs/{InputId}", 200] },
-  () => UpdateInputRequest,
-  () => UpdateInputResponse,
+  () => UpdateInputRequest$,
+  () => UpdateInputResponse$,
 ];
-export var UpdateInputDevice: StaticOperationSchema = [
+export var UpdateInputDevice$: StaticOperationSchema = [
   9,
   n0,
   _UID,
   { [_ht]: ["PUT", "/prod/inputDevices/{InputDeviceId}", 200] },
-  () => UpdateInputDeviceRequest,
-  () => UpdateInputDeviceResponse,
+  () => UpdateInputDeviceRequest$,
+  () => UpdateInputDeviceResponse$,
 ];
-export var UpdateInputSecurityGroup: StaticOperationSchema = [
+export var UpdateInputSecurityGroup$: StaticOperationSchema = [
   9,
   n0,
   _UISG,
   { [_ht]: ["PUT", "/prod/inputSecurityGroups/{InputSecurityGroupId}", 200] },
-  () => UpdateInputSecurityGroupRequest,
-  () => UpdateInputSecurityGroupResponse,
+  () => UpdateInputSecurityGroupRequest$,
+  () => UpdateInputSecurityGroupResponse$,
 ];
-export var UpdateMultiplex: StaticOperationSchema = [
+export var UpdateMultiplex$: StaticOperationSchema = [
   9,
   n0,
   _UM,
   { [_ht]: ["PUT", "/prod/multiplexes/{MultiplexId}", 200] },
-  () => UpdateMultiplexRequest,
-  () => UpdateMultiplexResponse,
+  () => UpdateMultiplexRequest$,
+  () => UpdateMultiplexResponse$,
 ];
-export var UpdateMultiplexProgram: StaticOperationSchema = [
+export var UpdateMultiplexProgram$: StaticOperationSchema = [
   9,
   n0,
   _UMP,
   { [_ht]: ["PUT", "/prod/multiplexes/{MultiplexId}/programs/{ProgramName}", 200] },
-  () => UpdateMultiplexProgramRequest,
-  () => UpdateMultiplexProgramResponse,
+  () => UpdateMultiplexProgramRequest$,
+  () => UpdateMultiplexProgramResponse$,
 ];
-export var UpdateNetwork: StaticOperationSchema = [
+export var UpdateNetwork$: StaticOperationSchema = [
   9,
   n0,
   _UN,
   { [_ht]: ["PUT", "/prod/networks/{NetworkId}", 200] },
-  () => UpdateNetworkRequest,
-  () => UpdateNetworkResponse,
+  () => UpdateNetworkRequest$,
+  () => UpdateNetworkResponse$,
 ];
-export var UpdateNode: StaticOperationSchema = [
+export var UpdateNode$: StaticOperationSchema = [
   9,
   n0,
   _UNp,
   { [_ht]: ["PUT", "/prod/clusters/{ClusterId}/nodes/{NodeId}", 201] },
-  () => UpdateNodeRequest,
-  () => UpdateNodeResponse,
+  () => UpdateNodeRequest$,
+  () => UpdateNodeResponse$,
 ];
-export var UpdateNodeState: StaticOperationSchema = [
+export var UpdateNodeState$: StaticOperationSchema = [
   9,
   n0,
   _UNS,
   { [_ht]: ["PUT", "/prod/clusters/{ClusterId}/nodes/{NodeId}/state", 201] },
-  () => UpdateNodeStateRequest,
-  () => UpdateNodeStateResponse,
+  () => UpdateNodeStateRequest$,
+  () => UpdateNodeStateResponse$,
 ];
-export var UpdateReservation: StaticOperationSchema = [
+export var UpdateReservation$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_ht]: ["PUT", "/prod/reservations/{ReservationId}", 200] },
-  () => UpdateReservationRequest,
-  () => UpdateReservationResponse,
+  () => UpdateReservationRequest$,
+  () => UpdateReservationResponse$,
 ];
-export var UpdateSdiSource: StaticOperationSchema = [
+export var UpdateSdiSource$: StaticOperationSchema = [
   9,
   n0,
   _USS,
   { [_ht]: ["PUT", "/prod/sdiSources/{SdiSourceId}", 200] },
-  () => UpdateSdiSourceRequest,
-  () => UpdateSdiSourceResponse,
+  () => UpdateSdiSourceRequest$,
+  () => UpdateSdiSourceResponse$,
 ];

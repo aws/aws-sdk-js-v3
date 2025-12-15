@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetFieldLevelEncryptionRequest, GetFieldLevelEncryptionResult } from "../models/models_0";
-import { GetFieldLevelEncryption } from "../schemas/schemas_0";
+import { GetFieldLevelEncryption$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class GetFieldLevelEncryptionCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "GetFieldLevelEncryption", {})
   .n("CloudFrontClient", "GetFieldLevelEncryptionCommand")
-  .sc(GetFieldLevelEncryption)
+  .sc(GetFieldLevelEncryption$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

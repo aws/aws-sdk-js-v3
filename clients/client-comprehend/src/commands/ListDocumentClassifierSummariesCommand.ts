@@ -9,7 +9,7 @@ import type {
   ListDocumentClassifierSummariesRequest,
   ListDocumentClassifierSummariesResponse,
 } from "../models/models_0";
-import { ListDocumentClassifierSummaries } from "../schemas/schemas_0";
+import { ListDocumentClassifierSummaries$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class ListDocumentClassifierSummariesCommand extends $Command
   })
   .s("Comprehend_20171127", "ListDocumentClassifierSummaries", {})
   .n("ComprehendClient", "ListDocumentClassifierSummariesCommand")
-  .sc(ListDocumentClassifierSummaries)
+  .sc(ListDocumentClassifierSummaries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

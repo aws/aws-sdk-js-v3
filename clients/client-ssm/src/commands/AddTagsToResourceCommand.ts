@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AddTagsToResourceRequest, AddTagsToResourceResult } from "../models/models_0";
-import { AddTagsToResource } from "../schemas/schemas_0";
+import { AddTagsToResource$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -141,7 +141,7 @@ export class AddTagsToResourceCommand extends $Command
   })
   .s("AmazonSSM", "AddTagsToResource", {})
   .n("SSMClient", "AddTagsToResourceCommand")
-  .sc(AddTagsToResource)
+  .sc(AddTagsToResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

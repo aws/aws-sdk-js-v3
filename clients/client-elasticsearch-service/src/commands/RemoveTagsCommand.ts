@@ -10,7 +10,7 @@ import type {
 } from "../ElasticsearchServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RemoveTagsRequest } from "../models/models_0";
-import { RemoveTags } from "../schemas/schemas_0";
+import { RemoveTags$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class RemoveTagsCommand extends $Command
   })
   .s("AmazonElasticsearchService2015", "RemoveTags", {})
   .n("ElasticsearchServiceClient", "RemoveTagsCommand")
-  .sc(RemoveTags)
+  .sc(RemoveTags$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

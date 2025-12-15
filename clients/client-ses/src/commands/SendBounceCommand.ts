@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SendBounceRequest, SendBounceResponse } from "../models/models_0";
-import { SendBounce } from "../schemas/schemas_0";
+import { SendBounce$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -120,7 +120,7 @@ export class SendBounceCommand extends $Command
   })
   .s("SimpleEmailService", "SendBounce", {})
   .n("SESClient", "SendBounceCommand")
-  .sc(SendBounce)
+  .sc(SendBounce$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

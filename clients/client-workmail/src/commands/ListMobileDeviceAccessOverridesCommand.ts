@@ -8,7 +8,7 @@ import type {
   ListMobileDeviceAccessOverridesRequest,
   ListMobileDeviceAccessOverridesResponse,
 } from "../models/models_0";
-import { ListMobileDeviceAccessOverrides } from "../schemas/schemas_0";
+import { ListMobileDeviceAccessOverrides$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -107,7 +107,7 @@ export class ListMobileDeviceAccessOverridesCommand extends $Command
   })
   .s("WorkMailService", "ListMobileDeviceAccessOverrides", {})
   .n("WorkMailClient", "ListMobileDeviceAccessOverridesCommand")
-  .sc(ListMobileDeviceAccessOverrides)
+  .sc(ListMobileDeviceAccessOverrides$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

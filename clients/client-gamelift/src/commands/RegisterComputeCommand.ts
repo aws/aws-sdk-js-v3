@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import type { RegisterComputeInput, RegisterComputeOutput } from "../models/models_0";
-import { RegisterCompute } from "../schemas/schemas_0";
+import { RegisterCompute$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -162,7 +162,7 @@ export class RegisterComputeCommand extends $Command
   })
   .s("GameLift", "RegisterCompute", {})
   .n("GameLiftClient", "RegisterComputeCommand")
-  .sc(RegisterCompute)
+  .sc(RegisterCompute$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

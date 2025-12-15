@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { DeleteCloudWatchAlarmTemplateGroupRequest } from "../models/models_1";
-import { DeleteCloudWatchAlarmTemplateGroup } from "../schemas/schemas_0";
+import { DeleteCloudWatchAlarmTemplateGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class DeleteCloudWatchAlarmTemplateGroupCommand extends $Command
   })
   .s("MediaLive", "DeleteCloudWatchAlarmTemplateGroup", {})
   .n("MediaLiveClient", "DeleteCloudWatchAlarmTemplateGroupCommand")
-  .sc(DeleteCloudWatchAlarmTemplateGroup)
+  .sc(DeleteCloudWatchAlarmTemplateGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

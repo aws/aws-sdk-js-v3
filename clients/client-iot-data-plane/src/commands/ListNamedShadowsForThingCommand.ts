@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
 import type { ListNamedShadowsForThingRequest, ListNamedShadowsForThingResponse } from "../models/models_0";
-import { ListNamedShadowsForThing } from "../schemas/schemas_0";
+import { ListNamedShadowsForThing$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class ListNamedShadowsForThingCommand extends $Command
   })
   .s("IotMoonrakerService", "ListNamedShadowsForThing", {})
   .n("IoTDataPlaneClient", "ListNamedShadowsForThingCommand")
-  .sc(ListNamedShadowsForThing)
+  .sc(ListNamedShadowsForThing$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

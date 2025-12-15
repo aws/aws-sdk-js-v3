@@ -24,11 +24,11 @@ const n0 = "com.amazonaws.marketplacecommerceanalytics";
 import { TypeRegistry } from "@smithy/core/schema";
 import type { StaticErrorSchema, StaticMapSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
-import { MarketplaceCommerceAnalyticsException as __MarketplaceCommerceAnalyticsException } from "../models/errors";
-import { MarketplaceCommerceAnalyticsServiceException as __MarketplaceCommerceAnalyticsServiceException } from "../models/MarketplaceCommerceAnalyticsServiceException";
+import { MarketplaceCommerceAnalyticsException } from "../models/errors";
+import { MarketplaceCommerceAnalyticsServiceException } from "../models/MarketplaceCommerceAnalyticsServiceException";
 
 /* eslint no-var: 0 */
-export var GenerateDataSetRequest: StaticStructureSchema = [
+export var GenerateDataSetRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDSR,
@@ -36,10 +36,10 @@ export var GenerateDataSetRequest: StaticStructureSchema = [
   [_dST, _dSPD, _rNA, _dSBN, _dSP, _sTA, _cDV],
   [0, 4, 0, 0, 0, 0, 128 | 0],
 ];
-export var GenerateDataSetResult: StaticStructureSchema = [3, n0, _GDSRe, 0, [_dSRI], [0]];
-export var MarketplaceCommerceAnalyticsException: StaticErrorSchema = [-3, n0, _MCAE, { [_e]: _s }, [_m], [0]];
-TypeRegistry.for(n0).registerError(MarketplaceCommerceAnalyticsException, __MarketplaceCommerceAnalyticsException);
-export var StartSupportDataExportRequest: StaticStructureSchema = [
+export var GenerateDataSetResult$: StaticStructureSchema = [3, n0, _GDSRe, 0, [_dSRI], [0]];
+export var MarketplaceCommerceAnalyticsException$: StaticErrorSchema = [-3, n0, _MCAE, { [_e]: _s }, [_m], [0]];
+TypeRegistry.for(n0).registerError(MarketplaceCommerceAnalyticsException$, MarketplaceCommerceAnalyticsException);
+export var StartSupportDataExportRequest$: StaticStructureSchema = [
   3,
   n0,
   _SSDER,
@@ -47,8 +47,8 @@ export var StartSupportDataExportRequest: StaticStructureSchema = [
   [_dST, _fD, _rNA, _dSBN, _dSP, _sTA, _cDV],
   [0, 4, 0, 0, 0, 0, 128 | 0],
 ];
-export var StartSupportDataExportResult: StaticStructureSchema = [3, n0, _SSDERt, 0, [_dSRI], [0]];
-export var MarketplaceCommerceAnalyticsServiceException: StaticErrorSchema = [
+export var StartSupportDataExportResult$: StaticStructureSchema = [3, n0, _SSDERt, 0, [_dSRI], [0]];
+export var MarketplaceCommerceAnalyticsServiceException$: StaticErrorSchema = [
   -3,
   _sm,
   "MarketplaceCommerceAnalyticsServiceException",
@@ -57,23 +57,23 @@ export var MarketplaceCommerceAnalyticsServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(
-  MarketplaceCommerceAnalyticsServiceException,
-  __MarketplaceCommerceAnalyticsServiceException
+  MarketplaceCommerceAnalyticsServiceException$,
+  MarketplaceCommerceAnalyticsServiceException
 );
-export var CustomerDefinedValues = 128 | 0;
-export var GenerateDataSet: StaticOperationSchema = [
+var CustomerDefinedValues = 128 | 0;
+export var GenerateDataSet$: StaticOperationSchema = [
   9,
   n0,
   _GDS,
   0,
-  () => GenerateDataSetRequest,
-  () => GenerateDataSetResult,
+  () => GenerateDataSetRequest$,
+  () => GenerateDataSetResult$,
 ];
-export var StartSupportDataExport: StaticOperationSchema = [
+export var StartSupportDataExport$: StaticOperationSchema = [
   9,
   n0,
   _SSDE,
   0,
-  () => StartSupportDataExportRequest,
-  () => StartSupportDataExportResult,
+  () => StartSupportDataExportRequest$,
+  () => StartSupportDataExportResult$,
 ];

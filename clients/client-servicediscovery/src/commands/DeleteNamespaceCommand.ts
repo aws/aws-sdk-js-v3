@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteNamespaceRequest, DeleteNamespaceResponse } from "../models/models_0";
-import { DeleteNamespace } from "../schemas/schemas_0";
+import { DeleteNamespace$ } from "../schemas/schemas_0";
 import type {
   ServiceDiscoveryClientResolvedConfig,
   ServiceInputTypes,
@@ -123,7 +123,7 @@ export class DeleteNamespaceCommand extends $Command
   })
   .s("Route53AutoNaming_v20170314", "DeleteNamespace", {})
   .n("ServiceDiscoveryClient", "DeleteNamespaceCommand")
-  .sc(DeleteNamespace)
+  .sc(DeleteNamespace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

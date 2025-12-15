@@ -10,7 +10,7 @@ import type {
 } from "../ConnectCampaignsV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateCampaignChannelSubtypeConfigRequest } from "../models/models_0";
-import { UpdateCampaignChannelSubtypeConfig } from "../schemas/schemas_0";
+import { UpdateCampaignChannelSubtypeConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -154,7 +154,7 @@ export class UpdateCampaignChannelSubtypeConfigCommand extends $Command
   })
   .s("AmazonConnectCampaignServiceV2", "UpdateCampaignChannelSubtypeConfig", {})
   .n("ConnectCampaignsV2Client", "UpdateCampaignChannelSubtypeConfigCommand")
-  .sc(UpdateCampaignChannelSubtypeConfig)
+  .sc(UpdateCampaignChannelSubtypeConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LookoutEquipmentClient";
 import type { ListSensorStatisticsRequest, ListSensorStatisticsResponse } from "../models/models_0";
-import { ListSensorStatistics } from "../schemas/schemas_0";
+import { ListSensorStatistics$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -142,7 +142,7 @@ export class ListSensorStatisticsCommand extends $Command
   })
   .s("AWSLookoutEquipmentFrontendService", "ListSensorStatistics", {})
   .n("LookoutEquipmentClient", "ListSensorStatisticsCommand")
-  .sc(ListSensorStatistics)
+  .sc(ListSensorStatistics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

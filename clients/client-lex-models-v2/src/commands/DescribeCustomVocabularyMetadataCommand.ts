@@ -9,7 +9,7 @@ import type {
   DescribeCustomVocabularyMetadataRequest,
   DescribeCustomVocabularyMetadataResponse,
 } from "../models/models_0";
-import { DescribeCustomVocabularyMetadata } from "../schemas/schemas_0";
+import { DescribeCustomVocabularyMetadata$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class DescribeCustomVocabularyMetadataCommand extends $Command
   })
   .s("LexModelBuildingServiceV2", "DescribeCustomVocabularyMetadata", {})
   .n("LexModelsV2Client", "DescribeCustomVocabularyMetadataCommand")
-  .sc(DescribeCustomVocabularyMetadata)
+  .sc(DescribeCustomVocabularyMetadata$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

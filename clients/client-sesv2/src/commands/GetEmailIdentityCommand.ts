@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetEmailIdentityRequest, GetEmailIdentityResponse } from "../models/models_0";
-import { GetEmailIdentity } from "../schemas/schemas_0";
+import { GetEmailIdentity$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -124,7 +124,7 @@ export class GetEmailIdentityCommand extends $Command
   })
   .s("SimpleEmailService_v2", "GetEmailIdentity", {})
   .n("SESv2Client", "GetEmailIdentityCommand")
-  .sc(GetEmailIdentity)
+  .sc(GetEmailIdentity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { DescribeClusterRequest, DescribeClusterResponse } from "../models/models_1";
-import { DescribeCluster } from "../schemas/schemas_0";
+import { DescribeCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class DescribeClusterCommand extends $Command
   })
   .s("MediaLive", "DescribeCluster", {})
   .n("MediaLiveClient", "DescribeClusterCommand")
-  .sc(DescribeCluster)
+  .sc(DescribeCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

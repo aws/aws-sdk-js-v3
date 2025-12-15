@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateMemberToQueueRequest, AssociateMemberToQueueResponse } from "../models/models_0";
-import { AssociateMemberToQueue } from "../schemas/schemas_0";
+import { AssociateMemberToQueue$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class AssociateMemberToQueueCommand extends $Command
   })
   .s("Deadline", "AssociateMemberToQueue", {})
   .n("DeadlineClient", "AssociateMemberToQueueCommand")
-  .sc(AssociateMemberToQueue)
+  .sc(AssociateMemberToQueue$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MigrationHubRefactorSpacesClient";
 import type { DeleteEnvironmentRequest, DeleteEnvironmentResponse } from "../models/models_0";
-import { DeleteEnvironment } from "../schemas/schemas_0";
+import { DeleteEnvironment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class DeleteEnvironmentCommand extends $Command
   })
   .s("RefactorSpaces", "DeleteEnvironment", {})
   .n("MigrationHubRefactorSpacesClient", "DeleteEnvironmentCommand")
-  .sc(DeleteEnvironment)
+  .sc(DeleteEnvironment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

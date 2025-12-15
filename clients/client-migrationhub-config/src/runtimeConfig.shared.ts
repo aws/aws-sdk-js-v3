@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: MigrationHubConfigClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.migrationhubconfig",
-        serviceTarget: "AWSMigrationHubMultiAccountService",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.migrationhubconfig",
+      version: "2019-06-30",
+      serviceTarget: "AWSMigrationHubMultiAccountService",
+    },
     serviceId: config?.serviceId ?? "MigrationHub Config",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

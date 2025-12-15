@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateCliTokenRequest, CreateCliTokenResponse } from "../models/models_0";
 import type { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
-import { CreateCliToken } from "../schemas/schemas_0";
+import { CreateCliToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,7 +77,7 @@ export class CreateCliTokenCommand extends $Command
   })
   .s("AmazonMWAA", "CreateCliToken", {})
   .n("MWAAClient", "CreateCliTokenCommand")
-  .sc(CreateCliToken)
+  .sc(CreateCliToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

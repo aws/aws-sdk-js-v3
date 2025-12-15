@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateMacSecKeyRequest, AssociateMacSecKeyResponse } from "../models/models_0";
-import { AssociateMacSecKey } from "../schemas/schemas_0";
+import { AssociateMacSecKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class AssociateMacSecKeyCommand extends $Command
   })
   .s("OvertureService", "AssociateMacSecKey", {})
   .n("DirectConnectClient", "AssociateMacSecKeyCommand")
-  .sc(AssociateMacSecKey)
+  .sc(AssociateMacSecKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

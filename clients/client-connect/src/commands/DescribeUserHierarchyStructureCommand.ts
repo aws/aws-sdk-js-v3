@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeUserHierarchyStructureRequest, DescribeUserHierarchyStructureResponse } from "../models/models_1";
-import { DescribeUserHierarchyStructure } from "../schemas/schemas_0";
+import { DescribeUserHierarchyStructure$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class DescribeUserHierarchyStructureCommand extends $Command
   })
   .s("AmazonConnectService", "DescribeUserHierarchyStructure", {})
   .n("ConnectClient", "DescribeUserHierarchyStructureCommand")
-  .sc(DescribeUserHierarchyStructure)
+  .sc(DescribeUserHierarchyStructure$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyDataClient";
-import { TranslatePinData } from "../schemas/schemas_0";
+import { TranslatePinData$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -156,7 +156,7 @@ export class TranslatePinDataCommand extends $Command
   })
   .s("PaymentCryptographyDataPlane", "TranslatePinData", {})
   .n("PaymentCryptographyDataClient", "TranslatePinDataCommand")
-  .sc(TranslatePinData)
+  .sc(TranslatePinData$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

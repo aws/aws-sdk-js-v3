@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetSubscriptionGrantInput, GetSubscriptionGrantOutput } from "../models/models_1";
-import { GetSubscriptionGrant } from "../schemas/schemas_0";
+import { GetSubscriptionGrant$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -133,7 +133,7 @@ export class GetSubscriptionGrantCommand extends $Command
   })
   .s("DataZone", "GetSubscriptionGrant", {})
   .n("DataZoneClient", "GetSubscriptionGrantCommand")
-  .sc(GetSubscriptionGrant)
+  .sc(GetSubscriptionGrant$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

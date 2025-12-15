@@ -9,7 +9,7 @@ import type {
   DescribeTransitGatewayVpcAttachmentsRequest,
   DescribeTransitGatewayVpcAttachmentsResult,
 } from "../models/models_4";
-import { DescribeTransitGatewayVpcAttachments } from "../schemas/schemas_0";
+import { DescribeTransitGatewayVpcAttachments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class DescribeTransitGatewayVpcAttachmentsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeTransitGatewayVpcAttachments", {})
   .n("EC2Client", "DescribeTransitGatewayVpcAttachmentsCommand")
-  .sc(DescribeTransitGatewayVpcAttachments)
+  .sc(DescribeTransitGatewayVpcAttachments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

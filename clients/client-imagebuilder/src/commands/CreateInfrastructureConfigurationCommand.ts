@@ -9,7 +9,7 @@ import type {
   CreateInfrastructureConfigurationRequest,
   CreateInfrastructureConfigurationResponse,
 } from "../models/models_0";
-import { CreateInfrastructureConfiguration } from "../schemas/schemas_0";
+import { CreateInfrastructureConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -153,7 +153,7 @@ export class CreateInfrastructureConfigurationCommand extends $Command
   })
   .s("imagebuilder", "CreateInfrastructureConfiguration", {})
   .n("ImagebuilderClient", "CreateInfrastructureConfigurationCommand")
-  .sc(CreateInfrastructureConfiguration)
+  .sc(CreateInfrastructureConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

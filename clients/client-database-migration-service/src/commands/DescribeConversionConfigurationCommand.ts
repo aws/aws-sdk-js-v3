@@ -13,7 +13,7 @@ import type {
   DescribeConversionConfigurationMessage,
   DescribeConversionConfigurationResponse,
 } from "../models/models_0";
-import { DescribeConversionConfiguration } from "../schemas/schemas_0";
+import { DescribeConversionConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class DescribeConversionConfigurationCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribeConversionConfiguration", {})
   .n("DatabaseMigrationServiceClient", "DescribeConversionConfigurationCommand")
-  .sc(DescribeConversionConfiguration)
+  .sc(DescribeConversionConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

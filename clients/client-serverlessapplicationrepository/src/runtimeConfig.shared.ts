@@ -32,9 +32,7 @@ export const getRuntimeConfig = (config: ServerlessApplicationRepositoryClientCo
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.serverlessapplicationrepository" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
     serviceId: config?.serviceId ?? "ServerlessApplicationRepository",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

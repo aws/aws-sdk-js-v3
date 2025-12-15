@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import type { GetAssociatedRoleRequest, GetAssociatedRoleResponse } from "../models/models_0";
-import { GetAssociatedRole } from "../schemas/schemas_0";
+import { GetAssociatedRole$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -80,7 +80,7 @@ export class GetAssociatedRoleCommand extends $Command
   })
   .s("Greengrass", "GetAssociatedRole", {})
   .n("GreengrassClient", "GetAssociatedRoleCommand")
-  .sc(GetAssociatedRole)
+  .sc(GetAssociatedRole$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

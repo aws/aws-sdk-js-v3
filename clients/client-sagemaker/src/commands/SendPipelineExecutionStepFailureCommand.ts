@@ -9,7 +9,7 @@ import type {
   SendPipelineExecutionStepFailureResponse,
 } from "../models/models_4";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { SendPipelineExecutionStepFailure } from "../schemas/schemas_0";
+import { SendPipelineExecutionStepFailure$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class SendPipelineExecutionStepFailureCommand extends $Command
   })
   .s("SageMaker", "SendPipelineExecutionStepFailure", {})
   .n("SageMakerClient", "SendPipelineExecutionStepFailureCommand")
-  .sc(SendPipelineExecutionStepFailure)
+  .sc(SendPipelineExecutionStepFailure$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

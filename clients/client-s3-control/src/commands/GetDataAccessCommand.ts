@@ -8,7 +8,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDataAccessRequest, GetDataAccessResult } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { GetDataAccess } from "../schemas/schemas_0";
+import { GetDataAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class GetDataAccessCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "GetDataAccess", {})
   .n("S3ControlClient", "GetDataAccessCommand")
-  .sc(GetDataAccess)
+  .sc(GetDataAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetS3AccessPolicyRequest, GetS3AccessPolicyResponse } from "../models/models_0";
 import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { GetS3AccessPolicy } from "../schemas/schemas_0";
+import { GetS3AccessPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class GetS3AccessPolicyCommand extends $Command
   })
   .s("Omics", "GetS3AccessPolicy", {})
   .n("OmicsClient", "GetS3AccessPolicyCommand")
-  .sc(GetS3AccessPolicy)
+  .sc(GetS3AccessPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

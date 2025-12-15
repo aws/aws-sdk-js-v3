@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestXmlProtocolClient";
-import { HttpStringPayload } from "../schemas/schemas_0";
+import { HttpStringPayload$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,7 +77,7 @@ export class HttpStringPayloadCommand extends $Command
   })
   .s("RestXml", "HttpStringPayload", {})
   .n("RestXmlProtocolClient", "HttpStringPayloadCommand")
-  .sc(HttpStringPayload)
+  .sc(HttpStringPayload$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

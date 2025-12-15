@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { TestDNSAnswerRequest, TestDNSAnswerResponse } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { TestDNSAnswer } from "../schemas/schemas_0";
+import { TestDNSAnswer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class TestDNSAnswerCommand extends $Command
   })
   .s("AWSDnsV20130401", "TestDNSAnswer", {})
   .n("Route53Client", "TestDNSAnswerCommand")
-  .sc(TestDNSAnswer)
+  .sc(TestDNSAnswer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

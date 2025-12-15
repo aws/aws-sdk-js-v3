@@ -9,7 +9,7 @@ import type {
   DisassociateIpamResourceDiscoveryRequest,
   DisassociateIpamResourceDiscoveryResult,
 } from "../models/models_5";
-import { DisassociateIpamResourceDiscovery } from "../schemas/schemas_0";
+import { DisassociateIpamResourceDiscovery$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class DisassociateIpamResourceDiscoveryCommand extends $Command
   })
   .s("AmazonEC2", "DisassociateIpamResourceDiscovery", {})
   .n("EC2Client", "DisassociateIpamResourceDiscoveryCommand")
-  .sc(DisassociateIpamResourceDiscovery)
+  .sc(DisassociateIpamResourceDiscovery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

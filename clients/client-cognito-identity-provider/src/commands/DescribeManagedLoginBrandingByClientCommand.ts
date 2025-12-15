@@ -13,7 +13,7 @@ import type {
   DescribeManagedLoginBrandingByClientRequest,
   DescribeManagedLoginBrandingByClientResponse,
 } from "../models/models_0";
-import { DescribeManagedLoginBrandingByClient } from "../schemas/schemas_0";
+import { DescribeManagedLoginBrandingByClient$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class DescribeManagedLoginBrandingByClientCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "DescribeManagedLoginBrandingByClient", {})
   .n("CognitoIdentityProviderClient", "DescribeManagedLoginBrandingByClientCommand")
-  .sc(DescribeManagedLoginBrandingByClient)
+  .sc(DescribeManagedLoginBrandingByClient$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetVpnConnectionDeviceTypesRequest, GetVpnConnectionDeviceTypesResult } from "../models/models_6";
-import { GetVpnConnectionDeviceTypes } from "../schemas/schemas_0";
+import { GetVpnConnectionDeviceTypes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class GetVpnConnectionDeviceTypesCommand extends $Command
   })
   .s("AmazonEC2", "GetVpnConnectionDeviceTypes", {})
   .n("EC2Client", "GetVpnConnectionDeviceTypesCommand")
-  .sc(GetVpnConnectionDeviceTypes)
+  .sc(GetVpnConnectionDeviceTypes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

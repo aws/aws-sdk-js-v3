@@ -9,7 +9,7 @@ import type {
   ListProcurementPortalPreferencesRequest,
   ListProcurementPortalPreferencesResponse,
 } from "../models/models_0";
-import { ListProcurementPortalPreferences } from "../schemas/schemas_0";
+import { ListProcurementPortalPreferences$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -233,7 +233,7 @@ export class ListProcurementPortalPreferencesCommand extends $Command
   })
   .s("Invoicing", "ListProcurementPortalPreferences", {})
   .n("InvoicingClient", "ListProcurementPortalPreferencesCommand")
-  .sc(ListProcurementPortalPreferences)
+  .sc(ListProcurementPortalPreferences$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

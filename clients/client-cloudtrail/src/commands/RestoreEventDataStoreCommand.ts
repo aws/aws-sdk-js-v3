@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RestoreEventDataStoreRequest, RestoreEventDataStoreResponse } from "../models/models_0";
-import { RestoreEventDataStore } from "../schemas/schemas_0";
+import { RestoreEventDataStore$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -161,7 +161,7 @@ export class RestoreEventDataStoreCommand extends $Command
   })
   .s("CloudTrail_20131101", "RestoreEventDataStore", {})
   .n("CloudTrailClient", "RestoreEventDataStoreCommand")
-  .sc(RestoreEventDataStore)
+  .sc(RestoreEventDataStore$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

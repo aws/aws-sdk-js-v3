@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteLoadBalancerPolicyInput, DeleteLoadBalancerPolicyOutput } from "../models/models_0";
-import { DeleteLoadBalancerPolicy } from "../schemas/schemas_0";
+import { DeleteLoadBalancerPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class DeleteLoadBalancerPolicyCommand extends $Command
   })
   .s("ElasticLoadBalancing_v7", "DeleteLoadBalancerPolicy", {})
   .n("ElasticLoadBalancingClient", "DeleteLoadBalancerPolicyCommand")
-  .sc(DeleteLoadBalancerPolicy)
+  .sc(DeleteLoadBalancerPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

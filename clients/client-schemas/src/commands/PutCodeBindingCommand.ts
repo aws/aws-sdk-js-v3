@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutCodeBindingRequest, PutCodeBindingResponse } from "../models/models_0";
-import { PutCodeBinding } from "../schemas/schemas_0";
+import { PutCodeBinding$ } from "../schemas/schemas_0";
 import type { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
@@ -93,7 +93,7 @@ export class PutCodeBindingCommand extends $Command
   })
   .s("schemas", "PutCodeBinding", {})
   .n("SchemasClient", "PutCodeBindingCommand")
-  .sc(PutCodeBinding)
+  .sc(PutCodeBinding$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

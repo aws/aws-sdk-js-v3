@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateRuleGroupRequest, CreateRuleGroupResponse } from "../models/models_0";
-import { CreateRuleGroup } from "../schemas/schemas_0";
+import { CreateRuleGroup$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -1205,7 +1205,7 @@ export class CreateRuleGroupCommand extends $Command
   })
   .s("AWSWAF_20190729", "CreateRuleGroup", {})
   .n("WAFV2Client", "CreateRuleGroupCommand")
-  .sc(CreateRuleGroup)
+  .sc(CreateRuleGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

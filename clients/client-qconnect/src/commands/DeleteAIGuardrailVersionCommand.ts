@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAIGuardrailVersionRequest, DeleteAIGuardrailVersionResponse } from "../models/models_0";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { DeleteAIGuardrailVersion } from "../schemas/schemas_0";
+import { DeleteAIGuardrailVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DeleteAIGuardrailVersionCommand extends $Command
   })
   .s("WisdomService", "DeleteAIGuardrailVersion", {})
   .n("QConnectClient", "DeleteAIGuardrailVersionCommand")
-  .sc(DeleteAIGuardrailVersion)
+  .sc(DeleteAIGuardrailVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

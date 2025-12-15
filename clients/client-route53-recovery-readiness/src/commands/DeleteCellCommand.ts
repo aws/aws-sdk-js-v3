@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
-import { DeleteCell } from "../schemas/schemas_0";
+import { DeleteCell$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeleteCellCommand extends $Command
   })
   .s("Route53RecoveryReadiness", "DeleteCell", {})
   .n("Route53RecoveryReadinessClient", "DeleteCellCommand")
-  .sc(DeleteCell)
+  .sc(DeleteCell$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

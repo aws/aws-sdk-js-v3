@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteInsightRequest, DeleteInsightResponse } from "../models/models_0";
-import { DeleteInsight } from "../schemas/schemas_0";
+import { DeleteInsight$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeleteInsightCommand extends $Command
   })
   .s("CapstoneControlPlaneService", "DeleteInsight", {})
   .n("DevOpsGuruClient", "DeleteInsightCommand")
-  .sc(DeleteInsight)
+  .sc(DeleteInsight$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

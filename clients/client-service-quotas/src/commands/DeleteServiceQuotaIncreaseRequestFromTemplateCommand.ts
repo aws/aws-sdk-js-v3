@@ -8,7 +8,7 @@ import type {
   DeleteServiceQuotaIncreaseRequestFromTemplateRequest,
   DeleteServiceQuotaIncreaseRequestFromTemplateResponse,
 } from "../models/models_0";
-import { DeleteServiceQuotaIncreaseRequestFromTemplate } from "../schemas/schemas_0";
+import { DeleteServiceQuotaIncreaseRequestFromTemplate$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
@@ -109,7 +109,7 @@ export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Comma
   })
   .s("ServiceQuotasV20190624", "DeleteServiceQuotaIncreaseRequestFromTemplate", {})
   .n("ServiceQuotasClient", "DeleteServiceQuotaIncreaseRequestFromTemplateCommand")
-  .sc(DeleteServiceQuotaIncreaseRequestFromTemplate)
+  .sc(DeleteServiceQuotaIncreaseRequestFromTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

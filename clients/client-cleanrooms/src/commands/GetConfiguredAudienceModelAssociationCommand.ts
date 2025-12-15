@@ -9,7 +9,7 @@ import type {
   GetConfiguredAudienceModelAssociationInput,
   GetConfiguredAudienceModelAssociationOutput,
 } from "../models/models_0";
-import { GetConfiguredAudienceModelAssociation } from "../schemas/schemas_0";
+import { GetConfiguredAudienceModelAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class GetConfiguredAudienceModelAssociationCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "GetConfiguredAudienceModelAssociation", {})
   .n("CleanRoomsClient", "GetConfiguredAudienceModelAssociationCommand")
-  .sc(GetConfiguredAudienceModelAssociation)
+  .sc(GetConfiguredAudienceModelAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

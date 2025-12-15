@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateBackupPlanInput, UpdateBackupPlanOutput } from "../models/models_0";
-import { UpdateBackupPlan } from "../schemas/schemas_0";
+import { UpdateBackupPlan$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -171,7 +171,7 @@ export class UpdateBackupPlanCommand extends $Command
   })
   .s("CryoControllerUserManager", "UpdateBackupPlan", {})
   .n("BackupClient", "UpdateBackupPlanCommand")
-  .sc(UpdateBackupPlan)
+  .sc(UpdateBackupPlan$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
