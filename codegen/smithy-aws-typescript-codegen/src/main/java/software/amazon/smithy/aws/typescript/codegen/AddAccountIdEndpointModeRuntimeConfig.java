@@ -2,7 +2,6 @@
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
-
 package software.amazon.smithy.aws.typescript.codegen;
 
 import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isAwsService;
@@ -47,13 +46,23 @@ public final class AddAccountIdEndpointModeRuntimeConfig implements TypeScriptIn
         if (isAwsService(settings, model)) {
             ServiceShape service = settings.getService(model);
             if (hasAccountIdEndpointParam(service)) {
-                    writer.addImportSubmodule("AccountIdEndpointMode", null,
-                        AwsDependency.AWS_SDK_CORE, "/account-id-endpoint");
-                    writer.writeDocs("Defines if the AWS AccountId will be used for endpoint routing.");
-                    writer.write("accountIdEndpointMode?: AccountIdEndpointMode | "
-                    + "__Provider<AccountIdEndpointMode>;\n");
-                    writer.addImportSubmodule("resolveAccountIdEndpointModeConfig", null,
-                        AwsDependency.AWS_SDK_CORE, "/account-id-endpoint");
+                writer.addImportSubmodule(
+                    "AccountIdEndpointMode",
+                    null,
+                    AwsDependency.AWS_SDK_CORE,
+                    "/account-id-endpoint"
+                );
+                writer.writeDocs("Defines if the AWS AccountId will be used for endpoint routing.");
+                writer.write(
+                    "accountIdEndpointMode?: AccountIdEndpointMode | "
+                        + "__Provider<AccountIdEndpointMode>;\n"
+                );
+                writer.addImportSubmodule(
+                    "resolveAccountIdEndpointModeConfig",
+                    null,
+                    AwsDependency.AWS_SDK_CORE,
+                    "/account-id-endpoint"
+                );
             }
         }
     }
@@ -75,21 +84,31 @@ public final class AddAccountIdEndpointModeRuntimeConfig implements TypeScriptIn
                     switch (target) {
                         case BROWSER:
                             runtimeConfigs.put("accountIdEndpointMode", writer -> {
-                                writer.addImportSubmodule("DEFAULT_ACCOUNT_ID_ENDPOINT_MODE", null,
+                                writer.addImportSubmodule(
+                                    "DEFAULT_ACCOUNT_ID_ENDPOINT_MODE",
+                                    null,
                                     AwsDependency.AWS_SDK_CORE,
-                                    "/account-id-endpoint");
+                                    "/account-id-endpoint"
+                                );
                                 writer.write("(() => Promise.resolve(DEFAULT_ACCOUNT_ID_ENDPOINT_MODE))");
                             });
                             break;
                         case NODE:
                             runtimeConfigs.put("accountIdEndpointMode", writer -> {
-                                writer.addImport("loadConfig", "loadNodeConfig",
-                                    TypeScriptDependency.NODE_CONFIG_PROVIDER);
-                                writer.addImportSubmodule("NODE_ACCOUNT_ID_ENDPOINT_MODE_CONFIG_OPTIONS",
-                                    null, AwsDependency.AWS_SDK_CORE,
-                                    "/account-id-endpoint");
+                                writer.addImport(
+                                    "loadConfig",
+                                    "loadNodeConfig",
+                                    TypeScriptDependency.NODE_CONFIG_PROVIDER
+                                );
+                                writer.addImportSubmodule(
+                                    "NODE_ACCOUNT_ID_ENDPOINT_MODE_CONFIG_OPTIONS",
+                                    null,
+                                    AwsDependency.AWS_SDK_CORE,
+                                    "/account-id-endpoint"
+                                );
                                 writer.write(
-                                    "loadNodeConfig(NODE_ACCOUNT_ID_ENDPOINT_MODE_CONFIG_OPTIONS, loaderConfig)");
+                                    "loadNodeConfig(NODE_ACCOUNT_ID_ENDPOINT_MODE_CONFIG_OPTIONS, loaderConfig)"
+                                );
                             });
                             break;
                         default:
@@ -106,33 +125,36 @@ public final class AddAccountIdEndpointModeRuntimeConfig implements TypeScriptIn
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {
         return List.of(
-        RuntimeClientPlugin.builder()
-            .inputConfig(
-                Symbol.builder()
-                    .namespace(
-                        AwsDependency.AWS_SDK_CORE.getPackageName() + "/account-id-endpoint", "/"
-                    )
-                    .name("AccountIdEndpointModeInputConfig")
-                    .build()
-            )
-            .resolvedConfig(
-                Symbol.builder()
-                    .namespace(
-                        AwsDependency.AWS_SDK_CORE.getPackageName() + "/account-id-endpoint", "/"
-                    )
-                    .name("AccountIdEndpointModeResolvedConfig")
-                    .build()
-            )
-            .resolveFunction(
-                Symbol.builder()
-                    .namespace(
-                        AwsDependency.AWS_SDK_CORE.getPackageName() + "/account-id-endpoint", "/"
-                    )
-                    .name("resolveAccountIdEndpointModeConfig")
-                    .build()
-            )
-            .servicePredicate((m, s) -> hasAccountIdEndpointParam(s))
-            .build()
+            RuntimeClientPlugin.builder()
+                .inputConfig(
+                    Symbol.builder()
+                        .namespace(
+                            AwsDependency.AWS_SDK_CORE.getPackageName() + "/account-id-endpoint",
+                            "/"
+                        )
+                        .name("AccountIdEndpointModeInputConfig")
+                        .build()
+                )
+                .resolvedConfig(
+                    Symbol.builder()
+                        .namespace(
+                            AwsDependency.AWS_SDK_CORE.getPackageName() + "/account-id-endpoint",
+                            "/"
+                        )
+                        .name("AccountIdEndpointModeResolvedConfig")
+                        .build()
+                )
+                .resolveFunction(
+                    Symbol.builder()
+                        .namespace(
+                            AwsDependency.AWS_SDK_CORE.getPackageName() + "/account-id-endpoint",
+                            "/"
+                        )
+                        .name("resolveAccountIdEndpointModeConfig")
+                        .build()
+                )
+                .servicePredicate((m, s) -> hasAccountIdEndpointParam(s))
+                .build()
         );
     }
 
@@ -141,7 +163,7 @@ public final class AddAccountIdEndpointModeRuntimeConfig implements TypeScriptIn
         if (endpointRuleSetTrait.isPresent()) {
             RuleSetParameterFinder ruleSetParameterFinder = new RuleSetParameterFinder(service);
             if (ruleSetParameterFinder.getBuiltInParams().containsKey("AccountIdEndpointMode")) {
-              return true;
+                return true;
             }
         }
         return false;

@@ -27,7 +27,8 @@ export interface DeleteWorkspacePageCommandInput extends DeleteWorkspacePageRequ
 export interface DeleteWorkspacePageCommandOutput extends DeleteWorkspacePageResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the association between a view and a page in a workspace. The page will display the default view after deletion.</p>
+ * <p>Removes the association between a view and a page in a workspace. The page will display the default view after
+ *    deletion.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

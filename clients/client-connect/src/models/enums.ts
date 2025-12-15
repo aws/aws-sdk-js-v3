@@ -2492,6 +2492,19 @@ export type TrafficType = (typeof TrafficType)[keyof typeof TrafficType];
  * @public
  * @enum
  */
+export const DisconnectOnCustomerExitParticipantType = {
+  AGENT: "AGENT",
+} as const;
+/**
+ * @public
+ */
+export type DisconnectOnCustomerExitParticipantType =
+  (typeof DisconnectOnCustomerExitParticipantType)[keyof typeof DisconnectOnCustomerExitParticipantType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ResponseMode = {
   COMPLETE: "COMPLETE",
   INCREMENTAL: "INCREMENTAL",

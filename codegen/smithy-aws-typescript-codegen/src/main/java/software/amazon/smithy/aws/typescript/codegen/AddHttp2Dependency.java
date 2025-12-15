@@ -1,18 +1,7 @@
 /*
- * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- *
- *  http://aws.amazon.com/apache2.0
- *
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: Apache-2.0
  */
-
 package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Collections;
@@ -36,10 +25,11 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 public class AddHttp2Dependency implements TypeScriptIntegration {
     @Override
     public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            LanguageTarget target) {
+        TypeScriptSettings settings,
+        Model model,
+        SymbolProvider symbolProvider,
+        LanguageTarget target
+    ) {
         if (!isHttp2Applicable(settings.getService(model))) {
             return Collections.emptyMap();
         }
@@ -47,8 +37,11 @@ public class AddHttp2Dependency implements TypeScriptIntegration {
             case NODE:
                 return MapUtils.of("requestHandler", writer -> {
                     writer.addDependency(TypeScriptDependency.AWS_SDK_NODE_HTTP_HANDLER);
-                    writer.addImport("NodeHttp2Handler", "RequestHandler",
-                            TypeScriptDependency.AWS_SDK_NODE_HTTP_HANDLER);
+                    writer.addImport(
+                        "NodeHttp2Handler",
+                        "RequestHandler",
+                        TypeScriptDependency.AWS_SDK_NODE_HTTP_HANDLER
+                    );
                     writer.openBlock("RequestHandler.create(config?.requestHandler ?? (async () => ({", "})))", () -> {
                         writer.write("...await defaultConfigProvider(),");
                         // TODO: remove this when root cause of #3809 is found
@@ -62,7 +55,8 @@ public class AddHttp2Dependency implements TypeScriptIntegration {
 
     private static boolean isHttp2Applicable(ServiceShape service) {
         List<String> eventStreamFlag = service.getTrait(AwsProtocolTrait.class)
-                .map(AwsProtocolTrait::getEventStreamHttp).orElse(ListUtils.of());
+            .map(AwsProtocolTrait::getEventStreamHttp)
+            .orElse(ListUtils.of());
         return eventStreamFlag.contains("h2");
     }
 }

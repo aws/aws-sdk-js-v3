@@ -13,6 +13,7 @@ import {
   ContactRecordingType,
   DataTableAttributeValueType,
   DataTableLockLevel,
+  DisconnectOnCustomerExitParticipantType,
   EvaluationFormItemEnablementAction,
   EvaluationFormItemEnablementOperator,
   EvaluationFormQuestionType,
@@ -1533,13 +1534,15 @@ export interface UpdateDataTableAttributeRequest {
   AttributeName: string | undefined;
 
   /**
-   * <p>The new name for the attribute. Must conform to Connect human readable string specification and be unique within the data table.</p>
+   * <p>The new name for the attribute. Must conform to Connect human readable string specification and be unique within
+   *    the data table.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The updated value type for the attribute. When changing value types, existing values are not deleted but may return default values if incompatible.</p>
+   * <p>The updated value type for the attribute. When changing value types, existing values are not deleted but may
+   *    return default values if incompatible.</p>
    * @public
    */
   ValueType: DataTableAttributeValueType | undefined;
@@ -1551,13 +1554,15 @@ export interface UpdateDataTableAttributeRequest {
   Description?: string | undefined;
 
   /**
-   * <p>Whether the attribute should be treated as a primary key. Converting to primary attribute requires existing values to maintain uniqueness.</p>
+   * <p>Whether the attribute should be treated as a primary key. Converting to primary attribute requires existing
+   *    values to maintain uniqueness.</p>
    * @public
    */
   Primary?: boolean | undefined;
 
   /**
-   * <p>The updated validation rules for the attribute. Changes do not affect existing values until they are modified.</p>
+   * <p>The updated validation rules for the attribute. Changes do not affect existing values until they are
+   *    modified.</p>
    * @public
    */
   Validation?: Validation | undefined;
@@ -1591,25 +1596,30 @@ export interface UpdateDataTableMetadataRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The unique identifier for the data table. Must also accept the table ARN with or without a version alias. If the version is provided as part of the identifier or ARN, the version must be $LATEST. Providing any other alias fails with an error.</p>
+   * <p>The unique identifier for the data table. Must also accept the table ARN with or without a version alias. If the
+   *    version is provided as part of the identifier or ARN, the version must be $LATEST. Providing any other alias fails
+   *    with an error.</p>
    * @public
    */
   DataTableId: string | undefined;
 
   /**
-   * <p>The updated name for the data table. Must conform to Connect human readable string specification and have 1-127 characters. Must be unique for the instance using case-insensitive comparison.</p>
+   * <p>The updated name for the data table. Must conform to Connect human readable string specification and have 1-127
+   *    characters. Must be unique for the instance using case-insensitive comparison.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The updated description for the data table. Must conform to Connect human readable string specification and have 0-250 characters.</p>
+   * <p>The updated description for the data table. Must conform to Connect human readable string specification and have
+   *    0-250 characters.</p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The updated value lock level for the data table. One of DATA_TABLE, PRIMARY_VALUE, ATTRIBUTE, VALUE, and NONE.</p>
+   * <p>The updated value lock level for the data table. One of DATA_TABLE, PRIMARY_VALUE, ATTRIBUTE, VALUE, and
+   *    NONE.</p>
    * @public
    */
   ValueLockLevel: DataTableLockLevel | undefined;
@@ -1643,19 +1653,23 @@ export interface UpdateDataTablePrimaryValuesRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The unique identifier for the data table. Must also accept the table ARN with or without a version alias. If the version is provided as part of the identifier or ARN, the version must be one of the two available system managed aliases, $SAVED or $LATEST.</p>
+   * <p>The unique identifier for the data table. Must also accept the table ARN with or without a version alias. If the
+   *    version is provided as part of the identifier or ARN, the version must be one of the two available system managed
+   *    aliases, $SAVED or $LATEST.</p>
    * @public
    */
   DataTableId: string | undefined;
 
   /**
-   * <p>The current primary values for the record. Required and must include values for all primary attributes. Fails if the table has primary attributes and some primary values are omitted.</p>
+   * <p>The current primary values for the record. Required and must include values for all primary attributes. Fails if
+   *    the table has primary attributes and some primary values are omitted.</p>
    * @public
    */
   PrimaryValues: PrimaryValue[] | undefined;
 
   /**
-   * <p>The new primary values for the record. Required and must include values for all primary attributes. The combination must be unique within the table.</p>
+   * <p>The new primary values for the record. Required and must include values for all primary attributes. The
+   *    combination must be unique within the table.</p>
    * @public
    */
   NewPrimaryValues: PrimaryValue[] | undefined;
@@ -1672,7 +1686,8 @@ export interface UpdateDataTablePrimaryValuesRequest {
  */
 export interface UpdateDataTablePrimaryValuesResponse {
   /**
-   * <p>The updated lock version information for the data table and affected components after the primary values change.</p>
+   * <p>The updated lock version information for the data table and affected components after the primary values
+   *    change.</p>
    * @public
    */
   LockVersion: DataTableLockVersion | undefined;
@@ -3243,7 +3258,8 @@ export interface UpdateViewMetadataResponse {}
  */
 export interface UpdateWorkspaceMetadataRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -3283,7 +3299,8 @@ export interface UpdateWorkspaceMetadataResponse {}
  */
 export interface UpdateWorkspacePageRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -3335,7 +3352,8 @@ export interface UpdateWorkspacePageResponse {}
  */
 export interface UpdateWorkspaceThemeRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -3363,7 +3381,8 @@ export interface UpdateWorkspaceThemeResponse {}
  */
 export interface UpdateWorkspaceVisibilityRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -3375,7 +3394,9 @@ export interface UpdateWorkspaceVisibilityRequest {
   WorkspaceId: string | undefined;
 
   /**
-   * <p>The visibility setting for the workspace. Valid values are: <code>ALL</code> (available to all users), <code>ASSIGNED</code> (available only to assigned users and routing profiles), and <code>NONE</code> (not visible to any users).</p>
+   * <p>The visibility setting for the workspace. Valid values are: <code>ALL</code> (available to all users),
+   *     <code>ASSIGNED</code> (available only to assigned users and routing profiles), and <code>NONE</code> (not visible to
+   *    any users).</p>
    * @public
    */
   Visibility: Visibility | undefined;
@@ -4088,7 +4109,7 @@ export interface UserSearchCriteria {
   OrConditions?: UserSearchCriteria[] | undefined;
 
   /**
-   * <p>A list of conditions which would be applied together with an <code>AND</code> condition. </p>
+   * <p>A list of conditions which would be applied together with an <code>AND</code> condition.</p>
    * @public
    */
   AndConditions?: UserSearchCriteria[] | undefined;
@@ -4453,13 +4474,15 @@ export interface SearchDataTablesRequest {
   MaxResults?: number | undefined;
 
   /**
-   * <p>Optional filters to apply to the search results, such as tag-based filtering for attribute-based access control.</p>
+   * <p>Optional filters to apply to the search results, such as tag-based filtering for attribute-based access
+   *    control.</p>
    * @public
    */
   SearchFilter?: DataTableSearchFilter | undefined;
 
   /**
-   * <p>Search criteria including string conditions for matching table names, descriptions, or resource IDs. Supports STARTS_WITH, CONTAINS, and EXACT comparison types.</p>
+   * <p>Search criteria including string conditions for matching table names, descriptions, or resource IDs. Supports
+   *    STARTS_WITH, CONTAINS, and EXACT comparison types.</p>
    * @public
    */
   SearchCriteria?: DataTableSearchCriteria | undefined;
@@ -4921,13 +4944,15 @@ export interface SearchUsersRequest {
  */
 export interface SearchViewsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
+   *    retrieve the next set of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -4956,13 +4981,15 @@ export interface SearchViewsRequest {
  */
 export interface SearchWorkspaceAssociationsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
+   *    retrieve the next set of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -4991,13 +5018,15 @@ export interface SearchWorkspaceAssociationsRequest {
  */
 export interface SearchWorkspacesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
+   *    retrieve the next set of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -5316,6 +5345,14 @@ export interface StartChatContactRequest {
    * @public
    */
   CustomerId?: string | undefined;
+
+  /**
+   * <p>A list of participant types to automatically disconnect when the end customer ends the chat session, allowing them to continue through disconnect flows such as surveys or feedback forms.</p>
+   *          <p>Valid value: <code>AGENT</code>.</p>
+   *          <p>With the <code>DisconnectOnCustomerExit</code> parameter, you can configure automatic agent disconnection when end customers end the chat, ensuring that disconnect flows are triggered consistently regardless of which participant disconnects first.</p>
+   * @public
+   */
+  DisconnectOnCustomerExit?: DisconnectOnCustomerExitParticipantType[] | undefined;
 }
 
 /**

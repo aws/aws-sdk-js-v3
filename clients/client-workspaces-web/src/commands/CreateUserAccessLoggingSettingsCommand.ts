@@ -32,8 +32,7 @@ export interface CreateUserAccessLoggingSettingsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a user access logging settings resource that can be associated with a web
- *          portal.</p>
+ * <p>Creates a user access logging settings resource that can be associated with a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

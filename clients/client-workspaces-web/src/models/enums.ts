@@ -230,6 +230,55 @@ export type LogFileFormat = (typeof LogFileFormat)[keyof typeof LogFileFormat];
  * @public
  * @enum
  */
+export const ColorTheme = {
+  DARK: "Dark",
+  LIGHT: "Light",
+} as const;
+/**
+ * @public
+ */
+export type ColorTheme = (typeof ColorTheme)[keyof typeof ColorTheme];
+
+/**
+ * @public
+ * @enum
+ */
+export const MimeType = {
+  ICO: "image/x-icon",
+  JPEG: "image/jpeg",
+  PNG: "image/png",
+} as const;
+/**
+ * @public
+ */
+export type MimeType = (typeof MimeType)[keyof typeof MimeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Locale = {
+  BR: "pt-BR",
+  CN: "zh-CN",
+  DE: "de-DE",
+  EN: "en-US",
+  ES: "es-ES",
+  FR: "fr-FR",
+  ID: "id-ID",
+  IT: "it-IT",
+  JP: "ja-JP",
+  KR: "ko-KR",
+  TW: "zh-TW",
+} as const;
+/**
+ * @public
+ */
+export type Locale = (typeof Locale)[keyof typeof Locale];
+
+/**
+ * @public
+ * @enum
+ */
 export const EnabledType = {
   DISABLED: "Disabled",
   ENABLED: "Enabled",

@@ -1,18 +1,7 @@
 /*
- * Copyright 2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- *
- *  http://aws.amazon.com/apache2.0
- *
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: Apache-2.0
  */
-
 package software.amazon.smithy.aws.typescript.codegen;
 
 import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_CONFIG;
@@ -51,10 +40,10 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
 
     @Override
     public void addConfigInterfaceFields(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            TypeScriptWriter writer
+        TypeScriptSettings settings,
+        Model model,
+        SymbolProvider symbolProvider,
+        TypeScriptWriter writer
     ) {
         if (!hasHttpChecksumTrait(model, settings.getService(model))) {
             return;
@@ -62,9 +51,11 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
 
         writer.addImport("Readable", "Readable", "stream");
         writer.addImport("StreamHasher", "__StreamHasher", TypeScriptDependency.SMITHY_TYPES);
-        writer.writeDocs("A function that, given a hash constructor and a stream, calculates the \n"
+        writer.writeDocs(
+            "A function that, given a hash constructor and a stream, calculates the \n"
                 + "hash of the streamed value.\n"
-                + "@internal");
+                + "@internal"
+        );
         writer.write("streamHasher?: __StreamHasher<Readable> | __StreamHasher<Blob>;\n");
 
         writer.addImport("Hash", "__Hash", TypeScriptDependency.SMITHY_TYPES);
@@ -73,29 +64,38 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
         writer.addImport("Checksum", "__Checksum", TypeScriptDependency.SMITHY_TYPES);
         writer.addImport("ChecksumConstructor", "__ChecksumConstructor", TypeScriptDependency.SMITHY_TYPES);
 
-        writer.writeDocs("A constructor for a class implementing the {@link __Checksum} interface \n"
+        writer.writeDocs(
+            "A constructor for a class implementing the {@link __Checksum} interface \n"
                 + "that computes MD5 hashes.\n"
-                + "@internal");
+                + "@internal"
+        );
         writer.write("md5?: __ChecksumConstructor | __HashConstructor;\n");
 
-        writer.writeDocs("A constructor for a class implementing the {@link __Checksum} interface \n"
+        writer.writeDocs(
+            "A constructor for a class implementing the {@link __Checksum} interface \n"
                 + "that computes SHA1 hashes.\n"
-                + "@internal");
+                + "@internal"
+        );
         writer.write("sha1?: __ChecksumConstructor | __HashConstructor;\n");
 
-        writer.addImport("GetAwsChunkedEncodingStream", "GetAwsChunkedEncodingStream",
-                TypeScriptDependency.AWS_SDK_TYPES);
-        writer.writeDocs("A function that returns Readable Stream which follows aws-chunked encoding stream.\n"
-                + "@internal");
+        writer.addImport(
+            "GetAwsChunkedEncodingStream",
+            "GetAwsChunkedEncodingStream",
+            TypeScriptDependency.AWS_SDK_TYPES
+        );
+        writer.writeDocs(
+            "A function that returns Readable Stream which follows aws-chunked encoding stream.\n"
+                + "@internal"
+        );
         writer.write("getAwsChunkedEncodingStream?: GetAwsChunkedEncodingStream;\n");
     }
 
     @Override
     public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            LanguageTarget target
+        TypeScriptSettings settings,
+        Model model,
+        SymbolProvider symbolProvider,
+        LanguageTarget target
     ) {
         if (!hasHttpChecksumTrait(model, settings.getService(model))) {
             return Collections.emptyMap();
@@ -104,68 +104,110 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
         switch (target) {
             case SHARED:
                 return MapUtils.of(
-                    "getAwsChunkedEncodingStream", writer -> {
+                    "getAwsChunkedEncodingStream",
+                    writer -> {
                         writer.addDependency(TypeScriptDependency.UTIL_STREAM);
-                        writer.addImport("getAwsChunkedEncodingStream", "getAwsChunkedEncodingStream",
-                                TypeScriptDependency.UTIL_STREAM);
+                        writer.addImport(
+                            "getAwsChunkedEncodingStream",
+                            "getAwsChunkedEncodingStream",
+                            TypeScriptDependency.UTIL_STREAM
+                        );
                         writer.write("getAwsChunkedEncodingStream");
                     }
                 );
             case NODE:
                 return MapUtils.of(
-                    "streamHasher", writer -> {
+                    "streamHasher",
+                    writer -> {
                         writer.addDependency(TypeScriptDependency.STREAM_HASHER_NODE);
-                        writer.addImport("readableStreamHasher", "streamHasher",
-                                TypeScriptDependency.STREAM_HASHER_NODE);
+                        writer.addImport(
+                            "readableStreamHasher",
+                            "streamHasher",
+                            TypeScriptDependency.STREAM_HASHER_NODE
+                        );
                         writer.write("streamHasher");
                     },
-                    "md5", writer -> {
-                            writer.addDependency(TypeScriptDependency.AWS_SDK_TYPES);
-                            writer.addImport("HashConstructor", "__HashConstructor",
-                                    TypeScriptDependency.AWS_SDK_TYPES);
-                            writer.addImport("ChecksumConstructor", "__ChecksumConstructor",
-                                    TypeScriptDependency.AWS_SDK_TYPES);
-                            writer.write("Hash.bind(null, \"md5\")");
-                    },
-                    "sha1", writer -> {
+                    "md5",
+                    writer -> {
                         writer.addDependency(TypeScriptDependency.AWS_SDK_TYPES);
-                        writer.addImport("HashConstructor", "__HashConstructor",
-                                TypeScriptDependency.AWS_SDK_TYPES);
-                        writer.addImport("ChecksumConstructor", "__ChecksumConstructor",
-                                TypeScriptDependency.AWS_SDK_TYPES);
+                        writer.addImport(
+                            "HashConstructor",
+                            "__HashConstructor",
+                            TypeScriptDependency.AWS_SDK_TYPES
+                        );
+                        writer.addImport(
+                            "ChecksumConstructor",
+                            "__ChecksumConstructor",
+                            TypeScriptDependency.AWS_SDK_TYPES
+                        );
+                        writer.write("Hash.bind(null, \"md5\")");
+                    },
+                    "sha1",
+                    writer -> {
+                        writer.addDependency(TypeScriptDependency.AWS_SDK_TYPES);
+                        writer.addImport(
+                            "HashConstructor",
+                            "__HashConstructor",
+                            TypeScriptDependency.AWS_SDK_TYPES
+                        );
+                        writer.addImport(
+                            "ChecksumConstructor",
+                            "__ChecksumConstructor",
+                            TypeScriptDependency.AWS_SDK_TYPES
+                        );
                         writer.write("Hash.bind(null, \"sha1\")");
                     },
-                    "requestChecksumCalculation", writer -> {
+                    "requestChecksumCalculation",
+                    writer -> {
                         writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
-                        writer.addImport("loadConfig", "loadNodeConfig",
-                                    TypeScriptDependency.NODE_CONFIG_PROVIDER);
-                        writer.addImport("NODE_REQUEST_CHECKSUM_CALCULATION_CONFIG_OPTIONS", null,
-                                    AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE);
+                        writer.addImport(
+                            "loadConfig",
+                            "loadNodeConfig",
+                            TypeScriptDependency.NODE_CONFIG_PROVIDER
+                        );
+                        writer.addImport(
+                            "NODE_REQUEST_CHECKSUM_CALCULATION_CONFIG_OPTIONS",
+                            null,
+                            AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE
+                        );
                         writer.write("loadNodeConfig(NODE_REQUEST_CHECKSUM_CALCULATION_CONFIG_OPTIONS, loaderConfig)");
                     },
-                    "responseChecksumValidation", writer -> {
+                    "responseChecksumValidation",
+                    writer -> {
                         writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
-                        writer.addImport("loadConfig", "loadNodeConfig",
-                                    TypeScriptDependency.NODE_CONFIG_PROVIDER);
-                        writer.addImport("NODE_RESPONSE_CHECKSUM_VALIDATION_CONFIG_OPTIONS", null,
-                                    AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE);
+                        writer.addImport(
+                            "loadConfig",
+                            "loadNodeConfig",
+                            TypeScriptDependency.NODE_CONFIG_PROVIDER
+                        );
+                        writer.addImport(
+                            "NODE_RESPONSE_CHECKSUM_VALIDATION_CONFIG_OPTIONS",
+                            null,
+                            AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE
+                        );
                         writer.write("loadNodeConfig(NODE_RESPONSE_CHECKSUM_VALIDATION_CONFIG_OPTIONS, loaderConfig)");
                     }
                 );
             case BROWSER:
                 return MapUtils.of(
-                    "streamHasher", writer -> {
+                    "streamHasher",
+                    writer -> {
                         writer.addDependency(TypeScriptDependency.STREAM_HASHER_BROWSER);
-                        writer.addImport("blobHasher", "streamHasher",
-                                TypeScriptDependency.STREAM_HASHER_BROWSER);
+                        writer.addImport(
+                            "blobHasher",
+                            "streamHasher",
+                            TypeScriptDependency.STREAM_HASHER_BROWSER
+                        );
                         writer.write("streamHasher");
                     },
-                    "md5", writer -> {
+                    "md5",
+                    writer -> {
                         writer.addDependency(TypeScriptDependency.MD5_BROWSER);
                         writer.addImport("Md5", "Md5", TypeScriptDependency.MD5_BROWSER);
                         writer.write("Md5");
                     },
-                    "sha1", writer -> {
+                    "sha1",
+                    writer -> {
                         writer.addDependency(AwsDependency.AWS_CRYPTO_SHA1_BROWSER);
                         writer.addImport("Sha1", "Sha1", AwsDependency.AWS_CRYPTO_SHA1_BROWSER);
                         writer.write("Sha1");
@@ -180,16 +222,22 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
     public List<RuntimeClientPlugin> getClientPlugins() {
         return ListUtils.of(
             RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE.dependency, "FlexibleChecksums",
-                                         HAS_CONFIG)
-                        .servicePredicate((m, s) -> hasHttpChecksumTrait(m, s))
-                        .build(),
+                .withConventions(
+                    AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE.dependency,
+                    "FlexibleChecksums",
+                    HAS_CONFIG
+                )
+                .servicePredicate((m, s) -> hasHttpChecksumTrait(m, s))
+                .build(),
             RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE.dependency, "FlexibleChecksums",
-                                         HAS_MIDDLEWARE)
-                        .additionalPluginFunctionParamsSupplier((m, s, o) -> getPluginFunctionParams(m, s, o))
-                        .operationPredicate((m, s, o) -> hasHttpChecksumTrait(o))
-                        .build()
+                .withConventions(
+                    AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE.dependency,
+                    "FlexibleChecksums",
+                    HAS_MIDDLEWARE
+                )
+                .additionalPluginFunctionParamsSupplier((m, s, o) -> getPluginFunctionParams(m, s, o))
+                .operationPredicate((m, s, o) -> hasHttpChecksumTrait(o))
+                .build()
         );
     }
 
@@ -207,7 +255,7 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
             requestAlgorithmMemberMap.put("name", requestAlgorithmMember);
 
             // We know that input shape is structure, and contains requestAlgorithmMember.
-            StructureShape inputShape =  model.expectShape(operation.getInput().get(), StructureShape.class);
+            StructureShape inputShape = model.expectShape(operation.getInput().get(), StructureShape.class);
             MemberShape requestAlgorithmMemberShape = inputShape.getAllMembers().get(requestAlgorithmMember);
 
             // Set requestAlgorithmMemberHttpHeader if HttpHeaderTrait is present.
@@ -231,8 +279,8 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
     }
 
     private static boolean hasHttpChecksumTrait(
-            Model model,
-            ServiceShape service
+        Model model,
+        ServiceShape service
     ) {
         TopDownIndex topDownIndex = TopDownIndex.of(model);
         Set<OperationShape> operations = topDownIndex.getContainedOperations(service);

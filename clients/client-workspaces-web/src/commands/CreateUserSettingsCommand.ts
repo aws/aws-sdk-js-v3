@@ -27,9 +27,7 @@ export interface CreateUserSettingsCommandInput extends CreateUserSettingsReques
 export interface CreateUserSettingsCommandOutput extends CreateUserSettingsResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a user settings resource that can be associated with a web portal. Once
- *          associated with a web portal, user settings control how users can transfer data between a
- *          streaming session and the their local devices. </p>
+ * <p>Creates a user settings resource that can be associated with a web portal. Once associated with a web portal, user settings control how users can transfer data between a streaming session and the their local devices. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,6 +80,34 @@ export interface CreateUserSettingsCommandOutput extends CreateUserSettingsRespo
  *     ],
  *     maxDisplayResolution: "STRING_VALUE",
  *   },
+ *   brandingConfigurationInput: { // BrandingConfigurationCreateInput
+ *     logo: { // IconImageInput Union: only one key present
+ *       blob: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *       s3Uri: "STRING_VALUE",
+ *     },
+ *     wallpaper: { // WallpaperImageInput Union: only one key present
+ *       blob: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *       s3Uri: "STRING_VALUE",
+ *     },
+ *     favicon: {//  Union: only one key present
+ *       blob: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *       s3Uri: "STRING_VALUE",
+ *     },
+ *     localizedStrings: { // LocalizedBrandingStringMap // required
+ *       "<keys>": { // LocalizedBrandingStrings
+ *         browserTabTitle: "STRING_VALUE", // required
+ *         welcomeText: "STRING_VALUE", // required
+ *         loginTitle: "STRING_VALUE",
+ *         loginDescription: "STRING_VALUE",
+ *         loginButtonText: "STRING_VALUE",
+ *         contactLink: "STRING_VALUE",
+ *         contactButtonText: "STRING_VALUE",
+ *         loadingText: "STRING_VALUE",
+ *       },
+ *     },
+ *     colorTheme: "Light" || "Dark", // required
+ *     termsOfService: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateUserSettingsCommand(input);
  * const response = await client.send(command);
@@ -105,6 +131,9 @@ export interface CreateUserSettingsCommandOutput extends CreateUserSettingsRespo
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There is an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource cannot be found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The service quota has been exceeded.</p>

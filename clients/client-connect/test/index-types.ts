@@ -1064,6 +1064,7 @@ export type {
   DecimalComparisonType,
   DeviceType,
   DirectoryType,
+  DisconnectOnCustomerExitParticipantType,
   EmailHeaderType,
   EncryptionType,
   EndpointType,

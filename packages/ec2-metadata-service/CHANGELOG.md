@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.951.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.950.0...v3.951.0) (2025-12-12)
+
+
+### Bug Fixes
+
+* **ec2-metadata-service:** custom port configuration for IMDS requests ([#7565](https://github.com/aws/aws-sdk-js-v3/issues/7565)) ([0d8b7ea](https://github.com/aws/aws-sdk-js-v3/commit/0d8b7ea278909bd1b64ede683d6c31ad442dab8a))
+* **ec2-metadata-service:** preserve statusCode when rethrowing errors for IMDS requests ([#7564](https://github.com/aws/aws-sdk-js-v3/issues/7564)) ([c860bd5](https://github.com/aws/aws-sdk-js-v3/commit/c860bd5cd14a62713bb38e82363f8943d29f3363))
+
+
+
+
+
 # [3.948.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.947.0...v3.948.0) (2025-12-09)
 
 **Note:** Version bump only for package @aws-sdk/ec2-metadata-service

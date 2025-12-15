@@ -69,6 +69,7 @@ export class MetadataService {
       hostname: endpointUrl.hostname,
       path: endpointUrl.pathname + path,
       protocol: endpointUrl.protocol,
+      port: endpointUrl.port ? parseInt(endpointUrl.port) : undefined,
     });
     try {
       const { response } = await handler.handle(request, {} as HttpHandlerOptions);
@@ -76,10 +77,17 @@ export class MetadataService {
         // handle response.body as stream
         return sdkStreamMixin(response.body).transformToString();
       } else {
-        throw new Error(`Request failed with status code ${response.statusCode}`);
+        throw Object.assign(new Error(`Request failed with status code ${response.statusCode}`), {
+          $metadata: { httpStatusCode: response.statusCode },
+        });
       }
     } catch (error) {
-      throw new Error(`Error making request to the metadata service: ${error}`);
+      const wrappedError = new Error(`Error making request to the metadata service: ${error}`);
+      const { $metadata } = error as any;
+      if ($metadata?.httpStatusCode !== undefined) {
+        Object.assign(wrappedError, { $metadata });
+      }
+      throw wrappedError;
     }
   }
 
@@ -102,6 +110,7 @@ export class MetadataService {
       hostname: endpointUrl.hostname,
       path: "/latest/api/token",
       protocol: endpointUrl.protocol,
+      port: endpointUrl.port ? parseInt(endpointUrl.port) : undefined,
     });
     try {
       const { response } = await handler.handle(tokenRequest, {} as HttpHandlerOptions);

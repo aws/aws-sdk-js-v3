@@ -27,7 +27,9 @@ export interface BatchDeleteDataTableValueCommandInput extends BatchDeleteDataTa
 export interface BatchDeleteDataTableValueCommandOutput extends BatchDeleteDataTableValueResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes multiple values from a data table. API users may delete values at any time. When deletion is requested from the admin website, a warning is shown alerting the user of the most recent time the attribute and its values were accessed. System managed values are not deletable by customers.</p>
+ * <p>Deletes multiple values from a data table. API users may delete values at any time. When deletion is requested
+ *    from the admin website, a warning is shown alerting the user of the most recent time the attribute and its values
+ *    were accessed. System managed values are not deletable by customers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

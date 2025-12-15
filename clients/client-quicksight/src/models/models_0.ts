@@ -25,6 +25,8 @@ import {
   DataPrepSimpleAggregationFunctionType,
   DateAggregationFunction,
   DayOfTheWeek,
+  DecalPatternType,
+  DecalStyleType,
   DigitGroupingStyle,
   Edition,
   FilterNullOption,
@@ -2189,6 +2191,154 @@ export interface ColorsConfiguration {
 }
 
 /**
+ * <p>Decal settings for accessibility features that define visual patterns and styling for data elements.</p>
+ * @public
+ */
+export interface DecalSettings {
+  /**
+   * <p>Field value of the field that you are setting the decal pattern to. Applicable only for field level settings.</p>
+   * @public
+   */
+  ElementValue?: string | undefined;
+
+  /**
+   * <p>Visibility setting for the decal pattern.</p>
+   * @public
+   */
+  DecalVisibility?: Visibility | undefined;
+
+  /**
+   * <p>Color configuration for the decal pattern.</p>
+   * @public
+   */
+  DecalColor?: string | undefined;
+
+  /**
+   * <p>Type of pattern used for the decal, such as solid, diagonal, or circular patterns in various sizes.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SOLID</code>: Solid fill pattern.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIAGONAL_SMALL</code>: Small diagonal stripes pattern.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIAGONAL_MEDIUM</code>: Medium diagonal stripes pattern.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIAGONAL_LARGE</code>: Large diagonal stripes pattern.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIAGONAL_OPPOSITE_SMALL</code>: Small cross-diagonal stripes pattern.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIAGONAL_OPPOSITE_MEDIUM</code>: Medium cross-diagonal stripes pattern.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIAGONAL_OPPOSITE_LARGE</code>: Large cross-diagonal stripes pattern.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CIRCLE_SMALL</code>: Small circle pattern.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CIRCLE_MEDIUM</code>: Medium circle pattern.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CIRCLE_LARGE</code>: Large circle pattern.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIAMOND_SMALL</code>: Small diamonds pattern.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIAMOND_MEDIUM</code>: Medium diamonds pattern.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIAMOND_LARGE</code>: Large diamonds pattern.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIAMOND_GRID_SMALL</code>: Small diamond grid pattern.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIAMOND_GRID_MEDIUM</code>: Medium diamond grid pattern.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIAMOND_GRID_LARGE</code>: Large diamond grid pattern.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CHECKERBOARD_SMALL</code>: Small checkerboard pattern.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CHECKERBOARD_MEDIUM</code>: Medium checkerboard pattern.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CHECKERBOARD_LARGE</code>: Large checkerboard pattern.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TRIANGLE_SMALL</code>: Small triangles pattern.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TRIANGLE_MEDIUM</code>: Medium triangles pattern.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TRIANGLE_LARGE</code>: Large triangles pattern.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DecalPatternType?: DecalPatternType | undefined;
+
+  /**
+   * <p>Style type for the decal, which can be either manual or automatic. This field is only applicable for line series.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Manual</code>: Apply manual line and marker configuration for line series.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Auto</code>: Apply automatic line and marker configuration for line series.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DecalStyleType?: DecalStyleType | undefined;
+}
+
+/**
+ * <p>Decal settings configuration for a column</p>
+ * @public
+ */
+export interface DecalSettingsConfiguration {
+  /**
+   * <p>A list of up to 50 decal settings.</p>
+   * @public
+   */
+  CustomDecalSettings?: DecalSettings[] | undefined;
+}
+
+/**
  * <p>The options that determine the null value format configuration.</p>
  * @public
  */
@@ -2541,6 +2691,12 @@ export interface ColumnConfiguration {
    * @public
    */
   ColorsConfiguration?: ColorsConfiguration | undefined;
+
+  /**
+   * <p>Decal configuration of the column.</p>
+   * @public
+   */
+  DecalSettingsConfiguration?: DecalSettingsConfiguration | undefined;
 }
 
 /**
@@ -6898,6 +7054,48 @@ export interface DataLabelOptions {
 }
 
 /**
+ * <p>Border settings configuration for visual elements, including visibility, width, and color properties.</p>
+ * @public
+ */
+export interface BorderSettings {
+  /**
+   * <p>Visibility setting for the border.</p>
+   * @public
+   */
+  BorderVisibility?: Visibility | undefined;
+
+  /**
+   * <p>Width of the border. Valid range is from 1px to 8px.</p>
+   * @public
+   */
+  BorderWidth?: string | undefined;
+
+  /**
+   * <p>Color of the border.</p>
+   * @public
+   */
+  BorderColor?: string | undefined;
+}
+
+/**
+ * <p>The options that determine the default presentation of all bar series in <code>BarChartVisual</code>.</p>
+ * @public
+ */
+export interface BarChartDefaultSeriesSettings {
+  /**
+   * <p>Decal settings for all bar series in the visual.</p>
+   * @public
+   */
+  DecalSettings?: DecalSettings | undefined;
+
+  /**
+   * <p>Border settings for all bar series in the visual.</p>
+   * @public
+   */
+  BorderSettings?: BorderSettings | undefined;
+}
+
+/**
  * <p>The dimension type field with categorical type columns..</p>
  * @public
  */
@@ -7637,6 +7835,85 @@ export interface ReferenceLine {
 }
 
 /**
+ * <p>Options that determine the presentation of a bar series in the visual.</p>
+ * @public
+ */
+export interface BarChartSeriesSettings {
+  /**
+   * <p>Decal settings for the bar series.</p>
+   * @public
+   */
+  DecalSettings?: DecalSettings | undefined;
+
+  /**
+   * <p>Border settings for the bar series.</p>
+   * @public
+   */
+  BorderSettings?: BorderSettings | undefined;
+}
+
+/**
+ * <p>The data field series item configuration of a  <code>BarChartVisual</code>.</p>
+ * @public
+ */
+export interface DataFieldBarSeriesItem {
+  /**
+   * <p>Field ID of the field that you are setting the series configuration for.</p>
+   * @public
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>Field value of the field that you are setting the series configuration for.</p>
+   * @public
+   */
+  FieldValue?: string | undefined;
+
+  /**
+   * <p>Options that determine the presentation of bar series associated to the field.</p>
+   * @public
+   */
+  Settings?: BarChartSeriesSettings | undefined;
+}
+
+/**
+ * <p>The field series item configuration of a  <code>BarChartVisual</code>.</p>
+ * @public
+ */
+export interface FieldBarSeriesItem {
+  /**
+   * <p>Field ID of the field for which you are setting the series configuration.</p>
+   * @public
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>Options that determine the presentation of bar series associated to the field.</p>
+   * @public
+   */
+  Settings?: BarChartSeriesSettings | undefined;
+}
+
+/**
+ * <p>The series item configuration of a  <code>BarChartVisual</code>.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * @public
+ */
+export interface BarSeriesItem {
+  /**
+   * <p>The field series item configuration of a  <code>BarChartVisual</code>.</p>
+   * @public
+   */
+  FieldBarSeriesItem?: FieldBarSeriesItem | undefined;
+
+  /**
+   * <p>The data field series item configuration of a  <code>BarChartVisual</code>.</p>
+   * @public
+   */
+  DataFieldBarSeriesItem?: DataFieldBarSeriesItem | undefined;
+}
+
+/**
  * <p>The options that determine the title styles for each small multiples
  *             panel.</p>
  * @public
@@ -8233,6 +8510,18 @@ export interface BarChartConfiguration {
   ColorLabelOptions?: ChartAxisLabelOptions | undefined;
 
   /**
+   * <p>The options that determine the default presentation of all bar series in <code>BarChartVisual</code>.</p>
+   * @public
+   */
+  DefaultSeriesSettings?: BarChartDefaultSeriesSettings | undefined;
+
+  /**
+   * <p>The series item configuration of a  <code>BarChartVisual</code>.</p>
+   * @public
+   */
+  Series?: BarSeriesItem[] | undefined;
+
+  /**
    * <p>The legend display setup of the visual.</p>
    * @public
    */
@@ -8285,187 +8574,4 @@ export interface CategoryDrillDownFilter {
    * @public
    */
   CategoryValues: string[] | undefined;
-}
-
-/**
- * <p>The numeric equality type drill down filter.</p>
- * @public
- */
-export interface NumericEqualityDrillDownFilter {
-  /**
-   * <p>The column that the filter is applied to.</p>
-   * @public
-   */
-  Column: ColumnIdentifier | undefined;
-
-  /**
-   * <p>The value of the double input numeric drill down filter.</p>
-   * @public
-   */
-  Value: number | undefined;
-}
-
-/**
- * <p>The time range drill down filter.</p>
- * @public
- */
-export interface TimeRangeDrillDownFilter {
-  /**
-   * <p>The column that the filter is applied to.</p>
-   * @public
-   */
-  Column: ColumnIdentifier | undefined;
-
-  /**
-   * <p>The minimum value for the filter value range.</p>
-   * @public
-   */
-  RangeMinimum: Date | undefined;
-
-  /**
-   * <p>The maximum value for the filter value range.</p>
-   * @public
-   */
-  RangeMaximum: Date | undefined;
-
-  /**
-   * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
-   * @public
-   */
-  TimeGranularity: TimeGranularity | undefined;
-}
-
-/**
- * <p>The drill down filter for the column hierarchies.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
- * @public
- */
-export interface DrillDownFilter {
-  /**
-   * <p>The numeric equality type drill down filter. This filter is used for number type columns.</p>
-   * @public
-   */
-  NumericEqualityFilter?: NumericEqualityDrillDownFilter | undefined;
-
-  /**
-   * <p>The category type drill down filter. This filter is used for string type columns.</p>
-   * @public
-   */
-  CategoryFilter?: CategoryDrillDownFilter | undefined;
-
-  /**
-   * <p>The time range drill down filter. This filter is used for date time columns.</p>
-   * @public
-   */
-  TimeRangeFilter?: TimeRangeDrillDownFilter | undefined;
-}
-
-/**
- * <p>The option that determines the hierarchy of any <code>DateTime</code> fields.</p>
- * @public
- */
-export interface DateTimeHierarchy {
-  /**
-   * <p>The hierarchy ID of the <code>DateTime</code> hierarchy.</p>
-   * @public
-   */
-  HierarchyId: string | undefined;
-
-  /**
-   * <p>The option that determines the drill down filters for the
-   *                 <code>DateTime</code> hierarchy.</p>
-   * @public
-   */
-  DrillDownFilters?: DrillDownFilter[] | undefined;
-}
-
-/**
- * <p>The option that determines the hierarchy of the fields that are built within a visual's field wells. These fields can't be duplicated to other visuals.</p>
- * @public
- */
-export interface ExplicitHierarchy {
-  /**
-   * <p>The hierarchy ID of the explicit hierarchy.</p>
-   * @public
-   */
-  HierarchyId: string | undefined;
-
-  /**
-   * <p>The list of columns that define the explicit hierarchy.</p>
-   * @public
-   */
-  Columns: ColumnIdentifier[] | undefined;
-
-  /**
-   * <p>The option that determines the drill down filters for the explicit hierarchy.</p>
-   * @public
-   */
-  DrillDownFilters?: DrillDownFilter[] | undefined;
-}
-
-/**
- * <p>The option that determines the hierarchy of the fields that are defined during data preparation. These fields are available to use in any analysis that uses the data source.</p>
- * @public
- */
-export interface PredefinedHierarchy {
-  /**
-   * <p>The hierarchy ID of the predefined hierarchy.</p>
-   * @public
-   */
-  HierarchyId: string | undefined;
-
-  /**
-   * <p>The list of columns that define the predefined hierarchy.</p>
-   * @public
-   */
-  Columns: ColumnIdentifier[] | undefined;
-
-  /**
-   * <p>The option that determines the drill down filters for the predefined hierarchy.</p>
-   * @public
-   */
-  DrillDownFilters?: DrillDownFilter[] | undefined;
-}
-
-/**
- * <p>The option that determines the hierarchy of the fields for a visual element.</p>
- * @public
- */
-export interface ColumnHierarchy {
-  /**
-   * <p>The option that determines the hierarchy of the fields that are built within a visual's field wells. These fields can't be duplicated to other visuals.</p>
-   * @public
-   */
-  ExplicitHierarchy?: ExplicitHierarchy | undefined;
-
-  /**
-   * <p>The option that determines the hierarchy of any <code>DateTime</code> fields.</p>
-   * @public
-   */
-  DateTimeHierarchy?: DateTimeHierarchy | undefined;
-
-  /**
-   * <p>The option that determines the hierarchy of the fields that are defined during data preparation. These fields are available to use in any analysis that uses the data source.</p>
-   * @public
-   */
-  PredefinedHierarchy?: PredefinedHierarchy | undefined;
-}
-
-/**
- * <p>The text format for a subtitle.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
- * @public
- */
-export interface LongFormatText {
-  /**
-   * <p>Plain text format.</p>
-   * @public
-   */
-  PlainText?: string | undefined;
-
-  /**
-   * <p>Rich text. Examples of rich text include bold, underline, and italics.</p>
-   * @public
-   */
-  RichText?: string | undefined;
 }

@@ -120,6 +120,7 @@ export * from "./GenerateEmbedUrlForRegisteredUserWithIdentityCommand";
 export * from "./GetDashboardEmbedUrlCommand";
 export * from "./GetFlowMetadataCommand";
 export * from "./GetFlowPermissionsCommand";
+export * from "./GetIdentityContextCommand";
 export * from "./GetSessionEmbedUrlCommand";
 export * from "./ListActionConnectorsCommand";
 export * from "./ListAnalysesCommand";

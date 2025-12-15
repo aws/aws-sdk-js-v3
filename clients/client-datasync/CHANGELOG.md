@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.951.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.950.0...v3.951.0) (2025-12-12)
+
+
+### Features
+
+* **client-datasync:** Adds Enhanced mode support for NFS and SMB locations. SMB credentials are now managed via Secrets Manager, and may be encrypted with service or customer managed keys. Increases AgentArns maximum count to 8 (max 4 per TaskMode). Adds folder counters to DescribeTaskExecution for Enhanced mode tasks. ([a9f75c9](https://github.com/aws/aws-sdk-js-v3/commit/a9f75c956dc6f5d853e687b6979a5372cbab4a85))
+
+
+
+
+
 # [3.948.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.947.0...v3.948.0) (2025-12-09)
 
 **Note:** Version bump only for package @aws-sdk/client-datasync

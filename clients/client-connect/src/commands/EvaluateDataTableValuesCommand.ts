@@ -27,7 +27,11 @@ export interface EvaluateDataTableValuesCommandInput extends EvaluateDataTableVa
 export interface EvaluateDataTableValuesCommandOutput extends EvaluateDataTableValuesResponse, __MetadataBearer {}
 
 /**
- * <p>Evaluates values at the time of the request and returns them. It considers the request's timezone or the table's timezone, in that order, when accessing time based tables. When a value is accessed, the accessor's identity and the time of access are saved alongside the value to help identify values that are actively in use. The term "Batch" is not included in the operation name since it does not meet all the criteria for a batch operation as specified in Batch Operations: AWS API Standards.</p>
+ * <p>Evaluates values at the time of the request and returns them. It considers the request's timezone or the table's
+ *    timezone, in that order, when accessing time based tables. When a value is accessed, the accessor's identity and the
+ *    time of access are saved alongside the value to help identify values that are actively in use. The term "Batch" is
+ *    not included in the operation name since it does not meet all the criteria for a batch operation as specified in
+ *    Batch Operations: AWS API Standards.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

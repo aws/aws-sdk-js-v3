@@ -1,18 +1,7 @@
 /*
- * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- *
- *  http://aws.amazon.com/apache2.0
- *
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: Apache-2.0
  */
-
 package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.ArrayList;
@@ -65,45 +54,83 @@ public class AddDocumentClientPlugin implements TypeScriptIntegration {
 
             for (OperationShape operation : containedOperations) {
                 String operationName = symbolProvider.toSymbol(operation).getName();
-                String commandFileName = String.format("%s%s/%s.ts", DocumentClientUtils.DOC_CLIENT_PREFIX,
-                    DocumentClientUtils.CLIENT_COMMANDS_FOLDER, DocumentClientUtils.getModifiedName(operationName));
+                String commandFileName = String.format(
+                    "%s%s/%s.ts",
+                    DocumentClientUtils.DOC_CLIENT_PREFIX,
+                    DocumentClientUtils.CLIENT_COMMANDS_FOLDER,
+                    DocumentClientUtils.getModifiedName(operationName)
+                );
 
                 if (DocumentClientUtils.containsAttributeValue(model, symbolProvider, operation)) {
                     overridenOperationsList.add(operation);
-                    writerFactory.accept(commandFileName,
+                    writerFactory.accept(
+                        commandFileName,
                         writer -> new DocumentClientCommandGenerator(
-                            settings, model, operation, symbolProvider, writer).run()
+                            settings,
+                            model,
+                            operation,
+                            symbolProvider,
+                            writer
+                        ).run()
                     );
 
                     if (operation.hasTrait(PaginatedTrait.ID)) {
                         String paginationFileName = DocumentClientPaginationGenerator.getOutputFilelocation(operation);
-                        writerFactory.accept(paginationFileName, paginationWriter ->
-                            new DocumentClientPaginationGenerator(model, service, operation, symbolProvider,
-                                    paginationWriter).run());
+                        writerFactory.accept(
+                            paginationFileName,
+                            paginationWriter -> new DocumentClientPaginationGenerator(
+                                model,
+                                service,
+                                operation,
+                                symbolProvider,
+                                paginationWriter
+                            ).run()
+                        );
                     }
                 }
             }
 
-            writerFactory.accept(String.format("%s%s.ts", DocumentClientUtils.DOC_CLIENT_PREFIX,
-                DocumentClientUtils.CLIENT_NAME),
-                writer -> new DocumentBareBonesClientGenerator(settings, model, symbolProvider, writer).run());
+            writerFactory.accept(
+                String.format(
+                    "%s%s.ts",
+                    DocumentClientUtils.DOC_CLIENT_PREFIX,
+                    DocumentClientUtils.CLIENT_NAME
+                ),
+                writer -> new DocumentBareBonesClientGenerator(settings, model, symbolProvider, writer).run()
+            );
 
-            writerFactory.accept(String.format("%s%s.ts", DocumentClientUtils.DOC_CLIENT_PREFIX,
-                DocumentClientUtils.CLIENT_FULL_NAME),
-                writer -> new DocumentAggregatedClientGenerator(settings, model, symbolProvider, writer).run());
+            writerFactory.accept(
+                String.format(
+                    "%s%s.ts",
+                    DocumentClientUtils.DOC_CLIENT_PREFIX,
+                    DocumentClientUtils.CLIENT_FULL_NAME
+                ),
+                writer -> new DocumentAggregatedClientGenerator(settings, model, symbolProvider, writer).run()
+            );
 
-            writerFactory.accept(String.format("%s%s/index.ts", DocumentClientUtils.DOC_CLIENT_PREFIX,
-                DocumentClientUtils.CLIENT_COMMANDS_FOLDER), writer -> {
+            writerFactory.accept(
+                String.format(
+                    "%s%s/index.ts",
+                    DocumentClientUtils.DOC_CLIENT_PREFIX,
+                    DocumentClientUtils.CLIENT_COMMANDS_FOLDER
+                ),
+                writer -> {
                     for (OperationShape operation : overridenOperationsList) {
                         String operationFileName = DocumentClientUtils.getModifiedName(
                             symbolProvider.toSymbol(operation).getName()
                         );
                         writer.write("export * from './$L';", operationFileName);
                     }
-            });
+                }
+            );
 
-            writerFactory.accept(String.format("%s%s/index.ts", DocumentClientUtils.DOC_CLIENT_PREFIX,
-                DocumentClientPaginationGenerator.PAGINATION_FOLDER), writer -> {
+            writerFactory.accept(
+                String.format(
+                    "%s%s/index.ts",
+                    DocumentClientUtils.DOC_CLIENT_PREFIX,
+                    DocumentClientPaginationGenerator.PAGINATION_FOLDER
+                ),
+                writer -> {
                     writer.write("export * from './Interfaces';");
                     writer.write("export * from './BatchGetPaginator';");
                     for (OperationShape operation : overridenOperationsList) {
@@ -113,11 +140,15 @@ public class AddDocumentClientPlugin implements TypeScriptIntegration {
                             writer.write("export * from './$L';", paginationFileName);
                         }
                     }
-            });
+                }
+            );
 
             String paginationInterfaceFileName = DocumentClientPaginationGenerator.getInterfaceFilelocation();
-            writerFactory.accept(paginationInterfaceFileName, paginationWriter ->
-                    DocumentClientPaginationGenerator.generateServicePaginationInterfaces(paginationWriter));
+            writerFactory.accept(
+                paginationInterfaceFileName,
+                paginationWriter -> DocumentClientPaginationGenerator
+                    .generateServicePaginationInterfaces(paginationWriter)
+            );
 
             writerFactory.accept(String.format("%sindex.ts", DocumentClientUtils.DOC_CLIENT_PREFIX), writer -> {
                 writer.write("export * from './commands';");
@@ -125,11 +156,13 @@ public class AddDocumentClientPlugin implements TypeScriptIntegration {
                 writer.write("export * from './$L';", DocumentClientUtils.CLIENT_NAME);
                 writer.write("export * from './$L';", DocumentClientUtils.CLIENT_FULL_NAME);
                 writer.write("");
-                writer.write("""
-export { NumberValueImpl as NumberValue } from "@aws-sdk/util-dynamodb";
-export { marshallOptions, unmarshallOptions } from "@aws-sdk/util-dynamodb";
-export { NativeAttributeValue, NativeAttributeBinary, NativeScalarAttributeValue } from "@aws-sdk/util-dynamodb";
-                """);
+                writer.write(
+                    """
+                    export { NumberValueImpl as NumberValue } from "@aws-sdk/util-dynamodb";
+                    export { marshallOptions, unmarshallOptions } from "@aws-sdk/util-dynamodb";
+                    export { NativeAttributeValue, NativeAttributeBinary, NativeScalarAttributeValue } from "@aws-sdk/util-dynamodb";
+                                    """
+                );
             });
         }
     }

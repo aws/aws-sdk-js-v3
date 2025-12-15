@@ -1,18 +1,7 @@
 /*
- * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- *
- *  http://aws.amazon.com/apache2.0
- *
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: Apache-2.0
  */
-
 package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Collections;
@@ -56,27 +45,35 @@ public class AddWebsocketPlugin implements TypeScriptIntegration {
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {
         return ListUtils.of(
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.MIDDLEWARE_WEBSOCKET.dependency,
-                                "WebSocket", RuntimeClientPlugin.Convention.HAS_MIDDLEWARE)
-                        .additionalPluginFunctionParamsSupplier((m, s, o) -> getPluginFunctionParams(m, s, o))
-                        .operationPredicate((m, s, o) -> isWebsocketSupported(s)
-                            && AddEventStreamHandlingDependency.hasEventStreamInput(m, o))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.MIDDLEWARE_WEBSOCKET.dependency, "WebSocket",
-                                RuntimeClientPlugin.Convention.HAS_CONFIG)
-                        .servicePredicate((m, s) -> isWebsocketSupported(s))
-                        .build()
+            RuntimeClientPlugin.builder()
+                .withConventions(
+                    AwsDependency.MIDDLEWARE_WEBSOCKET.dependency,
+                    "WebSocket",
+                    RuntimeClientPlugin.Convention.HAS_MIDDLEWARE
+                )
+                .additionalPluginFunctionParamsSupplier((m, s, o) -> getPluginFunctionParams(m, s, o))
+                .operationPredicate(
+                    (m, s, o) -> isWebsocketSupported(s)
+                        && AddEventStreamHandlingDependency.hasEventStreamInput(m, o)
+                )
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(
+                    AwsDependency.MIDDLEWARE_WEBSOCKET.dependency,
+                    "WebSocket",
+                    RuntimeClientPlugin.Convention.HAS_CONFIG
+                )
+                .servicePredicate((m, s) -> isWebsocketSupported(s))
+                .build()
         );
     }
 
     @Override
     public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            LanguageTarget target
+        TypeScriptSettings settings,
+        Model model,
+        SymbolProvider symbolProvider,
+        LanguageTarget target
     ) {
         ServiceShape service = settings.getService(model);
         if (!isWebsocketSupported(service)) {
@@ -85,41 +82,50 @@ public class AddWebsocketPlugin implements TypeScriptIntegration {
         switch (target) {
             case BROWSER:
                 return MapUtils.of(
-                    "eventStreamPayloadHandlerProvider", writer -> {
-                            writer.addDependency(AwsDependency.MIDDLEWARE_WEBSOCKET);
-                            writer.addImport("eventStreamPayloadHandlerProvider", "eventStreamPayloadHandlerProvider",
-                                AwsDependency.MIDDLEWARE_WEBSOCKET);
-                            writer.write("eventStreamPayloadHandlerProvider");
+                    "eventStreamPayloadHandlerProvider",
+                    writer -> {
+                        writer.addDependency(AwsDependency.MIDDLEWARE_WEBSOCKET);
+                        writer.addImport(
+                            "eventStreamPayloadHandlerProvider",
+                            "eventStreamPayloadHandlerProvider",
+                            AwsDependency.MIDDLEWARE_WEBSOCKET
+                        );
+                        writer.write("eventStreamPayloadHandlerProvider");
                     },
-                    "requestHandler", writer -> {
-                            writer.addImport("FetchHttpHandler", "HttpRequestHandler",
-                                TypeScriptDependency.AWS_SDK_FETCH_HTTP_HANDLER);
-                            writer.addDependency(TypeScriptDependency.AWS_SDK_FETCH_HTTP_HANDLER);
-                            writer
-                                .addImport(
-                                    "WebSocketFetchHandler",
-                                    "WebSocketRequestHandler",
-                                    AwsDependency.MIDDLEWARE_WEBSOCKET
-                                )
-                                .addImport(
-                                    "WebSocketFetchHandlerOptions",
-                                    null,
-                                    AwsDependency.MIDDLEWARE_WEBSOCKET
-                                );
-                            writer.addDependency(AwsDependency.MIDDLEWARE_WEBSOCKET);
-                            writer.write(
-                                """
-                                WebSocketRequestHandler.create(
-                                    config?.requestHandler as
-                                        WebSocketRequestHandler |
-                                        WebSocketFetchHandlerOptions |
-                                        (() => Promise<WebSocketFetchHandlerOptions>)
-                                      ?? defaultConfigProvider,
-                                    HttpRequestHandler.create(defaultConfigProvider)
-                                )
-                                """
+                    "requestHandler",
+                    writer -> {
+                        writer.addImport(
+                            "FetchHttpHandler",
+                            "HttpRequestHandler",
+                            TypeScriptDependency.AWS_SDK_FETCH_HTTP_HANDLER
+                        );
+                        writer.addDependency(TypeScriptDependency.AWS_SDK_FETCH_HTTP_HANDLER);
+                        writer
+                            .addImport(
+                                "WebSocketFetchHandler",
+                                "WebSocketRequestHandler",
+                                AwsDependency.MIDDLEWARE_WEBSOCKET
+                            )
+                            .addImport(
+                                "WebSocketFetchHandlerOptions",
+                                null,
+                                AwsDependency.MIDDLEWARE_WEBSOCKET
                             );
-                    });
+                        writer.addDependency(AwsDependency.MIDDLEWARE_WEBSOCKET);
+                        writer.write(
+                            """
+                            WebSocketRequestHandler.create(
+                                config?.requestHandler as
+                                    WebSocketRequestHandler |
+                                    WebSocketFetchHandlerOptions |
+                                    (() => Promise<WebSocketFetchHandlerOptions>)
+                                  ?? defaultConfigProvider,
+                                HttpRequestHandler.create(defaultConfigProvider)
+                            )
+                            """
+                        );
+                    }
+                );
             default:
                 return Collections.emptyMap();
         }

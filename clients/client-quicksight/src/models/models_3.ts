@@ -24,12 +24,12 @@ import {
   DayOfWeek,
   DefaultAggregation,
   DisplayFormat,
+  FileFormat,
   FilterClass,
   FilterOperator,
   FolderType,
   HorizontalTextAlignment,
   IdentityStore,
-  IdentityType,
   IncludeFolderMembers,
   IngestionErrorType,
   IngestionRequestSource,
@@ -51,19 +51,19 @@ import {
   RefreshInterval,
   ResourceStatus,
   Role,
+  RowLevelPermissionFormatVersion,
+  RowLevelPermissionPolicy,
   ServiceType,
   SharingModel,
   SnapshotJobStatus,
+  Status,
   TemplateErrorType,
+  TextQualifier,
   TextTransform,
-  ThemeErrorType,
-  ThemeType,
-  TopicRefreshStatus,
   TopicRelativeDateFilterFunction,
   TopicScheduleType,
   TopicTimeGranularity,
   TopicUserExperienceVersion,
-  UserRole,
   VPCConnectionAvailabilityStatus,
   VPCConnectionResourceStatus,
 } from "./enums";
@@ -87,10 +87,9 @@ import {
   Sheet,
 } from "./models_0";
 
-import { type AnalysisDefinition, DataSetReference, SheetDefinition, StaticFile } from "./models_1";
-
 import {
   type _Parameters,
+  type AnalysisDefinition,
   type AssetBundleCloudFormationOverridePropertyConfiguration,
   type AssetBundleExportJobValidationStrategy,
   type AssetBundleImportJobOverrideParameters,
@@ -104,7 +103,6 @@ import {
   type Capabilities,
   type CollectiveConstant,
   type ComparativeOrder,
-  type CredentialPair,
   type DashboardPublishOptions,
   type DashboardVersionDefinition,
   type DataPrepConfiguration,
@@ -112,13 +110,9 @@ import {
   type DataSetUsageConfiguration,
   type DisplayFormatOptions,
   type LinkSharingConfiguration,
-  type PerformanceConfiguration,
-  type RowLevelPermissionTagConfiguration,
-  type SemanticModelConfiguration,
   type SslProperties,
   type ValidationStrategy,
   type VpcConnectionProperties,
-  type WebProxyCredentials,
   AnonymousUserSnapshotJobResult,
   AssetBundleExportJobError,
   AssetBundleExportJobWarning,
@@ -130,16 +124,730 @@ import {
   ColumnLevelPermissionRule,
   ColumnSchema,
   DatasetParameter,
+  DataSetReference,
   DataSourceParameters,
   FieldFolder,
+  InputColumn,
   LogicalTable,
-  PhysicalTable,
   ResourcePermission,
-  RowLevelPermissionDataSet,
+  SheetDefinition,
   SnapshotFile,
+  SnapshotJobResultFileGroup,
   SnapshotS3DestinationConfiguration,
+  StaticFile,
   Tag,
 } from "./models_2";
+
+/**
+ * <p>A <code>UniqueKey</code> configuration that references a dataset column.</p>
+ * @public
+ */
+export interface UniqueKey {
+  /**
+   * <p>The name of the column that is referenced in the <code>UniqueKey</code>
+   * 			configuration.</p>
+   * @public
+   */
+  ColumnNames: string[] | undefined;
+}
+
+/**
+ * <p>The configuration for the performance optimization of the dataset that contains a
+ * 				<code>UniqueKey</code> configuration.</p>
+ * @public
+ */
+export interface PerformanceConfiguration {
+  /**
+   * <p>A <code>UniqueKey</code> configuration.</p>
+   * @public
+   */
+  UniqueKeys?: UniqueKey[] | undefined;
+}
+
+/**
+ * <p>A physical table type built from the results of the custom SQL query.</p>
+ * @public
+ */
+export interface CustomSql {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data source.</p>
+   * @public
+   */
+  DataSourceArn: string | undefined;
+
+  /**
+   * <p>A display name for the SQL query result.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The SQL query.</p>
+   * @public
+   */
+  SqlQuery: string | undefined;
+
+  /**
+   * <p>The column schema from the SQL query result set.</p>
+   * @public
+   */
+  Columns?: InputColumn[] | undefined;
+}
+
+/**
+ * <p>A physical table type for relational data sources.</p>
+ * @public
+ */
+export interface RelationalTable {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the data source.</p>
+   * @public
+   */
+  DataSourceArn: string | undefined;
+
+  /**
+   * <p>The catalog associated with a table.</p>
+   * @public
+   */
+  Catalog?: string | undefined;
+
+  /**
+   * <p>The schema name. This name applies to certain relational database engines.</p>
+   * @public
+   */
+  Schema?: string | undefined;
+
+  /**
+   * <p>The name of the relational table.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The column schema of the table.</p>
+   * @public
+   */
+  InputColumns: InputColumn[] | undefined;
+}
+
+/**
+ * <p>Information about the format for a source file or files.</p>
+ * @public
+ */
+export interface UploadSettings {
+  /**
+   * <p>File format.</p>
+   * @public
+   */
+  Format?: FileFormat | undefined;
+
+  /**
+   * <p>A row number to start reading data from.</p>
+   * @public
+   */
+  StartFromRow?: number | undefined;
+
+  /**
+   * <p>Whether the file has a header row, or the files each have a header row.</p>
+   * @public
+   */
+  ContainsHeader?: boolean | undefined;
+
+  /**
+   * <p>Text qualifier.</p>
+   * @public
+   */
+  TextQualifier?: TextQualifier | undefined;
+
+  /**
+   * <p>The delimiter between values in the file.</p>
+   * @public
+   */
+  Delimiter?: string | undefined;
+
+  /**
+   * <p>A custom cell address range for Excel files, specifying which cells to import from the spreadsheet.</p>
+   * @public
+   */
+  CustomCellAddressRange?: string | undefined;
+}
+
+/**
+ * <p>A physical table type for an S3 data source.</p>
+ * @public
+ */
+export interface S3Source {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the data source.</p>
+   * @public
+   */
+  DataSourceArn: string | undefined;
+
+  /**
+   * <p>Information about the format for the S3 source file or files.</p>
+   * @public
+   */
+  UploadSettings?: UploadSettings | undefined;
+
+  /**
+   * <p>A physical table type for an S3 data source.</p>
+   *          <note>
+   *             <p>For files that aren't JSON, only <code>STRING</code> data types are supported in input columns.</p>
+   *          </note>
+   * @public
+   */
+  InputColumns: InputColumn[] | undefined;
+}
+
+/**
+ * <p>An element in the hierarchical path to a table within a data source, containing both name and identifier.</p>
+ * @public
+ */
+export interface TablePathElement {
+  /**
+   * <p>The name of the path element.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the path element.</p>
+   * @public
+   */
+  Id?: string | undefined;
+}
+
+/**
+ * <p>A table from a Software-as-a-Service (SaaS) data source, including connection details and column definitions.</p>
+ * @public
+ */
+export interface SaaSTable {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SaaS data source.</p>
+   * @public
+   */
+  DataSourceArn: string | undefined;
+
+  /**
+   * <p>The hierarchical path to the table within the SaaS data source.</p>
+   * @public
+   */
+  TablePath: TablePathElement[] | undefined;
+
+  /**
+   * <p>The list of input columns available from the SaaS table.</p>
+   * @public
+   */
+  InputColumns: InputColumn[] | undefined;
+}
+
+/**
+ * <p>A view of a data source that contains information about the shape of the data in the
+ *             underlying source. This is a variant type structure. For this structure to be valid,
+ *             only one of the attributes can be non-null.</p>
+ * @public
+ */
+export type PhysicalTable =
+  | PhysicalTable.CustomSqlMember
+  | PhysicalTable.RelationalTableMember
+  | PhysicalTable.S3SourceMember
+  | PhysicalTable.SaaSTableMember
+  | PhysicalTable.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PhysicalTable {
+  /**
+   * <p>A physical table type for relational data sources.</p>
+   * @public
+   */
+  export interface RelationalTableMember {
+    RelationalTable: RelationalTable;
+    CustomSql?: never;
+    S3Source?: never;
+    SaaSTable?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A physical table type built from the results of the custom SQL query.</p>
+   * @public
+   */
+  export interface CustomSqlMember {
+    RelationalTable?: never;
+    CustomSql: CustomSql;
+    S3Source?: never;
+    SaaSTable?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A physical table type for as S3 data source.</p>
+   * @public
+   */
+  export interface S3SourceMember {
+    RelationalTable?: never;
+    CustomSql?: never;
+    S3Source: S3Source;
+    SaaSTable?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A physical table type for Software-as-a-Service (SaaS) sources.</p>
+   * @public
+   */
+  export interface SaaSTableMember {
+    RelationalTable?: never;
+    CustomSql?: never;
+    S3Source?: never;
+    SaaSTable: SaaSTable;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    RelationalTable?: never;
+    CustomSql?: never;
+    S3Source?: never;
+    SaaSTable?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    RelationalTable: (value: RelationalTable) => T;
+    CustomSql: (value: CustomSql) => T;
+    S3Source: (value: S3Source) => T;
+    SaaSTable: (value: SaaSTable) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Information about a dataset that contains permissions for row-level security (RLS).
+ *             The permissions dataset maps fields to users or groups. For more information, see
+ *             <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Quick Sight User
+ *                 Guide</i>.</p>
+ *          <p>The option to deny permissions by setting <code>PermissionPolicy</code> to <code>DENY_ACCESS</code> is
+ *             not supported for new RLS datasets.</p>
+ * @public
+ */
+export interface RowLevelPermissionDataSet {
+  /**
+   * <p>The namespace associated with the dataset that contains permissions for RLS.</p>
+   * @public
+   */
+  Namespace?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset that contains permissions for RLS.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The type of permissions to use when interpreting the permissions for RLS. <code>DENY_ACCESS</code>
+   *         is included for backward compatibility only.</p>
+   * @public
+   */
+  PermissionPolicy: RowLevelPermissionPolicy | undefined;
+
+  /**
+   * <p>The user or group rules associated with the dataset that contains permissions for RLS.</p>
+   *          <p>By default, <code>FormatVersion</code> is <code>VERSION_1</code>. When <code>FormatVersion</code> is <code>VERSION_1</code>, <code>UserName</code> and <code>GroupName</code> are required. When <code>FormatVersion</code> is <code>VERSION_2</code>, <code>UserARN</code> and <code>GroupARN</code> are required, and <code>Namespace</code> must not exist.</p>
+   * @public
+   */
+  FormatVersion?: RowLevelPermissionFormatVersion | undefined;
+
+  /**
+   * <p>The status of the row-level security permission dataset. If enabled, the status is <code>ENABLED</code>. If disabled, the status is <code>DISABLED</code>.</p>
+   * @public
+   */
+  Status?: Status | undefined;
+}
+
+/**
+ * <p>A set of rules associated with a tag.</p>
+ * @public
+ */
+export interface RowLevelPermissionTagRule {
+  /**
+   * <p>The unique key for a tag.</p>
+   * @public
+   */
+  TagKey: string | undefined;
+
+  /**
+   * <p>The column name that a tag key is assigned to.</p>
+   * @public
+   */
+  ColumnName: string | undefined;
+
+  /**
+   * <p>A string that you want to use to delimit the values when you pass the values at run time. For example, you can delimit the values with a comma.</p>
+   * @public
+   */
+  TagMultiValueDelimiter?: string | undefined;
+
+  /**
+   * <p>A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one. For example, you can use an asterisk as your match all value.</p>
+   * @public
+   */
+  MatchAllValue?: string | undefined;
+}
+
+/**
+ * <p>The configuration of tags on a dataset to set row-level security. </p>
+ * @public
+ */
+export interface RowLevelPermissionTagConfiguration {
+  /**
+   * <p>The status of row-level security tags. If enabled, the status is <code>ENABLED</code>. If disabled, the status is <code>DISABLED</code>.</p>
+   * @public
+   */
+  Status?: Status | undefined;
+
+  /**
+   * <p>A set of rules associated with row-level security, such as the tag names and columns that they are assigned to.</p>
+   * @public
+   */
+  TagRules: RowLevelPermissionTagRule[] | undefined;
+
+  /**
+   * <p>A list of tag configuration rules to apply to a dataset. All tag configurations have the OR condition. Tags within each tile will be joined (AND). At least one rule in this structure must have all tag values assigned to it to apply Row-level security (RLS) to the dataset.</p>
+   * @public
+   */
+  TagRuleConfigurations?: string[][] | undefined;
+}
+
+/**
+ * <p>Configuration for row level security.</p>
+ * @public
+ */
+export interface RowLevelPermissionConfiguration {
+  /**
+   * <p>The configuration of tags on a dataset to set row-level security. </p>
+   * @public
+   */
+  TagConfiguration?: RowLevelPermissionTagConfiguration | undefined;
+
+  /**
+   * <p>Information about a dataset that contains permissions for row-level security (RLS).
+   *             The permissions dataset maps fields to users or groups. For more information, see
+   *             <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Quick Sight User
+   *                 Guide</i>.</p>
+   *          <p>The option to deny permissions by setting <code>PermissionPolicy</code> to <code>DENY_ACCESS</code> is
+   *             not supported for new RLS datasets.</p>
+   * @public
+   */
+  RowLevelPermissionDataSet?: RowLevelPermissionDataSet | undefined;
+}
+
+/**
+ * <p>A semantic table that represents the final analytical structure of the data.</p>
+ * @public
+ */
+export interface SemanticTable {
+  /**
+   * <p>Alias for the semantic table.</p>
+   * @public
+   */
+  Alias: string | undefined;
+
+  /**
+   * <p>The identifier of the destination table from data preparation that provides data to this semantic table.</p>
+   * @public
+   */
+  DestinationTableId: string | undefined;
+
+  /**
+   * <p>Configuration for row level security that control data access for this semantic table.</p>
+   * @public
+   */
+  RowLevelPermissionConfiguration?: RowLevelPermissionConfiguration | undefined;
+}
+
+/**
+ * <p>Configuration for the semantic model that defines how prepared data is structured for analysis and reporting.</p>
+ * @public
+ */
+export interface SemanticModelConfiguration {
+  /**
+   * <p>A map of semantic tables that define the analytical structure.</p>
+   * @public
+   */
+  TableMap?: Record<string, SemanticTable> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDataSetRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>An ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The display name for the dataset.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Declares the physical tables that are available in the underlying data sources.</p>
+   * @public
+   */
+  PhysicalTableMap: Record<string, PhysicalTable> | undefined;
+
+  /**
+   * <p>Configures the combination and transformation of the data from the physical
+   * 			tables. This parameter is used with the legacy data preparation experience.</p>
+   *
+   * @deprecated Only used in the legacy data preparation experience.
+   * @public
+   */
+  LogicalTableMap?: Record<string, LogicalTable> | undefined;
+
+  /**
+   * <p>Indicates whether you want to import the data into SPICE.</p>
+   * @public
+   */
+  ImportMode: DataSetImportMode | undefined;
+
+  /**
+   * <p>Groupings of columns that work together in certain Amazon Quick Sight features.
+   * 			Currently, only geospatial hierarchy is supported.</p>
+   * @public
+   */
+  ColumnGroups?: ColumnGroup[] | undefined;
+
+  /**
+   * <p>The folder that contains fields and nested subfolders for your dataset.</p>
+   * @public
+   */
+  FieldFolders?: Record<string, FieldFolder> | undefined;
+
+  /**
+   * <p>A list of resource permissions on the dataset.</p>
+   * @public
+   */
+  Permissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>The row-level security configuration for the data that you want to create. This parameter is
+   * 			used with the legacy data preparation experience.</p>
+   *
+   * @deprecated Only used in the legacy data preparation experience.
+   * @public
+   */
+  RowLevelPermissionDataSet?: RowLevelPermissionDataSet | undefined;
+
+  /**
+   * <p>The configuration of tags on a dataset to set row-level security. Row-level security
+   * 			tags are currently supported for anonymous embedding only. This parameter is
+   * 			used with the legacy data preparation experience.</p>
+   *
+   * @deprecated Only used in the legacy data preparation experience.
+   * @public
+   */
+  RowLevelPermissionTagConfiguration?: RowLevelPermissionTagConfiguration | undefined;
+
+  /**
+   * <p>A set of one or more definitions of a <code>
+   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
+   *             </code>.</p>
+   * @public
+   */
+  ColumnLevelPermissionRules?: ColumnLevelPermissionRule[] | undefined;
+
+  /**
+   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
+   * 			dataset.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
+   * @public
+   */
+  DataSetUsageConfiguration?: DataSetUsageConfiguration | undefined;
+
+  /**
+   * <p>The parameter declarations of the dataset.</p>
+   * @public
+   */
+  DatasetParameters?: DatasetParameter[] | undefined;
+
+  /**
+   * <p>When you create the dataset, Amazon Quick Sight adds the dataset to these
+   * 			folders.</p>
+   * @public
+   */
+  FolderArns?: string[] | undefined;
+
+  /**
+   * <p>The configuration for the performance optimization of the dataset that contains a
+   * 				<code>UniqueKey</code> configuration.</p>
+   * @public
+   */
+  PerformanceConfiguration?: PerformanceConfiguration | undefined;
+
+  /**
+   * <p>The usage of the dataset. <code>RLS_RULES</code> must be specified for RLS permission
+   * 			datasets.</p>
+   * @public
+   */
+  UseAs?: DataSetUseAs | undefined;
+
+  /**
+   * <p>The data preparation configuration for the dataset. This configuration defines the source tables,
+   * 			transformation steps, and destination tables used to prepare the data.
+   * 			Required when using the new data preparation experience.</p>
+   * @public
+   */
+  DataPrepConfiguration?: DataPrepConfiguration | undefined;
+
+  /**
+   * <p>The semantic model configuration for the dataset. This configuration defines how the prepared
+   * 			data is structured for an analysis, including table mappings and row-level security configurations.
+   * 			Required when using the new data preparation experience.</p>
+   * @public
+   */
+  SemanticModelConfiguration?: SemanticModelConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDataSetResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  DataSetId?: string | undefined;
+
+  /**
+   * <p>The ARN for the ingestion, which is triggered as a result of dataset creation if the
+   * 			import mode is SPICE.</p>
+   * @public
+   */
+  IngestionArn?: string | undefined;
+
+  /**
+   * <p>The ID of the ingestion, which is triggered as a result of dataset creation if the
+   * 			import mode is SPICE.</p>
+   * @public
+   */
+  IngestionId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * <p>The combination of user name and password that are used as credentials.</p>
+ * @public
+ */
+export interface CredentialPair {
+  /**
+   * <p>User name.</p>
+   * @public
+   */
+  Username: string | undefined;
+
+  /**
+   * <p>Password.</p>
+   * @public
+   */
+  Password: string | undefined;
+
+  /**
+   * <p>A set of alternate data source parameters that you want to share for these
+   *             credentials. The credentials are applied in tandem with the data source parameters when
+   *             you copy a data source by using a create or update request. The API operation compares
+   *             the <code>DataSourceParameters</code> structure that's in the request with the
+   *             structures in the <code>AlternateDataSourceParameters</code> allow list. If the
+   *             structures are an exact match, the request is allowed to use the new data source with
+   *             the existing credentials. If the <code>AlternateDataSourceParameters</code> list is
+   *             null, the <code>DataSourceParameters</code> originally used with these
+   *                 <code>Credentials</code> is automatically allowed.</p>
+   * @public
+   */
+  AlternateDataSourceParameters?: DataSourceParameters[] | undefined;
+}
+
+/**
+ * <p>The combination of username, private key and passphrase that are used as credentials.</p>
+ * @public
+ */
+export interface KeyPairCredentials {
+  /**
+   * <p>Username</p>
+   * @public
+   */
+  KeyPairUsername: string | undefined;
+
+  /**
+   * <p>PrivateKey</p>
+   * @public
+   */
+  PrivateKey: string | undefined;
+
+  /**
+   * <p>PrivateKeyPassphrase</p>
+   * @public
+   */
+  PrivateKeyPassphrase?: string | undefined;
+}
+
+/**
+ * <p>The credentials for authenticating with a web proxy server.</p>
+ * @public
+ */
+export interface WebProxyCredentials {
+  /**
+   * <p>The username for authenticating with the web proxy server.</p>
+   * @public
+   */
+  WebProxyUsername: string | undefined;
+
+  /**
+   * <p>The password for authenticating with the web proxy server.</p>
+   * @public
+   */
+  WebProxyPassword: string | undefined;
+}
 
 /**
  * <p>Data source credentials. This is a variant type structure. For this structure to be
@@ -170,6 +878,12 @@ export interface DataSourceCredentials {
    * @public
    */
   SecretArn?: string | undefined;
+
+  /**
+   * <p>The credentials for connecting using key-pair.</p>
+   * @public
+   */
+  KeyPairCredentials?: KeyPairCredentials | undefined;
 
   /**
    * <p>The credentials for connecting through a web proxy server.</p>
@@ -7041,6 +7755,7 @@ export interface DescribeDashboardSnapshotJobResultRequest {
 
 /**
  * <p>An object that contains information on the error that caused the snapshot job to fail.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeDashboardSnapshotJobResult.html">DescribeDashboardSnapshotJobResult API</a>.</p>
  * @public
  */
 export interface SnapshotJobErrorInfo {
@@ -7058,6 +7773,18 @@ export interface SnapshotJobErrorInfo {
 }
 
 /**
+ * <p>A structure that contains information about files that are requested for registered user during a <code>StartDashboardSnapshotJob</code> API call.</p>
+ * @public
+ */
+export interface RegisteredUserSnapshotJobResult {
+  /**
+   * <p>A list of <code>SnapshotJobResultFileGroup</code> objects that contain information on the files that are requested for registered user during a <code>StartDashboardSnapshotJob</code> API call. If the job succeeds, these objects contain the location where the snapshot artifacts are stored. If the job fails, the objects contain information about the error that caused the job to fail.</p>
+   * @public
+   */
+  FileGroups?: SnapshotJobResultFileGroup[] | undefined;
+}
+
+/**
  * <p>An object that provides information on the result of a snapshot job. This object provides information about the job, the job status, and the location of the generated file.</p>
  * @public
  */
@@ -7067,6 +7794,12 @@ export interface SnapshotJobResult {
    * @public
    */
   AnonymousUsers?: AnonymousUserSnapshotJobResult[] | undefined;
+
+  /**
+   * <p>A list of <code>RegisteredUserSnapshotJobResult</code> objects that contain information about files that are requested for registered user during a <code>StartDashboardSnapshotJob</code> API call.</p>
+   * @public
+   */
+  RegisteredUsers?: RegisteredUserSnapshotJobResult[] | undefined;
 }
 
 /**
@@ -8917,703 +9650,6 @@ export interface DescribeTemplatePermissionsResponse {
    * @public
    */
   Permissions?: ResourcePermission[] | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeThemeRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the theme that you're describing.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the theme.</p>
-   * @public
-   */
-  ThemeId: string | undefined;
-
-  /**
-   * <p>The version number for the version to describe. If a <code>VersionNumber</code> parameter
-   * 			value isn't provided, the latest version of the theme is described.</p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-
-  /**
-   * <p>The alias of the theme that you want to describe. If you name a specific alias, you
-   * 			describe the version that the alias points to. You can specify the latest version of the
-   * 			theme by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
-   * 			parameter. The keyword <code>$PUBLISHED</code> doesn't apply to themes.</p>
-   * @public
-   */
-  AliasName?: string | undefined;
-}
-
-/**
- * <p>Theme error.</p>
- * @public
- */
-export interface ThemeError {
-  /**
-   * <p>The type of error.</p>
-   * @public
-   */
-  Type?: ThemeErrorType | undefined;
-
-  /**
-   * <p>The error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * <p>A version of a theme.</p>
- * @public
- */
-export interface ThemeVersion {
-  /**
-   * <p>The version number of the theme.</p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The description of the theme.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The Quick Sight-defined ID of the theme that a custom theme inherits from. All
-   *             themes initially inherit from a default Quick Sight theme.</p>
-   * @public
-   */
-  BaseThemeId?: string | undefined;
-
-  /**
-   * <p>The date and time that this theme version was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The theme configuration, which contains all the theme display properties.</p>
-   * @public
-   */
-  Configuration?: ThemeConfiguration | undefined;
-
-  /**
-   * <p>Errors associated with the theme.</p>
-   * @public
-   */
-  Errors?: ThemeError[] | undefined;
-
-  /**
-   * <p>The status of the theme version.</p>
-   * @public
-   */
-  Status?: ResourceStatus | undefined;
-}
-
-/**
- * <p>Summary information about a theme.</p>
- * @public
- */
-export interface Theme {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the theme.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The name that the user gives to the theme.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The identifier that the user gives to the theme.</p>
-   * @public
-   */
-  ThemeId?: string | undefined;
-
-  /**
-   * <p>A version of a theme.</p>
-   * @public
-   */
-  Version?: ThemeVersion | undefined;
-
-  /**
-   * <p>The date and time that the theme was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The date and time that the theme was last updated.</p>
-   * @public
-   */
-  LastUpdatedTime?: Date | undefined;
-
-  /**
-   * <p>The type of theme, based on how it was created. Valid values include:
-   *             <code>QUICKSIGHT</code> and <code>CUSTOM</code>.</p>
-   * @public
-   */
-  Type?: ThemeType | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeThemeResponse {
-  /**
-   * <p>The information about the theme that you are describing.</p>
-   * @public
-   */
-  Theme?: Theme | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeThemeAliasRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the theme alias that you're
-   * 			describing.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the theme.</p>
-   * @public
-   */
-  ThemeId: string | undefined;
-
-  /**
-   * <p>The name of the theme alias that you want to describe.</p>
-   * @public
-   */
-  AliasName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeThemeAliasResponse {
-  /**
-   * <p>Information about the theme alias.</p>
-   * @public
-   */
-  ThemeAlias?: ThemeAlias | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeThemePermissionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the theme that you're describing.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the theme that you want to describe permissions for.</p>
-   * @public
-   */
-  ThemeId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeThemePermissionsResponse {
-  /**
-   * <p>The ID for the theme.</p>
-   * @public
-   */
-  ThemeId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the theme.</p>
-   * @public
-   */
-  ThemeArn?: string | undefined;
-
-  /**
-   * <p>A list of resource permissions set on the theme. </p>
-   * @public
-   */
-  Permissions?: ResourcePermission[] | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTopicRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTopicResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the topic.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId?: string | undefined;
-
-  /**
-   * <p>The definition of a topic.</p>
-   * @public
-   */
-  Topic?: TopicDetails | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>Custom instructions for the topic.</p>
-   * @public
-   */
-  CustomInstructions?: CustomInstructions | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTopicPermissionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the topic that you want
-   *          described.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTopicPermissionsResponse {
-  /**
-   * <p>The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the topic.</p>
-   * @public
-   */
-  TopicArn?: string | undefined;
-
-  /**
-   * <p>A list of resource permissions that are configured to the topic.</p>
-   * @public
-   */
-  Permissions?: ResourcePermission[] | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTopicRefreshRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the topic whose refresh you want
-   *          to describe.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId: string | undefined;
-
-  /**
-   * <p>The ID of the refresh, which is performed when the topic is created or updated.</p>
-   * @public
-   */
-  RefreshId: string | undefined;
-}
-
-/**
- * <p>The details about the refresh of a topic.</p>
- * @public
- */
-export interface TopicRefreshDetails {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the topic refresh.</p>
-   * @public
-   */
-  RefreshArn?: string | undefined;
-
-  /**
-   * <p>The ID of the refresh, which occurs as a result of topic creation or topic update.</p>
-   * @public
-   */
-  RefreshId?: string | undefined;
-
-  /**
-   * <p>The status of the refresh job that indicates whether the job is still running, completed successfully, or failed.</p>
-   * @public
-   */
-  RefreshStatus?: TopicRefreshStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTopicRefreshResponse {
-  /**
-   * <p>Details of the refresh, which is performed when the topic is created or updated.</p>
-   * @public
-   */
-  RefreshDetails?: TopicRefreshDetails | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTopicRefreshScheduleRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the topic that contains the refresh schedule that you want to describe. This
-   *          ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId: string | undefined;
-
-  /**
-   * <p>The ID of the dataset.</p>
-   * @public
-   */
-  DatasetId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTopicRefreshScheduleResponse {
-  /**
-   * <p>The ID of the topic that contains the refresh schedule that you want to describe. This
-   *          ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the topic.</p>
-   * @public
-   */
-  TopicArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   * @public
-   */
-  DatasetArn?: string | undefined;
-
-  /**
-   * <p>The definition of a refresh schedule.</p>
-   * @public
-   */
-  RefreshSchedule?: TopicRefreshSchedule | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeUserRequest {
-  /**
-   * <p>The name of the user that you want to describe.</p>
-   * @public
-   */
-  UserName: string | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon Quick Sight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * <p>A registered user of Quick Sight. </p>
- * @public
- */
-export interface User {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the user.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The user's user name. This value is required if you are registering a user that will be managed in Quick Sight. In the output, the value for <code>UserName</code> is
-   *                 <code>N/A</code> when the value for <code>IdentityType</code> is <code>IAM</code>
-   *             and the corresponding IAM user is deleted.</p>
-   * @public
-   */
-  UserName?: string | undefined;
-
-  /**
-   * <p>The user's email address.</p>
-   * @public
-   */
-  Email?: string | undefined;
-
-  /**
-   * <p>The Quick Sight role for the user. The user role can be one of the
-   *             following:.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>READER</code>: A user who has read-only access to dashboards.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AUTHOR</code>: A user who can create data sources, datasets, analyses,
-   *                     and dashboards.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ADMIN</code>: A user who is an author, who can also manage Amazon
-   *                     Quick Sight settings.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>READER_PRO</code>: Reader Pro adds Generative BI capabilities to the Reader role. Reader Pros have access to Amazon Q in Quick Sight, can build stories with Amazon Q, and can generate executive summaries from dashboards.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AUTHOR_PRO</code>: Author Pro adds Generative BI capabilities to the Author role. Author Pros can author dashboards with natural language with Amazon Q, build stories with Amazon Q, create Topics for Q&A, and generate executive summaries from dashboards.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ADMIN_PRO</code>: Admin Pros are Author Pros who can also manage Quick Sight administrative settings. Admin Pro users are billed at Author Pro pricing.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RESTRICTED_READER</code>: This role isn't currently available for
-   *                     use.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for
-   *                     use.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Role?: UserRole | undefined;
-
-  /**
-   * <p>The type of identity authentication used by the user.</p>
-   * @public
-   */
-  IdentityType?: IdentityType | undefined;
-
-  /**
-   * <p>The active status of user. When you create an Quick Sight user that's not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a
-   *             password.</p>
-   * @public
-   */
-  Active?: boolean | undefined;
-
-  /**
-   * <p>The principal ID of the user.</p>
-   * @public
-   */
-  PrincipalId?: string | undefined;
-
-  /**
-   * <p>The custom permissions profile associated with this user.</p>
-   * @public
-   */
-  CustomPermissionsName?: string | undefined;
-
-  /**
-   * <p>The type of supported external login provider that provides identity to let the user
-   *             federate into Quick Sight with an associated IAM role. The type can be one of the following.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ExternalLoginFederationProviderType?: string | undefined;
-
-  /**
-   * <p>The URL of the external login provider.</p>
-   * @public
-   */
-  ExternalLoginFederationProviderUrl?: string | undefined;
-
-  /**
-   * <p>The identity ID for the user in the external login provider.</p>
-   * @public
-   */
-  ExternalLoginId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeUserResponse {
-  /**
-   * <p>The user name.</p>
-   * @public
-   */
-  User?: User | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>

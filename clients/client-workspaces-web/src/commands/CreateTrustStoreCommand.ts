@@ -27,11 +27,7 @@ export interface CreateTrustStoreCommandInput extends CreateTrustStoreRequest {}
 export interface CreateTrustStoreCommandOutput extends CreateTrustStoreResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a trust store that can be associated with a web portal. A trust store contains
- *          certificate authority (CA) certificates. Once associated with a web portal, the browser in
- *          a streaming session will recognize certificates that have been issued using any of the CAs
- *          in the trust store. If your organization has internal websites that use certificates issued
- *          by private CAs, you should add the private CA certificate to the trust store. </p>
+ * <p>Creates a trust store that can be associated with a web portal. A trust store contains certificate authority (CA) certificates. Once associated with a web portal, the browser in a streaming session will recognize certificates that have been issued using any of the CAs in the trust store. If your organization has internal websites that use certificates issued by private CAs, you should add the private CA certificate to the trust store. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

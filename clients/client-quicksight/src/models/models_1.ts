@@ -1,7 +1,5 @@
 // smithy-typescript generated code
 import {
-  AnalysisFilterAttribute,
-  AnchorType,
   ArcThickness,
   ArcThicknessOptions,
   AxisBinding,
@@ -14,8 +12,8 @@ import {
   ConditionalFormattingIconSetType,
   CustomContentImageScalingConfiguration,
   CustomContentType,
+  DashboardCustomizationStatus,
   DataLabelPosition,
-  FilterOperator,
   ForecastComputationSeasonality,
   FunnelChartMeasureDataLabelStyle,
   GeospatialColorState,
@@ -44,8 +42,6 @@ import {
   PrimaryValueDisplayType,
   RadarChartAxesRangeScale,
   RadarChartShape,
-  ResourceStatus,
-  SheetContentType,
   SimpleTotalAggregationFunction,
   SingleYAxisOption,
   SortDirection,
@@ -73,52 +69,221 @@ import {
 } from "./enums";
 
 import {
-  type AnalysisDefaults,
-  type AssetOptions,
   type AxisDisplayOptions,
   type BarChartConfiguration,
+  type BorderSettings,
+  type CategoryDrillDownFilter,
   type ChartAxisLabelOptions,
-  type ColumnIdentifier,
   type ColumnSort,
   type CustomActionFilterOperation,
   type CustomActionNavigationOperation,
   type CustomActionSetParametersOperation,
   type CustomActionURLOperation,
   type DataLabelOptions,
+  type DecalSettings,
   type FieldSort,
   type FontConfiguration,
   type FormatConfiguration,
   type ItemsLimitConfiguration,
   type LegendOptions,
-  type LongFormatText,
   type NumberDisplayFormatConfiguration,
   type PercentageDisplayFormatConfiguration,
-  type QueryExecutionOptions,
   type SmallMultiplesOptions,
   type TooltipOptions,
-  type VisualCustomActionDefaults,
   type VisualInteractionOptions,
   type VisualPalette,
-  CalculatedField,
-  ColumnConfiguration,
-  ColumnHierarchy,
+  ColumnIdentifier,
   ContributionAnalysisDefault,
   DataPathValue,
-  DataSetIdentifierDeclaration,
   DimensionField,
   FieldSortOptions,
-  FilterControl,
-  FilterGroup,
-  Layout,
   MeasureField,
-  ParameterControl,
-  ParameterDeclaration,
   ReferenceLine,
-  SheetControlLayout,
-  SheetImage,
-  SheetTextBox,
   VisualCustomAction,
 } from "./models_0";
+
+/**
+ * <p>The numeric equality type drill down filter.</p>
+ * @public
+ */
+export interface NumericEqualityDrillDownFilter {
+  /**
+   * <p>The column that the filter is applied to.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>The value of the double input numeric drill down filter.</p>
+   * @public
+   */
+  Value: number | undefined;
+}
+
+/**
+ * <p>The time range drill down filter.</p>
+ * @public
+ */
+export interface TimeRangeDrillDownFilter {
+  /**
+   * <p>The column that the filter is applied to.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>The minimum value for the filter value range.</p>
+   * @public
+   */
+  RangeMinimum: Date | undefined;
+
+  /**
+   * <p>The maximum value for the filter value range.</p>
+   * @public
+   */
+  RangeMaximum: Date | undefined;
+
+  /**
+   * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
+   * @public
+   */
+  TimeGranularity: TimeGranularity | undefined;
+}
+
+/**
+ * <p>The drill down filter for the column hierarchies.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * @public
+ */
+export interface DrillDownFilter {
+  /**
+   * <p>The numeric equality type drill down filter. This filter is used for number type columns.</p>
+   * @public
+   */
+  NumericEqualityFilter?: NumericEqualityDrillDownFilter | undefined;
+
+  /**
+   * <p>The category type drill down filter. This filter is used for string type columns.</p>
+   * @public
+   */
+  CategoryFilter?: CategoryDrillDownFilter | undefined;
+
+  /**
+   * <p>The time range drill down filter. This filter is used for date time columns.</p>
+   * @public
+   */
+  TimeRangeFilter?: TimeRangeDrillDownFilter | undefined;
+}
+
+/**
+ * <p>The option that determines the hierarchy of any <code>DateTime</code> fields.</p>
+ * @public
+ */
+export interface DateTimeHierarchy {
+  /**
+   * <p>The hierarchy ID of the <code>DateTime</code> hierarchy.</p>
+   * @public
+   */
+  HierarchyId: string | undefined;
+
+  /**
+   * <p>The option that determines the drill down filters for the
+   *                 <code>DateTime</code> hierarchy.</p>
+   * @public
+   */
+  DrillDownFilters?: DrillDownFilter[] | undefined;
+}
+
+/**
+ * <p>The option that determines the hierarchy of the fields that are built within a visual's field wells. These fields can't be duplicated to other visuals.</p>
+ * @public
+ */
+export interface ExplicitHierarchy {
+  /**
+   * <p>The hierarchy ID of the explicit hierarchy.</p>
+   * @public
+   */
+  HierarchyId: string | undefined;
+
+  /**
+   * <p>The list of columns that define the explicit hierarchy.</p>
+   * @public
+   */
+  Columns: ColumnIdentifier[] | undefined;
+
+  /**
+   * <p>The option that determines the drill down filters for the explicit hierarchy.</p>
+   * @public
+   */
+  DrillDownFilters?: DrillDownFilter[] | undefined;
+}
+
+/**
+ * <p>The option that determines the hierarchy of the fields that are defined during data preparation. These fields are available to use in any analysis that uses the data source.</p>
+ * @public
+ */
+export interface PredefinedHierarchy {
+  /**
+   * <p>The hierarchy ID of the predefined hierarchy.</p>
+   * @public
+   */
+  HierarchyId: string | undefined;
+
+  /**
+   * <p>The list of columns that define the predefined hierarchy.</p>
+   * @public
+   */
+  Columns: ColumnIdentifier[] | undefined;
+
+  /**
+   * <p>The option that determines the drill down filters for the predefined hierarchy.</p>
+   * @public
+   */
+  DrillDownFilters?: DrillDownFilter[] | undefined;
+}
+
+/**
+ * <p>The option that determines the hierarchy of the fields for a visual element.</p>
+ * @public
+ */
+export interface ColumnHierarchy {
+  /**
+   * <p>The option that determines the hierarchy of the fields that are built within a visual's field wells. These fields can't be duplicated to other visuals.</p>
+   * @public
+   */
+  ExplicitHierarchy?: ExplicitHierarchy | undefined;
+
+  /**
+   * <p>The option that determines the hierarchy of any <code>DateTime</code> fields.</p>
+   * @public
+   */
+  DateTimeHierarchy?: DateTimeHierarchy | undefined;
+
+  /**
+   * <p>The option that determines the hierarchy of the fields that are defined during data preparation. These fields are available to use in any analysis that uses the data source.</p>
+   * @public
+   */
+  PredefinedHierarchy?: PredefinedHierarchy | undefined;
+}
+
+/**
+ * <p>The text format for a subtitle.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * @public
+ */
+export interface LongFormatText {
+  /**
+   * <p>Plain text format.</p>
+   * @public
+   */
+  PlainText?: string | undefined;
+
+  /**
+   * <p>Rich text. Examples of rich text include bold, underline, and italics.</p>
+   * @public
+   */
+  RichText?: string | undefined;
+}
 
 /**
  * <p>The subtitle label options for a visual.</p>
@@ -476,6 +641,146 @@ export interface BoxPlotVisual {
 }
 
 /**
+ * <p>Line styles options for a line series in <code>LineChartVisual</code>.</p>
+ * @public
+ */
+export interface LineChartLineStyleSettings {
+  /**
+   * <p>Configuration option that determines whether to show the line for the series.</p>
+   * @public
+   */
+  LineVisibility?: Visibility | undefined;
+
+  /**
+   * <p>Interpolation style for line series.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LINEAR</code>: Show as default, linear style.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SMOOTH</code>: Show as a smooth curve.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STEPPED</code>: Show steps in line.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  LineInterpolation?: LineInterpolation | undefined;
+
+  /**
+   * <p>Line style for line series.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SOLID</code>: Show as a solid line.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DOTTED</code>: Show as a dotted line.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DASHED</code>: Show as a dashed line.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  LineStyle?: LineChartLineStyle | undefined;
+
+  /**
+   * <p>Width that determines the line thickness.</p>
+   * @public
+   */
+  LineWidth?: string | undefined;
+}
+
+/**
+ * <p>Marker styles options for a line series in <code>LineChartVisual</code>.</p>
+ * @public
+ */
+export interface LineChartMarkerStyleSettings {
+  /**
+   * <p>Configuration option that determines whether to show the markers in the series.</p>
+   * @public
+   */
+  MarkerVisibility?: Visibility | undefined;
+
+  /**
+   * <p>Shape option for markers in the series.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CIRCLE</code>: Show marker as a circle.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TRIANGLE</code>: Show marker as a triangle.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SQUARE</code>: Show marker as a square.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIAMOND</code>: Show marker as a diamond.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ROUNDED_SQUARE</code>: Show marker as a rounded square.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  MarkerShape?: LineChartMarkerShape | undefined;
+
+  /**
+   * <p>Size of marker in the series.</p>
+   * @public
+   */
+  MarkerSize?: string | undefined;
+
+  /**
+   * <p>Color of marker in the series.</p>
+   * @public
+   */
+  MarkerColor?: string | undefined;
+}
+
+/**
+ * <p>The options that determine the default presentation of all series in <code>ComboChartVisual</code>.</p>
+ * @public
+ */
+export interface ComboChartDefaultSeriesSettings {
+  /**
+   * <p>Line styles options for all line series in the visual.</p>
+   * @public
+   */
+  LineStyleSettings?: LineChartLineStyleSettings | undefined;
+
+  /**
+   * <p>Marker styles options for all line series in the visual.</p>
+   * @public
+   */
+  MarkerStyleSettings?: LineChartMarkerStyleSettings | undefined;
+
+  /**
+   * <p>Decal settings for all series in the visual.</p>
+   * @public
+   */
+  DecalSettings?: DecalSettings | undefined;
+
+  /**
+   * <p>Border settings for all bar series in the visual.</p>
+   * @public
+   */
+  BorderSettings?: BorderSettings | undefined;
+}
+
+/**
  * <p>The aggregated field wells of a combo chart.</p>
  * @public
  */
@@ -516,6 +821,97 @@ export interface ComboChartFieldWells {
    * @public
    */
   ComboChartAggregatedFieldWells?: ComboChartAggregatedFieldWells | undefined;
+}
+
+/**
+ * <p>Options that determine the presentation of a series in the visual.</p>
+ * @public
+ */
+export interface ComboChartSeriesSettings {
+  /**
+   * <p>Line styles options for the line series in the visual.</p>
+   * @public
+   */
+  LineStyleSettings?: LineChartLineStyleSettings | undefined;
+
+  /**
+   * <p>Marker styles options for the line series in the visual.</p>
+   * @public
+   */
+  MarkerStyleSettings?: LineChartMarkerStyleSettings | undefined;
+
+  /**
+   * <p>Decal settings for the series in the visual.</p>
+   * @public
+   */
+  DecalSettings?: DecalSettings | undefined;
+
+  /**
+   * <p>Border settings for the bar series in the visual.</p>
+   * @public
+   */
+  BorderSettings?: BorderSettings | undefined;
+}
+
+/**
+ * <p>The data field series item configuration of a <code>ComboChartVisual</code>.</p>
+ * @public
+ */
+export interface DataFieldComboSeriesItem {
+  /**
+   * <p>Field ID of the field that you are setting the series configuration for.</p>
+   * @public
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>Field value of the field that you are setting the series configuration for.</p>
+   * @public
+   */
+  FieldValue?: string | undefined;
+
+  /**
+   * <p>Options that determine the presentation of series associated to the field.</p>
+   * @public
+   */
+  Settings?: ComboChartSeriesSettings | undefined;
+}
+
+/**
+ * <p>The field series item configuration of a <code>ComboChartVisual</code>.</p>
+ * @public
+ */
+export interface FieldComboSeriesItem {
+  /**
+   * <p>Field ID of the field for which you are setting the series configuration.</p>
+   * @public
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>Options that determine the presentation of series associated to the field.</p>
+   * @public
+   */
+  Settings?: ComboChartSeriesSettings | undefined;
+}
+
+/**
+ * <p>The series item configuration of a <code>ComboChartVisual</code>.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * @public
+ */
+export interface ComboSeriesItem {
+  /**
+   * <p>The field series item configuration of a <code>ComboChartVisual</code>.</p>
+   * @public
+   */
+  FieldComboSeriesItem?: FieldComboSeriesItem | undefined;
+
+  /**
+   * <p>The data field series item configuration of a <code>ComboChartVisual</code>.</p>
+   * @public
+   */
+  DataFieldComboSeriesItem?: DataFieldComboSeriesItem | undefined;
 }
 
 /**
@@ -657,6 +1053,18 @@ export interface ComboChartConfiguration {
    * @public
    */
   ColorLabelOptions?: ChartAxisLabelOptions | undefined;
+
+  /**
+   * <p>The options that determine the default presentation of all series in <code>ComboChartVisual</code>.</p>
+   * @public
+   */
+  DefaultSeriesSettings?: ComboChartDefaultSeriesSettings | undefined;
+
+  /**
+   * <p>The series item configuration of a <code>ComboChartVisual</code>.</p>
+   * @public
+   */
+  Series?: ComboSeriesItem[] | undefined;
 
   /**
    * <p>The legend display setup of the visual.</p>
@@ -1154,6 +1562,131 @@ export interface FilledMapConditionalFormatting {
 }
 
 /**
+ * <p>The preference coordinate for the geocode preference.</p>
+ * @public
+ */
+export interface Coordinate {
+  /**
+   * <p>The latitude coordinate value for the geocode preference.</p>
+   * @public
+   */
+  Latitude: number | undefined;
+
+  /**
+   * <p>The longitude coordinate value for the geocode preference.</p>
+   * @public
+   */
+  Longitude: number | undefined;
+}
+
+/**
+ * <p>The preference hierarchy for the geocode preference.</p>
+ * @public
+ */
+export interface GeocoderHierarchy {
+  /**
+   * <p>The country value for the preference hierarchy.</p>
+   * @public
+   */
+  Country?: string | undefined;
+
+  /**
+   * <p>The state/region value for the preference hierarchy.</p>
+   * @public
+   */
+  State?: string | undefined;
+
+  /**
+   * <p>The county/district value for the preference hierarchy.</p>
+   * @public
+   */
+  County?: string | undefined;
+
+  /**
+   * <p>The city value for the preference hierarchy.</p>
+   * @public
+   */
+  City?: string | undefined;
+
+  /**
+   * <p>The postcode value for the preference hierarchy.</p>
+   * @public
+   */
+  PostCode?: string | undefined;
+}
+
+/**
+ * <p>The preference value for the geocode preference.</p>
+ * @public
+ */
+export type GeocodePreferenceValue =
+  | GeocodePreferenceValue.CoordinateMember
+  | GeocodePreferenceValue.GeocoderHierarchyMember
+  | GeocodePreferenceValue.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace GeocodePreferenceValue {
+  /**
+   * <p>The preference hierarchy for the geocode preference.</p>
+   * @public
+   */
+  export interface GeocoderHierarchyMember {
+    GeocoderHierarchy: GeocoderHierarchy;
+    Coordinate?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The preference coordinate for the geocode preference.</p>
+   * @public
+   */
+  export interface CoordinateMember {
+    GeocoderHierarchy?: never;
+    Coordinate: Coordinate;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    GeocoderHierarchy?: never;
+    Coordinate?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    GeocoderHierarchy: (value: GeocoderHierarchy) => T;
+    Coordinate: (value: Coordinate) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The geocode preference.</p>
+ * @public
+ */
+export interface GeocodePreference {
+  /**
+   * <p>The unique request key for the geocode preference.</p>
+   * @public
+   */
+  RequestKey: GeocoderHierarchy | undefined;
+
+  /**
+   * <p>The preference definition for the geocode preference.</p>
+   * @public
+   */
+  Preference: GeocodePreferenceValue | undefined;
+}
+
+/**
  * <p>A filled map.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/filled-maps.html">Creating filled maps</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
  * @public
@@ -1206,6 +1739,12 @@ export interface FilledMapVisual {
    * @public
    */
   VisualContentAltText?: string | undefined;
+
+  /**
+   * <p>The geocoding prefences for filled map visual.</p>
+   * @public
+   */
+  GeocodingPreferences?: GeocodePreference[] | undefined;
 }
 
 /**
@@ -2077,6 +2616,12 @@ export interface GeospatialMapVisual {
    * @public
    */
   VisualContentAltText?: string | undefined;
+
+  /**
+   * <p>The geocoding prefences for geospatial map.</p>
+   * @public
+   */
+  GeocodingPreferences?: GeocodePreference[] | undefined;
 }
 
 /**
@@ -4178,116 +4723,6 @@ export interface LayerMapVisual {
 }
 
 /**
- * <p>Line styles options for a line series in <code>LineChartVisual</code>.</p>
- * @public
- */
-export interface LineChartLineStyleSettings {
-  /**
-   * <p>Configuration option that determines whether to show the line for the series.</p>
-   * @public
-   */
-  LineVisibility?: Visibility | undefined;
-
-  /**
-   * <p>Interpolation style for line series.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>LINEAR</code>: Show as default, linear style.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SMOOTH</code>: Show as a smooth curve.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STEPPED</code>: Show steps in line.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  LineInterpolation?: LineInterpolation | undefined;
-
-  /**
-   * <p>Line style for line series.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SOLID</code>: Show as a solid line.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DOTTED</code>: Show as a dotted line.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DASHED</code>: Show as a dashed line.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  LineStyle?: LineChartLineStyle | undefined;
-
-  /**
-   * <p>Width that determines the line thickness.</p>
-   * @public
-   */
-  LineWidth?: string | undefined;
-}
-
-/**
- * <p>Marker styles options for a line series in <code>LineChartVisual</code>.</p>
- * @public
- */
-export interface LineChartMarkerStyleSettings {
-  /**
-   * <p>Configuration option that determines whether to show the markers in the series.</p>
-   * @public
-   */
-  MarkerVisibility?: Visibility | undefined;
-
-  /**
-   * <p>Shape option for markers in the series.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CIRCLE</code>: Show marker as a circle.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TRIANGLE</code>: Show marker as a triangle.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SQUARE</code>: Show marker as a square.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIAMOND</code>: Show marker as a diamond.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ROUNDED_SQUARE</code>: Show marker as a rounded square.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  MarkerShape?: LineChartMarkerShape | undefined;
-
-  /**
-   * <p>Size of marker in the series.</p>
-   * @public
-   */
-  MarkerSize?: string | undefined;
-
-  /**
-   * <p>Color of marker in the series.</p>
-   * @public
-   */
-  MarkerColor?: string | undefined;
-}
-
-/**
  * <p>The options that determine the default presentation of all line series in <code>LineChartVisual</code>.</p>
  * @public
  */
@@ -4309,6 +4744,12 @@ export interface LineChartDefaultSeriesSettings {
    * @public
    */
   MarkerStyleSettings?: LineChartMarkerStyleSettings | undefined;
+
+  /**
+   * <p>Decal settings options for all line series in the visual.</p>
+   * @public
+   */
+  DecalSettings?: DecalSettings | undefined;
 }
 
 /**
@@ -4545,6 +4986,12 @@ export interface LineChartSeriesSettings {
    * @public
    */
   MarkerStyleSettings?: LineChartMarkerStyleSettings | undefined;
+
+  /**
+   * <p>Decal settings for a line series in <code>LineChartVisual</code>.</p>
+   * @public
+   */
+  DecalSettings?: DecalSettings | undefined;
 }
 
 /**
@@ -5100,6 +5547,36 @@ export interface PieChartVisual {
    * @public
    */
   VisualContentAltText?: string | undefined;
+}
+
+/**
+ * <p>The configuration that controls field customization options available to dashboard readers for a visual.</p>
+ * @public
+ */
+export interface VisualCustomizationFieldsConfiguration {
+  /**
+   * <p>Specifies whether dashboard readers can customize fields for this visual. This option is <code>ENABLED</code> by default.</p>
+   * @public
+   */
+  Status?: DashboardCustomizationStatus | undefined;
+
+  /**
+   * <p>The additional dataset fields available for dashboard readers to customize the visual with, beyond the fields already configured on the visual.</p>
+   * @public
+   */
+  AdditionalFields?: ColumnIdentifier[] | undefined;
+}
+
+/**
+ * <p>The options that define customizations available to dashboard readers for a specific visual</p>
+ * @public
+ */
+export interface DashboardCustomizationVisualOptions {
+  /**
+   * <p>The configuration that controls field customization options available to dashboard readers for a visual.</p>
+   * @public
+   */
+  FieldsConfiguration?: VisualCustomizationFieldsConfiguration | undefined;
 }
 
 /**
@@ -5849,6 +6326,12 @@ export interface PivotTableConfiguration {
    * @public
    */
   PaginatedReportOptions?: PivotTablePaginatedReportOptions | undefined;
+
+  /**
+   * <p>The options that define customizations available to dashboard readers for a specific visual</p>
+   * @public
+   */
+  DashboardCustomizationVisualOptions?: DashboardCustomizationVisualOptions | undefined;
 
   /**
    * <p>The general visual interactions setup for a visual.</p>
@@ -7236,6 +7719,12 @@ export interface TableConfiguration {
   TableInlineVisualizations?: TableInlineVisualization[] | undefined;
 
   /**
+   * <p>The options that define customizations available to dashboard readers for a specific visual</p>
+   * @public
+   */
+  DashboardCustomizationVisualOptions?: DashboardCustomizationVisualOptions | undefined;
+
+  /**
    * <p>The general visual interactions setup for a visual.</p>
    * @public
    */
@@ -7845,744 +8334,4 @@ export interface WordCloudOptions {
    * @public
    */
   MaximumStringLength?: number | undefined;
-}
-
-/**
- * <p>The configuration of a word cloud visual.</p>
- * @public
- */
-export interface WordCloudChartConfiguration {
-  /**
-   * <p>The field wells of the visual.</p>
-   * @public
-   */
-  FieldWells?: WordCloudFieldWells | undefined;
-
-  /**
-   * <p>The sort configuration of a word cloud visual.</p>
-   * @public
-   */
-  SortConfiguration?: WordCloudSortConfiguration | undefined;
-
-  /**
-   * <p>The label options (label text, label visibility, and sort icon visibility) for the word cloud category.</p>
-   * @public
-   */
-  CategoryLabelOptions?: ChartAxisLabelOptions | undefined;
-
-  /**
-   * <p>The options for a word cloud visual.</p>
-   * @public
-   */
-  WordCloudOptions?: WordCloudOptions | undefined;
-
-  /**
-   * <p>The general visual interactions setup for a visual.</p>
-   * @public
-   */
-  Interactions?: VisualInteractionOptions | undefined;
-}
-
-/**
- * <p>A word cloud.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html">Using word clouds</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
- * @public
- */
-export interface WordCloudVisual {
-  /**
-   * <p>The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..</p>
-   * @public
-   */
-  VisualId: string | undefined;
-
-  /**
-   * <p>The title that is displayed on the visual.</p>
-   * @public
-   */
-  Title?: VisualTitleLabelOptions | undefined;
-
-  /**
-   * <p>The subtitle that is displayed on the visual.</p>
-   * @public
-   */
-  Subtitle?: VisualSubtitleLabelOptions | undefined;
-
-  /**
-   * <p>The configuration settings of the visual.</p>
-   * @public
-   */
-  ChartConfiguration?: WordCloudChartConfiguration | undefined;
-
-  /**
-   * <p>The list of custom actions that are configured for a visual.</p>
-   * @public
-   */
-  Actions?: VisualCustomAction[] | undefined;
-
-  /**
-   * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
-   * @public
-   */
-  ColumnHierarchies?: ColumnHierarchy[] | undefined;
-
-  /**
-   * <p>The alt text for the visual.</p>
-   * @public
-   */
-  VisualContentAltText?: string | undefined;
-}
-
-/**
- * <p>A visual displayed on a sheet in an analysis, dashboard, or template.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
- * @public
- */
-export interface Visual {
-  /**
-   * <p>A table visual.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/tabular.html">Using tables as visuals</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  TableVisual?: TableVisual | undefined;
-
-  /**
-   * <p>A pivot table.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html">Using pivot tables</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  PivotTableVisual?: PivotTableVisual | undefined;
-
-  /**
-   * <p>A bar chart.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html">Using bar charts</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  BarChartVisual?: BarChartVisual | undefined;
-
-  /**
-   * <p>A key performance indicator (KPI).</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/kpi.html">Using KPIs</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  KPIVisual?: KPIVisual | undefined;
-
-  /**
-   * <p>A pie or donut chart.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/pie-chart.html">Using pie charts</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  PieChartVisual?: PieChartVisual | undefined;
-
-  /**
-   * <p>A gauge chart.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/gauge-chart.html">Using gauge charts</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  GaugeChartVisual?: GaugeChartVisual | undefined;
-
-  /**
-   * <p>A line chart.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/line-charts.html">Using line charts</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  LineChartVisual?: LineChartVisual | undefined;
-
-  /**
-   * <p>A heat map.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/heat-map.html">Using heat maps</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  HeatMapVisual?: HeatMapVisual | undefined;
-
-  /**
-   * <p>A tree map.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html">Using tree maps</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  TreeMapVisual?: TreeMapVisual | undefined;
-
-  /**
-   * <p>A geospatial map or a points on map visual.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/point-maps.html">Creating point maps</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  GeospatialMapVisual?: GeospatialMapVisual | undefined;
-
-  /**
-   * <p>A filled map.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/filled-maps.html">Creating filled maps</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  FilledMapVisual?: FilledMapVisual | undefined;
-
-  /**
-   * <p>The properties for a layer map visual</p>
-   * @public
-   */
-  LayerMapVisual?: LayerMapVisual | undefined;
-
-  /**
-   * <p>A funnel chart.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/funnel-visual-content.html">Using funnel charts</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  FunnelChartVisual?: FunnelChartVisual | undefined;
-
-  /**
-   * <p>A scatter plot.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/scatter-plot.html">Using scatter plots</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  ScatterPlotVisual?: ScatterPlotVisual | undefined;
-
-  /**
-   * <p>A combo chart.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/combo-charts.html">Using combo charts</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  ComboChartVisual?: ComboChartVisual | undefined;
-
-  /**
-   * <p>A box plot.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/box-plots.html">Using box plots</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  BoxPlotVisual?: BoxPlotVisual | undefined;
-
-  /**
-   * <p>A waterfall chart.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/waterfall-chart.html">Using waterfall charts</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  WaterfallVisual?: WaterfallVisual | undefined;
-
-  /**
-   * <p>A histogram.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/histogram-charts.html">Using histograms</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  HistogramVisual?: HistogramVisual | undefined;
-
-  /**
-   * <p>A word cloud.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html">Using word clouds</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  WordCloudVisual?: WordCloudVisual | undefined;
-
-  /**
-   * <p>An insight visual.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/computational-insights.html">Working with insights</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  InsightVisual?: InsightVisual | undefined;
-
-  /**
-   * <p>A sankey diagram.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sankey-diagram.html">Using Sankey diagrams</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  SankeyDiagramVisual?: SankeyDiagramVisual | undefined;
-
-  /**
-   * <p>A visual that contains custom content.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/custom-visual-content.html">Using custom visual content</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  CustomContentVisual?: CustomContentVisual | undefined;
-
-  /**
-   * <p>An empty visual.</p>
-   * @public
-   */
-  EmptyVisual?: EmptyVisual | undefined;
-
-  /**
-   * <p>A radar chart visual.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html">Using radar charts</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  RadarChartVisual?: RadarChartVisual | undefined;
-
-  /**
-   * <p>The custom plugin visual type.</p>
-   * @public
-   */
-  PluginVisual?: PluginVisual | undefined;
-}
-
-/**
- * <p>A sheet is an object that contains a set of visuals that
- *             are viewed together on one page in a paginated report. Every analysis and dashboard must contain at least one sheet.</p>
- * @public
- */
-export interface SheetDefinition {
-  /**
-   * <p>The unique identifier of a sheet.</p>
-   * @public
-   */
-  SheetId: string | undefined;
-
-  /**
-   * <p>The title of the sheet.</p>
-   * @public
-   */
-  Title?: string | undefined;
-
-  /**
-   * <p>A description of the sheet.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The name of the sheet. This name is displayed on the sheet's tab in the Quick Suite
-   *             console.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The list of parameter controls that are on a sheet.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-controls.html">Using a Control with a Parameter in Amazon Quick Sight</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  ParameterControls?: ParameterControl[] | undefined;
-
-  /**
-   * <p>The list of filter controls that are on a sheet.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html">Adding filter controls to analysis sheets</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  FilterControls?: FilterControl[] | undefined;
-
-  /**
-   * <p>A list of the visuals that are on a sheet. Visual placement is determined by the layout of the sheet.</p>
-   * @public
-   */
-  Visuals?: Visual[] | undefined;
-
-  /**
-   * <p>The text boxes that are on a sheet.</p>
-   * @public
-   */
-  TextBoxes?: SheetTextBox[] | undefined;
-
-  /**
-   * <p>A list of images on a sheet.</p>
-   * @public
-   */
-  Images?: SheetImage[] | undefined;
-
-  /**
-   * <p>Layouts define how the components of a sheet are arranged.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html">Types of layout</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  Layouts?: Layout[] | undefined;
-
-  /**
-   * <p>The control layouts of the sheet.</p>
-   * @public
-   */
-  SheetControlLayouts?: SheetControlLayout[] | undefined;
-
-  /**
-   * <p>The layout content type of the sheet. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PAGINATED</code>: Creates a sheet for a paginated report.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INTERACTIVE</code>: Creates a sheet for an interactive dashboard.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ContentType?: SheetContentType | undefined;
-
-  /**
-   * <p>A list of visual custom actions for the sheet.</p>
-   * @public
-   */
-  CustomActionDefaults?: VisualCustomActionDefaults | undefined;
-}
-
-/**
- * <p>The structure that contains the Amazon S3 location to download the static file from.</p>
- * @public
- */
-export interface StaticFileS3SourceOptions {
-  /**
-   * <p>The name of the Amazon S3 bucket.</p>
-   * @public
-   */
-  BucketName: string | undefined;
-
-  /**
-   * <p>The identifier of the static file in the Amazon S3 bucket.</p>
-   * @public
-   */
-  ObjectKey: string | undefined;
-
-  /**
-   * <p>The Region of the Amazon S3 account that contains the bucket.</p>
-   * @public
-   */
-  Region: string | undefined;
-}
-
-/**
- * <p>The structure that contains the URL to download the static file from.</p>
- * @public
- */
-export interface StaticFileUrlSourceOptions {
-  /**
-   * <p>The URL to download the static file from.</p>
-   * @public
-   */
-  Url: string | undefined;
-}
-
-/**
- * <p>The source of the static file.</p>
- * @public
- */
-export interface StaticFileSource {
-  /**
-   * <p>The structure that contains the URL to download the static file from.</p>
-   * @public
-   */
-  UrlOptions?: StaticFileUrlSourceOptions | undefined;
-
-  /**
-   * <p>The structure that contains the Amazon S3 location to download the static file from.</p>
-   * @public
-   */
-  S3Options?: StaticFileS3SourceOptions | undefined;
-}
-
-/**
- * <p>A static file that contains an image.</p>
- * @public
- */
-export interface ImageStaticFile {
-  /**
-   * <p>The ID of the static file that contains an image.</p>
-   * @public
-   */
-  StaticFileId: string | undefined;
-
-  /**
-   * <p>The source of the image static file.</p>
-   * @public
-   */
-  Source?: StaticFileSource | undefined;
-}
-
-/**
- * <p>A static file that contains the geospatial data.</p>
- * @public
- */
-export interface SpatialStaticFile {
-  /**
-   * <p>The ID of the spatial static file.</p>
-   * @public
-   */
-  StaticFileId: string | undefined;
-
-  /**
-   * <p>The source of the spatial static file.</p>
-   * @public
-   */
-  Source?: StaticFileSource | undefined;
-}
-
-/**
- * <p>The static file.</p>
- * @public
- */
-export interface StaticFile {
-  /**
-   * <p>The image static file.</p>
-   * @public
-   */
-  ImageStaticFile?: ImageStaticFile | undefined;
-
-  /**
-   * <p>The spacial static file.</p>
-   * @public
-   */
-  SpatialStaticFile?: SpatialStaticFile | undefined;
-}
-
-/**
- * <p>The definition of an analysis.</p>
- * @public
- */
-export interface AnalysisDefinition {
-  /**
-   * <p>An array of dataset identifier declarations. This mapping allows the usage of dataset identifiers instead
-   *             of dataset ARNs throughout analysis sub-structures.</p>
-   * @public
-   */
-  DataSetIdentifierDeclarations: DataSetIdentifierDeclaration[] | undefined;
-
-  /**
-   * <p>An array of sheet definitions for an analysis. Each <code>SheetDefinition</code> provides detailed information about
-   *             a sheet within this analysis.</p>
-   * @public
-   */
-  Sheets?: SheetDefinition[] | undefined;
-
-  /**
-   * <p>An array of calculated field definitions for the analysis.</p>
-   * @public
-   */
-  CalculatedFields?: CalculatedField[] | undefined;
-
-  /**
-   * <p>An array of parameter declarations for an analysis.</p>
-   *          <p>Parameters are named variables that can transfer a value for use by an action or an object.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html">Parameters in Amazon Quick Sight</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  ParameterDeclarations?: ParameterDeclaration[] | undefined;
-
-  /**
-   * <p>Filter definitions for an analysis.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html">Filtering Data in Amazon Quick Sight</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  FilterGroups?: FilterGroup[] | undefined;
-
-  /**
-   * <p>
-   *             An array of analysis-level column configurations. Column configurations can be used to set default
-   *             formatting for a column to be used throughout an analysis.
-   *         </p>
-   * @public
-   */
-  ColumnConfigurations?: ColumnConfiguration[] | undefined;
-
-  /**
-   * <p>The configuration for default analysis settings.</p>
-   * @public
-   */
-  AnalysisDefaults?: AnalysisDefaults | undefined;
-
-  /**
-   * <p>An array of option definitions for an analysis.</p>
-   * @public
-   */
-  Options?: AssetOptions | undefined;
-
-  /**
-   * <p>A structure that describes the query execution options.</p>
-   * @public
-   */
-  QueryExecutionOptions?: QueryExecutionOptions | undefined;
-
-  /**
-   * <p>The static files for the definition.</p>
-   * @public
-   */
-  StaticFiles?: StaticFile[] | undefined;
-}
-
-/**
- * <p>A filter that you apply when searching for one or more analyses.</p>
- * @public
- */
-export interface AnalysisSearchFilter {
-  /**
-   * <p>The comparison operator that you want to use as a filter, for example  <code>"Operator": "StringEquals"</code>. Valid values are  <code>"StringEquals"</code>  and  <code>"StringLike"</code>.</p>
-   *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose folders you want to search in the <code>"Value"</code> field. For example,  <code>"Name":"DIRECT_QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
-   *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the folders you are searching for. For example, <code>"Name":"ANALYSIS_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>ANALYSIS_NAME</code>.</p>
-   * @public
-   */
-  Operator?: FilterOperator | undefined;
-
-  /**
-   * <p>The name of the value that you want to use as a filter, for example <code>"Name":
-   *                 "QUICKSIGHT_OWNER"</code>.</p>
-   *          <p>Valid values are defined as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any analyses with that ARN listed as one of the analysis' owners or viewers are returned. Implicit permissions from folders or groups are considered. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any analyses with that ARN listed as one of the owners of the analyses are returned. Implicit permissions from folders or groups are considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIRECT_QUICKSIGHT_SOLE_OWNER</code>: Provide an ARN of a user or group, and any analyses with that ARN listed as the only owner of the analysis are returned. Implicit permissions from folders or groups are not considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIRECT_QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any analyses with that ARN listed as one of the owners of the analyses are returned. Implicit permissions from folders or groups are not considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIRECT_QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any analyses with that ARN listed as one of the owners or viewers of the analyses are returned. Implicit permissions from folders or groups are not considered. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ANALYSIS_NAME</code>: Any analyses whose names have a substring match to this value will be returned.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Name?: AnalysisFilterAttribute | undefined;
-
-  /**
-   * <p>The value of the named item, in this case <code>QUICKSIGHT_USER</code>, that you want
-   *             to use as a filter, for example <code>"Value"</code>. An example is
-   *                 <code>"arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
-   * @public
-   */
-  Value?: string | undefined;
-}
-
-/**
- * <p>Dataset reference.</p>
- * @public
- */
-export interface DataSetReference {
-  /**
-   * <p>Dataset placeholder.</p>
-   * @public
-   */
-  DataSetPlaceholder: string | undefined;
-
-  /**
-   * <p>Dataset Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  DataSetArn: string | undefined;
-}
-
-/**
- * <p>The source template of an analysis.</p>
- * @public
- */
-export interface AnalysisSourceTemplate {
-  /**
-   * <p>The dataset references of the source template of an analysis.</p>
-   * @public
-   */
-  DataSetReferences: DataSetReference[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
-   * @public
-   */
-  Arn: string | undefined;
-}
-
-/**
- * <p>The source entity of an analysis.</p>
- * @public
- */
-export interface AnalysisSourceEntity {
-  /**
-   * <p>The source template for the source entity of the analysis.</p>
-   * @public
-   */
-  SourceTemplate?: AnalysisSourceTemplate | undefined;
-}
-
-/**
- * <p>The summary metadata that describes an analysis.</p>
- * @public
- */
-export interface AnalysisSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the analysis.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID of the analysis. This ID displays in the URL.</p>
-   * @public
-   */
-  AnalysisId?: string | undefined;
-
-  /**
-   * <p>The name of the analysis. This name is displayed in the Quick Sight console.
-   *             </p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The last known status for the analysis.</p>
-   * @public
-   */
-  Status?: ResourceStatus | undefined;
-
-  /**
-   * <p>The time that the analysis was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The time that the analysis was last updated.</p>
-   * @public
-   */
-  LastUpdatedTime?: Date | undefined;
-}
-
-/**
- * <p>The definition of the Anchor.</p>
- * @public
- */
-export interface Anchor {
-  /**
-   * <p>The <code>AnchorType</code> for the Anchor.</p>
-   * @public
-   */
-  AnchorType?: AnchorType | undefined;
-
-  /**
-   * <p>The <code>TimeGranularity</code> of the Anchor.</p>
-   * @public
-   */
-  TimeGranularity?: TimeGranularity | undefined;
-
-  /**
-   * <p>The offset of the Anchor.</p>
-   * @public
-   */
-  Offset?: number | undefined;
-}
-
-/**
- * <p>The shared view settings of an embedded dashboard.</p>
- * @public
- */
-export interface SharedViewConfigurations {
-  /**
-   * <p>The shared view settings of an embedded dashboard.</p>
-   * @public
-   */
-  Enabled: boolean | undefined;
-}
-
-/**
- * <p>The feature configuration for an embedded dashboard.</p>
- * @public
- */
-export interface AnonymousUserDashboardFeatureConfigurations {
-  /**
-   * <p>The shared view settings of an embedded dashboard.</p>
-   * @public
-   */
-  SharedView?: SharedViewConfigurations | undefined;
 }

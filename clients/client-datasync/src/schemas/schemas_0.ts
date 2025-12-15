@@ -139,27 +139,36 @@ const _ECr = "ErrorCode";
 const _ED = "ErrorDetail";
 const _EFA = "EfsFilesystemArn";
 const _EFTD = "EstimatedFilesToDelete";
+const _EFTDs = "EstimatedFoldersToDelete";
 const _EFTT = "EstimatedFilesToTransfer";
+const _EFTTs = "EstimatedFoldersToTransfer";
 const _ET = "EndpointType";
 const _ETn = "EndTime";
 const _F = "Filters";
 const _FD = "FilesDeleted";
+const _FDo = "FoldersDeleted";
 const _FF = "FilesFailed";
 const _FFA = "FsxFilesystemArn";
+const _FFo = "FoldersFailed";
 const _FL = "FilesListed";
 const _FLi = "FilterList";
+const _FLo = "FoldersListed";
 const _FP = "FilesPrepared";
 const _FPN = "FsxProtocolNfs";
 const _FPS = "FsxProtocolSmb";
+const _FPo = "FoldersPrepared";
 const _FPs = "FsxProtocol";
 const _FR = "FilterRule";
 const _FS = "FilesSkipped";
 const _FSARA = "FileSystemAccessRoleArn";
+const _FSo = "FoldersSkipped";
 const _FT = "FilesTransferred";
 const _FTi = "FilterType";
+const _FTo = "FoldersTransferred";
 const _FUP = "FsxUpdateProtocol";
 const _FUPS = "FsxUpdateProtocolSmb";
 const _FV = "FilesVerified";
+const _FVo = "FoldersVerified";
 const _Fo = "Format";
 const _G = "Gid";
 const _H = "Hostname";
@@ -202,6 +211,7 @@ const _LTR = "ListTasksRequest";
 const _LTRi = "ListTasksResponse";
 const _LTi = "ListTasks";
 const _LU = "LocationUri";
+const _Li = "List";
 const _M = "Mtime";
 const _MC = "ManifestConfig";
 const _MO = "MountOptions";
@@ -292,7 +302,9 @@ const _TDr = "TransferDuration";
 const _TE = "TaskExecutions";
 const _TEA = "TaskExecutionArn";
 const _TEFFD = "TaskExecutionFilesFailedDetail";
+const _TEFFDa = "TaskExecutionFoldersFailedDetail";
 const _TEFLD = "TaskExecutionFilesListedDetail";
+const _TEFLDa = "TaskExecutionFoldersListedDetail";
 const _TEL = "TaskExecutionList";
 const _TELE = "TaskExecutionListEntry";
 const _TERD = "TaskExecutionResultDetail";
@@ -533,8 +545,24 @@ export var CreateLocationSmbRequest: StaticStructureSchema = [
   n0,
   _CLSRre,
   0,
-  [_Su, _SH, _U, _D, _Pa, _AAg, _MO, _Ta, _AT, _DIA, _KP, _KK, _KKC],
-  [0, 0, 0, 0, [() => SmbPassword, 0], 64 | 0, () => SmbMountOptions, () => InputTagList, 0, 64 | 0, 0, 21, 21],
+  [_Su, _SH, _U, _D, _Pa, _CSC, _CSCu, _AAg, _MO, _Ta, _AT, _DIA, _KP, _KK, _KKC],
+  [
+    0,
+    0,
+    0,
+    0,
+    [() => SmbPassword, 0],
+    () => CmkSecretConfig,
+    () => CustomSecretConfig,
+    64 | 0,
+    () => SmbMountOptions,
+    () => InputTagList,
+    0,
+    64 | 0,
+    0,
+    21,
+    21,
+  ],
 ];
 export var CreateLocationSmbResponse: StaticStructureSchema = [3, n0, _CLSRrea, 0, [_LA], [0]];
 export var CreateTaskRequest: StaticStructureSchema = [
@@ -671,8 +699,22 @@ export var DescribeLocationSmbResponse: StaticStructureSchema = [
   n0,
   _DLSResc,
   0,
-  [_LA, _LU, _AAg, _U, _D, _MO, _CT, _DIA, _KP, _AT],
-  [0, 0, 64 | 0, 0, 0, () => SmbMountOptions, 4, 64 | 0, 0, 0],
+  [_LA, _LU, _AAg, _U, _D, _MO, _CT, _DIA, _KP, _AT, _MSC, _CSC, _CSCu],
+  [
+    0,
+    0,
+    64 | 0,
+    0,
+    0,
+    () => SmbMountOptions,
+    4,
+    64 | 0,
+    0,
+    0,
+    () => ManagedSecretConfig,
+    () => CmkSecretConfig,
+    () => CustomSecretConfig,
+  ],
 ];
 export var DescribeTaskExecutionRequest: StaticStructureSchema = [3, n0, _DTER, 0, [_TEA], [0]];
 export var DescribeTaskExecutionResponse: StaticStructureSchema = [
@@ -705,6 +747,15 @@ export var DescribeTaskExecutionResponse: StaticStructureSchema = [
     _FP,
     _FL,
     _FF,
+    _EFTDs,
+    _EFTTs,
+    _FSo,
+    _FPo,
+    _FTo,
+    _FVo,
+    _FDo,
+    _FLo,
+    _FFo,
     _LT,
     _ETn,
   ],
@@ -733,6 +784,15 @@ export var DescribeTaskExecutionResponse: StaticStructureSchema = [
     1,
     () => TaskExecutionFilesListedDetail,
     () => TaskExecutionFilesFailedDetail,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    () => TaskExecutionFoldersListedDetail,
+    () => TaskExecutionFoldersFailedDetail,
     4,
     4,
   ],
@@ -907,6 +967,15 @@ export var TaskExecutionFilesFailedDetail: StaticStructureSchema = [
   [1, 1, 1, 1],
 ];
 export var TaskExecutionFilesListedDetail: StaticStructureSchema = [3, n0, _TEFLD, 0, [_AS, _ADFD], [1, 1]];
+export var TaskExecutionFoldersFailedDetail: StaticStructureSchema = [
+  3,
+  n0,
+  _TEFFDa,
+  0,
+  [_Li, _Pre, _Tra, _Veri, _Del],
+  [1, 1, 1, 1, 1],
+];
+export var TaskExecutionFoldersListedDetail: StaticStructureSchema = [3, n0, _TEFLDa, 0, [_AS, _ADFD], [1, 1]];
 export var TaskExecutionListEntry: StaticStructureSchema = [3, n0, _TELE, 0, [_TEA, _S, _TM], [0, 0, 0]];
 export var TaskExecutionResultDetail: StaticStructureSchema = [
   3,
@@ -1020,8 +1089,24 @@ export var UpdateLocationSmbRequest: StaticStructureSchema = [
   n0,
   _ULSRpd,
   0,
-  [_LA, _Su, _SH, _U, _D, _Pa, _AAg, _MO, _AT, _DIA, _KP, _KK, _KKC],
-  [0, 0, 0, 0, 0, [() => SmbPassword, 0], 64 | 0, () => SmbMountOptions, 0, 64 | 0, 0, 21, 21],
+  [_LA, _Su, _SH, _U, _D, _Pa, _CSC, _CSCu, _AAg, _MO, _AT, _DIA, _KP, _KK, _KKC],
+  [
+    0,
+    0,
+    0,
+    0,
+    0,
+    [() => SmbPassword, 0],
+    () => CmkSecretConfig,
+    () => CustomSecretConfig,
+    64 | 0,
+    () => SmbMountOptions,
+    0,
+    64 | 0,
+    0,
+    21,
+    21,
+  ],
 ];
 export var UpdateLocationSmbResponse: StaticStructureSchema = [3, n0, _ULSRpda, 0, [], []];
 export var UpdateTaskExecutionRequest: StaticStructureSchema = [3, n0, _UTER, 0, [_TEA, _O], [0, () => Options]];

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.951.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.950.0...v3.951.0) (2025-12-12)
+
+
+### Features
+
+* **client-workspaces-web:** Adds support for portal branding customization, enabling administrators to personalize end-user portals with custom assets. ([038e6dd](https://github.com/aws/aws-sdk-js-v3/commit/038e6dd0eab1a73f64fcf644540dd04eb3f1377b))
+
+
+
+
+
 # [3.948.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.947.0...v3.948.0) (2025-12-09)
 
 **Note:** Version bump only for package @aws-sdk/client-workspaces-web

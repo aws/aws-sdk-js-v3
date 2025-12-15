@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.951.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.950.0...v3.951.0) (2025-12-12)
+
+
+### Features
+
+* **client-connect:** Amazon Connect now offers automated post-chat surveys triggered when customers end conversations. This captures timely feedback while experience is fresh, using either a no-code form builder or Amazon Lex-powered interactive surveys. ([26542c9](https://github.com/aws/aws-sdk-js-v3/commit/26542c92d66847043cf319a8f990406ff31dd38b))
+
+
+
+
+
 # [3.948.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.947.0...v3.948.0) (2025-12-09)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

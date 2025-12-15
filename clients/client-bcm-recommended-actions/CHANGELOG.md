@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.951.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.950.0...v3.951.0) (2025-12-12)
+
+
+### Features
+
+* **client-bcm-recommended-actions:** Added new freetier action types to RecommendedAction.type. ([a947124](https://github.com/aws/aws-sdk-js-v3/commit/a947124361f8d025114089e71867692e4aae4e17))
+
+
+
+
+
 # [3.948.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.947.0...v3.948.0) (2025-12-09)
 
 **Note:** Version bump only for package @aws-sdk/client-bcm-recommended-actions

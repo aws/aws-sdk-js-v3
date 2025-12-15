@@ -3,6 +3,43 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.951.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.950.0...v3.951.0) (2025-12-12)
+
+
+### Bug Fixes
+
+* **ec2-metadata-service:** custom port configuration for IMDS requests ([#7565](https://github.com/aws/aws-sdk-js-v3/issues/7565)) ([0d8b7ea](https://github.com/aws/aws-sdk-js-v3/commit/0d8b7ea278909bd1b64ede683d6c31ad442dab8a))
+* **ec2-metadata-service:** preserve statusCode when rethrowing errors for IMDS requests ([#7564](https://github.com/aws/aws-sdk-js-v3/issues/7564)) ([c860bd5](https://github.com/aws/aws-sdk-js-v3/commit/c860bd5cd14a62713bb38e82363f8943d29f3363))
+
+
+### Features
+
+* **client-bcm-recommended-actions:** Added new freetier action types to RecommendedAction.type. ([a947124](https://github.com/aws/aws-sdk-js-v3/commit/a947124361f8d025114089e71867692e4aae4e17))
+* **client-connect:** Amazon Connect now offers automated post-chat surveys triggered when customers end conversations. This captures timely feedback while experience is fresh, using either a no-code form builder or Amazon Lex-powered interactive surveys. ([26542c9](https://github.com/aws/aws-sdk-js-v3/commit/26542c92d66847043cf319a8f990406ff31dd38b))
+* **client-datasync:** Adds Enhanced mode support for NFS and SMB locations. SMB credentials are now managed via Secrets Manager, and may be encrypted with service or customer managed keys. Increases AgentArns maximum count to 8 (max 4 per TaskMode). Adds folder counters to DescribeTaskExecution for Enhanced mode tasks. ([a9f75c9](https://github.com/aws/aws-sdk-js-v3/commit/a9f75c956dc6f5d853e687b6979a5372cbab4a85))
+* **client-workspaces-web:** Adds support for portal branding customization, enabling administrators to personalize end-user portals with custom assets. ([038e6dd](https://github.com/aws/aws-sdk-js-v3/commit/038e6dd0eab1a73f64fcf644540dd04eb3f1377b))
+* **clients:** update client endpoints as of 2025-12-12 ([e2460aa](https://github.com/aws/aws-sdk-js-v3/commit/e2460aa3c65a2aa30ddaf7bf22922f19e39b86da))
+
+
+
+
+
+# [3.950.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.949.0...v3.950.0) (2025-12-11)
+
+
+### Features
+
+* **client-lambda:** Add Dotnet 10 (dotnet10) support to AWS Lambda. ([e154bc7](https://github.com/aws/aws-sdk-js-v3/commit/e154bc7240c2d11e7221656e1fc03bcbec57230b))
+* **client-organizations:** Add support for policy operations on the NETWORK SECURITY DIRECTOR POLICY policy type. ([b4aea82](https://github.com/aws/aws-sdk-js-v3/commit/b4aea822161397313b128606e13c357c909a00e5))
+* **client-quicksight:** This release adds new GetIdentityContext API, Dashboard customization options for tables and pivot tables, Visual styling options- borders and decals, map GeocodingPreferences, KeyPairCredentials for DataSourceCredentials. Snapshot APIs now support registered users. Parameters limit increased to 400 ([e8bba45](https://github.com/aws/aws-sdk-js-v3/commit/e8bba45c2dfd79849a1f8c622812b56f0d6ecd7b))
+* **client-secrets-manager:** Add SortBy parameter to ListSecrets ([82c6ffd](https://github.com/aws/aws-sdk-js-v3/commit/82c6ffdd6fbb4a25936281baedefa92b3a72ea1a))
+* **client-sesv2:** Update GetEmailIdentity and CreateEmailIdentity response to include SigningHostedZone in DkimAttributes. Updated PutEmailIdentityDkimSigningAttributes Response to include SigningHostedZone. ([6bceff3](https://github.com/aws/aws-sdk-js-v3/commit/6bceff3d32038954f170515fb62647afb94f468c))
+* **clients:** update client endpoints as of 2025-12-11 ([d4b9bdf](https://github.com/aws/aws-sdk-js-v3/commit/d4b9bdf7135bd605d666739659d7420f884fbc79))
+
+
+
+
+
 # [3.949.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.948.0...v3.949.0) (2025-12-10)
 
 

@@ -1,18 +1,7 @@
 /*
- * Copyright 2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- *
- *  http://aws.amazon.com/apache2.0
- *
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: Apache-2.0
  */
-
 package software.amazon.smithy.aws.typescript.codegen;
 
 import java.io.IOException;
@@ -41,22 +30,22 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 final class DefaultsModeConfigGenerator {
 
     static final String DEFAULTS_MODE_DOC_INTRODUCTION = "Option determining how certain default configuration options "
-    + "are resolved in the SDK. It can be one of the value listed below:\n";
+        + "are resolved in the SDK. It can be one of the value listed below:\n";
 
     static final String INTERNAL_INTERFACES_BLOCK = ""
-    + "/**\n"
-    + " * @internal\n"
-    + " */\n"
-    + "export type ResolvedDefaultsMode = Exclude<DefaultsMode, \"auto\">;\n"
-    + "\n"
-    + "/**\n"
-    + " * @internal\n"
-    + " */\n"
-    + "export interface DefaultsModeConfigs {\n"
-    + "  retryMode?: string;\n"
-    + "  connectionTimeout?: number;\n"
-    + "  requestTimeout?: number;\n"
-    + "}\n";
+        + "/**\n"
+        + " * @internal\n"
+        + " */\n"
+        + "export type ResolvedDefaultsMode = Exclude<DefaultsMode, \"auto\">;\n"
+        + "\n"
+        + "/**\n"
+        + " * @internal\n"
+        + " */\n"
+        + "export interface DefaultsModeConfigs {\n"
+        + "  retryMode?: string;\n"
+        + "  connectionTimeout?: number;\n"
+        + "  requestTimeout?: number;\n"
+        + "}\n";
 
     private DefaultsModeConfigGenerator() {}
 
@@ -68,15 +57,18 @@ final class DefaultsModeConfigGenerator {
 
         Path outputPath = Paths.get(args[0]);
         TypeScriptWriter writer = new TypeScriptWriter(outputPath.toString());
-        String defaultsConfigJson = IoUtils.readUtf8Resource(DefaultsModeConfigGenerator.class,
-                "sdk-default-configuration.json");
+        String defaultsConfigJson = IoUtils.readUtf8Resource(
+            DefaultsModeConfigGenerator.class,
+            "sdk-default-configuration.json"
+        );
         ObjectNode defaultsConfigData = Node.parse(defaultsConfigJson).expectObjectNode();
         ObjectNode baseNode = defaultsConfigData.expectObjectMember("base");
         ObjectNode modesNode = defaultsConfigData.expectObjectMember("modes");
 
         writer.writeDocs("@internal");
         writer.openBlock(
-            "export const loadConfigsForDefaultMode = (mode: ResolvedDefaultsMode): DefaultsModeConfigs => {", "}\n",
+            "export const loadConfigsForDefaultMode = (mode: ResolvedDefaultsMode): DefaultsModeConfigs => {",
+            "}\n",
             () -> {
                 writer.openBlock("switch (mode) {", "}", () -> {
                     modesNode.getMembers().forEach((name, mode) -> {
@@ -89,7 +81,8 @@ final class DefaultsModeConfigGenerator {
                     writer.write("default:");
                     writer.indent().write("return {};").dedent();
                 });
-        });
+            }
+        );
 
         ObjectNode docNode = defaultsConfigData.expectObjectMember("documentation").expectObjectMember("modes");
         List<String> defaultsModes = new LinkedList<String>();
@@ -102,9 +95,12 @@ final class DefaultsModeConfigGenerator {
         }
         defaultsModeDoc.append("\n@default \"legacy\"");
         writer.writeDocs(defaultsModeDoc.toString());
-        writer.write("export type DefaultsMode = $L;\n",
-                String.join(" | ", defaultsModes.stream().map((mod) -> {
-                        return "\"" + mod + "\""; }).collect(Collectors.toList())));
+        writer.write(
+            "export type DefaultsMode = $L;\n",
+            String.join(" | ", defaultsModes.stream().map((mod) -> {
+                return "\"" + mod + "\"";
+            }).collect(Collectors.toList()))
+        );
         writer.write(INTERNAL_INTERFACES_BLOCK);
 
         boolean exists = outputPath.toFile().createNewFile();
@@ -148,15 +144,19 @@ final class DefaultsModeConfigGenerator {
             mode.getObjectMember("connectTimeoutInMillis").ifPresent((overrideNode) -> {
                 overrideNode.getMembers().forEach((modifier, value) -> {
                     String modifierName = modifier.getValue().toUpperCase();
-                    this.modifyConnectTimeoutInMillis(Modifier.valueOf(modifierName),
-                            value.expectNumberNode().getValue());
+                    this.modifyConnectTimeoutInMillis(
+                        Modifier.valueOf(modifierName),
+                        value.expectNumberNode().getValue()
+                    );
                 });
             });
             mode.getObjectMember("httpRequestTimeoutInMillis").ifPresent((overrideNode) -> {
                 overrideNode.getMembers().forEach((modifier, value) -> {
                     String modifierName = modifier.getValue().toUpperCase();
-                    this.modifyHttpRequestTimeoutInMillis(Modifier.valueOf(modifierName),
-                            value.expectNumberNode().getValue());
+                    this.modifyHttpRequestTimeoutInMillis(
+                        Modifier.valueOf(modifierName),
+                        value.expectNumberNode().getValue()
+                    );
                 });
             });
         }
@@ -166,7 +166,8 @@ final class DefaultsModeConfigGenerator {
                 this.retryMode = Optional.of(val);
             } else {
                 throw new CodegenException(
-                        String.format("Unexpected modifier to retryMode, expect \"override\", got %s", modifier.label));
+                    String.format("Unexpected modifier to retryMode, expect \"override\", got %s", modifier.label)
+                );
             }
         }
 
@@ -185,12 +186,14 @@ final class DefaultsModeConfigGenerator {
 
         private void modifyConnectTimeoutInMillis(Modifier modifier, Number val) {
             this.connectTimeoutInMillis = Optional.of(
-                    this.modifyNumber(this.connectTimeoutInMillis.orElse(null), modifier, val));
+                this.modifyNumber(this.connectTimeoutInMillis.orElse(null), modifier, val)
+            );
         }
 
         private void modifyHttpRequestTimeoutInMillis(Modifier modifier, Number val) {
             this.httpRequestTimeoutInMillis = Optional.of(
-                this.modifyNumber(this.httpRequestTimeoutInMillis.orElse(null), modifier, val));
+                this.modifyNumber(this.httpRequestTimeoutInMillis.orElse(null), modifier, val)
+            );
         }
 
         public void useWriter(TypeScriptWriter writer) {

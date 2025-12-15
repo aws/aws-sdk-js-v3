@@ -1178,6 +1178,14 @@ GetFlowPermissions
 </details>
 <details>
 <summary>
+GetIdentityContext
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/GetIdentityContextCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/GetIdentityContextCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/GetIdentityContextCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetSessionEmbedUrl
 </summary>
 

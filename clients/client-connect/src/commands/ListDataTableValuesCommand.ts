@@ -27,7 +27,8 @@ export interface ListDataTableValuesCommandInput extends ListDataTableValuesRequ
 export interface ListDataTableValuesCommandOutput extends ListDataTableValuesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists values stored in a data table with optional filtering by record IDs or primary attribute values. Returns the raw stored values along with metadata such as lock versions and modification timestamps.</p>
+ * <p>Lists values stored in a data table with optional filtering by record IDs or primary attribute values. Returns
+ *    the raw stored values along with metadata such as lock versions and modification timestamps.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

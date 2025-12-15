@@ -27,7 +27,9 @@ export interface UpdateDataTableMetadataCommandInput extends UpdateDataTableMeta
 export interface UpdateDataTableMetadataCommandOutput extends UpdateDataTableMetadataResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the metadata properties of a data table. Accepts all fields similar to CreateDataTable, except for fields and tags. There are no other granular update endpoints. It does not act as a patch operation - all properties must be provided or defaults will be used. Fields follow the same requirements as CreateDataTable.</p>
+ * <p>Updates the metadata properties of a data table. Accepts all fields similar to CreateDataTable, except for
+ *    fields and tags. There are no other granular update endpoints. It does not act as a patch operation - all properties
+ *    must be provided or defaults will be used. Fields follow the same requirements as CreateDataTable.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

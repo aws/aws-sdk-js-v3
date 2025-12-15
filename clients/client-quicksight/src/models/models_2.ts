@@ -2,6 +2,8 @@
 import {
   ActionConnectorType,
   AggType,
+  AnalysisFilterAttribute,
+  AnchorType,
   AnonymousUserDashboardEmbeddingConfigurationDisabledFeature,
   AnonymousUserDashboardEmbeddingConfigurationEnabledFeature,
   AssetBundleExportFormat,
@@ -35,16 +37,14 @@ import {
   DashboardBehavior,
   DashboardUIState,
   DataSetDateComparisonFilterOperator,
-  DataSetImportMode,
   DataSetNumericComparisonFilterOperator,
   DatasetParameterValueType,
   DataSetStringComparisonFilterOperator,
   DataSetStringListFilterOperator,
-  DataSetUseAs,
   DisplayFormat,
   Edition,
-  FileFormat,
   FilterClass,
+  FilterOperator,
   GeoSpatialCountryCode,
   GeoSpatialDataRole,
   InputColumnDataType,
@@ -56,14 +56,11 @@ import {
   RefreshFailureAlertStatus,
   ResourceStatus,
   ReviewedAnswerErrorCode,
-  RowLevelPermissionFormatVersion,
-  RowLevelPermissionPolicy,
   ServiceType,
+  SheetContentType,
   SnapshotFileFormatType,
   SnapshotFileSheetSelectionScope,
   StarburstProductType,
-  Status,
-  TextQualifier,
   TimeGranularity,
   TopicIRFilterFunction,
   TopicIRFilterType,
@@ -82,8 +79,12 @@ import {
   type AggregateOperation,
   type AnalysisDefaults,
   type AssetOptions,
+  type ChartAxisLabelOptions,
   type DataPrepAggregationFunction,
+  type QueryExecutionOptions,
   type TransformOperationSource,
+  type VisualCustomActionDefaults,
+  type VisualInteractionOptions,
   type VisualMenuOption,
   AggregationPartitionBy,
   AmazonElasticsearchParameters,
@@ -92,19 +93,789 @@ import {
   ColumnConfiguration,
   DataSetColumnIdMapping,
   DataSetIdentifierDeclaration,
+  FilterControl,
   FilterGroup,
+  Layout,
+  ParameterControl,
   ParameterDeclaration,
+  SheetControlLayout,
+  SheetImage,
+  SheetTextBox,
+  VisualCustomAction,
 } from "./models_0";
 
 import {
-  type AnalysisDefinition,
-  type AnalysisSourceEntity,
-  type Anchor,
-  type AnonymousUserDashboardFeatureConfigurations,
-  DataSetReference,
-  SheetDefinition,
-  StaticFile,
+  type BarChartVisual,
+  type BoxPlotVisual,
+  type ComboChartVisual,
+  type CustomContentVisual,
+  type EmptyVisual,
+  type FilledMapVisual,
+  type FunnelChartVisual,
+  type GaugeChartVisual,
+  type GeospatialMapVisual,
+  type HeatMapVisual,
+  type HistogramVisual,
+  type InsightVisual,
+  type KPIVisual,
+  type LayerMapVisual,
+  type LineChartVisual,
+  type PieChartVisual,
+  type PivotTableVisual,
+  type PluginVisual,
+  type RadarChartVisual,
+  type SankeyDiagramVisual,
+  type ScatterPlotVisual,
+  type TableVisual,
+  type TreeMapVisual,
+  type VisualSubtitleLabelOptions,
+  type VisualTitleLabelOptions,
+  type WaterfallVisual,
+  type WordCloudFieldWells,
+  type WordCloudOptions,
+  type WordCloudSortConfiguration,
+  ColumnHierarchy,
 } from "./models_1";
+
+/**
+ * <p>The configuration of a word cloud visual.</p>
+ * @public
+ */
+export interface WordCloudChartConfiguration {
+  /**
+   * <p>The field wells of the visual.</p>
+   * @public
+   */
+  FieldWells?: WordCloudFieldWells | undefined;
+
+  /**
+   * <p>The sort configuration of a word cloud visual.</p>
+   * @public
+   */
+  SortConfiguration?: WordCloudSortConfiguration | undefined;
+
+  /**
+   * <p>The label options (label text, label visibility, and sort icon visibility) for the word cloud category.</p>
+   * @public
+   */
+  CategoryLabelOptions?: ChartAxisLabelOptions | undefined;
+
+  /**
+   * <p>The options for a word cloud visual.</p>
+   * @public
+   */
+  WordCloudOptions?: WordCloudOptions | undefined;
+
+  /**
+   * <p>The general visual interactions setup for a visual.</p>
+   * @public
+   */
+  Interactions?: VisualInteractionOptions | undefined;
+}
+
+/**
+ * <p>A word cloud.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html">Using word clouds</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+ * @public
+ */
+export interface WordCloudVisual {
+  /**
+   * <p>The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..</p>
+   * @public
+   */
+  VisualId: string | undefined;
+
+  /**
+   * <p>The title that is displayed on the visual.</p>
+   * @public
+   */
+  Title?: VisualTitleLabelOptions | undefined;
+
+  /**
+   * <p>The subtitle that is displayed on the visual.</p>
+   * @public
+   */
+  Subtitle?: VisualSubtitleLabelOptions | undefined;
+
+  /**
+   * <p>The configuration settings of the visual.</p>
+   * @public
+   */
+  ChartConfiguration?: WordCloudChartConfiguration | undefined;
+
+  /**
+   * <p>The list of custom actions that are configured for a visual.</p>
+   * @public
+   */
+  Actions?: VisualCustomAction[] | undefined;
+
+  /**
+   * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
+   * @public
+   */
+  ColumnHierarchies?: ColumnHierarchy[] | undefined;
+
+  /**
+   * <p>The alt text for the visual.</p>
+   * @public
+   */
+  VisualContentAltText?: string | undefined;
+}
+
+/**
+ * <p>A visual displayed on a sheet in an analysis, dashboard, or template.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * @public
+ */
+export interface Visual {
+  /**
+   * <p>A table visual.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/tabular.html">Using tables as visuals</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  TableVisual?: TableVisual | undefined;
+
+  /**
+   * <p>A pivot table.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html">Using pivot tables</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  PivotTableVisual?: PivotTableVisual | undefined;
+
+  /**
+   * <p>A bar chart.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html">Using bar charts</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  BarChartVisual?: BarChartVisual | undefined;
+
+  /**
+   * <p>A key performance indicator (KPI).</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/kpi.html">Using KPIs</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  KPIVisual?: KPIVisual | undefined;
+
+  /**
+   * <p>A pie or donut chart.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/pie-chart.html">Using pie charts</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  PieChartVisual?: PieChartVisual | undefined;
+
+  /**
+   * <p>A gauge chart.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/gauge-chart.html">Using gauge charts</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  GaugeChartVisual?: GaugeChartVisual | undefined;
+
+  /**
+   * <p>A line chart.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/line-charts.html">Using line charts</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  LineChartVisual?: LineChartVisual | undefined;
+
+  /**
+   * <p>A heat map.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/heat-map.html">Using heat maps</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  HeatMapVisual?: HeatMapVisual | undefined;
+
+  /**
+   * <p>A tree map.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html">Using tree maps</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  TreeMapVisual?: TreeMapVisual | undefined;
+
+  /**
+   * <p>A geospatial map or a points on map visual.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/point-maps.html">Creating point maps</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  GeospatialMapVisual?: GeospatialMapVisual | undefined;
+
+  /**
+   * <p>A filled map.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/filled-maps.html">Creating filled maps</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  FilledMapVisual?: FilledMapVisual | undefined;
+
+  /**
+   * <p>The properties for a layer map visual</p>
+   * @public
+   */
+  LayerMapVisual?: LayerMapVisual | undefined;
+
+  /**
+   * <p>A funnel chart.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/funnel-visual-content.html">Using funnel charts</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  FunnelChartVisual?: FunnelChartVisual | undefined;
+
+  /**
+   * <p>A scatter plot.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/scatter-plot.html">Using scatter plots</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  ScatterPlotVisual?: ScatterPlotVisual | undefined;
+
+  /**
+   * <p>A combo chart.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/combo-charts.html">Using combo charts</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  ComboChartVisual?: ComboChartVisual | undefined;
+
+  /**
+   * <p>A box plot.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/box-plots.html">Using box plots</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  BoxPlotVisual?: BoxPlotVisual | undefined;
+
+  /**
+   * <p>A waterfall chart.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/waterfall-chart.html">Using waterfall charts</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  WaterfallVisual?: WaterfallVisual | undefined;
+
+  /**
+   * <p>A histogram.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/histogram-charts.html">Using histograms</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  HistogramVisual?: HistogramVisual | undefined;
+
+  /**
+   * <p>A word cloud.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html">Using word clouds</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  WordCloudVisual?: WordCloudVisual | undefined;
+
+  /**
+   * <p>An insight visual.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/computational-insights.html">Working with insights</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  InsightVisual?: InsightVisual | undefined;
+
+  /**
+   * <p>A sankey diagram.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sankey-diagram.html">Using Sankey diagrams</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  SankeyDiagramVisual?: SankeyDiagramVisual | undefined;
+
+  /**
+   * <p>A visual that contains custom content.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/custom-visual-content.html">Using custom visual content</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  CustomContentVisual?: CustomContentVisual | undefined;
+
+  /**
+   * <p>An empty visual.</p>
+   * @public
+   */
+  EmptyVisual?: EmptyVisual | undefined;
+
+  /**
+   * <p>A radar chart visual.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html">Using radar charts</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  RadarChartVisual?: RadarChartVisual | undefined;
+
+  /**
+   * <p>The custom plugin visual type.</p>
+   * @public
+   */
+  PluginVisual?: PluginVisual | undefined;
+}
+
+/**
+ * <p>A sheet is an object that contains a set of visuals that
+ *             are viewed together on one page in a paginated report. Every analysis and dashboard must contain at least one sheet.</p>
+ * @public
+ */
+export interface SheetDefinition {
+  /**
+   * <p>The unique identifier of a sheet.</p>
+   * @public
+   */
+  SheetId: string | undefined;
+
+  /**
+   * <p>The title of the sheet.</p>
+   * @public
+   */
+  Title?: string | undefined;
+
+  /**
+   * <p>A description of the sheet.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The name of the sheet. This name is displayed on the sheet's tab in the Quick Suite
+   *             console.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The list of parameter controls that are on a sheet.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-controls.html">Using a Control with a Parameter in Amazon Quick Sight</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  ParameterControls?: ParameterControl[] | undefined;
+
+  /**
+   * <p>The list of filter controls that are on a sheet.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html">Adding filter controls to analysis sheets</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  FilterControls?: FilterControl[] | undefined;
+
+  /**
+   * <p>A list of the visuals that are on a sheet. Visual placement is determined by the layout of the sheet.</p>
+   * @public
+   */
+  Visuals?: Visual[] | undefined;
+
+  /**
+   * <p>The text boxes that are on a sheet.</p>
+   * @public
+   */
+  TextBoxes?: SheetTextBox[] | undefined;
+
+  /**
+   * <p>A list of images on a sheet.</p>
+   * @public
+   */
+  Images?: SheetImage[] | undefined;
+
+  /**
+   * <p>Layouts define how the components of a sheet are arranged.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html">Types of layout</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  Layouts?: Layout[] | undefined;
+
+  /**
+   * <p>The control layouts of the sheet.</p>
+   * @public
+   */
+  SheetControlLayouts?: SheetControlLayout[] | undefined;
+
+  /**
+   * <p>The layout content type of the sheet. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PAGINATED</code>: Creates a sheet for a paginated report.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INTERACTIVE</code>: Creates a sheet for an interactive dashboard.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ContentType?: SheetContentType | undefined;
+
+  /**
+   * <p>A list of visual custom actions for the sheet.</p>
+   * @public
+   */
+  CustomActionDefaults?: VisualCustomActionDefaults | undefined;
+}
+
+/**
+ * <p>The structure that contains the Amazon S3 location to download the static file from.</p>
+ * @public
+ */
+export interface StaticFileS3SourceOptions {
+  /**
+   * <p>The name of the Amazon S3 bucket.</p>
+   * @public
+   */
+  BucketName: string | undefined;
+
+  /**
+   * <p>The identifier of the static file in the Amazon S3 bucket.</p>
+   * @public
+   */
+  ObjectKey: string | undefined;
+
+  /**
+   * <p>The Region of the Amazon S3 account that contains the bucket.</p>
+   * @public
+   */
+  Region: string | undefined;
+}
+
+/**
+ * <p>The structure that contains the URL to download the static file from.</p>
+ * @public
+ */
+export interface StaticFileUrlSourceOptions {
+  /**
+   * <p>The URL to download the static file from.</p>
+   * @public
+   */
+  Url: string | undefined;
+}
+
+/**
+ * <p>The source of the static file.</p>
+ * @public
+ */
+export interface StaticFileSource {
+  /**
+   * <p>The structure that contains the URL to download the static file from.</p>
+   * @public
+   */
+  UrlOptions?: StaticFileUrlSourceOptions | undefined;
+
+  /**
+   * <p>The structure that contains the Amazon S3 location to download the static file from.</p>
+   * @public
+   */
+  S3Options?: StaticFileS3SourceOptions | undefined;
+}
+
+/**
+ * <p>A static file that contains an image.</p>
+ * @public
+ */
+export interface ImageStaticFile {
+  /**
+   * <p>The ID of the static file that contains an image.</p>
+   * @public
+   */
+  StaticFileId: string | undefined;
+
+  /**
+   * <p>The source of the image static file.</p>
+   * @public
+   */
+  Source?: StaticFileSource | undefined;
+}
+
+/**
+ * <p>A static file that contains the geospatial data.</p>
+ * @public
+ */
+export interface SpatialStaticFile {
+  /**
+   * <p>The ID of the spatial static file.</p>
+   * @public
+   */
+  StaticFileId: string | undefined;
+
+  /**
+   * <p>The source of the spatial static file.</p>
+   * @public
+   */
+  Source?: StaticFileSource | undefined;
+}
+
+/**
+ * <p>The static file.</p>
+ * @public
+ */
+export interface StaticFile {
+  /**
+   * <p>The image static file.</p>
+   * @public
+   */
+  ImageStaticFile?: ImageStaticFile | undefined;
+
+  /**
+   * <p>The spacial static file.</p>
+   * @public
+   */
+  SpatialStaticFile?: SpatialStaticFile | undefined;
+}
+
+/**
+ * <p>The definition of an analysis.</p>
+ * @public
+ */
+export interface AnalysisDefinition {
+  /**
+   * <p>An array of dataset identifier declarations. This mapping allows the usage of dataset identifiers instead
+   *             of dataset ARNs throughout analysis sub-structures.</p>
+   * @public
+   */
+  DataSetIdentifierDeclarations: DataSetIdentifierDeclaration[] | undefined;
+
+  /**
+   * <p>An array of sheet definitions for an analysis. Each <code>SheetDefinition</code> provides detailed information about
+   *             a sheet within this analysis.</p>
+   * @public
+   */
+  Sheets?: SheetDefinition[] | undefined;
+
+  /**
+   * <p>An array of calculated field definitions for the analysis.</p>
+   * @public
+   */
+  CalculatedFields?: CalculatedField[] | undefined;
+
+  /**
+   * <p>An array of parameter declarations for an analysis.</p>
+   *          <p>Parameters are named variables that can transfer a value for use by an action or an object.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html">Parameters in Amazon Quick Sight</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  ParameterDeclarations?: ParameterDeclaration[] | undefined;
+
+  /**
+   * <p>Filter definitions for an analysis.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html">Filtering Data in Amazon Quick Sight</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   * @public
+   */
+  FilterGroups?: FilterGroup[] | undefined;
+
+  /**
+   * <p>
+   *             An array of analysis-level column configurations. Column configurations can be used to set default
+   *             formatting for a column to be used throughout an analysis.
+   *         </p>
+   * @public
+   */
+  ColumnConfigurations?: ColumnConfiguration[] | undefined;
+
+  /**
+   * <p>The configuration for default analysis settings.</p>
+   * @public
+   */
+  AnalysisDefaults?: AnalysisDefaults | undefined;
+
+  /**
+   * <p>An array of option definitions for an analysis.</p>
+   * @public
+   */
+  Options?: AssetOptions | undefined;
+
+  /**
+   * <p>A structure that describes the query execution options.</p>
+   * @public
+   */
+  QueryExecutionOptions?: QueryExecutionOptions | undefined;
+
+  /**
+   * <p>The static files for the definition.</p>
+   * @public
+   */
+  StaticFiles?: StaticFile[] | undefined;
+}
+
+/**
+ * <p>A filter that you apply when searching for one or more analyses.</p>
+ * @public
+ */
+export interface AnalysisSearchFilter {
+  /**
+   * <p>The comparison operator that you want to use as a filter, for example  <code>"Operator": "StringEquals"</code>. Valid values are  <code>"StringEquals"</code>  and  <code>"StringLike"</code>.</p>
+   *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose folders you want to search in the <code>"Value"</code> field. For example,  <code>"Name":"DIRECT_QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
+   *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the folders you are searching for. For example, <code>"Name":"ANALYSIS_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>ANALYSIS_NAME</code>.</p>
+   * @public
+   */
+  Operator?: FilterOperator | undefined;
+
+  /**
+   * <p>The name of the value that you want to use as a filter, for example <code>"Name":
+   *                 "QUICKSIGHT_OWNER"</code>.</p>
+   *          <p>Valid values are defined as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any analyses with that ARN listed as one of the analysis' owners or viewers are returned. Implicit permissions from folders or groups are considered. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any analyses with that ARN listed as one of the owners of the analyses are returned. Implicit permissions from folders or groups are considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_SOLE_OWNER</code>: Provide an ARN of a user or group, and any analyses with that ARN listed as the only owner of the analysis are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any analyses with that ARN listed as one of the owners of the analyses are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any analyses with that ARN listed as one of the owners or viewers of the analyses are returned. Implicit permissions from folders or groups are not considered. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ANALYSIS_NAME</code>: Any analyses whose names have a substring match to this value will be returned.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Name?: AnalysisFilterAttribute | undefined;
+
+  /**
+   * <p>The value of the named item, in this case <code>QUICKSIGHT_USER</code>, that you want
+   *             to use as a filter, for example <code>"Value"</code>. An example is
+   *                 <code>"arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>Dataset reference.</p>
+ * @public
+ */
+export interface DataSetReference {
+  /**
+   * <p>Dataset placeholder.</p>
+   * @public
+   */
+  DataSetPlaceholder: string | undefined;
+
+  /**
+   * <p>Dataset Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  DataSetArn: string | undefined;
+}
+
+/**
+ * <p>The source template of an analysis.</p>
+ * @public
+ */
+export interface AnalysisSourceTemplate {
+  /**
+   * <p>The dataset references of the source template of an analysis.</p>
+   * @public
+   */
+  DataSetReferences: DataSetReference[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
+   * @public
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * <p>The source entity of an analysis.</p>
+ * @public
+ */
+export interface AnalysisSourceEntity {
+  /**
+   * <p>The source template for the source entity of the analysis.</p>
+   * @public
+   */
+  SourceTemplate?: AnalysisSourceTemplate | undefined;
+}
+
+/**
+ * <p>The summary metadata that describes an analysis.</p>
+ * @public
+ */
+export interface AnalysisSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the analysis.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the analysis. This ID displays in the URL.</p>
+   * @public
+   */
+  AnalysisId?: string | undefined;
+
+  /**
+   * <p>The name of the analysis. This name is displayed in the Quick Sight console.
+   *             </p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The last known status for the analysis.</p>
+   * @public
+   */
+  Status?: ResourceStatus | undefined;
+
+  /**
+   * <p>The time that the analysis was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The time that the analysis was last updated.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+}
+
+/**
+ * <p>The definition of the Anchor.</p>
+ * @public
+ */
+export interface Anchor {
+  /**
+   * <p>The <code>AnchorType</code> for the Anchor.</p>
+   * @public
+   */
+  AnchorType?: AnchorType | undefined;
+
+  /**
+   * <p>The <code>TimeGranularity</code> of the Anchor.</p>
+   * @public
+   */
+  TimeGranularity?: TimeGranularity | undefined;
+
+  /**
+   * <p>The offset of the Anchor.</p>
+   * @public
+   */
+  Offset?: number | undefined;
+}
+
+/**
+ * <p>The shared view settings of an embedded dashboard.</p>
+ * @public
+ */
+export interface SharedViewConfigurations {
+  /**
+   * <p>The shared view settings of an embedded dashboard.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+}
+
+/**
+ * <p>The feature configuration for an embedded dashboard.</p>
+ * @public
+ */
+export interface AnonymousUserDashboardFeatureConfigurations {
+  /**
+   * <p>The shared view settings of an embedded dashboard.</p>
+   * @public
+   */
+  SharedView?: SharedViewConfigurations | undefined;
+}
 
 /**
  * <p>Information about the dashboard that you want to embed.</p>
@@ -9205,691 +9976,4 @@ export interface LogicalTable {
    * @public
    */
   Source: LogicalTableSource | undefined;
-}
-
-/**
- * <p>A <code>UniqueKey</code> configuration that references a dataset column.</p>
- * @public
- */
-export interface UniqueKey {
-  /**
-   * <p>The name of the column that is referenced in the <code>UniqueKey</code>
-   * 			configuration.</p>
-   * @public
-   */
-  ColumnNames: string[] | undefined;
-}
-
-/**
- * <p>The configuration for the performance optimization of the dataset that contains a
- * 				<code>UniqueKey</code> configuration.</p>
- * @public
- */
-export interface PerformanceConfiguration {
-  /**
-   * <p>A <code>UniqueKey</code> configuration.</p>
-   * @public
-   */
-  UniqueKeys?: UniqueKey[] | undefined;
-}
-
-/**
- * <p>A physical table type built from the results of the custom SQL query.</p>
- * @public
- */
-export interface CustomSql {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the data source.</p>
-   * @public
-   */
-  DataSourceArn: string | undefined;
-
-  /**
-   * <p>A display name for the SQL query result.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The SQL query.</p>
-   * @public
-   */
-  SqlQuery: string | undefined;
-
-  /**
-   * <p>The column schema from the SQL query result set.</p>
-   * @public
-   */
-  Columns?: InputColumn[] | undefined;
-}
-
-/**
- * <p>A physical table type for relational data sources.</p>
- * @public
- */
-export interface RelationalTable {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the data source.</p>
-   * @public
-   */
-  DataSourceArn: string | undefined;
-
-  /**
-   * <p>The catalog associated with a table.</p>
-   * @public
-   */
-  Catalog?: string | undefined;
-
-  /**
-   * <p>The schema name. This name applies to certain relational database engines.</p>
-   * @public
-   */
-  Schema?: string | undefined;
-
-  /**
-   * <p>The name of the relational table.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The column schema of the table.</p>
-   * @public
-   */
-  InputColumns: InputColumn[] | undefined;
-}
-
-/**
- * <p>Information about the format for a source file or files.</p>
- * @public
- */
-export interface UploadSettings {
-  /**
-   * <p>File format.</p>
-   * @public
-   */
-  Format?: FileFormat | undefined;
-
-  /**
-   * <p>A row number to start reading data from.</p>
-   * @public
-   */
-  StartFromRow?: number | undefined;
-
-  /**
-   * <p>Whether the file has a header row, or the files each have a header row.</p>
-   * @public
-   */
-  ContainsHeader?: boolean | undefined;
-
-  /**
-   * <p>Text qualifier.</p>
-   * @public
-   */
-  TextQualifier?: TextQualifier | undefined;
-
-  /**
-   * <p>The delimiter between values in the file.</p>
-   * @public
-   */
-  Delimiter?: string | undefined;
-
-  /**
-   * <p>A custom cell address range for Excel files, specifying which cells to import from the spreadsheet.</p>
-   * @public
-   */
-  CustomCellAddressRange?: string | undefined;
-}
-
-/**
- * <p>A physical table type for an S3 data source.</p>
- * @public
- */
-export interface S3Source {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the data source.</p>
-   * @public
-   */
-  DataSourceArn: string | undefined;
-
-  /**
-   * <p>Information about the format for the S3 source file or files.</p>
-   * @public
-   */
-  UploadSettings?: UploadSettings | undefined;
-
-  /**
-   * <p>A physical table type for an S3 data source.</p>
-   *          <note>
-   *             <p>For files that aren't JSON, only <code>STRING</code> data types are supported in input columns.</p>
-   *          </note>
-   * @public
-   */
-  InputColumns: InputColumn[] | undefined;
-}
-
-/**
- * <p>An element in the hierarchical path to a table within a data source, containing both name and identifier.</p>
- * @public
- */
-export interface TablePathElement {
-  /**
-   * <p>The name of the path element.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the path element.</p>
-   * @public
-   */
-  Id?: string | undefined;
-}
-
-/**
- * <p>A table from a Software-as-a-Service (SaaS) data source, including connection details and column definitions.</p>
- * @public
- */
-export interface SaaSTable {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the SaaS data source.</p>
-   * @public
-   */
-  DataSourceArn: string | undefined;
-
-  /**
-   * <p>The hierarchical path to the table within the SaaS data source.</p>
-   * @public
-   */
-  TablePath: TablePathElement[] | undefined;
-
-  /**
-   * <p>The list of input columns available from the SaaS table.</p>
-   * @public
-   */
-  InputColumns: InputColumn[] | undefined;
-}
-
-/**
- * <p>A view of a data source that contains information about the shape of the data in the
- *             underlying source. This is a variant type structure. For this structure to be valid,
- *             only one of the attributes can be non-null.</p>
- * @public
- */
-export type PhysicalTable =
-  | PhysicalTable.CustomSqlMember
-  | PhysicalTable.RelationalTableMember
-  | PhysicalTable.S3SourceMember
-  | PhysicalTable.SaaSTableMember
-  | PhysicalTable.$UnknownMember;
-
-/**
- * @public
- */
-export namespace PhysicalTable {
-  /**
-   * <p>A physical table type for relational data sources.</p>
-   * @public
-   */
-  export interface RelationalTableMember {
-    RelationalTable: RelationalTable;
-    CustomSql?: never;
-    S3Source?: never;
-    SaaSTable?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A physical table type built from the results of the custom SQL query.</p>
-   * @public
-   */
-  export interface CustomSqlMember {
-    RelationalTable?: never;
-    CustomSql: CustomSql;
-    S3Source?: never;
-    SaaSTable?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A physical table type for as S3 data source.</p>
-   * @public
-   */
-  export interface S3SourceMember {
-    RelationalTable?: never;
-    CustomSql?: never;
-    S3Source: S3Source;
-    SaaSTable?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A physical table type for Software-as-a-Service (SaaS) sources.</p>
-   * @public
-   */
-  export interface SaaSTableMember {
-    RelationalTable?: never;
-    CustomSql?: never;
-    S3Source?: never;
-    SaaSTable: SaaSTable;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    RelationalTable?: never;
-    CustomSql?: never;
-    S3Source?: never;
-    SaaSTable?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    RelationalTable: (value: RelationalTable) => T;
-    CustomSql: (value: CustomSql) => T;
-    S3Source: (value: S3Source) => T;
-    SaaSTable: (value: SaaSTable) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Information about a dataset that contains permissions for row-level security (RLS).
- *             The permissions dataset maps fields to users or groups. For more information, see
- *             <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Quick Sight User
- *                 Guide</i>.</p>
- *          <p>The option to deny permissions by setting <code>PermissionPolicy</code> to <code>DENY_ACCESS</code> is
- *             not supported for new RLS datasets.</p>
- * @public
- */
-export interface RowLevelPermissionDataSet {
-  /**
-   * <p>The namespace associated with the dataset that contains permissions for RLS.</p>
-   * @public
-   */
-  Namespace?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset that contains permissions for RLS.</p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The type of permissions to use when interpreting the permissions for RLS. <code>DENY_ACCESS</code>
-   *         is included for backward compatibility only.</p>
-   * @public
-   */
-  PermissionPolicy: RowLevelPermissionPolicy | undefined;
-
-  /**
-   * <p>The user or group rules associated with the dataset that contains permissions for RLS.</p>
-   *          <p>By default, <code>FormatVersion</code> is <code>VERSION_1</code>. When <code>FormatVersion</code> is <code>VERSION_1</code>, <code>UserName</code> and <code>GroupName</code> are required. When <code>FormatVersion</code> is <code>VERSION_2</code>, <code>UserARN</code> and <code>GroupARN</code> are required, and <code>Namespace</code> must not exist.</p>
-   * @public
-   */
-  FormatVersion?: RowLevelPermissionFormatVersion | undefined;
-
-  /**
-   * <p>The status of the row-level security permission dataset. If enabled, the status is <code>ENABLED</code>. If disabled, the status is <code>DISABLED</code>.</p>
-   * @public
-   */
-  Status?: Status | undefined;
-}
-
-/**
- * <p>A set of rules associated with a tag.</p>
- * @public
- */
-export interface RowLevelPermissionTagRule {
-  /**
-   * <p>The unique key for a tag.</p>
-   * @public
-   */
-  TagKey: string | undefined;
-
-  /**
-   * <p>The column name that a tag key is assigned to.</p>
-   * @public
-   */
-  ColumnName: string | undefined;
-
-  /**
-   * <p>A string that you want to use to delimit the values when you pass the values at run time. For example, you can delimit the values with a comma.</p>
-   * @public
-   */
-  TagMultiValueDelimiter?: string | undefined;
-
-  /**
-   * <p>A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one. For example, you can use an asterisk as your match all value.</p>
-   * @public
-   */
-  MatchAllValue?: string | undefined;
-}
-
-/**
- * <p>The configuration of tags on a dataset to set row-level security. </p>
- * @public
- */
-export interface RowLevelPermissionTagConfiguration {
-  /**
-   * <p>The status of row-level security tags. If enabled, the status is <code>ENABLED</code>. If disabled, the status is <code>DISABLED</code>.</p>
-   * @public
-   */
-  Status?: Status | undefined;
-
-  /**
-   * <p>A set of rules associated with row-level security, such as the tag names and columns that they are assigned to.</p>
-   * @public
-   */
-  TagRules: RowLevelPermissionTagRule[] | undefined;
-
-  /**
-   * <p>A list of tag configuration rules to apply to a dataset. All tag configurations have the OR condition. Tags within each tile will be joined (AND). At least one rule in this structure must have all tag values assigned to it to apply Row-level security (RLS) to the dataset.</p>
-   * @public
-   */
-  TagRuleConfigurations?: string[][] | undefined;
-}
-
-/**
- * <p>Configuration for row level security.</p>
- * @public
- */
-export interface RowLevelPermissionConfiguration {
-  /**
-   * <p>The configuration of tags on a dataset to set row-level security. </p>
-   * @public
-   */
-  TagConfiguration?: RowLevelPermissionTagConfiguration | undefined;
-
-  /**
-   * <p>Information about a dataset that contains permissions for row-level security (RLS).
-   *             The permissions dataset maps fields to users or groups. For more information, see
-   *             <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Quick Sight User
-   *                 Guide</i>.</p>
-   *          <p>The option to deny permissions by setting <code>PermissionPolicy</code> to <code>DENY_ACCESS</code> is
-   *             not supported for new RLS datasets.</p>
-   * @public
-   */
-  RowLevelPermissionDataSet?: RowLevelPermissionDataSet | undefined;
-}
-
-/**
- * <p>A semantic table that represents the final analytical structure of the data.</p>
- * @public
- */
-export interface SemanticTable {
-  /**
-   * <p>Alias for the semantic table.</p>
-   * @public
-   */
-  Alias: string | undefined;
-
-  /**
-   * <p>The identifier of the destination table from data preparation that provides data to this semantic table.</p>
-   * @public
-   */
-  DestinationTableId: string | undefined;
-
-  /**
-   * <p>Configuration for row level security that control data access for this semantic table.</p>
-   * @public
-   */
-  RowLevelPermissionConfiguration?: RowLevelPermissionConfiguration | undefined;
-}
-
-/**
- * <p>Configuration for the semantic model that defines how prepared data is structured for analysis and reporting.</p>
- * @public
- */
-export interface SemanticModelConfiguration {
-  /**
-   * <p>A map of semantic tables that define the analytical structure.</p>
-   * @public
-   */
-  TableMap?: Record<string, SemanticTable> | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateDataSetRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>An ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  DataSetId: string | undefined;
-
-  /**
-   * <p>The display name for the dataset.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>Declares the physical tables that are available in the underlying data sources.</p>
-   * @public
-   */
-  PhysicalTableMap: Record<string, PhysicalTable> | undefined;
-
-  /**
-   * <p>Configures the combination and transformation of the data from the physical
-   * 			tables. This parameter is used with the legacy data preparation experience.</p>
-   *
-   * @deprecated Only used in the legacy data preparation experience.
-   * @public
-   */
-  LogicalTableMap?: Record<string, LogicalTable> | undefined;
-
-  /**
-   * <p>Indicates whether you want to import the data into SPICE.</p>
-   * @public
-   */
-  ImportMode: DataSetImportMode | undefined;
-
-  /**
-   * <p>Groupings of columns that work together in certain Amazon Quick Sight features.
-   * 			Currently, only geospatial hierarchy is supported.</p>
-   * @public
-   */
-  ColumnGroups?: ColumnGroup[] | undefined;
-
-  /**
-   * <p>The folder that contains fields and nested subfolders for your dataset.</p>
-   * @public
-   */
-  FieldFolders?: Record<string, FieldFolder> | undefined;
-
-  /**
-   * <p>A list of resource permissions on the dataset.</p>
-   * @public
-   */
-  Permissions?: ResourcePermission[] | undefined;
-
-  /**
-   * <p>The row-level security configuration for the data that you want to create. This parameter is
-   * 			used with the legacy data preparation experience.</p>
-   *
-   * @deprecated Only used in the legacy data preparation experience.
-   * @public
-   */
-  RowLevelPermissionDataSet?: RowLevelPermissionDataSet | undefined;
-
-  /**
-   * <p>The configuration of tags on a dataset to set row-level security. Row-level security
-   * 			tags are currently supported for anonymous embedding only. This parameter is
-   * 			used with the legacy data preparation experience.</p>
-   *
-   * @deprecated Only used in the legacy data preparation experience.
-   * @public
-   */
-  RowLevelPermissionTagConfiguration?: RowLevelPermissionTagConfiguration | undefined;
-
-  /**
-   * <p>A set of one or more definitions of a <code>
-   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
-   *             </code>.</p>
-   * @public
-   */
-  ColumnLevelPermissionRules?: ColumnLevelPermissionRule[] | undefined;
-
-  /**
-   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-   * 			dataset.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
-   * @public
-   */
-  DataSetUsageConfiguration?: DataSetUsageConfiguration | undefined;
-
-  /**
-   * <p>The parameter declarations of the dataset.</p>
-   * @public
-   */
-  DatasetParameters?: DatasetParameter[] | undefined;
-
-  /**
-   * <p>When you create the dataset, Amazon Quick Sight adds the dataset to these
-   * 			folders.</p>
-   * @public
-   */
-  FolderArns?: string[] | undefined;
-
-  /**
-   * <p>The configuration for the performance optimization of the dataset that contains a
-   * 				<code>UniqueKey</code> configuration.</p>
-   * @public
-   */
-  PerformanceConfiguration?: PerformanceConfiguration | undefined;
-
-  /**
-   * <p>The usage of the dataset. <code>RLS_RULES</code> must be specified for RLS permission
-   * 			datasets.</p>
-   * @public
-   */
-  UseAs?: DataSetUseAs | undefined;
-
-  /**
-   * <p>The data preparation configuration for the dataset. This configuration defines the source tables,
-   * 			transformation steps, and destination tables used to prepare the data.
-   * 			Required when using the new data preparation experience.</p>
-   * @public
-   */
-  DataPrepConfiguration?: DataPrepConfiguration | undefined;
-
-  /**
-   * <p>The semantic model configuration for the dataset. This configuration defines how the prepared
-   * 			data is structured for an analysis, including table mappings and row-level security configurations.
-   * 			Required when using the new data preparation experience.</p>
-   * @public
-   */
-  SemanticModelConfiguration?: SemanticModelConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateDataSetResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  DataSetId?: string | undefined;
-
-  /**
-   * <p>The ARN for the ingestion, which is triggered as a result of dataset creation if the
-   * 			import mode is SPICE.</p>
-   * @public
-   */
-  IngestionArn?: string | undefined;
-
-  /**
-   * <p>The ID of the ingestion, which is triggered as a result of dataset creation if the
-   * 			import mode is SPICE.</p>
-   * @public
-   */
-  IngestionId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * <p>The combination of user name and password that are used as credentials.</p>
- * @public
- */
-export interface CredentialPair {
-  /**
-   * <p>User name.</p>
-   * @public
-   */
-  Username: string | undefined;
-
-  /**
-   * <p>Password.</p>
-   * @public
-   */
-  Password: string | undefined;
-
-  /**
-   * <p>A set of alternate data source parameters that you want to share for these
-   *             credentials. The credentials are applied in tandem with the data source parameters when
-   *             you copy a data source by using a create or update request. The API operation compares
-   *             the <code>DataSourceParameters</code> structure that's in the request with the
-   *             structures in the <code>AlternateDataSourceParameters</code> allow list. If the
-   *             structures are an exact match, the request is allowed to use the new data source with
-   *             the existing credentials. If the <code>AlternateDataSourceParameters</code> list is
-   *             null, the <code>DataSourceParameters</code> originally used with these
-   *                 <code>Credentials</code> is automatically allowed.</p>
-   * @public
-   */
-  AlternateDataSourceParameters?: DataSourceParameters[] | undefined;
-}
-
-/**
- * <p>The credentials for authenticating with a web proxy server.</p>
- * @public
- */
-export interface WebProxyCredentials {
-  /**
-   * <p>The username for authenticating with the web proxy server.</p>
-   * @public
-   */
-  WebProxyUsername: string | undefined;
-
-  /**
-   * <p>The password for authenticating with the web proxy server.</p>
-   * @public
-   */
-  WebProxyPassword: string | undefined;
 }

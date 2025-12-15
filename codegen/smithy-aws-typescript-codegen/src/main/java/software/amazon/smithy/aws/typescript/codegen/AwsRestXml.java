@@ -1,18 +1,7 @@
 /*
- * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- *
- *  http://aws.amazon.com/apache2.0
- *
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: Apache-2.0
  */
-
 package software.amazon.smithy.aws.typescript.codegen;
 
 import static software.amazon.smithy.aws.typescript.codegen.propertyaccess.PropertyAccessor.getFrom;
@@ -38,7 +27,6 @@ import software.amazon.smithy.model.traits.XmlNameTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.HttpBindingProtocolGenerator;
 import software.amazon.smithy.utils.SmithyInternalApi;
-
 
 /**
  * Handles generating the aws.rest-xml protocol for services. It handles reading and
@@ -95,8 +83,11 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
 
     @Override
     protected void generateDocumentBodyShapeDeserializers(GenerationContext context, Set<Shape> shapes) {
-        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes,
-            new XmlShapeDeserVisitor(context));
+        AwsProtocolUtils.generateDocumentBodyShapeSerde(
+            context,
+            shapes,
+            new XmlShapeDeserVisitor(context)
+        );
     }
 
     @Override
@@ -136,9 +127,9 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
 
     @Override
     protected void serializeInputDocumentBody(
-            GenerationContext context,
-            OperationShape operation,
-            List<HttpBinding> documentBindings
+        GenerationContext context,
+        OperationShape operation,
+        List<HttpBinding> documentBindings
     ) {
         serializeDocumentBody(context, documentBindings);
     }
@@ -151,25 +142,25 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
 
     @Override
     protected void serializeOutputDocumentBody(
-            GenerationContext context,
-            OperationShape operation,
-            List<HttpBinding> documentBindings
+        GenerationContext context,
+        OperationShape operation,
+        List<HttpBinding> documentBindings
     ) {
         serializeDocumentBody(context, documentBindings);
     }
 
     @Override
     protected void serializeErrorDocumentBody(
-            GenerationContext context,
-            StructureShape error,
-            List<HttpBinding> documentBindings
+        GenerationContext context,
+        StructureShape error,
+        List<HttpBinding> documentBindings
     ) {
         serializeDocumentBody(context, documentBindings);
     }
 
     private void serializeDocumentBody(
-            GenerationContext context,
-            List<HttpBinding> documentBindings
+        GenerationContext context,
+        List<HttpBinding> documentBindings
     ) {
         // Short circuit when we have no bindings.
         TypeScriptWriter writer = context.getWriter();
@@ -191,8 +182,8 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
         // Handle the @xmlName trait for the input shape.
         StructureShape inputShape = context.getModel().expectShape(inputShapeId, StructureShape.class);
         String nodeName = inputShape.getTrait(XmlNameTrait.class)
-                .map(XmlNameTrait::getValue)
-                .orElse(inputShapeId.getName(serviceShape));
+            .map(XmlNameTrait::getValue)
+            .orElse(inputShapeId.getName(serviceShape));
         writer.write("const bn = new __XmlNode($L);", context.getStringStore().var(nodeName));
 
         // Add @xmlNamespace value of the service to the root node,
@@ -222,34 +213,34 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
 
     @Override
     protected void serializeInputPayload(
-            GenerationContext context,
-            OperationShape operation,
-            HttpBinding payloadBinding
+        GenerationContext context,
+        OperationShape operation,
+        HttpBinding payloadBinding
     ) {
         serializePayload(context, payloadBinding);
     }
 
     @Override
     protected void serializeOutputPayload(
-            GenerationContext context,
-            OperationShape operation,
-            HttpBinding payloadBinding
+        GenerationContext context,
+        OperationShape operation,
+        HttpBinding payloadBinding
     ) {
         serializePayload(context, payloadBinding);
     }
 
     @Override
     protected void serializeErrorPayload(
-            GenerationContext context,
-            StructureShape error,
-            HttpBinding payloadBinding
+        GenerationContext context,
+        StructureShape error,
+        HttpBinding payloadBinding
     ) {
         serializePayload(context, payloadBinding);
     }
 
     private void serializePayload(
-            GenerationContext context,
-            HttpBinding payloadBinding
+        GenerationContext context,
+        HttpBinding payloadBinding
     ) {
         SymbolProvider symbolProvider = context.getSymbolProvider();
         TypeScriptWriter writer = context.getWriter();
@@ -262,21 +253,24 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
         // Generate an if statement to set the body node if the member is set.
         writer.openBlock("if ($L !== undefined) {", "}", getFrom("input", memberName), () -> {
             Shape target = context.getModel().expectShape(member.getTarget());
-            writer.write("contents = $L;",
-                    getInputValue(context, Location.PAYLOAD, getFrom("input", memberName), member, target));
+            writer.write(
+                "contents = $L;",
+                getInputValue(context, Location.PAYLOAD, getFrom("input", memberName), member, target)
+            );
 
             String targetName = target.getTrait(XmlNameTrait.class)
-                            .map(XmlNameTrait::getValue)
-                            .orElse(target.getId().getName());
+                .map(XmlNameTrait::getValue)
+                .orElse(target.getId().getName());
             if (
                 member.hasTrait(XmlNameTrait.class)
-                && !member.getTrait(XmlNameTrait.class).get().getValue().equals(targetName)
+                    && !member.getTrait(XmlNameTrait.class).get().getValue().equals(targetName)
             ) {
                 writer.write("contents = contents.n($S);", member.getTrait(XmlNameTrait.class).get().getValue());
             }
 
             // XmlNode will serialize Structure and non-streaming Union payloads as XML documents.
-            if (target instanceof StructureShape
+            if (
+                target instanceof StructureShape
                     || (target instanceof UnionShape && !target.hasTrait(StreamingTrait.class))
             ) {
                 // Start with the XML declaration.
@@ -309,34 +303,34 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
 
     @Override
     protected void deserializeInputDocumentBody(
-            GenerationContext context,
-            OperationShape operation,
-            List<HttpBinding> documentBindings
+        GenerationContext context,
+        OperationShape operation,
+        List<HttpBinding> documentBindings
     ) {
         deserializeDocumentBody(context, documentBindings);
     }
 
     @Override
     protected void deserializeOutputDocumentBody(
-            GenerationContext context,
-            OperationShape operation,
-            List<HttpBinding> documentBindings
+        GenerationContext context,
+        OperationShape operation,
+        List<HttpBinding> documentBindings
     ) {
         deserializeDocumentBody(context, documentBindings);
     }
 
     @Override
     protected void deserializeErrorDocumentBody(
-            GenerationContext context,
-            StructureShape error,
-            List<HttpBinding> documentBindings
+        GenerationContext context,
+        StructureShape error,
+        List<HttpBinding> documentBindings
     ) {
         deserializeDocumentBody(context, documentBindings);
     }
 
     private void deserializeDocumentBody(
-            GenerationContext context,
-            List<HttpBinding> documentBindings
+        GenerationContext context,
+        List<HttpBinding> documentBindings
     ) {
         SymbolProvider symbolProvider = context.getSymbolProvider();
         XmlShapeDeserVisitor shapeVisitor = new XmlShapeDeserVisitor(context);

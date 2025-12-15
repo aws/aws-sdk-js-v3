@@ -35,6 +35,21 @@ export type StatusType = (typeof StatusType)[keyof typeof StatusType];
  * @public
  * @enum
  */
+export const SortByType = {
+  created_date: "created-date",
+  last_accessed_date: "last-accessed-date",
+  last_changed_date: "last-changed-date",
+  name: "name",
+} as const;
+/**
+ * @public
+ */
+export type SortByType = (typeof SortByType)[keyof typeof SortByType];
+
+/**
+ * @public
+ * @enum
+ */
 export const SortOrderType = {
   asc: "asc",
   desc: "desc",
