@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-iot-jobs-data-plane",
   "description": "AWS SDK for JavaScript Iot Jobs Data Plane Client for Node.js, Browser and React Native",
-  "version": "3.948.0",
+  "version": "3.952.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline client-iot-jobs-data-plane",

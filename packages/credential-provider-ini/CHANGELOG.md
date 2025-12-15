@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.952.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.951.0...v3.952.0) (2025-12-15)
+
+
+### Bug Fixes
+
+* **credential-provider-ini:** pass requestHandler from client to login provider ([#7577](https://github.com/aws/aws-sdk-js-v3/issues/7577)) ([a0bd362](https://github.com/aws/aws-sdk-js-v3/commit/a0bd362cca53a59918a8b55ed12dcda421edc9b5))
+
+
+
+
+
 # [3.948.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.947.0...v3.948.0) (2025-12-09)
 
 **Note:** Version bump only for package @aws-sdk/credential-provider-ini

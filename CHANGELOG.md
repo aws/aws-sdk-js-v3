@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.952.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.951.0...v3.952.0) (2025-12-15)
+
+
+### Bug Fixes
+
+* **client-sts:** warn sts default region only when used ([#7579](https://github.com/aws/aws-sdk-js-v3/issues/7579)) ([6512de5](https://github.com/aws/aws-sdk-js-v3/commit/6512de50d8d3663ec7de3a7eb12e5b624033bb22))
+* **credential-provider-ini:** pass requestHandler from client to login provider ([#7577](https://github.com/aws/aws-sdk-js-v3/issues/7577)) ([a0bd362](https://github.com/aws/aws-sdk-js-v3/commit/a0bd362cca53a59918a8b55ed12dcda421edc9b5))
+
+
+### Features
+
+* **client-cloudwatch-logs:** This release allows you to import your historical CloudTrail Lake data into CloudWatch with a few steps, enabling you to easily consolidate operational, security, and compliance data in one place. ([23d7db9](https://github.com/aws/aws-sdk-js-v3/commit/23d7db9dcdbda83b9f48d33daccdda6ca540dea6))
+* **client-connect:** Amazon Connect now supports outbound WhatsApp contacts via the Send message block or StartOutboundChatContact API. Send proactive messages for surveys, reminders, and updates. Offer customers the option to switch to WhatsApp while in queue, eliminating hold time. ([c9b56eb](https://github.com/aws/aws-sdk-js-v3/commit/c9b56eb02df69d708b8a836bfc4f9830e1cb7e49))
+* **client-ec2:** EC2 Capacity Manager now supports SpotTotalCount, SpotTotalInterruptions and SpotInterruptionRate metrics for both vCPU and instance units. ([f5db7c3](https://github.com/aws/aws-sdk-js-v3/commit/f5db7c3c8a308db06b2fc42d82deecd5dfa9aef8))
+* **client-entityresolution:** Support Customer Profiles Integration for AWS Entity Resolution ([32903b1](https://github.com/aws/aws-sdk-js-v3/commit/32903b157a9c5ef3867cc885ba4149c8a35e200c))
+* **client-glacier:** Documentation updates for Amazon Glacier's maintenance mode ([069dcf4](https://github.com/aws/aws-sdk-js-v3/commit/069dcf44b1dfd064918f16a5728074a51dd9d959))
+* **client-health:** Updating Health API endpoint generation for dualstack only regions ([c8be328](https://github.com/aws/aws-sdk-js-v3/commit/c8be328fb89dd2fb443f4e0871221023a8ccd391))
+* **client-mediatailor:** Added support for Ad Decision Server Configuration enabling HTTP POST requests with custom bodies, headers, GZIP compression, and dynamic variables. No changes required for existing GET request configurations. ([d0aae6d](https://github.com/aws/aws-sdk-js-v3/commit/d0aae6dd626e4c6f792156c3ef793fd0246a184c))
+* **client-route53resolver:** Adds support for enabling detailed metrics on Route 53 Resolver endpoints using RniEnhancedMetricsEnabled and TargetNameServerMetricsEnabled in the CreateResolverEndpoint and UpdateResolverEndpoint APIs, providing enhanced visibility into Resolver endpoint and target name server performance. ([9373755](https://github.com/aws/aws-sdk-js-v3/commit/937375511ee24a6cba577bbf5958a34ec4310df4))
+* **client-s3:** This release adds support for the new optional field 'LifecycleExpirationDate' in S3 Inventory configurations. ([55955e0](https://github.com/aws/aws-sdk-js-v3/commit/55955e018c9276e55a3479debe28593103dac5f4))
+* **client-service-quotas:** Add support for SQ Dashboard Api ([bcc5261](https://github.com/aws/aws-sdk-js-v3/commit/bcc5261c5e30ff57735d13dbab57b983893340bb))
+
+
+
+
+
 # [3.951.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.950.0...v3.951.0) (2025-12-12)
 
 
