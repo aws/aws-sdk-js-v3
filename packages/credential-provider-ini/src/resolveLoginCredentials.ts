@@ -21,7 +21,7 @@ export const resolveLoginCredentials = async (
   const credentials = await fromLoginCredentials({
     ...options,
     profile: profileName,
-  })();
+  })({ callerClientConfig: options.parentClientConfig as any });
 
   return setCredentialFeature(credentials, "CREDENTIALS_PROFILE_LOGIN", "AC");
 };
