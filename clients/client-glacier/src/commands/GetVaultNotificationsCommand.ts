@@ -33,7 +33,7 @@ export interface GetVaultNotificationsCommandOutput extends GetVaultNotification
  *          <p>For information about setting a notification configuration on a vault, see <a>SetVaultNotifications</a>. If a notification configuration for a vault is not
  *          set, the operation returns a <code>404 Not Found</code> error. For more information about
  *          vault notifications, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html">Configuring Vault
- *             Notifications in Amazon S3 Glacier</a>. </p>
+ *             Notifications in Amazon Glacier</a>. </p>
  *
  *          <p>An AWS account has full permission to perform all operations (actions). However, AWS
  *          Identity and Access Management (IAM) users don't have any permissions by default. You must
@@ -41,7 +41,7 @@ export interface GetVaultNotificationsCommandOutput extends GetVaultNotification
  *             <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html">Access Control Using
  *             AWS Identity and Access Management (IAM)</a>.</p>
  *          <p>For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html">Configuring Vault
- *             Notifications in Amazon S3 Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-get.html">Get Vault Notification
+ *             Notifications in Amazon Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-get.html">Get Vault Notification
  *             Configuration </a> in the <i>Amazon Glacier Developer Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +79,8 @@ export interface GetVaultNotificationsCommandOutput extends GetVaultNotification
  *
  * @throws {@link MissingParameterValueException} (client fault)
  *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * @throws {@link NoLongerSupportedException} (client fault)
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't

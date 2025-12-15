@@ -29,7 +29,7 @@ export interface CreateVaultCommandOutput extends CreateVaultOutput, __MetadataB
 /**
  * <p>This operation creates a new vault with the specified name. The name of the vault
  *          must be unique within a region for an AWS account. You can create up to 1,000 vaults per
- *          account. If you need to create more vaults, contact Amazon S3 Glacier.</p>
+ *          account. If you need to create more vaults, contact Amazon Glacier.</p>
  *          <p>You must use the following guidelines when naming a vault.</p>
  *          <ul>
  *             <li>
@@ -85,6 +85,8 @@ export interface CreateVaultCommandOutput extends CreateVaultOutput, __MetadataB
  *
  * @throws {@link MissingParameterValueException} (client fault)
  *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * @throws {@link NoLongerSupportedException} (client fault)
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>

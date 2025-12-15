@@ -189,6 +189,7 @@ export type {
   InvalidParameterValueException,
   LimitExceededException,
   MissingParameterValueException,
+  NoLongerSupportedException,
   PolicyEnforcedException,
   RequestTimeoutException,
   ResourceNotFoundException,

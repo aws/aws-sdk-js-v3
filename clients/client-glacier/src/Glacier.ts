@@ -683,7 +683,7 @@ export interface Glacier {
 }
 
 /**
- * <p> Amazon S3 Glacier (Glacier) is a storage solution for "cold data."</p>
+ * <p> Amazon Glacier (Glacier) is a storage solution for "cold data."</p>
  *
  *          <p>Glacier is an extremely low-cost storage service that provides secure,
  *          durable, and easy-to-use storage for data backup and archival. With Glacier,
@@ -703,20 +703,20 @@ export interface Glacier {
  *          amount of data you can store in Glacier.</p>
  *
  *          <p>If you are a first-time user of Glacier, we recommend that you begin by
- *          reading the following sections in the <i>Amazon S3 Glacier Developer
+ *          reading the following sections in the <i>Amazon Glacier Developer
  *          Guide</i>:</p>
  *          <ul>
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/introduction.html">What is
- *                   Amazon S3 Glacier</a> - This section of the Developer Guide describes the
+ *                   Amazon Glacier</a> - This section of the Developer Guide describes the
  *                underlying data model, the operations it supports, and the AWS SDKs that you can use
  *                to interact with the service.</p>
  *             </li>
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/amazon-glacier-getting-started.html">Getting Started
- *                   with Amazon S3 Glacier</a> - The Getting Started section walks you through the
+ *                   with Amazon Glacier</a> - The Getting Started section walks you through the
  *                process of creating a vault, uploading archives, creating jobs to download archives,
  *                retrieving the job output, and deleting archives.</p>
  *             </li>

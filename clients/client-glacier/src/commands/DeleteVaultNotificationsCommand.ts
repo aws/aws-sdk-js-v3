@@ -28,7 +28,7 @@ export interface DeleteVaultNotificationsCommandOutput extends __MetadataBearer 
 
 /**
  * <p>This operation deletes the notification configuration set for a vault. The operation
- *          is eventually consistent; that is, it might take some time for Amazon S3 Glacier to completely
+ *          is eventually consistent; that is, it might take some time for Amazon Glacier to completely
  *          disable the notifications and you might still receive some notifications for a short time
  *          after you send the delete request.</p>
  *
@@ -38,8 +38,8 @@ export interface DeleteVaultNotificationsCommandOutput extends __MetadataBearer 
  *          <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html">Access
  *             Control Using AWS Identity and Access Management (IAM)</a>.</p>
  *          <p> For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html">Configuring Vault
- *             Notifications in Amazon S3 Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-delete.html">Delete Vault
- *             Notification Configuration </a> in the Amazon S3 Glacier Developer Guide. </p>
+ *             Notifications in Amazon Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-delete.html">Delete Vault
+ *             Notification Configuration </a> in the Amazon Glacier Developer Guide. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,6 +69,8 @@ export interface DeleteVaultNotificationsCommandOutput extends __MetadataBearer 
  *
  * @throws {@link MissingParameterValueException} (client fault)
  *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * @throws {@link NoLongerSupportedException} (client fault)
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't

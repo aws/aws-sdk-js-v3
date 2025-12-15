@@ -90,6 +90,8 @@ export interface GetVaultLockCommandOutput extends GetVaultLockOutput, __Metadat
  * @throws {@link MissingParameterValueException} (client fault)
  *  <p>Returned if a required header or parameter is missing from the request.</p>
  *
+ * @throws {@link NoLongerSupportedException} (client fault)
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
  *          exist.</p>

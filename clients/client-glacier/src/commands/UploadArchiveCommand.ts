@@ -31,10 +31,10 @@ export interface UploadArchiveCommandOutput extends ArchiveCreationOutput, __Met
 
 /**
  * <p>This operation adds an archive to a vault. This is a synchronous operation, and for a
- *          successful upload, your data is durably persisted. Amazon S3 Glacier returns the archive ID in
+ *          successful upload, your data is durably persisted. Amazon Glacier returns the archive ID in
  *          the <code>x-amz-archive-id</code> header of the response. </p>
  *
- *          <p>You must use the archive ID to access your data in Amazon S3 Glacier. After you upload
+ *          <p>You must use the archive ID to access your data in Amazon Glacier. After you upload
  *          an archive, you should save the archive ID returned so that you can retrieve or delete the
  *          archive later. Besides saving the archive ID, you can also index it and give it a friendly
  *          name to allow for better searching. You can also use the optional archive description field
@@ -99,8 +99,10 @@ export interface UploadArchiveCommandOutput extends ArchiveCreationOutput, __Met
  * @throws {@link MissingParameterValueException} (client fault)
  *  <p>Returned if a required header or parameter is missing from the request.</p>
  *
+ * @throws {@link NoLongerSupportedException} (client fault)
+ *
  * @throws {@link RequestTimeoutException} (client fault)
- *  <p>Returned if, when uploading an archive, Amazon S3 Glacier times out while receiving the
+ *  <p>Returned if, when uploading an archive, Amazon Glacier times out while receiving the
  *          upload.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)

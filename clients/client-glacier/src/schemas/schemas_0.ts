@@ -128,6 +128,7 @@ const _Li = "Limit";
 const _M = "Marker";
 const _MPVE = "MissingParameterValueException";
 const _MUI = "MultipartUploadId";
+const _NLSE = "NoLongerSupportedException";
 const _NOA = "NumberOfArchives";
 const _OL = "OutputLocation";
 const _OS = "OutputSerialization";
@@ -263,6 +264,7 @@ import {
   InvalidParameterValueException as __InvalidParameterValueException,
   LimitExceededException as __LimitExceededException,
   MissingParameterValueException as __MissingParameterValueException,
+  NoLongerSupportedException as __NoLongerSupportedException,
   PolicyEnforcedException as __PolicyEnforcedException,
   RequestTimeoutException as __RequestTimeoutException,
   ResourceNotFoundException as __ResourceNotFoundException,
@@ -763,6 +765,15 @@ export var MissingParameterValueException: StaticErrorSchema = [
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(MissingParameterValueException, __MissingParameterValueException);
+export var NoLongerSupportedException: StaticErrorSchema = [
+  -3,
+  n0,
+  _NLSE,
+  { [_e]: _cl, [_hE]: 400 },
+  [_t, _co, _m],
+  [0, 0, 0],
+];
+TypeRegistry.for(n0).registerError(NoLongerSupportedException, __NoLongerSupportedException);
 export var OutputLocation: StaticStructureSchema = [3, n0, _OL, 0, [_S_], [() => S3Location]];
 export var OutputSerialization: StaticStructureSchema = [3, n0, _OS, 0, [_cs], [() => CSVOutput]];
 export var PartListElement: StaticStructureSchema = [3, n0, _PLE, 0, [_RIB, _SHATH], [0, 0]];

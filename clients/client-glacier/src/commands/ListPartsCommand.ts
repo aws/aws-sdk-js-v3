@@ -47,7 +47,7 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  *             <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html">Access Control Using
  *             AWS Identity and Access Management (IAM)</a>.</p>
  *          <p>For conceptual information and the underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html">Working
- *             with Archives in Amazon S3 Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-parts.html">List Parts</a> in the
+ *             with Archives in Amazon Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-parts.html">List Parts</a> in the
  *             <i>Amazon Glacier Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +94,8 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  *
  * @throws {@link MissingParameterValueException} (client fault)
  *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * @throws {@link NoLongerSupportedException} (client fault)
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't

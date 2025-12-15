@@ -68,6 +68,8 @@ export interface GetDataRetrievalPolicyCommandOutput extends GetDataRetrievalPol
  * @throws {@link MissingParameterValueException} (client fault)
  *  <p>Returned if a required header or parameter is missing from the request.</p>
  *
+ * @throws {@link NoLongerSupportedException} (client fault)
+ *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *

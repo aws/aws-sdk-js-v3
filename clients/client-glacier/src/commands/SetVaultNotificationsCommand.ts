@@ -33,7 +33,7 @@ export interface SetVaultNotificationsCommandOutput extends __MetadataBearer {}
  *          <p>To configure vault notifications, send a PUT request to the
  *             <code>notification-configuration</code> subresource of the vault. The request should
  *          include a JSON document that provides an Amazon SNS topic and specific events for which you
- *          want Amazon S3 Glacier to send notifications to the topic.</p>
+ *          want Amazon Glacier to send notifications to the topic.</p>
  *
  *          <p>Amazon SNS topics must grant permission to the vault to be allowed to publish
  *          notifications to the topic. You can configure a vault to publish a notification for the
@@ -63,7 +63,7 @@ export interface SetVaultNotificationsCommandOutput extends __MetadataBearer {}
  *             <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html">Access Control Using
  *             AWS Identity and Access Management (IAM)</a>.</p>
  *          <p>For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html">Configuring Vault
- *             Notifications in Amazon S3 Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-put.html">Set Vault Notification
+ *             Notifications in Amazon Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-put.html">Set Vault Notification
  *             Configuration </a> in the <i>Amazon Glacier Developer Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +100,8 @@ export interface SetVaultNotificationsCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link MissingParameterValueException} (client fault)
  *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * @throws {@link NoLongerSupportedException} (client fault)
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't

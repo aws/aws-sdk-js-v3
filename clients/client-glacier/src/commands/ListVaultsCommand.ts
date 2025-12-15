@@ -44,7 +44,7 @@ export interface ListVaultsCommandOutput extends ListVaultsOutput, __MetadataBea
  *             <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html">Access Control Using
  *             AWS Identity and Access Management (IAM)</a>.</p>
  *          <p>For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/retrieving-vault-info.html">Retrieving Vault Metadata in
- *             Amazon S3 Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vaults-get.html">List Vaults </a> in the
+ *             Amazon Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vaults-get.html">List Vaults </a> in the
  *             <i>Amazon Glacier Developer Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +89,8 @@ export interface ListVaultsCommandOutput extends ListVaultsOutput, __MetadataBea
  * @throws {@link MissingParameterValueException} (client fault)
  *  <p>Returned if a required header or parameter is missing from the request.</p>
  *
+ * @throws {@link NoLongerSupportedException} (client fault)
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
  *          exist.</p>
@@ -99,6 +101,31 @@ export interface ListVaultsCommandOutput extends ListVaultsOutput, __MetadataBea
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ *
+ * @example To list all vaults owned by the calling user's account
+ * ```javascript
+ * // The example lists all vaults owned by the specified AWS account.
+ * const input = {
+ *   accountId: "-",
+ *   marker: ""
+ * };
+ * const command = new ListVaultsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   VaultList: [
+ *     {
+ *       CreationDate: "2015-04-06T21:23:45.708Z",
+ *       LastInventoryDate: "2015-04-07T00:26:19.028Z",
+ *       NumberOfArchives: 1,
+ *       SizeInBytes: 3178496,
+ *       VaultARN: "arn:aws:glacier:us-west-2:0123456789012:vaults/my-vault",
+ *       VaultName: "my-vault"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

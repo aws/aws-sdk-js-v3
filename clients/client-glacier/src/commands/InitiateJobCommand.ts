@@ -140,6 +140,8 @@ export interface InitiateJobCommandOutput extends InitiateJobOutput, __MetadataB
  * @throws {@link MissingParameterValueException} (client fault)
  *  <p>Returned if a required header or parameter is missing from the request.</p>
  *
+ * @throws {@link NoLongerSupportedException} (client fault)
+ *
  * @throws {@link PolicyEnforcedException} (client fault)
  *  <p>Returned if a retrieval job would exceed the current data policy's retrieval rate
  *          limit. For more information about data retrieval policies,</p>

@@ -72,6 +72,29 @@ export class MissingParameterValueException extends __BaseException {
 }
 
 /**
+ * @public
+ */
+export class NoLongerSupportedException extends __BaseException {
+  readonly name = "NoLongerSupportedException" as const;
+  readonly $fault = "client" as const;
+  type?: string | undefined;
+  code?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoLongerSupportedException, __BaseException>) {
+    super({
+      name: "NoLongerSupportedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoLongerSupportedException.prototype);
+    this.type = opts.type;
+    this.code = opts.code;
+  }
+}
+
+/**
  * <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
  *          exist.</p>
  * @public
@@ -236,7 +259,7 @@ export class PolicyEnforcedException extends __BaseException {
 }
 
 /**
- * <p>Returned if, when uploading an archive, Amazon S3 Glacier times out while receiving the
+ * <p>Returned if, when uploading an archive, Amazon Glacier times out while receiving the
  *          upload.</p>
  * @public
  */

@@ -28,7 +28,7 @@ export interface ListTagsForVaultCommandOutput extends ListTagsForVaultOutput, _
 
 /**
  * <p>This operation lists all the tags attached to a vault. The operation returns an empty
- *          map if there are no tags. For more information about tags, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html">Tagging Amazon S3 Glacier
+ *          map if there are no tags. For more information about tags, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html">Tagging Amazon Glacier
  *          Resources</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +63,8 @@ export interface ListTagsForVaultCommandOutput extends ListTagsForVaultOutput, _
  *
  * @throws {@link MissingParameterValueException} (client fault)
  *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * @throws {@link NoLongerSupportedException} (client fault)
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't

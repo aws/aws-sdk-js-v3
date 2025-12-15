@@ -42,7 +42,7 @@ export interface UploadMultipartPartCommandOutput extends UploadMultipartPartOut
  *                <p>
  *                   <b>SHA256 tree hash does not match</b>To ensure that part
  *                data is not corrupted in transmission, you compute a SHA256 tree hash of the part and
- *                include it in your request. Upon receiving the part data, Amazon S3 Glacier also
+ *                include it in your request. Upon receiving the part data, Amazon Glacier also
  *                computes a SHA256 tree hash. If these hash values don't match, the operation fails.
  *                For information about computing a SHA256 tree hash, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/checksum-calculations.html">Computing
  *                   Checksums</a>.</p>
@@ -117,8 +117,10 @@ export interface UploadMultipartPartCommandOutput extends UploadMultipartPartOut
  * @throws {@link MissingParameterValueException} (client fault)
  *  <p>Returned if a required header or parameter is missing from the request.</p>
  *
+ * @throws {@link NoLongerSupportedException} (client fault)
+ *
  * @throws {@link RequestTimeoutException} (client fault)
- *  <p>Returned if, when uploading an archive, Amazon S3 Glacier times out while receiving the
+ *  <p>Returned if, when uploading an archive, Amazon Glacier times out while receiving the
  *          upload.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)

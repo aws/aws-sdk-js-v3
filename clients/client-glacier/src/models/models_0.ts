@@ -19,14 +19,14 @@ import type {
  *
  *          <p>For information about the underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-abort-upload.html">Abort Multipart
  *             Upload</a>. For conceptual information, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html">Working with Archives in
- *             Amazon S3 Glacier</a>.</p>
+ *             Amazon Glacier</a>.</p>
  * @public
  */
 export interface AbortMultipartUploadInput {
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the
    *          credentials used to sign the request. If you use an account ID, do not include any hyphens
    *          ('-') in the ID.</p>
    * @public
@@ -130,7 +130,7 @@ export interface AddTagsToVaultInput {
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the
    *          credentials used to sign the request. If you use an account ID, do not include any hyphens
    *          ('-') in the ID.</p>
    * @public
@@ -152,10 +152,10 @@ export interface AddTagsToVaultInput {
 }
 
 /**
- * <p>Contains the Amazon S3 Glacier response to your request.</p>
+ * <p>Contains the Amazon Glacier response to your request.</p>
  *          <p>For information about the underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-post.html">Upload Archive</a>. For
  *          conceptual information, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html">Working with Archives in
- *             Amazon S3 Glacier</a>.</p>
+ *             Amazon Glacier</a>.</p>
  * @public
  */
 export interface ArchiveCreationOutput {
@@ -166,7 +166,7 @@ export interface ArchiveCreationOutput {
   location?: string | undefined;
 
   /**
-   * <p>The checksum of the archive computed by Amazon S3 Glacier.</p>
+   * <p>The checksum of the archive computed by Amazon Glacier.</p>
    * @public
    */
   checksum?: string | undefined;
@@ -180,7 +180,7 @@ export interface ArchiveCreationOutput {
 
 /**
  * <p>Provides options to complete a multipart upload operation. This informs Amazon
- *          Glacier that all the archive parts have been uploaded and Amazon S3 Glacier (Glacier) can now assemble
+ *          Glacier that all the archive parts have been uploaded and Amazon Glacier (Glacier) can now assemble
  *          the archive from the uploaded parts. After assembling and saving the archive to the vault,
  *          Glacier returns the URI path of the newly created archive resource.</p>
  * @public
@@ -189,7 +189,7 @@ export interface CompleteMultipartUploadInput {
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the
    *          credentials used to sign the request. If you use an account ID, do not include any hyphens
    *          ('-') in the ID.</p>
    * @public
@@ -218,7 +218,7 @@ export interface CompleteMultipartUploadInput {
   /**
    * <p>The SHA256 tree hash of the entire archive. It is the tree hash of SHA256 tree hash
    *          of the individual parts. If the value you specify in the request does not match the SHA256
-   *          tree hash of the final assembled archive as computed by Amazon S3 Glacier (Glacier),
+   *          tree hash of the final assembled archive as computed by Amazon Glacier (Glacier),
    *          Glacier returns an error and the request fails.</p>
    * @public
    */
@@ -276,7 +276,7 @@ export interface CreateVaultInput {
 }
 
 /**
- * <p>Contains the Amazon S3 Glacier response to your request.</p>
+ * <p>Contains the Amazon Glacier response to your request.</p>
  * @public
  */
 export interface CreateVaultOutput {
@@ -409,14 +409,14 @@ export interface DataRetrievalPolicy {
 }
 
 /**
- * <p>Provides options for deleting an archive from an Amazon S3 Glacier vault.</p>
+ * <p>Provides options for deleting an archive from an Amazon Glacier vault.</p>
  * @public
  */
 export interface DeleteArchiveInput {
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the
    *          credentials used to sign the request. If you use an account ID, do not include any hyphens
    *          ('-') in the ID.</p>
    * @public
@@ -437,14 +437,14 @@ export interface DeleteArchiveInput {
 }
 
 /**
- * <p>Provides options for deleting a vault from Amazon S3 Glacier.</p>
+ * <p>Provides options for deleting a vault from Amazon Glacier.</p>
  * @public
  */
 export interface DeleteVaultInput {
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the
    *          credentials used to sign the request. If you use an account ID, do not include any hyphens
    *          ('-') in the ID.</p>
    * @public
@@ -466,7 +466,7 @@ export interface DeleteVaultAccessPolicyInput {
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the
    *          credentials used to sign the request. If you use an account ID, do not include any hyphens
    *          ('-') in the ID. </p>
    * @public
@@ -489,7 +489,7 @@ export interface DeleteVaultNotificationsInput {
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the
    *          credentials used to sign the request. If you use an account ID, do not include any hyphens
    *          ('-') in the ID. </p>
    * @public
@@ -511,7 +511,7 @@ export interface DescribeJobInput {
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the
    *          credentials used to sign the request. If you use an account ID, do not include any hyphens
    *          ('-') in the ID. </p>
    * @public
@@ -913,7 +913,7 @@ export interface DescribeVaultInput {
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the
    *          credentials used to sign the request. If you use an account ID, do not include any hyphens
    *          ('-') in the ID. </p>
    * @public
@@ -928,7 +928,7 @@ export interface DescribeVaultInput {
 }
 
 /**
- * <p>Contains the Amazon S3 Glacier response to your request.</p>
+ * <p>Contains the Amazon Glacier response to your request.</p>
  * @public
  */
 export interface DescribeVaultOutput {
@@ -953,7 +953,7 @@ export interface DescribeVaultOutput {
   CreationDate?: string | undefined;
 
   /**
-   * <p>The Universal Coordinated Time (UTC) date when Amazon S3 Glacier completed the last
+   * <p>The Universal Coordinated Time (UTC) date when Amazon Glacier completed the last
    *          vault inventory.  This value should be a string in the ISO 8601 date format, for example
    *             <code>2012-03-20T17:03:43.221Z</code>.</p>
    * @public
@@ -994,7 +994,7 @@ export interface GetDataRetrievalPolicyInput {
 }
 
 /**
- * <p>Contains the Amazon S3 Glacier response to the <code>GetDataRetrievalPolicy</code>
+ * <p>Contains the Amazon Glacier response to the <code>GetDataRetrievalPolicy</code>
  *          request.</p>
  * @public
  */
@@ -1007,14 +1007,14 @@ export interface GetDataRetrievalPolicyOutput {
 }
 
 /**
- * <p>Provides options for downloading output of an Amazon S3 Glacier job.</p>
+ * <p>Provides options for downloading output of an Amazon Glacier job.</p>
  * @public
  */
 export interface GetJobOutputInput {
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the
    *          credentials used to sign the request. If you use an account ID, do not include any hyphens
    *          ('-') in the ID.</p>
    * @public
@@ -1064,7 +1064,7 @@ export interface GetJobOutputInput {
    *                   checksum values. Compute the tree hash of these values to find the checksum of the
    *                   entire output. Using the <a>DescribeJob</a> API, obtain job information of
    *                   the job that provided you the output. The response includes the checksum of the
-   *                   entire archive stored in Amazon S3 Glacier. You compare this value with the checksum you
+   *                   entire archive stored in Amazon Glacier. You compare this value with the checksum you
    *                   computed to ensure you have downloaded the entire archive content with no
    *                   errors.</p>
    *                <p></p>
@@ -1076,7 +1076,7 @@ export interface GetJobOutputInput {
 }
 
 /**
- * <p>Contains the Amazon S3 Glacier response to your request.</p>
+ * <p>Contains the Amazon Glacier response to your request.</p>
  * @public
  */
 export interface GetJobOutputOutput {
@@ -1119,8 +1119,8 @@ export interface GetJobOutputOutput {
   status?: number | undefined;
 
   /**
-   * <p>The range of bytes returned by Amazon S3 Glacier. If only partial output is downloaded,
-   *          the response provides the range of bytes Amazon S3 Glacier returned. For example, bytes
+   * <p>The range of bytes returned by Amazon Glacier. If only partial output is downloaded,
+   *          the response provides the range of bytes Amazon Glacier returned. For example, bytes
    *          0-1048575/8388608 returns the first 1 MB from 8 MB.</p>
    * @public
    */
@@ -1157,7 +1157,7 @@ export interface GetVaultAccessPolicyInput {
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the
    *          credentials used to sign the request. If you use an account ID, do not include any hyphens
    *          ('-') in the ID.</p>
    * @public
@@ -1203,7 +1203,7 @@ export interface GetVaultLockInput {
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the
    *          credentials used to sign the request. If you use an account ID, do not include any hyphens
    *          ('-') in the ID.</p>
    * @public
@@ -1218,7 +1218,7 @@ export interface GetVaultLockInput {
 }
 
 /**
- * <p>Contains the Amazon S3 Glacier response to your request.</p>
+ * <p>Contains the Amazon Glacier response to your request.</p>
  * @public
  */
 export interface GetVaultLockOutput {
@@ -1260,7 +1260,7 @@ export interface GetVaultNotificationsInput {
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the
    *          credentials used to sign the request. If you use an account ID, do not include any hyphens
    *          ('-') in the ID.</p>
    * @public
@@ -1287,7 +1287,7 @@ export interface VaultNotificationConfig {
   SNSTopic?: string | undefined;
 
   /**
-   * <p>A list of one or more events for which Amazon S3 Glacier will send a notification to the
+   * <p>A list of one or more events for which Amazon Glacier will send a notification to the
    *          specified Amazon SNS topic.</p>
    * @public
    */
@@ -1295,7 +1295,7 @@ export interface VaultNotificationConfig {
 }
 
 /**
- * <p>Contains the Amazon S3 Glacier response to your request.</p>
+ * <p>Contains the Amazon Glacier response to your request.</p>
  * @public
  */
 export interface GetVaultNotificationsOutput {
@@ -1384,7 +1384,7 @@ export interface JobParameters {
   Description?: string | undefined;
 
   /**
-   * <p>The Amazon SNS topic ARN to which Amazon S3 Glacier sends a notification when the job is
+   * <p>The Amazon SNS topic ARN to which Amazon Glacier sends a notification when the job is
    *          completed and the output is ready for you to download. The specified topic publishes the
    *          notification to its subscribers. The SNS topic must exist.</p>
    * @public
@@ -1433,14 +1433,14 @@ export interface JobParameters {
 }
 
 /**
- * <p>Provides options for initiating an Amazon S3 Glacier job.</p>
+ * <p>Provides options for initiating an Amazon Glacier job.</p>
  * @public
  */
 export interface InitiateJobInput {
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the
    *          credentials used to sign the request. If you use an account ID, do not include any hyphens
    *          ('-') in the ID.</p>
    * @public
@@ -1461,7 +1461,7 @@ export interface InitiateJobInput {
 }
 
 /**
- * <p>Contains the Amazon S3 Glacier response to your request.</p>
+ * <p>Contains the Amazon Glacier response to your request.</p>
  * @public
  */
 export interface InitiateJobOutput {
@@ -1485,7 +1485,7 @@ export interface InitiateJobOutput {
 }
 
 /**
- * <p>Provides options for initiating a multipart upload to an Amazon S3 Glacier
+ * <p>Provides options for initiating a multipart upload to an Amazon Glacier
  *          vault.</p>
  * @public
  */
@@ -1493,7 +1493,7 @@ export interface InitiateMultipartUploadInput {
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the
    *          credentials used to sign the request. If you use an account ID, do not include any hyphens
    *          ('-') in the ID. </p>
    * @public
@@ -1524,12 +1524,12 @@ export interface InitiateMultipartUploadInput {
 }
 
 /**
- * <p>The Amazon S3 Glacier response to your request.</p>
+ * <p>The Amazon Glacier response to your request.</p>
  * @public
  */
 export interface InitiateMultipartUploadOutput {
   /**
-   * <p>The relative URI path of the multipart upload ID Amazon S3 Glacier created.</p>
+   * <p>The relative URI path of the multipart upload ID Amazon Glacier created.</p>
    * @public
    */
   location?: string | undefined;
@@ -1584,7 +1584,7 @@ export interface InitiateVaultLockInput {
 }
 
 /**
- * <p>Contains the Amazon S3 Glacier response to your request.</p>
+ * <p>Contains the Amazon Glacier response to your request.</p>
  * @public
  */
 export interface InitiateVaultLockOutput {
@@ -1596,14 +1596,14 @@ export interface InitiateVaultLockOutput {
 }
 
 /**
- * <p>Provides options for retrieving a job list for an Amazon S3 Glacier vault.</p>
+ * <p>Provides options for retrieving a job list for an Amazon Glacier vault.</p>
  * @public
  */
 export interface ListJobsInput {
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the
    *          credentials used to sign the request. If you use an account ID, do not include any hyphens
    *          ('-') in the ID. </p>
    * @public
@@ -1649,7 +1649,7 @@ export interface ListJobsInput {
 }
 
 /**
- * <p>Contains the Amazon S3 Glacier response to your request.</p>
+ * <p>Contains the Amazon Glacier response to your request.</p>
  * @public
  */
 export interface ListJobsOutput {
@@ -1680,7 +1680,7 @@ export interface ListMultipartUploadsInput {
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the
    *          credentials used to sign the request. If you use an account ID, do not include any hyphens
    *          ('-') in the ID. </p>
    * @public
@@ -1750,7 +1750,7 @@ export interface UploadListElement {
 }
 
 /**
- * <p>Contains the Amazon S3 Glacier response to your request.</p>
+ * <p>Contains the Amazon Glacier response to your request.</p>
  * @public
  */
 export interface ListMultipartUploadsOutput {
@@ -1778,7 +1778,7 @@ export interface ListPartsInput {
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the
    *          credentials used to sign the request. If you use an account ID, do not include any hyphens
    *          ('-') in the ID. </p>
    * @public
@@ -1827,7 +1827,7 @@ export interface PartListElement {
   RangeInBytes?: string | undefined;
 
   /**
-   * <p>The SHA256 tree hash value that Amazon S3 Glacier calculated for the part. This field is
+   * <p>The SHA256 tree hash value that Amazon Glacier calculated for the part. This field is
    *          never <code>null</code>.</p>
    * @public
    */
@@ -1835,7 +1835,7 @@ export interface PartListElement {
 }
 
 /**
- * <p>Contains the Amazon S3 Glacier response to your request.</p>
+ * <p>Contains the Amazon Glacier response to your request.</p>
  * @public
  */
 export interface ListPartsOutput {
@@ -1895,7 +1895,7 @@ export interface ListPartsOutput {
 export interface ListProvisionedCapacityInput {
   /**
    * <p>The AWS account ID of the account that owns the vault. You can either specify an AWS
-   *          account ID or optionally a single '-' (hyphen), in which case Amazon S3 Glacier uses the AWS
+   *          account ID or optionally a single '-' (hyphen), in which case Amazon Glacier uses the AWS
    *          account ID associated with the credentials used to sign the request. If you use an account
    *          ID, don't include any hyphens ('-') in the ID. </p>
    * @public
@@ -1946,7 +1946,7 @@ export interface ListTagsForVaultInput {
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the
    *          credentials used to sign the request. If you use an account ID, do not include any hyphens
    *          ('-') in the ID.</p>
    * @public
@@ -1961,7 +1961,7 @@ export interface ListTagsForVaultInput {
 }
 
 /**
- * <p>Contains the Amazon S3 Glacier response to your request.</p>
+ * <p>Contains the Amazon Glacier response to your request.</p>
  * @public
  */
 export interface ListTagsForVaultOutput {
@@ -2005,7 +2005,7 @@ export interface ListVaultsInput {
 }
 
 /**
- * <p>Contains the Amazon S3 Glacier response to your request.</p>
+ * <p>Contains the Amazon Glacier response to your request.</p>
  * @public
  */
 export interface ListVaultsOutput {
@@ -2029,7 +2029,7 @@ export interface ListVaultsOutput {
 export interface PurchaseProvisionedCapacityInput {
   /**
    * <p>The AWS account ID of the account that owns the vault. You can either specify an AWS
-   *          account ID or optionally a single '-' (hyphen), in which case Amazon S3 Glacier uses the AWS
+   *          account ID or optionally a single '-' (hyphen), in which case Amazon Glacier uses the AWS
    *          account ID associated with the credentials used to sign the request. If you use an account
    *          ID, don't include any hyphens ('-') in the ID. </p>
    * @public
@@ -2056,7 +2056,7 @@ export interface RemoveTagsFromVaultInput {
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the
    *          credentials used to sign the request. If you use an account ID, do not include any hyphens
    *          ('-') in the ID.</p>
    * @public
@@ -2106,7 +2106,7 @@ export interface SetVaultAccessPolicyInput {
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the
    *          credentials used to sign the request. If you use an account ID, do not include any hyphens
    *          ('-') in the ID.</p>
    * @public
@@ -2135,7 +2135,7 @@ export interface SetVaultNotificationsInput {
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the
    *          credentials used to sign the request. If you use an account ID, do not include any hyphens
    *          ('-') in the ID.</p>
    * @public
@@ -2169,7 +2169,7 @@ export interface UploadArchiveInput {
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the
    *          credentials used to sign the request. If you use an account ID, do not include any hyphens
    *          ('-') in the ID. </p>
    * @public
@@ -2204,7 +2204,7 @@ export interface UploadMultipartPartInput {
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the
    *          credentials used to sign the request. If you use an account ID, do not include any hyphens
    *          ('-') in the ID. </p>
    * @public
@@ -2231,7 +2231,7 @@ export interface UploadMultipartPartInput {
 
   /**
    * <p>Identifies the range of bytes in the assembled archive that will be uploaded in this
-   *          part. Amazon S3 Glacier uses this information to assemble the archive in the proper sequence.
+   *          part. Amazon Glacier uses this information to assemble the archive in the proper sequence.
    *          The format of this header follows RFC 2616. An example header is Content-Range:bytes
    *          0-4194303/*.</p>
    * @public
@@ -2246,12 +2246,12 @@ export interface UploadMultipartPartInput {
 }
 
 /**
- * <p>Contains the Amazon S3 Glacier response to your request.</p>
+ * <p>Contains the Amazon Glacier response to your request.</p>
  * @public
  */
 export interface UploadMultipartPartOutput {
   /**
-   * <p>The SHA256 tree hash that Amazon S3 Glacier computed for the uploaded part.</p>
+   * <p>The SHA256 tree hash that Amazon Glacier computed for the uploaded part.</p>
    * @public
    */
   checksum?: string | undefined;

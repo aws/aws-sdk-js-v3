@@ -27,7 +27,7 @@ export interface InitiateMultipartUploadCommandInput extends InitiateMultipartUp
 export interface InitiateMultipartUploadCommandOutput extends InitiateMultipartUploadOutput, __MetadataBearer {}
 
 /**
- * <p>This operation initiates a multipart upload. Amazon S3 Glacier creates a multipart
+ * <p>This operation initiates a multipart upload. Amazon Glacier creates a multipart
  *          upload resource and returns its ID in the response. The multipart upload ID is used in
  *          subsequent requests to upload parts of an archive (see <a>UploadMultipartPart</a>).</p>
  *
@@ -44,11 +44,11 @@ export interface InitiateMultipartUploadCommandOutput extends InitiateMultipartU
  *
  *          <note>
  *             <p>You don't need to know the size of the archive when you start a multipart upload
- *             because Amazon S3 Glacier does not require you to specify the overall archive
+ *             because Amazon Glacier does not require you to specify the overall archive
  *             size.</p>
  *          </note>
  *
- *          <p>After you complete the multipart upload, Amazon S3 Glacier (Glacier) removes the multipart upload
+ *          <p>After you complete the multipart upload, Amazon Glacier (Glacier) removes the multipart upload
  *          resource referenced by the ID. Glacier also removes the multipart upload resource if
  *          you cancel the multipart upload or it may be removed if there is no activity for a period
  *          of 24 hours.</p>
@@ -95,6 +95,8 @@ export interface InitiateMultipartUploadCommandOutput extends InitiateMultipartU
  *
  * @throws {@link MissingParameterValueException} (client fault)
  *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * @throws {@link NoLongerSupportedException} (client fault)
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
