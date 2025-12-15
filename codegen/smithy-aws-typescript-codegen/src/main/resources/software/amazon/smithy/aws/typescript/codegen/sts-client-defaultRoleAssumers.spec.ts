@@ -1,7 +1,7 @@
 import { NodeHttp2Handler, NodeHttpHandler, streamCollector } from "@smithy/node-http-handler";
 import { HttpResponse } from "@smithy/protocol-http";
 import { Readable } from "stream";
-import { beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
+import { afterAll, beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import type { AssumeRoleCommandInput } from "../src/commands/AssumeRoleCommand";
 import { AssumeRoleWithWebIdentityCommandInput } from "../src/commands/AssumeRoleWithWebIdentityCommand";
@@ -238,6 +238,53 @@ describe("getDefaultRoleAssumer", () => {
     expect(customMiddlewareFunction).toHaveBeenCalledTimes(2); // make sure the middleware is not added to stack multiple times.
     expect(customMiddlewareFunction).toHaveBeenNthCalledWith(1, expect.objectContaining({ input: params }));
     expect(customMiddlewareFunction).toHaveBeenNthCalledWith(2, expect.objectContaining({ input: params }));
+  });
+
+  describe("resolveRegion", () => {
+    let envRegion: string | undefined;
+    let envDefaultRegion: string | undefined;
+
+    beforeAll(async () => {
+      envRegion = process.env.AWS_REGION;
+      envDefaultRegion = process.env.AWS_DEFAULT_REGION;
+      delete process.env.AWS_REGION;
+      delete process.env.AWS_DEFAULT_REGION;
+    });
+
+    afterAll(async () => {
+      process.env.AWS_REGION = envRegion;
+      process.env.AWS_DEFAULT_REGION = envDefaultRegion;
+    });
+
+    it("should not call stsRegionDefaultResolver unless no region was configured on the client and provider", async () => {
+      vi.spyOn(console, "warn");
+      const sourceCred = { accessKeyId: "key", secretAccessKey: "secret" };
+      const params: AssumeRoleCommandInput = {
+        RoleArn: "arn:aws:foo",
+        RoleSessionName: "session",
+      };
+      {
+        const roleAssumer = getDefaultRoleAssumer({
+          region: async () => "us-west-2",
+        });
+        await roleAssumer(sourceCred, params);
+        expect(console.warn).not.toHaveBeenCalled();
+      }
+      {
+        const roleAssumer = getDefaultRoleAssumer({
+          parentClientConfig: {
+            region: async () => "us-west-2",
+          },
+        });
+        await roleAssumer(sourceCred, params);
+        expect(console.warn).not.toHaveBeenCalled();
+      }
+      {
+        const roleAssumer = getDefaultRoleAssumer({});
+        await roleAssumer(sourceCred, params);
+        expect(console.warn).toHaveBeenCalledTimes(1);
+      }
+    });
   });
 });
 
