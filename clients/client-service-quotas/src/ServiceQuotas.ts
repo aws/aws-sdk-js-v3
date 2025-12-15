@@ -38,6 +38,11 @@ import {
   GetAWSDefaultServiceQuotaCommandOutput,
 } from "./commands/GetAWSDefaultServiceQuotaCommand";
 import {
+  GetQuotaUtilizationReportCommand,
+  GetQuotaUtilizationReportCommandInput,
+  GetQuotaUtilizationReportCommandOutput,
+} from "./commands/GetQuotaUtilizationReportCommand";
+import {
   GetRequestedServiceQuotaChangeCommand,
   GetRequestedServiceQuotaChangeCommandInput,
   GetRequestedServiceQuotaChangeCommandOutput,
@@ -103,6 +108,11 @@ import {
   StartAutoManagementCommandOutput,
 } from "./commands/StartAutoManagementCommand";
 import {
+  StartQuotaUtilizationReportCommand,
+  StartQuotaUtilizationReportCommandInput,
+  StartQuotaUtilizationReportCommandOutput,
+} from "./commands/StartQuotaUtilizationReportCommand";
+import {
   StopAutoManagementCommand,
   StopAutoManagementCommandInput,
   StopAutoManagementCommandOutput,
@@ -128,6 +138,7 @@ const commands = {
   GetAssociationForServiceQuotaTemplateCommand,
   GetAutoManagementConfigurationCommand,
   GetAWSDefaultServiceQuotaCommand,
+  GetQuotaUtilizationReportCommand,
   GetRequestedServiceQuotaChangeCommand,
   GetServiceQuotaCommand,
   GetServiceQuotaIncreaseRequestFromTemplateCommand,
@@ -141,6 +152,7 @@ const commands = {
   PutServiceQuotaIncreaseRequestIntoTemplateCommand,
   RequestServiceQuotaIncreaseCommand,
   StartAutoManagementCommand,
+  StartQuotaUtilizationReportCommand,
   StopAutoManagementCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -269,6 +281,23 @@ export interface ServiceQuotas {
     args: GetAWSDefaultServiceQuotaCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAWSDefaultServiceQuotaCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetQuotaUtilizationReportCommand}
+   */
+  getQuotaUtilizationReport(
+    args: GetQuotaUtilizationReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetQuotaUtilizationReportCommandOutput>;
+  getQuotaUtilizationReport(
+    args: GetQuotaUtilizationReportCommandInput,
+    cb: (err: any, data?: GetQuotaUtilizationReportCommandOutput) => void
+  ): void;
+  getQuotaUtilizationReport(
+    args: GetQuotaUtilizationReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetQuotaUtilizationReportCommandOutput) => void
   ): void;
 
   /**
@@ -484,6 +513,24 @@ export interface ServiceQuotas {
     args: StartAutoManagementCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartAutoManagementCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartQuotaUtilizationReportCommand}
+   */
+  startQuotaUtilizationReport(): Promise<StartQuotaUtilizationReportCommandOutput>;
+  startQuotaUtilizationReport(
+    args: StartQuotaUtilizationReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartQuotaUtilizationReportCommandOutput>;
+  startQuotaUtilizationReport(
+    args: StartQuotaUtilizationReportCommandInput,
+    cb: (err: any, data?: StartQuotaUtilizationReportCommandOutput) => void
+  ): void;
+  startQuotaUtilizationReport(
+    args: StartQuotaUtilizationReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartQuotaUtilizationReportCommandOutput) => void
   ): void;
 
   /**

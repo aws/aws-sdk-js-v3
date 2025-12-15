@@ -4,6 +4,7 @@ const _AR = "AwsRegion";
 const _ASQT = "AssociateServiceQuotaTemplate";
 const _ASQTR = "AssociateServiceQuotaTemplateRequest";
 const _ASQTRs = "AssociateServiceQuotaTemplateResponse";
+const _AV = "AppliedValue";
 const _AWSSANEE = "AWSServiceAccessNotEnabledException";
 const _C = "Created";
 const _CI = "ContextId";
@@ -22,11 +23,13 @@ const _DSQT = "DisassociateServiceQuotaTemplate";
 const _DSQTR = "DisassociateServiceQuotaTemplateRequest";
 const _DSQTRi = "DisassociateServiceQuotaTemplateResponse";
 const _DV = "DesiredValue";
+const _DVe = "DefaultValue";
 const _EC = "ErrorCode";
 const _EL = "ExclusionList";
 const _EM = "ErrorMessage";
 const _EQL = "ExclusionQuotaList";
 const _ER = "ErrorReason";
+const _GA = "GeneratedAt";
 const _GAFSQT = "GetAssociationForServiceQuotaTemplate";
 const _GAFSQTR = "GetAssociationForServiceQuotaTemplateRequest";
 const _GAFSQTRe = "GetAssociationForServiceQuotaTemplateResponse";
@@ -37,6 +40,9 @@ const _GAWSDSQ = "GetAWSDefaultServiceQuota";
 const _GAWSDSQR = "GetAWSDefaultServiceQuotaRequest";
 const _GAWSDSQRe = "GetAWSDefaultServiceQuotaResponse";
 const _GQ = "GlobalQuota";
+const _GQUR = "GetQuotaUtilizationReport";
+const _GQURR = "GetQuotaUtilizationReportRequest";
+const _GQURRe = "GetQuotaUtilizationReportResponse";
 const _GRSQC = "GetRequestedServiceQuotaChange";
 const _GRSQCR = "GetRequestedServiceQuotaChangeRequest";
 const _GRSQCRe = "GetRequestedServiceQuotaChangeResponse";
@@ -81,6 +87,7 @@ const _MN = "MetricNamespace";
 const _MNe = "MetricName";
 const _MR = "MaxResults";
 const _MSR = "MetricStatisticRecommendation";
+const _N = "Namespace";
 const _NA = "NotificationArn";
 const _NAOE = "NoAvailableOrganizationException";
 const _NSRE = "NoSuchResourceException";
@@ -108,11 +115,14 @@ const _QIL = "QuotaInfoList";
 const _QN = "QuotaName";
 const _QP = "QuotaPeriod";
 const _QRAL = "QuotaRequestedAtLevel";
+const _QUI = "QuotaUtilizationInfo";
+const _QUIL = "QuotaUtilizationInfoList";
 const _Qu = "Quotas";
 const _R = "Requester";
 const _RAEE = "ResourceAlreadyExistsException";
 const _RARN = "ResourceARN";
 const _RI = "RequestId";
+const _RIe = "ReportId";
 const _RQ = "RequestedQuota";
 const _RQe = "RequestedQuotas";
 const _RSQC = "RequestedServiceQuotaChange";
@@ -120,6 +130,7 @@ const _RSQCHLD = "RequestedServiceQuotaChangeHistoryListDefinition";
 const _RSQI = "RequestServiceQuotaIncrease";
 const _RSQIR = "RequestServiceQuotaIncreaseRequest";
 const _RSQIRe = "RequestServiceQuotaIncreaseResponse";
+const _RT = "RequestType";
 const _S = "Status";
 const _SAM = "StartAutoManagement";
 const _SAMR = "StartAutoManagementRequest";
@@ -139,8 +150,12 @@ const _SQIRITL = "ServiceQuotaIncreaseRequestInTemplateList";
 const _SQLD = "ServiceQuotaListDefinition";
 const _SQTAS = "ServiceQuotaTemplateAssociationStatus";
 const _SQTNIUE = "ServiceQuotaTemplateNotInUseException";
+const _SQUR = "StartQuotaUtilizationReport";
+const _SQURR = "StartQuotaUtilizationReportRequest";
+const _SQURRt = "StartQuotaUtilizationReportResponse";
 const _Se = "Services";
 const _T = "Tags";
+const _TC = "TotalCount";
 const _TK = "TagKeys";
 const _TMRE = "TooManyRequestsException";
 const _TMTE = "TooManyTagsException";
@@ -150,7 +165,7 @@ const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
 const _Ta = "Tag";
-const _U = "Unit";
+const _U = "Utilization";
 const _UAM = "UpdateAutoManagement";
 const _UAMR = "UpdateAutoManagementRequest";
 const _UAMRp = "UpdateAutoManagementResponse";
@@ -158,6 +173,7 @@ const _UM = "UsageMetric";
 const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
+const _Un = "Unit";
 const _V = "Value";
 const _c = "client";
 const _e = "error";
@@ -253,6 +269,15 @@ export var GetAWSDefaultServiceQuotaResponse: StaticStructureSchema = [
   0,
   [_Q],
   [() => ServiceQuota],
+];
+export var GetQuotaUtilizationReportRequest: StaticStructureSchema = [3, n0, _GQURR, 0, [_RIe, _NT, _MR], [0, 0, 1]];
+export var GetQuotaUtilizationReportResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _GQURRe,
+  0,
+  [_RIe, _S, _GA, _TC, _Qu, _NT, _EC, _EM],
+  [0, 0, 4, 1, () => QuotaUtilizationInfoList, 0, 0, 0],
 ];
 export var GetRequestedServiceQuotaChangeRequest: StaticStructureSchema = [3, n0, _GRSQCR, 0, [_RI], [0]];
 export var GetRequestedServiceQuotaChangeResponse: StaticStructureSchema = [
@@ -416,13 +441,21 @@ export var QuotaExceededException: StaticErrorSchema = [-3, n0, _QEE, { [_e]: _c
 TypeRegistry.for(n0).registerError(QuotaExceededException, __QuotaExceededException);
 export var QuotaInfo: StaticStructureSchema = [3, n0, _QI, 0, [_QC, _QN], [0, 0]];
 export var QuotaPeriod: StaticStructureSchema = [3, n0, _QP, 0, [_PV, _PU], [1, 0]];
+export var QuotaUtilizationInfo: StaticStructureSchema = [
+  3,
+  n0,
+  _QUI,
+  0,
+  [_QC, _SC, _QN, _N, _U, _DVe, _AV, _SN, _A],
+  [0, 0, 0, 0, 1, 1, 1, 0, 2],
+];
 export var RequestedServiceQuotaChange: StaticStructureSchema = [
   3,
   n0,
   _RSQC,
   0,
-  [_I, _CIa, _SC, _SN, _QC, _QN, _DV, _S, _C, _LU, _R, _QA, _GQ, _U, _QRAL, _QCu],
-  [0, 0, 0, 0, 0, 0, 1, 0, 4, 4, 0, 0, 2, 0, 0, () => QuotaContextInfo],
+  [_I, _RT, _CIa, _SC, _SN, _QC, _QN, _DV, _S, _C, _LU, _R, _QA, _GQ, _Un, _QRAL, _QCu],
+  [0, 0, 0, 0, 0, 0, 0, 1, 0, 4, 4, 0, 0, 2, 0, 0, () => QuotaContextInfo],
 ];
 export var RequestServiceQuotaIncreaseRequest: StaticStructureSchema = [
   3,
@@ -450,7 +483,7 @@ export var ServiceQuota: StaticStructureSchema = [
   n0,
   _SQ,
   0,
-  [_SC, _SN, _QA, _QC, _QN, _V, _U, _A, _GQ, _UM, _P, _ER, _QAAL, _QCu, _D],
+  [_SC, _SN, _QA, _QC, _QN, _V, _Un, _A, _GQ, _UM, _P, _ER, _QAAL, _QCu, _D],
   [0, 0, 0, 0, 0, 1, 0, 2, 2, () => MetricInfo, () => QuotaPeriod, () => ErrorReason, 0, () => QuotaContextInfo, 0],
 ];
 export var ServiceQuotaIncreaseRequestInTemplate: StaticStructureSchema = [
@@ -458,7 +491,7 @@ export var ServiceQuotaIncreaseRequestInTemplate: StaticStructureSchema = [
   n0,
   _SQIRIT,
   0,
-  [_SC, _SN, _QC, _QN, _DV, _AR, _U, _GQ],
+  [_SC, _SN, _QC, _QN, _DV, _AR, _Un, _GQ],
   [0, 0, 0, 0, 1, 0, 0, 2],
 ];
 export var ServiceQuotaTemplateNotInUseException: StaticErrorSchema = [
@@ -479,6 +512,8 @@ export var StartAutoManagementRequest: StaticStructureSchema = [
   [0, 0, 0, [2, n0, _EL, 0, 0, 64 | 0]],
 ];
 export var StartAutoManagementResponse: StaticStructureSchema = [3, n0, _SAMRt, 0, [], []];
+export var StartQuotaUtilizationReportRequest: StaticStructureSchema = [3, n0, _SQURR, 0, [], []];
+export var StartQuotaUtilizationReportResponse: StaticStructureSchema = [3, n0, _SQURRt, 0, [_RIe, _S, _M], [0, 0, 0]];
 export var StopAutoManagementRequest: StaticStructureSchema = [3, n0, _SAMRto, 0, [], []];
 export var StopAutoManagementResponse: StaticStructureSchema = [3, n0, _SAMRtop, 0, [], []];
 export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
@@ -517,6 +552,7 @@ export var InputTagKeys = 64 | 0;
 export var InputTags: StaticListSchema = [1, n0, _IT, 0, () => Tag];
 export var OutputTags: StaticListSchema = [1, n0, _OT, 0, () => Tag];
 export var QuotaInfoList: StaticListSchema = [1, n0, _QIL, 0, () => QuotaInfo];
+export var QuotaUtilizationInfoList: StaticListSchema = [1, n0, _QUIL, 0, () => QuotaUtilizationInfo];
 export var RequestedServiceQuotaChangeHistoryListDefinition: StaticListSchema = [
   1,
   n0,
@@ -591,6 +627,14 @@ export var GetAWSDefaultServiceQuota: StaticOperationSchema = [
   0,
   () => GetAWSDefaultServiceQuotaRequest,
   () => GetAWSDefaultServiceQuotaResponse,
+];
+export var GetQuotaUtilizationReport: StaticOperationSchema = [
+  9,
+  n0,
+  _GQUR,
+  0,
+  () => GetQuotaUtilizationReportRequest,
+  () => GetQuotaUtilizationReportResponse,
 ];
 export var GetRequestedServiceQuotaChange: StaticOperationSchema = [
   9,
@@ -688,6 +732,14 @@ export var StartAutoManagement: StaticOperationSchema = [
   0,
   () => StartAutoManagementRequest,
   () => StartAutoManagementResponse,
+];
+export var StartQuotaUtilizationReport: StaticOperationSchema = [
+  9,
+  n0,
+  _SQUR,
+  0,
+  () => StartQuotaUtilizationReportRequest,
+  () => StartQuotaUtilizationReportResponse,
 ];
 export var StopAutoManagement: StaticOperationSchema = [
   9,

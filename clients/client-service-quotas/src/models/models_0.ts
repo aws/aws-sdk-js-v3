@@ -7,7 +7,9 @@ import {
   OptInType,
   PeriodUnit,
   QuotaContextScope,
+  ReportStatus,
   RequestStatus,
+  RequestType,
   ServiceQuotaTemplateAssociationStatus,
 } from "./enums";
 
@@ -406,6 +408,177 @@ export interface GetAWSDefaultServiceQuotaResponse {
 /**
  * @public
  */
+export interface GetQuotaUtilizationReportRequest {
+  /**
+   * <p>The unique identifier for the quota utilization report. This identifier is returned by
+   *             the <code>StartQuotaUtilizationReport</code> operation.</p>
+   * @public
+   */
+  ReportId: string | undefined;
+
+  /**
+   * <p>A token that indicates the next page of results to retrieve. This token is returned in
+   *             the response when there are more results available. Omit this parameter for the first request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page. The default value is 1,000 and the
+   *             maximum allowed value is 1,000.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Information about a quota's utilization, including the quota code, service information,
+ *             current usage, and applied limits.</p>
+ * @public
+ */
+export interface QuotaUtilizationInfo {
+  /**
+   * <p>The quota identifier.</p>
+   * @public
+   */
+  QuotaCode?: string | undefined;
+
+  /**
+   * <p>The service identifier.</p>
+   * @public
+   */
+  ServiceCode?: string | undefined;
+
+  /**
+   * <p>The quota name.</p>
+   * @public
+   */
+  QuotaName?: string | undefined;
+
+  /**
+   * <p>The namespace of the metric used to track quota usage.</p>
+   * @public
+   */
+  Namespace?: string | undefined;
+
+  /**
+   * <p>The utilization percentage of the quota, calculated as (current usage / applied value) × 100.
+   *             Values range from 0.0 to 100.0 or higher if usage exceeds the quota limit.</p>
+   * @public
+   */
+  Utilization?: number | undefined;
+
+  /**
+   * <p>The default value of the quota.</p>
+   * @public
+   */
+  DefaultValue?: number | undefined;
+
+  /**
+   * <p>The applied value of the quota, which may be higher than the default value if a quota
+   *             increase has been requested and approved.</p>
+   * @public
+   */
+  AppliedValue?: number | undefined;
+
+  /**
+   * <p>The service name.</p>
+   * @public
+   */
+  ServiceName?: string | undefined;
+
+  /**
+   * <p>Indicates whether the quota value can be increased.</p>
+   * @public
+   */
+  Adjustable?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetQuotaUtilizationReportResponse {
+  /**
+   * <p>The unique identifier for the quota utilization report.</p>
+   * @public
+   */
+  ReportId?: string | undefined;
+
+  /**
+   * <p>The current status of the report generation. Possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code> - The report generation is in progress. Retry this operation
+   *                     after a few seconds.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_PROGRESS</code> - The report is being processed. Continue polling until
+   *                     the status changes to <code>COMPLETED</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETED</code> - The report is ready and quota utilization data is available
+   *                     in the response.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - The report generation failed. Check the <code>ErrorCode</code>
+   *                     and <code>ErrorMessage</code> fields for details.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: ReportStatus | undefined;
+
+  /**
+   * <p>The timestamp when the report was generated, in ISO 8601 format.</p>
+   * @public
+   */
+  GeneratedAt?: Date | undefined;
+
+  /**
+   * <p>The total number of quotas included in the report across all pages.</p>
+   * @public
+   */
+  TotalCount?: number | undefined;
+
+  /**
+   * <p>A list of quota utilization records, sorted by utilization percentage in descending order.
+   *             Each record includes the quota code, service code, service name, quota name, namespace,
+   *             utilization percentage, default value, applied value, and whether the quota is adjustable.
+   *             Up to 1,000 records are returned per page.</p>
+   * @public
+   */
+  Quotas?: QuotaUtilizationInfo[] | undefined;
+
+  /**
+   * <p>A token that indicates more results are available. Include this token in the next request
+   *             to retrieve the next page of results. If this field is not present, you have retrieved all
+   *             available results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>An error code indicating the reason for failure when the report status is <code>FAILED</code>.
+   *             This field is only present when the status is <code>FAILED</code>.</p>
+   * @public
+   */
+  ErrorCode?: string | undefined;
+
+  /**
+   * <p>A detailed error message describing the failure when the report status is <code>FAILED</code>.
+   *             This field is only present when the status is <code>FAILED</code>.</p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetRequestedServiceQuotaChangeRequest {
   /**
    * <p>Specifies the ID of the quota increase request.</p>
@@ -424,6 +597,20 @@ export interface RequestedServiceQuotaChange {
    * @public
    */
   Id?: string | undefined;
+
+  /**
+   * <p>The type of quota increase request. Possible values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AutomaticManagement</code> - The request was automatically created by
+   *                     Service Quotas Automatic Management when quota utilization approached the limit.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If this field is not present, the request was manually created by a user.</p>
+   * @public
+   */
+  RequestType?: RequestType | undefined;
 
   /**
    * <p>The case ID.</p>
@@ -1290,6 +1477,38 @@ export interface StartAutoManagementRequest {
  * @public
  */
 export interface StartAutoManagementResponse {}
+
+/**
+ * @public
+ */
+export interface StartQuotaUtilizationReportRequest {}
+
+/**
+ * @public
+ */
+export interface StartQuotaUtilizationReportResponse {
+  /**
+   * <p>A unique identifier for the quota utilization report. Use this identifier with the
+   *             <code>GetQuotaUtilizationReport</code> operation to retrieve the report results.</p>
+   * @public
+   */
+  ReportId?: string | undefined;
+
+  /**
+   * <p>The current status of the report generation. The status will be <code>PENDING</code>
+   *             when the report is first initiated.</p>
+   * @public
+   */
+  Status?: ReportStatus | undefined;
+
+  /**
+   * <p>An optional message providing additional information about the report generation status.
+   *             This field may contain details about the report initiation or indicate if an existing recent
+   *             report is being reused.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
 
 /**
  * @public

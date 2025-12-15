@@ -115,6 +115,33 @@ export type QuotaContextScope = (typeof QuotaContextScope)[keyof typeof QuotaCon
  * @public
  * @enum
  */
+export const ReportStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+} as const;
+/**
+ * @public
+ */
+export type ReportStatus = (typeof ReportStatus)[keyof typeof ReportStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RequestType = {
+  AutomaticManagement: "AutomaticManagement",
+} as const;
+/**
+ * @public
+ */
+export type RequestType = (typeof RequestType)[keyof typeof RequestType];
+
+/**
+ * @public
+ * @enum
+ */
 export const RequestStatus = {
   APPROVED: "APPROVED",
   CASE_CLOSED: "CASE_CLOSED",
