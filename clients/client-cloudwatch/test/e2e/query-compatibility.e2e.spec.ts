@@ -35,6 +35,18 @@ describe("CloudWatch Query Compatibility E2E", () => {
         awsQueryCompatible: true,
       }),
     }),
+    cborShorthand: new CloudWatchClient({
+      region: "us-west-2",
+      protocol: AwsSmithyRpcV2CborProtocol,
+    }),
+    queryShorthand: new CloudWatchClient({
+      region: "us-west-2",
+      protocol: AwsQueryProtocol,
+    }),
+    jsonShorthand: new CloudWatchClient({
+      region: "us-west-2",
+      protocol: AwsJson1_0Protocol,
+    }),
   };
 
   for (const client of Object.values(cloudwatch)) {

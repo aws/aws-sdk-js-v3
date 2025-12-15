@@ -127,7 +127,7 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
                     }
                     writer.write("serviceTarget: $S,", rpcTarget);
                     if (awsQueryCompat.equals("true")) {
-                        writer.write("awsQueryCompat: $L,", awsQueryCompat);
+                        writer.write("awsQueryCompatible: $L,", awsQueryCompat);
                     }
 
                     if (CUSTOMIZATIONS.containsKey(settings.getService())) {

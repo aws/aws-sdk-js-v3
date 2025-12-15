@@ -36,7 +36,7 @@ export const getRuntimeConfig = (config: SQSClientConfig) => {
       defaultNamespace: "com.amazonaws.sqs",
       version: "2012-11-05",
       serviceTarget: "AmazonSQS",
-      awsQueryCompat: true,
+      awsQueryCompatible: true,
     },
     serviceId: config?.serviceId ?? "SQS",
     urlParser: config?.urlParser ?? parseUrl,

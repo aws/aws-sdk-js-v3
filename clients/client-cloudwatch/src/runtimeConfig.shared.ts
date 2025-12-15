@@ -37,7 +37,7 @@ export const getRuntimeConfig = (config: CloudWatchClientConfig) => {
       xmlNamespace: "http://monitoring.amazonaws.com/doc/2010-08-01/",
       version: "2010-08-01",
       serviceTarget: "GraniteServiceVersion20100801",
-      awsQueryCompat: true,
+      awsQueryCompatible: true,
     },
     serviceId: config?.serviceId ?? "CloudWatch",
     urlParser: config?.urlParser ?? parseUrl,
