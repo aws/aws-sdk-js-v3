@@ -128,6 +128,7 @@ export const initializeWithMaximalConfiguration = () => {
     httpAuthSchemes: [],
     httpAuthSchemeProvider: (() => null) as unknown as HttpAuthSchemeProvider<any>,
     serviceConfiguredEndpoint: null as never,
+    clientContextParams: {},
     // END internal options
 
     // S3 specific options below
