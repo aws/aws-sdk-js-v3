@@ -1,4 +1,5 @@
 import { setCredentialFeature } from "@aws-sdk/core/client";
+import type { AwsIdentityProperties } from "@aws-sdk/types";
 import { AwsCredentialIdentity, Profile } from "@smithy/types";
 
 import { FromIniInit } from "./fromIni";
@@ -27,7 +28,8 @@ export const isWebIdentityProfile = (arg: any): arg is WebIdentityProfile =>
  */
 export const resolveWebIdentityCredentials = async (
   profile: WebIdentityProfile,
-  options: FromIniInit
+  options: FromIniInit,
+  callerClientConfig?: AwsIdentityProperties["callerClientConfig"]
 ): Promise<AwsCredentialIdentity> =>
   import("@aws-sdk/credential-provider-web-identity").then(({ fromTokenFile }) =>
     fromTokenFile({
@@ -37,5 +39,7 @@ export const resolveWebIdentityCredentials = async (
       roleAssumerWithWebIdentity: options.roleAssumerWithWebIdentity,
       logger: options.logger,
       parentClientConfig: options.parentClientConfig,
-    })().then((creds) => setCredentialFeature(creds, "CREDENTIALS_PROFILE_STS_WEB_ID_TOKEN", "q"))
+    })({
+      callerClientConfig,
+    }).then((creds) => setCredentialFeature(creds, "CREDENTIALS_PROFILE_STS_WEB_ID_TOKEN", "q"))
   );

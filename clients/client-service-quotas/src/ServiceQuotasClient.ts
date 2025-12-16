@@ -92,6 +92,10 @@ import {
   GetAWSDefaultServiceQuotaCommandOutput,
 } from "./commands/GetAWSDefaultServiceQuotaCommand";
 import {
+  GetQuotaUtilizationReportCommandInput,
+  GetQuotaUtilizationReportCommandOutput,
+} from "./commands/GetQuotaUtilizationReportCommand";
+import {
   GetRequestedServiceQuotaChangeCommandInput,
   GetRequestedServiceQuotaChangeCommandOutput,
 } from "./commands/GetRequestedServiceQuotaChangeCommand";
@@ -134,6 +138,10 @@ import {
   StartAutoManagementCommandInput,
   StartAutoManagementCommandOutput,
 } from "./commands/StartAutoManagementCommand";
+import {
+  StartQuotaUtilizationReportCommandInput,
+  StartQuotaUtilizationReportCommandOutput,
+} from "./commands/StartQuotaUtilizationReportCommand";
 import { StopAutoManagementCommandInput, StopAutoManagementCommandOutput } from "./commands/StopAutoManagementCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -163,6 +171,7 @@ export type ServiceInputTypes =
   | GetAWSDefaultServiceQuotaCommandInput
   | GetAssociationForServiceQuotaTemplateCommandInput
   | GetAutoManagementConfigurationCommandInput
+  | GetQuotaUtilizationReportCommandInput
   | GetRequestedServiceQuotaChangeCommandInput
   | GetServiceQuotaCommandInput
   | GetServiceQuotaIncreaseRequestFromTemplateCommandInput
@@ -176,6 +185,7 @@ export type ServiceInputTypes =
   | PutServiceQuotaIncreaseRequestIntoTemplateCommandInput
   | RequestServiceQuotaIncreaseCommandInput
   | StartAutoManagementCommandInput
+  | StartQuotaUtilizationReportCommandInput
   | StopAutoManagementCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -192,6 +202,7 @@ export type ServiceOutputTypes =
   | GetAWSDefaultServiceQuotaCommandOutput
   | GetAssociationForServiceQuotaTemplateCommandOutput
   | GetAutoManagementConfigurationCommandOutput
+  | GetQuotaUtilizationReportCommandOutput
   | GetRequestedServiceQuotaChangeCommandOutput
   | GetServiceQuotaCommandOutput
   | GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
@@ -205,6 +216,7 @@ export type ServiceOutputTypes =
   | PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput
   | RequestServiceQuotaIncreaseCommandOutput
   | StartAutoManagementCommandOutput
+  | StartQuotaUtilizationReportCommandOutput
   | StopAutoManagementCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

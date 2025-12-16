@@ -46,7 +46,8 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  *       results. </p>
  *          <p>This operation is used both for retrieving results from interactive queries and from
  *       automated scheduled query executions. Scheduled queries use <code>GetQueryResults</code>
- *       internally to retrieve query results for processing and delivery to configured destinations.</p>
+ *       internally to retrieve query results for processing and delivery to configured
+ *       destinations.</p>
  *          <p>If you are using CloudWatch cross-account observability, you can use this operation
  *       in a monitoring account to start queries in linked source accounts. For more information, see
  *         <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>.</p>

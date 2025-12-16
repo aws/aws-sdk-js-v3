@@ -94,6 +94,21 @@ export type EvaluationFrequency = (typeof EvaluationFrequency)[keyof typeof Eval
  * @public
  * @enum
  */
+export const ImportStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+/**
+ * @public
+ */
+export type ImportStatus = (typeof ImportStatus)[keyof typeof ImportStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const OutputFormat = {
   JSON: "json",
   PARQUET: "parquet",

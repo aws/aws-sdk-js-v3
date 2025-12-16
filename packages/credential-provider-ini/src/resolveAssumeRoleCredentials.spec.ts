@@ -30,6 +30,12 @@ const getMockProviderProfileKeyValues = () => ({
   credential_source: "mock_credential_source",
 });
 
+const mockCallerClientConfig = {
+  async region() {
+    return "us-west-2";
+  },
+};
+
 describe(isAssumeRoleProfile.name, () => {
   describe("returns false for falsy values", () => {
     it.each([false, 0, -0, "", null, undefined, NaN])("%s:", (falsyValue) => {
@@ -130,7 +136,14 @@ describe(resolveAssumeRoleCredentials.name, () => {
 
   it("dynamically loads STS if roleAssumer is not available in options", async () => {
     const inputOptions = { ...mockOptions, roleAssumer: undefined };
-    await resolveAssumeRoleCredentials(mockProfileName, mockProfiles, inputOptions, {}, resolveProfileData);
+    await resolveAssumeRoleCredentials(
+      mockProfileName,
+      mockProfiles,
+      inputOptions,
+      mockCallerClientConfig,
+      {},
+      resolveProfileData
+    );
     expect(inputOptions.roleAssumer).toBeDefined();
   });
 
@@ -150,6 +163,7 @@ describe(resolveAssumeRoleCredentials.name, () => {
         mockProfileCurrent,
         mockProfilesWithCycle,
         mockOptions,
+        mockCallerClientConfig,
         {
           mockProfileName: true,
         },
@@ -178,6 +192,7 @@ describe(resolveAssumeRoleCredentials.name, () => {
       mockProfileCurrent,
       mockProfilesWithSource,
       mockOptions,
+      mockCallerClientConfig,
       {},
       resolveProfileData
     );
@@ -186,6 +201,7 @@ describe(resolveAssumeRoleCredentials.name, () => {
       mockProfileName,
       mockProfilesWithSource,
       mockOptions,
+      mockCallerClientConfig,
       {
         mockProfileName: true,
       },
@@ -208,6 +224,7 @@ describe(resolveAssumeRoleCredentials.name, () => {
       mockProfileName,
       mockProfilesWithCredSource,
       mockOptions,
+      mockCallerClientConfig,
       {},
       resolveProfileData
     );
@@ -233,6 +250,7 @@ describe(resolveAssumeRoleCredentials.name, () => {
       mockProfileName,
       mockProfilesWithCredSource,
       mockOptions,
+      mockCallerClientConfig,
       {},
       resolveProfileData
     );
@@ -265,6 +283,7 @@ describe(resolveAssumeRoleCredentials.name, () => {
           ...mockOptions,
           mfaCodeProvider: undefined,
         },
+        mockCallerClientConfig,
         {},
         resolveProfileData
       );
@@ -290,6 +309,7 @@ describe(resolveAssumeRoleCredentials.name, () => {
       mockProfileName,
       mockProfilesWithCredSource,
       mockOptions,
+      mockCallerClientConfig,
       {},
       resolveProfileData
     );

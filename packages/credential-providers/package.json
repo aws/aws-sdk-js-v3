@@ -1,13 +1,13 @@
 {
   "name": "@aws-sdk/credential-providers",
-  "version": "3.948.0",
+  "version": "3.952.0",
   "description": "A collection of credential providers, without requiring service clients like STS, Cognito",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "browser": "./dist-es/index.browser.js",
   "react-native": "./dist-es/index.browser.js",
   "scripts": {
-    "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+    "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline credential-providers",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.952.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.951.0...v3.952.0) (2025-12-15)
+
+
+### Features
+
+* **client-glacier:** Documentation updates for Amazon Glacier's maintenance mode ([069dcf4](https://github.com/aws/aws-sdk-js-v3/commit/069dcf44b1dfd064918f16a5728074a51dd9d959))
+
+
+
+
+
 # [3.948.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.947.0...v3.948.0) (2025-12-09)
 
 **Note:** Version bump only for package @aws-sdk/client-glacier

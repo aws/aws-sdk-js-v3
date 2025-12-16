@@ -106,6 +106,16 @@ export interface StartOutboundChatContactCommandOutput extends StartOutboundChat
  *     ContentType: "STRING_VALUE", // required
  *     Content: "STRING_VALUE", // required
  *   },
+ *   InitialTemplatedSystemMessage: { // TemplatedMessageConfig
+ *     KnowledgeBaseId: "STRING_VALUE", // required
+ *     MessageTemplateId: "STRING_VALUE", // required
+ *     TemplateAttributes: { // TemplateAttributes
+ *       CustomAttributes: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       CustomerProfileAttributes: "STRING_VALUE",
+ *     },
+ *   },
  *   RelatedContactId: "STRING_VALUE",
  *   SupportedMessagingContentTypes: [ // SupportedMessagingContentTypes
  *     "STRING_VALUE",

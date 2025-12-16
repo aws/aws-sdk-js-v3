@@ -58,8 +58,8 @@ export interface GetIdMappingWorkflowCommandOutput extends GetIdMappingWorkflowO
  * //   ],
  * //   outputSourceConfig: [ // IdMappingWorkflowOutputSourceConfig
  * //     { // IdMappingWorkflowOutputSource
- * //       outputS3Path: "STRING_VALUE", // required
  * //       KMSArn: "STRING_VALUE",
+ * //       outputS3Path: "STRING_VALUE", // required
  * //     },
  * //   ],
  * //   idMappingTechniques: { // IdMappingTechniques

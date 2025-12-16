@@ -6,6 +6,7 @@ import {
   AlertCategory,
   BadRequestException,
   ChannelState,
+  CompressionMethod,
   ConfigureLogsForChannelCommand,
   ConfigureLogsForPlaybackConfigurationCommand,
   CreateChannelCommand,
@@ -49,6 +50,7 @@ import {
   MediaTailorClient,
   MediaTailorServiceException,
   MessageType,
+  Method,
   Mode,
   Operator,
   OriginManifestType,
@@ -136,6 +138,7 @@ assert(typeof AdsInteractionExcludeEventType === "object");
 assert(typeof AdsInteractionPublishOptInEventType === "object");
 assert(typeof AlertCategory === "object");
 assert(typeof ChannelState === "object");
+assert(typeof CompressionMethod === "object");
 assert(typeof FillPolicy === "object");
 assert(typeof InsertionMode === "object");
 assert(typeof ListPrefetchScheduleType === "object");
@@ -143,6 +146,7 @@ assert(typeof LoggingStrategy === "object");
 assert(typeof LogType === "object");
 assert(typeof ManifestServiceExcludeEventType === "object");
 assert(typeof MessageType === "object");
+assert(typeof Method === "object");
 assert(typeof Mode === "object");
 assert(typeof Operator === "object");
 assert(typeof OriginManifestType === "object");

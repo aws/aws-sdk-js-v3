@@ -31,7 +31,10 @@ export interface CreateScheduledQueryCommandInput extends CreateScheduledQueryRe
 export interface CreateScheduledQueryCommandOutput extends CreateScheduledQueryResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a scheduled query that runs CloudWatch Logs Insights queries at regular intervals. Scheduled queries enable proactive monitoring by automatically executing queries to detect patterns and anomalies in your log data. Query results can be delivered to Amazon S3 for analysis or further processing.</p>
+ * <p>Creates a scheduled query that runs CloudWatch Logs Insights queries at regular intervals.
+ *       Scheduled queries enable proactive monitoring by automatically executing queries to detect
+ *       patterns and anomalies in your log data. Query results can be delivered to Amazon S3 for analysis
+ *       or further processing.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

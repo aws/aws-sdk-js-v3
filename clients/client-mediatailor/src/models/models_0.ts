@@ -6,6 +6,7 @@ import {
   AdsInteractionPublishOptInEventType,
   AlertCategory,
   ChannelState,
+  CompressionMethod,
   FillPolicy,
   InsertionMode,
   ListPrefetchScheduleType,
@@ -13,6 +14,7 @@ import {
   LogType,
   ManifestServiceExcludeEventType,
   MessageType,
+  Method,
   Mode,
   Operator,
   OriginManifestType,
@@ -603,6 +605,48 @@ export interface AdConditioningConfiguration {
 }
 
 /**
+ * <p>HTTP request configuration parameters that define how MediaTailor communicates with the ad decision server.</p>
+ * @public
+ */
+export interface HttpRequest {
+  /**
+   * <p>The HTTP method to use when making requests to the ad decision server. Supported values are <code>GET</code> and <code>POST</code>.</p>
+   * @public
+   */
+  Method?: Method | undefined;
+
+  /**
+   * <p>The request body content to send with HTTP requests to the ad decision server. This value is only eligible for <code>POST</code> requests.</p>
+   * @public
+   */
+  Body?: string | undefined;
+
+  /**
+   * <p>Custom HTTP headers to include in requests to the ad decision server. Specify headers as key-value pairs. This value is only eligible for <code>POST</code> requests.</p>
+   * @public
+   */
+  Headers?: Record<string, string> | undefined;
+
+  /**
+   * <p>The compression method to apply to requests sent to the ad decision server. Supported values are <code>NONE</code> and <code>GZIP</code>. This value is only eligible for <code>POST</code> requests.</p>
+   * @public
+   */
+  CompressRequest?: CompressionMethod | undefined;
+}
+
+/**
+ * <p>Configuration parameters for customizing HTTP requests sent to the ad decision server (ADS). This allows you to specify the HTTP method, headers, request body, and compression settings for ADS requests.</p>
+ * @public
+ */
+export interface AdDecisionServerConfiguration {
+  /**
+   * <p>The HTTP request configuration parameters for the ad decision server.</p>
+   * @public
+   */
+  HttpRequest?: HttpRequest | undefined;
+}
+
+/**
  * <p>The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html">Ad Suppression</a>.</p>
  * @public
  */
@@ -930,6 +974,12 @@ export interface PlaybackConfiguration {
    * @public
    */
   AdConditioningConfiguration?: AdConditioningConfiguration | undefined;
+
+  /**
+   * <p>Configuration parameters for customizing HTTP requests sent to the ad decision server (ADS). This allows you to specify the HTTP method, headers, request body, and compression settings for ADS requests.</p>
+   * @public
+   */
+  AdDecisionServerConfiguration?: AdDecisionServerConfiguration | undefined;
 }
 
 /**
@@ -975,7 +1025,7 @@ export interface RecurringConsumption {
 }
 
 /**
- * <p>The configuration that tells Elemental MediaTailor how to spread out requests to the ad decision server (ADS). Instead of sending ADS requests for all sessions at the same time, MediaTailor spreads the requests across the amount of time specified in the retrieval window.</p>
+ * <p>The configuration that tells Elemental MediaTailor how many seconds to spread out requests to the ad decision server (ADS). Instead of sending ADS requests for all sessions at the same time, MediaTailor spreads the requests across the amount of time specified in the retrieval window.</p>
  * @public
  */
 export interface TrafficShapingRetrievalWindow {
@@ -987,7 +1037,7 @@ export interface TrafficShapingRetrievalWindow {
 }
 
 /**
- * <p>The configuration for TPS-based traffic shaping. This approach limits requests to the ad decision server (ADS) based on transactions per second and concurrent users, providing more intuitive capacity management compared to time-window based traffic shaping.</p>
+ * <p>The configuration for TPS-based traffic shaping. This approach limits requests to the ad decision server (ADS) based on transactions per second and concurrent users.</p>
  * @public
  */
 export interface TrafficShapingTpsConfiguration {
@@ -1022,19 +1072,19 @@ export interface RecurringRetrieval {
   DelayAfterAvailEndSeconds?: number | undefined;
 
   /**
-   * <p>Indicates the type of traffic shaping used for traffic shaping and limiting the number of requests to the ADS at one time.</p>
+   * <p>Indicates the type of traffic shaping used to limit the number of requests to the ADS at one time.</p>
    * @public
    */
   TrafficShapingType?: TrafficShapingType | undefined;
 
   /**
-   * <p>Configuration for spreading ADS traffic across a set window instead of sending ADS requests for all sessions at the same time.</p>
+   * <p>The configuration that tells Elemental MediaTailor how many seconds to spread out requests to the ad decision server (ADS). Instead of sending ADS requests for all sessions at the same time, MediaTailor spreads the requests across the amount of time specified in the retrieval window.</p>
    * @public
    */
   TrafficShapingRetrievalWindow?: TrafficShapingRetrievalWindow | undefined;
 
   /**
-   * <p>The configuration for TPS-based traffic shaping that limits the number of requests to the ad decision server (ADS) based on transactions per second instead of time windows.</p>
+   * <p>The configuration for TPS-based traffic shaping. This approach limits requests to the ad decision server (ADS) based on transactions per second and concurrent users.</p>
    * @public
    */
   TrafficShapingTpsConfiguration?: TrafficShapingTpsConfiguration | undefined;
@@ -1094,19 +1144,19 @@ export interface PrefetchRetrieval {
   StartTime?: Date | undefined;
 
   /**
-   * <p>Indicates the type of traffic shaping used for prefetch traffic shaping and limiting the number of requests to the ADS at one time.</p>
+   * <p>Indicates the type of traffic shaping used to limit the number of requests to the ADS at one time.</p>
    * @public
    */
   TrafficShapingType?: TrafficShapingType | undefined;
 
   /**
-   * <p>Configuration for spreading ADS traffic across a set window instead of sending ADS requests for all sessions at the same time.</p>
+   * <p>The configuration that tells Elemental MediaTailor how many seconds to spread out requests to the ad decision server (ADS). Instead of sending ADS requests for all sessions at the same time, MediaTailor spreads the requests across the amount of time specified in the retrieval window.</p>
    * @public
    */
   TrafficShapingRetrievalWindow?: TrafficShapingRetrievalWindow | undefined;
 
   /**
-   * <p>The configuration for TPS-based traffic shaping that limits the number of requests to the ad decision server (ADS) based on transactions per second instead of time windows.</p>
+   * <p>The configuration for TPS-based traffic shaping. This approach limits requests to the ad decision server (ADS) based on transactions per second and concurrent users.</p>
    * @public
    */
   TrafficShapingTpsConfiguration?: TrafficShapingTpsConfiguration | undefined;
@@ -3409,6 +3459,12 @@ export interface GetPlaybackConfigurationResponse {
    * @public
    */
   AdConditioningConfiguration?: AdConditioningConfiguration | undefined;
+
+  /**
+   * <p>The configuration for customizing HTTP requests to the ad decision server (ADS). This includes settings for request method, headers, body content, and compression options.</p>
+   * @public
+   */
+  AdDecisionServerConfiguration?: AdDecisionServerConfiguration | undefined;
 }
 
 /**
@@ -3912,6 +3968,12 @@ export interface PutPlaybackConfigurationRequest {
    * @public
    */
   AdConditioningConfiguration?: AdConditioningConfiguration | undefined;
+
+  /**
+   * <p>The configuration for customizing HTTP requests to the ad decision server (ADS). This includes settings for request method, headers, body content, and compression options.</p>
+   * @public
+   */
+  AdDecisionServerConfiguration?: AdDecisionServerConfiguration | undefined;
 }
 
 /**
@@ -4043,6 +4105,12 @@ export interface PutPlaybackConfigurationResponse {
    * @public
    */
   AdConditioningConfiguration?: AdConditioningConfiguration | undefined;
+
+  /**
+   * <p>The configuration for customizing HTTP requests to the ad decision server (ADS). This includes settings for request method, headers, body content, and compression options.</p>
+   * @public
+   */
+  AdDecisionServerConfiguration?: AdDecisionServerConfiguration | undefined;
 }
 
 /**

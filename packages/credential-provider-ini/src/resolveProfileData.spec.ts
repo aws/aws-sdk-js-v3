@@ -1,3 +1,4 @@
+import type { AwsIdentityProperties } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
@@ -21,6 +22,11 @@ describe(resolveProfileData.name, () => {
     mfaCodeProvider: vi.fn(),
     roleAssumer: vi.fn(),
     roleAssumerWithWebIdentity: vi.fn(),
+  };
+  const mockCallerConfig: AwsIdentityProperties["callerClientConfig"] = {
+    async region() {
+      return "us-west-2";
+    },
   };
   const mockError = new CredentialsProviderError(
     `Could not resolve credentials using profile: [${mockProfileName}] in configuration/credentials file(s).`
@@ -76,7 +82,9 @@ describe(resolveProfileData.name, () => {
 
   it("resolves with static creds when profiles are previously visited and current profile has static creds", async () => {
     vi.mocked(resolveStaticCredentials).mockImplementation(() => Promise.resolve(mockCreds));
-    const receivedCreds = await resolveProfileData(mockProfileName, mockProfiles, mockOptions, { testProfile: true });
+    const receivedCreds = await resolveProfileData(mockProfileName, mockProfiles, mockOptions, mockCallerConfig, {
+      testProfile: true,
+    });
     expect(receivedCreds).toStrictEqual(mockCreds);
     expect(resolveStaticCredentials).toHaveBeenCalledWith(mockProfiles[mockProfileName], mockOptions);
   });
@@ -90,6 +98,7 @@ describe(resolveProfileData.name, () => {
         mockProfileName,
         mockProfiles,
         mockOptions,
+        undefined,
         {},
         resolveProfileData
       );
@@ -98,12 +107,15 @@ describe(resolveProfileData.name, () => {
     it("when it's not static creds, and profiles are visited", async () => {
       (isStaticCredsProfile as unknown as any).mockReturnValue(false);
       vi.mocked(resolveAssumeRoleCredentials).mockImplementation(() => Promise.resolve(mockCreds));
-      const receivedCreds = await resolveProfileData(mockProfileName, mockProfiles, mockOptions, { testProfile: true });
+      const receivedCreds = await resolveProfileData(mockProfileName, mockProfiles, mockOptions, mockCallerConfig, {
+        testProfile: true,
+      });
       expect(receivedCreds).toStrictEqual(mockCreds);
       expect(resolveAssumeRoleCredentials).toHaveBeenCalledWith(
         mockProfileName,
         mockProfiles,
         mockOptions,
+        mockCallerConfig,
         {
           testProfile: true,
         },
@@ -127,7 +139,7 @@ describe(resolveProfileData.name, () => {
     vi.mocked(resolveWebIdentityCredentials).mockImplementation(() => Promise.resolve(mockCreds));
     const receivedCreds = await resolveProfileData(mockProfileName, mockProfiles, mockOptions);
     expect(receivedCreds).toStrictEqual(mockCreds);
-    expect(resolveWebIdentityCredentials).toHaveBeenCalledWith(mockProfiles[mockProfileName], mockOptions);
+    expect(resolveWebIdentityCredentials).toHaveBeenCalledWith(mockProfiles[mockProfileName], mockOptions, undefined);
   });
 
   it("resolves with sso profile, when it's not static or assume role or web identity", async () => {
@@ -137,7 +149,7 @@ describe(resolveProfileData.name, () => {
     vi.mocked(resolveSsoCredentials).mockImplementation(() => Promise.resolve(mockCreds));
     const receivedCreds = await resolveProfileData(mockProfileName, mockProfiles, mockOptions);
     expect(receivedCreds).toStrictEqual(mockCreds);
-    expect(resolveSsoCredentials).toHaveBeenCalledWith(mockProfileName, {}, mockOptions);
+    expect(resolveSsoCredentials).toHaveBeenCalledWith(mockProfileName, {}, mockOptions, undefined);
   });
 
   it("resolves with login profile, when it's not static or assume role or web identity or sso", async () => {
@@ -147,6 +159,6 @@ describe(resolveProfileData.name, () => {
     vi.mocked(resolveLoginCredentials).mockImplementation(() => Promise.resolve(mockCreds));
     const receivedCreds = await resolveProfileData(mockProfileName, mockProfiles, mockOptions);
     expect(receivedCreds).toStrictEqual(mockCreds);
-    expect(resolveLoginCredentials).toHaveBeenCalledWith(mockProfileName, mockOptions);
+    expect(resolveLoginCredentials).toHaveBeenCalledWith(mockProfileName, mockOptions, undefined);
   });
 });

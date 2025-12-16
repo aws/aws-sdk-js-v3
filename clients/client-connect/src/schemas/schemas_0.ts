@@ -1201,6 +1201,7 @@ const _ISn = "InstanceStatus";
 const _ISnp = "InputSchema";
 const _ISns = "InstanceSummary";
 const _IT = "InitiationTimestamp";
+const _ITSM = "InitialTemplatedSystemMessage";
 const _ITTF = "InvisibleTaskTemplateFields";
 const _ITn = "IntegrationType";
 const _IWM = "ImportWorkspaceMedia";
@@ -8578,7 +8579,7 @@ export var StartOutboundChatContactRequest: StaticStructureSchema = [
   n0,
   _SOCCR,
   0,
-  [_SEo, _DE, _II, _SAe, _Attr, _CFI, _CDIM, _PD, _ISM, _RCI, _SMCT, _CT],
+  [_SEo, _DE, _II, _SAe, _Attr, _CFI, _CDIM, _PD, _ISM, _ITSM, _RCI, _SMCT, _CT],
   [
     () => Endpoint,
     () => Endpoint,
@@ -8589,6 +8590,7 @@ export var StartOutboundChatContactRequest: StaticStructureSchema = [
     1,
     () => ParticipantDetails,
     () => ChatMessage,
+    () => TemplatedMessageConfig,
     0,
     64 | 0,
     [0, 4],

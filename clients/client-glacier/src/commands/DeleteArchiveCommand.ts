@@ -33,12 +33,12 @@ export interface DeleteArchiveCommandOutput extends __MetadataBearer {}
  *          <ul>
  *             <li>
  *                <p>If the archive retrieval job is actively preparing the data for download when
- *                Amazon S3 Glacier receives the delete archive request, the archival retrieval operation
+ *                Amazon Glacier receives the delete archive request, the archival retrieval operation
  *                might fail.</p>
  *             </li>
  *             <li>
  *                <p>If the archive retrieval job has successfully prepared the archive for download
- *                when Amazon S3 Glacier receives the delete archive request, you will be able to download
+ *                when Amazon Glacier receives the delete archive request, you will be able to download
  *                the output.</p>
  *             </li>
  *          </ul>
@@ -84,6 +84,8 @@ export interface DeleteArchiveCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link MissingParameterValueException} (client fault)
  *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * @throws {@link NoLongerSupportedException} (client fault)
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't

@@ -28,7 +28,7 @@ export interface RemoveTagsFromVaultCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This operation removes one or more tags from the set of tags attached to a vault. For
- *          more information about tags, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html">Tagging Amazon S3 Glacier Resources</a>.
+ *          more information about tags, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html">Tagging Amazon Glacier Resources</a>.
  *          This operation is idempotent. The operation will be successful, even if there are no tags
  *          attached to the vault. </p>
  * @example
@@ -63,6 +63,8 @@ export interface RemoveTagsFromVaultCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link MissingParameterValueException} (client fault)
  *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * @throws {@link NoLongerSupportedException} (client fault)
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't

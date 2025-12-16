@@ -479,6 +479,22 @@ export interface ResolverEndpoint {
    * @public
    */
   Protocols?: Protocol[] | undefined;
+
+  /**
+   * <p>Indicates whether RNI enhanced metrics are enabled for the Resolver endpoint.
+   * 		When enabled, one-minute granular metrics are published in CloudWatch for each RNI associated with this endpoint.
+   * 		When disabled, these metrics are not published.</p>
+   * @public
+   */
+  RniEnhancedMetricsEnabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether target name server metrics are enabled for the outbound Resolver endpoint.
+   * 		When enabled, one-minute granular metrics are published in CloudWatch for each target name server associated with this endpoint.
+   * 		When disabled, these metrics are not published. This feature is not supported for inbound Resolver endpoint.</p>
+   * @public
+   */
+  TargetNameServerMetricsEnabled?: boolean | undefined;
 }
 
 /**
@@ -620,6 +636,7 @@ export interface AssociateResolverRuleRequest {
 
   /**
    * <p>A name for the association that you're creating between a Resolver rule and a VPC.</p>
+   *          <p>The name can be up to 64 characters long and can contain letters (a-z, A-Z), numbers (0-9), hyphens (-), underscores (_), and spaces. The name cannot consist of only numbers.</p>
    * @public
    */
   Name?: string | undefined;
@@ -658,6 +675,7 @@ export interface ResolverRuleAssociation {
 
   /**
    * <p>The name of an association between a Resolver rule and a VPC.</p>
+   *          <p>The name can be up to 64 characters long and can contain letters (a-z, A-Z), numbers (0-9), hyphens (-), underscores (_), and spaces. The name cannot consist of only numbers.</p>
    * @public
    */
   Name?: string | undefined;
@@ -1237,8 +1255,7 @@ export interface FirewallRule {
  */
 export interface CreateFirewallRuleResponse {
   /**
-   * <p>The
-   * 			firewall rule that you just created. </p>
+   * <p>The firewall rule that you just created. </p>
    * @public
    */
   FirewallRule?: FirewallRule | undefined;
@@ -1657,6 +1674,30 @@ export interface CreateResolverEndpointRequest {
    * @public
    */
   Protocols?: Protocol[] | undefined;
+
+  /**
+   * <p>Specifies whether RNI enhanced metrics are enabled for the Resolver endpoints.
+   * 		When set to true, one-minute granular metrics are published in CloudWatch for each RNI associated with this endpoint.
+   * 		When set to false, metrics are not published. Default is false.</p>
+   *          <note>
+   *             <p>Standard CloudWatch pricing and charges are applied for using the Route 53 Resolver
+   * 	endpoint RNI enhanced metrics. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/monitoring-resolver-with-cloudwatch.html">Detailed metrics</a>.</p>
+   *          </note>
+   * @public
+   */
+  RniEnhancedMetricsEnabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether target name server metrics are enabled for the outbound Resolver endpoints.
+   * 		When set to true, one-minute granular metrics are published in CloudWatch for each target name server associated with this endpoint.
+   * 		When set to false, metrics are not published. Default is false. This is not supported for inbound Resolver endpoints.</p>
+   *          <note>
+   *             <p>Standard CloudWatch pricing and charges are applied for using the Route 53 Resolver
+   * 	endpoint target name server metrics. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/monitoring-resolver-with-cloudwatch.html">Detailed metrics</a>.</p>
+   *          </note>
+   * @public
+   */
+  TargetNameServerMetricsEnabled?: boolean | undefined;
 }
 
 /**
@@ -1902,6 +1943,7 @@ export interface CreateResolverRuleRequest {
 
   /**
    * <p>A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.</p>
+   *          <p>The name can be up to 64 characters long and can contain letters (a-z, A-Z), numbers (0-9), hyphens (-), underscores (_), and spaces. The name cannot consist of only numbers.</p>
    * @public
    */
   Name?: string | undefined;
@@ -1929,7 +1971,13 @@ export interface CreateResolverRuleRequest {
   /**
    * <p>The IPs that you want Resolver to forward DNS queries to. You can specify either Ipv4 or Ipv6 addresses but not both in the same rule. Separate IP addresses with a space.</p>
    *          <p>
-   *             <code>TargetIps</code> is available only when the value of <code>Rule type</code> is <code>FORWARD</code>.</p>
+   *             <code>TargetIps</code> is available only when the value of <code>Rule type</code> is <code>FORWARD</code>.
+   * 			You should not provide TargetIps when the Rule type is <code>DELEGATE</code>.</p>
+   *          <note>
+   *             <p>when creating a DELEGATE rule, you must not provide the <code>TargetIps</code> parameter. If you provide the <code>TargetIps</code>,
+   * 			you may receive an ERROR message similar to "Delegate resolver rules need to specify a nameserver name".
+   * 			This error means you should not provide <code>TargetIps</code>.</p>
+   *          </note>
    * @public
    */
   TargetIps?: TargetAddress[] | undefined;
@@ -2025,6 +2073,7 @@ export interface ResolverRule {
 
   /**
    * <p>The name for the Resolver rule, which you specified when you created the Resolver rule.</p>
+   *          <p>The name can be up to 64 characters long and can contain letters (a-z, A-Z), numbers (0-9), hyphens (-), underscores (_), and spaces. The name cannot consist of only numbers.</p>
    * @public
    */
   Name?: string | undefined;
@@ -4557,6 +4606,7 @@ export interface PutResolverRulePolicyResponse {
 export interface ResolverRuleConfig {
   /**
    * <p>The new name for the Resolver rule. The name that you specify appears in the Resolver dashboard in the Route 53 console. </p>
+   *          <p>The name can be up to 64 characters long and can contain letters (a-z, A-Z), numbers (0-9), hyphens (-), underscores (_), and spaces. The name cannot consist of only numbers.</p>
    * @public
    */
   Name?: string | undefined;
@@ -5299,6 +5349,30 @@ export interface UpdateResolverEndpointRequest {
    * @public
    */
   Protocols?: Protocol[] | undefined;
+
+  /**
+   * <p>Updates whether RNI enhanced metrics are enabled for the Resolver endpoints.
+   * 		When set to true, one-minute granular metrics are published in CloudWatch for each RNI associated with this endpoint.
+   * 		When set to false, metrics are not published.</p>
+   *          <note>
+   *             <p>Standard CloudWatch pricing and charges are applied for using the Route 53 Resolver
+   * 	endpoint RNI enhanced metrics. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/monitoring-resolver-with-cloudwatch.html">Detailed metrics</a>.</p>
+   *          </note>
+   * @public
+   */
+  RniEnhancedMetricsEnabled?: boolean | undefined;
+
+  /**
+   * <p>Updates whether target name server metrics are enabled for the outbound Resolver endpoints.
+   * 		When set to true, one-minute granular metrics are published in CloudWatch for each target name server associated with this endpoint.
+   * 		When set to false, metrics are not published. This setting is not supported for inbound Resolver endpoints.</p>
+   *          <note>
+   *             <p>Standard CloudWatch pricing and charges are applied for using the Route 53 Resolver
+   * 	endpoint target name server metrics. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/monitoring-resolver-with-cloudwatch.html">Detailed metrics</a>.</p>
+   *          </note>
+   * @public
+   */
+  TargetNameServerMetricsEnabled?: boolean | undefined;
 }
 
 /**

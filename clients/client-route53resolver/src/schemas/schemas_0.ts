@@ -272,6 +272,7 @@ const _RDNSSECC = "ResolverDNSSECConfig";
 const _RE = "ResolverEndpoint";
 const _REE = "ResourceExistsException";
 const _REI = "ResolverEndpointId";
+const _REME = "RniEnhancedMetricsEnabled";
 const _RET = "ResolverEndpointType";
 const _REe = "ResolverEndpoints";
 const _RI = "ResourceId";
@@ -316,6 +317,7 @@ const _TI = "TargetIps";
 const _TK = "TagKeys";
 const _TL = "TagList";
 const _TLa = "TargetList";
+const _TNSME = "TargetNameServerMetricsEnabled";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
@@ -500,8 +502,8 @@ export var CreateResolverEndpointRequest: StaticStructureSchema = [
   n0,
   _CRER,
   0,
-  [_CRI, _N, _SGI, _D, _IAp, _OA, _PIT, _T, _RET, _Pr],
-  [0, 0, 64 | 0, 0, () => IpAddressesRequest, 0, 0, () => TagList, 0, 64 | 0],
+  [_CRI, _N, _SGI, _D, _IAp, _OA, _PIT, _T, _RET, _Pr, _REME, _TNSME],
+  [0, 0, 64 | 0, 0, () => IpAddressesRequest, 0, 0, () => TagList, 0, 64 | 0, 2, 2],
 ];
 export var CreateResolverEndpointResponse: StaticStructureSchema = [3, n0, _CRERr, 0, [_RE], [() => ResolverEndpoint]];
 export var CreateResolverQueryLogConfigRequest: StaticStructureSchema = [
@@ -969,8 +971,8 @@ export var ResolverEndpoint: StaticStructureSchema = [
   n0,
   _RE,
   0,
-  [_I, _CRI, _Ar, _N, _SGI, _D, _IAC, _HVPCI, _S, _SM, _CTr, _MT, _OA, _PIT, _RET, _Pr],
-  [0, 0, 0, 0, 64 | 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 64 | 0],
+  [_I, _CRI, _Ar, _N, _SGI, _D, _IAC, _HVPCI, _S, _SM, _CTr, _MT, _OA, _PIT, _RET, _Pr, _REME, _TNSME],
+  [0, 0, 0, 0, 64 | 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 2, 2],
 ];
 export var ResolverQueryLogConfig: StaticStructureSchema = [
   3,
@@ -1073,8 +1075,8 @@ export var UpdateResolverEndpointRequest: StaticStructureSchema = [
   n0,
   _URER,
   0,
-  [_REI, _N, _RET, _UIAp, _Pr],
-  [0, 0, 0, () => UpdateIpAddresses, 64 | 0],
+  [_REI, _N, _RET, _UIAp, _Pr, _REME, _TNSME],
+  [0, 0, 0, () => UpdateIpAddresses, 64 | 0, 2, 2],
 ];
 export var UpdateResolverEndpointResponse: StaticStructureSchema = [3, n0, _URERp, 0, [_RE], [() => ResolverEndpoint]];
 export var UpdateResolverRuleRequest: StaticStructureSchema = [

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.952.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.951.0...v3.952.0) (2025-12-15)
+
+
+### Features
+
+* **client-entityresolution:** Support Customer Profiles Integration for AWS Entity Resolution ([32903b1](https://github.com/aws/aws-sdk-js-v3/commit/32903b157a9c5ef3867cc885ba4149c8a35e200c))
+
+
+
+
+
 # [3.948.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.947.0...v3.948.0) (2025-12-09)
 
 **Note:** Version bump only for package @aws-sdk/client-entityresolution

@@ -37,12 +37,12 @@ export interface DeleteIndexPolicyCommandOutput extends DeleteIndexPolicyRespons
  *          <p>If the deleted policy included facet configurations, those facets will no longer be
  *       available for interactive exploration in the CloudWatch Logs Insights console for this log
  *       group. However, facet data is retained for up to 30 days.</p>
- *          <p>You can't use this operation to delete an account-level index policy. Instead, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteAccountPolicy.html">DeletAccountPolicy</a>.</p>
- *          <p>If you delete a log-group level field index policy and there is an
- *       account-level field index policy, in a few minutes the log group begins using that
- *       account-wide policy to index new incoming log events. This operation only affects log
- *       group-level policies, including any facet configurations, and preserves any data source-based
- *       account policies that may apply to the log group.</p>
+ *          <p>You can't use this operation to delete an account-level index policy. Instead, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteAccountPolicy.html">DeleteAccountPolicy</a>.</p>
+ *          <p>If you delete a log-group level field index policy and there is an account-level field
+ *       index policy, in a few minutes the log group begins using that account-wide policy to index
+ *       new incoming log events. This operation only affects log group-level policies, including any
+ *       facet configurations, and preserves any data source-based account policies that may apply to
+ *       the log group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

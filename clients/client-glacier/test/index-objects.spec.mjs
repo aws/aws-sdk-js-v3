@@ -37,6 +37,7 @@ import {
   ListTagsForVaultCommand,
   ListVaultsCommand,
   MissingParameterValueException,
+  NoLongerSupportedException,
   Permission,
   PolicyEnforcedException,
   PurchaseProvisionedCapacityCommand,
@@ -116,6 +117,7 @@ assert(InsufficientCapacityException.prototype instanceof GlacierServiceExceptio
 assert(InvalidParameterValueException.prototype instanceof GlacierServiceException);
 assert(LimitExceededException.prototype instanceof GlacierServiceException);
 assert(MissingParameterValueException.prototype instanceof GlacierServiceException);
+assert(NoLongerSupportedException.prototype instanceof GlacierServiceException);
 assert(PolicyEnforcedException.prototype instanceof GlacierServiceException);
 assert(RequestTimeoutException.prototype instanceof GlacierServiceException);
 assert(ResourceNotFoundException.prototype instanceof GlacierServiceException);

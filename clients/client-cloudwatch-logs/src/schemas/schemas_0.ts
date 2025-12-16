@@ -25,6 +25,12 @@ const _CETR = "CancelExportTaskRequest";
 const _CETRr = "CreateExportTaskRequest";
 const _CETRre = "CreateExportTaskResponse";
 const _CETr = "CreateExportTask";
+const _CIT = "CancelImportTask";
+const _CITR = "CancelImportTaskRequest";
+const _CITRa = "CancelImportTaskResponse";
+const _CITRr = "CreateImportTaskRequest";
+const _CITRre = "CreateImportTaskResponse";
+const _CITr = "CreateImportTask";
 const _CLAD = "CreateLogAnomalyDetector";
 const _CLADR = "CreateLogAnomalyDetectorRequest";
 const _CLADRr = "CreateLogAnomalyDetectorResponse";
@@ -95,6 +101,12 @@ const _DIPResc = "DescribeIndexPoliciesResponse";
 const _DIPe = "DescribeIndexPolicies";
 const _DIR = "DeleteIntegrationRequest";
 const _DIRe = "DeleteIntegrationResponse";
+const _DIT = "DescribeImportTasks";
+const _DITB = "DescribeImportTaskBatches";
+const _DITBR = "DescribeImportTaskBatchesRequest";
+const _DITBRe = "DescribeImportTaskBatchesResponse";
+const _DITR = "DescribeImportTasksRequest";
+const _DITRe = "DescribeImportTasksResponse";
 const _DK = "DeleteKeys";
 const _DKK = "DisassociateKmsKey";
 const _DKKR = "DisassociateKmsKeyRequest";
@@ -219,18 +231,24 @@ const _GSQRe = "GetScheduledQueryResponse";
 const _GT = "GetTransformer";
 const _GTR = "GetTransformerRequest";
 const _GTRe = "GetTransformerResponse";
+const _I = "Import";
+const _IB = "ImportBatch";
+const _IBL = "ImportBatchList";
 const _ID = "IntegrationDetails";
+const _IF = "ImportFilter";
+const _IL = "ImportList";
 const _ILE = "InputLogEvent";
 const _ILEn = "InputLogEvents";
 const _IOE = "InvalidOperationException";
 const _IP = "IndexPolicy";
 const _IPE = "InvalidParameterException";
 const _IPn = "IndexPolicies";
-const _IS = "IntegrationSummary";
+const _IS = "ImportStatistics";
 const _ISE = "InternalServerException";
 const _ISEn = "InternalStreamingException";
 const _ISTE = "InvalidSequenceTokenException";
-const _ISn = "IntegrationSummaries";
+const _ISn = "IntegrationSummary";
+const _ISnt = "IntegrationSummaries";
 const _LA = "ListAnomalies";
 const _LALGS = "ListAggregateLogGroupSummaries";
 const _LALGSR = "ListAggregateLogGroupSummariesRequest";
@@ -482,17 +500,20 @@ const _ap = "application";
 const _ar = "arn";
 const _at = "attributes";
 const _b = "baseline";
+const _bI = "batchId";
+const _bIS = "batchImportStatus";
+const _bIy = "bytesImported";
 const _bS = "bytesScanned";
 const _c = "client";
 const _cA = "collectionArn";
 const _cE = "collectionEndpoint";
-const _cT = "configurationTemplates";
+const _cT = "creationTime";
 const _cTS = "creationTimeStamp";
 const _cTSr = "createdTimeStamp";
 const _cTl = "clientToken";
-const _cTo = "completionTime";
-const _cTr = "creationTime";
-const _cTre = "createTime";
+const _cTo = "configurationTemplates";
+const _cTom = "completionTime";
+const _cTr = "createTime";
 const _cV = "copyValue";
 const _co = "columns";
 const _cod = "code";
@@ -543,14 +564,15 @@ const _dis = "distribution";
 const _e = "error";
 const _eBS = "estimatedBytesSkipped";
 const _eCO = "endCharOffset";
+const _eET = "endEventTime";
 const _eF = "evaluationFrequency";
 const _eHCP = "enableHiveCompatiblePath";
 const _eI = "executionInfo";
 const _eIv = "eventId";
 const _eK = "encryptionKey";
 const _eLEEI = "expiredLogEventEndIndex";
-const _eM = "eventMessage";
-const _eMr = "errorMessage";
+const _eM = "errorMessage";
+const _eMv = "eventMessage";
 const _eN = "eventNumber";
 const _eP = "encryptionPolicy";
 const _eRA = "executionRoleArn";
@@ -600,8 +622,12 @@ const _h = "histogram";
 const _hE = "httpError";
 const _i = "identifier";
 const _iA = "integrationArn";
+const _iB = "importBatches";
 const _iD = "integrationDetails";
+const _iDA = "importDestinationArn";
 const _iDs = "isDynamic";
+const _iF = "importFilter";
+const _iI = "importId";
 const _iLA = "includeLinkedAccounts";
 const _iN = "integrationName";
 const _iNP = "integrationNamePrefix";
@@ -609,12 +635,17 @@ const _iP = "indexPolicies";
 const _iPLS = "isPatternLevelSuppression";
 const _iPn = "inheritedProperties";
 const _iPnd = "indexPolicy";
-const _iS = "integrationStatus";
-const _iSn = "integrationSummaries";
+const _iRA = "importRoleArn";
+const _iS = "importStatistics";
+const _iSA = "importSourceArn";
+const _iSm = "importStatus";
+const _iSn = "integrationStatus";
+const _iSnt = "integrationSummaries";
 const _iT = "ingestionTime";
 const _iTN = "inferredTokenName";
 const _iTn = "integrationType";
 const _id = "id";
+const _im = "imports";
 const _in = "interleaved";
 const _k = "key";
 const _kA = "keyAttributes";
@@ -760,6 +791,7 @@ const _sD = "suppressedDate";
 const _sDC = "s3DeliveryConfiguration";
 const _sE = "scheduleExpression";
 const _sET = "scheduleEndTime";
+const _sETt = "startEventTime";
 const _sF = "subscriptionFilters";
 const _sFH = "startFromHead";
 const _sI = "sessionId";
@@ -914,6 +946,15 @@ export var AssociateSourceToS3TableIntegrationRequest: StaticStructureSchema = [
 ];
 export var AssociateSourceToS3TableIntegrationResponse: StaticStructureSchema = [3, n0, _ASTSTIRs, 0, [_i], [0]];
 export var CancelExportTaskRequest: StaticStructureSchema = [3, n0, _CETR, 0, [_tI], [0]];
+export var CancelImportTaskRequest: StaticStructureSchema = [3, n0, _CITR, 0, [_iI], [0]];
+export var CancelImportTaskResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _CITRa,
+  0,
+  [_iI, _iS, _iSm, _cT, _lUT],
+  [0, () => ImportStatistics, 0, 1, 1],
+];
 export var ConfigurationTemplate: StaticStructureSchema = [
   3,
   n0,
@@ -952,6 +993,15 @@ export var CreateExportTaskRequest: StaticStructureSchema = [
   [0, 0, 0, 1, 1, 0, 0],
 ];
 export var CreateExportTaskResponse: StaticStructureSchema = [3, n0, _CETRre, 0, [_tI], [0]];
+export var CreateImportTaskRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CITRr,
+  0,
+  [_iSA, _iRA, _iF],
+  [0, 0, () => ImportFilter],
+];
+export var CreateImportTaskResponse: StaticStructureSchema = [3, n0, _CITRre, 0, [_iI, _iDA, _cT], [0, 0, 1]];
 export var CreateLogAnomalyDetectorRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1070,7 +1120,7 @@ export var DescribeConfigurationTemplatesResponse: StaticStructureSchema = [
   n0,
   _DCTRe,
   0,
-  [_cT, _nT],
+  [_cTo, _nT],
   [() => ConfigurationTemplates, 0],
 ];
 export var DescribeDeliveriesRequest: StaticStructureSchema = [3, n0, _DDRes, 0, [_nT, _li], [0, 1]];
@@ -1113,6 +1163,31 @@ export var DescribeFieldIndexesResponse: StaticStructureSchema = [
   [_fI, _nT],
   [() => FieldIndexes, 0],
 ];
+export var DescribeImportTaskBatchesRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DITBR,
+  0,
+  [_iI, _bIS, _li, _nT],
+  [0, 64 | 0, 1, 0],
+];
+export var DescribeImportTaskBatchesResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _DITBRe,
+  0,
+  [_iSA, _iI, _iB, _nT],
+  [0, 0, () => ImportBatchList, 0],
+];
+export var DescribeImportTasksRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DITR,
+  0,
+  [_iI, _iSm, _iSA, _li, _nT],
+  [0, 0, 0, 1, 0],
+];
+export var DescribeImportTasksResponse: StaticStructureSchema = [3, n0, _DITRe, 0, [_im, _nT], [() => ImportList, 0]];
 export var DescribeIndexPoliciesRequest: StaticStructureSchema = [3, n0, _DIPRes, 0, [_lGI, _nT], [64 | 0, 0]];
 export var DescribeIndexPoliciesResponse: StaticStructureSchema = [
   3,
@@ -1213,7 +1288,7 @@ export var DescribeSubscriptionFiltersResponse: StaticStructureSchema = [
   [_sF, _nT],
   [() => SubscriptionFilters, 0],
 ];
-export var Destination: StaticStructureSchema = [3, n0, _De, 0, [_dNe, _tA, _rAo, _aPc, _ar, _cTr], [0, 0, 0, 0, 0, 1]];
+export var Destination: StaticStructureSchema = [3, n0, _De, 0, [_dNe, _tA, _rAo, _aPc, _ar, _cT], [0, 0, 0, 0, 0, 1]];
 export var DestinationConfiguration: StaticStructureSchema = [3, n0, _DC, 0, [_sCo], [() => S3Configuration]];
 export var DisassociateKmsKeyRequest: StaticStructureSchema = [3, n0, _DKKR, 0, [_lGN, _rI], [0, 0]];
 export var DisassociateSourceFromS3TableIntegrationRequest: StaticStructureSchema = [3, n0, _DSFSTIR, 0, [_i], [0]];
@@ -1227,7 +1302,7 @@ export var ExportTask: StaticStructureSchema = [
   [_tI, _tN, _lGN, _f, _to, _des, _dP, _sta, _eI],
   [0, 0, 0, 1, 1, 0, 0, () => ExportTaskStatus, () => ExportTaskExecutionInfo],
 ];
-export var ExportTaskExecutionInfo: StaticStructureSchema = [3, n0, _ETEI, 0, [_cTr, _cTo], [1, 1]];
+export var ExportTaskExecutionInfo: StaticStructureSchema = [3, n0, _ETEI, 0, [_cT, _cTom], [1, 1]];
 export var ExportTaskStatus: StaticStructureSchema = [3, n0, _ETS, 0, [_cod, _m], [0, 0]];
 export var FieldIndex: StaticStructureSchema = [
   3,
@@ -1278,7 +1353,7 @@ export var GetIntegrationResponse: StaticStructureSchema = [
   n0,
   _GIRe,
   0,
-  [_iN, _iTn, _iS, _iD],
+  [_iN, _iTn, _iSn, _iD],
   [0, 0, 0, () => IntegrationDetails],
 ];
 export var GetLogAnomalyDetectorRequest: StaticStructureSchema = [3, n0, _GLADR, 0, [_aDA], [0]];
@@ -1352,7 +1427,7 @@ export var GetScheduledQueryResponse: StaticStructureSchema = [
   n0,
   _GSQRe,
   0,
-  [_sQA, _n, _d, _qL, _qS, _lGI, _sE, _ti, _sTO, _dC, _st, _lTT, _lES, _sST, _sET, _eRA, _cTr, _lUT],
+  [_sQA, _n, _d, _qL, _qS, _lGI, _sE, _ti, _sTO, _dC, _st, _lTT, _lES, _sST, _sET, _eRA, _cT, _lUT],
   [0, 0, 0, 0, 0, 64 | 0, 0, 0, 1, () => DestinationConfiguration, 0, 1, 0, 1, 1, 0, 1, 1],
 ];
 export var GetTransformerRequest: StaticStructureSchema = [3, n0, _GTR, 0, [_lGIo], [0]];
@@ -1361,14 +1436,25 @@ export var GetTransformerResponse: StaticStructureSchema = [
   n0,
   _GTRe,
   0,
-  [_lGIo, _cTr, _lMT, _tC],
+  [_lGIo, _cT, _lMT, _tC],
   [0, 1, 1, () => Processors],
 ];
 export var Grok: StaticStructureSchema = [3, n0, _G, 0, [_so, _ma], [0, 0]];
 export var GroupingIdentifier: StaticStructureSchema = [3, n0, _GI, 0, [_k, _v], [0, 0]];
+export var Import: StaticStructureSchema = [
+  3,
+  n0,
+  _I,
+  0,
+  [_iI, _iSA, _iSm, _iDA, _iS, _iF, _cT, _lUT, _eM],
+  [0, 0, 0, 0, () => ImportStatistics, () => ImportFilter, 1, 1, 0],
+];
+export var ImportBatch: StaticStructureSchema = [3, n0, _IB, 0, [_bI, _sta, _eM], [0, 0, 0]];
+export var ImportFilter: StaticStructureSchema = [3, n0, _IF, 0, [_sETt, _eET], [1, 1]];
+export var ImportStatistics: StaticStructureSchema = [3, n0, _IS, 0, [_bIy], [1]];
 export var IndexPolicy: StaticStructureSchema = [3, n0, _IP, 0, [_lGIo, _lUTa, _pD, _pN, _so], [0, 1, 0, 0, 0]];
 export var InputLogEvent: StaticStructureSchema = [3, n0, _ILE, 0, [_tim, _m], [1, 0]];
-export var IntegrationSummary: StaticStructureSchema = [3, n0, _IS, 0, [_iN, _iTn, _iS], [0, 0, 0]];
+export var IntegrationSummary: StaticStructureSchema = [3, n0, _ISn, 0, [_iN, _iTn, _iSn], [0, 0, 0]];
 export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _ser, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
 export var InternalStreamingException: StaticErrorSchema = [-3, n0, _ISEn, { [_e]: _c }, [_m], [0]];
@@ -1399,8 +1485,8 @@ export var ListAggregateLogGroupSummariesResponse: StaticStructureSchema = [
 ];
 export var ListAnomaliesRequest: StaticStructureSchema = [3, n0, _LAR, 0, [_aDA, _sS, _li, _nT], [0, 0, 1, 0]];
 export var ListAnomaliesResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_an, _nT], [() => Anomalies, 0]];
-export var ListIntegrationsRequest: StaticStructureSchema = [3, n0, _LIR, 0, [_iNP, _iTn, _iS], [0, 0, 0]];
-export var ListIntegrationsResponse: StaticStructureSchema = [3, n0, _LIRi, 0, [_iSn], [() => IntegrationSummaries]];
+export var ListIntegrationsRequest: StaticStructureSchema = [3, n0, _LIR, 0, [_iNP, _iTn, _iSn], [0, 0, 0]];
+export var ListIntegrationsResponse: StaticStructureSchema = [3, n0, _LIRi, 0, [_iSnt], [() => IntegrationSummaries]];
 export var ListLogAnomalyDetectorsRequest: StaticStructureSchema = [3, n0, _LLADR, 0, [_fLGA, _li, _nT], [0, 1, 0]];
 export var ListLogAnomalyDetectorsResponse: StaticStructureSchema = [
   3,
@@ -1491,7 +1577,7 @@ export var LogGroup: StaticStructureSchema = [
   n0,
   _LG,
   0,
-  [_lGN, _cTr, _rID, _mFC, _ar, _sB, _kKI, _dPS, _iPn, _lGCo, _lGA, _dPE],
+  [_lGN, _cT, _rID, _mFC, _ar, _sB, _kKI, _dPS, _iPn, _lGCo, _lGA, _dPE],
   [0, 1, 1, 1, 0, 1, 0, 0, 64 | 0, 0, 0, 2],
 ];
 export var LogGroupField: StaticStructureSchema = [3, n0, _LGF, 0, [_n, _pe], [0, 1]];
@@ -1501,7 +1587,7 @@ export var LogStream: StaticStructureSchema = [
   n0,
   _LS,
   0,
-  [_lSN, _cTr, _fETi, _lETa, _lIT, _uST, _ar, _sB],
+  [_lSN, _cT, _fETi, _lETa, _lIT, _uST, _ar, _sB],
   [0, 1, 1, 1, 1, 0, 0, 1],
 ];
 export var LowerCaseString: StaticStructureSchema = [3, n0, _LCS, 0, [_wK], [64 | 0]];
@@ -1519,10 +1605,10 @@ export var MetricFilter: StaticStructureSchema = [
   n0,
   _MF,
   0,
-  [_fN, _fP, _mT, _cTr, _lGN, _aOTL, _fSC, _eSFD],
+  [_fN, _fP, _mT, _cT, _lGN, _aOTL, _fSC, _eSFD],
   [0, 0, () => MetricTransformations, 1, 0, 2, 0, 64 | 0],
 ];
-export var MetricFilterMatchRecord: StaticStructureSchema = [3, n0, _MFMR, 0, [_eN, _eM, _eV], [1, 0, 128 | 0]];
+export var MetricFilterMatchRecord: StaticStructureSchema = [3, n0, _MFMR, 0, [_eN, _eMv, _eV], [1, 0, 128 | 0]];
 export var MetricTransformation: StaticStructureSchema = [
   3,
   n0,
@@ -1743,7 +1829,7 @@ export var PutIntegrationRequest: StaticStructureSchema = [
   [_iN, _rC, _iTn],
   [0, () => ResourceConfig, 0],
 ];
-export var PutIntegrationResponse: StaticStructureSchema = [3, n0, _PIRu, 0, [_iN, _iS], [0, 0]];
+export var PutIntegrationResponse: StaticStructureSchema = [3, n0, _PIRu, 0, [_iN, _iSn], [0, 0]];
 export var PutLogEventsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1807,7 +1893,7 @@ export var QueryDefinition: StaticStructureSchema = [
   [_qL, _qDI, _n, _qS, _lM, _lGNo],
   [0, 0, 0, 0, 1, 64 | 0],
 ];
-export var QueryInfo: StaticStructureSchema = [3, n0, _QI, 0, [_qL, _qI, _qS, _sta, _cTre, _lGN], [0, 0, 0, 0, 1, 0]];
+export var QueryInfo: StaticStructureSchema = [3, n0, _QI, 0, [_qL, _qI, _qS, _sta, _cTr, _lGN], [0, 0, 0, 0, 1, 0]];
 export var QueryStatistics: StaticStructureSchema = [
   3,
   n0,
@@ -1849,7 +1935,7 @@ export var ScheduledQueryDestination: StaticStructureSchema = [
   n0,
   _SQD,
   0,
-  [_dT, _dI, _sta, _pIr, _eMr],
+  [_dT, _dI, _sta, _pIr, _eM],
   [0, 0, 0, 0, 0],
 ];
 export var ScheduledQuerySummary: StaticStructureSchema = [
@@ -1857,7 +1943,7 @@ export var ScheduledQuerySummary: StaticStructureSchema = [
   n0,
   _SQS,
   0,
-  [_sQA, _n, _st, _lTT, _lES, _sE, _ti, _dC, _cTr, _lUT],
+  [_sQA, _n, _st, _lTT, _lES, _sE, _ti, _dC, _cT, _lUT],
   [0, 0, 0, 1, 0, 0, 0, () => DestinationConfiguration, 1, 1],
 ];
 export var SearchedLogStream: StaticStructureSchema = [3, n0, _SLS, 0, [_lSN, _sCe], [0, 2]];
@@ -1903,7 +1989,7 @@ export var SubscriptionFilter: StaticStructureSchema = [
   n0,
   _SF,
   0,
-  [_fN, _lGN, _fP, _dA, _rAo, _dis, _aOTL, _cTr, _fSC, _eSF],
+  [_fN, _lGN, _fP, _dA, _rAo, _dis, _aOTL, _cT, _fSC, _eSF],
   [0, 0, 0, 0, 0, 0, 2, 1, 0, 64 | 0],
 ];
 export var SubstituteString: StaticStructureSchema = [3, n0, _SSu, 0, [_en], [() => SubstituteStringEntries]];
@@ -1919,13 +2005,13 @@ export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c }, 
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
 export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_m, _rN], [0, 0]];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-export var TransformedLogRecord: StaticStructureSchema = [3, n0, _TLR, 0, [_eN, _eM, _tEM], [1, 0, 0]];
+export var TransformedLogRecord: StaticStructureSchema = [3, n0, _TLR, 0, [_eN, _eMv, _tEM], [1, 0, 0]];
 export var TriggerHistoryRecord: StaticStructureSchema = [
   3,
   n0,
   _THR,
   0,
-  [_qI, _eSx, _tTr, _eMr, _dest],
+  [_qI, _eSx, _tTr, _eM, _dest],
   [0, 0, 1, 0, () => ScheduledQueryDestinationList],
 ];
 export var TrimString: StaticStructureSchema = [3, n0, _TS, 0, [_wK], [64 | 0]];
@@ -1973,7 +2059,7 @@ export var UpdateScheduledQueryResponse: StaticStructureSchema = [
   n0,
   _USQRp,
   0,
-  [_sQA, _n, _d, _qL, _qS, _lGI, _sE, _ti, _sTO, _dC, _st, _lTT, _lES, _sST, _sET, _eRA, _cTr, _lUT],
+  [_sQA, _n, _d, _qL, _qS, _lGI, _sE, _ti, _sTO, _dC, _st, _lTT, _lES, _sST, _sET, _eRA, _cT, _lUT],
   [0, 0, 0, 0, 0, 64 | 0, 0, 0, 1, () => DestinationConfiguration, 0, 1, 0, 1, 1, 0, 1, 1],
 ];
 export var UpperCaseString: StaticStructureSchema = [3, n0, _UCS, 0, [_wK], [64 | 0]];
@@ -2011,11 +2097,14 @@ export var FieldIndexes: StaticListSchema = [1, n0, _FIi, 0, () => FieldIndex];
 export var FieldIndexNames = 64 | 0;
 export var FilteredLogEvents: StaticListSchema = [1, n0, _FLEi, 0, () => FilteredLogEvent];
 export var GroupingIdentifiers: StaticListSchema = [1, n0, _GIr, 0, () => GroupingIdentifier];
+export var ImportBatchList: StaticListSchema = [1, n0, _IBL, 0, () => ImportBatch];
+export var ImportList: StaticListSchema = [1, n0, _IL, 0, () => Import];
+export var ImportStatusList = 64 | 0;
 export var IndexPolicies: StaticListSchema = [1, n0, _IPn, 0, () => IndexPolicy];
 export var InheritedProperties = 64 | 0;
 export var InputLogEvents: StaticListSchema = [1, n0, _ILEn, 0, () => InputLogEvent];
 export var InputLogStreamNames = 64 | 0;
-export var IntegrationSummaries: StaticListSchema = [1, n0, _ISn, 0, () => IntegrationSummary];
+export var IntegrationSummaries: StaticListSchema = [1, n0, _ISnt, 0, () => IntegrationSummary];
 export var LiveTailSessionResults: StaticListSchema = [1, n0, _LTSR, 0, () => LiveTailSessionLogEvent];
 export var LogFieldsList: StaticListSchema = [1, n0, _LFL, 0, () => LogFieldsListItem];
 export var LogGroupArnList = 64 | 0;
@@ -2104,6 +2193,14 @@ export var AssociateSourceToS3TableIntegration: StaticOperationSchema = [
   () => AssociateSourceToS3TableIntegrationResponse,
 ];
 export var CancelExportTask: StaticOperationSchema = [9, n0, _CET, 0, () => CancelExportTaskRequest, () => __Unit];
+export var CancelImportTask: StaticOperationSchema = [
+  9,
+  n0,
+  _CIT,
+  0,
+  () => CancelImportTaskRequest,
+  () => CancelImportTaskResponse,
+];
 export var CreateDelivery: StaticOperationSchema = [
   9,
   n0,
@@ -2119,6 +2216,14 @@ export var CreateExportTask: StaticOperationSchema = [
   0,
   () => CreateExportTaskRequest,
   () => CreateExportTaskResponse,
+];
+export var CreateImportTask: StaticOperationSchema = [
+  9,
+  n0,
+  _CITr,
+  0,
+  () => CreateImportTaskRequest,
+  () => CreateImportTaskResponse,
 ];
 export var CreateLogAnomalyDetector: StaticOperationSchema = [
   9,
@@ -2311,6 +2416,22 @@ export var DescribeFieldIndexes: StaticOperationSchema = [
   0,
   () => DescribeFieldIndexesRequest,
   () => DescribeFieldIndexesResponse,
+];
+export var DescribeImportTaskBatches: StaticOperationSchema = [
+  9,
+  n0,
+  _DITB,
+  0,
+  () => DescribeImportTaskBatchesRequest,
+  () => DescribeImportTaskBatchesResponse,
+];
+export var DescribeImportTasks: StaticOperationSchema = [
+  9,
+  n0,
+  _DIT,
+  0,
+  () => DescribeImportTasksRequest,
+  () => DescribeImportTasksResponse,
 ];
 export var DescribeIndexPolicies: StaticOperationSchema = [
   9,

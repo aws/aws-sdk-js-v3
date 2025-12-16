@@ -265,6 +265,14 @@ GetAWSDefaultServiceQuota
 </details>
 <details>
 <summary>
+GetQuotaUtilizationReport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/GetQuotaUtilizationReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/GetQuotaUtilizationReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/GetQuotaUtilizationReportCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetRequestedServiceQuotaChange
 </summary>
 
@@ -365,6 +373,14 @@ StartAutoManagement
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/StartAutoManagementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/StartAutoManagementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/StartAutoManagementCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartQuotaUtilizationReport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/StartQuotaUtilizationReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/StartQuotaUtilizationReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/StartQuotaUtilizationReportCommandOutput/)
 
 </details>
 <details>

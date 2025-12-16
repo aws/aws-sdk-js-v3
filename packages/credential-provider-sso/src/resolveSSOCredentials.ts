@@ -21,6 +21,7 @@ export const resolveSSOCredentials = async ({
   ssoClient,
   clientConfig,
   parentClientConfig,
+  callerClientConfig,
   profile,
   filepath,
   configFilepath,
@@ -74,9 +75,12 @@ export const resolveSSOCredentials = async ({
     ssoClient ||
     new SSOClient(
       Object.assign({}, clientConfig ?? {}, {
-        logger: clientConfig?.logger ?? parentClientConfig?.logger,
+        logger: clientConfig?.logger ?? callerClientConfig?.logger ?? parentClientConfig?.logger,
+        // regions from outer clients are not used here because the credential set must include a region.
+        // the only possible override is from the clientConfig property of the credential provider.
         region: clientConfig?.region ?? ssoRegion,
-        userAgentAppId: clientConfig?.userAgentAppId ?? parentClientConfig?.userAgentAppId,
+        userAgentAppId:
+          clientConfig?.userAgentAppId ?? callerClientConfig?.userAgentAppId ?? parentClientConfig?.userAgentAppId,
       })
     );
   let ssoResp: GetRoleCredentialsCommandOutput;

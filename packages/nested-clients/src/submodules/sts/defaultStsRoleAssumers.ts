@@ -58,9 +58,8 @@ const getAccountIdFromAssumedRoleUser = (assumedRoleUser?: AssumedRoleUser) => {
 };
 
 /**
- * @internal
- *
  * Default to the parent client region or us-east-1 if no region is specified.
+ * @internal
  */
 const resolveRegion = async (
   _region: string | Provider<string> | undefined,
@@ -70,7 +69,9 @@ const resolveRegion = async (
 ): Promise<string> => {
   const region: string | undefined = typeof _region === "function" ? await _region() : _region;
   const parentRegion: string | undefined = typeof _parentRegion === "function" ? await _parentRegion() : _parentRegion;
-  const stsDefaultRegion = await stsRegionDefaultResolver(loaderConfig)();
+  let stsDefaultRegion = "";
+
+  const resolvedRegion = region ?? parentRegion ?? (stsDefaultRegion = await stsRegionDefaultResolver(loaderConfig)());
 
   credentialProviderLogger?.debug?.(
     "@aws-sdk/client-sts::resolveRegion",
@@ -79,7 +80,8 @@ const resolveRegion = async (
     `${parentRegion} (contextual client)`,
     `${stsDefaultRegion} (STS default: AWS_REGION, profile region, or us-east-1)`
   );
-  return region ?? parentRegion ?? stsDefaultRegion;
+
+  return resolvedRegion;
 };
 
 /**

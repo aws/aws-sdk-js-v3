@@ -31,7 +31,8 @@ export interface DeleteScheduledQueryCommandInput extends DeleteScheduledQueryRe
 export interface DeleteScheduledQueryCommandOutput extends DeleteScheduledQueryResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a scheduled query and stops all future executions. This operation also removes any configured actions and associated resources.</p>
+ * <p>Deletes a scheduled query and stops all future executions. This operation also removes any
+ *       configured actions and associated resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

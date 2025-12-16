@@ -21,6 +21,7 @@ export * from "./FilterLogEventsPaginator";
 export * from "./Interfaces";
 export * from "./GetLogEventsPaginator";
 export * from "./GetScheduledQueryHistoryPaginator";
+export * from "./ListAggregateLogGroupSummariesPaginator";
 export * from "./ListAnomaliesPaginator";
 export * from "./ListLogAnomalyDetectorsPaginator";
 export * from "./ListLogGroupsForQueryPaginator";

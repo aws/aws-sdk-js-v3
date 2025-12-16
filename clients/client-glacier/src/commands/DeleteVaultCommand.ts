@@ -27,10 +27,10 @@ export interface DeleteVaultCommandInput extends DeleteVaultInput {}
 export interface DeleteVaultCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>This operation deletes a vault. Amazon S3 Glacier will delete a vault only if there are
+ * <p>This operation deletes a vault. Amazon Glacier will delete a vault only if there are
  *          no archives in the vault as of the last inventory and there have been no writes to the
  *          vault since the last inventory. If either of these conditions is not satisfied, the vault
- *          deletion fails (that is, the vault is not removed) and Amazon S3 Glacier returns an error. You
+ *          deletion fails (that is, the vault is not removed) and Amazon Glacier returns an error. You
  *          can use <a>DescribeVault</a> to return the number of archives in a vault, and
  *          you can use <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html">Initiate a Job (POST
  *             jobs)</a> to initiate a new inventory retrieval for a vault. The inventory contains
@@ -46,7 +46,7 @@ export interface DeleteVaultCommandOutput extends __MetadataBearer {}
  *             AWS Identity and Access Management (IAM)</a>.</p>
  *          <p> For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/deleting-vaults.html">Deleting a Vault in Amazon
  *             Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-delete.html">Delete Vault </a> in the
- *             <i>Amazon S3 Glacier Developer Guide</i>. </p>
+ *             <i>Amazon Glacier Developer Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,6 +76,8 @@ export interface DeleteVaultCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link MissingParameterValueException} (client fault)
  *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * @throws {@link NoLongerSupportedException} (client fault)
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't

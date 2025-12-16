@@ -27,7 +27,7 @@ export interface CompleteMultipartUploadCommandInput extends CompleteMultipartUp
 export interface CompleteMultipartUploadCommandOutput extends ArchiveCreationOutput, __MetadataBearer {}
 
 /**
- * <p>You call this operation to inform Amazon S3 Glacier (Glacier) that all the archive parts have been
+ * <p>You call this operation to inform Amazon Glacier (Glacier) that all the archive parts have been
  *          uploaded and that Glacier can now assemble the archive from the uploaded parts.
  *          After assembling and saving the archive to the vault, Glacier returns the URI path
  *          of the newly created archive resource. Using the URI path, you can then access the archive.
@@ -101,6 +101,8 @@ export interface CompleteMultipartUploadCommandOutput extends ArchiveCreationOut
  *
  * @throws {@link MissingParameterValueException} (client fault)
  *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * @throws {@link NoLongerSupportedException} (client fault)
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't

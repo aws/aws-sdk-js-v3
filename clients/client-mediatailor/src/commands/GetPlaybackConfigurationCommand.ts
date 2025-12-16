@@ -112,6 +112,16 @@ export interface GetPlaybackConfigurationCommandOutput extends GetPlaybackConfig
  * //   AdConditioningConfiguration: { // AdConditioningConfiguration
  * //     StreamingMediaFileConditioning: "TRANSCODE" || "NONE", // required
  * //   },
+ * //   AdDecisionServerConfiguration: { // AdDecisionServerConfiguration
+ * //     HttpRequest: { // HttpRequest
+ * //       Method: "GET" || "POST",
+ * //       Body: "STRING_VALUE",
+ * //       Headers: { // StringMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       CompressRequest: "NONE" || "GZIP",
+ * //     },
+ * //   },
  * // };
  *
  * ```

@@ -1,4 +1,5 @@
 import { setCredentialFeature } from "@aws-sdk/core/client";
+import type { AwsIdentityProperties } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { getProfileName } from "@smithy/shared-ini-file-loader";
 import { AwsCredentialIdentity, IniSection, Logger, ParsedIniData, Profile } from "@smithy/types";
@@ -10,8 +11,7 @@ import type { ResolveProfileData } from "./resolveProfileData";
 /**
  * @internal
  *
- * @see http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/STS.html#assumeRole-property
- * TODO update the above to link to V3 docs
+ * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sts/command/AssumeRoleCommand/
  */
 export interface AssumeRoleParams {
   /**
@@ -104,6 +104,7 @@ export const resolveAssumeRoleCredentials = async (
   profileName: string,
   profiles: ParsedIniData,
   options: FromIniInit,
+  callerClientConfig: AwsIdentityProperties["callerClientConfig"] | undefined,
   visitedProfiles: Record<string, true> = {},
   resolveProfileData: ResolveProfileData
 ) => {
@@ -117,9 +118,12 @@ export const resolveAssumeRoleCredentials = async (
       {
         ...options.clientConfig,
         credentialProviderLogger: options.logger,
+        // we merge into parentClientConfig here because
+        // sts default role assumer does not use callerClientConfig.
         parentClientConfig: {
+          ...callerClientConfig,
           ...options?.parentClientConfig,
-          region: region ?? options?.parentClientConfig?.region,
+          region: region ?? options?.parentClientConfig?.region ?? callerClientConfig?.region,
         },
       },
       options.clientPlugins
@@ -146,6 +150,7 @@ export const resolveAssumeRoleCredentials = async (
         source_profile,
         profiles,
         options,
+        callerClientConfig,
         {
           ...visitedProfiles,
           [source_profile]: true,

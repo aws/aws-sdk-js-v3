@@ -10,7 +10,7 @@
     },
     "build:cjs": {
       "outputs": ["dist-cjs/**"],
-      "dependsOn": ["^build:types"]
+      "dependsOn": ["^build:types", "build:es"]
     },
     "build:docs": {
       "outputs": ["dist-cjs/**"],

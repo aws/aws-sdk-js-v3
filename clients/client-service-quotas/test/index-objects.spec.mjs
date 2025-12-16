@@ -11,6 +11,7 @@ import {
   GetAWSDefaultServiceQuotaCommand,
   GetAssociationForServiceQuotaTemplateCommand,
   GetAutoManagementConfigurationCommand,
+  GetQuotaUtilizationReportCommand,
   GetRequestedServiceQuotaChangeCommand,
   GetServiceQuotaCommand,
   GetServiceQuotaIncreaseRequestFromTemplateCommand,
@@ -34,8 +35,10 @@ import {
   PutServiceQuotaIncreaseRequestIntoTemplateCommand,
   QuotaContextScope,
   QuotaExceededException,
+  ReportStatus,
   RequestServiceQuotaIncreaseCommand,
   RequestStatus,
+  RequestType,
   ResourceAlreadyExistsException,
   ServiceException,
   ServiceQuotaTemplateAssociationStatus,
@@ -44,6 +47,7 @@ import {
   ServiceQuotasClient,
   ServiceQuotasServiceException,
   StartAutoManagementCommand,
+  StartQuotaUtilizationReportCommand,
   StopAutoManagementCommand,
   TagPolicyViolationException,
   TagResourceCommand,
@@ -71,6 +75,7 @@ assert(typeof DisassociateServiceQuotaTemplateCommand === "function");
 assert(typeof GetAssociationForServiceQuotaTemplateCommand === "function");
 assert(typeof GetAutoManagementConfigurationCommand === "function");
 assert(typeof GetAWSDefaultServiceQuotaCommand === "function");
+assert(typeof GetQuotaUtilizationReportCommand === "function");
 assert(typeof GetRequestedServiceQuotaChangeCommand === "function");
 assert(typeof GetServiceQuotaCommand === "function");
 assert(typeof GetServiceQuotaIncreaseRequestFromTemplateCommand === "function");
@@ -84,6 +89,7 @@ assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof PutServiceQuotaIncreaseRequestIntoTemplateCommand === "function");
 assert(typeof RequestServiceQuotaIncreaseCommand === "function");
 assert(typeof StartAutoManagementCommand === "function");
+assert(typeof StartQuotaUtilizationReportCommand === "function");
 assert(typeof StopAutoManagementCommand === "function");
 assert(typeof TagResourceCommand === "function");
 assert(typeof UntagResourceCommand === "function");
@@ -96,7 +102,9 @@ assert(typeof OptInStatus === "object");
 assert(typeof OptInType === "object");
 assert(typeof PeriodUnit === "object");
 assert(typeof QuotaContextScope === "object");
+assert(typeof ReportStatus === "object");
 assert(typeof RequestStatus === "object");
+assert(typeof RequestType === "object");
 assert(typeof ServiceQuotaTemplateAssociationStatus === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof ServiceQuotasServiceException);

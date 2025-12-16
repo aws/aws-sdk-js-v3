@@ -19,6 +19,11 @@ import {
   CancelExportTaskCommandOutput,
 } from "./commands/CancelExportTaskCommand";
 import {
+  CancelImportTaskCommand,
+  CancelImportTaskCommandInput,
+  CancelImportTaskCommandOutput,
+} from "./commands/CancelImportTaskCommand";
+import {
   CreateDeliveryCommand,
   CreateDeliveryCommandInput,
   CreateDeliveryCommandOutput,
@@ -28,6 +33,11 @@ import {
   CreateExportTaskCommandInput,
   CreateExportTaskCommandOutput,
 } from "./commands/CreateExportTaskCommand";
+import {
+  CreateImportTaskCommand,
+  CreateImportTaskCommandInput,
+  CreateImportTaskCommandOutput,
+} from "./commands/CreateImportTaskCommand";
 import {
   CreateLogAnomalyDetectorCommand,
   CreateLogAnomalyDetectorCommandInput,
@@ -183,6 +193,16 @@ import {
   DescribeFieldIndexesCommandInput,
   DescribeFieldIndexesCommandOutput,
 } from "./commands/DescribeFieldIndexesCommand";
+import {
+  DescribeImportTaskBatchesCommand,
+  DescribeImportTaskBatchesCommandInput,
+  DescribeImportTaskBatchesCommandOutput,
+} from "./commands/DescribeImportTaskBatchesCommand";
+import {
+  DescribeImportTasksCommand,
+  DescribeImportTasksCommandInput,
+  DescribeImportTasksCommandOutput,
+} from "./commands/DescribeImportTasksCommand";
 import {
   DescribeIndexPoliciesCommand,
   DescribeIndexPoliciesCommandInput,
@@ -503,8 +523,10 @@ const commands = {
   AssociateKmsKeyCommand,
   AssociateSourceToS3TableIntegrationCommand,
   CancelExportTaskCommand,
+  CancelImportTaskCommand,
   CreateDeliveryCommand,
   CreateExportTaskCommand,
+  CreateImportTaskCommand,
   CreateLogAnomalyDetectorCommand,
   CreateLogGroupCommand,
   CreateLogStreamCommand,
@@ -536,6 +558,8 @@ const commands = {
   DescribeDestinationsCommand,
   DescribeExportTasksCommand,
   DescribeFieldIndexesCommand,
+  DescribeImportTaskBatchesCommand,
+  DescribeImportTasksCommand,
   DescribeIndexPoliciesCommand,
   DescribeLogGroupsCommand,
   DescribeLogStreamsCommand,
@@ -655,6 +679,23 @@ export interface CloudWatchLogs {
   ): void;
 
   /**
+   * @see {@link CancelImportTaskCommand}
+   */
+  cancelImportTask(
+    args: CancelImportTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelImportTaskCommandOutput>;
+  cancelImportTask(
+    args: CancelImportTaskCommandInput,
+    cb: (err: any, data?: CancelImportTaskCommandOutput) => void
+  ): void;
+  cancelImportTask(
+    args: CancelImportTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelImportTaskCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateDeliveryCommand}
    */
   createDelivery(
@@ -683,6 +724,23 @@ export interface CloudWatchLogs {
     args: CreateExportTaskCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateExportTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateImportTaskCommand}
+   */
+  createImportTask(
+    args: CreateImportTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateImportTaskCommandOutput>;
+  createImportTask(
+    args: CreateImportTaskCommandInput,
+    cb: (err: any, data?: CreateImportTaskCommandOutput) => void
+  ): void;
+  createImportTask(
+    args: CreateImportTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateImportTaskCommandOutput) => void
   ): void;
 
   /**
@@ -1202,6 +1260,41 @@ export interface CloudWatchLogs {
     args: DescribeFieldIndexesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeFieldIndexesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeImportTaskBatchesCommand}
+   */
+  describeImportTaskBatches(
+    args: DescribeImportTaskBatchesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeImportTaskBatchesCommandOutput>;
+  describeImportTaskBatches(
+    args: DescribeImportTaskBatchesCommandInput,
+    cb: (err: any, data?: DescribeImportTaskBatchesCommandOutput) => void
+  ): void;
+  describeImportTaskBatches(
+    args: DescribeImportTaskBatchesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeImportTaskBatchesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeImportTasksCommand}
+   */
+  describeImportTasks(): Promise<DescribeImportTasksCommandOutput>;
+  describeImportTasks(
+    args: DescribeImportTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeImportTasksCommandOutput>;
+  describeImportTasks(
+    args: DescribeImportTasksCommandInput,
+    cb: (err: any, data?: DescribeImportTasksCommandOutput) => void
+  ): void;
+  describeImportTasks(
+    args: DescribeImportTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeImportTasksCommandOutput) => void
   ): void;
 
   /**

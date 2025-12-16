@@ -145,6 +145,7 @@ export type {
   CreateMatchingWorkflowOutput,
   CreateSchemaMappingInput,
   CreateSchemaMappingOutput,
+  CustomerProfilesIntegrationConfig,
   DeletedUniqueId,
   DeleteIdMappingWorkflowInput,
   DeleteIdMappingWorkflowOutput,

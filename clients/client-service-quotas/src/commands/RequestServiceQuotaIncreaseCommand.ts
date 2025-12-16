@@ -51,6 +51,7 @@ export interface RequestServiceQuotaIncreaseCommandOutput
  * // { // RequestServiceQuotaIncreaseResponse
  * //   RequestedQuota: { // RequestedServiceQuotaChange
  * //     Id: "STRING_VALUE",
+ * //     RequestType: "AutomaticManagement",
  * //     CaseId: "STRING_VALUE",
  * //     ServiceCode: "STRING_VALUE",
  * //     ServiceName: "STRING_VALUE",

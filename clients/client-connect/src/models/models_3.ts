@@ -134,6 +134,7 @@ import {
   type QuickConnectSearchFilter,
   type RoutingProfileSearchFilter,
   type SecurityProfilesSearchFilter,
+  type TemplatedMessageConfig,
   type UserHierarchyGroupSearchFilter,
   type UserSearchFilter,
   type ViewSearchFilter,
@@ -5548,6 +5549,12 @@ export interface StartOutboundChatContactRequest {
    * @public
    */
   InitialSystemMessage?: ChatMessage | undefined;
+
+  /**
+   * <p>Information about template message configuration.</p>
+   * @public
+   */
+  InitialTemplatedSystemMessage?: TemplatedMessageConfig | undefined;
 
   /**
    * <p>The unique identifier for an Amazon Connect contact. This identifier is related to the contact

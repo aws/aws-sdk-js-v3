@@ -29,7 +29,7 @@ export interface DescribeJobCommandOutput extends GlacierJobDescription, __Metad
 /**
  * <p>This operation returns information about a job you previously initiated, including
  *          the job initiation date, the user who initiated the job, the job status code/message and
- *          the Amazon SNS topic to notify after Amazon S3 Glacier (Glacier) completes the job. For more information
+ *          the Amazon SNS topic to notify after Amazon Glacier (Glacier) completes the job. For more information
  *          about initiating a job, see <a>InitiateJob</a>. </p>
  *
  *          <note>
@@ -161,6 +161,8 @@ export interface DescribeJobCommandOutput extends GlacierJobDescription, __Metad
  *
  * @throws {@link MissingParameterValueException} (client fault)
  *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * @throws {@link NoLongerSupportedException} (client fault)
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't

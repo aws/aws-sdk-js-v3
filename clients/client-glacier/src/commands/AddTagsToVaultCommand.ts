@@ -31,7 +31,7 @@ export interface AddTagsToVaultCommandOutput extends __MetadataBearer {}
  *          a value. Each vault can have up to 10 tags. If your request would cause the tag limit for
  *          the vault to be exceeded, the operation throws the <code>LimitExceededException</code>
  *          error. If a tag already exists on the vault under a specified key, the existing key value
- *          will be overwritten. For more information about tags, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html">Tagging Amazon S3 Glacier Resources</a>.
+ *          will be overwritten. For more information about tags, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html">Tagging Amazon Glacier Resources</a>.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +68,8 @@ export interface AddTagsToVaultCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link MissingParameterValueException} (client fault)
  *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * @throws {@link NoLongerSupportedException} (client fault)
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't

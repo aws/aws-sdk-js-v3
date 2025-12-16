@@ -1,9 +1,4 @@
-import {
-  AwsIdentityProperties,
-  CredentialProviderOptions,
-  RuntimeConfigIdentityProvider,
-  TokenIdentity,
-} from "@aws-sdk/types";
+import { CredentialProviderOptions, RuntimeConfigIdentityProvider, TokenIdentity } from "@aws-sdk/types";
 import { TokenProviderError } from "@smithy/property-provider";
 import {
   getProfileName,
@@ -36,15 +31,8 @@ export interface FromSsoInit extends SourceProfileInit, CredentialProviderOption
  * Creates a token provider that will read from SSO token cache or ssoOidc.createToken() call.
  */
 export const fromSso =
-  (_init: FromSsoInit = {}): RuntimeConfigIdentityProvider<TokenIdentity> =>
+  (init: FromSsoInit = {}): RuntimeConfigIdentityProvider<TokenIdentity> =>
   async ({ callerClientConfig } = {}) => {
-    const init: FromSsoInit = {
-      ..._init,
-      parentClientConfig: {
-        ...callerClientConfig,
-        ..._init.parentClientConfig,
-      },
-    };
     init.logger?.debug("@aws-sdk/token-providers - fromSso");
 
     const profiles = await parseKnownFiles(init);
@@ -120,7 +108,7 @@ export const fromSso =
 
     try {
       lastRefreshAttemptTime.setTime(Date.now());
-      const newSsoOidcToken = await getNewSsoOidcToken(ssoToken, ssoRegion, init);
+      const newSsoOidcToken = await getNewSsoOidcToken(ssoToken, ssoRegion, init, callerClientConfig);
       validateTokenKey("accessToken", newSsoOidcToken.accessToken);
       validateTokenKey("expiresIn", newSsoOidcToken.expiresIn);
       const newTokenExpiration = new Date(Date.now() + newSsoOidcToken.expiresIn! * 1000);

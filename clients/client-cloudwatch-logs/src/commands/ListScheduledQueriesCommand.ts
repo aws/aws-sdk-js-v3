@@ -31,7 +31,8 @@ export interface ListScheduledQueriesCommandInput extends ListScheduledQueriesRe
 export interface ListScheduledQueriesCommandOutput extends ListScheduledQueriesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all scheduled queries in your account and region. You can filter results by state to show only enabled or disabled queries.</p>
+ * <p>Lists all scheduled queries in your account and region. You can filter results by state to
+ *       show only enabled or disabled queries.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

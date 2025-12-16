@@ -28,7 +28,7 @@ export interface DeleteVaultAccessPolicyCommandOutput extends __MetadataBearer {
 
 /**
  * <p>This operation deletes the access policy associated with the specified vault. The
- *          operation is eventually consistent; that is, it might take some time for Amazon S3 Glacier to
+ *          operation is eventually consistent; that is, it might take some time for Amazon Glacier to
  *          completely remove the access policy, and you might still see the effect of the policy for a
  *          short time after you send the delete request.</p>
  *          <p>This operation is idempotent. You can invoke delete multiple times, even if there is
@@ -63,6 +63,8 @@ export interface DeleteVaultAccessPolicyCommandOutput extends __MetadataBearer {
  *
  * @throws {@link MissingParameterValueException} (client fault)
  *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * @throws {@link NoLongerSupportedException} (client fault)
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't

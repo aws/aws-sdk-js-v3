@@ -52,8 +52,8 @@ export interface UpdateMatchingWorkflowCommandOutput extends UpdateMatchingWorkf
  *   ],
  *   outputSourceConfig: [ // OutputSourceConfig // required
  *     { // OutputSource
- *       outputS3Path: "STRING_VALUE", // required
  *       KMSArn: "STRING_VALUE",
+ *       outputS3Path: "STRING_VALUE",
  *       output: [ // OutputAttributes // required
  *         { // OutputAttribute
  *           name: "STRING_VALUE", // required
@@ -61,6 +61,10 @@ export interface UpdateMatchingWorkflowCommandOutput extends UpdateMatchingWorkf
  *         },
  *       ],
  *       applyNormalization: true || false,
+ *       customerProfilesIntegrationConfig: { // CustomerProfilesIntegrationConfig
+ *         domainArn: "STRING_VALUE", // required
+ *         objectTypeArn: "STRING_VALUE", // required
+ *       },
  *     },
  *   ],
  *   resolutionTechniques: { // ResolutionTechniques
@@ -112,8 +116,8 @@ export interface UpdateMatchingWorkflowCommandOutput extends UpdateMatchingWorkf
  * //   ],
  * //   outputSourceConfig: [ // OutputSourceConfig // required
  * //     { // OutputSource
- * //       outputS3Path: "STRING_VALUE", // required
  * //       KMSArn: "STRING_VALUE",
+ * //       outputS3Path: "STRING_VALUE",
  * //       output: [ // OutputAttributes // required
  * //         { // OutputAttribute
  * //           name: "STRING_VALUE", // required
@@ -121,6 +125,10 @@ export interface UpdateMatchingWorkflowCommandOutput extends UpdateMatchingWorkf
  * //         },
  * //       ],
  * //       applyNormalization: true || false,
+ * //       customerProfilesIntegrationConfig: { // CustomerProfilesIntegrationConfig
+ * //         domainArn: "STRING_VALUE", // required
+ * //         objectTypeArn: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //   ],
  * //   resolutionTechniques: { // ResolutionTechniques

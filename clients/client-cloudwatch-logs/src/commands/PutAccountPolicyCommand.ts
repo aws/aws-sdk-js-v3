@@ -32,12 +32,12 @@ export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse,
 
 /**
  * <p>Creates an account-level data protection policy, subscription filter policy, field index
- *       policy, transformer policy, or metric extraction policy that applies to all log groups or a
- *       subset of log groups in the account.</p>
- *          <p>For field index policies, you can configure indexed fields as
- *         <i>facets</i> to enable interactive exploration of your logs. Facets provide
- *       value distributions and counts for indexed fields in the CloudWatch Logs Insights console
- *       without requiring query execution. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Facets.html">Use facets to group and
+ *       policy, transformer policy, or metric extraction policy that applies to all log groups, a
+ *       subset of log groups, or a data source name and type combination in the account.</p>
+ *          <p>For field index policies, you can configure indexed fields as <i>facets</i>
+ *       to enable interactive exploration of your logs. Facets provide value distributions and counts
+ *       for indexed fields in the CloudWatch Logs Insights console without requiring query
+ *       execution. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Facets.html">Use facets to group and
  *         explore logs</a>.</p>
  *          <p>To use this operation, you must be signed on with the correct permissions depending on the
  *       type of policy that you are creating.</p>
@@ -161,8 +161,51 @@ export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse,
  *       scoped to a subset of log groups with the <code>selectionCriteria</code> parameter. If you
  *       have multiple account-level transformer policies with selection criteria, no two of them can
  *       use the same or overlapping log group name prefixes. For example, if you have one policy
- *       filtered to log groups that start with <code>my-log</code>, you can't have another field index
+ *       filtered to log groups that start with <code>my-log</code>, you can't have another transformer
  *       policy filtered to <code>my-logpprod</code> or <code>my-logging</code>.</p>
+ *          <p>You can also set up a transformer at the log-group level. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html">PutTransformer</a>. If there is both a log-group level transformer created with
+ *         <code>PutTransformer</code> and an account-level transformer that could apply to the same
+ *       log group, the log group uses only the log-group level transformer. It ignores the
+ *       account-level transformer.</p>
+ *          <p>
+ *             <b>Field index policy</b>
+ *          </p>
+ *          <p>You can use field index policies to create indexes on fields found in log events for a log
+ *       group or data source name and type combination. Creating field indexes can help lower the scan
+ *       volume for CloudWatch Logs Insights queries that reference those fields, because these
+ *       queries attempt to skip the processing of log events that are known to not match the indexed
+ *       field. Good fields to index are fields that you often need to query for and fields or values
+ *       that match only a small fraction of the total log events. Common examples of indexes include
+ *       request ID, session ID, user IDs, or instance IDs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html">Create field indexes to improve query performance and reduce costs</a>
+ *          </p>
+ *          <p>To find the fields that are in your log group events, use the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogGroupFields.html">GetLogGroupFields</a> operation. To find the fields for a data source use the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogFields.html">GetLogFields</a> operation.</p>
+ *          <p>For example, suppose you have created a field index for <code>requestId</code>. Then, any
+ *         CloudWatch Logs Insights query on that log group that includes <code>requestId =
+ *           <i>value</i>
+ *             </code> or <code>requestId in [<i>value</i>,
+ *           <i>value</i>, ...]</code> will attempt to process only the log events where
+ *       the indexed field matches the specified value.</p>
+ *          <p>Matches of log events to the names of indexed fields are case-sensitive. For example, an
+ *       indexed field of <code>RequestId</code> won't match a log event containing
+ *         <code>requestId</code>.</p>
+ *          <p>You can have one account-level field index policy that applies to all log groups in the
+ *       account. Or you can create as many as 20 account-level field index policies that are each
+ *       scoped to a subset of log groups using <code>LogGroupNamePrefix</code> with the
+ *         <code>selectionCriteria</code> parameter. You can have another 20 account-level field index
+ *       policies using <code>DataSourceName</code> and <code>DataSourceType</code> for the
+ *         <code>selectionCriteria</code> parameter. If you have multiple account-level index policies
+ *       with <code>LogGroupNamePrefix</code> selection criteria, no two of them can use the same or
+ *       overlapping log group name prefixes. For example, if you have one policy filtered to log
+ *       groups that start with <i>my-log</i>, you can't have another field index policy
+ *       filtered to <i>my-logpprod</i> or <i>my-logging</i>. Similarly, if
+ *       you have multiple account-level index policies with <code>DataSourceName</code> and
+ *         <code>DataSourceType</code> selection criteria, no two of them can use the same data source
+ *       name and type combination. For example, if you have one policy filtered to the data source
+ *       name <code>amazon_vpc</code> and data source type <code>flow</code> you cannot create another
+ *       policy with this combination.</p>
+ *          <p>If you create an account-level field index policy in a monitoring account in cross-account
+ *       observability, the policy is applied only to the monitoring account and not to any source
+ *       accounts.</p>
  *          <p>CloudWatch Logs provides default field indexes for all log groups in the Standard log
  *       class. Default field indexes are automatically available for the following fields: </p>
  *          <ul>
@@ -188,54 +231,160 @@ export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse,
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>@data_source_name</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>@data_source_type</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>@data_format</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>traceId</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>severityText</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>attributes.session.id</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>CloudWatch Logs provides default field indexes for certain data source name and type
+ *       combinations as well. Default field indexes are automatically available for the following data
+ *       source name and type combinations as identified in the following list:</p>
+ *          <p>
+ *             <code>amazon_vpc.flow</code>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>action</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>logStatus</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>region</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>flowDirection</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>type</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <code>amazon_route53.resolver_query</code>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>transport</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>rcode</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <code>aws_waf.access</code>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>action</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>httpRequest.country</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <code>aws_cloudtrail.data</code>, <code>aws_cloudtrail.management</code>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>eventSource</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>eventName</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>awsRegion</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>userAgent</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>errorCode</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>eventType</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>managementEvent</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>readOnly</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>eventCategory</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>requestId</code>
  *                </p>
  *             </li>
  *          </ul>
  *          <p>Default field indexes are in addition to any custom field indexes you define within your
- *       policy. Default field indexes are not counted towards your field index quota. </p>
- *          <p>You can also set up a transformer at the log-group level. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html">PutTransformer</a>. If there is both a log-group level transformer created with
- *         <code>PutTransformer</code> and an account-level transformer that could apply to the same
- *       log group, the log group uses only the log-group level transformer. It ignores the
- *       account-level transformer.</p>
- *          <p>
- *             <b>Field index policy</b>
- *          </p>
- *          <p>You can use field index policies to create indexes on fields found in log events in the
- *       log group. Creating field indexes can help lower the scan volume for CloudWatch Logs
- *       Insights queries that reference those fields, because these queries attempt to skip the
- *       processing of log events that are known to not match the indexed field. Good fields to index
- *       are fields that you often need to query for and fields or values that match only a small
- *       fraction of the total log events. Common examples of indexes include request ID, session ID,
- *       user IDs, or instance IDs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html">Create field indexes
- *         to improve query performance and reduce costs</a>
- *          </p>
- *          <p>To find the fields that are in your log group events, use the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogGroupFields.html">GetLogGroupFields</a> operation.</p>
- *          <p>For example, suppose you have created a field index for <code>requestId</code>. Then, any
- *         CloudWatch Logs Insights query on that log group that includes <code>requestId =
- *           <i>value</i>
- *             </code> or <code>requestId in [<i>value</i>,
- *           <i>value</i>, ...]</code> will attempt to process only the log events where
- *       the indexed field matches the specified value.</p>
- *          <p>Matches of log events to the names of indexed fields are case-sensitive. For example, an
- *       indexed field of <code>RequestId</code> won't match a log event containing
- *         <code>requestId</code>.</p>
- *          <p>You can have one account-level field index policy that applies to all log groups in the
- *       account. Or you can create as many as 40 account-level field index policies (20 for log group
- *       prefix selection, 20 for data source selection) that are each scoped to a subset of log groups
- *       or data sources with the <code>selectionCriteria</code> parameter. Field index policies can
- *       now be created for specific data source name and type combinations using DataSourceName and
- *       DataSourceType selection criteria. If you have multiple account-level index policies with
- *       selection criteria, no two of them can use the same or overlapping log group name prefixes.
- *       For example, if you have one policy filtered to log groups that start with
- *       <code>my-log</code>, you can't have another field index policy filtered to
- *         <code>my-logpprod</code> or <code>my-logging</code>.</p>
- *          <p>If you create an account-level field index policy in a monitoring account in cross-account
- *       observability, the policy is applied only to the monitoring account and not to any source
- *       accounts.</p>
+ *       policy. Default field indexes are not counted towards your <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing-Syntax">field index
+ *         quota</a>. </p>
  *          <p>If you want to create a field index policy for a single log group, you can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutIndexPolicy.html">PutIndexPolicy</a> instead of <code>PutAccountPolicy</code>. If you do so, that log
- *       group will use only that log-group level policy, and will ignore the account-level policy that
- *       you create with <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.html">PutAccountPolicy</a>.</p>
+ *       group will use that log-group level policy and any account-level policies that match at the
+ *       data source level; any account-level policy that matches at the log group level (for example,
+ *       no selection criteria or log group name prefix selection criteria) will be ignored.</p>
  *          <p>
  *             <b>Metric extraction policy</b>
  *          </p>
