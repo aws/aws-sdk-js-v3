@@ -33,6 +33,8 @@ export interface MetadataServiceOptions {
   retries?: number;
   /**
    * the number of seconds to sleep in-between retries and/or a customer provided backoff function to call.
+   * if the function returns a promise, it will be awaited and its resolved value ignored.
+   * if the function returns a number, the number will be used as seconds duration to wait before the following retry attempt.
    */
   backoff?: number | ((numFailures: number) => Promise<void> | number);
 }
