@@ -4,7 +4,6 @@ const { spawnProcess } = require("./../utils/spawn-process");
 const walk = require("./../utils/walk");
 const rollup = require("rollup");
 const { nodeResolve } = require("@rollup/plugin-node-resolve");
-const typescript = require("@rollup/plugin-typescript");
 const json = require("@rollup/plugin-json");
 
 const root = path.join(__dirname, "..", "..");
@@ -162,24 +161,11 @@ module.exports = class Inliner {
 
     const variantExternalsForRollup = this.variantExternals.map((variant) => variant.replace(/.js$/, ""));
 
-    const entryPoint = path.join(root, this.subfolder, this.package, "src", "index.ts");
+    const entryPoint = path.join(root, this.subfolder, this.package, "dist-es", "index.js");
 
     const inputOptions = (externals) => ({
       input: [entryPoint],
-      plugins: [
-        nodeResolve(),
-        json(),
-        typescript({
-          compilerOptions: {
-            importHelpers: true,
-            noEmitHelpers: false,
-            module: "esnext",
-            target: "es2022",
-            noCheck: true,
-            removeComments: true,
-          },
-        }),
-      ],
+      plugins: [nodeResolve(), json()],
       onwarn(warning) {
         /*
         Circular imports are not an error in the language spec,
@@ -197,19 +183,20 @@ module.exports = class Inliner {
           return true;
         }
 
-        const local = id.includes(`/packages/`) && id.includes(`/dist-es/`);
-        if (local) {
-          this.verbose && console.log("EXTERN (local)", id);
-          return true;
-        }
-
         if (id === entryPoint) {
           this.verbose && console.log("INTERN (entry point)", id);
           return false;
         }
 
+        const local =
+          id.includes(`/packages/`) && id.includes(`/dist-es/`) && !id.includes(`packages/${this.package}/`);
+        if (local) {
+          this.verbose && console.log("EXTERN (local)", id);
+          return true;
+        }
+
         for (const file of externals) {
-          const idWithoutExtension = id.replace(/\.ts$/, "");
+          const idWithoutExtension = id.replace(/\.[tj]s$/, "");
           if (idWithoutExtension.endsWith(path.basename(file))) {
             this.verbose && console.log("EXTERN (variant)", id);
             return true;
@@ -282,7 +269,7 @@ module.exports = class Inliner {
 
         const submoduleBundle = await rollup.rollup({
           ...submoduleOptions,
-          input: path.join(root, this.subfolder, this.package, "src", "submodules", submodule, "index.ts"),
+          input: path.join(root, this.subfolder, this.package, "dist-es", "submodules", submodule, "index.js"),
         });
 
         await submoduleBundle.write({
@@ -415,77 +402,7 @@ module.exports = class Inliner {
   }
 
   /**
-   * Step 5.5, dedupe imported externals.
-   */
-  async dedupeExternals() {
-    if (this.bailout) {
-      return this;
-    }
-    const redundantRequireStatements = this.indexContents.matchAll(
-      /var import_([a-z_]+)(\d+) = require\("([@a-z\/-0-9]+)"\);/g
-    );
-    for (const requireStatement of redundantRequireStatements) {
-      const variableSuffix = requireStatement[1];
-      const packageName = requireStatement[3].replace("/", "\\/");
-
-      const original = this.indexContents.match(
-        new RegExp(`var (import_${variableSuffix}(\d+)?) = require\\(\"${packageName}\"\\);`)
-      );
-
-      if (original) {
-        let redundancyIndex = 0;
-        let misses = 0;
-        const originalVariable = original[1];
-
-        // perform an incremental replacement instead of a global (\d+) replacement
-        // to be safe.
-        while (true) {
-          const redundantRequire = `var import_${variableSuffix}${redundancyIndex} = require\\("${packageName}"\\);`;
-          const redundantVariable = `import_${variableSuffix}${redundancyIndex}(\\.)`;
-
-          if (this.indexContents.match(new RegExp(redundantRequire))) {
-            this.indexContents = this.indexContents
-              .replace(new RegExp(redundantRequire, "g"), "")
-              .replace(new RegExp(redundantVariable, "g"), `${originalVariable}$1`);
-          } else if (misses++ > 10) {
-            break;
-          }
-          redundancyIndex++;
-        }
-      }
-    }
-    fs.writeFileSync(this.outfile, this.indexContents, "utf-8");
-    return this;
-  }
-
-  /**
-   * Step 6: "Annotate the CommonJS export names for ESM import in node",
-   * except, correctly.
-   */
-  async annotateCjsExportNames() {
-    if (this.bailout) {
-      return this;
-    }
-    const exportNames = Object.keys(require(this.outfile));
-    /* (find and replace the following)
-    0 && (module.exports = {
-      ...
-    });
-    */
-    this.indexContents = this.indexContents.replace(
-      /0 && \(module\.exports = \{((.|\n)*?)\}\);/,
-      `
-0 && (module.exports = {
-  ${exportNames.join(",\n  ")}
-});
-`
-    );
-    fs.writeFileSync(this.outfile, this.indexContents, "utf-8");
-    return this;
-  }
-
-  /**
-   * step 7: we validate that the index.js file has a require statement
+   * step 6: we validate that the index.js file has a require statement
    * for any variant files, to ensure they are not in the inlined (bundled) index.
    */
   async validate() {

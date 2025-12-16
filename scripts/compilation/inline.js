@@ -51,8 +51,6 @@ if (!_package) {
     await inliner.bundle();
     await inliner.rewriteStubs();
     await inliner.fixVariantImportPaths();
-    await inliner.dedupeExternals();
-    await inliner.annotateCjsExportNames();
     await inliner.validate();
   })();
 }
